@@ -319,17 +319,17 @@ Before proceeding further with authentication, register your application on **Az
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft credentials.
 1. Go to and select **Azure Active Directory**. If it isn't visible, you can find it by using the **Search** bar at the top of the screen.
-1. Go to the left panel, and under **Manage**, select **App registrations** > **New registration**.
-1. Enter a **Name** for your application, which can be changed later if you wish.
+1. Go to the left panel, and under **Manage**, select **App registrations**, then in the top menu bar, select **New registration**.
+1. Enter a **Name** for your application (e.g. sampleApp), which can be changed later if you wish.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-1. In the **Redirect URI** section, select the **Web** platform from the drop-down list. For simplicity, we'll run this app on a local host, and you can type either of the following options:
+1. In the **Redirect URI** section, select the **Web** platform from the drop-down list. When entering the web page to the right, for simplicity, we'll run this app on a local host, and you can enter either of the following options:
     1. `http://localhost:3000/`
-    1. If you're using a custom TCP port, use `http://localhost:<port>/` (where <port> is the custom TCP port number).
+    1. If you wish to use a custom TCP port, use `http://localhost:<port>/` (where <port> is the custom TCP port number).
 1. Select **Register**.
-1. On the app **Overview** page, note the **Application (client) ID** and **Directory (tenant) ID**. We'll need both of them when we create the `authConfig.js` file.
-1. Under **Manage**, select **Authentication**.
+1. This will open the app's **Overview** page. You should note the **Application (client) ID** and **Directory (tenant) ID**. We'll need both of them when we create the `authConfig.js` file in the following steps.
+1. Head to the left panel and under **Manage**, select **Authentication**.
 1. In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app must sign in users and call an API.
-1. Select **Save**.
+1. Select **Save**. You can navigate back to the **Overview** panel by selecting it in the left panel.
 
 > [!TIP]
 > A *redirect URI* (or *reply URL*) is the location where the authorization server sends the user once the app has been successfully authorized and granted an authorization code or access token. In this example we are using `http://localhost:3000/` as the *redirect URI*. The default `3000` value is the port we are using, which is set in the `server.js` file.
@@ -347,7 +347,7 @@ Before proceeding further with authentication, register your application on **Az
 
 ## Configure your JavaScript SPA
 
-Create a new .js file named `authConfig.js` in your `JavaScriptSPA` folder. This code will contain your configuration parameters for authentication (*Client ID*, *Tenant ID*, *Redirect URI*), and add the following code:
+1. In the `JavaScriptSPA` folder, create a new .js file named `authConfig.js`, and copy the following code. This code will contain your configuration parameters for authentication (*Client ID*, *Tenant ID*, *Redirect URI*).
 
 ```javascript
   const msalConfig = {
@@ -373,15 +373,17 @@ Create a new .js file named `authConfig.js` in your `JavaScriptSPA` folder. This
   };
 ```
 
-Modify the values in the `msalConfig` section as described below. Most will be available in your app's **Overview** page on Azure:
+2. Modify the values in the `msalConfig` section as described below. You can refer to your app's **Overview** page on Azure for some of these:
+    - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered. You can copy this directly from **Azure**.
+    - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), refer to [National clouds](./authentication-national-cloud.md).
+    - Set `Enter_the_Tenant_info_here` to one of the following options:
+      - If your application supports *accounts in this organizational directory*, replace this value with the **Directory (tenant) ID** (which you can copy from **Azure**) or **Tenant name** (for example, *contoso.microsoft.com*).
+    - `Enter_the_Redirect_URI_Here` is the default URL that you set in the previous section, `https://localhost:3000/`.
 
-- `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
-- `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), refer to [National clouds](./authentication-national-cloud.md).
-- Set `Enter_the_Tenant_info_here` to one of the following options:
-  - If your application supports *accounts in this organizational directory*, replace this value with the **Directory (tenant) ID** or **Tenant name** (for example, *contoso.microsoft.com*).
-  - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
-  - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
-- `Enter_the_Redirect_URI_Here` is the default URL that you set in the previous section, `https://localhost:3000/`.
+> [!TIP]
+> There are other options for `Enter_the_Tenant_info_here` depending on what you want your application to support.
+> - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
+> - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
 
 
 ## Use the Microsoft Authentication Library (MSAL) to sign in the user
@@ -479,7 +481,7 @@ In summary, this code introduces methods of the application dealing with user ac
    Where:
    - `Enter_the_Graph_Endpoint_Here` is the instance of MS Graph API. For the global MS Graph API endpoint, this can be replaced with `https://graph.microsoft.com`. For national cloud deployments, refer to [Graph API Documentation](/graph/deployments).
 
-1. Next, create a .js file named `graph.js`, which will make a REST call to the Microsoft Graph API, and add the following code:
+1. Next, create a .js file named `graph.js`, which will make a Representational State Transfer (REST) call to the Microsoft Graph API. This is a way of accessing web services in a simple and flexible way without having any processing. Add the following code:
 
    ```javascript
    function callMSGraph(endpoint, token, callback) {
