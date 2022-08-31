@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/25/2022
+ms.date: 08/30/2022
 ---
 
 #  Transform data in GoogleSheets (Preview) using Azure Data Factory or Synapse Analytics
@@ -95,10 +95,10 @@ The below table lists the properties supported by GoogleSheets source. You can e
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| SpreadSheet ID | Specify the spreadsheet ID in your Google Sheets. | Yes | String | spreadSheetId |
-| Sheet name | Specify the name of the sheet in the spreadsheet. | Yes | String | sheetName |
-| Start cell | Specify the start cell of the sheet from where the data is required, for example `A2, B4`. | Yes  | String | startCell |
-| End cell | Specify the end cell of the sheet till where the data is required, for example `F10, S600`.  | Yes  | String | endCell |
+| SpreadSheet ID | The spreadsheet ID in your Google Sheets. | Yes | String | spreadSheetId |
+| Sheet name | The name of the sheet in the spreadsheet. | Yes | String | sheetName |
+| Start cell | The start cell of the sheet from where the data is required, for example `A2, B4`. | Yes  | String | startCell |
+| End cell | The end cell of the sheet till where the data is required, for example `F10, S600`.  | Yes  | String | endCell |
 
 #### GoogleSheets source script example
 
