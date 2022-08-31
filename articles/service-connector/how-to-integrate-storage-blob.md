@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Blob Storage with Service Connector
 description: Integrate Azure Blob Storage into your application with Service Connector
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
