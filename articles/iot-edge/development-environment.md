@@ -82,7 +82,6 @@ Only the IoT Edge runtime is supported for production deployments, but the follo
 | IoT EdgeHub dev tool  | iotedgehubdev | Windows, Linux, macOS | Simulating a device to debug modules. |
 | IoT Edge dev container | iotedgedev | Windows, Linux, macOS | Developing without installing dependencies. |
 | IoT Edge runtime in a container | iotedgec | Windows, Linux, macOS, ARM | Testing on a device that may not support the runtime. |
-| IoT Edge device container | toolboc/azure-iot-edge-device-container | Windows, Linux, macOS, ARM | Testing a scenario with many IoT Edge devices at scale. |
 
 ### IoT EdgeHub dev tool
 

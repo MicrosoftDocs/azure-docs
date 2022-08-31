@@ -102,7 +102,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Clients First Business Solutions LLC](https://www.clientsfirst-us.com)|
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
-|[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com )|
+|[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com)|
 |[CNSS - Cherokee Nation System Solutions LLC](https://cherokee-federal.com/about/cherokee-nation-system-solutions)|
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Columbus US, Inc.](https://www.columbusglobal.com)|
@@ -297,7 +297,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Norseman, Inc](https://www.norseman.com)|
 |[Nortec](https://www.nortec.com)|
 |[Northrop Grumman](https://www.northropgrumman.com)|
-|[NTS Cloud](http://ntscloud.com/ )|
+|[NTS Cloud](http://ntscloud.com/)|
 |[NTT America, Inc.](https://www.us.ntt.net)|
 |[Nubelity LLC](http://www.nubelity.com)|
 |[NuSoft Solutions (Atrio Systems, Inc.)](https://nusoftsolutions.com)|
