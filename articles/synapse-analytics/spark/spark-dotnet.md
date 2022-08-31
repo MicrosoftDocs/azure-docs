@@ -25,10 +25,10 @@ Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache
 
 1. Configure your dotnet application dependencies for compatibility with Synapse Spark.
 The required .NET Spark version will be noted in the Studio interface under your Spark Pool configuration. 
-![image](https://user-images.githubusercontent.com/12169942/161816341-ca13b48f-fb18-49bd-a61b-6af60bf9846e.png)
+![image](./media/apache-spark-job-definitions/net-spark-workspace-compatibility.png)
 
 
-Create your project as a .Net Console Application that outputs an ubuntu x86 executable.
+Create your project as a .NET Console Application that outputs an ubuntu x86 executable.
   ```
   <Project Sdk="Microsoft.NET.Sdk">
 
