@@ -27,7 +27,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Storage Ge
 
 3. In the **Diagnostics settings** blade, make the following changes to configure diagnostic logging.
    
-    ![Screenshot of the Diagnostic setting section with the Name text box and the Save option called out.](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+    ![Screenshot of the Diagnostic setting section with the Name text box and the Save option called out.](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs_2022.png "Enable diagnostic logs")
    
    * For **Name**, enter a value for the diagnostic log configuration.
    * You can choose to store/process the data in different ways.
@@ -39,7 +39,6 @@ Organizations can enable diagnostic logging for their Azure Data Lake Storage Ge
 		* Select the option to **Send to Log Analytics** to use the Azure Monitor service to analyze the generated log data. If you select this option, you must provide the details for the Log Analytics workspace that you would use the perform log analysis. See [View or analyze data collected with Azure Monitor logs search](../azure-monitor/logs/log-analytics-tutorial.md) for details on using Azure Monitor logs.
      
    * Specify whether you want to get audit logs or request logs or both.
-   * Specify the number of days for which the data must be retained. Retention is only applicable if you are using Azure storage account to archive log data.
    * Click **Save**.
 
 Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
