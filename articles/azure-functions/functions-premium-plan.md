@@ -244,12 +244,12 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Brazil South| 100 | 20 |
 |Canada Central| 100 | 20 |
 |Central India| 100 | 20 |
-|Central US| 100 | 40 |
+|Central US| 100 | 80 |
 |China East 2| 100 | 20 |
 |China North 2| 100 | 20 |
 |East Asia| 100 | 20 |
-|East US | 100 | 60 |
-|East US 2| 100 | 40 |
+|East US | 100 | 80 |
+|East US 2| 100 | 60 |
 |France Central| 100 | 20 |
 |Germany West Central| 100 | 20 |
 |Japan East| 100 | 20 |
@@ -273,7 +273,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |USGov Texas| 100 | Not Available |
 |USGov Virginia| 100 | 20 |
 |West Central US| 100 | 20 |
-|West Europe| 100 | 40 |
+|West Europe| 100 | 80 |
 |West India| 100 | 20 |
 |West US| 100 | 20 |
 |West US 2| 100 | 20 |
