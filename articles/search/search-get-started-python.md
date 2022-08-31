@@ -22,7 +22,7 @@ ms.custom: devx-track-python, mode-api
 > * [Portal](search-get-started-portal.md)
 >
 
-Build a notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
+Build a Jupyter Notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -57,8 +57,8 @@ In this task, start Jupyter Notebook and verify that you can connect to Azure Co
 1. In the first cell, load the libraries from the Azure SDK for Python, including [azure-search-documents](/python/api/azure-search-documents).
 
    ```python
-    !pip install azure-search-documents --pre
-    !pip show azure-search-documents
+    %pip install azure-search-documents --pre
+    %pip show azure-search-documents
     
     import os
     from azure.core.credentials import AzureKeyCredential
@@ -318,7 +318,7 @@ This step shows you how to query an index using the **search** method of the [se
         print("    {}".format(facet))
     ```
 
-1. In this example, look up a specific document based on its key. You would typically want to return a document when a user select on a document in a search result.
+1. In this example, look up a specific document based on its key. You would typically want to return a document when a user selects a document in a search result.
 
     ```python
     result = search_client.get_document(key="3")
@@ -331,7 +331,7 @@ This step shows you how to query an index using the **search** method of the [se
 
 1. In this example, we'll use the autocomplete function. Autocomplete is typically used in a search box to provide potential matches as the user types into the search box.
 
-   When the index was created, a suggester named "sg" was also created as part of the request. A suggester definition specifies which fields can be used to find potential matches to suggester requests. In this example, those fields are 'Tags', 'Address/City', 'Address/Country'. To simulate auto-complete, pass in the letters "sa" as a partial string. The autocomplete method of [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) sends back potential term matches.
+   When the index was created, a suggester named `sg` was also created as part of the request. A suggester definition specifies which fields can be used to find potential matches to suggester requests. In this example, those fields are 'Tags', 'Address/City', 'Address/Country'. To simulate auto-complete, pass in the letters "sa" as a partial string. The autocomplete method of [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) sends back potential term matches.
 
     ```python
     search_suggestion = 'sa'
