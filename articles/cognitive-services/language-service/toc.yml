@@ -1131,8 +1131,6 @@ items:
         href: /azure/cognitive-services/speech-service/call-center-overview?context=/azure/cognitive-services/language-service/context/context
       - name: Ingestion Client
         href: /azure/cognitive-services/speech-service/ingestion-client?context=/azure/cognitive-services/language-service/context/context
-      - name: Telephony Integration
-        href: /azure/cognitive-services/speech-service/call-center-telephony-integration?context=/azure/cognitive-services/language-service/context/context
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps
