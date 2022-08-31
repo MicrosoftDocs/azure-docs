@@ -23,8 +23,8 @@ You can analyze data with .NET for Apache Spark through Spark batch job definiti
 
 Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache Spark job definitions for Synapse Spark pools](apache-spark-job-definitions.md). If you haven't packaged your app to submit to Azure Synapse, complete the following steps.
 
-1. Configure your dotnet application dependencies for compatibility with Synapse Spark.
-The required .NET Spark version will be noted in the Studio interface under your Spark Pool configuration. 
+1. Configure your `dotnet` application dependencies for compatibility with Synapse Spark.
+The required .NET Spark version will be noted in the Synapse Studio interface under your Apache Spark Pool configuration, under the Manage toolbox.
 ![image](./media/apache-spark-job-definitions/net-spark-workspace-compatibility.png)
 
 
@@ -72,7 +72,7 @@ Create your project as a .NET Console Application that outputs an ubuntu x86 exe
 
 Notebooks are a great option for prototyping your .NET for Apache Spark pipelines and scenarios. You can start working with, understanding, filtering, displaying, and visualizing your data quickly and efficiently. 
 
-Data engineers, data scientists, business analysts, and machine learning engineers are all able to collaborate over a shared,  interactive document. You see immediate results from data exploration, and can visualize your data in the same notebook.
+Data engineers, data scientists, business analysts, and machine learning engineers are all able to collaborate over a shared, interactive document. You see immediate results from data exploration, and can visualize your data in the same notebook.
 
 ### How to use .NET for Apache Spark notebooks
 
