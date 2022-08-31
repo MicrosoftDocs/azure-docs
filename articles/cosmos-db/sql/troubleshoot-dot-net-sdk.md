@@ -32,15 +32,15 @@ Consider the following checklist before you move your application to production.
   * [Log metrics](../monitor-cosmos-db.md) by using the Azure portal. Portal metrics show the Azure Cosmos DB telemetry, which is helpful to determine if the issue corresponds to Azure Cosmos DB or if it's from the client side.
   * Log the [diagnostics string](#capture-diagnostics) from the operations and/or exceptions.
 
-Take a look at the [Common issues and workarounds](#common-issues-workarounds) section in this article.
+Take a look at the [Common issues and workarounds](#common-issues-and-workarounds) section in this article.
 
 Check the [GitHub issues section](https://github.com/Azure/azure-cosmos-dotnet-v3/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed. If you didn't find a solution, then file a GitHub issue. You can open a support tick for urgent issues.
 
-## <a name="capture-diagnostics"></a>Capture the diagnostics
+## Capture diagnostics
 
 [!INCLUDE[cosmos-db-dotnet-sdk-diagnostics](../includes/dotnet-sdk-diagnostics.md)]
 
-## <a name="common-issues-workarounds"></a>Common issues and workarounds
+## Common issues and workarounds
 
 ### General suggestions
 
@@ -50,24 +50,24 @@ Check the [GitHub issues section](https://github.com/Azure/azure-cosmos-dotnet-v
 
 ### Check the portal metrics
 
-Checking the [portal metrics](../monitor-cosmos-db.md) will help determine if it's a client-side issue or if there's an issue with the service. For example, if the metrics contain a high rate of rate-limited requests (HTTP status code 429) which means the request is getting throttled then check the [Request rate too large](troubleshoot-request-rate-too-large.md) section. 
+Checking the [portal metrics](../monitor-cosmos-db.md) will help determine if it's a client-side issue or if there's an issue with the service. For example, if the metrics contain a high rate of rate-limited requests (HTTP status code 429) which means the request is getting throttled then check the [Request rate too large](troubleshoot-request-rate-too-large.md) section.
 
 ### Retry design
 
 See our guide to [designing resilient applications with Azure Cosmos SDKs](conceptual-resilient-sdk-applications.md) for guidance on how to design resilient applications and learn which are the retry semantics of the SDK.
 
-### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
+### Azure SNAT (PAT) port exhaustion
 
 If your app is deployed on [Azure Virtual Machines without a public IP address](../../load-balancer/load-balancer-outbound-connections.md), by default [Azure SNAT ports](../../load-balancer/load-balancer-outbound-connections.md#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](../../load-balancer/load-balancer-outbound-connections.md#preallocatedports). This situation can lead to connection throttling, connection closure, or the above mentioned [Request timeouts](troubleshoot-dot-net-sdk-request-timeout.md).
 
  Azure SNAT ports are used only when your VM has a private IP address is connecting to a public IP address. There are two workarounds to avoid Azure SNAT limitation (provided you already are using a single client instance across the entire application):
 
-* Add your Azure Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). 
+* Add your Azure Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
     When the service endpoint is enabled, the requests are no longer sent from a public IP to Azure Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Assign a [public IP to your Azure VM](../../load-balancer/troubleshoot-outbound-connection.md#configure-an-individual-public-ip-on-vm).
 
-### <a name="high-network-latency"></a>High latency
+### High network latency
 
 See our [latency troubleshooting guide](troubleshoot-dot-net-sdk-slow-request.md) for details on latency troubleshooting.
 

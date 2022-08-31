@@ -49,7 +49,7 @@ If you need to verify that a database or container exists, don't do so by callin
 * Monitor the container for [throttling scenarios](troubleshoot-request-rate-too-large.md). If the container is getting heavily throttled it means the volume of data is larger than your provisioned throughput, you need to either scale up the container, or reduce the volume of data (maybe create smaller batches of data at a time).
 * You're correctly using the `async/await` pattern to [process all concurrent Tasks](tutorial-sql-api-dotnet-bulk-import.md#step-6-populate-a-list-of-concurrent-tasks) and not [blocking any async operation](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait).
 
-## <a name="capture-diagnostics"></a>Capture the diagnostics
+## Capture diagnostics
 
 [!INCLUDE[cosmos-db-dotnet-sdk-diagnostics](../includes/dotnet-sdk-diagnostics.md)]
 
@@ -57,7 +57,7 @@ If you need to verify that a database or container exists, don't do so by callin
 
 The JSON structure has breaking changes with each version of the SDK. This makes it unsafe to be parsed. The JSON represents a tree structure of the request going through the SDK. The following sections cover a few key things to look at.
 
-### <a name="cpu-history"></a>CPU history
+### CPU history
 
 High CPU utilization is the most common cause for slow requests. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum (not average) CPU utilization. CPU spikes are more common with cross-partition queries, where the requests might do multiple connections for a single query.
 
@@ -119,7 +119,7 @@ CPU count: 8)
 
 The client application that uses the SDK should be scaled up or out.
 
-### <a name="httpResponseStats"></a>HttpResponseStats
+### HttpResponseStats
 
 `HttpResponseStats` are requests that go to the [gateway](sql-sdk-connection-modes.md). Even in direct mode, the SDK gets all the metadata information from the gateway.
 
@@ -146,7 +146,7 @@ If the request is slow, first verify that none of the previous suggestions yield
 ]
 ```
 
-### <a name="storeResult"></a>StoreResult
+### StoreResult
 
 `StoreResult` represents a single request to Azure Cosmos DB, by using direct mode with the TCP protocol.
 
@@ -168,7 +168,7 @@ For multiple store results for a single request, be aware of the following:
 * Strong consistency and bounded staleness consistency always have at least two store results.
 * Check the status code of each `StoreResult`. The SDK retries automatically on multiple different [transient failures](troubleshoot-dot-net-sdk-request-timeout.md). The SDK is constantly improved to cover more scenarios. 
 
-### <a name="rntbdRequestStats"></a>RntbdRequestStats 
+### RntbdRequestStats 
 
 Show the time for the different stages of sending and receiving a request in the transport layer.
 
@@ -177,13 +177,15 @@ Show the time for the different stages of sending and receiving a request in the
 * *Transit time is large*, which leads to a networking problem. Compare this number to the `BELatencyInMs`. If `BELatencyInMs` is small, then the time was spent on the network, and not on the Azure Cosmos DB service.
 * *Received time is large* might be caused by a thread starvation problem. This is the time between having the response and returning the result.
 
-### <a name="ServiceEndpointStatistics"></a>ServiceEndpointStatistics 
+### ServiceEndpointStatistics
+
 Information about a particular backend server. The SDK can open multiple connections to a single backend server depending upon the number of pending requests and the MaxConcurrentRequestsPerConnection.
 
 * `inflightRequests` The number of pending requests to a backend server (maybe from different partitions). A high number may lead to more traffic and higher latencies.
-* `openConnections` is the total Number of connections open to a single backend server. This can be useful to show SNAT port exhausion if this number is very high.
+* `openConnections` is the total Number of connections open to a single backend server. This can be useful to show SNAT port exhaustion if this number is very high.
 
-### <a name="ConnectionStatistics"></a>ConnectionStatistics 
+### ConnectionStatistics
+
 Information about the particular connection (new or old) the request get's assigned to.
 
 * `waitforConnectionInit`: The current request was waiting for new connection initialization to complete. This will lead to higher latencies.
@@ -192,7 +194,8 @@ Information about the particular connection (new or old) the request get's assig
 * `lastReceive`: Time of last request that was received from this server
 * `lastSendAttempt`: Time of the last send attempt
 
-### <a name="Request and response sizes"></a>Request and response sizes 
+### Request and response sizes
+
 * `requestSizeInBytes`: The total size of the request sent to Cosmos DB
 * `responseMetadataSizeInBytes`: The size of headers returned from Cosmos DB 
 * `responseBodySizeInBytes`: The size of content returned from Cosmos DB 

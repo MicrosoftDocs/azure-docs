@@ -47,17 +47,20 @@ Watch the video below to learn more about using the .NET SDK from a Cosmos DB en
 |  <input type="checkbox"/>    | SDK Logging   | Log [SDK diagnostics](#capture-diagnostics) for outstanding scenarios, such as exceptions or when requests go beyond an expected latency.
 |  <input type="checkbox"/>    | DefaultTraceListener   | The DefaultTraceListener poses performance issues on production environments causing high CPU and I/O bottlenecks. Make sure you're using the latest SDK versions or [remove the DefaultTraceListener from your application](performance-tips-dotnet-sdk-v3-sql.md#logging-and-tracing)  |
 
-## <a name="capture-diagnostics"></a>Capture the diagnostics
+## Capture diagnostics
 
 [!INCLUDE[cosmos-db-dotnet-sdk-diagnostics](../includes/dotnet-sdk-diagnostics.md)]
 
 ## Best practices when using Gateway mode
+
 Increase `System.Net MaxConnections` per host when you use Gateway mode. Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. They're subject to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (from 100 through 1,000) so that the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for `ServicePointManager.DefaultConnectionLimit` is 50. To change the value, you can set `Documents.Client.ConnectionPolicy.MaxConnectionLimit` to a higher value.
 
 ## Best practices for write-heavy workloads
+
 For workloads that have heavy create payloads, set the `EnableContentResponseOnWrite` request option to `false`. The service will no longer return the created or updated resource to the SDK. Normally, because the application has the object that's being created, it doesn't need the service to return it. The header values are still accessible, like a request charge. Disabling the content response can help improve performance, because the SDK no longer needs to allocate memory or serialize the body of the response. It also reduces the network bandwidth usage to further help performance.
 
 ## Next steps
+
 For a sample application that's used to evaluate Azure Cosmos DB for high-performance scenarios on a few client machines, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
 
 To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](../partitioning-overview.md).
