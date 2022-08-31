@@ -22,8 +22,8 @@ On your local computer:
 
 # [C\#](#tab/csharp)
 
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download)
-+ [Azure Functions Core Tools version 4.x.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash#v2)
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
++ [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Ccsharp#v2)
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 # [JavaScript](#tab/nodejs)
@@ -108,9 +108,7 @@ In Azure Functions, a function project is the unit of deployment and execution f
 
 Before you can deploy your function code to your new App Service Kubernetes environment, you need to create two more resources:
 
-- A [Storage account](../storage/common/storage-account-create.md) (optional). You should be able to create new function app without storage account using [az functionapp create]( https://docs.microsoft.com/en-us/cli/azure/functionapp?view=azure-cli-latest#az-functionapp-create) ONLY. For rest of the client tooling such as Azure portal,  storage account is REQUIRED. 
-> [!NOTE]
-> Azure Cosmos DB, Kafka, RabbitMQ, Service Bus and HTTP triggers will work successfully without storage account and rest of the supported triggers may fail without storage account as they might have dependency on storage account. Optional storage account is supported from appservice-kube version 0.1.7 onwards. 
+- A [Storage account](../storage/common/storage-account-create.md). While this article creates a storage account, in some cases a storage account may not be required. For more information, see [Azure Arc-enabled clusters](storage-considerations.md#azure-arc-enabled-clusters) in the storage considerations article.    
 - A function app, which provides the context for executing your function code. The function app runs in the App Service Kubernetes environment and maps to your local function project. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 > [!NOTE]
