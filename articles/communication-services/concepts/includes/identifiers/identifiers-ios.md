@@ -21,9 +21,9 @@ The `CommunicationUserIdentifier` represents a user identity that was created us
 #### Basic usage
 
 ```swift
-# at some point you will have created a new user identity in your trusted service
-# and send the new user id down to your client application
-# where you can create an identifier for the user
+// at some point you will have created a new user identity in your trusted service
+// and send the new user id down to your client application
+// where you can create an identifier for the user
 let user = CommunicationUserIdentifier(newUserId)
 ```
 
@@ -38,13 +38,13 @@ The `MicrosoftTeamsUserIdentifier` represents a Teams user. You need to know the
 #### Basic usage
 
 ```swift
-# get the Teams user's ID if only the email is known, assuming a helper method
+// get the Teams user's ID if only the email is known, assuming a helper method
 let userId = await getUserIdFromGraph("bob@contoso.com")
 
-# create an identifier
+// create an identifier
 let teamsUser = MicrosoftTeamsUserIdentifier(userId: userId)
 
-# if you're not operating in the public cloud, you must also pass the right Cloud type.
+// if you're not operating in the public cloud, you must also pass the right Cloud type.
 gcchTeamsUser = MicrosoftTeamsUserIdentifier(userId: userId, cloud: CommunicationCloudEnvironment.Gcch)
 ```
 
@@ -59,7 +59,7 @@ The `PhoneNumberIdentifier` represents a phone number. The service assumes that 
 #### Basic usage
 
 ```swift
-# create an identifier
+// create an identifier
 let phoneNumber = PhoneNumberIdentifier(phoneNumber: "+112345556789")
 ```
 
@@ -74,7 +74,7 @@ The `UnknownIdentifier` exists for future-proofing and you might encounter it wh
 #### Basic usage
 
 ```swift
-# create an identifier
+// create an identifier
 let unknown = UnknownIdentifier("a raw id that originated in the service")
 ```
 
