@@ -55,7 +55,7 @@ There are two ways to add a username and password for authentication to the deve
 
 If you've configured another identity provider for the developer portal such as [Azure AD](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md), you might want to delete the username and password provider. 
 
-Deleting the identity provider prevents configuring users to use username and password authentication. Existing users configured for basic authentication are also prevented from signing into the developer portal.
+Deleting the identity provider prevents adding users to use username and password authentication. Existing users configured for basic authentication are also prevented from signing into the developer portal.
 
 1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
 1. In the **Provider type** list, select **Username and password**. In the context menu (**...**), select **Delete**.
