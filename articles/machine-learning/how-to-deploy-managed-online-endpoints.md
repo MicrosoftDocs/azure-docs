@@ -113,7 +113,7 @@ For more information about the YAML schema, see the [online endpoint YAML refere
 
 > [!NOTE]
 > To use Kubernetes instead of managed endpoints as a compute target:
-> 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-kubernetes-anywhere.md?&tabs=studio#attach-a-kubernetes-cluster-to-an-azure-ml-workspace).
+> 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](k8s-attach-to-workspace.md?&tabs=studio#attach-a-kubernetes-cluster-to-an-azure-ml-workspace).
 > 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-endpoint.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target. You can use this [deployment.yaml](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-blue-deployment.yml) that has additional properties applicable to Kubernetes deployment.
 >
 > All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with Kubernetes endpoints.
@@ -131,7 +131,7 @@ The preceding YAML uses a general-purpose type (`Standard_F2s_v2`) and a non-GPU
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
 > [!NOTE]
-> To use Kubernetes instead of managed endpoints as a compute target, see [Create instance type for Kubernetes compute](./how-to-attach-kubernetes-anywhere.md#create-and-use-instance-types-for-efficient-compute-resource-utilization)
+> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubermentes compute target](./how-to-attach-kubernetes-anywhere.md)
 
 ### Use more than one model
 

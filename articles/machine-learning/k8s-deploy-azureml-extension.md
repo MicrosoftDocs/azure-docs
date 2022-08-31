@@ -13,7 +13,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 # Deploy AzureML extension on AKS or Arc Kubernetes cluster
 
-In order to enable your AKS or Arc Kubernetes cluster to run training job or inference workload, you must first deploy AzureML extension on AKS or Arc Kubernetes cluster. AzureML extension is built upon [cluster extension for AKS](../aks/cluster-extensions.md) and [cluster extension or Arc Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md), and its lifecycle can be managed easily with Azure CLI [k8s-extension](../../cli/azure/k8s-extension.md).
+In order to enable your AKS or Arc Kubernetes cluster to run training job or inference workload, you must first deploy AzureML extension on AKS or Arc Kubernetes cluster. AzureML extension is built upon [cluster extension for AKS](../aks/cluster-extensions.md) and [cluster extension or Arc Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md), and its lifecycle can be managed easily with Azure CLI [k8s-extension](https://docs.microsoft.com/cli/azure/k8s-extension?view=azure-cli-latest).
 
 In this article, you can learn:
 > [!div class="checklist"]
