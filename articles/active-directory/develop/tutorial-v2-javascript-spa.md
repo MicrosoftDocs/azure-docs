@@ -30,9 +30,9 @@ In this tutorial:
 >[!NOTE]
 > We recommend all new applications to use [MSAL.js 2.x and the authorization code flow with PKCE and CORS](tutorial-v2-javascript-auth-code.md) support. This tutorial uses MSAL.js v1.x which is limited to using the implicit grant flow for single-page applications. 
 
-At the end of this tutorial, you'll have created the folder structure below, and create the `.js` and `.html` files by copying the code blocks in the upcoming sections.
+At the end of this tutorial, you'll have created the folder structure below (listed in order of creation), and create the `.js` and `.html` files by copying the code blocks in the upcoming sections.
 
-![a text depiction of the intended SPA folder structure](./media/tutorial-v2-javascript-spa/single-page-application-folder-structure.png)
+![a text depiction of the intended SPA folder structure](./media/tutorial-v2-javascript-spa/single-page-application-folder-structure-v2.png)
 
 ## Prerequisites
 
@@ -140,15 +140,7 @@ npm init
 
 You now have a server to serve your SPA. At this point, your folder structure should look like this.
 
-**FIX ME with proper picture**
-
-```console
-- sampleApp
-    - node_modules/
-    - package-lock.json
-    - package.json
-    - server.js
-```
+![a text depiction of the current SPA folder structure](./media/tutorial-v2-javascript-spa/single-page-application-folder-structure-1.png)
 
 In the next steps we'll create a new folder for the JavaScript SPA, and set up the user interface (UI).
 
