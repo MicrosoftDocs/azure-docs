@@ -116,3 +116,4 @@ In this quickstart, you deployed a simple virtual machine using Terraform. To le
 
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
+
