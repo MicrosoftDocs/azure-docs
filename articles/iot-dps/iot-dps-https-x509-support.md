@@ -174,13 +174,19 @@ az iot dps enrollment create -g {resource_group_name} --dps-name {dps_name} --en
 
 If you want to to create a new enrollment group to use for this article, you can use the [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-create) command.
 
-The following command creates an enrollment group entry with the default allocation policy for your DPS instance using the signing certificate that you specify. This will be either a root CA or intermediate CA certificate. The more typical case is to use an intermediate CA certificate.
+The following command creates an enrollment group entry with the default allocation policy for your DPS instance using an intermediate CA certificate:
 
 Substitute the name of your resource group and DPS instance.  
 
 ```azurecli
-az iot dps enrollment-group create -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --attestation-type x509 --certificate-path {path_to_your_certificate}
+az iot dps enrollment-group create -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --certificate-path {path_to_your_certificate}
 ```
+
+* Substitute the name of your resource group and DPS instance.
+
+* The enrollment ID is a case-insensitive string of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). This can be any name you choose to use for the enrollment group.
+
+* The certificate path is the path to your intermediate certificate. If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the filename is *certs/azure-iot-test-only.intermediate.cert.pem*.
 
 > [!NOTE]
 >> If you're using Cloud Shell to run Azure CLI commands, you can use the upload button to upload your certificate file to your cloud drive before you run the command.
@@ -257,9 +263,7 @@ Where:
 For example:
 
 ```bash
-curl -L -i -X PUT --cert device-cert.pem --key unencrypted-device-key.pem -H 'Content-Type:
-application/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "my-x509-device"}' https://global.azure-devices-p
-rovisioning.net/0ne003D3F98/registrations/my-x509-device/register?api-version=2021-06-01
+curl -L -i -X PUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "my-x509-device"}' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-x509-device/register?api-version=2021-06-01
 ```
 
 A successful call will have a response similar to the following:
@@ -302,9 +306,7 @@ You'll use the same ID scope, registration ID, and certificate as you did in the
 For example:
 
 ```bash
-curl -L -i -X GET --cert ./device-certPUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: applica
-tion/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "my-x509-device"}' https://global.azure-devices-provisio
-ning.net/0ne003D3F98/registrations/my-x509-device/register?api-version=2021-06-01
+curl -L -i -X GET --cert ./device-certPUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-x509-device/operations/5.506603669bd3e2bf.b3602f8f-76fe-4341-9214-bb6cfb891b8a?api-version=2021-06-01
 ```
 
 The following output shows the response for a device that has been successfully assigned. Notice that the `status` is "assigned" and that the `registrationState.assignedHub` property is set to the IoT hub where the device was provisioned.
