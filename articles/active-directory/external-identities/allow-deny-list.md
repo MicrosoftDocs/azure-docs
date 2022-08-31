@@ -7,19 +7,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 08/31/2022
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: sasubram
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
 # Allow or block invitations to B2B users from specific organizations
 
-You can use an allow list or a deny list to allow or block invitations to B2B users from specific organizations. For example, if you want to block personal email address domains, you can set up a deny list that contains domains like Gmail.com and Outlook.com. Or, if your business has a partnership with other businesses like Contoso.com, Fabrikam.com, and Litware.com, and you want to restrict invitations to only these organizations, you can add Contoso.com, Fabrikam.com, and Litware.com to your allow list.
+You can use an allow list or a deny list to allow or block invitations to B2B collaboration users from specific organizations. For example, if you want to block personal email address domains, you can set up a deny list that contains domains like Gmail.com and Outlook.com. Or, if your business has a partnership with other businesses like Contoso.com, Fabrikam.com, and Litware.com, and you want to restrict invitations to only these organizations, you can add Contoso.com, Fabrikam.com, and Litware.com to your allow list. 
+
+This article discusses two ways to configure an allow or deny list for B2B collaboration:
+
+- In the portal by configuring collaboration restrictions in your organization's [External collaboration settings](external-collaboration-settings-configure.md)
+- Through PowerShell
   
 ## Important considerations
 
@@ -159,4 +163,6 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 ## Next steps
 
 - For an overview of Azure AD B2B, see [What is Azure AD B2B collaboration?](what-is-b2b.md)
+- To learn more about managing B2B collaboration in your organization, see [External collaboration settings](external-collaboration-settings-configure.md).
+
 - For information about Conditional Access and B2B collaboration, see [Conditional Access for B2B collaboration users](authentication-conditional-access.md).
