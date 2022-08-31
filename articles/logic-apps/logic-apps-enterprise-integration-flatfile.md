@@ -7,28 +7,64 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 09/01/2022
 ---
 
 # Encode and decode flat files in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Before you send XML content to a business partner in a business-to-business (B2B) scenario, you might want to encode that content first. By building a logic app workflow, you can encode and decode flat files by using the [built-in](../connectors/built-in.md#integration-account-built-in) **Flat File** actions.
-
-Although no **Flat File** triggers are available, you can use a different trigger or action to get or feed the XML content from various sources into your workflow for encoding or decoding. For example, you can use the Request trigger, another app, or other [connectors supported by Azure Logic Apps](../connectors/apis-list.md). You can use **Flat File** actions with workflows in the [**Logic App (Consumption)** and **Logic App (Standard)** resource types](single-tenant-overview-compare.md).
+Before you send XML content to a business partner in a business-to-business (B2B) scenario, you might want to encode that content first. If you receive encoded XML content, you'll need to decode that content first. When you're building a logic app workflow in Azure Logic Apps, you can encode and decode flat files by using the **Flat File** built-in connector actions and providing a schema to use for encoding and decoding. You can use **Flat File** actions in multi-tenant Consumption logic app workflows and single-tenant Standard logic app workflows.
 
 > [!NOTE]
-> For **Logic App (Standard)**, the **Flat File** actions are currently in preview. 
+>
+> In Standard logic app workflows, the **Flat File** actions are currently in preview.
 
-This article shows how to add the Flat File encoding and decoding actions to an existing logic app workflow. If you're new to logic apps, review the following documentation:
+While no **Flat File** triggers are available, you can use any trigger or action to feed the source XML content into your workflow for encoding or decoding. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
 
-* [What is Azure Logic Apps](logic-apps-overview.md)
-* [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+This article shows how to add the **Flat File** encoding and decoding actions to your workflow.
+
+For more information, review the following documentation:
+
+* [Consumption versus Standard logic apps](logic-apps-overview.md#resource-type-and-host-environment-differences)
+* [Integration account built-in connectors](../connectors/built-in.md#integration-account-built-in)
+* [Built-in connectors overview for Azure Logic Apps](../connectors/built-in.md)
+* [Managed or Azure-hosted connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* The logic app workflow, blank or existing, where you want to use the **Flat File** action.
+
+  If you have a blank workflow, use any trigger that you want to start the workflow. This example uses the Request trigger.
+
+* Your logic app resource and workflow. Flat file operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, review the following documentation:
+
+  * [Quickstart: Create your first Consumption logic app workflow with multi-tenant Azure Logic Apps](quickstart-create-first-logic-app-workflow.md)
+
+  * [Create a Standard logic app workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
+
+* The flat file [schema](logic-apps-enterprise-integration-schemas.md) to use for encoding and decoding the XML content.
+
+* Based on whether you're working on a Consumption or Standard logic app workflow, you'll need an [integration account resource](logic-apps-enterprise-integration-create-integration-account.md). Usually, you need this resource when you want to define and store artifacts for use in enterprise integration and B2B workflows.
+
+  > [!IMPORTANT]
+  >
+  > To work together, both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
+
+  * If you're working on a Consumption logic app workflow, your logic app resource requires a [link to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
+
+  * If you're working on a Standard logic app workflow, you can link your your logic app resource to your integration account, upload encoding schemas directly to your logic app resource, or both, based on the following scenarios:
+
+    * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload schemas to each individual logic app. For more information, review [Link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
+
+    * Some Azure-hosted integration account connectors, such as AS2, EDIFACT, and X12, let you create a connection to your integration account. If you're just using these connectors, you don't need the link.
+
+    * The built-in connectors named **Flat File** and **Liquid** let you select schemas and maps that you previously uploaded to your logic app resource or to a linked integration account, but not both. You can then use these artifacts across all child workflows within the same logic app resource.
+
+  So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
+
 
 * An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
@@ -49,10 +85,6 @@ This article shows how to add the Flat File encoding and decoding actions to an 
     > [!NOTE]
     > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
     > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
-
-* The logic app workflow, blank or existing, where you want to use the **Flat File** action.
-
-  If you have a blank workflow, use any trigger that you want to start the workflow. This example uses the Request trigger.
 
 ## Limits
 

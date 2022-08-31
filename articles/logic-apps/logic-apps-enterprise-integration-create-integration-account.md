@@ -234,7 +234,6 @@ Before you can link your integration account to a Standard logic app resource, y
    |----------|-------|
    | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
    | **Value** | <*integration-account-callback-URL*> |
-   |||
 
 1. When you're done, select **OK**. When you return to the **Configuration** pane, make sure to save your changes. On the **Configuration** pane toolbar, select **Save**.
 
@@ -248,7 +247,6 @@ Before you can link your integration account to a Standard logic app resource, y
    |----------|-------|
    | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
    | **Value** | <*integration-account-callback-URL*> |
-   |||
 
    This example shows how a sample app setting might appear:
 
@@ -417,7 +415,6 @@ If you want to link your logic app to another integration account, or no longer 
    |----------|-------|
    | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
    | **Value** | <*integration-account-callback-URL*> |
-   |||
 
 1. When you're done, save your changes.
 
