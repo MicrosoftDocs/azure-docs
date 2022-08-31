@@ -23,13 +23,15 @@ Complete the following sections to set up the quickstart project.
 
 ### Create a new Android project
 
-1. In Android Studio, create a new project. In **New Project**, select the **Empty Activity** project template.
+In Android Studio, create a new project:
+
+1. In **New Project**, select the **Empty Activity** project template.
 
    :::image type="content" source="../../media/composite-android-new-project.png" alt-text="Screenshot that shows the New Project dialog in Android Studio with Empty Activity selected.":::
 
 1. Select **Next**.
 
-1. In **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For minimum SDK, select **API 21: Android 5.0 (Lollipop)** or later.
+1. In **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For the minimum SDK, select **API 21: Android 5.0 (Lollipop)** or later.
 
 1. Select **Finish**.
 
@@ -37,11 +39,11 @@ Complete the following sections to set up the quickstart project.
 
 ## Install the packages
 
-Complete the following sections to install application packages that the quickstart uses.
+Complete the following sections to install the required application packages.
 
 ### Add a dependency
 
-In your app-level (app folder) *UILibraryQuickStart/app/build.gradle* file, add the following dependency:
+In your app-level *UILibraryQuickStart/app/build.gradle* file (in the app folder), add the following dependency:
 
 ```groovy
 dependencies {
@@ -51,12 +53,14 @@ dependencies {
 }
 ```
 
-### Maven repositories
+### Add Maven repositories
 
 Two Maven repositories are required to integrate the library:
 
 - MavenCentral
 - The Azure package repository
+
+To add the repositories:
 
 1. In your project Gradle scripts, ensure that the following repositories are added. For Android Studio (2020.\*), `repositories` is in `settings.gradle`, under `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  For earlier versions of Android Studio (4.\*), `repositories` is in the project-level `build.gradle`, under `allprojects{}`.
 
@@ -76,7 +80,7 @@ Two Maven repositories are required to integrate the library:
 
 ## Add a button to Activity_main.xml
 
-In the layout file (*app/src/main/res/layout/activity_main.xml*), add the following code to create a button to start the composite:
+In the *app/src/main/res/layout/activity_main.xml* layout file, add the following code to create a button to start the composite:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -101,6 +105,8 @@ In the layout file (*app/src/main/res/layout/activity_main.xml*), add the follow
 ```
 
 ## Initialize the composite
+
+To initialize the composite:
 
 1. Go to `MainActivity`.
 
@@ -200,7 +206,8 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
------
+---
+
 ## Run the code
 
 In Android Studio, build and start the application:
@@ -243,7 +250,7 @@ val callComposite: CallComposite = CallCompositeBuilder().build()
 CallComposite callComposite = new CallCompositeBuilder().build();
 ```
 
------
+---
 ### Set up authentication
 
 To set up authentication, inside the `startCallComposite` function, initialize a `CommunicationTokenCredential` instance. Replace `"USER_ACCESS_TOKEN"` with your access token.
@@ -273,7 +280,7 @@ CommunicationTokenCredential communicationTokenCredential =
 
 If you don't already have an access token, see [Create Azure Communication Services access tokens for testing](../../../identity/quick-create-identity.md).
 
------
+---
 ### Set up a group call
 
 To set up a group call, initialize a `CallCompositeGroupCallLocator` and supply it to the `CallCompositeRemoteOptions` object.
@@ -300,7 +307,7 @@ CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
         communicationTokenCredential,                
         "DISPLAY_NAME");
 ```
------
+---
 
 ### Set up a Teams meeting
 
@@ -328,9 +335,10 @@ CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
         communicationTokenCredential,                
         "DISPLAY_NAME");
 ```
------
+---
 
------
+---
+
 #### Get a Microsoft Teams meeting link
 
 You can get a Microsoft Teams meeting link by using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?preserve-view=true&tabs=http&view=graph-rest-beta).
@@ -353,7 +361,7 @@ callComposite.launch(context, remoteOptions)
 callComposite.launch(context, remoteOptions);
 ```
 
------
+---
 ### Subscribe to CallComposite error events
 
 To receive error events, call `setOnErrorHandler` with `CallComposite`.
@@ -380,7 +388,7 @@ callComposite.addOnErrorEventHandler(callCompositeErrorEvent -> {
 });
 ```
 
------
+---
 ### Apply a theme configuration
 
 To change the primary color of the composite, create a new theme style in *src/main/res/values/themes.xml* and *src/main/res/values-night/themes.xml* by using `AzureCommunicationUICalling.Theme` as the parent theme. To apply the theme, inject the theme ID in `CallCompositeBuilder`:
@@ -412,7 +420,7 @@ CallComposite callComposite =
         .build();
 ```
 
------
+---
 ### Apply a localization configuration
 
 To change the language of the composite, use `CallCompositeSupportedLocale` to create `CallCompositeLocalizationOptions` with `Locale`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. You can use `CallCompositeLocalizationOptions` to set a different value for `language`. By default, UI Library includes a set of `language` values that you can use with UI components. `CallCompositeSupportedLocale` provides the supported locales. For example, to access the English locale, you can use `CallCompositeSupportedLocale.EN`. `CallCompositeSupportedLocale.getSupportedLocales()` provides a list of locale objects for supported languages.
@@ -443,7 +451,7 @@ CallComposite callComposite =
         .build();
 ```
 
------
+---
 ### More features
 
 The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information about more features.
