@@ -30,7 +30,7 @@ When you add a guest user to your directory, the guest user account has a consen
 
 Guest users can now sign in to your multi-tenant or Microsoft first-party apps through a common endpoint (URL), for example `https://myapps.microsoft.com`. Previously, a common URL would redirect a guest user to their home tenant instead of your resource tenant for authentication, so a tenant-specific link was required (for example `https://myapps.microsoft.com/?tenantid=<tenant id>`). Now the guest user can go to the application's common URL, choose **Sign-in options**, and then select **Sign in to an organization**. The user then types the name of your organization.
 
-![Common endpoint sign-in](media/redemption-experience/common-endpoint-flow-small.png)
+![Screenshots showing common endpoints used for signing in.](media/redemption-experience/common-endpoint-flow-small.png)
 
 The user is then redirected to your tenanted endpoint, where they can either sign in with their email address or select an identity provider you've configured.
 
@@ -78,7 +78,7 @@ To unblock users who can't redeem an invitation due to a conflicting [Contact ob
 
 When a user clicks the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
 
-![Screenshot showing the redemption flow diagram](media/redemption-experience/invitation-redemption.png)
+![Screenshot showing the redemption flow diagram.](media/redemption-experience/invitation-redemption.png)
 
 ***
 
@@ -111,13 +111,13 @@ When a guest signs in to a resource in a partner organization for the first time
 
 2. If terms of use are configured, the guest opens and reviews the terms of use, and then selects **Accept**. 
 
-   ![Screenshot showing new terms of use](media/redemption-experience/terms-of-use-accept.png) 
+   ![Screenshot showing new terms of use.](media/redemption-experience/terms-of-use-accept.png) 
 
    You can configure [terms of use](../conditional-access/terms-of-use.md) in **External Identities** > **Terms of use**.
 
 3. Unless otherwise specified, the guest is redirected to the Apps access panel, which lists the applications the guest can access.
 
-   ![Screenshot showing the Apps access panel](media/redemption-experience/myapps.png) 
+   ![Screenshot showing the Apps access panel.](media/redemption-experience/myapps.png) 
 
 In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of an Azure AD B2B collaboration user](user-properties.md). 
 If you see an error that requires admin consent while accessing an application, see [how to grant admin consent to apps](../develop/v2-admin-consent.md).
