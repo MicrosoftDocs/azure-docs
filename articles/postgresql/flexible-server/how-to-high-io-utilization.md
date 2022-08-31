@@ -132,13 +132,13 @@ WHERE (checkpoints_timed + checkpoints_req) > 0;
 ```
 The query output has following columns
 
-**avg_checkpoint_interval**: Average time between checkpoints.If this value is much lower than the `checkpoint_timeout` set on the server then we can conclude the checkpoints are happening too frequently.
-**checkpoints_req_pct** : Percentage of number of checkpoints that were required to the total checkpoints completed during the time interval the information was captured.
-**checkpoint_write_pct** : Percentage of buffers written out handled by checkpoints
-**backend_write_pct** : Percentage of buffers written out by backend write.It is always advised to write out using checkpoints.
-**avg_checkpoint_write** : On an average for every checkpoint how much is written out.
-**written_per_sec** : Average amount of writes to the disk.
-**alloc_per_sec** : Amount of buffers allocated for reads
+**avg_checkpoint_interval**: Average time between checkpoints.If this value is much lower than the `checkpoint_timeout` set on the server then we can conclude the checkpoints are happening too frequently.   
+**checkpoints_req_pct** : Percentage of number of checkpoints that were required to the total checkpoints completed during the time interval the information was captured.   
+**checkpoint_write_pct** : Percentage of buffers written out handled by checkpoints.   
+**backend_write_pct** : Percentage of buffers written out by backend write.It is always advised to write out using checkpoints.   
+**avg_checkpoint_write** : On an average for every checkpoint how much is written out.   
+**written_per_sec** : Average amount of writes to the disk.   
+**alloc_per_sec** : Amount of buffers allocated for reads.   
 
 ### Disruptive Autovacuum Daemon Process
 
@@ -149,9 +149,9 @@ SELECT schemaname, relname, n_dead_tup, n_live_tup, autovacuum_count, 
 ```
 The query can be monitored to check how frequently the tables in the database are being vacuumed. 
 
-**last_autovacuum** provides date and time when the last autovacuum ran on the table
-**autovacuum_count** : provides number of times the table was vacuumed 
-**autoanalyze_count** provides number of times the table was analyzed.
+**last_autovacuum** provides date and time when the last autovacuum ran on the table.      
+**autovacuum_count** : provides number of times the table was vacuumed.    
+**autoanalyze_count** provides number of times the table was analyzed.   
 
 
 ### High Storage Utilization
@@ -233,7 +233,7 @@ For more details on monitoring and tuning in scenarios where autovacuum is too d
 
 ###  Increase Storage
 
-In scenarios where storage usage percent is high, increasing storage will get more IOPS. For more details on storage and associated IOPS review [Compute and Storage Options](./concepts-compute-storage.md)
+In scenarios where storage usage percent is high, increasing storage will get more IOPS. For more details on storage and associated IOPS review [Compute and Storage Options](./concepts-compute-storage.md).
 
 
 ## Next steps
