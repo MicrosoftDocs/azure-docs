@@ -420,7 +420,7 @@ These are the valid `level` values that you can specify in the `applicationinsig
 
 ### LoggingLevel
 
-Starting from version 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is aleady captured in the `SeverityLevel` field.
+Starting from version 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field.
 
 If needed, you can re-enable the previous behavior:
 
