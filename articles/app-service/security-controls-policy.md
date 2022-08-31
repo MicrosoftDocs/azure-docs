@@ -77,6 +77,14 @@ compliant with the specific standard.
   - New policy created
 - **Configure Function app slots to use the latest TLS version**
   - New policy created
+- **Configure App Service apps to turn off remote debugging**
+  - New policy created
+- **Configure App Service app slots to turn off remote debugging**
+  - New policy created
+- **Configure Function apps to turn off remote debugging**
+  - New policy created
+- **Configure Function app slots to turn off remote debugging**
+  - New policy created
 
 ### August 2022
 
