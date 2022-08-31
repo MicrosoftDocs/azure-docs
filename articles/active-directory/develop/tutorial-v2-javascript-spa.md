@@ -378,7 +378,7 @@ Before proceeding further with authentication, register your application on **Az
     - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), refer to [National clouds](./authentication-national-cloud.md).
     - Set `Enter_the_Tenant_info_here` to one of the following options:
       - If your application supports *accounts in this organizational directory*, replace this value with the **Directory (tenant) ID** (which you can copy from **Azure**) or **Tenant name** (for example, *contoso.microsoft.com*).
-    - `Enter_the_Redirect_URI_Here` is the default URL that you set in the previous section, `https://localhost:3000/`.
+    - `Enter_the_Redirect_URI_Here` is the default URL that you set in the previous section, `http://localhost:3000/`.
 
 > [!TIP]
 > There are other options for `Enter_the_Tenant_info_here` depending on what you want your application to support.
