@@ -339,16 +339,16 @@ particularly the IOPS metric maxing out.
 
 Tips:
 
-1. If your data is naturally ordered, such as in a time series, use PostgreSQL
+- If your data is naturally ordered, such as in a time series, use PostgreSQL
    table partitioning. See [this
    guide](https://docs.citusdata.com/en/stable/use_cases/timeseries.html) to learn
    how to partition distributed tables in Hyperscale (Citus).
 
-2. Remove unused indices. Index maintenance causes I/O amplification during
+- Remove unused indices. Index maintenance causes I/O amplification during
    ingestion.  To find which indices are unused, use [this
    query](howto-useful-diagnostic-queries.md#identifying-unused-indices).
 
-3. If possible, avoid indexing randomized data. For instance, some UUID
+- If possible, avoid indexing randomized data. For instance, some UUID
    generation algorithms follow no order. Indexing such a value causes a lot
    overhead. Try a bigint sequence instead, or monotonically increasing UUIDs.
 
