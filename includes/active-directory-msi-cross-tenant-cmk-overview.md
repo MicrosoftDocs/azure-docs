@@ -67,3 +67,7 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 - In the customer tenant, *Tenant2*, an admin can set policies to block non-admin users from installing applications. These policies can prevent non-admin users from creating service principals. If such a policy is configured, then users with permissions to create service principals will need to be involved.
 - Access to Azure Key Vault can be authorized using Azure RBAC or access policies. When granting access to a key vault, make sure to use the active mechanism for your key vault.
 - An Azure AD application registration has an application ID (client ID). When the application is installed in your tenant, a service principal is created. The service principal shares the same application ID as the app registration, but generates its own object ID. When you authorize the application to have access to resources, you may need to use the service principal `Name` or `ObjectID` property.
+
+### Phase 3
+
+After phase 1 and 2 are complete, the service provider can configure encryption on the Azure resource to work across tenants. You can do this using an ARM template or REST API.
