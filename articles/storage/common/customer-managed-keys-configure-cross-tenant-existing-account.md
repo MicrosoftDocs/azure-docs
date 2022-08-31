@@ -1,7 +1,7 @@
 ---
 title: Configure cross-tenant customer-managed keys for an existing storage account (preview)
 titleSuffix: Azure Storage
-description: Learn how to configure Azure Storage encryption with customer-managed keys in an Azure key vault that resides in a different tenant than the tenant where the storage account resides (preview). Customer-managed keys allow a service provider to encrypt the customer's data using an encryption key that is managed by the service provider's customer and that is not accessible to the service provider.
+description: Learn how to configure Azure Storage encryption with customer-managed keys in an Azure key vault that resides in a different tenant than the tenant where the storage account resides (preview). Customer-managed keys allow a service provider to encrypt the customer's data using an encryption key that is managed by the service provider's customer and that isn't accessible to the service provider.
 services: storage
 author: tamram
 
@@ -82,7 +82,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 ## Configure customer-managed keys for an existing account
 
-Up to this point, you have configured the multi-tenant application on the ISV's tenant, installed the application on the customer's tenant, and configured the key vault and key on the customer's tenant. Next you can configure customer-managed keys on an existing storage account with the key from the customer's tenant.
+Up to this point, you've configured the multi-tenant application on the ISV's tenant, installed the application on the customer's tenant, and configured the key vault and key on the customer's tenant. Next you can configure customer-managed keys on an existing storage account with the key from the customer's tenant.
 
 The examples in this article show how to configure customer-managed keys on an existing storage account by using a user-assigned managed identity to authorize access to the key vault. You can also use a system-assigned managed identity to configure customer-managed keys on an existing storage account. In either case, the managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](../../key-vault/general/authentication.md).
 
@@ -98,13 +98,13 @@ When you configure encryption with customer-managed keys for an existing storage
 To configure cross-tenant customer-managed keys for an existing storage account in the Azure portal, follow these steps:
 
 1. Navigate to your storage account.
-1. On the **Settings** blade for the storage account, click **Encryption**. By default, key management is set to **Microsoft-managed keys**, as shown in the following image.
+1. On the **Settings** blade for the storage account, select **Encryption**. By default, key management is set to **Microsoft-managed keys**, as shown in the following image.
 
     :::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png" alt-text="Screenshot showing encryption options in Azure portal." lightbox="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png":::
 
 1. Select the **Customer-managed keys** option.
 1. Choose the **Select from Key Vault** option.
-1. Select **Enter key URI**, and specify the key URI. Omit the the key version from the URI if you want Azure Storage to automatically check for a new key version and update it.
+1. Select **Enter key URI**, and specify the key URI. Omit the key version from the URI if you want Azure Storage to automatically check for a new key version and update it.
 1. Select the subscription that contains the key vault and key.
 1. In the **Identity type** field, select **User-assigned**, then specify the managed identity with the federated identity credential that you created previously.
 1. Expand the **Advanced** section, and select the multi-tenant registered application that you previously created in the ISV's tenant.
@@ -113,7 +113,7 @@ To configure cross-tenant customer-managed keys for an existing storage account 
 
 1. Save your changes.
 
-After you've specified the key from the key vault in the customer's tenant, the Azure portal indicates that customer-managed keys is configured with that key. It also indicates that automatic updating of the key version is enabled, and displays the key version currently in use for encryption. The portal also displays the type of managed identity used to authorize access to the key vault, the principal ID for the managed identity, and the application ID of the multi-tenant application.
+After you've specified the key from the key vault in the customer's tenant, the Azure portal indicates that customer-managed keys are configured with that key. It also indicates that automatic updating of the key version is enabled, and displays the key version currently in use for encryption. The portal also displays the type of managed identity used to authorize access to the key vault, the principal ID for the managed identity, and the application ID of the multi-tenant application.
 
 :::image type="content" source="media/customer-managed-keys-configure-cross-tenant-existing-account/portal-cross-tenant-cmk-settings.png" alt-text="Screenshot showing cross-tenant customer-managed key configuration.":::
 

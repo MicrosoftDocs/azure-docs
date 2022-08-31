@@ -35,7 +35,7 @@ To create a new registration:
 1. Select **Register**.
 1. Note the **ApplicationId/ClientId** of the application.
 
-:::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-an-application.png" alt-text="Screen shot showing how to create a new multi-tenant application registration." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-an-application.png" border="true":::
+:::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-application.png" alt-text="Screen shot showing how to create a new multi-tenant application registration." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-application.png" border="true":::
 
 #### The service provider creates a user-assigned managed identity
 
@@ -59,7 +59,7 @@ Configure a user-assigned managed identity as a federated identity credential on
 2. Select **Certificates & secrets**.
 3. Select **Federated credentials**.
 
-   :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/certificates-and-secrets.png" alt-text="Screen shot showing how to navigate to Certificate and secrets." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/certificates-and-secrets.png" border="true":::
+   :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/certificates-secrets.png" alt-text="Screen shot showing how to navigate to Certificate and secrets." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/certificates-secrets.png" border="true":::
 
 4. Select **+ Add credential**.
 5. Under **Federated credential scenario**, select **Customer Managed Keys**.
@@ -69,7 +69,7 @@ Configure a user-assigned managed identity as a federated identity credential on
 
 7. Under **Credential details**, provide a name and optional description for the credential and select **Add**.
 
-   :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/add-a-credential.png" alt-text="Screen shot showing how to add a credential." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/add-a-credential.png" border="true":::
+   :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/add-credential.png" alt-text="Screen shot showing how to add a credential." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/add-credential.png" border="true":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -232,7 +232,7 @@ To create the key vault, the user's account must be assigned the **Key Vault Con
 1. On the **Access policy** tab, select **Azure role-based access control** for **Permission model**.
 1. Select **Review + create** and then **Create**.
 
-:::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-a-key-vault.png" alt-text="Screen shot showing how to create a key vault." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-a-key-vault.png" border="true":::
+:::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-key-vault.png" alt-text="Screen shot showing how to create a key vault." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-key-vault.png" border="true":::
 
 Take note of the **Vault name** and **Vault URI**. Applications that access your key vault must use this URI.
 

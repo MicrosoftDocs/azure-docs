@@ -53,7 +53,7 @@ Azure Policy provides a built-in policy to require that storage accounts use cus
 
 ## Customer-managed keys for queues and tables
 
-Data stored in Queue and Table storage is not automatically protected by a customer-managed key when customer-managed keys are enabled for the storage account. You can optionally configure these services to be included in this protection at the time that you create the storage account.
+Data stored in Queue and Table storage isn't automatically protected by a customer-managed key when customer-managed keys are enabled for the storage account. You can optionally configure these services to be included in this protection at the time that you create the storage account.
 
 For more information about how to create a storage account that supports customer-managed keys for queues and tables, see [Create an account that supports customer-managed keys for tables and queues](account-encryption-key-create.md).
 
@@ -61,7 +61,7 @@ Data in Blob storage and Azure Files is always protected by customer-managed key
 
 ## Enable customer-managed keys for a storage account
 
-When you configure a customer-managed key, Azure Storage wraps the root data encryption key for the account with the customer-managed key in the associated key vault or managed HSM. Enabling customer-managed keys does not impact performance, and takes effect immediately.
+When you configure a customer-managed key, Azure Storage wraps the root data encryption key for the account with the customer-managed key in the associated key vault or managed HSM. Enabling customer-managed keys doesn't impact performance, and takes effect immediately.
 
 You can configure customer-managed keys with the key vault and storage account in the same tenant or in different Azure AD tenants. To learn how to configure Azure Storage encryption with customer-managed keys when the key vault and storage account are in the same tenants, see one of the following articles:
 
@@ -73,7 +73,7 @@ To learn how to configure Azure Storage encryption with customer-managed keys wh
 - [Configure cross-tenant customer-managed keys for a new storage account (preview)](customer-managed-keys-configure-cross-tenant-new-account.md)
 - [Configure cross-tenant customer-managed keys for an existing storage account (preview)](customer-managed-keys-configure-cross-tenant-existing-account.md)
 
-When you enable or disable customer-managed keys, or when you modify the key or the key version, the protection of the root encryption key changes, but the data in your Azure Storage account does not need to be re-encrypted.
+When you enable or disable customer-managed keys, or when you modify the key or the key version, the protection of the root encryption key changes, but the data in your Azure Storage account doesn't need to be re-encrypted.
 
 You can enable customer-managed keys on both new and existing storage accounts. When you enable customer-managed keys, you must specify a managed identity to be used to authorize access to the key vault that contains the key. The managed identity may be either a user-assigned or system-assigned managed identity:
 
@@ -103,14 +103,14 @@ When you configure encryption with customer-managed keys, you have two options f
 
     When the key version is explicitly specified, then you must manually update the storage account to use the new key version URI when a new version is created. To learn how to update the storage account to use a new version of the key, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md) or [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md).
 
-When you update the key version, the protection of the root encryption key changes, but the data in your Azure Storage account is not re-encrypted. There is no further action required from the user.
+When you update the key version, the protection of the root encryption key changes, but the data in your Azure Storage account isn't re-encrypted. There's no further action required from the user.
 
 > [!NOTE]
 > To rotate a key, create a new version of the key in the key vault or managed HSM, according to your compliance policies. You can rotate your key manually or create a function to rotate it on a schedule.
 
 ## Revoke access to customer-managed keys
 
-You can revoke the storage account's access to the customer-managed key at any time. After access to customer-managed keys is revoked, or after the key has been disabled or deleted, clients cannot call operations that read from or write to a blob or its metadata. Attempts to call any of the following operations will fail with error code 403 (Forbidden) for all users:
+You can revoke the storage account's access to the customer-managed key at any time. After access to customer-managed keys is revoked, or after the key has been disabled or deleted, clients can't call operations that read from or write to a blob or its metadata. Attempts to call any of the following operations will fail with error code 403 (Forbidden) for all users:
 
 - [List Blobs](/rest/api/storageservices/list-blobs), when called with the `include=metadata` parameter on the request URI
 - [Get Blob](/rest/api/storageservices/get-blob)
@@ -132,7 +132,7 @@ You can revoke the storage account's access to the customer-managed key at any t
 
 To call these operations again, restore access to the customer-managed key.
 
-All data operations that are not listed in this section may proceed after customer-managed keys are revoked or a key is disabled or deleted.
+All data operations that aren't listed in this section may proceed after customer-managed keys are revoked or a key is disabled or deleted.
 
 To revoke access to customer-managed keys, use [PowerShell](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys) or [Azure CLI](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys).
 
