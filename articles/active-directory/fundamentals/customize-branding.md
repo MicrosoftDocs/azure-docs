@@ -27,10 +27,9 @@ Adding custom branding and configuring the 'keep me signed in' (KMSI) option req
 - Azure AD Premium 1
 - Azure AD Premium 2
 - Office 365 (for Office apps)
+- Microsoft 365 (KMSI only)
 
-For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).
-
-Azure AD Premium editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China. 
+Azure AD Premium editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).
 
 ## Customize the default sign-in experience
 
@@ -137,9 +136,6 @@ The following diagram shows the user sign-in flow for a managed tenant and feder
 
 KMSI is only available on the default custom branding. It can't be added to language-specific branding. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
 
-> [!NOTE]
-> Configuring the keep me signed in option requires you to use Azure Active Directory (Azure AD) Premium 1, Premium 2, or have a Microsoft 365 license. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium and Basic editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium and Basic editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure AD Forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
-
 ![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/customize-branding/kmsi-workflow.png)
 
 See the [License requirements](#license-requirements) section for using the KMSI service.
@@ -169,3 +165,8 @@ To ensure that the KMSI prompt is shown only when it can benefit the user, the K
 * User's risk score is high
 * Sign-in occurs during user or admin consent flow
 * Persistent browser session control is configured in a conditional access policy
+
+## Next steps
+
+- [Add your organization's privacy info on Azure AD](/active-directory-properties-area.md)
+- [Learn more about Conditional Access](../conditional-access/overview.md)
