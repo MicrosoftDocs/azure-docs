@@ -16,9 +16,9 @@ First, sign in to Azure from the CLI or PowerShell. Run the following command, a
 az login
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount
 ```
 
@@ -34,16 +34,17 @@ Next, install the Azure Container Apps extension for the CLI.
 az extension add --name containerapp --upgrade
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 You must have the latest Az module installed.  Ignore any warnings about modules currently in use.
 
-```powershell
+```azurepowershell-interactive
 Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
 ```
+
 Now install the Az.App module.
 
-```powershell
+```azurepowershell-interactive
 Install-Module -Name Az.App
 ```
 
@@ -60,9 +61,9 @@ Now that the current extension or module is installed, register the `Microsoft.A
 az provider register --namespace Microsoft.App
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.App
 ```
 
@@ -76,9 +77,9 @@ Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log 
 az provider register --namespace Microsoft.OperationalInsights
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.OperationalInsights
 ```
 
@@ -94,12 +95,12 @@ LOCATION="canadacentral"
 CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$ResourceGroupName = "my-container-apps"
-$Location = "canadacentral"
-$ContainerAppsEnvironment = "my-environment"
+```azurepowershell-interactive
+$ResourceGroupName = 'my-container-apps'
+$Location = 'canadacentral'
+$ContainerAppsEnvironment = 'my-environment'
 ```
 
 ---
@@ -114,9 +115,9 @@ az group create \
   --location $LOCATION
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 New-AzResourceGroup -Location $Location -Name $ResourceGroupName
 ```
 
