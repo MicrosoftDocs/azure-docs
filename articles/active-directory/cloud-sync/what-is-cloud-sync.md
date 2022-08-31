@@ -77,6 +77,10 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | On-demand provisioning|● |● |
 | Support for US Government|● |● |
 
+>[!NOTE]
+>Azure AD Connect Cloud Sync cannot be used to synchronize to an Azure AD tenant operated by 21 Vianet
+
+
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)
