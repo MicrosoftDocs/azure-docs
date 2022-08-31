@@ -4,7 +4,6 @@ description: Learn about viewing support requests and how to send messages, uplo
 tags: billing
 ms.topic: how-to
 ms.date: 09/01/2022
-# To add: close and reopen, review request status, update contact info
 ---
 
 # Manage an Azure support request
