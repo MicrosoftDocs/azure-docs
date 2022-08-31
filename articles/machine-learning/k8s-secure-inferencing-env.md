@@ -43,7 +43,7 @@ For default AKS cluster, you can find VNet information under the resource group 
 
 After you have VNet information for AKS cluster and if you already have workspace available, use following steps to configure a secure AKS inferencing environment:
   
-  * Use your AKS cluster VNet information to add new private endpoints for the Azure Storage Account, Azure Key Vault, and Azure Container Registry used by your workspace. These private endpoints should exist in the same VNet as AKS cluster. For more information, see the [secure workspace with private endpoint](./how-to-secure-workspace-Vet.md#secure-the-workspace-with-private-endpoint) article.
+  * Use your AKS cluster VNet information to add new private endpoints for the Azure Storage Account, Azure Key Vault, and Azure Container Registry used by your workspace. These private endpoints should exist in the same VNet as AKS cluster. For more information, see the [secure workspace with private endpoint](./how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) article.
   * If you have other storage that is used by your workspace, add a new private endpoint for that storage. The private endpoint should exist in the AKS cluster VNet and have private DNS zone integration enabled.
   * Add a new private endpoint to your workspace. This private endpoint should exist in AKS cluster VNet and have private DNS zone integration enabled.
 
