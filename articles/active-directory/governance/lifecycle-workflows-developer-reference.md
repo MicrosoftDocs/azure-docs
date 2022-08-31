@@ -24,7 +24,7 @@ A workflow can be broken down in to three main parts.
    - task information
    - execution conditions
 
-  [![Parts of a workflow](media/understanding-lifecycle-workflows/workflow-1.png)](media/understanding-lifecycle-workflows/workflow-1.png#lightbox)
+  [![Screenshot of parts of a workflow.](media/understanding-lifecycle-workflows/workflow-1.png)](media/understanding-lifecycle-workflows/workflow-1.png#lightbox)
 
 ### General information
 This portion of a workflow covers basic information such as display name and a description of what the workflow does. 

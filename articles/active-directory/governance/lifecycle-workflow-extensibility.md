@@ -34,7 +34,8 @@ The roles on the Azure Logic App, which allows it to be compatible with the cust
 ## Custom task extension deployment scenarios
 
 When creating custom task extensions, the scenarios for how it will interact with Lifecycle Workflows can be one of two ways:
-:::image type="content" source="media/lifecycle-workflow-extensibility/task-extension-deployment-scenarios.png" alt-text="Screenshot of custom task deployment scenarios.":::
+
+ :::image type="content" source="media/lifecycle-workflow-extensibility/task-extension-deployment-scenarios.png" alt-text="Screenshot of custom task deployment scenarios.":::
 
 - **Launch and complete**- The Azure Logic App is started, and the following task execution immediately continues with no response expected from the Azure Logic App. This scenario is best suited if the Lifecycle workflow doesn't require any feedback (including status) from the Azure Logic App. With this scenario, as long as the workflow is started successfully, the workflow is viewed as a success.
 - **Launch and wait**- The Azure Logic App is started, and the following task's execution waits on the response from the Logic App. You enter a time duration for how long the custom task extension should wait for a response from the Azure Logic App. If no response is received within a customer defined duration window, the task will be considered failed.

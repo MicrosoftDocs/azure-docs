@@ -50,6 +50,7 @@ To edit the properties of a workflow using the Azure portal, you'll do the follo
 7. Update the display name or description how you want. 
 > [!NOTE]
 > Display names can not be the same as other existing workflows. They must have their own unique name.
+
 8. Select **save**.
 
 

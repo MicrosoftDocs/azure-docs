@@ -20,7 +20,7 @@ This tutorial provides a step-by-step guide on how to automate pre-hire tasks wi
 
 This pre-hire scenario will generate a temporary access pass for our new employee and send it via email to the user's new manager.  
 
-:::image type="content" source="media/tutorial-lifecycle-workflows/arch-2.png" alt-text="Screenshot of the lifecycle workflow scenario.":::
+:::image type="content" source="media/tutorial-lifecycle-workflows/arch-2.png" alt-text="Screenshot of the lifecycle workflow scenario." lightbox="media/tutorial-lifecycle-workflows/arch-2.png":::
 
 ##  Before you begin
 

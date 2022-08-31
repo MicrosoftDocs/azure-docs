@@ -113,7 +113,7 @@ For a complete guide on getting runs information, see: [Run workflow history usi
 
 Task summaries allow you to view workflow information through the lens of its tasks.
 
-:::image type="content" source="media/lifecycle-workflow-history/task-summay-concept.png" alt-text="Screenshot of a workflow task summary.":::
+:::image type="content" source="media/lifecycle-workflow-history/task-summary-concept.png" alt-text="Screenshot of a workflow task summary.":::
 
 Within the tasks summary you're able to find the following information:
 

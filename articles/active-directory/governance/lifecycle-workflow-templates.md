@@ -38,7 +38,7 @@ For a complete guide on creating a new workflow from a template, see: [Tutorial:
 
  The **Onboard pre-hire employee** template is designed to configure tasks that must be completed before an employee's start date.
 
-:::image type="content" source="media/lifecycle-workflow-templates/onboard-prehire-template.png" alt-text="Screenshot of a Lifecycle Workflow onboard pre-hire template.":::
+:::image type="content" source="media/lifecycle-workflow-templates/onboard-pre-hire-template.png" alt-text="Screenshot of a Lifecycle Workflow onboard pre-hire template.":::
 
 The default specific parameters and properties for the **Onboard pre-hire employee** template are as follows:
 
@@ -125,7 +125,7 @@ The default specific parameters for the **Pre-Offboarding of an employee** templ
 
 The **Offboard an employee** template is designed to configure tasks that will be completed on an employee's last day of work.
 
-:::image type="content" source="media/lifecycle-workflow-templates/offboard-employee-template.png" alt-text="Screenshot of a offboard employee template lifecycle workflows.":::
+:::image type="content" source="media/lifecycle-workflow-templates/offboard-employee-template.png" alt-text="Screenshot of a offboard employee template lifecycle workflow.":::
 
 The default specific parameters for the **Offboard an employee** template are as follows:
 
@@ -146,7 +146,7 @@ The default specific parameters for the **Offboard an employee** template are as
 
 The **Post-Offboarding of an employee** template is designed to configure tasks that will be completed after an employee's last day of work.
 
-:::image type="content" source="media/lifecycle-workflow-templates/offboard-post-employee-template.png" alt-text="Screenshot of a offboarding an employee after last day template":::
+:::image type="content" source="media/lifecycle-workflow-templates/offboard-post-employee-template.png" alt-text="Screenshot of a offboarding an employee after last day template.":::
 
 The default specific parameters for the **Post-Offboarding of an employee** template are as follows:
 

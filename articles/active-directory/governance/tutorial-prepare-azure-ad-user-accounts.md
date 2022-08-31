@@ -176,10 +176,10 @@ For the tutorial, the **mail** attribute only needs to be set on the manager acc
  6. Under manager, select **Change** and Select **Britta Simon**.
  7. At the top, select **Save**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/user-1.png" alt-text="Screenshot of the Graph edit user option." lightbox="media/tutorial-lifecycle-workflows/user-1.png":::
- 9. Go back to users and select **Britta Simon**.
- 10. At the top, select **Edit**.
- 11. Under **Email**, enter a valid email address.
- 12. select **Save**.
+ 8. Go back to users and select **Britta Simon**.
+ 9. At the top, select **Edit**.
+ 10. Under **Email**, enter a valid email address.
+ 11. select **Save**.
 
 ### Edit employeeHireDate
 The employeeHireDate attribute is new to Azure AD.  It isn't exposed through the UI and must be updated using Graph.  To edit this attribute, we can use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
@@ -200,11 +200,11 @@ In order to do this, we must get the object ID for our user Melva Prince.
  7. Sign-in to Graph Explorer with the global administrator account for your tenant.
  8. At the top, change **GET** to **PATCH** and add `https://graph.microsoft.com/v1.0/users/<id>` to the box.  Replace `<id>` with the value we copied above.
  9. Copy the following in to the **Request body** and select **Run query**
-   ```Example
-    {
-    "employeeHireDate": "2022-04-15T22:10:00Z"
-    }
-   ```
+       ```Example
+        {
+        "employeeHireDate": "2022-04-15T22:10:00Z"
+        }
+       ```
    :::image type="content" source="media/tutorial-lifecycle-workflows/update-1.png" alt-text="Screenshot of the PATCH employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-1.png":::
  
  10.  Verify the change by changing **PATCH** back to **GET** and **v1.0** to **beta**.  select **Run query**. You should see the attributes for Melva set.  
@@ -242,7 +242,7 @@ In this scenario, we'll use this feature of Azure AD to generate a temporary acc
 To use this feature, it must be enabled on our Azure AD tenant.  To do this, use the following steps.
 
 1. Sign in to the Azure portal as a Global admin and select **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**
- 2. Select **Yes** to enable the policy and add Britta Simon and select which users have the policy applied, and any **General** settings.
+2. Select **Yes** to enable the policy and add Britta Simon and select which users have the policy applied, and any **General** settings.
 
 ## Additional steps for leaver scenario
 

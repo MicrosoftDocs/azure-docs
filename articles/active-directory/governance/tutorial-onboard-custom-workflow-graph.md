@@ -18,7 +18,7 @@ ms.custom: template-tutorial
 This tutorial provides a step-by-step guide on how to automate pre-hire tasks with Lifecycle workflows using the GRAPH API. 
 
 This pre-hire scenario will generate a temporary password for our new employee and send it via email to the user's new manager.  
-:::image type="content" source="media/tutorial-lifecycle-workflows/arch-2.png" alt-text="Screenshot of the Lifecycle Workflows scenario.":::
+:::image type="content" source="media/tutorial-lifecycle-workflows/arch-2.png" alt-text="Screenshot of the Lifecycle Workflows scenario." lightbox="media/tutorial-lifecycle-workflows/arch-2.png":::
 
 ##  Before you begin
 
@@ -58,7 +58,7 @@ Now that the pre-hire workflow attributes have been updated and correctly popula
 |isEnabled     |   A boolean value that denotes whether the workflow is set to run or not.  If set to “true" then the workflow will run.      |
 |isSchedulingEnabled     |   A Boolean value that denotes whether scheduling is enabled or not. Unlike isEnbaled, a workflow can still be run on demand if this value is set to false.      |
 |executionConditions     |    An argument that contains: <br><br> A time-based attribute and an integer parameter defining when a workflow will run between -60 and 60 <br><br>a scope attribute defining who the workflow runs for.     |
-|tasks    |  An argument in a workflow that has a unique displayName and a description. <br><br> It defines the specific tasks to be executed in the workflow.The specified task is outlined by the taskDefinitionID and its parameters.  For a list of supported tasks, and their corresponding IDs, see [Supported Task Definitions](lifecycle-workflow-tasks.md).      |
+|tasks    |  An argument in a workflow that has a unique displayName and a description. <br><br> It defines the specific tasks to be executed in the workflow. The specified task is outlined by the taskDefinitionID and its parameters.  For a list of supported tasks, and their corresponding IDs, see [Supported Task Definitions](lifecycle-workflow-tasks.md).      |
 
 The following POST API call will create a pre-hire workflow that will generate a TAP and send it via email to the user's manager.
 

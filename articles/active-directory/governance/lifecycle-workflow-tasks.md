@@ -382,7 +382,8 @@ Allows users to be removed from every cloud-only group they are a member of. To 
 
 
 You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/remove-all-groups-task.png" alt-text="Screenshot of Workflows task: remove user from all groups.":::
+
+ :::image type="content" source="media/lifecycle-workflow-task/remove-all-groups-task.png" alt-text="Screenshot of Workflows task: remove user from all groups.":::
 
 
 For Microsoft Graph the parameters for the **Remove users from all groups** task are as follows:

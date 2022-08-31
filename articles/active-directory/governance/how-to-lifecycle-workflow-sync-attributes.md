@@ -100,7 +100,6 @@ To ensure timing accuracy of scheduled workflows it’s curial to consider:
      - Default value: Leave blank
      - Target attribute: employeeHireDate
      - Apply this mapping: Always
-     ![ Synchronization attribute mapping.](media/how-to-lifecycle-workflow-sync-attributes/cloud-synch-1.png)
  8. Select **Apply**.
  9. Back on the **Attribute mappings** screen, you should see your new attribute mapping.  
  10. Select **Save schema**.
@@ -137,7 +136,6 @@ The following example will walk you through setting up a custom synchronization 
        - Connected System Object Type: user
        - Metaverse Object Type: person
        - Precedence: 201
-     ![Screenshot of creating an outbound synchronization rule.](media/how-to-lifecycle-workflow-sync-attributes/create-outbound-rule.png)
    13. On the **Scoping filter** screen, select **Next.**
    14. On the **Join rules** screen, select **Next**.
    15. On the **Transformations** screen, Under **Add transformations,** enter the following information.
