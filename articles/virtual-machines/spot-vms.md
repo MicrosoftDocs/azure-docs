@@ -1,8 +1,8 @@
 ---
 title: Use Azure Spot Virtual Machines 
 description: Learn how to use Azure Spot Virtual Machines to save on costs.
-author: JagVeerappan
-ms.author: jagaveer
+author: ju-shim
+ms.author: jushiman
 ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
@@ -29,7 +29,7 @@ The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing
 
 If you would like your VM to be deleted when it is evicted, you can set the eviction policy to *delete*. The evicted VMs are deleted together with their underlying disks, so you will not continue to be charged for the storage. 
 
-You can opt-in to receive in-VM notifications through [Azure Scheduled Events](./linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
+You can opt in to receive in-VM notifications through [Azure Scheduled Events](./linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
 
 | Option | Outcome |
@@ -72,6 +72,8 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 
 ## Pricing and eviction history
 
+### Portal
+
 You can see historical pricing and eviction rates per size in a region in the portal. Select **View pricing history and compare prices in nearby regions** to see a table or graph of pricing for a specific size.  The pricing and eviction rates in the following images are only examples. 
 
 **Chart**:
@@ -82,7 +84,42 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 :::image type="content" source="./media/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
 
+### Azure Resource Graph
 
+You can programmatically access relevant Spot VM SKU data through [Azure Resource Graph](/azure/governance/resource-graph/overview). Get pricing history in the last 90 days and eviction rates for the last 28 trailing days to identify SKUs that better meet your specific needs. 
+
+Key benefits: 
+- Query Spot eviction rates and the last few months of Spot prices programmatically through ARM or the [ARG Explorer in Azure portal](/azure/governance/resource-graph/first-query-portal)  
+- Create a custom query to extract the specific data relevant to your scenario with the ability to filter across a variety of parameters, such as SKU and region  
+- Easily compare data across multiple regions and SKUs  
+- Find a different Spot SKU or region with a lower price and/or eviction rate  
+
+Try out the following sample queries for Spot pricing history and eviction rates using the [ARG Explorer in Azure portal](/azure/governance/resource-graph/first-query-portal). Spot pricing history and eviction rates data are available in the `SpotResources` table. 
+
+**Spot pricing history sample query**:
+
+```sql
+SpotResources 
+| where type =~ 'microsoft.compute/skuspotpricehistory/ostype/location' 
+| where sku.name in~ ('standard_d2s_v4', 'standard_d4s_v4') 
+| where properties.osType =~ 'linux' 
+| where location in~ ('eastus', 'southcentralus') 
+| project skuName = tostring(sku.name), osType = tostring(properties.osType), location, latestSpotPriceUSD = todouble(properties.spotPrices[0].priceUSD) 
+| order by latestSpotPriceUSD asc 
+```
+
+**Spot eviction rates sample query**:
+
+```sql
+SpotResources 
+| where type =~ 'microsoft.compute/skuspotevictionrate/location' 
+| where sku.name in~ ('standard_d2s_v4', 'standard_d4s_v4') 
+| where location in~ ('eastus', 'southcentralus') 
+| project skuName = tostring(sku.name), location, spotEvictionRate = tostring(properties.evictionRate) 
+| order by skuName asc, location asc
+```
+
+Alternatively, try out the [ARG REST API](/rest/api/azure-resourcegraph/) to get the pricing history and eviction rate history data. 
 
 ##  Frequently asked questions
 
