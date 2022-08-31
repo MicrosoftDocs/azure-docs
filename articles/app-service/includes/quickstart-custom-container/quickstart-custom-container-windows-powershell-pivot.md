@@ -28,7 +28,7 @@ Sign into your Azure account by using the [`Connect-AzAccount`](/powershell/modu
 Connect-AzAccount
 ```
 
-## 2 - Create a new resource group
+## 2 - Create a resource group
 
 Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
