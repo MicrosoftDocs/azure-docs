@@ -37,7 +37,7 @@ sections:
           However, Cognitive Services in containers do not provide an SLA. Customers control Cognitive Services container configurations of resources, so Microsoft won't offer an SLA for general availability (GA). Customers are free to deploy containers on-premises and define the host environments.
       - question: Are these containers available in Sovereign clouds?
         answer: |
-          Cognitive Services containers can be used in the Sovereign clouds. The containers can be run and can connect to the billing endpoint in these clouds, but container images will need to be pulled from the Public cloud container registy.
+          Cognitive Services containers can be used in the Sovereign clouds. The containers can be run and can connect to the billing endpoint in these clouds, but container images will need to be pulled from the Public cloud container registry.
   - name: Versioning
     questions:
       - question: How are containers updated to the latest version?
