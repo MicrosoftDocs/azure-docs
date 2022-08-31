@@ -44,11 +44,11 @@ Microsoft Sentinel customers with the [Microsoft 365 Defender connector](microso
 
     - Disable AADIP integration at the source, in your Microsoft 365 Defender portal.
 
-    - Create an automation rule in Microsoft Sentinel to automatically close incidents created by the Microsoft Security analytics rule that creates AADIP incidents.
+    - Create an automation rule in Microsoft Sentinel to automatically close incidents created by the [Microsoft Security analytics rule](create-incidents-from-alerts.md) that creates AADIP incidents.
 
-- If you don't have your AADIP connector enabled, you may receive blank incidents. To correct this, simply [enable your AADIP connector](data-connectors-reference.md#azure-active-directory-identity-protection). Be sure **not** to enable incident creation on the connector page.
+- If you don't have your AADIP connector enabled, you may receive AADIP incidents, but without any data in them. To correct this, simply [enable your AADIP connector](data-connectors-reference.md#azure-active-directory-identity-protection). Be sure **not** to enable incident creation on the connector page.
 
-- If you're first enabling your Microsoft 365 Defender connector now, the AADIP connection will be made as appropriate behind the scenes. You won't need to do anything else.
+- If you're first enabling your Microsoft 365 Defender connector now, the AADIP connection will be made automatically behind the scenes. You won't need to do anything else.
 
 ### Azure resource entity page (Preview)
 
