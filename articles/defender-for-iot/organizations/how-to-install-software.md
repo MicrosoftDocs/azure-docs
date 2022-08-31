@@ -9,13 +9,6 @@ ms.topic: how-to
 
 This article describes how to install agentless monitoring software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're reinstalling software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
 
-## Prepare your operating system and external storage
-
-Before installing Defender for IoT OT monitoring software, you must have Ubuntu installed on your appliance or VM.
-
-Download Ubuntu onto an external storage, such as a portable DVD drive with a USB connector, or a USB drive, and then install Ubuntu on your appliance or VM.
-
-For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
 
 ## Download software files from the Azure portal
 
@@ -29,7 +22,10 @@ Mount the ISO file onto your hardware appliance or VM using one of the following
 
 - **Physical media** – burn the ISO file to your external storage, and then boot from the media.
 
-    For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
+    -	DVDs: First burn the software to the DVD as an image
+    -	USB drive: First make sure that you’ve created a bootable USB drive with software such as [Rufus](https://rufus.ie/en/), and then save the software to the USB drive. USB drives must have USB version 3.0 or later.
+
+    Your physical media must have a minimum of 4 GB storage.
 
 - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
