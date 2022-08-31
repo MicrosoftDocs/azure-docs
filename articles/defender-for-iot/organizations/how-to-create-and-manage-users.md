@@ -61,7 +61,7 @@ This section describes permissions available to sensor Administrators, Security 
 | Manage alerts: acknowledge, learn, and pin |  | ✓ | ✓ |
 | View events in a timeline |  | ✓ | ✓ |
 | Authorize devices, known scanning devices, programming devices |  | ✓ | ✓ |
-| Delete devices |  |  | ✓ |
+| Merge and delete devices |  |  | ✓ |
 | View investigation data | ✓ | ✓ | ✓ |
 | Manage system settings |  |  | ✓ |
 | Manage users |  |  | ✓ |
