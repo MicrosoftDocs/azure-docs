@@ -181,6 +181,9 @@ Use Maven to run the sample.
 mvn quarkus:dev
 ```
 
+> [!IMPORTANT]
+> Be sure you have H2 JDBC driver installed. You can add it using a simple Maven command `./mvnw quarkus:add-extension -Dextensions="jdbc-h2"`
+
 This will build the app, run its unit tests, and then start the application in developer live coding. You should see:
 
 ```output

@@ -82,6 +82,8 @@
             items: 
               - name: .NET with SQL DB
                 href: tutorial-connect-msi-sql-database.md
+              - name: Quarkus with Postgres
+                href: tutorial-java-quarkus-connect-mi-postgres-database.md
               - name: Azure databases
                 href: tutorial-connect-msi-azure-database.md
           - name: Connect to services

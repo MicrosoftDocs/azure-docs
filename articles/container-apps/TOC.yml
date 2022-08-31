@@ -77,7 +77,11 @@
     - name: Set up custom domains and certificates
       href: custom-domains-certificates.md
     - name: Connect to a cloud service using Service Connector
-      href: service-connector.md
+      items:
+        - name: .NET app with Blob Storage
+          href: service-connector.md
+        - name: Java app with Postgres DB
+          href: tutorial-java-quarkus-connect-mi-postgres-database.md
     - name: Connect multiple apps
       href: connect-apps.md
     - name: Publish revisions with GitHub Actions
