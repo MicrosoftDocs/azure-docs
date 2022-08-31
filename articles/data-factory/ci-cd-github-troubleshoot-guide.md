@@ -352,7 +352,7 @@ If you are using old default parameterization template, new way to include globa
 Default parameterization template should include all values from global parameter list.
 
 #### Resolution
-Use updated  [default parameterization template.](https://docs.microsoft.com/azure/data-factory/continuous-integration-delivery-resource-manager-custom-parameters#default-parameterization-template) as one time migration to new method of including global parameters. This template references to all values in global parameter list. You also have to update the deployment task in the **release pipeline** if you are already overriding the template parameters there.
+Use updated  [default parameterization template.](/azure/data-factory/continuous-integration-delivery-resource-manager-custom-parameters#default-parameterization-template) as one time migration to new method of including global parameters. This template references to all values in global parameter list. You also have to update the deployment task in the **release pipeline** if you are already overriding the template parameters there.
  
 ### Error code: InvalidTemplate
 	
