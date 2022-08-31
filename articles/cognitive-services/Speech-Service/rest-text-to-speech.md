@@ -75,10 +75,10 @@ You can use the `voices/list` endpoint to get a full list of voices for a specif
 
 This table lists required and optional headers for text-to-speech requests:
 
-| Header                      | Description                                                                                                        | Required or optional                                           |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
-| `Ocp-Apim-Subscription-Key` | Your subscription key for the Speech service.                                                                      | Either this header or `Authorization` is required.             |
-| `Authorization`             | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
+| Header | Description | Required or optional |
+|--------|-------------|---------------------|
+| `Ocp-Apim-Subscription-Key` | Your subscription key for the Speech service. | Either this header or `Authorization` is required. |
+| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
 
 ### Request body
 
