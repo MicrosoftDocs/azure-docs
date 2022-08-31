@@ -101,9 +101,9 @@ nodes.
 -- logically correct, but slow
 
 WITH single_ad AS (
-    SELECT *
-      FROM ads
-     WHERE id=1
+  SELECT *
+    FROM ads
+   WHERE id=1
 )
 SELECT *
   FROM single_ad s
@@ -117,9 +117,9 @@ We can speed up the query up by filtering on the distribution column,
 -- faster, joining on distribution column
 
 WITH single_ad AS (
-    SELECT *
-      FROM ads
-     WHERE id=1 and company_id=1
+  SELECT *
+    FROM ads
+   WHERE id=1 and company_id=1
 )
 SELECT *
   FROM single_ad s
