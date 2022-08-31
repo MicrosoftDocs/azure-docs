@@ -56,3 +56,16 @@ Special notes for configuring a secure AKS inferencing environment:
   * If your workspace is also behind of VNet, follow instruction [securely connect to your workspace](./how-to-secure-workspace-vnet.md#securely-connect-to-your-workspace) to access workspace.
   * For storage account private endpoint, make sure to enable `Allow Azure services on the trusted services list to access this storage account`.
 
+## Next steps
+
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure online endpoints (inference)](how-to-secure-online-endpoint.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md)
+* [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md)
+* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
