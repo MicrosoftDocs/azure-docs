@@ -38,7 +38,7 @@ Let's divide the above end-to-end solution into three phases:
 
 Operations in Phase 1 would be a one-time setup for most service provider applications. Operations in Phases 2 and 3 would repeat for each customer.
 
-### Phase 1 - Service provider configures Azure AD application
+### Phase 1 - The service provider configures an Azure AD application
 
 | Step | Description | Minimum role in Azure RBAC | Minimum role in Azure AD RBAC |
 | -- | ----------------------------------- | -------------- | --------------|
@@ -53,13 +53,13 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 - The same multi-tenant application can be used to access keys in any number of tenants, like *Tenant2*, *Tenant3*, *Tenant4* and so on. In each tenant, an independent instance of the application is created that has the same application ID but a different object ID. Each instance of this application is thus authorized independently. Consider how the application object used for this feature is used to partition your application across all customers.
 - In the service provider tenant, it is not possible to automate the [Publisher Verification](../articles/active-directory/develop/publisher-verification-overview.md).
 
-### Phase 2 - Customer authorizes Azure Key Vault
+### Phase 2 - The customer authorizes access to the key vault
 
 | Step | Description | Least privileged Azure RBAC roles | Least privileged Azure AD roles |
 | -- | ----------------------------------- | -------------- | --------------|
 | 1. | <li><i>Recommended</i>: Send the user to [sign in](/azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore) to your app. If the user can sign in, then a service principal for your app exists in their tenant. Here is some troubleshooting content to help with this approach. </li><li>Alternately, use [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals), [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/new-mgserviceprincipal?view=graph-powershell-beta&preserve-view=true), [Azure PowerShell](/powershell/module/az.resources/new-azadserviceprincipal), or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-create) to create the service principal. </li><li>Another option is to construct [an admin-consent URL](../articles/active-directory/manage-apps/grant-admin-consent.md#construct-the-url-for-granting-tenant-wide-admin-consent) and grant tenant-wide consent to create the service principal using the application ID. | None | Users with permissions to install applications |
-| 2. | Create an Azure Key Vault and a key used as the customer-managed key. | [Contributor](../articles/role-based-access-control/built-in-roles#contributor) role to create the key vault<br /> [Key Vault Crypto Officer](../articles/role-based-access-control/built-in-roles#key-vault-crypto-officer) role to add a key | None |
-| 3. | Grant the consented application identity access to the Azure key vault by assigning the role [Key Vault Crypto Service Encryption User](/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations&preserve-view=true) | To assign the **Key Vault Crypto Service Encryption User** role to the application, you must be assigned the [User Access Administrator](../articles/role-based-access-control/built-in-roles#user-access-administrator) role or another role that includes the **Microsoft.Authorization/roleAssignments/write** action. | None |
+| 2. | Create an Azure Key Vault and a key used as the customer-managed key. | The [Key Vault Contributor](../articles/role-based-access-control/built-in-roles#key-vault-contributor) role to create the key vault<br /><br /> The [Key Vault Crypto Officer](../articles/role-based-access-control/built-in-roles#key-vault-crypto-officer) role to add a key | None |
+| 3. | Grant the consented application identity access to the Azure key vault by assigning the role [Key Vault Crypto Service Encryption User](/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations&preserve-view=true) | To assign the **Key Vault Crypto Service Encryption User** role to the application, you must have been assigned the [User Access Administrator](../articles/role-based-access-control/built-in-roles#user-access-administrator) role. | None |
 | 4. | Copy the key vault URL and key name into the customer-managed keys configuration of the SaaS offering.| None| None|
 
 #### Considerations for customers of service providers
