@@ -29,7 +29,7 @@ The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing
 
 If you would like your VM to be deleted when it is evicted, you can set the eviction policy to *delete*. The evicted VMs are deleted together with their underlying disks, so you will not continue to be charged for the storage. 
 
-You can opt-in to receive in-VM notifications through [Azure Scheduled Events](./linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
+You can opt in to receive in-VM notifications through [Azure Scheduled Events](./linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
 
 | Option | Outcome |
@@ -94,7 +94,7 @@ Key benefits:
 - Easily compare data across multiple regions and SKUs  
 - Find a different Spot SKU or region with a lower price and/or eviction rate  
 
-Try out the following sample queries for Spot pricing history and eviction rates using the [ARG Explorer in Azure portal](/azure/governance/resource-graph/first-query-portal). Spot pricing history and eviction rates data is available in the `SpotResources` table. 
+Try out the following sample queries for Spot pricing history and eviction rates using the [ARG Explorer in Azure portal](/azure/governance/resource-graph/first-query-portal). Spot pricing history and eviction rates data are available in the `SpotResources` table. 
 
 **Spot pricing history sample query**:
 
