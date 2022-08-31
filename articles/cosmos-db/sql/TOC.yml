@@ -130,10 +130,13 @@
               href: ../scripts/powershell/common/account-update.md
             - name: Update an account's regions
               href: ../scripts/powershell/common/update-region.md
-    - name: Azure Resource Manager
-      href: templates-samples-sql.md
-    - name: Bicep
-      href: bicep-samples.md
+    - name: Templates
+      items:
+        - name: JSON syntax templates
+          href: templates-samples-sql.md
+          displayName: ARM
+        - name: Bicep syntax templates
+          href: bicep-samples.md
     - name: Azure Resource Graph queries
       href: ../resource-graph-samples.md
 - name: Concepts
@@ -314,6 +317,12 @@
               href: ../latest-restore-timestamp-continuous-backup.md
             - name: Auditing restore action with continuous backup
               href: ../audit-restore-continuous.md
+        - name: Manage periodic backup
+          items:
+            - name: Configure periodic backup
+              href: ../configure-periodic-backup-restore.md
+            - name: Update backup storage redundancy
+              href: ../update-backup-storage-redundancy.md
     - name: Enterprise readiness
       items:
         - name: Service quotas
@@ -366,6 +375,8 @@
       href: ../access-previews.md
     - name: Develop applications
       items:
+        - name: Create account
+          href: how-to-create-account.md
         - name: .NET
           items:
             - name: Get started
@@ -410,6 +421,8 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge.md
+        - name: Move data between containers
+          href: ../intra-account-container-copy.md
         - name: Partial document update
           items:
             - name: Partial document update overview
@@ -1029,24 +1042,6 @@
           href: ../resource-locks.md
         - name: Back up and restore
           items:
-    - name: Manage continuous backup
-      items:
-        - name: Permissions and roles - Continuous backup
-          href: ../continuous-backup-restore-permissions.md
-        - name: Create account - Continuous backup
-          href: ../provision-account-continuous-backup.md
-        - name: Get the latest restorable timestamp
-          href: ../get-latest-restore-timestamp.md
-        - name: Restore an account - Continuous backup
-          href: ../restore-account-continuous-backup.md
-        - name: Migrate to continuous backup
-          href: ../migrate-continuous-backup.md
-    - name: Manage periodic backup
-      items:
-        - name: Configure periodic backup
-          href: ../configure-periodic-backup-restore.md
-        - name: Update backup storage redundancy
-          href: ../update-backup-storage-redundancy.md
     - name: Global distribution
       items:
         - name: Distribute data globally tutorial
@@ -1138,10 +1133,6 @@
           href: ../monitor-cosmos-db-reference.md
         - name: Third-party monitoring solutions
           href: ../monitoring-solutions.md
-    - name: Manage
-      items:
-        - name: Create account
-          href: how-to-create-account.md
     - name: Server-side programming
       items:
         - name: Stored procedures, triggers, and UDFs
@@ -1162,10 +1153,6 @@
           href: ../synapse-link-power-bi.md
         - name: Use Qlik Sense
           href: ../visualize-qlik-sense.md
-    - name: Built-in analytics with Apache Spark
-      items:
-        - name: Streaming with Apache Kafka and Azure Cosmos DB
-          href: ../../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Migrate data
       items:
         - name: Options to migrate data into Azure Cosmos DB

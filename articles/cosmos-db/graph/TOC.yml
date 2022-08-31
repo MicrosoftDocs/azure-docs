@@ -90,6 +90,10 @@
               href: ../scripts/powershell/common/account-update.md
             - name: Update an account's regions
               href: ../scripts/powershell/common/update-region.md
+    - name: Manage using Bicep
+      href: manage-with-bicep.md
+    - name: Manage using Resource Manager templates
+      href: resource-manager-template-samples.md
     - name: Azure Resource Graph queries
       href: ../resource-graph-samples.md
 - name: Concepts
@@ -110,8 +114,6 @@
         - name: Request units
           displayName: RUs, RU
           href: ../request-units.md
-        - name: Convert vCores to request units
-          href: ../convert-vcore-to-request-unit.md
         - name: Provisioned throughput
           displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
           href: ../set-throughput.md
@@ -135,18 +137,6 @@
               href: ../burst-capacity.md
             - name: Burst capacity FAQ
               href: ../burst-capacity-faq.yml
-    - name: Analytics with Azure Synapse Link
-      items:
-        - name: Azure Synapse Link for Azure Cosmos DB
-          href: ../synapse-link.md
-        - name: Azure Synapse Link supported features
-          href: ../../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Azure Synapse Link use cases
-          href: ../synapse-link-use-cases.md
-        - name: Azure Synapse Link FAQ
-          href: ../synapse-link-frequently-asked-questions.yml
-        - name: Analytical store - Overview
-          href: ../analytical-store-introduction.md
     - name: Back up and restore
       items:
         - name: Back up and restore introduction
@@ -335,10 +325,6 @@
           href: powershell-samples.md
         - name: Manage using Azure CLI
           href: cli-samples.md
-        - name: Manage using Bicep
-          href: manage-with-bicep.md
-        - name: Manage using Resource Manager templates
-          href: resource-manager-template-samples.md
           displayName: ARM
         - name: Move between regions
           href: ../how-to-move-regions.md

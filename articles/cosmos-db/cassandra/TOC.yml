@@ -115,7 +115,7 @@
     - name: Azure Cosmos DB resource model
       displayName: collection, document
       href: ../account-databases-containers-items.md
-    - name: Partitioning (sharding)
+    - name: Partitioning
       items:
         - name: Partitioning overview
           href: ../partitioning-overview.md
@@ -169,16 +169,22 @@
               href: ../latest-restore-timestamp-continuous-backup.md
             - name: Auditing restore action with continuous backup
               href: ../audit-restore-continuous.md
+        - name: Manage periodic backup
+          items:
+            - name: Configure periodic backup
+              href: ../configure-periodic-backup-restore.md
+            - name: Update backup storage redundancy
+              href: ../update-backup-storage-redundancy.md
     - name: Global distribution
       items:
         - name: Global distribution overview
           displayName: replication, replicate, geo distribution
           href: ../distribute-data-globally.md
-        - name: Mapping consistency levels
-          href: apache-cassandra-consistency-mapping.md
         - name: Consistency levels
           displayName: session, consistency prefix, strong, eventual, bounded staleness
           href: ../consistency-levels.md
+        - name: Mapping Cassandra consistency levels
+          href: apache-cassandra-consistency-mapping.md
         - name: High availability
           href: ../high-availability.md
         - name: Conflict types and resolution policies
@@ -248,10 +254,12 @@
       items:
         - name: Cassandra API extensions overview
           href: cassandra-driver-extensions.md
-        - name: Create a container - Cassandra API
+        - name: Create a table
           href: how-to-create-container-cassandra.md
-        - name: Allocate throughput - Cassandra API
+        - name: Allocate throughput
           href: how-to-provision-throughput-cassandra.md
+        - name: Mapping Cassandra consistency levels
+          href: apache-cassandra-consistency-mapping.md
         - name: Secondary indexes
           href: secondary-indexing.md
         - name: Find request unit charge
@@ -269,6 +277,10 @@
           href: access-data-spring-data-app.md
         - name: Copy data between tables
           href: ../how-to-container-copy.md
+    - name: Operations on containers and items
+      items:
+        - name: Move data between containers
+          href: ../intra-account-container-copy.md
     - name: Cassandra and Spark
       items:
         - name: Introduction
@@ -385,12 +397,6 @@
               href: ../restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: ../migrate-continuous-backup.md
-        - name: Manage periodic backup
-          items:
-            - name: Configure periodic backup
-              href: ../configure-periodic-backup-restore.md
-            - name: Update backup storage redundancy
-              href: ../update-backup-storage-redundancy.md
     - name: Security
       items:
         - name: Configure IP firewall

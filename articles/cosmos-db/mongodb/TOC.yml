@@ -4,28 +4,32 @@
   items:
     - name: What is the API for MongoDB in Azure Cosmos DB?
       href: mongodb-introduction.md
-    - name: API version 4.2
-      href: feature-support-42.md
-    - name: API version 4.0
-      href: feature-support-40.md
-    - name: API version 3.6
-      href: feature-support-36.md
-    - name: API version 3.2
-      href: feature-support-32.md
+    - name: API versions
+      items:
+        - name: API version 4.2
+          href: feature-support-42.md
+        - name: API version 4.0
+          href: feature-support-40.md
+        - name: API version 3.6
+          href: feature-support-36.md
+        - name: API version 3.2
+          href: feature-support-32.md
+        - name: Upgrade API version
+          href: upgrade-mongodb-version.md
     - name: FAQ
       href: mongodb-faq.yml
     - name: Change log
       href: change-log.md
 - name: Quickstarts
   items:
-    - name: Develop app - .NET
-      href: quickstart-dotnet.md
+    - name: Develop app - Node.js
+      href: quickstart-javascript.md
     - name: Develop app - Python
       href: create-mongodb-python.md
     - name: Develop app - Java
       href: create-mongodb-java.md
-    - name: Develop app - Node.js
-      href: quickstart-javascript.md
+    - name: Develop app - .NET
+      href: quickstart-dotnet.md
     - name: Develop app - Golang
       href: create-mongodb-go.md
 - name: Tutorials
@@ -110,7 +114,7 @@
               href: ../scripts/powershell/common/account-update.md
             - name: Update an account's regions
               href: ../scripts/powershell/common/update-region.md
-    - name: Azure Resource Manager templates
+    - name: Templates
       items:
         - name: JSON syntax templates
           href: resource-manager-template-samples.md
@@ -127,14 +131,6 @@
       items:
         - name: Partitioning overview
           href: ../partitioning-overview.md
-        - name: Hierarchical partition keys (preview)
-          items:
-            - name: Hierarchical partition keys overview
-              href: ../hierarchical-partition-keys.md
-            - name: Hierarchical partition keys FAQ
-              href: ../hierarchical-partition-keys-faq.yml
-        - name: Partition merge (preview)
-          href: ../merge.md
     - name: Throughput (RU/s)
       items:
         - name: Request units
@@ -196,6 +192,12 @@
               href: ../latest-restore-timestamp-continuous-backup.md
             - name: Auditing restore action with continuous backup
               href: ../audit-restore-continuous.md
+        - name: Manage periodic backup
+          items:
+            - name: Configure periodic backup
+              href: ../configure-periodic-backup-restore.md
+            - name: Update backup storage redundancy
+              href: ../update-backup-storage-redundancy.md
     - name: Global distribution
       items:
         - name: Global distribution overview
@@ -445,12 +447,6 @@
               href: ../restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: ../migrate-continuous-backup.md
-        - name: Manage periodic backup
-          items:
-            - name: Configure periodic backup
-              href: ../configure-periodic-backup-restore.md
-            - name: Update backup storage redundancy
-              href: ../update-backup-storage-redundancy.md
     - name: Security
       items:
         - name: Configure role-based access control for MongoDB API
