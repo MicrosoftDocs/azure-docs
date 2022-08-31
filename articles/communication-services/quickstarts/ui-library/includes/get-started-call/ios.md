@@ -25,6 +25,8 @@ Complete the following sections to set up the quickstart project.
 
 In Xcode, create a new project:
 
+1. In the **File** menu, select **New** > **Project**.
+
 1. In **Choose a template for your new project**, select the **iOS** platform and select the **App** application template. The quickstart uses the UIKit storyboards. The quickstart doesn't create tests, so you can clear the **Include Tests** checkbox.
 
    :::image type="content" source="../../media/xcode-new-project-template-select.png" alt-text="Screenshot that shows the Xcode new project dialog, with iOS and the App template selected.":::
@@ -67,9 +69,11 @@ To access the device's hardware, including the microphone and camera, update you
    <string></string>
    ```
 
+   Here's an example of the `Info.plist` source code in an Xcode file:
+
    :::image type="content" source="../../media/xcode-info-plist-source-code.png" alt-text="Screenshot that shows an example of the info plist source code in an Xcode file.":::
 
-1. To verify that device permission requests are added correctly, select **Open As** > **Property List**. The information property list looks similar to the following example:
+1. To verify that device permission requests are added correctly, select **Open As** > **Property List**. Check that the information property list looks similar to the following example:
 
    :::image type="content" source="../../media/xcode-info-plist.png" alt-text="Screenshot that shows the camera and microphone device privacy in Xcode.":::
 
@@ -129,13 +133,13 @@ To initialize the composite:
 
 ## Run the code
 
-To build and run your app on the iOS simulator, select **Product** > **Run**, or use the (&#8984;-R) keyboard shortcut. Then, try out the call experience on the simulator:
+To build and run your app on the iOS simulator, select **Product** > **Run** or use the (&#8984;-R) keyboard shortcut. Then, try out the call experience on the simulator:
 
 1. Select **Start Experience**.
 
 1. Accept audio permissions, and then select device, mic, and video settings.
 
-1. Select **Start Call**.
+1. Select **Start call**.
 
 :::image type="content" source="../../media/quick-start-calling-composite-running-ios.gif" alt-text="GIF animation that demonstrates the final look and feel of the quickstart iOS app.":::
 
@@ -145,7 +149,7 @@ The following classes and interfaces handle some key features of the Azure Commu
 
 | Name                                                                        | Description                                                                                  |
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| [CallComposite](#create-callcomposite) | Component that renders a call experience with participant gallery and controls |
+| [CallComposite](#create-callcomposite) | Component that renders a call experience that has a participant gallery and controls |
 | [CallCompositeOptions](#create-callcomposite) | Settings for options like themes and event handling |
 | RemoteOptions | Remote options to send to Azure Communication Services to join a [group call](#set-up-a-group-call) or a [Teams meeting](#set-up-a-teams-meeting). |
 | [ThemeOptions](#apply-theme-options) | Customization options for the composite theme |
@@ -153,11 +157,11 @@ The following classes and interfaces handle some key features of the Azure Commu
 
 ## UI Library functionality
 
-Get the code to create key features for your iOS application.
+Get the code to create key communication features for your iOS application.
 
 ### Create CallComposite
 
-To create `CallComposite`, inside the `startCallComposite` function, initialize a `CallCompositeOptions` instance and a `CallComposite` instance.
+To create `CallComposite`, inside the `startCallComposite` function, initialize a `CallCompositeOptions` instance and a `CallComposite` instance:
 
 ```swift
 @objc private func startCallComposite() {
@@ -169,17 +173,17 @@ To create `CallComposite`, inside the `startCallComposite` function, initialize 
 
 ### Set up authentication
 
-To set up authentication, inside the `startCallComposite` function, initialize a `CommunicationTokenCredential` instance. Replace `<USER_ACCESS_TOKEN>` with your token.
+To set up authentication, inside the `startCallComposite` function, initialize a `CommunicationTokenCredential` instance. Replace `<USER_ACCESS_TOKEN>` with your access token.
 
 ```swift
 let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 ```
 
-If you don't already have an access token, see [Create Azure Communication Services access tokens](../../../identity/quick-create-identity.md).
+If you don't already have an access token, [create an Azure Communication Services access token](../../../identity/quick-create-identity.md).
 
 ### Set up a group call
 
-To set up a group call, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.groupCall` locator. Replace `<GROUP_CALL_ID>` with the group ID for your call. Replace <DISPLAY_NAME>` with your name.
+To set up a group call, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.groupCall` locator. Replace `<GROUP_CALL_ID>` with the group ID for your call. Replace `<DISPLAY_NAME>` with your name.
 
 ```swift
 // let uuid = UUID() to create a new call
@@ -193,7 +197,7 @@ For more information about using a group ID for calls, see [Manage calls](../../
 
 ### Set up a Teams meeting
 
-To set up a Teams meeting, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.teamsMeeting` locator.  Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
+To set up a Microsoft Teams meeting, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.teamsMeeting` locator.  Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
 
 ```swift
 let remoteOptions = RemoteOptions(for: .teamsMeeting(teamsLink: "<TEAMS_MEETING_LINK>"),
@@ -227,7 +231,7 @@ callComposite?.events.onError = { error in
 
 ### Apply theme options
 
-To customize the theme for your application, create custom theme options that implement the `ThemeOptions` protocol. Include an instance of that new class in `CallCompositeOptions`:
+To customize the communication experience in your application, create custom theme options that implement the `ThemeOptions` protocol. Include an instance of the new class in `CallCompositeOptions`:
 
 ```swift
 class CustomThemeOptions: ThemeOptions {
@@ -247,7 +251,7 @@ For more information about how theming works, see the [theming guide](../../../.
 
 To change the language in the composite, create custom localization options and include them in `CallCompositeOptions`.  By default, all text labels use English (`SupportedLocale.en`) strings. You can use `LocalizationOptions` to set a different value for `locale`. By default, UI Library includes a set of `locale` values that you can use with the UI components. `SupportedLocale.values` provides a list of all supported languages.
 
-In the following example, the composite is localized to French (`fr`). 
+In the following example, the composite is localized to French (`fr`):
 
 ```swift
 // Option1: Use IntelliSense to get locales UI Library supports.
