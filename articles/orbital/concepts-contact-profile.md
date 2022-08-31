@@ -40,7 +40,7 @@ At the moment autotrack is disabled and autotracking options are not applied.
 
 A whole band, unique in direction, and unique in polarity is called a link. Channels, which are children under links, specify center frequency, bandwidth, and endpoints. Typically there's only one channel per link but some applications require multiple channels per link. 
 
-You can specify an EIRP and G/T requirement for each link. EIRP applies to uplinks and G/T applies to downlinks. You can give a name to each link and channel to keep track of these properties and each channel has a modem associated with it. Follow the steps in [how to setup software modem](software-modem.md) to understand the options.
+You can specify an EIRP and G/T requirement for each link. EIRP applies to uplinks and G/T applies to downlinks. You can give a name to each link and channel to keep track of these properties and each channel has a modem associated with it. Follow the steps in [how to setup software modem](modem-chain.md) to understand the options.
 
 Look at the example below to see how to specify an RHCP channel and an LHCP channel if your mission requires dual-polarization on downlink.  
 
@@ -114,11 +114,6 @@ Look at the example below to see how to specify an RHCP channel and an LHCP chan
 }
 ```
 
-
-## Applying modems or bring your own
-
-
-
 ## Modifying or deleting a contact profile
 
 You can modify or delete the contact profile via the Portal or through the API.
@@ -130,5 +125,6 @@ When you onboard a third party network, you'll receive a token that identifies y
 ## Next steps
 
 - [Schedule a contact](schedule-contact.md)
+- [Configure the RF chain](modem-chain.md)
 - [Update the Spacecraft TLE](update-tle.md)
 

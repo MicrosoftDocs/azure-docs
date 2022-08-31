@@ -74,6 +74,6 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 ## Next steps
 
 - [How-to Receive real-time telemetry](receive-real-time-telemetry.md)
-- [Configure the modem chain](software-modem.md)
+- [Configure the RF chain](modem-chain.md)
 - [Schedule a contact](schedule-contact.md)
 - [Cancel a contact](delete-contact.md)

@@ -1,5 +1,5 @@
 ---
-title: Configure the modem chain - Azure Orbital
+title: Configure the RF chain - Azure Orbital
 description: Learn more about how to configure modems.
 author: hrshelar
 ms.service: orbital
@@ -10,9 +10,9 @@ ms.author: hrshelar
 #Customer intent: As a satellite operator or user, I want to understand how to use software modems to establish RF connections with my satellite.
 ---
 
-# Configure the modem chain for your channels
+# How to configure the RF chain
 
-You have the flexibility to choose between managed modem or virtual RF functionality using the Azure Orbital Ground Station service. These operational modes are specified on a per channel basis in the contact profile. See [ground station contact profile](concepts-contact-profile.md) to learn more on channels and links.
+You have the flexibility to choose between managed modem or virtual RF functionality using the Azure Orbital Ground Station service. These operational modes are specified on a per channel basis in the contact profile. See [ground station contact profile](concepts-contact-profile.md) to learn more about channels and links.
 
 ## Managed modems vs virtual RF delivery
 
@@ -20,7 +20,7 @@ We recommend taking advantage of Orbital Ground Station's managed modem function
 
 Use virtual RF delivery If you wish to have tighter control on the modem setup or bring your own modem to the resource group. Orbital Ground Station will connect to your channel endpoint specified in the contact profile.
 
-## Configuring the channel
+## How to configure your channels
 
 The table below shows you how to configure the modem or virtual RF parameters.
 
@@ -106,9 +106,9 @@ Enter the named modem string into the demodulationConfiguration parameter when u
 
 Select 'Preset Named Modem Configuration'and chose a configuration as shown below when entering channel details using the portal.
 
-:::image type="content" source="media/azure-ground-station-named-modem-example.png" alt-text="Screenshot of entering a modem configuration into the contact profile object." lightbox="media/azure-ground-station-named-modem-example.png":::
+:::image type="content" source="media/azure-ground-station-named-modem-example.png" alt-text="Screenshot of choosing a named modem configuration in the contact profile object." lightbox="media/azure-ground-station-named-modem-example.png":::
 
-### Using virtual RF
+### How to use virtual RF
 
 Leave the modulationConfiguration or demodulationConfiguration parameters blank to use the virtual RF delivery feature. Azure Orbital Ground Station uses the [Digital Intermediate Frequency Interoperability](https://dificonsortium.org/) or DIFI format for transport of virtual RF. 
 
