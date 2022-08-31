@@ -8,7 +8,7 @@ ms.subservice: machine-learning
 ms.topic: overview 
 ms.reviewer: sngun, garye
 
-ms.date: 08/19/2022
+ms.date: 08/31/2022
 author: nelgson
 ms.author: negust
 ---

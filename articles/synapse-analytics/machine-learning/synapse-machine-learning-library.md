@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
-ms.date: 08/19/2022
+ms.date: 08/31/2022
 ms.author: sngun
 ---
 
@@ -16,7 +16,6 @@ SynapseML (previously known as MMLSpark), is an open-source library that simplif
 With SynapseML, you can build scalable and intelligent systems to solve challenges in domains such as anomaly detection, computer vision, deep learning, text analytics, and others. SynapseML can train and evaluate models on single-node, multi-node, and elastically resizable clusters of computers. This lets you scale your work without wasting resources. SynapseML is usable across Python, R, Scala, Java, and .NET. Furthermore, its API abstracts over a wide variety of databases, file systems, and cloud data stores to simplify experiments no matter where data is located.
 
 SynapseML requires Scala 2.12, Spark 3.0+, and Python 3.6+.
-
 
 ## Key features of SynapseML
 
@@ -42,7 +41,6 @@ Bringing ONNX to Spark not only helps developers scale deep learning models, it 
 ### Build responsible AI systems
 
 After building a model, it’s imperative that researchers and engineers understand its limitations and behavior before deployment. SynapseML helps developers and researchers build responsible AI systems by introducing new tools that reveal why models make certain predictions and how to improve the training dataset to eliminate biases. SynapseML dramatically speeds the process of understanding a user’s trained model by enabling developers to distribute computation across hundreds of machines. More specifically, SynapseML includes distributed implementations of Shapley Additive Explanations (SHAP) and Locally Interpretable Model-Agnostic Explanations (LIME) to explain the predictions of vision, text, and tabular models. It also includes tools such as Individual Conditional Expectation (ICE) and partial dependence analysis to recognized biased datasets.
-
 
 ## Enterprise support on Azure Synapse Analytics
 
