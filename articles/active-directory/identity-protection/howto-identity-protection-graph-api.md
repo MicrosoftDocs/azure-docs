@@ -22,7 +22,7 @@ Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Act
 To successfully complete this tutorial, make sure you have the required prerequisites:
 
 1. Microsoft Graph PowerShell SDK is installed. Follow the [installation guide](/powershell/microsoftgraph/installation?view=graph-powershell-1.0) for more info on how to do this.
-2. Entitlement management is available in the beta version of Microsoft Graph PowerShell. Run the following command to set your profile to beta.
+2. Identity Protection is available in the beta version of Microsoft Graph PowerShell. Run the following command to set your profile to beta.
 ```powershell
 # Connect to Graph V1.0 Endpoint
 Select-MgProfile -Name 'V1.0'
