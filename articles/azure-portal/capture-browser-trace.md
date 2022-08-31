@@ -1,20 +1,20 @@
 ---
 title: Capture a browser trace for troubleshooting
 description: Capture network information from a browser trace to help troubleshoot issues with the Azure portal.
-ms.date: 08/16/2021
+ms.date: 09/01/2022
 ms.topic: troubleshooting
 ---
 
 # Capture a browser trace for troubleshooting
 
-If you're troubleshooting an issue with the Azure portal, and you need to contact Microsoft support, we recommend you first capture a browser trace and some additional information. The information you collect can provide important details about the portal at the time the issue occurs. Follow the steps in this article for the developer tools in the browser you use: Google Chrome or Microsoft Edge (Chromium), Microsoft Edge (EdgeHTML), Apple Safari, or Firefox.
+If you're troubleshooting an issue with the Azure portal, and you need to contact Microsoft support, we recommend you first capture a browser trace and some additional information. The information you collect can provide important details about the portal at the time the issue occurs. Follow the steps in this article for the developer tools in the [supported browser](azure-portal-supported-browsers-devices.md) that you use: Google Chrome, Microsoft Edge, Safari, or Firefox.
 
 > [!IMPORTANT]
 > Microsoft support uses these traces for troubleshooting purposes only. Please be mindful who you share your traces with, as they may contain sensitive information about your environment.
 
-## Google Chrome and Microsoft Edge (Chromium)
+## Google Chrome and Microsoft Edge
 
-Google Chrome and Microsoft Edge (Chromium) are both based on the [Chromium open source project](https://www.chromium.org/Home). The following steps show how to use the developer tools, which are very similar in the two browsers. For more information, see [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) and [Microsoft Edge (Chromium) Developer Tools](/microsoft-edge/devtools-guide-chromium).
+Google Chrome and Microsoft Edge are both based on the [Chromium open source project](https://www.chromium.org/Home). The following steps show how to use the developer tools, which are very similar in the two browsers. For more information, see [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) and [Microsoft Edge DevTools](/microsoft-edge/devtools-guide-chromium).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in.
 
@@ -58,55 +58,9 @@ Google Chrome and Microsoft Edge (Chromium) are both based on the [Chromium open
 
 1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
 
-## Microsoft Edge (EdgeHTML)
+## Safari
 
-The following steps show how to use the developer tools in Microsoft Edge (EdgeHTML). For more information, see [Microsoft Edge (EdgeHTML) Developer Tools](/microsoft-edge/devtools-guide).
-
-1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in. 
-
-1. Start recording the steps you take in the portal, using [Steps Recorder](https://support.microsoft.com/help/22878/windows-10-record-steps).
-
-1. In the portal, navigate to the step just prior to where the issue occurs.
-
-1. Press F12 or select ![Screenshot of the browser settings icon.](media/capture-browser-trace/edge-icon-settings.png) > **More tools** > **Developer tools**.
-
-1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
-
-    1. Select the **Network** tab, then clear the option **Clear entries on navigate**.
-
-          ![Screenshot of "Clear entries on navigate"](media/capture-browser-trace/edge-network-clear-entries.png)
-
-    1. Select the **Console** tab, then select **Preserve Log**.
-
-          ![Screenshot of "Preserve Log"](media/capture-browser-trace/edge-console-preserve-log.png)
-
-1. Select the **Network** tab, then select **Stop profiling session** and **Clear session**.
-
-    ![Screenshot of "Stop profiling session" and "Clear session"](media/capture-browser-trace/edge-stop-clear-session.png)
-
-1. Select **Start profiling session**, then reproduce the issue in the portal.
-
-    ![Screenshot of "Start profiling session"](media/capture-browser-trace/edge-start-session.png)
-
-    You will see session output similar to the following image.
-
-    ![Screenshot that shows the output for the profiling session.](media/capture-browser-trace/edge-browser-trace-results.png)
-
-1. After you have reproduced the unexpected portal behavior, select **Stop profiling session**, then select **Export as HAR** and save the file.
-
-    ![Screenshot of "Export as HAR"](media/capture-browser-trace/edge-network-export-har.png)
-
-1. Stop Steps Recorder, and save the recording.
-
-1. Back in the browser developer tools pane, select the **Console** tab, and expand the window. Place your cursor at the start of the console output then drag and select the entire contents of the output. Right-click, then select **Copy**, and save the console output to a text file.
-
-    ![Screenshot that highlights the Copy menu option.](media/capture-browser-trace/edge-console-select.png)
-
-1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
-
-## Apple Safari
-
-The following steps show how to use the developer tools in Apple Safari. For more information, see [Safari Developer Tools overview](https://support.apple.com/guide/safari-developer/safari-developer-tools-overview-dev073038698/11.0/mac).
+The following steps show how to use the developer tools in Safari on Mac. For more information, see [Safari Developer Tools overview](https://support.apple.com/guide/safari-developer/safari-developer-tools-overview-dev073038698/11.0/mac).
 
 1. Enable the developer tools in Apple Safari:
 
