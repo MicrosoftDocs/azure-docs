@@ -21,6 +21,8 @@ The following diagram shows typical architecture for Cloud Director Services wit
 
 VMware Cloud Director supports multi-tenancy by using organizations. A single organization can have multiple organization virtual data centers (VDC). Each Organization’s VDC can have their own dedicated Tier-1 router (Edge Gateway) which is further connected with the provider’s managed shared Tier-0 router.
 
+[Learn more about CDs on Azure VMware Solutions refernce architecture](https://cloudsolutions.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/docs/cloud-director-service-reference-architecture-for-azure-vmware-solution.pdf)
+
 ## Connect tenants and their organization virtual datacenters to Azure vNet based resources
 
 To provide access to vNET based Azure resources, each tenant can have their own dedicated Azure vNET with Azure VPN gateway. A site-to-site VPN between customer organization VDC and Azure vNET is established. To achieve this connectivity, the provider will provide public IP to the organization VDC. Organization VDC’s administrator can configure IPSEC VPN connectivity from Cloud Director Service portal. 
@@ -168,5 +170,10 @@ For more information about VMware Cloud Director Availability, see [VMware Cloud
 
 **Answer**: This offering is supported in all Azure regions where Azure VMware Solution is available except for Brazil South and South Africa. Ensure that the region you wish to connect to Cloud Director service is within a 150-milliseconds round trip time for latency with Cloud Director service.
 
+**Question**: How do I configure VMware Cloud Director service on Microsoft Azure VMware Solutions?
+
+**Answer** [Learn about how to configure CDs on Azure VMware Solutions](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/using-vmware-cloud-director-service/GUID-602DE9DD-E7F6-4114-BD89-347F9720A831.html)
+
 ## Next steps
 [VMware Cloud Director Service Documentation](https://docs.vmware.com/en/VMware-Cloud-Director-service/index.html)  
+[Migration to Azure VMware Solutions with Cloud Director service](https://cloudsolutions.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/docs/migration-to-azure-vmware-solution-with-cloud-director-service.pdf)
