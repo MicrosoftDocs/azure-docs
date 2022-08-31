@@ -13,6 +13,8 @@ ms.custom: devx-track-terraform
 
 # Quickstart: Use Terraform to create a Linux VM
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 Article tested with the following Terraform and Terraform provider versions:
 
 - [Terraform v1.2.7](https://releases.hashicorp.com/terraform/)
@@ -116,4 +118,3 @@ In this quickstart, you deployed a simple virtual machine using Terraform. To le
 
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
-
