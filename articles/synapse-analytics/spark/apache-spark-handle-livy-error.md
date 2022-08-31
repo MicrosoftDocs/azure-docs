@@ -5,7 +5,7 @@ author: Niharikadutta
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 06/16/2022
+ms.date: 08/29/2022
 ms.author: nidutta
 ---
 
@@ -20,9 +20,13 @@ To make this process easier, we have introduced a more precise list of error cod
 
 ![Screenshot of New error codes.](./media/apache-spark-error-classification/apache-spark-new-error-view.png)
 
-Please find below the list of all error types we support today. Please note, we are continuously refining and adding to these error codes by improving our model.
+## Enable error classification in Synapse
 
-## Supported error codes and what they mean
+This error classification feature can be enabled or disabled by setting the following Spark config to `true` or `false` at the job or pool level - `livy.rsc.synapse.error-classification.enabled` .
+
+Please find below the list of a few error types we support today. Please note, we are continuously refining and adding to these error codes by improving our model.
+
+## Few supported error codes and what they mean
 
 Each error code falls under one of the following four buckets:
 
@@ -68,6 +72,7 @@ Each error code falls under one of the following four buckets:
     An unknown failure the model wasn't able to classify.
 
 
+The error codes (including and beyond the list shown above) along with the TSGs on how to resolve the issue will show up on the Synapse Studio application error pane if this feature is enabled.
 
 > [!NOTE]
-> If you have built any tooling around Synapse job monitoring that checks for a failing job by checking against the error code `LIVY_JOB_STATE_DEAD`, that would no longer work as the returned error codes would be different as mentioned above. Please modify any scripts accordingly, this feature is currently disabled by default and can be opted-in by reaching out to the team at `impulse-devs@microsoft.com`. This feature will be enabled by default from 8th August and hence it is recommended to make any changes needed by then.
+> If you have built any tooling around Synapse job monitoring that checks for a failing job by checking against the error code `LIVY_JOB_STATE_DEAD`, that would no longer work as the returned error codes would be different as mentioned above. Please modify any scripts accordingly in order to utilize this feature, or disable the feature if not needed.
