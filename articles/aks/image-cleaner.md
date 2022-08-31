@@ -119,4 +119,4 @@ az aks update -g MyResourceGroup -n MyManagedCluster
 
 ## Logging
 
-The deletion logs are stored in the `image-cleaner-kind-worker` pods. You can check these via `kubectl logs` or via the Container Insights pod log table if the [Azure Monitor add-on](,/monitor-aks.md) is enabled.
+The deletion logs are stored in the `image-cleaner-kind-worker` pods. You can check these via `kubectl logs` or via the Container Insights pod log table if the [Azure Monitor add-on](./monitor-aks.md) is enabled.
