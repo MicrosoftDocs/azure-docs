@@ -26,7 +26,7 @@ The following table lists the operations defined as critical operations and can 
 
 # [Recovery Services vault](#tab/recovery-services-vault)
 
-Operation | Mandatory/ Optional
+**Operation** | **Mandatory/ Optional**
 --- | ---
 Disable soft delete | Mandatory
 Disable MUA protection | Mandatory
@@ -37,7 +37,7 @@ Change MARS security PIN | Optional <br><br> Can be excluded.
 
 # [Backup vault (preview)](#tab/backup-vault)
 
-Operation | Mandatory/ Optional
+**Operation** | **Mandatory/ Optional**
 --- | ---
 Disable MUA protection | Mandatory
 Delete backup instance | Optional <br><br> Can be excluded.
@@ -88,8 +88,6 @@ The following table depicts scenarios for creating your Resource Guard and Vault
 Vault and Resource Guard are **in the same subscription.** </br> The Backup admin does't have access to the Resource Guard. | Least isolation between the Backup admin and the Security admin. | Relatively easy to implement since only one subscription is required. | Resource level permissions/ roles need to be ensured are correctly assigned.
 Vault and Resource Guard are **in different subscriptions but the same tenant.** </br> The Backup admin doesn't have access to the Resource Guard or the corresponding subscription. | Medium isolation between the Backup admin and the Security admin. | Relatively medium ease of implementation since two subscriptions (but a single tenant) are required. | Ensure that that permissions/ roles are correctly assigned for the resource or the subscription.
 Vault and Resource Guard are **in different tenants.** </br> The Backup admin doesn't have access to the Resource Guard, the corresponding subscription, or the corresponding tenant.| Maximum isolation between the Backup admin and the Security admin, hence, maximum security. | Relatively difficult to test since requires two tenants or directories to test. | Ensure that permissions/ roles are correctly assigned for the resource, the subscription or the directory.
-
-For this article, we'll demonstrate creation of the Resource Guard in a different tenant that offers maximum protection. In terms of requesting and approving requests for performing critical operations, this article demonstrates the same using [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
 
 ## Next steps
 
