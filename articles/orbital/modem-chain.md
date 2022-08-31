@@ -110,7 +110,7 @@ Select 'Preset Named Modem Configuration'and chose a configuration as shown belo
 
 ### How to use virtual RF
 
-Leave the modulationConfiguration or demodulationConfiguration parameters blank to use the virtual RF delivery feature. Azure Orbital Ground Station uses the [Digital Intermediate Frequency Interoperability](https://dificonsortium.org/) or DIFI format for transport of virtual RF. 
+Leave the modulationConfiguration or demodulationConfiguration parameters blank in the channel parameters to use the virtual RF delivery feature. Azure Orbital Ground Station uses the [Digital Intermediate Frequency Interoperability](https://dificonsortium.org/) or DIFI format for transport of virtual RF. 
 
 >[!Note]
 >Azure Orbital Ground Station will provide an RF stream in accordance with the channel bandwidth setting to the endpoint for downlink.
