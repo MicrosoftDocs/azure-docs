@@ -523,19 +523,19 @@ Now that we have our all our code setup, we now need to test it!
 
 After the browser loads your `index.html` file, select **Sign In**. You'll now be prompted to sign in with the Microsoft identity platform:
 
-![The JavaScript SPA account sign-in window](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
+![The JavaScript SPA account sign-in window](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot_v2.png)
 
 ### Provide consent for application access
 
 The first time that you sign in to your application, you're prompted to grant it access to your profile and sign you in:
 
-![The "Permissions requested" window](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
+![The "Permissions requested" window](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent_v2.png)
 
 ### View application results
 
 After you sign in, your user profile information is returned in the Microsoft Graph API response that's displayed:
 
-![Results from the Microsoft Graph API call](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
+![Results from the Microsoft Graph API call](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults_v2.png)
 
 ## Behind the scenes information
 
