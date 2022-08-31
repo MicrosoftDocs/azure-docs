@@ -124,9 +124,8 @@ Uri primaryAccountUri = new Uri($"https://{accountName}.blob.core.windows.net/")
 Uri secondaryAccountUri = new Uri($"https://{accountName}-secondary.blob.core.windows.net/");
 
 // Create a BlobServiceClient object pointed at the secondary Uri
-BlobServiceClient blobServiceClientSecondary = new BlobServiceClient(secondaryAccountUri, new DefaultAzureCredential(), blobClientOptions);
-
 // Use blobServiceClientSecondary only when issuing read requests, as secondary storage is read-only
+BlobServiceClient blobServiceClientSecondary = new BlobServiceClient(secondaryAccountUri, new DefaultAzureCredential(), blobClientOptions);
 ```
 
 Knowing when to switch to read-only mode and **secondary only** requests is part of an architectural design pattern called the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker), which will be discussed in a later section.
