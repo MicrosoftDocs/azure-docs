@@ -262,34 +262,39 @@ curl -L -i -X PUT -H 'Content-Type: application/json' -H 'Content-Encoding:  utf
 A successful call will have a response similar to the following:
 
 ```output
+HTTP/1.1 202 Accepted
+Date: Wed, 31 Aug 2022 22:02:49 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Location: https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-symkey-device/register
 Retry-After: 3
-x-ms-request-id: 46142c07-d215-408c-8b5a-7c32d988f2b0
+x-ms-request-id: a021814f-0cf6-4ce9-a1e9-ead7eb5118d9
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 
-{"operationId":"5.316aac5bdc130deb.f4f1828c-4dab-4ca9-98b2-dfc63b5835d6","status":"assigning"}
+{"operationId":"5.316aac5bdc130deb.b1e02da8-c3a0-4ff2-a121-7ea7a6b7f550","status":"assigning"}
 ```
 
-The response contains an operation ID and a status. In this case, the status is set to assigning. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup) REST API to determine when your device has been assigned or whether a failure has occurred.
+The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup) REST API to determine when your device has been assigned or whether a failure has occurred.
 
 The valid status values for DPS are:
 
-* assigned: the return value from the status call will indicate what IoT Hub the device was assigned to.
+* `assigned`: the return value from the status call will indicate what IoT Hub the device was assigned to.
 
-* assigning: the operation is still running.
+* `assigning`: the operation is still running.
 
-* disabled: the enrollment record is disabled in DPS, so the device  can't be assigned.
+* `disabled`: the enrollment record is disabled in DPS, so the device  can't be assigned.
 
-* failed: the assignment failed. There will be an errorCode and errorMessage returned in an registrationState record in the returned JSON to indicate what failed.
+* `failed`: the assignment failed. There will be an `errorCode` and `errorMessage` returned in an `registrationState` record in the response to indicate what failed.
 
-* unassigned
+* `unassigned`
 
-To get the status of the operation, use the following curl command:
+To call the **Operation Status Lookup** API, use the following curl command:
 
 ```bash
 curl -L -i -X GET -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -H 'Authorization: [sas_token]' https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/operations/[operation_id]?api-version=2019-03-31
 ```
 
-You'll use the same ID scope, registration ID, and SAS token as you did in the Register Device command. Use the Operation ID that was returned in the Register Device response.
+You'll use the same ID scope, registration ID, and SAS token as you did in the **Register Device** request. Use the operation ID that was returned in the **Register Device** response.
 
 For example:
 
@@ -297,24 +302,28 @@ For example:
 curl -L -i -X GET -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -H 'Authorization: SharedAccessSignature sr=0ne003D3F98%2Fregistrations%2Fmy-symkey-device&sig=eNwg52xQdFTNf7bgPAlAJBCIcONivq%2Fck1lf3wtxI4A%3D&se=1663952627&skn=registration' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-symkey-device/operations/5.316aac5bdc130deb.f4f1828c-4dab-4ca9-98b2-dfc63b5835d6?api-version=2021-06-01
 ```
 
-The following output shows the response for a device that has been successfully assigned. Notice that the `status` is "assigned" and that the `registrationState.assignedHub` property is set to the IoT hub where the device was provisioned.
+The following output shows the response for a device that has been successfully assigned. Notice that the `status` property is `assigned` and that the `registrationState.assignedHub` property is set to the IoT hub where the device was provisioned.
 
 ```output
-x-ms-request-id: eb06d86e-f3ce-47ba-85bf-69f4fbfa3db7
+HTTP/1.1 200 OK
+Date: Wed, 31 Aug 2022 22:05:23 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+x-ms-request-id: ffb98d42-023e-4e75-afb0-1807ff091cbb
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 {
-   "operationId":"5.316aac5bdc130deb.f4f1828c-4dab-4ca9-98b2-dfc63b5835d6",
+   "operationId":"5.316aac5bdc130deb.b1e02da8-c3a0-4ff2-a121-7ea7a6b7f550",
    "status":"assigned",
    "registrationState":{
       "registrationId":"my-symkey-device",
-      "createdDateTimeUtc":"2022-08-24T18:05:58.6300974Z",
+      "createdDateTimeUtc":"2022-08-31T22:02:50.5163352Z",
       "assignedHub":"MyExampleHub.azure-devices.net",
       "deviceId":"my-symkey-device",
       "status":"assigned",
       "substatus":"initialAssignment",
-      "lastUpdatedDateTimeUtc":"2022-08-24T18:05:58.8110029Z",
-      "etag":"IjA1MDA5MTVjLTAwMDAtMDMwMC0wMDAwLTYzMDY2ODg2MDAwMCI="
+      "lastUpdatedDateTimeUtc":"2022-08-31T22:02:50.7370676Z",
+      "etag":"IjY5MDAzNTUyLTAwMDAtMDMwMC0wMDAwLTYzMGZkYThhMDAwMCI="
    }
 }
 ```
