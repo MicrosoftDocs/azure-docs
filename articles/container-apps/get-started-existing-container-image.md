@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: quickstart
-ms.date: 03/21/2022
+ms.date: 08/31/2022
 ms.author: cshoe
 zone_pivot_groups: container-apps-registry-types
 ---
@@ -40,19 +40,19 @@ az containerapp env create \
   --location $LOCATION
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` will result in a warning, but the command will still succeed.
 
-```powershell
+```azurepowershell-interactive
 $WorkspaceArgs = @{
-    Name = "myworkspace"
+    Name = 'myworkspace'
     ResourceGroupName = $ResourceGroupName
     Location = $Location
-    PublicNetworkAccessForIngestion = "Enabled"
-    PublicNetworkAccessForQuery = "Enabled"
+    PublicNetworkAccessForIngestion = 'Enabled'
+    PublicNetworkAccessForQuery = 'Enabled'
 }
 New-AzOperationalInsightsWorkspace @WorkspaceArgs
 $WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
@@ -61,12 +61,12 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```powershell
+```azurepowershell-interactive
 $EnvArgs = @{
     EnvName = $ContainerAppsEnvironment
     ResourceGroupName = $ResourceGroupName
     Location = $Location
-    AppLogConfigurationDestination = "log-analytics"
+    AppLogConfigurationDestination = 'log-analytics'
     LogAnalyticConfigurationCustomerId = $WorkspaceId
     LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
 }
@@ -116,9 +116,9 @@ az containerapp create \
   --registry-password $REGISTRY_PASSWORD
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 $ContainerImageName = "<CONTAINER_IMAGE_NAME>"
 $RegistryServer = "<REGISTRY_SERVER>"
 $RegistryUsername = "<REGISTRY_USERNAME>"
@@ -127,7 +127,7 @@ $RegistryPassword = "<REGISTRY_PASSWORD>"
 
 (Replace the \<placeholders\> with your values.)
 
-```powershell
+```azurepowershell-interactive
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
 $TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app -Image $ContainerImageName
@@ -135,7 +135,7 @@ $TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app -Image $C
 $RegistrySecretObj = New-AzContainerAppSecretObject -Name registry-secret -Value $RegistryPassword
 
 $RegistryArgs = @{
-    PasswordSecretRef = "registry-secret"
+    PasswordSecretRef = 'registry-secret'
     Server = $RegistryServer
     Username = $RegistryUsername
 }
@@ -143,7 +143,7 @@ $RegistryArgs = @{
 $RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
 
 $ContainerAppArgs = @{
-    Name = "my-container-app"
+    Name = 'my-container-app'
     Location = $Location
     ResourceGroupName = $ResourceGroupName
     ManagedEnvironmentId = $EnvId
@@ -174,15 +174,15 @@ If you have enabled ingress on your container app, you can add `--query properti
 
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 $TemplateObj = New-AzContainerAppTemplateObject -Name my-container-ap  -Image "<REGISTRY_CONTAINER_NAME>" 
 ```
 
 (Replace the \<REGISTRY_CONTAINER_NAME\> with your value.)
 
-```powershell
+```azurepowershell-interactive
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
 $ContainerAppArgs = @{
@@ -196,8 +196,6 @@ New-AzContainerApp @ContainerAppArgs
 ```
 
 ---
-
-
 
 Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full name the public container registry location, including the registry path and tag. For example, a valid container name is `mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`.
 
@@ -220,9 +218,9 @@ az monitor log-analytics query \
   --out table
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated"
 $queryResults.Results
 ```
@@ -233,15 +231,18 @@ $queryResults.Results
 
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
 
+>[!CAUTION]
+> The following command deletes the specified resource group and all resources contained within it.If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
+
 # [Bash](#tab/bash)
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 

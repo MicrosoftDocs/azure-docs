@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic:  how-to
-ms.date: 06/09/2022
+ms.date: 08/31/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -67,10 +67,10 @@ Next, declare a variable to hold the VNET name.
 VNET_NAME="my-custom-vnet"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$VnetName = "my-custom-vnet"
+```azurepowershell-interactive
+$VnetName = 'my-custom-vnet'
 ```
 
 ---
@@ -98,24 +98,24 @@ az network vnet subnet create \
   --address-prefixes 10.0.0.0/23
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 The `New-AzVirtualNetworkSubnetConfig` command may result in a warning, but the command will still be successful.
 
-```powershell
+```azurepowershell-interactive
 $SubnetArgs = @{
-    Name = "infrastructure-subnet"
-    AddressPrefix = "10.0.0.0/23"
+    Name = 'infrastructure-subnet'
+    AddressPrefix = '10.0.0.0/23'
 }
 $subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```
 
-```powershell
+```azurepowershell-interactive
 $VnetArgs = @{
     Name = $VnetName
     Location = $Location
     ResourceGroupName = $ResourceGroupName
-    AddressPrefix = "10.0.0.0/16"
+    AddressPrefix = '10.0.0.0/16'
     Subnet = $subnet 
 }
 $vnet = New-AzVirtualNetwork @VnetArgs
@@ -131,9 +131,9 @@ With the virtual network created, you can retrieve the ID for the infrastructure
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 $InfrastructureSubnet=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
 ```
 
@@ -161,19 +161,19 @@ The following table describes the parameters used in `containerapp env create`.
 | `infrastructure-subnet-resource-id` | Resource ID of a subnet for infrastructure components and user application containers. |
 
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command will result in a warning message.  The command will still succeed.
 
-```powershell
+```azurepowershell-interactive
 $WorkspaceArgs = @{
-    Name = "myworkspace"
+    Name = 'myworkspace'
     ResourceGroupName = $ResourceGroupName
     Location = $Location
-    PublicNetworkAccessForIngestion = "Enabled"
-    PublicNetworkAccessForQuery = "Enabled"
+    PublicNetworkAccessForIngestion = 'Enabled'
+    PublicNetworkAccessForQuery = 'Enabled'
 }
 New-AzOperationalInsightsWorkspace @WorkspaceArgs
 $WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
@@ -182,7 +182,7 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```powershell
+```azurepowershell-interactive
 $EnvArgs = @{
     EnvName = $ContainerAppsEnvironment
     ResourceGroupName = $ResourceGroupName
@@ -236,13 +236,13 @@ ENVIRONMENT_STATIC_IP=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONME
 VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_NAME} --query id --out json | tr -d '"'`
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 $EnvironmentDefaultDomain = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).DefaultDomain
 ```
 
-```powershell
+```azurepowershell-interactive
 $EnvironmentStaticIp = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).StaticIp
 ```
 
@@ -274,25 +274,25 @@ az network private-dns record-set a add-record \
   --zone-name $ENVIRONMENT_DEFAULT_DOMAIN
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName -Name $EnvironmentDefaultDomain
 ```
 
-```powershell
+```azurepowershell-interactive
 New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $ResourceGroupName -Name $VnetName -VirtualNetwork $Vnet -ZoneName $EnvironmentDefaultDomain -EnableRegistration
 ```
 
-```powershell
+```azurepowershell-interactive
 $DnsRecords = @()
 $DnsRecords += New-AzPrivateDnsRecordConfig -Ipv4Address $EnvironmentStaticIp
 
 $DnsRecordArgs = @{
     ResourceGroupName = $ResourceGroupName
     ZoneName = $EnvironmentDefaultDomain
-    Name = "*"
-    RecordType = "A"
+    Name = '*'
+    RecordType = 'A'
     Ttl = 3600 
     PrivateDnsRecords = $DnsRecords
 }
@@ -319,7 +319,7 @@ You must either provide values for all three of these properties, or none of the
 
 - If these properties aren’t provided, the CLI autogenerates the range values based on the address range of the VNET to avoid range conflicts.
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 | Parameter | Description |
 |---|---|
@@ -339,6 +339,9 @@ You must either provide values for all three of these properties, or none of the
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.  Deleting this resource group will also delete the resource group automatically created by the Container Apps service containing the custom network components.
 
+>[!CAUTION]
+> The following command deletes the specified resource group and all resources contained within it.If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
+
 ::: zone pivot="azure-cli"
 
 # [Bash](#tab/bash)
@@ -347,9 +350,9 @@ If you're not going to continue to use this application, you can delete the Azur
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 

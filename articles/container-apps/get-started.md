@@ -36,17 +36,17 @@ az containerapp env create \
   --location $LOCATION
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to  variables.
 
-```powershell
+```azurepowershell-interactive
 $WorkspaceArgs = @{
-    Name = "myworkspace"
+    Name = 'myworkspace'
     ResourceGroupName = $ResourceGroupName
     Location = $Location
-    PublicNetworkAccessForIngestion = "Enabled"
-    PublicNetworkAccessForQuery = "Enabled"
+    PublicNetworkAccessForIngestion = 'Enabled'
+    PublicNetworkAccessForQuery = 'Enabled'
 }
 New-AzOperationalInsightsWorkspace @WorkspaceArgs
 $WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
@@ -55,12 +55,12 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```powershell
+```azurepowershell-interactive
 $EnvArgs = @{
     EnvName = $ContainerAppsEnvironment
     ResourceGroupName = $ResourceGroupName
     Location = $Location
-    AppLogConfigurationDestination = "log-analytics"
+    AppLogConfigurationDestination = 'log-analytics'
     LogAnalyticConfigurationCustomerId = $WorkspaceId
     LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
 }
@@ -92,22 +92,22 @@ az containerapp create \
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 $ImageParams = @{
-    Name = "my-container-app"
-    Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
+    Name = 'my-container-app'
+    Image = 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
 }
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 $EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).Id
 
 $AppArgs = @{
-    Name = "my-container-app"
+    Name = 'my-container-app'
     Location = $Location
     ResourceGroupName = $ResourceGroupName
     ManagedEnvironmentId = $EnvId
-    IdentityType = "SystemAssigned"
+    IdentityType = 'SystemAssigned'
     TemplateContainer = $TemplateObj
     IngressTargetPort = 80
     IngressExternal = $true
@@ -129,11 +129,11 @@ By setting `IngressExternal` to `$true`, you make the container app available to
 
 The `create` command returned the fully qualified domain name for the container app. Copy this location to a web browser.
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Get the fully qualified domain name for the container app.
 
-```powershell
+```azurepowershell-interactive
 (Get-AzContainerApp -Name $AppArgs.Name -ResourceGroupName $ResourceGroupName).IngressFqdn
 ```
 
@@ -149,15 +149,18 @@ Copy this location to a web browser.
 
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
 
+>[!CAUTION]
+> The following command deletes the specified resource group and all resources contained within it.If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
+
 # [Bash](#tab/bash)
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
