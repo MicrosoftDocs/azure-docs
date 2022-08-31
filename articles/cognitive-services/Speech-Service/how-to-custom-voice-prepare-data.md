@@ -41,8 +41,8 @@ This table lists data types and how each is used to create a custom Text-to-Spee
 | Data type | Description | When to use | Additional processing required |
 | --------- | ----------- | ----------- | ------------------------------ |
 | **Individual utterances + matching transcript** | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. |
-| **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (.wav or .mp3, longer than 20 seconds), paired with a collection (.zip) of transcripts that contains all spoken words. | You have audio files and matching transcripts, but they aren't segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. |
-| **Audio only (beta)** | A collection (.zip) of audio files (.wav or .mp3) without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.|
+| **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (.wav or .mp3, longer than 20 seconds, at most 1000 audio files), paired with a collection (.zip) of transcripts that contains all spoken words. | You have audio files and matching transcripts, but they aren't segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. |
+| **Audio only (beta)** | A collection (.zip) of audio files (.wav or .mp3, at most 1000 audio files) without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.|
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
@@ -118,7 +118,7 @@ Follow these guidelines when preparing audio for segmentation.
 | Sample format |RIFF(.wav): PCM, at least 16-bit<br>mp3: at least 256 KBps bit rate|
 | Audio length | Longer than 20 seconds |
 | Archive format | .zip |
-| Maximum archive size | 2048 MB |
+| Maximum archive size | 2048 MB, at most 1000 audio files included |
 
 > [!NOTE]
 > The default sampling rate for a custom neural voice is 24,000 Hz. Audio files with a sampling rate lower than 16,000 Hz will be rejected. Your audio files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice. It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
@@ -158,7 +158,7 @@ Follow these guidelines when preparing audio.
 | Sample format |RIFF(.wav): PCM, at least 16-bit<br>mp3: at least 256 KBps bit rate|
 | Audio length | No limit |
 | Archive format | .zip |
-| Maximum archive size | 2048 MB |
+| Maximum archive size | 2048 MB, at most 1000 audio files included |
 
 > [!NOTE]
 > The default sampling rate for a custom neural voice is 24,000 Hz. Your audio files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice. It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
