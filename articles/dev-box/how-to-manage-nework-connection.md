@@ -11,19 +11,20 @@ ms.topic: how-to
 ---
 
 # Manage network connections
-
 Network connections allow dev boxes to connect to existing virtual networks, and determine the region into which dev boxes are deployed. 
 
 When planning network connectivity for your dev boxes, you must:
 - Ensure you have sufficient permissions to create and configure network connections.
 - Ensure yo have at least one virtual network (VNet) and subnet available for your dev boxes.
-- Identify the region or location closest to your dev boxes users. Deploying dev boxes into a region close to the users provides them with a better user experience.
+- Identify the region or location closest to your dev boxes users. Deploying dev boxes into a region close to the users provides them with a better experience.
 - Determine whether dev boxes should connect to your existing networks using an Azure Active Directory (Azure AD) join, or a Hybrid Azure AD join.
 ## Permissions 
-
-To manage a network connection, you need both:
-- Owner or Contributor permissions on an Azure Subscription or a specific resource group.
-- Network Contributor permissions on an existing virtual network (owner or contributor) or permission to create a new virtual network and subnet.
+To manage a network connection, you need the following permissions:
+|Action|Permission required|
+|-----|-----|
+|Create and configure VNet and subnet|Network Contributor permissions on an existing virtual network (owner or contributor) or permission to create a new virtual network and subnet.|
+|Create or delete network connection|Owner or Contributor permissions on an Azure Subscription or a specific resource group.|
+|Add or remove network connection |Write permission on the dev center.|
 
 ## Create a virtual network and subnet
 To create a network connection, you need an existing VNet and subnet. If you don't have a VNet and subnet available, use the following steps to create them:
@@ -63,11 +64,11 @@ If your organization routes egress traffic through a firewall, you need to open 
 ## Plan a network connection
 The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
 ### Types of Azure Active Directory Join
-The DevBox service requires a configured and working Azure AD join or Hybrid AD join. 
+The Dev Box service requires a configured and working Azure AD join or Hybrid AD join which defines how dev boxes join your domain and access resources. 
 
-If your organization uses Azure AD, you can use an Azure AD join, sometimes called a native Azure AD join. Dev box users sign into Azure AD joined dev boxes using their Azure AD account and access resources based on the permissions assigned to that account. Azure AD join enables access to cloud-based and on-premises apps and resources.
+If your organization uses Azure AD, you can use an Azure AD join, sometimes called a native Azure AD join. Dev box users sign into Azure AD joined dev boxes using their Azure AD account and access resources based on the permissions assigned to that account and policies assigned to the dev box account. Azure AD join enables access to cloud-based and on-premises apps and resources.
 
-If your organization has an existing on-premise Active Directory implementation, you can still benefit from some of the functionality provided by Azure AD by using hybrid Azure AD joined dev boxes. These dev boxes are joined to your on-premises Active Directory and registered with Azure Active Directory. Hybrid Azure AD joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. 
+If your organization has an on-premises Active Directory implementation, you can still benefit from some of the functionality provided by Azure AD by using hybrid Azure AD joined dev boxes. These dev boxes are joined to your on-premises Active Directory and registered with Azure Active Directory. Hybrid Azure AD joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. 
 
 You can learn more about each type of join and how to plan for them here:  
 -	[Plan your hybrid Azure Active Directory join deployment](/azure/active-directory/devices/hybrid-azuread-join-plan)
@@ -160,5 +161,5 @@ You can remove a network connection from a dev center if you no longer want it t
 The network connection will no longer be available for use in the dev center.
 
 ## Next steps
-<!-- Add links to other how tos -->
 
+- [Quickstart: Configure a Microsoft Dev Box Project](./quickstart-configure-dev-box-project.md)
