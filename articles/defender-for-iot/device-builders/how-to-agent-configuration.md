@@ -100,7 +100,7 @@ To use a default property value, remove the property from the configuration obje
 
 The following table contains the controllable properties of Defender for IoT security agents.
 
-Default values are available in the proper schema in [GitHub](https\://aka.ms/iot-security-module-default).
+Default values are available in the proper schema in [GitHub](https://aka.ms/iot-security-module-default).
 
 | Name| Status | Valid values| Default values| Description |
 |----------|--------|--|-------|----|

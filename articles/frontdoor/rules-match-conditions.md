@@ -155,7 +155,7 @@ In this example, we match all requests that have been detected as coming from a 
 Use the **HTTP version** match condition to identify requests that have been made by using a specific version of the HTTP protocol.
 
 > [!NOTE]
-> The **request cookies** match condition is only available on Azure Front Door Standard/Premium.
+> The **HTTP version** match condition is only available on Azure Front Door Standard/Premium.
 
 ### Properties
 

@@ -109,12 +109,12 @@ landingContent:
       - linkListType: concept
         links:
           - text: Choose between Azure Web PubSub service and Azure SignalR service
-            url: https://docs.microsoft.com/azure/azure-web-pubsub/resource-faq#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service
+            url: ./resource-faq.md#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service
       - linkListType: reference
         links:
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/webpubsub/
+            url: /rest/api/webpubsub/
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/service-page/azure%20web%20pubsub?view=azure-cli-latest
+            url: /cli/azure/service-page/azure%20web%20pubsub?view=azure-cli-latest
           - text: Azure Functions bindings
             url: reference-functions-bindings.md

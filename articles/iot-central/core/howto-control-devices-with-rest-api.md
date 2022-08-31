@@ -3,7 +3,7 @@ title: Use the REST API to manage devices in Azure IoT Central
 description: How to use the IoT Central REST API to control devices in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/28/2021
+ms.date: 06/20/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -28,6 +28,8 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
+
+To learn how to control devices by using the IoT Central UI, see [Use properties in an Azure IoT Central solution](../core/howto-use-properties.md) and [How to use commands in an Azure IoT Central solution()](../core/howto-use-commands.md)
 
 ## Components and modules
 

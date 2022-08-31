@@ -119,7 +119,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Email Communication Services resource
+          - text: Create an Email Communication Services resource
             url: quickstarts/email/create-email-communication-resource.md
           - text: Add Azure Managed domain
             url: quickstarts/email/add-azure-managed-domains.md

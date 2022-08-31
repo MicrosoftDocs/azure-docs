@@ -7,7 +7,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
 ms.topic: how-to
-ms.date: 02/13/2020
+ms.date: 06/24/2022
 ---
 
 # Troubleshoot data encryption in Azure Database for PostgreSQL - Single Server

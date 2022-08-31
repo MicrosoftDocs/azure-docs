@@ -39,7 +39,7 @@ All machines that need to be upgraded will have the status **Needs upgrade**. Yo
 
 :::image type="content" source="media\automanage-upgrade\overview-blade.png" alt-text="Needs upgrade status.":::
 
-### Disable Automanage machines that need to be upgrade
+### Disable Automanage machines that need to be upgraded
 
 Before a machine can upgrade to the new Automanage version, the machine must be disabled from the previous version of Automanage. To disable the machines follow these steps:
 1. Select the checkbox next to the virtual machine you want to disable.

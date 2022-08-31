@@ -79,7 +79,7 @@ remote_url = "<<abfss path to storage account>>
 
 ## Prepare dataset
 
-Next, we will prepare the dataset for training. In this tutorial, we will use the MNIST dataset from [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/dataset-mnist?tabs=azureml-opendatasets).
+Next, we will prepare the dataset for training. In this tutorial, we will use the MNIST dataset from [Azure Open Datasets](../../open-datasets/dataset-mnist.md?tabs=azureml-opendatasets).
 
 ```python
 def get_dataset(rank=0, size=1):

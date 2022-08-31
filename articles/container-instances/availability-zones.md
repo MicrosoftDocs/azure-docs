@@ -1,8 +1,12 @@
 ---
 title: Deploy a zonal container group in Azure Container Instances (ACI)
 description: Learn how to deploy a container group in an availability zone.
-ms.topic: article
-ms.date: 10/13/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.topic: how-to
+ms.date: 06/17/2022
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 

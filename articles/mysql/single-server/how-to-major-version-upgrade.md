@@ -1,20 +1,20 @@
 ---
 title: Major version upgrade in Azure Database for MySQL - Single Server
 description: This article describes how you can upgrade major version for Azure Database for MySQL - Single Server 
-author: Bashar-MSFT
-ms.author: bahusse
 ms.service: mysql
 ms.subservice: single-server
+author: Bashar-MSFT
+ms.author: bahusse
 ms.topic: how-to
-ms.date: 1/28/2021
+ms.date: 06/20/2022
 ---
+
 # Major version upgrade in Azure Database for MySQL Single Server
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we will remove it from this article.
->
 
 > [!IMPORTANT]
 > Major version upgrade for Azure database for MySQL Single Server is in public preview.
@@ -120,10 +120,10 @@ The GA of this feature is planned before MySQL v5.6 retirement. However, the fea
 
 Yes, the server will be unavailable during the upgrade process so we recommend you perform this operation during your planned maintenance window. The estimated downtime depends on the database size, storage size provisioned (IOPs provisioned), and the number of tables on the database. The upgrade time is directly proportional to the number of tables on the server.The upgrades of Basic SKU servers are expected to take longer time as it is on standard storage platform. To estimate the downtime for your server environment, we recommend to first perform upgrade on restored copy of the server. Consider [performing minimal downtime major version upgrade from MySQL 5.6 to MySQL 5.7 using read replica.](#perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas)
 
-### What will happen if we do not choose to upgrade our MySQL v5.6 server before February 5, 2021?
+### What happens if we do not choose to upgrade our MySQL v5.6 server before February 5, 2021?
 
-You can still continue running your MySQL v5.6 server as before. Azure **will never** perform force upgrade on your server. However, the restrictions documented in [Azure Database for MySQL versioning policy](concepts-version-policy.md) will apply.
+You can still continue running your MySQL v5.6 server as before. Azure **will never** perform force upgrade on your server. However, the restrictions documented in [Azure Database for MySQL versioning policy](../concepts-version-policy.md) will apply.
 
 ## Next steps
 
-Learn about [Azure Database for MySQL versioning policy](concepts-version-policy.md).
+Learn about [Azure Database for MySQL versioning policy](../concepts-version-policy.md).

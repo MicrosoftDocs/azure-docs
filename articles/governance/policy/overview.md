@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 05/13/2022
+ms.date: 07/05/2022
 ms.topic: overview
 ms.author: timwarner
 author: timwarner-msft
@@ -143,13 +143,21 @@ to users who do not need them.
 > [!NOTE]
 > The managed identity of a **deployIfNotExists** or **modify** policy assignment needs enough
 > permissions to create or update targetted resources. For more information, see
-> [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-policy-definition).
+> [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-the-policy-definition).
+
+### Special permissions requirement for Azure Policy with Azure Virtual Network Manager (preview)
+
+[Azure Virtual Network Manager (preview)](../../virtual-network-manager/overview.md) enables you to apply consistent management and security policies to multiple Azure virtual networks (VNets) throughout your cloud infrastructure. Azure Virtual Network Manager dynamic groups use Azure Policy definitions to evaluate VNet membership in those groups.
+
+To create, edit, or delete Azure Virtual Network Manager dynamic group policies, you need not only appropriate read and write Azure Policy RBAC permissions as described previously, but also permissions to join the network group.
+
+Specifically, the required resource provider permission is `Microsoft.Network/networkManagers/networkGroups/join/action`.
 
 ### Resources covered by Azure Policy
 
 Azure Policy evaluates all Azure resources at or below subscription-level, including Arc enabled
 resources. For certain resource providers such as
-[guest configuration](./concepts/guest-configuration.md),
+[Machine configuration](../machine-configuration/overview.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
 [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see

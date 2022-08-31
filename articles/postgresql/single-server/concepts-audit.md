@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: nlarin
 author: niklarin
-ms.date: 01/28/2020
+ms.date: 06/24/2022
 ---
 
 # Audit logging in Azure Database for PostgreSQL - Single Server
@@ -43,19 +43,19 @@ To use the [portal](https://portal.azure.com):
    1. On the left, under **Settings**, select **Server parameters**.
    1. Search for **shared_preload_libraries**.
    1. Select **PGAUDIT**.
-   
+
       :::image type="content" source="./media/concepts-audit/share-preload-parameter.png" alt-text="Screenshot that shows Azure Database for PostgreSQL enabling shared_preload_libraries for PGAUDIT.":::
 
    1. Restart the server to apply the change.
    1. Check that `pgaudit` is loaded in `shared_preload_libraries` by executing the following query in psql:
-   
+
         ```SQL
       show shared_preload_libraries;
       ```
       You should see `pgaudit` in the query result that will return `shared_preload_libraries`.
 
    1. Connect to your server by using a client like psql, and enable the pgAudit extension:
-   
+
       ```SQL
       CREATE EXTENSION pgaudit;
       ```
@@ -78,7 +78,7 @@ To configure pgAudit, in the [portal](https://portal.azure.com):
    1. On the left, under **Settings**, select **Server parameters**.
    1. Search for the **pgaudit** parameters.
    1. Select appropriate settings parameters to edit. For example, to start logging, set **pgaudit.log** to **WRITE**.
-   
+
        :::image type="content" source="./media/concepts-audit/pgaudit-config.png" alt-text="Screenshot that shows Azure Database for PostgreSQL configuring logging with pgAudit.":::
    1. Select **Save** to save your changes.
 

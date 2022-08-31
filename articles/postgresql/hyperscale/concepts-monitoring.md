@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 06/22/2022
 ---
 
 # Monitor and tune Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -54,6 +54,7 @@ These metrics are available for Hyperscale (Citus) nodes:
 |Metric|Metric Display Name|Unit|Description|
 |---|---|---|---|
 |active_connections|Active Connections|Count|The number of active connections to the server.|
+|apps_reserved_memory_percent|Reserved Memory Percent|Percent|Calculated from the ratio of Committed_AS/CommitLimit as shown in /proc/meminfo.|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
 |iops|IOPS|Count|See the [IOPS definition](../../virtual-machines/premium-storage-performance.md#iops) and [Hyperscale (Citus) throughput](resources-compute.md)|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|

@@ -1,18 +1,14 @@
 ---
-title: Use Azure Firewall Manager to manage Web Application Firewall policies (preview)
+title: Use Azure Firewall Manager to manage Web Application Firewall policies
 description: Learn about managing Azure Web Application Firewall policies using Azure Firewall Manager
 author: vhorne
 ms.author: victorh
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 06/15/2022
 ---
 
-# Configure WAF policies using Azure Firewall Manager (preview)
-
-> [!IMPORTANT]
-> Configure Web Application Firewall policies using Azure Firewall Manager is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Configure WAF policies using Azure Firewall Manager
 
 Azure Firewall Manager is a platform to manage and protect your network security resources at scale. You can associate your WAF policies to an Application Gateway or Azure Front Door within Azure Firewall Manager, all in a single place.
 
@@ -24,7 +20,7 @@ To navigate to WAF policies, select the **Web Application Firewall Policies** ta
 
 :::image type="content" source="../media/manage-policies/policies.png" alt-text="Screenshot showing Web Application Firewall policies in Firewall Manager." lightbox="../media/manage-policies/policies.png":::
 
-## Associate of dissociate WAF policies
+## Associate or dissociate WAF policies
 
 In Azure Firewall Manager, you can create and view all WAF policies in your subscriptions. These policies can be associated or dissociated with an application delivery platform. Select the service and then select **Manage Security**.
 
@@ -42,4 +38,4 @@ To upgrade a WAF configuration to a WAF policy, select **Upgrade from WAF config
 
 ## Next steps
 
-- [Manage Azure Web Application Firewall policies (preview)](../../firewall-manager/manage-web-application-firewall-policies.md)
+- [Manage Azure Web Application Firewall policies](../../firewall-manager/manage-web-application-firewall-policies.md)

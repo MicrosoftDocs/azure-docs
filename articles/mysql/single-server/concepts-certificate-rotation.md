@@ -1,12 +1,12 @@
 ---
 title: Certificate rotation for Azure Database for MySQL
 description: Learn about the upcoming changes of root certificate changes that will affect Azure Database for MySQL
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 04/08/2021
+author: mksuni
+ms.author: sumuth
+ms.date: 06/20/2022
 ---
 
 # Understanding the changes in the Root CA change for Azure Database for MySQL Single Server

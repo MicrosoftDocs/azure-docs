@@ -159,7 +159,7 @@ To add a schema to your API Management instance using the Azure portal:
 1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the **APIs** section of the left-hand menu, select **Schemas** > **+ Add**.
 1. In the **Create schema** window, do the following:
-    1. Enter a **Name** for the schema.
+    1. Enter a **Name** (Id) for the schema.
     1. In **Schema type**, select **JSON** or **XML**.
     1. Enter a **Description**.
     1. In **Create method**, do one of the following:
@@ -172,11 +172,14 @@ To add a schema to your API Management instance using the Azure portal:
 
     :::image type="content" source="media/validation-policies/add-schema.png" alt-text="Create schema":::
 
-After the schema is created, it appears in the list on the **Schemas** page. Select a schema to view its properties or to edit in a schema editor.
+API Management adds the schema resource at the relative URI `/schemas/<schemaId>`, and the schema appears in the list on the **Schemas** page. Select a schema to view its properties or to edit in a schema editor. 
 
 > [!NOTE]
-> * A schema may cross-reference another schema that is added to the API Management instance. 
-> * Open-source tools to resolve WSDL and XSD schema references and to batch-import generated schemas to API Management are available on [GitHub](https://github.com/Azure-Samples/api-management-schema-import).
+> A schema may cross-reference another schema that is added to the API Management instance. For example, include an XML schema added to API Management by using an element similar to:<br/><br/>`<xs:include schemaLocation="/schemas/myschema" />`
+
+
+> [!TIP]
+> Open-source tools to resolve WSDL and XSD schema references and to batch-import generated schemas to API Management are available on [GitHub](https://github.com/Azure-Samples/api-management-schema-import).
 
 ### Usage
 

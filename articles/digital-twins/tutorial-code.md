@@ -44,7 +44,7 @@ What you need to begin:
 
 Once you're ready to go with your Azure Digital Twins instance, start setting up the client app project. 
 
-Open a command prompt or other console window on your machine, and create an empty project directory where you want to store your work during this tutorial. Name the directory whatever you want (for example, *DigitalTwinsCodeTutorial*).
+Open a console window on your machine, and create an empty project directory where you want to store your work during this tutorial. Name the directory whatever you want (for example, *DigitalTwinsCodeTutorial*).
 
 Navigate into the new directory.
 

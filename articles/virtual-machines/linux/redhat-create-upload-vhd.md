@@ -10,7 +10,7 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: srijangupta
-
+ms.reviewer: mattmcinnes
 ---
 # Prepare a Red Hat-based virtual machine for Azure
 
@@ -1370,10 +1370,6 @@ This section shows you how to prepare a RHEL 7 distro from an ISO using a kickst
 
     # Disable the root account
     usermod root -p '!!'
-
-    # Disabke swap in WALinuxAgent
-    ResourceDisk.Format=n
-    ResourceDisk.EnableSwap=n
 
     # Configure swap using cloud-init
     echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf

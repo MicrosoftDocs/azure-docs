@@ -15,7 +15,20 @@ The integration runtime (IR) is the compute infrastructure that Microsoft Purvie
 
 A self-hosted integration runtime (SHIR) can be used to scan data source in an on-premises network or a virtual network. The installation of a self-hosted integration runtime needs an on-premises machine or a virtual machine inside a private network.
 
-This article describes how to create and manage a self-hosted integration runtime.
+This article covers both set up of a self-hosted integration runtime, and troubleshooting and management.
+
+
+|Topic | Section|
+|----|----|
+|Set up a new self-hosted integration runtime|[Machine requirements](#prerequisites)|
+||[Source-specific machine requirements are listed under prerequisites in each source article](azure-purview-connector-overview.md)|
+||[Set up guide](#setting-up-a-self-hosted-integration-runtime)|
+|Networking|[Networking requirements](#networking-requirements)|
+||[Proxy servers](#proxy-server-considerations)|
+||[Private endpoints](catalog-private-link.md)|
+||[Troubleshoot proxy and firewall](#possible-symptoms-for-issues-related-to-the-firewall-and-proxy-server)|
+||[Troubleshoot connectivity](troubleshoot-connections.md)|
+|Management|[General](#manage-a-self-hosted-integration-runtime)|
 
 > [!NOTE]
 > The Microsoft Purview Integration Runtime cannot be shared with an Azure Synapse Analytics or Azure Data Factory Integration Runtime on the same machine. It needs to be installed on a separated machine.
@@ -41,7 +54,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 
 - Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
 
-- Ensure Visual C++ Redistributable for Visual Studio 2015 or higher is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022).
+- Ensure Visual C++ Redistributable for Visual Studio 2015 or higher is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022).
 
 - The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space. For the details of system requirements, see [Download](https://www.microsoft.com/download/details.aspx?id=39717).
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
@@ -103,23 +116,23 @@ You can edit a self-hosted integration runtime by navigating to **Integration ru
 
 You can delete a self-hosted integration runtime by navigating to **Integration runtimes** in the Management center, selecting the IR and then selecting **Delete**. Once an IR is deleted, any ongoing scans relying on it will fail.
 
-## Service account for Self-hosted integration runtime
+### Notification area icons and notifications
 
-The default sign in service account of self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
+If you move your cursor over the icon or message in the notification area, you can see details about the state of the self-hosted integration runtime.
+
+:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::||
+
+### Service account for Self-hosted integration runtime
+
+The default sign-in service account of self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
 
 :::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/shir-service-account.png" alt-text="Service account for self-hosted integration runtime":::
 
-Make sure the account has the permission of Log on as a service. Otherwise self-hosted integration runtime can't start successfully. You can check the permission in **Local Security Policy -> Security Settings -> Local Policies -> User Rights Assignment -> Log on as a service**
+Make sure the account has the permission of Log-on as a service. Otherwise self-hosted integration runtime can't start successfully. You can check the permission in **Local Security Policy -> Security Settings -> Local Policies -> User Rights Assignment -> Log on as a service**
 
 :::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/shir-service-account-permission.png" alt-text="Screenshot of Local Security Policy - User Rights Assignment":::
 
 :::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png" alt-text="Screenshot of Log on as a service user rights assignment":::
-
-## Notification area icons and notifications
-
-If you move your cursor over the icon or message in the notification area, you can see details about the state of the self-hosted integration runtime.
-
-:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::
 
 ## Networking requirements
 
@@ -127,7 +140,7 @@ Your self-hosted integration runtime machine needs to connect to several resourc
 
 * The Microsoft Purview services used to manage the self-hosted integration runtime.
 * The data sources you want to scan using the self-hosted integration runtime.
-* The managed Storage account and Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
+* The managed Storage account and optional Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
 
 There are two firewalls to consider:
 
@@ -294,4 +307,3 @@ When scanning Parquet files using the self-hosted IR, the service locates the Ja
 - [Microsoft Purview network architecture and best practices](concept-best-practices-network.md)
 
 - [Use private endpoints with Microsoft Purview](catalog-private-link.md)
-

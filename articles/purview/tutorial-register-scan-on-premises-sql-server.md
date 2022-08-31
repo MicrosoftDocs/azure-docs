@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active [Azure Key Vault](../key-vault/general/quick-create-portal.md).
-- An Microsoft Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
+- A Microsoft Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
 - An [on-premises SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads).
 
 ## Sign in to the Microsoft Purview governance portal

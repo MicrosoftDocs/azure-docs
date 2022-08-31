@@ -43,7 +43,17 @@ The price change feature supports the following scenarios:
 
 ### Supported offer types
 
-The ability to change prices is available for both public and private plans of all offers transacted through Microsoft: Azure application (Managed App), Software as a service, and Virtual Machine.
+The ability to change prices is available for both public and private plans of offers transacted through Microsoft.
+
+Supported offer types:
+- Azure application (Managed App)
+- Software as a service (SaaS)
+- Azure virtual machine.
+
+Price changes for the following offer types are not yet supported:
+- Dynamics 365 apps on Dataverse and Power Apps
+- Power BI visual
+- Azure container
 
 ### Unsupported scenarios and limitations
 

@@ -50,7 +50,7 @@ az connectedmachine extension create --resource-group "resourceGroupName" --mach
 The following example enables the Microsoft Antimalware extension on an Azure Arc-enabled Windows server:
 
 ```azurecli
-az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.Security" --type "IaaSAntimalware" --name "IaaSAntimalware" --settings '{"AntimalwareEnabled": true}'
+az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.Security" --type "IaaSAntimalware" --name "IaaSAntimalware" --settings '"{\"AntimalwareEnabled\": \"true\"}"'
 ```
 
 ## List extensions installed

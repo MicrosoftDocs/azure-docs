@@ -27,7 +27,7 @@ Before you use the speech-to-text REST API for short audio, consider the followi
 > [!TIP]
 > For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
+[!INCLUDE [](includes/cognitive-services-speech-service-rest-auth.md)]
 
 ### Regions and endpoints
 
@@ -37,9 +37,7 @@ The endpoint for the REST API for short audio has this format:
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-Replace `<REGION_IDENTIFIER>` with the identifier that matches the region of your subscription from this table:
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+Replace `<REGION_IDENTIFIER>` with the identifier that matches the [region](regions.md) of your subscription.
 
 > [!NOTE]
 > You must append the language parameter to the URL to avoid receiving a 4xx HTTP error. For example, the language set to US English via the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
@@ -50,7 +48,7 @@ These parameters might be included in the query string of the REST request:
 
 | Parameter | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `language` | Identifies the spoken language that's being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
+| `language` | Identifies the spoken language that's being recognized. See [Supported languages](language-support.md?tabs=stt-tts). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are: <br><br>`masked`, which replaces profanity with asterisks. <br>`removed`, which removes all profanity from the result. <br>`raw`, which includes profanity in the result. <br><br>The default setting is `masked`. | Optional |
 | `cid` | When you're using the [Speech Studio](speech-studio-overview.md) to create [custom models](./custom-speech-overview.md), you can take advantage of the **Endpoint ID** value from the **Deployment** page. Use the **Endpoint ID** value as the argument to the `cid` query string parameter. | Optional |

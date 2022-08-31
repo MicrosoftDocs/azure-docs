@@ -46,7 +46,7 @@ import { Features} from "@azure/communication-calling";
 Then you can get the recording feature API object from the call instance:
 
 ```js
-const callTransferApi = call.feature(Features.Recording);
+const callRecordingApi = call.feature(Features.Recording);
 ```
 
 Subscribe to recording changes:
@@ -96,6 +96,21 @@ var startRecordingResponse = await callingServerClient.InitializeServerCall("<se
 ```
 The `StartRecordingAsync` API response contains the recording ID of the recording session.
 
+### Specify a user on a channel 0 for unmixed audio-only
+
+```csharp
+var channelAffinity = new []
+{
+    new ChannelAffinity
+    {
+        Channel = 0,
+        Participant = user,
+    },
+};
+
+var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>","<RecordingContent>","<RecordingChannel>","<RecordingFormat>", channelAffinity).ConfigureAwait(false);
+```
+
 ## Start recording session with options using 'StartRecordingAsync' server API
 
 Use the server call ID received during initiation of a call.
@@ -108,6 +123,21 @@ Use the server call ID received during initiation of a call.
 var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>","<RecordingContent>","<RecordingChannel>","<RecordingFormat>").ConfigureAwait(false);
 ```
 The `StartRecordingAsync` API response contains the recording ID of the recording session.
+
+### Specify a user on a channel 0 for unmixed audio-only
+
+```csharp
+var channelAffinity = new []
+{
+    new ChannelAffinity
+    {
+        Channel = 0,
+        Participant = user,
+    },
+};
+
+var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>", RecordingContent.Audio, RecordingChannel.Unmixed, RecordingFormat.Wav, channelAffinity).ConfigureAwait(false);
+```
 
 ## Stop recording session using 'StopRecordingAsync' server API
 

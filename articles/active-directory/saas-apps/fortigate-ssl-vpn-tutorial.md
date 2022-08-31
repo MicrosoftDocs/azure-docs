@@ -46,6 +46,8 @@ To configure the integration of FortiGate SSL VPN into Azure AD, you need to add
 1. In the **Add from the gallery** section, enter **FortiGate SSL VPN** in the search box.
 1. Select **FortiGate SSL VPN** in the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide).
+
 ## Configure and test Azure AD SSO for FortiGate SSL VPN
 
 You'll configure and test Azure AD SSO with FortiGate SSL VPN by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding SAML SSO user group in FortiGate SSL VPN.
@@ -109,6 +111,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
    d. For **Source attribute**, select **user.userprincipalname**.
 
    e. Select **Save**.
+
+   > [!NOTE]
+   > **User Attributes & Claims** allow only one group claim. To add a group claim, delete the existing group claim **user.groups [SecurityGroup]** already present in the       claims to add the new claim or edit the existing one to **All groups**.
 
    f. Select **Add a group claim**.
 

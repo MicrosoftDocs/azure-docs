@@ -1,16 +1,16 @@
 ---
 title: Use SSH keys to connect to Linux VMs 
 description: Learn how to generate and use SSH keys from a Windows computer to connect to a Linux virtual machine on Azure.
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2021
 ms.topic: how-to
-ms.author: cynthn 
+ms.author: mattmcinnes
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
-
+ms.reviewer: jamesser
 ---
 # How to use SSH keys with Windows on Azure
 

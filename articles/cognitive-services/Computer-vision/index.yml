@@ -23,6 +23,9 @@ highlightedContent:
       - title: What's new in Computer Vision?
         itemType: whats-new
         url: whats-new.md
+      - title: Vision Studio
+        itemType: get-started
+        url: overview-vision-studio.md
       - title: Language support
         itemType: reference
         url: language-support.md
@@ -43,6 +46,9 @@ conceptualContent:
         - itemType: deploy
           text: Use the Read OCR container
           url: computer-vision-how-to-install-containers.md
+        - itemType: learn
+          text: Microsoft Learn
+          url: /learn/modules/read-text-images-documents-with-computer-vision-service/
         - itemType: reference
           text: OCR API reference
           url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
@@ -69,6 +75,9 @@ conceptualContent:
         - itemType: tutorial
           text: Generate metadata for images
           url: Tutorials/storage-lab-tutorial.md
+        - itemType: learn
+          text: Microsoft Learn
+          url: /learn/modules/analyze-images-computer-vision/
         - itemType: reference
           text: Image Analysis API reference
           url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
@@ -95,6 +104,9 @@ conceptualContent:
         - itemType: tutorial
           text: Add users to a Face service
           url: Tutorials/build-enrollment-app.md
+        - itemType: learn
+          text: Microsoft Learn
+          url: /learn/modules/detect-analyze-faces/
         - itemType: reference
           text: Face API reference
           url: /rest/api/face/
@@ -169,4 +181,3 @@ additionalContent:
           url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
 
 
-     

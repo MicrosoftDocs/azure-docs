@@ -5,6 +5,7 @@ ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 2/23/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: harelbr
 ---
 # Manage alert rules created in previous versions
 

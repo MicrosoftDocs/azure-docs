@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: how-to
-ms.date: 05/17/2022
+ms.date: 08/20/2022
 # As a developer, I want learn how to create my own custom built-in connector operations to use and run in my Standard logic app workflows.
 ---
 
@@ -40,6 +40,10 @@ For more information, review the following documentation:
   * [Create an integration workflow with single-tenant Azure Logic Apps (Standard) - Azure portal](create-single-tenant-workflows-azure-portal.md)
 
 * [Visual Studio Code with the Azure Logic Apps (Standard) extension and other prerequisites installed](create-single-tenant-workflows-azure-portal.md#prerequisites). Your installation should already include the [NuGet package for Microsoft.Azure.Workflows.WebJobs.Extension](https://www.nuget.org/packages/Microsoft.Azure.Workflows.WebJobs.Extension/).
+
+  > [!NOTE]
+  >
+  > This authoring capability is currently available only in Visual Studio Code.
 
 * An Azure Cosmos account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos account, database, container and items from the Azure portal](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
 

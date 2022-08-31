@@ -1,19 +1,20 @@
 ---
 title: Connect to a Linux VM
 description: Learn how to connect to a Linux VM in Azure.
-author: cynthn
+author: mattmcinnes
 ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/25/2022
-ms.author: cynthn
+ms.author: mattmcinnes
+ms.reviewer: jamesser
 
 ---
 # Connect to a Linux VM
 
-In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH aware client commonly found in Linux; on Windows you can use [Windows Sub System for Linux](/windows/wsl/about) or any local terminal. You can also use [Azure Cloud Shell](../cloud-shell/overview.md) from any browser.
-
+In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH client commonly found in Linux and Windows. You can also use [Azure Cloud Shell](../cloud-shell/overview.md) from any browser.
+ 
 This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP, see [Azure Bastion Service](../bastion/bastion-overview.md).
 
 ## Prerequisites
@@ -52,11 +53,7 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
    
 ## Connect to the VM
 
-Once the above prerequisites are met, you're ready to connect to your VM. Open your SSH client of choice.
-
-
-- If you're using Linux or macOS, the SSH client is usually terminal or shell.
-- For a Windows machine this might be [WSL](/windows/wsl/about), or any local terminal like [PowerShell](/powershell/scripting/overview). If you do not have an SSH client you can [install WSL](/windows/wsl/install), or consider using [Azure Cloud Shell](../cloud-shell/overview.md).
+Once the above prerequisites are met, you are ready to connect to your VM. Open your SSH client of choice. The SSH client command is typically included in Linux, macOS, and Windows. If you are using Windows 7 or older, where Win32 OpenSSH is not included by default, consider installing [WSL](/windows/wsl/about) or using [Azure Cloud Shell](../cloud-shell/overview.md) from the browser.
 
 > [!NOTE]
 > The following examples assume the SSH key is in the key.pem format. If you used CLI or Azure PowerShell to download your keys, they may be in the id_rsa format.
@@ -132,24 +129,27 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
 3. Success! You should now be connected to your VM. If you're unable to connect using the correct method above, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 
-## [Windows 10 Command Line (cmd.exe, PowerShell etc.)](#tab/Windows)
+## [Windows command line (cmd.exe, PowerShell etc.)](#tab/Windows)
 
 ### SSH with a new key pair
+
 1. Locate your private SSH Key
 2. Run the SSH command with the following syntax: `ssh -i PATH_TO_PRIVATE_KEY USERNAME@EXTERNAL_IP`
 
     For example, if your `azureuser` is the username you created and `20.51.230.13` is the public IP address of your VM, type:
-    ```bash
+    ```powershell
     ssh -i  .\Downloads\myKey.pem azureuser@20.51.230.13 
     ```
 3. Validate the returned fingerprint.
 
     If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command: 
     
-    ```bash
-    ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
+    ```azurepowershell-interactive
+    Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -CommandId 'RunPowerShellScript' -ScriptString 
+    'ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}''
     ```
-4. Success! You should now be connected to your VM. If you're unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+
+4. Success! You should now be connected to your VM. If you are unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 ### Password authentication
  
@@ -178,5 +178,4 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
 
 ## Next steps
 
-Learn how to transfer files to an existing Linux VM, see [Use SCP to move files to and from a Linux VM](./linux/copy-files-to-linux-vm-using-scp.md).
-
+Learn how to transfer files to an existing VM, see [Use SCP to move files to and from a VM](./copy-files-to-vm-using-scp.md).

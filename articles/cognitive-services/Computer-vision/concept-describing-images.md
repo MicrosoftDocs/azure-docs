@@ -14,11 +14,16 @@ ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Describe images with human-readable language
+# Image description generation
 
 Computer Vision can analyze an image and generate a human-readable phrase that describes its contents. The algorithm returns several descriptions based on different visual features, and each description is given a confidence score. The final output is a list of descriptions ordered from highest to lowest confidence.
 
 At this time, English is the only supported language for image description.
+
+Try out the image captioning features quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Image description example
 

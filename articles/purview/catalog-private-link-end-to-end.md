@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 06/21/2022
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account to access purview account and scan data sources from restricted network.
 ---
 
@@ -42,6 +42,9 @@ Using one of the deployment options explained further in this guide, you can dep
 5. Deploy and register [Self-hosted integration runtime](#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources) inside the same VNet or a peered VNet where Microsoft Purview account and ingestion private endpoints are deployed.
 6. After completing this guide, adjust DNS configurations if needed.
 7. Validate your network and name resolution between management machine, self-hosted IR VM and data sources to Microsoft Purview. 
+
+   > [!NOTE]
+   > If you enable a managed event hub after deploying your ingestion private endpoint, you'll need to redeploy the ingestion private endpoint.
 
 ## Option 1 - Deploy a new Microsoft Purview account with _account_, _portal_ and _ingestion_ private endpoints
 

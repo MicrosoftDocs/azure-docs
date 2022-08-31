@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 08/11/2022
 ---
 
 # Integrate Azure SQL Database with Service Connector
@@ -16,9 +16,13 @@ This page shows all the supported compute services, clients, and authentication 
 
 - Azure App Service
 - Azure Container Apps
-- Azure Spring Cloud
+- Azure Spring Apps
 
 ## Supported authentication types and clients
+
+Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+
+### [Azure App Service](#tab/app-service)
 
 | Client type        | System-assigned managed identity | User-assigned managed identity |       Secret/connection string       | Service principal |
 |--------------------|:--------------------------------:|:------------------------------:|:------------------------------------:|:-----------------:|
@@ -31,28 +35,53 @@ This page shows all the supported compute services, clients, and authentication 
 | Python             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python - Django    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Ruby               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| None               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+### [Azure Container Apps](#tab/container-apps)
+
+| Client type        | System-assigned managed identity | User-assigned managed identity |       Secret/connection string       | Service principal |
+|--------------------|:--------------------------------:|:------------------------------:|:------------------------------------:|:-----------------:|
+| .NET               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Go                 |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| PHP                |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Node.js            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Python             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Python - Django    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Ruby               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| None               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+### [Azure Spring Apps](#tab/spring-apps)
+
+| Client type        | System-assigned managed identity | User-assigned managed identity |       Secret/connection string       | Service principal |
+|--------------------|:--------------------------------:|:------------------------------:|:------------------------------------:|:-----------------:|
+| Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+---
 
 ## Default environment variable names or application properties
 
-Use the environment variable names and application properties listed below to connect a service to Azure SQL Database using a secret and a connection string.
+Use the environment variable names and application properties listed below to connect compute services to Azure SQL Database using a secret and a connection string.
 
 ### Connect an Azure App Service instance
 
-Use the connection details below to connect Azure App Service instances with .NET, Go, Java, Java - Spring Boot, PHP, Node.js, Python, Python - Django and Ruby. For each example below, replace the placeholder texts `<sql-server>`, `<sql-db>`, `<sql-user>`, and `<sql-pass>` with your server name, database name, user ID and password.
+Use the connection details below to connect Azure App Service instances with .NET, Go, Java, Java - Spring Boot, PHP, Node.js, Python, Python - Django and Ruby. For each example below, replace the placeholder texts `<sql-server>`, `<sql-database>`, `<sql-username>`, and `<sql-password>` with your own server name, database name, user ID and password.
 
 #### Azure App Service with .NET (sqlClient)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
-> | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-db>;User ID=<sql-user>;Password=<sql-pass>` |
+> | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;User ID=<sql-username>;Password=<sql-password>` |
 
 #### Azure App Service with Java Database Connectivity (JDBC)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
-> | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;user=<sql-user>;password=<sql-pass>;` |
+> | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;user=<sql-username>;password=<sql-password>;` |
 
 #### Azure App Service with Java Spring Boot (spring-boot-starter-jdbc)
 
@@ -61,14 +90,14 @@ Use the connection details below to connect Azure App Service instances with .NE
 > |-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------|
 > | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;` |
 > | spring.datasource.username        | Azure SQL Database datasource username | `<sql-user>`                                                                     |
-> | spring.datasource.password        | Azure SQL Database datasource password | `<sql-pass>`                                                                     |
+> | spring.datasource.password        | Azure SQL Database datasource password | `<sql-password>`                                                                     |
 
 #### Azure App Service with Go (go-mssqldb)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
-> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `server=<sql-server>.database.windows.net;port=1433;database=<sql-db>;user id=<sql-user>;password=<sql-pass>;` |
+> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `server=<sql-server>.database.windows.net;port=1433;database=<sql-database>;user id=<sql-username>;password=<sql-password>;` |
 
 #### Azure App Service with Node.js
 
@@ -77,9 +106,9 @@ Use the connection details below to connect Azure App Service instances with .NE
 > |-----------------------------------|-----------------------------|-------------------------------------|
 > | AZURE_SQL_SERVER                  | Azure SQL Database server   | `<sql-server>.database.windows.net` |
 > | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
-> | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-db>`                          |
-> | AZURE_SQL_USERNAME                | Azure SQL Database username | `<sql-user>`                        |
-> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-pass>`                        |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-database>`                          |
+> | AZURE_SQL_USERNAME                | Azure SQL Database username | `<sql-username>`                        |
+> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-password>`                        |
 
 #### Azure App Service with PHP
 
@@ -87,9 +116,9 @@ Use the connection details below to connect Azure App Service instances with .NE
 > | Default environment variable name | Description                                | Sample value                        |
 > |-----------------------------------|--------------------------------------------|-------------------------------------|
 > | AZURE_SQL_SERVERNAME              | Azure SQL Database servername              | `<sql-server>.database.windows.net` |
-> | AZURE_SQL_DATABASE                | Azure SQL Database database                | `<sql-db>`                          |
-> | AZURE_SQL_UID                     | Azure SQL Database unique identifier (UID) | `<sql-user>`                        |
-> | AZURE_SQL_PASSWORD                | Azure SQL Database password                | `<sql-pass>`                        |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database                | `<sql-database>`                          |
+> | AZURE_SQL_UID                     | Azure SQL Database unique identifier (UID) | `<sql-username>`                        |
+> | AZURE_SQL_PASSWORD                | Azure SQL Database password                | `<sql-password>`                        |
 
 #### Azure App Service with Python (pyobdc)
 
@@ -98,9 +127,9 @@ Use the connection details below to connect Azure App Service instances with .NE
 > |-----------------------------------|-----------------------------|-------------------------------------|
 > | AZURE_SQL_SERVER                  | Azure SQL Database server   | `<sql-server>.database.windows.net` |
 > | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
-> | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-db>`                          |
-> | AZURE_SQL_USER                    | Azure SQL Database user     | `<sql-user>`                        |
-> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-pass>`                        |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-database>`                          |
+> | AZURE_SQL_USER                    | Azure SQL Database user     | `<sql-username>`                        |
+> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-password>`                        |
 
 #### Azure App Service with Django (mssql-django)
 
@@ -109,9 +138,9 @@ Use the connection details below to connect Azure App Service instances with .NE
 > |-----------------------------------|-----------------------------|-------------------------------------|
 > | AZURE_SQL_HOST                    | Azure SQL Database host     | `<sql-server>.database.windows.net` |
 > | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
-> | AZURE_SQL_NAME                    | Azure SQL Database name     | `<sql-db>`                          |
-> | AZURE_SQL_USER                    | Azure SQL Database user     | `<sql-user>`                        |
-> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-pass>`                        |
+> | AZURE_SQL_NAME                    | Azure SQL Database name     | `<sql-database>`                          |
+> | AZURE_SQL_USER                    | Azure SQL Database user     | `<sql-username>`                        |
+> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-password>`                        |
 
 #### Azure App Service with Ruby
 
@@ -120,9 +149,9 @@ Use the connection details below to connect Azure App Service instances with .NE
 > |-----------------------------------|-----------------------------|-------------------------------------|
 > | AZURE_SQL_HOST                    | Azure SQL Database host     | `<sql-server>.database.windows.net` |
 > | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
-> | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-db>`                          |
-> | AZURE_SQL_USERNAME                | Azure SQL Database username | `<sql-user>`                        |
-> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-pass>`                        |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-database>`                          |
+> | AZURE_SQL_USERNAME                | Azure SQL Database username | `<sql-username>`                        |
+> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-password>`                        |
 
 ### Connect an Azure Spring Cloud instance
 
@@ -133,9 +162,9 @@ Use the connection details below to connect Azure Spring Cloud instances with Ja
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                     |
 > |-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------|
-> | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;` |
-> | spring.datasource.username        | Azure SQL Database datasource username | `<sql-user>`                                                                     |
-> | spring.datasource.password        | Azure SQL Database datasource password | `<sql-pass>`                                                                     |
+> | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;` |
+> | spring.datasource.username        | Azure SQL Database datasource username | `<sql-username>`                                                                     |
+> | spring.datasource.password        | Azure SQL Database datasource password | `<sql-password>`                                                                     |
 
 ## Next steps
 

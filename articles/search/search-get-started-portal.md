@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/29/2021
+ms.date: 08/24/2022
 ms.custom: mode-ui
 ---
 # Quickstart: Create an Azure Cognitive Search index in the Azure portal
@@ -72,11 +72,11 @@ Typically, in a code-based exercise, index creation is completed prior to loadin
 Fields have data types and attributes. The check boxes across the top are *index attributes* controlling how the field is used.
 
 + **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example for fields used only in filter expressions.
-+ **Key** is the unique document identifier. It's always a string, and it is required.
++ **Key** is the unique document identifier. It's always a string, and it's required.
 + **Filterable**, **Sortable**, and **Facetable** determine whether fields are used in a filter, sort, or faceted navigation structure.
 + **Searchable** means that a field is included in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable.
 
-Storage requirements do not vary as a result of your selection. For example, if you set the **Retrievable** attribute on multiple fields, storage requirements do not go up.
+Storage requirements don't vary as a result of your selection. For example, if you set the **Retrievable** attribute on multiple fields, storage requirements don't go up.
 
 By default, the wizard scans the data source for unique identifiers as the basis for the key field. *Strings* are attributed as **Retrievable** and **Searchable**. *Integers* are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
 
@@ -114,15 +114,15 @@ Wait for the portal page to refresh. After a few minutes, you should see the ind
 
 From this list, you can click on the *hotels-sample* index that you just created, view the index schema. and optionally add new fields. 
 
-The **Fields** tab shows the index schema. If you are writing queries and need to check whether a field is filterable or sortable, this tab shows you the attributes.
+The **Fields** tab shows the index schema. If you're writing queries and need to check whether a field is filterable or sortable, this tab shows you the attributes.
 
-Scroll to the bottom of the list to enter a new field. While you can always create a new field, in most cases, you cannot change existing fields. Existing fields have a physical representation in your search service and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
+Scroll to the bottom of the list to enter a new field. While you can always create a new field, in most cases, you can't change existing fields. Existing fields have a physical representation in your search service and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
 
    :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="sample index definition":::
 
 Other constructs, such as scoring profiles and CORS options, can be added at any time.
 
-To clearly understand what you can and cannot edit during index design, take a minute to view index definition options. Grayed-out options are an indicator that a value cannot be modified or deleted. 
+To clearly understand what you can and can't edit during index design, take a minute to view index definition options. Grayed-out options are an indicator that a value can't be modified or deleted. 
 
 ## <a name="query-index"></a> Query using Search explorer
 
@@ -171,7 +171,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you're using a free service, remember that the limit is three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 

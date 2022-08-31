@@ -8,8 +8,6 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
-
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
 
 ### Local Participant View Data Injection
@@ -27,9 +25,18 @@ The UI Library now gives developers the ability to provide a more customized exp
 #### Usage
 
 ```swift
-let participantViewData = ParticipantViewData(avatar: <Some UIImage>, displayName: "<Some Display Name>")
-let localOptions = LocalOptions(participantViewData: participantViewData)
-callComposite.launch(remoteOptions: <some RemoteOptions>, localOptions: localOptions)
+// LocalOptions (data not sent to server)
+let localParticipantViewData = ParticipantViewData(avatar: <Some UIImage>,
+                                                   displayName: "<DISPLAY_NAME>")
+let localOptions = LocalOptions(participantViewData: localParticipantViewData)
+
+// RemoteOptions (data sent to server)
+let remoteOptions = RemoteOptions(for: .groupCall(groupId: UUID()),
+                                  credential: <Some CommunicationTokenCredential>,
+                                  displayName: "<DISPLAY_NAME>")
+
+// Launch
+callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
 ```
 
 |Setup View|Calling Experience View|

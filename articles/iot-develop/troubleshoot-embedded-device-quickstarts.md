@@ -163,7 +163,7 @@ Failed to publish temperature
 
 ### Description
 
-Because [Defender for IoT module](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) is enabled by default from the device end, you might observe extra messages in the output.
+Because [Defender for IoT module](../defender-for-iot/device-builders/iot-security-azure-rtos.md) is enabled by default from the device end, you might observe extra messages in the output.
 
 ### Resolution
 

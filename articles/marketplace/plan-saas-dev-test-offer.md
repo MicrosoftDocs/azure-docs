@@ -3,7 +3,6 @@ title: Plan a test and development SaaS offer in the Microsoft commercial market
 description: Plan a separate development offer for testing your offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -54,7 +53,7 @@ The following sections describe the configuration differences between the DEV an
 
 We recommend that you use the same alias in the **Alias** box of both offers but append “_test” to the alias of the DEV offer. For example, if the alias of your PROD offer is “contososolution” then the alias of the DEV offer should be “contososolution_test”. This way, you can easily identify which your DEV offer from your PROD offer.
 
-In the **Customer leads** section, use an Azure table or a test CRM environment for the DEV offer. Use the intended lead management system for the PROD offer.
+In the **Customer leads** section, use an Azure table or a test CRM environment for the DEV offer. Use the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center or your CRM system for the PROD offer.
 
 ### Properties page
 

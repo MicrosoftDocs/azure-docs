@@ -4,6 +4,7 @@ description: Understanding the common alert schema definitions for Azure Monitor
 author: issahn
 ms.topic: conceptual
 ms.date: 01/14/2022
+ms.revewer: issahn
 ---
 
 # Common alert schema definitions for Test Action Group (Preview)

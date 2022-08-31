@@ -1,13 +1,14 @@
 ﻿---
 title: Query Store - Azure Database for MySQL
 description: Learn about the Query Store feature in Azure Database for MySQL to help you track performance over time.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 5/12/2020
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
+
 # Monitor Azure Database for MySQL performance with Query Store
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

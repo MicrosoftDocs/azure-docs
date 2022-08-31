@@ -33,7 +33,7 @@ This following tables list Azure AD feature availability in Azure Government.
 || Service-level agreement | &#x2705; | 
 |**Applications access**|SaaS apps with modern authentication (Azure AD application gallery apps, SAML, and OAUTH 2.0) | &#x2705; | 
 || Group assignment to applications | &#x2705; | 
-|| Cloud app discovery (Microsoft Cloud App Security) | &#x2705; | 
+|| Cloud app discovery (Microsoft Defender for Cloud Apps) | &#x2705; | 
 || Application Proxy for on-premises, header-based, and Integrated Windows Authentication | &#x2705; | 
 || Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication) | &#x2705; | 
 |**Authorization and Conditional Access**|Role-based access control (RBAC) | &#x2705; | 

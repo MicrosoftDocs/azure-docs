@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Use Java and JDBC with Azure Database for MySQL'
 description: Learn how to use Java and JDBC with an Azure Database for MySQL database.
-author: jdubois
-ms.author: judubois
 ms.service: mysql
 ms.subservice: single-server
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 08/17/2020
+author: jdubois
+ms.author: judubois
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
+ms.date: 06/20/2022
 ---
 
 # Quickstart: Use Java and JDBC with Azure Database for MySQL

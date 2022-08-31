@@ -1,13 +1,14 @@
 ---
 title: Limitations - Azure Database for MySQL
 description: This article describes limitations in Azure Database for MySQL, such as number of connection and storage engine options.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 10/1/2020
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
+
 # Limitations in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

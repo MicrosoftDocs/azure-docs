@@ -5,9 +5,9 @@ description: Safe rollout for online endpoints using Python SDK v2 (preview).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: ssambare
+ms.author: sehan
 ms.reviewer: larryfr
-author: shivanissambare
+author: dem108
 ms.date: 05/25/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, sdkv2, deployment
@@ -78,10 +78,10 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
     To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
 
     ```python
-    # enter details of your AML workspace
+    # enter details of your AzureML workspace
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
-    workspace = "<AML_WORKSPACE_NAME>"
+    workspace = "<AZUREML_WORKSPACE_NAME>"
     ```
 
     ```python

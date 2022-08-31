@@ -1,10 +1,8 @@
 ---
 title: Apache Kafka trigger for Azure Functions
 description: Use Azure Functions to run your code based on events from an Apache Kafka stream.
-author: ggailey777
 ms.topic: reference
 ms.date: 05/14/2022
-ms.author: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

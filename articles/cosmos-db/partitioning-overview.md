@@ -1,13 +1,13 @@
 ---
 title: Partitioning and horizontal scaling in Azure Cosmos DB
 description: Learn about partitioning, logical, physical partitions in Azure Cosmos DB, best practices when choosing a partition key, and how to manage logical partitions
-author: deborahc
-ms.author: dech
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/24/2022
 ms.custom: cosmos-db-video
-ms.reviewer: mjbrown
 ---
 
 # Partitioning and horizontal scaling in Azure Cosmos DB
@@ -101,6 +101,9 @@ For **all** containers, your partition key should:
 * Spread request unit (RU) consumption and data storage evenly across all logical partitions. This ensures even RU consumption and storage distribution across your physical partitions.
 
 If you need [multi-item ACID transactions](database-transactions-optimistic-concurrency.md#multi-item-transactions) in Azure Cosmos DB, you will need to use [stored procedures or triggers](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). All JavaScript-based stored procedures and triggers are scoped to a single logical partition.
+
+> [!NOTE]
+> If you only have one physical partition, the value of the partition key may not be relevant as all queries will target the same physical partition. 
 
 ## Partition keys for read-heavy containers
 

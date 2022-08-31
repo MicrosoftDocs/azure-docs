@@ -25,7 +25,7 @@ The virtual network integration feature:
 There are some things that virtual network integration doesn't support, like:
 
 * Mounting a drive.
-* Windows Server Active Directory integration.
+* Windows Server Active Directory domain join.
 * NetBIOS.
 
 Gateway-required virtual network integration provides access to resources only in the target virtual network or in networks connected to the target virtual network with peering or VPNs. Gateway-required virtual network integration doesn't enable access to resources available across Azure ExpressRoute connections or work with service endpoints.
