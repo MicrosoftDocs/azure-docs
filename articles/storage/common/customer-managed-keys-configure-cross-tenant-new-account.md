@@ -89,11 +89,13 @@ You must use an existing user-assigned managed identity to authorize access to t
 When you configure encryption with customer-managed keys for a new storage account, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
 
 > [!IMPORTANT]
+> To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle key rotation, so you will need to manage rotation of the key in the key vault. You can [configure key auto-rotation in Azure Key Vault](../../key-vault/keys/how-to-configure-key-rotation.md) or rotate your key manually.
+>
 > Azure Storage checks the key vault for a new key version only once daily. When you rotate a key in Azure Key Vault, be sure to wait 24 hours before disabling the older version.
 
 ### [Azure portal](#tab/portal)
 
-To configure cross-tenant customer-managed keys for a new storage account, follow these steps:
+To configure cross-tenant customer-managed keys for a new storage account in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the **Storage accounts** page in the ISV's tenant, and select the **Create** button to create a new account.
 1. Follow the steps outlined in [Create a storage account](storage-account-create.md) to fill out the fields on the **Basics**, **Advanced**, **Networking**, and **Data Protection** tabs.
@@ -103,7 +105,7 @@ To configure cross-tenant customer-managed keys for a new storage account, follo
 1. For the **User-assigned identity** field, search for the user-assigned managed identity that you created previously in the ISV's tenant.
 1. Expand the **Advanced** section, and select the multi-tenant registered application that you previously created in the ISV's tenant.
 
-    :::image type="content" source="media/customer-managed-keys-configure-cross-tenant-new-account/portal-new-account-configure-cross-tenant-cmk.png" alt-text="Screenshot showing how to configure customer-managed keys for a new storage account in Azure portal.":::
+    :::image type="content" source="media/customer-managed-keys-configure-cross-tenant-new-account/portal-new-account-configure-cross-tenant-cmk.png" alt-text="Screenshot showing how to configure cross-tenant customer-managed keys for a new storage account in Azure portal.":::
 
 1. Select the **Review** button to validate and create the account.
 
