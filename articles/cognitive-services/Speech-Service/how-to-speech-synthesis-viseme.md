@@ -53,28 +53,28 @@ Visemes vary by language and locale. Each locale has a set of visemes that corre
 
 | Viseme ID | IPA | Mouth shape|
 |---------------|---------------|---------------|
-|0|Silence|![Mouth shape of viseme ID 0.](media/text-to-speech/viseme-id-0.jpg)|
-|1|`æ`, `ə`, `ʌ`| ![Mouth shape of viseme ID 1.](media/text-to-speech/viseme-id-1.jpg)|
-|2|`ɑ`|![Mouth shape of viseme ID 2.](media/text-to-speech/viseme-id-2.jpg)|
-|3|`ɔ`|![Mouth shape of viseme ID 3.](media/text-to-speech/viseme-id-3.jpg)|
-|4|`ɛ`, `ʊ`|![Mouth shape of viseme ID 4.](media/text-to-speech/viseme-id-4.jpg)|
-|5|`ɝ`|![Mouth shape of viseme ID 5.](media/text-to-speech/viseme-id-5.jpg)|
-|6|`j`, `i`, `ɪ`, |![Mouth shape of viseme ID 6.](media/text-to-speech/viseme-id-6.jpg)|
-|7|`w`, `u`|![Mouth shape of viseme ID 7.](media/text-to-speech/viseme-id-7.jpg)|
-|8|`o`|![Mouth shape of viseme ID 8.](media/text-to-speech/viseme-id-8.jpg)|
-|9|Not supported|![Mouth shape of viseme ID 9.](media/text-to-speech/viseme-id-9.jpg)|
-|10|Not supported|![Mouth shape of viseme ID 10.](media/text-to-speech/viseme-id-10.jpg)|
-|11|Not supported|![Mouth shape of viseme ID 11.](media/text-to-speech/viseme-id-11.jpg)|
-|12|`h`|![Mouth shape of viseme ID 12.](media/text-to-speech/viseme-id-12.jpg)|
-|13|`ɹ`|![Mouth shape of viseme ID 13.](media/text-to-speech/viseme-id-13.jpg)|
-|14|`l`|![Mouth shape of viseme ID 14.](media/text-to-speech/viseme-id-14.jpg)|
-|15|`s`, `z`|![Mouth shape of viseme ID 15.](media/text-to-speech/viseme-id-15.jpg)|
-|16|`ʃ`, `tʃ`, `dʒ`, `ʒ`|![Mouth shape of viseme ID 16.](media/text-to-speech/viseme-id-16.jpg)|
-|17|`ð`|![Mouth shape of viseme ID 17.](media/text-to-speech/viseme-id-17.jpg)|
-|18|`f`, `v`|![Mouth shape of viseme ID 18.](media/text-to-speech/viseme-id-18.jpg)|
-|19|`d`, `t`, `n`, `θ`|![Mouth shape of viseme ID 19.](media/text-to-speech/viseme-id-19.jpg)|
-|20|`k`, `g`, `ŋ`|![Mouth shape of viseme ID 20.](media/text-to-speech/viseme-id-20.jpg)|
-|21|`p`, `b`, `m`|![Mouth shape of viseme ID 21.](media/text-to-speech/viseme-id-21.jpg)|
+|0|Silence|<img src="media/text-to-speech/viseme-id-0.jpg" width="200" height="200">|
+|1|`æ`, `ə`, `ʌ`| <img src="media/text-to-speech/viseme-id-1.jpg" width="200" height="200">|
+|2|`ɑ`|<img src="media/text-to-speech/viseme-id-2.jpg" width="200" height="200">|
+|3|`ɔ`|<img src="media/text-to-speech/viseme-id-3.jpg" width="200" height="200">|
+|4|`ɛ`, `ʊ`|<img src="media/text-to-speech/viseme-id-4.jpg" width="200" height="200">|
+|5|`ɝ`|<img src="media/text-to-speech/viseme-id-5.jpg" width="200" height="200">|
+|6|`j`, `i`, `ɪ`, |<img src="media/text-to-speech/viseme-id-6.jpg" width="200" height="200">|
+|7|`w`, `u`|<img src="media/text-to-speech/viseme-id-7.jpg" width="200" height="200">|
+|8|`o`|<img src="media/text-to-speech/viseme-id-8.jpg" width="200" height="200">|
+|9|Not supported|<img src="media/text-to-speech/viseme-id-9.jpg" width="200" height="200">|
+|10|Not supported|<img src="media/text-to-speech/viseme-id-10.jpg" width="200" height="200">|
+|11|Not supported|<img src="media/text-to-speech/viseme-id-11.jpg" width="200" height="200">|
+|12|`h`|<img src="media/text-to-speech/viseme-id-12.jpg" width="200" height="200">|
+|13|`ɹ`|<img src="media/text-to-speech/viseme-id-13.jpg" width="200" height="200">|
+|14|`l`|<img src="media/text-to-speech/viseme-id-14.jpg" width="200" height="200">|
+|15|`s`, `z`|<img src="media/text-to-speech/viseme-id-15.jpg" width="200" height="200">|
+|16|`ʃ`, `tʃ`, `dʒ`, `ʒ`|<img src="media/text-to-speech/viseme-id-16.jpg" width="200" height="200">|
+|17|`ð`|<img src="media/text-to-speech/viseme-id-17.jpg" width="200" height="200">|
+|18|`f`, `v`|<img src="media/text-to-speech/viseme-id-18.jpg" width="200" height="200">|
+|19|`d`, `t`, `n`, `θ`|<img src="media/text-to-speech/viseme-id-19.jpg" width="200" height="200">|
+|20|`k`, `g`, `ŋ`|<img src="media/text-to-speech/viseme-id-20.jpg" width="200" height="200">|
+|21|`p`, `b`, `m`|<img src="media/text-to-speech/viseme-id-21.jpg" width="200" height="200">|
 
 ## 2D SVG animation
 
