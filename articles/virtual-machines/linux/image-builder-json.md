@@ -236,7 +236,7 @@ For more information on deploying this feature, see [Configure managed identitie
 
 ### User Assigned Identity for the Image Builder Build VM
 
-This field is only available in API versions `2021-10-01` or newer.
+This property is only available in API versions `2021-10-01` or newer.
 
 Optional - The Image Builder Build VM, that is created by the Image Builder service in your subscription, is used to build and customize the image. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault in your subscription, you must create one or more Azure User Assigned Identities that have permissions to the individual resources. Azure Image Builder can then associate these User Assigned Identities with the Build VM. Customizer scripts running inside the Build VM can then fetch tokens for these identities and interact with other Azure resources as needed. Be aware, the user assigned identity for Azure Image Builder must have the "Managed Identity Operator" role assignment on all the user assigned identities for Azure Image Builder to be able to associate them to the build VM.
 
@@ -284,7 +284,7 @@ To learn more, see:
 
 Maximum duration to wait while building the image template (includes all customizations, validations, and distributions).
 
-If you don't specify the property or set the value to 0, the default value is used, which is 240 minutes or four hours. The minimnum value is 6 minutes, and the maximum value is 960 minutes or 16 hours. When the timeout value is hit (whether or not the image build is complete), you will see an error similar to:
+If you don't specify the property or set the value to 0, the default value is used, which is 240 minutes or four hours. The minimum value is 6 minutes, and the maximum value is 960 minutes or 16 hours. When the timeout value is hit (whether or not the image build is complete), you will see an error similar to:
 
 ```text
 [ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
@@ -448,7 +448,7 @@ Customize properties:
 - **name** - name for tracking the customization.
 - **scriptUri** - URI to the location of the file.
 - **inline** - array of shell commands, separated by commas.
-- **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
+- **sha256Checksum** - Value of sha256 checksum of the file, you generate this value locally, and then Image Builder will checksum and validate.
 
     To generate the sha256Checksum, using a terminal on Mac/Linux run: `sha256sum <fileName>`
 
@@ -590,9 +590,9 @@ Customize properties:
 - **type** – PowerShell.
 - **scriptUri** - URI to the location of the PowerShell script file.
 - **inline** – Inline commands to be run, separated by commas.
-- **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
+- **validExitCodes** – Optional, valid codes that can be returned from the script/inline command. The property avoids reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
-- **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
+- **sha256Checksum** - Value of sha256 checksum of the file, you generate this value locally, and then Image Builder will checksum and validate.
 
     To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash)
 
@@ -632,19 +632,19 @@ customize: [
 
 File customizer properties:
 
-- **sourceUri** - an accessible storage endpoint, this can be GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers.
+- **sourceUri** - an accessible storage endpoint, this endpoint can be GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers.
 
   > [!NOTE]
   > If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you will to grant the Managed User Identity permissions to read access on the blob. See this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
 
-- **destination** – this is the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these up beforehand. You can use the script customizers to create the path.
+- **destination** – the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these up beforehand. You can use the script customizers to create the path.
 
 This customizer is supported by Windows directories and Linux paths, but there are some differences:
 
-- Linux OS’s – the only path Image builder can write to is /tmp.
+- Linux – the only path Image builder can write to is /tmp.
 - Windows – No path restriction, but the path must exist.
 
-If there is an error trying to download the file, or put it in a specified directory, then customize step will fail, and this will be in the customization.log.
+If there is an error trying to download the file, or put it in a specified directory, then customize step will fail, and this error will be in the customization.log.
 
 > [!NOTE]
 > The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
@@ -761,9 +761,9 @@ Azure Image Builder supports three distribution targets:
 You can distribute an image to both of the target types in the same configuration.
 
 > [!NOTE]
-> The default AIB sysprep command doesn't include "/mode:vm", however this maybe required when create images that will have the HyperV role installed. If you need to add this command argument, you must override the sysprep command.
+> The default AIB sysprep command doesn't include "/mode:vm", however this property maybe required when create images that will have the HyperV role installed. If you need to add this command argument, you must override the sysprep command.
 
-Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here is an example, this is querying an Azure Compute Gallery distribution:
+Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here is an example for querying an Azure Compute Gallery distribution:
 
 ```azurecli
 subscriptionID=<subcriptionID>
@@ -851,9 +851,9 @@ The Azure Compute Gallery is a new Image Management service that allows managing
 
 an Azure Compute Gallery is made up of:
 
-- Gallery - Container for multiple images. A gallery is deployed in one region.
-- Image definitions - a conceptual grouping for images.
-- Image versions - this is an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
+- **Gallery** - Container for multiple images. A gallery is deployed in one region.
+- **Image definitions** - a conceptual grouping for images.
+- **Image versions** - an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
 
 Before you can distribute to the gallery, you must create a gallery and an image definition, see [Create a gallery](../create-gallery.md).
 
@@ -898,23 +898,23 @@ Before you can distribute to the gallery, you must create a gallery and an image
 Distribute properties for galleries:
 
 - **type** - sharedImage
-- **galleryImageId** – ID of the Azure Compute Gallery, this can specified in two formats:
+- **galleryImageId** – ID of the Azure Compute Gallery, this property can specified in two formats:
 
-  - Automatic versioning - Image Builder will generate a monotonic version number for you, this is useful for when you want to keep rebuilding images from the same template: The format is: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`.
+  - Automatic versioning - Image Builder will generate a monotonic version number for you, this property is useful for when you want to keep rebuilding images from the same template: The format is: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`.
   - Explicit versioning - You can pass in the version number you want image builder to use. The format is:
   `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version - for example: 1.1.1>`
 
 - **runOutputName** – unique name for identifying the distribution.
-- **artifactTags** - Optional user specified key\value tags.
-- **replicationRegions** - Array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions will mean an increase of build time, as the build doesn't complete until the replication has completed.
-- **excludeFromLatest** (optional) This allows you to mark the image version you create not be used as the latest version in the gallery definition, the default is 'false'.
-- **storageAccountType** (optional) AIB supports specifying these types of storage for the image version that is to be created:
+- **artifactTags** - optional user specified key\value tags.
+- **replicationRegions** - array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions will mean an increase of build time, as the build doesn't complete until the replication has completed.
+- **excludeFromLatest** (optional) - allows you to mark the image version you create not be used as the latest version in the gallery definition, the default is 'false'.
+- **storageAccountType** (optional) - AIB supports specifying these types of storage for the image version that is to be created:
 
   - "Standard_LRS"
   - "Standard_ZRS"","
 
 > [!NOTE]
-> If the image template and referenced `image definition` are not in the same location, you will see additional time to create images. Image Builder currently doesn't have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in westus and you want the image version replicated to eastus, a blob is copied to westus, from this, an image version resource in westus is created, and then replicate to eastus. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
+> If the image template and referenced `image definition` are not in the same location, you will see additional time to create images. Image Builder currently doesn't have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in `westus` and you want the image version replicated to `eastus`, a blob is copied to `westus`, an image version resource in `westus` is created, and then replicate to `eastus`. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
 
 ### Distribute: VHD
 
@@ -973,11 +973,11 @@ The `source` section contains information about the source image that will be us
 The API requires a `SourceType` that defines the source for the image build, currently there are three types:
 
 - PlatformImage - indicated the source image is a Marketplace image.
-- ManagedImage - use this when starting from a regular managed image.
-- SharedImageVersion - this is used when you're using an image version in an Azure Compute Gallery as the source.
+- ManagedImage - used when starting from a regular managed image.
+- SharedImageVersion - used when you're using an image version in an Azure Compute Gallery as the source.
 
 > [!NOTE]
-> When using existing Windows custom images, you can run the Sysprep command up to 3 times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
+> When using existing Windows custom images, you can run the Sysprep command up to three times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### PlatformImage source
 
@@ -1117,7 +1117,7 @@ The `imageVersionId` should be the ResourceId of the image version. Use [az sig 
 
 ## Properties: stagingResourceGroup
 
-The `stagingResourceGroup` field contains information about the staging resource group that the Image Builder service will create for use during the image build process. The `stagingResourceGroup` is an optional field for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
+The `stagingResourceGroup` property contains information about the staging resource group that the Image Builder service will create for use during the image build process. The `stagingResourceGroup` is an optional property for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
 
 # [Bicep](#tab/bicep)
 
@@ -1139,21 +1139,21 @@ properties: {
 
 ### Template Creation Scenarios
 
-- **The stagingResourceGroup field is left empty**
+- **The stagingResourceGroup property is left empty**
 
-  If the `stagingResourceGroup` field is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC will be applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
+  If the `stagingResourceGroup` property is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC will be applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
 
-- **The stagingResourceGroup field is specified with a resource group that exists**
+- **The stagingResourceGroup property is specified with a resource group that exists**
 
-  If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is not associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Pre-existing tags are not deleted.
+  If the `stagingResourceGroup` property is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is not associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met, an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Pre-existing tags are not deleted.
 
-- **The stagingResourceGroup field is specified with a resource group that DOES NOT exist**
+- **The stagingResourceGroup property is specified with a resource group that DOES NOT exist**
 
-  If the `stagingResourceGroup` field is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` field. There will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
+  If the `stagingResourceGroup` property is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` property. There will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
 
 ### Template Deletion
 
-Any staging resource group created by the Image Builder service will be deleted after the image template is deleted. This includes staging resource groups that were specified in the `stagingResourceGroup` field, but did not exist prior to the image build.
+Any staging resource group created by the Image Builder service will be deleted after the image template is deleted. The deletion includes staging resource groups that were specified in the `stagingResourceGroup` property, but did not exist prior to the image build.
 
 If Image Builder did not create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image template is deleted as long as the Image Builder service has the appropriate permissions or role required to delete resources.
 
@@ -1161,11 +1161,11 @@ If Image Builder did not create the staging resource group, but it did create re
 
 You can use the `validate` property to validate platform images and any customized images you create regardless of if you used Azure Image Builder to create them.
 
-Azure Image Builder supports a 'Source-Validation-Only' mode that can be set using the `sourceValidationOnly` field. If the `sourceValidationOnly` field is set to true, the image specified in the `source` section will directly be validated. No separate build will be run to generate and then validate a customized image.
+Azure Image Builder supports a 'Source-Validation-Only' mode that can be set using the `sourceValidationOnly` property. If the `sourceValidationOnly` property is set to true, the image specified in the `source` section will directly be validated. No separate build will be run to generate and then validate a customized image.
 
-The `inVMValidations` field takes a list of validators that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validators.
+The `inVMValidations` property takes a list of validators that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validators.
 
-The `continueDistributeOnFailure` field is responsible for whether the output image(s) will be distributed if validation fails. If validation fails and this field is set to false, the output image(s) will not be distributed (this is the default behavior). If validation fails and this field is set to true, the output image(s) will still be distributed. Use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed in the case of a validation failure. This field has no effect on whether validation succeeds or not.
+The `continueDistributeOnFailure` property is responsible for whether the output image(s) will be distributed if validation fails. If validation fails and this property is set to false, the output image(s) will not be distributed (this is the default behavior). If validation fails and this property is set to true, the output image(s) will still be distributed. Use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed in the case of a validation failure. This property has no effect on whether validation succeeds or not.
 
 When using `validate`:
 
@@ -1330,9 +1330,9 @@ How to use the `validate` property to validate Linux images:
 
 ## Properties: vmProfile
 
-### vmSize
+### vmSize (optional)
 
-Image Builder will use a default SKU size of `Standard_D1_v2` for Gen1 images and `Standard_D2ds_v4` for Gen2 images. The generation is defined by the image you specify in the `source`. You can override this and may wish to do this for these reasons:
+Image Builder uses a default SKU size of `Standard_D1_v2` for Gen1 images and `Standard_D2ds_v4` for Gen2 images. The generation is defined by the image you specify in the `source`. You can override vmSize and may wish to do this for these reasons:
 
 - Performing customizations that require increased memory, CPU and handling large files (GBs).
 - Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
@@ -1340,11 +1340,9 @@ Image Builder will use a default SKU size of `Standard_D1_v2` for Gen1 images an
 - Customize an image that requires specific hardware. For example, for a GPU VM, you need a GPU VM size.
 - Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
 
-This is optional.
-
 ### osDiskSizeGB
 
-By default, Image Builder will not change the size of the image, it will use the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leave the same size as the source image. You cannot reduce the OS Disk size to smaller than the size from the source image.
+By default, Image Builder doesn't change the size of the image, it uses the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leaving the same size as the source image. You cannot reduce the OS Disk size to smaller than the size from the source image.
 
 # [Bicep](#tab/bicep)
 
@@ -1362,9 +1360,9 @@ By default, Image Builder will not change the size of the image, it will use the
 
 ---
 
-### vnetConfig
+### vnetConfig (optional)
 
-If you don't specify any VNET properties, then Image Builder will create its own VNET, Public IP, and network security group (NSG). The Public IP is used for the service to communicate with the build VM, however if you don't want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNET. For more information, review the [networking documentation](image-builder-networking.md), this is optional.
+If you don't specify any VNet properties, Image Builder will create its own VNet, Public IP, and network security group (NSG). The Public IP is used for the service to communicate with the build VM. If you don't want to have a Public IP or you want Image Builder to have access to your existing VNet resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNet. For more information, review the [networking documentation](image-builder-networking.md).
 
 # [Bicep](#tab/bicep)
 
