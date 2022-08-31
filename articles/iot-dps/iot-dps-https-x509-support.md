@@ -38,9 +38,11 @@ You can follow the steps in this article on either a Linux or a Windows machine.
 
 For this article you'll use an X.509 certificate to authenticate with DPS using either an individual enrollment or an enrollment group.
 
-If you're using an individual enrollment, you have the option to use a self-signed X.509 certificate or a certificate chain comprised of the device certificate plus one or more signing certificates. If you're using an enrollment group, you must use a certificate chain.  
+If you're using an individual enrollment, you have the option to use a self-signed X.509 certificate or a [certificate chain]() comprised of the device certificate plus one or more signing certificates. If you're using an enrollment group, you must use a certificate chain.  
 
-For X.509 enrollment authentication, the subject common name (CN) of the device certificate is used as the registration ID for the device. The registration ID is a case-insensitive string of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). DPS supports registration IDs up to 128 characters long; however, the subject common name of an X.509 certificate is limited to 64 characters. Make sure the subject common name that you choose for your device certificate in the following steps adheres to this format.
+> [!IMPORTANT]
+>
+> For X.509 enrollment authentication, the subject common name (CN) of the device certificate is used as the registration ID for the device. The registration ID is a case-insensitive string of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). DPS supports registration IDs up to 128 characters long; however, the subject common name of an X.509 certificate is limited to 64 characters. If you change the subject common name for your device certificate in the following steps, make sure it adheres to this format.
 
 ### Use a self-signed certificate
 
@@ -57,7 +59,7 @@ To create a self-signed certificate to use with an individual enrollment, naviga
     > [!IMPORTANT]
     > The extra forward slash given for the subject name (`//CN=my-x509-device`) is only required to escape the string with Git on Windows platforms.
 
-    # [Linux](#tab/linux)
+    # [Linux/WSL](#tab/linux)
 
     ```bash
     openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout device-key.pem -out device-cert.pem -days 30 -extensions usr_cert -addext extendedKeyUsage=clientAuth -subj "/CN=my-x509-device"
@@ -189,7 +191,7 @@ az iot dps enrollment-group create -g {resource_group_name} --dps-name {dps_name
 
 * Substitute the name of your resource group and DPS instance.
 
-* The enrollment ID is a case-insensitive string of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). This can be any name you choose to use for the enrollment group.
+* The enrollment ID is a case-insensitive string of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). It can be any name you choose to use for the enrollment group.
 
 * The certificate path is the path to your intermediate certificate. If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the filename is *certs/azure-iot-test-only.intermediate.cert.pem*.
 
@@ -261,7 +263,7 @@ Where:
 
 * `-H 'Content-Encoding:  utf-8'` tells DPS the encoding we are using for our message body. Set to the proper value for your OS/client; however, this is generally `utf-8`.  
 
-* `-d '{"registrationId": "[registration_id]"}'`, the `–d` parameter is the 'data' or body of the message we are posting.  It must be JSON, in the form of '{"registrationId":"[registration_id"}'.  Note that for cURL, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON. For X.509 enrollment, the registration ID is the subject common name (CN) of your device certificate.
+* `-d '{"registrationId": "[registration_id]"}'`, the `–d` parameter is the 'data' or body of the message we are posting.  It must be JSON, in the form of '{"registrationId":"[registration_id"}'.  Note that for curl, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON. For X.509 enrollment, the registration ID is the subject common name (CN) of your device certificate.
 
 * Finally, the last parameter is the URL to post to. For "regular" (i.e not on-premises) DPS, the global DPS endpoint, *global.azure-devices-provisioning.net* is used: `https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31`.  Note that you have to replace the [dps_scope_id] and [registration_id] with the appropriate values.
 
@@ -308,7 +310,7 @@ The valid status values for DPS are:
 
 * `unassigned`
 
-To call the Operation Status Lookup API and get the status of the operation, use the following curl command:
+To call the **Operation Status Lookup** API, use the following curl command:
 
 ```bash
 curl -L -i -X GET --cert [path_to_your_device_cert] --key [path_to_your_device_private_key] -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/operations/[operation_id]?api-version=2019-03-31
@@ -351,9 +353,11 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 }
 ```
 
+Note down the device ID and the assigned IoT hub. You'll use them to send a telemetry message in the next section.
+
 ## Send a telemetry message
 
-Use the [Send Device Event](/rest/api/iothub/device/send-device-event) IoT Hub Rest API to send telemetry to the device.
+You call the IoT Hub [Send Device Event](/rest/api/iothub/device/send-device-event) REST API to send telemetry to the device.
 
 Use the following curl command:
 
@@ -362,10 +366,6 @@ curl -L -i -X POST --cert [path_to_your_device_cert] --key [path_to_your_device_
 ```
 
 Where:
-
-* `-L` tells curl to follow HTTP redirects.
-
-* `–i` tells curl to include protocol headers in output.  This is not strictly necessary, but it can be useful.
 
 * `X POST` tells curl that this is an HTTP POST command. Required for this API call.
 
@@ -385,13 +385,13 @@ Where:
 
 * `-H 'Content-Encoding:  utf-8'` tells IoT Hub the encoding we are using for our message body. Set to the proper value for your OS/client; however, this is generally `utf-8`.  
 
-* `-d '{"temperature": 30}'`, the `–d` parameter is the 'data' or body of the message we are posting. For this article, we are posting a single temperature data point. We specified application/json as the content type, so for this request the body is JSON. Note that for cURL, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON.
+* `-d '{"temperature": 30}'`, the `–d` parameter is the 'data' or body of the message we are posting. For this article, we are posting a single temperature data point. The content type was specified as application/json, so, for this request, the body is JSON. Note that for curl, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON.
 
 * The last parameter is the URL to post to. For the Send Device Event API, the URL is: `https://[assigned_iot_hub_name].azure-devices.net/devices/[device_id]/messages/events?api-version=2020-03-13`.  
 
-* Replace the [assigned_iot_hub_name] with the name of the IoT hub that your device was assigned to 
+* Replace the [assigned_iot_hub_name] with the name of the IoT hub that your device was assigned to.
 
-* Replace [device_id] with the registration ID that you used when you registered your device. (Note that for individual enrollments, you can, optionally, set a device ID that is different from the registration ID.)
+* Replace [device_id] with the device ID that was assigned when you registered your device. For devices that provision through enrollment groups the device ID will be the registration ID. For individual enrollments, you can, optionally, specify a device ID that is different than the registration ID in the enrollment entry.
 
 For example:
 
@@ -417,3 +417,9 @@ Server: Microsoft-HTTPAPI/2.0
 x-ms-request-id: aa58c075-20d9-4565-8058-de6dc8524f14
 Date: Wed, 31 Aug 2022 18:34:44 GMT
 ```
+
+## Next Steps
+
+* To learn more about attestation with X.509 certificates, see [X.509 certificate attestation](concepts-x509-attestation.md).
+
+* To learn more about uploading and verifying X.509 certificates, see [Configure verified CA certificates](how-to-verify-certificates.md).

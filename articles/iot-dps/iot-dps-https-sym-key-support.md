@@ -16,6 +16,8 @@ In this how-to article, you'll provision a device using symmetric keys over HTTP
 
 For this article, you can use either an [individual enrollment](concepts-service.md#individual-enrollment) or an [enrollment group](concepts-service.md#enrollment-group) to provision through DPS. After installing the prerequisites, complete either [Use individual enrollment](#use-an-individual-enrollment) or [Use an enrollment group](#use-an-enrollment-group) before continuing on to create a SAS token and register (provision) your device with DPS.
 
+You can follow the steps in this article on either a Linux or a Windows machine. If you're running on Windows Subsystem for Linux (WSL) or running on a Linux machine, you can enter all commands on your local system in a Bash prompt. If you're running on Windows, enter all commands on your local system in a GitBash prompt.
+
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
@@ -24,7 +26,13 @@ For this article, you can use either an [individual enrollment](concepts-service
 
 * Make sure [Python 3.7](https://www.python.org/downloads/) or later is installed on your machine. You can check your version of Python by running `python --version`.
 
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
+* If you're running in Windows, install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository. On Windows, you'll enter all commands on your local system in a GitBash prompt.
+
+* Azure CLI. You have two options for running Azure CLI commands in this article:
+    * Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
+    * Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli). If you're using Raspberry Pi as your development platform, we recommend that you use Azure Cloud Shell or install Azure CLI on another computer.
+
+* If you're running in a Linux or a WSL environment, open a Bash prompt to run commands locally. If you're running in a Windows environment, open a GitBash prompt.
 
 ## Use an individual enrollment
 
@@ -81,7 +89,7 @@ az iot dps enrollment-group create -g {resource_group_name} --dps-name {dps_name
 
 * Substitute the name of your resource group and DPS instance.
 
-* The enrollment ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
+* The enrollment ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). It can be any name you choose to use for the enrollment group.
 
 The assigned symmetric keys are returned in the **attestation** property in the response:
 
@@ -140,7 +148,7 @@ You can also use the Azure CLI or PowerShell to derive a device key. To learn mo
 
 ## Create a SAS token
 
-When using symmetric key attestation, devices authenticate with DPS using a Shared Access Signature (SAS) token. For devices provisioning through an individual enrollment, the token is generated using either the primary or secondary key set in the enrollment entry. For a device provisioning through an enrollment group, the token is generated using a derived device key, which, in turn, has been generated using the either the primary or secondary key set in the enrollment group entry. The token specifies an expiry time and a target resource URI.
+When using symmetric key attestation, devices authenticate with DPS using a Shared Access Signature (SAS) token. For devices provisioning through an individual enrollment, the token is signed using either the primary or secondary key set in the enrollment entry. For a device provisioning through an enrollment group, the token is signed using a derived device key, which, in turn, has been generated using the either the primary or secondary key set in the enrollment group entry. The token specifies an expiry time and a target resource URI.
 
 The following Python script can be used to generate a SAS token:
 
@@ -231,19 +239,19 @@ Where:
 
 * `-L` tells curl to follow HTTP redirects.
 
-* `– i` tells curl to include protocol headers in output.  This is not strictly necessary, but it can be useful.
+* `–i` tells curl to include protocol headers in output.  This is not strictly necessary, but it can be useful.
 
-* `X PUT ` tells curl that this is an HTTP PUT command. Required for this API call since we are sending a message in the body.
+* `X PUT` tells curl that this is an HTTP PUT command. Required for this API call.
 
-* `-H 'Content-Type: application/json'` tells DPS we are posting JSON content and must be 'application/json'
+* `-H 'Content-Type: application/json'` tells DPS we are posting JSON content and must be 'application/json'.
 
 * `-H 'Content-Encoding:  utf-8'` tells DPS the encoding we are using for our message body. Set to the proper value for your OS/client; however, this is generally `utf-8`.  
 
 * `-H 'Authorization: [sas_token]'` tells DPS to authenticate using your SAS token. Replace [sas_token] with the token you generated in [Create a SAS token](#create-a-sas-token).
 
-* `-d '{"registrationId": "[registration_id]"}'`, the `–d` parameter is the 'data' or body of the message we are posting.  It must be JSON, in the form of '{"registrationId":"[registration_id"}'.  Note that for CURL, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON.
+* `-d '{"registrationId": "[registration_id]"}'`, the `–d` parameter is the 'data' or body of the message we are posting.  It must be JSON, in the form of '{"registrationId":"[registration_id"}'.  Note that for curl, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON.
 
-* Finally, the last parameter is the URL to post to. For "regular" (i.e not on-premises) DPS, the global DPS endpoint is global.azure-devices-provisioning.net.  `https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31`.  Note that you have to replace the [dps_scope_id] and [registration_id] with the appropriate values.
+* Finally, the last parameter is the URL to post to. For "regular" (i.e not on-premises) DPS, the global DPS endpoint, *global.azure-devices-provisioning.net*, is used: `https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31`.  Note that you have to replace the [dps_scope_id] and [registration_id] with the appropriate values.
 
 For example:
 
