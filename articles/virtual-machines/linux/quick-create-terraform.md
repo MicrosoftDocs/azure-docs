@@ -18,9 +18,9 @@ Article tested with the following Terraform and Terraform provider versions:
 - [Terraform v1.2.7](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.3.20.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-[!INCLUDE [Terraform abstract](./includes/abstract.md)]
-
 This article shows you how to create a complete Linux environment and supporting resources with Terraform. Those resources include a virtual network, subnet, public IP address, and more.
+
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -41,9 +41,9 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](~/azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
 
-[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
 ## Implement the Terraform code
 
@@ -67,15 +67,15 @@ In this article, you learn how to:
 
 ## Initialize Terraform
 
-[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
+[!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
 
 ## Create a Terraform execution plan
 
-[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
+[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
 
 ## Apply a Terraform execution plan
 
-[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
+[!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
 
 ## Verify the results
 
@@ -102,11 +102,17 @@ To use SSH to connect to the virtual machine, do the following steps:
     **Key points:** 
     - Depending on the permisssions of your environment, you might get an error when trying to ssh into the virtual machine using  the `id_rsa` key file. If you get an error stating that the private key file is unprotected and can't be used, try running the following command: `chmod 600 id_rsa`, which will restrict read and write access to the owner of the file.
 
+## Clean up resources
+
+[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
+
 ## Troubleshoot Terraform on Azure
 
-[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
+[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot)
 
 ## Next steps
 
+In this quickstart, you deployed a simple virtual machine using Terraform. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+
 > [!div class="nextstepaction"]
-> [Learn more about using Terraform in Azure](/azure/terraform)
+> [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
