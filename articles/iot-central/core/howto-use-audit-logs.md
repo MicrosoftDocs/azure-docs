@@ -22,13 +22,19 @@ This article describes how to use audit logs to track who made what changes at w
 
 The audit log records information about who made a change, information about the modified entity, the action that made change, and when the change was made. The log tracks changes made through the UI, programatically with the REST API, and through the CLI.
 
-The following IoT Central entities have changes recorded in the audit log:
+The log records changes to the following IoT Central entities:
 
 - [Users](howto-manage-users-roles.md#add-users)
 - [Roles](howto-manage-users-roles.md#manage-roles)
 - [API tokens](howto-authorize-rest-api.md#token-types)
+- [Application template export](howto-create-iot-central-application.md#create-and-use-a-custom-application-template)
+- [File upload configuration](howto-configure-file-uploads.md#configure-device-file-uploads)
+- [Application customization](howto-customize-ui.md)
+- [Device enrollment groups](concepts-device-authentication.md)
+- [Device templates](howto-set-up-template.md)
+- [Device lifecycle events](howto-export-to-blob-storage.md#device-lifecycle-changes-format)
 
-The audit log records changes made by the following types of user:
+The log records changes made by the following types of user:
 
 - IoT Central user - the log shows the users email.
 - API token - the log shows the token name.
