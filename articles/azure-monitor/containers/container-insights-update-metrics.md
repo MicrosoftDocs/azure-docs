@@ -2,7 +2,7 @@
 title: Update Container insights for metrics | Microsoft Docs
 description: This article describes how you update Container insights to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
 ms.topic: conceptual
-ms.date: 10/09/2020 
+ms.date: 08/31/2022 
 ms.custom: devx-track-azurecli
 ms.reviewer: aul
 
@@ -11,9 +11,6 @@ ms.reviewer: aul
 # Update Container insights to enable metrics
 
 Container insights now includes support for collecting metrics from Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes cluster nodes and pods, and then writing those metrics to the Azure Monitor metrics store. With this support, you can present timely aggregate calculations (average, count, maximum, minimum, sum) in performance charts, pin performance charts in Azure portal dashboards, and take advantage of metric alerts.
-
->[!NOTE]
-> This feature doesn't currently support Azure Red Hat OpenShift clusters.
 
 This feature enables the following metrics:
 
@@ -56,7 +53,7 @@ To update an existing AKS cluster monitored by Container insights:
 
 2. In the banner that appears at the top of the pane, select **Enable** to start the update. 
 
-   ![Screenshot of the Azure portal that shows the banner for upgrading an A K S cluster.](./media/container-insights-update-metrics/portal-banner-enable-01.png)
+   :::image type="content" source="./media/container-insights-update-metrics/portal-banner-enable-01.png" alt-text="Screenshot of the Azure portal that shows the banner for upgrading an A K S cluster." lightbox="media/container-insights-update-metrics/portal-banner-enable-01.png":::
 
    The process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
 

@@ -2,7 +2,7 @@
 title: Configure Hybrid Kubernetes clusters with Container insights | Microsoft Docs
 description: This article describes how you can configure Container insights to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/30/2022
 ms.reviewer: aul
 ---
 
@@ -18,7 +18,7 @@ The following configurations are officially supported with Container insights. I
 
     - Kubernetes on-premises
     - AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)
-    - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 and higher, on-premises or other cloud environments.
+    - On-premises or other cloud environments.
 
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 
