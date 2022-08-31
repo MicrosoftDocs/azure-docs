@@ -248,7 +248,7 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 1. In the command palette, enter and run the command **Azure IoT Edge: Set default IoT Edge runtime version**.
 1. Choose the runtime version that your IoT Edge devices are running from the list.
 
-After selecting a new runtime version, your deployment manifest is dynamically updated to reflect the change to the runtime module images.
+After you select a new runtime version, your deployment manifest is dynamically updated to reflect the change to the runtime module images.
 
 ::: zone-end
 
@@ -516,7 +516,7 @@ On your development machine, you can start an IoT Edge simulator instead of inst
 
 In each module folder, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
-When debugging modules using this method, your modules are running on top of the IoT Edge runtime. The IoT Edge device and your Visual Studio Code can be on the same machine, or more typically, Visual Studio Code is on the development machine and the IoT Edge runtime and modules are running on another physical machine. In order to debug from Visual Studio Code, you must:
+When you debug modules using this method, your modules are running on top of the IoT Edge runtime. The IoT Edge device and your Visual Studio Code can be on the same machine, or more typically, Visual Studio Code is on the development machine and the IoT Edge runtime and modules are running on another physical machine. In order to debug from Visual Studio Code, you must:
 
 - Set up your IoT Edge device, build your IoT Edge modules with the **.debug** Dockerfile, and then deploy to the IoT Edge device.
 - Update the `launch.json` so that Visual Studio Code can attach to the process in the container on the remote machine. This file is located in the `.vscode` folder in your workspace and updates each time you add a new module that supports debugging.
@@ -755,7 +755,7 @@ The Docker and Moby engines support SSH connections to containers allowing you t
 > [!NOTE]
 > The preceding example shows how to debug IoT Edge modules on remote containers. It added a remote Docker context and changes to the Docker privileges on the remote device. After you finish debugging your modules, set your Docker context to *default* and remove privileges from your user account.
 
-See this [IoT Developer blog entry](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) for an another example using a Raspberry Pi device.
+See this [IoT Developer blog entry](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) for an example using a Raspberry Pi device.
 
 ## Next steps
 

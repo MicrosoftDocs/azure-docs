@@ -7,7 +7,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-1. Click **Start Debugging** or press **F5** to start the debug session.
+1. Select **Start Debugging** or press **F5** to start the debug session.
 
 1. In the Visual Studio Code integrated terminal, run the following command to send a **Hello World** message to your module. This is the command shown in previous steps when you set up IoT Edge simulator.
 
