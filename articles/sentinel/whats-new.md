@@ -27,22 +27,8 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## September 2022
 
-- [Add entities to threat intelligence (Preview)](#add-entities-to-threat-intelligence-preview)
-
-### Add entities to threat intelligence (Preview)
-
-When investigating an incident, you examine entities and their context as an important part of understanding the scope and nature of the incident. In the course of the investigation, you may discover an entity in the incident that should be labeled and tracked as an indicator of compromise (IOC), a threat indicator.
-
-Microsoft Sentinel allows you to flag the entity as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade in Sentinel.
-
-Learn how to [add an entity to your threat intelligence](add-entity-to-threat-intelligence.md).
-
-## August 2022
-
 - [Create and delete incidents manually (Preview)](#create-and-delete-incidents-manually-preview)
-- [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
-- [New data sources for User and entity behavior analytics (UEBA) (Preview)](#new-data-sources-for-user-and-entity-behavior-analytics-ueba-preview)
-- [Microsoft Sentinel Solution for SAP is now generally available](#microsoft-sentinel-solution-for-sap-is-now-generally-available)
+- [Add entities to threat intelligence (Preview)](#add-entities-to-threat-intelligence-preview)
 
 ### Create and delete incidents manually (Preview)
 
@@ -58,6 +44,39 @@ Since this capability raises the possibility that you'll create an incident in e
 
 - [Learn more about creating incidents manually](create-incident-manually.md).
 - [Learn more about deleting incidents](delete-incident.md).
+
+### Add entities to threat intelligence (Preview)
+
+When investigating an incident, you examine entities and their context as an important part of understanding the scope and nature of the incident. In the course of the investigation, you may discover an entity in the incident that should be labeled and tracked as an indicator of compromise (IOC), a threat indicator.
+
+Microsoft Sentinel allows you to flag the entity as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade in Sentinel.
+
+Learn how to [add an entity to your threat intelligence](add-entity-to-threat-intelligence.md).
+
+## August 2022
+
+- [Heads up: Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#heads-up-microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
+- [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
+- [New data sources for User and entity behavior analytics (UEBA) (Preview)](#new-data-sources-for-user-and-entity-behavior-analytics-ueba-preview)
+- [Microsoft Sentinel Solution for SAP is now generally available](#microsoft-sentinel-solution-for-sap-is-now-generally-available)
+
+### Heads up: Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
+
+[Microsoft 365 Defender](/microsoft-365/security/defender/) now includes the integration of [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents.
+
+Microsoft Sentinel customers with the [Microsoft 365 Defender connector](microsoft-365-defender-sentinel-integration.md) enabled will automatically start receiving AADIP alerts and incidents in their Microsoft Sentinel incidents queue. Depending on your configuration, this may affect you as follows:
+
+- If you already have your AADIP connector enabled in Microsoft Sentinel, you may receive duplicate incidents. To avoid this, you have a few choices, listed here in descending order of preference:
+
+    - Disable incident creation in your AADIP data connector.
+
+    - Disable AADIP integration at the source, in your Microsoft 365 Defender portal.
+
+    - Create an automation rule in Microsoft Sentinel to automatically close incidents created by the [Microsoft Security analytics rule](create-incidents-from-alerts.md) that creates AADIP incidents.
+
+- If you don't have your AADIP connector enabled, you may receive AADIP incidents, but without any data in them. To correct this, simply [enable your AADIP connector](data-connectors-reference.md#azure-active-directory-identity-protection). Be sure **not** to enable incident creation on the connector page.
+
+- If you're first enabling your Microsoft 365 Defender connector now, the AADIP connection will be made automatically behind the scenes. You won't need to do anything else.
 
 ### Azure resource entity page (Preview)
 
