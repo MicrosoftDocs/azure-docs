@@ -579,11 +579,7 @@
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
     - name: Configure Multi-user authorization using Resource Guard
-      items:
-      - name: Recovery Services vault
-        href: multi-user-authorization.md
-      - name: Backup vault
-        href: multi-user-authorization-configure-for-backup-vault.md
+      href: multi-user-authorization.md
     - name: Soft delete
       items:
       - name: Overview
