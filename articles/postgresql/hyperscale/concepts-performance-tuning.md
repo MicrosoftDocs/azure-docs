@@ -363,5 +363,6 @@ Tips:
 
 ## Next steps
 
+* [Advanced query performance tuning](https://docs.citusdata.com/en/stable/performance/performance_tuning.html)
 * [Useful diagnostic queries](howto-useful-diagnostic-queries.md)
 * Build fast [app stacks](quickstart-app-stacks-overview.md)
