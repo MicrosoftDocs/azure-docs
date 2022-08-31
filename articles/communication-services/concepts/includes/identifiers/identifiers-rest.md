@@ -40,9 +40,9 @@ The `CommunicationUserIdentifierModel` represents a user identity that was creat
         "id": "8:acs:8540c0de-899f-5cce-acb5-3ec493af3800_c94ff260-162d-46d6-94fd-e79f4d213715"
     }
 }
-
-
 ```
+
+You can find an example for a request that includes an identifier in Chat's REST API for [adding a participant](/rest/api/communication/chat/chat-thread/add-chat-participants?tabs=HTTP#chatparticipant), and an example for a response with an identifier under [get chat message](/rest/api/communication/chat/chat-thread/get-chat-message?tabs=HTTP#chatmessage).
 
 #### API reference
 
