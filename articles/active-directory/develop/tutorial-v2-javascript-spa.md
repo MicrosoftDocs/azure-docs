@@ -231,9 +231,6 @@ In the next steps we'll create a new folder for the JavaScript SPA, and set up t
    </html>
    ```
 
-   > [!TIP]
-   > You can replace the version of MSAL.js in the preceding script with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
-
 2. Now, create a .js file named `ui.js`, which will access and update Document Object Model (DOM) elements, and add the following code:
 
    ```JavaScript
