@@ -233,15 +233,19 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 > In both GitHub and Azure DevOps, make sure that you keep the trigger path and deployment path directories consistent.
 >
 
-## Edit or delete content in your repository
+## Edit content
 
-After you've successfully created a connection to your source control repository, anytime that content in that repository is modified or added, the deployment workflow runs again and deploys all content in the repository to all connected Microsoft Sentinel workspaces.
+After you've successfully created a connection to your source control repository, anytime content in that repository is modified or added, the modified content is deployed to all connected Microsoft Sentinel workspaces.
 
 We recommend that you edit any content stored in a connected repository *only* in the repository, and not in Microsoft Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or Azure DevOps.
 
 If you have edited the content in Microsoft Sentinel, make sure to export it to your source control repository to prevent your changes from being overwritten the next time the repository content is deployed to your workspace.
 
-If you are deleting content, make sure to delete it from both your repository and the Azure portal. Deleting content from your repository does not delete it from your Microsoft Sentinel workspace.
+## Delete content
+
+Deleting content from your repository doesn't delete it from your Microsoft Sentinel workspace. If you don't want content, make sure to delete it from both your repository and Sentinel. For example, set a filter for the content based on source name to make is easier to remove content retired from repositories.
+
+:::image type="content" source="media/ci-cd/delete-repo-content.png" alt-text="Screenshot of analytics rules filtered by source name of repositories.":::
 
 ## Remove a repository connection
 
