@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 08/31/2022
 ms.author: jasteppe
 ---
 
@@ -62,7 +62,6 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 "template": {
         "typeName": "heartrate",
         "typeMatchExpression": "$..[?(@Body.heartRate)]",
-        "deviceIdExpression": "$.deviceId",
         "timestampExpression": "$.endDate",
         "values": [
             {
