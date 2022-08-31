@@ -3,7 +3,7 @@
  description: Learn about using secure TLS connections for devices and services communicating with IoT Hub
  services: iot-hub
  author: kgremban
- ms.service: iot-fundamentals
+ ms.service: iot-hub
  ms.topic: conceptual
  ms.date: 06/29/2021
  ms.author: kgremban
