@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/29/2022
+ms.date: 08/31/2022
 ms.custom: devx-track-python, mode-api
 ---
 
@@ -52,11 +52,14 @@ All requests require an api-key on every request sent to your service. Having a 
 
 In this task, start Jupyter Notebook and verify that you can connect to Azure Cognitive Search. You'll do this step by requesting a list of indexes from your service.
 
-1. Create a new Python3 notebook.
+1. Create a new Python3 notebook in Visual Studio Code:
+
+    1. Press F1 and search for "Python Select Interpreter" and choose a version of Python 3.7 or later.
+    1. Press F1 again and search for "Create: New Jupyter Notebook". You should have an empty, untitled .ipynb file open in the editor ready for the first entry.
 
 1. In the first cell, load the libraries from the Azure SDK for Python, including [azure-search-documents](/python/api/azure-search-documents).
 
-   ```python
+    ```python
     %pip install azure-search-documents --pre
     %pip show azure-search-documents
     
@@ -73,11 +76,11 @@ In this task, start Jupyter Notebook and verify that you can connect to Azure Co
         SimpleField,
         SearchableField
     )
-   ```
+    ```
 
-1. In the second cell, input the request elements that will be constants on every request. Provide your search service name, admin API key, and query API key, copied in a previous step. This cell also sets up the clients you'll use for specific operations: [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) to create an index, and [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) to query an index.
+1. Add a second cell and paste in the input the request elements that will be constants on every request. Provide your search service name, admin API key, and query API key, copied in a previous step. This cell also sets up the clients you'll use for specific operations: [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) to create an index, and [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) to query an index.
 
-   ```python
+    ```python
     service_name = "YOUR-SEARCH-SERVICE-NAME"
     admin_key = "YOUR-SEARCH-SERVICE-ADMIN-API-KEY"
     
@@ -92,17 +95,17 @@ In this task, start Jupyter Notebook and verify that you can connect to Azure Co
     search_client = SearchClient(endpoint=endpoint,
                           index_name=index_name,
                           credential=AzureKeyCredential(admin_key))
-   ```
+    ```
 
 1. In the third cell, run a delete_index operation to clear your service of any existing *hotels-quickstart* indexes. Deleting the index allows you to create another *hotels-quickstart* index of the same name.
 
-   ```python
+    ```python
     try:
         result = admin_client.delete_index(index_name)
         print ('Index', index_name, 'Deleted')
     except Exception as ex:
         print (ex)
-   ```
+    ```
 
 1. Run each step.
 
