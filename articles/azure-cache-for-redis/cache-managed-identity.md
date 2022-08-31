@@ -64,12 +64,12 @@ Because managed identity for storage is only used with the import/export feature
 
 1. Navigate to your Azure Cache for Redis resource from the Azure portal. Select **Identity**  from the Resource menu on the left.
 
-1. To enable a system-assigned identity, select the **System assigned ()** tab, and select **On** under **Status**. Select **Save** to confirm.
+1. To enable a system-assigned identity, select the **System assigned** tab, and select **On** under **Status**. Select **Save** to confirm.
 
    :::image type="content" source="media/cache-managed-identity/identity-save.png" alt-text="System assigned identity status is on":::
 
 1. A dialog pops up saying that your cache will be registered with Azure Active Directory and that it can be granted permissions to access resources protected by Azure AD. Select **Yes**.
-   :::image type="content" source="media/cache-managed-identity/user-assigned.png" alt-text="Screenshot showing a asking if you want to enable managed identity.":::
+   :::image type="content" source="media/cache-managed-identity/identity-dialog.png" alt-text="Screenshot asking if you want to enable managed identity.":::
 
 1. You see an **Object (principal) ID**, indicating that the identity has been assigned.
 
