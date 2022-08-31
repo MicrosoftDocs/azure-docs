@@ -25,13 +25,9 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
-## August 2022
+## September 2022
 
 - [Add entities to threat intelligence (Preview)](#add-entities-to-threat-intelligence-preview)
-- [Heads up: Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#heads-up-microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
-- [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
-- [New data sources for User and entity behavior analytics (UEBA) (Preview)](#new-data-sources-for-user-and-entity-behavior-analytics-ueba-preview)
-- [Microsoft Sentinel Solution for SAP is now generally available](#microsoft-sentinel-solution-for-sap-is-now-generally-available)
 
 ### Add entities to threat intelligence (Preview)
 
@@ -40,6 +36,13 @@ When investigating an incident, you examine entities and their context as an imp
 Microsoft Sentinel allows you to flag the entity as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade in Sentinel.
 
 Learn how to [add an entity to your threat intelligence](add-entity-to-threat-intelligence.md).
+
+## August 2022
+
+- [Heads up: Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#heads-up-microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
+- [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
+- [New data sources for User and entity behavior analytics (UEBA) (Preview)](#new-data-sources-for-user-and-entity-behavior-analytics-ueba-preview)
+- [Microsoft Sentinel Solution for SAP is now generally available](#microsoft-sentinel-solution-for-sap-is-now-generally-available)
 
 ### Heads up: Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
 
