@@ -116,6 +116,8 @@ The **SMS** tab displays the operations and results for SMS usage through an Azu
 
 :::image type="content" source="media\workbooks\sms.png" alt-text="SMS tab":::
 
+The **Email** tab displays delivery status, email size, and email count:
+:::image type="content" source="media\workbooks\acs-email-workbook.png" alt-text="Email tab":::
 ## Editing dashboards
 
 The **Insights** dashboards provided with your **Communication Service** resource can be customized by clicking on the **Edit** button on the top navigation bar:
