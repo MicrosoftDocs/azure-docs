@@ -1,7 +1,7 @@
 ---
 title: How to manage network connections
 titleSuffix: Microsoft Dev Box
-description: 
+description: This article describes how to create, delete, attach and remove Microsoft Dev Box network connections.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -10,6 +10,7 @@ ms.date: 04/15/2022
 ms.topic: how-to
 ---
 
+<!-- Intent: As a dev infrastructure manager, I want to be able to manage network connections so that I can enable dev boxes to connect to my existing networks and deploy them in the desired region. -->
 # Manage network connections
 Network connections allow dev boxes to connect to existing virtual networks, and determine the region into which dev boxes are deployed. 
 
@@ -20,6 +21,7 @@ When planning network connectivity for your dev boxes, you must:
 - Determine whether dev boxes should connect to your existing networks using an Azure Active Directory (Azure AD) join, or a Hybrid Azure AD join.
 ## Permissions 
 To manage a network connection, you need the following permissions:
+
 |Action|Permission required|
 |-----|-----|
 |Create and configure VNet and subnet|Network Contributor permissions on an existing virtual network (owner or contributor) or permission to create a new virtual network and subnet.|
@@ -154,12 +156,13 @@ You can remove a network connection from a dev center if you no longer want it t
  
 1. Select  the network connection you want to remove and then select **Remove**.
 
-   :::image type="content" source="./media/how-to-manage-network-connection/remove-network-connection.png" alt-text="Screenshot showing the Add network connection pane.":::   
+   :::image type="content" source="./media/how-to-manage-network-connection/remove-network-connection.png" alt-text="Screenshot showing the network connection page with Remove highlighted.":::   
 
-1. Read the warning message, and then select **ok**.
+1. Read the warning message, and then select **Ok**.
 
 The network connection will no longer be available for use in the dev center.
 
 ## Next steps
 
+- [Manage a dev center](./how-to-manage-dev-center)
 - [Quickstart: Configure a Microsoft Dev Box Project](./quickstart-configure-dev-box-project.md)
