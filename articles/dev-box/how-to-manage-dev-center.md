@@ -20,7 +20,7 @@ To manage a dev center, you need the following permissions:
 |Action|Permission required|
 |-----|-----|
 |Create or delete dev center|Owner or Contributor permissions on an Azure Subscription or a specific resource group.|
-|Manage a dev center|Write permission to the dev center.|
+|Manage a dev center|Owner or Contributor roles, or specific Write permission to the dev center.|
 |Attach or remove network connection|Network Contributor permissions on an existing network connection (owner or contributor).|
 
 ## Create a dev center
