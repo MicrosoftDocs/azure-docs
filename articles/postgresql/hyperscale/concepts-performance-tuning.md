@@ -51,7 +51,7 @@ meaning of the query.
 
 In some workloads, it's easy.  Transactional/operational workloads like
 multi-tenant SaaS apps or the Internet of Things distribute tables by tenant or
-device. Queries are usually scoped to a tenant- or device-ID.
+device. Queries are scoped to a tenant- or device-ID.
 
 For instance, in our [multi-tenant
 tutorial](tutorial-design-database-multi-tenant.md#use-psql-utility-to-create-a-schema)
@@ -129,12 +129,12 @@ SELECT *
 
 In general, when joining distributed tables, try to include the distribution
 column in the join conditions. However, when joining between a distributed and
-reference table you don't need to do this, because reference table contents are
+reference table it's not required, because reference table contents are
 replicated across all worker nodes.
 
-If it seems inconvenient to add the additional filters to all your queries,
-keep in mind there are helper libraries for several popular application
-frameworks that make it easier. Here are instructions:
+If it seems inconvenient to add the extra filters to all your queries, keep in
+mind there are helper libraries for several popular application frameworks that
+make it easier. Here are instructions:
 
 * [Ruby on Rails](https://docs.citusdata.com/en/stable/develop/migration_mt_ror.html),
 * [Django](https://docs.citusdata.com/en/stable/develop/migration_mt_django.html),
