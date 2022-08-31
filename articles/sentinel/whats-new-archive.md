@@ -4,7 +4,7 @@ description: A description of what's new and changed in Azure Sentinel from six 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 08/31/2022
 ms.custom: ignite-fall-2021
 ---
 
