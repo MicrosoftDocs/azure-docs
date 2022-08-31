@@ -33,7 +33,7 @@ Query Store automatically captures the history of queries and runtime statistics
 
 Use the following statement to view the top five SQL statements that consume IO:
 
-```postgresql
+``` postgresql
 
 select * from query_store.qs_view qv where is_system_query is FALSE 
 order by blk_read_time + blk_write_time  desc limit 5;
@@ -46,14 +46,14 @@ The pg_stat_statements extension helps identify queries that consume IO on the s
 
 Use the following statement to view the top five SQL statements that consume IO:
 
-```postgresql
+``` postgresql
 SELECT userid::regrole, dbid, query
 FROM pg_stat_statements 
 ORDER BY blk_read_time + blk_write_time desc  
 LIMIT 5;   
 ```
-> [!NOTE]
-> For blk_read_time and blk_write_time columns to be populated one must enable server parameter track_io_timing.
+[!NOTE]
+When using query store or pg_stat_statements for columns blk_read_time and blk_write_time to be populated one must enable server parameter `track_io_timing`.For more information about the **track_io_timing** parameter, review [Server Parameter](https://www.postgresql.org/docs/current/runtime-config-statistics.html). 
 
 ## Identify root causes 
 
@@ -78,21 +78,19 @@ High IO can also be seen in scenarios where checkpoint is happening too frequent
 
 You could also investigate using an approach where we save periodic snapshots of `pg_stat_bgwriter` with a timestamp as illustrated below
 
-- Take first snapshot of pg_stat_bgwriter as shown below.
+Take first snapshot of pg_stat_bgwriter as shown below.
 
-```postgresql
+``` postgresql
 create table checkpoint_snapshot as select current_timestamp as snapshottime,* from pg_stat_bgwriter;
 ```
-- Now wait for some time, generally it is recommended to wait for one hour.
+Generally it is recommended to wait for one hour and take a second snapshot as shown below.
 
-- Take a second snapshot as shown below.
-
-```postgresql
+``` postgresql
 insert into checkpoint_snapshot (select current_timestamp as snapshottime,* from pg_stat_bgwriter);
 ```
-- Run the below query to analyze the statistics
+Execute the below query which uses the two entries.
 
-```postgresql
+``` postgresql
 SELECT
 cast(date_trunc('minute',start) AS timestamp) AS start,
  date_trunc('second',elapsed) AS elapsed,
@@ -132,17 +130,28 @@ ON two.snapshottime > one.snapshottime
 ) bgwriter_diff
 WHERE (checkpoints_timed + checkpoints_req) > 0;
 ```
-- The column avg_checkpoint_interval gives us average time between checkpoints.If this value is not closer to `checkpoint_timeout` set on the server then we can conclude the checkpoints are happening too frequently.Another column checkpoints_req_pct points to pct value of number of checkpoints that were required to the total checkpoints completed during the time interval.
+The query output has following columns
 
+**avg_checkpoint_interval**: Average time between checkpoints.If this value is much lower than the `checkpoint_timeout` set on the server then we can conclude the checkpoints are happening too frequently.
+**checkpoints_req_pct** : Percentage of number of checkpoints that were required to the total checkpoints completed during the time interval the information was captured.
+**checkpoint_write_pct** : Percentage of buffers written out handled by checkpoints
+**backend_write_pct** : Percentage of buffers written out by backend write.It is always advised to write out using checkpoints.
+**avg_checkpoint_write** : On an average for every checkpoint how much is written out.
+**written_per_sec** : Average amount of writes to the disk.
+**alloc_per_sec** : Amount of buffers allocated for reads
 
 ### Disruptive Autovacuum Daemon Process
 
 The following query helps in monitoring autovacuum:
 
-```postgresql
+``` postgresql
 SELECT schemaname, relname, n_dead_tup, n_live_tup, autovacuum_count, last_vacuum, last_autovacuum, last_autoanalyze, autovacuum_count, autoanalyze_count FROM pg_stat_all_tables WHERE n_live_tup > 0; 
 ```
-The query can be monitored to check how frequently the tables in the database are being vacuumed. The column last_autovacuum provides date and time when the last autovacuum ran on the table.The autovacuum_count and autoanalyze_count gives number of times the table was vacuumed and analyzed.
+The query can be monitored to check how frequently the tables in the database are being vacuumed. 
+
+**last_autovacuum** provides date and time when the last autovacuum ran on the table
+**autovacuum_count** : provides number of times the table was vacuumed 
+**autoanalyze_count** provides number of times the table was analyzed.
 
 
 ### High Storage Utilization
@@ -156,8 +165,7 @@ Use Explain Analyze, terminate long running transactions, tune server parameters
 
 ### Using Explain Analyze 
 
-Once you know the query that's running for a long time, use **EXPLAIN** to further investigate the query and tune it. 
-For more information about the **EXPLAIN** command, review [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html). 
+Once you know the query that's running for a long time, use **EXPLAIN** to further investigate the query and tune it. For more information about the **EXPLAIN** command, review [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html). 
 
 ### Terminating long running transactions
 
@@ -165,7 +173,7 @@ You could consider killing a long running transaction as an option.
 
 To terminate a session's PID, you will need to detect the PID using the following query: 
 
-```postgresql
+``` postgresql
 SELECT pid, usename, datname, query, now() - xact_start as duration 
 FROM pg_stat_activity  
 WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active') 
@@ -176,7 +184,7 @@ You can also filter by other properties like `usename` (username), `datname` (da
 
 Once you have the session's PID you can terminate using the following query:
 
-```postgresql
+``` postgresql
 SELECT pg_terminate_backend(pid);
 ```
 
@@ -186,27 +194,25 @@ If it is observed that the checkpoint is happening too frequently increase `max_
 
 #### max_wal_size
 
-`max_wal_size` is an important parameter to tune. To tune this, you will need to find out the amount of WAL that was written over a specific time; the size of WAL should be able to fit into `checkpoint_timeout` interval.
+One way to tune `max_wal_size` is to find a suitable time to find `max_wal_size` on the server.Peak business hours is a good time to arrive at the value. The following can be done to arrive at a value
 
-A suitable time to find `max_wal_size` is during the peak business hours. The following can be done to arrive at a value
+Take the current WAL LSN using the following command, note down the result:
 
-- Take the current WAL LSN using the following command, note down the result:
-
- ```postgresql
+ ``` postgresql
 select pg_current_wal_lsn();
 ```
 Wait for checkpoint_timeout number of seconds. Take the current WAL LSN using the following command, note down the result:
 
- ```postgresql
+ ``` postgresql
 select pg_current_wal_lsn();
 ```
 Use the two results to check the difference in GB, using the following:
 
- ```postgresql 
+ ``` postgresql 
 select round (pg_wal_lsn_diff ('LSN value when run second time', 'LSN value when run first time')/1024/1024/1024,2) WAL_CHANGE_GB;
 ```      
 
-If `max_wal_size` is increased you could also consider increasing shared buffers to 25% - 40% of total RAM but not more than that.After `max_wal_size` and `shared_buffers` are increased it is expected that percentage of buffers written at checkpoint time increases and buffers written by backend or background writer should decrease.From the checkpoint query [as mentioned above] previously executed  the written_per_sec column should decrease.
+If `max_wal_size` is increased you could also consider increasing `shared buffers` to 25% - 40% of total RAM but not more than that.After `max_wal_size` and `shared_buffers` are increased it is expected that percentage of buffers written at checkpoint time increases and buffers written by backend or background writer should decrease.From the checkpoint query [as mentioned above] previously executed  the written_per_sec column should decrease,checkpoint_write_pct should increase and backend_write_pct should decrease.Iterate the process till you arrive at best `shared_buffer` and `max_wal_size` values.
 
 
 
@@ -219,7 +225,7 @@ Determines the total time between checkpoints, a good practice would be to set i
 
 Maximum time between automatic WAL checkpoints. The value can be increased from default value set on server, but one should set an appropriate value taking into consideration that increasing the value would also increase the time for crash recovery.
 
-If `max_wal_size` and `shared_buffers` are set optimally on the server but still large percentage of writes are coming from buffers_checkpoint and the written_per_sec column seems high consider increasing the `checkpoint_timeout` parameter.
+If `max_wal_size` and `shared_buffers` are set optimally on the server but still buffers_checkpoint and the written_per_sec values are high [from checkpoint query above] consider increasing the `checkpoint_timeout` parameter.
 
 ### Autovacuum Tuning To make it less disruptive
 
