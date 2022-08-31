@@ -1,11 +1,11 @@
 ---
 title: Get started with the MedTech service in Azure Health Data Services
-description: This document describes how to get started with the MedTech service in Azure Health Data Services.
+description: This document describes how to get you started with the MedTech service in Azure Health Data Services.
 author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/02/2022
+ms.date: 08/30/2022
 ms.author: v-smcevoy
 ms.custom: mode-api
 ---
@@ -34,7 +34,7 @@ The following diagram outlines the basic architectural path that enables the Med
 
 ### Data processing
 
-- Step 5 represents the data flow from a device to an event hub and is processed through the five parts of the MedTech service.
+- Step 5 represents the data flow from a device to an event hub and the way it's processed through the five parts of the MedTech service.
 
 - Step 6 demonstrates the path to verify processed data sent from MedTech service to the FHIR service.
 

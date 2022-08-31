@@ -83,7 +83,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure IoT Hub | Microsoft.Devices/IotHubs | iotHub |
 | Azure IoT Central | Microsoft.IoTCentral/IoTApps | IoTApps |
-| Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | digitaltwinsinstance |
+| Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | API |
 | Azure Event Grid | Microsoft.EventGrid/domains | domain |
 | Azure Event Grid | Microsoft.EventGrid/topics  | topic |
 | Azure Event Hub | Microsoft.EventHub/namespaces | namespace |
@@ -100,7 +100,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Microsoft Purview | Microsoft.Purview/accounts | portal |
 | Azure Backup | Microsoft.RecoveryServices/vaults | vault |
 | Azure Relay | Microsoft.Relay/namespaces | namespace |
-| Azure Cognitive Search | Microsoft.Search/searchServices | search service |
+| Azure Cognitive Search | Microsoft.Search/searchServices | searchService |
 | Azure Service Bus | Microsoft.ServiceBus/namespaces | namespace |
 | Azure SignalR Service | Microsoft.SignalRService/SignalR | signalr |
 | Azure SignalR Service | Microsoft.SignalRService/webPubSub | webpubsub |
@@ -173,8 +173,6 @@ The following information lists the known limitations to the use of private endp
 | --------- | ------------ |
 | Effective routes and security rules unavailable for private endpoint network interface. | Effective routes and security rules won't be displayed for the private endpoint NIC in the Azure portal. |
 | NSG flow logs unsupported. | NSG flow logs unavailable for inbound traffic destined for a private endpoint. |
-| Intermittent drops with zone-redundant storage (ZRS) storage accounts. | Customers that use ZRS storage accounts might see periodic intermittent drops, even with *allow NSG* applied on a storage private-endpoint subnet. |
-| Intermittent drops with Azure Key Vault. | Customers that use Azure Key Vault might see periodic intermittent drops, even with *allow NSG* applied on a Key Vault private-endpoint subnet. |
 | The number of address prefixes per NSG is limited. | Having more than 500 address prefixes in an NSG in a single rule is unsupported. |
 | AllowVirtualNetworkAccess flag | Customers that set virtual network peering on their virtual network (virtual network A) with the *AllowVirtualNetworkAccess* flag set to *false* on the peering link to another virtual network (virtual network B) can't use the *VirtualNetwork* tag to deny traffic from virtual network B accessing private endpoint resources. The customers need to explicitly place a block for virtual network B’s address prefix to deny traffic to the private endpoint. |
 | No more than 50 members in an Application Security Group. | Fifty is the number of IP Configurations that can be tied to each respective ASG that’s coupled to the NSG on the private endpoint subnet. Connection failures may occur with more than 50 members. |

@@ -111,6 +111,8 @@
         href: storage-files-identity-ad-ds-update-password.md
     - name: Enable Azure AD DS authentication and authorization
       href: storage-files-identity-auth-active-directory-domain-service-enable.md
+    - name: Enable Azure AD Kerberos authentication for hybrid accounts (preview)
+      href: storage-files-identity-auth-azure-active-directory-enable.md
   - name: Manage
     items:
     - name: Manage storage in Azure independent clouds
@@ -126,7 +128,12 @@
       - name: Change how data is replicated
         href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: Design highly available applications
-        href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        items:
+        - name: .NET (v12 SDK)
+          href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: .NET (v11 SDK)
+          href: ../common/geo-redundant-design-legacy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        
     - name: Manage disaster recovery
       items:
       - name: Check the Last Sync Time property
@@ -209,12 +216,14 @@
       items:
       - name: Check the encryption key model for the account
         href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: Configure encryption with customer-managed keys
+      - name: Configure customer-managed keys in Azure Key Vault
         items:
-        - name: Store customer-managed keys in a key vault
-          href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Store customer-managed keys in a managed HSM
-          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Configure customer-managed keys for a new account
+          href: ../common/customer-managed-keys-configure-new-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Configure customer-managed keys for an existing account
+          href: ../common/customer-managed-keys-configure-existing-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Configure customer-managed keys in a managed HSM
+        href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Enable infrastructure encryption for the account
       href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Enable threat protection with Microsoft Defender for Storage
@@ -257,6 +266,8 @@
   items:
   - name: Azure Files API reference
     href: ../files/reference.md
+  - name: Spring Cloud Azure
+    href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/files/toc.json#resource-handing
   - name: Monitoring Azure Files reference
     href: storage-files-monitoring-reference.md
   - name: Resource Manager template

@@ -1,17 +1,12 @@
 ---
 title: 'Azure storage types for SAP workload'
 description: Planning Azure storage types for SAP workloads
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/02/2021
 ms.author: juergent
@@ -338,7 +333,7 @@ The Azure Standard HDD storage was the only storage type when Azure infrastructu
 
 
 ## Azure VM limits in storage traffic
-In opposite to on-premise scenarios, the individual VM type you are selecting, plays a vital role in the storage bandwidth you can achieve. For the different storage types, you need to consider:
+In opposite to on-premises scenarios, the individual VM type you are selecting, plays a vital role in the storage bandwidth you can achieve. For the different storage types, you need to consider:
 
 | Storage type| Linux | Windows | Comments |
 | --- | --- | --- | --- |
