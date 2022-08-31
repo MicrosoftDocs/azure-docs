@@ -46,7 +46,7 @@ Once you have enabled the Microsoft 365 Defender data connector to [collect inci
 
 - Incidents will be ingested and synchronized at no extra cost.
 
-Once the Microsoft 365 Defender integration is connected, all the component alert connectors (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps) will be automatically connected in the background if they weren't already. If any component licenses were purchased after Microsoft 365 Defender was connected, the alerts and incidents from the new product will still flow to Microsoft Sentinel with no additional configuration or charge.
+Once the Microsoft 365 Defender integration is connected, the connectors for all the integrated components and services (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, Azure Active Directory Identity Protection) will be automatically connected in the background if they weren't already. If any component licenses were purchased after Microsoft 365 Defender was connected, the alerts and incidents from the new product will still flow to Microsoft Sentinel with no additional configuration or charge.
 
 ## Microsoft 365 Defender incidents and Microsoft incident creation rules
 
@@ -56,7 +56,7 @@ Once the Microsoft 365 Defender integration is connected, all the component aler
 
 - Using both mechanisms together is completely supported, and can be used to facilitate the transition to the new Microsoft 365 Defender incident creation logic. Doing so will, however, create **duplicate incidents** for the same alerts.
 
-- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 products (Defender for Endpoint, Defender for Identity, and Defender for Office 365, and Defender for Cloud Apps) when connecting Microsoft 365 Defender. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
+- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 Defender-integrated products (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, and Azure Active Directory Identity Protection) when connecting Microsoft 365 Defender. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
 
     > [!NOTE]
     > All Microsoft Defender for Cloud Apps alert types are now being onboarded to Microsoft 365 Defender.
