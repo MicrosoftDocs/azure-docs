@@ -60,7 +60,7 @@ Use the following steps to create a leaver on-demand workflow that will execute 
    :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-users.png" alt-text="Select real time leaver template users." lightbox="media/tutorial-lifecycle-workflows/real-time-users.png":::
  
  10. Next, select on **+Add users** to designate the users to be executed on this workflow.
-   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-add-users.png" alt-text="Real time leaver add users." lightbox="media/tutorial-lifecycle-workflows/real-time-add-users.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-add-users.png" alt-text="Screenshot of real time leaver add users." lightbox="media/tutorial-lifecycle-workflows/real-time-add-users.png":::
  
  11. A panel with the list of available users will pop-up on the right side of the screen. Select **Select** when you are done with your selection.
    :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-user-list.png" alt-text="Screenshot of real time leaver template selected users." lightbox="media/tutorial-lifecycle-workflows/real-time-user-list.png":::
