@@ -140,5 +140,5 @@ To make role assignments, use the following steps:
 ## Next steps
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)
-- [Create dev box defintions](./quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
+- [Create dev box definitions](./quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
 - [Configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)
