@@ -32,7 +32,7 @@ The following list contains known causes and solutions for service unavailable e
 In certain conditions, the HTTP 503 Service Unavailable error will include a substatus code that helps to identify the cause.
 
 | SubStatus Code | Description |
-|----------|-------------|-------------|
+|----------|-------------|
 | 20001 | The service unavailable error happened because there are client side [connectivity issues](#client-side-transient-connectivity-issues) (failures attempting to connect). The client attempted to recover by [retrying](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503) but all retries failed. |
 | 20002 | The service unavailable error happened because there are client side [timeouts](troubleshoot-dot-net-sdk-request-timeout.md#troubleshooting-steps). The client attempted to recover by [retrying](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503) but all retries failed. |
 | 20003 | The service unavailable error happened because there are underlying I/O errors related to the operating system. See the exception details for the related I/O error. |
