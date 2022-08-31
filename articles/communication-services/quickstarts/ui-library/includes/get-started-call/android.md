@@ -6,11 +6,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-----
-
->[!VIDEO https://www.youtube.com/embed/8hOKCHgSNsg]
-
-----
+> [!VIDEO https://www.youtube.com/embed/8hOKCHgSNsg]
 
 Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start) in the open source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
 
@@ -33,7 +29,7 @@ Complete the following sections to set up the quickstart project.
 
 1. Select **Next**.
 
-1. In **Creates a new empty activity**, name the project *UILibraryQuickStart*. For language, select **Java/Kotlin**. For the minimum SDK, select **API 21: Android 5.0 (Lollipop)** or later.
+1. In **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For minimum SDK, select **API 21: Android 5.0 (Lollipop)** or later.
 
 1. Select **Finish**.
 
@@ -62,7 +58,7 @@ Two Maven repositories are required to integrate the library:
 - MavenCentral
 - The Azure package repository
 
-1. In your project Gradle scripts, ensure that the following repositories are added. For Android Studio (2020.\*), `repositories` is in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  For earlier versions of Android Studio (4.\*), `repositories` is in the project-level `build.gradle` `allprojects{}`.
+1. In your project Gradle scripts, ensure that the following repositories are added. For Android Studio (2020.\*), `repositories` is in `settings.gradle`, under `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  For earlier versions of Android Studio (4.\*), `repositories` is in the project-level `build.gradle`, under `allprojects{}`.
 
     ```groovy
     // dependencyResolutionManagement
@@ -240,7 +236,7 @@ To create `CallComposite`, inside the `startCallComposite` function, initialize 
 ```kotlin
 val callComposite: CallComposite = CallCompositeBuilder().build()
 ```
- 
+
 #### [Java](#tab/java)
 
 ```java

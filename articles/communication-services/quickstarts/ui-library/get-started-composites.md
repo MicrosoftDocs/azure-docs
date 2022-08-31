@@ -15,18 +15,26 @@ ms.custom: mode-other
 
 Quickly integrate communication experiences into your applications by using Azure Communication Services UI Library. In this quickstart, you get started and learn how to integrate UI Library composites into an application.
 
-Communication Services UI Library renders a full communication experience right in your application. It takes care of connecting to the call, and it sets up the user's participation in the call behind the scenes. As a developer, you need to worry about where in your app's user experience you want the communication experience to launch. The composite takes the user through setting up their devices, joining the call and participating in it, and rendering other participants.  
+Communication Services UI Library renders a full communication experience right in your application. It takes care of connecting to the call, and it sets up the user's participation in the call behind the scenes. As a developer, you need to worry about where in your app's user experience you want the communication experience to launch. The composite takes the user through setting up their devices, joining the call and participating in it, and rendering other participants.
+
+View this video for an overview of the quickstart.  
 
 ::: zone pivot="platform-web"
+  
 [!INCLUDE [UI Library with Web](./includes/get-started-call/web.md)]
+
 ::: zone-end
 
 ::: zone pivot="platform-android"
+
 [!INCLUDE [UI Library with Android](./includes/get-started-call/android.md)]
+
 ::: zone-end
 
 ::: zone pivot="platform-ios"
+
 [!INCLUDE [UI Library with iOS](./includes/get-started-call/ios.md)]
+
 ::: zone-end
 
 ## Clean up resources
