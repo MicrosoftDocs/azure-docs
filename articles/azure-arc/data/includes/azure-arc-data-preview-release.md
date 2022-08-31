@@ -19,7 +19,7 @@ The current test release published on September 13, 2022.
 |CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2, v1beta3<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`sqlmanagedinstancereprovisionreplicatask.tasks.sql.arcdata.microsoft.com`: v1beta1<br/>|
 |Azure Resource Manager (ARM) API version|2022-03-01-preview (No change)|
 |`arcdata` Azure CLI extension version|1.4.6 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc enabled Kubernetes helm chart extension version|1.10.0 (Note: This versioning scheme is new,starting from this release. The scheme follows the semantic versioning scheme of the container images.)|
+|Arc enabled Kubernetes helm chart extension version|1.10.0 (Note: This versioning scheme is new, starting from this release. The scheme follows the semantic versioning scheme of the container images.)|
 |Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.5.2 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.5.2 ([Download](https://aka.ms/ads-azcli-ext))|
 
 New for this release:
