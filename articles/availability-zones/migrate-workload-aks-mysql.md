@@ -18,7 +18,9 @@ Availability zone support for this workload must be enabled during the creation 
 
 This migration guidance focuses mainly on the infrastructure and availability considerations of running the following architecture on Azure:
 
-:::image type="content" alt-text="Picture showing workflow architecture" source="./media/migrate-workload-aks-mysql/aks-mysql-architecture.jpg":::
+:::image type="content" alt-text="Picture showing first part of workflow architecture" source="./media/migrate-workload-aks-mysql/aks-mysql-architecture-one.png":::
+
+:::image type="content" alt-text="Picture showing second part of workflow architecture" source="./media/migrate-workload-aks-mysql/aks-mysql-architecture-two.png":::
 
 
 ## Workload service dependencies
@@ -117,7 +119,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 The implication of deploying your node pools in specific zones, such as zone 1 and 2, is that all service dependencies of your AKS cluster must also support zone 1 and 2. In this workload architecture, your AKS cluster has a service dependency on Azure Database for MySQL Flexible Servers with zone resiliency. You would select zone 1 for your primary server and zone 2 for your standby server to be co-located with your AKS user node pools. 
 
 
-:::image type="content" alt-text="Picture showing zone selection for MySQL Flexible Servers" source="./media/migrate-workload-aks-mysql/mysql-zone-selection.jpg":::
+:::image type="content" alt-text="Picture showing zone selection for MySQL Flexible Servers" source="./media/migrate-workload-aks-mysql/mysql-zone-selection.png":::
 
 ### Azure Cache for Redis
 
@@ -127,7 +129,7 @@ The implication of deploying your node pools in specific zones, such as zone 1 a
 
 - To achieve optimal resiliency, we recommend that you create your Azure Cache for Redis with three or more replicas so that you can distribute the replicas across three availability zones. 
 
-:::image type="content" alt-text="Picture showing three replicas for Azure Cache for Redis" source="./media/migrate-workload-aks-mysql/redis-create-replicas.jpg":::
+:::image type="content" alt-text="Picture showing three replicas for Azure Cache for Redis" source="./media/migrate-workload-aks-mysql/redis-create-replicas.png":::
 
 
 ## Disaster recovery considerations
@@ -135,6 +137,9 @@ The implication of deploying your node pools in specific zones, such as zone 1 a
 *Availability zones* are generally used for better resiliency to achieve high availability of your workload within the primary region of your deployment. 
 
 *Disaster Recovery* consists of recovery operations and practices defined in your business continuity plan, which is about how your workload recovers during a disruptive event and fully recovers after the event. Consider extending your deployment to an alternative region. 
+
+
+:::image type="content" alt-text="Picture showing secondary region deployment architecture" source="./media/migrate-workload-aks-mysql/disaster-recovery.png":::
 
 For your application tier, please review the business continuity and disaster recovery considerations for AKS in this article. 
 
