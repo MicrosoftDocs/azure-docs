@@ -70,7 +70,7 @@ The command might take a few minutes to complete. While running, it creates the 
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
-:::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-windows.png" alt-text="Screenshot of the Windows App Service with messaging that containers without a port exposed will run in background mode.":::
+:::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-windows-powershell.png" alt-text="Screenshot of the Windows App Service with messaging that containers without a port exposed will run in background mode.":::
 
 Note that the Host operating system appears in the footer, confirming we are running in a Windows container.
 
