@@ -202,6 +202,8 @@ that does not support Flask 2. Support for Flask 2 is added in `azureml-inferenc
    If for some reason you're unable to update the image, you can temporary workaround the issue by pinning
    `azureml-defaults==1.43` or `azureml-inference-server-http~=0.4.13`, which will install the older version server with
    `Flask 1.0.x`.
+   
+   See also [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md#error-resourcenotready).
 
 ### 2. I encountered an ``ImportError`` or ``ModuleNotFoundError`` on modules ``opencensus``, ``jinja2``, ``MarkupSafe``, or ``click`` during startup like the following:
 
