@@ -89,7 +89,7 @@ Pick a name for your multi-tenant application in *Tenant1*. For example: “XTCM
 
 Create a user-assigned managed identity to be used as a federated identity credential.
 
-```azurepowershell-interactive
+```azurepowershell
 $subscriptionId="aaaaaaaa-0000-aaaa-0000-aaaa0000aaaa"
 $tenantId="bbbbbbbb-0000-bbbb-0000-bbbb0000bbbb"
 $appName="XTCMKDemoApp"
@@ -106,7 +106,7 @@ $uamiObject = New-AzUserAssignedIdentity -Name $uamiName -ResourceGroupName $rgN
 
 #### The service provider configures the user-assigned managed identity as a federated credential on the application
 
-```azurepowershell-interactive
+```azurepowershell
 Connect-MgGraph
 $appObject = New-MgApplication -DisplayName $appName -SignInAudience AzureADMultipleOrgs
 
@@ -206,45 +206,51 @@ Sign in to the [Azure portal](https://portal.azure.com) and follow these steps.
 1. Use [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals), [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/new-mgserviceprincipal?view=graph-powershell-beta&preserve-view=true), [Azure PowerShell](/powershell/module/az.resources/new-azadserviceprincipal), or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-create) to manually create the service principal.
 1. Construct an [admin-consent URL](../articles/active-directory/manage-apps/grant-admin-consent.md#construct-the-url-for-granting-tenant-wide-admin-consent) and grant tenant-wide consent to create the service principal. You'll need to provide them with your AppId.
 
+#### The customer assigns Key Vault Contributor and Key Vault Crypto Officer roles to a user account
+
+This step ensures that you can create the key vault and encryption keys.
+
+1. Navigate to your storage account and select **Access Control (IAM)** from the left pane.
+1. Under **Grant access to this resource**, select **Add role assignment**.
+1. Search for and select **Key Vault Contributor**.
+1. Under **Members**, select **User, group, or service principal**.
+1. Select **Members** and search for your user account.
+1. Select **Review + Assign**.
+1. Repeat this process to assign the **Key Vault Crypto Officer** role to your user account.
+
 #### The customer creates a key vault
 
-1. From the Azure portal menu, or from the Home page, select **+ Create a resource**. In the Search box, enter **Key Vault**. From the results list, select **Key Vault**. On the Key Vault section, select **Create**.
-1. Choose a subscription. Under **Resource group**, select **Create new** and enter a resource group name.
+To create the key vault, the customer's account must be assigned the Key Vault Contributor role or another role that permits creation of a key vault.
+
+1. From the Azure portal menu, or from the Home page, select **+ Create a resource**. In the Search box, enter **Key vaults**. From the results list, select **Key vaults**. On the **Key vaults** page, select **Create**.
+1. On the **Basics** tab, choose a subscription. Under **Resource group**, select **Create new** and enter a resource group name.
 1. Enter a unique name for the key vault.
 1. Select a region and pricing tier.
-1. Under the **Access policy** tab, select **Azure role-based access control** for **Permission model**.
+1. Enable purge protection for the new key vault.
+1. On the **Access policy** tab, select **Azure role-based access control** for **Permission model**.
 1. Select **Review + create** and then **Create**.
 
 :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-a-key-vault.png" alt-text="Screen shot showing how to create a key vault." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-a-key-vault.png" border="true":::
 
-Take note of the **Vault name** and **Vault URI**. Applications that use your vault through its REST API must use this URI.
+Take note of the **Vault name** and **Vault URI**. Applications that access your key vault must use this URI.
 
 For more information, see [Quickstart - Create an Azure Key Vault with the Azure portal](../articles/key-vault/general/quick-create-portal.md).
 
-#### The customer assigns Key Vault Administrator role to your account
+#### The customer creates an encryption key
 
-This ensures that you can create the encryption keys and/or other objects in this key vault.
-
-1. Navigate to your storage account and select **Access Control (IAM)** from the left pane.
-1. Under **Grant access to this resource**, select **Add role assignment**.
-1. Search for and select **Key vault administrator**.
-1. Under **Members**, select **User, group, or service principal**.
-1. Select **Members** and search for your username.
-1. Select **Review + Assign**.
-
-#### Create an encryption key
+To create the encryption key that will be used for the customer-managed key, follow these steps:
 
 1. On the Key Vault properties page, select **Keys**.
 1. Select **Generate/Import**.
-1. On the **Create a key** screen choose the following values. Leave the other values to their defaults. 
+1. On the **Create a key** screen choose the following values. Leave the other values to their defaults.
    - Options: Generate
    - Name: mycmkkey
 1. Select **Create**.
 1. Copy the key URL.
 
-#### Grant the service provider application access to the key vault
+#### The customer grants the service provider application access to the key vault
 
-Grant the service provider application access to the key vault using Azure Role Based Access Control using the role **Key Vault Crypto Service Encryption User**.
+Grant the service provider application access to the key vault using Azure RBAC using the role **Key Vault Crypto Service Encryption User**.
 
 1. Navigate to your storage account and select **Access Control (IAM)** from the left pane.
 1. Under **Grant access to this resource**, select **Add role assignment**.
@@ -253,7 +259,7 @@ Grant the service provider application access to the key vault using Azure Role 
 1. Select **Members** and search for the application name of the application you installed from the service provider.
 1. Select **Review + Assign**.
 
-Now you can copy the key vault URL and key name into the Customer-Managed-Keys configuration of the SaaS offering.
+Now you can copy the key vault URL and key name into the customer-managed keys configuration of the SaaS offering.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -261,13 +267,13 @@ To use Azure PowerShell, install the latest Az module or the Az.Storage module. 
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
 
-#### Install the service provider application using AppId in the customer tenant
+#### The customer installs the service provider application in the customer tenant
 
 Once you receive the application ID of the service provider's multi-tenant application, install the application in your tenant *Tenant2*. Installing the application creates a service principal in your tenant.
 
-Execute the following cmdlets in the Tenant where you plan to create the key vault.
+Execute the following commands in the tenant where you plan to create the key vault.
 
-```azurepowershell-interactive
+```azurepowershell
 $rgName="MyCMKKeys"
 $subscriptionId="cccccc-0000-ccc-000-cccc0000cccc"
 $vaultName="mykeyvaultname"
@@ -277,8 +283,8 @@ $currentUserObjectId="enter-your-objectId"
 Set-AzContext -Subscription $subscriptionId
 New-AzResourceGroup -Location $location -ResourceGroupName $rgName
 
-# Install the application and create service principal with AppId
-$serviceprincipalObject = New-AzADServicePrincipal -ApplicationId <Pass the AppId aka ClientId from Phase 1>
+# Create the service principal with the registered app's application ID (client ID)
+$serviceprincipalObject = New-AzADServicePrincipal -ApplicationId
 # $serviceprincipalObject = Get-AzADServicePrincipal -ApplicationId $addObject.Id
 ```
 
@@ -286,20 +292,20 @@ $serviceprincipalObject = New-AzADServicePrincipal -ApplicationId <Pass the AppI
 
 1. Add role assignments to manage resources and key vaults in the resource group.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     $currentUserObjectId="object-id-of-the-user"
     ```
 
 2. Create a new Azure key vault.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     New-AzKeyVault -Location $location -Name $vaultName -ResourceGroupName $rgName -SubscriptionId $subscriptionId -EnablePurgeProtection -EnableRbacAuthorization
     New-AzRoleAssignment -RoleDefinitionName "Key Vault Administrator" -Scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName -ObjectId $currentUserObjectId
     ```
 
 3. Create an encryption key in the Key Vault.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Add-AzKeyVaultKey -Name mastercmkkey -VaultName $vaultName -Destination software
     ```
 
@@ -307,7 +313,7 @@ $serviceprincipalObject = New-AzADServicePrincipal -ApplicationId <Pass the AppI
 
 Assign the **Key Vault Crypto Service Encryption User** role to the service-provider application at the resource group scope.
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Service Encryption User" -Scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName -ObjectId $serviceprincipalObject.Id
 ```
 
