@@ -20,7 +20,7 @@ This article explains how you can use an Azure Resource Manager (ARM) template t
 1. Create the configuration 
 1. Assign the configuration to a virtual machine
 
-[!INCLUDE [About Azure Resource Manager](/../../includes/resource-manager-quickstart-introduction.md)] 
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] 
 
 ## Create the configuration
 
