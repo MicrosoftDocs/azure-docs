@@ -23,16 +23,27 @@ AzureML inference router is a critical component for real-time inference with Ku
 
 ## What is AzureML inference router
 
-AzureML inference router is the front-end component (azureml-fe) which is deployed on AKS or Arc Kubernetes cluster at AzureML extension deployment time. It has following functions:
+AzureML inference router is the front-end component (`azureml-fe`) which is deployed on AKS or Arc Kubernetes cluster at AzureML extension deployment time. It has following functions:
   
   * Routes incoming inference requests from cluster load balancer or ingress controller to corresponding model pods.
   * Load-balance all incoming inference requests with smart coordinated routing.
   * manages model pods auto-scaling.
   * Fault-tolerant and failover capability, ensuring inference requests is always served for critical business application.
 
-Let's take a closer look at the following diagram and understand more about AzureML inference router and how coordinated routing works:
+The following steps are how requests are processed by the front-end:
 
- [![Coordinated routing architecture: 3 azureml-fe instances are available to serve requests, one acts as co-ordinating role, and the others as routing roles. The routing azureml-fe pods routes incoming request and propogate response to original user](./media/how-to-attach-arc-kubernetes/cr-architecture.png)](./media/how-to-attach-arc-kubernetes/cr-architecture.png)
+1. Client sends request to the load balancer.
+1. Load balancer sends to one of the front-ends.
+1. The front-end locates the service router (the front-end instance acting as coordinator) for the service.
+1. The service router selects a back-end and returns it to the front-end.
+1. The front-end forwards the request to the back-end.
+1. After the request has been processed, the back-end sends a response to the front-end component.
+1. The front-end propagates the response back to the client.
+1. The front-end informs the service router that the back-end has finished processing and is available for other requests.
+
+The following diagram illustrates this flow:
+
+:::image type="content" source="./media/how-to-attach-arc-kubernetes/cr-architecture.png" alt-text="Diagram illustrating the flow between components.":::
 
 As you can see from above diagram, by default 3 `azureml-fe` instances are created during AzureML extension deployment, one instance acts as coordinating role, and the other instances serve incoming inference requests. The coordinating instance has all information about model pods and makes decision about which model pod to serve incoming request, while the serving `azureml-fe` instances are responsible for routing the request to selected model pod and propagate the response back to the original user.
 
@@ -90,7 +101,7 @@ If you have RPS requirements higher than 10K, consider following options:
 
 ## Understand connectivity requirements for AKS inferencing cluster
 
-AKS cluster is usually deployed with one of the following two network models:
+AKS cluster is deployed with one of the following two network models:
 * Kubenet networking - The network resources are typically created and configured as the AKS cluster is deployed.
 * Azure Container Networking Interface (CNI) networking - The AKS cluster is connected to an existing virtual network resource and configurations.
 
