@@ -98,6 +98,9 @@ For more information, see [deployment against membership types](concept-deployme
 
 For more information, see [remove components checklist](concept-remove-components-checklist.md).
 
+### Does Azure Virtual Network Manager store customer data?
+No. Azure Virtual Network Manager doesn't store any customer data.
+
 ### How can I see what configurations are applied to help me troubleshoot?
 
 You can view Azure Virtual Network Manager settings under **Network Manager** for a virtual network. You can see both connectivity and security admin configuration that are applied. For more information, see [view applied configuration](how-to-view-applied-configurations.md).
