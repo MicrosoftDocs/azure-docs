@@ -15,7 +15,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For a list of the roles and permissions required to work with Microsoft Defender for Cloud's workflow automation feature, see [workflow automation](workflow-automation.md).
 
-The examples in this quickstart assume you have an existing Logic App. To deploy the example, you pass in parameters that contain the logic app name and resource group. For information about deploying a logic app, see [Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with Bicep](../logic-apps/quickstart-create-deploy-bicep) or [Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with an ARM template](../logic-apps/quickstart-create-deploy-azure-resource-manager-template).
+The examples in this quickstart assume you have an existing Logic App. To deploy the example, you pass in parameters that contain the logic app name and resource group. For information about deploying a logic app, see [Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with Bicep](../logic-apps/quickstart-create-deploy-bicep.md) or [Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with an ARM template](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md).
 
 ## ARM template tutorial
 
