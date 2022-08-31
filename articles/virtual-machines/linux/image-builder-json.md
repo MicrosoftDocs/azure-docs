@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 Azure Image Builder uses a Bicep file or an ARM template file to pass information into the Image Builder service. In this article we will go over the sections of the files, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
-This is the basic format:
+The basic format is:
 
 # [Bicep](#tab/bicep)
 
@@ -192,7 +192,7 @@ Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant 
 
 ## Tags
 
-These are key/value pairs you can specify for the image that's generated.
+Tags are key/value pairs you can specify for the image that's generated.
 
 ## Identity
 
@@ -200,7 +200,7 @@ There are two ways to add user assigned identities explained below.
 
 ### User Assigned Identity for Azure Image Builder image template resource
 
-Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, review the [documentation](image-builder-user-assigned-identity.md).
+Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, see [Create an image and use a user-assigned managed identity to access files in an Azure storage account](image-builder-user-assigned-identity.md).
 
 # [Bicep](#tab/bicep)
 
@@ -228,15 +228,15 @@ identity:{
 
 The Image Builder service User Assigned Identity:
 
-- Supports a single identity only
-- Doesn't support custom domain names
+- Supports a single identity only.
+- Doesn't support custom domain names.
 
 To learn more, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 For more information on deploying this feature, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
 ### User Assigned Identity for the Image Builder Build VM
 
-This field is only available in API versions 2021-10-01 and newer.
+This field is only available in API versions `2021-10-01` or newer.
 
 Optional - The Image Builder Build VM, that is created by the Image Builder service in your subscription, is used to build and customize the image. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault in your subscription, you must create one or more Azure User Assigned Identities that have permissions to the individual resources. Azure Image Builder can then associate these User Assigned Identities with the Build VM. Customizer scripts running inside the Build VM can then fetch tokens for these identities and interact with other Azure resources as needed. Be aware, the user assigned identity for Azure Image Builder must have the "Managed Identity Operator" role assignment on all the user assigned identities for Azure Image Builder to be able to associate them to the build VM.
 
@@ -271,57 +271,87 @@ properties:{
 
 The Image Builder Build VM User Assigned Identity:
 
-- Supports a list of one or more user assigned managed identities to be configured on the VM
-- Supports cross subscription scenarios (identity created in one subscription while the image template is created in another subscription under the same tenant)
-- Doesn't support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
+- Supports a list of one or more user assigned managed identities to be configured on the VM.
+- Supports cross subscription scenarios (identity created in one subscription while the image template is created in another subscription under the same tenant).
+- Doesn't support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant).
 
-To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) and [How to use managed identities for Azure resources on an Azure VM for sign-in](../../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md).
+To learn more, see:
+
+- [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+- [How to use managed identities for Azure resources on an Azure VM for sign-in](../../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md)
 
 ## Properties: buildTimeoutInMinutes
 
-By default, the Image Builder will run for 240 minutes. After that, it will time out and stop, whether or not the image build is complete. If the timeout is hit, you will see an error similar to this:
+Maximum duration to wait while building the image template (includes all customizations, validations, and distributions).
+
+If you don't specify the property or set the value to 0, the default value is used, which is 240 minutes or four hours. The minimnum value is 6 minutes, and the maximum value is 960 minutes or 16 hours. When the timeout value is hit (whether or not the image build is complete), you will see an error similar to:
 
 ```text
 [ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
 [ERROR] complete: 'context deadline exceeded'
 ```
 
-If you don't specify a buildTimeoutInMinutes value, or set it to 0, this will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we don't recommend setting this below 60 minutes. If you find you're hitting the timeout, review the [logs](image-builder-troubleshoot.md#customization-log), to see if the customization step is waiting on something like user input.
-
-If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, don't set it too high because you might have to wait for it to time out before seeing an error.
-
-> [!NOTE]
-> If you don't set the value to 0, the minimum supported value is 6 minutes. Using values 1 through 5 will fail.
+For Windows, we don't recommend setting `buildTimeoutInMinutes` below 60 minutes. If you find you're hitting the timeout, review the [logs](image-builder-troubleshoot.md#customization-log) to see if the customization step is waiting on something like user input. If you find you need more time for customizations to complete, increase the  `buildTimeoutInMinutes` value. But, don't set it too high because you might have to wait for it to time out before seeing an error.
 
 ## Properties: customize
 
-Image Builder supports multiple `customizers`. Customizers are functions that are used to customize your image, such as running scripts, or rebooting servers.
+Image Builder supports multiple "customizers", which are functions used to customize your image, such as running scripts, or rebooting servers.
 
 When using `customize`:
 
-- You can use multiple customizers
+- You can use multiple customizers.
 - Customizers execute in the order specified in the template.
 - If one customizer fails, then the whole customization component will fail and report back an error.
-- It is advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
-- don't put sensitive data in the scripts.
+- Test the scripts thoroughly before using them in a template. Debugging the scripts by themselves is easier.
+- Don't put sensitive data in the scripts. Inline commands can be viewed in the image template definition. If you have sensitive information (including passwords, SAS token, authentication tokens, etc), it should be moved into scripts in Azure Storage, where access requires authentication.
 - The script locations need to be publicly accessible, unless you're using [MSI](./image-builder-user-assigned-identity.md).
+
+The `customize` section is an array. The supported customizer types are: File, PowerShell, Shell, WindowsRestart, and WindowsUpdate.
 
 # [Bicep](#tab/bicep)
 
 ```bicep
 customize: [
   {
-    type: 'Shell'
-    name: '<name>'
-    scriptUri: '<path to script>'
-    sha256Checksum: '<sha256 checksum>'
+    type: 'File'
+    destination: 'string'
+    sha256Checksum: 'string'
+    sourceUri: 'string'
+  }
+  {
+    type: 'PowerShell'
+    inline: [
+      'string'
+    ]
+    runAsSystem: bool
+    runElevated: bool
+    scriptUri: 'string'
+    sha256Checksum: 'string'
+    validExitCodes: [
+      int
+    ]
   }
   {
     type: 'Shell'
-    name: '<name>'
     inline: [
-      '<command to run inline>'
+      'string'
     ]
+    scriptUri: 'string'
+    sha256Checksum: 'string'
+  }
+  {
+    type: 'WindowsRestart'
+    restartCheckCommand: 'string'
+    restartCommand: 'string'
+    restartTimeout: 'string'
+  }
+  {
+    type: 'WindowsUpdate'
+    filters: [
+      'string'
+    ]
+    searchCriteria: 'string'
+    updateLimit: int
   }
 ]
 ```
@@ -331,31 +361,46 @@ customize: [
 ```json
 "customize": [
   {
-    "type": "Shell",
-    "name": "<name>",
-    "scriptUri": "<path to script>",
-    "sha256Checksum": "<sha256 checksum>"
+    "type": "File",
+    "destination": "string",
+    "sha256Checksum": "string",
+    "sourceUri": "string"
+  },
+  {
+    "type": "PowerShell",
+    "inline": [ "string" ],
+    "runAsSystem": "bool",
+    "runElevated": "bool",
+    "scriptUri": "string",
+    "sha256Checksum": "string",
+    "validExitCodes": [ "int" ]
   },
   {
     "type": "Shell",
-    "name": "<name>",
-    "inline": [
-        "<command to run inline>",
-    ]
+    "inline": [ "string" ],
+    "scriptUri": "string",
+    "sha256Checksum": "string"
+  },
+  {
+    "type": "WindowsRestart",
+    "restartCheckCommand": "string",
+    "restartCommand": "string",
+    "restartTimeout": "string"
+  },
+  {
+    "type": "WindowsUpdate",
+    "filters": [ "string" ],
+    "searchCriteria": "string",
+    "updateLimit": "int"
   }
 ]
 ```
 
 ---
 
-The customize section is an array. Azure Image Builder will run through the customizers in sequential order. Any failure in any customizer will fail the build process.
-
-> [!NOTE]
-> Inline commands can be viewed in the image template definition. If you have sensitive information (including passwords, SAS token, authentication tokens, etc), it should be moved into scripts in Azure Storage, where access requires authentication.
-
 ### Shell customizer
 
-The shell customizer supports running shell scripts. The shell scripts must be publicly accessible or you must have configured an [MSI](./image-builder-user-assigned-identity.md) for Image Builder to access them.
+The `Shell` customizer supports running shell scripts on Linux. The shell scripts must be publicly accessible or you must have configured an [MSI](./image-builder-user-assigned-identity.md) for Image Builder to access them.
 
 # [Bicep](#tab/bicep)
 
@@ -397,13 +442,11 @@ customize: [
 
 ---
 
-OS Support: Linux
-
 Customize properties:
 
-- **type** – Shell
-- **name** - name for tracking the customization
-- **scriptUri** - URI to the location of the file
+- **type** – Shell.
+- **name** - name for tracking the customization.
+- **scriptUri** - URI to the location of the file.
 - **inline** - array of shell commands, separated by commas.
 - **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
 
@@ -414,7 +457,7 @@ Customize properties:
 
 #### Super user privileges
 
-For commands to run with super user privileges, they must be prefixed with `sudo`, you can add these into scripts or use it inline commands, for example:
+Prefix the commands with `sudo` to run them with super user privileges. You can add the commands into scripts or use it inline commands, for example:
 
 # [Bicep](#tab/bicep)
 
@@ -454,7 +497,7 @@ sudo touch /myfiles/somethingElevated.txt
 
 ### Windows restart customizer
 
-The Restart customizer allows you to restart a Windows VM and wait for it come back online, this allows you to install software that requires a reboot.
+The `WindowsRestart` customizer allows you to restart a Windows VM and wait for the VM come back online, this customizer allows you to install software that requires a reboot.
 
 # [Bicep](#tab/bicep)
 
@@ -484,22 +527,19 @@ customize: [
 
 ---
 
-OS Support: Windows
-
 Customize properties:
 
-- **Type**: WindowsRestart
+- **Type**: WindowsRestart.
 - **restartCommand** - Command to execute the restart (optional). The default is `'shutdown /r /f /t 0 /c \"packer restart\"'`.
 - **restartCheckCommand** – Command to check if restart succeeded (optional).
-- **restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: '5m'
+- **restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: `5m`.
 
-### Linux restart
-
-There is no Linux restart customizer. If you're installing drivers, or components that require a restart, you can install them and invoke a restart using the Shell customizer. There is a 20min SSH timeout to the build VM.
+> [!NOTE]
+> There is no Linux restart customizer. If you're installing drivers, or components that require a restart, you can install them and invoke a restart using the Shell customizer. There is a 20min SSH timeout to the build VM.
 
 ### PowerShell customizer
 
-The shell customizer supports running PowerShell scripts and inline command, the scripts must be publicly accessible for the IB to access them.
+The `PowerShell` customizer supports running PowerShell scripts and inline command on Windows, the scripts must be publicly accessible for the IB to access them.
 
 # [Bicep](#tab/bicep)
 
@@ -545,8 +585,6 @@ customize: [
 
 ---
 
-OS support: Windows
-
 Customize properties:
 
 - **type** – PowerShell.
@@ -560,7 +598,7 @@ Customize properties:
 
 ### File customizer
 
-The File customizer lets Image Builder download a file from a GitHub repo or Azure storage. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image.
+The `File` customizer lets Image Builder download a file from a GitHub repo or Azure storage. The customizer supports both Linux and Windows. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image.
 
 # [Bicep](#tab/bicep)
 
@@ -592,18 +630,16 @@ customize: [
 
 ---
 
-OS support: Linux and Windows
-
 File customizer properties:
 
 - **sourceUri** - an accessible storage endpoint, this can be GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers.
 
-> [!NOTE]
-> If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you will to grant the Managed User Identity permissions to read access on the blob. See this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
+  > [!NOTE]
+  > If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you will to grant the Managed User Identity permissions to read access on the blob. See this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
 
 - **destination** – this is the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these up beforehand. You can use the script customizers to create the path.
 
-This is supported by Windows directories and Linux paths, but there are some differences:
+This customizer is supported by Windows directories and Linux paths, but there are some differences:
 
 - Linux OS’s – the only path Image builder can write to is /tmp.
 - Windows – No path restriction, but the path must exist.
@@ -615,7 +651,7 @@ If there is an error trying to download the file, or put it in a specified direc
 
 ### Windows Update Customizer
 
-This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
+The `WindowsUpdate` customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
 
 # [Bicep](#tab/bicep)
 
@@ -650,8 +686,6 @@ customize: [
 ```
 
 ---
-
-OS support: Windows
 
 Customizer properties:
 
@@ -737,8 +771,8 @@ imageResourceGroup=<resourceGroup of image template>
 runOutputName=<runOutputName>
 
 az resource show \
-        --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
-        --api-version=2021-10-01
+  --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
+  --api-version=2021-10-01
 ```
 
 Output:
@@ -914,7 +948,7 @@ You can output to a VHD. You can then copy the VHD, and use it to publish to Azu
 
 ---
 
-OS Support: Windows  and Linux
+OS Support: Windows and Linux
 
 Distribute VHD parameters:
 
@@ -926,7 +960,7 @@ Azure Image Builder doesn't allow the user to specify a storage account location
 
 ```azurecli-interactive
 az resource show \
-   --ids "/subscriptions/$subscriptionId/resourcegroups/<imageResourceGroup>/providers/Microsoft.VirtualMachineImages/imageTemplates/<imageTemplateName>/runOutputs/<runOutputName>"  | grep artifactUri
+  --ids "/subscriptions/$subscriptionId/resourcegroups/<imageResourceGroup>/providers/Microsoft.VirtualMachineImages/imageTemplates/<imageTemplateName>/runOutputs/<runOutputName>"  | grep artifactUri
 ```
 
 > [!NOTE]
@@ -1081,7 +1115,6 @@ source: {
 
 The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
-
 ## Properties: stagingResourceGroup
 
 The `stagingResourceGroup` field contains information about the staging resource group that the Image Builder service will create for use during the image build process. The `stagingResourceGroup` is an optional field for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
@@ -1106,24 +1139,23 @@ properties: {
 
 ### Template Creation Scenarios
 
-#### The stagingResourceGroup field is left empty
+- **The stagingResourceGroup field is left empty**
 
-If the `stagingResourceGroup` field is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC will be applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
+  If the `stagingResourceGroup` field is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC will be applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
 
-#### The stagingResourceGroup field is specified with a resource group that exists
+- **The stagingResourceGroup field is specified with a resource group that exists**
 
-If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is not associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Preexisting tags are not deleted.
+  If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is not associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Pre-existing tags are not deleted.
 
-#### The stagingResourceGroup field is specified with a resource group that DOES NOT exist
+- **The stagingResourceGroup field is specified with a resource group that DOES NOT exist**
 
-If the `stagingResourceGroup` field is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` field. There will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
+  If the `stagingResourceGroup` field is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` field. There will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
 
 ### Template Deletion
 
 Any staging resource group created by the Image Builder service will be deleted after the image template is deleted. This includes staging resource groups that were specified in the `stagingResourceGroup` field, but did not exist prior to the image build.
 
 If Image Builder did not create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image template is deleted as long as the Image Builder service has the appropriate permissions or role required to delete resources.
-
 
 ## Properties: validate
 
@@ -1137,14 +1169,14 @@ The `continueDistributeOnFailure` field is responsible for whether the output im
 
 When using `validate`:
 
-- You can use multiple validators
+- You can use multiple validators.
 - Validators execute in the order specified in the template.
 - If one validator fails, then the whole validation component will fail and report back an error.
 - It is advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
 - Don't put sensitive data in the scripts.
 - The script locations need to be publicly accessible, unless you're using [MSI](./image-builder-user-assigned-identity.md).
 
-How to use the `validate` property to validate Windows images
+How to use the `validate` property to validate Windows images:
 
 # [Bicep](#tab/bicep)
 
@@ -1224,7 +1256,7 @@ How to use the `validate` property to validate Windows images
 
     To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash)
 
-How to use the `validate` property to validate Linux images
+How to use the `validate` property to validate Linux images:
 
 # [Bicep](#tab/bicep)
 
@@ -1294,7 +1326,7 @@ How to use the `validate` property to validate Linux images
 
     To generate the sha256Checksum, using a terminal on Mac/Linux run: `sha256sum <fileName>`
 
-<a id="vmProfile"></a>
+<a id="vmprofile"></a>
 
 ## Properties: vmProfile
 
@@ -1302,11 +1334,11 @@ How to use the `validate` property to validate Linux images
 
 Image Builder will use a default SKU size of `Standard_D1_v2` for Gen1 images and `Standard_D2ds_v4` for Gen2 images. The generation is defined by the image you specify in the `source`. You can override this and may wish to do this for these reasons:
 
-1. Performing customizations that require increased memory, CPU and handling large files (GBs).
-2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
-3. Require [VM isolation](../isolation.md).
-4. Customize an image that requires specific hardware. For example, for a GPU VM, you need a GPU VM size.
-5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
+- Performing customizations that require increased memory, CPU and handling large files (GBs).
+- Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
+- Require [VM isolation](../isolation.md).
+- Customize an image that requires specific hardware. For example, for a GPU VM, you need a GPU VM size.
+- Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
 
 This is optional.
 
@@ -1384,10 +1416,10 @@ Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $ima
 
 ```azurecli
 az resource invoke-action \
-     --resource-group $imageResourceGroup \
-     --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
-     -n helloImageTemplateLinux01 \
-     --action Cancel
+  --resource-group $imageResourceGroup \
+  --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
+  -n helloImageTemplateLinux01 \
+  --action Cancel
 ```
 
 ## Next steps
