@@ -59,7 +59,7 @@ Visemes vary by language and locale. Each locale has a set of visemes that corre
 |3|`ɔ`|<img src="media/text-to-speech/viseme-id-3.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 3">|
 |4|`ɛ`, `ʊ`|<img src="media/text-to-speech/viseme-id-4.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 4">|
 |5|`ɝ`|<img src="media/text-to-speech/viseme-id-5.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 5">|
-|6|`j`, `i`, `ɪ`, |<img src="media/text-to-speech/viseme-id-6.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 6">|
+|6|`j`, `i`, `ɪ` |<img src="media/text-to-speech/viseme-id-6.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 6">|
 |7|`w`, `u`|<img src="media/text-to-speech/viseme-id-7.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 7">|
 |8|`o`|<img src="media/text-to-speech/viseme-id-8.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 8">|
 |9|Not supported|<img src="media/text-to-speech/viseme-id-9.jpg" width="200" height="200" alt="The mapping shape of mouth when viseme ID is 9">|
