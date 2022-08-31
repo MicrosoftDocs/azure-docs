@@ -73,7 +73,7 @@ Tags can also be added or updated in Device twin or Module Twin directly.
 
 ### Limitations
 
-* You can add any value to your tag except for ‘Uncategorized’ and "$default" which are reserved values.
+* You can add any value to your tag except for "$default" which are reserved values.
 * Tag value cannot exceed 200 characters.
 * Tag value can contain alphanumeric characters and the following special characters ".","-","_","~".
 * Tag and Group names are case-sensitive.
