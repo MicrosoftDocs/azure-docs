@@ -111,39 +111,11 @@ To configure cross-tenant customer-managed keys for a new storage account in the
 
 ### [PowerShell](#tab/powershell)
 
-To configure cross-tenant customer-managed keys for a new storage account, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) module, version 4.4.2-preview. Next, call [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), as shown in the following example. Use the variable you created previously for the resource ID for the user-assigned managed identity. You will also need the key vault URI and key name:
-
-```azurepowershell
-New-AzStorageAccount -ResourceGroupName <resource-group> `
-    -Name <storage-account> `
-    -Kind StorageV2 `
-    -SkuName Standard_LRS `
-    -Location $location `
-    -IdentityType SystemAssignedUserAssigned `
-    -UserAssignedIdentityId $userIdentity.Id `
-    -KeyVaultUri $keyVault.VaultUri `
-    -KeyName $key.Name `
-    -KeyVaultUserAssignedIdentityId $userIdentity.Id
-```
+N/A
 
 ### [Azure CLI](#tab/azure-cli)
 
-To configure customer-managed keys for a new storage account with automatic updating of the key version, call [az storage account create](/cli/azure/storage/account#az-storage-account-create), as shown in the following example. Use the variable you created previously for the resource ID for the user-assigned managed identity. You will also need the key vault URI and key name:
-
-```azurecli
-az storage account create \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --location <location> \
-    --sku Standard_LRS \
-    --kind StorageV2 \
-    --identity-type SystemAssigned,UserAssigned \
-    --user-identity-id <user-assigned-managed-identity> \
-    --encryption-key-vault <key-vault-uri> \
-    --encryption-key-name <key-name> \
-    --encryption-key-source Microsoft.Keyvault \
-    --key-vault-user-identity-id <user-assigned-managed-identity>
-```
+N/A
 
 ---
 
