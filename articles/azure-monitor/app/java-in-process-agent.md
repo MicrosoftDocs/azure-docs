@@ -118,9 +118,9 @@ In the `applicationinsights.json` file, you can also configure these settings:
 
 For more information, see [Configuration options](./java-standalone-config.md).
 
-## Automatic instrumentation
+## Auto-Instrumentation
 
-Java 3.x includes the following automatic instrumentation.
+Java 3.x includes the following auto-instrumentation.
 
 ### Autocollected requests
 
