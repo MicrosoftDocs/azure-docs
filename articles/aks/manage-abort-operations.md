@@ -61,4 +61,4 @@ az aks operation-abort --name myAKSCluster --resource-group myResourceGroup
 
 ## Next steps
 
-To get started with upgrading your AKS cluster, see [Upgrade an AKS cluster](upgrade-cluster.md)
+Learn more about [Container insights](../azure-monitor/containers/container-insights-overview.md) to understand how it helps you monitor the performance and health of your Kubernetes cluster and container workloads.
