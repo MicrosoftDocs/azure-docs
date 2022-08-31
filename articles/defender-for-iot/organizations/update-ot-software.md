@@ -63,8 +63,6 @@ In such cases, make sure to update your on-premises management consoles *before*
 
     Sign in when prompted and check the version number listed in the bottom-left corner to confirm that the new version is listed.
 
-
-
 ## Update your sensors
 
 You can update software on your sensors individually, directly from each sensor console, or in bulk from the on-premises management console. Select one of the following tabs for the steps required in each method.
