@@ -64,7 +64,7 @@ Alert rule ID |  The rule applies only to alerts from a specific alert rule. The
 Alert rule name |  The rule applies only to alerts with this alert rule name. It can also be useful with a **Contains** operator. |
 Description |  The rule applies only to alerts that contain the specified string within the alert rule description field. |
 Monitor condition |  The rule applies only to alerts with the specified monitor condition, either **Fired** or **Resolved**. |
-Monitor service |  The rule applies only to alerts from any of the specified monitoring services that are sending the signal. Different services are available depending on the type of signal. For example:
+Monitor service |  The rule applies only to alerts from any of the specified monitoring services that are sending the signal. Different services are available depending on the type of signal. For example: <br>
 <ul><li>**Platform**: For metric signals, the monitor service is the metric namespace. ‘Platform’ means the metrics are provided by the resource provider, namely 'Azure'.</li>
 <li>**Azure.ApplicationInsights**: Customer-reported metrics, sent by the Application Insights SDK.</li>
 <li>**Azure.VM.Windows.GuestMetrics**: VM guest metrics, collected by an extension running on the VM. Can include built-in operating system perf counters, and custom perf counters.</li>
