@@ -93,7 +93,7 @@ Azure Machine Learning Compute supports reserved instances inherently. If you pu
 
 ## Train locally
 
-When prototyping and running training jobs that are small enough to run on your local computer, consider training locally. Using the Python SDK, setting your compute target to `local` executes your script locally. For more information, see [Configure and submit training jobs](how-to-set-up-training-targets.md#select-a-compute-target).
+When prototyping and running training jobs that are small enough to run on your local computer, consider training locally. Using the Python SDK, setting your compute target to `local` executes your script locally. 
 
 Visual Studio Code provides a full-featured environment for developing your machine learning applications. Using the Azure Machine Learning visual Visual Studio Code extension and Docker, you can run and debug locally. For more information, see [interactive debugging with Visual Studio Code](how-to-debug-visual-studio-code.md).
 

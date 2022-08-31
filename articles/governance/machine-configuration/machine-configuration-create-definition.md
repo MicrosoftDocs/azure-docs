@@ -26,9 +26,8 @@ and the details about machine configuration policy effects
 > configuration extension version **1.29.24** or later,
 > or Arc agent **1.10.0** or later, is required.
 >
-> Custom machine configuration policy definitions using **AuditIfNotExists** are
-> Generally Available, but definitions using **DeployIfNotExists** with guest
-> configuration are **in preview**.
+> Custom machine configuration policy definitions using either **AuditIfNotExists** or **DeployIfNotExists** are now
+> Generally Available.
 
 Use the following steps to create your own policies that audit compliance or
 manage the state of Azure or Arc-enabled machines.
@@ -117,10 +116,10 @@ configuration package, in a specified path:
 ```powershell
 $PolicyConfig      = @{
   PolicyId      = '_My GUID_'
-  ContentUri    = <_ContentUri output from the Publish command_>
+  ContentUri    = $contenturi
   DisplayName   = 'My audit policy'
   Description   = 'My audit policy'
-  Path          = './policies'
+  Path          = './policies/auditIfNotExists.json'
   Platform      = 'Windows'
   PolicyVersion = 1.0.0
 }
@@ -134,10 +133,10 @@ configuration package, in a specified path:
 ```powershell
 $PolicyConfig2      = @{
   PolicyId      = '_My GUID_'
-  ContentUri    = <_ContentUri output from the Publish command_>
+  ContentUri    = $contenturi 
   DisplayName   = 'My audit policy'
   Description   = 'My audit policy'
-  Path          = './policies'
+  Path          = './policies/deployIfNotExists.json'
   Platform      = 'Windows'
   PolicyVersion = 1.0.0
   Mode          = 'ApplyAndAutoCorrect'
@@ -230,10 +229,10 @@ $PolicyParameterInfo     = @(
 # ...and then passed into the `New-GuestConfigurationPolicy` cmdlet
 $PolicyParam = @{
   PolicyId      = 'My GUID'
-  ContentUri    = '<ContentUri output from the Publish command>'
+  ContentUri    = $contenturi
   DisplayName   = 'Audit Windows Service.'
   Description   = "Audit if a Windows Service isn't enabled on Windows machine."
-  Path          = '.\policies'
+  Path          = '.\policies\auditIfNotExists.json'
   Parameter     = $PolicyParameterInfo
   PolicyVersion = 1.0.0
 }
@@ -250,7 +249,13 @@ requirements are documented in the [Azure Policy Overview](./overview.md) page. 
 role is **Resource Policy Contributor**.
 
 ```powershell
-New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies'
+New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies\auditIfNotExists.json'
+```
+
+Or, if this is a deploy if not exist policy (DINE) please use
+
+```powershell
+New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies\deployIfNotExists.json'
 ```
 
 With the policy definition created in Azure, the last step is to assign the definition. See how to assign the
