@@ -123,11 +123,11 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Virtual network peering and VPN gateways
-            url: /architecture/reference-architectures/hybrid-networking/vnet-peering/
+            url: /azure/architecture/reference-architectures/hybrid-networking/vnet-peering/
       - linkListType: concept
         links:
           - text: Troubleshoot a hybrid VPN connection
-            url: /architecture/reference-architectures/hybrid-networking/troubleshoot-vpn/
+            url: /azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn/
 
   # Card
   - title: Security and monitoring
