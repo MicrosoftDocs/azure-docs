@@ -17,8 +17,8 @@ Maintenance control lets you decide when to apply automatic guest OS image upgra
 
 This article explains how you can use an Azure Resource Manager (ARM) template to create a maintenance configuration. You will learn how to:
 
-1. Create the configuration 
-1. Assign the configuration to a virtual machine
+- Create the configuration 
+- Assign the configuration to a virtual machine
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] 
 
