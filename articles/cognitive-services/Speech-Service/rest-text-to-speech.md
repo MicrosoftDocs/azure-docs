@@ -34,39 +34,39 @@ Before you use the text-to-speech REST API, understand that you need to complete
 
 You can use the `voices/list` endpoint to get a full list of voices for a specific region or endpoint:
 
-| Region               | Endpoint                                                                            |
-| -------------------- | ----------------------------------------------------------------------------------- |
-| Australia East       | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list`      |
-| Brazil South         | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list`        |
-| Canada Central       | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list`      |
-| Central US           | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list`          |
-| China East 2         | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/voices/list`              |
-| China North 2        | `https://chinanorth2.tts.speech.azure.cn/cognitiveservices/voices/list`             |
-| East Asia            | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list`           |
-| East US              | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list`             |
-| East US 2            | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list`            |
-| France Central       | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list`      |
+| Region | Endpoint |
+|--------|----------|
+| Australia East | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| China East 2 | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/voices/list` |
+| China North 2 | `https://chinanorth2.tts.speech.azure.cn/cognitiveservices/voices/list` |
+| East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| France Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Germany West Central | `https://germanywestcentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| India Central        | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list`       |
-| Japan East           | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list`          |
-| Japan West           | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/voices/list`          |
-| Jio India West       | `https://jioindiawest.tts.speech.microsoft.com/cognitiveservices/voices/list`       |
-| Korea Central        | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list`       |
-| North Central US     | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list`     |
-| North Europe         | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list`        |
-| Norway East          | `https://norwayeast.tts.speech.microsoft.com/cognitiveservices/voices/list`         |
-| South Central US     | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list`     |
-| Southeast Asia       | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list`      |
-| Switzerland North    | `https://switzerlandnorth.tts.speech.microsoft.com/cognitiveservices/voices/list`   |
-| Switzerland West     | `https://switzerlandwest.tts.speech.microsoft.com/cognitiveservices/voices/list`    |
-| US Gov Arizona       | `https://usgovarizona.tts.speech.azure.us/cognitiveservices/voices/list`            |
-| US Gov Virginia      | `https://usgovvirginia.tts.speech.azure.us/cognitiveservices/voices/list`           |
-| UK South             | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list`            |
-| West Central US      | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list`      |
-| West Europe          | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list`         |
-| West US              | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list`             |
-| West US 2            | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list`            |
-| West US 3            | `https://westus3.tts.speech.microsoft.com/cognitiveservices/voices/list`            |
+| India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japan West | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Jio India West | `https://jioindiawest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norway East | `https://norwayeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Switzerland North | `https://switzerlandnorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Switzerland West | `https://switzerlandwest.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| US Gov Arizona | `https://usgovarizona.tts.speech.azure.us/cognitiveservices/voices/list` |
+| US Gov Virginia | `https://usgovvirginia.tts.speech.azure.us/cognitiveservices/voices/list` |
+| UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West Central US | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West US 3 | `https://westus3.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 > [!TIP]
 > [Voices in preview](language-support.md?tabs=stt-tts) are available in only these three regions: East US, West Europe, and Southeast Asia.
@@ -275,7 +275,7 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
 
 | Streaming                          | Non-Streaming               |
-| ---------------------------------- | -------------------------   |
+| ---------------------------------- | --------------------------- |
 | audio-16khz-16bit-32kbps-mono-opus | riff-8khz-8bit-mono-alaw    |
 | audio-16khz-32kbitrate-mono-mp3    | riff-8khz-8bit-mono-mulaw   |
 | audio-16khz-64kbitrate-mono-mp3    | riff-8khz-16bit-mono-pcm    |
