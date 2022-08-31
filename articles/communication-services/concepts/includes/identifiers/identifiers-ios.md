@@ -33,7 +33,7 @@ let user = CommunicationUserIdentifier(newUserId)
 
 ### Microsoft Teams User identifier
 
-The `MicrosoftTeamsUserIdentifier` represents a Teams user with its AAD user object ID. You can retrieve the AAD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. Alternatively, you can find the ID as the `oid` claim in an [AAD ID token](/azure/active-directory/develop/id-tokens#payload-claims) or [AAD access token](/azure/active-directory/develop/access-tokens#payload-claims) after your user has signed in and acquired a token.
+The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](/azure/active-directory/develop/id-tokens#payload-claims) or [Azure AD access token](/azure/active-directory/develop/access-tokens#payload-claims) after your user has signed in and acquired a token.
 
 #### Basic usage
 
