@@ -259,14 +259,14 @@ User-Agent: <Your application name>
 
 The HTTP status code for each response indicates success or common errors:
 
-| HTTP status code | Description            | Possible reason                                                                                                                                                           |
-| ---------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 200              | OK                     | The request was successful. The response body is an audio file.                                                                                                           |
-| 400              | Bad request            | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
-| 401              | Unauthorized           | The request is not authorized. Make sure your subscription key or token is valid and in the correct region.                                                               |
-| 415              | Unsupported media type | It's possible that the wrong `Content-Type` value was provided. `Content-Type` should be set to `application/ssml+xml`.                                                   |
-| 429              | Too many requests      | You have exceeded the quota or rate of requests allowed for your subscription.                                                                                            |
-| 502              | Bad gateway            | There's a network or server-side problem. This status might also indicate invalid headers.                                                                                |
+| HTTP status code | Description | Possible reason |
+|------------------|-------------|-----------------|
+| 200 | OK | The request was successful. The response body is an audio file. |
+| 400 | Bad request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
+| 401 | Unauthorized | The request is not authorized. Make sure your subscription key or token is valid and in the correct region. |
+| 415 | Unsupported media type | It's possible that the wrong `Content-Type` value was provided. `Content-Type` should be set to `application/ssml+xml`. |
+| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 502 | Bad gateway    | There's a network or server-side problem. This status might also indicate invalid headers. |
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file can be played as it's transferred, saved to a buffer, or saved to a file.
 
