@@ -34,10 +34,6 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     To rollback the changes, in VS Code select the Source Control icon in the Activity bar, then select each changed file in the Changes list and select the **Discard changes** icon.
 
-1. Right-click on the subscription name then select **Create Static Web App (Advanced)**.    
-
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Right-click on the subscription name then select **Create Static Web App (Advanced)**.":::
-
 1. Follow the prompts to provide the following information:
 
     |Prompt|Enter|
