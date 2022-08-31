@@ -25,6 +25,86 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
 
+## August 2021
+
+- [Advanced incident search (Public preview)](#advanced-incident-search-public-preview)
+- [Fusion detection for Ransomware (Public preview)](#fusion-detection-for-ransomware-public-preview)
+- [Watchlist templates for UEBA data](#watchlist-templates-for-ueba-data-public-preview)
+- [File event normalization schema (Public preview)](#file-event-normalization-schema-public-preview)
+- [New in docs: Best practice guidance](#new-in-docs-best-practice-guidance)
+
+### Advanced incident search (Public preview)
+
+By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. Azure Sentinel now provides [advanced search options](investigate-cases.md#search-for-incidents) to search across more data, including alert details, descriptions, entities, tactics, and more.
+
+For example:
+
+:::image type="content" source="media/investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
+
+For more information, see [Search for incidents](investigate-cases.md#search-for-incidents).
+
+### Fusion detection for Ransomware (Public preview)
+
+Azure Sentinel now provides new Fusion detections for possible Ransomware activities, generating incidents titled as **Multiple alerts possibly related to Ransomware activity detected**.
+
+Incidents are generated for alerts that are possibly associated with Ransomware activities, when they occur during a specific time-frame, and are associated with the Execution and Defense Evasion stages of an attack. You can use the alerts listed in the incident to analyze the techniques possibly used by attackers to compromise a host / device and to evade detection.
+
+Supported data connectors include:
+
+- [Azure Defender (Azure Security Center)](connect-defender-for-cloud.md)
+- [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
+- [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
+- [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
+- [Azure Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled)
+
+For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#fusion-for-ransomware).
+
+### Watchlist templates for UEBA data (Public preview)
+
+Azure Sentinel now provides built-in watchlist templates for UEBA data, which you can customize for your environment and use during investigations.
+
+After UEBA watchlists are populated with data, you can correlate that data with analytics rules, view it in the entity pages and investigation graphs as insights, create custom uses such as to track VIP or sensitive users, and more.
+
+Watchlist templates currently include:
+
+- **VIP Users**. A list of user accounts of employees that have high impact value in the organization.
+- **Terminated Employees**. A list of user accounts of employees that have been, or are about to be, terminated.
+- **Service Accounts**. A list of service accounts and their owners.
+- **Identity Correlation**. A list of related user accounts that belong to the same person.
+- **High Value Assets**. A list of devices, resources, or other assets that have critical value in the organization.
+- **Network Mapping**. A list of IP subnets and their respective organizational contexts.
+
+For more information, see [Create watchlists in Microsoft Sentinel](watchlists-create.md) and [Built-in watchlist schemas](watchlist-schemas.md).
+
+
+
+### File Event normalization schema (Public preview)
+
+The Azure Sentinel Information Model (ASIM) now supports a File Event normalization schema, which is used to describe file activity, such as creating, modifying, or deleting files or documents. File events are reported by operating systems, file storage systems such as Azure Files, and document management systems such as Microsoft SharePoint.
+
+For more information, see:
+
+- [Azure Sentinel File Event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md)
+
+
+### New in docs: Best practice guidance
+
+In response to multiple requests from customers and our support teams, we added a series of best practice guidance to our documentation.
+
+For more information, see:
+
+- [Prerequisites for deploying Azure Sentinel](prerequisites.md)
+- [Best practices for Azure Sentinel](best-practices.md)
+- [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md)
+- [Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md)
+- [Azure Sentinel sample workspace designs](sample-workspace-designs.md)
+- [Data collection best practices](best-practices-data.md)
+
+> [!TIP]
+> You can find more guidance added across our documentation in relevant conceptual and how-to articles. For more information, see [Best practice references](best-practices.md#best-practice-references).
+>
+
 ## July 2021
 
 - [Microsoft Threat Intelligence Matching Analytics (Public preview)](#microsoft-threat-intelligence-matching-analytics-public-preview)
