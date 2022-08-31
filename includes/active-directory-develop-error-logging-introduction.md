@@ -8,7 +8,7 @@ ms.topic: include
 # Purpose:
 # Ingested by Microsoft identity platform articles in /articles/active-directory/develop/* that document error logging for the different platforms.
 ---
-MSAL.NET takes advantage of the `IIdentityLogger` interface to provide logging messages to applications (MSAL.NET 4.45.0+). This comes with the benefit of enabling one logger implementation to be sharable between our partner SDks (Microsoft.Identity.Web, Microsoft.IdentityModel). In order to take advantage of this new API you will need to provide an implementation of the `IIdentityLogger` interface. This enables you to dynamically change the behavior of the logger without needing to rebuild your application. For example, you could configure the log level in the `IsEnabled` method to use a environment variable for greater flexibility during debugging.
+The Microsoft Authentication Library (MSAL) apps generate log messages that can help diagnose issues. An app can configure logging with a few lines of code, and have custom control over the level of detail and whether or not personal and organizational data is logged. We recommend you create an MSAL logging implementation and provide a way for users to submit logs when they have authentication issues.
 
 ## Logging levels
 
