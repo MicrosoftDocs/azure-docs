@@ -13,7 +13,7 @@ ms.service: azure-fluid
 
 If you have an issue or question involving Azure Fluid Relay, the following options are available:
 
-> [!ALERT]
+> [!IMPORTANT]
 > For ongoing service issues that are time sensitive, creating an Azure support request is the preferred option.
 
 ## Create an Azure support request
