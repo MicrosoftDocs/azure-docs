@@ -49,7 +49,7 @@ Watch the video below to learn more about using the .NET SDK from a Cosmos DB en
 
 ## <a name="capture-diagnostics"></a>Capture the diagnostics
 
-[!INCLUDE[cosmos-db-dotnet-sdk-diagnostics](../includes/cosmos-db-dotnet-sdk-diagnostics.md)]
+[!INCLUDE[cosmos-db-dotnet-sdk-diagnostics](../includes/dotnet-sdk-diagnostics.md)]
 
 ## Best practices when using Gateway mode
 Increase `System.Net MaxConnections` per host when you use Gateway mode. Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. They're subject to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (from 100 through 1,000) so that the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for `ServicePointManager.DefaultConnectionLimit` is 50. To change the value, you can set `Documents.Client.ConnectionPolicy.MaxConnectionLimit` to a higher value.

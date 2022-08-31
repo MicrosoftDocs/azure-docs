@@ -38,19 +38,22 @@ Check the [GitHub issues section](https://github.com/Azure/azure-cosmos-dotnet-v
 
 ## <a name="capture-diagnostics"></a>Capture the diagnostics
 
-[!INCLUDE[cosmos-db-dotnet-sdk-diagnostics](../includes/cosmos-db-dotnet-sdk-diagnostics.md)]
+[!INCLUDE[cosmos-db-dotnet-sdk-diagnostics](../includes/dotnet-sdk-diagnostics.md)]
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
 ### General suggestions
+
 * Follow any `aka.ms` link included in the exception details.
 * Run your app in the same Azure region as your Azure Cosmos DB account, whenever possible.
 * You may run into connectivity/availability issues due to lack of resources on your client machine. We recommend monitoring your CPU utilization on nodes running the Azure Cosmos DB client, and scaling up/out if they're running at high load.
 
 ### Check the portal metrics
+
 Checking the [portal metrics](../monitor-cosmos-db.md) will help determine if it's a client-side issue or if there's an issue with the service. For example, if the metrics contain a high rate of rate-limited requests (HTTP status code 429) which means the request is getting throttled then check the [Request rate too large](troubleshoot-request-rate-too-large.md) section. 
 
-### Retry design <a id="retry-logics"></a><a id="retry-design"></a><a id="error-codes"></a>
+### Retry design
+
 See our guide to [designing resilient applications with Azure Cosmos SDKs](conceptual-resilient-sdk-applications.md) for guidance on how to design resilient applications and learn which are the retry semantics of the SDK.
 
 ### <a name="snat"></a>Azure SNAT (PAT) port exhaustion

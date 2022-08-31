@@ -51,7 +51,7 @@ If you need to verify that a database or container exists, don't do so by callin
 
 ## <a name="capture-diagnostics"></a>Capture the diagnostics
 
-[!INCLUDE[cosmos-db-dotnet-sdk-diagnostics](../includes/cosmos-db-dotnet-sdk-diagnostics.md)]
+[!INCLUDE[cosmos-db-dotnet-sdk-diagnostics](../includes/dotnet-sdk-diagnostics.md)]
 
 ## Diagnostics in version 3.19 and later
 
