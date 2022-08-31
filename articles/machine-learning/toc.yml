@@ -653,6 +653,9 @@
     - name: Troubleshoot descriptor error
       displayName: descriptors cannot not be created directly
       href: how-to-troubleshoot-protobuf-descriptor-error.md
+    - name: How to troubleshoot data access
+      displayName: troubleshoot, data, debug, image
+      href: how-to-troubleshoot-data-access.md
 - name: Reference
   items: 
     - name: Python SDK v1
