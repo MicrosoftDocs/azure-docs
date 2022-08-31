@@ -175,7 +175,7 @@ Virtual network links enable name resolution for virtual networks that are linke
 
 ```Azure PowerShell
 $vnet = Get-AzVirtualNetwork -Name myvnet -ResourceGroupName myresourcegroup 
-$vnetlink = New-AzDnsForwardingRulesetVirtualNetworkLink -DnsForwardingRulesetName $dnsForwardingRuleset.Name -ResourceGroupName myresourcegroup -VirtualNetworkLinkName "vnetlink" -VirtualNetworkId $vnet.Id -SubscriptionId <your sub id>
+$vnetlink = New-AzDnsForwardingRulesetVirtualNetworkLink -DnsForwardingRulesetName myruleset -ResourceGroupName myresourcegroup -VirtualNetworkLinkName "vnetlink" -VirtualNetworkId $vnet.Id -SubscriptionId <your sub id>
 ```
 
 ### Confirm the virtual network link
@@ -201,7 +201,7 @@ $vnetlink2 = New-AzDnsForwardingRulesetVirtualNetworkLink -DnsForwardingRulesetN
 Confirm the second virtual network was created.
 
 ```Azure PowerShell
-$virtualNetworkLink2 = Get-AzDnsForwardingRulesetVirtualNetworkLink -DnsForwardingRulesetName $dnsForwardingRuleset.Name -ResourceGroupName myresourcegroup 
+$virtualNetworkLink2 = Get-AzDnsForwardingRulesetVirtualNetworkLink -DnsForwardingRulesetName myruleset -ResourceGroupName myresourcegroup 
 $virtualNetworkLink2.ToJsonString()
 ```
 
@@ -244,13 +244,13 @@ Remove-AzDnsResolverInboundEndpoint -Name myinboundendpoint -DnsResolverName myd
 ### Delete the virtual network link
 
 ```Azure PowerShell
-Remove-AzDnsForwardingRulesetVirtualNetworkLink -DnsForwardingRulesetName $dnsForwardingRuleset.Name -Name vnetlink -ResourceGroupName myresourcegroup
+Remove-AzDnsForwardingRulesetVirtualNetworkLink -DnsForwardingRulesetName myruleset -Name vnetlink -ResourceGroupName myresourcegroup
 ```
 
 ### Delete the DNS forwarding ruleset
 
 ```Azure PowerShell
-Remove-AzDnsForwardingRuleset -Name $dnsForwardingRuleset.Name -ResourceGroupName myresourcegroup
+Remove-AzDnsForwardingRuleset -Name myruleset -ResourceGroupName myresourcegroup
 ```
 
 ### Delete the outbound endpoint
