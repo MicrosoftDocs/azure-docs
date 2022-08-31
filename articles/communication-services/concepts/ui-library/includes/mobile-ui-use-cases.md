@@ -17,7 +17,7 @@ You can use the call composite in Communication Services to create these use cas
 | Call types                                                                                | Join a Microsoft Teams meeting                                     |
 |                                                                                                 | Join a call by using a group ID   |
 | [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
-|                                                                                                 | Display a transcription and recording alert banner banner               |
+|                                                                                                 | Display a transcription and recording alert banner               |
 | Participant gallery                                                                   | Show remote participants on a grid              |
 |                                                                                                 | Make video preview available throughout a call for a local user |
 |                                                                                                 | Make default avatars available when video is off            |
