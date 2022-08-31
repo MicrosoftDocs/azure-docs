@@ -167,7 +167,7 @@ do
              }
              else if (retryAfter.Date.HasValue)
              {
-                 delay = retryAfter.Date.Value.Offset;
+                 delay = (retryAfter.Date.Value – DateTimeOffset.Now).TotalMilliseconds;
              }
          }
     }
