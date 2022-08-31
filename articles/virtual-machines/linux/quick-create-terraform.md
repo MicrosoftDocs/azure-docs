@@ -37,7 +37,7 @@ In this article, you learn how to:
 > * Use SSH to connect to virtual machine
 
 > [!NOTE]
-> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-vm-with-infrastructure).
+> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-vm-with-infrastructure). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 ## Prerequisites
 
