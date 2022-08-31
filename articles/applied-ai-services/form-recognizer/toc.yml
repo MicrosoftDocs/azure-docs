@@ -124,20 +124,24 @@ items:
     href: concept-form-recognizer-studio.md
   - name: General document model | v3.0
     href: concept-general-document.md
-  - name: W-2 form model | v3.0
-    href: concept-w2.md
   - name: Read OCR model | v3.0
     href: concept-read.md
   - name: Layout model
     href: concept-layout.md
-  - name: Invoice model
-    href: concept-invoice.md
-  - name: Receipt model
-    href: concept-receipt.md
-  - name: ID document model
-    href: concept-id-document.md
-  - name: Business card model
-    href: concept-business-card.md
+  - name: Prebuilt models
+    items:
+    - name: Model overview
+      href: prebuilt-models/model-overview.md
+    - name: W-2 form model
+      href: concept-tax.us.w2.md
+    - name: Invoice model
+      href: prebuilt-models/concept-invoice.md
+    - name: Receipt model
+      href: prebuilt-models/concept-receipt.md
+    - name: ID document model
+      href: prebuilt-models/concept-idDocument.md
+    - name: Business card model
+      href: prebuilt-models/concept-businessCard.md
   - name: Custom models
     items:
     - name: Custom model
