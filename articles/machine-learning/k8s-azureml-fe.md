@@ -1,12 +1,13 @@
 ---
 title: AzureML inference router and connectivity requirements
-description: Learn about what is AzureML inference router, how autocaling works, and how to configure and meet inference requests performance (# of requests per second and latency)
+description: Learn about what is AzureML inference router, how autoscaling works, and how to configure and meet inference requests performance (# of requests per second and latency)
 titleSuffix: Azure Machine Learning
-author: ssalgadodev
-ms.author: ssalgado
+author: bozhong68
+ms.author: bozhlin
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/28/2022
+ms.date: 08/31/2022
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
@@ -25,19 +26,19 @@ AzureML inference router is a critical component for real-time inference with Ku
 AzureML inference router is the front-end component (azureml-fe) which is deployed on AKS or Arc Kubernetes cluster at AzureML extension deployment time. It has following functions:
   
   * Routes incoming inference requests from cluster load balancer or ingress controller to corresponding model pods.
-  * Load-balance all incoming inference requests with smart coordinated rounting.
+  * Load-balance all incoming inference requests with smart coordinated routing.
   * manages model pods auto-scaling.
   * Fault-tolerant and failover capability, ensuring inference requests is always served for critical business application.
 
-Let's take a closer look at the following diagram and understand more about AzureML inference router and how coordinated rounting works:
+Let's take a closer look at the following diagram and understand more about AzureML inference router and how coordinated routing works:
 
  [![Coordinated routing architecture: 3 azureml-fe instances are available to serve requests, one acts as co-ordinating role, and the others as routing roles. The routing azureml-fe pods routes incoming request and propogate response to original user](./media/how-to-attach-arc-kubernetes/cr-architecture.png)](./media/how-to-attach-arc-kubernetes/cr-architecture.png)
 
-As you can see from above diagram, by default 3 `azureml-fe` instances are created during AzureML extension deployment, one instance acts as coordinating role, and the other instances serve incoming inference requests. The coordinating instance has all information about model pods and makes decision about which model pod to serve incoming request, while the serving `azureml-fe` instances are responsible for routing the request to selected model pod and propogate the response back to the original user.
+As you can see from above diagram, by default 3 `azureml-fe` instances are created during AzureML extension deployment, one instance acts as coordinating role, and the other instances serve incoming inference requests. The coordinating instance has all information about model pods and makes decision about which model pod to serve incoming request, while the serving `azureml-fe` instances are responsible for routing the request to selected model pod and propagate the response back to the original user.
 
 ## Autoscaling
 
-AzureML inference router handles autocaling for all model deployments on the Kubernetes cluster. Since all inference requests go through it, it has the necessary data to automatically scale the deployed model(s).
+AzureML inference router handles autoscaling for all model deployments on the Kubernetes cluster. Since all inference requests go through it, it has the necessary data to automatically scale the deployed model(s).
 
 > [!IMPORTANT]
 > * **Do not enable Kubernetes Horizontal Pod Autoscaler (HPA) for model deployments**. Doing so would cause the two auto-scaling components to compete with each other. Azureml-fe is designed to auto-scale models deployed by AzureML, where HPA would have to guess or approximate model utilization from a generic metric like CPU usage or a custom metric configuration.
@@ -62,7 +63,7 @@ Decisions to scale up/down is based off of utilization of the current container 
 
 Decisions to add replicas are eager and fast (around 1 second). Decisions to remove replicas are conservative (around 1 minute).
 
-Supppose you want to deploy a model services and want to know many instancdes (pods/replicas) should be configured for target requests per second (RPS) and target responde time. You can calculate the required replicas by using the following code:
+For example, if you want to deploy a model service and want to know many instances (pods/replicas) should be configured for target requests per second (RPS) and target response time. You can calculate the required replicas by using the following code:
 
 ```python
 from math import ceil
@@ -81,11 +82,11 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-If you have RPS requriements higher than 10K, please consider following options:
+If you have RPS requirements higher than 10K, consider following options:
 
-  * Increase resource requests/limits for ```azureml-fe``` pods, by default it has 2 vCPU and 2G memory request/limit.
-  * Increase number of instances for ```azureml-fe```, by default AzureML creates 3 ```azureml-fe``` instances per cluster.
-  * Reach out to Microsoft experts for help.
+* Increase resource requests/limits for ```azureml-fe``` pods, by default it has 2 vCPU and 2G memory request/limit.
+* Increase number of instances for ```azureml-fe```, by default AzureML creates 3 ```azureml-fe``` instances per cluster.
+* Reach out to Microsoft experts for help.
 
 ## Understand connectivity requirements for AKS inferencing cluster
 

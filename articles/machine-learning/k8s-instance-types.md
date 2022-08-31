@@ -2,11 +2,12 @@
 title: Create and manage instance types for efficient compute resource utilization
 description: Learn about what is instance types, and how to create and manage them, and what are benefits of using instance types
 titleSuffix: Azure Machine Learning
-author: ssalgadodev
-ms.author: ssalgado
+author: bozhong68
+ms.author: bozhlin
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/28/2022
+ms.date: 08/31/2022
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---

@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: ssalgadodev
-ms.author: ssalgado
-ms.reviewer: larryfr
+author: bozhong68
+ms.author: bozhlin
+ms.reviewer: ssalgado
 ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022
-ms.date: 06/15/2022
+ms.date: 08/31/2022
 #Customer intent: As part of ML Professionals focusing on ML infratrasture setup using self-managed compute, I want to understand what Kubernetes compute target is and why do I need it.
 ---
 
@@ -18,7 +18,7 @@ ms.date: 06/15/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-With AzureML CLI/Python SDK v2, AzureML intorduced a new compute target - Kubernetes compute target. You can easily enable an existing **Azure Kubernetes Service** (AKS) cluster or **Azure Arc-enabled Kubernetes** (Arc Kubernetes) cluster to become a Kubenetes compute target in AzureML, and use it to train or deploy models . 
+With AzureML CLI/Python SDK v2, AzureML introduced a new compute target - Kubernetes compute target. You can easily enable an existing **Azure Kubernetes Service** (AKS) cluster or **Azure Arc-enabled Kubernetes** (Arc Kubernetes) cluster to become a Kubenetes compute target in AzureML, and use it to train or deploy models. 
 
  [![Kubernetes compute target and its underlying Kubernetes cluster: Architecture diagram showing AzureML supports Kubernetes cluster in any infrastructures on-premises, across multi-cloud, and the edge.](./media/how-to-attach-arc-kubernetes/machine-learning-anywhere-overview.png)](./media/how-to-attach-arc-kubernetes/machine-learning-anywhere-overview.png)
  
@@ -32,10 +32,10 @@ In this article, you learn about:
 ## How it works
 
 AzureML Kubernetes compute supports two kinds of Kubernetes cluster:
-* **[AKS cluster](https://azure.microsoft.com/services/kubernetes-service/)** in Azure. With your self-managed AKS cluster in Azure, you can gain security and controls to meet compliance requirement as well as flexibility to manage teams' ML workload.
-* **[Arc Kubernetes cluster](../azure-arc/kubernetes/overview.md)** outside of Azure. With Arc Kubernetes cluster, you can train or deploy models in any infrastructure on-premises, across multi-cloud, or the edge. 
+* **[AKS cluster](https://azure.microsoft.com/services/kubernetes-service/)** in Azure. With your self-managed AKS cluster in Azure, you can gain security and controls to meet compliance requirement and flexibility to manage teams' ML workload.
+* **[Arc Kubernetes cluster](../azure-arc/kubernetes/overview.md)** outside of Azure. With Arc Kubernetes cluster, you can train or deploy models in any infrastructure on-premises, across multicloud, or the edge. 
 
-With a simple cluster extension deployment on AKS or Arc Kubernetes cluster, Kubernetes cluster is seamlessly supported in AzureML to run training or inference workload. It is easy to enable and use an existing Kubernetes cluster for AzureML workload with the following simple steps:
+With a simple cluster extension deployment on AKS or Arc Kubernetes cluster, Kubernetes cluster is seamlessly supported in AzureML to run training or inference workload. It's easy to enable and use an existing Kubernetes cluster for AzureML workload with the following simple steps:
 
  [![4 simple steps to enable an existing Kubernetes cluster to run AzureML workload: 1) Prepare AKS or Arc Kubernetes cluster. 2) Deploy AzureML extension. 3) Attach Kubernetes cluster to AzureML workspace. 4) Use Kubernetes compute target in CLI v2, SDK v2, and Studio UI.](./media/how-to-attach-arc-kubernetes/simple-steps.png)](./media/how-to-attach-arc-kubernetes/simple-steps.png)
 
@@ -45,27 +45,27 @@ With a simple cluster extension deployment on AKS or Arc Kubernetes cluster, Kub
 - Create and manage instance types for different ML workload scenarios and gain efficient compute resource utilization.
 - Trouble shooting workload issues related to Kubernetes cluster.
 
-**Data-science team**. Once the IT-operations team finishes compute setup and compute target(s) creation, data-science team can discover list of available compute targets and instance types in AzureML workspace to be used for training or inference workload. Data science specifies compute target name and instance type name using their preferred tools or APIs such as AzureML CLI v2, Python SDK v2 (preview), or Studio UI.
+**Data-science team**. Once the IT-operations team finishes compute setup and compute target(s) creation, the data-science team can discover a list of available compute targets and instance types in AzureML workspace. These compute resources can be used for training or inference workload. Data science specifies compute target name and instance type name using their preferred tools or APIs such as AzureML CLI v2, Python SDK v2 (preview), or Studio UI.
 
 ## Kubernetes usage scenarios
 
-Wtih Arc Kubernetes clsuter, you can build, train, and deploy models in any infrastructure on-premises and across multi-cloud using Kubernetes. This opens some new use patterns previously not possible in cloud setting environment. Below table provides a summary of the new use patterns enabled by AzureML Kubernetes compute.
+With Arc Kubernetes cluster, you can build, train, and deploy models in any infrastructure on-premises and across multicloud using Kubernetes. This opens some new use patterns previously not possible in cloud setting environment. Below table provides a summary of the new use patterns enabled by AzureML Kubernetes compute.
 
 [![Example 4 new use patterns enabled by AzureML Kubernetes compute: 1) train model in cloud, deploy on-premises. 2) train model on-premises, deploy model in cloud. 3) bring your own AKS compute. 4) Full ML lifecycycles on-premises](./media/how-to-attach-arc-kubernetes/k8s-scenarios.png)](./media/how-to-attach-arc-kubernetes/k8s-scenarios.png)
 
 ## Recommended best practices
 
-**Separation of responsibilities between the IT-operations team and data-science team**. As we mentioned above, managing your own compute and infrastructure for ML workload is a complicated task and it is best to be done by IT-operations team so data-science team can focus on ML models for organizational efficiency.
+**Separation of responsibilities between the IT-operations team and data-science team**. As we mentioned above, managing your own compute and infrastructure for ML workload is a complicated task, and it's best to be done by IT-operations team so data-science team can focus on ML models for organizational efficiency.
 
 **Create and manage instance types for different ML workload scenarios**. Each ML workload uses different amounts of compute resources such as CPU/GPU and memory. AzureML implements instance type as Kubernetes custom resource definition (CRD) with properties of nodeSelector and resource request/limit. With a carefully curated list of instance types, IT-operations can target ML workload on specific node(s) and manage compute resource utilization efficiently.
 
-**Multiple AzureML workspaces share the same Kubernetes cluster**. You can attach Kubernetes cluster multiple times to the same AzureML workspace or different AzureML workspaces, creating multiple compute targets in one workspace or multiple workspaces. Since many customers organize data science projects around AzureML workspace, multiple data science projects can now share the same Kubernetes cluster. This significantly reduces ML infrastructure management overheads as well as IT cost saving.
+**Multiple AzureML workspaces share the same Kubernetes cluster**. You can attach Kubernetes cluster multiple times to the same AzureML workspace or different AzureML workspaces, creating multiple compute targets in one workspace or multiple workspaces. Since many customers organize data science projects around AzureML workspace, multiple data science projects can now share the same Kubernetes cluster. This significantly reduces ML infrastructure management overheads and IT cost saving.
 
-**Team/project workload isolation using Kubernetes namespace**. When you attach Kubernetes cluster to AzureML workspace, you can specify a Kubernetes namespace for the compute target and all workloads run by the compute target will be placed under the specified namespace.
+**Team/project workload isolation using Kubernetes namespace**. When you attach Kubernetes cluster to AzureML workspace, you can specify a Kubernetes namespace for the compute target. All workloads run by the compute target will be placed under the specified namespace.
 
 ## KubernetesCompute and legacy AksCompute
 
-With AzureML CLI/Python SDK v1, you can deploy models on AKS using AksCompute target. Both KubernetesCompute target and AksCompute target support AKS integration, however they support it very differently. Following table shows key differences.
+With AzureML CLI/Python SDK v1, you can deploy models on AKS using AksCompute target. Both KubernetesCompute target and AksCompute target support AKS integration, however they support it differently. Following table shows key differences.
 
 |Capabilities  |AKS integration with AksCompute (legacy)  |AKS integration with KubernetesCompute|
 |--|--|--|
@@ -76,7 +76,7 @@ With AzureML CLI/Python SDK v1, you can deploy models on AKS using AksCompute ta
 |Batch inference | No | Yes |
 |Real-time inference new features | No new features development | Active roadmap |
 
-With these key differennces and overall AzureML evolves to use SDK/CLI v2, AzureML recommends you to use Kubernetes compute target to deploy models if you decide to use AKS for model deployment.
+With these key differences and overall AzureML evolves to use SDK/CLI v2, AzureML recommends you to use Kubernetes compute target to deploy models if you decide to use AKS for model deployment.
 
 ## Next steps
 
@@ -84,7 +84,7 @@ With these key differennces and overall AzureML evolves to use SDK/CLI v2, Azure
 - [Step 2: Attach Kubernetes cluster to workspace](k8s-attach-to-workspace.md)
 - [Create and manage instance types](k8s-instance-types.md)
 
-### Additional resources
+### Other resources
 
 - [Kubernetes version and region availability](./reference-kubernetes.md#supported-kubernetes-version-and-region)
 - [Work with custom data storage](./reference-kubernetes.md#azureml-jobs-connect-with-custom-data-storage)
@@ -94,7 +94,7 @@ With these key differennces and overall AzureML evolves to use SDK/CLI v2, Azure
 
 All AzureML examples can be found in [https://github.com/Azure/azureml-examples.git](https://github.com/Azure/azureml-examples).
 
-For any AzureML example, you only need to update the compute target name to your Kubernetes compute target, then you are all done. 
+For any AzureML example, you only need to update the compute target name to your Kubernetes compute target, then you're all done. 
 * Explore training job samples with CLI v2 - [https://github.com/Azure/azureml-examples/tree/main/cli/jobs](https://github.com/Azure/azureml-examples/tree/main/cli/jobs)
 * Explore model deployment with online endpoint samples with CLI v2 - [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/kubernetes](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/kubernetes)
 * Explore batch endpoint samples with CLI v2 - [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch)

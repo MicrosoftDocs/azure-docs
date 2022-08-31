@@ -2,11 +2,12 @@
 title: Attach a Kubernetes cluster to AzureML workspace
 description: Learn about how to attach a Kubernetes cluster to AzureML workspaceS
 titleSuffix: Azure Machine Learning
-author: ssalgadodev
-ms.author: ssalgado
+author: bozhong68
+ms.author: bozhlin
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/28/2022
+ms.date: 08/31/2022
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---

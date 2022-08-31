@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: larryfr
-ms.date: 04/26/2022
+ms.date: 08/31/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022
 ---
@@ -41,7 +41,7 @@ Managed online endpoints help to deploy your ML models in a turnkey manner. Mana
    az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
    ```
 
-* Azure role-based access controls (Azure RBAC) is used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
 
@@ -135,7 +135,7 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 ### Use more than one model
 
-Currently, you can specify only one model per deployment in the YAML. If you have more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained.
+Currently, you can specify only one model per deployment in the YAML. If you've more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained.
 
 ## Understand the scoring script
 
@@ -178,7 +178,7 @@ Check the status to see whether the model was deployed without error:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_status":::
 
-The output should appear similar to the following JSON. Note that the `provisioning_state` is `Succeeded`.
+The output should appear similar to the following JSON. The `provisioning_state` is `Succeeded`.
 
 ```json
 {
@@ -233,8 +233,8 @@ To create the deployment named `blue` under the endpoint, run the following code
 
 This deployment might take up to 15 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
 
-> [!Important]
-> The --all-traffic flag in the above `az ml online-deployment create` allocates 100% of the traffic to the endpoint to the newly created deployment. Though this is helpful for development and testing purposes, for production, you might want to open traffic to the new deployment through an explicit command. For example,
+> [!IMPORTANT]
+> The `--all-traffic` flag in the above `az ml online-deployment create` allocates 100% of the traffic to the endpoint to the newly created deployment. Though this is helpful for development and testing purposes, for production, you might want to open traffic to the new deployment through an explicit command. For example,
 > `az ml online-endpoint update -n $ENDPOINT_NAME --traffic "blue=100"` 
 
 > [!TIP]
