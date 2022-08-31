@@ -48,7 +48,7 @@ From the Azure portal, follow these steps:
 
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
-    | For language | Choose the language of the file you're importing between .Net, Java (Spring) and Other. | *.Net*   |
+    | For language | Choose the language of the file you're importing between .NET, Java (Spring) and Other. | *.NET*   |
     | File type    | Select the type of file you're importing between Yaml, Properties and Json.             | *Json*   |
 
 1. Select the **Folder** icon, and browse to the file to import.
