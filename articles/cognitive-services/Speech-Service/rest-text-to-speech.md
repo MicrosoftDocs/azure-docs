@@ -223,12 +223,12 @@ These regions are supported for text-to-speech through the REST API. Be sure to 
 
 This table lists required and optional headers for text-to-speech requests:
 
-| Header                     | Description                                                                                                        | Required or optional |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| `Authorization`            | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Required             |
-| `Content-Type`             | Specifies the content type for the provided text. Accepted value: `application/ssml+xml`.                          | Required             |
-| `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [Audio outputs](#audio-outputs).    | Required             |
-| `User-Agent`               | The application name. The provided value must be fewer than 255 characters.                                        | Required             |
+| Header | Description | Required or optional |
+|--------|-------------|---------------------|
+| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Required |
+| `Content-Type` | Specifies the content type for the provided text. Accepted value: `application/ssml+xml`. | Required |
+| `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [Audio outputs](#audio-outputs). | Required |
+| `User-Agent` | The application name. The provided value must be fewer than 255 characters. | Required |
 
 ### Request body
 
