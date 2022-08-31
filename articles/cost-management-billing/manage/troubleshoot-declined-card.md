@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting 
-ms.date: 04/22/2022
+ms.date: 08/30/2022
 ms.author: banders
 ---
 
@@ -26,7 +26,7 @@ When you choose a card, Azure displays the card options that are valid in the co
 
 ## You're using a virtual or prepaid card
 
-Prepaid and virtual cards aren't accepted as payment for Azure subscriptions.
+Prepaid and virtual cards are not accepted as payment for Azure subscriptions.
 
 ## Your credit information is inaccurate or incomplete
 
