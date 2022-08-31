@@ -43,7 +43,7 @@ If you prefer to assign the role with an ARM API, see [documentation](https://re
 
 ## Not able to access the website error
  
-When visiting the [Azure Video Indexer](https://www.videoindexer.ai/) website with a Video Indexer Restricted Viewer access, the following message appears: 
+When visiting the [Azure Video Indexer](https://www.videoindexer.ai/) website with the Video Indexer Restricted Viewer access, the following message appears: 
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/restricted-viewer-role/no-access.png" alt-text="No access to the gallery page.":::
