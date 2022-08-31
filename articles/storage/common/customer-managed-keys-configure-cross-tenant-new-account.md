@@ -28,25 +28,49 @@ To use the preview, you must register for the Azure Active Directory federated c
 
 ### [PowerShell](#tab/powershell-preview)
 
-To register with PowerShell, call the Register-AzProviderFeature command.
+To register with PowerShell, call the **Register-AzProviderFeature** command.
 
 ```azurepowershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
  -FeatureName FederatedClientIdentity
 ```
 
-To check the status of your registration with PowerShell, call the Get-AzProviderFeature command.
+To check the status of your registration with PowerShell, call the **Get-AzProviderFeature** command.
 
 ```azurepowershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
  -FeatureName FederatedClientIdentity
 ```
 
-After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with PowerShell, call the Register-AzResourceProvider command.
+After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with PowerShell, call the **Register-AzResourceProvider** command.
 
 ```azurepowershell
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 ```
+
+### [Azure CLI](#tab/azure-cli-preview)
+
+To register with Azure CLI, call the **az feature register** command.
+
+```azurecli
+az feature register --namespace Microsoft.Storage \
+ --name FederatedClientIdentity
+```
+
+To check the status of your registration with Azure CLI, call the **az feature show** command.
+
+```azurecli
+az feature show --namespace Microsoft.Storage \
+ --name FederatedClientIdentity
+```
+
+After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with Azure CLI, call the **az provider register command**.
+
+```azurecli
+az provider register --namespace 'Microsoft.Storage'
+```
+
+---
 
 > [!IMPORTANT]
 > Using cross-tenant customer-managed keys with Azure Storage encryption is currently in PREVIEW.
