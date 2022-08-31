@@ -18,7 +18,7 @@ Azure platform services and resources that are owned by the service provider and
 
 For the purposes of this how-to article, assume there are two Azure AD tenants: an independent service provider's tenant (*Tenant1*), and a customer's tenant (*Tenant2*). *Tenant1* hosts Azure platform services and *Tenant2* hosts the customer's key vault.
 
-The service provider first creates a multi-tenant application registration in *Tenant1*. The service provider configures a [federated identity credential](/azure/active-directory/develop/workload-identity-federation-create-trust-managed-identity-as-credentia) on this application using a user-assigned managed identity. The service provider then shares the name and application ID of the app with the customer.
+The service provider first creates a multi-tenant application registration in *Tenant1*. The service provider configures a [federated identity credential](/azure/active-directory/develop/workload-identity-federation-create-trust-managed-identity-as-credential) on this application using a user-assigned managed identity. The service provider then shares the name and application ID of the app with the customer.
 
 A user with the appropriate permissions installs the service provider's application in the customer tenant, *Tenant2*. A user then grants the service principal associated with the installed application access to the customer's key vault. The customer also stores the encryption key, or customer-managed key, in the key vault. The customer shares the key location (the URL of the key) with the service provider.
 
