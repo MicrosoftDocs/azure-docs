@@ -66,7 +66,7 @@ These are the other considerations we will discuss in the rest of this article.
 
 - Handling retries of read requests using the Circuit Breaker pattern
 
-- Eventually-consistent data and the Last Sync Time
+- Eventually consistent data and the Last Sync Time
 
 - Testing
 
@@ -128,7 +128,7 @@ The Circuit Breaker pattern can also be applied to update requests. However, upd
 
 Using the Circuit Breaker pattern in your application can prevent it from retrying an operation that is likely to fail repeatedly. It allows the application to continue to run rather than taking up time while the operation is retried exponentially. It also detects when the fault has been fixed, at which time the application can try the operation again.
 
-### How to implement the circuit breaker pattern
+### How to implement the Circuit Breaker pattern
 
 To identify that there is an ongoing problem with a primary endpoint, you can monitor how frequently the client encounters retryable errors. Because each case is different, you have to decide on the threshold you want to use for the decision to switch to the secondary endpoint and run the application in read-only mode. For example, you could decide to perform the switch if there are 10 failures in a row with no successes. Another example is to switch if 90% of the requests in a 2-minute period fail.
 
