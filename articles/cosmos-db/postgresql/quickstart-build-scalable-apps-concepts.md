@@ -12,7 +12,7 @@ ms.date: 08/11/2022
 
 # Fundamental concepts for scaling
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 Before we investigate the steps of building a new app, it's helpful to see a
 quick overview of the terms and concepts involved.

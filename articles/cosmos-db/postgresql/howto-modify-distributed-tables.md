@@ -11,7 +11,7 @@ ms.date: 08/02/2022
 
 # Distribute and modify tables
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 ## Distributing tables
 

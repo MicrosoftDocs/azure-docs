@@ -12,7 +12,7 @@ ms.date: 05/06/2022
 
 # Restart Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 You can restart your Hyperscale (Citus) server group for the Azure portal. Restarting the server group applies to all nodes; you can't selectively restart
 individual nodes. The restart applies to all PostgreSQL server processes in the nodes. Any applications attempting to use the database will experience

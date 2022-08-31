@@ -12,7 +12,7 @@ ms.date: 08/11/2022
 
 # Query Hyperscale (Citus) from your app stack
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 Select your development language to learn how to connect to Hyperscale (Citus)
 to create, read, update, and delete data.

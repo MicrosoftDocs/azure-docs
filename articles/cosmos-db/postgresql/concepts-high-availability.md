@@ -11,7 +11,7 @@ ms.date: 07/15/2022
 
 # High availability in Azure Database for PostgreSQL – Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 High availability (HA) avoids database downtime by maintaining standby replicas
 of every node in a server group. If a node goes down, Hyperscale (Citus)

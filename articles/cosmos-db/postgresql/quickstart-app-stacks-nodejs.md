@@ -12,7 +12,7 @@ ms.date: 08/24/2022
 
 # Node.js app to connect and query Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 In this article, you'll connect to a Hyperscale (Citus) server group using a Node.js application. We'll see how to use SQL statements to query, insert, update and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js and are new to working with Hyperscale (Citus).
 

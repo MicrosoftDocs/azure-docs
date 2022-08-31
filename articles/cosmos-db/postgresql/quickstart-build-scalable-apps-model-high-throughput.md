@@ -12,7 +12,7 @@ ms.date: 08/11/2022
 
 # Model high-throughput transactional apps
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 ## Common filter as shard key
 

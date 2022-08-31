@@ -11,7 +11,7 @@ ms.date: 06/22/2022
 
 # Monitor and tune Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 Monitoring data about your servers helps you troubleshoot and optimize for your
 workload. Hyperscale (Citus) provides various monitoring options to provide

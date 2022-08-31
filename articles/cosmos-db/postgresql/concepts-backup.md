@@ -11,7 +11,7 @@ ms.date: 04/14/2021
 
 # Backup and restore in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 Azure Database for PostgreSQL – Hyperscale (Citus) automatically creates
 backups of each node and stores them in locally redundant storage. Backups can

@@ -12,7 +12,7 @@ ms.date: 07/11/2022
 
 # Product updates for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 ## Updates feed
 

@@ -13,7 +13,7 @@ ms.date: 08/11/2022
 
 # Create and distribute tables
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 In this example, we'll use Hyperscale (Citus) distributed tables to store and
 query events recorded from GitHub open source contributors.

@@ -11,7 +11,7 @@ ms.date: 06/30/2022
 
 # Row-level security in Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 PostgreSQL [row-level security
 policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)

@@ -12,7 +12,7 @@ ms.date: 08/24/2022
 
 # Java app to connect and query Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 In this document, you'll learn how to connect to a Hyperscale (Citus) server group using a Java application. You'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity), and are new to working with Hyperscale (Citus).
 

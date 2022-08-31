@@ -13,7 +13,7 @@ ms.date: 08/11/2022
 
 # Run queries
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 ## Prerequisites
 

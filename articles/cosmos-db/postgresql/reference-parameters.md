@@ -11,7 +11,7 @@ ms.date: 08/02/2022
 
 # Server parameters
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 There are various server parameters that affect the behavior of Hyperscale
 (Citus), both from standard PostgreSQL, and specific to Hyperscale (Citus).

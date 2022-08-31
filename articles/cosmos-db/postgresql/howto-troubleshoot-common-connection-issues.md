@@ -12,7 +12,7 @@ ms.date: 12/17/2021
 
 # Troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 Connection problems may be caused by several things, such as:
 

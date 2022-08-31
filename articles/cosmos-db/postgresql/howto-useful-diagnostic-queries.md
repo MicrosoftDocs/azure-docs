@@ -11,7 +11,7 @@ ms.date: 8/23/2021
 
 # Useful Diagnostic Queries
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
 
 ## Finding which node contains data for a specific tenant
 
