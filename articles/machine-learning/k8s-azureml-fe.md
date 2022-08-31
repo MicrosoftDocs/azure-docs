@@ -22,7 +22,7 @@ AzureML inference router is a critical component for real-time inference with Ku
 
 ## What is AzureML inference router
 
-AzureML inference router is the front-end component (azureml-fe) which is deployed on AKS or Arc Kubernetes cluster at AzureML extension deployment time. AzureML inference router is a critical component for real-time inference, and has following functions:
+AzureML inference router is the front-end component (azureml-fe) which is deployed on AKS or Arc Kubernetes cluster at AzureML extension deployment time. It has following functions:
   
   * Routes incoming inference requests from cluster load balancer or ingress controller to corresponding model pods.
   * Load-balance all incoming inference requests with smart coordinated rounting.
@@ -33,6 +33,7 @@ Let's take a closer look at the following diagram and understand more about Azur
 
  [![Coordinated routing architecture: 3 azureml-fe instances are available to serve requests, one acts as co-ordinating role, and the others as routing roles. The routing azureml-fe pods routes incoming request and propogate response to original user](./media/how-to-attach-arc-kubernetes/cr-architecture.png)](./media/how-to-attach-arc-kubernetes/cr-architecture.png)
 
+As you can see from above diagram, by default 3 `azureml-fe` instances are created during AzureML extension deployment, one instance acts as coordinating role, and the other instances serve incoming inference requests. The coordinating instance has all information about model pods and makes decision about which model pod to serve incoming request, while the serving `azureml-fe` instances are responsible for routing the request to selected model pod and propogate the response back to the original user.
 
 ## Autoscaling
 
