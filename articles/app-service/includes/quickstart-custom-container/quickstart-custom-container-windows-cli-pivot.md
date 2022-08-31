@@ -49,7 +49,7 @@ az appservice plan create --resource-group myResourceGroup --location eastus --n
 ```
 
 > [!NOTE]
-> If you run into the error, `The behavior of this command has been altered by the following extension: appservice-kube`, remove the `appservice-kube` extension. 
+> If you run into the error, **"The behavior of this command has been altered by the following extension: appservice-kube"**, remove the `appservice-kube` extension. 
 >
 
 ## 4 - Create your web app
@@ -57,8 +57,14 @@ az appservice plan create --resource-group myResourceGroup --location eastus --n
 Create a custom container [web app](../../overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az-webapp-create) command. Don't forget to replace _myContainerApp_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myContainerApp --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
+az webapp create --name myContainerApp --plan myAppServicePlan --location eastus --resource-group myResourceGroup --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
 ```
+
+- The Name parameter specifies the web app name.
+- The AppServicePlan parameter specifies the App Service Plan Name.
+- The Location parameter specifies the location.
+- The ResourceGroupName parameter specifies the name of the Resource Group.
+- The deployment-container-image-name parameter specifies a container image name and optional tag.
 
 ## 5 - Browse to the app
 

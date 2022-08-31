@@ -44,11 +44,12 @@ The command returns `Login Succeeded` once completed.
 
 Create a new App service Plan by using the [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) command.
 
-The following example creates an App Service plan named `myAppServicePlan` in the **PremiumV3** pricing tier (`--Tier PremiumV3`).
+The following example creates an App Service plan named `myAppServicePlan` in the **PremiumV3** pricing tier (`-Tier PremiumV3`). The `-HyperV` parameter specifies Windows container.
 
 ```azurepowershell-interactive
 New-AzAppServicePlan -Name myAppServicePlan -Location eastus -ResourceGroupName myResourceGroup -Tier PremiumV3 -HyperV
 ```
+
 ## 4 - Create your web app
 
 Create a new app by using the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command:
@@ -61,7 +62,7 @@ New-AzWebApp -Name myWebApp -AppServicePlan myAppServicePlan -Location eastus -R
 - The AppServicePlan parameter specifies the App Service Plan Name.
 - The Location parameter specifies the location.
 - The ResourceGroupName parameter specifies the name of the Resource Group.
-- The ContainerImageName parameter specifies a Container Image Name and optional tag, for example (image:tag).
+- The ContainerImageName parameter specifies a Container Image Name and optional tag.
 
 The command might take a few minutes to complete. While running, it creates the App Service resource.
 
