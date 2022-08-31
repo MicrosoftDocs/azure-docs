@@ -1,5 +1,5 @@
 ---
-title: Azure AD authentication strength overview
+title: Overview of Azure Active Directory authentication strength
 description: Learn how admins can use Azure AD Conditional Access to distinguish which authentication methods can be used based on relevant security factors.
 
 services: multi-factor-authentication
@@ -15,7 +15,7 @@ ms.reviewer: michmcla, inbarckms
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD authentication strength overview 
+# Azure AD authentication strength 
 
 Authentication strength is a Conditional Access (CA) control that allows administrators to require specific combinations of authentication methods to access a resource. For example, you can require phishing-resistant authentication methods to access a sensitive resource while allowing less secure multifactor authentication (MFA) combinations, such as password + SMS, to access non-sensitive applications. 
 
@@ -43,7 +43,7 @@ OR
 OR
 •	Certificate Based Authentication (Multi-Factor)
 
-<!--placeholder - screenshot of phishing resistant auth strengths -->
+<!--placeholder - screenshot of phishing-resistant auth strengths -->
 
 When you create a Conditional Access policy that uses the **Require authentication strength** grant control, you can choose from built-in authentication strength or custom authentication strengths.
 
@@ -99,13 +99,13 @@ Deleting a custom authentication strength is not allowed if the authentication s
 
 To evaluate if the user should gain access to the resource, the following considerations are taken into account: 
 
--	Which methods are available in the Authentication Strength policy? 
--	Which methods are allowed for user sign-in in the Authentication Method policy?
--	Is the user registered for the required methods?
+- Which methods are available in the Authentication Strength policy? 
+- Which methods are allowed for user sign-in in the Authentication Method policy?
+- Is the user registered for the required methods?
 
 When accessing a resource protected by an authentication strength Conditional Access policy, we evaluate if the methods they have previously used satisfy the authentication requirements. For example, let's say a user signs in with Password + SMS. They access a resource protected by an MFA authentication strength policy. In this case, the user can access the resource without another authentication prompt.
 
-Let's say the user next tries to access a resource protected by a Phishing-resistant MFA authentication strength policy. At this point, the user will be prompted to provide a phishing resistant authentication method, such as Windows Hello for Business. 
+Then they access a resource protected by a Phishing-resistant MFA authentication strength policy. At this point, the user will be prompted to provide a phishing-resistant authentication method, such as Windows Hello for Business. 
 
 If the user has never used the method required by the authentication strength policy, the user will be redirected to register the required methods. Registering additional strong authentication methods is possible only if the user can satisfy MFA requirements.
 
