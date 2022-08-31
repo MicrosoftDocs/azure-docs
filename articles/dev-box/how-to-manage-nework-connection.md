@@ -164,5 +164,5 @@ The network connection will no longer be available for use in the dev center.
 
 ## Next steps
 
-- [Manage a dev center](./how-to-manage-dev-center)
+<!-- [Manage a dev center](./how-to-manage-dev-center.md) -->
 - [Quickstart: Configure a Microsoft Dev Box Project](./quickstart-configure-dev-box-project.md)
