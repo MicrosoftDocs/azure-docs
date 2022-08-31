@@ -54,7 +54,7 @@ az appservice plan create --resource-group myResourceGroup --location eastus --n
 
 ## 4 - Create your web app
 
-Create a custom container [web app](overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az-webapp-create) command. Don't forget to replace _myContainerApp_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
+Create a custom container [web app](../../overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az-webapp-create) command. Don't forget to replace _myContainerApp_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myContainerApp --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
