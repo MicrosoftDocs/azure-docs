@@ -49,7 +49,7 @@ To add a blocklist:
 4. Under **Collaboration restrictions**, select **Deny invitations to the specified domains**.
 5. Under **TARGET DOMAINS**, enter the name of one of the domains that you want to block. For multiple domains, enter each domain on a new line. For example:
 
-   ![Shows the deny option with added domains](./media/allow-deny-list/DenyListSettings.png)
+   ![Screenshot showing the deny option with added domains.](./media/allow-deny-list/DenyListSettings.png)
  
 6. When you're done, select **Save**.
 
@@ -70,7 +70,7 @@ To add an allowlist:
 4. Under **Collaboration restrictions**, select **Allow invitations only to the specified domains (most restrictive)**.
 5. Under **TARGET DOMAINS**, enter the name of one of the domains that you want to allow. For multiple domains, enter each domain on a new line. For example:
 
-   ![Shows the allow option with added domains](./media/allow-deny-list/AllowListSettings.png)
+   ![Screenshot showing the allow option with added domains.](./media/allow-deny-list/AllowListSettings.png)
  
 6. When you're done, select **Save**.
 
