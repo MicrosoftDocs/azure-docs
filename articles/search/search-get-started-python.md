@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/29/2022
+ms.date: 08/31/2022
 ms.custom: devx-track-python, mode-api
 ---
 
@@ -22,13 +22,13 @@ ms.custom: devx-track-python, mode-api
 > * [Portal](search-get-started-portal.md)
 >
 
-Build a Jupyter Notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
+In this exercise, build a Jupyter Notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-The following services and tools are required for this quickstart.
+The following services and tools are used in this quickstart.
 
 * Visual Studio Code with the Python extension (or equivalent tool), with Python 3.7 or later
 
@@ -38,7 +38,7 @@ The following services and tools are required for this quickstart.
 
 ## Copy a key and URL
 
-REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+To connect to your search service, provide the endpoint and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -46,17 +46,20 @@ REST calls require the service URL and an access key on every request. A search 
 
    ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
 
-All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+You'll provide these values in the next section when you set up the connection.
 
 ## Connect to Azure Cognitive Search
 
-In this task, start Jupyter Notebook and verify that you can connect to Azure Cognitive Search. You'll do this step by requesting a list of indexes from your service.
+In this task, create the notebook, load the libraries, and set up your clients.
 
-1. Create a new Python3 notebook.
+1. Create a new Python3 notebook in Visual Studio Code:
+
+    1. Press F1 and search for "Python Select Interpreter" and choose a version of Python 3.7 or later.
+    1. Press F1 again and search for "Create: New Jupyter Notebook". You should have an empty, untitled `.ipynb` file open in the editor ready for the first entry.
 
 1. In the first cell, load the libraries from the Azure SDK for Python, including [azure-search-documents](/python/api/azure-search-documents).
 
-   ```python
+    ```python
     %pip install azure-search-documents --pre
     %pip show azure-search-documents
     
@@ -73,11 +76,11 @@ In this task, start Jupyter Notebook and verify that you can connect to Azure Co
         SimpleField,
         SearchableField
     )
-   ```
+    ```
 
-1. In the second cell, input the request elements that will be constants on every request. Provide your search service name, admin API key, and query API key, copied in a previous step. This cell also sets up the clients you'll use for specific operations: [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) to create an index, and [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) to query an index.
+1. Add a second cell and paste in the connection information. This cell also sets up the clients you'll use for specific operations: [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) to create an index, and [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) to query an index.
 
-   ```python
+    ```python
     service_name = "YOUR-SEARCH-SERVICE-NAME"
     admin_key = "YOUR-SEARCH-SERVICE-ADMIN-API-KEY"
     
@@ -92,25 +95,25 @@ In this task, start Jupyter Notebook and verify that you can connect to Azure Co
     search_client = SearchClient(endpoint=endpoint,
                           index_name=index_name,
                           credential=AzureKeyCredential(admin_key))
-   ```
+    ```
 
 1. In the third cell, run a delete_index operation to clear your service of any existing *hotels-quickstart* indexes. Deleting the index allows you to create another *hotels-quickstart* index of the same name.
 
-   ```python
+    ```python
     try:
         result = admin_client.delete_index(index_name)
         print ('Index', index_name, 'Deleted')
     except Exception as ex:
         print (ex)
-   ```
+    ```
 
 1. Run each step.
 
 ## 1 - Create an index
 
-Required elements of an index include a name, a fields collection, and a key. The fields collection defines the structure of a logical *search document*, used for both loading data and returning results. 
+Required index elements include a name, a fields collection, and a document key that uniquely identifies each search document. The fields collection defines the structure of a logical *search document*, used for both loading data and returning results. 
 
-Each field has a name, type, and attributes that determine how the field is used (for example, whether it's full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
+Within the fields collection, each field has a name, type, and attributes that determine how the field is used (for example, whether it's full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
 This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it in this quickstart for brevity.
 
@@ -329,7 +332,7 @@ This step shows you how to query an index using the **search** method of the [se
     print("Category: {}".format(result["Category"]))
     ```
 
-1. In this example, we'll use the autocomplete function. Autocomplete is typically used in a search box to provide potential matches as the user types into the search box.
+1. In the last example, we'll use the autocomplete function. Autocomplete is typically used in a search box to provide potential matches as the user types into the search box.
 
    When the index was created, a suggester named `sg` was also created as part of the request. A suggester definition specifies which fields can be used to find potential matches to suggester requests. In this example, those fields are 'Tags', 'Address/City', 'Address/Country'. To simulate auto-complete, pass in the letters "sa" as a partial string. The autocomplete method of [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) sends back potential term matches.
 
@@ -352,7 +355,7 @@ If you're using a free service, remember that you're limited to three indexes, i
 
 ## Next steps
 
-In this JavaScript quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. To continue learning, try the following tutorial.
+In this Python quickstart, you worked through the fundamental workflow using the azure.search.documents library from the Python SDK. You performed tasks that created an index, loaded it with documents, and ran queries. To continue learning, try the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Add search to web apps](tutorial-python-overview.md)
