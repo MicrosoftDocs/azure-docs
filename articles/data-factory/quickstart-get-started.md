@@ -92,4 +92,5 @@ You can clean up all the resources you created in this quickstart in two ways.  
 
 In this quickstart, you created an Azure Data Factory containing a pipeline with a copy activity.  To learn more about Azure Data Factory, continue on to the article below.
 
-[Hello World - How to copy data](hello-world-copy-data.md)
+- [Hello World - How to copy data](hello-world-copy-data.md)
+- [Introduction to Azure Data Factory](/learn/modules/intro-to-azure-data-factory/)
