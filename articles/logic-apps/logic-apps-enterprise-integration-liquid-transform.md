@@ -14,7 +14,7 @@ ms.date: 08/15/2022
 
 When you want to perform basic JSON transformations in your logic app workflows, you can use built-in data operations, such as the **Compose** action or **Parse JSON** action. However, some scenarios might require advanced and complex transformations that include elements such as iterations, control flows, and variables. For transformations between JSON to JSON, JSON to text, XML to JSON, or XML to text, you can create a template that describes the required mapping or transformation using the Liquid open-source template language. You can select this template when you add a **Liquid** built-in action to your workflow. You can use **Liquid** actions in multi-tenant Consumption logic app workflows and single-tenant Standard logic app workflows.
 
-Although no **Liquid** triggers are available, you can use any trigger or action to get or feed the source JSON or XML content into your workflow for transformation. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
+While no **Liquid** triggers are available, you can use any trigger or action to feed the source JSON or XML content into your workflow for transformation. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
 
 This article shows how to complete the following tasks:
 
@@ -193,7 +193,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
       ![Screenshot showing Consumption workflow, Liquid action's "Content" property, an open dynamic content list, and "Body" token selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-body-consumption.png)
 
-1. For the **Map** property, open the **Map** list, and select your Liquid template.
+1. From the **Map** list, select your Liquid template.
 
    This example continues with the template named **JsonToJsonTemplate**.
 
@@ -201,12 +201,14 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
    > [!NOTE]
    >
-   > If the maps list is empty, most likely your logic app resource isn't linked to your integration account. 
-   > Make sure to [link your logic app resource to the integration account that has the Liquid template or map](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
+   > If the maps list is empty, either your logic app resource isn't linked to your 
+   > integration account or your integration account doesn't contain any map files.
 
    When you're done, the action looks similar to the following example:
 
    ![Screenshot showing Consumption workflow with finished "Transform JSON to JSON" action.](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-consumption.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
 
@@ -256,6 +258,8 @@ The following steps show how to add a Liquid transformation action for Consumpti
    When you're done, the action looks similar to the following example:
 
    ![Screenshot showing Standard workflow with finished "Transform JSON to JSON" action.](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-standard.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
