@@ -425,6 +425,11 @@
         "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-overview",
         "redirect_document_id": false
     },
+    {
+        "source_path_from_root": "/articles/cosmos-db/postgresql/index.yml",
+        "redirect_url": "/azure/cosmos-db/postgresql/overview",
+        "redirect_document_id": false
+    },
 	{
 		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-audit.md",
 		"redirect_url": "/azure/cosmos-db/postgresql/concepts-audit",
