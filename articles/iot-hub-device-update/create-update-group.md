@@ -9,114 +9,114 @@ ms.service: iot-hub-device-update
 ---
 
 # Create device groups in Device Update for IoT Hub
-Device Update for IoT Hub allows deploying an update to a group of IoT devices. This step is optional when trying to deploy updates to your managed devices. You can deploy updates to your devices using the default group that is created for you. Alternatively, you can assign a user-defined tag to your devices, and they will be automatically grouped based on the tag and the device compatibility properties.
 
-  > [!NOTE] 
-  > If you would like to deploy to a default group instead of a user-created group, you can directly move to [How to Deploy an Update](deploy-update.md)
+Device Update for IoT Hub allows deploying an update to a group of IoT devices. This step is optional when deploying updates to your managed devices. You can deploy updates to your devices using the default group that is created for you. Alternatively, you can assign a user-defined tag to your devices, and they will be automatically grouped based on the tag and the device compatibility properties.
 
+> [!NOTE]
+> If you would like to deploy to a default group instead of a user-created group, continue to [How to deploy an update](deploy-update.md).
 
 ## Prerequisites
 
-* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). It is recommended that you use a S1 (Standard) tier or above for your IoT Hub. 
+* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). We recommend that you use an S1 (Standard) tier or above for your IoT Hub.
 * An IoT device (or simulator) provisioned for Device Update within IoT Hub.
-* [At least one update has been successfully imported for the provisioned device.](import-update.md)
-* Install and start the Device Update agent on your IoT device either as a [module or device level identity](device-update-agent-provisioning.md)
+* Install and start the [Device Update agent](device-update-agent-provisioning.md) on your IoT device either as a module- or device-level identity.
+* An [imported update for the provisioned device](import-update.md).
 
 ## Add a tag to your devices  
 
-Device Update for IoT Hub allows deploying an update to a group of IoT devices. To create a group, the first step is to add a tag to the target set of devices in IoT Hub. Tags can only be successfully added to your device after it has been connected to Device Update.
+To create a device group, the first step is to add a tag to the target set of devices in IoT Hub. Tags can only be successfully added to your device after it has been connected to Device Update.
 
-The below documentation describes how to add and update a tag.
-
-### Programmatically update Device Twin
-
-You can update the Device Twin with the appropriate Tag using RegistryManager after enrolling the device with Device Update. 
-[Learn how to add tags using a sample .NET app.](../iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)  
-[Learn about tag properties](../iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format).
-
-  > [!NOTE]
-  > The tag should be added to the device twin if your Device Update agent is provisioned with device identity, or it should be added to the corresponding module twin   > if the Device Update agent is provisioned with a module identity.
-
-
-#### Device Update Tag Format
+Device Update tags use the following format:
 
 ```json
-     "tags": {
-              "ADUGroup": "<CustomTagValue>"
-             }
+"tags": {
+   "ADUGroup": "<CustomTagValue>"
+}
 ```
 
-### Using Jobs
+For more information and examples of twin JSON syntax, see [Understand and use device twins](../iot-hub/iot-hub-devguide-device-twins.md) or [Understand and use module twins](../iot-hub/iot-hub-devguide-module-twins.md).
 
-It is possible to schedule a Job on multiple devices to add or update a Device Update tag following [these](../iot-hub/iot-hub-devguide-jobs.md) examples. You can update Device Twin or Module Twin (if Device Update agent is set up as a Module Identity) using Jobs. [Learn more](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
+The following sections describe different ways to add and update tags.
 
-  > [!NOTE] 
-  > This action goes against your current IOT Hub messages quota and it is recommended to change only up to 50,000 device or module twin Tags at a time otherwise you may need to buy more IoT Hub units if you exceed your daily IoT Hub message quota. Details can be found at [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
+### Add tags with SDKs
 
-### Direct Twin Updates
+You can update the device or module twin with the appropriate tag using RegistryManager after enrolling the device with Device Update. For more information, see the following articles:
 
-Tags can also be added or updated in Device twin or Module Twin directly.
+* [Learn how to add tags using a sample .NET app.](../iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)  
+* [Learn about tag properties](../iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format).
 
-1. Log into [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
+Add tags to the device twin if your Device Update agent is provisioned with device identity, or to the corresponding module twin if the Device Update agent is provisioned with a module identity.
 
-2. From **Devices** or **IoT Edge** on the left navigation pane find your IoT device and navigate to the Device Twin, or the Device Update Module and then its Module Twin (this will be available if Device Update agent is set up as a Module Identity).
+### Add tags using jobs
 
-3. In the Device Twin or Module Twin, delete any existing Device Update tag value by setting them to null.
+You can schedule a job on multiple devices to add or update a Device Update tag. For examples of job operations, see [Schedule jobs on multiple devices](../iot-hub/iot-hub-devguide-jobs.md). You can update either device twins or module twins using jobs, depending on whether the Device Update agent is provisioned with a device or module identity.
 
-4. Add a new Device Update tag value as shown below. [Example device twin JSON document with tags.](../iot-hub/iot-hub-devguide-device-twins.md#device-twins)
+For more information, see [Schedule and broadcast jobs](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
 
-```JSON
-    "tags": {
-            "ADUGroup": "<CustomTagValue>"
-            }
-```
+> [!NOTE]
+> This action counts against your IoT Hub messages quota. We recommend only changing up to 50,000 device or module twin tags at a time, otherwise you may need to buy more IoT Hub units if you exceed your daily IoT Hub message quota. For more information, see [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
+
+### Add tags by updating twins
+
+Tags can also be added or updated directly in device or module twins.
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
+
+2. From **Devices** or **IoT Edge** on the left navigation pane, find your IoT device. Either navigate to the device twin or the Device Update module and then its module twin, depending on whether the Device Update agent is provisioned with a device or module identity.
+
+3. In the twin details, delete any existing Device Update tag value by setting them to null.
+
+4. Add a new Device Update tag value as shown below.
+
+   ```JSON
+       "tags": {
+               "ADUGroup": "<CustomTagValue>"
+               }
+   ```
 
 ### Limitations
 
-* You can add any value to your tag except for ‘Uncategorized’ and "$default" which are reserved values.
-* Tag value cannot exceed 200 characters.
-* Tag value can contain alphanumeric characters and the following special characters ".","-","_","~".
-* Tag and Group names are case-sensitive.
-* A device can only have one tag with the name ADUGroup, any subsequent additions of a tag with that name will override the existing value for tag name ADUGroup.
-* One device can only belong to one Group.
+* You can add any value to your tag except for `Uncategorized` and `$default`, which are reserved values.
+* Tag value can't exceed 200 characters.
+* Tag value can contain alphanumeric characters and the following special characters: `. - _ ~`.
+* Tag and group names are case-sensitive.
+* A device can only have one tag with the name ADUGroup. Any additions of a tag with that name will override the existing value for tag name ADUGroup.
+* One device can only belong to one group.
 
-## Create a device group by selecting an existing IoT Hub tag
+## Create a device group
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), navigate to the IoT hub that you previously connected to your Device Update instance.
 
-2. Select the IoT Hub you previously connected to your Device Update instance.
+2. Select the **Updates** option under **Device Management** from the left-hand navigation bar.
 
-3. Select the **Updates** option under **Device Management** from the left-hand navigation bar.
-
-4. Select the **Groups and Deployments** tab at the top of the page.
+3. Select the **Groups and Deployments** tab.
 
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot of ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
+4. Groups are automatically created based on the tags assigned as well as the compatibility properties of the devices. One group can have multiple subgroups with different device classes.
 
-5. Groups will be automatically created based on the tags assigned as well as the compatibility properties of the devices. One group can have multiple subgroups with different device classes. 
-
-7. Once the group is created, you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, and Updates in Progress. [Learn  about update compliance.](device-update-compliance.md)
+5. Once a group is created, you will see that the compliance chart and group list are updated. The Device Update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance.](device-update-compliance.md)
 
    :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot of update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-8. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they will show up in a corresponding invalid group. You can deploy the best available update to the new user-defined group from this view by clicking on the "Deploy" button next to the group. See Next Step: Deploy Update for more details.
+6. You should see existing groups and any available updates for the devices in those groups in the group list. If there are devices that don't meet the device class requirements of the group, they'll show up in a corresponding invalid group. You can deploy the best available update to a group from this view by selecting the **Deploy** button next to the group.
 
-## View Device details for the group you created
+## View device details for a group
 
-1. Navigate to your newly created group and click on the group name.
+1. From the **Groups and Deployments** tab, select the name of the group that you want to view.
 
-2. A list of devices that are part of the group will be shown along with their device update properties. In this view, you can also see the update compliance information for all devices that are members of the group. Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available and Updates in Progress.
+2. On the group details page you can see a list of devices that are part of the group along with their device update properties. In this view, you can also see the update compliance information for all devices that are members of the group. The compliance chart shows the count of devices in various states of compliance.
 
    :::image type="content" source="media/create-update-group/group-details.png" alt-text="Screenshot of device group details view." lightbox="media/create-update-group/group-details.png":::
 
-3. You can also click on each individual device within a group to be redirected to the device details page in IoT Hub.
+3. You can also select an individual device within a group to be redirected to the device details page in IoT Hub.
 
    :::image type="content" source="media/create-update-group/device-details.png" alt-text="Screenshot of device details view." lightbox="media/create-update-group/device-details.png":::
 
-## Next Steps 
+## Next Steps
 
-[Deploy Update](deploy-update.md)
+* [Deploy an update](deploy-update.md)
 
-[Learn more about device groups](device-update-groups.md)
+* Learn more about [device groups](device-update-groups.md)
 
-[Learn  about update compliance.](device-update-compliance.md)
+* Learn more about [Device Update compliance](device-update-compliance.md)

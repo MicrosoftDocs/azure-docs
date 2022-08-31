@@ -1,6 +1,6 @@
 ---
-title: Related Files for Device Update for Azure IoT Hub | Microsoft Docs
-description: Understand the Device Update for IoT Hub Related Files feature.
+title: Related files for Device Update for Azure IoT Hub | Microsoft Docs
+description: Understand the Device Update for IoT Hub related files feature.
 author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 08/23/2022
@@ -8,19 +8,20 @@ ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
-# Using the Related Files feature in Device Update for IoT Hub
+# Use the related files feature in Device Update for IoT Hub
 
-Use the Related Files feature when you need to express relationships between different update files in a single update.
+Use the related files feature when you need to express relationships between different update files in a single update.
 
-## What is the Related Files feature?
+## What is the related files feature?
 
-When importing an update to Device Update for IoT Hub, an import manifest containing metadata about the update payload is required. The file-level metadata in the import manifest can be a flat list of update payload files in the simplest case. However, for more advanced scenarios, you can instead use the Related Files feature, which provides a way for files to have a relationship specified between them.
+When importing an update to Device Update for IoT Hub, an import manifest containing metadata about the update payload is required. The file-level metadata in the import manifest can be a flat list of update payload files in the simplest case. However, for more advanced scenarios, you can instead use the related files feature, which provides a way for files to have a relationship specified between them.
 
-When creating an import manifest using the Related Files feature, you can add a collection of _related_ files to one or more of your _primary_ payload files. An example of this concept is the Device Update [delta files](.\delta-updates.md) feature, which uses Related Files to specify a delta update that is associated with a full image file. In the delta scenario, the Related Files feature allows the full image and delta update to both be imported as a single update action, and then either one can be deployed to a device. However, Related Files isn't limited to delta updates, since it's designed to be extensible by our customers depending on their own unique scenarios.
+When creating an import manifest using the related files feature, you can add a collection of _related_ files to one or more of your _primary_ payload files. An example of this concept is the Device Update [delta update](delta-updates.md) feature, which uses related files to specify a delta update that is associated with a full image file. In the delta scenario, the related files feature allows the full image and delta update to both be imported as a single update action, and then either one can be deployed to a device. However, related files isn't limited to delta updates, since it's designed to be extensible by our customers depending on their own unique scenarios.
 
-### Example import manifest using Related Files
+### Example import manifest using related files
 
-Below is an example of an import manifest that uses the Related Files feature to import a delta update. In this example, you can see that in the `"Files"` section, there is a full image specified (`"full-image-file-name"`) with a `"properties"` item. The `"properties"` item in turn has an associated `"relatedFiles"` item below it. Within the `"relatedFiles"` section, you can see another `"properties"` section for the delta update file (`"delta-from-v1-file-name"`), and also a `"downloadHandler"` item with the appropriate `id` listed (`"microsoft/delta:1"`).
+Below is an example of an import manifest that uses the related files feature to import a delta update. In this example, you can see that in the `files` section, there's a full image specified (`full-image-file-name`) with a `properties` item. The `properties` item in turn has an associated `relatedFiles` item below it. Within the `relatedFiles` section, you can see another `properties` section for the delta update file (`delta-from-v1-file-name`), and also a `downloadHandler` item with the appropriate `id` listed (`microsoft/delta:1`).
+
 ```json
     {
       "updateId": {
@@ -75,22 +76,20 @@ Below is an example of an import manifest that uses the Related Files feature to
     }
 ```
 
-## How to use Related Files
+## How to use related files
 
 >[!NOTE]
->The documentation on this page uses delta updates as an example of how to use Related Files. If you want to use delta updates as a _feature_, follow the [delta update documentation](.\delta-updates.md). 
+>The documentation on this page uses delta updates as an example of how to use related files. If you want to use delta updates as a _feature_, follow the [delta update documentation](delta-updates.md).
 
-### Related Files Properties
+### Related files properties
 
-In certain scenarios, you may want to provide extra metadata for the update handler on your device to know how to interpret and properly use the files that you've specified as Related Files. This metadata is added as part of a `properties` property bag to the `file` and `relatedFile` objects.
+In certain scenarios, you may want to provide extra metadata for the update handler on your device to know how to interpret and properly use the files that you've specified as related files. This metadata is added as part of a `properties` property bag to the `file` and `relatedFile` objects.
 
-### Specifying a Download Handler
+### Specify a download handler
 
-When you use the Related Files feature, you need to specify how to process these related files to produce the target file. You specify the processing approach by including a `downloadHandler` property in your import manifest. Including `downloadHandler` is required if you specify a non-empty collection of `relatedFiles` in a `file` element. You can specify a `downloadHandler` using a simple `id` property. The Download handler `id` has a limit of 64 ASCII characters.
-
-
+When you use the related files feature, you need to specify how to process these related files to produce the target file. You specify the processing approach by including a `downloadHandler` property in your import manifest. Including `downloadHandler` is required if you specify a non-empty collection of `relatedFiles` in a `file` element. You can specify a `downloadHandler` using a simple `id` property. The Download handler `id` has a limit of 64 ASCII characters.
 
 ## Next steps
 
-[Learn about import manifest schema](.\import-schema.md)
-[Learn about delta updates](.\delta-updates.md)
+- Learn about [import manifest schema](import-schema.md)
+- Learn about [delta updates](delta-updates.md)
