@@ -6,15 +6,15 @@ ms.subservice: imaging
 ms.topic: how-to
 ms.date: 03/22/2021
 author: ebolton-cyber
-ms.author: edewebolton
+ms.author: mattmcinnes
 ms.collection: linux
-ms.custom: contperf-fy21q3-portal, devx-track-azurecli
+ms.custom: contperf-fy21q3-portal, devx-track-azurecli, GGAL-freshness922
 ---
 # Find Azure Marketplace image information using the Azure CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-This topic describes how to use the Azure CLI to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM programmatically with the CLI, Resource Manager templates, or other tools.
+This topic describes how to use the Azure CLI to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM  through the CLI, automation script, Resource Manager templates, or other tools.
 
 You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or  [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
@@ -27,7 +27,7 @@ A Marketplace image in Azure has the following attributes:
 * **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 2019-Datacenter
 * **Version**: The version number of an image SKU. 
 
-These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest` to use the latest version of the image. 
+These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest` to automatically use the latest version of the image when available. 
 
 If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Check the purchase plan information](#check-the-purchase-plan-information).
 
@@ -64,7 +64,7 @@ WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServe
 
 To find a specific VM image in the Marketplace, use the `az vm image list` command with the `--all` option. This version of the command takes some time to complete and can return lengthy output, so you usually filter the list by `--publisher` or another parameter. 
 
-For example, the following command displays all Debian offers (remember that without the `--all` switch, it only searches the local cache of common images):
+For example, the following command displays all 'Debian' offers (remember that without the `--all` switch, it only searches the local cache of common images):
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
@@ -95,7 +95,7 @@ Debian                                   credativ                          8    
 ```
 
 
-## Look at all available images
+## View all available images
  
 Another way to find an image in a location is to run the [az vm image list-publishers](/cli/azure/vm/image), [az vm image list-offers](/cli/azure/vm/image), and [az vm image list-skus](/cli/azure/vm/image) commands in sequence. With these commands, you determine these values:
 
@@ -134,9 +134,9 @@ If you deploy a VM with a Resource Manager template, you set the image parameter
 
 ## Check the purchase plan information
 
-Some VM images in the Azure Marketplace have additional license and purchase terms that you must accept before you can deploy them programmatically.  
+Some VM images in the Azure Marketplace have additional license and purchase terms that you must accept before you can deploy them through an automation script.  
 
-To deploy a VM from such an image, you'll need to accept the image's terms the first time you use it, once per subscription. You'll also need to specify *purchase plan* parameters to deploy a VM from that image
+To deploy a VM from such an image, you'll need to accept the most up to date image's terms the first time you use it. This must be done once per subscription. You'll also need to specify *purchase plan* parameters to deploy a VM from that image
 
 To view an image's purchase plan information, run the [az vm image show](/cli/azure/image) command with the URN of the image. If the `plan` property in the output is not `null`, the image has terms you need to accept before programmatic deployment.
 
@@ -286,4 +286,4 @@ az vm create \
 
 
 ## Next steps
-To create a virtual machine quickly by using the image information, see [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md).
+To create a virtual machine quickly using image information, see [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md).
