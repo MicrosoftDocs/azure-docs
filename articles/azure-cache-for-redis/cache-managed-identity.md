@@ -139,7 +139,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 
 6. You can confirm if the identity has been assigned successfully by checking your storage account's role assignments under **Storage Blob Data Contributor**.
 
-   :::image type="content" source="media/cache-managed-identity/blob-data.png"  alt-text="storag blob data contributor list":::
+   :::image type="content" source="media/cache-managed-identity/blob-data.png"  alt-text="Screenshot of storage blob data contributor list.":::
 
 > [!NOTE]
 > Adding an Azure Cache for Redis instance as a storage blob data contributor through system-assigned identity conveniently adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to implement. If you're not using managed identity and instead authorizing a storage account with a key, then having firewall exceptions on the storage account tends to break the persistence process and the import-export processes.
@@ -152,7 +152,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 
 2. Change the **Authentication Method** to **Managed Identity** and select the storage account you configured above. select **Save**.
 
-   :::image type="content" source="media/cache-managed-identity/data-persistence.png"  alt-text="data persistence pane with authentication method selected":::
+   :::image type="content" source="media/cache-managed-identity/data-persistence.png"  alt-text="Screenshot showing data persistence pane with authentication method selected":::
 
    > [!IMPORTANT]
    > The identity defaults to the system-assigned identity if it is enabled. Otherwise, the first listed user-assigned identity is used.
