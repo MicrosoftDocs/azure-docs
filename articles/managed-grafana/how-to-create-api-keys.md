@@ -86,17 +86,15 @@ You can now use this Grafana API key to call the Grafana server.
 
 ---
 
-## Make an HTTP request
+## Test the API key
 
-Run the command below to make an HTTP request and check its status code.
+Run the [az grafana dashboard list](/cli/azure/grafana/dashboard#az-grafana-dashboard-list) command below to check if your API key is working. Replace the placeholders `<azure-managed-grafana-name>`  and `<api-key>` with the name of your Azure Managed Grafana instance and your API key.
 
-1. Open a terminal and enter the following command. Replace the placeholders `<api-key>` and `<managed-grafana-endpoint>` with your own API key and Azure Managed Grafana endpoint.
+```azurecli-interactive
+az grafana dashboard list --name <azure-managed-grafana-name> --api-key <api-key>
+```
 
-   ```bash
-   curl -vv H "Authorization: Bearer <api-key>" https://dashboard.scus.<managed-grafana-endpoint>/api/dashboards/home
-   ```
-
-1. Review the terminal's output. The HTTP response code `200` indicates that the request was successful. The new API key is valid.
+The terminal's output lists all the dashboards your API key can access in the specified Azure Managed Grafana instance.
 
 ## Manage API keys
 
