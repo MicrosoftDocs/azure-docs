@@ -47,6 +47,8 @@ items:
     items:
     - name: Get access token for the DICOM service using Azure CLI
       href: dicom-get-access-token-azure-cli.md#obtain-and-use-an-access-token-for-the-dicom-service
+  - name: Register a client application for the DICOM service in Azure Active Directory
+    href: dicom-register-application.md
 - name: Concepts
   expanded: true
   items:
