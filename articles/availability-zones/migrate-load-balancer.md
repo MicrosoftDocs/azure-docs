@@ -68,4 +68,4 @@ To migrate an internal load balancer to availability zones across regions, see [
 
 ## Next steps
 
- To learn more about load balancers and availability zones, check out [Load Balancer and Availability Zones](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-availability-zones).
+ To learn more about load balancers and availability zones, check out [Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md).
