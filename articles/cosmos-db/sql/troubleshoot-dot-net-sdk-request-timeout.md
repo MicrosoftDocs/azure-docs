@@ -45,7 +45,7 @@ These exceptions are safe to retry on and can be treated as [timeouts](conceptua
 
 #### Solution
 
-Verify the the configured time in your `CancellationToken`, make sure that it is greater than your [RequestTimeout](#requesttimeout) and the [CosmosClientOptions.OpenTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.opentcpconnectiontimeout) (if you are using [Direct mode](sql-sdk-connection-modes.md)). 
+Verify the configured time in your `CancellationToken`, make sure that it's greater than your [RequestTimeout](#requesttimeout) and the [CosmosClientOptions.OpenTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.opentcpconnectiontimeout) (if you're using [Direct mode](sql-sdk-connection-modes.md)). 
 If the available time in the `CancellationToken` is less than the configured timeouts, and the SDK is facing [transient connectivity issues](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503), the SDK won't be able to retry and will throw `CosmosOperationCanceledException`.
 
 ### High CPU utilization
@@ -84,7 +84,7 @@ The timeouts will contain *Diagnostics*, which contain:
 
 * If the `cpu` values are over 70%, the timeout is likely to be caused by CPU exhaustion. In this case, the solution is to investigate the source of the high CPU utilization and reduce it, or scale the machine to a larger resource size.
 * If the `threadInfo/isThreadStarving` nodes have `True` values, the cause is thread starvation. In this case the solution is to investigate the source/s of the thread starvation (potentially locked threads), or scale the machine/s to a larger resource size.
-* If the `dateUtc` time in-between measurements is not approximately 10 seconds, it also would indicate contention on the thread pool. CPU is measured as an independent Task that is enqueued in the thread pool every 10 seconds, if the time in-between measurement is longer, it would indicate that the async Tasks are not able to be processed in a timely fashion. Most common scenarios are when doing [blocking calls over async code](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait) in the application code.
+* If the `dateUtc` time in-between measurements isn't approximately 10 seconds, it also would indicate contention on the thread pool. CPU is measured as an independent Task that is enqueued in the thread pool every 10 seconds, if the time in-between measurement is longer, it would indicate that the async Tasks aren't able to be processed in a timely fashion. Most common scenarios are when doing [blocking calls over async code](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait) in the application code.
 
 # [Older SDK](#tab/cpu-old)
 
@@ -102,7 +102,7 @@ CPU count: 8)
 ```
 
 * If the CPU measurements are over 70%, the timeout is likely to be caused by CPU exhaustion. In this case, the solution is to investigate the source of the high CPU utilization and reduce it, or scale the machine to a larger resource size.
-* If the CPU measurements are not happening every 10 seconds (e.g., gaps or measurement times indicate larger times in between measurements), the cause is thread starvation. In this case the solution is to investigate the source/s of the thread starvation (potentially locked threads), or scale the machine/s to a larger resource size.
+* If the CPU measurements aren't happening every 10 seconds (e.g., gaps or measurement times indicate larger times in between measurements), the cause is thread starvation. In this case the solution is to investigate the source/s of the thread starvation (potentially locked threads), or scale the machine/s to a larger resource size.
 
 ---
 
