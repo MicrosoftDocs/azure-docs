@@ -20,11 +20,11 @@ IoT Edge modules can use storage on the host IoT Edge device itself for improved
 
 ## Configure system modules to use persistent storage
 
-By default, IoT Edge system modules, IoT Edge agent and IoT Edge hub, store state in the ephemeral file system of their container instance. This state is lost when the container instance is updated. For example, when their image version or createOptions is udpated. 
+By default, IoT Edge system modules, IoT Edge agent and IoT Edge hub, store state in the ephemeral file system of their container instance. This state is lost when the container instance is updated. For example, when their image version or createOptions is updated. 
 
 For production scenarios, use a persistent storage location on the host filesystem to store system module state. Doing so improves solution robustness, for example, not losing locally queued messages before delivery to the cloud. 
 
-To setup system modules to use persistent storage:
+To set up system modules to use persistent storage:
 
 1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **storageFolder** that points to a directory in the module.
 1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example:
@@ -75,7 +75,7 @@ Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module 
 
 ### Automatic host system permissions management
 
-On version 1.4 and newer, there is no need for manually setting ownership or permissions for host storage backing the `storageFolder`. Permissions and ownership are automatically managed by the system modules during startup.
+On version 1.4 and newer, there's no need for manually setting ownership or permissions for host storage backing the `storageFolder`. Permissions and ownership are automatically managed by the system modules during startup.
 
 > [!NOTE]
 > Automatic permission management of host bound storage only applies to system modules, IoT Edge agent and Edge hub. For custom modules, manual management of permissions and ownership of bound host storage is required if the custom module container is not running as `root` user. 
@@ -110,7 +110,7 @@ Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module 
 
 Make sure that the user profile your module is using has the required read, write, and execute permissions to the host system directory. By default, containers run as `root` user that already has the required permissions. But your module's Dockerfile might specify use of a non-root user in which case host storage permissions must be manually configured. 
 
-There are several ways to manage directory permissions on Linux systems, including using `chown` to change the directory owner and then `chmod` to change the permissions. For example to allow host storage access to a module running as non-root user id 1000, use the following commands:
+There are several ways to manage directory permissions on Linux systems, including using `chown` to change the directory owner and then `chmod` to change the permissions. For example to allow host storage access to a module running as non-root user ID 1000, use the following commands:
 
 ```bash
 sudo chown 1000 <HostStoragePath>
@@ -200,7 +200,7 @@ $acl | Set-Acl
 
 ## Encrypted data in module storage
 
-When modules invoke the IoT Edge daemon's workload API to encrypt data, the encryption key is derived using the module ID and module's generation ID. A generation ID is used to protect secrets if a module is removed from the deployment and then another module with the same module ID is later deployed to the same device. You can view a module's generation id using the Azure CLI command [az iot hub module-identity show](/cli/azure/iot/hub/module-identity).
+When modules invoke the IoT Edge daemon's workload API to encrypt data, the encryption key is derived using the module ID and module's generation ID. A generation ID is used to protect secrets if a module is removed from the deployment and then another module with the same module ID is later deployed to the same device. You can view a module's generation ID using the Azure CLI command [az iot hub module-identity show](/cli/azure/iot/hub/module-identity).
 
 If you want to share files between modules across generations, they must not contain any secrets or they will fail to be decrypted.
 
