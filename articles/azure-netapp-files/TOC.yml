@@ -207,6 +207,8 @@
         href: enable-continuous-availability-existing-SMB.md
       - name: Use DFS-N and DFS Root Consolidation with Azure NetApp Files
         href: use-dfs-n-and-dfs-root-consolidation-with-azure-netapp-files.md
+    - name: Manage large volumes 
+      href: manage-large-volumes.md
     - name: Manage dual-protocol volumes
       items:
       - name: Create a dual-protocol volume 
