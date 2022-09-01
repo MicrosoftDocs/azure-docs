@@ -107,6 +107,6 @@ sizing](howto-scale-initial.md) how-to.
 
 ## Next steps
 
-* Learn to [provision the basic tier](quickstart-create-basic-tier.md)
+* Learn to [provision a server group](quickstart-create-portal.md)
 * When you're ready, see [how to graduate](howto-scale-grow.md#add-worker-nodes) from the basic tier to the standard tier
 * The [columnar storage](concepts-columnar.md) option is available in both the basic and standard tier
