@@ -22,7 +22,8 @@ ms.reviewer: nibaccam
 > * [v1](v1/reference-pipeline-yaml.md)
 > * [v2 (current version)](reference-yaml-job-pipeline.md)
 
-__Remark:__ current parallel job could only be used as a single step inside an Azure ML pipeline job. Thus, there has no source JSON schema for parallel job yet. This document lists the valid keys and their values when create parallel job in pipeline.
+> [!IMPORTANT]
+> Current parallel job can only be used as a single step inside an Azure ML pipeline job. Thus, there is no source JSON schema for parallel job at this time. This document lists the valid keys and their values when creating a parallel job in a pipeline.
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -44,7 +45,7 @@ __Remark:__ current parallel job could only be used as a single step inside an A
 | `resources.instance_count` | integer | The number of nodes to use for the job. | | 1 |
 | `max_concurrency_per_instance` | integer| Define the number of processes on each node of compute.<br><br>For a GPU compute, the default value is 1.<br>For a CPU compute, the default value is the number of cores.|||
 | `retry_settings.max_retries` | integer | Define the number of retries when mini-batch is failed or timeout. If all retries are failed, the mini-batch will be marked as failed to be counted by `mini_batch_error_threshold` calculation. ||2|
-| `retry_settings.timeout` | object | Define the timeout in seconds for executing custom run() function. If the execution time is higher than this threshold, the mini-batch will be aborted, and marked as a failed mini-batch to trigger retry.|(0, 259200]|60|
+| `retry_settings.timeout` | integer | Define the timeout in seconds for executing custom run() function. If the execution time is higher than this threshold, the mini-batch will be aborted, and marked as a failed mini-batch to trigger retry.|(0, 259200]|60|
 
 ### Attributes of the `task` key
 
@@ -62,7 +63,7 @@ __Remark:__ current parallel job could only be used as a single step inside an A
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | The type of job input. Specify `uri_file` for input data that points to a single file source, or `uri_folder` for input data that points to a folder source. | `uri_file`, `uri_folder` | `uri_folder` |
+| `type` | string | The type of job input. Specify `mltable` for input data that points to a location where has the mltable meta file, or `uri_folder` for input data that points to a folder source. | `mltable`, `uri_folder` | `uri_folder` |
 | `path` | string | The path to the data to use as input. The value can be specified in a few ways: <br><br> - A local path to the data source file or folder, for example, `path: ./iris.csv`. The data will get uploaded during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information, see [Core yaml syntax](reference-yaml-core-syntax.md) on how to use the `azureml://` URI format. <br><br> - An existing registered Azure ML data asset to use as the input. To reference a registered data asset, use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), for example, `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
 | `mode` | string | Mode of how the data should be delivered to the compute target. <br><br> For read-only mount (`ro_mount`), the data will be consumed as a mount path. A folder will be mounted as a folder and a file will be mounted as a file. Azure ML will resolve the input to the mount path. <br><br> For `download` mode the data will be downloaded to the compute target. Azure ML will resolve the input to the downloaded path. <br><br> If you only want the URL of the storage location of the data artifact(s) rather than mounting or downloading the data itself, you can use the `direct` mode. It will pass in the URL of the storage location as the job input. In this case, you're fully responsible for handling credentials to access the storage. | `ro_mount`, `download`, `direct` | `ro_mount` |
 
