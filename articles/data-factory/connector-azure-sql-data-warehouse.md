@@ -1012,7 +1012,7 @@ By default, a data flow run will fail on the first error it gets. You can choose
 
 **Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
 
-:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Screenshot that shows the error row handling" border="false":::
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Screenshot that shows the error row handling":::
 
 ## Lookup activity properties
 
