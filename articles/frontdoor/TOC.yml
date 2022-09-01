@@ -270,8 +270,6 @@
           href: standard-premium/how-to-monitor-metrics.md
         - name: View Front Door reports
           href: standard-premium/how-to-reports.md
-        - name: Configure classic diagnostics
-          href: front-door-diagnostics.md
     - name : Classic
       items:    
       - name: Add a custom domain
@@ -284,6 +282,8 @@
         href: front-door-tutorial-rules-engine.md
       - name: Configure HTTP to HTTPS redirect
         href: front-door-how-to-redirect-https.md
+      - name: Configure classic diagnostics
+        href: front-door-diagnostics.md
     - name: Secure with Web Application Firewall
       items:
       - name: Configure a security policy
