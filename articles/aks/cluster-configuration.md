@@ -3,7 +3,7 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/09/2020
+ms.date: 08/31/2022
 ms.author: jpalma
 author: palma21
 ---
@@ -31,9 +31,9 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 `Containerd` works on every GA version of Kubernetes in AKS, and in every upstream kubernetes version above v1.19, and supports all Kubernetes and AKS features.
 
 > [!IMPORTANT]
-> Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. You can still use Docker node pools and clusters on versions below 1.23, but Docker is no longer supported as of September 2022.
+> Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. 
 > 
-> Using `containerd` with Windows Server 2019 node pools is generally available, and will be the only container runtime option in Kubernetes 1.21 and greater. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
+> Using `containerd` with Windows Server 2019 node pools is generally available, and will be the only container runtime option in Kubernetes 1.21 and greater. You can still use Docker node pools and clusters on versions below 1.23, but Docker is no longer supported as of September 2022. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
 > 
 > It is highly recommended to test your workloads on AKS node pools with `containerd` prior to using clusters with a Kubernetes version that supports `containerd` for your node pools.
 
@@ -140,11 +140,62 @@ As you work with the node resource group, keep in mind that you can't:
 - Specify names for the managed resources within the node resource group.
 - Modify or delete Azure-created tags of managed resources within the node resource group.
 
+## Node Restriction (Preview)
+
+The [Node Restriction](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#noderestriction) admission controller limits the Node and Pod objects a kubelet can modify. Node Restriction is on by default in AKS 1.24+ clusters.  If you are using an older version use the below commands to create a cluster with Node Restriction or Update an existing cluster to add Node Restriction.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Before you begin
+
+You must have the following resource installed:
+
+* The Azure CLI
+* The `aks-preview` extension version 0.5.95 or later
+
+#### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### Create an AKS cluster with Node Restriction
+
+To create a cluster using Node Restriction.
+
+```azurecli-interactive
+az aks create -n aks -g myResourceGroup --enable-node-restriction
+```
+
+### Update an AKS cluster with Node Restriction
+
+To update a cluster to use Node Restriction.
+
+```azurecli-interactive
+az aks update -n aks -g myResourceGroup --enable-node-restriction
+```
+
+### Remove Node Restriction from an AKS cluster
+
+To remove Node Restriction from a cluster.
+
+```azurecli-interactive
+az aks update -n aks -g myResourceGroup --disable-node-restriction
+```
+
 ## OIDC Issuer (Preview)
 
 This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys. 
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Limitations
+
+OIDC issuer is only supported in Azure Public regions now.
 
 > [!WARNING]
 > Enable/disable OIDC Issuer will change the current service account token issuer to a new value, which causes some down time and make API server restart. If the application pods based on service account token keep in failed status after enable/disable OIDC Issuer, it's recommended to restart the pods manually.
@@ -232,4 +283,4 @@ az aks show -n aks -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -ots
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd
+[aks-add-np-containerd]: ./learn/quick-windows-container-deploy-cli.md#add-a-windows-server-node-pool-with-containerd

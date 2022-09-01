@@ -5,7 +5,7 @@ author: eross-msft
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 08/26/2022
 ms.author: lizross
 ---
 # Security best practices for Internet of Things (IoT)

@@ -702,6 +702,8 @@ items:
       href: ./spark/apache-spark-gpu-concept.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
+    - name: Optimize Apache Spark writes on Delta Lake
+      href: ./spark/optimize-write-for-apache-spark.md
     - name: Apache Spark autoscale behavior
       href: ./spark/apache-spark-autoscale.md
     - name: Intelligent Cache
@@ -981,6 +983,8 @@ items:
         href: ../data-factory/connector-amazon-simple-storage-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon S3 Compatible Storage
         href: ../data-factory/connector-amazon-s3-compatible-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: AppFigures
+        href: ../data-factory/connector-appfigures.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Asana
         href: ../data-factory/connector-asana.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Avro format
@@ -1383,6 +1387,8 @@ items:
           href: ../data-factory/connector-troubleshoot-azure-blob-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure Cosmos DB (including SQL API)
           href: ../data-factory/connector-troubleshoot-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Azure Data Explorer
+          href: ../data-factory/connector-troubleshoot-azure-data-explorer.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure Data Lake (Gen1 and Gen2)
           href: ../data-factory/connector-troubleshoot-azure-data-lake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Azure database for PostgreSQL
@@ -1449,6 +1455,8 @@ items:
       href: ./spark/apache-spark-machine-learning-training.md
     - name: Deep learning 
       href: ./machine-learning/concept-deep-learning.md
+    - name:  SynapseML library
+      href: ./machine-learning/synapse-machine-learning-library.md
   - name: Tutorials
     items:
     - name: Data access and preparation
@@ -1612,6 +1620,22 @@ items:
         href: migration-guides/netezza/6-microsoft-third-party-migration-tools.md
       - name: 7 Implementing modern data warehouses
         href: migration-guides/netezza/7-beyond-data-warehouse-migration.md
+    - name: From Oracle
+      items:
+      - name: 1 Design performance for Oracle migration
+        href: migration-guides/oracle/1-design-performance-migration.md
+      - name: 2 ETL and load migration considerations
+        href: migration-guides/oracle/2-etl-load-migration-considerations.md
+      - name: 3 Security access operations
+        href: migration-guides/oracle/3-security-access-operations.md
+      - name: 4 Visualization and reporting
+        href: migration-guides/oracle/4-visualization-reporting.md
+      - name: 5 Minimizing SQL issues
+        href: migration-guides/oracle/5-minimize-sql-issues.md
+      - name: 6 Microsoft and third-party tools
+        href: migration-guides/oracle/6-microsoft-third-party-migration-tools.md
+      - name: 7 Implementing modern data warehouses
+        href: migration-guides/oracle/7-beyond-data-warehouse-migration.md
   - name: Security white paper
     items:
     - name: Introduction

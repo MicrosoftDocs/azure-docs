@@ -24,7 +24,10 @@ Managed Disks and the key vault or managed HSM must be in the same region and in
 
 You must grant access to managed disks in your Key Vault or managed HSM to use your keys for encrypting and decrypting the DEK. This allows you full control of your data and keys. You can disable your keys or revoke access to managed disks at any time. You can also audit the encryption key usage with Azure Key Vault monitoring to ensure that only managed disks or other trusted Azure services are accessing your keys.
 
-When you disable or delete your key, any VMs with disks using that key will automatically shut down. After this, the VMs will not be usable unless the key is enabled again or you assign a new key.	
+When a key is either disabled, deleted, or expired, any VMs with disks using that key will automatically shut down. After this, the VMs will not be usable unless the key is enabled again or you assign a new key.
+
+> [!NOTE]
+> It is generally expected that Disk I/O (read or write operations) will start to fail 1 hour after a key is either disabled, deleted, or expired.
 
 The following diagram shows how managed disks use Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
@@ -46,3 +49,6 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](/pow
 #### Automatic key rotation of customer-managed keys
 
 You can choose to enable automatic key rotation to the latest key version. A disk references a key via its disk encryption set. When you enable automatic rotation for a disk encryption set, the system will automatically update all managed disks, snapshots, and images referencing the disk encryption set to use the new version of the key within one hour. To learn how to enable customer-managed keys with automatic key rotation, see [Set up an Azure Key Vault and DiskEncryptionSet with automatic key rotation](../articles/virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation).
+
+> [!NOTE]
+> Virtual Machines will not be rebooted during automatic key rotation.

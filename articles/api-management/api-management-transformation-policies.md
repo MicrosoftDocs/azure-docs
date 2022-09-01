@@ -262,7 +262,7 @@ or
 ```
 
 > [!NOTE]
-> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). Currently, if you define a base `set-backend-service` policy using the `backend-id` attribute and inherit the base policy using `<base />` within the scope, then it can be only overridden with a policy using the `backend-id` attribute, not the `base-url` attribute.
 
 ### Example
 
@@ -351,7 +351,9 @@ In this example the policy routes the request to a service fabric backend, using
 ### Policy statement
 
 ```xml
-<set-body>new body value as text</set-body>
+<set-body template="liquid" xsi-nil="blank | null">
+    new body value as text
+</set-body>
 ```
 
 ### Examples
@@ -509,7 +511,8 @@ The following Liquid filters are supported in the `set-body` policy. For filter 
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|template|Used to change the templating mode that the set body policy will run in. Currently the only supported value is:<br /><br />- liquid - the set body policy will use the liquid templating engine |No||
+|template|Used to change the templating mode that the `set-body` policy will run in. Currently the only supported value is:<br /><br />- liquid - the `set-body` policy will use the liquid templating engine |No| N/A|
+|xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. Set to one of the following values.<br /><br />- blank - `nil` is represented with an empty string.<br />- null - `nil` is represented with a null value.|No | blank |
 
 For accessing information about the request and response, the Liquid template can bind to a context object with the following properties: <br />
 <pre>context.

@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: Governance
+    tocHref: /azure/governance
+    topicHref: /azure/governance
+    items:
+    - name: Azure Policy Machine Configuration
+      tocHref: /azure/azure-resource-manager
+      topicHref: /azure/governance/machine-configuration

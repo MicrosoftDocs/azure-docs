@@ -3,13 +3,13 @@ title: Create a basic group and add members - Azure Active Directory | Microsoft
 description: Instructions about how to create a basic group using Azure Active Directory.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18, contperf-fy20q4"                      
@@ -17,9 +17,11 @@ ms.collection: M365-identity-device-management
 ---
 
 # Create a basic group and add members using Azure Active Directory
+
 You can create a basic group using the Azure Active Directory (Azure AD) portal. For the purposes of this article, a basic group is added to a single resource by the resource owner (administrator) and includes specific members (employees) that need to access that resource. For more complex scenarios, including dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../enterprise-users/index.yml).
 
 ## Group and membership types
+
 There are several group and membership types. The following information explains each group and membership type and why they are used, to help you decide which options to use when you create a group.
 
 ### Group types:
@@ -27,8 +29,9 @@ There are several group and membership types. The following information explains
 - **Microsoft 365**. Provides collaboration opportunities by giving members access to a shared mailbox, calendar, files, SharePoint site, and more. This option also lets you give people outside of your organization access to the group. A Microsoft 365 group can have only users as its members. Both users and service principals can be owners of a Microsoft 365 group. For more info about Microsoft 365 Groups, see [Learn about Microsoft 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
 ### Membership types:
+
 - **Assigned.** Lets you add specific users to be members of this group and to have unique permissions. For the purposes of this article, we're using this option.
-- **Dynamic user.** Lets you use dynamic membership rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
+- **Dynamic user.** Lets you use dynamic membership rules to automatically add and remove members. If a member's attributes change, the system looks at your directory's dynamic group rules to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
 - **Dynamic device.** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
 
     > [!IMPORTANT]
@@ -73,7 +76,7 @@ You can create a basic group and add your members at the same time. To create a 
 
 ## Turn off group welcome email
 
-When any new Microsoft 365 group is created, whether with dynamic or static membership, a welcome notification is sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes. Users who are added then also receive the welcome notification. You can turn this behavior off in [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup).
+When any new Microsoft 365 group is created, whether with dynamic or static membership, a welcome notification is sent to all users who are added to the group. When any user or device attributes change, all dynamic group rules in the organization are processed for potential membership changes. Users who are added then also receive the welcome notification. You can turn off this behavior in [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup).
 
 ## Next steps
 
