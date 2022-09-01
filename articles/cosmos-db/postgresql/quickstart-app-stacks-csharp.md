@@ -32,7 +32,7 @@ In this document, you'll learn how to connect to a Hyperscale (Citus) database u
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
 
-![Diagram showing C# connection string.](../media/howto-app-stacks/03-csharp-connection-string.png)
+![Diagram showing C# connection string.](media/howto-app-stacks/03-csharp-connection-string.png)
 
 ## Step 1: Connect, create table, and insert data
 

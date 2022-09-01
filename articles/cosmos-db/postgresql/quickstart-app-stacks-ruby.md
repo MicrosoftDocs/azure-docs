@@ -33,7 +33,7 @@ In this how-to article, you'll connect to a Hyperscale (Citus) server group usin
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
 
-![Diagram showing ruby connection string.](../media/howto-app-stacks/01-python-connection-string.png)
+![Diagram showing ruby connection string.](media/howto-app-stacks/01-python-connection-string.png)
 
 ## Connect, create table, insert data
 

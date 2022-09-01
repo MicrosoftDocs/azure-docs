@@ -36,7 +36,7 @@ For this article you need:
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal:
 
-![Diagram showing python connection string.](../media/howto-app-stacks/01-python-connection-string.png)
+![Diagram showing python connection string.](media/howto-app-stacks/01-python-connection-string.png)
 
 Replace the following values:
 

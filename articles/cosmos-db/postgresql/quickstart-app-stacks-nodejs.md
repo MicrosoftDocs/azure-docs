@@ -45,7 +45,7 @@ npm list
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See the screenshot below.
 
-![Diagram showing NodeJS connection string.](../media/howto-app-stacks/01-python-connection-string.png)
+![Diagram showing NodeJS connection string.](media/howto-app-stacks/01-python-connection-string.png)
 
 ### Running JavaScript code in Node.js
 

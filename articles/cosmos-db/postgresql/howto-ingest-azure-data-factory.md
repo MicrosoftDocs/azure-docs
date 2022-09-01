@@ -24,7 +24,7 @@ ADF has a data sink for Hyperscale (Citus). The data sink allows you to bring
 your data (relational, NoSQL, data lake files) into Hyperscale (Citus) tables
 for storage, processing, and reporting.
 
-![Dataflow diagram for Azure Data Factory.](../media/howto-hyperscale-ingestion/azure-data-factory-architecture.png)
+![Dataflow diagram for Azure Data Factory.](media/howto-hyperscale-ingestion/azure-data-factory-architecture.png)
 
 ## ADF for real-time ingestion to Hyperscale (Citus)
 
@@ -52,11 +52,11 @@ new to Azure Data Factory, here's a quick guide on how to get started:
 1. Once ADF is provisioned, go to your data factory. You'll see the Data
    Factory home page as shown in the following image:
 
-   :::image type="content" source="../media/howto-hyperscale-ingestion/azure-data-factory-home.png" alt-text="Landing page of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-home.png" alt-text="Landing page of Azure Data Factory." border="true":::
 
 2. On the home page, select **Orchestrate**.
 
-   :::image type="content" source="../media/howto-hyperscale-ingestion/azure-data-factory-orchestrate.png" alt-text="Orchestrate page of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-orchestrate.png" alt-text="Orchestrate page of Azure Data Factory." border="true":::
 
 3. In the General panel under **Properties**, specify the desired pipeline name.
 
@@ -64,11 +64,11 @@ new to Azure Data Factory, here's a quick guide on how to get started:
    and drag and drop the **Copy Data** activity to the pipeline designer
    surface. Specify the activity name.
 
-   :::image type="content" source="../media/howto-hyperscale-ingestion/azure-data-factory-pipeline-copy.png" alt-text="Pipeline in Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-pipeline-copy.png" alt-text="Pipeline in Azure Data Factory." border="true":::
 
 5. Configure **Source**
 
-   :::image type="content" source="../media/howto-hyperscale-ingestion/azure-data-factory-configure-source.png" alt-text="Configuring Source in of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-configure-source.png" alt-text="Configuring Source in of Azure Data Factory." border="true":::
 
    1. Go to the Source tab. Select** + New **to create a source dataset.
    2. In the **New Dataset** dialog box, select **Azure Blob Storage**, and then select **Continue**. 
@@ -80,7 +80,7 @@ new to Azure Data Factory, here's a quick guide on how to get started:
 
 6. Configure **Sink**
 
-   :::image type="content" source="../media/howto-hyperscale-ingestion/azure-data-factory-configure-sink.png" alt-text="Configuring Sink in of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-configure-sink.png" alt-text="Configuring Sink in of Azure Data Factory." border="true":::
 
    1. Go to the Sink tab. Select **+ New** to create a source dataset.
    2. In the **New Dataset** dialog box, select **Azure Database for PostgreSQL**, and then select **Continue**.
@@ -102,7 +102,7 @@ new to Azure Data Factory, here's a quick guide on how to get started:
 
 8. Select Debug from the toolbar execute the pipeline.
 
-   :::image type="content" source="../media/howto-hyperscale-ingestion/azure-data-factory-execute.png" alt-text="Debug and Execute in of Azure Data Factory." border="true":::
+   :::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-execute.png" alt-text="Debug and Execute in of Azure Data Factory." border="true":::
 
 9. Once the pipeline can run successfully, in the top toolbar, select **Publish
    all**. This action publishes entities (datasets, and pipelines) you created
@@ -116,7 +116,7 @@ doesn't offer Stored Procedure activity for Azure Database for Postgres, but as
 a workaround we can use Lookup Activity with query to call a stored procedure
 as shown below:
 
-:::image type="content" source="../media/howto-hyperscale-ingestion/azure-data-factory-call-procedure.png" alt-text="Calling a procedure in Azure Data Factory." border="true":::
+:::image type="content" source="media/howto-hyperscale-ingestion/azure-data-factory-call-procedure.png" alt-text="Calling a procedure in Azure Data Factory." border="true":::
 
 ## Next steps
 

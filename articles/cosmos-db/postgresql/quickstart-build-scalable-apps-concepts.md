@@ -23,7 +23,7 @@ Hyperscale (Citus) gives you the power to distribute tables across multiple
 machines in a server group and transparently query them the same you query
 plain PostgreSQL:
 
-![Diagram of the coordinator node sharding a table onto worker nodes.](../media/howto-hyperscale-build-scalable-apps/architecture.png)
+![Diagram of the coordinator node sharding a table onto worker nodes.](media/howto-hyperscale-build-scalable-apps/architecture.png)
 
 In the Hyperscale (Citus) architecture, there are multiple kinds of nodes:
 
@@ -94,7 +94,7 @@ tables are stored together on the same workers.
 
 Below are two tables sharded by the same key, `site_id`. They're colocated.
 
-![Diagram of tables http_request and http_request_1min colocated by site_id.](../media/howto-hyperscale-build-scalable-apps/colocation.png)
+![Diagram of tables http_request and http_request_1min colocated by site_id.](media/howto-hyperscale-build-scalable-apps/colocation.png)
 
 Hyperscale (Citus) ensures that rows with a matching `site_id` value in both
 tables are stored on the same worker node.  You can see that, for both tables,

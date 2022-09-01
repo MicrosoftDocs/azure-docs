@@ -33,7 +33,7 @@ In this document, you'll learn how to connect to a Hyperscale (Citus) server gro
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal. Replace the password placeholder with the actual password. See below screenshot.
 
-![Diagram showing Java connection string.](../media/howto-app-stacks/02-java-connection-string.png)
+![Diagram showing Java connection string.](media/howto-app-stacks/02-java-connection-string.png)
 
 ### Create a new Java project
 

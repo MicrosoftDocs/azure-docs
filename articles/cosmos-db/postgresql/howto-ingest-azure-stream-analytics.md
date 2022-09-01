@@ -18,7 +18,7 @@ process high volumes of fast streaming data from devices, sensors, and web
 sites. It's also available on the Azure IoT Edge runtime, enabling data
 processing on IoT devices.
 
-:::image type="content" source="../media/howto-hyperscale-ingestion/azure-stream-analytics-01-reference-arch.png" alt-text="Reference architecture of ASA with Hyperscale (Citus)." border="true":::
+:::image type="content" source="media/howto-hyperscale-ingestion/azure-stream-analytics-01-reference-arch.png" alt-text="Reference architecture of ASA with Hyperscale (Citus)." border="true":::
 
 Hyperscale (Citus) shines at real-time workloads such as
 [IoT](quickstart-build-scalable-apps-model-high-throughput.md). For these workloads,
@@ -48,11 +48,11 @@ Blob Storage into Hyperscale (Citus).
    * **Hosting environment** - **Cloud** allows you to deploy to Azure Cloud, and **Edge** allows you to deploy to an IoT Edge device.
 1. Select **Create**. You should see a **Deployment in progress...** notification displayed in the top right of your browser window.
 
-   :::image type="content" source="../media/howto-hyperscale-ingestion/azure-stream-analytics-02-create.png" alt-text="Create Azure Stream Analytics form." border="true":::
+   :::image type="content" source="media/howto-hyperscale-ingestion/azure-stream-analytics-02-create.png" alt-text="Create Azure Stream Analytics form." border="true":::
 
 1. Configure job input.
 
-   :::image type="content" source="../media/howto-hyperscale-ingestion/azure-stream-analytics-03-input.png" alt-text="Configure job input in Azure Stream Analytics." border="true":::
+   :::image type="content" source="media/howto-hyperscale-ingestion/azure-stream-analytics-03-input.png" alt-text="Configure job input in Azure Stream Analytics." border="true":::
 
    1. Once the resource deployment is complete, navigate to your Stream Analytics
       job. Select **Inputs** > **Add Stream input** > **IoT Hub**.
@@ -86,7 +86,7 @@ Blob Storage into Hyperscale (Citus).
 
 1. Configure Job Output.
 
-   :::image type="content" source="../media/howto-hyperscale-ingestion/azure-stream-analytics-04-output.png" alt-text="Configure job output in Azure Stream Analytics." border="true":::
+   :::image type="content" source="media/howto-hyperscale-ingestion/azure-stream-analytics-04-output.png" alt-text="Configure job output in Azure Stream Analytics." border="true":::
 
    1. Navigate to the Stream Analytics job that you created earlier.
    1. Select **Outputs** > **Add** > **Azure PostgreSQL**.
@@ -102,7 +102,7 @@ Blob Storage into Hyperscale (Citus).
 
 1. Define transformation query.
 
-   :::image type="content" source="../media/howto-hyperscale-ingestion/azure-stream-analytics-05-transformation-query.png" alt-text="Transformation query in Azure Stream Analytics." border="true":::
+   :::image type="content" source="media/howto-hyperscale-ingestion/azure-stream-analytics-05-transformation-query.png" alt-text="Transformation query in Azure Stream Analytics." border="true":::
 
    1. Navigate to the Stream Analytics job that you created earlier.
    1. For this tutorial, we'll be ingesting only the alternate events from IoT Hub into Hyperscale (Citus) to reduce the overall data size.
