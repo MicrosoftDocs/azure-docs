@@ -1,10 +1,10 @@
 ---
-title: Connect downstream IoT Edge devices - Azure IoT Edge | Microsoft Docs
-description: How to configure an IoT Edge device to connect to Azure IoT Edge gateway devices. 
+title: How to create nested Azure IoT Edge device hierarchies
+description: Step by step adaptable manual instructions on how to create a hierarchy of IoT Edge devices. 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/03/2022
+ms.date: 09/01/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,11 +12,11 @@ ms.custom:  [amqp, mqtt]
 monikerRange: ">=iotedge-2020-11"
 ---
 
-# Connect a downstream IoT Edge device to an Azure IoT Edge gateway
+# Connect Azure IoT Edge devices together to create a hierarchy (nested edge)
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
-This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
+This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device. This setup is also known as "nested edge".
 
 In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream (child) devices can authenticate and send or receive messages through their gateway (parent) device.
 
