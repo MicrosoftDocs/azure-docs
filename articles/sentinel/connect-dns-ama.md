@@ -275,11 +275,14 @@ This filter instructs the connector not to collect EventID 256 or EventID 257 or
 
 #### Do not collect events with specific domains
  
-This filter instructs the connector not to collect events with the domains microsoft.com or google.com or facebook.com or amazon.com or center.local: 
+This filter instructs the connector not to collect events from any subdomains of microsoft.com, google.com, amazon.com, or events from facebook.com or center.local: 
 
 **Using the Microsoft Sentinel portal**:
 
-Set the **DnsQuery** field using the **Equals** operator, with the list **microsoft.com, google.com, facebook.com, amazon.com, center.local**.
+Set the **DnsQuery** field using the **Equals** operator, with the list *\*.microsoft.com,\*.google.com,facebook.com,\*.amazon.com,center.local*.
+
+> [!NOTE]
+> When you use wildcards, add a dot after each asterisk (`*.`), and do not use spaces between the list of domains.  
 
 :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-domain-filter.png" alt-text="Screenshot of filtering out domains for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png"::: 
 
@@ -302,7 +305,7 @@ To define different values in a single field, use the **OR** operator.
 
                 "FieldValues": [ 
 
-                    "Microsoft.com", "google.com", "facebook.com", "amazon.com","center.local"                                                                               
+                    "*.microsoft.com", "*.google.com", "facebook.com", "*.amazon.com","center.local"                                                                               
 
                 ] 
 

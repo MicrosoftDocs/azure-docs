@@ -20,7 +20,7 @@ This table shows the available fields. The field names are normalized using the 
 |EventOriginalType   |Numbers between 256 and 280   |The Windows DNS eventID, which indicates the type of the DNS protocol event.    |
 |EventResultDetails   |• NOERROR<br>• FORMERR<br>• SERVFAIL<br>• NXDOMAIN<br>• NOTIMP<br>• REFUSED<br>• YXDOMAIN<br>• YXRRSET<br>• NXRRSET<br>• NOTAUTH<br>• NOTZONE<br>• DSOTYPENI<br>• BADVERS<br>• BADSIG<br>• BADKEY<br>• BADTIME<br>• BADALG<br>• BADTRUNC<br>• BADCOOKIE  |The operation's DNS result string as defined by the Internet Assigned Numbers Authority (IANA).  |
 |DvcIpAdrr  |IP addresses    |The IP address of the server reporting the event. This also includes geo-location and malicious IP information.    |
-|DnsQuery     |Domain names (FQDN)    |The string representing the domain name to be resolved. Can accept multiple values in a comma-separated list, and wildcards. For example:<br>`*.microsoft.com,google.com,facebook.com` |
+|DnsQuery     |Domain names (FQDN)    |The string representing the domain name to be resolved.<br>• Can accept multiple values in a comma-separated list, and wildcards. For example:<br>`*.microsoft.com,google.com,facebook.com`<br>• Does not accept spaces between list items.<br>• Asterisks must be followed by a dot (`\*.`). |
 |DnsQueryTypeName      |• A<br>• NS<br>• MD<br>• MF<br>• CNAME<br>• SOA<br>• MB<br>• MG<br>• MR<br>• NULL<br>• WKS<br>• PTR<br>• HINFO<br>• MINFO<br>• MX<br>• TXT<br>• RP<br>• AFSDB<br>• X25<br>• ISDN<br>• RT<br>• NSAP<br>• NSAP-PTR<br>• SIG<br>• KEY<br>• PX<br>• GPOS<br>• AAAA<br>• LOC<br>• NXT<br>• EID<br>• NIMLOC<br>• SRV         |The requested DNS attribute. The DNS resource record type name as defined by IANA.  |
 
 ## ASIM normalized DNS schema
