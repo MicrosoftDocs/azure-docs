@@ -54,7 +54,7 @@ For PowerShell and CLI commands, the tier value is optional, if it isn't already
            Connect-AzAccount
            ```
 
-        1. Select a specific subscription with the following command:
+        2. Select a specific subscription with the following command:
 
            ```azurepowershell
            Select-AzSubscription -Subscription <SubscriptionName>
@@ -135,7 +135,7 @@ Before provisioning the account, install Azure CLI with the following steps:
    * If you have already installed CLI, run ``az upgrade`` command to update to the latest version. This command will only work with CLI version higher than 2.11. If you have an earlier version, use the above link to install the latest version.
    * For provisioning the ``Continuous7Days`` tier, you'll need to install the preview version of the extension by ``az extension update --name cosmosdb-preview``
 
-1. Sign in and select your subscription
+2. Sign in and select your subscription
 
    * Sign into your Azure account with ``az login`` command.
    * Select the required subscription using ``az account set -s <subscriptionguid>`` command.
