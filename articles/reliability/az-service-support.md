@@ -5,7 +5,8 @@ author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
 ms.date: 08/18/2022
-ms.author: anaharris
+ms.author: rarco
+ms.reviewer: cynthn
 ms.custom: references_regions
 ---
 

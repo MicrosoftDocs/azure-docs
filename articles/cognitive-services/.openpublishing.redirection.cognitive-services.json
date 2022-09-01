@@ -56,11 +56,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/cognitive-services/language-service/concepts/role-based-access-control.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-batch-test.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-batch-test",
             "redirect_document_id": false
@@ -4247,7 +4242,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-conversation-scenarios.yml",
-            "redirect_url": "/azure/cognitive-services/Speech-Service/call-center-transcription.md",
+            "redirect_url": "/azure/cognitive-services/Speech-Service/call-center-overview",
             "redirect_document_id": false
         },
         {
@@ -4958,6 +4953,11 @@
         {
             "source_path_from_root": "/articles/cognitive-services/Speech/troubleshooting.md",
             "redirect_url": "/azure/cognitive-services/speech-service/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/call-center-transcription.md ",
+            "redirect_url": "/azure/cognitive-services/speech-service/call-center-overview",
             "redirect_document_id": false
         },
         {
@@ -5763,6 +5763,11 @@
         {
             "source_path_from_root": "/articles/cognitive-services/Welcome.md",
             "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/cognitive-services-security.md",
+            "redirect_url": "/azure/cognitive-services/security-features",
             "redirect_document_id": true
         }
         
