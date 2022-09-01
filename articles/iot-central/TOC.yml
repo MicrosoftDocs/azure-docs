@@ -167,6 +167,8 @@
           href: core/howto-manage-devices-individually.md
         - name: Manage devices in bulk with jobs
           href: core/howto-manage-devices-in-bulk.md
+        - name: Configure and use file uploads
+          href: core/howto-configure-file-uploads.md
         - name: Migrate devices to IoT Hub
           href: core/howto-migrate-to-iot-hub.md
     - name: Extend your application
@@ -242,8 +244,6 @@
           href: core/howto-create-organizations.md
         - name: Customize application UI
           href: core/howto-customize-ui.md
-        - name: Configure and use file uploads
-          href: core/howto-configure-file-uploads.md
         - name: Integrate with DevOps
           href: core/howto-integrate-with-devops.md
         - name: Manage and monitor in the Azure portal
