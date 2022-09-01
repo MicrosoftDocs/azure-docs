@@ -20,14 +20,14 @@ ms.collection: M365-identity-device-management
 
 The email one-time passcode feature is a way to authenticate B2B collaboration users when they can't be authenticated through other means, such as Azure AD, Microsoft account (MSA), or social identity providers. When a B2B guest user tries to redeem your invitation or sign in to your shared resources, they can request a temporary passcode, which is sent to their email address. Then they enter this passcode to continue signing in.
 
-You can enable this feature at any time in the Azure portal by configuring the Email one-time passcode identity provider under your tenant's External Identities settings. You can choose to enable the feature, disable it, or wait for automatic enablement.
+The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven’t explicitly turned it off. This feature provides a seamless fallback authentication method for your guest users.
 
 ![Email one-time passcode overview diagram](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
 >
-> - The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven’t explicitly turned it off. This feature provides a seamless fallback authentication method for your guest users. If you don’t want to use this feature, you can [disable it](#disable-email-one-time-passcode), in which case users will redeem invitations using unmanaged ("viral") Azure AD accounts as a fallback. Soon, we’ll stop creating new unmanaged accounts and tenants during invitation redemption, and we'll enforce redemption with a Microsoft account instead.
-> - Email one-time passcode settings have moved in the Azure portal from **External collaboration settings** to **All identity providers**.
+> - The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven’t explicitly turned it off. This feature provides a seamless fallback authentication method for your guest users. If you don’t want to use this feature, you can [disable it](#disable-email-one-time-passcode), in which case users will be prompted to create a Microsoft account instead.
+
 > [!NOTE]
 > One-time passcode users must sign in using a link that includes the tenant context (for example, `https://myapps.microsoft.com/?tenantid=<tenant id>` or `https://portal.azure.com/<tenant id>`, or in the case of a verified domain, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com` will result in an error.
 
