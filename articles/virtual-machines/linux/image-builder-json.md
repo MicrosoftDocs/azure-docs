@@ -4,7 +4,7 @@ description: Learn how to create a Bicep file or ARM template to use with Azure 
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
-ms.date: 06/29/2022
+ms.date: 09/01/2022
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -182,11 +182,11 @@ location: '<region>'
 
 ---
 
-### Data Residency
+### Data residency
 
-The Azure VM Image Builder service doesn't store or process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you'll need to create Bicep files/templates in a different region and geography.
+The Azure VM Image Builder service doesn't store or process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. If a service outage for regions that have data residency requirements, you'll need to create Bicep files/templates in a different region and geography.
 
-### Zone Redundancy
+### Zone redundancy
 
 Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage (ZRS) account by default and the Azure Compute Gallery (formerly known as Shared Image Gallery) version will support a [ZRS storage type](../disks-redundancy.md#zone-redundant-storage-for-managed-disks) if specified.
 
@@ -198,9 +198,9 @@ Tags are key/value pairs you can specify for the image that's generated.
 
 There are two ways to add user assigned identities explained below.
 
-### User Assigned Identity for Azure Image Builder image template resource
+### User-assigned identity for Azure Image Builder image template resource
 
-Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, see [Create an image and use a user-assigned managed identity to access files in an Azure storage account](image-builder-user-assigned-identity.md).
+Required - For Image Builder to have permissions to read/write images, and read in scripts from Azure Storage, you must create an Azure user-assigned identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, see [Create an image and use a user-assigned managed identity to access files in an Azure storage account](image-builder-user-assigned-identity.md).
 
 # [Bicep](#tab/bicep)
 
@@ -234,14 +234,14 @@ The Image Builder service User Assigned Identity:
 To learn more, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 For more information on deploying this feature, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
-### User Assigned Identity for the Image Builder Build VM
+### User-assigned identity for the Image Builder Build VM
 
 This property is only available in API versions `2021-10-01` or newer.
 
 Optional - The Image Builder Build VM, that is created by the Image Builder service in your subscription, is used to build and customize the image. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault in your subscription, you must create one or more Azure User Assigned Identities that have permissions to the individual resources. Azure Image Builder can then associate these User Assigned Identities with the Build VM. Customizer scripts running inside the Build VM can then fetch tokens for these identities and interact with other Azure resources as needed. Be aware, the user assigned identity for Azure Image Builder must have the "Managed Identity Operator" role assignment on all the user assigned identities for Azure Image Builder to be able to associate them to the build VM.
 
 > [!NOTE]
-> Be aware that multiple identities can be specified for the Image Builder Build VM, including the identity you created for the [image template resource](#user-assigned-identity-for-azure-image-builder-image-template-resource). By default, the identity you created for the image template resource will not automatically be added to the build VM.
+> Be aware that multiple identities can be specified for the Image Builder Build VM, including the identity you created for the [image template resource](#user-assigned-identity-for-azure-image-builder-image-template-resource). By default, the identity you created for the image template resource won't automatically be added to the build VM.
 
 # [Bicep](#tab/bicep)
 
@@ -637,7 +637,7 @@ File customizer properties:
   > [!NOTE]
   > If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you'll to grant the Managed User Identity permissions to read access on the blob. See this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
 
-- **destination** – the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these paths up beforehand. You can use the script customizers to create the path.
+- **destination** – the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set up these paths up beforehand. You can use the script customizers to create the path.
 
 This customizer is supported by Windows directories and Linux paths, but there are some differences:
 
@@ -1147,15 +1147,15 @@ properties: {
 
   If the `stagingResourceGroup` property is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group isn't associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements aren't met, an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Pre-existing tags aren't deleted.
 
-- **The stagingResourceGroup property is specified with a resource group that DOES NOT exist**
+- **The stagingResourceGroup property is specified with a resource group that doesn't exist**
 
-  If the `stagingResourceGroup` property is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` property. There will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
+  If the `stagingResourceGroup` property is specified with a resource group that doesn't exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` property. There will be an error if the given name doesn't meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
 
 ### Template Deletion
 
 Any staging resource group created by the Image Builder service will be deleted after the image template is deleted. The deletion includes staging resource groups that were specified in the `stagingResourceGroup` property, but didn't exist prior to the image build.
 
-If Image Builder didn't create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image template is deleted as long as the Image Builder service has the appropriate permissions or role required to delete resources.
+If Image Builder didn't create the staging resource group, but the resources inside of the resource group, those resources will be deleted after the image template is deleted, given the Image Builder service has the appropriate permissions or role required to delete resources.
 
 ## Properties: validate
 
@@ -1165,7 +1165,7 @@ Azure Image Builder supports a 'Source-Validation-Only' mode that can be set usi
 
 The `inVMValidations` property takes a list of validators that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validators.
 
-The `continueDistributeOnFailure` property is responsible for whether the output image(s) will be distributed if validation fails. If validation fails and this property is set to false, the output image(s) will not be distributed (this is the default behavior). If validation fails and this property is set to true, the output image(s) will still be distributed. Use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed in the case of a validation failure. This property has no effect on whether validation succeeds or not.
+The `continueDistributeOnFailure` property is responsible for whether the output image(s) will be distributed if validation fails. By default, if validation fails and this property is set to false, the output image(s) won't be distributed. If validation fails and this property is set to true, the output image(s) will still be distributed. Use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed if a validation failure. This property has no effect on whether validation succeeds or not.
 
 When using `validate`:
 
@@ -1332,7 +1332,7 @@ How to use the `validate` property to validate Linux images:
 
 ### vmSize (optional)
 
-Image Builder uses a default SKU size of `Standard_D1_v2` for Gen1 images and `Standard_D2ds_v4` for Gen2 images. The generation is defined by the image you specify in the `source`. You can override vmSize and may wish to do this for these reasons:
+Image Builder uses a default SKU size of `Standard_D1_v2` for Gen1 images and `Standard_D2ds_v4` for Gen2 images. The generation is defined by the image you specify in the `source`. You can override vmSize for these reasons:
 
 - Performing customizations that require increased memory, CPU and handling large files (GBs).
 - Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
@@ -1342,7 +1342,7 @@ Image Builder uses a default SKU size of `Standard_D1_v2` for Gen1 images and `S
 
 ### osDiskSizeGB
 
-By default, Image Builder doesn't change the size of the image, it uses the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leaving the same size as the source image. You can't reduce the OS Disk size to smaller than the size from the source image.
+By default, Image Builder doesn't change the size of the image, it uses the size from the source image. You can optionally **only** increase the size of the OS Disk (Win and Linux), and a value of 0 means leaving the same size as the source image. You can't reduce the OS Disk size to smaller than the size from the source image.
 
 # [Bicep](#tab/bicep)
 
