@@ -260,8 +260,6 @@
       href: secondary-indexing.md
     - name: Mapping consistency levels
       href: apache-cassandra-consistency-mapping.md
-    - name: Apache Cassandra and Azure Cosmos DB Consistency Overview
-      href: consistency-overview.md
 - name: How to
   items:
     - name: From Apache Cassandra to Cassandra API
