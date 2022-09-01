@@ -39,7 +39,7 @@ The Speech SDK supports the following languages and platforms:
 
 [!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
 
-## Speech SDK Demo
+## Speech SDK demo
 
 The following video shows how to install the [Speech SDK for C#](quickstarts/setup-platform.md) and write a simple .NET console application for speech-to-text.
 
