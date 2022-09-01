@@ -1455,6 +1455,8 @@ items:
       href: ./spark/apache-spark-machine-learning-training.md
     - name: Deep learning 
       href: ./machine-learning/concept-deep-learning.md
+    - name:  SynapseML library
+      href: ./machine-learning/synapse-machine-learning-library.md
   - name: Tutorials
     items:
     - name: Data access and preparation
