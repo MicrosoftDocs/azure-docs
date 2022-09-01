@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 08/31/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
@@ -12,7 +12,7 @@ ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 
 # Enable Azure Active Directory Domain Services authentication on Azure Files
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS). We strongly recommend you to review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right domain service for authentication. The setup is different depending on the domain service you choose. This article focuses on enabling and configuring Azure AD DS for authentication with Azure file shares.
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) using three different methods: on-premises Active Directory Domain Services (AD DS), Azure Active Directory Domain Services (Azure AD DS), and Azure Active Directory (Azure AD) Kerberos for hybrid identities (preview). We strongly recommend that you review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right AD source for authentication. The setup is different depending on the domain service you choose. This article focuses on enabling and configuring Azure AD DS for authentication with Azure file shares.
 
 If you are new to Azure file shares, we recommend reading our [planning guide](storage-files-planning.md) before reading the following series of articles.
 
@@ -148,10 +148,10 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 
 By default, Azure AD DS authentication uses Kerberos RC4 encryption. We recommend configuring it to use Kerberos AES-256 encryption instead by following these instructions.
 
-The action requires running an operation on the Active Directory domain that's managed by Azure AD DS to reach a domain controller to request a property change to the domain object. The cmdlets below are Windows Server Active Directory PowerShell cmdlets, not Azure PowerShell cmdlets. Because of this, these PowerShell commands must be run from a machine that's domain-joined to the Azure AD DS domain.  
+The action requires running an operation on the Active Directory domain that's managed by Azure AD DS to reach a domain controller to request a property change to the domain object. The cmdlets below are Windows Server Active Directory PowerShell cmdlets, not Azure PowerShell cmdlets. Because of this, these PowerShell commands must be run from a machine that's domain-joined to the Azure AD DS domain.
 
 > [!IMPORTANT]
-> Azure Cloud Shell won't work in this scenario. 
+> The Windows Server Active Directory PowerShell cmdlets in this section must be run in Windows PowerShell 5.1. PowerShell 7.x and Azure Cloud Shell won't work in this scenario.
 
 As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions), execute the following PowerShell commands.
 

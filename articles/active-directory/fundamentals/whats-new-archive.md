@@ -2,8 +2,8 @@
 title: Archive for What's new in Azure Active Directory? | Microsoft Docs
 description: The What's new release notes in the Overview section of this content set contain six months of activity. After six months, the items are removed from the main article and put into this archive article.
 services: active-directory
-author: barclayn
-manager: rkarlin
+author: owinfreyATL
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: fundamentals

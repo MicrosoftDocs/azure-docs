@@ -1075,9 +1075,6 @@ GET /metadata/attested/document
 }
 ```
 
-> [!NOTE]
-> Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
-
 The signature blob is a [pkcs7](https://aka.ms/pkcs7)-signed version of document. It contains the certificate used for signing along with certain VM-specific details.
 
 For VMs created by using Azure Resource Manager, the document includes `vmId`, `sku`, `nonce`, `subscriptionId`, `timeStamp` for creation and expiry of the document, and the plan information about the image. The plan information is only populated for Azure Marketplace images.
