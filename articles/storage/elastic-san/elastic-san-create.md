@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN with the Azure portal or t
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 08/05/2022
+ms.date: 08/31/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
@@ -15,11 +15,34 @@ This article explains how to deploy and configure an Elastic SAN.
 
 ## Prerequisites
 
-- An Azure Virtual Network with a subnet that has the Storage service endpoint registered.
-- Register your subscription with the preview feature: `Register-AzProviderFeature -FeatureNameAllow ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan`
+- Sign up for the preview at [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp).
+- An Azure Virtual Network.
+
+## Configure virtual network
+
+Enable the Storage service endpoint on your subnet so that traffic is routed optimally to your elastic SAN.
+
+1. Navigate to your virtual network and select **Service Endpoints**.
+1. Select **+ Add** and for **Service** select **Microsoft.Storage**.
+1. Select any policies you like, as well as the subnet you deploy your Elastic SAN into and select **Add**.
+
+:::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
+
+## Register for the preview
+
+Register your subscription with the preview feature using the following command:
+
+```azurepowershell
+Register-AzProviderFeature -FeatureNameAllow ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan
+```
+
+It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:
+
+```azurepowershell
+Get-AzProviderFeature -FeatureName "ElasticSanPreviewAccess" -ProviderNamespace "Microsoft.ElasticSan"
+```
 
 ## Create the SAN
-
 
 # [Portal](#tab/azure-portal)
 
