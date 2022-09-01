@@ -12,7 +12,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Bulk Data Load Best Practices
 
-Bulk loads can be of two types:
+There are two types of bulk loads:
 - Initial data load of an empty database
 - Incremental data loads
 
