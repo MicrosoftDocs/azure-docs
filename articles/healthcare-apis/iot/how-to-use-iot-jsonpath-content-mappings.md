@@ -58,19 +58,21 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 
 ```json
 
-"templateType": "IotJsonPathContentTemplate",
-"template": {
-        "typeName": "heartrate",
-        "typeMatchExpression": "$..[?(@Body.heartRate)]",
-        "timestampExpression": "$.endDate",
-        "values": [
-            {
-                "required": "true",
-                "valueExpression": "$.Body.heartRate",
-                "valueName": "hr"
-            }
-        ]
-    }
+{
+  "templateType": "IotJsonPathContentTemplate",
+  "template": {
+    "typeName": "heartrate",
+    "typeMatchExpression": "$..[?(@Body.heartRate)]",
+    "timestampExpression": "$.endDate",
+    "values": [
+      {
+            "required": "true",
+            "valueExpression": "$.Body.heartRate",
+            "valueName": "hr"
+      }
+    ]
+  }
+}   
 
 ```
 
@@ -100,20 +102,23 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 ```json
 
 {
+  "templateType": "IotJsonPathContentTemplate",
+  "template": {
     "typeName": "bloodpressure",
     "typeMatchExpression": "$..[?(@Body.systolic && @Body.diastolic)]",
     "values": [
-        {
+      {
             "required": "true",
             "valueExpression": "$.Body.systolic",
             "valueName": "systolic"
-        },
-        {
+      },
+      {
             "required": "true",
             "valueExpression": "$.Body.diastolic",
             "valueName": "diastolic"
-        }
+      }
     ]
+  }
 }
 
 ```
