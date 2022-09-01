@@ -31,7 +31,7 @@ Collect all the values in the following table for the mobile network site resour
    |The name for the site.           |**Instance details: Name**|
    |The region in which you’re creating the mobile network site resource. We recommend that you use the East US region.                         |**Instance details: Region**|
    |The mobile network resource representing the private mobile network to which you’re adding the site. |**Instance details: Mobile network**|
-   |The billing plan for the site that you are creating. |**Instance details: Site plan**|
+   |The billing plan for the site that you are creating. The available plans have the following allowances:</br></br> G0 - 100 Mbps per site and 20 devices per network. </br> G1 - 1 Gbps per site and 100 devices per network. </br> G2 - 2 Gbps per site and 200 devices per network. </br> G3 - 3 Gbps per site and 300 devices per network. </br> G4 - 4 Gbps per site and 400 devices per network. </br> G4 - 5 Gbps per site and 500 devices per network. </br> G10 - 10 Gbps per site and 1000 devices per network.|**Instance details: Site plan**|
 
 ## Collect packet core configuration values
 
