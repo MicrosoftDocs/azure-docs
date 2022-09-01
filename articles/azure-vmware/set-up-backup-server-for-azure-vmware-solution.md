@@ -25,7 +25,7 @@ This article helps you prepare your Azure VMware Solution environment to back up
 > * Set the storage replication for a Recovery Services vault.
 > * Add storage to Azure Backup Server.
 
-## Supported VMware vSphere features
+## Supported VMware features
 
 - **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter Server or ESXi server to back up the VM. Instead, provide the IP address or fully qualified domain name (FQDN) and the sign in credentials used to authenticate the VMware vCenter Server with Azure Backup Server.
 - **Cloud-integrated backup:** Azure Backup Server protects workloads to disk and the cloud. The backup and recovery workflow of Azure Backup Server helps you manage long-term retention and offsite backup.
