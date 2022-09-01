@@ -61,11 +61,7 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 > * The credentials and other information you will need to send API calls.
 > * The packages and code you will need to run your application.
 
-<!--
-> [!NOTE]
-> The code example in this article sends an example [Named Entity Recognition](./language-service/named-entity-recognition/overview.md) API call. You can update the code sample in this article to use any [available Cognitive Services](./what-are-cognitive-services.md) features, with the appropriate Azure resource.
--->
-## Get your key and endpoint, and other information from your Cognitive Services resource
+## Get your credentials from your Cognitive Services resource
 
 Before you add your credential information to your Azure key vault, you need to retrieve them from your Cognitive Services resource. For example, if your service needs a key and endpoint you would find them using the following steps:
 
@@ -168,7 +164,6 @@ using System.Threading.Tasks;
 using Azure;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
-using Azure.AI.TextAnalytics;
 using System.Net;
 
 namespace key_vault_console_app
@@ -195,7 +190,8 @@ namespace key_vault_console_app
             //Key and endpoint secrets retrieved from your key vault
             var keySecret = await keyVaultClient.GetSecretAsync(keySecretName);
             var endpointSecret = await keyVaultClient.GetSecretAsync(endpointSecretName);
-
+            Console.WriteLine($"Your key secret value is: {keySecret.Value.Value}");
+            Console.WriteLine($"Your endpoint secret value is: {endpointSecret.Value.Value}");
             Console.WriteLine("Secrets retrieved successfully");
             
         }
@@ -213,7 +209,13 @@ If you're using a multi-service resource or Language resource, you can perform t
 
 1. Install the `Azure.AI.TextAnalytics` library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for the following libraries, and select **Install** for each: 
 
-2. Add the following code sample to your application.
+1. Add the following directive to the top of your `program.cs` file.
+
+    ```csharp
+    using Azure.AI.TextAnalytics;
+    ```
+ 
+1. Add the following code sample to your application.
     
     ```csharp
     // Example method for extracting named entities from text 
@@ -279,7 +281,6 @@ Add the following code sample to the file named `program.py`. Replace `Your-Key-
 import os
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
-from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
 
 keyVaultName = os.environ["KEY_VAULT_NAME"]
@@ -300,11 +301,8 @@ print(f"Retrieving your secrets from {keyVaultName}.")
 retrieved_key = kv_client.get_secret(keySecretName).value
 retrieved_endpoint = kv_client.get_secret(endpointSecretName).value
 
-print(f"Your secret key is {retrieved_key}.")
-print(f"Your secret endpoint is {retrieved_endpoint}.")
-
-# Authenticate the key vault secrets client using your key and endpoint 
-azure_key_credential = AzureKeyCredential(retrieved_key)
+print(f"Your secret key value is {retrieved_key}.")
+print(f"Your secret endpoint value is {retrieved_endpoint}.")
 
 ```
 
@@ -329,6 +327,9 @@ If you're using a multi-service resource or Language resource, you can perform t
 1. Add the following code to your application
 
     ```python
+    from azure.ai.textanalytics import TextAnalyticsClient
+    # Authenticate the key vault secrets client using your key and endpoint 
+    azure_key_credential = AzureKeyCredential(retrieved_key)
     # Now you can use key vault credentials with the Language service
     language_service_client = TextAnalyticsClient(
         endpoint=retrieved_endpoint, 
@@ -393,9 +394,6 @@ import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.security.keyvault.secrets.SecretClient;
 import com.azure.security.keyvault.secrets.SecretClientBuilder;
 import com.azure.core.credential.AzureKeyCredential;
-import com.azure.ai.textanalytics.models.*;
-import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
-import com.azure.ai.textanalytics.TextAnalyticsClient;
 
 public class Example {
 
@@ -414,6 +412,12 @@ public class Example {
                 .vaultUrl(keyVaultUri)
                 .credential(new DefaultAzureCredentialBuilder().build())
                 .buildClient();
+
+        //retrieve key and endpoint from key vault
+        String keyValue = secretClient.getSecret(keySecretName).getValue();
+        String endpointValue = secretClient.getSecret(endpointSecretName).getValue();
+        System.out.printf("Your secret key value is: %s", keyValue)
+        System.out.printf("Your secret endpoint value is: %s", endpointValue)
     }
 }
 ```
@@ -432,12 +436,17 @@ If you're using a multi-service resource or Language resource, you can perform t
     </dependency>
     ```
 
+1. add the following import statements to your file.
+
+    ```java
+    import com.azure.ai.textanalytics.models.*;
+    import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
+    import com.azure.ai.textanalytics.TextAnalyticsClient;
+    ```
+
 1. Add the following code to the `main()` method in your application:
 
     ```java
-    //retrieve key and endpoint from key vault
-    String keyValue = secretClient.getSecret(keySecretName).getValue();
-    String endpointValue = secretClient.getSecret(endpointSecretName).getValue();
     
     TextAnalyticsClient languageClient = new TextAnalyticsClientBuilder()
             .credential(new AzureKeyCredential(keyValue))
@@ -469,7 +478,7 @@ If you're using a multi-service resource or Language resource, you can perform t
 
 [!INCLUDE [key-vault-cli-authentication](includes/key-vault-cli-authentication.md)]
 
-## Create a new JavaScript application
+## Create a new Node.js application
 
 Create a Node.js application that uses your key vault.
 
@@ -506,7 +515,6 @@ Add the following code sample to a file named `index.js`. Replace `Your-Key-Secr
 ```javascript
 const { SecretClient } = require("@azure/keyvault-secrets");
 const { DefaultAzureCredential } = require("@azure/identity");
-const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 // Load the .env file if it exists
 const dotenv = require("dotenv");
 dotenv.config();
@@ -526,6 +534,8 @@ async function main() {
     console.log("Retrieving secrets from ", keyVaultName);
     const retrievedKey = await (await kvClient.getSecret(keySecretName)).value;
     const retrievedEndpoint = await (await kvClient.getSecret(endpointSecretName)).value;
+    console.log("Your secret key value is: ", retrievedKey);
+    console.log("Your secret endpoint value is: ", retrievedEndpoint);
 }
 
 main().catch((error) => {
@@ -555,6 +565,7 @@ If you're using a multi-service resource or Language resource, you can perform t
 2. Add the following code to your application:
 
     ```javascript
+    const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
     // Authenticate the language client with your key and endpoint
     const languageClient = new TextAnalyticsClient(retrievedEndpoint,  new AzureKeyCredential(retrievedKey));
 
