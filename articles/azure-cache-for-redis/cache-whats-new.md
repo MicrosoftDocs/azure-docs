@@ -2,6 +2,7 @@
 title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
 author: flang-msft
+
 ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
@@ -15,7 +16,7 @@ ms.date: 09/01/2022
 
 ### Support for managed identity in Azure Cache for Redis
 
-Azure Cache for Redis now supports authenticating storage account connections using managed identity has moved from preview to General Availability (GA).
+Authenticating storage account connections using managed identity has now reached General Availability (GA).
 
 For more information, see [Managed identity for storage](cache-managed-identity.md).
 
