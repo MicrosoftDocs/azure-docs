@@ -14,6 +14,112 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
+::: moniker range=">=iotedge-1.4"
+
+IoT Edge modules can use storage on the host IoT Edge device itself for improved reliability, especially when operating offline.
+
+## Configure system modules to use persistent storage
+
+By default, IoT Edge system modules, IoT Edge agent and IoT Edge hub, store state in the ephemeral file system of their container instance. This state is lost when the container instance is updated. For example, when their image version or createOptions is udpated. 
+
+For production scenarios, use a persistent storage location on the host filesystem to store system module state. Doing so improves solution robustness, for example, not losing locally queued messages before delivery to the cloud. 
+
+To setup system modules to use persistent storage:
+
+1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **storageFolder** that points to a directory in the module.
+1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example:
+
+   ![Add create options and environment variables for local storage](./media/how-to-access-host-storage-from-module/offline-storage.png)
+
+Or, you can configure the local storage directly in the deployment manifest. For example:
+
+```json
+"systemModules": {
+    "edgeAgent": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
+                }
+            }
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>/edgeAgent"
+            }
+        }
+    },
+    "edgeHub": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
+                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
+            }
+        },
+        "status": "running",
+        "restartPolicy": "always"
+    }
+}
+```
+
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path.
+
+### Automatic host system permissions management
+
+On version 1.4 and newer, there is no need for manually setting ownership or permissions for host storage backing the `storageFolder`. Permissions and ownership are automatically managed by the system modules during startup.
+
+> [!NOTE]
+> Automatic permission management of host bound storage only applies to system modules, IoT Edge agent and Edge hub. For custom modules, manual management of permissions and ownership of bound host storage is required if the custom module container is not running as `root` user. 
+
+
+
+## Link module storage to device storage for custom modules
+
+If your custom module requires access to persistent storage on the host file system, use the module's create options to bind a storage folder in module container to a folder on the host machine. For example:
+
+```json
+{
+  "HostConfig": {
+    "Mounts": [
+      {
+        "Target": "<ModuleStoragePath>",
+        "Source": "<HostStoragePath>",
+        "Type": "bind",
+        "ReadOnly": false
+      }
+    ]
+  }
+}
+```
+
+
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path. Refer to the [Docker Engine Mount specification](https://any-api.com/docker_com/engine/docs/Definitions/Mount) for option details.
+
+
+
+### Host system permissions
+
+Make sure that the user profile your module is using has the required read, write, and execute permissions to the host system directory. By default, containers run as `root` user that already has the required permissions. But your module's Dockerfile might specify use of a non-root user in which case host storage permissions must be manually configured. 
+
+There are several ways to manage directory permissions on Linux systems, including using `chown` to change the directory owner and then `chmod` to change the permissions. For example to allow host storage access to a module running as non-root user id 1000, use the following commands:
+
+```bash
+sudo chown 1000 <HostStoragePath>
+sudo chmod 700 <HostStoragePath>
+```
+::: moniker-end
+
+::: moniker range="<=iotedge-1.3"
+
 In addition to storing data using Azure storage services or in your device's container storage, you can also dedicate storage on the host IoT Edge device itself for improved reliability, especially when operating offline.
 
 ## Link module storage to device storage
@@ -90,6 +196,7 @@ $ace = new-object system.security.AccessControl.FileSystemAccessRule('Authentica
 $acl.AddAccessRule($ace)
 $acl | Set-Acl
 ```
+::: moniker-end
 
 ## Encrypted data in module storage
 
