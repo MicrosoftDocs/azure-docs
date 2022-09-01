@@ -16,7 +16,7 @@ The Dependency Agent collects data about processes running on the virtual machin
 
 - The Dependency Agent requires the Log Analytics Agent to be installed on the same machine.
 - On both the Windows and Linux versions, the Dependency Agent collects data using a user-space service and a kernel driver. 
-    - Dependency Agent supports the same [Windows versions Log Analytics Agent supports](/azure/azure-monitor/agents/agents-overview#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
+    - Dependency Agent supports the same [Windows versions Log Analytics Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
     - For Linux, see [Dependency Agent Linux support](#dependency-agent-linux-support).
 
 ## Upgrade Dependency Agent 

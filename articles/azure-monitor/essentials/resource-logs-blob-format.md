@@ -1,12 +1,10 @@
 ---
 title: Prepare for format change to Azure Monitor resource logs
 description: Azure resource logs moved to use append blobs on November 1, 2018.
-author: johnkemnetz
 services: monitoring
 ms.reviewer: robb
 ms.topic: conceptual
 ms.date: 07/06/2018
-ms.author: johnkem
 ---
 # Prepare for format change to Azure Monitor platform logs archived to a storage account
 

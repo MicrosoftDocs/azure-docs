@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 03/15/2022
+ms.date: 08/18/2022
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -54,8 +54,17 @@ To learn how to create a storage account, see [Create a storage account](../comm
 
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 
-> [!NOTE]
-> The container name must be lowercase. For more information about naming containers, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
+
+- Container names can be between 3 and 63 characters long.
+- Container names must start with a letter or number, and can contain only lowercase letters, numbers, and the dash (-) character.
+- Two or more consecutive dash characters aren't permitted in container names.
+
+The URI for a container is similar to:
+
+`https://myaccount.blob.core.windows.net/mycontainer`
+
+For more information about naming containers, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
 ### Blobs
 
@@ -66,6 +75,27 @@ Azure Storage supports three types of blobs:
 - **Page blobs** store random access files up to 8 TiB in size. Page blobs store virtual hard drive (VHD) files and serve as disks for Azure virtual machines. For more information about page blobs, see [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
 
 For more information about the different types of blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+
+The URI for a blob is similar to:
+
+`https://myaccount.blob.core.windows.net/mycontainer/myblob`
+
+or
+
+`https://myaccount.blob.core.windows.net/mycontainer/myvirtualdirectory/myblob`
+
+Follow these rules when naming a blob:  
+  
+- A blob name can contain any combination of characters.  
+- A blob name must be at least one character long and cannot be more than 1,024 characters long, for blobs in Azure Storage. 
+- Blob names are case-sensitive.  
+- Reserved URL characters must be properly escaped.  
+- The number of path segments comprising the blob name cannot exceed 254. A path segment is the string between consecutive delimiter characters (*e.g.*, the forward slash '/') that corresponds to the name of a virtual directory.  
+  
+> [!NOTE]
+> Avoid blob names that end with a dot (.), a forward slash (/), or a sequence or combination of the two. No path segments should end with a dot (.).
+
+For more information about naming blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
 ## Move data to Blob storage
 

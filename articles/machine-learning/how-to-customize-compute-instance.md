@@ -131,4 +131,3 @@ Logs from the setup script execution appear in the logs folder in the compute in
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
-* [Submit a training run](how-to-set-up-training-targets.md)

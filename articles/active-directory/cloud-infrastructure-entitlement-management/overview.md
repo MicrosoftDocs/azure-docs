@@ -32,6 +32,9 @@ Organizations have to consider permissions management as a central piece of thei
 
 Permissions Management  allows customers to address three key use cases: *discover*, *remediate*, and *monitor*.
 
+Permissions Management has been designed in such a way that we recommended your organization sequentially 'step-through' each of the below phases in order to gain insights into permissions across the organization. This is because you generally cannot action what is yet to be discovered, likewise you cannot continually evaluate what is yet to be remediated.
+
+
 ### Discover
 
 Customers can assess permission risks by evaluating the gap between permissions granted and permissions used.
@@ -61,7 +64,7 @@ Permissions Management  deepens Zero Trust security strategies by augmenting the
 - Automate least privilege access: Use access analytics to ensure identities have the right permissions, at the right time.
 - Unify access policies across infrastructure as a service (IaaS) platforms: Implement consistent security policies across your cloud infrastructure.
 
-
+Once your organization has explored and implemented the discover, remediation and monitor phases, you have established one of the core pillars of a modern zero-trust security strategy.
 
 ## Next steps
 

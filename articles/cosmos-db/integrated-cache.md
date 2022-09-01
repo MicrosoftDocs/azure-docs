@@ -5,12 +5,12 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 08/29/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
 
-# Azure Cosmos DB integrated cache - Overview (Preview)
+# Azure Cosmos DB integrated cache - Overview
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows. The integrated cache is easy to set up and you don’t need to spend time writing custom code for cache invalidation or managing backend infrastructure. Your integrated cache uses a [dedicated gateway](dedicated-gateway.md) within your Azure Cosmos DB account. The integrated cache is the first of many Azure Cosmos DB features that will utilize a dedicated gateway for improved performance. You can choose from three possible dedicated gateway sizes based on the number of cores and memory needed for your workload.
@@ -30,7 +30,7 @@ cosmoscachefeedback@microsoft.com
 
 The main goal of the integrated cache is to reduce costs for read-heavy workloads. Low latency, while helpful, is not the main benefit of the integrated cache because Azure Cosmos DB is already fast without caching.
 
-Point reads and queries that hit the integrated cache won't use any RUs. In other words, any cache hits will have an RU charge of 0. Cache hits will have a much lower per-operation cost than reads from the backend database.
+Point reads and queries that hit the integrated cache will have an RU charge of 0. Cache hits will have a much lower per-operation cost than reads from the backend database.
 
 Workloads that fit the following characteristics should evaluate if the integrated cache will help lower costs:
 
@@ -76,18 +76,21 @@ The query cache can be used to cache queries. The query cache transforms a query
 
 ### Working with the query cache
 
-You don't need special code when working with the query cache, even if your queries have multiple pages of results. The best practices and code for query pagination are the same, whether your query hits the integrated cache or is executed on the backend query engine.
+You don't need special code when working with the query cache, even if your queries have multiple pages of results. The best practices and code for query pagination are the same whether your query hits the integrated cache or is executed on the backend query engine.
 
-The query cache will automatically cache query continuation tokens, where applicable. If you have a query with multiple pages of results, any pages that are stored in the integrated cache will have an RU charge of 0. If your subsequent pages of query results require backend execution, they'll have a continuation token from the previous page so they can avoid duplicating previous work.
+The query cache will automatically cache query continuation tokens where applicable. If you have a query with multiple pages of results, any pages that are stored in the integrated cache will have an RU charge of 0. If your subsequent pages of query results require backend execution, they'll have a continuation token from the previous page so they can avoid duplicating previous work.
 
 > [!NOTE]
-> Integrated cache instances within different dedicated gateway nodes have independent caches from one another. If data is cached within one node, it is not necessarily cached in the others.
+> Integrated cache instances within different dedicated gateway nodes have independent caches from one another. If data is cached within one node, it is not necessarily cached in the others. Multiple pages of the same query are not guaranteed to be routed to the same dedicated gateway node.
 
 ## Integrated cache consistency
 
-The integrated cache supports both session and eventual [consistency](consistency-levels.md) only. If a read has consistent prefix, bounded staleness, or strong consistency, it will always bypass the integrated cache.
+The integrated cache supports read requests with session and eventual [consistency](consistency-levels.md) only. If a read has consistent prefix, bounded staleness, or strong consistency, it will always bypass the integrated cache and be served from the backend. 
 
 The easiest way to configure either session or eventual consistency for all reads is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). However, if you would only like some of your reads to have a specific consistency, you can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level).
+
+> [!NOTE]
+> Write requests with other consistencies will still populate the cache, but in order to read from the cache the request must have either session or eventual consistency.
 
 ### Session consistency
 
@@ -102,8 +105,8 @@ It's important to understand that the `MaxIntegratedCacheStaleness`, when config
 This is an improvement from how most caches work and allows the following additional customization:
 
 - You can set different staleness requirements for each point read or query
-- Different clients, even if they run the same point read or query, can configure different `MaxIntegratedCacheStaleness` values.
-- If you wanted to modify read consistency when using cached data, changing `MaxIntegratedCacheStaleness` will have an immediate effect on read consistency.
+- Different clients, even if they run the same point read or query, can configure different `MaxIntegratedCacheStaleness` values
+- If you wanted to modify read consistency when using cached data, changing `MaxIntegratedCacheStaleness` will have an immediate effect on read consistency
 
 > [!NOTE]
 > When not explicitly configured, the MaxIntegratedCacheStaleness defaults to 5 minutes.
@@ -120,30 +123,29 @@ To better understand the `MaxIntegratedCacheStaleness` parameter, consider the f
 | t = 40 sec | Run Query B with MaxIntegratedCacheStaleness = 60 seconds | Return results from integrated cache (0 RU charge)           |
 | t = 50 sec | Run Query B with MaxIntegratedCacheStaleness = 20 seconds | Return results from backend database (normal RU charges) and refresh cache |
 
-> [!NOTE]
-> Customizing `MaxIntegratedCacheStaleness` is only supported in the latest .NET and Java preview SDK's.
-
 [Learn to configure the `MaxIntegratedCacheStaleness`.](how-to-configure-integrated-cache.md#adjust-maxintegratedcachestaleness)
 
 ## Metrics
 
 When using the integrated cache, it is helpful to monitor some key metrics. The integrated cache metrics include:
 
-- `DedicatedGatewayAverageCpuUsage` - Average CPU usage across dedicated gateway nodes.
-- `DedicatedGatewayMaxCpuUsage` - Maximum CPU usage across dedicated gateway nodes.
-- `DedicatedGatewayAverageMemoryUsage` - Average memory usage across dedicated gateway nodes, which are used for both routing requests and caching data.
-- `DedicatedGatewayRequests` - Total number of dedicated gateway requests across all dedicated gateway instances.
-- `IntegratedCacheEvictedEntriesSize` – The average amount of data evicted due to LRU from the integrated cache across dedicated gateway nodes. This value does not include data that expired due to exceeding the `MaxIntegratedCacheStaleness` time.
-- `IntegratedCacheItemExpirationCount` - The number of items that are evicted from the integrated cache due to cached point reads exceeding the `MaxIntegratedCacheStaleness` time. This value is an average of integrated cache instances across all dedicated gateway nodes.
-- `IntegratedCacheQueryExpirationCount` - The  number of queries that are evicted from the integrated cache due to cached queries exceeding the `MaxIntegratedCacheStaleness` time. This value is an average of integrated cache instances across all dedicated gateway nodes.
+- `DedicatedGatewayCPUUsage` - CPU usage with Avg, Max, or Min Aggregation types for data across all dedicated gateway nodes.
+- `DedicatedGatewayAverageCPUUsage` - (Deprecated) Average CPU usage across all dedicated gateway nodes.
+- `DedicatedGatewayMaximumCPUUsage` - (Deprecated) Maximum CPU usage across all dedicated gateway nodes.
+- `DedicatedGatewayMemoryUsage` - Memory usage with Avg, Max, or Min Aggregation types for data across all dedicated gateway nodes. 
+- `DedicatedGatewayAverageMemoryUsage` - (Deprecated) Average memory usage across all dedicated gateway nodes.
+- `DedicatedGatewayRequests` - Total number of dedicated gateway requests across all dedicated gateway nodes.
+- `IntegratedCacheEvictedEntriesSize` – The average amount of data evicted from the integrated cache due to LRU across all dedicated gateway nodes. This value does not include data that expired due to exceeding the `MaxIntegratedCacheStaleness` time.
+- `IntegratedCacheItemExpirationCount` - The average number of items that are evicted from the integrated cache due to cached point reads exceeding the `MaxIntegratedCacheStaleness` time across all dedicated gateway nodes. 
+- `IntegratedCacheQueryExpirationCount` - The average number of queries that are evicted from the integrated cache due to cached queries exceeding the `MaxIntegratedCacheStaleness` time across all dedicated gateway nodes.
 - `IntegratedCacheItemHitRate` – The proportion of point reads that used the integrated cache (out of all point reads routed through the dedicated gateway with session or eventual consistency). This value is an average of integrated cache instances across all dedicated gateway nodes.
 - `IntegratedCacheQueryHitRate` – The proportion of queries that used the integrated cache (out of all queries routed through the dedicated gateway with session or eventual consistency). This value is an average of integrated cache instances across all dedicated gateway nodes.
 
 All existing metrics are available, by default, from the **Metrics** blade (not Metrics classic):
 
-   :::image type="content" source="./media/integrated-cache/integrated-cache-metrics.png" alt-text="An image that shows the location of integrated cache metrics" border="false":::
+   :::image type="content" source="./media/integrated-cache/integrated-cache-metrics.png" alt-text="Screenshot of the Azure Portal that shows the location of integrated cache metrics." border="false":::
 
-Metrics are either an average, maximum, or sum across all dedicated gateway nodes. For example, if you provision a dedicated gateway cluster with five nodes, the metrics reflect the aggregated value across all five nodes. It isn't possible to determine the metric values for each individual nodes.
+Metrics are either an average, maximum, or sum across all dedicated gateway nodes. For example, if you provision a dedicated gateway cluster with five nodes, the metrics reflect the aggregated value across all five nodes. It isn't possible to determine the metric values for each individual node.
 
 ## Troubleshooting common issues
 
@@ -171,7 +173,7 @@ If most data is evicted from the cache due to exceeding the `MaxIntegratedCacheS
 
 ### I want to understand if I need to add more dedicated gateway nodes
 
-In some cases, if latency is unexpectedly high, you may need more dedicated gateway nodes rather than bigger nodes. Check the `DedicatedGatewayMaxCpuUsage` and `DedicatedGatewayAverageMemoryUsage` to determine if adding more dedicated gateway nodes would reduce latency. It's good to keep in mind that since all instances of the integrated cache are independent from one another, adding more dedicated gateway nodes won't reduce the `IntegratedCacheEvictedEntriesSize`. Adding more nodes will improve the request volume that your dedicated gateway cluster can handle, though.
+In some cases, if latency is unexpectedly high, you may need more dedicated gateway nodes rather than bigger nodes. Check the `DedicatedGatewayCPUUsage` and `DedicatedGatewayMemoryUsage` to determine if adding more dedicated gateway nodes would reduce latency. It's good to keep in mind that since all instances of the integrated cache are independent from one another, adding more dedicated gateway nodes won't reduce the `IntegratedCacheEvictedEntriesSize`. Adding more nodes will improve the request volume that your dedicated gateway cluster can handle, though.
 
 ## Next steps
 
@@ -179,5 +181,5 @@ In some cases, if latency is unexpectedly high, you may need more dedicated gate
 - [Configure the integrated cache](how-to-configure-integrated-cache.md)
 - [Dedicated gateway](dedicated-gateway.md)
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

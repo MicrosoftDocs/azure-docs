@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory architecture overview
+title: Microsoft Entra Verified ID architecture overview
 description: Learn foundational information to plan and design your solution
 documentationCenter: ''
 author: barclayn
