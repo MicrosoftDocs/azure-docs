@@ -2,8 +2,8 @@
 title: Hypervisor security on the Azure fleet - Azure Security
 description: Technical overview of hypervisor security on the Azure fleet.
 author: yosharm
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin

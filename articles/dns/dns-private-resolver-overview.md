@@ -74,6 +74,8 @@ Azure DNS Private Resolver is available in the following regions:
 
 ## DNS resolver endpoints
 
+For more information about endpoints and rulesets, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
+
 ### Inbound endpoints
 
 An inbound endpoint enables name resolution from on-premises or other private locations via an IP address that is part of your private virtual network address space. To resolve your Azure private DNS zone from on-premises, enter the IP address of the inbound endpoint into your on-premises DNS conditional forwarder. The on-premises DNS conditional forwarder must have a network connection to the virtual network.
@@ -90,7 +92,7 @@ Virtual network links enable name resolution for virtual networks that are linke
 
 ## DNS forwarding rulesets
 
-A DNS forwarding ruleset is a group of DNS forwarding rules (up to 1,000) that can be applied to one or more outbound endpoints, or linked to one or more virtual networks. This is a 1:N relationship. Rulesets are associated with a specific outbound endpoint. 
+A DNS forwarding ruleset is a group of DNS forwarding rules (up to 1,000) that can be applied to one or more outbound endpoints, or linked to one or more virtual networks. This is a 1:N relationship. Rulesets are associated with a specific outbound endpoint. For more information, see [DNS forwarding rulesets](private-resolver-endpoints-rulesets.md#dns-forwarding-rulesets).
 
 ## DNS forwarding rules
 
@@ -128,7 +130,6 @@ Outbound endpoints have the following limitations:
 ### Other restrictions
 
 - IPv6 enabled subnets aren't supported in Public Preview.
-
 
 ## Next steps
 

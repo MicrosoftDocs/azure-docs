@@ -45,7 +45,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Ideagen Cloud](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Ideagen Cloud to support provisioning with Azure AD
-1. Login to [Ideagen Home](https://cktenant-homev2-scimtest1.ideagenhomedev.com). Click on the **Administration** icon to show the left hand side menu.
+1. Log in to Ideagen. Click on the **Administration** icon to show the left hand side menu.
 
 	![Screenshot of administration menu.](media\ideagen-cloud-provisioning-tutorial\admin.png)
  

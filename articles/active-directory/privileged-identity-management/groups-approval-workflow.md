@@ -4,7 +4,7 @@ description: Learn how to approve or deny requests for role-assignable groups in
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
