@@ -374,6 +374,8 @@ items:
     href: samples/trusted-auth-sample.md
   - name: Web calling sample
     href: samples/web-calling-sample.md
+  - name: UI Library cross platform samples
+    href: samples/ui-library-cross-platform.md
 - name: References
   items:
   - name: Reference documentation overview

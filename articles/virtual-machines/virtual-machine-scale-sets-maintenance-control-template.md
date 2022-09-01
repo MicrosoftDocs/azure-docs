@@ -13,7 +13,7 @@ ms.custom: subject-armqs, mode-arm
 
 # Maintenance control for OS image upgrades on Azure virtual machine scale sets using an ARM template
 
-Maintenance control lets you decide when to apply automatic guest OS image upgrades to your virtual machine scale sets. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+Maintenance control lets you decide when to apply automatic OS image upgrades to your virtual machine scale sets. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
 
 This article explains how you can use an Azure Resource Manager (ARM) template to create a maintenance configuration. You will learn how to:
 
@@ -70,47 +70,6 @@ For more information about this Maintenance Configuration template, see [mainten
         "excludeKbsRequiringReboot": "bool",
         "kbNumbersToExclude": [ "string" ],
         "kbNumbersToInclude": [ "string" ]
-      }
-    },
-    "maintenanceScope": "string",
-    "maintenanceWindow": {
-      "duration": "string",
-      "expirationDateTime": "string",
-      "recurEvery": "string",
-      "startDateTime": "string",
-      "timeZone": "string"
-    },
-    "namespace": "string",
-    "visibility": "string"
-  }
-}
-```
-
-### Guest
-
-```json
-{
-  "type": "Microsoft.Maintenance/maintenanceConfigurations",
-  "apiVersion": "2022-07-01-preview",
-  "name": "string",
-  "location": "string",
-  "tags": {
-    "tagName1": "tagValue1",
-    "tagName2": "tagValue2"
-  },
-  "properties": {
-    "installPatches": {
-      "linuxParameters": {
-        "classificationsToInclude": ["string"],
-        "packageNameMasksToExclude": ["string"],
-        "packageNameMasksToInclude": ["string"]
-      },
-      "rebootSetting": "string",
-      "windowsParameters": {
-        "classificationsToInclude": ["string"],
-        "excludeKbsRequiringReboot": "bool",
-        "kbNumbersToExclude": ["string"],
-        "kbNumbersToInclude": ["string"]
       }
     },
     "maintenanceScope": "string",
