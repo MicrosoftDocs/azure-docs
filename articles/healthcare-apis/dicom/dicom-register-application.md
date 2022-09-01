@@ -12,7 +12,7 @@ ms.author: v-smcevoy
 
 # Register a client application for the DICOM service in Azure Active Directory
 
-In this article, you'll learn how to register a client application for the DICOM service in Azure Active Directory (Azure AD) in order to access Azure Health Data Services. You can find more information on [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
+In this article, you'll learn how to register a client application for the DICOM service. You can find more information on [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 ## Register a new application
 
@@ -30,8 +30,6 @@ After registering a new application, you can find the application (client) ID an
 
 [ ![Screenshot of client ID overview panel.](media/register-application-three.png) ](media/register-application-three.png#lightbox)
 
-[ ![Screenshot of client ID](media/register-application-four.png) ](media/register-application-four.png#lightbox)
-
 ## Authentication setting: confidential vs. public
 
 Select **Authentication** to review the settings. The default value for **Allow public client flows** is "No".
@@ -44,20 +42,17 @@ If you change the default value to "Yes" for the "Allow public client flows" opt
 
 For tools that require a redirect URL, select **Add a platform** to configure the platform.
 
-[ ![Screenshot of add a platform.](media/register-application-five-alpha.png) ](media/register-application-five-alpha.png#lightbox)
-
-For Postman, select **Mobile and desktop applications**. Enter "https://www.getpostman.com/oauth2/callback" in the **Custom redirect URIs** section. Select the **Configure** button to save the setting.
+>[!NOTE]
+>
+>For Postman, select **Mobile and desktop applications**. Enter "https://www.getpostman.com/oauth2/callback" in the **Custom redirect URIs** section. Select the **Configure** button to save the setting.
 
 [ ![Screenshot of configure other services.](media/register-application-five-bravo.png) ](media/register-application-five-bravo.png#lightbox)
 
 ## Certificates & secrets
 
-Select **Certificates & Secrets** and select **New Client Secret**. Select **Recommended 6 months** in the **Expires** field. This new secret will be valid for six months. You can also choose different values such as:
- 
-* 03 months
-* 12 months
-* 24 months
-* Custom start date and end date.
+Select **Certificates & Secrets** and select **New Client Secret**.
+
+Add and then copy the secret value.
 
 >[!NOTE]
 >It is important that you save the secret value, not the secret ID.
@@ -68,7 +63,7 @@ Optionally, you can upload a certificate (public key) and use the Certificate ID
 
 ## API permissions
 
-The following steps are required for the DICOM service, but optional for the FHIR service. In addition, user access permissions or role assignments for the Azure Health Data Services are managed through RBAC. For more details, visit [Configure Azure RBAC for Azure Health Data Services](./../configure-azure-rbac.md).
+The following steps are required for the DICOM service. In addition, user access permissions or role assignments for the Azure Health Data Services are managed through RBAC. For more details, visit [Configure Azure RBAC for Azure Health Data Services](./../configure-azure-rbac.md).
 
 1. Select the **API permissions** blade.
 
@@ -80,13 +75,13 @@ The following steps are required for the DICOM service, but optional for the FHI
 
    [ ![Search API permissions](./media/dicom-search-apis-permissions.png) ](./media/dicom-search-apis-permissions.png#lightbox)
 
-   The search result for Azure Healthcare APIs will only return if you've already deployed the DICOM service in the workspace.
+   The search result for Azure API for DICOM will only return if you've already deployed the DICOM service in the workspace.
 
    If you're referencing a different resource application, select your DICOM API Resource Application Registration that you created previously under **APIs my organization**.
 
-3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **user_impersonation**, and then select **Add permissions**.
+3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **Dicom.ReadWrite**, and then select **Add permissions**.
 
-   [ ![Select permissions scopes.](./media/dicom-select-scopes.png) ](./media/dicom-select-scopes.png#lightbox)
+   [ ![Select permissions scopes.](./media/dicom-select-scopes-new.png) ](./media/dicom-select-scopes.png#lightbox)
 
 
 Your application registration is now complete.
