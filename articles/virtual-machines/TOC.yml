@@ -18,6 +18,9 @@
     - name: ARM template
       displayName: Resource Manager
       href: ./linux/quick-create-template.md
+    - name: Terraform
+      displayName: Terraform
+      href: ./linux/quick-create-terraform.md
   - name: Create a Windows VM
     items:
     - name: CLI
