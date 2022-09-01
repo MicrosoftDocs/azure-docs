@@ -22,18 +22,18 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ### Updated articles
 
+- [Access Azure AD protected resources from an app in Google Cloud (preview)](workload-identity-federation-create-trust-gcp.md)
+- [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
+- [Configure an app's publisher domain](howto-configure-publisher-domain.md)
+- [Configure an app to trust an external identity provider](workload-identity-federation-create-trust.md)
+- [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
+- [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
 - [Microsoft identity platform UserInfo endpoint](userinfo.md)
 - [OpenID Connect on the Microsoft identity platform](v2-protocols-oidc.md)
+- [Publisher verification](publisher-verification-overview.md)
 - [Protected web API: Code configuration](scenario-protected-web-api-app-configuration.md)
 - [Provide optional claims to your app](active-directory-optional-claims.md)
 - [Using directory extension attributes in claims](active-directory-schema-extensions.md)
-- [Configure an app's publisher domain](howto-configure-publisher-domain.md)
-- [Publisher verification](publisher-verification-overview.md)
-- [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
-- [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
-- [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
-- [Access Azure AD protected resources from an app in Google Cloud (preview)](workload-identity-federation-create-trust-gcp.md)
-- [Configure an app to trust an external identity provider](workload-identity-federation-create-trust.md)
 
 ## July 2022
 
