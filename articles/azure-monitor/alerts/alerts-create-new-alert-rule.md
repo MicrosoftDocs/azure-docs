@@ -53,7 +53,7 @@ And then defining these elements for the resulting alert actions using:
     |       |Activity Log – Policy|The service that provides the 'Policy' activity log events.         |
     |       |Activity Log – Autoscale|The service that provides the ‘Autoscale’ activity log events.         |
     |       |Activity Log – Security|The service that provides the ‘Security’ activity log events.         |
-    |Resource health|Resource Health|The service that provides the resource-level health status. |
+    |Resource health|Resource health|The service that provides the resource-level health status. |
     |Service health|Service health|The service that provides the subscription-level health status.         |
 
  
