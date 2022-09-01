@@ -17,9 +17,10 @@ The IoT Central REST API lets you develop client applications that integrate wit
 - List jobs and view job details in your application.
 - Create jobs in your application.
 - Stop, resume, and rerun jobs in your application.
+- Schedule Jobs and view scheduled job details in your application.
 
 > [!IMPORTANT]
-> The jobs API is currently in preview. All The REST API calls described in this article should include `?api-version=1.2-preview`.
+> The jobs API is currently in preview. All The REST API calls described in this article should include `?api-version=2022-06-30-preview`.
 
 This article describes how to use the `/jobs/{job_id}` API to control devices in bulk. You can also control devices individually.
 
@@ -91,7 +92,7 @@ The following table describes the fields in the previous JSON snippet:
 Use the following request to retrieve the list of the jobs in your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/jobs?api-version=1.2-preview
+GET https://{your app subdomain}.azureiotcentral.com/api/jobs?api-version=2022-06-30-preview
 ```
 
 The response to this request looks like the following example:
@@ -160,7 +161,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve an individual job by ID:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004?api-version=1.2-preview
+GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004?api-version=2022-06-30-preview
 ```
 
 The response to this request looks like the following example:
@@ -195,7 +196,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve the details of the devices in a job:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004/devices?api-version=1.2-preview
+GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004/devices?api-version=2022-06-30-preview
 ```
 
 The response to this request looks like the following example:
@@ -228,7 +229,7 @@ The response to this request looks like the following example:
 Use the following request to create a job:
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006?api-version=1.2-preview
+PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006?api-version=2022-06-30-preview
 ```
 
 The `group` field in the request body identifies a device group in your IoT Central application. A job uses a device group to identify the set of devices the job operates on.
@@ -237,7 +238,7 @@ The `group` field in the request body identifies a device group in your IoT Cent
 If you don't already have a suitable device group, you can create one with REST API call. The following example creates a device group with `group1` as the group ID:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceGroups/group1?api-version=1.2-preview
+PUT https://{subdomain}.{baseDomain}/api/deviceGroups/group1?api-version=2022-06-30-preview
 ```
 
 When you create a device group, you define a `filter` that selects the devices to include in the group. A filter identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" device template where the `provisioned` property is `true`.
@@ -323,7 +324,7 @@ The response to this request looks like the following example. The initial job s
 Use the following request to stop a running job:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/stop?api-version=1.2-preview
+POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/stop?api-version=2022-06-30-preview
 ```
 
 If the request succeeds, it returns a `204 - No Content` response.
@@ -331,7 +332,7 @@ If the request succeeds, it returns a `204 - No Content` response.
 Use the following request to resume a stopped job:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/resume?api-version=1.2-preview
+POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/resume?api-version=2022-06-30-preview
 ```
 
 If the request succeeds, it returns a `204 - No Content` response.
@@ -339,7 +340,207 @@ If the request succeeds, it returns a `204 - No Content` response.
 Use the following command to rerun an existing job on any failed devices:
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/rerun/rerun-001?api-version=1.2-preview
+PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/rerun/rerun-001?api-version=2022-06-30-preview
+```
+
+## Create a scheduled job
+
+Use the following request to create a scheduled job
+
+```http
+PUT https://{your app subdomain}.azureiotcentral.com/api/scheduledJobs/scheduled-Job-001?api-version=2022-06-30-preview
+```
+
+The following example shows a request body that creates a scheduled job.
+
+```json
+{
+    "displayName": "New Scheduled Job",
+    "group": "6fecf96f-a26c-49ed-8076-6960f8efba31",
+    "data": [
+        {
+            "type": "cloudProperty",
+            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "path": "Company",
+            "value": "Contoso"
+        }
+    ],
+    "schedule": {
+        "start": "2022-10-24T22:29:01Z",
+        "recurrence": "daily"
+    }
+}
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+    "id": "scheduled-Job-001",
+    "displayName": "New Scheduled Job",
+    "description": "",
+    "group": "6fecf96f-a26c-49ed-8076-6960f8efba31",
+    "data": [
+        {
+            "type": "cloudProperty",
+            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "path": "Company",
+            "value": "Contoso"
+        }
+    ],
+    "schedule": {
+        "start": "2022-10-24T22:29:01Z",
+        "recurrence": "daily"
+    },
+    "enabled": false,
+    "completed": false,
+    "etag": "\"88003877-0000-0700-0000-631020670000\""
+}
+```
+
+## Get a scheduled job
+
+Use the following request to get a scheduled job
+
+```http
+GET https://{your app subdomain}.azureiotcentral.com/api/scheduledJobs/scheduled-Job-001?api-version=2022-06-30-preview
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+    "id": "scheduled-Job-001",
+    "displayName": "New Scheduled Job",
+    "description": "",
+    "group": "6fecf96f-a26c-49ed-8076-6960f8efba31",
+    "data": [
+        {
+            "type": "cloudProperty",
+            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "path": "Company",
+            "value": "Contoso"
+        }
+    ],
+    "schedule": {
+        "start": "2022-10-24T22:29:01Z",
+        "recurrence": "daily"
+    },
+    "enabled": false,
+    "completed": false,
+    "etag": "\"88003877-0000-0700-0000-631020670000\""
+}
+```
+
+## List Scheduled Jobs
+
+Use the following request to get a list of scheduled jobs
+
+```http
+GET https://{your app subdomain}.azureiotcentral.com/api/scheduledJobs?api-version=2022-06-30-preview
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+    "value": [
+        {
+            "id": "scheduled-Job-001",
+            "displayName": "New Scheduled Job",
+            "description": "",
+            "group": "6fecf96f-a26c-49ed-8076-6960f8efba31",
+            "data": [
+                {
+                    "type": "cloudProperty",
+                    "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+                    "path": "Company",
+                    "value": "Contoso"
+                }
+            ],
+            "schedule": {
+                "start": "2022-10-24T22:29:01Z",
+                "recurrence": "daily"
+            },
+            "enabled": false,
+            "completed": false,
+            "etag": "\"88003877-0000-0700-0000-631020670000\""
+        },
+        {
+            "id": "46480dff-dc22-4542-924e-a5d45bf347aa",
+            "displayName": "test",
+            "description": "",
+            "group": "cdd04344-bb55-425b-a55a-954d68383289",
+            "data": [
+                {
+                    "type": "cloudProperty",
+                    "target": "dtmi:rigado:evxfmi0xim",
+                    "path": "test",
+                    "value": 2
+                }
+            ],
+            "schedule": {
+                "start": "2022-09-01T03:00:00.000Z"
+            },
+            "enabled": true,
+            "completed": true,
+            "etag": "\"88000f76-0000-0700-0000-631020310000\""
+        }
+    ]
+}
+```
+
+## Update a scheduled job
+
+Use the following request to update a scheduled job
+
+```http
+PATCH https://{your app subdomain}.azureiotcentral.com/api/scheduledJobs/scheduled-Job-001?api-version=2022-06-30-preview
+```
+
+The following example shows a request body that updates a scheduled job.
+
+```json
+{
+  "schedule": {
+    "start": "2022-10-24T22:29:01Z",
+    "recurrence": "weekly"
+  }
+}
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+    "id": "scheduled-Job-001",
+    "displayName": "New Scheduled Job",
+    "description": "",
+    "group": "6fecf96f-a26c-49ed-8076-6960f8efba31",
+    "data": [
+        {
+            "type": "cloudProperty",
+            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "path": "Company",
+            "value": "Contoso"
+        }
+    ],
+    "schedule": {
+        "start": "2022-10-24T22:29:01Z",
+        "recurrence": "weekly"
+    },
+    "enabled": false,
+    "completed": false,
+    "etag": "\"88003877-0000-0700-0000-631020670000\""
+}
+```
+
+## Delete a scheduled job
+
+Use the following request to delete a scheduled job
+
+```http
+GET https://{your app subdomain}.azureiotcentral.com/api/scheduledJobs/scheduled-Job-001?api-version=2022-06-30-preview
 ```
 
 ## Next steps
