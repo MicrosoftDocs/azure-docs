@@ -121,11 +121,11 @@ If you're working on a Standard logic app workflow, you can [upload your schema 
 
 1. On the workflow designer, under the step where you want to add the Flat File action, select **New step**.
 
-1. Under the **Choose an operation** search box, select **All**. In the search box, enter **flat file**.
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **flat file**.
 
 1. From the actions list, select the action named **Flat File Encoding**.
 
-   ![Screenshot showing Azure portal and Consumption workflow designer with `flat file` in search box and `Flat File Encoding` action selected.](./media/logic-apps-enterprise-integration-flatfile/flat-file-encoding-consumption.png)
+   ![Screenshot showing Azure portal and Consumption workflow designer with "flat file" in search box and "Flat File Encoding" action selected.](./media/logic-apps-enterprise-integration-flatfile/flat-file-encoding-consumption.png)
 
 1. In the action's **Content** property, provide the output from the trigger or a previous action that you want to encoding by following these steps:
 
@@ -137,67 +137,75 @@ If you're working on a Standard logic app workflow, you can [upload your schema 
 
    ![Screenshot showing the Consumption designer and the "Content" property with dynamic content list and content selected for encoding.](./media/logic-apps-enterprise-integration-flatfile/select-content-to-encode-consumption.png)
 
-   > [!TIP]
+   > [!NOTE]
+   >
    > If the **Body** property doesn't appear in the dynamic content list, 
    > select **See more** next to the **When a HTTP request is received** section label.
-   > You can also directly enter the content to decode in the **Content** box.
+   > You can also directly enter the content to encode in the **Content** box.
 
 1. From the **Schema Name** list, select your schema.
 
-   ![Screenshot showing the Consumption designer and the opened "Schema Name" list with selected schema to use for encoding.](./media/logic-apps-enterprise-integration-flatfile/select-encoding-schema-consumption.png)
+   ![Screenshot showing Consumption workflow designer and the opened "Schema Name" list with selected schema for encoding.](./media/logic-apps-enterprise-integration-flatfile/select-encoding-schema-consumption.png)
 
    > [!NOTE]
    >
    > If the schema list is empty, either your logic app resource isn't linked to your 
    > integration account or your integration account doesn't contain any schema files.
 
+   When you're done, your action looks similar to the following:
+
+   ![Screenshot showing Consumption workflow with finished "Flat File Encoding" action.](./media/logic-apps-enterprise-integration-flatfile/finished-flat-file-encoding-action-consumption.png)
+
+1. To add other optional parameters to the action, select those parameters from the **Add new parameter** list.
+
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
+   | **Mode of empty node generation** | **ForcedDisabled**, **HonorSchemaNodeProperty**, **ForcedEnabled** | The mode to use for empty node generation in flat file encoding |
+   | **XML Normalization** | **Yes**, **No** | The setting to enable or disable XML normalization in flat file encoding |
+
 1. Save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer, if not already open.
 
-1. If you have a blank workflow that doesn't have a trigger, add any trigger you want. Otherwise, continue to the next step.
+1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Flat File operations don't have any triggers available.
 
-   This example uses the Request trigger, which is named **When a HTTP request is received**, and handles inbound requests from outside the logic app workflow. To add the Request trigger, follow these steps:
+   This example continues with the Request trigger named **When a HTTP request is received**.
 
-   1. On the designer, select **Choose an operation**. In the **Choose an operation** pane that opens, under the search box, select **Built-in**.
+1. On the designer, under the step where you want to add the Flat File action, select the plus sign (**+**), and then select **Add an action**.
 
-   1. In the search box, enter `HTTP request`. From the triggers list, select the Request trigger named **When an HTTP request is received**.
+1. On the **Add an action** pane that appears, under the search box, select **Built-in**.
 
-     > [!TIP]
-     > Providing a JSON schema is optional. If you have a sample payload from the inbound request, 
-     > select **Use sample payload to generate schema**, enter the sample payload, and select **Done**. 
-     > The schema appears in the **Request Body JSON Schema** box.
+1. In the search box, enter **flat file**. From the actions list, select the action named **Flat File Encoding**.
 
-1. Under the step in your workflow where you want to add the **Flat File Encoding** action, choose an option:
+   ![Screenshot showing Azure portal and Standard workflow designer with "flat file" in search box and the "Flat File Encoding" action selected.](./media/logic-apps-enterprise-integration-flatfile/flat-file-encoding-standard.png)
 
-   * To add the **Flat File Encoding** action at the end of your workflow, select the plus sign (**+**), and then select **Add an action**.
+1. In the action's **Content** property, provide the output from the trigger or a previous action that you want to encoding by following these steps:
 
-   * To add the **Flat File Encoding** action between existing steps, select the plus sign (**+**) that appears between those steps, and then select **Insert a new step**.
+   1. Click inside the **Content** box so that the dynamic content list appears.
 
-1. In the **Choose an operation** pane that opens, under the search box, select **Built-in**.
+   1. From the dynamic content list, select the flat file content that you want to encode.
+   
+      For this example, from the dynamic content list, under **When a HTTP request is received**, select the **Body** token, which represents the body content output from the trigger.
 
-1. In the search box, enter `flat file`. From the actions list, select the action named **Flat File Encoding**.
+   ![Screenshot showing Standard workflow designer and the "Content" property with dynamic content list and content selected for encoding.](./media/logic-apps-enterprise-integration-flatfile/select-content-to-encode-standard.png)
 
-   ![Screenshot showing the Azure portal and Standard workflow designer with "flat file" in search box and the "Flat File Encoding" action selected.](./media/logic-apps-enterprise-integration-flatfile/flat-file-encoding-standard.png)
+1. From the **Source** list, select either **LogicApp** or **IntegrationAccount** as your schema source.
 
-1. Click inside the **Content** box so that the dynamic content list appears. From the list, in the **When a HTTP request is received** section, select the **Body** property, which contains the request body output from the trigger and the content to encode.
+   This example continues by selecting **IntegrationAccount**.
 
-   ![Screenshot showing the Standard workflow designer and the "Content" property with dynamic content list and content selected for encoding.](./media/logic-apps-enterprise-integration-flatfile/select-content-to-encode-standard.png)
-
-   > [!TIP]
-   > If the **Body** property doesn't appear in the dynamic content list, 
-   > select **See more** next to the **When a HTTP request is received** section label.
-   > You can also directly enter the content to encode in the **Content** box.
+   ![Screenshot showing Standard workflow with "Source" property and "IntegrationAccount" selected.](./media/logic-apps-enterprise-integration-flatfile/select-logic-app-integration-account.png)
 
 1. From the **Name** list, select the schema that you previously uploaded to your logic app resource for encoding, for example:
 
    ![Screenshot showing the Standard workflow designer and the opened "Name" list with selected schema to use for encoding.](./media/logic-apps-enterprise-integration-flatfile/select-encoding-schema-standard.png)
 
    > [!NOTE]
-   > If no schema appears in the list, your Standard logic app resource doesn't contain any schema files to use for encoding. 
-   > Learn how to [upload the schemma that you want to use to your Standard logic app resource](logic-apps-enterprise-integration-schemas.md).
+   >
+   > If the schema list is empty, either your logic app resource isn't linked to your 
+   > integration account, your integration account doesn't contain any schema files, 
+   > or your logic app resource doesn't contain any schema files.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 

@@ -238,6 +238,12 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
       ![Screenshot showing Standard workflow, Liquid action's "Content" property with dynamic content list opened, and "Body" token selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-body-standard.png)
 
+   > [!NOTE]
+   >
+   > If the **Body** property doesn't appear in the dynamic content list, 
+   > select **See more** next to the **When a HTTP request is received** section label.
+   > You can also directly enter the content to decode in the **Content** box.
+
 1. From the **Source** list, select either **LogicApp** or **IntegrationAccount** as your Liquid template source.
 
    This example continues by selecting **IntegrationAccount**.
