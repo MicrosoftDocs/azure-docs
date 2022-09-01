@@ -26,7 +26,7 @@ You can use the [install-peerdeps](https://www.npmjs.com/package/install-peerdep
 npx install-peerdeps @fluidframework/azure-client
 ```
 
-> [!IMPORTANT]
+> [!CAUTION]
 > Now that Azure Fluid Relay is generally available, we no longer support any pre-release version of **@fluidframework/azure-client** and **fluid-framework**.
 > You must upgrade to the latest 1.0 version per the table below. With this upgrade, you’ll make use of our new multi-region routing capability where
 > Azure Fluid Relay will host your session closer to your end users to improve customer experience. In the latest package, you will need to update your
