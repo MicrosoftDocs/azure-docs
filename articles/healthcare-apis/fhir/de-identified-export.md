@@ -61,7 +61,7 @@ It's recommended that you host the export configuration files on Azure Container
 4. Register the ACR servers in the FHIR service. You can use the portal to open "Artifacts" blade under "Transform and transfer data" section to add the ACR server.
 5. Optionally configure ACR firewall for secure access.
 
-## Using $export command for the de-identified data
+## Using the `$export` endpoint for de-identifying data
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfigCollectionReference=<<ACR image reference>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 > [!Note] 
 > Right now the FHIR service only supports de-identified export at the system level (`$export`).
