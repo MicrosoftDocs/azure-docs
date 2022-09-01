@@ -3,7 +3,7 @@ title: How to use raw HTTPS with X.509 certificates with Azure IoT Hub Device Pr
 description: This article shows how to use X.509 certificates over HTTPS in your Device Provisioning Service (DPS) instance
 author: kgremban
 ms.author: kgremban
-ms.date: 08/19/2022
+ms.date: 09/01/2022
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
@@ -14,9 +14,7 @@ manager: lizross
 
 In this how-to article, you'll provision a device using x.509 certificates over HTTPS without using a an Azure IoT DPS device SDK. Most languages provide libraries to send HTTP requests, but, rather than focus on a specific language, in this article, you'll use the [cURL](https://en.wikipedia.org/wiki/CURL) command-line tool to send and receive over HTTPS.
 
-For this article, you can use either an [individual enrollment](concepts-service.md#individual-enrollment) or an [enrollment group](concepts-service.md#enrollment-group) to provision through DPS. After installing the prerequisites, follow the instructions in [Create a device certificate](#create-a-device-certificate) to create either a self-signed device certificate or a certificate chain. Then complete either [Use individual enrollment](#use-an-individual-enrollment) or [Use an enrollment group](#use-an-enrollment-group) before continuing on to to register (provision) your device with DPS.
-
-You can follow the steps in this article on either a Linux or a Windows machine. If you're running on Windows Subsystem for Linux (WSL) or running on a Linux machine, you can enter all commands on your local system in a Bash prompt. If you're running on Windows, enter all commands on your local system in a GitBash prompt.
+You can follow the steps in this article on either a Linux or a Windows machine. If you're running on Windows Subsystem for Linux (WSL) or running on a Linux machine, you can enter all commands on your local system in a Bash prompt. If you're running on Windows, enter all commands on your local system in a GitBash prompt. There are multiple paths through this article depending on the type of enrollment entry and X.509 certificate(s) you choose to use. After installing the prerequisites, be sure to read the [Overview](#overview) before proceeding.
 
 ## Prerequisites
 
@@ -34,11 +32,34 @@ You can follow the steps in this article on either a Linux or a Windows machine.
 
 * If you're running in a Linux or a WSL environment, open a Bash prompt to run commands locally. If you're running in a Windows environment, open a GitBash prompt.
 
+## Overview
+
+There are three scenarios covered in this article and the initial steps you'll perform will be different each. If you want to:
+
+* Provision through an [individual enrollment](concepts-service.md#individual-enrollment) using a self-signed certificate, follow the steps in these sections:
+
+    1. [Use a self-signed certificate](#use-a-self-signed-certificate) to create a self-signed certificate.
+    1. [Use an individual enrollment](#use-an-individual-enrollment) to create an individual enrollment.
+
+* Provision through an individual enrollment using a certificate chain, follow the steps in these sections:
+
+    1. [Use a certificate chain](#use-a-certificate-chain) to create a certificate chain.
+    1. [Use an individual enrollment](#use-an-individual-enrollment) to create an individual enrollment.
+    1. [Upload and verify a signing certificate](#upload-and-verify-a-signing-certificate) to upload and verify your root CA certificate.
+
+* Provision through an [enrollment group](concepts-service.md#enrollment-group), follow the steps in these sections:
+
+    1. [Use a certificate chain](#use-a-certificate-chain) to create a certificate chain.
+    1. [Use an enrollment group](#use-an-enrollment-group) to create an enrollment group.
+    1. [Upload and verify a signing certificate](#upload-and-verify-a-signing-certificate) to upload and verify your root CA certificate.
+
+Once you've completed the steps for your chosen scenario, you can continue on to [Register your device](#register-your-device) and [Send a telemetry message](#send-a-telemetry-message).
+
 ## Create a device certificate
 
 For this article you'll use an X.509 certificate to authenticate with DPS using either an individual enrollment or an enrollment group.
 
-If you're using an individual enrollment, you have the option to use a self-signed X.509 certificate or a [certificate chain]() comprised of the device certificate plus one or more signing certificates. If you're using an enrollment group, you must use a certificate chain.  
+If you're using an individual enrollment, you have the option to use a self-signed X.509 certificate or a [certificate chain](concepts-x509-attestation.md) composed of the device certificate plus one or more signing certificates. If you're using an enrollment group, you must use a certificate chain.  
 
 > [!IMPORTANT]
 >
@@ -249,7 +270,7 @@ Where:
 
 * `–i` tells curl to include protocol headers in output.  This is not strictly necessary, but it can be useful.
 
-* `X PUT` tells curl that this is an HTTP PUT command. Required for this API call.
+* `-X PUT` tells curl that this is an HTTP PUT command. Required for this API call.
 
 * `--cert [path_to_your_device_cert]` tells curl where to find your device's X.509 certificate. If your device private key is protected by a pass phrase, you can add the passphrase after the certificate path preceded by a colon, for example: `--cert my-device.pem:1234`.
 
@@ -371,7 +392,7 @@ curl -L -i -X POST --cert [path_to_your_device_cert] --key [path_to_your_device_
 
 Where:
 
-* `X POST` tells curl that this is an HTTP POST command. Required for this API call.
+* `-X POST` tells curl that this is an HTTP POST command. Required for this API call.
 
 * `--cert [path_to_your_device_cert]` tells curl where to find your device's X.509 certificate. If your device private key is protected by a pass phrase, you can add the passphrase after the certificate path preceded by a colon, for example: `--cert my-device.pem:1234`.
 

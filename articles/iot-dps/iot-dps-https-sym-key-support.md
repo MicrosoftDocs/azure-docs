@@ -176,17 +176,17 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
      return 'SharedAccessSignature ' + urlencode(rawtoken)
 
-uri = '0ne003D3F98/registrations/my-symkey-device'
-key = '18RQk/hOPJR9EbsJlk2j8WA6vWaj/yi+oaYg7zmxfQNdOyMSu+SJ8O7TSlZhDJCYmn4rzEiVKIzNiVAWjLxrGA=='
-expiry = 2592000
-policy='registration'
+uri = '[resource_uri]'
+key = '[device_key]'
+expiry = [expiry_in_seconds]
+policy= '[policy]'
 
 print(generate_sas_token(uri, key, policy, expiry))
 ```
 
 Where:
 
-* [resource_uri] is the URI of the resource you're trying to access with this token.  For DPS, it's of the form `[dps_id_scope]/registrations/[dps_registration_id]`, where `[dps_id_scope]` is the ID scope of your DPS instance, and `[dps_registration_id]` is the registration ID you used for your device.
+* `[resource_uri]` is the URI of the resource you're trying to access with this token.  For DPS, it's of the form `[dps_id_scope]/registrations/[dps_registration_id]`, where `[dps_id_scope]` is the ID scope of your DPS instance, and `[dps_registration_id]` is the registration ID you used for your device.
 
   You can get the ID scope for your DPS instance from the **Overview** pane of your instance in Azure portal, or you can use the [az iot dps show](/cli/azure/iot/dps#az-iot-dps-show) Azure CLI command (replace the placholders with the name of your resource group and DPS instance):
   
@@ -194,15 +194,15 @@ Where:
   az iot dps show -g {resource_group_name} --name {dps_name}
   ```
 
-* [device_key] is the device key associated with your device. This is either the one specified or auto-generated for you in an individual enrollment, or a derived key for a group enrollment.
+* `[device_key]` is the device key associated with your device. This is either the one specified or auto-generated for you in an individual enrollment, or a derived key for a group enrollment.
 
   * If you're using an individual enrollment, use the primary key you saved in [Use an individual enrollment](#use-an-individual-enrollment).
 
   * If you're using an enrollment group, use the derived device key you generated in [Use an enrollment group](#use-an-enrollment-group).
 
-* [expiry_in_seconds] the validity period of this SAS token in seconds.
+* `[expiry_in_seconds]` is the validity period of this SAS token in seconds.
 
-* [policy] the policy with which the key above is associated.  For DPS device registration, this is hard coded to 'registration'.
+* `[policy]` is the policy with which the device key is associated.  For DPS device registration, this is hard coded to 'registration'.
 
 An example set of inputs for a device called `my-symkey-device` with a validity period of 30 days might look like this (the ID scope has been modified).
 
@@ -241,7 +241,7 @@ Where:
 
 * `–i` tells curl to include protocol headers in output.  This is not strictly necessary, but it can be useful.
 
-* `X PUT` tells curl that this is an HTTP PUT command. Required for this API call.
+* `-X PUT` tells curl that this is an HTTP PUT command. Required for this API call.
 
 * `-H 'Content-Type: application/json'` tells DPS we are posting JSON content and must be 'application/json'.
 
