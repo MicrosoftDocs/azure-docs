@@ -25,6 +25,21 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## September 2022
+
+### Windows DNS Events via AMA connector (Preview)
+
+You can now use the new [Windows DNS Events via AMA connector](connect-dns-ama.md) to stream and filter events from your Windows Domain Name System (DNS) server logs. You can then dive deep into your data to protect your DNS servers from threats and attacks.
+
+The Azure Monitor Agent (AMA) and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace.
+
+Here are some benefits of using AMA for DNS log collection:
+
+- AMA is faster compared to the existing Log Analytics Agent (MMA/OMS). AMA handles up to 5000 events per second (EPS) compared to 2000 EPS with the existing agent.
+- AMA provides centralized configuration using Data Collection Rules (DCRs), and also supports multiple DCRs.
+- AMA supports transformation from the incoming stream into other data tables.
+- AMA supports basic and advanced filtering of the data. The data is filtered on the DNS server and before the data is uploaded, which saves time and resources.
+
 ## August 2022
 
 - [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)

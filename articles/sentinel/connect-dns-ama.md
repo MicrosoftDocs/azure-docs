@@ -1,6 +1,6 @@
 ---
 title: Stream and filter Windows DNS logs with the AMA connector 
-description: Use the AMA connector to upload and filter data from your Windows DNS server logs, so you can dive deep into your logs, and protect your DNS servers from threats and attacks.
+description: Use the AMA connector to upload and filter data from your Windows DNS server logs. You can then dive into your logs to protect your DNS servers from threats and attacks.
 author: limwainstein
 ms.topic: how-to
 ms.date: 01/05/2022
@@ -10,11 +10,9 @@ ms.author: lwainstein
 
 # Stream and filter data from Windows DNS servers with the AMA connector
 
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+This article describes how to use the AMA connector to stream and filter events from your Windows Domain Name System (DNS) server logs. You can then deeply analyze your data to protect your DNS servers from threats and attacks.
 
-This article describes how to use the AMA connector to stream and filter events from your Windows Domain Name System (DNS) server logs. You can then dive deep into your data to protect your DNS servers from threats and attacks.
-
-The Azure Monitor Agent (AMA) and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace. Learn about the [benefits of using the AMA connector](#windows-dns-events-via-ama-connector-benefits).
+The Azure Monitor Agent (AMA) and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace. [Learn about the connector](#windows-dns-events-via-ama-connector).
 
 > [!IMPORTANT]
 > The Windows DNS Events via AMA connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.   
@@ -23,7 +21,7 @@ The Azure Monitor Agent (AMA) and its DNS extension are installed on your Window
 
 ### Why it's important to monitor DNS activity
 
-DNS is a widely used protocol, which maps between host names and computer readable IP addresses. Because DNS was designed with many security gaps, it is highly targeted by malicious activity, making its logging an essential part of security monitoring. 
+DNS is a widely used protocol, which maps between host names and computer readable IP addresses. Because DNS wasn’t designed with security in mind, the service is highly targeted by malicious activity, making its logging an essential part of security monitoring. 
 
 Some well-known threats that target DNS servers include: 
 - DDoS attacks targeting DNS servers
@@ -35,7 +33,7 @@ Some well-known threats that target DNS servers include:
 - NXDOMAIN attack 
 - Phantom domain attacks
 
-### Windows DNS Events via AMA connector benefits
+### Windows DNS Events via AMA connector
 
 While some mechanisms were introduced to improve the overall security of this protocol, DNS servers are still a highly targeted service. Organizations can monitor DNS logs to better understand network activity, and to identify suspicious behavior or attacks targeting resources within the network. The Windows DNS Events via AMA connector provides this type of visibility. 
 
@@ -46,12 +44,6 @@ With the connector, you can:
 - Identify frequently queried domain names and talkative clients. 
 - Identify stale resource records. 
 - View all DNS related logs in one place. 
-
-Here are some benefits of using AMA for DNS log collection:
-- AMA is faster compared to the existing Log Analytics Agent (MMA/OMS). AMA handles up to 5000 events per second (EPS) compared to 2000 EPS with the existing agent. 
-- AMA provides centralized configuration using Data Collection Rules (DCRs), and also supports multiple DCRs. 
-- AMA supports transformation from the incoming stream into other data tables.
-- AMA supports basic and advanced filtering of the data. The data is filtered on the DNS server and before the data is uploaded, which saves time and resources.
 
 ### How collection works with the Windows DNS Events via AMA connector
 
@@ -65,13 +57,15 @@ Here are some benefits of using AMA for DNS log collection:
 
 ### Normalization using ASIM
 
-This connector is the first fully normalized connector, using [Advanced Security Information Model (ASIM) parsers](normalization.md). The connector streams events originated from the analytical logs into the normalized table named `ASimDnsActivityLogs`. This table acts as a translator, using one unified language, shared across all DNS connectors to come. To use the source-agnostic parsers that unify all parsers and ensure your analysis runs across all configured sources, there are ready made KQL functions.  
+This connector fully normalized using [Advanced Security Information Model (ASIM) parsers](normalization.md). The connector streams events originated from the analytical logs into the normalized table named `ASimDnsActivityLogs`. This table acts as a translator, using one unified language, shared across all DNS connectors to come. 
 
-The ASIM parser normalizes the native `ASimDnsActivityLogs` table to the ASIM DNS activity normalized schema. While the native table is ASIM compliant, the parser is needed to add capabilities, such as aliases, available only at query time. The views to use are `vimDnsNative` and `ASimDnsNative`. 
+For a source-agnostic parser that unifies all DNS data and ensures that your analysis runs across all configured sources, use the [ASIM DNS unifying parser](dns-normalization-schema.md#unifying-parsers) `_Im_Dns`.   
+
+The ASIM unifying parser complements the native `ASimDnsActivityLogs` table. While the native table is ASIM compliant, the parser is needed to add capabilities, such as aliases, available only at query time, and to combine `ASimDnsActivityLogs`  with other DNS data sources.   
 
 The [ASIM DNS schema](dns-normalization-schema.md) represents the DNS protocol activity, as logged in the Windows DNS server in the analytical logs. The schema is governed by official parameter lists and RFCs that define fields and values. 
 
-See the [list of Windows DNS server fields](#asim-normalized-dns-schema) translated into the normalized field names.
+See the [list of Windows DNS server fields](dns-ama-fields.md#asim-normalized-dns-schema) translated into the normalized field names.
 
 ## Set up the Windows DNS over AMA connector
 
@@ -87,7 +81,10 @@ Before you begin, verify that you have:
 - A defined Microsoft Sentinel workspace.
 - Windows Server 2012 R2 with auditing hotfix and later.
 - A Windows DNS Server with analytical logs enabled. 
-- For on premises Windows DNS servers: Azure Arc, so that the server can be represented as an Azure resource. 
+- To collect events from any system that is not an Azure virtual machine, the system must have [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) installed and enabled before you enable the Azure Monitor Agent-based connector. This includes:
+    - Windows servers installed on physical machines
+    - Windows servers installed on on-premises virtual machines
+    - Windows servers installed on virtual machines in non-Azure clouds 
 
 ### Set up the connector in the Microsoft Sentinel portal (UI)
 
@@ -114,10 +111,12 @@ The DCR name, subscription, and resource group are automatically set based on th
 
 #### Filter out undesired events
 
-While this step is not required, it can help reduce costs and simplify event triage. 
+When you use filters, you exclude the event that the filter specifies. In other words, Microsoft Sentinel doesn't collect data for the specified event. While this step is not required, it can help reduce costs and simplify event triage. 
+
+To create filters:
 
 1. On the connector page, in the **Configuration** area, select **Add data collection filters**. 
-1. Type a name for the filter and select the filter type. The filter type is a parameter that reduces the number of collected events. The parameters are normalized according to the DNS normalized schema. See the list of [available fields for filtering](#available-fields-for-filtering).
+1. Type a name for the filter and select the filter type. The filter type is a parameter that reduces the number of collected events. The parameters are normalized according to the DNS normalized schema. See the list of [available fields for filtering](dns-ama-fields.md#available-fields-for-filtering).
 
     :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-create-filter.png" alt-text="Screenshot of creating a filter for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-create-filter.png":::
 
@@ -215,7 +214,7 @@ Filters are based on a combination of numerous fields.
 - To create compound filters, use different fields with an AND relation.  
 - To combine different filters, use an OR relation between them. 
 
-Review the [available fields for filtering](#available-fields-for-filtering).
+Review the [available fields for filtering](#dns-ama-fields.md#available-fields-for-filtering).
 
 ### Advanced filter examples
 
@@ -315,37 +314,6 @@ To define different values in a single field, use the **OR** operator.
 
 ] 
 ```
-
-## Available fields for filtering
-
-This table shows the available fields. The field names are normalized using the [DNS schema](#asim-normalized-dns-schema).  
-
-|Field name  |Values  |Description  |
-|---------|---------|---------|
-|EventOriginalType   |Numbers between 256 and 280   |The Windows DNS eventID, which indicates the type of the DNS protocol event.    |
-|EventResultDetails   |• NOERROR<br>• FORMERR<br>• SERVFAIL<br>• NXDOMAIN<br>• NOTIMP<br>• REFUSED<br>• YXDOMAIN<br>• YXRRSET<br>• NXRRSET<br>• NOTAUTH<br>• NOTZONE<br>• DSOTYPENI<br>• BADVERS<br>• BADSIG<br>• BADKEY<br>• BADTIME<br>• BADALG<br>• BADTRUNC<br>• BADCOOKIE  |The operation's DNS result string as defined by the Internet Assigned Numbers Authority (IANA).  |
-|DvcIpAdrr  |IP addresses    |The IP address of the server reporting the event. This also includes geo-location and malicious IP information.    |
-|DnsQuery     |Domain names (FQDN)    |The string representing the domain name to be resolved. Can accept multiple values in a comma-separated list, and wildcards. For example:<br>`*.microsoft.com,google.com,facebook.com` |
-|DnsQueryTypeName      |• A<br>• NS<br>• MD<br>• MF<br>• CNAME<br>• SOA<br>• MB<br>• MG<br>• MR<br>• NULL<br>• WKS<br>• PTR<br>• HINFO<br>• MINFO<br>• MX<br>• TXT<br>• RP<br>• AFSDB<br>• X25<br>• ISDN<br>• RT<br>• NSAP<br>• NSAP-PTR<br>• SIG<br>• KEY<br>• PX<br>• GPOS<br>• AAAA<br>• LOC<br>• NXT<br>• EID<br>• NIMLOC<br>• SRV         |The requested DNS attribute. The DNS resource record type name as defined by IANA.  |
-
-## ASIM normalized DNS schema
-
-This table describes and translates Windows DNS server fields into the normalized field names as they appear in the [DNS normalization schema](dns-normalization-schema.md#schema-details).
-
-|Windows DNS field name  |Normalized field name  |Type  |Description |
-|---------|---------|---------|---------|
-|EventID     |EventOriginalType          |String         |The original event type or ID. |
-|RCODE     |EventResult          |String         |The outcome of the event (success, partial, failure, NA). |
-|RCODE parsed     |EventResultDetails          |String         |The DNS response code as defined by IANA.  |
-|InterfaceIP      |DvcIpAdrr          |String         |The IP address of the event reporting device or interface. |
-|AA     |DnsFlagsAuthoritative         |Integer         |Indicates whether the response from the server was authoritative. |
-|AD    |DnsFlagsAuthenticated          |Integer         |Indicates that the server verified all of the data in the answer and the authority of the response, according to the server policies. |
-|RQNAME      |DnsQuery          |String         |The domain needs to be resolved. |
-|QTYPE     |DnsQueryType         |Integer         |The DNS resource record type as defined by IANA. |
-|Port     |SrcPortNumber         |Integer         |Source port sending the query. |
-|Source      |SrcIpAddr         |IP address          |The IP address of the client sending the DNS request. For a recursive DNS request, this value is typically the reporting device's IP, in most cases, `127.0.0.1`. |
-|ElapsedTime |DnsNetworkDuration |Integer |The time it took to complete the DNS request. |
-|GUID |DnsSessionId |String |The DNS session identifier as reported by the reporting device. | 
 
 ## Next steps
 In this article, you learned how to set up the Windows DNS events via AMA connector to upload data and filter your Windows DNS logs. To learn more about Microsoft Sentinel, see the following articles:

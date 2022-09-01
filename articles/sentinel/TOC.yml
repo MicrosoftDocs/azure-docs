@@ -510,6 +510,8 @@
       href: cef-name-mapping.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
+    - name: DNS over AMA reference
+      href: dns-ama-fields.md
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks
