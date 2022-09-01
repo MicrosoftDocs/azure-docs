@@ -145,3 +145,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 ```csharp
 Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(createdRoomId);
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [.NET SDK reference](/dotnet/api/azure.communication.rooms) or [REST API reference](/rest/api/communication/rooms).

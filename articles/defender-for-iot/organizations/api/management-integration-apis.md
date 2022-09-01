@@ -56,6 +56,17 @@ This API returns data about all devices that were updated after the given timest
 |**u_count**    | Integer | Not nullable | The number of objects in the full result set, including all pages.       |
 |**u_devices**    |JSON array of device objects   |Not nullable  | An array of device objects, as defined by the [device (Get details for a device)](#device-get-details-for-a-device) API.   |
 
+**Response example**
+
+<!--TBD-->
+
+```rest
+{
+```
+
+# [Curl](#tab/devices-curl)
+
+<!--TBD-->
 ---
 
 ## connections (Get device connections)
@@ -105,6 +116,18 @@ This API returns data about all device connections that were updated after the g
 | **u_dest_device_name** | String | Not nullable | The name of the connection's destination device. |
 | **u_connection_type** | String | Not nullable | One of the following: `One Way`, `Two Way`, `Multicast` |
 
+
+**Response example**
+
+<!--TBD-->
+
+```rest
+{
+```
+
+# [Curl](#tab/devices-curl)
+
+<!--TBD-->
 ---
 
 ## device (Get details for a device)
@@ -153,7 +176,7 @@ This API returns data about a specific device per a given device ID.
 | **u_cm_device_url** |String |Not nullable  | The URL used to access the device on the on-premises management console. |
 | **u_device_urls** |JSON array of URL objects |Not nullable  | An array of device URL objects. For more information, see [device_url_object fields](#device_url_object-fields).|
 | **u_last_update**   | Long integer  |Not nullable | Defines the timestamp of the device's last update time. |
-| **u_firmwares**  |JSON array of firmware objects | Not nullable |An array of firmware objects.  For more information, see [firmware_object fields](#firmware_object-fields).|
+| **u_firmwares**  |JSON array of firmware objects | Not nullable | An array of firmware objects.  For more information, see [firmware_object fields](#firmware_object-fields).|
 
 ### ip_address_object fields
 
@@ -208,6 +231,18 @@ This API returns data about a specific device per a given device ID.
 | **u_version** | String | Nullable | The device's firmware version |
 | **u_additional_data** | String | Nullable | The device's firmware vendor-specific additional data |
 
+
+**Response example**
+
+<!--TBD-->
+
+```rest
+{
+```
+
+# [Curl](#tab/devices-curl)
+
+<!--TBD-->
 ---
 
 ## deleteddevices (Get deleted devices)
@@ -236,8 +271,19 @@ This API returns data about a specific device per a given device ID.
 |--|--|--|--|
 | **u_id** | Long integer | Not nullable | An ID of a deleted device |
 
----
 
+**Response example**
+
+<!--TBD-->
+
+```rest
+{
+```
+
+# [Curl](#tab/devices-curl)
+
+<!--TBD-->
+---
 ## sensors (Get sensors)
 
 ### GET
@@ -275,49 +321,107 @@ An array of the following fields:
 | **u_remote_upgrade_stage** | String |Nullable |Defines a current stage in a version update process as one of the following:  - **UPLOADING** <br>-  **PREPARE_TO_INSTALL** <br>- **STOPPING_PROCESSES** <br>- **BACKING_UP_DATA** <br>- **TAKING_SNAPSHOT** <br>- **UPDATING_CONFIGURATION** <br>- **UPDATING_DEPENDENCIES** <br>- **UPDATING_LIBRARIES** <br>- **PATCHING_DATABASES** <br>- **STARTING_PROCESSES** <br>- **VALIDATING_SYSTEM_SANITY** <br>- **VALIDATION_SUCCEEDED_REBOOTING** <br>- **SUCCESS** <br>- **FAILURE** <br>- **UPGRADE_STARTED** <br>- **STARTING_INSTALLATION** <br>- **INSTALLING_OPERATING_SYSTEM**|
 
 
+
+**Response example**
+
+<!--TBD-->
+
+```rest
+{
+```
+
+# [Curl](#tab/devices-curl)
+
+<!--TBD-->
 ---
-<!--we left off here-->
 ## devicecves (Get device CVEs)
-
-
-**URI**: `/devicecves/{timestamp}`
 
 ### GET
 
 # [Request](#tab/devicecves-request)
 
+**URI**: `/devicecves/{timestamp}`
+
+**URI parameters**:
+
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**timestamp**     |   The start time from which results are returned, in milliseconds from Epoch time and in UTC timezone.     | `/external/v3/integration/devicecves/timestamp=<epoch>` | Required |
 
 **Query parameters**:
 
-|Name  |Description  |
-|---------|---------|
-|**timestamp**     |   The start time from which results are returned.     |
-|---------|---------|
-|**page**     | Defines the number where the result page numbering begins. For example, `0`= first page is **0**. <br>Default = `0`|
-|**size**     |Defines the page sizing. Default = `50`         |
-|**sensorId** | Shows results from a specific sensor, as defined by the given sensor ID. |
-| **score** | Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**. |
-| **deviceIds** | A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456** |
+|Name  |Description  |Example  | Required / Optional |
+|---------|---------|---------|---------|
+|**page**     | Defines the number where the result page numbering begins. | `0`= first page is **0**. <br>Default = `0`| Optional |
+|**size**     |Defines the page sizing.         | Default = `50` | Optional |
+|**sensorId** | Shows results from a specific sensor, as defined by the given sensor ID. | `1` | Optional |
+| **score** | Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or greater than the given value. | Default = `0`. | Optional |
+| **deviceIds** | A comma-separated list of device IDs from which you want to show results. | For example: `1232,34,2,456` | Optional |
 
 
 
 # [Response](#tab/devicecves-response)
 
-**Type**: JSON
+**Type**: Count and JSON array of device CVEs
 
 **Response fields**:
 
-|Name  |Description  |
-|---------|---------|
-|**u_count** | Defines the number of objects in the full result set, including all pages. |
-| **u_id** | The device's internal ID. |
-| **u_name** | Defines the name of the device. |
-| **u_ip_address_objects** - array of **u_ip_address**, values, defining the devices IP addresses |
-| **u_mac_address_objects** | An array of **u_mac_address** values, listing the device's MAC addresses |
-| **u_last_activity**  | Defines the timestamp of the last time the device was active. |
-| **u_last_update**  | Defines the timestamp of the device's last update time. |
-|**u_cves** | An array of CVEs, including: <br>- **u_ip_address**: Defines the IP address of the specific interface, with the specific firmware where the CVE was detected. <br>- **u_cve_id**: Defines the CVE ID <br>- **u_score**: Defines the CVE risk score <br>- **u_attack_vector**: Defines the attack vector as one of the following: **ADJACENT_NETWORK**, **LOCAL**, **NETWORK** <br>- **u_description**: Defines the CVE description |
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+|**u_count** | Integer | Not nullable | The number of objects in the full result set, including all pages. |
+| **u_device_cves** | JSON array of device CVE objects | Not nullable | An array of device CVE objects.  For more information, see [Device CVE fields](#device-cve-fields) |
 
+### Device CVE fields
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_id** | Integer | Not nullable | The device's ID in the on-premises management console. |
+| **u_name** | String | Not nullable | The device's name.|
+| **u_ip_address_objects** | JSON array of IP address objects | Not nullable | Array of **u_ip_address**, values, defining the devices IP addresses <!--add xref> |
+| **u_mac_address_objects** | JSON array of MAC address objects | Not nullable | An array of **u_mac_address** values, listing the device's MAC addresses <!--add xref>  |
+| **u_last_activity**  | Integer | Not nullable | Timestamp of the last time traffic was seen from or to the device.  |
+| **u_last_update** | Integer | Not nullable | The timestamp of the last time a property was changed on the device, including both user changes and automated system changes. |
+|**u_cves** | JSON array of CVEs | Not nullable | An array of CVE details objects. For more information, see |
+
+> [!NOTE]
+> If Defender for IoT can confidently identify the MAC address of one of its IP addresses, the MAC address is returned in the **u_mac_address_objects** field directly.
+>
+> If Defender for IoT is not entirely confident about a MAC address, such as if the traffic has been routed via a router, the MAC address is returned in the **u_guessed_mac_address** field instead, as part of the JSON array of IP addresses.
+
+### IP address fields
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_ip_address** | String | Not nullable | One of the device's IP addresses |
+| **u_guessed_mac_address** | JSON array of MAC address objects | Not nullable | JSON array of MAC addresses. FOr more information, see [MAC address fields](#mac-address-fields).  |
+
+### MAC address fields
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+| **u_mac_address** | String | Not nullable | One of the device's MAC addresses |
+
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+|**u_ip_address** |String | Not nullable | IP address of the specific interface, with the specific firmware where the CVE was detected. |
+| **u_cve_id**| String| Not nullable | Defines the CVE ID |
+|**u_score** | String| Not nullable | Defines the CVE risk score |
+| **u_attack_vector**|String | Not nullable | Defines the attack vector as one of the following: **ADJACENT_NETWORK**, **LOCAL**, **NETWORK** |
+| **u_description**| String| Not nullable | Defines the CVE description|
+
+
+**Response example**
+
+<!--TBD-->
+
+```rest
+{
+```
+
+# [Curl](#tab/devices-curl)
+
+<!--TBD-->
 ---
 
 

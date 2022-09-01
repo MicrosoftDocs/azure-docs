@@ -745,6 +745,8 @@
       items:
       - name: Monitoring
         href: hyperscale/concepts-monitoring.md
+      - name: Performance tuning
+        href: hyperscale/concepts-performance-tuning.md
       - name: Audit logs
         href: hyperscale/concepts-audit.md
     - name: Columnar storage
@@ -791,7 +793,7 @@
         href: hyperscale/howto-scale-rebalance.md
       - name: Change compute quotas
         href: hyperscale/howto-compute-quota.md
-      - name: Manage read replicas
+      - name: Scale with read replicas
         href: hyperscale/howto-read-replicas-portal.md
     - name: Availability and resilience
       items:

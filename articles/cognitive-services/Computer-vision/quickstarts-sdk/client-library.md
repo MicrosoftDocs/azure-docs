@@ -12,7 +12,7 @@ ms.date: 06/13/2022
 ms.author: pafarley
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
-zone_pivot_groups: programming-languages-computer-vision
+zone_pivot_groups: programming-languages-ocr
 keywords: computer vision, computer vision service
 ---
 
@@ -29,12 +29,6 @@ Get started with the Computer Vision Read REST API or client libraries. The Read
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Java SDK quickstart](../includes/quickstarts-sdk/java-sdk.md)]
 
 ::: zone-end
 

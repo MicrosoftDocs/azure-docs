@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 06/29/2021
+  ms.date: 08/30/2022
   ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -71,7 +71,7 @@ landingContent:
           - text: Connect a VPN Gateway to Virtual WAN
             url: connect-virtual-network-gateway-vwan.md
   # Card
-  - title: Architecture
+  - title: Learn about Virtual WAN architecture
     linkLists:
       - linkListType: concept
         links:
@@ -85,6 +85,8 @@ landingContent:
             url: virtual-wan-global-transit-network-architecture.md
           - text: SD-WAN connectivity architecture
             url: sd-wan-connectivity-architecture.md
+          - text: Virtual WAN architecture optimized for department-specific requirements
+            url: /azure/architecture/example-scenario/infrastructure/performance-security-optimized-vwan
   # Card
   - title: Routing
     linkLists:

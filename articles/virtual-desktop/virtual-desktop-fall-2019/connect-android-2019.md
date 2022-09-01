@@ -28,7 +28,7 @@ To subscribe to a feed:
 
 1. In the Connection Center, tap **+**, and then tap **Remote Resource Feed**.
 2. Enter the feed URL into the **Feed URL** field. The feed URL can be either a URL or an email address.
-   - If you use a URL, use the one your admin gave you, normally <https://rdweb.wvd.microsoft.com>.
+   - If you use a URL, use the one your admin gave you, normally `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`.
    - To use email, enter your email address. The client will search for a URL associated with your email address if your admin configured the server that way.
 3. Tap **NEXT**.
 4. Provide your credentials when prompted.

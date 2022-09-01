@@ -127,7 +127,11 @@
     - name: Splunk
       href: tutorial-splunk.md
     - name: ServiceNow
-      href: tutorial-servicenow.md
+      items:
+      - name: ServiceNow integrations
+        href: tutorial-servicenow.md
+      - name: Legacy integration
+        href: integrations/service-now-legacy.md
   - name: System deployment
     items:
     - name: Manage plans on Azure subscriptions
@@ -289,9 +293,14 @@
     href: sensor-health-messages.md
   - name: Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
-  - name: Frequently asked questions - service
-    displayName: FAQ, regulation, internet, connection, hardware, appliances, ports, logs 
-    href: resources-frequently-asked-questions.md
+  - name: Frequently asked questions
+    items:
+    - name: General FAQ
+      href: faqs-general.md
+    - name: OT networks FAQ
+      href: faqs-ot.md
+    - name: Enterprise IoT networks FAQ
+      href: faqs-eiot.md
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
 - name: Resources
