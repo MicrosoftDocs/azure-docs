@@ -1,5 +1,5 @@
 ---
-title: Trial Playbook: Microsoft Entra Persmissions Management
+title: Trial Playbook - Microsoft Entra Persmissions Management
 description: How to get started with your Entra Permissions free trial
 services: active-directory
 author: jenniferf-skc
