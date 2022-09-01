@@ -99,7 +99,7 @@ With additional configuration, this sample supports connecting to an **Azure Act
             </intent-filter>
         </activity>
    ```
-5. Copy MSAL Android configuration from Azure portal and paste to `AzureCalling/app/src/main/res/raw/auth_config_single_account.json`. Include "account_mode" : "SINGLE"
+5. Copy MSAL Android configuration from Azure portal and paste to `AzureCalling/app/src/main/res/raw/auth_config_single_account.json`. Include "account_mode": "SINGLE"
    ```
       {
          "client_id": "",
@@ -121,7 +121,7 @@ With additional configuration, this sample supports connecting to an **Azure Act
 6. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `communicationTokenFetchUrl` to be the URL for your secure Authentication Endpoint.
 7. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `aadScopes` from `Azure Active Directory` `Expose an API` scopes
 8. Set value for `graphURL` in `AzureCalling/app/assets/appSettings.properties` as the Graph API endpoint to fetch user information. 
-9. Edit `AzureCalling/app/src/main/assets/appSettings.properties` and set the value for the key `tenant` to enable silent login so that the user does not have to be authenticate again and again while restarting the application.
+9. Edit `AzureCalling/app/src/main/assets/appSettings.properties` and set the value for the key `tenant` to enable silent login so that the user does not have to be authenticated again and again while restarting the application.
 
 ## Clean up resources
 
