@@ -20,19 +20,19 @@ Google Chrome and Microsoft Edge are both based on the [Chromium open source pro
 
 1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your account.
 
-1. Start recording the steps you take in the portal, using [Steps Recorder](https://support.microsoft.com/en-us/windows/record-steps-to-reproduce-a-problem-46582a9b-620f-2e36-00c9-04e25d784e47).
+1. Start recording the steps you take in the portal, using [Steps Recorder](https://support.microsoft.com/windows/record-steps-to-reproduce-a-problem-46582a9b-620f-2e36-00c9-04e25d784e47).
 
 1. In the portal, navigate to the step just prior to where the issue occurs.
 
 1. Press F12 to launch the developer tools. You can also launch the tools from the toolbar menu under **More tools** > **Developer tools**.
 
-1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
+1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro steps require going to more than one page:
 
     1. Select the **Network** tab, then select **Preserve log**.
 
           ![Screenshot that highlights the Preserve log option on the Network tab.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. Select the **Console** tab, select **Console settings**, then select **Preserve Log**. Select **Console settings** again to close the settings pane.
+    1. Select the **Console** tab, select **Console settings**, then select **Preserve Log**.
 
           ![Screenshot that highlights the Preserve log option on the Console tab.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
@@ -62,19 +62,19 @@ Google Chrome and Microsoft Edge are both based on the [Chromium open source pro
 
 ## Safari
 
-The following steps show how to use the developer tools in Safari on Mac. For more information, see [Safari Developer Tools overview](https://support.apple.com/guide/safari-developer/safari-developer-tools-overview-dev073038698/11.0/mac).
+The following steps show how to use the developer tools in Apple Safari on Mac. For more information, see [Safari Developer Tools overview](https://support.apple.com/guide/safari-developer/safari-developer-tools-overview-dev073038698/11.0/mac).
 
-1. Enable the developer tools in Apple Safari:
+1. Enable the developer tools in Safari:
 
-    1. Select **Safari**, then select **Preferences**.
+   1. Select **Safari**, then select **Preferences**.
 
-        ![Screenshot of Safari preferences](media/capture-browser-trace/safari-preferences.png)
+      ![Screenshot of Safari preferences](media/capture-browser-trace/safari-preferences.png)
 
-    1. Select the **Advanced** tab, then select **Show Develop menu in menu bar**.
+   1. Select the **Advanced** tab, then select **Show Develop menu in menu bar**.
 
-        ![Screenshot of Safari advanced preferences](media/capture-browser-trace/safari-show-develop-menu.png)
+      ![Screenshot of Safari advanced preferences](media/capture-browser-trace/safari-show-develop-menu.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in. 
+1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your account.
 
 1. Start recording the steps you take in the portal. For more information, see [How to record the screen on your Mac](https://support.apple.com/HT208721).
 
@@ -84,7 +84,7 @@ The following steps show how to use the developer tools in Safari on Mac. For mo
 
     ![Screenshot of "Show Web Inspector"](media/capture-browser-trace/safari-show-web-inspector.png)
 
-1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
+1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro steps require going to more than one page:
 
     1. Select the **Network** tab, then select **Preserve Log**.
 
@@ -118,23 +118,23 @@ The following steps show how to use the developer tools in Safari on Mac. For mo
 
 The following steps show how to use the developer tools in Firefox. For more information, see [Firefox Developer Tools](https://developer.mozilla.org/docs/Tools).
 
-1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in.
+1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your account.
 
-1. Start recording the steps you take in the portal. Use [Steps Recorder](https://support.microsoft.com/help/22878/windows-10-record-steps) on Windows, or see [How to record the screen on your Mac](https://support.apple.com/HT208721).
+1. Start recording the steps you take in the portal. Use [Steps Recorder](https://support.microsoft.com/windows/record-steps-to-reproduce-a-problem-46582a9b-620f-2e36-00c9-04e25d784e47) on Windows, or see [How to record the screen on your Mac](https://support.apple.com/HT208721).
 
 1. In the portal, navigate to the step just prior to where the issue occurs.
 
-1. Press F12 or select ![Screenshot of browser settings icon](media/capture-browser-trace/firefox-icon-settings.png) > **Web Developer** > **Toggle Tools**.
+1. Press F12 to launch the developer tools. You can also launch the tools from the toolbar menu under **More tools** > **Web developer tools**.
 
-1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
+1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro steps require going to more than one page:
 
-    1. Select the **Network** tab, then select **Persist Logs**.
+    1. Select the **Network** tab, select the **Settings** icon, and then select **Persist Logs**.
 
-          ![Screenshot that highlights the Persist Logs option.](media/capture-browser-trace/firefox-network-persist-logs.png)
+       :::image type="content" source="media/capture-browser-trace/firefox-network-persist-logs.png" alt-text="Screenshot of the Network setting for Persist Logs.":::
 
-    1. Select the **Console** tab, select **Console settings**, then select **Persist Logs**.
+    1. Select the **Console** tab, select the **Settings** icon, and then select **Persist Logs**.
 
-          ![Screenshot of "Persist Logs"](media/capture-browser-trace/firefox-console-persist-logs.png)
+       :::image type="content" source="media/capture-browser-trace/firefox-console-persist-logs.png" alt-text="Screenshot of the Console setting for Persist Logs.":::
 
 1. Select the **Network** tab, then select **Clear**.
 
