@@ -1,7 +1,7 @@
 ---
 title: Use Application Configuration Service for Tanzu with Azure Spring Apps Enterprise Tier
 titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to use Application Configuration Service for Tanzu with Azure Spring Apps Enterprise Tier.
+description: Learn how to use Application Configuration Service for Tanzu with Azure Spring Apps Enterprise Tier.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-apps
@@ -19,7 +19,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 This article shows you how to use Application Configuration Service for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
 
-[Application Configuration Service for Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+[Application Configuration Service for VMware Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native `ConfigMap` resources that are populated from properties defined in one or more Git repositories.
 
 With Application Configuration Service for Tanzu, you have a central place to manage external properties for applications across all environments.
 
@@ -28,7 +28,7 @@ With Application Configuration Service for Tanzu, you have a central place to ma
 - An already provisioned Azure Spring Apps Enterprise tier instance with Application Configuration Service for Tanzu enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
-  > To use Application Configuration Service for Tanzu, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
+  > To use Application Configuration Service for Tanzu, you must enable it when you provision your Azure Spring Apps service instance. You can't enable it after provisioning at this time.
 
 ## Manage Application Configuration Service for Tanzu settings
 
@@ -38,22 +38,22 @@ To manage the service settings, open the **Settings** section and add a new entr
 
 :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of where to add a repository." lightbox="media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png":::
 
-The properties for each entry are described in the following table.
+The following table describes properties for each entry.
 
-| Property    | Required? | Description                                                                                                                                                                                                                                                                                                                            |
-|-------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                                                            |
-| Patterns    | Yes       | Patterns to search in Git repositories. For each pattern, use a format like *{application}* or *{application}/{profile}* instead of *{application}-{profile}.yml*, and separate the patterns with commas. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section. |
-| URI         | Yes       | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`)                                                                                                                                                                                                  |
-| Label       | Yes       | The branch name to search in the Git repository.                                                                                                                                                                                                                                                                                       |
-| Search path | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                                                                        |
+| Property    | Required? | Description                                                                                                                                                                                                                                                                                                                  |
+|-------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                                                  |
+| Patterns    | Yes       | Patterns to search in Git repositories. For each pattern, use a format such as *{application}* or *{application}/{profile}* rather than *{application}-{profile}.yml*. Separate the patterns with commas. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section of this article. |
+| URI         | Yes       | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`)                                                                                                                                                                                        |
+| Label       | Yes       | The branch name to search in the Git repository.                                                                                                                                                                                                                                                                             |
+| Search path | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                                                              |
 
 ### Pattern
 
-Configuration will be pulled from Git backends using what is defined in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following list.
+Configuration will be pulled from Git backends using what is defined in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
 
-- *{application}* - The name of an application for which the configuration is being retrieved. The value `application` is considered the default application and includes configuration shared across multiple applications. Any other value specifies a specific application and will include properties for both the specified application and shared properties for the default application.
-- *{profile}* - Optional. The name of a profile for which properties may be retrieved. An empty value, or the value `default`, includes properties that are shared across any and all profiles. Non-default values include properties for the specified profile and properties for the default profile.
+- *{application}* - The name of an application for which the configuration is being retrieved. The value `application` is considered the default application and includes configuration information shared across multiple applications. Any other value refers to a specific application and includes properties for both the specific application and shared properties for the default application.
+- *{profile}* - Optional. The name of a profile for which properties may be retrieved. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
 
 ### Authentication
 
@@ -63,11 +63,11 @@ The following image shows the three types of repository authentication supported
 
 - Public repository.
 
-   You don't need extra Authentication configuration when using a public repository. Just select **Public** in the **Authentication** form.
+   You don't need extra Authentication configuration when you use a public repository. Select **Public** in the **Authentication** form.
 
 - Private repository with basic authentication.
 
-   The following table shows all the configurable properties used to set up a private Git repository with basic authentication.
+   The following table shows the configurable properties you can use to set up a private Git repository with basic authentication.
 
    | Property | Required? | Description                                 |
    |----------|-----------|---------------------------------------------|
@@ -76,14 +76,14 @@ The following image shows the three types of repository authentication supported
 
 - Private repository with SSH authentication.
 
-   The following table shows all configurable properties used to set up a private Git repository with SSH.
+   The following table shows the configurable properties you can use to set up a private Git repository with SSH.
 
    | Property                 | Required? | Description                                                                                                                                                                                                                         |
    |--------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | Private key              | Yes       | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
    | Host key                 | No        | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
    | Host key algorithm       | No        | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
-   | Strict host key checking | No        | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
+   | `Strict host key checking` | No        | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
 
 > [!NOTE]
 > Application Configuration Service for Tanzu doesn't support SHA-2 signatures yet and we are actively working on to support it in future release. Before that, please use SHA-1 signatures or basic auth instead.
