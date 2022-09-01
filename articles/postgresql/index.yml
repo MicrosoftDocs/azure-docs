@@ -80,17 +80,6 @@ landingContent:
         links:
           - text: Create App and database server in virtual network
             url: flexible-server/tutorial-webapp-server-vnet.md
-# Card
-  - title: Hyperscale (Citus) cluster
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Hyperscale (Citus)?
-            url: hyperscale/overview.md
-      - linkListType: quickstart
-        links:
-          - text: Quickstart
-            url: hyperscale/quickstart-create-portal.md
 
 # Card
   - title: Connect and query
