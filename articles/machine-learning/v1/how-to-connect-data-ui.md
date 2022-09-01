@@ -104,7 +104,7 @@ The following steps and animation show how to create a dataset in [Azure Machine
 
 To create a dataset in the studio:
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com/).
-1. Select **Datasets** in the **Assets** section of the left pane.
+1. Select **Data** in the **Assets** section of the left pane.
 1. Select **Create Dataset** to choose the source of your dataset. This source can be local files, a datastore, public URLs, or [Azure Open Datasets](/azure/open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset).
 1. Select **Tabular** or **File** for Dataset type.
 1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, and select what data files to use for your dataset.
@@ -124,7 +124,7 @@ To create a dataset in the studio:
 After you create your dataset, verify you can view the profile and preview in the studio with the following steps. 
 
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com/)
-1. Select **Datasets** in the **Assets** section of the left pane.
+1. Select **Data** in the **Assets** section of the left pane.
 1. Select the name of the dataset you want to view. 
 1. Select the **Explore** tab. 
 1. Select the **Preview** or **Profile** tab. 
