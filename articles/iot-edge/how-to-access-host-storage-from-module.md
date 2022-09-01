@@ -118,7 +118,7 @@ sudo chmod 700 <HostStoragePath>
 ```
 ::: moniker-end
 
-::: moniker range="<=iotedge-1.3"
+::: moniker range="<=iotedge-2020-11"
 
 In addition to storing data using Azure storage services or in your device's container storage, you can also dedicate storage on the host IoT Edge device itself for improved reliability, especially when operating offline.
 
