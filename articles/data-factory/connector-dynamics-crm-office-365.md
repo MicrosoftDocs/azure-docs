@@ -521,7 +521,7 @@ To write data into a lookup field using alternate key columns, follow this guida
 
     :::image type="content" source="./media/connector-dynamics-crm-office-365/select-alternate-key-columns.png" alt-text="Screenshot shows selecting alternate key columns.":::
 
-4. Once selected, the alternate key columns will automatically be displayed in below.
+4. Once selected, the alternate key columns will automatically display in below.
 
     :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping-alternate-key-1.png" alt-text="Screenshot shows mapping columns to lookup fields via alternate keys step 1.":::
 
@@ -530,7 +530,7 @@ To write data into a lookup field using alternate key columns, follow this guida
     :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping-alternate-key-2.png" alt-text="Screenshot shows mapping columns to lookup fields via alternate keys step 2.":::
 
 > [!Note]
-> You can only write data into Lookup field using alternate key columns in mapping data flows.
+> Currently this is only supported in mapping data flows.
 
 ## Mapping data flow properties
 
