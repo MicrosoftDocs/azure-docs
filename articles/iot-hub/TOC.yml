@@ -422,95 +422,96 @@
         - name: Configure file upload
           items:
             - name: Use Azure portal
-              displayName: 
+              displayName: file upload, storage, notifications, SAS TTL, authentication type
               href: iot-hub-configure-file-upload.md
             - name: Use Azure PowerShell
-              displayName:
+              displayName: file upload, storage, notifications, SAS TTL, authentication type, Azure Cloud Shell
               href: iot-hub-configure-file-upload-powershell.md
             - name: Use Azure CLI
-              displayName:
+              displayName: file upload, storage, notifications, SAS TTL, authentication type, az iot hub update
               href: iot-hub-configure-file-upload-cli.md
         - name: Upgrade an IoT hub
-          displayName:
+          displayName: scale up, size, tier
           href: iot-hub-upgrade.md
         - name: Configure IP filtering
-          displayName:
+          displayName: IP addresses, IP Filter grid, IP Filter rule, Event Hub compatible endpoint, REST
           href: iot-hub-ip-filtering.md
         - name: Manage public network access
-          displayName:
+          displayName: private endpoint, IP Filter, Event Hubs compatible endpoint, turn on network access, check IoT hub access, troubleshooting access
           href: iot-hub-public-network-access.md
         - name: Restrict outbound network access
-          displayName:
+          displayName: restrictOutboundNetworkAccess, FQDN, built-in endpoint
           href: iot-hub-restrict-outbound-network-access.md
         - name: Automatic device management at scale
           items:
             - name: Use Azure portal
-              displayName:
+              displayName: automatic device management, target condition, target content, target devices, metrics, tags, monitor, modify a configuration
               href: iot-hub-automatic-device-management.md
             - name: Use Azure CLI
-              displayName:
+              displayName: automatic device management, target condition, target content, target devices, metrics, tags, monitor, modify a configuration
               href: iot-hub-automatic-device-management-cli.md
         - name: Bulk import and export IoT devices
+          displayName: identity registry, virtual network support, RegistryManager, JobProperties, jobs, job limits, import behavior, import troubleshooting, bulk device provisioning, bulk deletion, SAS URI
           href: iot-hub-bulk-identity-mgmt.md
     - name: Monitor
       items:
         - name: Monitor IoT Hub
-          displayName:
+          displayName: Azure Monitor, monitoring data, collection, routing, metrics, logs, analyze metrics, connectivity errors, throttling errors, dead endpoints, connection events, Azure Event Hubs, alerts, per-device disconnects, Event Grid
           href: monitor-iot-hub.md
         - name: Monitoring data reference
-          displayName:
+          displayName: metrics, aggregations, direct methods, daily quota, telemetry, Event Grid, jobs, routing, twin query, metric dimensions, resource logs, file upload operations, distributed tracing, ingress logs, egress logs
           href: monitor-iot-hub-reference.md
         - name: Enable message tracing
-          displayName:
+          displayName: distributed tracing, trace context, Azure Monitor Logs, message flow, message latency, Azure IoT device SDK for C, tracing attributes, log analytics, update device twin, bulk update, microservice architecture
           href: iot-hub-distributed-tracing.md
         - name: IoT Hub service and resource health
-          displayName:
+          displayName: alerts, Azure Resource Health, Azure Service Health, Azure status page
           href: iot-hub-azure-service-health-integration.md
         - name: Order device connection state events from Event Grid
-          displayName:
+          displayName: Cosmos DB, database collection, stored procedure, LatestDeviceConnectionState, Logic App, trigger, logic app workflow, Logic Apps Designer, IoT Hub events
           href: iot-hub-how-to-order-connection-state-events.md
     - name: Deploy updates
       items:
         - name: Create a device update account
-          displayName:
+          displayName: access control roles, query accounts
           href: ../iot-hub-device-update/create-device-update-account.md
         - name: Import an update
-          displayName:
+          displayName: importing with APIs, storage container, upload blob
           href: ../iot-hub-device-update/import-update.md
         - name: Create an update group
-          displayName:
+          displayName: device update, tag, programmatically update Device Twin, Device Update Tag Format, jobs, Direct Twin Updates, device details
           href: ../iot-hub-device-update/create-update-group.md
         - name: Deploy an update
-          displayName:
+          displayName: device update, deployment details, compliance chart, monitor update deployment, retry update deployment
           href: ../iot-hub-device-update/deploy-update.md
     - name: Use real devices
       items:
         - name: Use an online simulator
-          displayName:
+          displayName: Raspberry Pi, assembly area, coding area, integrated console window, create IoT hub, register new device, Pi web simulator
           href: iot-hub-raspberry-pi-web-simulator-get-started.md
         - name: Use a physical device
-          displayName:
+          displayName: IoT scenarios, Node.js, C
           href: iot-hub-get-started-physical.md
           items:
             - name: Raspberry Pi with Node.js
-              displayName:
+              displayName: connect devices, BME280 sensor, collect sensor data, create IoT hub, register device, SSH, I2C, connect sensor to Pi
               href: iot-hub-raspberry-pi-kit-node-get-started.md
             - name: Raspberry Pi with C
-              displayName:
+              displayName: connect devices, BME280 sensor, collect sensor data, create IoT hub, register device, SSH, I2C, connect sensor to Pi
               href: iot-hub-raspberry-pi-kit-c-get-started.md
     - name: Extended IoT scenarios
       items:
         - name: Manage cloud device messaging with Azure IoT Tools for VS Code
-          displayName:
+          displayName: send and receive messages, device-to-cloud messages, cloud-to-device messages, sensor data
           href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
         - name: Data Visualization in a web app
-          displayName:
+          displayName: real-time sensor data, Node.js,  Azure Cloud Shell, consumer group, App Service, Web Sockets protocol, Azure App Service
           href: iot-hub-live-data-visualization-in-web-apps.md
         - name: Weather forecast using Azure Machine Learning
-          displayName:
+          displayName: sensor data, Machine Learning Studio, ML Studio, data science, weather prediction model, Azure AI Gallery, R-script module, temperature and humidity data, predictive web service, Stream Analytics job, Azure Storage Explorer
           href: iot-hub-weather-forecast-machine-learning.md
         - name: Device management with Azure IoT Tools for VS Code
-          displayName:
+          displayName: 
           href: iot-hub-device-management-iot-toolkit.md
         - name: Device management with IoT extension for Azure CLI
           displayName:
