@@ -52,6 +52,8 @@ To create a cache, follow these steps:
 
 ## Create a cache using Azure PowerShell
 
+To create a cache using PowerShell:
+
 ```azurepowershell
     New-AzRedisCache -ResourceGroupName "ResourceGroupName" -Name "CacheName" -Location "West US 2" -Size 250MB -Sku "Standard" -RedisVersion "6"
 ```
@@ -59,6 +61,8 @@ To create a cache, follow these steps:
 For more information on how to manage Azure Cache for Redis with Azure PowerShell, see [here](cache-how-to-manage-redis-cache-powershell.md)
 
 ## Create a cache using Azure CLI
+
+To create a cache using Azure CLI:
 
 ```azurecli-interactive
 az redis create --resource-group resourceGroupName --name cacheName --location westus2 --sku Standard --vm-size c0 --redisVersion="6"
@@ -126,9 +130,10 @@ At this time, Redis 6 doesn't support ACL, and geo-replication between a Redis 4
 
 You can upgrade your existing Redis 4 caches to Redis 6. Upgrading your cache instance is permanent and you cannot downgrade your Redis 6 caches to Redis 4 caches.
 
-For more information, see , see [here](#upgrade-an-existing-redis-4-cache-to-redis-6) for details.
+For more information, see [How to upgrade an existing Redis 4 cache to Redis 6](cache-how-to-upgrade.md).
 
 ## Next Steps
 
+- To learn more about upgrading your cache, see [Set Redis version for Azure Cache for Redis](cache-how-to-version.md)
 - To learn more about Redis 6 features, see [Diving Into Redis 6.0 by Redis](https://redis.com/blog/diving-into-redis-6/)
 - To learn more about Azure Cache for Redis features: [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)

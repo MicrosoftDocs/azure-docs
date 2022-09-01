@@ -1,8 +1,4 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-
 title: How to upgrade the Redis version of Azure Cache for Redis
 description: Learn how to upgrade the version of Azure Cache for Redis
 author: flang-msft
@@ -16,13 +12,25 @@ ms.custom: template-how-to
 
 # How to upgrade an existing Redis 4 cache to Redis 6
 
-Azure Cache for Redis supports upgrading the version of your Azure Cache for Redis from Redis 4 to Redis 6. Upgrading is permanent, and it might cause a brief connection issue. As a precautionary step, we recommend exporting the data from your existing Redis 4 cache and testing your client application with a Redis 6 cache in a lower environment before upgrading. 
+Azure Cache for Redis supports upgrading the version of your Azure Cache for Redis from Redis 4 to Redis 6. Upgrading is permanent, and it might cause a brief connection issue similar to regular monthly maintenance. As a precautionary step, we recommend exporting the data from your existing Redis 4 cache and testing your client application with a Redis 6 cache in a lower environment before upgrading.
 
 For more information, see [here](cache-how-to-import-export-data.md) for details on how to export.
 
 > [!NOTE]
 > Please note, upgrading is not supported on a cache with a geo-replication link. You must manually unlink your cache instances before upgrading.
 >
+
+## How to check the version of a cache
+
+You can check the Redis version of a cache by selecting **Properties** from the Resource menu of the Azure Cache for Redis.
+
+:::image type="content" source="includes/media/redis-cache-create/cache-redis-version.png" alt-text="Screenshot of properties selected in the Resource menu.":::
+
+### Limitations
+
+- Upgrading a basic cache will result in brief unavailability and data loss.
+- Upgrading on geo-replicated cache is not supported. You will have to manually unlink the cache instances before upgrading.
+- Upgrading a cache with a dependency on Cloud Services is not supported. You should migrate your cache instance to virtual machine scale set before upgrading.For more information, see [Caches with a dependency on Cloud Services (classic)](/azure/azure-cache-for-redis/cache-faq) for details on cloud services hosted caches.
 
 ## Upgrade using the Azure portal
 
@@ -34,11 +42,11 @@ For more information, see [here](cache-how-to-import-export-data.md) for details
 
 1. On the left side of the screen, select **Advanced settings**.
 
-1. If your cache instance is eligible to be upgraded, you should see the following blue banner. If you wish to proceed, select the text in the banner.
+1. If your cache instance is eligible to be upgraded, you should see the following blue banner. If you want to proceed, select the text in the banner.
 
     :::image type="content" source="media/cache-how-to-version/blue-banner-upgrade-cache.png" alt-text="Screenshot showing a Blue banner that says you can upgrade your Redis 6 cache with additional features and commands that enhance developer productivity and ease of use. Upgrading your cache instance cannot be reversed.":::
 
-1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes** if you would like to upgrade your cache instance.
+1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection issue. Select **Yes** if you would like to upgrade your cache instance.
 
     :::image type="content" source="media/cache-how-to-version/dialog-version-upgrade.png" alt-text="Screenshot showing a dialog with more information about upgrading your cache.":::
 
@@ -63,7 +71,6 @@ Set-AzRedisCache -Name "CacheName" -ResourceGroupName "ResourceGroupName" -Redis
 ```
 
 ## Next steps
-To learn more about Azure Cache for Redis versions, see 
-
+- To learn more about Azure Cache for Redis versions, see [How to upgrade an existing Redis 4 cache to Redis 6](cache-how-to-upgrade.md)
 - To learn more about Redis 6 features, see [Diving Into Redis 6.0 by Redis](https://redis.com/blog/diving-into-redis-6/)
 - To learn more about Azure Cache for Redis features: [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
