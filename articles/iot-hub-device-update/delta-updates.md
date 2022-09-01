@@ -20,7 +20,7 @@ Delta updates allow you to generate a small update that represents only the chan
   - Be a raw image (writeable to device)  
   - Compressed originally with gzip or Zstandard (zstd)
 - The delta generation process recompresses the target SWU update using zstd compression in order to produce an optimal delta. You'll import this recompressed target SWU update to the Device Update service along with the generated delta update file.
-- Zstd decompression must be enabled in SWUpdate on the device.  
+- Enable zstd decompression in SWUpdate on the device.  
   - Requires using [SWUpdate 2019.11](https://github.com/sbabic/swupdate/releases/tag/2019.11) or later.
 
 ## Prerequisites for using delta updates
@@ -103,14 +103,14 @@ The DiffGen tool is run with several arguments. All arguments are required, and 
 
 `DiffGenTool [source_archive] [target_archive] [output_path] [log_folder] [working_folder] [recompressed_target_archive]`  
 
-- The script recompress_tool.py will be run to create the file [recompressed_target_archive], which will then be used instead of [target_archive] as the target file for creating the diff
-- The image files within [recompressed_target_archive] will be compressed with zstd
+- The script recompress_tool.py will be run to create the file [recompressed_target_archive], which will then be used instead of [target_archive] as the target file for creating the diff.
+- The image files within [recompressed_target_archive] will be compressed with zstd.
 
 If your SWU files are signed (likely), you'll need another argument as well:
 
 `DiffGenTool [source_archive] [target_archive] [output_path] [log_folder] [working_folder] [recompressed_target_archive] "[signing_command]"`
 
-- In addition to using [recompressed_target_archive] as the target file, providing a signing command string parameter will run recompress_and_sign_tool.py to create the file [recompressed_target_archive] and have the sw-description file within the archive signed (meaning a sw-description.sig file will be present)
+- In addition to using [recompressed_target_archive] as the target file, providing a signing command string parameter will run recompress_and_sign_tool.py to create the file [recompressed_target_archive] and have the sw-description file within the archive signed (meaning a sw-description.sig file will be present).
 
 The following table describes the arguments in more detail:
 
@@ -166,7 +166,7 @@ The basic process of importing an update to the Device Update service is unchang
 
 Importantly, however, there are specific aspects of delta support that aren't fully implemented yet for this preview. Therefore, we've created a script to simplify the process during early access, which you previously downloaded: **New-ImportManifest.ps1**. The script uses PowerShell, which can be [installed](/powershell/scripting/install/installing-powershell.md) on Linux, Windows, or macOS.
 
-The first step in importing an update into the Device Update service is always to create an import manifest. For more information import manifest concepts, see [Importing updates into Device Update](import-concepts.md#import-manifest), but note that delta updates require a new import manifest format that isn't yet ready for our public documentation. Therefore, use New-ImportManifest.ps1 instead to generate your import manifest.
+The first step in importing an update into the Device Update service is always to create an import manifest. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest), but note that delta updates require a new import manifest format that isn't yet ready for our public documentation. Therefore, use New-ImportManifest.ps1 instead to generate your import manifest.
 
 The script includes example usage. The new/unique elements for delta update relative to our publicly documented import manifest format are "-DeltaFile" and "-SourceFile", and there's a specific usage for the "-File" element as well:
 
