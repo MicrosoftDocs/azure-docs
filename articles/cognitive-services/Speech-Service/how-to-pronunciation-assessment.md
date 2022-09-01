@@ -30,7 +30,7 @@ You can get pronunciation assessment scores for:
 - Phonemes in SAPI or IPA format
 
 > [!NOTE]
-> For information about availability of pronunciation assessment, see [supported languages](language-support.md#pronunciation-assessment) and [available regions](regions.md#speech-service).
+> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=stt-tts) and [available regions](regions.md#speech-service).
 >
 > The syllable groups, IPA phonemes, and spoken phoneme features of pronunciation assessment are currently only available for the en-US locale.
 
@@ -141,7 +141,7 @@ To request syllable-level results along with phonemes, set the granularity [conf
 
 ## Phoneme alphabet format
 
-The phoneme name is provided together with the score, to help identity which phonemes were pronounced accurately or inaccurately. For the [supported languages](language-support.md#pronunciation-assessment), you can get the phoneme name in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) format, and for the `en-US` locale, you can also get the phoneme name in [IPA](https://en.wikipedia.org/wiki/IPA) format. 
+The phoneme name is provided together with the score, to help identity which phonemes were pronounced accurately or inaccurately. For the [supported languages](language-support.md?tabs=stt-tts), you can get the phoneme name in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) format, and for the `en-US` locale, you can also get the phoneme name in [IPA](https://en.wikipedia.org/wiki/IPA) format. 
 
 The following table compares example SAPI phonemes with the corresponding IPA phonemes.
 

@@ -456,6 +456,20 @@ groups:
     title: REST API
   - id: vision-studio
     title: Vision Studio
+- id: programming-languages-ocr
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-rest-api
+    title: REST API
+  - id: vision-studio
+    title: Vision Studio
 - id: programming-languages-set-diberry-3core
   title: Programming languages
   prompt: Choose a programming language
@@ -1400,6 +1414,15 @@ groups:
     title: Alerts
   - id: workbooks
     title: Workbooks
+# Owner: patricka
+- id: iotedge-dev
+  title: IoT Edge development tool
+  prompt: Choose an Azure IoT Edge development tool
+  pivots:
+  - id: iotedge-dev-cli
+    title: Command line interface
+  - id: iotedge-dev-vscode
+    title: Azure IoT Edge VS Code extension
 # Owner: barclayn
 - id: identity-mi-methods
   title: Managed identities methods

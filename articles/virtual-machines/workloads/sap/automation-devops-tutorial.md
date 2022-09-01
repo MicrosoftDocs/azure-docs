@@ -37,7 +37,7 @@ You'll perform the following tasks during this lab:
 
 - A configured Azure DevOps instance, follow the steps here [Configure Azure DevOps Services for SAP Deployment Automation](automation-configure-devops.md)
 
-- For the 'SAP software acquisition' and the 'Configuration and SAP installation' pipelines a configured self hosted agent, see [Configure a self-hosted agent for SAP Deployment Automation](automation-configure-devops.md#register-the-deployer-as-a-self-hosted-agent-for-azure-devops)
+- For the 'SAP software acquisition' and the 'Configuration and SAP installation' pipelines a configured self hosted agent.
 
 > [!Note]
 > The self hosted agent virtual machine will be deployed as part of the control plane deployment.

@@ -161,3 +161,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 // deletes the specified room
 await roomsClient.deleteRoom(roomId);
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [JavaScript SDK reference](/javascript/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).
