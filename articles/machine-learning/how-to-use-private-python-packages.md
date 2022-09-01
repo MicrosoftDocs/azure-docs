@@ -10,13 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 10/21/2021
-
-## As a developer, I need to use private Python packages securely when training machine learning models.
-
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Use private Python packages with Azure Machine Learning
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to use private Python packages securely within Azure Machine Learning. Use cases for private Python packages include:
 
@@ -30,7 +29,7 @@ The private packages are used through [Environment](/python/api/azureml-core/azu
 ## Prerequisites
 
  * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install)
- * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+ * An [Azure Machine Learning workspace](quickstart-create-resources.md)
 
 ## Use small number of packages for development and testing
 
@@ -66,7 +65,7 @@ with token based authentication, such as private GitHub repositories.
     ws = Workspace.from_config()
     ws.set_connection(name="connection-1", 
         category = "PythonFeed",
-        target = "https://<my-org>.pkgs.visualstudio.com", 
+        target = "https://pkgs.dev.azure.com/<MY-ORG>", 
         authType = "PAT", 
         value = pat_token) 
      ```
@@ -80,7 +79,7 @@ with token based authentication, such as private GitHub repositories.
     env = Environment(name="my-env")
     cd = CondaDependencies()
     cd.add_pip_package("<my-package>")
-    cd.set_pip_option("--extra-index-url https://<my-org>.pkgs.visualstudio.com/<my-project>/_packaging/<my-feed>/pypi/simple")
+    cd.set_pip_option("--extra-index-url https://pkgs.dev.azure.com/<MY-ORG>/_packaging/<MY-FEED>/pypi/simple")")
     env.python.conda_dependencies=cd
     ```
 

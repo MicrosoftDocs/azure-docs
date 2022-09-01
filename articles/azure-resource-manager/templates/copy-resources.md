@@ -13,6 +13,10 @@ You can also use copy loop with [properties](copy-properties.md), [variables](co
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [loops](../bicep/loops.md).
+
 ## Syntax
 
 Add the `copy` element to the resources section of your template to deploy multiple instances of the resource. The `copy` element has the following general format:
@@ -56,7 +60,7 @@ The following example creates the number of storage accounts specified in the `s
   "parameters": {
     "storageCount": {
       "type": "int",
-      "defaultValue": 2
+      "defaultValue": 3
     }
   },
   "resources": [
@@ -249,7 +253,7 @@ The following examples show common scenarios for creating more than one instance
 
 - To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).
 - To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
-- For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+- For a Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 - For other uses of the copy loop, see:
   - [Property iteration in ARM templates](copy-properties.md)
   - [Variable iteration in ARM templates](copy-variables.md)

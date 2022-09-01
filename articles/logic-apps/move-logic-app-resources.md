@@ -1,11 +1,11 @@
 ---
 title: Move logic apps across subscriptions, resource groups, or regions
-description: Migrate logic apps or integration accounts to other Azure subscriptions, resource groups, or locations (regions)
+description: Migrate logic apps or integration accounts to other Azure subscriptions, resource groups, or locations (regions).
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
-ms.date: 04/06/2020
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/20/2022
 ---
 
 # Move logic app resources to other Azure resource groups, regions, or subscriptions

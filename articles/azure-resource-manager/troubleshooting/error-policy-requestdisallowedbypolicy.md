@@ -37,14 +37,14 @@ You can use the name of a policy assignment or policy definition to get more det
 
 # [Azure CLI](#tab/azure-cli)
 
-To get more information about a policy definition, use [az policy definition show](/cli/azure/policy/definition#az_policy_definition_show).
+To get more information about a policy definition, use [az policy definition show](/cli/azure/policy/definition#az-policy-definition-show).
 
 ```azurecli
 defname=<policy definition name>
 az policy definition show --name $defname
 ```
 
-To get more information about a policy assignment, use [az policy assignment show](/cli/azure/policy/assignment#az_policy_assignment_show).
+To get more information about a policy assignment, use [az policy assignment show](/cli/azure/policy/assignment#az-policy-assignment-show).
 
 ```azurecli
 rg=<resource group name>

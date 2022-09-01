@@ -24,7 +24,7 @@ In this quickstart, you use the Azure CLI to define a Stream Analytics job that 
 
 - Create a resource group. All Azure resources must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 
-   For this quickstart, create a resource group named *streamanalyticsrg* in the *eastus* location with the following [az group create](/cli/azure/group#az_group_create) command:
+   For this quickstart, create a resource group named *streamanalyticsrg* in the *eastus* location with the following [az group create](/cli/azure/group#az-group-create) command:
 
    ```azurecli
    az group create --name streamanalyticsrg --location eastus
@@ -36,7 +36,7 @@ Before you define the Stream Analytics job, prepare the data that's used for the
 
 The following Azure CLI code blocks are commands that prepare the input data required by the job. Review the sections to understand the code.
 
-1. Create an IoT Hub using the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command. This example creates an IoT Hub called **MyASAIoTHub**. Because IoT Hub names are unique, you need to come up with your own IoT Hub name. Set the SKU to F1 to use the free tier if it is available with your subscription. If not, choose the next lowest tier.
+1. Create an IoT Hub using the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This example creates an IoT Hub called **MyASAIoTHub**. Because IoT Hub names are unique, you need to come up with your own IoT Hub name. Set the SKU to F1 to use the free tier if it is available with your subscription. If not, choose the next lowest tier.
 
     ```azurecli
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
@@ -48,16 +48,16 @@ The following Azure CLI code blocks are commands that prepare the input data req
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-2. Add a device to IoT Hub using the [az iothub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command. This example creates a device called **MyASAIoTDevice**.
+2. Add a device to IoT Hub using the [az iothub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command. This example creates a device called **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-3. Get the device connection string using the [az iot hub device-identity show-connection-string](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show_connection_string) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
+3. Get the device connection string using the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
 
     ```azurecli
-    az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
+    az iot hub device-identity connection-string show --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
     ```
 
     **Output example:**
@@ -103,7 +103,7 @@ The following Azure CLI code blocks create a blob storage account that's used fo
 
 The following Azure CLI code blocks create a Stream Analytics job. Review the sections to understand the code
 
-1. Create a Stream Analytics job with the [az stream-analytics job create](/cli/azure/stream-analytics/job#az_stream_analytics_job_create) command.
+1. Create a Stream Analytics job with the [az stream-analytics job create](/cli/azure/stream-analytics/job#az-stream-analytics-job-create) command.
 
 ```azurecli
 az stream-analytics job create \
@@ -119,7 +119,7 @@ az stream-analytics job create \
 
 ## Configure input to the job
 
-Add an input to your job by using the [az stream-analytics input](/cli/azure/stream-analytics/input#az_stream_analytics_input_create) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. The job input definition is a JSON file that contains the properties required to configure the job's input. In this example, you'll create an IoT Hub as an input.
+Add an input to your job by using the [az stream-analytics input](/cli/azure/stream-analytics/input#az-stream-analytics-input-create) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. The job input definition is a JSON file that contains the properties required to configure the job's input. In this example, you'll create an IoT Hub as an input.
 
 On your local machine, create a file named `datasource.json` and add the following JSON data to it. Make sure to replace the value for `sharedAccessPolicyKey` with the `SharedAccessKey` portion of the IoT Hub connection string you saved in a previous section.
 
@@ -161,7 +161,7 @@ az stream-analytics input create \
 
 ## Configure output to the job
 
-Add an output to your job by using the [az stream-analytics output create](/cli/azure/stream-analytics/output#az_stream_analytics_output_create) cmdlet. This cmdlet takes the job name, job output name, resource group name, and the job output definition as parameters. The job output definition is a JSON file that contains the properties required to configure job's output. This example uses blob storage as output.
+Add an output to your job by using the [az stream-analytics output create](/cli/azure/stream-analytics/output#az-stream-analytics-output-create) cmdlet. This cmdlet takes the job name, job output name, resource group name, and the job output definition as parameters. The job output definition is a JSON file that contains the properties required to configure job's output. This example uses blob storage as output.
 
 On your local machine, create a file named `datasink.json`, and add the following JSON data to it. Make sure to replace the value for `accountKey` with your storage account's access key that is the value stored in $storageAccountKey value.
 
@@ -196,7 +196,7 @@ az stream-analytics output create \
 
 ## Define the transformation query
 
-Add a transformation your job by using the [az stream-analytics transformation create](/cli/azure/stream-analytics/transformation#az_stream_analytics_transformation_create) cmdlet. This cmdlet takes the job name, job transformation name, resource group name, and the job transformation definition as parameters. 
+Add a transformation your job by using the [az stream-analytics transformation create](/cli/azure/stream-analytics/transformation#az-stream-analytics-transformation-create) cmdlet. This cmdlet takes the job name, job transformation name, resource group name, and the job transformation definition as parameters. 
 
 Run the `az stream-analytics transformation create` cmdlet.
 
@@ -220,7 +220,7 @@ az stream-analytics transformation create \
 
 ## Start the Stream Analytics job and check the output
 
-Start the job by using the [az stream-analytics job start](/cli/azure/stream-analytics/job#az_stream_analytics_job_start) cmdlet. This cmdlet takes the job name, resource group name, output start mode, and start time as parameters. `OutputStartMode` accepts values of `JobStartTime`, `CustomTime`, or `LastOutputEventTime`.
+Start the job by using the [az stream-analytics job start](/cli/azure/stream-analytics/job#az-stream-analytics-job-start) cmdlet. This cmdlet takes the job name, resource group name, output start mode, and start time as parameters. `OutputStartMode` accepts values of `JobStartTime`, `CustomTime`, or `LastOutputEventTime`.
 
 After you run the following cmdlet, it returns `True` as output if the job starts. In the storage container, an output folder is created with the transformed data.
 

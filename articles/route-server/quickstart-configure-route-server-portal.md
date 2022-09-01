@@ -2,11 +2,11 @@
 title: 'Quickstart: Create and configure Route Server using the Azure portal'
 description: In this quickstart, you learn how to create and configure a Route Server using the Azure portal.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 09/08/2021
-ms.author: duau
+ms.date: 07/19/2022
+ms.author: halkazwini
 ms.custom: mode-ui
 ---
 
@@ -16,8 +16,7 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal." border="false":::
 
-> [!IMPORTANT]
-> If you have an Azure Route Server created before September 1st and it doesn't have a public IP address asssociated, you'll need to recreate the Route Server so it can obtain an IP address for management purpose.
+[!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
 ## Prerequisites
 
@@ -26,7 +25,7 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 
 ## Create a Route Server
 
-### Sign in to your Azure account and select your subscription.
+### Sign in to your Azure account and select your subscription
 
 From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 

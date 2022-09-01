@@ -107,7 +107,7 @@ Once you've configured your template, deploy it using any of the following metho
 
 - [REST APIs](/rest/api/resources/deployments)
 - [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-- [Azure CLI](/cli/azure/group/deployment#az_group_deployment_create)
+- [Azure CLI](/cli/azure/deployment/group#az-deployment-group-create)
 - [The Azure portal template deployment page](https://portal.azure.com/#create/Microsoft.Template)
 
 Next you'll see two versions of our example dashboard JSON. The first is the version that we exported from the portal that was already bound to a resource. The second is the template version that can be programmatically bound to any virtual machine and deployed using Azure Resource Manager.
@@ -648,27 +648,27 @@ Prepare your environment for the Azure CLI.
 
 - These examples use the following dashboard: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Be sure to replace all of the content in angled brackets with your values.
 
-Run the [az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) command to create a dashboard based on your template:
+Run the [az portal dashboard create](/cli/azure/portal/dashboard#az-portal-dashboard-create) command to create a dashboard based on your template:
 
 ```azurecli
 az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-You can update a dashboard by using the [az portal dashboard update](/cli/azure/portal/dashboard#az_portal_dashboard_update) command:
+You can update a dashboard by using the [az portal dashboard update](/cli/azure/portal/dashboard#az-portal-dashboard-update) command:
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
 --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-See the details of a dashboard by running the [az portal dashboard show](/cli/azure/portal/dashboard#az_portal_dashboard_show) command:
+See the details of a dashboard by running the [az portal dashboard show](/cli/azure/portal/dashboard#az-portal-dashboard-show) command:
 
 ```azurecli
 az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
 ```
 
-To see all the dashboards for the current subscription, use [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list):
+To see all the dashboards for the current subscription, use [az portal dashboard list](/cli/azure/portal/dashboard#az-portal-dashboard-list):
 
 ```azurecli
 az portal dashboard list

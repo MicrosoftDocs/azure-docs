@@ -4,7 +4,7 @@ description: Learn infrastructure best practices for migrating on-premises Hadoo
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
+ms.date: 06/29/2022
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - infrastructure best practices

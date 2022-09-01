@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 12/03/2021
+ms.date: 02/28/2022
 ---
 
 # What is a test drive?
@@ -81,9 +81,9 @@ The process of turning an architecture of resources into a test drive can be dau
 
 ## Generate leads from your test drive
 
-A commercial marketplace test drive is a great tool for marketers. We recommend you incorporate it in your go-to-market efforts when you launch to generate more leads for your business. For detailed guidance, see [Customer leads from your commercial marketplace offer](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads.md).
+A commercial marketplace test drive is a great tool for marketers. We recommend you incorporate it in your go-to-market efforts when you launch to generate more leads for your business. For detailed guidance, see [Customer leads from your commercial marketplace offer](./partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
-If you close a deal with a test drive lead, be sure to register it at [Microsoft Partner Sales Connect](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect). Also, we would love to hear about your customer wins where a test drive played a role.
+If you close a deal with a test drive lead, be sure to register it at [Grow your business with referrals from Microsoft](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect). Also, we would love to hear about your customer wins where a test drive played a role.
 
 ## Other resources
 

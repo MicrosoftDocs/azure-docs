@@ -2,9 +2,11 @@
 title: Back up Azure Database for PostgreSQL with long-term-retention using Azure PowerShell
 description: Learn how to back up Azure Database for PostgreSQL using Azure PowerShell.
 ms.topic: conceptual
-ms.author: v-amallick
-ms.date: 10/14/2021 
+ms.date: 01/24/2022
 ms.custom: devx-track-azurepowershell
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Back up Azure PostgreSQL databases using Azure PowerShell
@@ -21,7 +23,7 @@ In this article, you'll learn how to:
 
 - Run an on-demand backup job
 
-For information on the Azure PostgreSQL databases supported scenarios and limitations, see the [support matrix](backup-azure-database-postgresql-overview.md#support-matrix).
+For information on the Azure PostgreSQL databases supported scenarios and limitations, see the [support matrix](backup-azure-database-postgresql-support-matrix.md).
 
 ## Create a Backup vault
 
@@ -288,8 +290,6 @@ Lifecycle  : {Microsoft.Azure.PowerShell.Cmdlets.DataProtection.Models.Api202102
 Name       : Default
 ObjectType : AzureRetentionRule
 ```
-
-## Trigger an on-demand backup
 
 To trigger an on-demand backup, use the [Backup-AzDataProtectionBackupInstanceAdhoc](/powershell/module/az.dataprotection/backup-azdataprotectionbackupinstanceadhoc?view=azps-5.7.0&preserve-view=true) command.
 

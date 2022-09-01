@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy Azure virtual network container networking | Microsoft Docs
 description: Learn how to deploy the Azure Virtual Network container network interface (CNI) plug-in for Kubernetes clusters.
 services: virtual-network
@@ -10,7 +10,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -58,7 +57,7 @@ The json example that follows is for a cluster with the following properties:
       "vmSize": "Standard_A2",
       "vnetSubnetId": "/subscriptions/<subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<Vnet Name>/subnets/KubeClusterSubnet",
       "firstConsecutiveStaticIP": "10.0.1.50", --> IP address allocated to the Master node
-"vnetCidr": "10.0.0.0/16" --> Virtual network address space
+      "vnetCidr": "10.0.0.0/16" --> Virtual network address space
     },
     "agentPoolProfiles": [
       {
@@ -165,17 +164,19 @@ The CNI network configuration file is described in JSON format. It is, by defaul
 
 Download the plug-in from [GitHub](https://github.com/Azure/azure-container-networking/releases). Download the latest version for the platform that you're using:
 
-- **Linux**: [azure-vnet-cni-linux-amd64-\<version no.\>.tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
-- **Windows**: [azure-vnet-cni-windows-amd64-\<version no.\>.zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
+- **Linux**: [azure-vnet-cni-linux-amd64-\<version no.\>.tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.4.20/azure-vnet-cni-linux-amd64-v1.4.20.tgz)
+- **Windows**: [azure-vnet-cni-windows-amd64-\<version no.\>.zip](https://github.com/Azure/azure-container-networking/releases/download/v1.4.20/azure-vnet-cni-windows-amd64-v1.4.20.zip)
 
-Copy the install script for [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) or [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1) to your computer. Save the script to a `scripts` directory on your computer and name the file `install-cni-plugin.sh` for Linux, or `install-cni-plugin.ps1` for Windows. To install the plug-in, run the appropriate script for your platform, specifying the version of the plug-in you are using. For example, you might specify *v1.0.12-rc3*:
+Copy the install script for [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) or [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1) to your computer. Save the script to a `scripts` directory on your computer and name the file `install-cni-plugin.sh` for Linux, or `install-cni-plugin.ps1` for Windows.
+
+To install the plug-in, run the appropriate script for your platform, specifying the version of the plug-in you are using. For example, you might specify *v1.4.20*. For the Linux install, you'll also need to provide an appropriate [CNI plugin version](https://github.com/containernetworking/plugins/releases), such as *v1.0.1*:
 
    ```bash
-   \$scripts/install-cni-plugin.sh [version]
+   scripts/install-cni-plugin.sh [azure-cni-plugin-version] [cni-plugin-version]
    ```
 
    ```powershell
-   scripts\\ install-cni-plugin.ps1 [version]
+   scripts\\ install-cni-plugin.ps1 [azure-cni-plugin-version]
    ```
 
 The script installs the plug-in under `/opt/cni/bin` for Linux and `c:\cni\bin` for Windows. The installed plug-in comes with a simple network configuration file that works after installation. It doesn't need to be updated. To learn more about the settings in the file, see [CNI network configuration file](#cni-network-configuration-file).

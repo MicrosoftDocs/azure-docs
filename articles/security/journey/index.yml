@@ -21,6 +21,36 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
+  - title: Build a zero trust foundation
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Zero trust overview
+            url: ../fundamentals/zero-trust.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - linkListType: architecture
+        links:
+          - text: Design for zero trust model
+            url: /azure/architecture/framework/mission-critical/mission-critical-security?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - linkListType: how-to-guide
+        links:
+          - text: Implement zero trust
+            url: /security/zero-trust/
+
+  # Card
+  - title: Protect against ransomware and extortion 
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Ransomware protection in Azure
+            url: ../fundamentals/ransomware-protection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Backup and restore plan to protect against ransomware
+            url: ../fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Threat protection
+            url: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Threat analysis
+            url: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+
+  # Card
   - title: Understand security advantages in Azure
     linkLists:
       - linkListType: overview
@@ -85,16 +115,6 @@ landingContent:
             url: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   # Card
-  - title: Detect, analyze, and mitigate threats
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Threat protection
-            url: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-          - text: Threat analysis
-            url: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-
-  # Card
   - title: Investigate suspicious activity
     linkLists:
       - linkListType: concept
@@ -103,8 +123,8 @@ landingContent:
             url: ../fundamentals/log-audit.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
           - text: Review and audit
             url: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-          - text: Identity and network risks
-            url: /azure/architecture/framework/security/monitor-identity-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Monitor security posture
+            url: /azure/architecture/framework/security/monitor-resources?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 # Card
   - title: Optimize your security investments

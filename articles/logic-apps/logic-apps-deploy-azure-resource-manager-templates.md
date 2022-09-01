@@ -1,17 +1,20 @@
 ---
 title: Deploy logic app templates
-description: Learn how to deploy Azure Resource Manager templates created for Azure Logic Apps
+description: Deploy Azure Resource Manager templates created for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/04/2021
-ms.custom: devx-track-azurepowershell
+ms.date: 08/20/2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Deploy Azure Resource Manager templates for Azure Logic Apps
 
-After you create an Azure Resource Manager template for your logic app, you can deploy your template in these ways:
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+After you create an Azure Resource Manager template for your Consumption logic app, you can deploy your template in these ways:
 
 * [Azure portal](#portal)
 * [Visual Studio](#visual-studio)
@@ -76,7 +79,7 @@ az deployment group create -g <Azure-resource-group-name> --template-uri https:/
 For more information, see these topics:
 
 * [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-* [`az deployment group create`](/cli/azure/deployment/group#az_deployment_group_create)
+* [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create)
 
 <a name="azure-pipelines"></a>
 

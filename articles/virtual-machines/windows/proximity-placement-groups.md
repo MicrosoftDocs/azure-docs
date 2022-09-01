@@ -6,8 +6,9 @@ ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.date: 3/8/2021
-ms.author: cynthn
-ms.reviewer: zivr 
+author: mattmcinnes
+ms.author: mattmcinnes
+ms.reviewer: 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -55,7 +56,6 @@ New-AzVm `
   -ResourceGroupName $resourceGroup `
   -Name $vmName `
   -Location $location `
-  -OpenPorts 3389 `
   -ProximityPlacementGroup $ppg.Id
 ```
 

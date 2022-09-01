@@ -5,17 +5,16 @@ description: Provides a general overview of the sign-in diagnostic in Azure Acti
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/12/2021
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: tspring  
 

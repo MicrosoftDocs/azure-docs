@@ -1,38 +1,21 @@
 ---
 title: 'Azure Cosmos DB Apache Spark 2 OLTP Connector for SQL API release notes and resources'
 description: Learn about the Azure Cosmos DB Apache Spark 2 OLTP Connector for SQL API, including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
-author: anfeldma-ms
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 04/06/2021
-ms.author: anfeldma
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.custom: devx-track-java
 ---
 
 # Azure Cosmos DB Apache Spark 2 OLTP Connector for Core (SQL) API: Release notes and resources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-> [!div class="op_single_selector"]
-> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
-> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
-> * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
-> * [Async Java SDK v2](sql-api-sdk-async-java.md)
-> * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
-> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
-> * [Python](sql-api-sdk-python.md)
-> * [REST](/rest/api/cosmos-db/)
-> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-query-getting-started.md)
-> * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 
 You can accelerate big data analytics by using the Azure Cosmos DB Apache Spark 2 OLTP Connector for Core (SQL). The Spark Connector allows you to run [Spark](https://spark.apache.org/) jobs on data stored in Azure Cosmos DB. Batch and stream processing are supported.
 
@@ -60,60 +43,7 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 |**Get started** | [Accelerate big data analytics by using the Apache Spark to Azure Cosmos DB connector](./create-sql-api-spark.md) <br> [Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB](../../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## Release history
-
-### 3.3.0
-#### New features
-- Adds a new config option, `changefeedstartfromdatetime`, which can be used to specify the start time for when the changefeed should be processed. For more information, see [Config options](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references).
-
-### 3.2.0
-#### Key bug fixes
-- Fixes a regression that caused excessive memory consumption on the executors for large result sets (for example, with millions of rows), ultimately resulting in the error `java.lang.OutOfMemoryError: GC overhead limit exceeded`.
-
-### 3.1.1
-#### Key bug fixes
-* Fixes a streaming checkpoint edge case in which the `ID` contains the pipe character (|) with the `ChangeFeedMaxPagesPerBatch` config applied.
-
-### 3.1.0
-#### New features
-* Adds support for bulk updates when nested partition keys are used.
-* Adds support for Decimal and Float data types during writes to Azure Cosmos DB.
-* Adds support for Timestamp types when they're using Long (Unix epoch) as a value.
-
-### 3.0.8
-#### Key bug fixes
-* Fixes typecast exception that occurs when the `WriteThroughputBudget` config is used.
-
-### 3.0.7
-#### New features
-* Adds error information for bulk failures to exception and log.
-
-### 3.0.6
-#### Key bug fixes
-* Fixes streaming checkpoint issues.
-
-### 3.0.5
-#### Key bug fixes
-* To reduce noise, fixes log level of a message left unintentionally with level ERROR.
-
-### 3.0.4
-#### Key bug fixes
-* Fixes a bug in structured streaming during partition splits. The bug could result in some missing change feed records or Null exceptions for checkpoint writes.
-
-### 3.0.3
-#### Key bug fixes
-* Fixes a bug that causes a custom schema provided for readStream to be ignored.
-
-### 3.0.2
-#### Key bug fixes
-* Fixes a regression (unshaded JAR includes all shaded dependencies) that increases build time by 50 percent.
-
-### 3.0.1
-#### Key bug fixes
-* Fixes a dependency problem that causes Direct Transport over TCP to fail with RequestTimeoutException.
-
-### 3.0.0
-#### New features
-* Improves connection management and connection pooling to reduce the number of metadata calls.
+* [Release notes](https://github.com/Azure/azure-cosmosdb-spark/blob/2.4/CHANGELOG.md)]
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]

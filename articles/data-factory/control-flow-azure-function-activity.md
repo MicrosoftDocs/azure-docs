@@ -16,10 +16,6 @@ ms.date: 09/09/2021
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 The Azure Function activity allows you to run [Azure Functions](../azure-functions/functions-overview.md) in an Azure Data Factory or Synapse pipeline. To run an Azure Function, you must create a linked service connection.  Then you can use the linked service with an activity that specifies the Azure Function that you plan to execute.
 
-For an eight-minute introduction and demonstration of this feature, watch the following video:
-
-> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
-
 ## Create an Azure Function activity with UI
 
 To use an Azure Function activity in a pipeline, complete the following steps:

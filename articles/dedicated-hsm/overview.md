@@ -6,10 +6,9 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 
-ms.service: key-vault
+ms.service: dedicated-hsm
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.custom: "mvc, seodec18"
 ms.date: 03/25/2021
@@ -40,7 +39,7 @@ Many of our customers have a requirement for single tenancy of the cryptographic
 Many customers require full administrative control and sole access to their device for administrative purposes. After a device is provisioned, only the customer has administrative or application-level access to the device.
 
  Microsoft has no administrative control after the customer accesses the device for the first time, at which point the customer changes the password. From that point, the customer is a true single-tenant with full administrative control and application-management capability. Microsoft does maintain monitor-level access (not an admin role) for telemetry via serial port connection. This access covers hardware monitors such as temperature, power supply health, and fan health. 
- 
+
  The customer is free to disable this monitoring needed. However, if they disable it, they won't receive proactive health alerts from Microsoft.
 
 ### High performance
@@ -53,7 +52,9 @@ Microsoft recognized a specific need for a unique set of customers. It is the on
 
 ## Is Azure Dedicated HSM right for you?
 
-Azure Dedicated HSM is a specialized service that addresses unique requirements for a specific type of large-scale organization. As a result, it's expected that the bulk of Azure customers will not fit the profile of use for this service. Many will find the Azure Key Vault service to be more appropriate and cost effective. To help you decide if it's a fit for your requirements, we've identified the following criteria.
+Azure Dedicated HSM is a specialized service that addresses unique requirements for a specific type of large-scale organization. As a result, it's expected that the bulk of Azure customers will not fit the profile of use for this service. Many will find the Azure Key Vault or Azure Managed HSM service to be more appropriate and cost effective. For an comparison of offerings, see [Azure key management services](../security/fundamentals/key-management.md#azure-key-management-services)
+
+To help you decide if Azure Dedicated HSM is a fit for your requirements, we've identified the following criteria.
 
 ### Best fit
 
@@ -66,6 +67,9 @@ Azure Dedicated HSM is most suitable for “lift-and-shift” scenarios that req
 ### Not a fit
 
 Azure Dedicated HSM is not a good fit for the following type of scenario: Microsoft cloud services that support encryption with customer-managed keys (such as Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL Database, and Customer Key for Office 365) that are not integrated with Azure Dedicated HSM.
+
+> [!NOTE]
+> Customers must have a assigned Microsoft Account Manager and meet the monetary requirement of five million ($5M) USD or greater in overall committed Azure revenue annually to qualify for onboarding and use of Azure Dedicated HSM.
 
 ### It depends
 

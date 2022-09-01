@@ -8,9 +8,7 @@ manager: barbkess
 editor: TomSh
 
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
-ms.service: security
-ms.subservice: security-fundamentals
-ms.devlang: na
+ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -56,7 +54,7 @@ Multi-Factor Authentication helps safeguard access to data and applications whil
 
 Learn more:
 
-* [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+* [Multi-Factor Authentication](/azure/multi-factor-authentication/)
 * [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [How Azure AD Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
@@ -109,7 +107,7 @@ By providing notifications and recommended remediation, Identity Protection help
 Learn more:
 
 * [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
-* [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* Channel 9: Azure AD and Identity Show: Identity Protection Preview
 
 ## Defender for Cloud
 

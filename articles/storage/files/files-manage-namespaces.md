@@ -1,11 +1,11 @@
 ---
 title: How to use DFS-N with Azure Files
 description: Common DFS-N use cases with Azure Files
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 3/02/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -192,7 +192,7 @@ In the DFS Management console, select the namespace you just created and select 
 
 ![A screenshot of the **New Folder** dialog.](./media/files-manage-namespaces/dfs-folder-targets.png)
 
-In the textbox labeled **Name** provide the name of the folder. Select **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. Select **OK** on the **Add Folder Target** dialog. If you are adding a UNC path to an Azure file share, you may receive a message reporting that the server `storageaccount.file.core.windows.net` cannot be contacts. This is expected; select **Yes** to continue. Finally, select **OK** on the **New Folder** dialog to create the folder and folder targets.
+In the textbox labeled **Name** provide the name of the folder. Select **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. Select **OK** on the **Add Folder Target** dialog. If you are adding a UNC path to an Azure file share, you may receive a message reporting that the server `storageaccount.file.core.windows.net` cannot be contacted. This is expected; select **Yes** to continue. Finally, select **OK** on the **New Folder** dialog to create the folder and folder targets.
 
 # [PowerShell](#tab/azure-powershell)
 ```PowerShell
@@ -208,6 +208,23 @@ New-DfsnFolder -Path $sharePath -TargetPath $targetUNC
 ---
 
 Now that you have created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS Namespaces. If you are using a domain-based namespace, the full path for your share should be `\\<domain-name>\<namespace>\<share>`. If you are using a standalone namespace, the full path for your share should be `\\<DFS-server>\<namespace>\<share>`. If you are using a standalone namespace with root consolidation, you can access directly through your old server name, such as `\\<old-server>\<share>`.
+
+## Access-Based Enumeration (ABE)
+
+Using ABE to control the visibility of the files and folders in SMB Azure file shares isn't currently a supported scenario. ABE is a feature of DFS-N, so it's possible to configure identity-based authentication and enable the ABE feature. However, this only applies to the DFS-N folder targets; it doesn't retroactively apply to the targeted file shares themselves. This is because DFS-N works by referral, rather than as a proxy in front of the folder target.
+
+For example, if the user types in the path \\mydfsnserver\share, the SMB client gets the referral of \\mydfsnserver\share => \\server123\share and makes the mount against the latter.
+
+Because of this, ABE will only work in cases where the DFS-N server is hosting the list of usernames before the redirection:
+
+  \\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\contosouser1
+  \\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\users\contosouser1
+
+(Where **contosouser1** is a subfolder of the **users** share)
+
+If each user is a subfolder *after* the redirection, ABE won't work:
+
+  \\DFSServer\SomePath\users --> \\SA.file.core.windows.net\users
 
 ## See also
 - Deploying an Azure file share: [Planning for an Azure Files deployment](storage-files-planning.md) and [How to create an file share](storage-how-to-create-file-share.md).

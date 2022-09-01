@@ -76,7 +76,7 @@ app_id=$(az ad app create \
 
 Retrieve the tenant ID of the subscription that owns the application.
 
-```azure
+```azurecli-interactive
 tenant_id=$(az account show --query tenantId -o tsv)
 ```
 

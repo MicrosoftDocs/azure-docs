@@ -7,10 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: deeikele
 author: denniseik
-ms.date: 10/21/2021
+ms.date: 01/05/2022
 ms.topic: how-to
-ms.custom: 
-
+ms.tool: terraform
 ---
 
 # Manage Azure Machine Learning workspaces using Terraform
@@ -24,6 +23,12 @@ A Terraform configuration is a document that defines the resources that are need
 * An **Azure subscription**. If you don't have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * An installed version of the [Azure CLI](/cli/azure/).
 * Configure Terraform: follow the directions in this article and the [Terraform and configure access to Azure](/azure/developer/terraform/get-started-cloud-shell) article.
+
+## Limitations
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+[!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
 ## Declare the Azure provider
 
@@ -44,7 +49,7 @@ Create the Terraform configuration file that declares the Azure provider:
 
 ## Deploy a workspace
 
-The following Terraform configurations can be used to create an Azure Machine Learning workspace. When you create an Azure Machine Learning workspace, various other services are required as dependencies. The template also specifies these [associated resources to the workspace](./concept-workspace.md#resources). Depending on your needs, you can choose to use the template that creates resources with either public or private network connectivity.
+The following Terraform configurations can be used to create an Azure Machine Learning workspace. When you create an Azure Machine Learning workspace, various other services are required as dependencies. The template also specifies these [associated resources to the workspace](./concept-workspace.md#associated-resources). Depending on your needs, you can choose to use the template that creates resources with either public or private network connectivity.
 
 # [Public network connectivity](#tab/publicworkspace)
 
@@ -118,10 +123,6 @@ There are several options to connect to your private link endpoint workspace. To
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### Current limitations
-
-* It is currently not possible to use Terraform for the deployment of workspaces using customer-managed encryption keys, while using a user-assigned managed identity. You can create a CMK workspace using a system-assigned managed identity.
-
 ## Next steps
 
 * To learn more about Terraform support on Azure, see [Terraform on Azure documentation](/azure/developer/terraform/).
@@ -135,3 +136,4 @@ There are several options to connect to your private link endpoint workspace. To
   
 * To learn more about network configuration options, see [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](./how-to-network-security-overview.md).
 * For alternative Azure Resource Manager template-based deployments, see [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
+* For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

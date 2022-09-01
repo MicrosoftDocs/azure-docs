@@ -42,14 +42,14 @@ When you're finished, you see that the event data has been sent to the web app.
     5. On the **Review + create** page, review the settings, and select **Create**. 
 
         >[!NOTE]
-        > Only storage accounts of kind **StorageV2 (general purpose v2)** and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.
+        > Only storage accounts of kind **StorageV2 (general purpose v2)** and **BlobStorage** support event integration. **Storage (general purpose v1)** does *not* support integration with Event Grid.
 
 ## Create a message endpoint
 Before subscribing to the events for the Blob storage, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 1. Select **Deploy to Azure** to deploy the solution to your subscription. 
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to deploy to Azure."></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="../media/template-deployments/deploy-to-azure.svg" alt="Button to deploy to Azure."></a>
 2. On the **Custom deployment** page, do the following steps: 
     1. For **Resource group**, select the resource group that you created when creating the storage account. It will be easier for you to clean up after you are done with the tutorial by deleting the resource group.  
     2. For **Site Name**, enter a name for the web app.
@@ -68,9 +68,12 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
     
     ![Navigate to web site.](./media/blob-event-quickstart-portal/web-site.png)
 
-6. Confirm that you see the site but no events have been posted to it yet.
+6. Confirm that you see the site but no events have been posted to it yet. 
 
    ![View new site.](./media/blob-event-quickstart-portal/view-site.png)
+
+    > [!IMPORTANT]
+    > Keep the Azure Event Grid Viewer window open so that you can see events as they are posted. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -109,7 +112,7 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
 You trigger an event for the Blob storage by uploading a file. The file doesn't need any specific content. The articles assumes you have a file named testfile.txt, but you can use any file.
 
 1. In the Azure portal, navigate to your Blob storage account, and select **Containers** on the let menu.
-1. Select **+ Container**. Give you container a name, and use any access level, and select **Create**. 
+1. Select **+ Container**. Give your container a name, and use any access level, and select **Create**. 
 
    ![Add container.](./media/blob-event-quickstart-portal/add-container.png)
 1. Select your new container.

@@ -3,7 +3,7 @@ title: Microsoft Threat Modeling Tool release 10/16/2019 - Azure
 description: Documenting the release notes for the threat modeling tool release 7.1.61015.1.
 author: jegeib
 ms.author: jegeib
-ms.service: security
+ms.service: information-protection
 ms.topic: article
 ms.date: 10/16/2019
 ---
@@ -55,7 +55,7 @@ This issue is under investigation
 
 ## Documentation and feedback
 
-- Documentation for the Threat Modeling Tool is located on [docs.microsoft.com](./threat-modeling-tool.md), and includes information [about using the tool](./threat-modeling-tool-getting-started.md).
+- Documentation for the Threat Modeling Tool is [located](./threat-modeling-tool.md), and includes information [about using the tool](./threat-modeling-tool-getting-started.md).
 
 ## Next steps
 

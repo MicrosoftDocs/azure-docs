@@ -1,12 +1,10 @@
 ---
-title: Defender for Cloud Readiness Roadmap | Microsoft Docs
+title: Defender for Cloud Readiness Roadmap
 description: This document provides you a readiness roadmap to ramp up on Defender for Cloud.
 ms.topic: conceptual
 ms.date: 11/09/2021
 ---
 # Defender for Cloud readiness roadmap
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This document provides you a readiness roadmap that will assist you to get started with Defender for Cloud.
 
@@ -16,7 +14,7 @@ Defender for Cloud provides unified security management and advanced threat prot
 Use the following resources to get started with Defender for Cloud.
 
 Articles
-- [Introduction to Defender for Cloud](defender-for-cloud-introduction.md)
+- [What is Microsoft Defender for Cloud](defender-for-cloud-introduction.md)
 - [Defender for Cloud quickstart guide](get-started.md)
 
 Videos
@@ -50,16 +48,12 @@ Articles
 - [Protecting Azure SQL service and data in Defender for Cloud](./implement-security-recommendations.md)
 
 
-Video    
-- [Mitigating Security Issues using Defender for Cloud](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
-
 ### Defender for Cloud for incident response
 To reduce costs and damage, it's important to have an incident response plan in place before an attack takes place. You can use Defender for Cloud in different stages of an incident response.
 
 Use the following resources to understand how Defender for Cloud can be incorporated in your incident response process.
 
 Videos    
-* [Defender for Cloud in Incident Response](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Respond quickly to threats with next-generation security operation, and investigation](https://youtu.be/e8iFCz5RM4g)
 
 Articles    
@@ -74,11 +68,11 @@ Use the following resources to learn how to use these capabilities in Defender f
 
 Videos    
 * [Defender for Cloud – Just-in-time VM Access](https://youtu.be/UOQb2FcdQnU)
-* [Defender for Cloud - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck)
+* [Defender for Cloud - Adaptive application controls](https://youtu.be/wWWekI1Y9ck)
 
 Articles    
 * [Manage virtual machine access using just-in-time](./just-in-time-access-usage.md)
-* [Adaptive Application Controls in Defender for Cloud](./adaptive-application-controls.md)
+* [Adaptive application controls in Defender for Cloud](./adaptive-application-controls.md)
 
 ## Hands-on activities
 
@@ -90,7 +84,7 @@ Articles
 * [Defender for Cloud Documentation Page](./index.yml)
 * [Defender for Cloud REST API Documentation Page](/previous-versions/azure/reference/mt704034(v=azure.100))
 * [Defender for Cloud frequently asked questions (FAQ)](./faq-general.yml)
-* [Pricing page](https://azure.microsoft.com/pricing/details/security-center/)
+* [Pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)
 * [Identity security best practices](../security/fundamentals/identity-management-best-practices.md)
 * [Network security best practices](../security/fundamentals/network-best-practices.md)
 * [PaaS recommendations](../security/fundamentals/paas-deployments.md)

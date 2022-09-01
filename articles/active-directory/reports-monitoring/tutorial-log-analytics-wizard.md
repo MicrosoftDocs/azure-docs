@@ -1,23 +1,23 @@
 ---
-title: Configure the log analytics wizard in Azure AD | Microsoft Docs
+title: Configure a log analytics workspace in Azure AD | Microsoft Docs
 description: Learn how to configure log analytics.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 08/26/2022
 
 ms.author: markvi
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up log analytics so I can analyze the health of my environment.
 
 ms.collection: M365-identity-device-management
 ---
-# Tutorial: Configure the log analytics wizard
+# Tutorial: Configure a log analytics workspace
 
 
 In this tutorial, you learn how to:

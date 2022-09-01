@@ -9,7 +9,7 @@ ms.devlang: javascript
 ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 05/17/2021
 
 ---
@@ -51,6 +51,8 @@ To generate a new LUIS app from the CSV file:
     * Once you have created the LUIS app, you can add the example utterances from the parsed data.
 
 You can see this program flow in the last part of the `index.js` file. Copy or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js) this code and save it in `index.js`.
+
+[!INCLUDE [Remember to remove credentials when you're done](includes/app-secrets.md)]
 
    [!code-javascript[Node.js code for calling the steps to build a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/index.js)]
 
@@ -184,8 +186,7 @@ Once the script completes, you can sign in to [LUIS](luis-reference-regions.md) 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Test and train your app in LUIS website](luis-interactive-test.md)
+[Test and train your app in LUIS website](luis-interactive-test.md)
 
 ## Additional resources
 

@@ -197,8 +197,14 @@
     items:
     - name: Enable device writeback
       href: how-to-connect-device-writeback.md
+    - name: Plan for group writeback
+      href: how-to-connect-group-writeback-v2.md
     - name: Enable group writeback
-      href: how-to-connect-group-writeback.md
+      href: how-to-connect-group-writeback-enable.md
+    - name: Modify group writeback
+      href: how-to-connect-modify-group-writeback.md
+    - name: Disable group writeback
+      href: how-to-connect-group-writeback-disable.md
     - name: Device options
       href: how-to-connect-device-options.md
     - name: Additional features in Azure AD Connect
@@ -244,8 +250,6 @@
       href: how-to-connect-fed-sha256-guidance.md
     - name: Use a SAML 2.0 server as your Idp
       href: how-to-connect-fed-saml-idp.md
-    - name: Post configuration tasks for Hybrid Azure AD join
-      href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
     - name: Emergency rotation of AD FS certificates
       href: how-to-connect-emergency-ad-fs-certificate-rotation.md
     - name: Monitor changes to federation configuration

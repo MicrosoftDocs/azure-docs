@@ -6,11 +6,11 @@ ms.date: 11/30/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Resolve resource not found errors
+# Resolve Resource Not Found errors
 
 This article describes the error you see when a resource can't be found during an operation. Typically, you see this error when deploying resources with a Bicep file or Azure Resource Manager template (ARM template). You also see this error when doing management tasks and Azure Resource Manager can't find the required resource. For example, if you try to add tags to a resource that doesn't exist, you receive this error.
 
-## Symptom
+## Symptoms
 
 There are two error codes that indicate the resource can't be found. The `NotFound` error returns a result similar to:
 
@@ -31,7 +31,7 @@ group {resource group name} was not found.
 
 Resource Manager needs to retrieve the properties for a resource, but can't find the resource in your subscription.
 
-## Solution 1 - check resource properties
+## Solution 1 - Check resource properties
 
 When you receive this error while doing a management task, check the values you provided for the resource. The three values to check are:
 
@@ -39,11 +39,11 @@ When you receive this error while doing a management task, check the values you 
 - Resource group name
 - Subscription
 
-If you're using PowerShell or Azure CLI, check that you're running commands in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az_account_set). Many commands provide a subscription parameter that lets you specify a different subscription than the current context.
+If you're using PowerShell or Azure CLI, check that you're running commands in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az-account-set). Many commands provide a subscription parameter that lets you specify a different subscription than the current context.
 
 If you can't verify the properties, sign in to the [Microsoft Azure portal](https://portal.azure.com). Find the resource you're trying to use and examine the resource name, resource group, and subscription.
 
-## Solution 2 - set dependencies
+## Solution 2 - Set Dependencies
 
 If you get this error when deploying a template, you may need to add a dependency. Resource Manager optimizes deployments by creating resources in parallel, when possible.
 
@@ -51,7 +51,7 @@ For example, when you deploy a web app, the App Service plan must exist. If you 
 
 # [Bicep](#tab/bicep)
 
-Use an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) rather than the [resourceId](../bicep/bicep-functions-resource.md#resourceid) function. The dependency is created using a resource's [symbolic name](../bicep/file.md#bicep-format) and ID property.
+Use an [implicit dependency](../bicep/resource-dependencies.md#implicit-dependency) rather than the [resourceId](../bicep/bicep-functions-resource.md#resourceid) function. The dependency is created using a resource's [symbolic name](../bicep/file.md#bicep-format) and ID property.
 
 For example, the web app's `serverFarmId` property uses `servicePlan.id` to create a dependency on the App Service plan.
 
@@ -67,7 +67,7 @@ resource servicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
   ...
 ```
 
-For most deployments, it's not necessary to use `dependsOn` to create an [explicit dependency](../bicep/resource-declaration.md#explicit-dependency).
+For most deployments, it's not necessary to use `dependsOn` to create an [explicit dependency](../bicep/resource-dependencies.md#explicit-dependency).
 
 Avoid setting dependencies that aren't needed. Unnecessary dependencies prolong the deployment's duration because resources aren't deployed in parallel. Also, you might create circular dependencies that block the deployment.
 
@@ -115,11 +115,11 @@ When you see dependency problems, you need to gain insight into the order of res
 
     :::image type="content" source="media/error-not-found/deployment-events-sequence.png" alt-text="Screenshot of activity log for resources deployed in sequential order.":::
 
-## Solution 3 - get external resource
+## Solution 3 - Get external resource
 
 # [Bicep](#tab/bicep)
 
-Bicep uses the symbolic name to create an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) on another resource. The [existing](../bicep/resource-declaration.md#existing-resources) keyword references a deployed resource. If an existing resource is in a different resource group than the resource you want to deploy, include [scope](../bicep/bicep-functions-scope.md#resource-group-example) and use the [resourceGroup](../bicep/bicep-functions-scope.md#resourcegroup) function.
+Bicep uses the symbolic name to create an [implicit dependency](../bicep/resource-dependencies.md#implicit-dependency) on another resource. The [existing](../bicep/existing-resource.md) keyword references a deployed resource. If an existing resource is in a different resource group than the resource you want to deploy, include [scope](../bicep/bicep-functions-scope.md#resource-group-example) and use the [resourceGroup](../bicep/bicep-functions-scope.md#resourcegroup) function.
 
 In this example, a web app is deployed that uses an existing App Service plan from another resource group.
 
@@ -154,11 +154,11 @@ The following example gets the resource ID for a resource that exists in a diffe
 
 ---
 
-## Solution 4 - get managed identity from resource
+## Solution 4 - Get managed identity from resource
 
 # [Bicep](#tab/bicep)
 
-If you're deploying a resource with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. Use an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) for the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager uses the dependency.
+If you're deploying a resource with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. Use an [implicit dependency](../bicep/resource-dependencies.md#implicit-dependency) for the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager uses the dependency.
 
 You can get the principal ID and tenant ID for a managed identity that's applied to a virtual machine. For example, if a virtual machine resource has a symbolic name of `vm`, use the following syntax:
 
@@ -199,11 +199,11 @@ Or, to get the tenant ID for a managed identity that is applied to a virtual mac
 
 ---
 
-## Solution 5 - check functions
+## Solution 5 - Check functions
 
 # [Bicep](#tab/bicep)
 
-You can use a resource's symbolic name to get values from a resource. You can reference a storage account in the same resource group or another resource group using a symbolic name. To get a value from a deployed resource, use the [existing](../bicep/resource-declaration.md#existing-resources) keyword. If a resource is in a different resource group, use `scope` with the [resourceGroup](../bicep/bicep-functions-scope.md#resourcegroup) function. For most cases, the [reference](../bicep/bicep-functions-resource.md#reference) function isn't needed.
+You can use a resource's symbolic name to get values from a resource. You can reference a storage account in the same resource group or another resource group using a symbolic name. To get a value from a deployed resource, use the [existing](../bicep/existing-resource.md) keyword. If a resource is in a different resource group, use `scope` with the [resourceGroup](../bicep/bicep-functions-scope.md#resourcegroup) function. For most cases, the [reference](../bicep/bicep-functions-resource.md#reference) function isn't needed.
 
 The following example references an existing storage account in a different resource group.
 
@@ -224,7 +224,7 @@ When deploying a template, look for expressions that use the [reference](../temp
 
 ---
 
-## Solution 6 - after deleting resource
+## Solution 6 - After deleting resource
 
 When you delete a resource, there might be a short amount of time when the resource appears in the portal but isn't available. If you select the resource, you'll get an error that the resource is **Not found**.
 

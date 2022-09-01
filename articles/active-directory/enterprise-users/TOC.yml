@@ -4,6 +4,8 @@
   items:
   - name: Azure AD users, groups, and licensing
     href: directory-overview-user-model.md
+  - name: What is delegated administration?
+    href: directory-delegated-administration-primer.md
 - name: Quickstarts
   items:
   - name: Add users to Azure AD
@@ -32,9 +34,9 @@
   items:
   - name: Users
     items: 
-    - name: Create users 
+    - name: Create a user 
       href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Bulk create users
+    - name: Create users in bulk
       href: users-bulk-add.md    
     - name: Manage user profiles
       href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -48,11 +50,11 @@
       href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: User management enhancements
       href: users-search-enhanced.md
-    - name: Bulk delete users
+    - name: Delete users in bulk
       href: users-bulk-delete.md
     - name: Restore a deleted user    
       href: ../fundamentals/active-directory-users-restore.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Bulk restore users
+    - name: Restore users in bulk
       href: users-bulk-restore.md
     - name: Revoke a user's access
       href: users-revoke-access.md
@@ -62,9 +64,13 @@
       href: ../external-identities/what-is-b2b.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Restrict guest user access
       href: users-restrict-guest-permissions.md
+    - name: Clean up unmanaged accounts
+      href: clean-up-unmanaged-azure-ad-accounts.md 
+    - name: Clean up stale guest accounts
+      href: clean-up-stale-guest-accounts.md
     - name: Dynamic groups and guests   
       href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-  - name: Organization
+  - name: Organization (tenant)
     items:
     - name: Azure AD tenant organizations    
       href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -104,15 +110,19 @@
         href: groups-dynamic-membership.md
       - name: Validate a membership rule
         href: groups-dynamic-rule-validation.md
+      - name: Create more efficient rules
+        href: groups-dynamic-rule-more-efficient.md
       - name: Change group membership type  
         href: groups-change-type.md
-    - name: Bulk add members
+    - name: Group as memberOf a dynamic group
+      href: groups-dynamic-rule-member-of.md
+    - name: Add members in bulk
       href: groups-bulk-import-members.md
-    - name: Bulk remove members
+    - name: Remove members in bulk
       href: groups-bulk-remove-members.md
-    - name: Bulk download member list
+    - name: Download member list
       href: groups-bulk-download-members.md
-    - name: Bulk download groups list
+    - name: Download groups list
       href: groups-bulk-download.md
     - name: Restore deleted groups   
       href: groups-restore-deleted.md
@@ -120,6 +130,8 @@
       href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Manage group owners
       href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Manage group writeback
+      href: groups-write-back-portal.md
     - name: Manage groups in groups
       href: ../fundamentals/active-directory-groups-membership-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Add group access to SaaS apps

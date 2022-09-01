@@ -4,8 +4,8 @@ description: Learn what extensions are available for Azure virtual machines on W
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
 ms.date: 03/30/2018 
 ms.custom: devx-track-azurepowershell
@@ -246,6 +246,7 @@ When an update is available and automatic updates are enabled, the update is ins
 
 - Data disks
 - Extensions
+- Extension Tags
 - Boot diagnostics container
 - Guest OS secrets
 - VM size
@@ -352,6 +353,8 @@ The following troubleshooting actions apply to all VM extensions:
 - Check troubleshooting sections in extension-specific documentation for error codes, known issues, and other extension-specific information.
 
 - Look at the system logs. Check for other operations that might have interfered with the extension, such as a long-running installation of another application that required exclusive access to the package manager.
+
+- In a VM, if there is an existing extension with a failed provisioning state, any other new extension fails to install.
 
 ### Common reasons for extension failures
 

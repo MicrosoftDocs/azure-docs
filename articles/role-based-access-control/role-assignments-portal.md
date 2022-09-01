@@ -3,11 +3,11 @@ title: Assign Azure roles using the Azure portal - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: daveba
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/15/2021
+ms.date: 08/26/2022
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 ---
@@ -28,7 +28,7 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 [!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information, see [Understand scope](scope-overview.md).
 
-![Diagram showing the scope levels for Azure RBAC.](../../includes/role-based-access-control/media/scope-levels.png)
+![Diagram that shows the scope levels for Azure RBAC.](../../includes/role-based-access-control/media/scope-levels.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -147,7 +147,7 @@ Currently, conditions can be added to built-in or custom role assignments that h
 
 [!INCLUDE [Scope for Azure RBAC introduction](../../includes/role-based-access-control/scope-intro.md)] For more information, see [Understand scope](scope-overview.md).
 
-![Diagram showing the scope levels for Azure RBAC for classic experience.](../../includes/role-based-access-control/media/scope-levels.png)
+![Diagram that shows the scope levels for Azure RBAC for classic experience.](../../includes/role-based-access-control/media/scope-levels.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

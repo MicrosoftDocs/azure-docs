@@ -10,8 +10,8 @@ metadata:
   ms.service: traffic-manager
   ms.topic: landing-page
   ms.collection: collection
-  author: duongau
-  ms.author: duau
+  author: greg-lindsay
+  ms.author: greglin
   ms.date: 08/19/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -100,4 +100,4 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.trafficmanager/
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/network/traffic-manager
+            url: /cli/azure/network/traffic-manager

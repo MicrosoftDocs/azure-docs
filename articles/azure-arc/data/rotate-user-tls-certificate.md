@@ -3,9 +3,9 @@ title: Rotate user-provided TLS certificate in indirectly connected Azure Arc-en
 description: Rotate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+ms.subservice: azure-arc-data-sqlmi
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
 ms.date: 12/15/2021
 ms.topic: how-to
@@ -23,7 +23,7 @@ Examples in this article use OpenSSL. [OpenSSL](https://www.openssl.org/) is an 
 
 ## Generate certificate request using `openssl` 
 
-If the managed instance uses a self-signed certificate, make sure sure all needed Subject Alternative Names (SANs) are added. The SAN is an extension to X.509 that allows various values to be associated with a security certificate using a `subjectAltName` field, the SAN field lets you specify additional host names (sites, IP addresses, common names, and etc.) to be protected by a single SSL certificate, such as a multi-domain SAN or extended validation multi-domain SSL certificate.
+If the managed instance uses a self-signed certificate, add all needed Subject Alternative Names (SANs). The SAN is an extension to X.509 that allows various values to be associated with a security certificate using a `subjectAltName` field, the SAN field lets you specify additional host names (sites, IP addresses, common names, and etc.) to be protected by a single SSL certificate, such as a multi-domain SAN or extended validation multi-domain SSL certificate.
 
 To generate certificate on your own, you need to create a certificate signing request (CSR). Verify the configuration for the certificate has a common name with required SANs and has a CA issuer. For example:
 
@@ -36,13 +36,14 @@ Run the following command to check the required SANs:
 ```console
 openssl x509 -in /<cert path>/<filename>.pem -text
 ```
-The following is an example to use this command : 
+
+The following example demonstrates this command: 
 
 ```console
 openssl x509 -in ./mssql-certificate.pem -text
 ```
 
-The command returns the following output : 
+The command returns the following output: 
 
 ```output
 Certificate:
@@ -53,7 +54,7 @@ Certificate:
         Issuer: CN = Cluster Certificate Authority
         Validity
             Not Before: Mmm dd hh:mm:ss yyyy GMT
-            Not After : Mmm dd hh:mm:ss yyyy GMT
+            Not After: Mmm dd hh:mm:ss yyyy GMT
         Subject: CN = mi4-svc
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
@@ -75,7 +76,8 @@ MIIDNjCCAh6gAwIB ...==
 -----END CERTIFICATE-----
 ```
 
-An exemplary output is as the following : 
+Example output:
+
 ```output
 X509v3 Subject Alternative Name:
 DNS:mi1-svc, DNS:mi1-svc.test.svc.cluster.local, DNS:mi1-svc.test.svc
@@ -89,13 +91,13 @@ DNS:mi1-svc, DNS:mi1-svc.test.svc.cluster.local, DNS:mi1-svc.test.svc
    base64 /<path>/<file> > cert.txt 
    ```
 
-   For Windows users, use [certutil](/windows-server/administration/windows-commands/certutil) utility to perform Base64 encoding and decoding as the following command : 
+   For Windows users, use [certutil](/windows-server/administration/windows-commands/certutil) utility to perform Base64 encoding and decoding as the following command: 
 
    ```console
    $certutil -encode -f input.txt b64-encoded.txt
    ```
 
-   You will need to remove the header in the output file manually or using the following command :
+   Remove the header in the output file manually, or use the following command:
 
    ```console
    $findstr /v CERTIFICATE b64-encoded.txt> updated-b64.txt 
@@ -118,37 +120,37 @@ DNS:mi1-svc, DNS:mi1-svc.test.svc.cluster.local, DNS:mi1-svc.test.svc
 
 Use the following command by providing Kubernetes secret that you created previously to rotate the certificate: 
 
-```console
+```azurecli
 az sql mi-arc update -n <managed instance name> --k8s-namespace <arc> --use-k8s --service-cert-secret <your-cert-secret>
 ```
 
 For example:
 
-```console
+```azurecli
 az sql mi-arc update -n mysqlmi --k8s-namespace <arc> --use-k8s --service-cert-secret mymi-cert-secret
 ```
 
 Use the following command to rotate the certificate with the PEM formatted certificate public and private keys. The command generates a default service certificate name. 
 
-```console
+```azurecli
 az sql mi-arc update -n <managed instance name> --k8s-namespace arc --use-k8s --cert-public-key-file <path-to-my-cert-public-key> --cert-private-key-file <path-to-my-cert-private-key> --k8s-namespace <your-k8s-namespace>
 ```
 
 For example:
 
-```console
+```azurecli
 az sql mi-arc update -n mysqlmi --k8s-namespace arc --use-k8s --cert-public-key-file ./mi1-1-cert --cert-private-key-file ./mi1-1-pvt
 ```
 
 You can also provide a Kubernetes service cert secret name for `--service-cert-secret` parameter. In this case, it's taken as an updated secret name. The command checks if the secret exists. If not, the command creates a secret name and then rotates the secret in the managed instance.
 
-```console
+```azurecli
 az sql mi-arc update -n <managed instance name> --k8s-namespace <arc> --use-k8s --cert-public-key-file <path-to-my-cert-public-key> --cert-private-key-file <path-to-my-cert-private-key> --service-cert-secret <path-to-mymi-cert-secret>
 ```
 
 For example:
 
-```console
+```azurecli
 az sql mi-arc update -n mysqlmi --k8s-namespace arc --use-k8s --cert-public-key-file ./mi1-1-cert --cert-private-key-file ./mi1-1-pvt --service-cert-secret mi1-12-1-cert-secret
 ```
 
@@ -192,7 +194,7 @@ spec:
   tier: GeneralPurpose
 ```
 
-You can use the following kubectl command to apply this setting : 
+You can use the following kubectl command to apply this setting: 
 
 ```console
    kubectl apply -f <my-sql-mi-yaml-file>

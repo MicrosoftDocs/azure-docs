@@ -1,18 +1,20 @@
 ---
 title: Audit logging - Azure Database for PostgreSQL - Flexible server
 description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL - Flexible server.
-author: niklarin
-ms.author: nlarin
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
+ms.author: gennadyk
+author: GennadNY
+ms.reviewer: 
 ms.date: 11/30/2021
 ---
 
 # Audit logging in Azure Database for PostgreSQL - Flexible server
 
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 Audit logging of database activities in Azure Database for PostgreSQL - Flexible server is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session and/or object audit logging.
-
-
 
 If you want Azure resource-level logs for operations like compute and storage scaling, see the [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md).
 
@@ -22,7 +24,25 @@ By default, pgAudit log statements are emitted along with your regular log state
 To learn how to set up logging to Azure Storage, Event Hubs, or Azure Monitor logs, visit the resource logs section of the [server logs article](concepts-logging.md).
 
 ## Installing pgAudit
+Before you can install pgAudit extension in Azure Database for PostgreSQL - Flexible Server, you will need to allow-list pgAudit extension for use. 
 
+Using the [Azure portal](https://portal.azure.com):
+
+   1. Select your Azure Database for PostgreSQL - Flexible Server.
+   2. On the sidebar, select **Server Parameters**.
+   3. Search for the `azure.extensions` parameter.
+   4. Select pgAudit as extension you wish to allow-list.
+     :::image type="content" source="./media/concepts-extensions/allow-list.png" alt-text=" Screenshot showing Azure Database for PostgreSQL - allow-listing extensions for installation ":::
+  
+Using [Azure CLI](/cli/azure/):
+
+   You can allow-list extensions via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
+
+   ```bash
+az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name azure.extensions --value pgAudit
+   ```
+
+ 
 To install pgAudit, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a server restart to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/singleserver/configurations/createorupdate).
 
 Using the [Azure portal](https://portal.azure.com):
@@ -66,9 +86,6 @@ Using the [Azure portal](https://portal.azure.com):
 
 
 
-> [!NOTE]
->If you set the log_statement parameter to DLL or ALL, and run a `CREATE ROLE/USER ... WITH PASSWORD ... ; `  or  `ALTER ROLE/USER ... WITH PASSWORD ... ;`, command, then PostgreSQL creates an entry in the PostgreSQL logs, where password is logged in clear text,  which may cause a potential security risk.  This is expected behavior as per PostgreSQL engine design. You can, however, use PGAudit extension and set  `pgaudit.log='DDL' ` parameter in server parameters page, which doesn't record any 'CREATE/ALTER ROLE' statement in Postgres Log, unlike Postgres `pgaudit.log='DDL'` setting.  If you do need to log these statements you can add `pgaudit.log ='ROLE'` in addition, which, while logging 'CREATE/ALTER ROLE' will redact the password from logs. 
-
 The [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) provides the definition of each parameter. Test the parameters first and confirm that you are getting the expected behavior.
 
 > [!NOTE]
@@ -77,6 +94,8 @@ The [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/READM
 
 > [!NOTE]
 > In Azure Database for PostgreSQL - Flexible server, `pgaudit.log` cannot be set using a `-` (minus) sign shortcut as described in the pgAudit documentation. All required statement classes (READ, WRITE, etc.) should be individually specified.
+> [!NOTE]
+>If you set the log_statement parameter to DDL or ALL, and run a `CREATE ROLE/USER ... WITH PASSWORD ... ; `  or  `ALTER ROLE/USER ... WITH PASSWORD ... ;`, command, then PostgreSQL creates an entry in the PostgreSQL logs, where password is logged in clear text,  which may cause a potential security risk.  This is expected behavior as per PostgreSQL engine design. You can, however, use PGAudit extension and set  `pgaudit.log='DDL'` parameter in server parameters page, which doesn't record any `CREATE/ALTER ROLE` statement in Postgres Log, unlike Postgres `log_statement='DDL'` setting. If you do need to log these statements you can add `pgaudit.log ='ROLE'` in addition, which, while logging `'CREATE/ALTER ROLE'` will redact the password from logs. 
 
 ## Audit log format
 Each audit entry is indicated by `AUDIT:` near the beginning of the log line. The format of the rest of the entry is detailed in the [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).

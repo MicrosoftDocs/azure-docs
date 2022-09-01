@@ -2,13 +2,13 @@
 title: Quickstart for Azure App Configuration with .NET Core | Microsoft Docs
 description: In this quickstart, create a .NET Core app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
-ms.date: 09/28/2020
-ms.author: alkemper
+ms.date: 04/05/2022
+ms.author: malev
 #Customer intent: As a .NET Core developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a .NET Core app with App Configuration
@@ -84,9 +84,17 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
 
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command:
 
-    ```cmd
+    ### [Windows command prompt](#tab/windowscommandprompt)
+
+    To build and run the app locally using the Windows command prompt, run the following command:
+
+    ```console
     setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
+
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+
+    ### [PowerShell](#tab/powershell)
 
     If you use Windows PowerShell, run the following command:
 
@@ -94,7 +102,9 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
-    If you use macOS or Linux, run the following command:
+    ### [macOS](#tab/unix)
+
+    If you use macOS, run the following command:
 
     ```console
     export ConnectionString='connection-string-of-your-app-configuration-store'
@@ -102,13 +112,25 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
 
     Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
 
-2. Run the following command to build the console app:
+    ### [Linux](#tab/linux)
+
+    If you use Linux, run the following command:
+
+    ```console
+    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
+
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+
+    ---
+
+1. Run the following command to build the console app:
 
     ```dotnetcli
     dotnet build
     ```
 
-3. After the build successfully completes, run the following command to run the app locally:
+1. After the build successfully completes, run the following command to run the app locally:
 
     ```dotnetcli
     dotnet run

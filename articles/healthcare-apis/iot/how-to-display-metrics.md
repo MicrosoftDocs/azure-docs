@@ -1,89 +1,118 @@
 ---
-title: Display IoT connector Metrics logging - Azure Healthcare APIs
-description: This article explains how to display IoT connector Metrics
+title: Display the MedTech service metrics - Azure Health Data Services
+description: This article explains how to display MedTech service metrics.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 08/09/2022
 ms.author: jasteppe
 ---
 
-# How to display IoT connector Metrics
+# How to display and configure the MedTech service metrics
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+In this article, you'll learn how to display and configure the [MedTech service](iot-connector-overview.md) metrics in the Azure portal. You'll also learn how to pin the MedTech service metrics tile to an Azure portal dashboard for later viewing.
 
-In this article, you'll learn how to display IoT connector Metrics in the Azure portal. 
+The MedTech service metrics can be used to help determine the health and performance of your MedTech service and can be useful with troubleshooting and seeing patterns and/or trends with your MedTech service. 
 
-## Display Metrics
+## Metric types for the MedTech service
 
-1. Within your Azure Healthcare APIs Workspace, select **IoT connectors**. 
+This table shows the available MedTech service metrics and the information that the metrics are capturing and displaying within the Azure portal:  
 
-     :::image type="content" source="media\iot-metrics\iot-workspace-displayed-with-connectors-button.png" alt-text="Select the IoT connectors button." lightbox="media\iot-metrics\iot-connectors-button.png"::: 
+Metric category|Metric name|Metric description|
+|--------------|-----------|--------------|
+|Availability|IotConnector Health Status|The overall health of the MedTech service.|
+|Errors|Total Error Count|The total number of errors.|
+|Latency|Average Group Stage Latency|The average latency of the group stage. The [group stage](iot-data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
+|Latency|Average Normalize Stage Latency|The average latency of the normalized stage. The [normalized stage](iot-data-flow.md#normalize) performs normalization on raw incoming messages.|
+|Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or persisted](iot-data-flow.md#persist) by the MedTech service.|
+|Traffic|Number of Incoming Messages|The number of received raw [incoming messages](iot-data-flow.md#ingest) (for example, the device events) from the configured source event hub.|
+|Traffic|Number of Measurements|The number of normalized value readings received by the FHIR [transformation stage](iot-data-flow.md#transform) of the MedTech service.|
+|Traffic|Number of Message Groups|The number of groups that have messages aggregated in the designated time window.|
+|Traffic|Number of Normalized Messages|The number of normalized messages.|
 
-2. Select the IoT connector that you would like to display the Metrics for.
+## Display and configure the MedTech service metrics
 
-    :::image type="content" source="media\iot-metrics\iot-connector-select.png" alt-text="Select IoT connector you would like to display Metrics for." lightbox="media\iot-metrics\iot-connector-select.png":::
-    
-3. Select **Metrics** within the IoT connector page.
+1. Within your Azure Health Data Services workspace, select **MedTech service** under **Services**.
 
-   :::image type="content" source="media\iot-metrics\iot-select-metrics.png" alt-text="Select the Metrics button." lightbox="media\iot-metrics\iot-metrics-button.png"::: 
+   :::image type="content" source="media\iot-metrics-display\iot-workspace-displayed-with-connectors-button.png" alt-text="Screenshot of select the MedTech service within the workspace." lightbox="media\iot-metrics-display\iot-workspace-displayed-with-connectors-button.png":::
 
-4. From the Metrics page, you can create the Metrics that you want to display for your IoT connector. For this example, we'll be choosing the following selections:
+2. Select the MedTech service that you would like to display metrics for. For this example, we'll select a MedTech service named **mt-azuredocsdemo**. You'll select your own MedTech service.
 
-    * **Scope** = IoT connector name (**Default**)
-    * **Metric Namespace** = Standard Metrics (**Default**) 
-    * **Metric** = IoT connector metrics you want to display. For this example, we'll choose **Number of Incoming Messages**.
-    * **Aggregation** = How you would like to display the metrics. For this example, we'll choose **Count**. 
+   :::image type="content" source="media\iot-metrics-display\iot-connector-select.png" alt-text="Screenshot of select the MedTech service you would like to display metrics for." lightbox="media\iot-metrics-display\iot-connector-select.png":::
 
-    :::image type="content" source="media\iot-metrics\iot-select-metrics-to-display.png" alt-text="Select Metrics to display." lightbox="media\iot-metrics\iot-metrics-selection-close-up.png"::: 
+3. Select **Metrics** within the MedTech service page.
 
-5. We can now see the IoT connector Metrics for **Number of Incoming Messages** displayed on the Azure portal.
+   :::image type="content" source="media\iot-metrics-display\iot-select-metrics.png" alt-text="Screenshot of select the Metrics option within your MedTech service." lightbox="media\iot-metrics-display\iot-select-metrics.png":::
 
-    > [!TIP]
-    > You can add additional Metrics by selecting the **Add metric** button and making your choices.
+4. The MedTech service metrics page will open allowing you to use the drop-down menus to view and select the metrics that are available for the MedTech service.
 
-    :::image type="content" source="media\iot-metrics\iot-metrics-add-button.png" alt-text="Select Add metric button to add more Metrics." lightbox="media\iot-metrics\iot-add-metric-button.png":::
+   :::image type="content" source="media\iot-metrics-display\iot-metrics-opening-page.png" alt-text="Screenshot the MedTech service metrics page with drop-down menus." lightbox="media\iot-metrics-display\iot-metrics-opening-page.png":::
 
-    > [!IMPORTANT]
-    > If you leave the Metrics page, the Metrics settings are lost and will have to be recreated. If you would like to save your IoT connector Metrics for future viewing, you can pin them to an Azure dashboard as a tile.
+5. Select the metrics combinations that you want to display for your MedTech service. For this example, we'll be choosing the following selections:
 
-## Pinning Metrics tile on Azure portal dashboard
+   * **Scope** = Your MedTech service name (**Default**)
+   * **Metric Namespace** = Standard metrics (**Default**)
+   * **Metric** = The MedTech service metrics you want to display. For this example, we'll choose **Number of Incoming Messages**.
+   * **Aggregation** = How you would like to display the metrics. For this example, we'll choose **Count**.
 
-1. To pin the Metrics tile to an Azure portal dashboard, select the **Pin to dashboard** button:
+6. You can now see your MedTech service metrics for **Number of Incoming Messages** displayed on the MedTech service metrics page.
 
-    :::image type="content" source="media\iot-metrics\iot-metrics-select-add-pin-to-dashboard.png" alt-text="Select the Pin to dashboard button." lightbox="media\iot-metrics\iot-pin-to-dashboard-button.png":::
+   :::image type="content" source="media\iot-metrics-display\iot-metrics-select-options.png" alt-text="Screenshot of select metrics to display." lightbox="media\iot-metrics-display\iot-metrics-select-options.png":::
 
-2. Select the dashboard you would like to display IoT connector Metrics on. For this example, we'll use a private dashboard named `IoT connector Metrics`. Select **Pin** to add the Metrics tile to the dashboard.
+7. You can add more metrics by selecting **Add metric**.
 
-    :::image type="content" source="media\iot-metrics\iot-select-pin-to-dashboard.png" alt-text="Select dashboard and Pin button to complete the dashboard pinning process." lightbox="media\iot-metrics\iot-select-pin-to-dashboard.png":::
+   :::image type="content" source="media\iot-metrics-display\iot-select-add-metric.png" alt-text="Screenshot of select Add metric to add more MedTech service metrics." lightbox="media\iot-metrics-display\iot-select-add-metric.png":::
 
-3. You'll receive a confirmation that the Metrics tile was successfully added to the dashboard.
+8. Then select the metrics that you would like to add to your MedTech service.
 
-    :::image type="content" source="media\iot-metrics\iot-select-dashboard-pinned-successful.png" alt-text="Metrics tile successfully pinned to dashboard." lightbox="media\iot-metrics\iot-select-dashboard-pinned-successful.png":::
+   :::image type="content" source="media\iot-metrics-display\iot-metrics-select-more-metrics.png" alt-text="Screenshot of select more metrics to add to your MedTech service." lightbox="media\iot-metrics-display\iot-metrics-select-more-metrics.png":::
 
-4. Once you've received a successful confirmation, select **Dashboard**.
+   > [!TIP]
+   >
+   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](/azure-monitor/essentials/metrics-getting-started)
 
-    :::image type="content" source="media\iot-metrics\iot-select-dashboard-with-metrics-tile.png" alt-text="Select the Dashboard button." lightbox="media\iot-metrics\iot-dashboard-button.png":::
+   > [!IMPORTANT]
+   >
+   > If you leave the MedTech service metrics page, the metrics settings for your MedTech service are lost and will have to be recreated. If you would like to save your MedTech service metrics for future viewing, you can pin them to an Azure dashboard as a tile.
 
-5. Select the dashboard that you pinned the Metrics tile to. For this example, the dashboard is `IoT connector Metrics`. The dashboard will display the IoT connector Metrics tile that you created in the previous steps.
+## How to pin the MedTech service metrics tile to an Azure portal dashboard
 
-    :::image type="content" source="media\iot-metrics\iot-dashboard-with-metrics-tile-displayed.png" alt-text="Dashboard with pinned IoT connector Metrics tile." lightbox="media\iot-metrics\iot-dashboard-with-metrics-tile-displayed.png":::
+1. To pin the MedTech service metrics tile to an Azure portal dashboard, select the **Pin to dashboard** option.
 
-> [!TIP]
-> See IoT connector [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+   :::image type="content" source="media\iot-metrics-display\iot-metrics-select-add-pin-to-dashboard.png" alt-text="Screenshot of select the Pin to dashboard option." lightbox="media\iot-metrics-display\iot-metrics-select-add-pin-to-dashboard.png":::
 
-## Conclusion 
+2. Select the dashboard you would like to display your MedTech service metrics to by using the drop-down menu. For this example, we'll use a private dashboard named **Azuredocsdemo_Dashboard**. Select **Pin** to add your MedTech service metrics tile to the dashboard.
 
-Having access to Metrics is essential for monitoring and troubleshooting.  IoT connector assists you to do these actions through Metrics. 
+   :::image type="content" source="media\iot-metrics-display\iot-select-pin-to-dashboard.png" alt-text="Screenshot of select dashboard and Pin options to complete the dashboard pinning process." lightbox="media\iot-metrics-display\iot-select-pin-to-dashboard.png":::
+
+3. You'll receive a confirmation that your MedTech service metrics tile was successfully added to your selected Azure portal dashboard.
+
+   :::image type="content" source="media\iot-metrics-display\iot-select-dashboard-pinned-successful.png" alt-text="Screenshot of metrics tile successfully pinned to dashboard." lightbox="media\iot-metrics-display\iot-select-dashboard-pinned-successful.png":::
+
+4. Once you've received a successful confirmation, select the **Dashboard** option.
+
+   :::image type="content" source="media\iot-metrics-display\iot-select-dashboard-with-metrics-tile.png" alt-text="Screenshot of select the Dashboard option." lightbox="media\iot-metrics-display\iot-select-dashboard-with-metrics-tile.png":::
+
+5. Use the drop-down menu to select the dashboard that you pinned your MedTech service metrics tile. For this example, the dashboard is named **Azuredocsdemo_Dashboard**. 
+
+   :::image type="content" source="media\iot-metrics-display\iot-select-dashboard-with-metrics-pin.png" alt-text="Screenshot of selecting dashboard with pinned MedTech service metrics tile." lightbox="media\iot-metrics-display\iot-select-dashboard-with-metrics-pin.png":::
+
+6. The dashboard will display the MedTech service metrics tile that you created in the previous steps.
+
+   :::image type="content" source="media\iot-metrics-display\iot-metrics-display-dashboard-with-metrics-pin.png" alt-text="Screenshot of dashboard with pinned MedTech service metrics tile." lightbox="media\iot-metrics-display\iot-metrics-display-dashboard-with-metrics-pin.png":::
 
 ## Next steps
 
-Check out frequently asked questions about IoT connector.
+To learn how to configure the diagnostic settings and export the MedTech service metrics to another location (for example: an Azure storage account), see
 
->[!div class="nextstepaction"]
->[IoT connector FAQs](iot-connector-faqs.md)
+> [!div class="nextstepaction"]
+> [How to configure diagnostic settings for exporting the MedTech service metrics](iot-metrics-diagnostics-export.md)
 
-(FHIR&#174;) is a registered trademark of HL7 and is used with the permission of HL7.
+To learn about the MedTech service frequently asked questions (FAQs), see
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](iot-connector-faqs.md)
+
+(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -2,6 +2,7 @@
 title: Protect web apps on Azure VMware Solution with Azure Application Gateway
 description: Configure Azure Application Gateway to securely expose your web apps running on Azure VMware Solution.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 02/10/2021
 ---
 

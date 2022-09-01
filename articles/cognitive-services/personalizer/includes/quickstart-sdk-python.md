@@ -9,15 +9,21 @@ ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 08/25/2020
 ---
-[Reference documentation](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [Package (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer)
+
+You will need to install the Personalizer client library for Python to:
+* Authenticate the quickstart example client with a Personalizer resource in Azure.
+* Send context and action features to the Reward API, which will return the best action from the Personalizer model
+* Send a reward score to the Rank API and train the Personalizer model.
+
+[Reference documentation](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [Package (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Quickstart code sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* Once your Azure subscription is set up, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the created resource to connect your application to the Personalizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade to a paid tier for production at a later time.
 
 ## Setting Up
 
@@ -27,17 +33,22 @@ ms.date: 08/25/2020
 
 ### Install the client library
 
-After installing Python, you can install the client library with:
+After installing Python, the client library can be installed with [pip](https://pypi.org/project/pip/):
 
 ```console
 pip install azure-cognitiveservices-personalizer
 ```
 
-### Create a new python application
+### Create a new Python application
+
+First, create a Python application that will both handle the toy example logic and call the Personalizer APIs. 
 
 Create a new Python file and create variables for your resource's endpoint and subscription key.
 
 [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
 
 ```python
 from azure.cognitiveservices.personalizer import PersonalizerClient
@@ -58,7 +69,7 @@ To ask for the single best item of the content, create a [RankRequest](/python/a
 
 To send a reward score to Personalizer, set the event ID and the reward score (value) to send to the [Reward](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.operations.events_operations.eventsoperations) method on the EventOperations class.
 
-Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This should be one of the primary design decisions in your Personalizer architecture.
+Determining the reward, in this quickstart is an easy task, however, this is on one of the most important considerations when planning your Personalizer architecture. In a production system, determining what factors impacts the [reward score](../concept-rewards.md) and how much can be complex. Furthermore, you may decide to change your reward scoring mechanism as your scenario or business needs evolve. 
 
 ## Code examples
 
@@ -79,7 +90,7 @@ client = PersonalizerClient(endpoint, CognitiveServicesCredentials(key))
 
 ## Get content choices represented as actions
 
-Actions represent the content choices from which you want Personalizer to select the best content item. Add the following methods to the Program class to represent the set of actions and their features.
+Actions represent the content choices from which Personalizer can select the best content item. The following methods create a set of sample actions along with action features in your quickstart application. 
 
 ```python
 def get_actions():
@@ -89,6 +100,10 @@ def get_actions():
     action4 = RankableAction(id='salad', features=[{'taste':'salty', 'spice_level':'none'},{'nutritional_level': 2}])
     return [action1, action2, action3, action4]
 ```
+
+## Get user preferences and time of day as context
+
+Context can represent the current state of your application, system, environment, or user. The following methods create contextual features for the time of day, and taste preferences from user input.
 
 ```python
 def get_user_timeofday():
@@ -123,11 +138,11 @@ def get_user_preference():
     return res
 ```
 
-## Create the learning loop
+## Create a learning loop
 
-The Personalizer learning loop is a cycle of [Rank](#request-the-best-action) and [Reward](#send-a-reward) calls. In this quickstart, each rank call, to personalize the content, is followed by a reward call to tell Personalizer how well the service performed.
+A Personalizer learning loop is a cycle of [Rank](#request-the-best-action) and [Reward](#send-a-reward) calls. In this quickstart, each rank call made to personalize the content is followed by a reward call to tell Personalizer how well the service performed.
 
-The following code loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to select the best action, presenting the selection to the customer to choose from among the list, then sending a reward to Personalizer signaling how well the service did in its selection.
+The following code loops through a single cycle that asks the user their preferences at the command line, sends that information to Personalizer to select the best action, presents the selection to the customer to choose from among the list, then sends a reward to Personalizer signaling how well the service did in its selection.
 
 ```python
 keep_going = True
@@ -173,7 +188,7 @@ Add the following methods, which [get the content choices](#get-content-choices-
 
 ## Request the best action
 
-To complete the Rank request, the program asks the user's preferences to create a `currentContent` of the content choices. The process can create content to exclude from the actions, shown as `excludeActions`. The Rank request needs the actions and their features, currentContext features, excludeActions, and a unique event ID, to receive the response.
+To make a Rank request, you will need to provide: a list of 'RankActions' (_actions_), a list of context features (_context_), an optional list of actions (_excludeActions_) to remove from consideration by Personalizer, and a unique event ID to receive the response.
 
 This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
@@ -202,7 +217,7 @@ client.events.reward(event_id=eventid, value=reward_val)
 
 ## Run the program
 
-Run the application with the python from your application directory.
+Run the application with the Python from your application directory.
 
 ```console
 python sample.py

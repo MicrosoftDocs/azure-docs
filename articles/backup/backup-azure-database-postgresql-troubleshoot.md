@@ -2,11 +2,13 @@
 title: Troubleshoot Azure Database for PostgreSQL backup
 description: Troubleshooting information for backing up Azure Database for PostgreSQL.
 ms.topic: troubleshooting
-ms.date: 09/22/2021
-
+ms.date: 06/07/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
-# Troubleshoot PostgreSQL database backup by using Azure Backup (preview)
+# Troubleshoot PostgreSQL database backup using Azure Backup
 
 This article provides troubleshooting information for backing up Azure PostgreSQL databases with Azure Backup.
 
@@ -92,6 +94,47 @@ Establish network line of sight by enabling the **Allow access to Azure services
 
         ![Screenshot showing how to search for vault name.](./media/backup-azure-database-postgresql/search-for-vault-name.png)
 
+## UserErrorDBUserAuthFailed
+
+The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). Ensure that the credentials stored as part of the secret value in the key vault are valid. Ensure that the specified database user has login access.
+
+## UserErrorInvalidSecret
+
+The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). Ensure that the specified secret name is present in the key vault.
+
+## UserErrorMissingDBPermissions
+
+The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). Grant appropriate permissions to the relevant backup or the database user to perform this operation on the database.
+
+## UserErrorSecretValueInUnsupportedFormat
+
+The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). However the secret value is not in a format supported by Azure Backup. Check the supported format as documented [here](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault).
+
+## UserErrorInvalidSecretStore
+
+The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). Ensure that the given key vault exists and the backup service is given access as documented [here](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup).
+
+## UserErrorMissingPermissionsOnSecretStore
+
+The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). Ensure that backup vault's MSI is given access to key vault as documented [here](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup).
+
+## UserErrorSSLDisabled
+
+SSL needs to be enabled for connections to the server.
+
+## UserErrorDBNotFound
+
+Ensure that the database and the relevant server exist.
+
+## UserErrorDatabaseNameAlreadyInUse
+
+The name given for the restored database already exists and hence the restore operation failed. Retry the restore operation with a different name.
+
+## UserErrorServerConnectionClosed
+
+The operation failed because the server closed the connection unexpectedly. Retry the operation and if the error still persists, please contact Microsoft Support.
+
+
 ## Next steps
 
-[About Azure Database for PostgreSQL backup (preview)](backup-azure-database-postgresql-overview.md)
+[About Azure Database for PostgreSQL backup](backup-azure-database-postgresql-overview.md)

@@ -3,16 +3,15 @@ title: Troubleshoot Azure Load Balancer health probe status
 description: Learn how to troubleshoot known issues with Azure Load Balancer health probe status.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
-ms.author: allensu
+ms.author: mbender
 ---
 
 # Troubleshoot Azure Load Balancer health probe status

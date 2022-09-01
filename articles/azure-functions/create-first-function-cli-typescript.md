@@ -3,6 +3,7 @@ title: Create a TypeScript function from the command line - Azure Functions
 description: Learn how to create a TypeScript function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/18/2021
 ms.topic: quickstart
+ms.devlang: typescript
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-other
 ---
 
@@ -145,7 +146,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. If you're using Node.js 16, also change `--runtime-version` to `16`.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. If you're using Node.js 16, also change `--runtime-version` to `16`.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -168,7 +169,7 @@ Before you use Core Tools to deploy your project to Azure, you create a producti
 1. Use the following command to prepare your TypeScript project for deployment:
 
     ```console
-    npm run build:production
+    npm run build
     ```
 
 1. With the necessary resources in place, you're now ready to deploy your local functions project to the function app in Azure by using the [func azure functionapp publish](functions-run-local.md#project-file-deployment) command. In the following example, replace `<APP_NAME>` with the name of your app.

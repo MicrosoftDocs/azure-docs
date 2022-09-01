@@ -1,13 +1,13 @@
 ---
 title: Create a workspace with data exfiltration protection enabled
 description: This article will explain how to create a workspace with data exfiltration protection in Azure Synapse Analytics
-author: nanditavalsan 
+author: WilliamDAssafMSFT 
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security 
 ms.date: 12/01/2020 
-ms.author: NanditaV
-ms.reviewer: jrasnick
+ms.author: wiassaf
+ms.reviewer: sngun
 ---
 
 # Create a workspace with data exfiltration protection enabled

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 08/23/2022
 ms.author: dobett
 ms.custom:  [amqp, mqtt]
 #Customer intent: As a newcomer to IoT, I want to understand what IoT is, what services are available, and examples of business cases so I can figure out where to start.
@@ -71,6 +71,8 @@ For real-life examples of how organizations use Azure IoT, see [Microsoft Techni
 For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](/azure/architecture/reference-architectures/iot).
 
 ## Next steps
+
+To learn about the different solution models and how you should get started, see [What's the difference between the aPaaS and PaaS solution offerings?](iot-solution-apaas-paas.md).
 
 For some actual business cases and the architecture used, see the [Microsoft Azure IoT Technical Case Studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured).
 

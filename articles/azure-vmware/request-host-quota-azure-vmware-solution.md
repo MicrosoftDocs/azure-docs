@@ -3,6 +3,7 @@ title: Request host quota for Azure VMware Solution
 description: Learn how to request host quota/capacity for Azure VMware Solution. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
+ms.service: azure-vmware
 ms.date: 09/27/2021
 
 #Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
@@ -56,7 +57,7 @@ CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enabl
 Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from Partner Center.
 
 >[!IMPORTANT] 
->Azure VMware Solution service does not provide a multi-tenancy required. Hosting partners requiring it are not supported. 
+>Azure VMware Solution service does not provide multi-tenancy support. Hosting partners requiring it are not supported. 
 
 1. Configure the CSP Azure plan:
 

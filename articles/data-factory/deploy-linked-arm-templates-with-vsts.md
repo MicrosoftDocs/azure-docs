@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 08/05/2022
 ms.author: jburchel
 ---
 # Deploy linked ARM templates with VSTS
@@ -28,7 +28,7 @@ The scenario we  walk through here is to deploy VNet with a Network Security Gro
 
 ## Create an Azure Storage account
 
-1. Log in to the Azure portal and create an Azure Storage account following the steps documented [here](/azure/storage/common/storage-account-create?tabs=azure-portal).
+1. Log in to the Azure portal and create an Azure Storage account following the steps documented [here](../storage/common/storage-account-create.md?tabs=azure-portal).
 1. Once deployment is complete, navigate to the storage account and select **Shared access signature**.  Select Service, Container, and Object for the **Allowed resource types**.  Then select **Generate SAS and connection string**. Copy the SAS token and keep it available since we will use it later.
 
    :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\storage-account-generate-sas-token.png" alt-text="Shows an Azure Storage Account in the Azure portal with Shared access signature selected." lightbox="media\deploy-linked-arm-templates-with-vsts\storage-account-generate-sas-token.png":::
@@ -70,7 +70,7 @@ The scenario we  walk through here is to deploy VNet with a Network Security Gro
 
    - Linked ARM template:
       - For Template, point to ArmTemplate_master.json instead of ArmTemplateForFactory.json
-      - For Template Parameters, point to 'ArmTemplateParamter_master.json' instead of 'ArmTemplateParametersForFactory.json'
+      - For Template Parameters, point to 'ArmTemplateParameters_master.json' instead of 'ArmTemplateParametersForFactory.json'
    - Under override Template parameters update two additional parameters
       - **containerUri** – Paste the URL of container created above.
       - **containerSasToken** - If the secret's name is 'StorageSASToken', enter '$(StorageSASToken)' for this value.

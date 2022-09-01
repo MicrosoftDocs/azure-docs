@@ -9,12 +9,14 @@ ms.custom: ignite-fall-2021
 
 # Continuous video recording    
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Azure Video Analyzer supports recording video continuously, on a 24x7 basis, from a CCTV camera via a video processing [pipeline topology](pipeline.md) consisting of an RTSP source node and a video sink node. The diagram below shows a graphical representation of such a pipeline. The JSON representation of the topology can be found in this [document](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json). You can use such a topology to create arbitrarily long recordings (years worth of content). The timestamps for the recordings are stored in UTC.  
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Continuous video recording":::
 
-An instance of the pipeline topology depicted above can be run on an edge device in the Video Analyzer service, with the video sink recording to a [video resource](terminology.md#video). The video will be recorded for as long as the pipeline stays in the activated state. Recorded video can be played back using the streaming capabilities of Video Analyzer. See [Playback of video recordings](playback-recordings-how-to.md) for more details.
+An instance of the pipeline topology depicted above can be run on an edge device in the Video Analyzer service, with the video sink recording to a [video resource](terminology.md#video). The video will be recorded for as long as the pipeline stays in the activated state. Recorded video can be played back using the streaming capabilities of Video Analyzer. See [Recorded and live videos](viewing-videos-how-to.md) for more details.
 
 ## Suggested pre-reading  
 
@@ -47,12 +49,12 @@ The `segmentLength` property, shown above, will help you control the write trans
 
 The `segmentLength` property ensures that video is written to the storage account at most once per `segmentLength` seconds. This property has a minimum value of 30 seconds (also the default), and can be increased by 30-second increments to a maximum of 5 minutes.
 
-This property applies to both the Video Analyzer edge module and the Video Analyzer service. See the [Playback of video recordings](playback-recordings-how-to.md) article for the effect that `segmentLength` has on playback.
+This property applies to both the Video Analyzer edge module and the Video Analyzer service. See the [Recorded and live videos](viewing-videos-how-to.md) article for the effect that `segmentLength` has on playback.
 
 ## See also
 
 * [Event-based video recording](event-based-video-recording-concept.md) 
-* [Playback of video recordings](playback-recordings-how-to.md) 
+* [Recorded and live videos](viewing-videos-how-to.md) 
 
 ## Next steps
 

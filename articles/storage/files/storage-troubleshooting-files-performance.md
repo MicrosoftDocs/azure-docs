@@ -1,11 +1,11 @@
 ---
 title: Azure file shares performance troubleshooting guide
 description: Troubleshoot known performance issues with Azure file shares. Discover potential causes and associated workarounds when these problems are encountered.
-author: jeffpatt24
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/06/2021
-ms.author: jeffpatt
+ms.author: kendownie
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -78,7 +78,8 @@ To determine whether most of your requests are metadata-centric, start by follow
 - Check to see whether the application can be modified to reduce the number of metadata operations.
 - Add a virtual hard disk (VHD) on the file share and mount the VHD from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of a local directly attached storage.
     -   To mount a VHD on a Windows client, use the [Mount-DiskImage](/powershell/module/storage/mount-diskimage) PowerShell cmdlet.
-    -   To mount a VHD on Linux, consult the documentation for your Linux distribution.     
+    -   To mount a VHD on Linux, consult the documentation for your Linux distribution.
+- If you're continuously hitting the metadata operations limit that a single Azure file share can accommodate (2,000 operations per file share), we suggest separating the file share into multiple file shares within the same storage account.
 
 ### Cause 3: Single-threaded application
 
@@ -279,6 +280,9 @@ To confirm, you can use Azure Metrics in the portal -
 13. Click **Create alert rule** to create the alert.
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
+
+## Slow performance when unzipping files in SMB file shares
+Depending on the exact compression method and unzip operation used, decompression operations may perform more slowly on an Azure file share than on your local disk. This is often because unzipping tools perform a number of metadata operations in the process of performing the decompression of a compressed archive. For the best performance, we recommend copying the compressed archive from the Azure file share to your local disk, unzipping there, and then using a copy tool such as Robocopy (or AzCopy) to copy back to the Azure file share. Using a copy tool like Robocopy can compensate for the decreased performance of metadata operations in Azure Files relative to your local disk by using multiple threads to copy data in parallel. 
 
 ## How to create alerts if a premium file share is trending toward being throttled
 

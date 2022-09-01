@@ -3,7 +3,7 @@ title: Create and run custom availability tests using Azure Functions
 description: This doc will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger function. The results of this test will be sent to your Application Insights resource, where you will be able to query for and alert on the availability results data. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test if it's not available in your region.
 ms.topic: conceptual
 ms.date: 05/06/2021
-
+ms.devlang: csharp
 ---
 
 # Create and run custom availability tests using Azure Functions
@@ -12,6 +12,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
 
 > [!NOTE]
 > This example is designed solely to show you the mechanics of how the TrackAvailability() API call works within an Azure Function. Not how to write the underlying HTTP Test code/business logic that would be required to turn this into a fully functional availability test. By default if you walk through this example you will be creating a basic availability HTTP GET test.
+> To follow these instructions, you must use the [dedicated plan](../../azure-functions/dedicated-plan.md) to allow editing code in App Service Editor.
 
 ## Create a timer trigger function
 
@@ -24,7 +25,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
     - If you do not have an Application Insights Resource created yet for your timer triggered function:
         - By default when you are creating your Azure Functions application it will create an Application Insights resource for you. Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
     > [!NOTE]
-    > You can host your functions on a Consumption, Premium, or App Service plan. If you are testing behind a V-Net or testing non public endpoints then you will need to use the premium plan in place of the consumption. Select your plan on the **Hosting** tab.
+    > You can host your functions on a Consumption, Premium, or App Service plan. If you are testing behind a V-Net or testing non public endpoints then you will need to use the premium plan in place of the consumption. Select your plan on the **Hosting** tab. Please ensure the latest .NET version is selected when creating the Function App.
 2. Create a timer trigger function.
     1. In your function app, select the **Functions** tab.
     1. Select **Add** and in the Add function tab select the follow configurations:

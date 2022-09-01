@@ -65,7 +65,7 @@ Next, let's construct the URL. The URL is built using the `Parse()` and `Query()
 Copy this code into the `getLanguages` function.
 
 ```go
-// Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+// Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
 u, _ := url.Parse(uri)
 q := u.Query()
 u.RawQuery = q.Encode()

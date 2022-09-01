@@ -9,15 +9,16 @@ editor: ''
 
 ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/16/2021
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service to manage StorSimple volume containers
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 This tutorial explains how to use the StorSimple Device Manager service to create and manage StorSimple volume containers.

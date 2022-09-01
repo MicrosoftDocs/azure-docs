@@ -190,7 +190,7 @@ When deploying an AKS Cluster, local accounts are enabled by default. Even when 
 > On clusters with Azure AD integration enabled, users belonging to a group specified by `aad-admin-group-object-ids` will still be able to gain access via non-admin credentials. On clusters without Azure AD integration enabled and `properties.disableLocalAccounts` set to true, obtaining both user and admin credentials will fail.
 
 > [!NOTE]
-> After disabling local accounts users on an already existing AKS cluster where users might have used local account/s, admin must [rotate the cluster certificates](certificate-rotation.md#rotate-your-cluster-certificates), in order to revoke the certificates those users might have access to.  If this is a new cluster than no action is required.
+> After disabling local accounts users on an already existing AKS cluster where users might have used local account/s, admin must [rotate the cluster certificates](certificate-rotation.md), in order to revoke the certificates those users might have access to.  If this is a new cluster then no action is required.
 
 ### Create a new cluster without local accounts
 

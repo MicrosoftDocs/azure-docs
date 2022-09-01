@@ -7,11 +7,12 @@ metadata:
   title: Confluent Cloud with Azure documentation
   description: Confluent Cloud integrates with Azure to offer Apache Kafka as a service.
   ms.service: partner-services
+  ms.subservice: confluent
   ms.topic: landing-page
   ms.collection: na
-  author: tfitzmac
-  ms.author: tomfitz
-  ms.date: 10/22/2021
+  author: flang-msft
+  ms.author: franlanglois
+  ms.date: 03/25/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -27,7 +28,7 @@ landingContent:
         links:
           - text: Manage the Confluent Cloud resource
             url: manage.md
-      
+
   # Card
   - title: Create Confluent resource
     linkLists:
@@ -53,5 +54,5 @@ landingContent:
             url: /cli/azure/confluent
           - text: Azure PowerShell
             url: /powershell/module/az.confluent/#confluent
-
-          
+          - text: REST API
+            url: /rest/api/confluent

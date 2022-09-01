@@ -83,7 +83,7 @@ When data is returned, it is sorted by the clustering key, as expected in Apache
 :::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Screenshot that shows the returned data that is sorted by the clustering key.":::
 
 > [!WARNING]
-> When querying data, if you want to filter *only* on the partition key value element of a compound primary key (as is the case above), ensure that you *explicitly add a secondary index on the partition key*:
+> When querying data in a table that has a compound primary key, if you want to filter on the partition key *and* any other non-indexed fields aside from the clustering key, ensure that you *explicitly add a secondary index on the partition key*:
 >
 >    ```shell
 >    CREATE INDEX ON uprofile.user (user);

@@ -7,7 +7,7 @@ ms.author: msmbaldwin
 
 ---
 
-A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure CLI [az group create](/cli/azure/group#az_group_create) command or the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *eastus* location.
+A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure CLI [az group create](/cli/azure/group#az-group-create) command or the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *eastus* location.
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli

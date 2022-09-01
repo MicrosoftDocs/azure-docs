@@ -16,6 +16,8 @@ ms.date: 09/30/2020
 
 # Quickstart: Explore Azure Time Series Insights Gen1
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 > [!CAUTION]
 > This is a Gen1 article.
 

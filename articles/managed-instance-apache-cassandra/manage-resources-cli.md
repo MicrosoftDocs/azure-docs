@@ -34,7 +34,7 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 
 ### <a id="create-cluster"></a>Create a managed instance cluster
 
-Create an Azure Managed Instance for Apache Cassandra cluster by using the [az managed-cassandra cluster create](/cli/azure/managed-cassandra/cluster#az_managed_cassandra_cluster_create) command:
+Create an Azure Managed Instance for Apache Cassandra cluster by using the [az managed-cassandra cluster create](/cli/azure/managed-cassandra/cluster#az-managed-cassandra-cluster-create) command:
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -57,7 +57,7 @@ az managed-cassandra cluster create \
 
 ### <a id="delete-cluster"></a>Delete a managed instance cluster
 
-Delete a cluster by using the [az managed-cassandra cluster delete](/cli/azure/managed-cassandra/cluster#az_managed_cassandra_cluster_delete) command:
+Delete a cluster by using the [az managed-cassandra cluster delete](/cli/azure/managed-cassandra/cluster#az-managed-cassandra-cluster-delete) command:
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -70,7 +70,7 @@ az managed-cassandra cluster delete \
 
 ### <a id="get-cluster-details"></a>Get the cluster details
 
-Get cluster details by using the [az managed-cassandra cluster show](/cli/azure/managed-cassandra/cluster#az_managed_cassandra_cluster_show) command:
+Get cluster details by using the [az managed-cassandra cluster show](/cli/azure/managed-cassandra/cluster#az-managed-cassandra-cluster-show) command:
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -83,7 +83,7 @@ az managed-cassandra cluster show \
 
 ### <a id="get-cluster-status"></a>Get the cluster node status
 
-Get cluster details by using the [az managed-cassandra cluster node-status](/cli/azure/managed-cassandra/cluster#az_managed_cassandra_cluster_node_status) command:
+Get cluster details by using the [az managed-cassandra cluster node-status](/cli/azure/managed-cassandra/cluster#az-managed-cassandra-cluster-node-status) command:
 
 ```azurecli-interactive
 clusterName='cassandra-hybrid-cluster'
@@ -96,7 +96,7 @@ az managed-cassandra cluster status \
 
 ### <a id="list-clusters-resource-group"></a>List the clusters by resource group
 
-List clusters by resource group by using the [az managed-cassandra cluster list](/cli/azure/managed-cassandra/cluster#az_managed_cassandra_cluster_list) command:
+List clusters by resource group by using the [az managed-cassandra cluster list](/cli/azure/managed-cassandra/cluster#az-managed-cassandra-cluster-list) command:
 
 ```azurecli-interactive
 subscriptionId='MySubscriptionId'
@@ -130,7 +130,7 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 
 ### <a id="create-datacenter"></a>Create a datacenter
 
-Create a datacenter by using the [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter#az_managed_cassandra_datacenter_create) command:
+Create a datacenter by using the [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-create) command:
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -173,7 +173,7 @@ az managed-cassandra datacenter create \
 
 ### <a id="delete-datacenter"></a>Delete a datacenter
 
-Delete a datacenter by using the [az managed-cassandra datacenter delete](/cli/azure/managed-cassandra/datacenter#az_managed_cassandra_datacenter_delete) command:
+Delete a datacenter by using the [az managed-cassandra datacenter delete](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-delete) command:
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -191,7 +191,7 @@ az managed-cassandra datacenter delete \
 
 ### <a id="get-datacenter-details"></a>Get datacenter details
 
-Get datacenter details by using the [az managed-cassandra datacenter show](/cli/azure/managed-cassandra/datacenter#az_managed_cassandra_datacenter_show) command:
+Get datacenter details by using the [az managed-cassandra datacenter show](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-show) command:
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -206,7 +206,7 @@ az managed-cassandra datacenter show \
 
 ### <a id="update-datacenter"></a>Update or scale a datacenter
 
-Update or scale a datacenter (to scale change nodeCount value) by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter#az_managed_cassandra_datacenter_update) command:
+Update or scale a datacenter (to scale change nodeCount value) by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-update) command:
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -222,18 +222,7 @@ az managed-cassandra datacenter update \
 
 ### <a id="update-yaml"></a>Update Cassandra configuration
 
-Change Cassandra configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter#az_managed_cassandra_datacenter_update) command. You will need to base64 encode the YAML fragment by using an [online tool](https://www.base64encode.org/). The following YAML settings are supported:
-
-- column_index_size_in_kb
-- allocate_tokens_for_keyspace
-- compaction_throughput_mb_per_sec
-- read_request_timeout_in_ms
-- range_request_timeout_in_ms
-- aggregated_request_timeout_in_ms
-- write_request_timeout_in_ms
-- request_timeout_in_ms
-- internode_compression
-- batchlog_replay_throttle_in_kb
+Change Cassandra configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-update) command. You will need to base64 encode the YAML fragment by using an [online tool](https://www.base64encode.org/). 
 
 For example, the following YAML fragment:
 
@@ -261,9 +250,38 @@ az managed-cassandra datacenter update \
     --base64-encoded-cassandra-yaml-fragment $yamlFragment
 ```
 
+> [!IMPORTANT]
+> Ensure the Cassandra yaml settings you provide are appropriate for the version of Cassandra you have deployed. See [here](https://github.com/apache/cassandra/blob/cassandra-3.11/conf/cassandra.yaml) for Cassandra v3.11 settings and [here](https://github.com/apache/cassandra/blob/cassandra-4.0/conf/cassandra.yaml) for v4.0. The following YAML settings are **not** allowed to be updated:
+>
+> - cluster_name
+> - seed_provider
+> - initial_token
+> - autobootstrap
+> - client_ecncryption_options
+> - server_encryption_options
+> - transparent_data_encryption_options
+> - audit_logging_options
+> - authenticator
+> - authorizer
+> - role_manager
+> - storage_port
+> - ssl_storage_port
+> - native_transport_port
+> - native_transport_port_ssl
+> - listen_address
+> - listen_interface
+> - broadcast_address
+> - hints_directory
+> - data_file_directories
+> - commitlog_directory
+> - cdc_raw_directory
+> - saved_caches_directory
+
+
+
 ### <a id="get-datacenters-cluster"></a>Get the datacenters in a cluster
 
-Get datacenters in a cluster by using the [az managed-cassandra datacenter list](/cli/azure/managed-cassandra/datacenter#az_managed_cassandra_datacenter_list) command:
+Get datacenters in a cluster by using the [az managed-cassandra datacenter list](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-list) command:
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'

@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 08/09/2022
 author: chez-charlie
 ms.author: chez
 ---
@@ -27,7 +27,7 @@ You can use the UI in the Azure portal or a programming interface to parameteriz
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
+> [!VIDEO https://docs.microsoft.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
 ## Supported linked service types
 
@@ -41,10 +41,13 @@ All the linked service types are supported for parameterization.
 - Azure Blob Storage
 - Azure Cosmos DB (SQL API)
 - Azure Data Explorer
+- Azure Data Lake Storage Gen1
 - Azure Data Lake Storage Gen2
 - Azure Database for MySQL
+- Azure Database for PostgreSQL
 - Azure Databricks
 - Azure File Storage
+- Azure Function
 - Azure Key Vault
 - Azure SQL Database
 - Azure SQL Managed Instance
@@ -54,10 +57,21 @@ All the linked service types are supported for parameterization.
 - FTP
 - Generic HTTP
 - Generic REST
+- Google AdWords
+- Informix
+- Microsoft Access
 - MySQL
+- OData 
+- ODBC
 - Oracle
 - Oracle Cloud Storage
+- PostgreSQL
+- Salesforce
+- Salesforce Service Cloud
+- SAP ODP
 - SFTP
+- SharePoint Online List
+- Snowflake
 - SQL Server
 
 **Advanced authoring:** For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:

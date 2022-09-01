@@ -2,6 +2,7 @@
 title: Backup solutions for Azure VMware Solution virtual machines
 description: Learn about leading backup and restore solutions for your Azure VMware Solution virtual machines.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/21/2021
 ---
 

@@ -14,6 +14,12 @@ ms.reviewer: azmetadatadev
 {
     "compute": {
         "azEnvironment": "AZUREPUBLICCLOUD",
+        "additionalCapabilities": {
+            "hibernationEnabled": "true"
+        },
+        "hostGroup": {
+          "id": "testHostGroupId"
+        }, 
         "extendedLocation": {
             "type": "edgeZone",
             "name": "microsoftlosangeles"
@@ -37,6 +43,7 @@ ms.reviewer: azmetadatadev
             "publisher": "planPublisher"
         },
         "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
         "platformUpdateDomain": "42",
         "priority": "Regular",
         "publicKeys": [{
@@ -53,7 +60,9 @@ ms.reviewer: azmetadatadev
         "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
         "securityProfile": {
             "secureBootEnabled": "true",
-            "virtualTpmEnabled": "false"
+            "virtualTpmEnabled": "false",
+            "encryptionAtHost": "true",
+            "securityType": "TrustedLaunch"
         },
         "sku": "2019-Datacenter",
         "storageProfile": {
@@ -71,7 +80,7 @@ ms.reviewer: azmetadatadev
                 "lun": "0",
                 "managedDisk": {
                   "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                  "storageAccountType": "Standard_LRS"
+                  "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampledatadiskname",
                 "opsPerSecondThrottle": "65280",
@@ -95,14 +104,26 @@ ms.reviewer: azmetadatadev
                     "option": "Local"
                 },
                 "encryptionSettings": {
-                    "enabled": "false"
+                  "enabled": "false",
+                  "diskEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-source-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "secretUrl": "https://test-disk.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  },
+                  "keyEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-key-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "keyUrl": "https://test-key.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  }
                 },
                 "image": {
                     "uri": ""
                 },
                 "managedDisk": {
                     "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampleosdiskname",
                 "osType": "Windows",
@@ -154,6 +175,12 @@ ms.reviewer: azmetadatadev
 {
     "compute": {
         "azEnvironment": "AZUREPUBLICCLOUD",
+        "additionalCapabilities": {
+            "hibernationEnabled": "true"
+        },
+        "hostGroup": {
+          "id": "testHostGroupId"
+        }, 
         "extendedLocation": {
             "type": "edgeZone",
             "name": "microsoftlosangeles"
@@ -177,6 +204,7 @@ ms.reviewer: azmetadatadev
             "publisher": "planPublisher"
         },
         "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
         "platformUpdateDomain": "42",
         "priority": "Regular",
         "publicKeys": [{
@@ -193,7 +221,9 @@ ms.reviewer: azmetadatadev
         "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
         "securityProfile": {
             "secureBootEnabled": "true",
-            "virtualTpmEnabled": "false"
+            "virtualTpmEnabled": "false",
+            "encryptionAtHost": "true",
+            "securityType": "TrustedLaunch"
         },
         "sku": "18.04-LTS",
         "storageProfile": {
@@ -211,7 +241,7 @@ ms.reviewer: azmetadatadev
                 "lun": "0",
                 "managedDisk": {
                   "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                  "storageAccountType": "Standard_LRS"
+                  "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampledatadiskname",
                 "opsPerSecondThrottle": "65280",
@@ -235,14 +265,26 @@ ms.reviewer: azmetadatadev
                     "option": "Local"
                 },
                 "encryptionSettings": {
-                    "enabled": "false"
+                  "enabled": "false",
+                  "diskEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-source-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "secretUrl": "https://test-disk.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  },
+                  "keyEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-key-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "keyUrl": "https://test-key.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  }
                 },
                 "image": {
                     "uri": ""
                 },
                 "managedDisk": {
                     "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampleosdiskname",
                 "osType": "Linux",

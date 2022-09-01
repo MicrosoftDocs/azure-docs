@@ -3,7 +3,7 @@ title: Tutorial - Use device groups in your Azure IoT Central application | Micr
 description: Tutorial - Learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/16/2020
+ms.date: 06/16/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -97,29 +97,25 @@ For four of the simulated sensor devices, use the **Manage device** view to set 
 > [!NOTE]
 > For Azure IoT Edge devices, select Azure IoT Edge templates to create a device group.
 
-## Analytics
+## Data explorer
 
-You can use **Analytics** with a device group to analyze the telemetry from the devices in the group. For example, you can plot the average temperature reported by all the Contoso environmental sensors.
+You can use **Data explorer** with a device group to analyze the telemetry from the devices in the group. For example, you can plot the average temperature reported by all the Contoso environmental sensors.
 
 To analyze the telemetry for a device group:
 
-1. Choose **Analytics** on the left pane.
+1. Choose **Data explorer** on the left pane and select **Create a query**.
 
-1. Select the **Contoso devices** device group you created. Then add both the **Temperature** and **Humidity** telemetry types:
-
-    :::image type="content" source="media/tutorial-use-device-groups/create-analysis.png" alt-text="Screenshot that shows the telemetry types selected for analysis":::
+1. Select the **Contoso devices** device group you created. Then add both the **Temperature** and **Humidity** telemetry types.
 
     Use the ellipsis icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
 
-1. Select **Analyze** to view the average telemetry values:
-
-    :::image type="content" source="media/tutorial-use-device-groups/view-analysis.png" alt-text="Screenshot that shows average values for all the Contoso devices":::
+1. Select **Analyze** to view the average telemetry values.
 
     You can customize the view, change the time period shown, and export the data as CSV or view data as table.
 
     :::image type="content" source="media/tutorial-use-device-groups/export-data.png" alt-text="Screenshot that shows how to export data for the Contoso devices":::
 
-To learn more about analytics, see [How to use analytics to analyze device data](howto-create-analytics.md).
+To learn more about analytics, see [How to use data explorer to analyze device data](howto-create-analytics.md).
 
 ## Clean up resources
 

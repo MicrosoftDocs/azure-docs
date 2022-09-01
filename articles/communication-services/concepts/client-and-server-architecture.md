@@ -2,9 +2,9 @@
 title: Client and server architecture
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' architecture.
-author: probableprime
+author: tophpalmer
 manager: mikben
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -20,7 +20,7 @@ This page illustrates typical architectural components and dataflows in various 
 
 ## User access management
 
-Azure Communication Services clients must present `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or managed identity necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources.
+Azure Communication Services clients must present `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or Azure AD authentication secrets necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources.
 
 :::image type="content" source="../media/scenarios/architecture_v2_identity.svg" alt-text="Diagram showing user access token architecture.":::
 
@@ -33,6 +33,7 @@ Azure Communication Services clients must present `user access tokens` to access
 - **Concept:** [User Identity](identity-model.md)
 - **Quickstart:** [Create and manage access tokens](../quickstarts/access-tokens.md)
 - **Tutorial:** [Build a identity management services use Azure Functions](../tutorials/trusted-service-tutorial.md)
+- **Sample:** [Trusted authentication service hero sample](../samples/trusted-auth-sample.md)
 
 > [!IMPORTANT]
 > For simplicity, we do not show user access management and token distribution in subsequent architecture flows.

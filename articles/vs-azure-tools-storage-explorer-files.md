@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
@@ -257,4 +256,4 @@ The following steps illustrate how to manage the files (and folders) within a fi
 
 - View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com/).
 
-- Learn how to [create applications using Azure blobs, tables, queues, and files](https://azure.microsoft.com/documentation/services/storage/).
+- Learn how to [create applications using Azure blobs, tables, queues, and files](/azure/storage/).

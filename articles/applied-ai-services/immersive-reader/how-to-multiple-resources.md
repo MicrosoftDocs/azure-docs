@@ -2,14 +2,14 @@
 title: "Integrate multiple Immersive Reader resources"
 titleSuffix: Azure Applied AI Services
 description: In this tutorial, you'll create a Node.js application that launches the Immersive Reader using multiple Immersive Reader resources.
-author: skamal
+author: rwallerms
 manager: nitinme
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 01/14/2020
-ms.author: skamal
+ms.author: rwaller
 ms.custom: devx-track-js
 #Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
 ---

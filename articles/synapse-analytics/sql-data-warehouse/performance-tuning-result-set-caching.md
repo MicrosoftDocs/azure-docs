@@ -1,7 +1,6 @@
 ---
 title: Performance tuning with result set caching 
 description: Result set caching feature overview for dedicated SQL pool in Azure Synapse Analytics 
-services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg 
 ms.service: synapse-analytics
@@ -16,6 +15,9 @@ ms.custom: azure-synapse
 # Performance tuning with result set caching
 
 When result set caching is enabled, dedicated SQL pool automatically caches query results in the user database for repetitive use.  This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed.   Result set caching improves query performance and reduces compute resource usage.  In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results.  Result set caching is OFF by default at the database and session levels. 
+
+>[!NOTE]
+> Result set caching should not be used in conjunction with [DECRYPTBYKEY](/sql/t-sql/functions/decryptbykey-transact-sql). If this cryptographic function must be used, ensure you have result set caching disabled (either at [session-level](/sql/t-sql/statements/set-result-set-caching-transact-sql) or [database-level](/sql/t-sql/statements/alter-database-transact-sql-set-options)) at the time of execution.
 
 ## Key commands
 

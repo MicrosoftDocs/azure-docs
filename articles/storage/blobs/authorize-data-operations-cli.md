@@ -3,12 +3,12 @@ title: Choose how to authorize access to blob data with Azure CLI
 titleSuffix: Azure Storage
 description: Specify how to authorize data operations against blob data with the Azure CLI. You can authorize data operations using Azure AD credentials, with the account access key, or with a shared access signature (SAS) token.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.author: tamram
+ms.author: jammart
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
@@ -59,7 +59,7 @@ The following example shows how to create a container from Azure CLI using your 
     > [!IMPORTANT]
     > Azure role assignments may take a few minutes to propagate.
 
-1. Call the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
+1. Call the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
 
     ```azurecli
     az storage container create \

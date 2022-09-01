@@ -4,8 +4,9 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 08/01/2022
 ---
+
 # Azure HDInsight release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
@@ -13,101 +14,108 @@ This article provides information about the **most recent** Azure HDInsight rele
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
-
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Release date: 07/27/2021
+## Release date: 08/10/2022
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies to HDInsight 4.0.  HDInsight release is made available to all regions over several days.
 
-The OS versions for this release are:
-- HDInsight 3.6: Ubuntu 16.04.7 LTS
-- HDInsight 4.0: Ubuntu 18.04.5 LTS
+HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
 
-## New features
-### Azure HDInsight support for Restricted Public Connectivity is generally available on Oct 15 2021
-Azure HDInsight now supports restricted public connectivity in all regions. Below are some of the key highlights of this capability: 
 
-- Ability to reverse resource provider to cluster communication such that it's outbound from the cluster to the resource provider 
-- Support for bringing your own Private Link enabled resources (e.g. storage, SQL, key vault) for HDinsight cluster to access the resources over private network only 
-- No public IP addresses are resource provisioned 
+![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
+## New Feature
 
-By using this new capability, you can also skip the inbound network security group (NSG) service tag rules for HDInsight management IPs. Learn more about [restricting public connectivity](./hdinsight-restrict-public-connectivity.md)
+**1. Attach external disks in HDI Hadoop/Spark clusters**
 
-### Azure HDInsight support for Azure Private Link is generally available on Oct 15 2021
-You can now use private endpoints to connect to your HDInsight clusters over private link. Private link can be leveraged in cross VNET scenarios where VNET peering is not available or enabled. 
+HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
-Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. 
+This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks will be part of node manager’s local directories.
 
-Traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. 
+> [!NOTE]
+> The added disks are only configured for node manager local directories.
+> 
 
-Let more at [enable private link](./hdinsight-private-link.md).  
+For more information, [see here](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#configuration--pricing)
 
-### New Azure Monitor integration experience (Preview)
-The new Azure monitor integration experience will be Preview in East US and West Europe with this release. Learn more details about the new Azure monitor experience [here](./log-analytics-migration.md#migrate-to-the-new-azure-monitor-integration).
+**2. Selective logging analysis**
 
-## Deprecation
-### Basic support for HDInsight 3.6 starting July 1, 2021
-Starting July 1, 2021, Microsoft offers [Basic support](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You are automatically enrolled in Basic support starting July 1, 2021. No action is required by you to opt in. See [our documentation](hdinsight-36-component-versioning.md) for which cluster types are included under Basic support. 
+Selective logging analysis is now available on all regions for public preview. You can connect your cluster to a log analytics workspace. Once enabled, you can see the logs and metrics like HDInsight Security Logs, Yarn Resource Manager, System Metrics etc. You can monitor workloads and see how they're affecting cluster stability. Selective logging allows you to enable/disable all the tables or enable selective tables in log analytics workspace. You can adjust the source type for each table, since in new version of Geneva monitoring one table has multiple sources.
 
-We don't recommend building any new solutions on HDInsight 3.6, freeze changes on existing 3.6 environments. We recommend that you [migrate your clusters to HDInsight 4.0](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40). Learn more about [what's new in HDInsight 4.0](hdinsight-version-release.md#whats-new-in-hdinsight-40).
+1. The Geneva monitoring system uses mdsd(MDS daemon) which is a monitoring agent and fluentd for collecting logs using unified logging layer.
+1. Selective Logging uses script action to disable/enable tables and their log types. Since it doesn't open any new ports or change any existing security setting hence, there are no security changes.
+1. Script Action runs in parallel on all specified nodes and changes the configuration files for disabling/enabling tables and their log types.
 
-## Behavior changes
-### HDInsight Interactive Query only supports schedule-based Autoscale
-As customer scenarios grow more mature and diverse, we have identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The effect on performance can outweigh the cost benefits of Autoscale.
+For more information, [see here](/azure/hdinsight/selective-logging-analysis)
 
-Starting from July 2021, the Interactive Query workload in HDInsight only supports schedule-based Autoscale. You can no longer enable load-based autoscale on new Interactive Query clusters. Existing running clusters can continue to run with the known limitations described above. 
 
-Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You can analyze your cluster's current usage pattern through the Grafana Hive dashboard. For more information, see [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md). 
+![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
+## Fixed
 
-## Upcoming changes
-The following changes will happen in upcoming releases.
+#### **Log analytics**
 
-### Built-in LLAP component in ESP Spark cluster will be removed
-HDInsight 4.0 ESP Spark cluster has built-in LLAP components running on both head nodes. The LLAP components in ESP Spark cluster were originally added for HDInsight 3.6 ESP Spark, but has no real user case for HDInsight 4.0 ESP Spark. In the next release scheduled in Sep 2021, HDInsight will remove the built-in LLAP component from HDInsight 4.0 ESP Spark cluster. This change will help to offload head node workload and avoid confusion between ESP Spark and ESP Interactive Hive cluster type.
+Log Analytics integrated with Azure HDInsight running OMS version 13 requires an upgrade to OMS version 14 to apply the latest security updates.
+Customers using older version of cluster with OMS version 13 need to install OMS version 14 to meet the security requirements. (How to check current version & Install 14) 
 
-## New region
-- West US 3
-- Jio India West
-- Australia Central
+**How to check your current OMS version**
 
-## Component version change
-The following component version has been changed with this release:
-- ORC version from 1.5.1 to 1.5.9
+1. Log in to the cluster using SSH.
+1. Run the following command in your SSH Client.
 
-You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
+```
+sudo /opt/omi/bin/ominiserver/ --version
+```
+![Screenshot showing how to check OMS Upgrade](media/hdinsight-release-notes/check-oms-version.png)
 
-## Back ported JIRAs
-Here are the back ported Apache JIRAs for this release:
+**How to upgrade your OMS version from 13 to 14**
 
-| Impacted Feature    |   Apache JIRA                                                      |
-|---------------------|--------------------------------------------------------------------|
-| Date / Timestamp    | [HIVE-25104](https://issues.apache.org/jira/browse/HIVE-25104)     |
-|                     | [HIVE-24074](https://issues.apache.org/jira/browse/HIVE-24074)     |
-|                     | [HIVE-22840](https://issues.apache.org/jira/browse/HIVE-22840)     |
-|                     | [HIVE-22589](https://issues.apache.org/jira/browse/HIVE-22589)     |
-|                     | [HIVE-22405](https://issues.apache.org/jira/browse/HIVE-22405)     |
-|                     | [HIVE-21729](https://issues.apache.org/jira/browse/HIVE-21729)     |
-|                     | [HIVE-21291](https://issues.apache.org/jira/browse/HIVE-21291)     |
-|                     | [HIVE-21290](https://issues.apache.org/jira/browse/HIVE-21290)     |
-| UDF                 | [HIVE-25268](https://issues.apache.org/jira/browse/HIVE-25268)     |
-|                     | [HIVE-25093](https://issues.apache.org/jira/browse/HIVE-25093)     |
-|                     | [HIVE-22099](https://issues.apache.org/jira/browse/HIVE-22099)     |
-|                     | [HIVE-24113](https://issues.apache.org/jira/browse/HIVE-24113)     |
-|                     | [HIVE-22170](https://issues.apache.org/jira/browse/HIVE-22170)     |
-|                     | [HIVE-22331](https://issues.apache.org/jira/browse/HIVE-22331)     |
-| ORC                 | [HIVE-21991](https://issues.apache.org/jira/browse/HIVE-21991)     |
-|                     | [HIVE-21815](https://issues.apache.org/jira/browse/HIVE-21815)     |
-|                     | [HIVE-21862](https://issues.apache.org/jira/browse/HIVE-21862)     |
-| Table Schema        | [HIVE-20437](https://issues.apache.org/jira/browse/HIVE-20437)     |
-|                     | [HIVE-22941](https://issues.apache.org/jira/browse/HIVE-22941)     |
-|                     | [HIVE-21784](https://issues.apache.org/jira/browse/HIVE-21784)     |
-|                     | [HIVE-21714](https://issues.apache.org/jira/browse/HIVE-21714)     |
-|                     | [HIVE-18702](https://issues.apache.org/jira/browse/HIVE-18702)     |
-|                     | [HIVE-21799](https://issues.apache.org/jira/browse/HIVE-21799)     |
-|                     | [HIVE-21296](https://issues.apache.org/jira/browse/HIVE-21296)     |
-| Workload Management | [HIVE-24201](https://issues.apache.org/jira/browse/HIVE-24201)     |
-| Compaction          | [HIVE-24882](https://issues.apache.org/jira/browse/HIVE-24882)     |
-|                     | [HIVE-23058](https://issues.apache.org/jira/browse/HIVE-23058)     |
-|                     | [HIVE-23046](https://issues.apache.org/jira/browse/HIVE-23046)     |
-| Materialized view   | [HIVE-22566](https://issues.apache.org/jira/browse/HIVE-22566)     |
+1. Log in to the [Azure portal](https://portal.azure.com/) 
+1. From the resource group, select the HDInsight cluster resource 
+1. Click **Script actions** 
+1. From **Submit script action** panel, choose **Script type** as custom 
+1. Paste the following link in the Bash script URL box
+https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh 
+1. Select **Node type(s)**
+1. Click **Create** 
+
+![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
+
+1. Verify the successful installation of the patch using the following steps:  
+
+  1. Log in to the cluster using SSH.
+  1. Run the following command in your SSH Client.
+
+  ```
+  sudo /opt/omi/bin/ominiserver/ --version
+  ```
+
+### Other bug fixes
+
+1. Yarn log’s CLI failed to retrieve the logs if any TFile is corrupt or empty. 
+2. Resolved invalid service principal details error while getting the OAuth token from Azure Active Directory.
+3. Improved cluster creation reliability when 100+ worked nodes are configured.
+
+### Open source bug fixes
+
+#### TEZ bug fixes
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|Tez Build Failure: FileSaver.js not found|[TEZ-4411](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Wrong FS Exception when warehouse and scratchdir are on different FS|[TEZ-4406](https://issues.apache.org/jira/browse/TEZ-4406)|
+|TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception|[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
+|TezUtils::createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Update protobuf dependency to 3.x|[TEZ-4363](https://issues.apache.org/jira/browse/TEZ-4363)|
+
+#### Hive bug fixes
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|Perf optimizations in ORC split-generation| [HIVE-21457](https://issues.apache.org/jira/browse/HIVE-21457)|
+|Avoid reading table as ACID when table name is starting with "delta", but table isn't transactional and BI Split Strategy is used| [HIVE-22582](https://issues.apache.org/jira/browse/HIVE-22582)|
+|Remove an FS#exists call from AcidUtils#getLogicalLength|[HIVE-23533](https://issues.apache.org/jira/browse/HIVE-23533)|
+|Vectorized OrcAcidRowBatchReader.computeOffset and bucket optimization|[HIVE-17917](https://issues.apache.org/jira/browse/HIVE-17917)|
+
+### Known issues
+
+HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, the Hive version is shown as 3.1.0 in hive interfaces. However, there's no impact on the functionality.

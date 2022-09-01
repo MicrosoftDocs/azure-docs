@@ -1,12 +1,13 @@
 ---
 title: Create and manage Azure Cosmos DB Table API with Bicep
 description: Use Bicep to create and configure Azure Cosmos DB Table API. 
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 09/13/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Manage Azure Cosmos DB Table API resources using Bicep

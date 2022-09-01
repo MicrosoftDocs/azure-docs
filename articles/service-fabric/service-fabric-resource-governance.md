@@ -1,9 +1,12 @@
 ---
 title: Resource governance for containers and services 
 description: Azure Service Fabric allows you to specify resource requests and limits for services running as processes or containers.
-
 ms.topic: conceptual
-ms.date: 8/9/2017
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Resource governance
@@ -21,8 +24,13 @@ Resource governance is supported in Service Fabric in accordance with the [servi
 
 * *Memory* (metric name `servicefabric:/_MemoryInMB`): Memory is expressed in megabytes, and it maps to physical memory that is available on the machine.
 
-For these two metrics, [Cluster Resource Manager (CRM)][cluster-resource-manager-description-link] tracks total cluster capacity, the load on each node in the cluster, and the remaining resources in the cluster. These two metrics are equivalent to any other user or custom metric. All existing features can be used with them:
+For these two metrics, [Cluster Resource Manager (CRM)][cluster-resource-manager-description-link] tracks total cluster capacity, the load on each node in the cluster, and the remaining resources in the cluster. These two metrics are equivalent to any other user or custom metric. 
 
+> [!NOTE]
+> Custom metric names should not be one of these two metric names as it will lead to undefined behavior.
+>
+
+All existing features can be used with them:
 * The cluster can be [balanced](service-fabric-cluster-resource-manager-balancing.md) according to these two metrics (default behavior).
 * The cluster can be [defragmented](service-fabric-cluster-resource-manager-defragmentation-metrics.md) according to these two metrics.
 * When [describing a cluster][cluster-resource-manager-description-link], buffered capacity can be set for these two metrics.

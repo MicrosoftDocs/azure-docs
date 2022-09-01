@@ -3,12 +3,15 @@ title: Monitoring Azure Service Bus data reference
 description: Important reference material needed when you monitor Azure Service Bus. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 10/29/2021
+ms.date: 02/10/2022
 ---
 
 
 # Monitoring Azure Service Bus data reference
 See [Monitoring Azure Service Bus](monitor-service-bus.md) for details on collecting and analyzing monitoring data for Azure Service Bus.
+
+> [!NOTE]
+> Azure Monitor doesn't include dimensions in the exported metrics data sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
 
 ## Metrics
 This section lists all the automatically collected platform metrics collected for Azure Service Bus. The resource provider for these metrics is **Microsoft.ServiceBus/namespaces**.
@@ -55,8 +58,8 @@ The following two types of errors are classified as **user errors**:
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ---------- | ---------- | ----- | --- | --- | --- | 
 |Active Connections| No | Count | Total | The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric. | |
-|Connections Opened | No | Count | Average | The number of open connections. | Entity name|
-|Connections Closed | No | Count | Average | The number of closed connections. | Entity name|
+|Connections Opened | No | Count | Average | The number of connections opened. Value for this metric is an aggregation, and includes all connections that were opened in the aggregration time window. | Entity name|
+|Connections Closed | No | Count | Average | The number of connections closed. Value for this metric is an aggregation, and includes all connections that were opened in the aggregration time window. | Entity name|
 
 ### Resource usage metrics
 
@@ -141,9 +144,84 @@ The following management operations are captured in operational logs:
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
 
+### Virtual network and IP filtering logs
+Service Bus virtual network (VNet) connection event JSON includes elements listed in the following table:
+
+| Name | Description |
+| ---  | ----------- | 
+| SubscriptionId | Azure subscription ID |
+| NamespaceName | Namespace name |
+| IPAddress | IP address of a client connecting to the Service Bus service |
+| Action | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. |
+| Reason | Provides a reason why the action was done |
+| Count | Number of occurrences for the given action |
+| ResourceId | Azure Resource Manager resource ID. |
+| Category | ServiceBusVNetConnectionEvent |
+
+> [!NOTE] 
+> Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
+
+Here's an example of a virtual network log JSON string:
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Accept Connection",
+    "Reason": "IP is accepted by IPAddress filter.",
+    "Count": 1,
+    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+    "Category": "ServiceBusVNetConnectionEvent"
+}
+```
+
+## Runtime audit logs
+Runtime audit logs capture aggregated diagnostic information for various data plane access operations (such as send or receive messages) in Service Bus.  
+
+> [!NOTE] 
+> Runtime audit logs are currently available only in the **premium** tier.  
+
+Runtime audit logs include the elements listed in the following table:
+
+Name | Description
+------- | -------
+`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. 
+`ActivityName` | Runtime operation name.  
+`ResourceId` | Resource associated with the activity. 
+`Timestamp` | Aggregation time.
+`Status` | Status of the activity (success or failure).
+`Protocol` | Type of the protocol associated with the operation.
+`AuthType` | Type of authentication (Azure Active Directory or SAS Policy).
+`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource.
+`NetworkType` | Type of the network access: `Public` or`Private`.
+`ClientIP` | IP address of the client application.
+`Count` | Total number of operations performed during the aggregated period of 1 minute. 
+`Properties` | Metadata that are specific to the data plane operation. 
+`Category` | Log category
+
+Here's an example of a runtime audit log entry:
+
+```json
+{
+    "ActivityId": "<activity id>",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
+    "Time": "1/1/2021 8:40:06 PM +00:00",
+    "Status": "Success | Failure",
+    "Protocol": "AMQP | HTTP | SBMP", 
+    "AuthType": "SAS | AAD", 
+    "AuthId": "<AAD Application Name| SAS policy name>",
+    "NetworkType": "Public | Private", 
+    "ClientIp": "x.x.x.x",
+    "Count": 1, 
+    "Category": "RuntimeAuditLogs"
+ }
+
+```
+
 ## Azure Monitor Logs tables
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
-
 
 ## Next steps
 - For details on monitoring Azure Service Bus, see [Monitoring Azure Service Bus](monitor-service-bus.md).

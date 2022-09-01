@@ -4,7 +4,7 @@ description: Learn how to monitor a storage account in Azure by using Azure Stor
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 08/09/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
@@ -16,14 +16,12 @@ ms.custom: monitoring, devx-track-azurepowershell
 [Azure Storage Analytics](storage-analytics.md) provides logs for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure logs are recorded for your account. This article shows you how to enable and manage logs. To learn how to enable metrics, see [Enable and manage Azure Storage Analytics metrics (classic)]().  There are costs associated with examining and storing monitoring data in the Azure portal. For more information, see [Storage Analytics](storage-analytics.md).
 
 > [!NOTE]
-> We recommend that you use Azure Storage logs in Azure Monitor instead of Storage Analytics logs. Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. To learn more, see any of the following articles:
+> We recommend that you use Azure Storage logs in Azure Monitor instead of Storage Analytics logs. See any of the following articles:
 >
 > - [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md)
 > - [Monitoring Azure Files](../files/storage-files-monitoring.md)
 > - [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md)
 > - [Monitoring Azure Table storage](../tables/monitor-table-storage.md)
-
-For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
 <a id="configure-logging"></a>
 
@@ -131,9 +129,6 @@ queueClient.SetServiceProperties(serviceProperties);
 ## Modify log data retention period
 
 Log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the log data retention period. For example, if you need logs for only three days, set your log data retention period to a value of `3`. That way logs will be automatically deleted from your account after 3 days. This section shows you how to view your current log data retention period, and then update that period if that's what you want to do.
-
-> [!NOTE]
-> These steps apply only for accounts that do not have the **Hierarchical namespace** setting enabled on them. If you've enabled that setting on your account, then the setting for retention days is not yet supported. Instead, you'll have to delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK. To find those logs in your storage account, see [How logs are stored](storage-analytics-logging.md#how-logs-are-stored).
 
 ### [Portal](#tab/azure-portal)
 

@@ -5,17 +5,16 @@ description: Lists the scenarios that are supported by the sign-in diagnostics f
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/12/2021
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: tspring  
 
@@ -274,7 +273,7 @@ For more information, see [How to block legacy authentication to Azure AD with C
 
 This diagnostic scenario detects a blocked or interrupted sign-in due to the user being from another organization-a B2B sign-in-where a Conditional Access policy requires that the client's device is joined to the resource tenant. 
 
-For more information, see [Conditional Access for B2B collaboration users](../external-identities/conditional-access.md). 
+For more information, see [Conditional Access for B2B collaboration users](../external-identities/authentication-conditional-access.md). 
 
 ### Blocked by risk policy 
 

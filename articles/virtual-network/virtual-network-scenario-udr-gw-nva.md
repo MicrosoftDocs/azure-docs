@@ -3,18 +3,17 @@ title: Hybrid connection with 2-tier application | Microsoft Docs
 description: Learn how to deploy virtual appliances and UDR to create a multi-tier application environment in Azure
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 manager: carmonm
 
 
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
-ms.author: kumud
+ms.author: mbender
 
 ---
 # Virtual appliance scenario
@@ -26,7 +25,7 @@ A common scenario among larger Azure customer is the need to provide a two-tiere
 * All traffic going to the application server must go through a firewall virtual appliance. This virtual appliance will be used for access to the backend end server, and access coming in from the on-premises network via a VPN Gateway.
 * Administrators must be able to manage the firewall virtual appliances from their on-premises computers, by using a third firewall virtual appliance used exclusively for management purposes.
 
-This is a standard perimeter network (also knowns as DMZ) scenario with a DMZ and a protected network. Such scenario can be constructed in Azure by using NSGs,firewall virtual appliances, or a combination of both. The table below shows some of the pros and cons between NSGs and firewall virtual appliances.
+This is a standard perimeter network (also knowns as DMZ) scenario with a DMZ and a protected network. Such scenario can be constructed in Azure by using NSGs, firewall virtual appliances, or a combination of both. The table below shows some of the pros and cons between NSGs and firewall virtual appliances.
 
 |  | Pros | Cons |
 | --- | --- | --- |

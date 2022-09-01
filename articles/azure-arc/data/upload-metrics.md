@@ -34,14 +34,14 @@ The Arc data services extension managed identity is used for uploading metrics. 
 ### (1) Retrieve managed identity of the Arc data controller extension
 
 # [PowerShell](#tab/powershell)
-```powershell
+```azurecli
 $Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername> --cluster-type connectedClusters --name <name of extension> | convertFrom-json).identity.principalId
 #Example
 $Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | convertFrom-json).identity.principalId
 ```
 
 # [macOS & Linux](#tab/linux)
-```console
+```azurecli
 export MSI_OBJECT_ID=`az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername>  --cluster-type connectedClusters --name <name of extension> | jq '.identity.principalId' | tr -d \"`
 #Example
 export MSI_OBJECT_ID=`az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | jq '.identity.principalId' | tr -d \"`
@@ -57,12 +57,12 @@ N/A
 
 Run the below command to assign the **Monitoring Metrics Publisher** role:
 # [PowerShell](#tab/powershell)
-```powershell
+```azurecli
 az role assignment create --assignee $Env:MSI_OBJECT_ID --role 'Monitoring Metrics Publisher' --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
 ```
 
 # [macOS & Linux](#tab/linux)
-```console
+```azurecli
 az role assignment create --assignee ${MSI_OBJECT_ID} --role 'Monitoring Metrics Publisher' --scope "/subscriptions/${subscription}/resourceGroups/${resourceGroup}"
 ```
 
@@ -204,8 +204,7 @@ Once your metrics are uploaded, you can view them from the Azure portal.
 > Please note that it can take a couple of minutes for the uploaded data to be processed before you can view the metrics in the portal.
 
 
-To view your metrics in the portal, use this link to open the portal: <https://portal.azure.com>
-Then, search for your database instance by name in the search bar:
+To view your metrics, navigate to the [Azure portal](https://portal.azure.com). Then, search for your database instance by name in the search bar:
 
 You can view CPU utilization on the Overview page or if you want more detailed metrics you can click on metrics from the left navigation panel
 

@@ -61,6 +61,8 @@ landingContent:
             url: how-tos/container-deletion.md
           - text: 'How to: Use test automation with Azure Fluid Relay'
             url: how-tos/test-automation.md
+          - text: 'How to: Validate a User Created a Document'
+            url: how-tos/validate-document-creator.md
 
 
           

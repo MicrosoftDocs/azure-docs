@@ -6,7 +6,7 @@ ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/18/2021
+ms.date: 04/01/2022
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
@@ -62,7 +62,7 @@ Use [version 3.9 or higher](https://www.nuget.org/packages/Microsoft.Azure.Cosmo
 CosmosClient cosmosClient = new CosmosClient(Endpoint, PrimaryKey);
  
 // Autoscale throughput settings
-ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.CreateAutoscaleThroughput(4000); //Set autoscale max RU/s
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.CreateAutoscaleThroughput(1000); //Set autoscale max RU/s
 
 //Create the database with autoscale enabled
 database = await cosmosClient.CreateDatabaseAsync(DatabaseName, throughputProperties: autoscaleThroughputProperties);
@@ -76,7 +76,7 @@ Database database = await cosmosClient.GetDatabase("DatabaseName");
 
 // Container and autoscale throughput settings
 ContainerProperties autoscaleContainerProperties = new ContainerProperties("ContainerName", "/partitionKey");
-ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.CreateAutoscaleThroughput(4000); //Set autoscale max RU/s
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.CreateAutoscaleThroughput(1000); //Set autoscale max RU/s
 
 // Create the container with autoscale enabled
 container = await database.CreateContainerAsync(autoscaleContainerProperties, autoscaleThroughputProperties);
@@ -124,7 +124,7 @@ CosmosAsyncClient client = new CosmosClientBuilder()
     .buildAsyncClient();
 
 // Autoscale throughput settings
-ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(4000); //Set autoscale max RU/s
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(1000); //Set autoscale max RU/s
 
 //Create the database with autoscale enabled
 CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThroughputProperties).block().getDatabase();
@@ -141,7 +141,7 @@ CosmosClient client = new CosmosClientBuilder()
     .buildClient();
 
 // Autoscale throughput settings
-ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(4000); //Set autoscale max RU/s
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(1000); //Set autoscale max RU/s
 
 //Create the database with autoscale enabled
 CosmosDatabase database = client.createDatabase(databaseName, autoscaleThroughputProperties).getDatabase();
@@ -159,7 +159,7 @@ CosmosAsyncDatabase database = client.createDatabase("DatabaseName").block().get
 
 // Container and autoscale throughput settings
 CosmosContainerProperties autoscaleContainerProperties = new CosmosContainerProperties("ContainerName", "/partitionKey");
-ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(4000); //Set autoscale max RU/s
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(1000); //Set autoscale max RU/s
 
 // Create the container with autoscale enabled
 CosmosAsyncContainer container = database.createContainer(autoscaleContainerProperties, autoscaleThroughputProperties, new CosmosContainerRequestOptions())
@@ -175,7 +175,7 @@ CosmosDatabase database = client.createDatabase("DatabaseName").getDatabase();
 
 // Container and autoscale throughput settings
 CosmosContainerProperties autoscaleContainerProperties = new CosmosContainerProperties("ContainerName", "/partitionKey");
-ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(4000); //Set autoscale max RU/s
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.createAutoscaledThroughput(1000); //Set autoscale max RU/s
 
 // Create the container with autoscale enabled
 CosmosContainer container = database.createContainer(autoscaleContainerProperties, autoscaleThroughputProperties, new CosmosContainerRequestOptions())

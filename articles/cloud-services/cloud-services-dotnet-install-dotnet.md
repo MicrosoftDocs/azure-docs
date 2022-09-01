@@ -1,13 +1,12 @@
 ---
-title: Install .NET on Azure Cloud Services (classic) roles | Microsoft Docs
-description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
+title: Install .NET on Azure Cloud Services (classic) roles
+description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
 ---
 
 # Install .NET on Azure Cloud Services (classic) roles
@@ -19,7 +18,7 @@ This article describes how to install versions of .NET Framework that don't come
 For example, you can install .NET Framework 4.6.2 on the Guest OS family 4, which doesn't come with any release of .NET Framework 4.6. (The Guest OS family 5 does come with .NET Framework 4.6.) For the latest information on the Azure Guest OS releases, see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->The Azure SDK 2.9 contains a restriction on deploying .NET Framework 4.6 on the Guest OS family 4 or earlier. A fix for the restriction is available on the [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) site.
+>The Azure SDK 2.9 contains a restriction on deploying .NET Framework 4.6 on the Guest OS family 4 or earlier. A fix for the restriction is available in the [`azure-cloud-services-files` GitHub repo](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
 To install .NET on your web and worker roles, include the .NET web installer as part of your cloud service project. Start the installer as part of the role's startup tasks. 
 
@@ -94,9 +93,9 @@ You can use startup tasks to perform operations before a role starts. Installing
    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** 
    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262
-   set netfx="NDP472"
    REM ***** To install .NET 4.8 set the variable netfx to "NDP48" ***** https://dotnet.microsoft.com/download/thank-you/net48
-      
+   set netfx="NDP48"
+         
    REM ***** Set script start timestamp *****
    set timehour=%time:~0,2%
    set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
@@ -110,6 +109,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    set TEMP=%PathToNETFXInstall%
    
    REM ***** Setup .NET filenames and registry keys *****
+   if %netfx%=="NDP48" goto NDP48
    if %netfx%=="NDP472" goto NDP472
    if %netfx%=="NDP471" goto NDP471
    if %netfx%=="NDP47" goto NDP47
@@ -148,7 +148,12 @@ You can use startup tasks to perform operations before a role starts. Installing
    
    :NDP472
    set "netfxinstallfile=NDP472-KB4054531-Web.exe"
-   set netfxregkey="0x70BF6"
+   set netfxregkey="0x70BF0"
+   goto logtimestamp
+
+   :NDP48
+   set "netfxinstallfile=NDP48-Web.exe"
+   set netfxregkey="0x80EA8"
    goto logtimestamp
    
    :logtimestamp
@@ -230,6 +235,3 @@ When you deploy your cloud service, the startup tasks install the .NET Framework
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
-
-
-

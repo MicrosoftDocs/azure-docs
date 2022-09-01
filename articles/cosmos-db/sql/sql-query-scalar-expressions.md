@@ -1,12 +1,13 @@
 ---
 title: Scalar expressions in Azure Cosmos DB SQL queries
 description: Learn about the scalar expression SQL syntax for Azure Cosmos DB. This article also describes how to combine scalar expressions into complex expressions by using operators. 
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 
 ---
 # Scalar expressions in Azure Cosmos DB SQL queries
@@ -64,11 +65,11 @@ The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar e
   
 - `unary_operator <scalar_expression>`  
   
-   Represents an operator that is applied to a single value. See [Operators](sql-query-operators.md) section for details.  
+   Represents an operator that is applied to a single value.
   
 - `<scalar_expression> binary_operator <scalar_expression>`  
   
-   Represents an operator that is applied to two values. See [Operators](sql-query-operators.md) section for details.  
+   Represents an operator that is applied to two values.
   
 - `<scalar_function_expression>`  
   

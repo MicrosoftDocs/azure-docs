@@ -11,7 +11,7 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Delete resources from Azure
+# Delete resources from Azure Arc-enabled data services
 
 This article describes how to delete Azure Arc-enabled data service resources from Azure.
 
@@ -44,14 +44,13 @@ In indirect connect mode, deleting an instance from Kubernetes will not remove i
 
 In some cases, you may need to manually delete Azure Arc-enabled data services resources in Azure.  You can delete these resources using any of the following options.
 
-- [Delete resources from Azure](#delete-resources-from-azure)
-  - [Delete an entire resource group](#delete-an-entire-resource-group)
-  - [Delete specific resources in the resource group](#delete-specific-resources-in-the-resource-group)
-  - [Delete resources using the Azure CLI](#delete-resources-using-the-azure-cli)
-    - [Delete SQL managed instance resources using the Azure CLI](#delete-sql-managed-instance-resources-using-the-azure-cli)
-    - [Delete PostgreSQL Hyperscale server group resources using the Azure CLI](#delete-postgresql-hyperscale-server-group-resources-using-the-azure-cli)
-    - [Delete Azure Arc data controller resources using the Azure CLI](#delete-azure-arc-data-controller-resources-using-the-azure-cli)
-    - [Delete a resource group using the Azure CLI](#delete-a-resource-group-using-the-azure-cli)
+- [Delete an entire resource group](#delete-an-entire-resource-group)
+- [Delete specific resources in the resource group](#delete-specific-resources-in-the-resource-group)
+- [Delete resources using the Azure CLI](#delete-resources-using-the-azure-cli)
+  - [Delete SQL managed instance resources using the Azure CLI](#delete-sql-managed-instance-resources-using-the-azure-cli)
+  - [Delete PostgreSQL Hyperscale server group resources using the Azure CLI](#delete-postgresql-hyperscale-server-group-resources-using-the-azure-cli)
+  - [Delete Azure Arc data controller resources using the Azure CLI](#delete-azure-arc-data-controller-resources-using-the-azure-cli)
+  - [Delete a resource group using the Azure CLI](#delete-a-resource-group-using-the-azure-cli)
 
 
 ## Delete an entire resource group

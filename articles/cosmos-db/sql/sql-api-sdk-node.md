@@ -1,48 +1,32 @@
 ---
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources'
 description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
-author: anfeldma-ms
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: javascript
 ms.topic: reference
 ms.date: 12/09/2021
-ms.author: anfeldma
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.custom: devx-track-js
 
 ---
 # Azure Cosmos DB Node.js SDK for SQL API: Release notes and resources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
-> [!div class="op_single_selector"]
-> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
-> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
-> * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
-> * [Async Java SDK v2](sql-api-sdk-async-java.md)
-> * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
-> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
-> * [Python](sql-api-sdk-python.md)
-> * [REST](/rest/api/cosmos-db/)
-> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-query-getting-started.md)
-> * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+
+[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 
 |Resource  |Link  |
 |---------|---------|
-|Download SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|Download SDK  |   [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) 
 |API Documentation  |  [JavaScript SDK reference documentation](/javascript/api/%40azure/cosmos/)
-|SDK installation instructions  |  [Installation instructions](https://github.com/Azure/azure-sdk-for-js)
-|Contribute to SDK | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main)
+|SDK installation instructions  |  `npm install @azure/cosmos`
+|Contribute to SDK | [Contributing guide for azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/blob/main/CONTRIBUTING.md)
 | Samples | [Node.js code samples](sql-api-nodejs-samples.md)
 | Getting started tutorial | [Get started with the JavaScript SDK](sql-api-nodejs-get-started.md)
 | Web app tutorial | [Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application.md)
-| Current supported platform | [Node.js v12.x](https://nodejs.org/en/blog/release/v12.7.0/) - SDK Version 3.x.x<br/>[Node.js v10.x](https://nodejs.org/en/blog/release/v10.6.0/) - SDK Version 3.x.x<br/>[Node.js v8.x](https://nodejs.org/en/blog/release/v8.16.0/) - SDK Version 3.x.x<br/>[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - SDK Version 2.x.x<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)- SDK Version 1.x.x<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)- SDK Version 1.x.x<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)- SDK Version 1.x.x
+| Current supported Node.js platforms | [LTS versions of Node.js](https://nodejs.org/about/releases/)
 
 ## Release notes
 
@@ -172,7 +156,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 
 ### Improved browser experience
 
-While it was possible to use the v2 SDK in the browser, it was not an ideal experience. You needed to Polyfill several node.js built-in libraries and use a bundler like webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
+While it was possible to use the v2 SDK in the browser, it was not an ideal experience. You needed to Polyfill several Node.js built-in libraries and use a bundler like webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
 
 * Replace request internals with fetch (#245)
 * Remove usage of Buffer (#330)
@@ -197,81 +181,20 @@ While it was possible to use the v2 SDK in the browser, it was not an ideal expe
 Not always the most visible changes, but they help our team ship better code, faster.
 
 * Use rollup for production builds (#104)
-* Update to Typescript 3.5 (#327)
+* Update to TypeScript 3.5 (#327)
 * Convert to TS project references. Extract test folder (#270)
 * Enable noUnusedLocals and noUnusedParameters (#275)
 * Azure Pipelines YAML for CI builds (#298)
 
 ## Release & Retirement Dates
 
-Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible.
+Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. Read the [Microsoft Support Policy for SDKs](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy) for more details.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| 3.4.2 | November 7, 2019   | --- |
-| 3.4.1 | November 5, 2019   | --- |
-| 3.4.0 | October 28, 2019   | --- |
-| 3.3.6 | October 14, 2019   | --- |
-| 3.3.5 | October 14, 2019   | --- |
-| 3.3.4 | October 14, 2019   | --- |
-| 3.3.3 | October 3, 2019    | --- |
-| 3.3.2 | October 3, 2019    | --- |
-| 3.3.1 | October 1, 2019    | --- |
-| 3.3.0 | September 24, 2019 | --- |
-| 3.2.0 | August 26, 2019    | --- |
-| 3.1.1 | August 7, 2019     | --- |
-| 3.1.0 |July 26, 2019 |--- |
-| 3.0.4 |July 22, 2019 |--- |
-| 3.0.3 |July 17, 2019 |--- |
-| 3.0.2 |July 9, 2019 |--- |
-| 3.0.0 |June 28, 2019 |--- |
-| 2.1.5 |March 20, 2019 |--- |
-| 2.1.4 |March 15, 2019 |--- |
-| 2.1.3 |March 8, 2019 |--- |
-| 2.1.2 |January 28, 2019 |--- |
-| 2.1.1 |December 5, 2018 |--- |
-| 2.1.0 |December 4, 2018 |--- |
-| 2.0.5 |November 7, 2018 |--- |
-| 2.0.4 |October 30, 2018 |--- |
-| 2.0.3 |October 30, 2018 |--- |
-| 2.0.2 |October 10, 2018 |--- |
-| 2.0.1 |September 25, 2018 |--- |
-| 2.0.0 |September 24, 2018 |--- |
-| 2.0.0-3 (RC) |August 2, 2018 |--- |
-| 1.14.4 |May 03, 2018 |August 30, 2020 |
-| 1.14.3 |May 03, 2018 |August 30, 2020 |
-| 1.14.2 |December 21, 2017 |August 30, 2020 |
-| 1.14.1 |November 10, 2017 |August 30, 2020 |
-| 1.14.0 |November 9, 2017 |August 30, 2020 |
-| 1.13.0 |October 11, 2017 |August 30, 2020 |
-| 1.12.2 |August 10, 2017 |August 30, 2020 |
-| 1.12.1 |August 10, 2017 |August 30, 2020 |
-| 1.12.0 |May 10, 2017 |August 30, 2020 |
-| 1.11.0 |March 16, 2017 |August 30, 2020 |
-| 1.10.2 |January 27, 2017 |August 30, 2020 |
-| 1.10.1 |December 22, 2016 |August 30, 2020 |
-| 1.10.0 |October 03, 2016 |August 30, 2020 |
-| 1.9.0 |July 07, 2016 |August 30, 2020 |
-| 1.8.0 |June 14, 2016 |August 30, 2020 |
-| 1.7.0 |April 26, 2016 |August 30, 2020 |
-| 1.6.0 |March 29, 2016 |August 30, 2020 |
-| 1.5.6 |March 08, 2016 |August 30, 2020 |
-| 1.5.5 |February 02, 2016 |August 30, 2020 |
-| 1.5.4 |February 01, 2016 |August 30, 2020 |
-| 1.5.2 |January 26, 2016 |August 30, 2020 |
-| 1.5.2 |January 22, 2016 |August 30, 2020 |
-| 1.5.1 |January 4, 2016 |August 30, 2020 |
-| 1.5.0 |December 31, 2015 |August 30, 2020 |
-| 1.4.0 |October 06, 2015 |August 30, 2020 |
-| 1.3.0 |October 06, 2015 |August 30, 2020 |
-| 1.2.2 |September 10, 2015 |August 30, 2020 |
-| 1.2.1 |August 15, 2015 |August 30, 2020 |
-| 1.2.0 |August 05, 2015 |August 30, 2020 |
-| 1.1.0 |July 09, 2015 |August 30, 2020 |
-| 1.0.3 |June 04, 2015 |August 30, 2020 |
-| 1.0.2 |May 23, 2015 |August 30, 2020 |
-| 1.0.1 |May 15, 2015 |August 30, 2020 |
-| 1.0.0 |April 08, 2015 |August 30, 2020 |
+| v3 | June 28, 2019 |--- |
+| v2 | September 24, 2018 | September 24, 2021 |
+| v1 | April 08, 2015 | August 30, 2020 |
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]

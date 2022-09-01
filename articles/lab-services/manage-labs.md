@@ -1,35 +1,46 @@
 ---
-title: View and delete labs in a lab account in Azure Lab Services
-description: Learn how to view all labs in a lab account and delete a lab from the lab account. 
+title: View and delete labs in Azure Lab Services
+description: Learn how to view and delete all the labs associated with a lab plan. 
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 04/06/2021
+ms.custom: devdivchpfy22
 ---
 
-# Manage labs in a lab account
-This article shows you how a lab account owner or administrator can view all the labs in a lab account, and delete a lab in the lab account. 
+# Manage labs
 
-## View labs in a lab account
+This article describes how a lab plan owner or administrator can view and delete all the labs associated with a lab plan.
 
-1. On the **Lab Account** page, select **All labs** on the left menu.
+Lab plans and labs are sibling resources contained in a resource group. Administrators can use existing tools in the Azure portal to manage labs.
 
-    ![Labs in the account](./media/how-to-manage-lab-accounts/labs-in-account.png)
-1. You see a **list of labs** in the account with the following information: 
+## View labs
+
+1. Open the **Resource Group** page.
+
+    :::image type="content" source="./media/how-to-manage-lab-plans/labs-in-resource-group.png" alt-text="Screenshot of the labs in the plan.":::
+
+    To view only lab resources, set a filter for `Type == Lab`.
+
+1. You see a **list of labs** with the following information:
     1. Name of the lab.
-    2. The date on which the lab was created. 
-    3. Email address of the user who created the lab. 
-    4. Maximum number of users allowed into the lab. 
-    5. Status of the lab. 
-    6. Role assignments. 
+    1. Type of the resource (Lab).
+    1. Location of the lab.
 
-## Delete a lab in a lab account
-Follow instructions in the previous section to see a list of the labs in the lab account.
+1. Open a lab to view additional information such as the associated lab plan, OS type, and virtual machine size.
 
-1. Select **... (ellipsis)**, and select **Delete**. 
+## Delete a lab
 
-    ![Delete a lab - button](./media/how-to-manage-lab-accounts/delete-lab-button.png)
-2. Select **Yes** on the warning message. 
+1. Open the **Resource Group** page.
 
-    ![Confirm lab deletion](./media/how-to-manage-lab-accounts/confirm-lab-delete.png)
+    To view only lab resources, set a filter for `Type == Lab`.
+
+1. Select **... (ellipsis)**, and then select **Delete**.
+
+    :::image type="content" source="./media/how-to-manage-lab-plans/delete-lab-button.png" alt-text="Screenshot of lab deletion.":::
+
+1. Type **Yes** on the warning message.
+
+    :::image type="content" source="./media/how-to-manage-lab-plans/confirm-lab-delete.png" alt-text="Screenshot of lab deletion confirmation message.":::
 
 ## Next steps
-See other articles in the **How-to guides** -> **Create and configure lab accounts (lab account owner)** section of the table-of-content (TOC). 
+
+See other articles in the **How-to guides** -> **Create and configure lab plans (lab plan owner)** section of the table-of-content (TOC).

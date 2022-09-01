@@ -2,8 +2,13 @@
 title: Configure your Service Fabric managed cluster
 description: Learn how to configure your Service Fabric managed cluster for automatic OS upgrades, NSG rules, and more.
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Service Fabric managed cluster configuration options
 
 In addition to selecting the [Service Fabric managed cluster SKU](overview-managed-cluster.md#service-fabric-managed-cluster-skus) when creating your cluster, there are a number of other ways to configure it, including:
@@ -21,7 +26,8 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 * Configure [placement properties](how-to-managed-cluster-modify-node-type.md#configure-placement-properties-for-a-node-type) for a node type
 * Selecting the cluster [managed disk type](how-to-managed-cluster-managed-disk.md) SKU
 * Configuring cluster [upgrade options](how-to-managed-cluster-upgrades.md) for the runtime updates
-
+* Configure [Dedicated Hosts](how-to-managed-cluster-dedicated-hosts.md) with managed cluster
+* Use [Ephemeral OS disks](how-to-managed-cluster-ephemeral-os-disks.md) for node types in managed cluster
 
 ## Next steps
 

@@ -3,11 +3,11 @@ title: Use logs to troubleshoot imports and exports via Azure Import/Export | Mi
 description: Learn how to review error/copy logs from imports and exports for data copy, upload issues.
 author: v-dalc
 services: storage
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: how-to
-ms.date: 12/22/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
+
 ---
 
 # Use logs to troubleshoot imports and exports via Azure Import/Export
@@ -44,7 +44,7 @@ Each data transfer for a disk generates a copy log. If you chose to save a verbo
 
 During an import, the Import/Export service generates a verbose log and a copy log for each disk.
 
-### Verbose logs
+### Verbose log
 
 The verbose log is an optional file that you can enable during ordering. It's a simple listing of all files that were successfully imported from the drive. The verbose log gives the following information for each file. The verbose log doesn’t provide summary information.
 
@@ -59,7 +59,7 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 
 [!INCLUDE [data-box-disk-sample-verbose-log.md](../../includes/data-box-disk-sample-verbose-log.md)]
 
-### Copy logs
+### Copy log
 
 The copy log contains an error entry for each file that failed to import or export, with error detail. The copy log ends with a summary of validation and copy errors that occurred during the data transfer.
 
@@ -166,9 +166,9 @@ You'll find the following errors in the copy logs for import jobs and/or export 
 | Error category                      | Error message     | Imports | Exports |
 |-------------------------------------|-------------------|---------|---------|
 | `UploadErrorWin32`                  |File system error. | Yes     | Yes     |
-| `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors).|Yes |Yes |
+| `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-upload-errors).|Yes |Yes |
 | `UploadErrorDataValidationError`    |CRC computed during data ingestion doesn’t match the CRC computed during upload. |Yes |Yes |
-| `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors). |Yes |Yes |
+| `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-upload-errors). |Yes |Yes |
 | `UploadErrorUnknownType`            |Unknown error. |Yes |Yes |
 | `ContainerRenamed`                  |Renamed the container because the original container name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original container has been renamed to DataBox-<*GUID*> from <*original container name*>. |No |Yes |
 | `ShareRenamed`                      |Renamed the share because the original share name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original share has been renamed to DataBox-<*GUID*> from <*original folder name*>. |No |Yes |

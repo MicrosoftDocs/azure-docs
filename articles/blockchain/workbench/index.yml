@@ -29,10 +29,10 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Follow the Microsoft Learn blockchain path
+          - text: Follow the learning path for blockchain
             url: /learn/paths/ethereum-blockchain-development
           - text: Watch the beginner's blockchain series
-            url: https://channel9.msdn.com/Series/Beginners-Series-to-Blockchain
+            url: /shows/Beginners-Series-to-Blockchain/
       - linkListType: deploy
         links:
           - text: Deploy Azure Blockchain Workbench

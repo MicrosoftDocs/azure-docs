@@ -1,11 +1,11 @@
 ---
 title: What's new in Azure Files
 description: Learn more about new features and enhancements in Azure Files.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/08/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 

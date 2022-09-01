@@ -95,10 +95,11 @@ If you look at the availability set in the portal by going to **Resource Groups*
 ![Availability set in the portal](./media/tutorial-availability-sets/fd-ud.png)
 
 > [!NOTE]
-> Under certain circumstances, 2 VMs in the same AvailabilitySet could shared the same FaultDomain. This can be confirmed by going into your availability set and checking the Fault Domain column. This can be cause from the following sequence while deploying the VMs:
-> 1. Deploy the 1st VM
-> 1. Stop/Deallocate the 1st VM
-> 1. Deploy the 2nd VM Under these circumstances, the OS Disk of the 2nd VM might be created on the same Fault Domain as the 1st VM, and so the 2nd VM will also land on the same FaultDomain. To avoid this issue, it's recommended to not stop/deallocate the VMs between deployments.
+> Under certain circumstances, 2 VMs in the same AvailabilitySet could share the same FaultDomain. This can be confirmed by going into your availability set and checking the Fault Domain column. This can be caused by the following sequence of events while deploying the VMs:
+> 1. The 1st VM is Deployed
+> 1. The 1st VM is Stopped/Deallocated
+> 1. The 2nd VM is Deployed.
+> Under these circumstances, the OS Disk of the 2nd VM might be created on the same Fault Domain as the 1st VM, and so the 2nd VM will also land on the same FaultDomain. To avoid this issue, it's recommended to not stop/deallocate the VMs between deployments.
 
 ## Check for available VM sizes 
 

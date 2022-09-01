@@ -3,10 +3,10 @@ title: Setting up and responding to alerts from Microsoft Defender for open-sour
 description: Learn how to configure Microsoft Defender for open-source relational databases to detect anomalous database activities indicating potential security threats to the database.
 ms.date: 11/09/2021
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ---
 # Enable Microsoft Defender for open-source relational databases and respond to alerts
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Defender for Cloud detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
 
@@ -16,7 +16,7 @@ Microsoft Defender for Cloud detects anomalous activities indicating unusual and
 
 To get alerts from the Microsoft Defender plan you'll first need to enable it as [shown below](#enable-enhanced-security).
 
-Learn more about this Microsoft Defender plan in [Introduction to Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
+Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
 ## Enable enhanced security
 

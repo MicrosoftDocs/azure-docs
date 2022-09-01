@@ -4,7 +4,7 @@ description: Learn how to better performance for your web, mobile, and API app i
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 03/21/2022
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -83,10 +83,11 @@ If your app runs in an App Service deployment where **PremiumV3** isn't availabl
     ![Screenshot showing how to clone your app.](media/app-service-configure-premium-tier/clone-app.png)
 
     In the **Clone app** page, you can create an App Service plan using **PremiumV3** in the region you want, and specify the app settings and configuration that you want to clone.
+ 
 
 ## Moving from Premium Container to Premium V3 SKU
 
-If you have an app which is using the preview Premium Container SKU and you would like to move to the new Premium V3 SKU, you need to redeploy your app to take advantage of **PremiumV3**. To do this, see the first option in [Scale up from an unsupported resource group and region combination](#scale-up-from-an-unsupported-resource-group-and-region-combination)
+The Premium Container SKU will be retired on **30th June 2022**.  You should move your applications to the **Premium V3 SKU** ahead of this date. Use the clone functionality in the Azure App Service CLI experience to [move your application from your Premium Container App Service Plan to a new Premium V3 App Service plan](https://aka.ms/pcsku). 
 
 ## Automate with scripts
 

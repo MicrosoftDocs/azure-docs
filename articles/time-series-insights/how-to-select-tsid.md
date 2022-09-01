@@ -14,6 +14,8 @@ ms.custom: seodec18
 
 # Best practices for choosing a Time Series ID
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article summarizes the importance of the Time Series ID for your Azure Time Series Insights Gen2 environment, and best practices for choosing one.
 
 ## Choose a Time Series ID

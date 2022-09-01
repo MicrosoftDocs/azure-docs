@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Create a serverless Apache Spark pool using the Azure portal'
 description: Create a serverless Apache Spark pool using the Azure portal by following the steps in this guide.
-services: synapse-analytics
 author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: spark
 ms.date: 08/19/2021
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: mode-ui
 ---
 

@@ -120,7 +120,7 @@ Follow these steps to find them:
 
     - Windows: Open the installation directory, select **/bin/**, and then double-click **openssl.exe**.
     - Mac and Linux: Run `openssl` from a terminal.
-1. Run the command `openssl s_client -showcerts -connect <hostname>:443` for any of the Microsoft or Azure host names that your storage resources are behind. For more information, see this [list of host names that are frequently accessed by Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-network).
+1. Run the command `openssl s_client -showcerts -connect <hostname>:443` for any of the Microsoft or Azure host names that your storage resources are behind. For more information, see this [list of host names that are frequently accessed by Storage Explorer](./storage-explorer-network.md).
 1. Look for self-signed certificates. If the subject `("s:")` and issuer `("i:")` are the same, the certificate is most likely self-signed.
 1. When you find the self-signed certificates, for each one, copy and paste everything from, and including, `-----BEGIN CERTIFICATE-----` to `-----END CERTIFICATE-----` into a new .cer file.
 1. Open Storage Explorer and go to **Edit** > **SSL Certificates** > **Import Certificates**. Then use the file picker to find, select, and open the .cer files you created.
@@ -236,6 +236,17 @@ If you can't retrieve your subscriptions after you successfully sign in, try the
 - If you're behind a proxy server, make sure you configured the Storage Explorer proxy correctly.
 - Try removing and re-adding the account.
 - If there's a "More information" or "Error details" link, check which error messages are being reported for the tenants that are failing. If you aren't sure how to respond to the error messages, [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+
+## Problem interacting with your OS credential store during an AzCopy transfer
+
+If you see this message on Windows, most likely the Windows Credential Manager is full. To make room in the Windows Credential Manager
+
+1. Close Storage Explorer
+1. On the **Start** menu, search for **Credential Manager** and open it.
+1. Go to **Windows Credentials**.
+1. Under **Generic Credentials**, look for entries associated with programs you no longer use and delete them. You can also look for entries like `azcopy/aadtoken/<some number>` and delete those.
+
+If the message continues to appear after completing the above steps, or if you encounter this message on platforms other than Windows, then please [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## Can't remove an attached storage account or resource
 
@@ -406,52 +417,26 @@ Storage Explorer as provided in the *.tar.gz* download is supported for the foll
 - Ubuntu 18.04 x64
 - Ubuntu 16.04 x64
 
-Storage Explorer requires .NET Core 3.1 to be installed on your system.
+Storage Explorer requires the .NET 6 runtime to be installed on your system. The ASP.NET runtime is **not** required.
 
 > [!NOTE]
-> Storage Explorer versions 1.8.0 through 1.20.1 require .NET Core 2.1. Storage Explorer version 1.7.0 and earlier require .NET Core 2.0.
+> Older versions of Storage Explorer may require a different version of .NET or .NET Core. Refer to release notes or in app error messages to help determine the required version.
+
+### [Ubuntu 22.04](#tab/2204)
+
+1. Download the Storage Explorer *.tar.gz* file.
+1. Install the [.NET 6 runtime](/dotnet/core/install/linux-ubuntu)
+
 
 ### [Ubuntu 20.04](#tab/2004)
 
 1. Download the Storage Explorer *.tar.gz* file.
-1. Install the [.NET Core Runtime](/dotnet/core/install/linux):
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     sudo dpkg -i packages-microsoft-prod.deb; \
-     sudo apt-get update; \
-     sudo apt-get install -y apt-transport-https && \
-     sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-3.1
-   ```
+1. Install the [.NET 6 runtime](/dotnet/core/install/linux-ubuntu)
 
 ### [Ubuntu 18.04](#tab/1804)
 
 1. Download the Storage Explorer *.tar.gz* file.
-1. Install the [.NET Core Runtime](/dotnet/core/install/linux):
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     sudo dpkg -i packages-microsoft-prod.deb; \
-     sudo apt-get update; \
-     sudo apt-get install -y apt-transport-https && \
-     sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-3.1
-   ```
-
-### [Ubuntu 16.04](#tab/1604)
-
-1. Download the Storage Explorer *.tar.gz* file.
-1. Install the [.NET Core Runtime](/dotnet/core/install/linux):
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     sudo dpkg -i packages-microsoft-prod.deb; \
-     sudo apt-get update; \
-     sudo apt-get install -y apt-transport-https && \
-     sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-3.1
-   ```
+1. Install the [.NET 6 runtime](/dotnet/core/install/linux-ubuntu)
 
 ---
 
@@ -460,7 +445,7 @@ Many libraries needed by Storage Explorer come preinstalled with Canonical's sta
 - iproute2
 - libasound2
 - libatm1
-- libgconf2-4
+- libgconf-2-4
 - libnspr4
 - libnss3
 - libpulse0
@@ -499,15 +484,7 @@ When you report an issue to GitHub, you might be asked to gather certain logs to
 
 ### Storage Explorer logs
 
-Starting with version 1.16.0, Storage Explorer logs various things to its own application logs. You can easily get to these logs by selecting **Help** > **Open Logs Directory**. By default, Storage Explorer logs at a low level of verbosity. To change the verbosity level, add an environment variable with the name of `STG_EX_LOG_LEVEL`, and any of the following values:
-
-- `silent`
-- `critical`
-- `error`
-- `warning`
-- `info` (default level)
-- `verbose`
-- `debug`
+Storage Explorer logs various things to its own application logs. You can easily get to these logs by selecting **Help** > **Open Logs Directory**. By default, Storage Explorer logs at a low level of verbosity. To change the verbosity level, go to **Settings** (the **gear** symbol on the left) > **Application** > **Logging** > **Log Level**. You can then set the log level as needed. For troubleshooting, it is recommended to use the `debug` log level.
 
 Logs are split into folders for each session of Storage Explorer that you run. For whatever log files you need to share, place them in a zip archive, with files from different sessions in different folders.
 
@@ -539,7 +516,7 @@ If you're having trouble transferring data, you might need to get the AzCopy log
 
 ### Network logs
 
-For some issues, you'll need to provide logs of the network calls made by Storage Explorer. On Windows, you can do this step by using Fiddler.
+For some issues, you'll need to provide logs of the network calls made by Storage Explorer. On Windows, you can do this by using Fiddler.
 
 > [!NOTE]
 > Fiddler traces might contain passwords you entered or sent in your browser during the gathering of the trace. Make sure to read the instructions on how to sanitize a Fiddler trace. Don't upload Fiddler traces to GitHub. You'll be told where you can securely send your Fiddler trace.
@@ -553,21 +530,9 @@ For some issues, you'll need to provide logs of the network calls made by Storag
 1. Make sure **Capture CONNECTs** and **Decrypt HTTPS traffic** are selected.
 1. Select **Actions**.
 1. Select **Trust Root Certificate** and then select **Yes** in the next dialog.
-1. Select **Actions** again.
-1. Select **Export Root Certificate to Desktop**.
-1. Go to your desktop, find the *FiddlerRoot.cer* file, and double-click it.
-1. Go to the **Details** tab.
-1. Select **Copy to File**.
-1. In the export wizard, choose the following options:
-
-    - Base-64 encoded X.509.
-    - For file name, browse to *C:\Users\\<your user dir\>\AppData\Roaming\StorageExplorer\certs*. Then you can save it as any file name.
-
-1. Close the certificate window.
 1. Start Storage Explorer.
-1. Go to **Edit** > **Configure Proxy**.
-1. In the dialog, select **Use app proxy settings**. Set the URL to http://localhost and the port to **8888**.
-1. Select **OK**.
+1. Go to **Settings** (the **gear** symbol on the left) > **Application** > **Proxy**
+1. Change the proxy source dropdown to be **Use system proxy (preview)**. 
 1. Restart Storage Explorer.
 1. You should start seeing network calls from a `storageexplorer:` process show up in Fiddler.
 
@@ -575,8 +540,8 @@ For some issues, you'll need to provide logs of the network calls made by Storag
 
 1. Close all apps other than Fiddler.
 1. Clear the Fiddler log by using the **X** in the top left, near the **View** menu.
-1. Optional/recommended: Let Fiddler set for a few minutes. If you see network calls appear that aren't related to Storage Explorer, right-click them and select **Filter Now** > **Hide (process name)**.
-1. Start Storage Explorer.
+1. Optional/recommended: Let Fiddler set for a few minutes. If you see network calls appear that aren't related to Storage Explorer, right-click them and select **Filter Now** > **Hide \<process name\>**.
+1. Start/restart Storage Explorer.
 1. Reproduce the issue.
 1. Select **File** > **Save** > **All Sessions**. Save it somewhere you won't forget.
 1. Close Fiddler and Storage Explorer.
@@ -595,7 +560,7 @@ For some issues, you'll need to provide logs of the network calls made by Storag
 
 If none of these solutions work for you, you can:
 
-- Create a support ticket.
+- [Create a support ticket](https://aka.ms/storageexplorer/servicerequest).
 - [Open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues) by selecting the **Report issue to GitHub** button in the lower-left corner.
 
 ![Feedback](./media/storage-explorer-troubleshooting/feedback-button.PNG)

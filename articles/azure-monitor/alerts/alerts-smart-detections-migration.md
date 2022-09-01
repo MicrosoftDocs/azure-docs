@@ -2,7 +2,7 @@
 title: Upgrade Azure Monitor Application Insights smart detection to alerts (Preview) | Microsoft Docs
 description: Learn about the steps required to upgrade your Azure Monitor Application Insights smart detection to alert rules
 ms.topic: conceptual
-ms.date: 05/30/2021
+ms.date: 2/23/2022
 ---
 
 # Migrate Azure Monitor Application Insights smart detection to alerts (Preview)
@@ -38,6 +38,9 @@ A new set of alert rules is created when migrating an Application Insights resou
 <sup>(2)</sup> Name of new alert rule after migration  
 <sup>(3)</sup> These smart detection capabilities aren't converted to alerts, because of low usage and reassessment of detection effectiveness. These detectors will no longer be supported for this resource once its migration is completed. 
 
+ > [!NOTE]
+ > The **Failure Anomalies** smart detector is already created as an alert rule and therefore does not require migration, it is not covered in this document.
+ 
 The migration doesn't change the algorithmic design and behavior of smart detection. The same detection performance is expected before and after the change.
 
 You need to apply the migration to each Application Insights resource separately. For resources that aren't explicitly migrated, smart detection will continue to work as before.
@@ -58,8 +61,6 @@ Instead of using the default action group, you select an existing action group t
 
 ### Migrate your smart detection using the Azure portal
 
-Apply the migration to one specific Application Insights resource at a time.
-
 To migrate smart detection in your resource, take the following steps:
 
 1. Select **Smart detection** under the **Investigate** heading in your Application Insights resource left-side menu.
@@ -68,9 +69,15 @@ To migrate smart detection in your resource, take the following steps:
 
    ![Smart detection feed banner](media/alerts-smart-detections-migration/smart-detection-feed-banner.png)
 
-3. Select an action group to be configured for the new alert rules. You can choose between using the default action group (as explained above) or using one of your existing action groups.
+3. Check the option "Migrate all Application Insights resources in this subscription", or leave it unchecked if you want to migrate only the current resource you are in. 
+   > [!NOTE]
+   > Checking this option will impact all **existing** Application Insights resources (that were not migrated yet). As long as the migration to alerts is in preview, new Application Insights resources will still be created with non-alerts smart detection.
 
-4. Select **Migrate** to start the migration process.
+
+
+4. Select an action group to be configured for the new alert rules. You can choose between using the default action group (as explained above) or using one of your existing action groups.
+
+5. Select **Migrate** to start the migration process.
 
    ![Smart detection migration dialog](media/alerts-smart-detections-migration/smart-detection-migration-dialog.png)
 
@@ -84,7 +91,7 @@ You can start the smart detection migration using the following Azure CLI comman
 az rest --method POST --uri /subscriptions/{subscriptionId}/providers/Microsoft.AlertsManagement/migrateFromSmartDetection?api-version=2021-01-01-preview --body @body.txt
 ```
 
-Where body.txt should include:
+For migrating a single Application Insights resource, body.txt should include:
 
 ```json
 {
@@ -95,7 +102,17 @@ Where body.txt should include:
       "customActionGroupName" : "{actionGroupName}"           
 }
 ```
+For migrating all the Application Insights resources in a subscription, body.txt should include:
 
+```json
+{
+      "scope": [
+	"/subscriptions/{subscriptionId} "
+      ],
+      "actionGroupCreationPolicy" : "{Auto/Custom}",
+      "customActionGroupName" : "{actionGroupName}"           
+}
+```
 **ActionGroupCreationPolicy** selects the policy for migrating the email settings in the smart detection rules into action groups. Allowed values are:
 
 - **'Auto'**, which uses the default action groups as described in this document
@@ -321,7 +338,7 @@ You can create and manage action groups for the new smart detection alert rules 
 After completing the migration, you can use Azure Resource Manager templates to configure settings for smart detection alert rule settings.
 
 > [!NOTE]
-> After completion of migration, smart detection settings must be configured using smart detection alert rule templates, and can no longer be configured using the [Application Insights Resource Manager template](../app/proactive-arm-config.md#smart-detection-rule-configuration).
+> After completion of migration, smart detection settings must be configured using smart detection alert rule templates, and can no longer be configured using the [Application Insights Resource Manager template](./proactive-arm-config.md#smart-detection-rule-configuration).
 
 This Azure Resource Manager template example demonstrates configuring an **Response Latency Degradation** alert rule in an **Enabled** state with a severity of 2.
 * Smart detection is a global service, therefore rule location is created in the **global** location.
@@ -367,4 +384,4 @@ This Azure Resource Manager template example demonstrates configuring an **Respo
 ## Next Steps
 
 - [Learn more about alerts in Azure](./alerts-overview.md)
-- [Learn more about smart detection in Application Insights](../app/proactive-diagnostics.md)
+- [Learn more about smart detection in Application Insights](./proactive-diagnostics.md)

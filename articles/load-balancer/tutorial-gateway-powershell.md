@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a gateway load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using Azure PowerShell.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/17/2021
@@ -21,11 +21,6 @@ In this tutorial, you learn how to:
 > * Create network security group.
 > * Create a gateway load balancer.
 > * Chain a load balancer frontend to gateway load balancer.
-
-> [!IMPORTANT]
-> Gateway Azure Load Balancer is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -236,7 +231,7 @@ New-AzLoadBalancer @lb
 ## Add network virtual appliances to the Gateway Load Balancer backend pool
 Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machines to the backend pool with [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
-## Chain load balancer frontend to gateway load balancer
+## Chain load balancer frontend to Gateway Load Balancer
 
 In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
 
@@ -276,6 +271,41 @@ $par4 = @{
 $config = Set-AzLoadBalancerFrontendIpConfig @par4
 
 $config | Set-AzLoadBalancer
+
+```
+
+## Chain virtual machine to Gateway Load Balancer
+
+Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer. 
+
+You'll add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
+
+Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to chain the gateway load balancer frontend to your existing VM's NIC IP configuration.
+
+```azurepowershell-interactive
+ ## Place the gateway load balancer configuration into a variable. ##
+$par1 = @{
+    ResourceGroupName = 'TutorGwLB-rg'
+    Name = 'myLoadBalancer-gw'
+}
+$gwlb = Get-AzLoadBalancer @par1
+
+## Place the existing NIC into a variable. ##
+$par2 = @{
+    ResourceGroupName = 'MyResourceGroup'
+    Name = 'myNic'
+}
+$nic = Get-AzNetworkInterface @par2
+
+## Chain the gateway load balancer to your existing VM NIC. ##
+$par3 = @{
+    Name = 'myIPconfig'
+    NetworkInterface = $nic
+    GatewayLoadBalancerId = $gwlb.FrontendIpConfigurations.Id
+}
+$config = Set-AzNetworkInterfaceIpConfig @par3
+
+$config | Set-AzNetworkInterface
 
 ```
 

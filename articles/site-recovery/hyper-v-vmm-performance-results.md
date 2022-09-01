@@ -1,12 +1,12 @@
 ---
 title: Test Hyper-V VM replication to a secondary site with VMM using Azure Site Recovery 
 description: This article provides information about performance testing for replication of Hyper-V VMs in VMM clouds to a secondary site using Azure Site Recovery.
-author: sujayt
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
-ms.author: sutalasi
+ms.author: v-pgaddala
 
 ---
 # Test results for Hyper-V replication to a secondary site

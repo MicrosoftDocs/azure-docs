@@ -1,16 +1,14 @@
 ---
 title: Investigate incidents with UEBA data | Microsoft Docs
 description: Learn how to use UEBA data while investigating to gain greater context to potentially malicious activity occurring in your organization.
-author: batamig
+author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: bagol
+ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Investigate incidents with UEBA data
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes common methods and sample procedures for using [user entity behavior analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md) in your regular investigation workflows.
 
@@ -54,7 +52,7 @@ For example, the following steps follow the investigation of a user who connecte
     |**Note the text in the Description column**     |   In the anomaly row, scroll to the right to view an additional description. Select the link to view the full text. For example: <br><br> *Adversaries may steal the credentials of a specific user or service account using Credential Access techniques or capture credentials earlier in their reconnaissance process through social engineering for means of gaining Initial Access. APT33, for example, has used valid accounts for initial access. The query below generates an output of successful Sign-in performed by a user from a new geo location he has never connected from before, and none of his peers as well.*     |
     |**Note the UsersInsights data**     |  Scroll further to the right in the anomaly row to view the user insight data, such as the account display name and the account object ID. Select the text to view the full data on the right.         |
     |**Note the Evidence data**     |  Scroll further to the right in the anomaly row to view the evidence data for the anomaly. Select the text view the full data on the right, such as the following fields: <br><br>-  **ActionUncommonlyPerformedByUser** <br>- **UncommonHighVolumeOfActions** <br>- **FirstTimeUserConnectedFromCountry** <br>- **CountryUncommonlyConnectedFromAmongPeers** <br>- **FirstTimeUserConnectedViaISP** <br>- **ISPUncommonlyUsedAmongPeers** <br>- **CountryUncommonlyConnectedFromInTenant** <br>- **ISPUncommonlyUsedInTenant** |
-    |     |         |
+
 
 Use the data found in the **User and Entity Behavior Analytics** workbook to determine whether the user activity is suspicious and requires further action.
 
@@ -66,7 +64,7 @@ A common example of a false positive is when impossible travel activity is detec
 
 ### Analyze a false positive
 
-For example, for an **Impossible travel** incident, after confirming with the user that a VPN was used, navigate from the incident to the user entity page. Use the data displayed there to determine whether the locations captured are included in the user's commonly-known locations.
+For example, for an **Impossible travel** incident, after confirming with the user that a VPN was used, navigate from the incident to the user entity page. Use the data displayed there to determine whether the locations captured are included in the user's commonly known locations.
 
 For example:
 
@@ -111,7 +109,7 @@ For example:
     | where GroupMembership !contains "Developers"
     ```
 
-The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user. For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference.
+The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user. For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table) in the UEBA enrichments reference.
 
 ## Identify password spray and spear phishing attempts
 
@@ -127,9 +125,9 @@ For example, to investigate a password spray incident with UEBA insights, you mi
 
 1. Select the administrative user entity in the map, and then select **Insights** on the right to find more details, such as the graph of sign-ins over time.
 
-1. Select **Info** on the right, and then select **View full details** to jump to the [user entity page](identify-threats-with-entity-behavior-analytics.md#entity-pages) to drill down further. 
+1. Select **Info** on the right, and then select **View full details** to jump to the [user entity page](entity-pages.md) to drill down further. 
 
-    For example, note whether this is the user's first Potential Password spray incident, or watch the user's sign in history to understand whether the failures were anomalous.
+    For example, note whether this is the user's first Potential Password spray incident, or watch the user's sign-in history to understand whether the failures were anomalous.
 
 > [!TIP]
 > You can also run the **Anomalous Failed Logon** [hunting query](hunting.md) to monitor all of an organization's anomalous failed logins. Use the results from the query to start investigations into possible password spray attacks.
@@ -160,6 +158,6 @@ For example:
 Learn more about UEBA, investigations, and hunting:
 
 - [Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](identify-threats-with-entity-behavior-analytics.md)
-- [Microsoft Sentinel UEBA enrichments reference](ueba-enrichments.md)
+- [Microsoft Sentinel UEBA reference](ueba-reference.md)
 - [Tutorial: Investigate incidents with Microsoft Sentinel](investigate-cases.md)
 - [Hunt for threats with Microsoft Sentinel](hunting.md)

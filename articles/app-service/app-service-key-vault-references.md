@@ -32,11 +32,21 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
 1. Make sure the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
-    Linux applications attempting to use private endpoints additionally require that the app be explicitly configured to have all traffic route through the virtual network. This requirement will be removed in a forthcoming update. To set this, use the following CLI command:
+    Linux applications attempting to use private endpoints additionally require that the app be explicitly configured to have all traffic route through the virtual network. This requirement will be removed in a forthcoming update. To set this, use the following Azure CLI or Azure PowerShell command:
+
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az webapp config set --subscription <sub> -g <rg> -n <appname> --generic-configurations '{"vnetRouteAllEnabled": true}'
+    az webapp config set --subscription <sub> -g MyResourceGroupName -n MyAppName --generic-configurations '{"vnetRouteAllEnabled": true}'
     ```
+    
+    # [Azure PowerShell](#tab/azure-powershell) 
+
+    ```azurepowershell
+    Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupName -AppSetting @{vnetRouteAllEnabled = $true}
+    ```
+    
+    ---
 
 2. Make sure that the vault's configuration accounts for the network or subnet through which your app will access it.
 
@@ -53,11 +63,24 @@ Once you have granted permissions to the user-assigned identity, follow these st
 
 1. Configure the app to use this identity for Key Vault reference operations by setting the `keyVaultReferenceIdentity` property to the resource ID of the user-assigned identity.
 
+    # [Azure CLI](#tab/azure-cli)
+    
     ```azurecli-interactive
     userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
     appResourceId=$(az webapp show -g MyResourceGroupName -n MyAppName --query id -o tsv)
     az rest --method PATCH --uri "${appResourceId}?api-version=2021-01-01" --body "{'properties':{'keyVaultReferenceIdentity':'${userAssignedIdentityResourceId}'}}"
     ```
+    # [Azure PowerShell](#tab/azure-powershell) 
+    
+    ```azurepowershell-interactive   
+    $userAssignedIdentityResourceId = Get-AzUserAssignedIdentity -ResourceGroupName MyResourceGroupName -Name MyUserAssignedIdentityName | Select-Object -ExpandProperty Id
+    $appResourceId = Get-AzFunctionApp -ResourceGroupName MyResourceGroupName -Name MyAppName | Select-Object -ExpandProperty Id
+    
+    $Path = "{0}?api-version=2021-01-01" -f $appResourceId
+    Invoke-AzRestMethod -Method PATCH -Path $Path -Payload "{'properties':{'keyVaultReferenceIdentity':'$userAssignedIdentityResourceId'}}"
+    ```
+    
+    ---
 
 This configuration will apply to all references for the app.
 
@@ -91,7 +114,7 @@ If a version is not specified in the reference, then the app will use the latest
 
 Key Vault references can be used as values for [Application Settings](configure-common.md#configure-app-settings), allowing you to keep secrets in Key Vault instead of the site config. Application Settings are securely encrypted at rest, but if you need secret management capabilities, they should go into Key Vault.
 
-To use a Key Vault reference for an [application setting](configure-common.md#add-or-edit), set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
+To use a Key Vault reference for an [app setting](configure-common.md#configure-app-settings), set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
 
 > [!TIP]
 > Most application settings using Key Vault references should be marked as slot settings, as you should have separate vaults for each environment.

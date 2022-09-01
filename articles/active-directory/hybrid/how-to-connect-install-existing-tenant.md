@@ -4,8 +4,9 @@ description: This topic describes how to use Connect when you have an existing A
 author: billmath
 ms.service: active-directory
 ms.workload: identity
+manager: amycolannino
 ms.topic: how-to
-ms.date: 04/25/2019
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

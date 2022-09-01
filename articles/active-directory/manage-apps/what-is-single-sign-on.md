@@ -1,18 +1,17 @@
 ---
 title: What is single sign-on?
 description: Learn about single sign-on for enterprise applications in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
 ms.date: 11/18/2021
-ms.author: davidmu
-ms.reviewer: ergreenl
-ms.custom: contperf-fy21q1, contperf-fy22q2
+ms.author: jomondi
+ms.reviewer: alamaral
+ms.custom: contperf-fy21q1, contperf-fy22q2, contperf-fy22q3
 # Customer intent: As an IT admin, I need to learn about single sign-on and my applications in Azure Active Directory.
 ---
 
@@ -52,7 +51,7 @@ Choosing an SSO method depends on how the application is configured for authenti
     - You're testing other aspects of the application
     - An on-premises application doesn't require users to authenticate, but you want them to. With SSO disabled, the user needs to authenticate.
 
-    If you configured the application for SP-initiated SAML-based SSO and you change the SSO mode to disabled, it won't stop users from signing in to the application outside the MyApps portal. To achieve this, you need to [disable the ability for users to sign in](disable-user-sign-in-portal.md).
+    If you configured the application for SP-initiated SAML-based SSO and you change the SSO mode to disabled, it won't stop users from signing in to the application outside the MyApps portal. To achieve this, you need to disable the ability for users to sign in.
 
 ## Plan SSO deployment
 
@@ -68,4 +67,4 @@ If you're a user of an application, you likely don't care much about SSO details
 
 ## Next steps
 
-- [Quickstart: Enable single sign on](add-application-portal-setup-sso.md)
+- [Plan for single sign-on deployment](plan-sso-deployment.md)

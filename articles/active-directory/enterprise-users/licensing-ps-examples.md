@@ -5,21 +5,21 @@ description: PowerShell + Graph examples and scenarios for Azure Active Director
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
-author: curtand
-manager: KarenH444
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
 ms.date: 12/02/2020
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ---
 
 # PowerShell and Graph examples for group-based licensing in Azure AD
 
-Full functionality for group-based licensing is available through the [Azure portal](https://portal.azure.com), and currently there are some useful tasks that can be performed using the existing [MSOnline PowerShell
+Full functionality for group-based licensing in Azure Active Directory (Azure AD), part of Microsoft Entra, is available through the [Azure portal](https://portal.azure.com), and currently there are some useful tasks that can be performed using the existing [MSOnline PowerShell
 cmdlets](/powershell/module/msonline) and Microsoft Graph. This document provides examples of what is possible.
 
 > [!NOTE]

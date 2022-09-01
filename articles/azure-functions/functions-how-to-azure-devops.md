@@ -3,26 +3,26 @@ title: Continuously update function app code using Azure Pipelines
 description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
 author: juliakm
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 02/25/2022
 ms.author: jukullam
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli, devops-pipelines-deploy"
+ms.devlang: azurecli
 ---
 
 # Continuous delivery with Azure Pipelines
 
-Automatically deploy to Azure Functions with [Azure Pipelines](/azure/devops/pipelines/). Azure Pipelines lets you automate your software development and continuously test, build, and deploy your code. 
+Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy to Azure Functions. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). 
+
+YAML pipelines are defined using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (pre-packaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
 YAML pipelines aren't available for Azure DevOps 2019 and earlier.
-
 ## Prerequisites
 
 * A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com).
 
-* An Azure DevOps organization. If you don't have one, you can [create one for free](//azure/devops/get-started/pipelines-sign-up.md). (An Azure DevOps organization is different from your GitHub organization. You can give your DevOps organization and your GitHub organization the same name if you want alignment between them.)
+* An Azure DevOps organization. If you don't have one, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). If your team already has one, then make sure you're an administrator of the Azure DevOps project that you want to use.
 
-  If your team already has one, then make sure you're an administrator of the Azure DevOps project that you want to use.
-
-* An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/licensing/concurrent-jobs.md) or you can request a free tier. To request a free tier, follow the instructions in [this article](/azure/devops/licensing/concurrent-jobs.md). Note that it may take us 2-3 business days to grant access to the free tier.
+* An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier. 
 
 ## Create your function app
 
@@ -97,7 +97,7 @@ You can use the following sample to create a YAML file to build a .NET app:
 
 ```yaml
 pool:
-      vmImage: 'windows-2019'
+  vmImage: 'windows-latest'
 steps:
 - script: |
     dotnet restore
@@ -128,7 +128,7 @@ You can use the following sample to create a YAML file to build a JavaScript app
 
 ```yaml
 pool:
-      vmImage: ubuntu-latest # Use 'windows-2019' if you have Windows native +Node modules
+  vmImage: ubuntu-latest # Use 'windows-latest' if you have Windows native +Node modules
 steps:
 - bash: |
     if [ -f extensions.csproj ]
@@ -161,7 +161,7 @@ pool:
   vmImage: ubuntu-latest
 steps:
 - task: UsePythonVersion@0
-  displayName: "Setting python version to 3.7 as required by functions"
+  displayName: "Setting Python version to 3.7 as required by functions"
   inputs:
     versionSpec: '3.7'
     architecture: 'x64'
@@ -190,7 +190,7 @@ pool:
   vmImage: ubuntu-latest
 steps:
 - task: UsePythonVersion@0
-  displayName: "Setting python version to 3.6 as required by functions"
+  displayName: "Setting Python version to 3.6 as required by functions"
   inputs:
     versionSpec: '3.6'
     architecture: 'x64'
@@ -218,7 +218,7 @@ You can use the following sample to create a YAML file to package a PowerShell a
 
 ```yaml
 pool:
-      vmImage: 'windows-2019'
+  vmImage: 'windows-latest'
 steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
@@ -235,7 +235,7 @@ steps:
 
 ## Deploy your app
 
-You'll deploy with the [Azure Function App Deploy](/azure/devops/pipelines/tasks/deploy/azure-function-app.md) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
+You'll deploy with the [Azure Function App Deploy](/azure/devops/pipelines/tasks/deploy/azure-function-app) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
 
 # [YAML](#tab/yaml)
 
@@ -282,7 +282,7 @@ You can automatically deploy your code to Azure Functions as a custom container 
 
 # [YAML](#tab/yaml/)
 
-The simplest way to deploy to a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers.md).
+The simplest way to deploy to a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers).
 
 To deploy, add the following snippet at the end of your YAML file:
 
@@ -312,7 +312,7 @@ The snippet pushes the Docker image to your Azure Container Registry. The **Azur
 
 # [Classic](#tab/classic/)
 
-The best way to deploy your function app as a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers.md) in your release pipeline.
+The best way to deploy your function app as a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers) in your release pipeline.
 
 
 How you deploy your app depends on your app's programming language. Each language has a template with specific deploy steps. If you can't find a template for your language, select the generic **Azure App Service Deployment** template.
@@ -354,7 +354,7 @@ Use the option **Deploy to Slot** in the **Azure Function App Deploy** task to s
 ---
 ## Create a pipeline with Azure CLI
 
-To create a build pipeline in Azure, use the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az_functionapp_devops_pipeline_create). The build pipeline is created to build and release any code changes that are made in your repo. The command generates a new YAML file that defines the build and release pipeline and then commits it to your repo. The prerequisites for this command depend on the location of your code.
+To create a build pipeline in Azure, use the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). The build pipeline is created to build and release any code changes that are made in your repo. The command generates a new YAML file that defines the build and release pipeline and then commits it to your repo. The prerequisites for this command depend on the location of your code.
 
 - If your code is in GitHub:
 

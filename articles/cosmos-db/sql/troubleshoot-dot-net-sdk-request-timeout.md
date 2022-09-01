@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot Azure Cosmos DB HTTP 408 or request timeout issues with the .NET SDK
 description: Learn how to diagnose and fix .NET SDK request timeout exceptions.
-author: j82w
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/05/2021
-ms.author: jawilley
+ms.date: 02/02/2022
+ms.author: jroth
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: devx-track-dotnet
 ---
 
@@ -69,6 +69,7 @@ The timeouts will contain *Diagnostics*, which contain:
 
 * If the `cpu` values are over 70%, the timeout is likely to be caused by CPU exhaustion. In this case, the solution is to investigate the source of the high CPU utilization and reduce it, or scale the machine to a larger resource size.
 * If the `threadInfo/isThreadStarving` nodes have `True` values, the cause is thread starvation. In this case the solution is to investigate the source/s of the thread starvation (potentially locked threads), or scale the machine/s to a larger resource size.
+* If the `dateUtc` time in-between measurements is not approximately 10 seconds, it also would indicate contention on the thread pool. CPU is measured as an independent Task that is enqueued in the thread pool every 10 seconds, if the time in-between measurement is longer, it would indicate that the async Tasks are not able to be processed in a timely fashion. Most common scenarios are when doing [blocking calls over async code](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait) in the application code.
 
 # [Older SDK](#tab/cpu-old)
 

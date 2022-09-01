@@ -19,20 +19,32 @@
   items:
   - name: Networking architecture
     href: networking.md
-  - name: Zone redundancy
-    href: overview-zone-redundancy.md
+  - name: Resiliency
+    items:
+    - name: Migrate to availability zone support
+      href: ../../availability-zones/migrate-app-service-environment.md
   - name: Certificates
     href: overview-certificates.md
   - name: Diagnostics
     href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+  - name: Migration feature
+    href: migrate.md
 - name: How-To guides
   items:
   - name: Using App Service Environment
     href: using.md
-  - name: Provision ASE from an ARM template
+  - name: Create App Service Environment from template
     href: create-from-template.md
-  - name: ASE custom settings
+  - name: App Service Environment custom settings
     href: app-service-app-service-environment-custom-settings.md
+  - name: App Service Environment v3 network settings
+    href: configure-network-settings.md
+  - name: Custom domain suffix
+    href: how-to-custom-domain-suffix.md
+  - name: Migrate to App Service Environment v3
+    href: migration-alternatives.md
+  - name: Use the migration feature
+    href: how-to-migrate.md
 - name: Reference
   items:
   - name: Management addresses
@@ -100,7 +112,7 @@
   - name: Cookbooks
     items:
     - name: Deployment Scripts
-      href: /azure/automation/automation-runbook-gallery
+      href: ../../automation/automation-runbook-gallery.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio

@@ -3,8 +3,8 @@ title: Use Azure Monitor logs to monitor Azure HDInsight clusters
 description: Learn how to use Azure Monitor logs to monitor jobs running in an HDInsight cluster.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurepowershell, references_regions
-ms.date: 09/21/2021
+ms.custom: seoapr2020, devx-track-azurepowershell, references_regions, devx-track-azurecli
+ms.date: 08/01/2021
 ---
 
 # Use Azure Monitor logs to monitor HDInsight clusters
@@ -122,7 +122,7 @@ az hdinsight azure-monitor enable --name $cluster --resource-group $resourceGrou
 az hdinsight azure-monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_disable) command.
+To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-disable) command.
 
 ```azurecli
 az hdinsight azure-monitor disable --name $cluster --resource-group $resourceGroup
@@ -263,7 +263,7 @@ Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 
 ## Enable Azure Monitor using Azure CLI
 
-You can enable Azure Monitor logs using the Azure CLI `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_enable) command.
+You can enable Azure Monitor logs using the Azure CLI `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-enable) command.
 
 ```azurecli
 # set variables
@@ -278,14 +278,14 @@ az hdinsight monitor enable --name $cluster --resource-group $resourceGroup --wo
 az hdinsight monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_disable) command.
+To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-disable) command.
 
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
-## <a name="oms-with-firewall">Prerequisites for clusters behind a firewall</a>
+## <a name="oms-with-firewall"></a>Prerequisites for clusters behind a firewall
 
-To be able to successfully setup Azure Monitor integration with HDInsight, behind a firewall, some customers may need to enable the following endpoints:
+To be able to successfully set up Azure Monitor integration with HDInsight, behind a firewall, some customers may need to enable the following endpoints:
 
 |Agent Resource | Ports | Direction | Bypass HTTPS inspection |
 |---|---|---|---|
@@ -305,7 +305,7 @@ Once the setup is successful, enabling necessary endpoints for data ingestion is
 
 ## Install HDInsight cluster management solutions
 
-HDInsight provides cluster-specific management solutions that you can add for Azure Monitor logs. [Management solutions](../azure-monitor/insights/solutions.md) add functionality to Azure Monitor logs, providing more data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters. And provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.
+HDInsight provides cluster-specific management solutions that you can add for Azure Monitor Logs. [Management solutions](../azure-monitor/insights/solutions.md) add functionality to Azure Monitor Logs, providing more data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters. And provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.
 
 Available HDInsight solutions:
 
@@ -339,7 +339,7 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
 
 ## Update the Log Analytics (OMS) Agent used by HDInsight Azure Monitor Integration
 
-When Azure Monitor integration is enabled on a cluster, the Log Analytics agent, or Operations Management Suite (OMS) Agent, is installed on the cluster and is not updated unless you disable and re-enable Azure Monitor Integration. Complete the following steps if you need to update the OMS Agent on the cluster. If you are behind a firewall you may need to complete the [Prerequisites for clusters behind a firewall](#oms-with-firewall) before completing these steps.
+When Azure Monitor integration is enabled on a cluster, the Log Analytics agent, or Operations Management Suite (OMS) Agent, is installed on the cluster and is not updated unless you disable and re-enable Azure Monitor Integration. Complete the following steps if you need to update the OMS Agent on the cluster. If you are behind a firewall you may need to complete the [Prerequisites for clusters behind a firewall](hdinsight-hadoop-oms-log-analytics-tutorial.md?tabs=previous#oms-with-firewall) before completing these steps.
 
 1. From the [Azure portal](https://portal.azure.com/), select your cluster. The cluster is opened in a new portal page.
 1. From the left, under **Monitoring**, select **Azure Monitor**.
@@ -354,6 +354,6 @@ If you have Azure Monitor Integration enabled on a cluster, updating the OMS age
 ```
 
 ## Next steps
-
+* [Selective logging analysis](selective-logging-analysis.md)
 * [Query Azure Monitor logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 * [How to monitor cluster availability with Apache Ambari and Azure Monitor logs](./hdinsight-cluster-availability.md)

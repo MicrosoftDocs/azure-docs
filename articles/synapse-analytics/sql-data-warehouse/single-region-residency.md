@@ -1,15 +1,14 @@
 ---
 title: Single region residency
 description: How-to guide for configuring single region residency for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
-services: synapse-analytics
 author: joannapea
-manager: igorstan
+manager: 
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 05/15/2021
 ms.author: joanpo
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019
 ---
 

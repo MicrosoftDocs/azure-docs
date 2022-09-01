@@ -3,9 +3,9 @@ title: Sampling overrides (preview) - Azure Monitor Application Insights for Jav
 description: Learn to configure sampling overrides in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
 ms.date: 03/22/2021
-author: trask
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: trstalna
+ms.reviewer: mmcc
 ---
 
 # Sampling overrides (preview) - Azure Monitor Application Insights for Java
@@ -40,7 +40,7 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "...",
   "sampling": {
     "percentage": 10
   },
@@ -65,33 +65,83 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 }
 ```
 
+> [!NOTE]
+> Starting from 3.4.0-BETA, `telemetryKind` of `request`, `dependency`, `trace` (log), or `exception` is supported
+> (and should be set) on all sampling overrides, e.g.
+> ```json
+> {
+>   "connectionString": "...",
+>   "sampling": {
+>     "percentage": 10
+>   },
+>   "preview": {
+>     "sampling": {
+>       "overrides": [
+>         {
+>           "telemetryKind": "request",
+>           "attributes": [
+>             ...
+>           ],
+>           "percentage": 0
+>         },
+>         {
+>           "telemetryKind": "request",
+>           "attributes": [
+>             ...
+>           ],
+>           "percentage": 100
+>         }
+>       ]
+>     }
+>   }
+> }
+> ```
+
 ## How it works
 
 When a span is started, the attributes present on the span at that time are used to check if any of the sampling
 overrides match.
 
-If one of the sampling overrides match, then its sampling percentage is used to decide whether to sample the span or
+Matches can be either `strict` or `regexp`. Regular expression matches are performed against the entire attribute value,
+so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
+A sampling override can specify multiple attribute criteria, in which case all of them must match for the sampling
+override to match.
+
+If one of the sampling overrides matches, then its sampling percentage is used to decide whether to sample the span or
 not.
 
 Only the first sampling override that matches is used.
 
 If no sampling overrides match:
 
-* If this is the first span in the trace, then the [default sampling percentage](./java-standalone-config.md#sampling)
-  is used.
+* If this is the first span in the trace, then the
+  [top-level sampling configuration](./java-standalone-config.md#sampling) is used.
 * If this is not the first span in the trace, then the parent sampling decision is used.
 
-> [!WARNING]
-> When a decision has been made to not collect a span, then all downstream spans will also not be collected,
-> even if there are sampling overrides that match the downstream span.
-> This behavior is necessary because otherwise broken traces would result, with downstream spans being collected
-> but being parented to spans that were not collected.
-
 > [!NOTE]
-> The sampling decision is based on hashing the traceId (also known as the operationId) to a number between 0 and 100,
-> and that hash is then compared to the sampling percentage.
-> Since all spans in a given trace will have the same traceId, they will have the same hash,
-> and so the sampling decision will be consistent across the whole trace.
+> Starting from 3.4.0-BETA, sampling overrides do not apply to "standalone" telemetry by default. Standalone telemetry
+> is any telemetry that is not associated with a request, e.g. startup logs.
+> You can make a sampling override apply to standalone telemetry by including the attribute
+> `includingStandaloneTelemetry` in the sampling override, e.g.
+> ```json
+> {
+>   "connectionString": "...",
+>   "preview": {
+>     "sampling": {
+>       "overrides": [
+>         {
+>           "telemetryKind": "dependency",
+>           "includingStandaloneTelemetry": true,
+>           "attributes": [
+>             ...
+>           ],
+>           "percentage": 0
+>         }
+>       ]
+>     }
+>   }
+> }
+> ```
 
 ## Example: Suppress collecting telemetry for health checks
 
@@ -102,7 +152,7 @@ This will also suppress collecting any downstream spans (dependencies) that woul
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "...",
   "preview": {
     "sampling": {
       "overrides": [
@@ -128,7 +178,7 @@ This will suppress collecting telemetry for all `GET my-noisy-key` redis calls.
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "...",
   "preview": {
     "sampling": {
       "overrides": [
@@ -153,6 +203,9 @@ This will suppress collecting telemetry for all `GET my-noisy-key` redis calls.
 }
 ```
 
+> [!NOTE]
+> Starting from 3.4.0-BETA, `telemetryKind` is supported (and recommended) on all sampling overrides, e.g.
+
 ## Example: Collect 100% of telemetry for an important request type
 
 This will collect 100% of telemetry for `/login`.
@@ -163,7 +216,7 @@ those will also be collected for all '/login' requests.
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "...",
   "sampling": {
     "percentage": 10
   },
@@ -206,7 +259,7 @@ at the start of the span.
 
 | Attribute  | Type | Description  |
 |---|---|---|
-| `db.system` | string | Identifier for the database management system (DBMS) product being used. |
+| `db.system` | string | Identifier for the database management system (DBMS) product being used. See [list of identifiers](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md#connection-level-attributes). |
 | `db.connection_string` | string | Connection string used to connect to the database. It's recommended to remove embedded credentials.|
 | `db.user` | string | Username for accessing the database. |
 | `db.name` | string | String used to report the name of the database being accessed. For commands that switch the database, this string should be set to the target database, even if the command fails.|

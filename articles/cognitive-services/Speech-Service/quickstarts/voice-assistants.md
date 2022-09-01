@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a custom voice assistant - Speech service'
 titleSuffix: Azure Cognitive Services
-description: In this article, you use the Speech SDK to create a custom voice assistant.
+description: In this quickstart, you use the Speech SDK to create a custom voice assistant.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -11,13 +11,16 @@ ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: travisw
 ms.devlang: csharp, golang, java
-ms.custom: devx-track-csharp, mode-other
+ms.custom: cogserv-non-critical-speech, devx-track-csharp, mode-other
 zone_pivot_groups: programming-languages-voice-assistants
 ---
 
 # Quickstart: Create a custom voice assistant
 
 [!INCLUDE [Header](../includes/quickstarts/voice-assistants/header.md)]
+
+> [!NOTE]
+> The Speech SDK for C++, JavaScript, Objective-C, Python, and Swift support custom voice assistants, but we haven't yet included a guide here. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/voice-assistants/csharp/header.md)]

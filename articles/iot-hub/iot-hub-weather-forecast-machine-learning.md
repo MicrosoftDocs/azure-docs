@@ -1,14 +1,14 @@
 ---
 title: Weather forecast using Machine Learning Studio (classic) with IoT Hub data
 description: Use ML Studio (classic) to predict the chance of rain based on the temperature and humidity data your IoT hub collects from a sensor.
-author: eross-msft
+author: kgremban
 
 keywords: weather forecast machine learning
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/26/2021
-ms.author: lizross
+ms.author: kgremban
 ---
 
 # Weather forecast using the sensor data from your IoT hub in Machine Learning Studio (classic)
@@ -23,7 +23,7 @@ Machine learning is a technique of data science that helps computers learn from 
 
 ## Prerequisites
 
-- Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
+- Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.

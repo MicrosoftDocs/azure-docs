@@ -59,7 +59,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI OpenShift 3
-            url: /cli/azure/openshift
+            url: /azure/openshift/
           - text: Azure CLI OpenShift 4
             url: /cli/azure/aro
           - text: REST API

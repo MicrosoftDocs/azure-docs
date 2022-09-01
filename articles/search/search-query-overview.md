@@ -1,20 +1,20 @@
 ---
 title: Query types 
 titleSuffix: Azure Cognitive Search
-description: Learn about the types of queries supported in Cognitive Search, including free text, filter, autocomplete and suggestions, geo-search, system queries, and document lookup.
+description: Learn about the types of queries supported in Cognitive Search, including free text, filter, autocomplete and suggestions, geospatial search, system queries, and document lookup.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 08/15/2022
 ---
 # Querying in Azure Cognitive Search
 
 Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly-specified query patterns. This article describes query requests, and what kinds of queries you can create.
 
-In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. Parameters and parsers determine the type of query request. The following query example is a free text query with a boolean operator, using the [Search Documents (REST API)](/rest/api/searchservice/search-documents), targeting the [hotels-sample-index](search-get-started-portal.md) documents collection.
+In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. The following query example calls the [Search Documents (REST API)](/rest/api/searchservice/search-documents). It's a parameterized, free text query with a boolean operator, targeting the [hotels-sample-index](search-get-started-portal.md) documents collection.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -32,9 +32,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 Parameters used during query execution include:
 
-+ **`queryType`** sets the parser, which is either the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
++ **`queryType`** sets the parser, which is usually the [default simple query parser](search-query-simple-examples.md) (optimal for full text search). You could also set it to the [full Lucene query parser](search-query-lucene-examples.md) for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search. Or, you could set it to [semantic search](semantic-search-overview.md) if you want advanced semantic modeling on the query response.
 
-+ **`searchMode`** specifies whether matches are based on "all" criteria or "any" criteria in the expression. The default is any.
++ **`searchMode`** specifies whether matches are based on "all" criteria or "any" criteria in the expression. The default is "any".
 
 + **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as *searchable* in the index schema is a candidate for this parameter.
 
@@ -83,11 +83,20 @@ You might also need filters to invoke a specialized query form, as described in 
 | Filter scenario | Description |
 |-----------------|-------------|
 | Range filters | In Azure Cognitive Search, range queries are built using the filter parameter. For more information and examples, see [Range filter example](search-query-simple-examples.md#example-5-range-filters). |
-| Geo-location search | If a searchable field is of [Edm.GeographyPoint type](/rest/api/searchservice/supported-data-types), you can create a filter expression for "find near me" or map-based search controls. Fields that drive geo-search contain coordinates. For more information and an example, see [Geo-search example](search-query-simple-examples.md#example-6-geo-search). |
-| Faceted navigation | In [faceted navigation](search-faceted-navigation.md) tree, users can select facets, narrowing the results on each click. Each facet is backed by a filter that excludes documents that no longer match the criteria. |
+| Faceted navigation | In [faceted navigation](search-faceted-navigation.md) tree, users can select facets. When backed by filters, search results narrow on each click. Each facet is backed by a filter that excludes documents that no longer match the criteria provided by the facet. |
 
 > [!NOTE]
 > Text that's used in a filter expression is not analyzed during query processing. The text input is presumed to be a verbatim case-sensitive character pattern that either succeeds or fails on the match. Filter expressions are constructed using [OData syntax](query-odata-filter-orderby-syntax.md) and passed in a **`filter`** parameter in all *filterable* fields in your index. For more information, see [Filters in Azure Cognitive Search](search-filters.md).
+
+## Geospatial search
+
+Geospatial search matches on a location's latitude and longitude coordinates for "find near me" or map-based search experience. In Azure Cognitive Search, you can implement geospatial search by following these steps:
+
++ Define a filterable field of one of these types: [Edm.GeographyPoint, Collection(Edm.GeographyPoint, Edm.GeographyPolygon)](/rest/api/searchservice/supported-data-types).
++ Verify the incoming documents include the appropriate coordinates.
++ After indexing is complete, build a query that uses a filter and a [geo-spatial function](search-query-odata-geo-spatial-functions.md). 
+
+For more information and an example, see [Geospatial search example](search-query-simple-examples.md#example-6-geospatial-search).
 
 ## Document look-up
 

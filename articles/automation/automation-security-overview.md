@@ -58,6 +58,8 @@ For details on using managed identities, see [Enable managed identity for Azure 
 ## Run As accounts
 
 Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. There are two types of Run As accounts in Azure Automation:
+- Azure Run As Account
+- Azure Classic Run As Account
 
 To create or renew a Run As account, permissions are needed at three levels:
 
@@ -92,7 +94,6 @@ To be able to create or update the Automation account, you need to be a member o
 
 - [Owner](./automation-role-based-access-control.md#owner)
 - [Contributor](./automation-role-based-access-control.md#contributor)
-- [Custom Azure Automation Contributor](./automation-role-based-access-control.md#custom-azure-automation-contributor-role)
 
 To learn more about the Azure Resource Manager and Classic deployment models, see [Resource Manager and classic deployment](../azure-resource-manager/management/deployment-models.md).
 
@@ -171,7 +172,7 @@ Role-based access control is available with Azure Resource Manager to grant perm
 If you have strict security controls for permission assignment in resource groups, you need to assign the Run As account membership to the **Contributor** role in the resource group.
 
 > [!NOTE]
-> We recommend you don't use the **Log Analytics Contributor** role to execute Automation jobs. Instead, create the Azure Automation Contributor custom role and use it for actions related to the Automation account. For more information, see [Custom Azure Automation Contributor role](./automation-role-based-access-control.md#custom-azure-automation-contributor-role).
+> We recommend you don't use the **Log Analytics Contributor** role to execute Automation jobs. Instead, create the Azure Automation Contributor custom role and use it for actions related to the Automation account.
 
 ## Runbook authentication with Hybrid Runbook Worker
 

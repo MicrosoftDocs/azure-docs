@@ -2,6 +2,7 @@
 title: Reserved instances of Azure VMware Solution
 description: Learn how to buy a reserved instance for Azure VMware Solution. The reserved instance covers only the compute part of your usage and includes software licensing costs.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 05/13/2021
 ---
 
@@ -58,7 +59,7 @@ These requirements apply to buying a reserved dedicated host instance:
 
 ### Buy reserved instances for a CSP subscription
 
-CSPs that want to purchase reserved instances for their customers must use the **Admin On Behalf Of** (AOBO) procedure from the [Partner Center documentation](/partner-center/azure-plan-manage). For more information, view the [Admin on behalf of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) video.
+CSPs that want to purchase reserved instances for their customers must use the **Admin On Behalf Of** (AOBO) procedure from the [Partner Center documentation](/partner-center/azure-plan-manage). For more information, view the Admin on behalf of (AOBO) video.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com).
 

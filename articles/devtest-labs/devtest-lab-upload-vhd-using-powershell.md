@@ -2,6 +2,8 @@
 title: Upload VHD file to Azure DevTest Labs using PowerShell
 description: This article provides a walkthrough that shows you how to upload a VHD file to Azure DevTest Labs using PowerShell.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 

@@ -1,194 +1,64 @@
 ---
-title: Use additional context in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
+title: Use additional context in Microsoft Authenticator notifications (Preview) - Azure Active Directory
 description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 08/18/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use additional context in multifactor authentication (MFA) notifications (Preview) - Authentication Methods Policy
+# How to use additional context in Microsoft Authenticator app notifications (Preview) - Authentication Methods Policy
 
-This topic covers how to improve the security of user sign-in by adding application location based on IP address in Microsoft Authenticator push notifications.  
+This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator push and passwordless notifications. The schema for the API to enable application name and geographic location is currently being updated. **While the API is updated over the next two weeks, you should only use the Azure AD portal to enable application name and geographic location.** 
 
 ## Prerequisites
 
-Your organization will need to enable Microsoft Authenticator push notifications for some users or groups using the new Authentication Methods Policy API. 
+Your organization will need to enable Microsoft Authenticator push notifications for some users or groups by using the Azure AD portal. The new Authentication Methods Policy API will soon be ready as another configuration option.
 
 >[!NOTE]
 >Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy.
 
 ## Passwordless phone sign-in and multifactor authentication 
 
-When a user receives a Passwordless phone sign-in or MFA push notification in the Microsoft Authenticator app, they'll see the name of the application that requests the approval and the app location based on its IP address.
+When a user receives a passwordless phone sign-in or MFA push notification in the Authenticator app, they'll see the name of the application that requests the approval and the location based on the IP address where the sign-in originated from.
 
-![Screenshot of additional context in the MFA push notification.](media/howto-authentication-passwordless-phone/location.png)
+:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location.png" alt-text="Screenshot of additional context in the MFA push notification.":::
 
 The additional context can be combined with [number matching](how-to-mfa-number-match.md) to further improve sign-in security. 
 
-![Screenshot of additional context with number matching in the MFA push notification.](media/howto-authentication-passwordless-phone/location-with-number-match.png)
+:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location-with-number-match.png" alt-text="Screenshot of additional context with number matching in the MFA push notification.":::
 
-### Policy schema changes 
+## Enable additional context
 
-Identify a single target group for the schema configuration. Then use the following API endpoint to change the displayAppInformationRequiredState property to **enabled**:
-
-https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
-
->[!NOTE]
->For Passwordless phone sign-in, the Authenticator app does not retrieve policy information just in time for each sign-in request. Instead, the Authenticator app does a best effort retrieval of the policy once every 7 days. We understand this limitation is less than ideal and are working to optimize the behavior. In the meantime, if you want to force a policy update to test using additional context with Passwordless phone sign-in, you can remove and re-add the account in the Authenticator app. 
-
-#### MicrosoftAuthenticatorAuthenticationMethodConfiguration properties
-
-**PROPERTIES**
-
-| Property | Type | Description |
-|---------|------|-------------|
-| id | String | The authentication method policy identifier. |
-| state | authenticationMethodState | Possible values are: **enabled**<br>**disabled** |
- 
-**RELATIONSHIPS**
-
-| Relationship | Type | Description |
-|--------------|------|-------------|
-| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) |
-| collection | A collection of users or groups who are enabled to use the authentication method. |
- 
-#### MicrosoftAuthenticator includeTarget properties
- 
-**PROPERTIES**
-
-| Property | Type | Description |
-|----------|------|-------------|
-| authenticationMode | String | Possible values are:<br>**any**: Both passwordless phone sign-in and traditional second factor notifications are allowed.<br>**deviceBasedPush**: Only passwordless phone sign-in notifications are allowed.<br>**push**: Only traditional second factor push notifications are allowed. |
-| id | String | Object ID of an Azure AD user or group. |
-| targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.<br>You can only set one group or user for additional context. |
-| displayAppInformationRequiredState | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
-
->[!NOTE]
->Additional context can only be enabled for a single group.
-
-#### Example of how to enable additional context for all users
-
-Change the **displayAppInformationRequiredState** from **default** to **enabled**. 
-
-The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we'll use **any**, but if you do not want to allow passwordless, use **push**.
-
-You need to PATCH the entire includeTarget to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example only shows the update to the **displayAppInformationRequiredState**. 
-
-```json
-//Retrieve your existing policy via a GET. 
-//Leverage the Response body to create the Request body section. Then update the Request body similar to the Request body as shown below.
-//Change the Query to PATCH and Run query
- 
-{
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
-    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
-    "id": "MicrosoftAuthenticator",
-    "state": "enabled",
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
-    "includeTargets": [
-        {
-            "targetType": "group",
-            "id": "all_users",
-            "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
-            "numberMatchingRequiredState": "enabled"
-        }
-    ]
-}
- 
-```
- 
-To confirm this update has applied, run the GET request below using the endpoint below.
-GET - https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
- 
- 
-#### Example of how to enable additional context for a single group
- 
-Change the **displayAppInformationRequiredState** value from **default** to **enabled.** 
-Change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
-
-You need to PATCH the entire includeTarget to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **displayAppInformationRequiredState**. 
-
-```json
-//Copy paste the below in the Request body section as shown below.
-//Leverage the Response body to create the Request body section. Then update the Request body similar to the Request body as shown below.
-//Change query to PATCH and run query
-
-{
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
-    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
-    "id": "MicrosoftAuthenticator",
-    "state": "enabled",
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
-    "includeTargets": [
-        {
-            "targetType": "group",
-            "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a",
-            "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
-            "numberMatchingRequiredState": "enabled"
-        }
-    ]
-}
-```
- 
-To verify, RUN GET again and verify the ObjectID
-GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
- 
-
-#### Example of error when enabling additional context for multiple groups
-
-The PATCH request will fail with 400 Bad Request and the error will contain the following message: 
-
-`Persistance of policy failed with error: You cannot enable multiple targets for feature 'Require Display App Information'. Choose only one of the following includeTargets to enable: aede0efe-c1b4-40dc-8ae7-2c402f23e312,aede0efe-c1b4-40dc-8ae7-2c402f23e317.`
-
-### Test the end-user experience
-Add the test user account to the Microsoft Authenticator app. The account **doesn't** need to be enabled for phone sign-in. 
-
-See the end-user experience of an Authenticator MFA push notification with additional context by signing into aka.ms/MFAsetup. 
-
-### Turn off additional context
-
-To turn off additional context, you'll need to PATCH remove **displayAppInformationRequiredState** from **enabled** to **disabled**/**default**.
-
-```json
-{
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
-    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
-    "id": "MicrosoftAuthenticator",
-    "state": "enabled",
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
-    "includeTargets": [
-        {
-            "targetType": "group",
-            "id": "all_users",
-            "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
-            "numberMatchingRequiredState": "default"
-        }
-    ]
-}
-```
-
-## Enable additional context in the portal
-
-To enable additional context in the Azure AD portal, complete the following steps:
+To enable application name or geographic location, complete the following steps:
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
-1. Select the target users, click the three dots on the right, and click **Configure**.
+1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. 
    
-   ![Screenshot of how to configure number match.](media/howto-authentication-passwordless-phone/configure.png)
+   Only users who are enabled for Microsoft Authenticator here can be included in the policy to show the application name or geographic location of the sign-in, or excluded from it. Users who aren't enabled for Microsoft Authenticator can't see application name or geographic location.
 
-1. Select the **Authentication mode**, and then for **Show additional context in notifications (Preview)**, click **Enable**, and then click **Done**.
+   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-settings-additional-context.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Any authentication mode.":::
 
-   ![Screenshot of enabling additional context.](media/howto-authentication-passwordless-phone/enable-additional-context.png)
+1. On the **Configure** tab, for **Show application name in push and passwordless notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from the policy, and click **Save**. 
+
+   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-app-name.png" alt-text="Screenshot of how to enable application name.":::
+
+   Then do the same for **Show geographic location in push and passwordless notifications (Preview)**.
+
+   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/enable-geolocation.png" alt-text="Screenshot of how to enable geographic location.":::
+
+   You can configure application name and geographic location separately. For example, the following policy enables application name and geographic location for all users but excludes the Operations group from seeing geographic location. 
+
+   :::image type="content" border="true" source="./media/how-to-mfa-additional-context/exclude.png" alt-text="Screenshot of how to enable application name and geographic location separately.":::
+
+## Known issues
+
+Additional context is not supported for Network Policy Server (NPS) or Active Directory Federation Services (AD FS). 
 
 ## Next steps
 
 [Authentication methods in Azure Active Directory - Microsoft Authenticator app](concept-authentication-authenticator-app.md)
-

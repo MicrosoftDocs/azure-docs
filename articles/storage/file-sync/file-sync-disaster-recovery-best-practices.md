@@ -1,11 +1,11 @@
 ---
 title: Best practices for disaster recovery with Azure File Sync
 description: Learn about best practices for disaster recovery with Azure File Sync. Specifically, high availability, data protection, and data redundancy.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.author: rogarana
+ms.date: 05/24/2022
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -54,7 +54,7 @@ If you enable cloud tiering, don't implement an on-premises backup solution. Wit
 
 If you decide to use an on-premises backup solution, backups should be performed on a server in the sync group with cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will sync to all endpoints in the sync group and existing files will be replaced with the version restored from backup. Volume-level restores won't replace newer file versions in the cloud endpoint or other server endpoints.
 
-In Azure File Sync agent version 9 and above, [Volume Shadow Copy Service (VSS) snapshots](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service) (including the **Previous Versions** tab) are supported on volumes with cloud tiering enabled. This allows you to perform self-service restores instead of relying on an admin to perform restores for you. However, you must enable previous version compatibility through PowerShell, which will increase your snapshot storage costs. VSS snapshots don't protect against disasters on the server endpoint itself, so they should only be used alongside cloud-side backups. For details, see [Self Service restore through Previous Versions and VSS](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+[Volume Shadow Copy Service (VSS) snapshots](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service) (including the **Previous Versions** tab) are supported on volumes with cloud tiering enabled. This allows you to perform self-service restores instead of relying on an admin to perform restores for you. However, you must enable previous version compatibility through PowerShell, which will increase your snapshot storage costs. VSS snapshots don't protect against disasters on the server endpoint itself, so they should only be used alongside cloud-side backups. For details, see [Self Service restore through Previous Versions and VSS](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## Data redundancy
 
@@ -69,9 +69,7 @@ For a robust disaster recovery solution, most customers should consider ZRS. ZRS
 
 ### Geo-redundancy
 
-If you enable either GRS or GZRS on the storage account containing your cloud endpoint, you need to enable it on your Storage Sync Service as well. This ensures all information about your Azure File Sync topology and the data contained in your cloud endpoint is asynchronously copied to the paired secondary region in the event of a disaster.
-
-For resources that are configured with either GRS or GZRS, Microsoft will initiate the failover for your service if the primary region is judged to be permanently unrecoverable or unavailable for a long time. The Azure File Sync service will automatically fail over to the paired region in the event of a region disaster when the Storage Sync Service is using GRS or GZRS. If you are using Azure File Sync configured with GRS or GZRS, there is no action required from you in the event of a disaster.
+If your storage account is configured with either GRS or GZRS replication, Microsoft will initiate the failover of the Storage Sync Service if the primary region is judged to be permanently unrecoverable or unavailable for a long time. There is no action required from you in the event of a disaster.
 
 Although you can manually request a failover of your Storage Sync Service to your GRS or GZRS paired region, we don't recommend doing this outside of large-scale regional outages since the process isn't seamless and may incur extra cost. To initiate the process, open a support ticket and request that both your Azure storage accounts that contain your Azure file share and your Storage Sync Service be failed over.
 

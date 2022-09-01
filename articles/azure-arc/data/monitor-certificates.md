@@ -38,14 +38,17 @@ The following table describes the requirements for each certificate and key.
 |Requirement|Logs certificate|Metrics certificate|
 |-----|-----|-----|
 |CN|`logsui-svc`|`metricsui-svc`|
-|SANs| `logsui-external-svc.${NAMESPACE}.svc.cluster.local`<br/><br>`logsui-svc` | `metricsui-external-svc.${NAMESPACE}.svc.cluster.local`<br/><br>`metricsui-svc`|
+|SANs| None required | `metricsui-svc.${NAMESPACE}.${K8S_DNS_DOMAIN_NAME}`|
 |keyUsage|`digitalsignature`<br/><br>`keyEncipherment`|`digitalsignature`<br/><br>`keyEncipherment`|
 |extendedKeyUsage|`serverAuth`|`serverAuth`|
+
+> [!NOTE]
+> Default K8S_DNS_DOMAIN_NAME is `svc.cluster.local`, though it may differ depending on environment and configuration.
 
 The GitHub repository directory includes example template files that identify the certificate specifications.
 
 - [/arc_data_services/deploy/scripts/monitoring/logsui-ssl.conf.tmpl](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/monitoring/logsui-ssl.conf.tmpl)
-- [/arc_data_services/deploy/scripts/monitoring/metricsui-ssl.conf.tmpl](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/monitoring/metricssui-ssl.conf.tmpl) 
+- [/arc_data_services/deploy/scripts/monitoring/metricsui-ssl.conf.tmpl](https://github.com/microsoft/azure_arc/blob/main/arc_data_services/deploy/scripts/monitoring/metricsui-ssl.conf.tmpl) 
 
 The Azure Arc samples GitHub repository provides an example you can use to generate a compliant certificate and private key for an endpoint. 
 

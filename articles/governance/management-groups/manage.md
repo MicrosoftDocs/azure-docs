@@ -1,10 +1,12 @@
 ---
-title: How to work with your management groups - Azure Governance
+title: Manage your Azure subscriptions at scale with management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 08/17/2021
+ms.date: 08/02/2022
 ms.topic: conceptual
+ms.author: timwarner
+author: timwarner-msft
 ---
-# Manage your resources with management groups
+# Manage your Azure subscriptions at scale with management groups
 
 If your organization has many subscriptions, you may need a way to efficiently manage access,
 policies, and compliance for those subscriptions. Azure management groups provide a level of scope
@@ -25,8 +27,8 @@ subscriptions you might have. To learn more about management groups, see
 > refreshing the browser, signing in and out, or requesting a new token.
 
 > [!IMPORTANT]
-> AzManagementGroup related Az PowerShell cmdlets mention that the **-GroupId** is alias of **-GroupName** parameter 
-> so we can use either of it to provide Management Group Id as a string value. 
+> AzManagementGroup related Az PowerShell cmdlets mention that the **-GroupId** is alias of **-GroupName** parameter
+> so we can use either of it to provide Management Group Id as a string value.
 
 ## Change the name of a management group
 
@@ -352,6 +354,23 @@ template and deploy it at [tenant level](../../azure-resource-manager/templates/
         }
     ],
     "outputs": {}
+}
+```
+
+Or, the following Bicep file.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide the ID of the management group that you want to move the subscription to.')
+param targetMgId string
+
+@description('Provide the ID of the existing subscription to move.')
+param subscriptionId string
+
+resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01' = {
+  scope: tenant()
+  name: '${targetMgId}/${subscriptionId}'
 }
 ```
 

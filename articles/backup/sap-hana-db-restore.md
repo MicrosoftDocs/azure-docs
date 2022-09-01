@@ -2,7 +2,7 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, discover how to restore SAP HANA databases that are running on Azure Virtual Machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 08/11/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -13,6 +13,9 @@ ms.author: v-amallick
 This article describes how to restore SAP HANA databases running on an Azure Virtual Machine (VM), which the Azure Backup service has backed up to a Recovery Services vault. Restores can be used to create copies of the data for dev / test scenarios or to return to a previous state.
 
 For more information, on how to back up SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md).
+
+>[!Note]
+>See the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Restore to a point in time or to a recovery point
 
@@ -117,7 +120,6 @@ To restore the backup data as files instead of a database, choose **Restore as F
     The files that are dumped are:
 
     * Database backup files
-    * Catalog files
     * JSON metadata files (for each backup file that's involved)
 
     Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.
@@ -133,6 +135,10 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
 1. All the backup files associated with the selected restore point are dumped into the destination path.
 1. Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full backups, and the other folder named `Log` contains the log backups and other backups (such as differential, and incremental).
+
+   >[!Note]
+   >If you've selected **Restore to a point in time**, the log files (dumped to the target VM) may sometimes contain logs beyond the point-in-time chosen for restore. Azure Backup does this to ensure that log backups for all HANA services are available for consistent and successful restore to the chosen point-in-time.
+
 1. Move these restored files to the SAP HANA server where you want to restore them as a database.
 1. Then follow these steps:
     1. Set permissions on the folder / directory where the backup files are stored using the following command:
@@ -147,7 +153,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
         su - <sid>adm
         ```
 
-    1. Generate the catalog file for restore. Extract the **BackupId** from the JSON metadata file for the full backup, which will be used later in the restore operation. Make sure that the full and log backups are in different folders and delete the catalog files and JSON metadata files in these folders.
+    1. Generate the catalog file for restore. Extract the **BackupId** from the JSON metadata file for the full backup, which will be used later in the restore operation. Make sure that the full and log backups (not present for Full Backup Recovery) are in different folders and delete the JSON metadata files in these folders.
 
         ```bash
         hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
@@ -155,20 +161,26 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
         In the command above:
 
-        * `<DataFileDir>` - the folder that contains the full backups
-        * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups (if any)
-        * `<PathToPlaceCatalogFile>` - the folder where the catalog file generated must be placed
+        * `<DataFileDir>` - the folder that contains the full backups.
+        * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups. For Full BackUp Restore, Log folder isn't created. Add an empty directory in that case.
+        * `<PathToPlaceCatalogFile>` - the folder where the catalog file generated must be placed.
 
     1. Restore using the newly generated catalog file through HANA Studio or run the HDBSQL restore query with this newly generated catalog. HDBSQL queries are listed below:
 
-    * To restore to a point in time:
+     * To open hdsql prompt, run the following command:
 
-        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore. However, if you're only restoring an existing database, run the HDBSQL command to stop the database.
+        ```bash
+        hdbsql -U AZUREWLBACKUPHANAUSER -d systemDB
+        ```
+
+     * To restore to a point-in-time:
+
+        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore using the command `ALTER SYSTEM STOP DATABASE <db> IMMEDIATE`. However, if you're only restoring an existing database, run the HDBSQL command to stop the database.
 
         Then run the following command to restore the database:
 
         ```hdbsql
-        RECOVER DATABASE FOR <DatabaseName> UNTIL TIMESTAMP '<TimeStamp>' CLEAR LOG USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING LOG PATH (' <LogFileDir>') USING DATA PATH ('<DataFileDir>') USING BACKUP_ID <BackupIdFromJsonFile> CHECK ACCESS USING FILE
+        RECOVER DATABASE FOR <db> UNTIL TIMESTAMP <t1> USING CATALOG PATH <path> USING LOG PATH <path> USING DATA PATH <path> USING BACKUP_ID <bkId> CHECK ACCESS USING FILE
         ```
 
         * `<DatabaseName>` - Name of the new database or existing database that you want to restore
@@ -181,7 +193,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
     * To restore to a particular full or differential backup:
 
-        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore. However, if you're only restoring an existing database, run the HDBSQL command to stop the database:
+        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore using the command `ALTER SYSTEM STOP DATABASE <db> IMMEDIATE`. However, if you're only restoring an existing database, run the HDBSQL command to stop the database:
 
         ```hdbsql
         RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
@@ -194,6 +206,73 @@ To restore the backup data as files instead of a database, choose **Restore as F
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups (if any)
         * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step C**
+    * To restore using backup ID:
+
+        ```hdbsql
+        RECOVER DATA FOR <db> USING BACKUP_ID <bkId> USING CATALOG PATH <path> USING LOG PATH <path> USING DATA PATH <path>  CHECK ACCESS USING FILE
+        ```
+ 
+      Examples:
+
+      SAP HANA SYSTEM restoration on same server
+
+        ```hdbsql
+        RECOVER DATABASE FOR SYSTEM UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
+        ```
+
+      SAP HANA tenant restoration on same server
+
+        ```hdbsql
+        RECOVER DATABASE FOR DHI UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
+        ```
+
+      SAP HANA SYSTEM restoration on different server
+
+        ```hdbsql
+        RECOVER DATABASE FOR SYSTEM UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING SOURCE <sourceSID> USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
+        ```
+
+      SAP HANA tenant restoration on different server
+
+        ```hdbsql
+        RECOVER DATABASE FOR DHI UNTIL TIMESTAMP '2022-01-12T08:51:54.023' USING SOURCE <sourceSID> USING CATALOG PATH ('/restore/catalo_gen') USING LOG PATH ('/restore/Log/') USING DATA PATH ('/restore/Data_2022-01-12_08-51-54/') USING BACKUP_ID 1641977514020 CHECK ACCESS USING FILE
+        ```
+
+### Partial restore as files
+
+The Azure Backup service decides the chain of files to be downloaded during restore as files. But there are scenarios where you might not want to download the entire content again.
+
+For eg., when you have a backup policy of weekly fulls, daily differentials and logs, and you already downloaded files for a particular differential. You found that this is not the right recovery point and decided to download the next day's differential. Now you just need the differential file since you already have the starting full. With the partial restore as files ability, provided by Azure Backup, you can now exclude the full from the download chain and download only the differential.
+
+#### Excluding backup file types
+
+The **ExtensionSettingOverrides.json** is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field ` RecoveryPointsToBeExcludedForRestoreAsFiles ` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
+
+1. In the target machine where files are to be downloaded, go to "opt/msawb/bin" folder
+2. Create a new JSON file named "ExtensionSettingOverrides.JSON", if it doesn't already exist.
+3. Add the following JSON key value pair
+
+    ```json
+    {
+    "RecoveryPointsToBeExcludedForRestoreAsFiles": "ExcludeFull"
+    }
+    ```
+
+4. Change the permissions and ownership of the file as follows:
+   
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. No restart of any service is required. The Azure Backup service will attempt to exclude backup types in the restore chain as mentioned in this file.
+
+The ``` RecoveryPointsToBeExcludedForRestoreAsFiles ``` only takes specific values which denote the recovery points to be excluded during restore. For SAP HANA, these values are:
+
+- ExcludeFull (Other backup types such as differential, incremental and logs will be downloaded, if they are present in the restore point chain.
+- ExcludeFullAndDifferential (Other backup types such as incremental and logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndIncremental (Other backup types such as differential and logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndDifferentialAndIncremental (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
 
 ### Restore to a specific point in time
 
@@ -236,7 +315,7 @@ As one of the restore options, Cross Region Restore (CRR) allows you to restore 
 
 To onboard to the feature, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
 
-To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore)
 
 ### View backup items in secondary region
 
@@ -263,6 +342,7 @@ The secondary region restore user experience will be similar to the primary regi
 >[!NOTE]
 >* After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
 >* The role/access level required to perform restore operation in cross-regions are _Backup Operator_ role in the subscription and _Contributor(write)_ access on the source and target virtual machines. To view backup jobs, _ Backup reader_ is the minimum premission required in the subscription.
+>* The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
 
 ### Monitoring secondary region restore jobs
 

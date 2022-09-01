@@ -6,7 +6,8 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/01/2021
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Publish messages using the service SDK for the Azure Web PubSub instance
@@ -138,7 +139,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
       console.log('Usage: node publish <message>');
       return 1;
     }
-    const hub = "pubsub";
+    const hub = "myHub1";
     let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
     service.sendToAll(process.argv[2], { contentType: "text/plain" });

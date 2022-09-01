@@ -4,17 +4,16 @@ description: Learn how to integrate Azure Active Directory logs with Splunk usin
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/05/2021
+ms.date: 08/22/2022
 ms.author: markvi
 ms.reviewer: besiler
 

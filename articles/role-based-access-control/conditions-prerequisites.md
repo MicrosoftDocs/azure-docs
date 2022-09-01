@@ -3,7 +3,7 @@ title: Prerequisites for Azure role assignment conditions (preview)
 description: Prerequisites for Azure role assignment conditions (preview).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
@@ -56,7 +56,7 @@ To use principal attributes ([custom security attributes in Azure AD](../active-
 
 For more information about custom security attributes, see:
 
-- [Principal does not appear in Attribute source when adding a condition](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
+- [Principal does not appear in Attribute source](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
 - [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 ## Next steps
