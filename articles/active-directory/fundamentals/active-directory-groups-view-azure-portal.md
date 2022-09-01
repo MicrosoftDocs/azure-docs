@@ -101,7 +101,7 @@ Search the **Groups – All groups** page to find the **MDM policy – West** gr
 
 1. View the group info on the **MDM policy - West Overview** page, including the number of members of that group.
 
-    ![MDM policy – West Overview page with member info](media/active-directory-groups-view-azure-portal/groups-overview.png)
+    ![Screenshot of MDM policy – West Overview page with member info.](media/active-directory-groups-view-azure-portal/groups-overview.png)
 
 ## View group members
 Now that you’ve found the group, you can view all the assigned members.
