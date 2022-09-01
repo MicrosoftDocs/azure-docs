@@ -146,12 +146,10 @@ If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in
 
 ![Sample 'Stay signed in?' prompt](media/customize-branding/kmsi-stay-signed-in-prompt.png)
 
-Details about the sign-in error are as follows and highlighted in the example.
+Details about the sign-in error are found in the **Sign-in logs** in Azure AD. Select the impacted user from the list and locate the details below in the **Basic info** section.
 
 * **Sign in error code**: 50140
 * **Failure reason**: This error occurred due to "Keep me signed in" interrupt when the user was signing in.
-
-![Example sign-in log entry with the KMSI interrupt](media/customize-branding/kmsi-sign-ins-log-entry.png)
 
 You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the advanced branding settings. This setting disables the KMSI prompt for all users in your Azure AD directory.
 
@@ -169,4 +167,4 @@ To ensure that the KMSI prompt is shown only when it can benefit the user, the K
 ## Next steps
 
 - [Add your organization's privacy info on Azure AD](/active-directory-properties-area.md)
-- [Learn more about Conditional Access](../conditional-access/overview.md)
+- [Learn more about Conditional Access](../conditional-access/ov)
