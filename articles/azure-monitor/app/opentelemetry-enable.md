@@ -2,9 +2,56 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 6/30/2021
+ms.date: 10/01/2022
 ms.devlang: csharp, javascript, python
 ---
+
+<!-- TODO: For @AaronMaxwell, @mattmccleary FYI
+
+Open Telemetry Documentation (Milestones 1 & 2)
+
+Release Plan: https://github.com/microsoft/Telemetry-Collection-Spec/blob/dd22e1d12f1970c3e5393eefa248edc0101a7c3b/docs/planning/AzMonOTelRelease.md
+
+Announcement Date: First week of October
+
+NOTES:
+ - Parts of milestones 1 and 2 are being released together.
+ - All scenarios not referenced here are assumed to be deferred. Are all of these scenarios confirmed for all languages by October?
+ - Java OTel documentation can be referenced as a template? (https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent#custom-telemetry)
+ - This is opening in the Node.js TOC. What should we update it to?
+
+Scenarios to be documented:
+
+1. Scenario 1C (validation Test case B): Exceptions are captured, correlated, and shown in Failures Blade and End-to-End Transactions View. (This will be a subheading under Custom Telemetry)
+
+A customer uses the span events API to manually collect the exception, and it shows up in the end-to-end transaction view. For example, the developer writes a try-catch, and they still want to see the exception in Application Insights (even though they wouldn't by default).
+ 
+NOTE: A Contoso screenshot exists under Scenario 1C. It needs to have the internal e-mail address scrubbed. Do we need a new screenshot to cover only 1C Test Case B?
+ 
+ 2. Scenario 1D: The Distro or Exporter have a local persistency storage mechanism to reduce data loss.
+ 
+ NOTE: This is all of the text we have describing this feature. It's unclear what's intended to be expressed by "Distro or Exporter"; there are no references in the Java documentation.
+ 
+ 3. Scenario 2A: Failure and Server standard metrics and dimensions are automatically populated in Metrics Explorer.
+
+[Failure](https://docs.microsoft.com/azure/azure-monitor/app/standard-metrics#failure-metrics)
+and [Server](https://docs.microsoft.com/azure/azure-monitor/app/standard-metrics#server-metrics)
+standard metrics and dimensions are automatically populated in Metrics Explorer.
+All required instrumentation libraries for Breeze to derive them are included 
+in the Distro and supported OOB with no extra customer effort. They do NOT have
+to be pre-aggregated for this scenario.
+
+NOTE: This seems lightweight. I assume we'll only need a line of text and screenshot to illustrate this feature.
+
+4. Scenario 2D: OpenTelemetry metrics APIs can be used to collect custom metrics. Metric and dimensions are in the custom metrics namespace in Metrics Explorer and the customMetrics table in Log Analytics.
+
+NOTE: Will the SDK be the only manner in which custom metrics are collected? Java appears to use Micrometer in addition to the AI SDK.
+
+5. Scenario 2E: OpenTelemetry-based metrics to remaining Failure, Server, and Perf Counter Standard Metrics and Dimensions are available in Metrics Explorer.
+
+NOTE: This is listed as a stretch goal. Is this confirmed for October?
+-->
+
 
 # Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)
 
@@ -20,8 +67,10 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 
 Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_:
 
- - Metrics API (like custom metrics and [pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
+ <!-- Metrics API (like custom metrics and [pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
  - [Live Metrics](live-stream.md)
+  @AaronMaxwell - I need to confirm that both Metrics and Live Metrics are no longer limitations.
+  -->
  - Logging API (like console logs and logging libraries)
  - Autocapture of unhandled exceptions
  - [Profiler](profiler-overview.md)
@@ -391,6 +440,10 @@ trace.set_tracer_provider(
 ---
 
 For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
+
+## Metrics
+
+
 
 ## Sampling
 
