@@ -271,9 +271,6 @@ Live Metrics uses different IP addresses than other Application Insights telemet
 
 As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you are using an older version of TLS, Live Metrics will not display any data. For applications based on .NET Framework 4.5.1, refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version.
 
-> [!WARNING]
-> Currently, authenticated channel only supports manual SDK instrumentation. The authenticated channel cannot be configured with auto-instrumentation (used to be known as "codeless attach").
-
 ### Missing configuration for .NET
 
 1. Verify you are using the latest version of the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
