@@ -34,6 +34,22 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## August 2022 
 
+### General Availability - Ability to force reauthentication on Intune enrollment, risky sign-ins, and risky users
+
+
+
+**Type:** New feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+
+
+
+Customers can now require a fresh authentication each time a user performs a certain action. Forced reauthentication supports requiring a user to reauthenticate during Intune device enrollment, password change for risky users, and risky sign-ins.
+
+For more information, see: [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md#require-reauthentication-every-time)
+
+---
+
 ### General Availability - Multi-Stage Access Reviews
 
 **Type:** Changed feature  
