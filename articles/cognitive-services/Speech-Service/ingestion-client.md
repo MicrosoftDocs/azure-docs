@@ -39,7 +39,7 @@ The Ingestion Client works by connecting a dedicated [Azure storage](https://azu
 
 Internally, the tool uses Speech and Language services, and follows best practices to handle scale-up, retries and failover. The following schematic describes the resources and connections.
 
-:::image type="content" source="media/ingestion-client/architecture-1.png" alt-text="Ingestion Client Architecture.":::
+:::image type="content" source="media/ingestion-client/architecture-1.png" alt-text="Diagram that shows the Ingestion Client Architecture.":::
 
 The following Speech service features are used by the Ingestion Client:
 
