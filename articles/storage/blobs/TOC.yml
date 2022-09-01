@@ -95,19 +95,11 @@ items:
     - name: Add role assignment conditions
       items:
       - name: Portal
-<<<<<<< HEAD
-        href: ../common/storage-auth-abac-portal.md?toc=/azure/storage/blobs/toc.json
-      - name: PowerShell
-        href: ../common/storage-auth-abac-powershell.md?toc=/azure/storage/blobs/toc.json
-      - name: CLI
-        href: ../common/storage-auth-abac-cli.md?toc=/azure/storage/blobs/toc.json
-=======
         href: storage-auth-abac-portal.md
       - name: PowerShell
         href: storage-auth-abac-powershell.md
       - name: CLI
         href: storage-auth-abac-cli.md
->>>>>>> d0a4bac8e420 (moved blob abac files to blobs dir")
   - name: Samples
     items:
     - name: .NET
