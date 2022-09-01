@@ -121,8 +121,10 @@ A private-link resource is the destination target of a specified private endpoin
 
 When you use private endpoints, traffic is secured to a private-link resource. The platform validates network connections, allowing only those that reach the specified private-link resource. To access additional sub-resources within the same Azure service, additional private endpoints with corresponding targets are required. In the case of Azure Storage, for instance, you would need separate private endpoints to access the _file_ and _blob_ sub-resources.
 
-Private endpoints provide a privately accessible IP address for the Azure service, but do not necessarily restrict public network access to it. [Azure App Service](tutorial-private-endpoint-webapp-portal.md) and [Azure Functions](../azure-functions/functions-create-vnet.md) become inaccessible publicly when they are associated with a private endpoint. All other Azure services require additional [access controls](../event-hubs/event-hubs-ip-filtering.md), however. These controls provide an extra network security layer to your resources, providing protection that helps prevent access to the Azure service associated with the private-link resource. 
- 
+Private endpoints provide a privately accessible IP address for the Azure service, but do not necessarily restrict public network access to it. [Azure App Service](tutorial-private-endpoint-webapp-portal.md) and [Azure Functions](../azure-functions/functions-create-vnet.md) become inaccessible publicly when they are associated with a private endpoint. All other Azure services require additional [access controls](../event-hubs/event-hubs-ip-filtering.md), however. These controls provide an extra network security layer to your resources, providing protection that helps prevent access to the Azure service associated with the private-link resource.
+
+Private endpoints support network policies. Network policies enable support for Network Security Groups (NSG), User Defined Routes (UDR), and Application Security Groups (ASG). For more information about enabling network policies for a private endpoint, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md). To use an ASG with a private endpoint, see [Configure an application security group (ASG) with a private endpoint](configure-asg-private-endpoint.md).
+
 ## Access to a private-link resource using approval workflow 
 
 You can connect to a private-link resource by using the following connection approval methods:
