@@ -65,7 +65,7 @@ The VM application packages use multiple resource types:
 - **Requires a VM Agent**: The VM agent must exist on the VM and be able to receive goal states.
 
 - **Multiple versions of same application on the same VM**: You can't have multiple versions of the same application on a VM.
-- **Move operations currently not supported**: Moving VMs to other resource groups are not supported at this time.
+- **Move operations currently not supported**: Moving VMs with VM Apps to other resource groups are not supported at this time.
 
 
 ## Cost
