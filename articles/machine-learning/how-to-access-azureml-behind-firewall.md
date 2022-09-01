@@ -259,6 +259,11 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Integrated notebook | \<storage\>.blob.core.windows.net | TCP | 443 |
 | Integrated notebook | graph.microsoft.com | TCP | 443 |
 | Integrated notebook | \*.aznbcontent.net | TCP | 443 |
+| AutoML NLP | automlresources-prod.azureedge.net | TCP | 443 |
+| AutoML NLP | aka.ms | TCP | 443 |
+
+> [!NOTE]
+> AutoML NLP is currently only supported in Azure public regions.
 
 # [Azure Government](#tab/gov)
 
@@ -334,7 +339,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Compute cluster/instance | graph.chinacloudapi.cn | TCP | 443 |
 | Compute instance |  \*.instances.azureml.cn | TCP | 443 |
 | Compute instance | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
-| Microsoft storage access | \*blob.core.chinacloudapi.cn | TCP | 443 |
+| Microsoft storage access | \*.blob.core.chinacloudapi.cn | TCP | 443 |
 | Microsoft storage access | \*.table.core.chinacloudapi.cn | TCP | 443 |
 | Microsoft storage access | \*.queue.core.chinacloudapi.cn | TCP | 443 |
 | Your storage account | \<storage\>.file.core.chinacloudapi.cn | TCP | 443, 445 |

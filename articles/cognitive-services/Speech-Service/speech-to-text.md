@@ -18,7 +18,7 @@ keywords: speech to text, speech to text software
 
 In this overview, you learn about the benefits and capabilities of the speech-to-text feature of the Speech service, which is part of Azure Cognitive Services.
 
-Speech-to-text, also known as speech recognition, enables real-time or offline transcription of audio streams into text. For a full list of available speech-to-text languages, see [Language and voice support for the Speech service](language-support.md#speech-to-text).
+Speech-to-text, also known as speech recognition, enables real-time or offline transcription of audio streams into text. For a full list of available speech-to-text languages, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
 
 > [!NOTE]
 > Microsoft uses the same recognition technology for Cortana and Office products.
@@ -26,10 +26,6 @@ Speech-to-text, also known as speech recognition, enables real-time or offline t
 ## Get started
 
 To get started, try the [speech-to-text quickstart](get-started-speech-to-text.md). Speech-to-text is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-speech-to-text.md), and the [Speech CLI](spx-overview.md).
-
-The following video shows how to install the [Speech SDK for C#](quickstarts/setup-platform.md) and write a simple .NET console application for speech-to-text.
-
-> [!VIDEO c20d3b0c-e96a-4154-9299-155e27db7117]
 
 In depth samples are available in the [Azure-Samples/cognitive-services-speech-sdk](https://aka.ms/csspeech/samples) repository on GitHub. There are samples for C# (including UWP, Unity, and Xamarin), C++, Java, JavaScript (including Browser and Node.js), Objective-C, Python, and Swift. Code samples for Go are available in the [Microsoft/cognitive-services-speech-sdk-go](https://github.com/Microsoft/cognitive-services-speech-sdk-go) repository on GitHub.
 
@@ -44,7 +40,7 @@ The Azure speech-to-text service analyzes audio in real-time or batch to transcr
 
 The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, building a custom speech model makes sense by training with additional data associated with that specific domain. You can create and train custom acoustic, language, and pronunciation models. For more information, see [Custom Speech](./custom-speech-overview.md) and [Speech-to-text REST API v3.0](rest-speech-to-text.md).
 
-Customization options vary by language or locale. To verify support, see [Language and voice support for the Speech service](./language-support.md).
+Customization options vary by language or locale. To verify support, see [Language and voice support for the Speech service](./language-support.md?tabs=stt-tts).
 
 ## Next steps
 

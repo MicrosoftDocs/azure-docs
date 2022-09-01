@@ -211,6 +211,33 @@ If your function app is using the popular ODBC database driver [pyodbc](https://
 
 ---
 
+## Troubleshoot errors with Protocol Buffers
+
+Version 4.x.x of the Protocol Buffers (protobuf) package introduces breaking changes. Because the Python worker process for Azure Functions relies on v3.x.x of this package, pinning your function app to use v4.x.x can break your app. At this time, you should also avoid using any libraries that themselves require protobuf v4.x.x. 
+
+Example error logs:
+```bash
+ [Information] File "/azure-functions-host/workers/python/3.8/LINUX/X64/azure_functions_worker/protos/shared/NullableTypes_pb2.py", line 38, in <module>
+ [Information] _descriptor.FieldDescriptor(
+ [Information] File "/home/site/wwwroot/.python_packages/lib/site-packages/google/protobuf/descriptor.py", line 560, in __new__
+ [Information] _message.Message._CheckCalledFromGeneratedFile()
+ [Error] TypeError: Descriptors cannot not be created directly.
+ [Information] If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
+ [Information] If you cannot immediately regenerate your protos, some other possible workarounds are:
+ [Information] 1. Downgrade the protobuf package to 3.20.x or lower.
+ [Information] 2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+ [Information] More information: https://developers.google.com/protocol-buffers/docs/news/2022-05-06#python-updates
+```
+There are two ways to mitigate this issue.
+
++ Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies-preview) to a value of `1`. 
++ Pin protobuf to a non-4.x.x. version, as in the following example:
+    ```
+    protobuf >= 3.19.3, == 3.*
+    ```
+
+---
+
 ## Next steps
 
 If you're unable to resolve your issue, please report this to the Functions team:

@@ -3,7 +3,7 @@ title: Opt out of the Microsoft Entra Verified ID
 description: Learn how to Opt Out of Entra Verified ID
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials

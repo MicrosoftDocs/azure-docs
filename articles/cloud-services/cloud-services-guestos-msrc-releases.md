@@ -11,7 +11,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/11/2022
+ms.date: 8/12/2022
 ms.author: gunnarc
 ---
 
@@ -48,6 +48,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 22-08 |  [5016057]  |  Servicing Stack update | 2.127 | Jul 12, 2022 |
 |  Rel 22-08 |  [4494175]  |  Microcode | 5.71 | Sep 1, 2020 |
 |  Rel 22-08 |  [4494174]  |  Microcode | 6.47 | Sep 1, 2020 |
+
 [5016623]: https://support.microsoft.com/kb/5016623
 [5016618]: https://support.microsoft.com/kb/5016618
 [5016627]: https://support.microsoft.com/kb/5016627

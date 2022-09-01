@@ -44,7 +44,7 @@ You need to grant Azure Spring Apps access to your key vault before you import y
 
    :::image type="content" source="media/use-tls-certificates/grant-key-vault-permission.png" alt-text="Screenshot of Azure portal 'Create an access policy' page with Permission pane showing and Get and List permissions highlighted." lightbox="media/use-tls-certificates/grant-key-vault-permission.png":::
 
-1. Under **Principal**, select your **Azure Spring Apps Resource Provider**.
+1. Under **Principal**, select your **Azure Spring Cloud Resource Provider**.
 
    :::image type="content" source="media/use-tls-certificates/select-service-principal.png" alt-text="Screenshot of Azure portal 'Create an access policy' page with Principal pane showing and Azure Spring Apps Resource Provider highlighted." lightbox="media/use-tls-certificates/select-service-principal.png":::
 
@@ -57,6 +57,9 @@ After you grant access to your key vault, you can import your certificate using 
 1. Select **Import Key Vault Certificate** in the **Public Key Certificates** section.
 1. Select your Key Vault in **Key vault** and the certificate in **Certificate**, then **Select** and **Apply**.
 1. When you have successfully imported your certificate, you'll see it in the list of Public Key Certificates.
+
+> [!NOTE]
+> The Azure Key Vault and Azure Spring Apps instances should be in the same tenant.
 
 ### Import a local certificate file
 

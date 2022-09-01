@@ -30,7 +30,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Compare Azure messaging services
-            url: ../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json
+            url: ../event-grid/compare-messaging-services.md?toc=/azure/service-bus-messaging/toc.json
           - text: Compare Azure queues and Service Bus queues
             url: service-bus-azure-and-service-bus-queues-compared-contrasted.md            
           - text: Queues, topics, and subscriptions
@@ -73,6 +73,8 @@ landingContent:
             url: service-bus-dotnet-get-started-with-queues.md
           - text: Java
             url: service-bus-java-how-to-use-queues.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
           - text: Node.js
             url: service-bus-nodejs-how-to-use-queues.md
           - text: Python
@@ -88,6 +90,8 @@ landingContent:
             url: service-bus-dotnet-how-to-use-topics-subscriptions.md
           - text: Java
             url: service-bus-java-how-to-use-topics-subscriptions.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
           - text: Node.js
             url: service-bus-nodejs-how-to-use-topics-subscriptions.md
           - text: Python

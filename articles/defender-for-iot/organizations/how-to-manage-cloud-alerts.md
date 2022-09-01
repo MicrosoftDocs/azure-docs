@@ -1,11 +1,14 @@
 ---
-title: View and manage alerts in the Microsoft Defender for IoT portal on Azure
-description: View and manage alerts detected by cloud-connected network sensors in the Microsoft Defender for IoT portal on Azure. 
+title: View and manage alerts in Microsoft Defender for IoT on the Azure portal
+description: View and manage alerts detected by cloud-connected network sensors in Microsoft Defender for IoT on the Azure portal.
 ms.date: 06/30/2022
 ms.topic: how-to
 ---
 
 # View and manage alerts from the Azure portal
+
+> [!IMPORTANT]
+> The **Alerts** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article describes how to manage your alerts from Microsoft Defender for IoT on the Azure portal.
 
@@ -143,6 +146,8 @@ On each alert details page, the **Take Action** tab lists recommended remediatio
 
 ## Manage alert status and severity
 
+**Prerequisite**: Subscription access as a **Security admin**, **Contributor**, or **Owner** user
+
 You can update alert status or severity for a single alert or for a group of alerts.
 
 *Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. For more information, see [Learn and unlearn alert traffic](how-to-manage-the-alert-event.md#learn-and-unlearn-alert-traffic).
@@ -183,6 +188,8 @@ Alert management across all interfaces functions as follows:
     Alerts excluded because they meet criteria for a specific exclusion rule are not displayed on the sensor, or in the Azure portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
 
 ## Access alert PCAP data (Public preview)
+
+**Prerequisite**: Subscription access as a **Security admin**, **Contributor**, or **Owner** user
 
 To access raw traffic files for your alert, known as packet capture files or PCAP files, select **Download PCAP** in the top-left corner of your alert details page.
 
