@@ -15,7 +15,7 @@ This insight enables scenarios like
 * Placing more targeted ads
 * Creating a summary of the most interesting outfits appearing in the video
 
-The article discusses how to view the featured clothing and how it is ranked.
+The article discusses how to view the featured clothing insight and how the featured clothing images are ranked.
 
 ## Viewing featured clothing
 
