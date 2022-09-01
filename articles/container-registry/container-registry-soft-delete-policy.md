@@ -123,15 +123,11 @@ You can also set a registry's soft- delete policy in the [Azure portal](https://
 :::image type="content" source="./media/container-registry-soft-delete/01-soft-delete-disable.png" alt-text="soft-delete-artifacts-lifecycle":::
 
 1. Select the checkbox to **Enable Soft Delete**.
-1. Select a number of days between 0 and 30 days to retain the soft deleted artifacts. Select **Save**.
-
-:::image type="content" source="./media/container-registry-soft-delete/01-soft-delete-disable.png" alt-text="soft-delete-artifacts-lifecycle":::
-
-1. Select a number of days between 0 and 30 days to retain the soft deleted artifacts. Select **Save**.
+1. Select a number of days between `0` and `30` days to retain the soft deleted artifacts. Select **Save**.
 
 :::image type="content" source="./media/container-registry-soft-delete/02-soft-delete-policy.png" alt-text="soft-delete-artifacts-lifecycle":::
 
-## Restore the soft delete artifacts - Portal
+## Restore the soft deleted artifacts - Portal
 
 1. Navigate to your Azure container registry.
 1. Under the **Menu** section, find **Services**, and Select **Repositories**.
@@ -148,6 +144,8 @@ You can also set a registry's soft- delete policy in the [Azure portal](https://
 1. Click on **Restore**. 
 
 :::image type="content" source="./media/container-registry-soft-delete/05-restore-artifact.png" alt-text="soft-delete-artifacts-lifecycle":::
+
+## Restore from soft deleted repositories - Portal
 
 1. Navigate to your Azure container registry.
 1. Under the **Menu** section, find **Services**, and Select **Repositories**.
