@@ -32,7 +32,7 @@ To create a basic group and add members:
 
 1. Go to **Azure Active Directory** > **Groups** > **New group**.
 
-    ![Azure AD Groups page with 'New group' option highlighted](media/how-to-manage-groups/new-group.png)
+    ![Screenshot of the 'Azure AD Groups' page with 'New group' option highlighted.](media/how-to-manage-groups/new-group.png)
 
 1. Select a **Group type**. For more information on group types, see the [learn about groups and membership types](concept-learn-about-groups.md) article.
 
@@ -57,7 +57,7 @@ To create a basic group and add members:
     1. Select the link under **Owners** or **Members** to populate a list of every user in your directory.
     1. Choose users from the list and then select the **Select** button at the bottom of the window.
 
-    ![Selecting members for your group during the group creation process](media/how-to-manage-groups/add-members.png)
+    ![Screenshot of selecting members for your group during the group creation process.](media/how-to-manage-groups/add-members.png)
 
 1. Select **Create**. Your group is created and ready for you to manage other settings.
 
@@ -80,7 +80,7 @@ Need to add multiple members at one time? Learn about the [add members in bulk](
 
 1. Select either **Members** or **Owners**.
 
-    ![Group overview page with Members and Owners menu options highlighted](media/how-to-manage-groups/groups-members-owners.png)
+    ![Screenshot of the 'Group overview' page with Members and Owners menu options highlighted.](media/how-to-manage-groups/groups-members-owners.png)
 
 1. Select **+ Add** (members or owners).
 
@@ -98,7 +98,7 @@ Need to add multiple members at one time? Learn about the [add members in bulk](
 
 1. Check the box next to a name from the list and select the **Remove** button.
 
-    ![Group members with a name selected and the Remove button highlighted](media/how-to-manage-groups/groups-remove-member.png)
+    ![Screenshot of group members with a name selected and the Remove button highlighted.](media/how-to-manage-groups/groups-remove-member.png)
 
 ## Edit group settings
 Using Azure AD, you can edit a group's name, description, or membership type. You'll need the **Groups Administrator** or **User Administrator** role to edit a group's settings.
@@ -113,7 +113,7 @@ To edit your group settings:
 
 1. Select **Properties** from the side menu.
 
-    ![Group overview page with Properties menu option highlighted](media/how-to-manage-groups/groups-overview.png)
+    ![Screenshot of the 'Group overview' page with Properties menu option highlighted.](media/how-to-manage-groups/groups-overview.png)
 
 1. Update the **General settings** information as needed, including:
 
@@ -130,8 +130,15 @@ To edit your group settings:
 ## Add or remove a group from another group
 You can add an existing Security group to another Security group (also known as nested groups), creating a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time. You'll need the **Groups Administrator** or **User Administrator** role to edit group membership.
 
->[!Important]
->We currently don't support:<ul><li>Adding groups to a group synced with on-premises Active Directory.</li><li>Adding Security groups to Microsoft 365 groups.</li><li>Adding Microsoft 365 groups to Security groups or other Microsoft 365 groups.</li><li>Assigning apps to nested groups.</li><li>Applying licenses to nested groups.</li><li>Adding distribution groups in nesting scenarios.</li><li>Adding security groups as members of mail-enabled security groups</li><li> Adding groups as members of a role-assignable group.</li></ul>
+We currently don't support:
+- Adding groups to a group synced with on-premises Active Directory.
+- Adding Security groups to Microsoft 365 groups.
+- Adding Microsoft 365 groups to Security groups or other Microsoft 365 groups.
+- Assigning apps to nested groups.
+- Applying licenses to nested groups.
+- Adding distribution groups in nesting scenarios.
+- Adding security groups as members of mail-enabled security groups.
+- Adding groups as members of a role-assignable group.
 
 ### Add a group to another group
 
@@ -152,7 +159,7 @@ You can add an existing Security group to another Security group (also known as 
 
     For this exercise, we're adding "MDM policy - West" to the "MDM policy - All org" group, so "MDM - policy - West" inherits all the properties and configurations of the "MDM policy - All org" group.
 
-    ![Example of making a group the member of another group with 'Group membership' from the side menu and 'Add membership' option highlighted](media/how-to-manage-groups/nested-groups-selected.png)
+    ![Screenshot of making a group the member of another group with 'Group membership' from the side menu and 'Add membership' option highlighted.](media/how-to-manage-groups/nested-groups-selected.png)
 
 Now you can review the "MDM policy - West - Group memberships" page to see the group and member relationship.
 
@@ -171,7 +178,7 @@ You can remove an existing Security group from another Security group; however, 
 
     For this exercise, we're now going to remove "MDM policy - West" from the "MDM policy - All org" group.
 
-    ![Group membership page showing both the member and the group details with 'Remove membership' option highlighted](media/how-to-manage-groups/remove-nested-group.png)
+    ![Screenshot of the 'Group membership' page showing both the member and the group details with 'Remove membership' option highlighted.](media/how-to-manage-groups/remove-nested-group.png)
 
 ## Delete a group
 You can delete an Azure AD group for any number of reasons, but typically it will be because you:

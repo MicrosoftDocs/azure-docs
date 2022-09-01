@@ -86,7 +86,7 @@ You can see all the groups for your organization in the **Groups - All groups** 
 
     The **Groups - All groups** page appears, showing all your active groups.
 
-    ![Groups-All groups page, showing all existing groups](media/active-directory-groups-view-azure-portal/groups-search.png)
+    ![Screenshot of the 'Groups-All groups' page, showing all existing groups.](media/active-directory-groups-view-azure-portal/groups-search.png)
 
 ## Search for a group
 Search the **Groups – All groups** page to find the **MDM policy – West** group.
@@ -95,7 +95,7 @@ Search the **Groups – All groups** page to find the **MDM policy – West** gr
 
     The search results appear under the **Search** box, including the _MDM policy - West_ group.
 
-    ![Groups search page showing matching search results](media/active-directory-groups-view-azure-portal/groups-search-group-name.png)
+    ![Screenshot of the 'Groups' search page showing matching search results.](media/active-directory-groups-view-azure-portal/groups-search-group-name.png)
 
 1. Select the group **MDM policy – West**.
 
@@ -108,7 +108,7 @@ Now that you’ve found the group, you can view all the assigned members.
 
 Select **Members** from the **Manage** area, and then review the complete list of member names assigned to that specific group, including _Alain Charon_.
 
-![List of members assigned to the MDM policy – West group](media/active-directory-groups-view-azure-portal/groups-all-members.png)
+![Screenshot of the list of members assigned to the MDM policy – West group.](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
 ## Clean up resources
 The group you just created is used in other articles in the Azure AD Fundamentals documentation. If you'd rather not use this group, you can delete it and its assigned members using the following steps:
@@ -123,7 +123,7 @@ The group you just created is used in other articles in the Azure AD Fundamental
 
     The group and its associated members are deleted.
 
-    ![MDM policy – West Overview page with Delete link highlighted](media/active-directory-groups-view-azure-portal/groups-delete.png)
+    ![Screenshot of the MDM policy – West Overview page with Delete link highlighted.](media/active-directory-groups-view-azure-portal/groups-delete.png)
 
     >[!Important]
     >This doesn't delete the user Alain Charon, just his membership in the deleted group.

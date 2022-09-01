@@ -63,7 +63,7 @@ After creating an Azure AD group, you need to grant it the appropriate access. E
 
 Azure AD helps you give access to your organization's resources by providing access rights to a single user or to an entire Azure AD group. Using groups lets the resource owner or Azure AD directory owner assign a set of access permissions to all the members of the group. The resource or directory owner can also give management rights to someone such as a department manager or a help desk administrator, letting that person add and remove members. For more information about how to manage group owners, see the [Manage groups](how-to-manage-groups.md) article.
 
-![Azure Active Directory access management diagram](./media/concept-learn-about-groups/access-management-overview.png)
+![Diagram of Azure Active Directory access management.](./media/concept-learn-about-groups/access-management-overview.png)
 
 ### Ways to assign access rights
 
@@ -77,7 +77,7 @@ After creating a group, you need to decide how to assign access rights. Explore 
 
 - **External authority assignment.** Access comes from an external source, such as an on-premises directory or a SaaS app. In this situation, the resource owner assigns a group to provide access to the resource and then the external source manages the group members.
 
-   ![Overview of access management diagram](./media/concept-learn-about-groups/access-management-process.png)
+   ![Diagram of access management overview.](./media/concept-learn-about-groups/access-management-process.png)
 
 ### Can users join groups without being assigned?
 The group owner can let users find their own groups to join, instead of assigning them. The owner can also set up the group to automatically accept all users that join or to require approval.
