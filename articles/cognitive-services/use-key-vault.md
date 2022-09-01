@@ -558,7 +558,7 @@ node index.js
 
 ## Send a test Language service call (optional)
 
-If you're using a multi-service resource or Language resource, you can perform the following steps to send an example Named Entity Recognition call by retrieving a key and endpoint from your key vault.   
+If you're using a multi-service resource or Language resource, you can update [your application](#create-a-new-nodejs-application) by following these steps to send an example Named Entity Recognition call by retrieving a key and endpoint from your key vault.   
 
 1. Install the Azure Cognitive Service for Language library, [@azure/ai-text-analytics](https://www.npmjs.com/package/@azure/ai-text-analytics/) to send API requests to the [Language service](./language-service/overview.md).
 
