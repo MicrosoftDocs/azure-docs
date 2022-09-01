@@ -174,7 +174,7 @@ For example, you can use this API to create a forwarding rule that forwards data
 
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
-| **action** | String, either `handle` or `handleAndLearn` | <!--missing--> | Required |
+| **action** | String | Either `handle` or `handleAndLearn` | Required |
 
 
 

@@ -37,7 +37,7 @@ After generating the token, add an HTTP header titled **Authorization** to your 
 
 ## Sensor API version reference
 
-<!--notes from original meeting: we were missing in v1: devices, vulnerabilities mitigation, and appliances. Have we filled them? what about the following - is there a reason they're not documented (this is P2): serial, database, endpoints, address mapping, traffic. nothing was missing in v2-->
+<!--notes from original meeting: we were missing in v1:  and appliances. what about the following - is there a reason they're not documented (this is P2): serial, database, endpoints, address mapping, traffic. nothing was missing in v2-->
 
 |Version  |Supported APIs  |
 |---------|---------|
