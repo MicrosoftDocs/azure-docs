@@ -40,7 +40,7 @@ The application also allows you to join an existing Azure Communication Services
 
 :::image type="content" source="../media/calling/join-call-ios.png" alt-text="Screenshot showing the join call screen of the sample application.":::
 
-After joining a call, you'll be prompted to give the application permission to access your camera and microphone, if not already authorized.
+After joining a call, you'll be prompted to give the application permission to access your camera and microphone, if not already authorized. Keep in mind that, like all AVFoundation-based apps, true audio and video functionality is only available on real hardware.
 
 Once you configure your display name and join the call, you'll see the main call canvas where the core calling experience lives.
 
@@ -75,7 +75,7 @@ The group calling sample can be run locally using XCode. Developers can either u
 
 ### Run sample
 
-Build and run the sample in XCode.
+Build and run the sample in XCode, using the AzureCalling target on the simulator or device of your choice.
 
 ## (Optional) Securing an authentication endpoint
 
