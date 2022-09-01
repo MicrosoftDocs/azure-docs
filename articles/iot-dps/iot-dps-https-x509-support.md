@@ -12,9 +12,11 @@ manager: lizross
 
 # How to use X.509 certificates over HTTPS without an SDK
 
-In this how-to article, you'll provision a device using x.509 certificates over HTTPS without using a an Azure IoT DPS device SDK. Most languages provide libraries to send HTTP requests, but, rather than focus on a specific language, in this article, you'll use the [cURL](https://en.wikipedia.org/wiki/CURL) command-line tool to send and receive over HTTPS.
+In this how-to article, you'll provision a device using x.509 certificates over HTTPS without using an Azure IoT DPS device SDK. Most languages provide libraries to send HTTP requests, but, rather than focus on a specific language, in this article, you'll use the [cURL](https://en.wikipedia.org/wiki/CURL) command-line tool to send and receive over HTTPS.
 
-You can follow the steps in this article on either a Linux or a Windows machine. If you're running on Windows Subsystem for Linux (WSL) or running on a Linux machine, you can enter all commands on your local system in a Bash prompt. If you're running on Windows, enter all commands on your local system in a GitBash prompt. There are multiple paths through this article depending on the type of enrollment entry and X.509 certificate(s) you choose to use. After installing the prerequisites, be sure to read the [Overview](#overview) before proceeding.
+You can follow the steps in this article on either a Linux or a Windows machine. If you're running on Windows Subsystem for Linux (WSL) or running on a Linux machine, you can enter all commands on your local system in a Bash prompt. If you're running on Windows, enter all commands on your local system in a GitBash prompt.
+
+There are multiple paths through this article depending on the type of enrollment entry and X.509 certificate(s) you choose to use. After installing the prerequisites, be sure to read the [Overview](#overview) before proceeding.
 
 ## Prerequisites
 
@@ -57,9 +59,9 @@ Once you've completed the steps for your chosen scenario, you can continue on to
 
 ## Create a device certificate
 
-For this article you'll use an X.509 certificate to authenticate with DPS using either an individual enrollment or an enrollment group.
+For this article, you'll use an X.509 certificate to authenticate with DPS using either an individual enrollment or an enrollment group.
 
-If you're using an individual enrollment, you have the option to use a self-signed X.509 certificate or a [certificate chain](concepts-x509-attestation.md) composed of the device certificate plus one or more signing certificates. If you're using an enrollment group, you must use a certificate chain.  
+If you're using an individual enrollment, you can use a self-signed X.509 certificate or a [certificate chain](concepts-x509-attestation.md) composed of the device certificate plus one or more signing certificates. If you're using an enrollment group, you must use a certificate chain.  
 
 > [!IMPORTANT]
 >
@@ -95,6 +97,8 @@ To create a self-signed certificate to use with an individual enrollment, naviga
     A public key certificate file (*device-cert.pem*) and private key file (*device-key.pem*) should now be generated in the directory where you ran the `openssl` command.
 
     The certificate file has its subject common name (CN) set to `my-x509-device`.
+
+    The private key file is protected by the pass phrase: `1234`.
 
 5. The certificate file is Base64 encoded. To view the subject common name (CN) and other properties of the certificate file, enter the following command:
 
@@ -157,7 +161,7 @@ To create a self-signed certificate to use with an individual enrollment, naviga
 
 ### Use a certificate chain
 
-If you're using an enrollment group you must authenticate with a certificate chain. With an individual enrollment, you can use a certificate chain or a self-signed certificate.  
+If you're using an enrollment group, you must authenticate with a certificate chain. With an individual enrollment, you can use a certificate chain or a self-signed certificate.  
 
 To create a certificate chain, follow the instructions in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=linux#create-an-x509-certificate-chain). You only need one device for this article, so you can stop after creating the private key and certificate chain for the first device.
 
@@ -268,13 +272,13 @@ Where:
 
 * `-L` tells curl to follow HTTP redirects.
 
-* `–i` tells curl to include protocol headers in output.  This is not strictly necessary, but it can be useful.
+* `–i` tells curl to include protocol headers in output.  These headers aren't strictly necessary, but they can be useful.
 
 * `-X PUT` tells curl that this is an HTTP PUT command. Required for this API call.
 
-* `--cert [path_to_your_device_cert]` tells curl where to find your device's X.509 certificate. If your device private key is protected by a pass phrase, you can add the passphrase after the certificate path preceded by a colon, for example: `--cert my-device.pem:1234`.
+* `--cert [path_to_your_device_cert]` tells curl where to find your device's X.509 certificate. If your device private key is protected by a pass phrase, you can add the pass phrase after the certificate path preceded by a colon, for example: `--cert my-device.pem:1234`.
 
-  * If you're using a self-signed certificate, your device certificate file will only contain a single X.509 certificate. If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem* and the private key passphrase is `1234`, so use `--cert device-cert.pem:1234`.
+  * If you're using a self-signed certificate, your device certificate file will only contain a single X.509 certificate. If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem* and the private key pass phrase is `1234`, so use `--cert device-cert.pem:1234`.
 
   * If you're using a certificate chain, for example, when authenticating through an enrollment group, your device certificate file must contain a valid certificate chain. The certificate chain must include the device certificate and any signing certificates up to and including a verified certificate. If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain) to create the certificate chain, the filepath is *certs/device-01-full-chain.cert.pem*, so use `--cert certs/device-01-full-chain.cert.pem`.
 
@@ -284,11 +288,11 @@ Where:
 
   * If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the key path is *certs/device-01-full-chain.cert.pem*, so use `--cert certs/device-01-full-chain.cert.pem`.
 
-* `-H 'Content-Type: application/json'` tells DPS we are posting JSON content and must be 'application/json'
+* `-H 'Content-Type: application/json'` tells DPS we're posting JSON content and must be 'application/json'
 
-* `-H 'Content-Encoding:  utf-8'` tells DPS the encoding we are using for our message body. Set to the proper value for your OS/client; however, this is generally `utf-8`.  
+* `-H 'Content-Encoding:  utf-8'` tells DPS the encoding we're using for our message body. Set to the proper value for your OS/client; however, it's generally `utf-8`.  
 
-* `-d '{"registrationId": "[registration_id]"}'`, the `–d` parameter is the 'data' or body of the message we are posting.  It must be JSON, in the form of '{"registrationId":"[registration_id"}'.  Note that for curl, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON. For X.509 enrollment, the registration ID is the subject common name (CN) of your device certificate.
+* `-d '{"registrationId": "[registration_id]"}'`, the `–d` parameter is the 'data' or body of the message we're posting.  It must be JSON, in the form of '{"registrationId":"[registration_id"}'.  Note that for curl, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON. For X.509 enrollment, the registration ID is the subject common name (CN) of your device certificate.
 
 * Finally, the last parameter is the URL to post to. For "regular" (i.e not on-premises) DPS, the global DPS endpoint, *global.azure-devices-provisioning.net* is used: `https://global.azure-devices-provisioning.net/[dps_id_scope]/registrations/[registration_id]/register?api-version=2019-03-31`.  Note that you have to replace the [dps_scope_id] and [registration_id] with the appropriate values.
 
@@ -394,9 +398,9 @@ Where:
 
 * `-X POST` tells curl that this is an HTTP POST command. Required for this API call.
 
-* `--cert [path_to_your_device_cert]` tells curl where to find your device's X.509 certificate. If your device private key is protected by a pass phrase, you can add the passphrase after the certificate path preceded by a colon, for example: `--cert my-device.pem:1234`.
+* `--cert [path_to_your_device_cert]` tells curl where to find your device's X.509 certificate. If your device private key is protected by a pass phrase, you can add the pass phrase after the certificate path preceded by a colon, for example: `--cert my-device.pem:1234`.
 
-  * If you're using a self-signed certificate, your device certificate file will only contain a single X.509 certificate. If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem* and the private key passphrase is `1234`, so use `--cert device-cert.pem:1234`.
+  * If you're using a self-signed certificate, your device certificate file will only contain a single X.509 certificate. If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem* and the private key pass phrase is `1234`, so use `--cert device-cert.pem:1234`.
 
   * If you're using a certificate chain, your device certificate file must contain a valid certificate chain. If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain) to create the certificate chain, the filepath is *certs/device-01-full-chain.cert.pem*, so use `--cert certs/device-01-full-chain.cert.pem`.
 
@@ -406,11 +410,11 @@ Where:
 
   * If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the key path is *certs/device-01-full-chain.cert.pem*, so use `--cert certs/device-01-full-chain.cert.pem`.
 
-* `-H 'Content-Type: application/json'` tells IoT Hub we are posting JSON content and must be 'application/json'
+* `-H 'Content-Type: application/json'` tells IoT Hub we're posting JSON content and must be 'application/json'.
 
-* `-H 'Content-Encoding:  utf-8'` tells IoT Hub the encoding we are using for our message body. Set to the proper value for your OS/client; however, this is generally `utf-8`.  
+* `-H 'Content-Encoding:  utf-8'` tells IoT Hub the encoding we're using for our message body. Set to the proper value for your OS/client; however, it's generally `utf-8`.  
 
-* `-d '{"temperature": 30}'`, the `–d` parameter is the 'data' or body of the message we are posting. For this article, we are posting a single temperature data point. The content type was specified as application/json, so, for this request, the body is JSON. Note that for curl, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON.
+* `-d '{"temperature": 30}'`, the `–d` parameter is the 'data' or body of the message we're posting. For this article, we're posting a single temperature data point. The content type was specified as application/json, so, for this request, the body is JSON. Note that for curl, it's wrapped in single quotes; otherwise, you need to escape the double quotes in the JSON.
 
 * The last parameter is the URL to post to. For the Send Device Event API, the URL is: `https://[assigned_iot_hub_name].azure-devices.net/devices/[device_id]/messages/events?api-version=2020-03-13`.  
 
