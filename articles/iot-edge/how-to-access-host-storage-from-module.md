@@ -71,7 +71,7 @@ Or, you can configure the local storage directly in the deployment manifest. For
 }
 ```
 
-Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path.
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path and `<HostStoragePath>` must exist. 
 
 ### Automatic host system permissions management
 
