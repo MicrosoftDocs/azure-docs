@@ -49,7 +49,7 @@ Here's a sample configuration file for FHIR R4:
 For detailed information on the settings within the configuration file, visit [here](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format). 
 
 ## Manage Configuration File in storage account
-You will need to create a container for the de-identified export in your ADLS Gen2 account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see above). 
+You will need to create a container for the de-identified export in your ADLS Gen2 account and specify the `<<container_name>>` in the API request as shown above. Additionally, you will need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request (see below). 
 > [!Note] 
 > It is common practice to name the container `anonymization`. The JSON file within the container is often named `anonymizationConfig.json`.
 
