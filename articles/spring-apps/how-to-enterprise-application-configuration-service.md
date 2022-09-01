@@ -102,7 +102,7 @@ Use the following steps to refresh your application configuration after you upda
 
 A Spring application holds the properties as the beans of the Spring Application Context via the Environment interface. The following list shows several ways to load the new configurations:
 
-- Restart the application. After restarting, the application will always load the new configuration.
+- Restart the application. Restarting the application always loads the new configuration.
 
 - Call the */actuator/refresh* endpoint exposed on the config client via the Spring Actuator.
 
@@ -121,7 +121,7 @@ A Spring application holds the properties as the beans of the Spring Application
    management.endpoints.web.exposure.include=refresh, bus-refresh, beans, env
    ```
 
-   After reloading the property sources by calling the */actuator/refresh* endpoint, the attributes bound with `@Value` in the beans having the annotation `@RefreshScope` are refreshed.
+   After you reload the property sources by calling the */actuator/refresh* endpoint, the attributes bound with `@Value` in the beans having the annotation `@RefreshScope` are refreshed.
 
    ``` java
    @Service
