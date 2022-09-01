@@ -257,6 +257,10 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
    The hybrid worker group will be deleted.
 
+## Use Azure Resource Manager template
+
+You can use an [Azure Resource Manager (ARM) template](./use-azure-resource-manager-template.md) to create a new Azure Windows VM and connect it to the existing Automation account and Hybrid Worker Group. 
+
 
 ## Install Hybrid worker extension 
 
@@ -377,8 +381,8 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 
 **Manage Hybrid Worker Extension**
 
-- To create, delete, and manage extension-based Hybrid Runbook Worker groups, see [az automation hrwg | Microsoft Docs](./cli/azure/automation/hrwg?view=azure-cli-latest)
-- To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](./cli/azure/automation/hrwg/hrw?view=azure-cli-latest)
+- To create, delete, and manage extension-based Hybrid Runbook Worker groups, see [az automation hrwg | Microsoft Docs](/cli/azure/automation/hrwg?view=azure-cli-latest)
+- To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](/cli/azure/automation/hrwg/hrw?view=azure-cli-latest)
 
 ---
 
