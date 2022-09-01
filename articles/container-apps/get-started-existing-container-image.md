@@ -177,7 +177,7 @@ If you have enabled ingress on your container app, you can add `--query properti
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-ap  -Image "<REGISTRY_CONTAINER_NAME>" 
+$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app  -Image "<REGISTRY_CONTAINER_NAME>" 
 ```
 
 (Replace the \<REGISTRY_CONTAINER_NAME\> with your value.)

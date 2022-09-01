@@ -235,13 +235,13 @@ az containerapp env dapr-component set \
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$AcctName = New-AzContainerAppDaprMetadataObject -Name accountName -Value $StorageAcctContainerName 
+$AcctName = New-AzContainerAppDaprMetadataObject -Name "accountName" -Value $StorageAcctContainerName 
 
-$AcctKey = New-AzContainerAppDaprMetadataObject -Name accountKey -SecretRef account-key
+$AcctKey = New-AzContainerAppDaprMetadataObject -Name "accountKey" -SecretRef "account-key"
 
-$ContainerName = New-AzContainerAppDaprMetadataObject -Name containerName -Value $StorageAcctContainerName 
+$ContainerName = New-AzContainerAppDaprMetadataObject -Name "containerName" -Value $StorageAcctContainerName 
 
-$Secret = New-AzContainerAppSecretObject -Name account-key -Value $StorageAcctKey.Value
+$Secret = New-AzContainerAppSecretObject -Name "account-key" -Value $StorageAcctKey.Value
 
 $DaprArgs = @{
     EnvName = $ContainerAppsEnvironment
