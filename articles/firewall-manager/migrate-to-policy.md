@@ -38,6 +38,8 @@ $ApplicationRuleGroupPriority = 300
 $NetworkRuleGroupPriority = 200
 $NatRuleGroupPriority = 100
 
+$InvalidCharsPattern = "[']"
+
 #Helper functions for translating ApplicationProtocol and ApplicationRule
 Function GetApplicationProtocolsString
 {
@@ -54,7 +56,8 @@ Function GetApplicationRuleCmd
 	Param([Object] $ApplicationRule)
 	
 	$cmd = "New-AzFirewallPolicyApplicationRule"
-	$cmd = $cmd + " -Name " + $ApplicationRule.Name
+	$parsedName = ParseRuleName($ApplicationRule.Name)
+	$cmd = $cmd + " -Name " + $parsedName
 	$cmd = $cmd + " -SourceAddress " + $ApplicationRule.SourceAddresses
 	
 	if ($ApplicationRule.Description) {
@@ -70,6 +73,17 @@ Function GetApplicationRuleCmd
 	}
 	
 	return $cmd
+}
+
+Function ParseRuleName
+{
+	Param([Object] $RuleName)
+	if ($RuleName -match $InvalidCharsPattern) {
+		$newRuleName = $RuleName -split $InvalidCharsPattern -join "";
+		Write-Host "***Rule $RuleName contains an invalid character. Invalid characters have been removed, rule name is $newRuleName ***"
+		return $newRuleName 
+	}
+	return $RuleName
 }
 
 If(!(Get-AzResourceGroup -Name $FirewallResourceGroup))
@@ -114,24 +128,26 @@ If ($azfw.NetworkRuleCollections.Count -gt 0) {
 			Write-Host "creating " $rc.Rules.Count " network rules for collection "  $rc.Name
 			$firewallPolicyNetRules = @()
 			ForEach ($rule in $rc.Rules) {
+				$parsedName = ParseRuleName($rule.Name)
+				Write-Host $parsedName
                 If($rule.SourceAddresses){
                     If($rule.DestinationAddresses)
                     {
-                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceAddress $rule.SourceAddresses -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $parsedName -SourceAddress $rule.SourceAddresses -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
                     }
                     elseif($rule.DestinationIpGroups)
                     {
-                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceAddress $rule.SourceAddresses -DestinationIpGroup $rule.DestinationIpGroups -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $parsedName -SourceAddress $rule.SourceAddresses -DestinationIpGroup $rule.DestinationIpGroups -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
                     }
                 }
                 elseif($rule.SourceIpGroups){
                     If($rule.DestinationAddresses)
                     {
-                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceIpGroup $rule.SourceIpGroups -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $parsedName -SourceIpGroup $rule.SourceIpGroups -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
                     }
                     elseif($rule.DestinationIpGroups)
                     {
-                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceIpGroup $rule.SourceIpGroups -DestinationIpGroup $rule.DestinationIpGroups -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $parsedName-SourceIpGroup $rule.SourceIpGroups -DestinationIpGroup $rule.DestinationIpGroups -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
                     }
                 }
                 Write-Host "Created network rule " $firewallPolicyNetRule.Name
@@ -153,7 +169,7 @@ If ($azfw.NetworkRuleCollections.Count -gt 0) {
 # as part of NatRuleCollection.
 # So when translating NAT rules we will have to create separate ruleCollection for each rule in AZFW and every ruleCollection will have only 1 rule.
 
-Write-Host "creating " $azfw.NatRuleCollections.Count " network rule collections"
+Write-Host "creating " $azfw.NatRuleCollections.Count " NAT rule collections"
 If ($azfw.NatRuleCollections.Count -gt 0) {
 	$firewallPolicyNatRuleCollections = @()
 	$priority = 100
@@ -161,20 +177,29 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
         $firewallPolicyNatRules = @()
 		If ($rc.Rules.Count -gt 0) {
 			Write-Host "creating " $rc.Rules.Count " nat rules for collection "  $rc.Name
-			ForEach ($rule in $rc.Rules) {
-				$firewallPolicyNatRule = New-AzFirewallPolicyNatRule -Name $rule.Name -SourceAddress $rule.SourceAddresses -TranslatedAddress $rule.TranslatedAddress -TranslatedPort $rule.TranslatedPort -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
-				Write-Host "Created nat rule " $firewallPolicyNatRule.Name
+			ForEach ($rule in $rc.Rules) 
+			{
+				$parsedName = ParseRuleName($rule.Name)
+				If ($rule.SourceAddresses)
+				{
+					$firewallPolicyNatRule = New-AzFirewallPolicyNatRule -Name $parsedName -SourceAddress $rule.SourceAddresses -TranslatedAddress $rule.TranslatedAddress -TranslatedPort $rule.TranslatedPort -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+				}
+				elseif ($rule.SourceIpGroups)
+				{
+					$firewallPolicyNatRule = New-AzFirewallPolicyNatRule -Name $parsedName -SourceIpGroup  $rule.SourceIpGroups -TranslatedAddress $rule.TranslatedAddress -TranslatedPort $rule.TranslatedPort -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+				}
+				Write-Host "Created Nat rule: " $firewallPolicyNatRule.Name
                 $firewallPolicyNatRules += $firewallPolicyNatRule
             }
-            $natRuleCollectionName = $rc.Name+$rule.Name
+            $natRuleCollectionName = $rc.Name
             $fwpNatRuleCollection = New-AzFirewallPolicyNatRuleCollection -Name $natRuleCollectionName -Priority $priority -ActionType $rc.Action.Type -Rule $firewallPolicyNatRules
 			$priority += 1
-			Write-Host "Created NatRuleCollection "  $fwpNatRuleCollection.Name
+			Write-Host "Created Nat RuleCollection: "  $fwpNatRuleCollection.Name
 			$firewallPolicyNatRuleCollections += $fwpNatRuleCollection
 		}	
 	}
 	$natRuleGroup = New-AzFirewallPolicyRuleCollectionGroup -Name $DefaultNatRuleCollectionGroupName -Priority $NatRuleGroupPriority -RuleCollection $firewallPolicyNatRuleCollections -FirewallPolicyObject $fwp 
-	Write-Host "Created NatRuleCollectionGroup "  $natRuleGroup.Name
+	Write-Host "Created Nat RuleCollectionGroup: "  $natRuleGroup.Name
 }
 ```
 ## Next steps
