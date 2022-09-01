@@ -1,7 +1,7 @@
 ---
 author: karavar
 ms.author: vakarand
-ms.date: 08/23/2022
+ms.date: 09/01/2022
 ms.service: active-directory
 ms.subservice: managed-identity
 ms.topic: include
