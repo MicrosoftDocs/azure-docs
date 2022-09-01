@@ -78,7 +78,7 @@ After you create your schema, you now have to upload the schema based on the fol
 
 * If you're working on a Consumption logic app workflow, [add your schema to your integration account](logic-apps-enterprise-integration-schemas.md?tabs=consumption#add-schema).
 
-If you're working on a Standard logic app workflow, you can [add your schema to your integration account](logic-apps-enterprise-integration-schemas.md?tabs=consumption#add-schema), or [upload your schema to your logic app resource](logic-apps-enterprise-integration-schemas.md?tabs=standard#add-schema).
+* If you're working on a Standard logic app workflow, you can [add your schema to your integration account](logic-apps-enterprise-integration-schemas.md?tabs=consumption#add-schema), or [add your schema to your logic app resource](logic-apps-enterprise-integration-schemas.md?tabs=standard#add-schema).
 
 ## Add a Flat File encoding action
 
