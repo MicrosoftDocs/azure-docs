@@ -977,10 +977,12 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
-- id: acs-js-csharp-java-python-swift-android
+- id: acs-azcli-js-csharp-java-python-swift-android
   title: Programming languages
   prompt: Choose a programming language
   pivots:
+  - id: platform-azcli
+    title: Azure CLI
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
@@ -1796,3 +1798,12 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+# Owner: jorgegarc
+- id: acs-xamarin-react
+  title: Cross-platform pivots
+  prompt: Choose a platform
+  pivots:
+  - id: platform-xamarin
+    title: Xamarin
+  - id: platform-react
+    title: React Native
