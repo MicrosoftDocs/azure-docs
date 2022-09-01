@@ -27,7 +27,7 @@ Best practice is to make sure your users always obtain the latest copy of your a
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 * Review [Caching with Azure Front Door](../front-door-caching.md) to understand how caching works.
-* Have a functioning Azure Front Door profile. Refer [Create a Front Door - CLI](../create-front-door-powershell.md)to learn how to create one.
+* Have a functioning Azure Front Door profile. Refer [Create a Front Door - PS](../create-front-door-powershell.md)to learn how to create one.
 
 ## Configure cache purge
 
