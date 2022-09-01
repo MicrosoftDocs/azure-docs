@@ -280,12 +280,29 @@
         - name: Compute cluster
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
-        - name: AKS and Arc Enabled Kubernetes cluster
-          displayName: Azure Arc, Kubernetes, on-premises, multi-cloud, attach
-          href: how-to-attach-kubernetes-anywhere.md
         - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
+    - name: AKS and Azure Arc-enabled Kubernetes
+      items:
+        - name: What is Kubernetes compute target
+          displayName: compute target, Azure Kuberentes Service, Azure Arc-enabled Kubernetes, AKS, on-premises, multi-cloud
+          href: how-to-attach-kubernetes-anywhere.md
+        - name: Step 1 - Deploy AzureML extension
+          displayName: AKS, Arc Kubernetes, inference router
+          href: how-to-deploy-kubernetes-extension.md
+        - name: Step 2 - Attach cluster to workspace
+          displayName: AKS, Arc Kubernetes, attach
+          href: how-to-attach-kubernetes-to-workspace.md
+        - name: Create and manage instance types
+          displayName: compute target, instance types, AKS, Arc Kubernetes
+          href: how-to-manage-kubernetes-instance-types.md
+        - name: Manage AzureML inference router
+          displayNmae: AKS, Arc Kubernetes, inference, compute target
+          href: how-to-kubernetes-inference-routing-azureml-fe.md
+        - name: Secure inferencing environment
+          displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
+          href: how-to-secure-kubernetes-inferencing-environment.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
