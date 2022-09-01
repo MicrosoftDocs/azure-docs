@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 09/01/2022
 ms.author: danlep
 ---
 # Configure Front Door Standard/Premium in front of Azure API Management
@@ -30,7 +30,7 @@ This article shows how to:
 
 For steps to create an Azure Front Door Standard/Premium profile, see [Quickstart: Create an Azure Front Door profile - Azure portal](../frontdoor/create-front-door-portal.md). For this article, you may choose a Front Door Standard profile. For a comparison of Front Door Standard and Front Door Premium, see [Tier comparison](../frontdoor/standard-premium/tier-comparison.md).
 
-Configure the following settings that are specific to using the gateway endpoint of your API Management instance as a Front Door origin. For an explanation of other settings, see the Front Door quickstart. 
+Configure the following Front Door settings that are specific to using the gateway endpoint of your API Management instance as a Front Door origin. For an explanation of other settings, see the Front Door quickstart. 
 
 |Setting     |Value  |
 |---------|---------|
@@ -62,7 +62,7 @@ After the profile is created, update the default origin group to include an API 
 
 ### Update default route 
 
-We recommend updating the route that associated with the API Management origin group to use HTTPS as the forwarding protocol. In this example, it's the default route.
+We recommend updating the default route that's associated with the API Management origin group to use HTTPS as the forwarding protocol.
 
 1. In the [portal](https://portal.azure.com), go to your Front Door profile.
 1. In the left menu, under **Settings** select **Origin groups**.
@@ -78,13 +78,13 @@ Test the Front Door profile configuration by calling an API hosted by API Manage
 
 ### Call an API directly through API Management
 
-In the following example, an operation in the Demo Conference API hosted by the API Management instance is called directly using Postman. The instance's hostname shown is in the default `azure-api.net` domain. In this example, a valid subscription key is passed using a request header. A successful response shows `200 OK` and returns the expected data:
+In the following example, an operation in the Demo Conference API hosted by the API Management instance is called directly using Postman. In this example, the instance's hostname is in the default `azure-api.net` domain, and a valid subscription key is passed using a request header. A successful response shows `200 OK` and returns the expected data:
 
 :::image type="content" source="media/front-door-api-management/test-api-management-gateway.png" alt-text="Screenshot showing calling API Management endpoint directly using Postman.":::
 
 ### Call an API directly through Front Door
 
-In the following example, the same operation in the Demo Conference API is called using the Front Door endpoint configured for your instance. The endpoint's hostname is in the `azurefd.net` domain, and can be found in the portal on the **Properties** page of your Front Door profile. A successful response shows `200 OK` and returns the same data as in the previous example:
+In the following example, the same operation in the Demo Conference API is called using the Front Door endpoint configured for your instance. The endpoint's hostname in the `azurefd.net` domain is shown in the portal on the **Properties** page of your Front Door profile. A successful response shows `200 OK` and returns the same data as in the previous example:
 
 :::image type="content" source="media/front-door-api-management/test-front-door-gateway.png" alt-text="Screenshot showing calling Front Door endpoint using Postman.":::
 
@@ -108,7 +108,7 @@ You can configure an inbound [ip-filter](/api-management-access-restriction-poli
 
 ### Check Front Door header
 
-Requests routed through Front Door include headers specific to your Front Door configuration. You can configure the [check-header](/api-management-access-restriction-policies.md#CheckHTTPHeader) policy to filter incoming requests based on the unique value of the `X-Azure-FDID` HTTP request header that is sent to API Management. Find the **Front Door ID** value in the portal on the **Overview** page of the Front Door profile.
+Requests routed through Front Door include headers specific to your Front Door configuration. You can configure the [check-header](/api-management-access-restriction-policies.md#CheckHTTPHeader) policy to filter incoming requests based on the unique value of the `X-Azure-FDID` HTTP request header that is sent to API Management. This header value is the **Front Door ID**, which is shown in the portal on the **Overview** page of the Front Door profile.
 
 In the following policy example, the Front Door ID is specified using a [named value](api-management-howto-properties.md) named `FrontDoorId`. 
 
@@ -122,7 +122,9 @@ Requests that aren't accompanied by a valid `X-Azure-FDID` header return a `403 
 
 ## (Optional) Configure Front Door for developer portal
 
-Optionally, configure the API Management instance's developer portal as an endpoint in the Front Door profile. The following are high level steps
+Optionally, configure the API Management instance's developer portal as an endpoint in the Front Door profile. While the managed developer portal is already fronted by an Azure-managed CDN, you might want to take advantage of Front Door features such as a WAF. 
+
+The following are high level steps to add an endpoint for the developer portal to your profile:
 
 * To add an endpoint and configure a route, see [Configure and endpoint with Front Door manager](../frontdoor/how-to-configure-endpoints.md).
 
@@ -134,10 +136,10 @@ Optionally, configure the API Management instance's developer portal as an endpo
 For more information and details about settings, see [How to configure an origin for Azure Front Door](../frontdoor/how-to-configure-origin.md#create-a-new-origin-group).
 
 > [!NOTE]
-> If you've configured an Azure AD or Azure AD B2C identity provider for the developer portal, you need to update the corresponding app registration with an additional redirect URL to Front Door. In the app registration, add the URL for the developer portal endpoint configured in your Front Door profile.
+> If you've configured an [Azure AD](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md) identity provider for the developer portal, you need to update the corresponding app registration with an additional redirect URL to Front Door. In the app registration, add the URL for the developer portal endpoint configured in your Front Door profile.
 
 ## Next steps
 
 * To automate deployments of Front Door with API Management, see the template [Front Door Standard/Premium with API Management origin](https://azure.microsoft.com/resources/templates/front-door-standard-premium-api-management-external/)
 
-* Optionally deploy [Web Application Firewall (WAF)](../web-application-firewall/afds/afds-overview.md) on Azure Front Door to protect the API Management instance from malicious attacks.
+* Learn how to deploy [Web Application Firewall (WAF)](../web-application-firewall/afds/afds-overview.md) on Azure Front Door to protect the API Management instance from malicious attacks.
