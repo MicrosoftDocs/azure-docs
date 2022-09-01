@@ -42,7 +42,7 @@ No, the destination volume of a replication does not count towards hard volume q
 
 No. Azure NetApp Files is not supported by Azure Storage Explorer.
 
-## Why is volume space not get freed up immediately after deleting large amount of data in a volume?
+## Why is volume space not freed up immediately after deleting large amount of data in a volume?
 
 When deleting a very large amount of data in a volume (which can include snapshots), the space reclamation process can take time. Wait a few minutes for Azure NetApp Files to reclaim the space in the volume.
 
