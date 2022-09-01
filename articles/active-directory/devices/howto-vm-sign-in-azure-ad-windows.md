@@ -317,11 +317,11 @@ Exit code -2145648607 translates to `DSREG_AUTOJOIN_DISC_FAILED`. The extension 
 
 1. Verify that the required endpoints are accessible from the VM via PowerShell:
 
-   - `curl https://login.microsoftonline.com/ -D -`
-   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-   - `curl https://enterpriseregistration.windows.net/ -D -`
-   - `curl https://device.login.microsoftonline.com/ -D -`
-   - `curl https://pas.windows.net/ -D -`
+   - `curl.exe https://login.microsoftonline.com/ -D -`
+   - `curl.exe https://login.microsoftonline.com/<TenantID>/ -D -`
+   - `curl.exe https://enterpriseregistration.windows.net/ -D -`
+   - `curl.exe https://device.login.microsoftonline.com/ -D -`
+   - `curl.exe https://pas.windows.net/ -D -`
    
    > [!NOTE]
    > Replace `<TenantID>` with the Azure AD tenant ID that's associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name or select **Azure Active Directory** > **Properties** > **Directory ID** in the Azure portal.
