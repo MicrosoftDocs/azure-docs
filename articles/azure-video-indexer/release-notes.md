@@ -41,11 +41,26 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
-## July 2022 release updates
+## August 2022  release updates
+
+### Update topic inferencing model 
+
+Azure Video Indexer topic inferencing model was updated and now we extract more than 6.5 million topics (for example, covering topics such as Covid virus). To benefit from recent model updates you need to re-index your video files. 
+
+### Topic inferencing model is now available on Azure Government 
+
+You can now leverage topic inferencing model in your Azure Video Indexer paid account on [Azure Government](../azure-government/documentation-government-welcome.md) in Virginia and Arizona regions. With this release we completed the AI parity between Azure global and Azure Government. 
+To benefit from the model updates you need to re-index your video files. 
+
+### Session length is now 30 days in the Azure Video Indexer website
+
+The [Azure Video Indexer website](https://vi.microsoft.com) session length was extended to 30 days. You can preserve your session without having to re-login every 1 hour.
+
+## July 2022
 
 ### Featured clothing insight (preview)
 
-You can now view the featured clothing of an observed person, when indexing a video using Azure Video Indexer advanced video settings. With the new featured clothing insight information, you can enable more targeted ads placement. 
+When indexing a video using Azure Video Indexer advanced video settings, you can view the featured clothing of an observed person. The featured clothing insight provides information of key items worn by individuals within a video and the specific time in which the clothing appears. Based on this insight, you can enable more targeted ads placement.
 
 For details on how featured clothing images are ranked and how to view this insight, see [observed people featured clothing](observed-people-featured-clothing.md).
 
