@@ -94,7 +94,40 @@ API Management uses a public IP address for a connection outside the VNet or a p
 
 If your API Management service is a Consumption tier service, it doesn't have a dedicated IP address. Consumption tier service runs on a shared infrastructure and without a deterministic IP address.
 
-For traffic restriction purposes, you can use the range of IP addresses of Azure data centers. Refer to [the Azure Functions documentation article](../azure-functions/ip-addresses.md#data-center-outbound-ip-addresses) for precise steps.
+For traffic restriction purposes, you can use the range of IP addresses of Azure data centers. You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your API Management runs in.
+
+For example, the following JSON fragment is what the allowlist for Western Europe might look like:
+
+```json
+{
+      "name": "ApiManagement.WestEurope",
+      "id": "ApiManagement.WestEurope",
+      "properties": {
+        "changeNumber": 3,
+        "region": "westeurope",
+        "regionId": 18,
+        "platform": "Azure",
+        "systemService": "AzureApiManagement",
+        "addressPrefixes": [
+          "13.69.64.76/31",
+          "13.69.66.144/28",
+          "20.86.92.254/31",
+          "23.101.67.140/32",
+          "51.145.179.78/32",
+          "137.117.160.56/32",
+          "2603:1020:206:402::140/124"
+        ],
+        "networkFeatures": [
+          "API",
+          "NSG",
+          "UDR",
+          "FW"
+        ]
+      }
+    }
+```
+
+ For information about when this file is updated and when the IP addresses change, expand the **Details** section of the [Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
 ## Changes to the IP addresses
 
