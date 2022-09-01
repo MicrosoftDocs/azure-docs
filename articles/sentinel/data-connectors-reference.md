@@ -1829,7 +1829,7 @@ Follow the instructions to obtain the credentials.
 
 ## Windows DNS Server (Preview)
 
-We recommend that you use the [DNS over AMA connector](#windows-dns-events-via-ama).
+We recommend that you use the [DNS over AMA connector](#windows-dns-events-via-ama-preview).
 
 | Connector attribute | Description |
 | --- | --- |
