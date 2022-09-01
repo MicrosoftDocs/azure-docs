@@ -61,7 +61,7 @@ Token acquisition and renewal are handled by the [Microsoft Authentication Libra
 >
 > To configure the code sample before you execute it, skip to the [registration step](#register-your-application).
 
-## Create your project
+## Create the project
 
 Make sure you have [*Node.js*](https://nodejs.org/en/download/) installed, and then create a folder to host your application. Here, we can call this folder *sampleApp*. There, we'll implement an [*Express*](https://expressjs.com/) web server to serve your *index.html* file.
 
