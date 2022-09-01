@@ -1122,6 +1122,15 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+- name: Scenario deep-dives
+  items:
+    - name: Call Center
+      items:
+      - name: Overview
+        displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers, Post-Call Analytics
+        href: /azure/cognitive-services/speech-service/call-center-overview?context=/azure/cognitive-services/language-service/context/context
+      - name: Ingestion Client
+        href: /azure/cognitive-services/speech-service/ingestion-client?context=/azure/cognitive-services/language-service/context/context
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps
