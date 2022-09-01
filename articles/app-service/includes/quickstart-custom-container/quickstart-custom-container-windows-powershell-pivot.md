@@ -64,7 +64,7 @@ New-AzWebApp -Name myWebApp -AppServicePlan myAppServicePlan -Location eastus -R
 - The ResourceGroupName parameter specifies the name of the Resource Group.
 - The ContainerImageName parameter specifies a Container Image Name and optional tag.
 
-The command might take a few minutes to complete. While running, it creates the App Service resource.
+The command might take a few minutes to complete. 
 
 ## 5 - Browse to the app
 
