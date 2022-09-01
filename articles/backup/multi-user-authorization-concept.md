@@ -11,6 +11,9 @@ ms.author: v-amallick
 
 Multi-user authorization (MUA) for Azure Backup allows you to add an additional layer of protection to critical operations on your Recovery Services vaults. For MUA, Azure Backup uses another Azure resource called the Resource Guard to ensure critical operations are performed only with applicable authorization.
 
+>[!Note]
+>Multi-user authorization using Resource Guard for Backup vault is in preview.
+
 ## How does MUA for Backup work?
 
 Azure Backup uses the Resource Guard as an authorization service for a Recovery Services vault. Therefore, to perform a critical operation (described below) successfully, you must have sufficient permissions on the associated Resource Guard as well.
