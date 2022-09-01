@@ -5,24 +5,24 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 07/28/2022
+ms.date: 09/01/2022
 ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
 # Deploy Nuxt 3 sites with universal rendering on Azure Static Web Apps
 
-In this tutorial, you learn to deploy a [Nuxt 3](https://v3.nuxtjs.org/) application to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Nuxt app.
+In this tutorial, you learn to deploy a [Nuxt 3](https://v3.nuxtjs.org/) application to [Azure Static Web Apps](overview.md). Nuxt 3 supports [universal (client-side and server-side) rendering](https://v3.nuxtjs.org/guide/concepts/rendering/#universal-rendering), including server and API routes. Without extra configuration, you can deploy Nuxt 3 apps with universal rendering to Azure Static Web Apps. When the app is built in the Static Web Apps GitHub Action or Azure Pipelines task, Nuxt 3 automatically converts it into static assets and an Azure Functions app that are compatible with Azure Static Web Apps.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 - A GitHub account. [Create an account for free](https://github.com/join).
-- [Node.js](https://nodejs.org) installed.
+- [Node.js](https://nodejs.org) 16 or later installed.
 
 ## Set up a Nuxt 3 app
 
-You can set up a new Nuxt project using `create-nuxt-app`. Instead of a new project, in this tutorial, you will begin by cloning an existing repository. This repository is set up to demonstrate how to deploy a Nuxt 3 site with universal rendering on Azure Static Web Apps.
+You can set up a new Nuxt project using `npx nuxi init nuxt-app`. Instead of a new project, in this tutorial, you will begin by cloning an existing repository. This repository is set up to demonstrate how to deploy a Nuxt 3 site with universal rendering on Azure Static Web Apps.
 
 1. Create a new repository under your GitHub account from a template repository.
 1. Navigate to [http://github.com/staticwebdev/nuxt-3-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxt-3-starter/generate).
@@ -51,13 +51,13 @@ You can set up a new Nuxt project using `create-nuxt-app`. Instead of a new proj
     npm run dev -- -o
     ```
 
-Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your preferred browser:
+Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your preferred browser. Select the buttons to invoke server and API routes.
 
 :::image type="content" source="media/deploy-nuxtjs/nuxt3-app.png" alt-text="Start Nuxt.js app":::
 
 ## Deploy your Nuxt 3 site
 
-The following steps show how to link the app you just pushed to GitHub to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
+The following steps show how to create an Azure Static Web Apps resource and configure it to deploy your app from GitHub.
 
 ### Create an Azure Static Web Apps resource
 
@@ -95,15 +95,15 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 ### Review and create
 
-1. Select the **Review + Create** button to verify the details are all correct.
+1. Select **Review + Create** to verify the details are all correct.
 
-1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Actions for deployment.
+1. Select **Create** to start the creation of the static web app and provision a GitHub Actions for deployment.
 
-1. Once the deployment completes click, **Go to resource**.
+1. Once the deployment completes, select **Go to resource**.
 
-1. On the _Overview_ window, click the *URL* link to open your deployed application.
+1. On the _Overview_ window, select the *URL* link to open your deployed application.
 
-If the website does not immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then click refresh the browser to view your web app.
+If the website does not immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then refresh the browser to view your web app.
 
 You can check the status of the Actions workflows by navigating to the Actions for your repository:
 
@@ -111,11 +111,17 @@ You can check the status of the Actions workflows by navigating to the Actions f
 https://github.com/<YOUR_GITHUB_USERNAME>/nuxt-3-starter/actions
 ```
 
-### Sync changes
+### Synchronize changes
 
-When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to bring this file down to your local repository so your git history is synchronized.
+When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. Return to the terminal and run the following command to pull the commit containing the new file.
 
-Return to the terminal and run the following command `git pull origin main`.
+```bash
+git pull
+```
+
+Make changes to the app by updating the code and pushing it to GitHub. GitHub Actions automatically builds and deploys the app.
+
+For more information, see the Azure Static Web Apps Nuxt 3 deployment preset [documentation](https://v3.nuxtjs.org/guide/deploy/providers/azure/).
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)
