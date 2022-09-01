@@ -49,17 +49,17 @@ For PowerShell and CLI commands, the tier value is optional, if it isn't already
 
 1. Next connect to your Azure account and select the required subscription with the following commands:
 
-        1. Sign into Azure using the following command:
+    1. Sign into Azure using the following command:
 
-           ```azurepowershell
-           Connect-AzAccount
-           ```
+        ```azurepowershell
+        Connect-AzAccount
+        ```
 
-        2. Select a specific subscription with the following command:
+    2. Select a specific subscription with the following command:
 
-           ```azurepowershell
-           Select-AzSubscription -Subscription <SubscriptionName>
-           ```
+        ```azurepowershell
+        Select-AzSubscription -Subscription <SubscriptionName>
+        ```
 
 ### <a id="provision-powershell-sql-api"></a>SQL API account
 
