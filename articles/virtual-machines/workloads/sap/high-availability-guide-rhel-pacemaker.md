@@ -117,9 +117,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    > [!IMPORTANT]
    > We recommend the following versions of Azure Fence agent (or later) for customers wishing to use Managed Identities for Azure resources instead of service principal names for the fence agent.
-   > RHEL 8.4: fence-agents-4.2.1-54.el8
-   > RHEL 8.2: fence-agents-4.2.1-41.el8_2.4
-   > RHEL 8.1: fence-agents-4.2.1-30.el8_1.4
+   > RHEL 8.4: fence-agents-4.2.1-54.el8  
+   > RHEL 8.2: fence-agents-4.2.1-41.el8_2.4  
+   > RHEL 8.1: fence-agents-4.2.1-30.el8_1.4  
    > RHEL 7.9: fence-agents-4.2.1-41.el7_9.4.
 
    Check the version of the Azure fence agent. If necessary, update it to a version equal to or later than the stated above.
@@ -247,12 +247,12 @@ Follow these steps to create a service principal, if not using managed identity.
    The sign-on URL is not used and can be any valid URL
 1. Select Certificates and Secrets, then click New client secret
 1. Enter a description for a new key, select "Never expires" and click Add
-1. Make a node the Value. It is used as the **password** for the Service Principal
-1. Select Overview. Make a note the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
+1. Make a node the Value. It is used as the **password** for the service principal
+1. Select Overview. Make a note the Application ID. It is used as the username (**login ID** in the steps below) of the service principal
 
 ### **[1]** Create a custom role for the fence agent
 
-Neither Managed Identity nor Service Principal have permissions to access your Azure resources by default. You need to give the Managed Idenity or Service Principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
+Neither managed identity nor service principal have permissions to access your Azure resources by default. You need to give the managed identity or service principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
 
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
@@ -282,11 +282,11 @@ Use the following content for the input file. You need to adapt the content to y
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Verify each VM's managed identity role assignment contains all cluster VMs.
 
 > [!IMPORTANT]
-> Be aware assignment and removal of authorization with managed identities [can be delayed.](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization).
+> Be aware assignment and removal of authorization with managed identities [can be delayed](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization) until effective.
 
 #### Using Service Principal
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the service principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
 Make sure to assign the role for both cluster nodes.    
 
 ### **[1]** Create the STONITH devices

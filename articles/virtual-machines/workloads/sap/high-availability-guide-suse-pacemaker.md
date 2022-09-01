@@ -74,7 +74,7 @@ You can configure the SBD device by using either of two options:
    - For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../disks-shared.md#limitations).
 
 ### Use an Azure fence agent
-You can set up STONITH by using an Azure fence agent. Azure fence agent require a managed identity for the clusterVMs or a service principal, that manages restarting failed nodes via Azure APIs. Azure fence agent doesn't require the deployment of additional virtual machines.
+You can set up STONITH by using an Azure fence agent. Azure fence agent require managed identities for the cluster VMs or a service principal, that manages restarting failed nodes via Azure APIs. Azure fence agent doesn't require the deployment of additional virtual machines.
 
 ## SBD with an iSCSI target server
 
@@ -520,7 +520,7 @@ Use the following content for the input file. You need to adapt the content to y
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Verify each VM's managed identity role assignment contains all cluster VMs.
 
 > [!IMPORTANT]
-> Be aware assignment and removal of authorization with managed identities can be [delayed by as much as 24 hours](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization).
+> Be aware assignment and removal of authorization with managed identities [can be delayed](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization) until effective.
 
 #### Using Service Principal
 
@@ -638,7 +638,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
 
    >[!IMPORTANT]
-   > The installed version of the *fence-agents* package must be fence-agents 4.5.2+git.1592573838.1eee0863 or later, if managed identities are to be used with Azure fencing. Earlier versions will not work correctly with a managed identity configuration.
+   > If using managed identity, the installed version of the *fence-agents* package must be fence-agents 4.5.2+git.1592573838.1eee0863 or later. Earlier versions will not work correctly with a managed identity configuration.  
    > Currently only SLES 15 SP1 and older are supported for managed identity configuration.
 
 1. **[A]** Install the Azure Python SDK and Azure Identity python module.  
@@ -788,19 +788,18 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    </code></pre>
 
 1. **[1]** If you're using an Azure fence agent as STONITH, run the following commands. After you've assigned roles to both cluster nodes, you can configure the STONITH devices in the cluster.
+ 
+   <pre><code>sudo crm configure property stonith-enabled=true
+   crm configure property concurrent-fencing=true
+   </code></pre>
 
    > [!NOTE]
    > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
    > Refer to the bold section in the following command.
-
-   <pre><code>sudo crm configure property stonith-enabled=true
-   crm configure property concurrent-fencing=true
-   </code></pre>
-   
+  
    To configure **managed identity** for your fence agent, run the following command (SLES 15 SP1 and newer, only)
    <pre><code>
-
-   # replace the bold string with your subscription ID and resource group of the VM
+   # replace the bold strings with your subscription ID and resource group of the VM
    
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params <b>msi=true</b> subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" \
@@ -810,10 +809,9 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    sudo crm configure property stonith-timeout=900
    </code></pre>
 
-   To configure **service principal** for your fence agent, run the following command (SLES 15 SP1 and newer, only)
+   To configure **service principal** for your fence agent, run the following command
    <pre><code>
-
-   # replace the bold string with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
+   # replace the bold strings with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
    
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>application ID</b>" passwd="<b>password</b>" \
