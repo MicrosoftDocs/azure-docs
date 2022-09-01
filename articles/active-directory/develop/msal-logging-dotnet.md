@@ -53,7 +53,8 @@ namespace Microsoft.IdentityModel.Abstractions
 }
 ```
 
-Note: Partner libraries (Microsoft.Identity.Web, Microsoft.IdentityModel) provide implementations of this interface already for various environments (in particular ASP.NET Core)
+> [!NOTE]
+> Partner libraries (`Microsoft.Identity.Web`, `Microsoft.IdentityModel`) provide implementations of this interface already for various environments (in particular ASP.NET Core)
 
 ### IIdentityLogger Implementation
 
