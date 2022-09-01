@@ -140,7 +140,7 @@ There are two facets to removing unused permissions: least privilege policy crea
 -   **Requesting Periodic Access:** Schedule reoccurring daily, weekly, or monthly permissions that is time-bound and revoked at the end of period.
 1.  Manage users, roles and their access levels with the User management dashboard.
 
-    **Actions to try:**
+**Actions to try:**
 
 - [Manage users](../cloud-infrastructure-entitlement-management/ui-user-management.md#manage-users)
 - [Manage groups](../cloud-infrastructure-entitlement-management/ui-user-management.md#manage-groups)
