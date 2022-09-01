@@ -68,6 +68,7 @@ As you prepare for the migration, be sure to consider the following limitations.
 DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you are free to select appropriate region, resource group and subscription for your target flexible server. Before you create your target flexible server, consider the following configuration guidance to help ensure faster data loads using DMS.
 
 * Select the compute size and compute tier for the target flexible server based on the source single server’s pricing tier and VCores as in the following table:
+
 | Single Server Pricing Tier | Single Server VCores | Flexible Server Compute Size | Flexible Server Compute Tier |
 | ------------- | ------------- |:-------------:|:-------------:|
 | Basic\* | 1 | General Purpose | Standard_D16ds_v4 |
@@ -268,6 +269,7 @@ When the migration is complete, be sure to complete the following post-migration
 * Update the connection string to point to the new target flexible server.
 * Delete the source single server after you have ensured application continuity.
 * If you scaled-up the target flexible server for faster migration, scale it back by selecting the compute size and compute tier for the target flexible server based on the source single server’s pricing tier and VCores as in the table below.
+
     | Single Server Pricing Tier | Single Server VCores | Flexible Server Compute Size | Flexible Server Compute Tier |
     | ------------- | ------------- |:-------------:|:-------------:|
     | Basic | 1 | Burstable | Standard_B1s |
