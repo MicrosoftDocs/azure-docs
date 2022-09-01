@@ -320,7 +320,7 @@ python ./program.py
 
 ## Send a test Language service call (optional)
 
-If you're using a multi-service resource or Language resource, you can perform the following steps to send an example Named Entity Recognition call by retrieving a key and endpoint from your key vault.   
+If you're using a multi-service resource or Language resource, you can update [your application](#create-a-python-application) by following these steps to send an example Named Entity Recognition call by retrieving a key and endpoint from your key vault.   
 
 1. Install the Language service library:
 
