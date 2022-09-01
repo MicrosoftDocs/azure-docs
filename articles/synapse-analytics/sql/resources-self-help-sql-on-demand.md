@@ -6,12 +6,12 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.custom: event-tier1-build-2022
-ms.date: 07/21/2022
+ms.date: 09/01/2022
 ms.author: stefanazaric
 ms.reviewer: sngun, wiassaf
 ---
 
-# Self-help for serverless SQL pool
+# Troubleshooting serverless SQL pool in Azure Synapse Analytics
 
 This article contains information about how to troubleshoot the most frequent problems with serverless SQL pool in Azure Synapse Analytics.
 
@@ -69,7 +69,7 @@ For more information, see:
 
 #### Alternative to Storage Blob Data Contributor role
 
-Instead of granting yourself a Storage Blob Data Contributor role, you can also grant more granular permissions on a subset of files.
+Instead of [granting yourself a Storage Blob Data Contributor role](../security/how-to-grant-workspace-managed-identity-permissions.md), you can also grant more granular permissions on a subset of files.
 
 All users who need access to some data in this container also must have EXECUTE permission on all parent folders up to the root (the container).
 
@@ -118,13 +118,9 @@ For more information, see:
 
 #### Content of Dataverse table can't be listed
 
-If you are using the Synapse link for Dataverse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool. For more information, see [Azure Synapse Link for Dataverse with Azure Data Lake](/powerapps/maker/data-platform/azure-synapse-link-data-lake).
+If you are using the Azure Synapse Link for Dataverse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool. For more information, see [Azure Synapse Link for Dataverse with Azure Data Lake](/powerapps/maker/data-platform/azure-synapse-link-data-lake).
 
-If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error:
-
-```
-External table '???' is not accessible because content of directory cannot be listed.
-```
+If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error: `External table '???' is not accessible because content of directory cannot be listed.`
 
 Dataverse external tables always use Azure AD passthrough authentication. You *can't* configure them to use a [shared access signature key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity).
 
@@ -193,8 +189,7 @@ This error might happen if you use the `Latin1_General_100_BIN2_UTF8` collation 
 
 ### Couldn't allocate tempdb space while transferring data from one distribution to another
 
-The error "Could not allocate tempdb space while transferring data from one distribution to another" is returned when the query execution engine can't process data and transfer it between the nodes that are executing the query.
-It's a special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cant-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query.
+The error "Could not allocate tempdb space while transferring data from one distribution to another" is returned when the query execution engine can't process data and transfer it between the nodes that are executing the query. It's a special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cant-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query.
 
 Apply best practices before you file a support ticket.
 
@@ -635,7 +630,7 @@ When the file format is Parquet, the query won't recover automatically. It needs
 
 ### Synapse Link for Dataverse
 
-This error can occur when reading data from Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this behavior. 
+This error can occur when reading data from Azure Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this behavior. 
 
 ### [0x800700A1](#tab/x800700A1)
 
@@ -723,7 +718,7 @@ Describe anything that might be unusual compared to the regular workload. For ex
 
 Serverless SQL pools enable you to use T-SQL to configure database objects. There are some constraints:
 
-- You can't create objects in master and lakehouse or Spark databases.
+- You can't create objects in `master` and `lakehouse` or Spark databases.
 - You must have a master key to create credentials.
 - You must have permission to reference data that's used in the objects.
 
@@ -894,7 +889,7 @@ The following error indicates that serverless SQL pool cannot resolve Delta logs
 Resolving Delta logs on path '%ls' failed with error: Cannot parse json object from log folder.
 ```   
 The most common cause is that `last_checkpoint_file` in `_delta_log` folder is larger than 200 bytes due to the `checkpointSchema` field added in Spark 3.3. 
-	  
+      
 There are two options available to circumvent this error:
 * Modify appropriate config in Spark notebook and generate a new checkpoint, so that `last_checkpoint_file` gets re-created. In case you are using Azure Databricks, the config modification is the following: `spark.conf.set("spark.databricks.delta.checkpointSchema.writeThresholdLength", 0);`
 * Downgrade to Spark 3.2.1.
@@ -1013,7 +1008,7 @@ go
 
 You can also set up a service principal Azure Synapse admin by using PowerShell. You must have the [Az.Synapse module](/powershell/module/az.synapse) installed.
 
-The solution is to use the cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"`. In that parameter field, provide the application ID instead of the object ID by using the workspace admin Azure service principal credentials.
+The solution is to use the cmdlet `New-AzSynapseRoleAssignment` with `-ObjectId "parameter"`. In that parameter field, provide the application ID instead of the object ID by using the workspace admin Azure service principal credentials.
 
 PowerShell script:
 
@@ -1063,35 +1058,8 @@ If you get the error "CREATE DATABASE failed. User database limit has been alrea
 
 You don't need to use separate databases to isolate data for different tenants. All data is stored externally on a data lake and Azure Cosmos DB. The metadata like table, views, and function definitions can be successfully isolated by using schemas. Schema-based isolation is also used in Spark where databases and schemas are the same concepts.
 
-## Query Azure data
+## Next steps
 
-Serverless SQL pools enable you to query data in Azure Storage or Azure Cosmos DB by using [external tables and the OPENROWSET function](develop-storage-files-overview.md).  Make sure that you have proper [permission set up](develop-storage-files-overview.md#permissions) on your storage.
-
-### Query CSV data
-
-Learn how to [query a single CSV file](query-single-csv-file.md) or [folders and multiple CSV files](query-folders-multiple-csv-files.md). You can also [query partitioned files](query-specific-files.md)
-
-### Query Parquet data
-
-Learn how to [query Parquet files](query-parquet-files.md) with [nested types](query-parquet-nested-types.md). You can also [query partitioned files](query-specific-files.md).
-
-### Query Delta Lake
-
-Learn how to [query Delta Lake files](query-delta-lake-format.md) with [nested types](query-parquet-nested-types.md).
-
-### Query Azure Cosmos DB data
-
-Learn how to [query Azure Cosmos DB analytical store](query-cosmos-db-analytical-store.md). You can use an [online generator](https://htmlpreview.github.io/?https://github.com/Azure-Samples/Synapse/blob/main/SQL/tools/cosmosdb/generate-openrowset.html) to generate the WITH clause based on a sample Azure Cosmos DB document. You can [create views](create-use-views.md#cosmosdb-view) on top of Azure Cosmos DB containers.
-
-### Query JSON data
-
-Learn how to [query JSON files](query-json-files.md). You can also [query partitioned files](query-specific-files.md).
-
-### Create views, tables, and other database objects
-
-Learn how to create and use [views](create-use-views.md) and [external tables](create-use-external-tables.md) or set up [row-level security](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-implement-row-level-security-in-serverless-sql-pools/ba-p/2354759).
-If you have [partitioned files](query-specific-files.md), make sure you use [partitioned views](create-use-views.md#partitioned-views).
-
-### Copy and transform data (CETAS)
-
-Learn how to [store query results to storage](create-external-table-as-select.md) by using the CETAS command.
+- [Best practices for serverless SQL pool in Azure Synapse Analytics](best-practices-serverless-sql-pool.md)
+- [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)
+- [Store query results to storage using serverless SQL pool in Azure Synapse Analytics](create-external-table-as-select.md)

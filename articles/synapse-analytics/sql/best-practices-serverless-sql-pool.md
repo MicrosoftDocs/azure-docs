@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf
 ---
 
 # Best practices for serverless SQL pool in Azure Synapse Analytics
@@ -113,13 +113,13 @@ The following example shows how you can optimize inferred data types. This proce
 
 ```sql  
 EXEC sp_describe_first_result_set N'
-	SELECT
+    SELECT
         vendor_id, pickup_datetime, passenger_count
-	FROM 
-		OPENROWSET(
-        	BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*'',
-	        FORMAT=''PARQUET''
-    	) AS nyc';
+    FROM 
+        OPENROWSET(
+            BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*'',
+            FORMAT=''PARQUET''
+        ) AS nyc';
 ```
 
 Here's the result set:
@@ -136,15 +136,15 @@ After you know the inferred data types for the query, you can specify appropriat
 SELECT
     vendorID, tpepPickupDateTime, passengerCount
 FROM 
-	OPENROWSET(
-		BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=2018/puMonth=*/*.snappy.parquet',
-		FORMAT='PARQUET'
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=2018/puMonth=*/*.snappy.parquet',
+        FORMAT='PARQUET'
     ) 
-	WITH (
-		vendorID varchar(4), -- we used length of 4 instead of the inferred 8000
-		tpepPickupDateTime datetime2,
-		passengerCount int
-	) AS nyc;
+    WITH (
+        vendorID varchar(4), -- we used length of 4 instead of the inferred 8000
+        tpepPickupDateTime datetime2,
+        passengerCount int
+    ) AS nyc;
 ```
 
 ## Filter optimization
@@ -186,6 +186,43 @@ You can use CETAS to materialize frequently used parts of queries, like joined r
 
 As CETAS generates Parquet files, statistics are automatically created when the first query targets this external table. The result is improved performance for subsequent queries targeting table generated with CETAS.
 
+
+## Query Azure data
+
+Serverless SQL pools enable you to query data in Azure Storage or Azure Cosmos DB by using [external tables and the OPENROWSET function](develop-storage-files-overview.md).  Make sure that you have proper [permission set up](develop-storage-files-overview.md#permissions) on your storage.
+
+### Query CSV data
+
+Learn how to [query a single CSV file](query-single-csv-file.md) or [folders and multiple CSV files](query-folders-multiple-csv-files.md). You can also [query partitioned files](query-specific-files.md)
+
+### Query Parquet data
+
+Learn how to [query Parquet files](query-parquet-files.md) with [nested types](query-parquet-nested-types.md). You can also [query partitioned files](query-specific-files.md).
+
+### Query Delta Lake
+
+Learn how to [query Delta Lake files](query-delta-lake-format.md) with [nested types](query-parquet-nested-types.md).
+
+### Query Azure Cosmos DB data
+
+Learn how to [query Azure Cosmos DB analytical store](query-cosmos-db-analytical-store.md). You can use an [online generator](https://htmlpreview.github.io/?https://github.com/Azure-Samples/Synapse/blob/main/SQL/tools/cosmosdb/generate-openrowset.html) to generate the WITH clause based on a sample Azure Cosmos DB document. You can [create views](create-use-views.md#cosmosdb-view) on top of Azure Cosmos DB containers.
+
+### Query JSON data
+
+Learn how to [query JSON files](query-json-files.md). You can also [query partitioned files](query-specific-files.md).
+
+### Create views, tables, and other database objects
+
+Learn how to create and use [views](create-use-views.md) and [external tables](create-use-external-tables.md) or set up [row-level security](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-implement-row-level-security-in-serverless-sql-pools/ba-p/2354759).
+If you have [partitioned files](query-specific-files.md), make sure you use [partitioned views](create-use-views.md#partitioned-views).
+
+### Copy and transform data (CETAS)
+
+Learn how to [store query results to storage](create-external-table-as-select.md) by using the CETAS command.
+
+
 ## Next steps
 
-Review the [troubleshooting](resources-self-help-sql-on-demand.md) article for solutions to common problems. If you're working with a dedicated SQL pool rather than serverless SQL pool, see [Best practices for dedicated SQL pools](best-practices-dedicated-sql-pool.md) for specific guidance.
+- Review the [troubleshooting serverless SQL pools](resources-self-help-sql-on-demand.md) article for solutions to common problems. 
+- If you're working with a dedicated SQL pool rather than serverless SQL pool, see [Best practices for dedicated SQL pools](best-practices-dedicated-sql-pool.md) for specific guidance.
+- [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)

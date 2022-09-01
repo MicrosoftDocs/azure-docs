@@ -5,7 +5,7 @@ author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security 
-ms.date: 04/15/2020 
+ms.date: 09/01/2022
 ms.author: mesrivas
 ms.reviewer: sngun
 ms.custom: subject-rbac-steps
@@ -21,7 +21,7 @@ This article teaches you how to grant permissions to the managed identity in Azu
 
 ## Grant the managed identity permissions to ADLS Gen2 storage account
 
-An ADLS Gen2 storage account is required to create an Azure Synapse workspace. To successfully launch Spark pools in Azure Synapse workspace, the Azure Synapse managed identity needs the *Storage Blob Data Contributor* role on this storage account . Pipeline orchestration in Azure Synapse also benefits from this role.
+An ADLS Gen2 storage account is required to create an Azure Synapse workspace. To successfully launch Spark pools in Azure Synapse workspace, the Azure Synapse managed identity needs the *Storage Blob Data Contributor* role on this storage account. Pipeline orchestration in Azure Synapse also benefits from this role.
 
 ### Grant permissions to managed identity during workspace creation
 
@@ -90,6 +90,41 @@ Select **Access Control(IAM)** and then select **Role assignments**.
 
 You should see your managed identity listed under the **Storage Blob Data Contributor** section with the *Storage Blob Data Contributor* role assigned to it. 
 ![ADLS Gen2 storage account container selection](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
+
+
+#### Alternative to Storage Blob Data Contributor role
+
+Instead of granting yourself a Storage Blob Data Contributor role, you can also grant more granular permissions on a subset of files.
+
+All users who need access to some data in this container also must have EXECUTE permission on all parent folders up to the root (the container).
+
+Learn more about how to [set ACLs in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-explorer-acl.md).
+
+> [!NOTE]
+> Execute permission on the container level must be set within Data Lake Storage Gen2.
+> Permissions on the folder can be set within Azure Synapse.
+
+If you want to query data2.csv in this example, the following permissions are needed:
+
+   - Execute permission on container
+   - Execute permission on folder1
+   - Read permission on data2.csv
+
+![Diagram that shows permission structure on data lake.](../sql/media/resources-self-help-sql-on-demand/folder-structure-data-lake.png)
+
+1. Sign in to Azure Synapse with an admin user that has full permissions on the data you want to access.
+1. In the data pane, right-click the file and select **Manage access**.
+
+   ![Screenshot that shows the Manage access option.](../sql/media/resources-self-help-sql-on-demand/manage-access.png)
+
+1. Select at least **Read** permission. Enter the user's UPN or object ID, for example, user@contoso.com. Select **Add**.
+1. Grant read permission for this user.
+
+   ![Screenshot that shows granting read permissions.](../sql/media/resources-self-help-sql-on-demand/grant-permission.png)
+
+> [!NOTE]
+> For guest users, this step needs to be done directly with Azure Data Lake because it can't be done directly through Azure Synapse.
+
 
 ## Next steps
 
