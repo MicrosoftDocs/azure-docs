@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/25/2022
+ms.date: 08/31/2022
 ms.author: alkohli
 ---
 
@@ -208,9 +208,12 @@ We strongly recommend that you do not disable checksum unless the performance is
 
 1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
-    ![Disable checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
+    ![Connect and copy settings](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Disable** checksum validation
+
+    ![Disable checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
+
 3. Select **Apply**.
 
 > [!NOTE]
@@ -226,7 +229,7 @@ To enable SMB signing in your Azure Device:
 
 1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
-    ![Open Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Open connect and copy settings](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Enable** SMB Signing.
 
@@ -246,7 +249,7 @@ To enable Backup Operator privileges in your Azure Device:
 
 1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
-   ![Open Data Box Settings - 1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Open connect and copy settings 1](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Enable** Backup Operator privileges.
 
@@ -269,7 +272,7 @@ To enable transfer of ACLs for Azure files:
 
 1. In the local web UI, go to **Connect and copy**. Select **Settings**. 
 
-    ![Open Data Box Settings -2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Open connect and copy settings 2](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Enable** ACLs for Azure files.
 
