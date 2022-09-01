@@ -3,7 +3,7 @@ title: Reservation discounts for Azure Backup storage
 description: This article explains about how reservation discounts are applied to Azure Backup storage.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 08/29/2022
+ms.date: 09/09/2022
 author: v-amallick
 ms.author: v-amallick
 ---
