@@ -55,11 +55,11 @@ Use the following steps to migrate your account from periodic backup to continuo
 
 2. Navigate to your Azure Cosmos DB account and open the **Backup & Restore** pane. Select **Backup Policies** tab and select on **change**. Once you choose the target continuous mode, select on **Save**.
 
-   :::image type="content" source="./media/migrate-continuous-backup/enable-backup-migration.png" alt-text="Migrate to continuous mode using Azure portal" lightbox="./media/migrate-continuous-backup/migrate-from-periodic-continuous.png":::
+   :::image type="content" source="./media/migrate-continuous-backup/migrate-from-periodic-continuous.png" alt-text="Migrate to continuous mode using Azure portal" lightbox="./media/migrate-continuous-backup/migrate-from-periodic-continuous.png":::
 
 3. When the migration is in progress, the popup shows **Updating Backup policy settings**. If you select that notification, you might see **Updating** on the account level and **Migrating** for Backup policy on overview of the account. After it’s complete, the backup policy would have switched to chosen tier of **Continuous** mode. Migration time depends on the size of data in your account.
 
-   :::image type="content" source="./media/migrate-continuous-backup/migration-status.png" alt-text="Check the status of migration from Azure portal" lightbox="./media/migrate-continuous-backup/migrate-result-periodic-continuous.png":::
+   :::image type="content" source="./media/migrate-continuous-backup/migrate-result-periodic-continuous.png" alt-text="Check the status of migration from Azure portal" lightbox="./media/migrate-continuous-backup/migrate-result-periodic-continuous.png":::
 
 ## <a id="powershell"></a>Migrate using PowerShell
 
@@ -185,7 +185,7 @@ You can switch between ``Continuous30Days`` and ``Continous7Days`` in Azure Powe
 
 In the portal for the given Cosmos DB account, choose **Point in Time Restore** pane, select on change link next to Backup policy mode to show you the option of Continuous (30 days) or  Continuous (7 days). Choose the required target and select on **Save**.
 
-:::image type="content" source="./media/migrate-continuous-backup/migrate-continuous-mode-tiers.png" lightbox="./media/migrate-continuous-backup/migrate-continuous-mode-tiers.png" alt-text="Migrate between tiers of continuous mode":::
+:::image type="content" source="./media/migrate-continuous-backup/migrate-continuous-mode-tiers.png" lightbox="./media/migrate-continuous-backup/migrate-continuous-mode-tiers.png" alt-text="Screenshot of dialog to select tier of continuous mode.":::
 
 The Following Azure CLI command illustrates switching an existing account to ``Continous7Days``:
 
