@@ -10,12 +10,12 @@ ms.author: v-amallick
 ---
 # Configure Multi-user authorization using Resource Guard in Azure Backup
 
-This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Recovery Services vaults and Backup vault (preview).
+
 
 
 ::: zone pivot="vaults-recovery-services-vault"
 
-The following sections describes how to configure and manage Multi-user authorization for Recovery Services vault.
+This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Recovery Services vaults.
 
 For this article, we'll demonstrate creation of the Resource Guard in a different tenant that offers maximum protection. In terms of requesting and approving requests for performing critical operations, this article demonstrates the same using [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
 
@@ -242,7 +242,7 @@ Disabling MUA is a protected operation, and hence, is protected using MUA. This 
 
 ::: zone pivot="vaults-backup-vault"
 
-The following sections describes how to configure and manage Multi-user authorization for Backup vault (preview).
+This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Backup vault (preview).
 
 >[!Note]
 >Multi-user authorization using Resource Guard for Backup vault is in preview.
@@ -353,7 +353,7 @@ Now that the Backup admin has the Reader role on the Resource Guard, they can en
       1. Select **Authenticate** to validate your identity and access.
       1. After authentication, choose the **Resource Guard** from the list displayed.
 
-      :::image type="content" source="./media/multi-user-authorization/test-backup-vault1-multi-user-authorization.png" alt-text="Screenshot showing multi-user authorization enabled on Backup vault.":::
+      :::image type="content" source="./media/multi-user-authorization/test-backup-vault-1-multi-user-authorization.png" alt-text="Screenshot showing multi-user authorization enabled on Backup vault.":::
 
 1. Select **Save** once done to enable MUA.
 
@@ -463,7 +463,7 @@ Once the Backup admin’s request for the Contributor role on the Resource Guard
 
 The following screenshot shows an example of disabling soft delete for an MUA-enabled vault.
 
-:::image type="content" source="./media/multi-user-authorization/disable-soft-delete-inline.png" alt-text="Screenshot showing to disable soft delete for an M U A enabled vault." lightbox="./media/multi-user-authorization/disable-soft-delete-expanded.png":::
+:::image type="content" source="./media/multi-user-authorization/disable-soft-delete-inline.png" alt-text="Screenshot showing to disable soft delete for an MUA enabled vault." lightbox="./media/multi-user-authorization/disable-soft-delete-expanded.png":::
 
 ## Disable MUA on a Backup vault
 

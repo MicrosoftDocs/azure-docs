@@ -59,7 +59,7 @@ Let’s consider the following two users for a clear understanding of the proces
 
 Following is a diagrammatic representation for performing a critical operation on a vault that has MUA configured using a Resource Guard.
 
-:::image type="content" source="./media/multi-user-authorization/configure-multi-user-authorization-using-resource-guard-diagram.png" alt-text="Diagrammatic representation on configuring M U A using a Resource Guard.":::
+:::image type="content" source="./media/multi-user-authorization/configure-multi-user-authorization-using-resource-guard-diagram.png" alt-text="Diagrammatic representation on configuring MUA using a Resource Guard.":::
  
 Here's the flow of events in a typical scenario:
 

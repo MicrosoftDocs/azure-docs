@@ -19,7 +19,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - September 2022
   - [Multi-user authorization using Resource Guard for Backup vault (in preview)](#multi-user-authorization-using-resource-guard-for-backup-vault-in-preview)
 - June 2022
-  - [Multi-user authorization using Resource Guard is now generally available](#multi-user-authorization-using-resource-guard-is-now-generally-available)
+  - [Multi-user authorization using Resource Guard for Recovery Services vault is now generally available](#multi-user-authorization-using-resource-guard-for-recovery-services-vault-is-now-generally-available)
 - May 2022
   - [Archive tier support for Azure Virtual Machines is now generally available](#archive-tier-support-for-azure-virtual-machines-is-now-generally-available)
 - February 2022
@@ -28,7 +28,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Back up Azure Database for PostgreSQL is now generally available](#back-up-azure-database-for-postgresql-is-now-generally-available)
 - October 2021
   - [Archive Tier support for SQL Server/ SAP HANA in Azure VM from Azure portal](#archive-tier-support-for-sql-server-sap-hana-in-azure-vm-from-azure-portal)
-  - [Multi-user authorization using Resource Guard (in preview)](#multi-user-authorization-using-resource-guard-in-preview)
+  - [Multi-user authorization using Resource Guard for Recovery Services vault (in preview)](#multi-user-authorization-using-resource-guard-for-recovery-services-vault-in-preview)
   - [Multiple backups per day for Azure Files (in preview)](#multiple-backups-per-day-for-azure-files-in-preview)
   - [Azure Backup Metrics and Metrics Alerts (in preview)](#azure-backup-metrics-and-metrics-alerts-in-preview)
 - July 2021
@@ -50,7 +50,7 @@ Azure Backup now supports multi-user authorization (MUA) that allows you to add 
 
 For more information, see the [overview of MUA for Backup vault](multi-user-authorization-concept.md?tab=backup-vault).
 
-## Multi-user authorization using Resource Guard is now generally available
+## Multi-user authorization using Resource Guard for Recovery Services vault is now generally available
  
 Azure Backup now supports multi-user authorization (MUA) that allows you to add an additional layer of protection to critical operations on your Recovery Services vaults. For MUA, Azure Backup uses the Azure resource, Resource Guard, to ensure critical operations are performed only with applicable authorization.
 
@@ -88,7 +88,7 @@ Also, the support is extended via Azure CLI for the above workloads, along with 
 
 For more information, see [Archive Tier support in Azure Backup](archive-tier-support.md).
 
-## Multi-user authorization using Resource Guard (in preview)
+## Multi-user authorization using Resource Guard for Recovery Services vault (in preview)
 
 Azure Backup now supports multi-user authorization (MUA) that allows you to add an additional layer of protection to critical operations on your Recovery Services vaults. For MUA, Azure Backup uses the Azure resource, Resource Guard, to ensure critical operations are performed only with applicable authorization.
 
