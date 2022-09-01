@@ -5,7 +5,7 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 09/01/2022
 zone_pivot_groups: programming-languages-set-twenty-eight
 ---
 
@@ -594,6 +594,9 @@ If you're using a multi-service resource or Language resource, you can perform t
 
 ## Next steps
 
-* [Best practices for using Azure Key Vault](/key-vault/general/best-practices)
-* [Cognitive Services security](cognitive-services-security.md)
-* [Azure security baseline for Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json)
+* See [What are Cognitive Services](./what-are-cognitive-services.md) for available features you can develop along with [Azure key vault](/key-vault/general).  
+* For additional information on secure application development, see:
+    * [Best practices for using Azure Key Vault](/key-vault/general/best-practices)
+    * [Cognitive Services security](cognitive-services-security.md)
+    * [Azure security baseline for Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json)
+    
