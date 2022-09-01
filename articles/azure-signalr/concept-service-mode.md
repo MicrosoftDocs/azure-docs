@@ -29,7 +29,7 @@ As the name implies, *Default* mode is the default service mode for SignalR Serv
 
 :::image type="content" source="media/concept-service-mode/default.png" alt-text="Application structure in Default mode":::
 
-Default mode is usually the right choice when you have an ASP.NET Core SignalR application that you want to use with SignalR Service.
+Default mode is usually the right choice when you have a SignalR application that you want to use with SignalR Service.
 
 ### Connection routing in Default mode
 
