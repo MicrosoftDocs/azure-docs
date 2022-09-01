@@ -65,7 +65,7 @@ Token acquisition and renewal are handled by the [Microsoft Authentication Libra
 
 > Prefer to download this sample's project instead? [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
-> To configure the code sample before you execute it, skip to the [registration step](#register-your-application).
+> To configure the code sample before you execute it, skip to the [registration step](#register-the-application).
 
 ## Create the project
 
