@@ -345,7 +345,7 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
         cd config
     ```
 
-1.	In this step, the *iotedge* device will be prepared in the *IotHub*. If the *iotedge* device does not exist in the *iothub*, it must be created. The command described in this step will configure the device to use modules developed in your solution. The corresponding configuration was created in the previous step and stored in the **config** folder. From your **config** folder, execute the following deployment command. Replace the `[device id]`, `[hub name]`, and `[file path]` with your values.
+1. Deploy the manifest for your IoT Edge device to IoT Hub. The command configures the device to use modules developed in your solution. The deployment manifest was created in the previous step and stored in the **config** folder. From your **config** folder, execute the following deployment command. Replace the `[device id]`, `[hub name]`, and `[file path]` with your values. If the IoT Edge device ID does not exist in the IoT Hub, it must be created.
 
     ```cmd
         az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
