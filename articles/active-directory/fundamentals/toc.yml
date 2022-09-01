@@ -19,8 +19,6 @@ items:
     href: active-directory-properties-area.md
   - name: Add company branding
     href: customize-branding.md
-  - name: Configure 'Stay signed in?'
-    href: keep-me-signed-in.md
 - name: Users, groups, and licenses
   expanded: false
   items:
