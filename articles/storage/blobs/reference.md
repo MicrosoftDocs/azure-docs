@@ -54,7 +54,7 @@ The following table lists reference information for Azure Storage management Jav
 
 |  Version  | Reference documentation | Package |
 | :-------: | ----------------------- | ------- |
-| 0.9.x | [com.microsoft.azure.management.storage](/java/api/overview/azure/storage/management) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-svc-mgmt-storage) |
+| 2.x.x | [com.azure.resourcemanager.storage](/java/api/overview/azure/resourcemanager-storage-readme?view=azure-java-stable) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-storage) |
 
 ## Python client libraries
 

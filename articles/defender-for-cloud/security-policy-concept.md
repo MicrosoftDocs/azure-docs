@@ -19,7 +19,7 @@ There are different types of policies in Azure Policy. Defender for Cloud mainly
 
 ## What is a security initiative?
 
-An Azure Policy initiative is a collection of Azure Policy definitions, or rules, that are grouped together towards a specific goal or purpose. Azure initiatives simplify management of your policies by grouping a set of policies together, logically, as a single item.
+A security initiative is a collection of Azure Policy definitions, or rules, that are grouped together towards a specific goal or purpose. Security initiatives simplify management of your policies by grouping a set of policies together, logically, as a single item.
 
 A security initiative defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators.
 
