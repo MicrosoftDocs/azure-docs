@@ -183,8 +183,8 @@ A *file* object is an update payload file, for example, binary, firmware, script
 |**filename**|`string`|Update payload file name.<br><br>Maximum length: 255 characters|Yes|
 |**sizeInBytes**|`number`|File size in number of bytes.<br><br>Maximum size: 2147483648 bytes|Yes|
 |**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. See below for details on how to calculate the hash. |Yes|
-|**relatedFiles**|`TBD`|Collection of related files to one or more of your primary payload files. |No|
-|**downloadHandler**|`TBD`|Specifies how to process any related files. |Yes only if using relatedFiles|
+|**relatedFiles**|`relatedFile[0-4]`|Collection of related files to one or more of your primary payload files. |No|
+|**downloadHandler**|`downloadHandler`|Specifies how to process any related files. |Yes only if using relatedFiles|
 
 Additional properties aren't allowed.
 
@@ -230,7 +230,7 @@ Collection of related files to one or more of your primary payload files.
 |**filename**|`string`|List of related files associated with a primary payload file.|Yes|
 |**sizeInBytes**|`number`|File size in number of bytes.<br><br>Maximum size: 2147483648 bytes|Yes|
 |**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. See below for details on how to calculate the hash. |Yes|
-|**properties**|`TBD` `[0-5]`|Limit of 5 key-value pairs, where key is limited to 64 ASCII characters and value is JObject (with up to 256 ASCII characters). |No|
+|**properties**|`relatedFilesProperties` `[0-5]`|Limit of 5 key-value pairs, where key is limited to 64 ASCII characters and value is JObject (with up to 256 ASCII characters). |No|
 
 Additional properties are allowed.
 
