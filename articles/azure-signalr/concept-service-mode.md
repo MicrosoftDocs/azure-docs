@@ -73,7 +73,7 @@ Classic mode doesn't support some new features such as upstream endpoints for Se
 
 ## Choose the right service mode
 
-Now you should understand the differences between service modes and know how to choose between them. As previously discussed, Classic mode isn't recommended for new or existing applications. Here are some more tips that can help you make the right choice for server mode and help you retire Classic mode for existing applications.
+Now you should understand the differences between service modes and know how to choose between them. As previously discussed, Classic mode isn't recommended for new or existing applications. Here are some more tips that can help you make the right choice for service mode and help you retire Classic mode for existing applications.
 
 * If you're already familiar with how SignalR library works and want to move from a self-hosted SignalR to use Azure SignalR Service, choose Default mode. Default mode works exactly the same way as self-hosted ASP.NET Core SignalR, and you can use the same programming model in SignalR library. SignalR Service acts as a proxy between clients and hub servers.
 
