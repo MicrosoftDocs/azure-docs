@@ -145,6 +145,10 @@ Developers using Visual Studio 2017 or later can authenticate an Azure Active Di
 
 To authenticate in Visual Studio, select **Tools** from the top navigation menu, and select **Options**. Navigate to the **Azure Service Authentication** option to sign in with your user name and password.
 
+## Authenticate using Azure CLI
+
+[!INCLUDE [key-vault-cli-authentication](includes/key-vault-cli-authentication.md)]
+
 ## Create a new C# application
 
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: `program.cs`.
