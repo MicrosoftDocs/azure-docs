@@ -677,6 +677,10 @@
     - name: Error codes
       displayName: pre-empt, preempt, spot, low priority, low-priority
       href: error-codes-spot.md
+    - name: Handle Spot Evictions
+      displayName: pre-empt, preempt, spot, low priority, low-priority
+      href: /azure/architecture/guide/spot/spot-eviction
+      maintainContext: true
   - name: Azure Hybrid Benefit
     items:
     - name: Linux
