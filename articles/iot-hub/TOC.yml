@@ -533,58 +533,75 @@
 - name: Reference
   items:
     - name: Azure CLI
-      displayName: 
+      displayName: reference commands, CRUD, az extension add, az iot hub
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
-      displayName:
+      displayName: Az.IotHub, commands, managing
       href: /powershell/module/az.iothub#iothub
     - name: .NET (Device)
-      displayName:
+      displayName: Microsoft.Azure.Devices.Client, namespace, classes, interfaces, enums, delegates
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (Service)
+      displayName: Microsoft.Azure.Devices, namespace, classes, interfaces, enums
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Management)
+      displayName: namespaces, Microsoft.Azure.Management.DeviceUpdate, Microsoft.Azure.Management.DeviceUpdate.Models, Microsoft.Azure.Management.IotHub, Microsoft.Azure.Management.IotHub.Models
       href: /dotnet/api/overview/azure/iot/management
     - name: Java (Device)
+      displayName: com.microsoft.azure.sdk.iot.device, classes, interfaces, enums
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)
+      displayName: com.microsoft.azure.sdk.iot.service, classes, enums
       href: /java/api/com.microsoft.azure.sdk.iot.service
     - name: Java (Management)
+      displayName: Azure Resource Manager, IotHub Management SDK, Java Development Kit (JDK), TokenCredential, HttpClient, token authentication,  API design
       href: /java/api/overview/azure/resourcemanager-iothub-readme
     - name: Node.js (Device)
+      displayName: azure-iot-device package, classes, interfaces, type aliases, functions, function details
       href: /javascript/api/azure-iot-device/
     - name: Node.js (Service)
+      displayName: azure-iothub package, classes, interfaces, type aliases, functions, function details
       href: /javascript/api/azure-iothub/
     - name: Node.js (Management)
+      displayName: JavaScript, npm, management package, samples
       href: /javascript/api/overview/azure/iot-hub
     - name: Python (Device)
+      displayName: azure-iot-device, package, Azure IoT Device Library, Azure IoT services
       href: /python/api/azure-iot-device
     - name: Python (Service)
+      displayName: azure-iot-hub, package, Azure IoTHub Service Library, Azure IoTHub services
       href: /python/api/azure-iot-hub
     - name: Python (Management)
+      displayName: azure-mgmt-iothub, package
       href: /python/api/azure-mgmt-iothub
     - name: C device SDK
+      displayName: maps, buffers, batch, transport protocols, HTTP, AMQP, serialization, ANSI C (C99)
       href: /azure/iot-hub/iot-c-sdk-ref/
     - name: REST (Device)
+      displayName: Abandon Device Bound Notification, Complete Device Bound Notification, Create File Upload Sas Uri, Get Device And Module In Scope, Get Devices And Modules In Scope, Receive Device Bound Notification, Send Device Event, Update File Upload Status
       href: /rest/api/iothub/device
     - name: REST (Service)
+      displayName: configuration, Apply On Edge Device, Create Or Update, Delete, Get, Get Configurations, Test Queries
       href: /rest/api/iothub/service/configuration
     - name: REST (IoT Hub Resource)
+      displayName: operations, Create Or Update, Get Endpoint Health, Get Job, Import Devices, List Jobs, Test All Routes, List By Subscription, Get Keys For Key Name, Get Quota Metrics
       href: /rest/api/iothub/iothubresource
     - name: REST (Certificates)
+      displayName: operations, Create Or Update, Delete, Generate Verification Code, Get, List By Iot Hub, Verify
       href: /rest/api/iothub/certificates
     - name: Resource Manager template
+      displayName: Microsoft.Devices, resource types, IotHubs/certificates, IotHubs/eventHubEndpoints/ConsumerGroups, IotHubs/privateEndpointConnections
       href: /azure/templates/microsoft.devices/iothub-allversions
     - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
+      displayName: samples, policies, definitions, IoT scenarios, encryption, service-managed keys, customer-managed keys, authentication, Azure Active Directory, private endpoint, Azure Private Link, public network access, resource logs
       href: ./policy-reference.md
     - name: Feature and API retirement
       items:
         - name: TLS 1.0 and 1.1 deprecation
-          displayName:
+          displayName: Transport Layer Security (TLS) 1.2, ciphers, cipher suites, TLS 1.2 enforcement 
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
         - name: Classic IP filter
-          displayName:
+          displayName: upgrade, built-in endpoint, IP addresses, IP ranges, networking, diagnostic logs, IP filter rule
           href: iot-hub-ip-filter-classic.md
 - name: Resources
   items:
