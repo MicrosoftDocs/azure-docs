@@ -117,5 +117,5 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 ## Next steps
 
 - [Create and manage instance types](./how-to-manage-kubernetes-instance-types.md)
-- [AzureML inference router and connectivity requirements](./how-to-kubernetes-inference-routing-azureml-fe.md.md)
+- [AzureML inference router and connectivity requirements](./how-to-kubernetes-inference-routing-azureml-fe.md)
 - [Secure AKS inferencing environment](./how-to-secure-kubernetes-inferencing-environment.md)

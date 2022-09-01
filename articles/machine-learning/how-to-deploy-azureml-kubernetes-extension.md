@@ -203,5 +203,5 @@ Update, list, show and delete an AzureML extension.
 
 - [Step 2: Attach Kubernetes cluster to workspace](how-to-attach-kubernetes-to-workspace.md)
 - [Create and manage instance types](./how-to-manage-kubernetes-instance-types.md)
-- [AzureML inference router and connectivity requirements](./how-to-kubernetes-inference-routing-azureml-fe.md.md)
+- [AzureML inference router and connectivity requirements](./how-to-kubernetes-inference-routing-azureml-fe.md)
 - [Secure AKS inferencing environment](./how-to-secure-kubernetes-inferencing-environment.md)
