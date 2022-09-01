@@ -7,12 +7,12 @@ ms.topic: how-to
 
 # Capture a browser trace for troubleshooting
 
-If you're troubleshooting an issue with the Azure portal, and you need to contact Microsoft support, you may want to first capture a browser trace and some additional information, such as a recording of the steps required to reproduce the issue. The information you collect can provide important details about the portal at the time the issue occurs.
-
-Follow the steps in this article for the developer tools in the [supported browser](azure-portal-supported-browsers-devices.md) that you use: Google Chrome, Microsoft Edge, Safari, or Firefox.
+If you're troubleshooting an issue with the Azure portal, and you need to contact Microsoft support, you may want to first capture some additional information. For example, it can be helpful to share a browser trace, a step recording, and console output. This information can provide important details about what exactly is happening in the portal when your issue occurs.
 
 > [!IMPORTANT]
 > Microsoft support uses these traces for troubleshooting purposes only. Please be mindful who you share your traces with, as they may contain sensitive information about your environment.
+
+You can capture this information any [supported browser](azure-portal-supported-browsers-devices.md): Google Chrome, Microsoft Edge, Safari (on Mac), or Firefox. Steps for each browser are shown below.
 
 ## Google Chrome and Microsoft Edge
 
@@ -22,7 +22,7 @@ Google Chrome and Microsoft Edge are both based on the [Chromium open source pro
 
 1. Start recording the steps you take in the portal, using [Steps Recorder](https://support.microsoft.com/windows/record-steps-to-reproduce-a-problem-46582a9b-620f-2e36-00c9-04e25d784e47).
 
-1. In the portal, navigate to the step just prior to where the issue occurs.
+1. In the portal, navigate to the step prior to where the issue occurs.
 
 1. Press F12 to launch the developer tools. You can also launch the tools from the toolbar menu under **More tools** > **Developer tools**.
 
@@ -76,7 +76,7 @@ The following steps show how to use the developer tools in Apple Safari on Mac. 
 
 1. Start recording the steps you take in the portal. For more information, see [How to record the screen on your Mac](https://support.apple.com/HT208721).
 
-1. In the portal, navigate to the step just prior to where the issue occurs.
+1. In the portal, navigate to the step prior to where the issue occurs.
 
 1. Select **Develop**, then select **Show Web Inspector**.
 
@@ -120,7 +120,7 @@ The following steps show how to use the developer tools in Firefox. For more inf
 
 1. Start recording the steps you take in the portal. Use [Steps Recorder](https://support.microsoft.com/windows/record-steps-to-reproduce-a-problem-46582a9b-620f-2e36-00c9-04e25d784e47) on Windows, or see [How to record the screen on your Mac](https://support.apple.com/HT208721).
 
-1. In the portal, navigate to the step just prior to where the issue occurs.
+1. In the portal, navigate to the step prior to where the issue occurs.
 
 1. Press F12 to launch the developer tools. You can also launch the tools from the toolbar menu under **More tools** > **Web developer tools**.
 
