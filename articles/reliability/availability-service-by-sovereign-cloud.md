@@ -16,8 +16,6 @@ Although availability of services across Azure regions depends on a region's typ
 
 Azure regional services are presented in the following tables by sovereign cloud. Note that some services are non-regional, which means that they're available globally regardless of region. Non-regional services are not mentioned in these tables. For information and a complete list of non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
-
-
 ## Legend
 
 Product support is represented by the following symbols:
