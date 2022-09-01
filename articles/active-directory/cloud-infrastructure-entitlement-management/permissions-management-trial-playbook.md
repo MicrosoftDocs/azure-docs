@@ -108,29 +108,29 @@ There are two facets to removing unused permissions: least privilege policy crea
     -   **My Requests**: Use this tab to manage lifecycle of the POD request either created by you or needs your approval.
     -   **Settings**: Use this subtab to select **Request Role/Policy Filters**, **Request Settings**, and **Auto-Approve** settings.
 
-**Actions to try:**
+    **Actions to try:**
 
-1. [View roles/policies and requests for permission](../cloud-infrastructure-entitlement-management/ui-remediation.md#view-and-create-rolespolicies)
+    1. [View roles/policies and requests for permission](../cloud-infrastructure-entitlement-management/ui-remediation.md#view-and-create-rolespolicies)
 
-1. [View information about roles/ policies](../cloud-infrastructure-entitlement-management/ui-remediation.md#view-and-create-rolespolicies)
+    1. [View information about roles/ policies](../cloud-infrastructure-entitlement-management/ui-remediation.md#view-and-create-rolespolicies)
 
-1. [View information about active and completed tasks](../cloud-infrastructure-entitlement-management/ui-tasks.md)
+    1. [View information about active and completed tasks](../cloud-infrastructure-entitlement-management/ui-tasks.md)
 
-1. [Create a role/policy](../cloud-infrastructure-entitlement-management/how-to-create-role-policy.md)
+    1. [Create a role/policy](../cloud-infrastructure-entitlement-management/how-to-create-role-policy.md)
 
-1. [Clone a role/policy](../cloud-infrastructure-entitlement-management/how-to-clone-role-policy.md)
+    1. [Clone a role/policy](../cloud-infrastructure-entitlement-management/how-to-clone-role-policy.md)
 
-1. [Modify a role/policy](../cloud-infrastructure-entitlement-management/how-to-modify-role-policy.md)
+    1. [Modify a role/policy](../cloud-infrastructure-entitlement-management/how-to-modify-role-policy.md)
 
-1. [Delete a role/policy](../cloud-infrastructure-entitlement-management/how-to-delete-role-policy.md)
+    1. [Delete a role/policy](../cloud-infrastructure-entitlement-management/how-to-delete-role-policy.md)
 
-1. [Attach and detach policies for Amazon Web Services (AWS) identities](../cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions.md)
+    1. [Attach and detach policies for Amazon Web Services (AWS) identities](../cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions.md)
 
-1. [Add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities](../cloud-infrastructure-entitlement-management/how-to-add-remove-role-task.md)
+    1. [Add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities](../cloud-infrastructure-entitlement-management/how-to-add-remove-role-task.md)
 
-1. [Revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities](../cloud-infrastructure-entitlement-management/how-to-revoke-task-readonly-status.md)
+    1. [Revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities](../cloud-infrastructure-entitlement-management/how-to-revoke-task-readonly-status.md)
 
-1. [Create or approve a request for permissions](../cloud-infrastructure-entitlement-management/how-to-create-approve-privilege-request.md) Request permissions on-demand for one-time use or on a schedule. These permissions will automatically be revoked at the end of the requested period.
+    1. [Create or approve a request for permissions](../cloud-infrastructure-entitlement-management/how-to-create-approve-privilege-request.md) Request permissions on-demand for one-time use or on a schedule. These permissions will automatically be revoked at the end of the requested period.
 
 **Best Practices for Remediation:**
 
@@ -143,13 +143,13 @@ There are two facets to removing unused permissions: least privilege policy crea
 -   **Requesting Delete Permissions:** No user will have delete permissions unless they request them and are approved.
 -   **Requesting Privileged Access:** High-privileged access is only granted through just-enough permissions and just-in-time access.
 -   **Requesting Periodic Access:** Schedule reoccurring daily, weekly, or monthly permissions that is time-bound and revoked at the end of period.
-1.  Manage users, roles and their access levels with the User management dashboard.
+2.  Manage users, roles and their access levels with the User management dashboard.
 
-**Actions to try:**
+    **Actions to try:**
 
-1. [Manage users](../cloud-infrastructure-entitlement-management/ui-user-management.md#manage-users)
-1. [Manage groups](../cloud-infrastructure-entitlement-management/ui-user-management.md#manage-groups)
-1. [Select group-based permissions settings](../cloud-infrastructure-entitlement-management/how-to-create-group-based-permissions.md)
+    1. [Manage users](../cloud-infrastructure-entitlement-management/ui-user-management.md#manage-users)
+    1. [Manage groups](../cloud-infrastructure-entitlement-management/ui-user-management.md#manage-groups)
+    1. [Select group-based permissions settings](../cloud-infrastructure-entitlement-management/how-to-create-group-based-permissions.md)
 
 ### Step 4: Monitor & alert
 
@@ -161,12 +161,12 @@ Prevent data breaches caused by misuse and malicious exploitation of permissions
 -   **New tab (+)**: Select the tab to add a **New Query** tab.
 -   **Saved Queries**: Select to view a list of saved queries.
 
-**Actions to try:**
+    **Actions to try:**
 
-1. [Use a query to view information](../cloud-infrastructure-entitlement-management/ui-audit-trail.md)
-2. [Create a custom query](../cloud-infrastructure-entitlement-management/how-to-create-custom-queries.md)
-3. [Generate an on-demand report from a query](../cloud-infrastructure-entitlement-management/how-to-audit-trail-results.md)
-4. [Filter and query user activity](../cloud-infrastructure-entitlement-management/product-audit-trail.md)
+    a. [Use a query to view information](../cloud-infrastructure-entitlement-management/ui-audit-trail.md)
+    b. [Create a custom query](../cloud-infrastructure-entitlement-management/how-to-create-custom-queries.md)
+    c. [Generate an on-demand report from a query](../cloud-infrastructure-entitlement-management/how-to-audit-trail-results.md) 
+    d. [Filter and query user activity](../cloud-infrastructure-entitlement-management/product-audit-trail.md)
 
 Use the **Activity triggers** dashboard to view information and set alerts and triggers. 
 
@@ -174,13 +174,13 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 
     Our customizable machine learning-powered anomaly and outlier detection alerts will notify you of any suspicious activity such as deviations in usage profiles or abnormal access times. Alerts can be used to alert on permissions usage, access to resources, indicators of compromise, insider threats, or to track previous incidents.
 
-**Actions to try**
+    **Actions to try**
 
-1. [View information about alerts and alert triggers](../cloud-infrastructure-entitlement-management/ui-triggers.md)
-2. [Create and view activity alerts and alert triggers](../cloud-infrastructure-entitlement-management/how-to-create-alert-trigger.md)
-3. [Create and view rule-based anomaly alerts and anomaly triggers](../cloud-infrastructure-entitlement-management/product-rule-based-anomalies.md)
-4. [Create and view statistical anomalies and anomaly triggers](../cloud-infrastructure-entitlement-management/product-statistical-anomalies.md)
-5. [Create and view permission analytics triggers](../cloud-infrastructure-entitlement-management/product-permission-analytics.md)
+    1. [View information about alerts and alert triggers](../cloud-infrastructure-entitlement-management/ui-triggers.md)
+    2. [Create and view activity alerts and alert triggers](../cloud-infrastructure-entitlement-management/how-to-create-alert-trigger.md)
+    3. [Create and view rule-based anomaly alerts and anomaly triggers](../cloud-infrastructure-entitlement-management/product-rule-based-anomalies.md)
+    4. [Create and view statistical anomalies and anomaly triggers](../cloud-infrastructure-entitlement-management/product-statistical-anomalies.md)
+    5. [Create and view permission analytics triggers](../cloud-infrastructure-entitlement-management/product-permission-analytics.md)
 
 **Best Practices for Custom Alerts:**
 
@@ -223,17 +223,12 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
     -   Identify over-permissioned access to later use the Remediation to pursue **Zero Trust and least privileges.**
 
 **Example of** [**Permissions Management Report**](https://microsoft.sharepoint.com/:v:/t/MicrosoftEntraPermissionsManagementAssets/EQWmUsMsdkZEnFVv-M9ZoagBd4B6JUQ2o7zRTupYrfxbGA)
-
-**Actions to try:**
-
-1. [View system reports in the Reports dashboard](../cloud-infrastructure-entitlement-management/product-reports.md)
-
-2. [View a list and description of system reports](../cloud-infrastructure-entitlement-management/all-reports.md)
-
-3. [Generate and view a system report](../cloud-infrastructure-entitlement-management/report-view-system-report.md)
-4. [Create, view, and share a custom report](../cloud-infrastructure-entitlement-management/report-create-custom-report.md)
-
-5. [Generate and download the Permissions analytics report](../cloud-infrastructure-entitlement-management/product-permissions-analytics-reports.md)
+    **Actions to try**
+        a. [View system reports in the Reports dashboard](../cloud-infrastructure-entitlement-management/product-reports.md)
+        b. [View a list and description of system reports](../cloud-infrastructure-entitlement-management/all-reports.md)
+        c. [Generate and view a system report](../cloud-infrastructure-entitlement-management/report-view-system-report.md)
+        d. [Create, view, and share a custom report](../cloud-infrastructure-entitlement-management/report-create-custom-report.md)
+        e. [Generate and download the Permissions analytics report](../cloud-infrastructure-entitlement-management/product-permissions-analytics-reports.md)
 
 **Key Reports to Monitor:**
 
