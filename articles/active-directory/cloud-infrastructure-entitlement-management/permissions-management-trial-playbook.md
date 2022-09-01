@@ -234,7 +234,7 @@ Prevent data breaches caused by misuse and malicious exploitation of permissions
 
 ### Additional Resources
 
-**Microsoft Docs**: [Visit Docs](../cloud-infrastructure-entitlement-management).
+**Microsoft Docs**: [Visit Docs](../cloud-infrastructure-entitlement-management.md).
 
 **Datasheet:** <https://aka.ms/PermissionsManagementDataSheet>
 
