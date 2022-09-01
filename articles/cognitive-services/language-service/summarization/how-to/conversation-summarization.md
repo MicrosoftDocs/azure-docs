@@ -46,7 +46,7 @@ You can use conversation summarization to get summaries from 2-person chats betw
 
 ### Get summaries from speech transcriptions 
 
-Conversation summarization also enables you to get summaries from speech transcripts by using the [Speech service's speech-to-text feature](../../../Speech-Service/call-center-transcription.md). The following example shows a short conversation that you might include in your API requests.
+Conversation summarization also enables you to get summaries from speech transcripts by using the [Speech service's speech-to-text feature](../../../Speech-Service/call-center-overview.md). The following example shows a short conversation that you might include in your API requests.
 
 ```json
 "conversations":[
