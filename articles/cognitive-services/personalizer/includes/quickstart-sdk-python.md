@@ -67,7 +67,7 @@ endpoint = "<paste-your-personalizer-endpoint-here>"
 
 The client is a [PersonalizerClient](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.personalizer_client.personalizerclient) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials containing your key.
 
-To request the best action from Personalizer, create a [RankRequest](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankrequest) containing the set of [RankableActions](python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankableaction) that Personalizer will choose from, and a set of context features. The RankRequest will be passed to the client.Rank method, which returns a RankResponse containing an event ID.
+To request the best action from Personalizer, create a [RankRequest](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankrequest) containing the set of [RankableActions](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankableaction) that Personalizer will choose from, and a set of context features. The RankRequest will be passed to the client.Rank method, which returns a RankResponse containing an event ID.
 
 To send a reward score to Personalizer, use the [Reward](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.operations.events_operations.eventsoperations) method in the EventOperations class and include the event ID corresponding to the Rank call that returned the best action, and the reward score.
 
@@ -193,7 +193,7 @@ A Personalizer event cycle consists of [Rank](#request-the-best-action) and [Rew
 
 ### Request the best action
 
-In a Rank call, you need to provide at least two arguments: a list of `RankActions` (_actions and their features_), and a list of (_context_) features. The response will include the `reward_action_id`, which is the ID of the action Personalizer has determined is best for the given context. The response also includes the `event_id`, which is needed in the Reward API so Personalize knows how to link the data from the Reward and Rank calls. You can refer to the [Rank API docs](https://docs.microsoft.com/rest/api/personalizer/1.0/rank/rank?tabs=HTTP) for more details.
+In a Rank call, you need to provide at least two arguments: a list of `RankActions` (_actions and their features_), and a list of (_context_) features. The response will include the `reward_action_id`, which is the ID of the action Personalizer has determined is best for the given context. The response also includes the `event_id`, which is needed in the Reward API so Personalize knows how to link the data from the Reward and Rank calls. You can refer to the [Rank API docs](https://docs.microsoft.com/rest/api/personalizer/1.0/rank/rank) for more details.
 
 
 ### Send a reward
