@@ -275,7 +275,7 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
 
 1. Verify you're using the latest version of the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
 2. Edit the `ApplicationInsights.config` file
-    * Verify that the connection string points to the Application Insights resource you are using
+    * Verify that the connection string points to the Application Insights resource you're using
     * Locate the `QuickPulseTelemetryModule` configuration option; if it isn't there, add it
     * Locate the `QuickPulseTelemetryProcessor` configuration option; if it isn't there, add it
      
