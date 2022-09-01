@@ -183,17 +183,17 @@ To use the centralized configurations, you must bind the app to Application Conf
 
 1. Select **Apps**, then select the [pattern(s)](./how-to-enterprise-application-configuration-service.md#pattern) to be used by the apps.
 
-   a. In the left navigation menu, select **Apps** to view the list all the apps.
+   1. In the left navigation menu, select **Apps** to view the list all the apps.
 
-   b. Select the target app to configure patterns for from the `name` column.
+   1. Select the target app to configure patterns for from the `name` column.
 
-   c. In the left navigation pane, select **Configuration**, then select **General settings**.
+   1. In the left navigation pane, select **Configuration**, then select **General settings**.
 
-   d. In the **Config file patterns** dropdown, choose one or more patterns from the list.
+   1. In the **Config file patterns** dropdown, choose one or more patterns from the list.
 
       :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the pattern selection screen.":::
 
-   e. Select **Save**
+   1. Select **Save**
 
 ## Use Application Configuration Service for Tanzu with applications using the CLI
 
