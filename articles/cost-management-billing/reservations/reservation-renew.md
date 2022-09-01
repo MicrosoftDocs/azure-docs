@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 08/29/2022
 ms.author: banders
 ---
 
@@ -45,7 +45,7 @@ The following conditions are required to renew a reservation:
 
 By default, the renewal inherits all properties except automatic renewal setting from the expiring reservation. A reservation renewal purchase has the same SKU, region, scope, billing subscription, term, and quantity.
 
-However, you can update the renewal reservation purchase quantity to optimize your savings.
+However, you can update the renewal reservation purchase quantity, billing frequency, and commitment term to optimize your savings.
 
 ## When the new reservation is purchased
 
@@ -87,6 +87,8 @@ Emails are sent to different people depending on your purchase method:
 - EA customers - Emails are sent to the notification contacts set on the EA portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
 - Individual subscription customers with pay-as-you-go rates - Emails are sent to users who are set up as account administrators.
 - Cloud Solution Provider customers - Emails are sent to the partner notification contact. This notification isn't currently supported for Microsoft Customer Agreement subscriptions (CSP Azure Plan subscription).
+
+Renewal notifications are not sent to any Microsoft Customer Agreement (Azure Plan) users.
 
 ## Next steps
 - To learn more about Azure Reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)

@@ -41,7 +41,7 @@ NODEPOOL_ID=$(az aks nodepool show --name nodepool1 --cluster-name myAKSCluster 
 Now, to take a snapshot from the previous node pool you'll use the `az aks snapshot` CLI command.
 
 ```azurecli-interactive
-az aks snapshot create --name MySnapshot --resource-group MyResourceGroup --nodepool-id $NODEPOOL_ID --location eastus
+az aks nodepool snapshot create --name MySnapshot --resource-group MyResourceGroup --nodepool-id $NODEPOOL_ID --location eastus
 ```
 
 ## Create a node pool from a snapshot

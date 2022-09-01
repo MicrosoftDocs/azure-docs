@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/10/2022
+ms.date: 07/08/2022
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) compute and storage
@@ -24,13 +24,13 @@ the Postgres server logs.
 
 ## Standard tier
  
-| Resource              | Worker node           | Coordinator node      |
-|-----------------------|-----------------------|-----------------------|
-| Compute, vCores       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
-| Memory per vCore, GiB | 8                     | 4                     |
-| Storage size, TiB     | 0.5, 1, 2             | 0.5, 1, 2             |
-| Storage type          | General purpose (SSD) | General purpose (SSD) |
-| IOPS                  | Up to 3 IOPS/GiB      | Up to 3 IOPS/GiB      |
+| Resource              | Worker node                    | Coordinator node         |
+|-----------------------|--------------------------------|--------------------------|
+| Compute, vCores       | 4, 8, 16, 32, 64, 96, 104      | 4, 8, 16, 32, 64, 96     |
+| Memory per vCore, GiB | 8                              | 4                        |
+| Storage size, TiB     | 0.5, 1, 2                      | 0.5, 1, 2                |
+| Storage type          | General purpose (SSD)          | General purpose (SSD)    |
+| IOPS                  | Up to 3 IOPS/GiB               | Up to 3 IOPS/GiB         |
 
 The total amount of RAM in a single Hyperscale (Citus) node is based on the
 selected number of vCores.
@@ -41,7 +41,9 @@ selected number of vCores.
 | 8      | 64                       | 32                        |
 | 16     | 128                      | 64                        |
 | 32     | 256                      | 128                       |
-| 64     | 432                      | 256                       |
+| 64     | 432 or 512               | 256                       |
+| 96     | 672                      | 384                       |
+| 104    | 672                      | n/a                       |
 
 The total amount of storage you provision also defines the I/O capacity
 available to each worker and coordinator node.

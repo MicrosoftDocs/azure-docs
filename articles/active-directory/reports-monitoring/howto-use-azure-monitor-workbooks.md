@@ -3,7 +3,7 @@ title: Azure Monitor workbooks for reports | Microsoft Docs
 description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
 services: active-directory
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/10/2022
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: sarbar
 ---
@@ -94,7 +94,7 @@ When working with workbooks, you can either start with an empty workbook, or use
 
 There are:
 
-- **Public templates** published to a [gallery](../../azure-monitor/visualize/workbooks-overview.md#gallery) that serve as a good starting point when you are just getting started with workbooks.
+- **Public templates** published to a [gallery](../../azure-monitor/visualize/workbooks-overview.md#the-gallery) that serve as a good starting point when you are just getting started with workbooks.
 - **Private templates** when you start building your own workbooks and want to save one as a template to serve as the foundation for multiple workbooks in your tenant.
 
 

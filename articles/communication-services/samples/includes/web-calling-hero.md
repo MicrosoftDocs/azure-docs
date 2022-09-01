@@ -64,9 +64,21 @@ Below you'll find more information on prerequisites and steps to set up the samp
    git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
    ```
    
-1. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
+1. Get the `Connection String` from the Azure portal or by using the Azure CLI. 
+
+    ```azurecli-interactive
+    az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>"
+    ```
+
+   For more information on connection strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
 1. Once you get the `Connection String`, add the connection string to the **samples/Server/appsetting.json** file. Input your connection string in the variable: `ResourceConnectionString`.
-1. Get the `Endpoint string` from the Azure portal. For more information on Endpoint strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
+1. Get the `Endpoint string` from the Azure portal or by using the Azure CLI. 
+
+    ```azurecli-interactive
+    az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>"
+    ```
+
+   For more information on Endpoint strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
 1. Once you get the `Endpoint String`, add the endpoint string to the **samples/Server/appsetting.json** file. Input your endpoint string in the variable `EndpointUrl`
 
 ## Local run

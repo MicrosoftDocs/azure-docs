@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an AKS cluster by using Azure CLI'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: quickstart
-ms.date: 04/29/2022
+ms.date: 06/28/2022
 ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
@@ -27,19 +27,19 @@ To learn more about creating a Windows Server node pool, see [Create an AKS clus
 
 - This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
-[Az account](/cli/azure/account) command.
+[az account][az-account] command.
 
-- Verify *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* are registered on your subscription. To check the registration status:
+- Verify *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* providers are registered on your subscription. These are Azure resource providers required to support [Container insights][azure-monitor-containers]. To check the registration status, run the following commands:
 
     ```azurecli
     az provider show -n Microsoft.OperationsManagement -o table
     az provider show -n Microsoft.OperationalInsights -o table
     ```
 
-    If they are not registered, register *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* using:
+    If they are not registered, register *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* using the following commands:
 
     ```azurecli
     az provider register --namespace Microsoft.OperationsManagement
@@ -51,7 +51,7 @@ To learn more about creating a Windows Server node pool, see [Create an AKS clus
 
 ## Create a resource group
 
-An [Azure resource group](../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are prompted to specify a location. This location is:
+An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are prompted to specify a location. This location is:
 
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
@@ -81,10 +81,10 @@ The following output example resembles successful creation of the resource group
 
 ## Create AKS cluster
 
-Create an AKS cluster using the [az aks create][az-aks-create] command with the *--enable-addons monitoring* parameter to enable [Container insights][azure-monitor-containers]. The following example creates a cluster named *myAKSCluster* with one node:
+Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-addons monitoring` and `--enable-msi-auth-for-monitoring` parameter to enable [Azure Monitor Container insights][azure-monitor-containers] with managed identity authentication (preview). The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
+az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring  --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -102,9 +102,10 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     az aks install-cli
     ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command:  
-      * Downloads credentials and configures the Kubernetes CLI to use them.
-      * Uses `~/.kube/config`, the default location for the [Kubernetes configuration file][kubeconfig-file]. Specify a different location for your Kubernetes configuration file using *--file* argument.
+2. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command:
+
+    * Downloads credentials and configures the Kubernetes CLI to use them.
+    * Uses `~/.kube/config`, the default location for the [Kubernetes configuration file][kubeconfig-file]. Specify a different location for your Kubernetes configuration file using *--file* argument.
 
     ```azurecli-interactive
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -137,9 +138,9 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 * An internal service for the Redis instance.
 * An external service to access the Azure Vote application from the internet.
 
-1. Create a file named `azure-vote.yaml`.
-    * If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system
-1. Copy in the following YAML definition:
+1. Create a file named `azure-vote.yaml` and copy in the following manifest.
+
+    * If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system.
 
     ```yaml
     apiVersion: apps/v1
@@ -246,7 +247,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 
 ## Test the application
 
-When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
+When the application runs, a Kubernetes service exposes the application front-end to the internet. This process can take a few minutes to complete.
 
 Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
@@ -303,7 +304,10 @@ This quickstart is for introductory purposes. For guidance on a creating full so
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
+[aks-identity-concepts]: ../concepts-identity.md
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
+[azure-resource-group]: ../../azure-resource-manager/management/overview.md
+[az-account]: /cli/azure/account
 [az-aks-browse]: /cli/azure/aks#az-aks-browse
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials

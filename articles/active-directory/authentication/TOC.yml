@@ -170,7 +170,7 @@
     href: how-to-mfa-additional-context.md
   - name: Use Microsoft managed settings 
     href: how-to-mfa-microsoft-managed.md
-  - name: Use a Temporary Access Pass (Preview)
+  - name: Use a Temporary Access Pass
     href: howto-authentication-temporary-access-pass.md
   - name: Use SMS-based authentication
     href: howto-authentication-sms-signin.md
@@ -230,6 +230,8 @@
         href: how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md
       - name: Migrate to Azure MFA with Federation
         href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md    
+      - name: Migration Utility
+        href: how-to-mfa-server-migration-utility.md    
     - name: Deploy MFA on-premises
       href: howto-mfaserver-deploy.md
     - name: Install the user portal

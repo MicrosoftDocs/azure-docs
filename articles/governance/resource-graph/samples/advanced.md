@@ -1,8 +1,10 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 10/01/2021
+ms.date: 06/15/2022
 ms.topic: sample
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Advanced Resource Graph query samples
 

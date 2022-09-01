@@ -118,7 +118,7 @@ Once your environment is set up, use the VS Code debugger to test and debug your
     - To debug startup behavior, place your breakpoint(s) inside the `init` function.
     - To debug scoring behavior, place your breakpoint(s) inside the `run` function.
 
-1. Select the VS Code Run view.
+1. Select the VS Code Job view.
 1. In the Run and Debug dropdown, select **Azure ML: Debug Local Endpoint** to start debugging your endpoint locally.
 
     In the **Breakpoints** section of the Run view, check that:

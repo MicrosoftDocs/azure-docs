@@ -28,7 +28,7 @@ In this article, learn about the network communication requirements when securin
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
 > * For securing inference, see the following documents:
->     * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+>     * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
 >     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
@@ -123,7 +123,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 | __\*.kusto.windows.net__<br>__\*.table.core.windows.net__<br>__\*.queue.core.windows.net__ | https:443 | Required to upload system logs to Kusto. |**&check;**|**&check;**|
 | __\*.azurecr.io__ | https:443 | Azure container registry, required to pull docker images used for machine learning workloads.|**&check;**|**&check;**|
 | __\*.blob.core.windows.net__ | https:443 | Azure blob storage, required to fetch machine learning project scripts,data or models, and upload job logs/outputs.|**&check;**|**&check;**|
-| __\*.workspace.\<region\>.api.azureml.ms__<br>__\<region\>.experiments.azureml.net__<br>__\<region\>.api.azureml.ms__ | https:443 | Azure mahince learning service API.|**&check;**|**&check;**|
+| __\*.workspace.\<region\>.api.azureml.ms__<br>__\<region\>.experiments.azureml.net__<br>__\<region\>.api.azureml.ms__ | https:443 | Azure Machine Learning service API.|**&check;**|**&check;**|
 | __pypi.org__ | https:443 | Python package index, to install pip packages used for training job environment initialization.|**&check;**|N/A|
 | __archive.ubuntu.com__<br>__security.ubuntu.com__<br>__ppa.launchpad.net__ | http:80 | Required to download the necessary security patches. |**&check;**|N/A|
 
@@ -259,6 +259,11 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Integrated notebook | \<storage\>.blob.core.windows.net | TCP | 443 |
 | Integrated notebook | graph.microsoft.com | TCP | 443 |
 | Integrated notebook | \*.aznbcontent.net | TCP | 443 |
+| AutoML NLP | automlresources-prod.azureedge.net | TCP | 443 |
+| AutoML NLP | aka.ms | TCP | 443 |
+
+> [!NOTE]
+> AutoML NLP is currently only supported in Azure public regions.
 
 # [Azure Government](#tab/gov)
 
@@ -334,7 +339,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Compute cluster/instance | graph.chinacloudapi.cn | TCP | 443 |
 | Compute instance |  \*.instances.azureml.cn | TCP | 443 |
 | Compute instance | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
-| Microsoft storage access | \*blob.core.chinacloudapi.cn | TCP | 443 |
+| Microsoft storage access | \*.blob.core.chinacloudapi.cn | TCP | 443 |
 | Microsoft storage access | \*.table.core.chinacloudapi.cn | TCP | 443 |
 | Microsoft storage access | \*.queue.core.chinacloudapi.cn | TCP | 443 |
 | Your storage account | \<storage\>.file.core.chinacloudapi.cn | TCP | 443, 445 |
@@ -419,7 +424,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
 * For securing inference, see the following documents:
-    * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+    * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)

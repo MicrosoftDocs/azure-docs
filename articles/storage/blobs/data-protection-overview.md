@@ -3,12 +3,12 @@ title: Data protection overview
 titleSuffix: Azure Storage
 description: The data protection options available for your for Blob Storage and Azure Data Lake Storage Gen2 data enable you to protect your data from being deleted or overwritten. If you should need to recover data that has been deleted or overwritten, this guide can help you to choose the recovery option that's best for your scenario.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.date: 10/26/2021
 ms.topic: conceptual
-ms.author: tamram
+ms.author: normesta
 ms.reviewer: prishet
 ms.subservice: common
 ---

@@ -20,7 +20,7 @@ This article describes how to review, plan, and convert your current workbooks t
 
 - **Discover dashboards**. Gather information about your dashboards, including design, parameters, data sources, and other details. Identify the purpose or usage of each dashboard.
 - **Select**. Don’t migrate all dashboards without consideration. Focus on dashboards that are critical and used regularly.
-- **Consider permissions**. Consider who are the target users for workbooks. Microsoft Sentinel uses Azure Workbooks, and [access is controlled](../azure-monitor/visualize/workbooks-access-control.md) using Azure Role Based Access Control (RBAC). To create dashboards outside Azure, for example for business execs without Azure access, using a reporting tool such as Power BI.
+- **Consider permissions**. Consider who are the target users for workbooks. Microsoft Sentinel uses Azure Workbooks, and [access is controlled](../azure-monitor/visualize/workbooks-overview.md#access-control) using Azure Role Based Access Control (RBAC). To create dashboards outside Azure, for example for business execs without Azure access, using a reporting tool such as Power BI.
 
 ## Prepare for the dashboard conversion
 

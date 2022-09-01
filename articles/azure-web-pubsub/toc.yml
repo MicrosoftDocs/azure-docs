@@ -18,6 +18,8 @@
       href: howto-develop-create-instance.md
     - name: The Azure CLI
       href: quickstart-cli-create.md
+    - name: By using a Bicep template
+      href: quickstart-bicep-template.md
   - name: Connect to the instance
     expanded: true
     items:
@@ -94,6 +96,8 @@
           href: howto-authorize-from-application.md
         - name: Authorize from managed identities
           href: howto-authorize-from-managed-identity.md
+    - name: Custom domain
+      href: howto-custom-domain.md
   - name: Troubleshooting
     items:
     - name: Debug event handlers locally
@@ -104,6 +108,10 @@
       href: howto-troubleshoot-resource-logs.md
   - name: Move across regions
     href: howto-move-across-regions.md
+  - name: Scale
+    items:
+    - name: Autoscale
+      href: howto-scale-autoscale.md
 
 - name: Concepts
   expanded: true
@@ -116,6 +124,8 @@
     items:
     - name: Resiliency and disaster recovery
       href: concept-disaster-recovery.md
+    - name: Availability zones
+      href: concept-availability-zones.md
   - name: Performance considerations
     href: concept-performance.md
   - name: Billing model
@@ -156,7 +166,10 @@
       href: reference-server-sdk-python.md
   - name: Control plane
     href: /rest/api/webpubsub/
-
+  - name: Azure CLI
+    href: /cli/azure/webpubsub
+  - name: Web PubSub client specification
+    href: reference-client-specification.md
 - name: Resources
   items:
   - name: Samples

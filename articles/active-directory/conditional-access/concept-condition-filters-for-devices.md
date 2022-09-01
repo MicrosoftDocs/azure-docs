@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/28/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Filter for devices
 
-When creating Conditional Access policies, administrators have asked for the ability to target or exclude specific devices in their environment. The condition filter for devices give administrators this capability. Now you can target specific devices using [supported operators and properties for device filters](#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
+When creating Conditional Access policies, administrators have asked for the ability to target or exclude specific devices in their environment. The condition filter for devices gives administrators this capability. Now you can target specific devices using [supported operators and properties for device filters](#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
 
 :::image type="content" source="media/concept-condition-filters-for-devices/create-filter-for-devices-condition.png" alt-text="Creating a filter for device in Conditional Access policy conditions":::
 
@@ -31,7 +31,7 @@ There are multiple scenarios that organizations can now enable using filter for 
    - Policy 2: Select users and groups and include group that contains service accounts only, accessing all cloud apps, excluding a filter for devices using rule expression device.extensionAttribute2 not equals TeamsPhoneDevice and for Access controls, Block.
 
 > [!NOTE] 
-> Azure AD uses device authentication to evaluate device filter rules. For devices that are unregistered with Azure AD, all device properties are considered as null values.
+> Azure AD uses device authentication to evaluate device filter rules. For a device that is unregistered with Azure AD, all device properties are considered as null values and the device attributes cannot be determined since the device does not exist in the directory. The best way to target policies for unregistered devices is by using the negative operator since the configured filter rule would apply. If you were to use a positive operator, the filter rule would only apply when a device exists in the directory and the configured rule matches the attribute on the device. 
 
 ## Create a Conditional Access policy
 
@@ -48,7 +48,7 @@ Policy 1: All users with the directory role of Global administrator, accessing t
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**..
    1. Under **Include**, select **Directory roles** and choose **Global administrator**.
    
       > [!WARNING]
@@ -65,7 +65,7 @@ Policy 2: All users with the directory role of Global administrator, accessing t
 
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**..
    1. Under **Include**, select **Directory roles** and choose **Global administrator**.
    
       > [!WARNING]

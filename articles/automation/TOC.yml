@@ -15,7 +15,7 @@
 - name: Quickstarts
   items:
     - name: Create Automation account - Azure portal
-      href: quickstarts/create-account-portal.md
+      href: quickstarts/create-azure-automation-account-portal.md
     - name: Enable managed identities - Azure portal
       href: quickstarts/enable-managed-identity.md
     - name: Enable Desired State Configuration for a machine

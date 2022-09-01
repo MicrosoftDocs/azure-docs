@@ -92,7 +92,7 @@ Overall, the lower layer deployment file is similar to the top layer deployment 
                 "modules": {
                     "connected-registry": {
                         "settings": {
-                            "image": "$upstream:8000/acr/connected-registry:0.5.0",
+                            "image": "$upstream:8000/acr/connected-registry:0.7.0",
                             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/home/azureuser/connected-registry:/var/acr/data\"]}}"
                         },
                         "type": "docker",

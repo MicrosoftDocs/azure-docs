@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 08/31/2022
 ---
 
 # Resource types that extend capabilities of other resources
@@ -13,6 +13,7 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * advisorScore
 * configurations
+* predict
 * recommendations
 * suppressions
 
@@ -97,6 +98,10 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * serviceAssociationLinks
 
+## Microsoft.ContainerService
+
+* fleetMemberships
+
 ## Microsoft.CostManagement
 
 * Alerts
@@ -107,6 +112,7 @@ An extension resource is a resource that adds to another resource's capabilities
 * Exports
 * ExternalSubscriptions
 * Forecast
+* GenerateCostDetailsReport
 * GenerateDetailedCostReport
 * Insights
 * Pricesheets
@@ -188,9 +194,18 @@ An extension resource is a resource that adds to another resource's capabilities
 * registrationAssignments
 * registrationDefinitions
 
+## Microsoft.Management
+
+* managementGroups
+
 ## Microsoft.Network
 
+* cloudServiceSlots
 * networkManagerConnections
+
+## Microsoft.OperationalInsights
+
+* storageInsightConfigs
 
 ## Microsoft.PolicyInsights
 
@@ -227,10 +242,12 @@ An extension resource is a resource that adds to another resource's capabilities
 * adaptiveNetworkHardenings
 * advancedThreatProtectionSettings
 * antiMalwareSettings
+* applications
 * assessmentMetadata
 * assessments
 * Compliances
 * dataCollectionAgents
+* dataSensitivitySettings
 * deviceSecurityGroups
 * governanceRules
 * InformationProtectionPolicies
@@ -255,11 +272,13 @@ An extension resource is a resource that adds to another resource's capabilities
 * entities
 * entityQueryTemplates
 * fileImports
+* huntsessions
 * incidents
 * metadata
 * MitreCoverageRecords
 * onboardingStates
 * overview
+* recommendations
 * securityMLAnalyticsSettings
 * settings
 * sourceControls
@@ -280,6 +299,7 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Subscription
 
+* aliases
 * policies
 
 ## microsoft.support

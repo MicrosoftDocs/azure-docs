@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Enable or disable the controller after onboarding is complete
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This article describes how to enable or disable the controller in Microsoft Azure and Google Cloud Platform (GCP) after onboarding is complete.
 
 This article also describes how to enable the controller in Amazon Web Services (AWS) if you disabled it during onboarding. You can only enable the controller in AWS at this time; you can't disable it.

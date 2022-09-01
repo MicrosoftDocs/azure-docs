@@ -122,7 +122,7 @@ Click on a severity row to see alerts details. The **Alert rule** link takes you
 
 To begin customizing a workbook, first enter editing mode. Select the **Edit** button in the menu bar of the workbook. Curated workbooks make extensive use of workbook groups. You may need to select **Edit** on several nested groups before being able to view a visualization query.
 
-Save your changes as a new workbook. You can [share](../azure-monitor/visualize/workbooks-access-control.md) the saved workbook with your team or [deploy them programmatically](../azure-monitor/visualize/workbooks-automate.md) as part of your organization's resource deployments.
+Save your changes as a new workbook. You can [share](../azure-monitor/visualize/workbooks-overview.md#access-control) the saved workbook with your team or [deploy them programmatically](../azure-monitor/visualize/workbooks-automate.md) as part of your organization's resource deployments.
 
 
 ## Next steps

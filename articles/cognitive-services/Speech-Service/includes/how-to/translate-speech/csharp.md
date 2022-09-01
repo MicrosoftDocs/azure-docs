@@ -11,29 +11,6 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the Speech SDK. Depending on your platform, follow the instructions in the <a href="/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK </a> section of the _About the Speech SDK_ article.
-
-### Import dependencies
-
-To run the examples in this article, include the following `using` statements at the top of the *Program.cs* file:
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Audio;
-using Microsoft.CognitiveServices.Speech.Translation;
-```
-
 ## Sensitive data and environment variables
 
 The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource's subscription key and region. The `Program` class contains two `static readonly string` values that are assigned from the host machine's environment variables: `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, so they're accessible within method bodies of the class: 
@@ -51,7 +28,7 @@ public class Program
 }
 ```
 
-For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables.md).
 
 ## Create a speech translation configuration
 
@@ -103,7 +80,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-The `SpeechRecognitionLanguage` property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The `SpeechRecognitionLanguage` property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Add a translation language
 
@@ -350,7 +327,7 @@ public static async Task MultiLingualTranslation()
     var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
     var endpointUrl = new Uri(endpointString);
     
-    var config = SpeechConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
+    var config = SpeechTranslationConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
 
     // Source language is required, but is currently NoOp 
     string fromLanguage = "en-US";

@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Create and view statistical anomalies and anomaly triggers
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 Statistical anomalies can detect outliers in an identity's behavior if recent activity is determined to be unusual based on models defined in an activity trigger. The goal of this anomaly trigger is a high recall rate.
 
 ## View statistical anomalies in an identity's behavior

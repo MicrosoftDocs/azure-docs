@@ -34,7 +34,7 @@ If you rely on ExpressRoute connectivity between your on-premises network and Mi
 - using diverse service provider network(s) for different ExpressRoute circuit
 - designing each of the ExpressRoute circuit for [high availability][HA]
 - terminating the different ExpressRoute circuit in different location on the customer network
-- using [Availability zone aware ExpressRoute Virtual Network Gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways)
+- using [Availability zone aware ExpressRoute Virtual Network Gateways](../vpn-gateway/about-zone-redundant-vnet-gateways.md)
 
 ## Challenges of using multiple ExpressRoute circuits
 

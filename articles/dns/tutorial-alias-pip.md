@@ -5,7 +5,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 06/10/2022
+ms.date: 06/20/2022
 ms.author: rohink
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to an Azure public IP address.
@@ -100,7 +100,7 @@ Create a Windows Server 2019 virtual machine.
     | **Administrator account** |            |
     | Username | Enter a username. |
     | Password | Enter a password. |
-    | Confirm password    | Reenter password. |
+    | Confirm password    | Reenter the password. |
     | **Inbound port rules**  |   |
     | Public inbound ports | Select **None**. |
 
@@ -136,16 +136,16 @@ Install IIS web server on **Web-01**.
 1. Open *Web-01.rdp*, and select **Connect**.
 1. Enter the username and password entered during virtual machine creation.
 1. On the **Server Manager** dashboard, select **Manage** then **Add Roles and Features**.
-1. Select **Server Roles** or select **Next** three times. On the **Server Roles** page, select **Web Server (IIS)**.
+1. Select **Server Roles** or select **Next** three times. On the **Server Roles** screen, select **Web Server (IIS)**.
 1. Select **Add Features**, and then select **Next**.
 
-    :::image type="content" source="./media/tutorial-alias-pip/iis-web-server-installation.png" alt-text="Screenshot of Add Roles and Features Wizard in Windows Server 2019 showing how to add the I I S Web Server.":::
+    :::image type="content" source="./media/tutorial-alias-pip/iis-web-server-installation.png" alt-text="Screenshot of Add Roles and Features Wizard in Windows Server 2019 showing how to install the I I S Web Server by adding Web Server role.":::
 
 1. Select **Confirmation** or select **Next** three times, and then select **Install**. The installation process takes a few minutes to finish.
 1. After the installation finishes, select **Close**.
 1. Open a web browser. Browse to **localhost** to verify that the default IIS web page appears.
 
-    :::image type="content" source="./media/tutorial-alias-pip/iis-web-server.png" alt-text="Screenshot of Internet Explorer showing the I I S Web Server Welcome page.":::
+    :::image type="content" source="./media/tutorial-alias-pip/iis-web-server.png" alt-text="Screenshot of Internet Explorer showing the I I S Web Server default web page.":::
 
 ## Create an alias record
 
@@ -165,7 +165,7 @@ Create an alias record that points to the public IP address.
 
 1. In the Azure portal, enter *virtual machine* in the search box at the top of the portal, and then select **Virtual machines** from the search results.
 1. Select the **Web-01** virtual machine. Note the public IP address in the **Overview** page.
-1. From a web browser, browse to `web01.contoso.com`, which is the fully qualified domain name of the **Web-01** virtual machine. You now see the IIS welcome web page.
+1. From a web browser, browse to `web01.contoso.com`, which is the fully qualified domain name of the **Web-01** virtual machine. You now see the IIS default web page.
 1. Close the web browser.
 1. Stop the **Web-01** virtual machine, and then restart it.
 1. After the virtual machine restarts, note the new public IP address for the virtual machine.

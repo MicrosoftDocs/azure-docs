@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: nlarin
 author: niklarin
-ms.date: 5/6/2019
+ms.date: 06/24/2022
 ---
 
 # Handling transient connectivity errors for Azure Database for PostgreSQL - Single Server

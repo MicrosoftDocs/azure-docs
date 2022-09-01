@@ -10,7 +10,7 @@ ms.date: 02/28/2022
 ms.custom: contperf-fy21q2
 ---
 
-# Troubleshoot Azure Digital Twins known issues
+# Azure Digital Twins known issues
 
 This article provides information about known issues associated with Azure Digital Twins.
 

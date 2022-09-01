@@ -2,14 +2,14 @@
 title: High availability ports overview in Azure
 titleSuffix: Azure Load Balancer
 description: Learn about high availability ports load balancing on an internal load balancer. 
-author: greg-lindsay
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2022
-ms.author: greglin
+ms.author: mbender
 ---
 
 # High availability ports overview
@@ -40,7 +40,7 @@ For NVA HA scenarios, HA ports offer the following advantages:
 
 The following diagram presents a hub-and-spoke virtual network deployment. The spokes force-tunnel their traffic to the hub virtual network and through the NVA, before leaving the trusted space. The NVAs are behind an internal Standard Load Balancer with an HA ports configuration. All traffic can be processed and forwarded accordingly. When configured as show in the following diagram, an HA Ports load-balancing rule additionally provides flow symmetry for ingress and egress traffic.
 
-:::image type="content" source="./media/load-balancer-ha-ports-overview/nvaha.png" alt-text="Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode.":::
+:::image type="content" source="./media/load-balancer-ha-ports-overview/nvahathmb.png" alt-text="Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode." lightbox="media/load-balancer-ha-ports-overview/nvaha.png":::
 
 >[!NOTE]
 > If you are using NVAs, confirm with their providers how to best use HA ports and to learn which scenarios are supported.

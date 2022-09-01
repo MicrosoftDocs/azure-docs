@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: dianas
 author: dianaputnam
-ms.date: 07/09/2020
+ms.date: 06/24/2022
 ---
 
 # Optimize autovacuum on an Azure Database for PostgreSQL - Single Server

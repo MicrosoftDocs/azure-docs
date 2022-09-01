@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.custom: event-tier1-build-2022
-ms.date: 05/16/2022
+ms.date: 07/21/2022
 ms.author: stefanazaric
 ms.reviewer: sngun, wiassaf
 ---
@@ -178,7 +178,7 @@ The error "Invalid object name 'table name'" indicates that you're using an obje
 - If you don't see the object, maybe you're trying to query a table from a lake or Spark database. The table might not be available in the serverless SQL pool because:
 
     - The table has some column types that can't be represented in serverless SQL pool.
-    - The table has a format that isn't supported in serverless SQL pool. Examples are Delta or ORC.
+    - The table has a format that isn't supported in serverless SQL pool. Examples are Avro or ORC.
 
 ### Unclosed quotation mark after the character string
 
@@ -778,9 +778,13 @@ Here's the solution:
 
 ### Operation isn't allowed for a replicated database
 
-If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation CREATE USER is not allowed for a replicated database." This error is returned when you try to create objects in a database that's [shared with Spark pool](../metadata/database.md). The databases that are replicated from Apache Spark pools are read only. You can't create new objects into a replicated database by using T-SQL.
+If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation is not allowed for a replicated database." This error might be returned when you try to modify a Lake database that's [shared with Spark pool](../metadata/database.md). The Lake databases that are replicated from the Apache Spark pool are managed by Synapse and you cannot create objects like in SQL Databases by using T-SQL. 
+Only the following operations are allowed in the Lake databases:
+- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the schemas other than `dbo`. If you are creating a SQL object in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
+- Creating and dropping the database users from Azure Active Directory.
+- Adding or removing database users from `db_datareader` schema.
 
-Create a separate database and reference the synchronized [tables](../metadata/table.md) by using three-part names and cross-database queries.
+Other operations are not allowed in Lake databases.
 
 ### Can't create Azure AD sign-in or user
 
@@ -850,7 +854,7 @@ There are some limitations and known issues that you might see in Delta Lake sup
 - Make sure that you're referencing the root Delta Lake folder in the [OPENROWSET](./develop-openrowset.md) function or external table location.
   - The root folder must have a subfolder named `_delta_log`. The query fails if there's no `_delta_log` folder. If you don't see that folder, you're referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) by using Apache Spark pools.
   - Don't specify wildcards to describe the partition schema. The Delta Lake query automatically identifies the Delta Lake partitions.
-- Delta Lake tables created in the Apache Spark pools aren't automatically available in serverless SQL pool. To query such Delta Lake tables by using the T-SQL language, run the [CREATE EXTERNAL TABLE](./create-use-external-tables.md#delta-lake-external-table) statement and specify Delta as the format.
+- Delta Lake tables that are created in the Apache Spark pools are automatically available in serverless SQL pool, but the schema is not updated (public preview limitation). If you add columns in the Delta table using a Spark pool, the changes will not be shown in serverless SQL pool database.
 - External tables don't support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on the Delta Lake folder to use the partition elimination. See known issues and workarounds later in the article.
 - Serverless SQL pools don't support time travel queries. Use Apache Spark pools in Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools don't support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Synapse Analytics to [update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
@@ -882,6 +886,26 @@ If the dataset is valid, [create a support ticket](../../azure-portal/supportabi
 - Send the content of the copied `_delta_log` file to Azure support.
 
 Now you can continue using the Delta Lake folder with Spark pool. You'll provide copied data to Microsoft support if you're allowed to share this information. The Azure team will investigate the content of the `delta_log` file and provide more information about possible errors and workarounds.
+
+### Resolving Delta logs failed
+
+The following error indicates that serverless SQL pool cannot resolve Delta logs:
+```
+Resolving Delta logs on path '%ls' failed with error: Cannot parse json object from log folder.
+```   
+The most common cause is that `last_checkpoint_file` in `_delta_log` folder is larger than 200 bytes due to the `checkpointSchema` field added in Spark 3.3. 
+	  
+There are two options available to circumvent this error:
+* Modify appropriate config in Spark notebook and generate a new checkpoint, so that `last_checkpoint_file` gets re-created. In case you are using Azure Databricks, the config modification is the following: `spark.conf.set("spark.databricks.delta.checkpointSchema.writeThresholdLength", 0);`
+* Downgrade to Spark 3.2.1.
+
+Our engineering team is currently working on a full support for Spark 3.3.
+
+### Delta tables in Lake databases do not have identical schema in Spark and serverless pools
+
+Serverless SQL pools enable you to access Parquet, CSV, and Delta tables that are created in Lake database using Spark or Synapse designer. Accessing the Delta tables is still in public preview, and currently serverless will synchronize a Delta table with Spark at the time of creation but will not update the schema if the columns are added later using the `ALTER TABLE` statement in Spark.
+
+This is a public preview limitation. Drop and re-create the Delta table in Spark (if it is possible) instead of altering tables to resolve this issue.
 
 ## Performance
 
@@ -1022,7 +1046,7 @@ Some general system constraints might affect your workload:
 
 | Property | Limitation |
 |---|---|
-| Maximum number of Azure Synapse workspaces per subscription | [See limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#synapse-workspace-limits). |
+| Maximum number of Azure Synapse workspaces per subscription | [See limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-limits-for-workspaces). |
 | Maximum number of databases per serverless pool | 20 (not including databases synchronized from Apache Spark pool). |
 | Maximum number of databases synchronized from Apache Spark pool | Not limited. |
 | Maximum number of databases objects per database | The sum of the number of all objects in a database can't exceed 2,147,483,647. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects). |

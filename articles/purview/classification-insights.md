@@ -14,8 +14,6 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 This guide describes how to access, view, and filter Microsoft Purview Classification insight reports for your data.
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 In this guide, you'll learn how to:
 
 > [!div class="checklist"]

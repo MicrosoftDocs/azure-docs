@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Create or approve a request for permissions
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This article describes how to create or approve a request for permissions in the **Remediation** dashboard in Permissions Management. You can create and approve requests for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
 The **Remediation** dashboard has two privilege-on-demand (POD) workflows you can use:

@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox   
 ms.topic: include
-ms.date: 03/22/2022
+ms.date: 06/06/2022
 ms.author: alkohli
 ms.custom: contperf-fy22q3
 ---
@@ -103,7 +103,7 @@ Do the following steps in the Azure portal to order a device:
 
     ![Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security button are highlighted.](media/data-box-order-portal/data-box-import-08.png)
 
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting the page blobs to managed disks and moving them to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting the page blobs to managed disks and moving them to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-has-uploaded-to-azure).
 
     > [!NOTE]
     > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
@@ -266,8 +266,9 @@ Do the following steps in the Azure portal to order a device:
     1. Check the box corresponding to the agreement to privacy terms. When you select the checkbox, the order information is validated.
 
     1. Once the order is validated, select **Order**.
+    
+        :::image type="content" source="media/data-box-order-portal/data-box-import-10.png" alt-text="Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.":::
 
-    [Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.](media/data-box-order-portal/data-box-import-10.png)
 
     The order takes a few minutes to be created. Your completed order will look similar to this one. You can select **Go to resource** to open the order.
 

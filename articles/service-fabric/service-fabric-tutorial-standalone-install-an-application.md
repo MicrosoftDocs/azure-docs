@@ -2,9 +2,13 @@
 title: Install an app on a standalone cluster
 description: In this tutorial, you learn how to install an application into your standalone Service Fabric cluster.
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Deploy an application on your Service Fabric standalone cluster
 
 Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS and deploy an application into it.

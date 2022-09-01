@@ -1,12 +1,12 @@
 ---
 title: Restore a deleted Azure Database for MySQL server
 description: This article describes how to restore a deleted server in Azure Database for MySQL using the Azure portal.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 06/20/2022
 ---
 
 # Restore a deleted Azure Database for MySQL server

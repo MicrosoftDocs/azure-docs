@@ -1,8 +1,8 @@
 ---
-title: IP addresses used by Azure Monitor
-description: This article discusses server firewall exceptions that are required by Application Insights.
+title: IP addresses used by Azure Monitor | Microsoft Docs
+description: This article discusses server firewall exceptions that are required by Azure Monitor
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 08/19/2022
 ms.reviewer: saars
 ---
 
@@ -11,7 +11,7 @@ ms.reviewer: saars
 [Azure Monitor](../overview.md) uses several IP addresses. Azure Monitor is made up of core platform metrics and logs in addition to Log Analytics and Application Insights. You might need to know IP addresses if the app or infrastructure that you're monitoring is hosted behind a firewall.
 
 > [!NOTE]
-> Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks, which require inbound firewall rules.
+> Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhook action groups, which also require inbound firewall rules.
 
 You can use Azure [network service tags](../../virtual-network/service-tags-overview.md) to manage access if you're using Azure network security groups. If you're managing access for hybrid/on-premises resources, you can download the equivalent IP address lists as [JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files), which are updated each week. To cover all the exceptions in this article, use the service tags `ActionGroup`, `ApplicationInsightsAvailability`, and `AzureMonitor`.
 
@@ -23,23 +23,28 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
-| Telemetry |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com | | 443 |
-| Live Metrics Stream | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com|23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113| 443 |
+| Telemetry | dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com<br/><br/> || 443 |
+| Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/><br/>*Example for {region}: westus2<br/>Find all supported regions in [this table](#addresses-grouped-by-region-azure-public-cloud).*|20.49.111.32/29<br/>13.73.253.112/29| 443 |
+
+
+
+> [!NOTE]
+> These addresses are listed by using Classless Interdomain Routing notation. As an example, an entry like `51.144.56.112/28` is equivalent to 16 IPs that start at `51.144.56.112` and end at `51.144.56.127`.
 
 ## Status Monitor
 
 Status Monitor configuration is needed only when you're making changes.
 
-| Purpose | URL | IP | Ports |
-| --- | --- | --- | --- |
-| Configuration |`management.core.windows.net` | |`443` |
-| Configuration |`management.azure.com` | |`443` |
-| Configuration |`login.windows.net` | |`443` |
-| Configuration |`login.microsoftonline.com` | |`443` |
-| Configuration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
-| Configuration |`auth.gfx.ms` | |`443` |
-| Configuration |`login.live.com` | |`443` |
-| Installation | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
+| Purpose | URL | Ports |
+| --- | --- | --- |
+| Configuration |`management.core.windows.net` |`443` |
+| Configuration |`management.azure.com` |`443` |
+| Configuration |`login.windows.net` |`443` |
+| Configuration |`login.microsoftonline.com` |`443` |
+| Configuration |`secure.aadcdn.microsoftonline-p.com` |`443` |
+| Configuration |`auth.gfx.ms` |`443` |
+| Configuration |`login.live.com` |`443` |
+| Installation | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` |`443` |
 
 ## Availability tests
 
@@ -62,12 +67,9 @@ Open port 80 (HTTP) and port 443 (HTTPS) for incoming traffic from these address
 
 ### IP addresses
 
-If you're looking for the actual IP addresses so that you can add them to the list of allowed IPs in your firewall, download the JSON file that describes Azure IP ranges. These files contain the most up-to-date information. For Azure public cloud, you might also look up the IP address ranges by location using the following table.
+If you're looking for the actual IP addresses so that you can add them to the list of allowed IPs in your firewall, download the JSON file that describes Azure IP ranges. These files contain the most up-to-date information. After you download the appropriate file, open it by using your favorite text editor. Search for **ApplicationInsightsAvailability** to go straight to the section of the file that describes the service tag for availability tests.
 
-After you download the appropriate file, open it by using your favorite text editor. Search for **ApplicationInsightsAvailability** to go straight to the section of the file that describes the service tag for availability tests.
-
-> [!NOTE]
-> These addresses are listed by using Classless Interdomain Routing notation. As an example, an entry like `51.144.56.112/28` is equivalent to 16 IPs that start at `51.144.56.112` and end at `51.144.56.127`.
+For Azure public cloud, you need to allow both the global IP ranges and the ones specific for the region of your Application Insights resource which receives live data. You can find the global IP ranges in the [Outgoing ports](#outgoing-ports) table at the top of this document, and the regional IP ranges in the [Addresses grouped by region](#addresses-grouped-by-region-azure-public-cloud) table below.
 
 #### Azure public cloud
 
@@ -81,73 +83,71 @@ Download [US Government cloud IP addresses](https://www.microsoft.com/download/d
 
 Download [China cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57062).
 
-#### Addresses grouped by location (Azure public cloud)
+#### Addresses grouped by region (Azure public cloud)
 
-```
-Australia East
-20.40.124.176/28
+> [!NOTE]
+> Add the subdomain of the corresponding region to the Live Metrics URL from the [Outgoing ports](#outgoing-ports) table.
 
+| Continent/Country | Region | Subdomain | IP |
+| --- | --- | --- | --- |
+|Asia|East Asia|eastasia|52.229.216.48/28<br/>20.189.111.16/29|
+||Southeast Asia|southeastasia|52.139.250.96/28<br/>23.98.106.152/29|
+|Australia|Australia Central|australiacentral|20.37.227.104/29<br/><br/>|
+||Australia Central 2|australiacentral2|20.53.60.224/31<br/><br/>|
+||Australia East|australiaeast|20.40.124.176/28<br/>20.37.198.232/29|
+||Australia Southeast|australiasoutheast|20.42.230.224/29<br/><br/>|
+|Brazil|Brazil South|brazilsouth|191.233.26.176/28<br/>191.234.137.40/29|
+||Brazil Southeast|brazilsoutheast|20.206.0.196/31<br/><br/>|
+|Canada|Canada Central|canadacentral|52.228.86.152/29<br/><br/>|
+|Europe|North Europe|northeurope|52.158.28.64/28<br/>20.50.68.128/29|
+||West Europe|westeurope|51.144.56.96/28<br/>40.113.178.32/29|
+|France|France Central|francecentral|20.40.129.32/28<br/>20.43.44.216/29|
+||France South|francesouth|20.40.129.96/28<br/>52.136.191.12/31|
+|Germany|Germany West Central|germanywestcentral|20.52.95.50/31<br/><br/>|
+|India|Central India|centralindia|52.140.108.216/29<br/><br/>|
+||South India|southindia|20.192.153.106/31<br/><br/>|
+|Japan|Japan East|japaneast|52.140.232.160/28<br/>20.43.70.224/29|
+||Japan West|japanwest|20.189.194.102/31<br/><br/>|
+|Korea|Korea Central|koreacentral|20.41.69.24/29<br/><br/>|
+|Norway|Norway East|norwayeast|51.120.235.248/29<br/><br/>|
+||Norway West|norwaywest|51.13.143.48/31<br/><br/>|
+|Qatar|Qatar Central|qatarcentral|20.21.39.224/29<br/><br/>|
+|South Africa|South Africa North|southafricanorth|102.133.219.136/29<br/><br/>|
+|Switzerland|Switzerland North|switzerlandnorth|51.107.52.200/29<br/><br/>|
+||Switzerland West|switzerlandwest|51.107.148.8/29<br/><br/>|
+|United Arab Emirates|UAE North|uaenorth|20.38.143.44/31<br/>40.120.87.204/31|
+|United Kingdom|UK South|uksouth|51.105.9.128/28<br/>51.104.30.160/29|
+||UK West|ukwest|20.40.104.96/28<br/>51.137.164.200/29|
+|United States|Central US|centralus|13.86.97.224/28<br/>20.40.206.232/29|
+||East US|eastus|20.42.35.32/28<br/>20.49.111.32/29|
+||East US 2|eastus2|20.49.102.24/29<br/><br/>|
+||North Central US|northcentralus|23.100.224.16/28<br/>20.49.114.40/29|
+||South Central US|southcentralus|20.45.5.160/28<br/>13.73.253.112/29|
+||West US|westus|40.91.82.48/28<br/>52.250.228.8/29|
+||West US 2|westus2|40.64.134.128/29<br/><br/>|
+||West US 3|westus3|20.150.241.64/29<br/><br/>|
 
-Brazil South
-191.233.26.176/28
+#### Upcoming regions (Azure public cloud)
 
+> [!NOTE]
+> The following regions are not supported yet, but will be added in the near future.
 
-France Central (Formerly France South)
-20.40.129.96/28
-
-
-France Central
-20.40.129.32/28
-
-
-East Asia
-52.229.216.48/28
-
-
-North Europe
-52.158.28.64/28
-
-
-Japan East
-52.140.232.160/28
-
-
-West Europe
-51.144.56.96/28
-
-
-UK South
-51.105.9.128/28
-
-
-UK West
-20.40.104.96/28
-
-
-Southeast Asia
-52.139.250.96/28
-
-
-West US
-40.91.82.48/28
-
-
-Central US
-13.86.97.224/28
-
-
-North Central US
-23.100.224.16/28
-
-
-South Central US
-20.45.5.160/28
-
-East US
-20.42.35.32/28
-
-
-```
+| Continent/Country | Region | Subdomain | IP |
+| --- | --- | --- | --- |
+|Canada|Canada East|TBD|52.242.40.208/31<br/><br/>|
+|Germany|Germany North|TBD|51.116.75.92/31<br/><br/>|
+|India|West India|TBD|20.192.84.164/31<br/><br/>|
+||Jio India Central|TBD|20.192.50.200/29<br/><br/>|
+||Jio India West|TBD|20.193.194.32/29<br/><br/>|
+|Israel|Israel Central|TBD|20.217.44.250/31<br/><br/>|
+|Poland|Poland Central|TBD|20.215.4.250/31<br/><br/>|
+|South Africa|South Africa West|TBD|102.37.86.196/31<br/><br/>|
+|Sweden|Sweden Central|TBD|51.12.25.192/29<br/><br/>|
+||Sweden South|TBD|51.12.17.128/29<br/><br/>|
+|Taiwan|Taiwan North|TBD|51.53.28.214/31<br/><br/>|
+||Taiwan Northwest|TBD|51.53.172.214/31<br/><br/>|
+|United Arab Emirates|UAE Central|TBD|20.45.95.68/31<br/><br/>|
+|United States|West Central US|TBD|52.150.154.24/29<br/><br/>|
 
 ### Discovery API
 

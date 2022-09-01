@@ -57,7 +57,7 @@ To save a LUIS app in `.lu` format and place it under source control:
 
 ### Build the LUIS app from source
 
-For a LUIS app, to *build from source* means to [create a new LUIS app version by importing the `.lu` source](./luis-how-to-manage-versions.md#import-version) , to [train the version](./luis-how-to-train.md) and to[publish it](./luis-how-to-publish-app.md). You can do this in the LUIS portal, or at the command line:
+For a LUIS app, to *build from source* means to [create a new LUIS app version by importing the `.lu` source](./luis-how-to-manage-versions.md#import-version) , to [train the version](./luis-how-to-train.md) and to [publish it](./luis-how-to-publish-app.md). You can do this in the LUIS portal, or at the command line:
 
 - Use the LUIS portal to [import the `.lu` version](./luis-how-to-manage-versions.md#import-version) of the app from source control, and [train](./luis-how-to-train.md) and [publish](./luis-how-to-publish-app.md) the app.
 

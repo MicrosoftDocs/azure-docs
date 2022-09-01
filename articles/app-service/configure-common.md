@@ -4,7 +4,7 @@ description: Learn to configure common settings for an App Service app. App sett
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 01/13/2022
+ms.date: 07/11/2022
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli" 
 ms.devlang: azurecli
 
@@ -203,7 +203,7 @@ For ASP.NET and ASP.NET Core developers, setting connection strings in App Servi
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. 
 
 > [!NOTE]
-> There is one case where you may want to use connection strings instead of app settings for non-.NET languages: certain Azure database types are backed up along with the app _only_ if you configure a connection string for the database in your App Service app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
+> There is one case where you may want to use connection strings instead of app settings for non-.NET languages: certain Azure database types are backed up along with the app _only_ if you configure a connection string for the database in your App Service app. For more information, see [Create a custom backup](manage-backup.md#create-a-custom-backup). If you don't need this automated backup, then use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
@@ -516,27 +516,29 @@ By default, App Service starts your app from the root directory of your app code
 
 # [Azure CLI](#tab/cli)
 
-The following example sets the root path `/` to the `public` subdirectory (which works for Laravel), and also adds a second virtual application at the `/app2` path. To run it, change `<group-name>` and `<app-name>`.
+The following example sets the root path `/` to the `public` subdirectory (which works for Laravel), and also adds a second virtual application at the `/app2` path. To run it, create a file called `json.txt` with the following contents.
+
+```txt
+[
+  {
+    "physicalPath"':' "site\\wwwroot\\public",
+    "preloadEnabled"':' false,
+    "virtualDirectories"':' null,
+    "virtualPath"':' "/"
+  },
+  {
+    "physicalPath"':' "site\\wwwroot\\app2",
+    "preloadEnabled"':' false,
+    "virtualDirectories"':' null,
+    "virtualPath"':' "/app2"
+  }
+]
+```
+
+Change `<group-name>` and `<app-name>` for your resources and run the following command. Be aware of escape characters when running this command. For more information on escape characters, see [Tips for using the Azure CLI successfully](/cli/azure/use-cli-effectively).
 
 ```azurecli-interactive
-echo -n '[
-        {
-          "physicalPath"':' "site\\wwwroot\\public",
-          "preloadEnabled"':' false,
-          "virtualDirectories"':' null,
-          "virtualPath"':' "/"
-        },
-        {
-          "physicalPath"':' "site\\wwwroot\\app2",
-          "preloadEnabled"':' false,
-          "virtualDirectories"':' null,
-          "virtualPath"':' "/app2"
-        }
-      ]' > json.txt
-
-json=$(cat json.txt)
-
-az resource update --resource-group <group-name> --resource-type Microsoft.Web/sites/config --name <app-name>/config/web --set properties.virtualApplications="$json"
+az resource update --resource-group <group-name> --resource-type Microsoft.Web/sites/config --name <app-name>/config/web --set properties.virtualApplications="@json.txt"
 ```
 
 # [Azure PowerShell](#tab/ps)
