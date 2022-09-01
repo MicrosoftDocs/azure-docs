@@ -65,7 +65,7 @@ A JSON array of appliance objects that represent sensor appliances.
 | **stage** | String | Not nullable | One of the following statues: <br><br>- `UPLOADING`: Uploading Package<br>- `PREPARE_TO_INSTALL`: Preparing To Install<br>- `STOPPING_PROCESSES` Stopping Processes<br>- `BACKING_UP_DATA`: Backing Up Data<br>- `TAKING_SNAPSHOT`: Taking Snapshot<br>- `UPDATING_CONFIGURATION`: Updating Configuration<br>- `UPDATING_DEPENDENCIES`: Updating Dependencies<br>- `UPDATING_LIBRARIES`: Updating Libraries<br>- `PATCHING_DATABASES`: Patching Databases<br>- `STARTING_PROCESSES`: Starting Processes<br>- `VALIDATING_SYSTEM_SANITY`: Validating System Sanity<br>- `VALIDATION_SUCCEEDED_REBOOTING`: Validation Succeeded<br>- `SUCCESS`: Success<br>- `FAILURE`: Failure<br>- `UPGRADE_STARTED`: Upgrade Started<br>- `STARTING_INSTALLATION`: Starting Installation<br>- `INSTALLING_OPERATING_SYSTEM`: Installing OS |
 
 
-**Response example**
+#### Response example
 
 ```rest
 [

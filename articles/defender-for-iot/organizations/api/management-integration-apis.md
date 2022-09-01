@@ -125,7 +125,7 @@ This API returns data about all device connections that were updated after the g
 {
 ```
 
-# [Curl](#tab/devices-curl)
+# [Curl](#tab/connections-curl)
 
 <!--TBD-->
 ---
@@ -240,7 +240,7 @@ This API returns data about a specific device per a given device ID.
 {
 ```
 
-# [Curl](#tab/devices-curl)
+# [Curl](#tab/device-curl)
 
 <!--TBD-->
 ---
@@ -280,7 +280,7 @@ This API returns data about a specific device per a given device ID.
 {
 ```
 
-# [Curl](#tab/devices-curl)
+# [Curl](#tab/deleteddevices-curl)
 
 <!--TBD-->
 ---
@@ -330,7 +330,7 @@ An array of the following fields:
 {
 ```
 
-# [Curl](#tab/devices-curl)
+# [Curl](#tab/sensors-curl)
 
 <!--TBD-->
 ---
@@ -420,7 +420,7 @@ An array of the following fields:
 {
 ```
 
-# [Curl](#tab/devices-curl)
+# [Curl](#tab/devicecves-curl)
 
 <!--TBD-->
 ---

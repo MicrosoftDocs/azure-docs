@@ -636,7 +636,7 @@ This section lists the supported values for the [type](#type) response field.
 :::row-end:::
 
 
-### Supported fields for  the `protocols` object and protocol `name` values
+#### Supported fields for  the `protocols` object and protocol `name` values
 
 This section lists the supported fields for the [protocols](#protocol) object in the `protocols` response field.
 
