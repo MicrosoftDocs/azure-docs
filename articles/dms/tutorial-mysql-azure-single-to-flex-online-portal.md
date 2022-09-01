@@ -40,6 +40,10 @@ In this tutorial, you will learn how to:
 To complete this tutorial, you need to:
 
 * Create or use an existing instance of Azure Database for MySQL – Single Server (the source).
+* To complete the replicate changes migration successfully, ensure that the following prerequisites are in place:
+  * Use the MySQL command line tool of your choice to determine whether log_bin is enabled on the source server. The Binlog is not always turned on by default, so verify that it is enabled before starting the migration. To determine whether log_bin is enabled on the source server, run the command: SHOW VARIABLES LIKE 'log_bin’
+  * Ensure that the user has “REPLICATION CLIENT” and “REPLICATION SLAVE” permission on source server for reading and applying the bin log.
+  * If you're targeting a replicate changes migration, configure the binlog_expire_logs_seconds parameter on the source server to ensure that binlog files are not purged before the replica commits the changes. We recommend at least two days to start. After a successful cutover, the value can be reset.
 * To complete a schema migration successfully, on the source server, the user performing the migration requires the following privileges:
   * “READ” privilege on the source database.
   * “SELECT” privilege for the ability to select objects from the database
@@ -59,6 +63,8 @@ As you prepare for the migration, be sure to consider the following limitations.
 * When migrating the schema, DMS does not support creating a database on the target server. 
 * Currently, DMS does not support migrating the DEFINER clause for objects. All object types with definers on the source are dropped and after the migration the default definer for tables will be set to the login used to run the migration.
 * Currently, DMS only supports migrating a schema as part of data movement. If nothing is selected for data movement, the schema migration will not occur. Note that selecting a table for schema migration also selects it for data movement.
+* Online migration support is limited to the ROW binlog format.
+* Online migration only replicates DML changes; replicating DDL changes is not supported. Do not make any schema changes to the source while replication is in progress.
 
 ## Best practices for creating a flexible server for faster data loads using DMS
 
@@ -94,6 +100,9 @@ With these best practices in mind, create the target server and then configure i
 * Create the target flexible server. For guided steps, see the quickstart Create an Azure Database for MySQL flexible server.
 * Configure the newly created target flexible server as follows: 
   * The user performing the migration requires the following permissions:
+    * Ensure that the user has “REPLICATION_APPLIER” or “BINLOG_ADMIN” permission on target server for applying the bin log.
+    * Ensure that the user has “REPLICATION SLAVE” permission on target server.
+    * Ensure that the user has “REPLICATION CLIENT” and “REPLICATION SLAVE” permission on source server for reading and applying the bin log.
     * To create tables on the target, the user must have the “CREATE” privilege.
     * If migrating a table with “DATA DIRECTORY” or “INDEX DIRECTORY” partition options, the user must have the “FILE” privilege.
     * If migrating to a table with a “UNION” option, the user must have the “SELECT,” “UPDATE,” and “DELETE” privileges for the tables you map to a MERGE table.
@@ -102,7 +111,7 @@ With these best practices in mind, create the target server and then configure i
     * If migrating events, the user must have the “EVENT” privilege.
     * If migrating triggers, the user must have the “TRIGGER” privilege.
     * If migrating routines, the user must have the “CREATE ROUTINE” privilege.
-  * Create a target database, though it need not be populated with tables/views, etc.
+  * Create a target database with the same name as that on source server, though it need not be populated with tables/views, etc.
     * Set the appropriate character, collations, and any other applicable schema settings prior to starting the migration, as this may affect the DEFAULT set in some of the object definitions.
     * Additionally, if migrating non-table objects, be sure to use the same name for the target schema as is used on the source.
   * Configure the server parameters on the target flexible server as follows:
