@@ -171,11 +171,7 @@
         - name: Work with Hybrid Runbook Worker
           items:
             - name: Deploy extension-based worker
-              items:
-              - name: Deploy on Windows/ Linux User Hybrid Runbook Worker
-                href: extension-based-hybrid-runbook-worker-install.md
-              - name: Using ARM template
-                href: use-azure-resource-manager-template.md
+              href: extension-based-hybrid-runbook-worker-install.md
             - name: Deploy agent-based Windows worker
               href: automation-windows-hrw-install.md
             - name: Deploy agent-based Linux worker
