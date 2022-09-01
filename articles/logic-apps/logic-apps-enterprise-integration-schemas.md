@@ -83,6 +83,14 @@ This article shows how to add a schema to your integration account. If you're wo
 
 ## Add schemas
 
+* If you're working with a Consumption workflow, you must add your schema to a linked integration account.
+
+* If you're working with a Standard workflow, you have the following options:
+
+  * Add your schema to a linked integration account. You can share the schema and integration account across multiple Standard logic app resources and their child workflows.
+
+  * Add your schema directly to your logic app resource. However, you can only share that schema across child workflows in the same logic app resource.
+
 <a name="add-schema-integration-account"></a>
 
 ### Add schema to integration account
@@ -165,6 +173,8 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 After your schema finishes uploading, the schema appears in the **Schemas** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded schema appears.
 
+---
+
 ### Add schema to Standard logic app resource
 
 These steps apply only if you want to add a schema directly to your Standard logic app resource. Otherwise, [add the schema to your integration account](#add-schema-integration-account).
@@ -189,9 +199,9 @@ These steps apply only if you want to add a schema directly to your Standard log
 
 1. In the **Schemas** folder, add your schema.
 
----
-
 <a name="edit-schema"></a>
+
+---
 
 ## Edit a schema
 
