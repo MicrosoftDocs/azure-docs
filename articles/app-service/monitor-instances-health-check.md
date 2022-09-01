@@ -170,7 +170,7 @@ In the scenario where all instances of your application are unhealthy, App Servi
 
 ### Does Health Check work on App Service Environments?
 
-Yes, health check is available for ASEv3, but not for ASEv1 or ASEv2. If you are using the older versions of the App Service Environment, you can use the [migration feature](environment/migrate.md) to move to ASEv3.
+Yes, health check is available for the App Service Environment v3, but not for versions 1 or 2. If you are using the older versions of the App Service Environment, you can use the [migration feature](environment/migrate.md) to migrate your App Service Environment to version 3.
 
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
