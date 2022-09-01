@@ -1,11 +1,12 @@
 ---
-title: Set Redis version for Azure Cache for Redis
-description: Learn how to configure Redis version
+title: Set the Redis version of Azure Cache for Redis
+description: Learn how to configure the version of Azure Cache for Redis
 author: flang-msft
+
 ms.author: franlanglois
 ms.service: cache
-ms.topic: conceptual
-ms.date: 08/25/2022
+ms.topic: how-to
+ms.date: 09/04/2022
 
 ---
 
@@ -62,8 +63,10 @@ For more information on how to manage Azure Cache for Redis with Azure PowerShel
 ```azurecli-interactive
 az redis create --resource-group resourceGroupName --name cacheName --location westus2 --sku Standard --vm-size c0 --redisVersion="6"
 ```
+
 For more information on how to manage Azure Cache for Redis with Azure CLI, see [here](cli-samples.md)
 
+<!-- 
 ## Upgrade an existing Redis 4 cache to Redis 6
 
 Azure Cache for Redis supports upgrading your Redis cache server major version from Redis 4 to Redis 6. Upgrading is permanent and it might cause a brief connection blip. As a precautionary step, we recommend exporting the data from your existing Redis 4 cache and testing your client application with a Redis 6 cache in a lower environment before upgrading. For more information, see [here](cache-how-to-import-export-data.md) for details on how to export.
@@ -111,16 +114,19 @@ To upgrade a cache from 4 to 6 using PowerShell, use the following command:
 ```powershell-interactive
 Set-AzRedisCache -Name "CacheName" -ResourceGroupName "ResourceGroupName" -RedisVersion "6"
 ```
+ -->
 
 ## FAQ
 
 ### What features aren't supported with Redis 6?
 
-At this time, Redis 6 doesn't support ACL, and geo-replication between a Redis 4 and 6 cache.
+At this time, Redis 6 doesn't support ACL, and geo-replication between a Redis 4 cache and a Redis 6 cache.
 
 ### Can I change the version of my cache after it's created?
 
-You can upgrade your existing Redis 4 caches to Redis 6, see [here](#upgrade-an-existing-redis-4-cache-to-redis-6) for details. Upgrading your cache instance is permanent and you cannot downgrade your Redis 6 caches to Redis 4 caches.
+You can upgrade your existing Redis 4 caches to Redis 6. Upgrading your cache instance is permanent and you cannot downgrade your Redis 6 caches to Redis 4 caches.
+
+For more information, see , see [here](#upgrade-an-existing-redis-4-cache-to-redis-6) for details.
 
 ## Next Steps
 
