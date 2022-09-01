@@ -25,10 +25,12 @@ Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache
 
 1. Configure your `dotnet` application dependencies for compatibility with Synapse Spark.
 The required .NET Spark version will be noted in the Synapse Studio interface under your Apache Spark Pool configuration, under the Manage toolbox.
-![image](./media/apache-spark-job-definitions/net-spark-workspace-compatibility.png)
+
+  ![Screenshot that shows properties, including the .NET Spark version.](./media/apache-spark-job-definitions/net-spark-workspace-compatibility.png)
 
 
-Create your project as a .NET Console Application that outputs an ubuntu x86 executable.
+  Create your project as a .NET console application that outputs an Ubuntu x86 executable.
+  
   ```
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -106,7 +108,7 @@ The following features are available when you use .NET for Apache Spark in the A
 ## Troubleshooting
 
 ### `DotNetRunner: null` / `Futures timeout` in Synapse Spark Job Definition Run
-Synapse Spark Job Definitions on Spark Pools using Spark 2.4 require `Microsoft.Spark` 1.0.0. Clear your `bin` and `obj` directories, and publish the project using 1.0.0
+Synapse Spark Job Definitions on Spark Pools using Spark 2.4 require `Microsoft.Spark` 1.0.0. Clear your `bin` and `obj` directories, and publish the project using 1.0.0.
 ### OutOfMemoryError: java heap space at org.apache.spark...
 Dotnet Spark 1.0.0 uses a different debug architecture than 1.1.1+. You will have to use 1.0.0 for your published version and 1.1.1+ for local debugging.
 
