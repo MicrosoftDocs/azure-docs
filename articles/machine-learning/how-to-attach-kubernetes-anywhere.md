@@ -38,7 +38,7 @@ AzureML Kubernetes compute supports two kinds of Kubernetes cluster:
 With a simple cluster extension deployment on AKS or Arc Kubernetes cluster, Kubernetes cluster is seamlessly supported in AzureML to run training or inference workload. It's easy to enable and use an existing Kubernetes cluster for AzureML workload with the following simple steps:
 
 1. Prepare an [Azure Kubernetes Service cluster](/azure/aks/learn/quick-kubernetes-deploy-cli) or [Arc Kubernetes cluster](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
-1. [Deploy the AzureML extension](how-to-deploy-azureml-kubernetes-extension.md).
+1. [Deploy the AzureML extension](how-to-deploy-kubernetes-extension.md).
 1. [Attach Kubernetes cluster to your Azure ML workspace](how-to-attach-kubernetes-to-workspace.md).
 1. Use the Kubernetes compute target from CLI v2, SDK v2, and the Studio UI.
 
@@ -88,7 +88,7 @@ With these key differences and overall AzureML evolves to use SDK/CLI v2, AzureM
 
 ## Next steps
 
-- [Step 1: Deploy AzureML extension](how-to-deploy-azureml-kubernetes-extension.md)
+- [Step 1: Deploy AzureML extension](how-to-deploy-kubernetes-extension.md)
 - [Step 2: Attach Kubernetes cluster to workspace](how-to-attach-kubernetes-to-workspace.md)
 - [Create and manage instance types](how-to-manage-kubernetes-instance-types.md)
 
