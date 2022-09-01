@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 01/01/2022
+ms.date: 09/01/2022
 ms.author: jfields
 ---
 
