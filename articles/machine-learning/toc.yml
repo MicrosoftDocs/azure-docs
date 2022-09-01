@@ -237,6 +237,9 @@
         - name: Configure required network traffic
           displayName: firewall, user-defined route, udr
           href: how-to-access-azureml-behind-firewall.md
+        - name: Data exfiltration prevention
+          displayName: loss
+          href: how-to-prevent-data-loss-exfiltration.md
         - name: Configure network isolation with v2
           href: how-to-configure-network-isolation-with-v2.md
     - name: Data protection
@@ -277,12 +280,29 @@
         - name: Compute cluster
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
-        - name: AKS and Arc Enabled Kubernetes cluster
-          displayName: Azure Arc, Kubernetes, on-premises, multi-cloud, attach
-          href: how-to-attach-kubernetes-anywhere.md
         - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
+    - name: AKS and Azure Arc-enabled Kubernetes
+      items:
+        - name: What is Kubernetes compute target
+          displayName: compute target, Azure Kuberentes Service, Azure Arc-enabled Kubernetes, AKS, on-premises, multi-cloud
+          href: how-to-attach-kubernetes-anywhere.md
+        - name: Step 1 - Deploy AzureML extension
+          displayName: AKS, Arc Kubernetes, inference router
+          href: how-to-deploy-kubernetes-extension.md
+        - name: Step 2 - Attach cluster to workspace
+          displayName: AKS, Arc Kubernetes, attach
+          href: how-to-attach-kubernetes-to-workspace.md
+        - name: Create and manage instance types
+          displayName: compute target, instance types, AKS, Arc Kubernetes
+          href: how-to-manage-kubernetes-instance-types.md
+        - name: Manage AzureML inference router
+          displayNmae: AKS, Arc Kubernetes, inference, compute target
+          href: how-to-kubernetes-inference-routing-azureml-fe.md
+        - name: Secure inferencing environment
+          displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
+          href: how-to-secure-kubernetes-inferencing-environment.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -382,9 +402,6 @@
           items:
           - name: Train with SDK v2 (preview)
             href: how-to-train-sdk.md
-          - name: Configure & submit training run
-            displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-            href: how-to-set-up-training-targets.md
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md
@@ -653,6 +670,9 @@
     - name: Troubleshoot descriptor error
       displayName: descriptors cannot not be created directly
       href: how-to-troubleshoot-protobuf-descriptor-error.md
+    - name: How to troubleshoot data access
+      displayName: troubleshoot, data, debug, image
+      href: how-to-troubleshoot-data-access.md
 - name: Reference
   items: 
     - name: Python SDK v1
@@ -760,8 +780,6 @@
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/machine-learning-services/
-    - name: Service limits
-      href: resource-limits-capacity.md
     - name: Conda licensing
       href: /legal/machine-learning/conda-licensing
     - name: Regional availability

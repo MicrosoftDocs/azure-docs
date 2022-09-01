@@ -123,7 +123,7 @@ GET {{FHIR_URL}}/Patient?general-practitioner:Practitioner.name=Sarah&general-pr
 
 This would return all `Patient` resources that have a reference to "Sarah" as a `generalPractitioner` plus a reference to a `generalPractitioner` that has an address in the state of Washington. In other words, if a patient had a `generalPractitioner` named Sarah from New York state and another `generalPractitioner` named Bill from Washington state, this would meet the conditions for a positive match when doing this search.
 
-For scenarios in which the search criteria carries a logical AND condition that strictly checks for paired element values, refer to the **composite search** examples below.
+For scenarios in which the search requires a logical AND condition that strictly checks for paired element values, refer to the **composite search** examples below.
 
 ## Reverse chained search
 
@@ -145,7 +145,7 @@ GET {{FHIR_URL}}/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:P
 
 ## Composite search
 
-To search for resources that contain elements grouped together as logically connected pairs, FHIR defines composite search, which joins single parameter values together with the `$` operator – making a connected pair of parameters. In a composite search, a positive match occurs when the intersection of element values satisfies all of the conditions set in the paired search parameters. For example, if you want to find all `DiagnosticReport` resources that contain a potassium value less than `9.2`:
+To search for resources that contain elements grouped together as logically connected pairs, FHIR defines composite search, which joins single parameter values together with the `$` operator – forming a connected pair of parameters. In a composite search, a positive match occurs when the intersection of element values satisfies all conditions set in the paired search parameters. For example, if you want to find all `DiagnosticReport` resources that contain a potassium value less than `9.2`:
 
 ```rest
 GET {{FHIR_URL}}/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2

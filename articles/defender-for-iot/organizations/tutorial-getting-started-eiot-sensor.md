@@ -149,7 +149,7 @@ The installation process checks to see if the required Docker version is already
 
 <a name="install"></a>**To install the sensor**:
 
-1. On your physical appliance or VM, sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm.
+1. On your physical appliance or VM, sign in to the sensor's CLI using a terminal, such as PuTTY, or MobaXterm.
 
 1. Run the command that you'd saved from the Azure portal. For example:
 
