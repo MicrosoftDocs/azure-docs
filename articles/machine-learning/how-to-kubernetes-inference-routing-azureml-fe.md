@@ -1,5 +1,5 @@
 ---
-title: AzureML inference router and connectivity requirements
+title: Inference router and connectivity requirements
 description: Learn about what is AzureML inference router, how autoscaling works, and how to configure and meet inference requests performance (# of requests per second and latency)
 titleSuffix: Azure Machine Learning
 author: bozhong68
@@ -43,7 +43,7 @@ The following steps are how requests are processed by the front-end:
 
 The following diagram illustrates this flow:
 
-:::image type="content" source="./media/how-to-attach-arc-kubernetes/cr-architecture.png" alt-text="Diagram illustrating the flow between components.":::
+:::image type="content" source="./media/how-to-attach-arc-kubernetes/request-handling-architecture.png" alt-text="Diagram illustrating the flow of requests between components.":::
 
 As you can see from above diagram, by default 3 `azureml-fe` instances are created during AzureML extension deployment, one instance acts as coordinating role, and the other instances serve incoming inference requests. The coordinating instance has all information about model pods and makes decision about which model pod to serve incoming request, while the serving `azureml-fe` instances are responsible for routing the request to selected model pod and propagate the response back to the original user.
 
@@ -54,9 +54,9 @@ AzureML inference router handles autoscaling for all model deployments on the Ku
 > [!IMPORTANT]
 > * **Do not enable Kubernetes Horizontal Pod Autoscaler (HPA) for model deployments**. Doing so would cause the two auto-scaling components to compete with each other. Azureml-fe is designed to auto-scale models deployed by AzureML, where HPA would have to guess or approximate model utilization from a generic metric like CPU usage or a custom metric configuration.
 > 
-> * **Azureml-fe does not scale the number of nodes in an AKS cluster**, because this could lead to unexpected cost increases. Instead, **it scales the number of replicas for the model** within the physical cluster boundaries. If you need to scale the number of nodes within the cluster, you can manually scale the cluster or [configure the AKS cluster autoscaler](../aks/cluster-autoscaler.md).
+> * **Azureml-fe does not scale the nuzmber of nodes in an AKS cluster**, because this could lead to unexpected cost increases. Instead, **it scales the number of replicas for the model** within the physical cluster boundaries. If you need to scale the number of nodes within the cluster, you can manually scale the cluster or [configure the AKS cluster autoscaler](../aks/cluster-autoscaler.md).
 
-Autoscaling can be controlled by ```scale_settings``` property in deployment YAML. The following example demonstrates how to enable autoscaling:
+Autoscaling can be controlled by `scale_settings` property in deployment YAML. The following example demonstrates how to enable autoscaling:
 
 ```yaml
 # deployment yaml
@@ -95,8 +95,8 @@ replicas = ceil(concurrentRequests / maxReqPerContainer)
 
 If you have RPS requirements higher than 10K, consider following options:
 
-* Increase resource requests/limits for ```azureml-fe``` pods, by default it has 2 vCPU and 2G memory request/limit.
-* Increase number of instances for ```azureml-fe```, by default AzureML creates 3 ```azureml-fe``` instances per cluster.
+* Increase resource requests/limits for `azureml-fe` pods, by default it has 2 vCPU and 2G memory request/limit.
+* Increase number of instances for `azureml-fe`, by default AzureML creates 3 `azureml-fe` instances per cluster.
 * Reach out to Microsoft experts for help.
 
 ## Understand connectivity requirements for AKS inferencing cluster
@@ -109,7 +109,7 @@ For Kubenet networking, the network is created and configured properly for Azure
 
 The following diagram shows the connectivity requirements for AKS inferencing. Black arrows represent actual communication, and blue arrows represent the domain names. You may need to add entries for these hosts to your firewall or to your custom DNS server.
 
- ![Connectivity Requirements for AKS Inferencing](./media/how-to-attach-arc-kubernetes/aks-network.png)
+![Diagram of the connectivity requirements for inferencing with Azure Kubernetes Services.](./media/how-to-attach-arc-kubernetes/azureml-kubernetes-network.png)
 
 For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
@@ -154,6 +154,6 @@ After the model is deployed and service starts, azureml-fe will automatically di
 
 ## Next steps
 
-- [Create and manage instance types](./k8s-instance-types.md)
-- [Secure AKS inferencing environment](./k8s-secure-inferencing-env.md)
+- [Create and manage instance types](./how-to-manage-kubernetes-instance-types.md)
+- [Secure AKS inferencing environment](./how-to-secure-kubernetes-inferencing-environment.md)
 

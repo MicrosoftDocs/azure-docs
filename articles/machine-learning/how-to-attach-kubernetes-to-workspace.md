@@ -1,6 +1,6 @@
 ---
 title: Attach a Kubernetes cluster to AzureML workspace
-description: Learn about how to attach a Kubernetes cluster to AzureML workspaceS
+description: Learn about how to attach a Kubernetes cluster
 titleSuffix: Azure Machine Learning
 author: bozhong68
 ms.author: bozhlin
@@ -116,6 +116,6 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 ## Next steps
 
-- [Create and manage instance types](./k8s-instance-types.md)
-- [AzureML inference router and connectivity requirements](./k8s-azureml-fe.md)
-- [Secure AKS inferencing environment](./k8s-secure-inferencing-env.md)
+- [Create and manage instance types](./how-to-manage-kubernetes-instance-types.md)
+- [AzureML inference router and connectivity requirements](./how-to-kubernetes-inference-routing-azureml-fe.md.md)
+- [Secure AKS inferencing environment](./how-to-secure-kubernetes-inferencing-environment.md)
