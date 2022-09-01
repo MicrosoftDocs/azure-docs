@@ -24,6 +24,8 @@
       href: migrate-app-service.md
     - name: Application Gateway
       href: migrate-app-gateway-v2.md
+    - name: Azure Functions
+      href: migrate-functions.md
     - name: Cache for Redis
       href: migrate-cache-redis.md
     - name: Cognitive Search
