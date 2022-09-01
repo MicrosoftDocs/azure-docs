@@ -1,3 +1,16 @@
+---
+title: Trial Playbook: Microsoft Entra Persmissions Management
+description: How to get started with your Entra Permissions free trial
+services: active-directory
+author: jenniferf-skc
+manager: amycolannino
+ms.service: ciem
+ms.workload: identity
+ms.topic: quickstart
+ms.date: 01/01/2022
+ms.author: jfields
+---
+
 # Trial playbook: Microsoft Entra Permissions Management
 
 ### Introduction
@@ -40,7 +53,7 @@ Permissions Management helps your organization tackle cloud permissions by enabl
 
 7.  For information on how to onboard an AWS account, Azure subscription, or GCP project into Permissions Management, select one of the following articles and follow the instructions:
 -   [Onboard an AWS account](../cloud-infrastructure-entitlement-management/onboard-aws.md)
--   [Onboard a Microsoft Azure subscription](../cloud-infrastructure-entitlement-management/onboard-azure)
+-   [Onboard a Microsoft Azure subscription](../cloud-infrastructure-entitlement-management/onboard-azure.md)
 -   [Onboard a GCP project](../cloud-infrastructure-entitlement-management/onboard-gcp.md)
 1.  [Enable or disable the controller after onboarding is complete](../cloud-infrastructure-entitlement-management/onboard-enable-controller-after-onboarding.md)
 2.  [Add an account/subscription/project after onboarding is complete](../cloud-infrastructure-entitlement-management/onboard-add-account-after-onboarding.md)
@@ -155,7 +168,7 @@ Prevent data breaches caused by misuse and malicious exploitation of permissions
     **Actions to try:**
 
 6.  [View information about alerts and alert triggers](../cloud-infrastructure-entitlement-management/ui-triggers.md)
-7.  [Create and view activity alerts and alert triggers](../cloud-infrastructure-entitlement-management/how-to-create-alert-trigger)
+7.  [Create and view activity alerts and alert triggers](../cloud-infrastructure-entitlement-management/how-to-create-alert-trigger.md)
 8.  [Create and view rule-based anomaly alerts and anomaly triggers](../cloud-infrastructure-entitlement-management/product-rule-based-anomalies.md)
 9.  [Create and view statistical anomalies and anomaly triggers](../cloud-infrastructure-entitlement-management/product-statistical-anomalies.md)
 10. [Create and view permission analytics triggers](../cloud-infrastructure-entitlement-management/product-permission-analytics.md)
@@ -221,7 +234,7 @@ Prevent data breaches caused by misuse and malicious exploitation of permissions
 
 ### Additional Resources
 
-**Microsoft Docs**: [Visit Docs](../cloud-infrastructure-entitlement-management/).
+**Microsoft Docs**: [Visit Docs](../cloud-infrastructure-entitlement-management).
 
 **Datasheet:** <https://aka.ms/PermissionsManagementDataSheet>
 
