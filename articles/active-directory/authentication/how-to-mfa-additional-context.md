@@ -13,18 +13,11 @@ ms.collection: M365-identity-device-management
 ---
 # How to use additional context in Microsoft Authenticator notifications (Preview) - Authentication Methods Policy
 
-This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator push and passwordless notifications.  
-
-## Prerequisites
-
-Your organization will need to enable Microsoft Authenticator push notifications for some users or groups using the new Authentication Methods Policy API.
-
 This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator push and passwordless notifications. 
 
 ## Prerequisites
 
 Your organization will need to enable Microsoft Authenticator push notifications for some users or groups by using the Azure AD portal. The new Authentication Methods Policy API will soon be ready as another configuration option.
-
 
 >[!NOTE]
 >Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy.
