@@ -144,7 +144,7 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
        --name integration_account_01 --location westus --sku name=Standard
    ```
 
-   Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses ((, )), and periods (.).
+   Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses (()), and periods (.).
 
    To view a specific integration account, use the [az logic integration-account show](/cli/azure/logic/integration-account#az-logic-integration-account-show) command:
 

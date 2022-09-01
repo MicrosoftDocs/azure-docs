@@ -20,7 +20,7 @@ Before you send XML content to a business partner in a business-to-business (B2B
 >
 > In Standard logic app workflows, the **Flat File** actions are currently in preview.
 
-While no **Flat File** triggers are available, you can use any trigger or action to feed the source XML content into your workflow for encoding or decoding. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
+While no **Flat File** triggers are available, you can use any trigger or action to feed the source XML content into your workflow. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
 
 This article shows how to add the **Flat File** encoding and decoding actions to your workflow.
 
@@ -59,7 +59,7 @@ For more information, review the following documentation:
 
   * If you're working on a Consumption logic app workflow, your logic app resource requires a [link to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
 
-  * If you're working on a Standard logic app workflow, you can link your your logic app resource to your integration account, upload schemas directly to your logic app resource, or both, based on the following scenarios:
+  * If you're working on a Standard logic app workflow, you can link your logic app resource to your integration account, upload schemas directly to your logic app resource, or both, based on the following scenarios:
 
     * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload schemas to each individual logic app. For more information, review [Link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
 
