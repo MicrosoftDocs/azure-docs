@@ -120,12 +120,12 @@ You can also set a registry's soft- delete policy in the [Azure portal](https://
 1. Under the **Overview tab**, see the status of the **Soft Delete**(Preview).
 1. If the **Status** is **Disabled**, select **Update**.
 
-:::image type="content" source="./media/container-registry-soft-delete/01-soft-delete-disable.png" alt-text="soft-delete-artifacts-lifecycle":::
+:::image type="content" source="./media/container-registry-soft-delete/01-soft-delete-disable.png" alt-text="-enable-soft-delete-policy":::
 
 1. Select the checkbox to **Enable Soft Delete**.
 1. Select a number of days between `0` and `30` days to retain the soft deleted artifacts. Select **Save**.
 
-:::image type="content" source="./media/container-registry-soft-delete/02-soft-delete-policy.png" alt-text="soft-delete-artifacts-lifecycle":::
+:::image type="content" source="./media/container-registry-soft-delete/02-soft-delete-policy.png" alt-text="soft-delete-policy":::
 
 ## Restore the soft deleted artifacts - Portal
 
@@ -134,16 +134,16 @@ You can also set a registry's soft- delete policy in the [Azure portal](https://
 1. Under the **Repositories**, Select your preferred **Repository**.
 1.  Click on the **Manage deleted artifacts** to see all the soft deleted artifacts.
 
-:::image type="content" source="./media/container-registry-soft-delete/03-soft-delete-manage-deleted-artifacts.png" alt-text="soft-delete-artifacts-lifecycle":::
+:::image type="content" source="./media/container-registry-soft-delete/03-soft-delete-manage-deleted-artifacts.png" alt-text="soft-delete-artifacts":::
 
 1.  Filter the deleted artifact you have to restore, click on the **Restore** on the right column and a **Restore Artifact** window pops up.
 
-:::image type="content" source="./media/container-registry-soft-delete/04-managed-deleted-artifacts.png" alt-text="soft-delete-artifacts-lifecycle":::
+:::image type="content" source="./media/container-registry-soft-delete/04-managed-deleted-artifacts.png" alt-text="soft-delete-artifacts-restore":::
 
 1. Select the tag to restore, here you have an option to choose, and recover any additional tags.
 1. Click on **Restore**. 
 
-:::image type="content" source="./media/container-registry-soft-delete/05-restore-artifact.png" alt-text="soft-delete-artifacts-lifecycle":::
+:::image type="content" source="./media/container-registry-soft-delete/05-restore-artifact.png" alt-text="soft-delete-restore-artifacts":::
 
 ## Restore from soft deleted repositories - Portal
 
@@ -151,17 +151,17 @@ You can also set a registry's soft- delete policy in the [Azure portal](https://
 1. Under the **Menu** section, find **Services**, and Select **Repositories**.
 1. On the **Repositories** tab, click on **Manage Deleted Repositories**.
 
-:::image type="content" source="./media/container-registry-soft-delete/06-soft-delete-manage-repositories.png" alt-text="soft-delete-artifacts-lifecycle":::
+:::image type="content" source="./media/container-registry-soft-delete/06-soft-delete-manage-repositories.png" alt-text="soft-delete-repositories":::
 
 1. Filter the deleted repository in the **Soft Deleted Repositories**(Preview).
 1. Select the deleted repository, filter the deleted artifact from  on the **Manage deleted artifacts**, click on the **Restore** on the right column and a **Restore Artifact** window pops up.
 
-:::image type="content" source="./media/container-registry-soft-delete/07-soft-delete-artifacts-restore.png" alt-text="soft-delete-artifacts-lifecycle":::
+:::image type="content" source="./media/container-registry-soft-delete/07-soft-delete-artifacts-restore.png" alt-text="soft-delete-restore-repositories":::
 
 1. Select the tag to restore, here you have an option to choose, and recover any additional tags.
 1. Click on **Restore**. 
 
-:::image type="content" source="./media/container-registry-soft-delete/08-soft-delete-restore.png" alt-text="soft-delete-artifacts-lifecycle":::
+:::image type="content" source="./media/container-registry-soft-delete/08-soft-delete-restore.png" alt-text="soft-delete-repositories-artifacts-restore":::
 
 ## Pushing an image
 
