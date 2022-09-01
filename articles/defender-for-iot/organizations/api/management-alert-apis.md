@@ -79,7 +79,7 @@ A list of alerts with the following fields:
 
 For more information, see [Sensor API version reference](../references-work-with-defender-for-iot-apis.md#sensor-api-version-reference).
 
-**Response example**
+#### Response example
 
 ```rest
 [

@@ -35,7 +35,7 @@ request:
 }
 ```
 
-**Parameters**:
+#### Request parameters
 
 | **Name** | **Type** | **Required / Optional** |
 |--|--|--|
@@ -101,7 +101,7 @@ You don't need a Defender for IoT access token to use this API.
 
 **Type**: JSON
 
-**Example**:
+#### Request example
 
 ```rest
 request:
@@ -114,7 +114,7 @@ request:
 }
 ```
 
-**Parameters**:
+#### Request parameters
 
 | **Name** | **Type** | **Required / Optional** |
 |--|--|--|
@@ -137,8 +137,7 @@ Message string with the operation status details:
 |**Failure – error**     | Password doesn't match security policy        |
 |**Failure – error**     |  User does not have the permissions to change password       |
 
-
-**Example**:
+#### Response example
 
 ```rest
 response:
@@ -185,14 +184,14 @@ You don't need a Defender for IoT access token to use this API.
 
 **Request type**: JSON
 
-**Query parameters**:
+#### Query parameters
 
 | **Name** | **Type** | **Required/Optional** |
 |--|--|--|
 | **username** | String | Required |
 | **password** | String | Required |
 
-**Example**:
+#### Request example:
 
 ```rest
 request:
@@ -213,7 +212,7 @@ Message string with the operation status details:
 |**Success - msg**     |  Authentication succeeded       |
 |**Failure - error**     |  Credentials validation failed       |
 
-**Example**:
+#### Response example
 
 ```rest
 response:

@@ -20,7 +20,7 @@ Use this API to request a list of all device connections.
 
 # [Request](#tab/connections-request)
 
-**Query parameters**:
+#### Query parameters
 
 Define any of the following query parameters to filter the results returned. If you don't set query parameters, all device connections are returned.
 
@@ -41,7 +41,7 @@ Array of JSON objects that represent device connections, or the following failur
 |**Failure – error**     |     Operation failed   |
 
 
-**Success response fields**
+#### Success response fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
@@ -52,14 +52,14 @@ Array of JSON objects that represent device connections, or the following failur
 | **ports** | Number array | Nullable | - |
 | **protocols** | JSON array | Nullable | Protocol field |
 
-**Protocol fields**:
+#### Protocol fields
 
 | Name | Type | Nullable / Not nullable |
 |--|--|--|
 | **name** | String | Not nullable |
 | **commands** | String array | Nullable |
 
-**Response example:**
+#### Response example
 
 ```rest
 [
@@ -141,14 +141,13 @@ Use this API to request a list of all the connections per device.
 
 # [Request](#tab/connections-request)
 
-**Path parameter**:
+#### Path parameter
 
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
 |**deviceId**     |  Get connections for the given device.       | `/api/v1/devices/<deviceId>/connections`        | Required |
 
-
-**Query parameters**:
+#### Query parameters
 
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
@@ -166,8 +165,7 @@ Array of JSON objects that represent device connections, or the following failur
 |---------|---------|
 |**Failure – error**     |     Operation failed   |
 
-
-**Success response fields**
+#### Success response fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
@@ -178,14 +176,14 @@ Array of JSON objects that represent device connections, or the following failur
 | **ports** | Number array | Nullable | - |
 | **protocols** | JSON array | Nullable | Protocol field |
 
-**Protocol fields**:
+#### Protocol fields
 
 | Name | Type | Nullable / Not nullable |
 |--|--|--|
 | **name** | String | Not nullable |
 | **commands** | String array | Nullable |
 
-**Response example:**
+#### Response example
 
 ```rest
 [
@@ -289,7 +287,7 @@ JSON array of device CVE objects, or the following failure message:
 |**Failure – error**     |     Operation failed   |
 
 
-**Success response fields**
+#### Success response fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
@@ -299,7 +297,7 @@ JSON array of device CVE objects, or the following failure message:
 | **attackVector** | String | Not nullable | `Network`, `Adjacent Network`, `Local`, or `Physical` |
 | **description** | String | Not nullable | - |
 
-**Response example:**
+#### Response example
 
 ```rest
 [
@@ -362,8 +360,7 @@ Use this API to request a list of all known CVEs discovered on devices in the ne
 
 **Example**: `/api/v1/devices/cves`
 
-
-**Path parameter**:
+#### Path parameter
 
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
@@ -386,7 +383,7 @@ JSON array of device CVE objects, or the following failure message:
 |**Failure – error**     |     Operation failed   |
 
 
-**Success response fields**
+#### Success response fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
@@ -396,7 +393,7 @@ JSON array of device CVE objects, or the following failure message:
 | **attackVector** | String | Not nullable | `Network`, `Adjacent Network`, `Local`, or `Physical` |
 | **description** | String | Not nullable | - |
 
-**Response example:**
+#### Response example
 
 ```rest
 [
@@ -461,7 +458,7 @@ Use this API to request a list of all devices detected by this sensor.
 
 # [Request](#tab/devices-request)
 
-**Query parameter**:
+#### Query parameter
 
 Define the following query parameter to filter the results returned. If you don't set query parameters, all device connections are returned.
 
@@ -480,8 +477,7 @@ Array of JSON objects that represent device objects, or the following failure me
 |---------|---------|
 |**Failure – error**     |     Operation failed   |
 
-
-**Success response fields**
+#### Success response fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|

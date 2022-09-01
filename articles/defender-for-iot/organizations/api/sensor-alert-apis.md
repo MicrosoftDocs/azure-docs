@@ -20,7 +20,7 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 
 # [Request](#tab/alerts-request)
 
-**Query parameters**:
+#### Query parameters
 
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
@@ -45,14 +45,15 @@ A list of alerts with the following fields:
 | **engine** | String | Not nullable | `Protocol Violation`, `Policy Violation`, `Malware`, `Anomaly`, or `Operational` |
 | **sourceDevice** | Numeric | Nullable | Device ID |
 | **destinationDevice** | Numeric | Nullable | Device ID |
-| **additionalInformation** | Additional information object, as described below | Nullable | - |
+| **additionalInformation** | [Additional information object](#additional-information-fields) | Nullable | - |
 
-**Additional information fields**:
+#### Additional information fields
 
 | Name | Type |  Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **description** | String | Not nullable | - |
 | **information** | JSON array | Not nullable | String |
+
 
 **Added for V2**:
 
@@ -66,7 +67,7 @@ For more information, see [Sensor API version reference](../references-work-with
 
 
 
-**Response example**
+#### Response example
 
 ```rest
 [
@@ -132,7 +133,7 @@ Use this API to request a list of events reported to the event timeline.
 
 # [Request](#tab/events-request)
 
-**Query parameters**:
+#### Query parameters
 
 
 |Name  |Description  |Example  | Required / Optional |
@@ -157,7 +158,7 @@ Event fields include:
 | **owner** | String | Nullable | String. If the event was created manually, this field will include the username that created the event. |
 | **content** | String | Not nullable | String that describes the event. |
 
-### Response example
+#### Response example
 
 ```rest
 [

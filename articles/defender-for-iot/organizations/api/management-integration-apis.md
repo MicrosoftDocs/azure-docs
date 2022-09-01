@@ -56,7 +56,7 @@ This API returns data about all devices that were updated after the given timest
 |**u_count**    | Integer | Not nullable | The number of objects in the full result set, including all pages.       |
 |**u_devices**    |JSON array of device objects   |Not nullable  | An array of device objects, as defined by the [device (Get details for a device)](#device-get-details-for-a-device) API.   |
 
-**Response example**
+#### Response example
 
 <!--TBD-->
 
@@ -102,7 +102,7 @@ This API returns data about all device connections that were updated after the g
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 |**u_count**    | Integer | Not nullable | The number of objects in the full result set, including all pages.       |
-|**u_connections**    |JSON array of connection objects   |Not nullable  | An array of connection objects. For more information, see [connections fields](#connections-fields).|
+|**u_connections**    |JSON array of connection objects   |Not nullable  | An array of [connection](#connections-fields) objects|
 
 ### connections fields
 
@@ -117,7 +117,7 @@ This API returns data about all device connections that were updated after the g
 | **u_connection_type** | String | Not nullable | One of the following: `One Way`, `Two Way`, `Multicast` |
 
 
-**Response example**
+#### Response example
 
 <!--TBD-->
 
@@ -134,7 +134,7 @@ This API returns data about all device connections that were updated after the g
 
 This API returns data about a specific device per a given device ID.
 
-**URI**: `/external/v3/integration//device/{deviceId}`
+**URI**: `/external/v3/integration/device/{deviceId}`
 
 ### GET
 
@@ -165,18 +165,18 @@ This API returns data about a specific device per a given device ID.
 | **u_zone** | String | Not nullable | The name of the device's site. |
 | **u_last_activity**  | DateTime |Not nullable  | The timestamp of the last time the device was active. |
 | **u_first_discovered** | DateTime| Not nullable | Rhe timestamp of the device's discovery time. |
-| **u_device_type**  |String |Not nullable  | The device type. For more information, see [Supported `type` values](sensor-inventory-apis.md#supported-type-values). |
+| **u_device_type**  |String |Not nullable  | The device [type](sensor-inventory-apis.md#supported-type-values) |
 | **u_name**  | String| Not nullable| Defines the device name. |
-| **u_ip_address_objects**  |JSON array of IP addresses | Not nullable | Array of IP address objects. For more information, see [ip_address_object fields](#ip_address_object-fields). |
-| **u_mac_address_objects** |JSON array of MAC addresses | Not nullable | Array of MAC address objects. For more information, see [mac_address_object fields](#mac_address_object-fields). |
-| **u_protocol_objects** | JSON array of protocols | Not nullable  | An array of protocol objects. For more information, see [protocol_object fields](#protocol_object-fields). |
-| **u_vlans**  |JSON array of VLAN objects | Not nullable | An array of vlan objects. For more information, see [vlan_object fields](#vlan_object-fields). |
+| **u_ip_address_objects**  |JSON array of IP addresses | Not nullable | Array of [IP address](#ip_address_object-fields) objects  |
+| **u_mac_address_objects** |JSON array of MAC addresses | Not nullable | Array of [MAC address](#mac_address_object-fields) objects  |
+| **u_protocol_objects** | JSON array of protocols | Not nullable  | An array of [protocol](#protocol_object-fields) objects  |
+| **u_vlans**  |JSON array of VLAN objects | Not nullable | An array of [VLAN](#vlan_object-fields) objects  |
 | **u_purdue_layer**  | String | Not nullable |Defines the default [Purdue layer](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) for this device type. |
-| **u_sensor_ids** |JSON array of sensor ID objects |Not nullable | An array of sensor ID objects. For more information, see [sensor_id_object fields](#sensor_id_object-fields). |
+| **u_sensor_ids** |JSON array of sensor ID objects |Not nullable | An array of [sensor ID](#sensor_id_object-fields) objects  |
 | **u_cm_device_url** |String |Not nullable  | The URL used to access the device on the on-premises management console. |
-| **u_device_urls** |JSON array of URL objects |Not nullable  | An array of device URL objects. For more information, see [device_url_object fields](#device_url_object-fields).|
+| **u_device_urls** |JSON array of URL objects |Not nullable  | An array of [device URL](#device_url_object-fields) objects |
 | **u_last_update**   | Long integer  |Not nullable | Defines the timestamp of the device's last update time. |
-| **u_firmwares**  |JSON array of firmware objects | Not nullable | An array of firmware objects.  For more information, see [firmware_object fields](#firmware_object-fields).|
+| **u_firmwares**  |JSON array of firmware objects | Not nullable | An array of [firmware](#firmware_object-fields) objects|
 
 ### ip_address_object fields
 
@@ -232,7 +232,7 @@ This API returns data about a specific device per a given device ID.
 | **u_additional_data** | String | Nullable | The device's firmware vendor-specific additional data |
 
 
-**Response example**
+#### Response example
 
 <!--TBD-->
 
@@ -246,6 +246,10 @@ This API returns data about a specific device per a given device ID.
 ---
 
 ## deleteddevices (Get deleted devices)
+
+This API returns data about deleted devices. <!-- needs more info-->
+
+**URI**: `/external/v3/integration/deleteddevices/`
 
 ### GET
 
@@ -272,7 +276,7 @@ This API returns data about a specific device per a given device ID.
 | **u_id** | Long integer | Not nullable | An ID of a deleted device |
 
 
-**Response example**
+#### Response example
 
 <!--TBD-->
 
@@ -285,6 +289,10 @@ This API returns data about a specific device per a given device ID.
 <!--TBD-->
 ---
 ## sensors (Get sensors)
+
+This API returns data about connected network sensors. <!-- needs more info-->
+
+**URI**: `/external/v3/integration/sensors/`
 
 ### GET
 
@@ -322,7 +330,7 @@ An array of the following fields:
 
 
 
-**Response example**
+#### Response example
 
 <!--TBD-->
 
@@ -336,19 +344,23 @@ An array of the following fields:
 ---
 ## devicecves (Get device CVEs)
 
+This API returns data about CVEs for a specific device. <!-- needs more info-->
+
+**URI**: `/external/v3/integration/devicecves/`
+
 ### GET
 
 # [Request](#tab/devicecves-request)
 
 **URI**: `/devicecves/{timestamp}`
 
-**URI parameters**:
+#### URI parameters
 
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
 |**timestamp**     |   The start time from which results are returned, in milliseconds from Epoch time and in UTC timezone.     | `/external/v3/integration/devicecves/timestamp=<epoch>` | Required |
 
-**Query parameters**:
+#### Query parameters
 
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
@@ -364,44 +376,44 @@ An array of the following fields:
 
 **Type**: Count and JSON array of device CVEs
 
-**Response fields**:
+#### Response fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 |**u_count** | Integer | Not nullable | The number of objects in the full result set, including all pages. |
-| **u_device_cves** | JSON array of device CVE objects | Not nullable | An array of device CVE objects.  For more information, see [Device CVE fields](#device-cve-fields) |
+| **u_device_cves** | JSON array of device CVE objects | Not nullable | An array of [device CVE objects](#device-cve-fields)|
 
-### Device CVE fields
+#### Device CVE fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **u_id** | Integer | Not nullable | The device's ID in the on-premises management console. |
 | **u_name** | String | Not nullable | The device's name.|
-| **u_ip_address_objects** | JSON array of IP address objects | Not nullable | Array of **u_ip_address**, values, defining the devices IP addresses. For more information, see [u_ip_address_objects fields](#u_ip_address_objects-fields). |
-| **u_mac_address_objects** | JSON array of MAC address objects | Not nullable | An array of **u_mac_address** values, listing the device's MAC addresses. For more information, see [u_mac_address_objects fields](#u_mac_address_objects-fields).  |
+| **u_ip_address_objects** | JSON array of IP address objects | Not nullable | Array of [u_ip_address](#u_ip_address_objects-fields) values, defining the devices IP addresses.  |
+| **u_mac_address_objects** | JSON array of MAC address objects | Not nullable | An array of [u_mac_address](#u_mac_address_objects-fields) values, listing the device's MAC addresses.   |
 | **u_last_activity**  | Integer | Not nullable | Timestamp of the last time traffic was seen from or to the device.  |
 | **u_last_update** | Integer | Not nullable | The timestamp of the last time a property was changed on the device, including both user changes and automated system changes. |
-|**u_cves** | JSON array of CVEs | Not nullable | An array of CVE details objects. For more information, see [u_cves fields](#u_cves-fields). |
+|**u_cves** | JSON array of CVEs | Not nullable | An array of [CVE details](#u_cves-fields) objects |
 
 > [!NOTE]
 > If Defender for IoT can confidently identify the MAC address of one of its IP addresses, the MAC address is returned in the **u_mac_address_objects** field directly.
 >
 > If Defender for IoT is not entirely confident about a MAC address, such as if the traffic has been routed via a router, the MAC address is returned in the **u_guessed_mac_address** field instead, as part of the JSON array of IP addresses.
 
-### u_ip_address_objects fields
+#### u_ip_address_objects fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **u_ip_address** | String | Not nullable | One of the device's IP addresses |
-| **u_guessed_mac_address** | JSON array of MAC address objects | Not nullable | JSON array of MAC addresses. FOr more information, see [MAC address fields](#mac-address-fields).  |
+| **u_guessed_mac_address** | JSON array of MAC address objects | Not nullable | JSON array of [MAC addresses](#mac-address-fields) |
 
-### u_mac_address_objects fields
+#### u_mac_address_objects fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **u_mac_address** | String | Not nullable | One of the device's MAC addresses |
 
-### u_cves fields
+#### u_cves fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
@@ -412,7 +424,7 @@ An array of the following fields:
 | **u_description**| String| Not nullable | Defines the CVE description|
 
 
-**Response example**
+#### Response example
 
 <!--TBD-->
 

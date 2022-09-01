@@ -34,7 +34,7 @@ request:
 }
 ```
 
-**Parameters**:
+#### Request parameters
 
 | **Name** | **Type** | **Required / Optional** |
 |--|--|--|
@@ -53,7 +53,7 @@ request:
 |**Failure – error**     |   User authentication failure      |
 |**Failure – error**     |   Password does not match security policy      |
 
-**Example**:
+#### Response example
 
 ```rest
 response:
@@ -101,7 +101,7 @@ You don't need a Defender for IoT access token to use this API.
 
 **Type**: JSON
 
-**Request example**:
+#### Request example
 
 ```rest
 request:
@@ -114,7 +114,7 @@ request:
 }
 ```
 
-**Parameters**:
+#### Request parameters
 
 | **Name** | **Type** | **Required / Optional** |
 |--|--|--|
@@ -137,7 +137,7 @@ Message string with the operation status details:
 |**Failure – error**     | Password doesn't match security policy        |
 |**Failure – error**     |  User does not have the permissions to change password       |
 
-**Response example**
+#### Response example
 
 ```rest
 response:
@@ -152,8 +152,7 @@ response:
 }
 
 ```
-
-**Device fields**
+#### Device fields
 
 | **Name** | **Type** | **Required / Optional** |
 |--|--|--|
@@ -182,7 +181,7 @@ curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": 
 
 ## validation (Authenticate user credentials)
 
-Use this API to validate user credentials. 
+Use this API to validate user credentials.
 
 You don't need a Defender for IoT access token to use this API.
 
@@ -194,14 +193,14 @@ You don't need a Defender for IoT access token to use this API.
 
 **Type**: JSON
 
-**Query parameters**:
+#### Query parameters
 
 | **Name** | **Type** | **Required/Optional** |
 |--|--|--|
 | **username** | String | Required |
 | **password** | String | Required |
 
-**Example**:
+#### Request example
 
 ```rest
 request:
@@ -225,7 +224,7 @@ Message string with the operation status details:
 |**Success - msg**     |  Authentication succeeded       |
 |**Failure - error**     |  Credentials validation failed       |
 
-**Example**:
+#### Response example
 
 ```rest
 response:
