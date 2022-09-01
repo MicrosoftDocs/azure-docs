@@ -621,7 +621,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    >[!IMPORTANT]
    > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
 
-1. **[A]** Install the Azure Python SDK and Azure Identity python module.  
+1. **[A]** Install the Azure Python SDK and Azure Identity Python module.  
 
     Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5:
     <pre><code># You might need to activate the public cloud extension first
