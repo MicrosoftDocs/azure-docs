@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
-#pmcontact: shants
+#pmcontact: PPHILLIPS
 ---
 
 # Maintenance control for Azure virtual machine scale sets 
