@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 08/25/2022
+ms.date: 09/01/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -38,9 +38,6 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
 
    :::column-end:::
 :::row-end:::
-<!--You can use this feature with:
-* [Language Studio](language-studio.md)
-* [REST API and client library (Azure SDK)](named-entity-recognition/quickstart.md)-->
 
 ### Personally identifying (PII) and health (PHI) information detection
 
@@ -89,11 +86,6 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
    :::column-end:::
 :::row-end:::
 
-<!--You can use this feature with:
-
-* [**Language Studio**](language-studio.md), a web-based platform where you can try PII detection without needing writing code.
-* [**REST API and client library (Azure SDK)**](./personally-identifiable-information/quickstart.md), which enables you to integrate PII detection into your applications using the REST API, or the client library available in a variety of languages.-->
-
 ### Key phrase extraction
 
 :::row:::
@@ -104,11 +96,6 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       [Key phrase extraction](./key-phrase-extraction/overview.md) is a pre-configured feature that evaluates and returns the main concepts in unstructured text, and returns them as a list.
    :::column-end:::
 :::row-end:::
-
-<!--You can use this feature with:
-
-* [**Language Studio**](language-studio.md), a web-based platform where you can try key phrase extraction without needing writing code.
-* [**REST API and client library (Azure SDK)**](./key-phrase-extraction/quickstart.md), which enables you to integrate key phrase extraction into your applications using the REST API, or the client library available in a variety of languages.-->
 
 ### Entity linking
 
@@ -121,12 +108,6 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
    :::column-end:::
 :::row-end:::
 
-<!--You can use this feature with:
-
-* [**Language Studio**](language-studio.md), a web-based platform where you can try key phrase extraction without needing writing code.
-* [**REST API and client library (Azure SDK)**](./entity-linking/quickstart.md), which enables you to integrate key phrase extraction into your applications using the REST API, or the client library available in a variety of languages.-->
-
-
 ### Text analytics for health
 
 :::row:::
@@ -137,12 +118,6 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       [Text analytics for health](./text-analytics-for-health/overview.md) is a pre-configured feature that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. 
    :::column-end:::
 :::row-end:::
-
-<!--You can use this feature with:
-
-* [**Language Studio**](language-studio.md), a web-based platform where you can try key phrase extraction without needing writing code.
-* [**REST API and client library (Azure SDK)**](./entity-linking/quickstart.md), which enables you to integrate key phrase extraction into your applications using the REST API, or the client library available in a variety of languages.
-* [**Docker container**](text-analytics-for-health/how-to/use-containers.md), to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons. -->
 
 ### Custom text classification
 
@@ -203,47 +178,9 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
    :::column-end:::
 :::row-end:::
 
-<!--You can use this feature with:
-
-* [**Language Studio**](./custom-named-entity-recognition/quickstart.md?pivots=language-studio), a web-based platform where you can do the following without needing to write code:
-    * Create and manage a custom NER project
-    * Author, evaluate, and publish an AI model 
-    * Send prediction requests to your model, and view the output visually
-* [**REST API**](./custom-named-entity-recognition/quickstart.md?pivots=rest-api): 
-    * Create and manage a custom NER project
-    * Author, evaluate, and publish an AI model
-    * Send prediction requests to your model, and integrate it into your applications
-* [**Client library (Azure SDK)**](custom-named-entity-recognition/how-to/call-api.md):
-    * Send prediction requests to your model after it has been created with either Language Studio, or the REST API.
--->
-
-
 ## Migrate from Text Analytics, QnA Maker, or Language Understanding (LUIS)
 
 Azure Cognitive Services for Language unifies three individual language services in Cognitive Services - Text Analytics, QnA Maker, and Language Understanding (LUIS). If you have been using these three services, you can easily migrate to the new Azure Cognitive Services for Language. For instructions see [Migrating to Azure Cognitive Services for Language](concepts/migrate.md).  
-
-
-
-<!--Azure Cognitive Service for Language provides the following features:
-
-> [!div class="mx-tdCol2BreakAll"]
-> |Feature  |Description  | Deployment options| 
-> |---------|---------|---------|
-> | [Named Entity Recognition (NER)](named-entity-recognition/overview.md)     | This pre-configured feature identifies entities in text across several pre-defined categories.        | * [Language Studio](language-studio.md) <br> * [REST API and client-library](named-entity-recognition/quickstart.md) |
-> | [Personally Identifiable Information (PII) detection](personally-identifiable-information/overview.md)     | This pre-configured feature identifies entities in text across several pre-defined categories of sensitive information, such as account information.        | * [Language Studio](language-studio.md) <br> * [REST API and client-library](personally-identifiable-information/quickstart.md) |
-> | [Key phrase extraction](key-phrase-extraction/overview.md)     | This pre-configured feature evaluates unstructured text, and for each input document, returns a list of key phrases and main points in the text. | * [Language Studio](language-studio.md) <br> * [REST API and client-library](key-phrase-extraction/quickstart.md) <br> * [Docker container](key-phrase-extraction/how-to/use-containers.md)  |
-> |[Entity linking](entity-linking/overview.md)    | This pre-configured feature disambiguates the identity of an entity found in text and provides links to the entity on Wikipedia.        | * [Language Studio](language-studio.md) <br> * [REST API and client-library](entity-linking/quickstart.md) |
-> | [Text Analytics for health](text-analytics-for-health/overview.md)    | This pre-configured feature extracts information from unstructured medical texts, such as clinical notes and doctor's notes.  | * [Language Studio](language-studio.md) <br> * [REST API and client-library](text-analytics-for-health/quickstart.md) <br> * [Docker container](text-analytics-for-health/how-to/use-containers.md) |
-> | [Custom NER](custom-named-entity-recognition/overview.md)    | Build an AI model to extract custom entity categories, using unstructured text that you provide. |  * [Language Studio](custom-named-entity-recognition/quickstart.md?pivots=language-studio) <br> * [REST API](custom-named-entity-recognition/quickstart.md?pivots=rest-api)<br> * [client-library (prediction only)](custom-named-entity-recognition/how-to/call-api.md) |
-> | [Analyze sentiment and opinions](sentiment-opinion-mining/overview.md)     | This pre-configured feature provides sentiment labels (such as "*negative*", "*neutral*" and "*positive*") for sentences and documents. This feature can additionally provide granular information about the opinions related to words that appear in the text, such as the attributes of products or services. |  * [Language Studio](language-studio.md) <br> * [REST API and client-library](sentiment-opinion-mining/quickstart.md) <br> * [Docker container](sentiment-opinion-mining/how-to/use-containers.md)
-> |[Language detection](language-detection/overview.md)    | This pre-configured feature evaluates text, and determines the language it was written in. It returns a language identifier and a score that indicates the strength of the analysis.        | * [Language Studio](language-studio.md) <br> * [REST API and client-library](language-detection/quickstart.md) <br> * [Docker container](language-detection/how-to/use-containers.md) |
-> |[Custom text classification](custom-classification/overview.md)    | Build an AI model to classify unstructured text into custom classes that you define.         | * [Language Studio](custom-classification/quickstart.md?pivots=language-studio)<br> * [REST API](custom-classification/quickstart.md?pivots=rest-api) <br> * [client-library (prediction only)](custom-text-classification/how-to/call-api.md) |
-> | [Document summarization (preview)](summarization/overview.md?tabs=document-summarization)     | This pre-configured feature extracts key sentences that collectively convey the essence of a document. | * [Language Studio](language-studio.md) <br> * [REST API and client-library](summarization/quickstart.md) |
-> | [Conversation summarization (preview)](summarization/overview.md?tabs=conversation-summarization)     | This pre-configured feature summarizes issues and summaries in transcripts of customer-service conversations. | * [Language Studio](language-studio.md) <br> * [REST API](summarization/quickstart.md?tabs=rest-api) |
-> | [Conversational language understanding](conversational-language-understanding/overview.md)   | Build an AI model to bring the ability to understand natural language into apps, bots, and IoT devices. | * [Language Studio](conversational-language-understanding/quickstart.md?pivots=language-studio) <br> * [REST API](conversational-language-understanding/quickstart.md?pivots=rest-api) <br> * [client-library (prediction only)](conversational-language-understanding/how-to/call-api.md) |
-> | [Question answering](question-answering/overview.md)     | This pre-configured feature provides answers to questions extracted from text input, using semi-structured content such as: FAQs, manuals, and documents. | * [Language Studio](language-studio.md) <br> * [REST API and client-library](question-answering/quickstart/sdk.md) |
-> | [Orchestration workflow](orchestration-workflow/overview.md)    | Train language models to connect your applications to question answering, conversational language understanding, and LUIS |  * [Language Studio](orchestration-workflow/quickstart.md?pivots=language-studio) <br> * [REST API](orchestration-workflow/quickstart.md?pivots=rest-api) <br> * [client-library (prediction only)](orchestration-workflow/how-to/call-api.md) |
--->
 
 ## Tutorials
 
