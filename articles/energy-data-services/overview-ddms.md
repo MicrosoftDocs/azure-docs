@@ -5,6 +5,7 @@ author: marielgherz #Required; your GitHub user alias, with correct capitalizati
 ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
 ms.topic: overview #Required; leave this attribute/value as-is.
 ms.date: 09/01/2022
+ms.service: azure
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 

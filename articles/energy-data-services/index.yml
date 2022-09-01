@@ -26,7 +26,7 @@ landingContent:
             url: overview-azure-energy-data-services.md
   - title: About Domain Data Management Services (DDMS)
     linkLists:
-      - linkListType: DDMS overview
+      - linkListType: overview
         links:
           - text: What is Domain Data Management Services (DDMS)?
             url: overview-ddms.md
