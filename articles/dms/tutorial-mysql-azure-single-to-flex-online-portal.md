@@ -135,10 +135,10 @@ To register the Microsoft.DataMigration resource provider, perform the following
     ![Azure Marketplace](media/tutorial-azure-mysql-single-to-flex-online/1.subscriptions.PNG)
 
 2. Select the subscription that you want to use to create the DMS instance, and then select **Resource providers**.
-    ![Azure Marketplace](media/tutorial-azure-mysql-single-to-flex-online/2.resource-provider.png)
+    ![Select Resource Provider](media/tutorial-azure-mysql-single-to-flex-online/2.resource-provider.png)
 
 3. Search for the term “Migration”, and then, for **Microsoft.DataMigration**, select **Register**.
-    ![Azure Marketplace](media/tutorial-azure-mysql-single-to-flex-online/3.register.png)
+    ![Select Register](media/tutorial-azure-mysql-single-to-flex-online/3.register.png)
 
 ### Create a Database Migration Service (DMS) instance
 
@@ -196,7 +196,7 @@ To create a migration project, perform the following steps.
 
 2. In the search results, select the DMS instance that you just created, and then select + **New Migration Project**.
 
-    ![CSelect a new migration project](media/tutorial-azure-mysql-single-to-flex-online/11.%20select-create.png)
+    ![Select a new migration project](media/tutorial-azure-mysql-single-to-flex-online/11.%20select-create.png)
 
 3. On the **New migration project** page, specify a name for the project, in the Source server type selection box, select **Azure Database For MySQL – Single Server**, in the Target server type selection box, select **Azure Database For MySQL**, in the **Migration activity type** selection box, select **Online migration**, and then select **Create and run activity**.
     > [!NOTE]

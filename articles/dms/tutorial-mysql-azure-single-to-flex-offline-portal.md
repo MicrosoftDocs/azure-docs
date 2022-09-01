@@ -138,10 +138,10 @@ To register the Microsoft.DataMigration resource provider, perform the following
     ![Azure Marketplace](media/tutorial-azure-mysql-single-to-flex-online/1.subscriptions.PNG)
 
 2. Select the subscription that you want to use to create the DMS instance, and then select **Resource providers**.
-    ![Azure Marketplace](media/tutorial-azure-mysql-single-to-flex-online/2.resource-provider.png)
+    ![Select resource provider](media/tutorial-azure-mysql-single-to-flex-online/2.resource-provider.png)
 
 3. Search for the term “Migration”, and then, for **Microsoft.DataMigration**, select **Register**.
-    ![Azure Marketplace](media/tutorial-azure-mysql-single-to-flex-online/3.register.png)
+    ![Select Register](media/tutorial-azure-mysql-single-to-flex-online/3.register.png)
 
 ### Create a Database Migration Service (DMS) instance
 
@@ -217,7 +217,8 @@ To configure your DMS migration project, perform the following steps.
 
 2. To proceed with the offline migration, select the **Make Source Server Read Only** check box.
 Selecting this check box prevents Write/Delete operations on the source server during migration, which ensures the data integrity of the target database as the source is migrated. When you make your source server read only as part of the migration process, all the databases on the source server, regardless of whether they are selected for migration, will be read-only.
-    >[!NOTE] Alternately, if you were performing an online migration, you would select the **Enable Transactional Consistency** check box. For more information about consistent backup, see [MySQL Consistent Backup](https://docs.microsoft.com/azure/dms/migrate-azure-mysql-consistent-backup).
+    > [!NOTE]
+    > Alternately, if you were performing an online migration, you would select the **Enable Transactional Consistency** check box. For more information about consistent backup, see [MySQL Consistent Backup](https://docs.microsoft.com/azure/dms/migrate-azure-mysql-consistent-backup).
 
 3. Select **Next : Select target>>**, and then, on the **Select target** screen, specify the connection details for the target flexible server.
        ![Select target](media/tutorial-azure-mysql-single-to-flex-online/15.select-target.png)

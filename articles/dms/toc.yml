@@ -75,7 +75,7 @@
     items: 
     - name: Migrate Azure Database for MySQL - Single Server to Flexible Server (online)
       href: tutorial-mysql-azure-single-to-flex-online-portal.md  
-     - name: Migrate Azure Database for MySQL - Single Server to Flexible Server (offline)
+    - name: Migrate Azure Database for MySQL - Single Server to Flexible Server (offline)
       href: tutorial-mysql-azure-single-to-flex-offline-portal.md  
     - name: to Azure Database for MySQL (offline)
       href: tutorial-mysql-azure-mysql-offline-portal.md        
