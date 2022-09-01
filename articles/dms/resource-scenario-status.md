@@ -61,7 +61,7 @@ The following table shows Azure Database Migration Service support for **offline
 | **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | X |
 | | Amazon RDS PostgreSQL | X | |
 
-1. If your source database is already in Azure PaaS (for example, Azure DB for MySQL or Azure DB for PostgreSQL), choose the corresponding engine when creating your migration activity. For example, if you're migrating from Azure DB for MySQL - Single Server to Azure DB for MySQL - Flexible Server, choose MySQL as the source engine during scenario creation. If you're migrating from Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Flexible Server, choose PostgreSQL as the source engine during scenario creation.
+1. If your source database is already in Azure PaaS (for example, Azure DB for MySQL or Azure DB for PostgreSQL), choose the corresponding engine when creating your migration activity. For example, if you're migrating from Azure DB for MySQL - Single Server to Azure DB for MySQL - Flexible Server, choose Azure Database for MySQL - Single Server as the source engine during scenario creation. If you're migrating from Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Flexible Server, choose PostgreSQL as the source engine during scenario creation.
 
 ### Online (continuous sync) migration support
 
@@ -79,7 +79,8 @@ The following table shows Azure Database Migration Service support for **online*
 | | Amazon RDS SQL | X | |
 | | Oracle | X | |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL** | MySQL | X | |
+| **Azure DB for MySQL - Flexible Server** | Azure DB for MySQL - Single Server | ✔ | Preview |
+| **Azure DB for MySQL - Single Server** | Amazon MySQL | X | |
 | | Amazon RDS MySQL | X | |
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | ✔ | GA |
 | | Azure DB for PostgreSQL - Single server <sup>1</sup> | ✔ | GA |
