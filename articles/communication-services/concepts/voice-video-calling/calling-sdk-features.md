@@ -29,7 +29,7 @@ Key features of the Calling SDK:
 
 ## Detailed capabilities 
 
-The following list presents the set of features which are currently available in the Azure Communication Services Calling SDKs.
+The following list presents the set of features that are currently available in the Azure Communication Services Calling SDKs.
 
 
 | Group of features | Capability                                                                                                          | JS  | Windows | Java (Android) | Objective-C (iOS) |

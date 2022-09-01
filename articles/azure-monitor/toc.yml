@@ -25,6 +25,8 @@ items:
     href: essentials/tutorial-resource-logs.md
   - name: Create a log query alert
     href: alerts/tutorial-log-alert.md
+  - name: Forward syslog data to workspace
+    href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Virtual machines
     items:
     - name: Enable monitoring
