@@ -1,5 +1,5 @@
 ---
-title: How to manage legal tags #Required; page title is displayed in search results. Include the brand.
+title: How to manage legal tags in Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
 description: This article describes how to manage legal tags in Microsoft Energy Data Services #Required; article description that is displayed in search results. 
 author: Lakshmisha-KS #Required; your GitHub user alias, with correct capitalization.
 ms.author: lakshmishaks #Required; microsoft alias of author; optional team alias.
@@ -169,5 +169,5 @@ The sample response will have data-partition-id appended to the legal tag name a
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
-> [How to load datasets](how-to-load-datasets.md)
+> [How to add more data partitions](how-to-add-more-data-partitions.md)
 

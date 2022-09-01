@@ -4,6 +4,7 @@ description: This topic describes how to use Connect when you have an existing A
 author: billmath
 ms.service: active-directory
 ms.workload: identity
+manager: amycolannino
 ms.topic: how-to
 ms.date: 01/21/2022
 ms.subservice: hybrid

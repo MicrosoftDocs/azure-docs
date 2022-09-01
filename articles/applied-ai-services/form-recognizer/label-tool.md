@@ -20,7 +20,7 @@ keywords: document processing
 
 >[!TIP]
 >
-> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
+> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the [API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 > * *See* our [**REST API**](quickstarts/get-started-v3-sdk-rest-api.md) or [**C#**](quickstarts/get-started-v3-sdk-rest-api.md), [**Java**](quickstarts/get-started-v3-sdk-rest-api.md), [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md), or [Python](quickstarts/get-started-v3-sdk-rest-api.md) SDK quickstarts to get started with the V3.0.
