@@ -39,7 +39,7 @@ Product support is represented by the following symbols:
 |---------------|--------------|------------------|
 | Management plane |	https://management.azure.com/ |	https://management.chinacloudapi.cn/ |
 | Data plane |	https://{location}.experiments.azureml.net	| https://{location}.experiments.ml.azure.cn |
-| Azure Active Directory	| https://login.microsoftonline.com	 | https://login.chinacloudapi.cn ||
+| Azure Active Directory	| https://login.microsoftonline.com	 | https://login.chinacloudapi.cn |
 
 ### IP ranges
 
