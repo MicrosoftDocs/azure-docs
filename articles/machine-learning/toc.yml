@@ -383,7 +383,7 @@
           href: how-to-train-with-ui.md
         - name: Train with the Python SDK
           items:
-          - name: Train with SDK v2 (preview)
+          - name: Train with SDK v2
             href: how-to-train-sdk.md
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
@@ -660,7 +660,7 @@
   items: 
     - name: Python SDK v1
       href: /python/api/overview/azure/ml/intro
-    - name: Python SDK v2 (preview)
+    - name: Python SDK v2
       displayName: api, core, package, python, class
       href: https://aka.ms/sdk-v2-install
     - name: REST API

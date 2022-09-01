@@ -18,7 +18,7 @@ ms.custom: cliv2, sdkv2, event-tier1-build-2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning CLI v2 and Azure Machine Learning Python SDK v2 (preview) introduce a consistency of features and terminology across the interfaces.  In order to create this consistency, the syntax of commands differs, in some cases significantly, from the first versions (v1).
+Azure Machine Learning CLI v2 and Azure Machine Learning Python SDK v2 introduce a consistency of features and terminology across the interfaces.  In order to create this consistency, the syntax of commands differs, in some cases significantly, from the first versions (v1).
 
 ## Azure Machine Learning CLI v2
 
@@ -45,14 +45,14 @@ The CLI v2 is useful in the following scenarios:
 
 * Managed inference deployments
 
-    Azure ML offers [endpoints](concept-endpoints.md) to streamline model deployments for both real-time and batch inference deployments. This functionality is available only via CLI v2 and SDK v2 (preview).
+    Azure ML offers [endpoints](concept-endpoints.md) to streamline model deployments for both real-time and batch inference deployments. This functionality is available only via CLI v2 and SDK v2.
 
 * Reusable components in pipelines
 
     Azure ML introduces [components](concept-component.md) for managing and reusing common logic across pipelines. This functionality is available only via CLI v2 and SDK v2.
 
 
-## Azure Machine Learning Python SDK v2 (preview)
+## Azure Machine Learning Python SDK v2
 
 > [!IMPORTANT]
 > SDK v2 is currently in public preview.
@@ -126,5 +126,5 @@ The Azure Machine Learning Python SDK v1 doesn't have a planned deprecation date
 * Get started with SDK v2
 
     * [Install and set up SDK (v2)](https://aka.ms/sdk-v2-install)
-    * [Train models with the Azure ML Python SDK v2 (preview)](how-to-train-sdk.md)
-    * [Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook](tutorial-pipeline-python-sdk.md)
+    * [Train models with the Azure ML Python SDK v2](how-to-train-sdk.md)
+    * [Tutorial: Create production ML pipelines with Python SDK v2 in a Jupyter notebook](tutorial-pipeline-python-sdk.md)

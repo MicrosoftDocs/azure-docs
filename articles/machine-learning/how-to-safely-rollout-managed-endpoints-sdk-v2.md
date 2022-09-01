@@ -1,7 +1,7 @@
 ---
-title: Safe rollout for managed online endpoints using Python SDK v2 (preview).
+title: Safe rollout for managed online endpoints using Python SDK v2.
 titleSuffix: Azure Machine Learning
-description: Safe rollout for online endpoints using Python SDK v2 (preview).
+description: Safe rollout for online endpoints using Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: how-to, devplatv2, sdkv2, deployment
 ---
 
-# Safe rollout for managed online endpoints using Python SDK v2 (preview)
+# Safe rollout for managed online endpoints using Python SDK v2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
