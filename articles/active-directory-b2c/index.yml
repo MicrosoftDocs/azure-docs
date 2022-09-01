@@ -206,6 +206,9 @@ conceptualContent:
     ## CARD 6 ######################
     - title: Customize
       links:
+          - text: Create user a custom policy
+            url: tutorial-create-user-flows.md?pivots=b2c-custom-policy
+            itemType: how-to-guide
           - text: Define custom user attributes
             url: user-flow-custom-attributes.md
             itemType: how-to-guide
