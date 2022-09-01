@@ -39,7 +39,7 @@ The following list contains known causes and solutions for request timeout excep
 
 This type of exception is common when your application is passing [CancellationTokens](#cancellationtoken) to the SDK operations. The SDK checks the state of the `CancellationToken` in-between [retries](conceptual-resilient-sdk-applications.md#should-my-application-retry-on-errors) and if the `CancellationToken` is canceled, it will abort the current operation with this exception.
 
-The exception's `Message` / `ToString()` will also indicate the state of your `CancellationToken` through `Cancellation Token has expired: true` and it will also contain [Diagnostics](troubleshoot-dot-net-sdk.md#capture-diagnostics) that help understand which were the requests that were involved in the cancellation.
+The exception's `Message` / `ToString()` will also indicate the state of your `CancellationToken` through `Cancellation Token has expired: true` and it will also contain [Diagnostics](troubleshoot-dot-net-sdk.md#capture-diagnostics) that contain the context of the cancellation for the involved requests.
 
 These exceptions are safe to retry on and can be treated as [timeouts](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503) from the retrying perspective.
 
