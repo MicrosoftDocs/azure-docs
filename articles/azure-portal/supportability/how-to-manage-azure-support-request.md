@@ -3,8 +3,7 @@ title: Manage an Azure support request
 description: Learn about viewing support requests and how to send messages, upload files, and manage options.
 tags: billing
 ms.topic: how-to
-ms.date: 07/21/2022
-# To add: close and reopen, review request status, update contact info
+ms.date: 09/01/2022
 ---
 
 # Manage an Azure support request
@@ -67,7 +66,7 @@ To change your **Advanced diagnostic information** selection after the request h
 
 ## Upload files
 
-You can use the file upload option to upload diagnostic files or any other files that you think are relevant to a support request.
+You can use the file upload option to upload diagnostic files such as a [browser trace](../capture-browser-trace.md) or any other files that you think are relevant to a support request.
 
 1. On the **All support requests** page, select the support request.
 
