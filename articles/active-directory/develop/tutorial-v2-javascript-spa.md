@@ -363,7 +363,7 @@ Before proceeding further with authentication, we need to register our applicati
   };
 ```
 
-2. Modify the values in the `msalConfig` section as described below. You can refer to your app's **Overview** page on Azure for some of these:
+2. Modify the values in the `msalConfig` section as described below. Refer to the **Overview** page of the application for these values:
     - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered. You can copy this directly from **Azure**.
     - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), refer to [*National clouds*](./authentication-national-cloud.md).
     - Set `Enter_the_Tenant_info_here` to one of the following options:
