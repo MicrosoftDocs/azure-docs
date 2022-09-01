@@ -1,8 +1,8 @@
----[Enable Defender for cloud](get-started.md)
+---
 title: Tutorial
 description: 
 ms.topic: overview
-ms.date: 08/16/2022
+ms.date: 09/01/2022
 ---
 
 # Tutorial: Enable pull request annotations in GitHub and Azure DevOps

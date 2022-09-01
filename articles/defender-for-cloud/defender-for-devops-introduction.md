@@ -1,35 +1,29 @@
 ---
 title: Microsoft Defender for DevOps - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for
-ms.date: 08/09/2022
+ms.date: 09/01/2022
 ms.topic: overview
 ---
 
 # Overview of Defender for DevOps
 
-Microsoft Defender for DevOps adds extra security capabilities to the Defender for Cloud. Some of the extra security protections include threat protection for code, code management systems and deployment pipelines.
+Microsoft Defender for Cloud enables comprehensive visibility, posture management and threat protection across multi-cloud environments including Azure, AWS, Google, and on-premises resources. Defender for DevOps integrates with GitHub Advanced Security which is embedded into both GitHub and Azure DevOps, to empower security teams with the ability to protect resources from code to cloud.
 
-Defender for DevOps fulfills five vital needs for managing the security of code and code management systems:
+Defender for DevOps uses a central console to provide security teams DevOps insights across multi-pipeline environments, such as, GitHub and Azure DevOps. These insights can then be correlated with other contextual cloud security intelligence to prioritize remediation in code and apply consistent security guardrails throughout the application lifecycle. Key capabilities starting in Defender for DevOps, available through Defender for Cloud include:
 
-:::image type="content" source="media/defender-for-devops-introduction/vital-needs.png" alt-text="A table that shows the five vital needs for Defender for DevOps.":::
+- **A Unified visibility into DevOps security posture**: Provides security administrators with full visibility into the DevOps inventory, the security posture of pre-production application code, resource configurations across multi-pipeline and multi-cloud environments in a single view.
 
-Defender for DevOps strengthens the development lifecycle by protecting code management systems so that security issues can be found early and mitigated before deployment to production.
+- **Strengthen cloud resource configurations throughout the development lifecycle**: Enables security of Infrastructure as Code (IaC) templates and container images to minimize cloud misconfigurations reaching production environments. This helps security administrators to focus on any critical evolving threats.
 
-Defender for DevOps accomplishes all of this by providing tools that scan: 
+- **Prioritize remediation of critical issues in code**: Leveraging comprehensive code to cloud contextual insights within Defender for Cloud, security admins can help developers prioritize critical code fixes with actionable remediation and assign developer ownership by triggering custom workflows feeding directly into the tools developers use and love.
 
-- code for vulnerabilities and vulnerable dependencies
-- infrastructure as code for security configuration issues
-- container vulnerabilities
-- credentials
-
-Defender for DevOps also provides security configuration recommendations to harden code management systems to protect them from attacks.
+Defender for DevOps strengthens the development lifecycle by protecting code management systems so that security issues can be found early and mitigated before deployment to production. Through the use of security configuration recommendations, security teams have the ability to harden code management systems to protect them from attacks.
 
 ## Availability
 
 | Aspect | Details |
 |--|--|
 | Release state: | Preview<br>The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
-| Pricing: | The Defender for DevOps plan is free during the Preview.<br><br>GitHub Advanced Security is a paid service that is billed through your GitHub Enterprise Account. |
 | Required roles and permissions: | - **Contributor**: on the relevant Azure subscription <br> - **Security Admin Role**: for Defender for Cloud <br>- **GitHub Organization Administrator**<br>- **Developer(s)/Engineer(s)**: Access to setup GitHub workflows and Azure DevOps builds<br>- **Security Administrator(s)**: The ability to set up and evaluate the connector, evaluate and respond to Microsoft Defender for Cloud recommendations <br> - **Azure account**: with permissions to sign into Azure portal <br>- **Security Admin** permissions in Defender for Cloud to configure a connection to GitHub in Defender for Cloud <br>- **Security Reader** permissions in Defender for Cloud to view recommendations <br><br>If previewing the Azure DevOps Extension, your organization must be granted access. Contact the Preview Team for access |
 
 ## Benefits of Defender for DevOps
@@ -44,4 +38,4 @@ Security teams often operate from a position of Assume Breach and respond to sec
 
 ## Next steps
 
-Learn how to [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md)]
+Learn how to [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
