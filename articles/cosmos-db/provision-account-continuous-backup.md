@@ -34,7 +34,7 @@ This article explains how to provision an account with continuous backup and poi
 
 When creating a new Azure Cosmos DB account, in the **Backup policy** tab, choose **continuous** mode to enable the point in time restore functionality for the new account. With the point-in-time restore, data is restored to a new account, currently you can't restore to an existing account.
 
-:::image type="content" source="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png":::
+:::image type="content" source="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/provision-account-continuous-backup/provision-acct-continuousmode.png":::
 
 Table API and Gremlin API are in preview and can be provisioned with PowerShell and Azure CLI.
 
@@ -54,7 +54,7 @@ For PowerShell and CLI commands, the tier value is optional, if it isn't already
            Connect-AzAccount
            ```
 
-        1. Select a specific subscription with the following command:
+        2. Select a specific subscription with the following command:
 
            ```azurepowershell
            Select-AzSubscription -Subscription <SubscriptionName>
@@ -135,7 +135,7 @@ Before provisioning the account, install Azure CLI with the following steps:
    * If you have already installed CLI, run ``az upgrade`` command to update to the latest version. This command will only work with CLI version higher than 2.11. If you have an earlier version, use the above link to install the latest version.
    * For provisioning the ``Continuous7Days`` tier, you'll need to install the preview version of the extension by ``az extension update --name cosmosdb-preview``
 
-1. Sign in and select your subscription
+2. Sign in and select your subscription
 
    * Sign into your Azure account with ``az login`` command.
    * Select the required subscription using ``az account set -s <subscriptionguid>`` command.
