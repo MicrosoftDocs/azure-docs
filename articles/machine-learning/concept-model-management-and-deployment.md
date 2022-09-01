@@ -146,7 +146,7 @@ Microsoft Power BI supports using machine learning models for data analytics. Fo
 
 Machine Learning gives you the capability to track the end-to-end audit trail of all your machine learning assets by using metadata. For example:
 
-- Machine Learning [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository, branch, and commit your code came from.
+- Machine Learning [integrates with Git](concept-train-model-git-integration.md) to track information on which repository, branch, and commit your code came from.
 - [Machine Learning datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
 - [Interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for specific input.
 - Machine Learning Job history stores a snapshot of the code, data, and computes used to train a model.
@@ -172,7 +172,7 @@ For more information, see [Enable model data collection](v1/how-to-enable-data-c
 
 ## Retrain your model on new data
 
-Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](how-to-monitor-datasets.md), model performance can degrade because of:
+Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](v1/how-to-monitor-datasets.md), model performance can degrade because of:
 
 - Changes to a particular sensor.
 - Natural data changes such as seasonal effects.
@@ -202,7 +202,7 @@ For more information on using Azure Pipelines with Machine Learning, see:
 * [Machine Learning MLOps](https://aka.ms/mlops) repository
 * [Machine Learning MLOpsPython](https://github.com/Microsoft/MLOpspython) repository
 
-You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](how-to-cicd-data-ingestion.md).
+You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](v1/how-to-cicd-data-ingestion.md).
 
 ## Next steps
 

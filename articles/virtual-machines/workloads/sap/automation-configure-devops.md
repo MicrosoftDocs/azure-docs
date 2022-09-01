@@ -189,6 +189,18 @@ Create the SAP configuration and software installation pipeline by choosing _New
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP configuration and software installation' by choosing 'Rename/Move' from the three-dot menu on the right.
 
+## Configuration Web App pipeline
+
+Create the Configuration Web App pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
+
+| Setting | Value                                              |
+| ------- | -------------------------------------------------- |
+| Branch  | main                                               |
+| Path    | `deploy/pipelines/21-deploy-web-app.yaml` |
+| Name    | Configuration Web App                              |
+
+Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Configuration Web App' by choosing 'Rename/Move' from the three-dot menu on the right.
+
 ## Deployment removal pipeline
 
 Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
@@ -267,15 +279,10 @@ Create a new variable group 'SDAF-General' using the Library page in the Pipelin
 
 | Variable                           | Value                                   | Notes                                                                                       |
 | ---------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |                                                                                             |
 | Deployment_Configuration_Path      | WORKSPACES                              | For testing the sample configuration use 'samples/WORKSPACES' instead of WORKSPACES.        |
 | Branch                             | main                                    |                                                                                             |
 | S-Username                         | `<SAP Support user account name>`       |                                                                                             |
 | S-Password                         | `<SAP Support user password>`           | Change variable type to secret by clicking the lock icon.                                   |
-| `PAT`                              | `<Personal Access Token>`               | Use the Personal Token defined in the previous step.                                        |
-| `POOL`                             | `<Agent Pool name>`                     | Use the Agent pool defined in the previous step.                                            |
-| `advice.detachedHead`              | false                                   |                                                                                             |
-| `skipComponentGovernanceDetection` | true                                    |                                                                                             |
 | `tf_version`                       | 1.2.6                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)  |
 
 Save the variables.
@@ -347,20 +354,18 @@ Enter a Service connection name, for instance 'Connection to MGMT subscription' 
 
 :::image type="content" source="./media/automation-devops/automation-repo-permissions.png" alt-text="Picture showing repository permissions":::
 
-## Register the Deployer as a self-hosted agent for Azure DevOps
-
-You must use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. As a one-time step, you must register the Deployer as a self-hosted agent.
-
-
 ## Deploy the Control Plane
 
 Newly created pipelines might not be visible in the default view. Select on recent tab and go back to All tab to view the new pipelines.
 
-Select the _Control plane deployment_ pipeline, provide the configuration names for the deployer and the SAP library and choose "Run" to deploy the control plane. Make sure to check "deploy the web app infrastructure" if you would like to set up the web app.
+Select the _Control plane deployment_ pipeline, provide the configuration names for the deployer and the SAP library and choose "Run" to deploy the control plane. Make sure to check ""Deploy the configuration web application" if you would like to set up the configuration web app.
 
-Wait for the deployment to finish.
 
-## Configure the Azure DevOps Services self-hosted agent
+### Configure the Azure DevOps Services self-hosted agent manually
+
+> [!NOTE] 
+>This is only needed if the Azure DevOps Services agent is not automatically configured. Please check that the agent pool is empty before proceeding.
+
 
 Connect to the deployer by following these steps:
 
@@ -414,7 +419,9 @@ The agent will now be configured and started.
 
 Checking the "deploy the web app infrastructure" parameter when running the Control plane deployment pipeline will provision the infrastructure necessary for hosting the web app. The "Deploy web app" pipeline will publish the application's software to that infrastructure. 
 
-Before running the Deploy web app pipeline, first update the reply-url values for the app registration. As a result of running the SAP workload zone deployment pipeline, part of the web app URL needed will be stored in a variable named "WEBAPP_URL_BASE" in your environment-specific variable group. Copy this value, and use it in the following command:
+Wait for the deployment to finish. Once the deployment is complete, navigate to the Extensions tab and follow the instructions to finalize the configuration and update the reply-url values for the app registration. 
+
+As a result of running the SAP workload zone deployment pipeline, part of the web app URL needed will be stored in a variable named "WEBAPP_URL_BASE" in your environment-specific variable group. Copy this value, and use it in the following command:
 
 # [Linux](#tab/linux)
 
@@ -431,7 +438,7 @@ az ad app update --id $TF_VAR_app_registration_app_id --web-home-page-url https:
 ---
 After updating the reply-urls, run the pipeline.
 
-By default there will be no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, navigate to the app service resource. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions).
+By default there will be no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, navigate to the app service resource. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](../../../app-service/app-service-ip-restrictions.md).
 
 You will also need to grant reader permissions to the app service system-assigned managed identity. Navigate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality won't work.
 

@@ -35,7 +35,7 @@ In this article, you learn how to:
 - If you want to clone the repository that hosts the sample app, install [Git](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download) or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
-- Download [ngrok](https://ngrok.com/) and sign up for a free account.
+- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization, please read this [FAQ](verifiable-credentials-faq.md#i-can-not-use-ngrok-what-do-i-do).
 - A mobile device with Microsoft Authenticator:
   - Android version 6.2206.3973 or later installed.
   - iOS version 6.6.2 or later installed.
@@ -127,7 +127,7 @@ Now you are ready to present and verify your first verified credential expert ca
 1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or from the command shell, run the following commands:
 
     ```bash
-    cd active-directory-verifiable-credentials-dotnet/1. asp-net-core-api-idtokenhint
+    cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint
     dotnet build "asp-net-core-api-idtokenhint.csproj" -c Debug -o .\bin\Debug\netcoreapp3.1  
     dotnet run
     ```

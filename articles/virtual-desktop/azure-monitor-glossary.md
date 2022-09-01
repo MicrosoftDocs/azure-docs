@@ -224,7 +224,7 @@ The following table lists the required Windows Event Logs for Azure Monitor for 
 | Microsoft-FSLogix-Apps/Operational|Error, Warning, and Information|
 |Microsoft-FSLogix-Apps/Admin|Error, Warning, and Information|
 
-To learn more about Windows Event Logs, see [Windows Event records properties](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
+To learn more about Windows Event Logs, see [Windows Event records properties](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs).
 
 ## Next steps
 

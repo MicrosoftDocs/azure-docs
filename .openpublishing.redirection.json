@@ -1,8 +1,13 @@
 {
 	"redirections": [
-		{
+{
     "source_path":  "articles/api-management/zone-redundancy.md",
     "redirect_url":  "/azure/availability-zones/migrate-api-mgt",
+    "redirect_document_id":  false
+},
+{
+    "source_path":  "articles/api-management/developer-portal-implement-widgets.md",
+    "redirect_url":  "/azure/api-management/developer-portal-extend-custom-functionality",
     "redirect_document_id":  false
 },
 {
@@ -28,6 +33,11 @@
 {
     "source_path":  "articles/germany/germany-get-started-connect-with-ps.md",
     "redirect_url":  "/previous-versions/azure/germany/germany-get-started-connect-with-ps",
+    "redirect_document_id":  false
+},
+{
+    "source_path":  "articles/security/fundamentals/azure-disk-encryption-vms-vmss.md",
+    "redirect_url":  "/azure/virtual-machines/disk-encryption-overview",
     "redirect_document_id":  false
 },
 {
@@ -526,6 +536,11 @@
 {
     "source_path_from_root":  "/articles/frontdoor/standard-premium/geo-filtering.md",
     "redirect_url":  "/azure/frontdoor/front-door-geo-filtering",
+    "redirect_document_id":  false
+},
+{
+    "source_path_from_root":  "/articles/frontdoor/front-door-geo-filtering.md",
+    "redirect_url":  "/azure/web-application-firewall/afds/waf-front-door-geo-filtering",
     "redirect_document_id":  false
 },
 {
@@ -6809,6 +6824,11 @@
     "redirect_document_id":  false
 },
 {
+    "source_path_from_root":  "/articles/azure-functions/functions-debug-event-grid-trigger-local.md",
+    "redirect_url":  "/azure/azure-functions/functions-event-grid-blob-trigger",
+    "redirect_document_id":  false
+},
+{
     "source_path_from_root":  "/articles/azure-government/documentation-government-k8.md",
     "redirect_url":  "/azure/azure-government",
     "redirect_document_id":  false
@@ -6906,6 +6926,11 @@
 {
     "source_path_from_root":  "/articles/azure-government/documentation-government-services-webandmobile.md",
     "redirect_url":  "/azure/azure-government/compare-azure-government-global-azure",
+    "redirect_document_id":  false
+},
+{
+    "source_path_from_root":  "/articles/azure-government/documentation-government-overview.md",
+    "redirect_url":  "/azure/azure-government/documentation-government-plan-security",
     "redirect_document_id":  false
 },
 {
@@ -12849,6 +12874,16 @@
     "redirect_document_id":  true
 },
 {
+    "source_path_from_root":  "/articles/virtual-machines/linux/overview.md",
+    "redirect_url":  "/azure/virtual-machines/overview",
+    "redirect_document_id":  true
+},
+{
+    "source_path_from_root":  "/articles/virtual-machines/windows/overview.md",
+    "redirect_url":  "/azure/virtual-machines/overview",
+    "redirect_document_id":  false
+},
+{
     "source_path_from_root":  "/articles/virtual-machines/linux/cloudfoundry-get-started.md",
     "redirect_url":  "/azure/cloudfoundry/cloudfoundry-get-started",
     "redirect_document_id":  true
@@ -18304,14 +18339,19 @@
     "redirect_document_id":  false
 },
 {
-    "source_path_from_root":  "/articles/connectors/connectors-create-api-bingsearch.md",
+    "source_path_from_root": "/articles/connectors/connectors-create-api-bingsearch.md",
     "redirect_url":  "/connectors/bingsearch",
-    "redirect_document_id":  false
+    "redirect_document_id": false
 },
 {
-  "source_path_from_root": "/articles/connectors/connectors-create-api-twilio.md",
-  "redirect_url": "/connectors/twilio",
-  "redirect_document_id": false
+    "source_path_from_root": "/articles/connectors/connectors-create-api-twilio.md",
+    "redirect_url": "/connectors/twilio",
+    "redirect_document_id": false
+},
+{
+    "source_path_from_root": "/articles/connectors/connectors-create-api-sendgrid.md",
+    "redirect_url": "/connectors/sendgrid",
+    "redirect_document_id": false
 },
 {
   "source_path_from_root":  "/articles/connectors/connectors-schema-migration.md",
@@ -22316,6 +22356,11 @@
 {
     "source_path_from_root":  "/articles/storage/common/storage-encryption-keys-powershell.md",
     "redirect_url":  "/azure/storage/common/customer-managed-keys-configure-key-vault",
+    "redirect_document_id":  false
+},
+{
+    "source_path_from_root":  "/articles/storage/common/customer-managed-keys-configure-key-vault.md",
+    "redirect_url":  "/azure/storage/common/customer-managed-keys-configure-existing-account",
     "redirect_document_id":  false
 },
 {
@@ -34202,6 +34247,11 @@
     "source_path_from_root":  "/articles/virtual-machines/windows/winrm.md",
     "redirect_url":  "/azure/virtual-machines/windows/connect-winrm",
     "redirect_document_id":  false
+},
+{
+  "source_path_from_root": "/articles/virtual-machines/linux/copy-files-to-linux-vm-using-scp.md",
+  "redirect_url": "/azure/virtual-machines/copy-files-to-vm-using-scp",
+  "redirect_document_id": false
 }
 	]
 }

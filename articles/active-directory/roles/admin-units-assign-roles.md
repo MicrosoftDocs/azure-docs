@@ -4,7 +4,7 @@ description: Use administrative units to restrict the scope of role assignments 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles

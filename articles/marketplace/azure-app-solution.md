@@ -75,6 +75,8 @@ In the **Version** box provide the current version of the technical configuratio
 
 ### Upload a package file
 
+Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](/azure/azure-resource-manager/templates/test-toolkit#validate-templates-for-azure-marketplace) before uploading the package file.
+
 Under **Package file (.zip)**, drag your package file to the gray box or select the **browse for your file(s)** link.
 
 > [!NOTE]
