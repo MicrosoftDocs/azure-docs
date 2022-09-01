@@ -829,7 +829,7 @@ Azure Synapse SQL returns NULL instead of the values that you see in the transac
 
 The error "Column `column name` of the type `type name` is not compatible with the external data type `type name`" is returned if the specified column type in the WITH clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings) or use the VARCHAR type.
 
-### <a id="#resolving-azure-cosmos-db-path-has-failed-with-error"></a>Resolve Azure Cosmos DB path has failed with error
+### <a id="resolving-azure-cosmos-db-path-has-failed-with-error"></a>Resolve Azure Cosmos DB path has failed with error
 
 If you get the error "Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation'," check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
 
@@ -964,7 +964,7 @@ Make sure that a user has permissions to access databases, [permissions to execu
 
 You must use a read-only Azure Cosmos DB key to access your analytical storage, so make sure that it didn't expire or that it isn't regenerated.
 
-If you get the error ["Resolving Azure Cosmos DB path has failed with error"](#resolving-azure-cosmos-db-path-has-failed-with-error), make sure that you configured a firewall.
+If you get the error ["Resolving Azure Cosmos DB path has failed with error"](#resolve-azure-cosmos-db-path-has-failed-with-error), make sure that you configured a firewall.
 
 ### Can't access lakehouse or Spark database
 
