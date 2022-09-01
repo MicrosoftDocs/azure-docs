@@ -166,6 +166,8 @@
   items:
   - name: Account connection issues
     href: manage-account-connected-to-azure.md
+  - name: Switch between tenants in portal
+    href: switch-tenants-portal.md
 - name: Reference
   items:
   - name: Azure Video Indexer API

@@ -53,7 +53,7 @@ Use the following steps to create a private endpoint for an existing Azure Cosmo
     | Subscription| Select your subscription. |
     | Resource type | Select **Microsoft.AzureCosmosDB/databaseAccounts**. |
     | Resource |Select your Azure Cosmos account. |
-    |Target sub-resource |Select the Azure Cosmos DB API type that you want to map. This defaults to only one choice for the SQL, MongoDB, and Cassandra APIs. For the Gremlin and Table APIs, you can also choose **Sql** because these APIs are interoperable with the SQL API. |
+    |Target sub-resource |Select the Azure Cosmos DB API type that you want to map. This defaults to only one choice for the SQL, MongoDB, and Cassandra APIs. For the Gremlin and Table APIs, you can also choose **Sql** because these APIs are interoperable with the SQL API. If you have a [dedicated gateway](./dedicated-gateway.md) provisioned for a SQL API account, you will also see an option for **SqlDedicated**. |
     |||
 
 1. Select **Next: Configuration**.
@@ -65,7 +65,7 @@ Use the following steps to create a private endpoint for an existing Azure Cosmo
     | Virtual network| Select your virtual network. |
     | Subnet | Select your subnet. |
     |**Private DNS Integration**||
-    |Integrate with private DNS zone |Select **Yes**. <br><br/> To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines. <br><br/> When you select yes for this option, a private DNS zone group is also created. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS Zone when there is an update to the private endpoint. For example, when you add or remove regions,the  private DNS zone is automatically updated. |
+    |Integrate with private DNS zone |Select **Yes**. <br><br/> To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines. <br><br/> When you select yes for this option, a private DNS zone group is also created. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS Zone when there is an update to the private endpoint. For example, when you add or remove regions, the private DNS zone is automatically updated. |
     |Private DNS Zone |Select **privatelink.documents.azure.com**. <br><br/> The private DNS zone is determined automatically. You can't change it by using the Azure portal.|
     |||
 
@@ -76,11 +76,12 @@ When you have approved Private Link for an Azure Cosmos account, in the Azure po
 
 ## <a id="private-zone-name-mapping"></a>API types and private zone names
 
-The following table shows the mapping between different Azure Cosmos account API types, supported sub-resources, and the corresponding private zone names. You can also access the Gremlin and Table API accounts through the SQL API, so there are two entries for these APIs.
+The following table shows the mapping between different Azure Cosmos account API types, supported sub-resources, and the corresponding private zone names. You can also access the Gremlin and Table API accounts through the SQL API, so there are two entries for these APIs. There is also an extra entry for the SQL API for accounts using the [dedicated gateway](./dedicated-gateway.md). 
 
 |Azure Cosmos account API type  |Supported sub-resources (or group IDs) |Private zone name  |
 |---------|---------|---------|
 |Sql    |   Sql      | privatelink.documents.azure.com   |
+|Sql    |   SqlDedicated      | privatelink.sqlx.cosmos.azure.com   |
 |Cassandra    | Cassandra        |  privatelink.cassandra.cosmos.azure.com    |
 |Mongo   |  MongoDB       |  privatelink.mongo.cosmos.azure.com    |
 |Gremlin     | Gremlin        |  privatelink.gremlin.cosmos.azure.com   |
@@ -114,8 +115,8 @@ $ResourceGroupName = "myResourceGroup"
 # Name of the Azure Cosmos account
 $CosmosDbAccountName = "mycosmosaccount"
 
-# API type of the Azure Cosmos account: Sql, MongoDB, Cassandra, Gremlin, or Table
-$CosmosDbApiType = "Sql"
+# Resource for the Azure Cosmos account: Sql, SqlDedicated, MongoDB, Cassandra, Gremlin, or Table
+$CosmosDbSubResourceType = "Sql"
 # Name of the existing virtual network
 $VNetName = "myVnet"
 # Name of the target subnet in the virtual network
@@ -127,7 +128,7 @@ $Location = "westcentralus"
 
 $cosmosDbResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.DocumentDB/databaseAccounts/$($CosmosDbAccountName)"
 
-$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnectionPS" -PrivateLinkServiceId $cosmosDbResourceId -GroupId $CosmosDbApiType
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnectionPS" -PrivateLinkServiceId $cosmosDbResourceId -GroupId $CosmosDbSubResourceType
  
 $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $ResourceGroupName -Name $VNetName  
  
@@ -200,8 +201,8 @@ SubscriptionId="<your Azure subscription ID>"
 # Name of the existing Azure Cosmos account
 CosmosDbAccountName="mycosmosaccount"
 
-# API type of your Azure Cosmos account: Sql, MongoDB, Cassandra, Gremlin, or Table
-CosmosDbApiType="Sql"
+# API type of your Azure Cosmos account: Sql, SqlDedicated, MongoDB, Cassandra, Gremlin, or Table
+CosmosDbSubResourceType="Sql"
 
 # Name of the virtual network to create
 VNetName="myVnet"
@@ -232,7 +233,7 @@ az network private-endpoint create \
     --vnet-name $VNetName  \
     --subnet $SubnetName \
     --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/$CosmosDbAccountName" \
-    --group-ids $CosmosDbApiType \
+    --group-ids $CosmosDbSubResourceType \
     --connection-name $PrivateConnectionName
 ```
 
@@ -363,8 +364,8 @@ $SubscriptionId = "<your Azure subscription ID>"
 $ResourceGroupName = "myResourceGroup"
 # Name of the Azure Cosmos account
 $CosmosDbAccountName = "mycosmosaccount"
-# API type of the Azure Cosmos account. It can be one of the following: "Sql", "MongoDB", "Cassandra", "Gremlin", "Table"
-$CosmosDbApiType = "Sql"
+# API type of the Azure Cosmos account. It can be one of the following: "Sql", "SqlDedicated", "MongoDB", "Cassandra", "Gremlin", "Table"
+$CosmosDbSubResourceType = "Sql"
 # Name of the existing virtual network
 $VNetName = "myVnet"
 # Name of the target subnet in the virtual network
@@ -395,18 +396,19 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
     -TemplateParameterFile $PrivateEndpointParametersFilePath `
     -SubnetId $SubnetResourceId `
     -ResourceId $CosmosDbResourceId `
-    -GroupId $CosmosDbApiType `
+    -GroupId $CosmosDbSubResourceType `
     -PrivateEndpointName $PrivateEndpointName
 
 $deploymentOutput
 ```
 
-In the PowerShell script, the `GroupId` variable can contain only one value. That value is the API type of the account. Allowed values are: `Sql`, `MongoDB`, `Cassandra`, `Gremlin`, and `Table`. Some Azure Cosmos account types are accessible through multiple APIs. For example:
+In the PowerShell script, the `GroupId` variable can contain only one value. That value is the API type of the account. Allowed values are: `Sql`, `SqlDedicated`, `MongoDB`, `Cassandra`, `Gremlin`, and `Table`. Some Azure Cosmos account types are accessible through multiple APIs. For example:
 
+* A SQL API account has an added option for accounts configured to use the [Dedicated Gateway](./dedicated-gateway.md).
 * A Gremlin API account can be accessed from both Gremlin and SQL API accounts.
 * A Table API account can be accessed from both Table and SQL API accounts.
 
-For those accounts, you must create one private endpoint for each API type. The corresponding API type is specified in the `GroupId` array.
+For those accounts, you must create one private endpoint for each API type. If you are creating a private endpoint for `SqlDedicated`, you only need to add a second endpoint for `Sql` if you want to also connect to your account using the standard gateway. The corresponding API type is specified in the `GroupId` array.
 
 After the template is deployed successfully, you can see an output similar to what the following image shows. The `provisioningState` value is `Succeeded` if the private endpoints are set up correctly.
 
@@ -557,8 +559,8 @@ $SubscriptionId = "<your Azure subscription ID>"
 $ResourceGroupName = "myResourceGroup"
 # Name of the Azure Cosmos account
 $CosmosDbAccountName = "mycosmosaccount"
-# API type of the Azure Cosmos account. It can be one of the following: "Sql", "MongoDB", "Cassandra", "Gremlin", "Table"
-$CosmosDbApiType = "Sql"
+# API type of the Azure Cosmos account. It can be one of the following: "Sql", "SqlDedicated", "MongoDB", "Cassandra", "Gremlin", "Table"
+$CosmosDbSubResourceType = "Sql"
 # Name of the existing virtual network
 $VNetName = "myVnet"
 # Name of the target subnet in the virtual network
@@ -606,7 +608,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
     -TemplateParameterFile $PrivateEndpointParametersFilePath `
     -SubnetId $SubnetResourceId `
     -ResourceId $CosmosDbResourceId `
-    -GroupId $CosmosDbApiType `
+    -GroupId $CosmosDbSubResourceType `
     -PrivateEndpointName $PrivateEndpointName
 $deploymentOutput
 

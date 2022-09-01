@@ -270,7 +270,7 @@ items:
         items:        
           - name: Overview
             href: concepts/interop/guest/overview.md
-          - name: Capabilities
+          - name: Meeting capabilities
             href: concepts/interop/guest/capabilities.md
           - name: Teams client experience
             href: concepts/interop/guest/teams-client-experience.md
@@ -290,6 +290,10 @@ items:
             href: concepts/interop/custom-teams-endpoint-authentication-overview.md
           - name: Calling capabilities
             href: concepts/interop/teams-user-calling.md
+          - name: Phone capabilities
+            href: concepts/interop/teams-user/phone-capabilities.md
+          - name: Meeting capabilities
+            href: concepts/interop/teams-user/meeting-capabilities.md
           - name: Teams client experience
             href: concepts/interop/teams-user/teams-client-experience.md
           - name: Teams license requirements
