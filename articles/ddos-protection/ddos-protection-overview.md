@@ -33,24 +33,24 @@ DDoS Protection Standard applies three auto-tuned mitigation policies (TCP SYN, 
 ### Azure DDoS Rapid Response
  During an active attack, Azure DDoS Protection Standard customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis. For more information, see [Azure DDoS Rapid Response](ddos-rapid-response.md).
  
-## SKUs
+## Tiers
 
-Azure DDoS Protection has two available SKUs. DDoS Protection Basic and DDoS Protection Standard. For more information about configuring DDoS Protection Standard, see [Quickstart: Create and configure Azure DDoS Protection Standard](manage-ddos-protection.md).
+Azure DDoS Protection is offered in three available tiers, DDoS Protection Basic, DDoS IP Protection, and DDoS Network Protection. DDoS Protection Basic. For more information about the tiers, see **(New Article link)**
 
-The following table shows features and corresponding SKUs.
+The following table shows features and corresponding tiers.
 
-| Feature |  DDoS Protection Basic | DDoS Protection Standard |
-|---|---|---|
-| Active traffic monitoring & always on detection| Yes |  Yes|
-| Automatic attack mitigation | Yes | Yes |
-| Availability guarantee| Not available | Yes |
-| Application based mitigation policies | Not available | Yes|
-| Metrics & alerts | Not available  | Yes |
-| Mitigation reports | Not available | Yes |
-| Mitigation flow logs| Not available  | Yes|
-| Mitigation policy customizations | Not available | Yes|
-| DDoS rapid response support | Not available| Yes|
-
+| Feature |  DDoS Protection Basic | DDoS IP Protection | DDoS Network Protection |
+|---|---|---|---|
+| Active traffic monitoring & always on detection| Yes |  Yes| Yes |
+| Automatic attack mitigation | Yes | Yes | Yes |
+| Availability guarantee| Not available | Yes | Yes |
+| Application based mitigation policies | Not available | Yes| Yes |
+| Metrics & alerts | Not available  | Yes | Yes |
+| Mitigation reports | Not available | Yes | Yes |
+| Mitigation flow logs| Not available  | Yes| Yes |
+| Mitigation policy customizations | Not available | Yes| Yes |
+| DDoS rapid response support | Not available| Yes| Yes |
+| Cost | Free | Per protected IP | Per 100 protected IP addresses |
 ## Features
 
 ### Native platform integration
