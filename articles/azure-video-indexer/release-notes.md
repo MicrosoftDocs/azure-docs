@@ -60,7 +60,7 @@ The [Azure Video Indexer website](https://vi.microsoft.com) session length was e
 
 ### Featured clothing insight (preview)
 
-You can view the featured clothing of an observed person, when indexing a video using Azure Video Indexer advanced video settings. With the new featured clothing insight information, you can enable more targeted ads placement. 
+When indexing a video using Azure Video Indexer advanced video settings, you can view the featured clothing of an observed person. The featured clothing insight provides information of key items worn by individuals within a video and the specific time in which the clothing appears. Based on this insight, you can enable more targeted ads placement.
 
 For details on how featured clothing images are ranked and how to view this insight, see [observed people featured clothing](observed-people-featured-clothing.md).
 
