@@ -81,7 +81,7 @@ Now you should understand the differences between service modes and know how to 
 
 * If you have *both* hub servers to serve client connections and a backend application to directly push messages to clients, you should choose Default mode. Keep in mind that the key difference between Default and Serverless mode is whether you have hub servers and how client connections are routed. REST API/management SDK/function binding can be used in both modes.
 
-* If you really have a mixed scenario, you should consider separating use cases into multiple SignalR Service instances with server mode set according to use. An example of a mixed scenario that requires Classic mode is where you have two different hubs on the same SignalR resource. One hub is used as a traditional SignalR hub and the other hub is used with Azure Functions. This example should be split into two resources, with one instance in Default mode and one in Serverless mode.
+* If you really have a mixed scenario, you should consider separating use cases into multiple SignalR Service instances with service mode set according to use. An example of a mixed scenario that requires Classic mode is where you have two different hubs on the same SignalR resource. One hub is used as a traditional SignalR hub and the other hub is used with Azure Functions. This example should be split into two resources, with one instance in Default mode and one in Serverless mode.
 
 ## Next steps
 
