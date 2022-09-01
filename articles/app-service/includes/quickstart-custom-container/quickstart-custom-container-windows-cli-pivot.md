@@ -13,7 +13,7 @@ ms.author: msangapu
 > For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
 >
 
-This quickstart shows you how to deploy an ASP.NET app in a Windows image from [Microsoft Artificat Registry](https://mcr.microsoft.com/) to Azure App Service.
+This quickstart shows you how to deploy an ASP.NET app in a Windows image from [Microsoft Artifact Registry](https://mcr.microsoft.com/) to Azure App Service.
 
 To complete this quickstart, you need:
 
@@ -74,7 +74,7 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 
 ## 6 - Clean up resources
 
-Remove the resrouce group by using the [az group delete](/cli/azure/group#az-group-delete) command:
+Remove the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command:
 
 ```azurecli-interactive
 az group delete --no-wait --name <resource_group>
