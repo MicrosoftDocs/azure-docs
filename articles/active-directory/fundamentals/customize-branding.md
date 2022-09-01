@@ -142,7 +142,7 @@ See the [License requirements](#license-requirements) section for using the KMSI
 
 ### Troubleshoot 'Stay signed in?' issues
 
-If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in attempt, a sign-in log entry appears in the Azure AD **Sign-ins** page.  The prompt the user sees is called an "interrupt." This scenario is illustrated in the following image.
+If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in attempt, a sign-in log entry appears in the Azure AD **Sign-ins** page. The prompt the user sees is called an "interrupt."
 
 ![Sample 'Stay signed in?' prompt](media/customize-branding/kmsi-stay-signed-in-prompt.png)
 
@@ -167,4 +167,4 @@ To ensure that the KMSI prompt is shown only when it can benefit the user, the K
 ## Next steps
 
 - [Add your organization's privacy info on Azure AD](/active-directory-properties-area.md)
-- [Learn more about Conditional Access](../conditional-access/ov)
+- [Learn more about Conditional Access](../conditional-access/overview.md)
