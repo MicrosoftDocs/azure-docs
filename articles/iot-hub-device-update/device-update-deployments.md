@@ -10,7 +10,8 @@ ms.service: iot-hub-device-update
 
 # Update deployments
 
-A deployment is how updates are delivered to one or more devices. Deployments are always associated with a device group. A deployment can be initiated from the API or the UI. 
+A deployment is how updates are delivered to one or more devices. Deployments are always associated with a device group. A deployment can be initiated from the API or the UI.
+
 A device group can only have one active deployment associated with it at any given time. A deployment can be scheduled to begin in the future or start immediately.
 
 ## Dynamic deployments
@@ -27,14 +28,15 @@ Due to their dynamic nature, deployments remain active and in-progress until the
 
 Update deployments can be scheduled to start immediately or to start in the future at a particular time and date. This allows the user to efficiently plan device downtime so that it doesn't interfere with any other critical device workflows. 
 
-### Automatic Rollback Policy
+### Automatic rollback policy
 
-After deploying an update, it is critical to ensure that 
+After deploying an update, it is critical to ensure that:
+
 - Devices are in a clean state post-install that is, if an update partially fails, devices should be back to their last known good state.
-- Device ecosystem should be consistent that is, all devices in a group should be running the same version for easier manageability.
-- The rollback process should be as hands-off as possible, with an option for the device operator to intervene manually only under rare, special circumstances.
+- Device ecosystem is consistent. That is, all devices in a group should be running the same version for easier manageability.
+- The rollback process is as hands-off as possible, with an option for the device operator to intervene manually only under rare, special circumstances.
 
-To enable device operators to meet these goals, update deployments can be configured with an automatic rollback policy from the cloud. This allows you to define a rollback trigger policy by setting thresholds in terms of percentage and minimum number of devices failed. Once the threshold has been met, all the devices in the group will be rolled back to the selected update version. 
+To enable device operators to meet these goals, update deployments can be configured with an automatic rollback policy from the cloud. This allows you to define a rollback trigger policy by setting thresholds in terms of percentage and minimum number of devices failed. Once the threshold has been met, all the devices in the group will be rolled back to the selected update version.
 
 ## Next steps
 
