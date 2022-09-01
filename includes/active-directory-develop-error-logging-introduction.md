@@ -19,7 +19,7 @@ MSAL provides several levels of logging detail:
 - Error: Indicates something has gone wrong and an error was generated. Used for debugging and identifying problems.
 - Warning: There hasn't necessarily been an error or failure, but are intended for diagnostics and pinpointing problems.
 - Informational: MSAL will log events intended for informational purposes not necessarily intended for debugging.
-- Verbose: Default. MSAL logs the full details of library behavior.
+- Verbose (Default): MSAL logs the full details of library behavior.
 
 > [!NOTE]
 > Not all log levels are available for all MSAL SDK's
