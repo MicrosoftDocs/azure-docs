@@ -34,11 +34,25 @@ Product support is represented by the following symbols:
 |---------|--------|------------|----------|-------------|-----------|
 | [Machine learning](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet)|&#10060; | &#x26A0;| &#10060;|&#10060;| &#10060; |
 
+
+### China REST endpoints
+
+| REST endpoint | Global Azure | China-Government |
+|---------------|--------------|------------------|
+| Management plane |	https://management.azure.com/ |	https://management.chinacloudapi.cn/ |
+| Data plane |	https://{location}.experiments.azureml.net	| https://{location}.experiments.ml.azure.cn |
+| Azure Active Directory	| https://login.microsoftonline.com	 | https://login.chinacloudapi.cn ||
+
+### IP ranges
+
+The CLI command used in the required public internet access instructions does not return IP ranges. Use the Azure IP ranges and service tags for Azure China instead.
+
 ## US Government
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
 | [Machine learning](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet)|  &#x26A0; |  &#x26A0; |
+
 
 ## Next steps
 
