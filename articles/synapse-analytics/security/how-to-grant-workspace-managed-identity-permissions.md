@@ -128,3 +128,7 @@ If you want to query data2.csv in this example, the following permissions are ne
 ## Next steps
 
 Learn more about [Workspace managed identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
+
+- [Best practices for dedicated SQL pools](../sql/best-practices-dedicated-sql-pool.md)
+- [Troubleshoot serverless SQL pool in Azure Synapse Analytics](../sql/resources-self-help-sql-on-demand.md)
+- [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)

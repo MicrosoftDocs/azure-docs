@@ -67,7 +67,7 @@ For more information, see:
 - [Azure AD access control for storage](../../storage/blobs/assign-azure-role-data-access.md)
 - [Control storage account access for serverless SQL pool in Synapse Analytics](develop-storage-files-storage-access-control.md)
 
-#### Alternative to Storage BLOB Data Contributor role
+#### Alternative to Storage Blob Data Contributor role
 
 Instead of [granting yourself a Storage Blob Data Contributor role](../security/how-to-grant-workspace-managed-identity-permissions.md), you can also grant more granular permissions on a subset of files.
 

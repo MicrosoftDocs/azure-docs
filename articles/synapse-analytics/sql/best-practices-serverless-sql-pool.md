@@ -220,3 +220,4 @@ Learn how to [store query results to storage](create-external-table-as-select.md
 - Review the [troubleshooting serverless SQL pools](resources-self-help-sql-on-demand.md) article for solutions to common problems.  
 - If you're working with a dedicated SQL pool rather than serverless SQL pool, see [Best practices for dedicated SQL pools](best-practices-dedicated-sql-pool.md) for specific guidance.
 - [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)
+- [Grant permissions to workspace managed identity](../security/how-to-grant-workspace-managed-identity-permissions.md)
