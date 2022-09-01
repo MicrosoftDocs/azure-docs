@@ -167,14 +167,14 @@ To register the Microsoft.DataMigration resource provider, perform the following
 08. On the **Create Migration Service** page, select **Next : Networking >>**.
 
 09. On the **Networking** tab, select an existing VNet from the list or provide the name of new VNet to create, and then select **Review + Create**.
-    For more information, see the article [Create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+    For more information, see the article [Create a virtual network using the Azure portal](./../virtual-network/quick-create-portal.md).
     ![Select Networking](media/tutorial-azure-mysql-single-to-flex-online/8.1.networking.png)
 
     > [!IMPORTANT]
     > Your vNet must be configured with access to both the source single server and the target flexible server, so be sure to:
     >
-    > * Create a server-level [firewall rule](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure) or [configure VNET service endpoints](https://docs.microsoft.com/azure/mysql/howto-manage-vnet-using-portal) for both the source and target Azure Database for MySQL servers to allow the VNet for Azure Database Migration Service access to the source and target databases.
-    > * Ensure that your VNet Network Security Group (NSG) rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage, and Azure Monitor. For more details about VNet NSG traffic filtering, see [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+    > * Create a server-level firewall rule or [configure VNET service endpoints](./../mysql/single-server/how-to-manage-vnet-using-portal.md) for both the source and target Azure Database for MySQL servers to allow the VNet for Azure Database Migration Service access to the source and target databases.
+    > * Ensure that your VNet Network Security Group (NSG) rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage, and Azure Monitor. For more details about VNet NSG traffic filtering, see [Filter network traffic with network security groups](./../virtual-network/virtual-network-vnet-plan-design-arm).
     
     > [!NOTE]
     > If you want to add tags to the service, first select Next : Tags to advance to the Tags tab first. Adding tags to the service is optional.
@@ -285,7 +285,7 @@ When performing a migration, be sure to keep the following best practices in min
 
 ## Next steps
 
-* For information about Azure Database for MySQL - Flexible Server, see [Overview - Azure Database for MySQL Flexible Server](https://docs.microsoft.com/azure/mysql/flexible-server/overview).
+* For information about Azure Database for MySQL - Flexible Server, see [Overview - Azure Database for MySQL Flexible Server](./../mysql/flexible-server/overview).
 * For information about Azure Database Migration Service, see the article [What is Azure Database Migration Service?](./dms-overview.md).
 * For information about known issues and limitations when performing migrations using DMS, see the article [Common issues - Azure Database Migration Service](./known-issues-troubleshooting-dms.md).
 * For troubleshooting source database connectivity issues while using DMS, see the article [Issues connecting source databases](./known-issues-troubleshooting-dms-source-connectivity.md).

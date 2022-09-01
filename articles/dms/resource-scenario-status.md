@@ -80,8 +80,8 @@ The following table shows Azure Database Migration Service support for **online*
 | | Oracle | X | |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
 | **Azure DB for MySQL - Flexible Server** | Azure DB for MySQL - Single Server | ✔ | Preview |
-| **Azure DB for MySQL - Single Server** | Amazon MySQL | X | |
-| | Amazon RDS MySQL | X | |
+| | MySQL | ✔  | Preview |
+| | Amazon RDS MySQL | ✔  | Preview |
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | ✔ | GA |
 | | Azure DB for PostgreSQL - Single server <sup>1</sup> | ✔ | GA |
 | | Amazon DS PostgreSQL | ✔ | GA |

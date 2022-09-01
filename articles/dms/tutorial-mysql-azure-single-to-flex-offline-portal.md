@@ -22,7 +22,7 @@ You can migrate an instance of Azure Database for MySQL – Single Server to Azu
 > DMS supports migrating from lower version MySQL servers (v5.6 and above) to higher versions. In addition, DMS also supports cross-region, cross-resource group, and cross-subscription migrations, which allows you to select a different region, resource group, and subscription for the target server than that specified for your source server.
 
 > [!IMPORTANT]
-For online migrations, you can use the Enable Transactional Consistency feature supported by DMS together with [Data-in replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication) or [replicate changes](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/azure-dms-mysql-replicate-changes-now-in-preview/ba-p/3601564). Additionally, you can use the online migration scenario to migrate by following the tutorial [here](./tutorial-mysql-azure-single-to-flex-online-portal.md).
+For online migrations, you can use the Enable Transactional Consistency feature supported by DMS together with [Data-in replication](./../mysql/single-server/concepts-data-in-replication.md) or [replicate changes](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/azure-dms-mysql-replicate-changes-now-in-preview/ba-p/3601564). Additionally, you can use the online migration scenario to migrate by following the tutorial [here](./tutorial-mysql-azure-single-to-flex-online-portal.md).
 
 In this tutorial, you will learn how to:
 
@@ -170,14 +170,14 @@ To register the Microsoft.DataMigration resource provider, perform the following
 08. On the **Create Migration Service** page, select **Next : Networking >>**.
 
 09. On the **Networking** tab, select an existing VNet from the list or provide the name of new VNet to create, and then select **Review + Create**.
-    For more information, see the article [Create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+    For more information, see the article [Create a virtual network using the Azure portal](./../virtual-network/quick-create-portal.md).
     ![Select Networking](media/tutorial-azure-mysql-single-to-flex-online/8.1.networking.png)
 
     > [!IMPORTANT]
     > Your vNet must be configured with access to both the source single server and the target flexible server, so be sure to:
     >
-    > * Create a server-level [firewall rule](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure) or [configure VNET service endpoints](https://docs.microsoft.com/azure/mysql/howto-manage-vnet-using-portal) for both the source and target Azure Database for MySQL servers to allow the VNet for Azure Database Migration Service access to the source and target databases.
-    > * Ensure that your VNet Network Security Group (NSG) rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage, and Azure Monitor. For more details about VNet NSG traffic filtering, see [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+    > * Create a server-level firewall rule or [configure VNET service endpoints](./../mysql/single-server/how-to-manage-vnet-using-portal) for both the source and target Azure Database for MySQL servers to allow the VNet for Azure Database Migration Service access to the source and target databases.
+    > * Ensure that your VNet Network Security Group (NSG) rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage, and Azure Monitor. For more details about VNet NSG traffic filtering, see [Filter network traffic with network security groups](./../virtual-network/virtual-network-vnet-plan-design-arm.md).
     
     > [!NOTE]
     > If you want to add tags to the service, first select Next : Tags to advance to the Tags tab first. Adding tags to the service is optional.
@@ -218,7 +218,7 @@ To configure your DMS migration project, perform the following steps.
 2. To proceed with the offline migration, select the **Make Source Server Read Only** check box.
 Selecting this check box prevents Write/Delete operations on the source server during migration, which ensures the data integrity of the target database as the source is migrated. When you make your source server read only as part of the migration process, all the databases on the source server, regardless of whether they are selected for migration, will be read-only.
     > [!NOTE]
-    > Alternately, if you were performing an online migration, you would select the **Enable Transactional Consistency** check box. For more information about consistent backup, see [MySQL Consistent Backup](https://docs.microsoft.com/azure/dms/migrate-azure-mysql-consistent-backup).
+    > Alternately, if you were performing an online migration, you would select the **Enable Transactional Consistency** check box. For more information about consistent backup, see [MySQL Consistent Backup](./migrate-azure-mysql-consistent-backup.md).
 
 3. Select **Next : Select target>>**, and then, on the **Select target** screen, specify the connection details for the target flexible server.
        ![Select target](media/tutorial-azure-mysql-single-to-flex-online/15.select-target.png)
@@ -293,7 +293,7 @@ When performing a migration, be sure to keep the following best practices in min
 
 ## Next steps
 
-* For information about Azure Database for MySQL - Flexible Server, see [Overview - Azure Database for MySQL Flexible Server](https://docs.microsoft.com/azure/mysql/flexible-server/overview).
+* For information about Azure Database for MySQL - Flexible Server, see [Overview - Azure Database for MySQL Flexible Server](./../mysql/flexible-server/overview).
 * For information about Azure Database Migration Service, see the article [What is Azure Database Migration Service?](./dms-overview.md).
 * For information about known issues and limitations when performing migrations using DMS, see the article [Common issues - Azure Database Migration Service](./known-issues-troubleshooting-dms.md).
 * For troubleshooting source database connectivity issues while using DMS, see the article [Issues connecting source databases](./known-issues-troubleshooting-dms-source-connectivity.md).
