@@ -10,9 +10,11 @@ ms.author: v-amallick
 ---
 # Configure Multi-user authorization using Resource Guard in Azure Backup
 
+This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Recovery Services vaults and Backup vault (preview).
+
 ::: zone pivot="vaults-recovery-services-vault"
 
-This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Recovery Services vaults.
+The following sections describes how to configure and manage Multi-user authorization for Recovery Services vault.
 
 For this article, we'll demonstrate creation of the Resource Guard in a different tenant that offers maximum protection. In terms of requesting and approving requests for performing critical operations, this article demonstrates the same using [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
 
@@ -239,7 +241,7 @@ Disabling MUA is a protected operation, and hence, is protected using MUA. This 
 
 ::: zone pivot="vaults-backup-vault"
 
-This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Backup vaults.
+The following sections describes how to configure and manage Multi-user authorization for Backup vault (preview).
 
 >[!Note]
 >Multi-user authorization using Resource Guard for Backup vault is in preview.
@@ -481,5 +483,5 @@ Disabling MUA is a protected operation, and therefore, is protected using MUA. T
 
 ## Next steps
 
-[Overview of Multi-user authorization using Resource Guard](multi-user-authorization-concept.md).
+[Learn more about Multi-user authorization using Resource Guard](multi-user-authorization-concept.md).
 
