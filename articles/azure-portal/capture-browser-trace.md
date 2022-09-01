@@ -38,7 +38,7 @@ Google Chrome and Microsoft Edge are both based on the [Chromium open source pro
 
 1. Select the **Network** tab, then select **Stop recording network log** and **Clear**.
 
-    ![Screenshot of "Stop recording network log" and "Clear"](media/capture-browser-trace/chromium-stop-clear-session.png)
+    ![Screenshot of "Stop recording network log" and "Clear" on the Network tab.](media/capture-browser-trace/chromium-stop-clear-session.png)
 
 1. Select **Record network log**, then reproduce the issue in the portal.
 
@@ -56,7 +56,7 @@ Google Chrome and Microsoft Edge are both based on the [Chromium open source pro
 
 1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Save as...**, and save the console output to a text file.
 
-    ![Screenshot that highlights the Console tab and the Save as... menu](media/capture-browser-trace/chromium-console-select.png)
+    ![Screenshot that shows how to save the console output.](media/capture-browser-trace/chromium-console-select.png)
 
 1. You can now share the browser trace HAR file, console output, and screen recording files with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
 
@@ -68,11 +68,9 @@ The following steps show how to use the developer tools in Apple Safari on Mac. 
 
    1. Select **Safari**, then select **Preferences**.
 
-      ![Screenshot of Safari preferences](media/capture-browser-trace/safari-preferences.png)
-
    1. Select the **Advanced** tab, then select **Show Develop menu in menu bar**.
 
-      ![Screenshot of Safari advanced preferences](media/capture-browser-trace/safari-show-develop-menu.png)
+      ![Screenshot of the Safari advanced preferences options.](media/capture-browser-trace/safari-show-develop-menu.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your account.
 
@@ -82,13 +80,13 @@ The following steps show how to use the developer tools in Apple Safari on Mac. 
 
 1. Select **Develop**, then select **Show Web Inspector**.
 
-    ![Screenshot of "Show Web Inspector"](media/capture-browser-trace/safari-show-web-inspector.png)
+    ![Screenshot of the "Show Web Inspector" command.](media/capture-browser-trace/safari-show-web-inspector.png)
 
 1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro steps require going to more than one page:
 
     1. Select the **Network** tab, then select **Preserve Log**.
 
-          ![Screenshot that shows the Preserve Log option.](media/capture-browser-trace/safari-network-preserve-log.png)
+          ![Screenshot that shows the Preserve Log option on the Network tab.](media/capture-browser-trace/safari-network-preserve-log.png)
 
     1. Select the **Console** tab, then select **Preserve Log**.
 
@@ -96,7 +94,7 @@ The following steps show how to use the developer tools in Apple Safari on Mac. 
 
 1. Select the **Network** tab, then select **Clear Network Items**.
 
-    ![Screenshot of "Clear Network Items"](media/capture-browser-trace/safari-clear-session.png)
+    ![Screenshot of "Clear Network Items" on the Network tab.](media/capture-browser-trace/safari-clear-session.png)
 
 1. Reproduce the issue in the portal. You will see session output similar to the following image.
 
@@ -104,13 +102,13 @@ The following steps show how to use the developer tools in Apple Safari on Mac. 
 
 1. After you have reproduced the unexpected portal behavior, select **Export** and save the file.
 
-    ![Screenshot of "Export"](media/capture-browser-trace/safari-network-export-har.png)
+    ![Screenshot of the "Export" command on the Network tab.](media/capture-browser-trace/safari-network-export-har.png)
 
 1. Stop the screen recorder, and save the recording.
 
 1. Back in the browser developer tools pane, select the **Console** tab, and expand the window. Place your cursor at the start of the console output then drag and select the entire contents of the output. Use Command-C to copy the output and save it to a text file.
 
-    ![Screenshot that highlights you can view and copy the output.](media/capture-browser-trace/safari-console-select.png)
+    ![Screenshot that shows where you can view and copy the console output.](media/capture-browser-trace/safari-console-select.png)
 
 1. You can now share the browser trace HAR file, console output, and screen recording files with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
 
@@ -138,21 +136,21 @@ The following steps show how to use the developer tools in Firefox. For more inf
 
 1. Select the **Network** tab, then select **Clear**.
 
-    ![Screenshot of "Clear"](media/capture-browser-trace/firefox-clear-session.png)
+    ![Screenshot of the "Clear" option on the Network tab.](media/capture-browser-trace/firefox-clear-session.png)
 
 1. Reproduce the issue in the portal. You will see session output similar to the following image.
 
-    ![Screenshot of browser trace results](media/capture-browser-trace/firefox-browser-trace-results.png)
+    ![Screenshot showing example browser trace results.](media/capture-browser-trace/firefox-browser-trace-results.png)
 
 1. After you have reproduced the unexpected portal behavior, select **Save All As HAR**.
 
-    ![Screenshot of "Export HAR"](media/capture-browser-trace/firefox-network-export-har.png)
+    ![Screenshot of the "Save All As HAR" command on the Network tab.](media/capture-browser-trace/firefox-network-export-har.png)
 
 1. Stop Steps Recorder on Windows or the screen recording on Mac, and save the recording.
 
-1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Export Visible Messages To**, and save the console output to a text file.
+1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Save All Messages to File**, and save the console output to a text file.
 
-    ![Screenshot of console output](media/capture-browser-trace/firefox-console-select.png)
+   :::image type="content" source="media/capture-browser-trace/firefox-console-select.png" alt-text="Screenshot of the Save All Messages to File command on the Console tab.":::
 
 1. You can now share the browser trace HAR file, console output, and screen recording files with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
 
