@@ -16,15 +16,15 @@ Follow the steps in this article for the developer tools in the [supported brows
 
 ## Google Chrome and Microsoft Edge
 
-Google Chrome and Microsoft Edge are both based on the [Chromium open source project](https://www.chromium.org/Home). The following steps show how to use the developer tools, which are very similar in the two browsers. For more information, see [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) and [Microsoft Edge DevTools](/microsoft-edge/devtools-guide-chromium).
+Google Chrome and Microsoft Edge are both based on the [Chromium open source project](https://www.chromium.org/Home). The developer tools experience is very similar in the two browsers. The screenshots included here show the Google Chrome experience, but you'll see the same options in Microsoft Edge. For more information, see [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) and [Microsoft Edge DevTools](/microsoft-edge/devtools-guide-chromium).
 
-1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in.
+1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your account.
 
-1. Start recording the steps you take in the portal, using [Steps Recorder](https://support.microsoft.com/help/22878/windows-10-record-steps).
+1. Start recording the steps you take in the portal, using [Steps Recorder](https://support.microsoft.com/en-us/windows/record-steps-to-reproduce-a-problem-46582a9b-620f-2e36-00c9-04e25d784e47).
 
 1. In the portal, navigate to the step just prior to where the issue occurs.
 
-1. Press F12 or select ![Screenshot that shows the browser settings icon.](media/capture-browser-trace/chromium-icon-settings.png) > **More tools** > **Developer tools**.
+1. Press F12 to launch the developer tools. You can also launch the tools from the toolbar menu under **More tools** > **Developer tools**.
 
 1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
 
@@ -58,7 +58,7 @@ Google Chrome and Microsoft Edge are both based on the [Chromium open source pro
 
     ![Screenshot that highlights the Console tab and the Save as... menu](media/capture-browser-trace/chromium-console-select.png)
 
-1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
+1. You can now share the browser trace HAR file, console output, and screen recording files with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
 
 ## Safari
 
@@ -112,7 +112,7 @@ The following steps show how to use the developer tools in Safari on Mac. For mo
 
     ![Screenshot that highlights you can view and copy the output.](media/capture-browser-trace/safari-console-select.png)
 
-1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
+1. You can now share the browser trace HAR file, console output, and screen recording files with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
 
 ## Firefox
 
@@ -154,9 +154,10 @@ The following steps show how to use the developer tools in Firefox. For more inf
 
     ![Screenshot of console output](media/capture-browser-trace/firefox-console-select.png)
 
-1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
+1. You can now share the browser trace HAR file, console output, and screen recording files with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
 
 ## Next steps
 
 - Read more about the [Azure portal](azure-portal-overview.md).
 - Learn how to [open a support request](supportability/how-to-create-azure-support-request.md) in the Azure portal.
+- Learn more about [file upload requirements for support requests](supportability/how-to-manage-azure-support-request.md#file-upload-guidelines).
