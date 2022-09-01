@@ -4,6 +4,7 @@ description: Data residency and information about Azure Arc-enabled servers.
 ms.topic: reference
 ms.date: 08/05/2021
 ms.custom: references_regions
+author: johnmarco
 ---
 
 # Azure Arc-enabled servers: Data residency
