@@ -117,7 +117,7 @@ This table compares the supported data extraction areas:
 |Model| Form fields | Selection marks | Structured fields (Tables) | Signature | Region labeling |
 |--|:--:|:--:|:--:|:--:|:--:|
 |Custom template| ✔ | ✔ | ✔ | ✔ | ✔ |
-|Custom neural| ✔| ✔ |**n/a**| **n/a** | **n/a** |
+|Custom neural| ✔| ✔ | ✔ | **n/a** | **n/a** |
 
 **Table symbols**: ✔—supported; **n/a—currently unavailable
 
