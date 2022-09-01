@@ -32,7 +32,6 @@ For more information, review the following documentation:
 
 * [Consumption versus Standard logic apps](logic-apps-overview.md#resource-type-and-host-environment-differences)
 * [Integration account built-in connectors](../connectors/built-in.md#integration-account-built-in)
-* [[schema](logic-apps-enterprise-integration-schemas.md) for encoding and decoding the XML content.
 * [Built-in connectors overview for Azure Logic Apps](../connectors/built-in.md)
 * [Managed or Azure-hosted connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
@@ -50,22 +49,7 @@ For more information, review the following documentation:
 
   * [Create a Standard logic app workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
-* A flat file schema for encoding and decoding the XML content.
-
-  To create schemas, you can use the following tools:
-
-  * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools).
-
-  * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 extension](https://aka.ms/vsmapsandschemas).
-
-  > [!NOTE]
-  >
-  > * Don't install the extension alongside the BizTalk Server extension. Having both extensions might 
-  > produce unexpected behavior. Make sure that you only have one of these extensions installed.
-  >
-  > * On high resolution monitors, you might experience a display problem with the map designer in 
-  > Visual Studio. To resolve this display problem, either restart Visual Studio in DPI-unaware mode, 
-  > or add the DPIUNAWARE registry value.
+* A flat file schema for encoding and decoding the XML content. For more information, [Add schemas to use with workflows in Azure Logic Apps](logic-apps-enterprise-integration-schemas.md).
 
 * Based on whether you're working on a Consumption or Standard logic app workflow, you'll need an [integration account resource](logic-apps-enterprise-integration-create-integration-account.md). Usually, you need this resource when you want to define and store artifacts for use in enterprise integration and B2B workflows.
 
@@ -75,11 +59,9 @@ For more information, review the following documentation:
 
   * If you're working on a Consumption logic app workflow, your logic app resource requires a [link to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
 
-  * If you're working on a Standard logic app workflow, you can link your your logic app resource to your integration account, upload encoding schemas directly to your logic app resource, or both, based on the following scenarios:
+  * If you're working on a Standard logic app workflow, you can link your your logic app resource to your integration account, upload schemas directly to your logic app resource, or both, based on the following scenarios:
 
     * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload schemas to each individual logic app. For more information, review [Link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
-
-    * Some Azure-hosted integration account connectors, such as AS2, EDIFACT, and X12, let you create a connection to your integration account. If you're just using these connectors, you don't need the link.
 
     * The **Flat File** built-in connector lets you select a schema that you previously uploaded to your logic app resource or to a linked integration account, but not both. You can then use this artifact across all child workflows within the same logic app resource.
 
@@ -95,19 +77,9 @@ For more information, review the following documentation:
 
 After you create your schema, you now have to upload the schema based on the following scenario:
 
-* If you're working on a Consumption logic app workflow, [upload your template to your integration account](#upload-schema-integration-account).
+* If you're working on a Consumption logic app workflow, [add your schema to your integration account](logic-apps-enterprise-integration-schemas.md?tabs=consumption#add-schema).
 
-If you're working on a Standard logic app workflow, you can [upload your schema to your integration account](#upload-schema-integration-account), or [upload your schema to your logic app resource](#upload-schema-standard-logic-app).
-
-<a name="upload-schema-integration-account"></a>
-
-### Upload schema to integration account
-
-
-<a name="upload-schema-standard-logic-app"></a>
-
-### Upload schema to Standard logic app
-
+If you're working on a Standard logic app workflow, you can [add your schema to your integration account](logic-apps-enterprise-integration-schemas.md?tabs=consumption#add-schema), or [upload your schema to your logic app resource](logic-apps-enterprise-integration-schemas.md?tabs=standard#add-schema).
 
 ## Add a Flat File encoding action
 
