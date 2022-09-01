@@ -85,14 +85,14 @@ In addition to choosing between manual and automatic mode, there are several opt
 
 #### Enable ImageCleaner on your cluster
 
-To create a new AKS cluster using the default interval:
+To create a new AKS cluster using the default interval, use [az aks create][az-aks-create]:
 
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster \ 
   --enable-image-cleaner 
 ```
 
-To enable on an existing AKS cluster:
+To enable on an existing AKS cluster, use [az aks update][az-aks-update]:
 
 ```azurecli-interactive
 az aks update -g MyResourceGroup -n MyManagedCluster \ 
@@ -106,7 +106,7 @@ az aks update -g MyResourceGroup -n MyManagedCluster \
   --image-cleaner-interval-hours 48
 ```
 
-Based on your configuration, ImageCleaner will automatically generate an `ImageList` containing unreferenced/vulnerable images at the set interval. ImageCleaner will automatically remove these images from cluster nodes.
+Based on your configuration, ImageCleaner will generate an `ImageList` containing unreferenced/vulnerable images at the desired interval. ImageCleaner will automatically remove these images from cluster nodes.
 
 ## Disable ImageCleaner
 
@@ -114,9 +114,23 @@ To stop using ImageCleaner, you can disable it via the `--disable-image-cleaner`
 
 ```azurecli-interactive
 az aks update -g MyResourceGroup -n MyManagedCluster
-  -- disable-image-cleaner
+  --disable-image-cleaner
 ```
 
 ## Logging
 
 The deletion logs are stored in the `image-cleaner-kind-worker` pods. You can check these via `kubectl logs` or via the Container Insights pod log table if the [Azure Monitor add-on](./monitor-aks.md) is enabled.
+
+<!-- LINKS -->
+
+[azure-cli-install]: /cli/azure/install-azure-cli
+[azure-powershell-install]: /powershell/azure/install-az-ps
+
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-update]: /cli/azure/aks#az_aks_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[register-azproviderpreviewfeature]: /powershell/module/az.resources/register-azproviderpreviewfeature
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[get-azproviderpreviewfeature]: /powershell/module/az.resources/get-azproviderpreviewfeature
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[register-azresourceprovider]: /powershell/module/az.resources/register-azresourceprovider
