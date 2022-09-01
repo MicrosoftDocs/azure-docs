@@ -290,10 +290,10 @@
           href: how-to-attach-kubernetes-anywhere.md
         - name: Step 1 - Deploy AzureML extension
           displayName: AKS, Arc Kubernetes, inference router
-          href: how-to--deploy-azureml-kubernetes-extension.md
+          href: how-to-deploy-azureml-kubernetes-extension.md
         - name: Step 2 - Attach cluster to workspace
           displayName: AKS, Arc Kubernetes, attach
-          href: how-to--attach-kubernetes-to-workspace.md
+          href: how-to-attach-kubernetes-to-workspace.md
         - name: Create and manage instance types
           displayName: compute target, instance types, AKS, Arc Kubernetes
           href: how-to-manage-kubernetes-instance-types.md
