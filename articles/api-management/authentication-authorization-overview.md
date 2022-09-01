@@ -16,7 +16,7 @@ Azure API Management provides a rich, flexible set of features to support API au
 
 API Management also provides a fully customizable, standalone, managed [developer portal](api-management-howto-developer-portal.md), which can be leveraged externally (or internally) to allow developer users to discover and interact with the APIs published through API Management. The developer portal has several options to facilitate secure user sign-up and sign-in. 
 
-The following diagram is a conceptual view of Azure API Management, showing the management plane, API gateway (data plane), and developer portal, each with at least one option to secure interaction. For more an introduction to the product components, see [What is Azure API Management?](api-management-key-concepts.md)
+The following diagram is a conceptual view of Azure API Management, showing the management plane, API gateway (data plane), and developer portal, each with at least one option to secure interaction. For an overview of API Management components, see [What is Azure API Management?](api-management-key-concepts.md)
 
 :::image type="content" source="media/authentication-authorization/api-management-security-high-level.png" alt-text="Diagram showing security features at all points of interaction in API Management" border="false":::
 
@@ -32,16 +32,14 @@ The management plane can be accessed via an Azure AD login (or token) through th
 
 Here, the context is authentication and authorization to the APIs managed in API Management: first from client apps to the API Management gateway, and then from the gateway to backend APIs.
 
-In many customer environments, [OAuth 2.0](https://oauth.net/2/) protocol is the preferred authorization protocol for communication between apps and the gateway, and between the gateway and backends. API Management supports OAuth across these communication channels.
-
-
+In many customer environments, [OAuth 2.0](https://oauth.net/2/) protocol is the preferred authorization protocol for  backend APIs. API Management supports OAuth 2.0 across the data plane.
 
 ### OAuth concepts
 
 What happens when a client app calls an API with a request that is secured using SSL/TLS and OAuth?
 
-At a high level, the client (the calling app, or generally the *bearer*) obtains an *access token* from an identity provider's authorization server. 
-The identity provider (for example, Azure AD) is the *issuer* of the token, and the token includes one or more *audience claims* that authorize access to a resource server (for example, a backend API, or the API Management gateway itself).
+At a highly simplified level, the client (the calling app, or generally the *bearer*) obtains an *access token* from an identity provider's authorization server. 
+The identity provider (for example, Azure AD) is the *issuer* of the token, and the token includes one or more *audience claims* that authorize access to a resource server (for example, to a backend API, or to the API Management gateway itself).
 
 The resource server validates the access token by checking (at a minimum) that the issuer and audience claims contain expected values. Access to resources on the server is then granted.
 
