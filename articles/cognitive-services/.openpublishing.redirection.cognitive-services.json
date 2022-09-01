@@ -4242,7 +4242,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-conversation-scenarios.yml",
-            "redirect_url": "/azure/cognitive-services/Speech-Service/call-center-transcription.md",
+            "redirect_url": "/azure/cognitive-services/Speech-Service/call-center-overview",
             "redirect_document_id": false
         },
         {
@@ -4953,6 +4953,11 @@
         {
             "source_path_from_root": "/articles/cognitive-services/Speech/troubleshooting.md",
             "redirect_url": "/azure/cognitive-services/speech-service/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/call-center-transcription.md ",
+            "redirect_url": "/azure/cognitive-services/speech-service/call-center-overview",
             "redirect_document_id": false
         },
         {
