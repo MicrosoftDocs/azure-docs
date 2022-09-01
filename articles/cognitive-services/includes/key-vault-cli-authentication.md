@@ -21,7 +21,7 @@ To authenticate with the [Azure CLI](/cli/azure), run the `az login` command.
 az login
 ```
 
-On systems with a default web browser, the Azure CLI will launch the browser to authenticate.For systems without a default web browser, the `az login` command will use the device code authentication flow. You can also force the Azure CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
+On systems with a default web browser, the Azure CLI will launch the browser to authenticate. For systems without a default web browser, the `az login` command will use the device code authentication flow. You can also force the Azure CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
 
 If you have multiple subscriptions, make sure to [select the Azure subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) that contains your key vault.
 
