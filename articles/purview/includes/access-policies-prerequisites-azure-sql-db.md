@@ -10,13 +10,13 @@ ms.custom:
 
 - Create a new Azure SQL DB or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL DB](/azure/azure-sql/database/single-database-create-quickstart).
 
-**Enforcement of Microsoft Purview policies is available only in the following regions for Azure SQL DB**
+**Enforcement of Microsoft Purview policies is available only in the following regions for Azure SQL Database**
+- East US
 - East US2
 - West US3
 - South Central US
 - West Central US
 - Canada Central
-- Brazil South
 - North Europe
 - West Europe
 - France Central

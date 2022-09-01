@@ -31,6 +31,7 @@ Applications can implement both authentication models and leave the choice of au
 |---|---|---|
 |Target user base|Customers|Enterprise|
 |Identity provider|Any|Azure Active Directory|
+| Display name |Any with the suffix "(External)"| Azure Active Directory user's value of the property "Display name" |
 |Authentication & authorization|Custom*| Azure Active Directory and custom*|
 |Calling available via | Communication Services Calling SDKs | Communication Services Calling SDKs |
 |Chat is available via | Communication Services Chat SDKs | Graph API |
