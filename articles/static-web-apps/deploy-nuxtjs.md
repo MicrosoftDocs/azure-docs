@@ -1,18 +1,18 @@
 ---
-title: "Tutorial: Deploy Nuxt.js site with universal rendering on Azure Static Web Apps"
+title: "Tutorial: Deploy Nuxt sites with universal rendering on Azure Static Web Apps"
 description: "Generate and deploy Nuxt 3 sites with universal rendering on Azure Static Web Apps."
 services: static-web-apps
 author: craigshoemaker, nuzhatminhaz
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 07/28/2011
+ms.date: 07/28/2022
 ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
-# Deploy Nuxt.js sites with universal rendering on Azure Static Web Apps
+# Deploy Nuxt 3 sites with universal rendering on Azure Static Web Apps
 
-In this tutorial, you learn to deploy a [Nuxt 3](https://v3.nuxtjs.org/) generated static website to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Nuxt.js app. During this process, you also learn to deal with common challenges often faced when generating static pages with Nuxt.js
+In this tutorial, you learn to deploy a [Nuxt 3](https://v3.nuxtjs.org/) application to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Nuxt app.
 
 ## Prerequisites
 
@@ -20,12 +20,12 @@ In this tutorial, you learn to deploy a [Nuxt 3](https://v3.nuxtjs.org/) generat
 - A GitHub account. [Create an account for free](https://github.com/join).
 - [Node.js](https://nodejs.org) installed.
 
-## Set up a Nuxt.js app
+## Set up a Nuxt 3 app
 
-You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new project, in this tutorial, you will begin by cloning an existing repository. This repository is set up to demonstrate how to deploy a Nuxt 3 site with universal rendering on Azure Static Web App.
+You can set up a new Nuxt project using `create-nuxt-app`. Instead of a new project, in this tutorial, you will begin by cloning an existing repository. This repository is set up to demonstrate how to deploy a Nuxt 3 site with universal rendering on Azure Static Web Apps.
 
 1. Create a new repository under your GitHub account from a template repository.
-1. Navigate to [http://github.com/staticwebdev/nuxt-3-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxtjs-starter/generate)
+1. Navigate to [http://github.com/staticwebdev/nuxt-3-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxt-3-starter/generate).
 1. Name the repository **nuxt-3-starter**.
 1. Next, clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
 
