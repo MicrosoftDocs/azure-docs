@@ -62,6 +62,9 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 - [Learn about Kaspersky integration with Microsoft Sentinel](https://support.kaspersky.com/15908)
 
+### PickupSTIX
+
+- [Fill out this web form](https://www.celerium.com/pickupstix) to get the API Root, Collection IDs, Username, and Password for the free TAXII 2.1 Feeds on the PickupSTIX TAXII Server.
 
 ### Pulsedive
 
