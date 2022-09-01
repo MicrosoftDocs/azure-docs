@@ -67,13 +67,13 @@ Use the following steps to migrate your account from periodic backup to continuo
 2. To use ``Continous7Days`` mode for provisioning or migrating, you'll have to use preview of the ``cosmosdb`` extension. Use ``Install-Module -Name Az.CosmosDB -AllowPrerelease``
 3. Next, run the following steps:
 
-    a. Connect to your Azure account:
+    1. Connect to your Azure account:
 
        ```azurepowershell-interactive
        Connect-AzAccount
        ```
 
-    b. Migrate your account from periodic to continuous backup mode with ``continuous30days`` tier or ``continuous7days`` days. If a tier value isn't provided, it's assumed to be ``continuous30days``:
+    2. Migrate your account from periodic to continuous backup mode with ``continuous30days`` tier or ``continuous7days`` days. If a tier value isn't provided, it's assumed to be ``continuous30days``:
 
        ```azurepowershell-interactive
        Update-AzCosmosDBAccount ` 
