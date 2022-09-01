@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2022
+ms.date: 08/31/2022
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory or Azure Synapse Analytics
@@ -629,7 +629,7 @@ Format specific settings are located in the documentation for that format. For m
 
 In source transformation, you can read from a container, folder, or individual file in Azure Blob storage. Use the **Source options** tab to manage how the files are read. 
 
-:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Source options":::
+:::image type="content" source="media/data-flow/source-options-1.png" alt-text="Source options":::
 
 **Wildcard paths:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the plus sign that appears when you hover over your existing wildcard pattern.
 

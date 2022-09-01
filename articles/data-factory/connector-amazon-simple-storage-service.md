@@ -302,7 +302,7 @@ Format specific settings are located in the documentation for that format. For m
 
 In source transformation, you can read from a container, folder, or individual file in Amazon S3. Use the **Source options** tab to manage how the files are read. 
 
-:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Screenshot of Source options.":::
+:::image type="content" source="media/data-flow/source-options-1.png" alt-text="Screenshot of Source options.":::
 
 **Wildcard paths:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the plus sign that appears when you hover over your existing wildcard pattern.
 
