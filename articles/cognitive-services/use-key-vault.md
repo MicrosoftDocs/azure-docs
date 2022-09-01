@@ -70,7 +70,7 @@ Before you add your credential information to your Azure key vault, you need to 
 
     :::image type="content" source="language-service/custom-text-classification/media/get-endpoint-azure.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal." lightbox="language-service/custom-text-classification/media/get-endpoint-azure.png":::
 
-Some Cognitive Services require different information to authenticate API calls, such as a key and region. make sure to retrieve this information before continuing on.
+Some Cognitive Services require different information to authenticate API calls, such as a key and region. Make sure to retrieve this information before continuing on.
 
 ## Add your credentials to your key vault
 
