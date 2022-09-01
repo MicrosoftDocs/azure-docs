@@ -15,7 +15,7 @@ Before you can grant access to your key vault, you must authenticate with your A
 
 # [Azure CLI](#tab/azure-cli)
 
-To authenticate with the [Azure CLI](/cli/azure/?view=azure-cli-latest), run the `az login` command. 
+To authenticate with the [Azure CLI](/cli/azure), run the `az login` command. 
 
 ```azurecli-interactive
 az login
