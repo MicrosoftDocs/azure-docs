@@ -76,7 +76,7 @@ Some Cognitive Services require different information to authenticate API calls,
 
 For your application to retrieve and use your credentials to authenticate API calls, you will need to add them to your [key vault secrets](/azure/key-vault/secrets/about-secrets). 
 
-Repeat these steps to generate a secret for the credentials from your resource. For example, a key and endpoint. These secret names will be used later to authenticate your application.
+Repeat these steps to generate a secret for each required resource credential. For example, a key and endpoint. These secret names will be used later to authenticate your application.
 
 1. Open a new browser tab or window. Navigate to your key vault in the <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Go to Azure portal"  target="_blank">Azure portal</a>.
 1. From the collapsible menu on the left, select **Objects** > **Secrets**.
