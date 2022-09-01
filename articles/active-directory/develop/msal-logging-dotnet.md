@@ -106,7 +106,7 @@ Example:
     }
 ```
 
-Using IdentityLogger:
+Using `MyIdentityLogger`:
 ```CSharp
     MyIdentityLogger myLogger = new MyIdentityLogger(logLevel);
 
