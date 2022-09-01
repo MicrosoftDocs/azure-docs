@@ -3,10 +3,6 @@
   topicHref: /azure/index
   items:
   - name: Azure Monitor
-    tocHref: /azure/azure-monitor/
+    tocHref: /azure/sentinel/
     topicHref: /azure/azure-monitor/index
-    items:
-    - name: Azure Monitor
-      tocHref: /azure/sentinel/
-      topicHref: /azure/azure-monitor/index
 
