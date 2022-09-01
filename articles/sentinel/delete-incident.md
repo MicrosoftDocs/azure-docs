@@ -19,7 +19,8 @@ The ability to create incidents from scratch in Microsoft Sentinel opens the pos
 
 **Deleting an incident is not a substitute for closing an incident!** Deleting an incident should only be done when at least one of the following conditions is met:
 - The incident was created manually by mistake.
-- The incident was generated in error by an untuned analytics rule.
+- The incident exactly duplicates another incident.
+- Faulty incidents were generated in bulk by a broken analytics rule.
 - The incident contains no data - alerts, entities, bookmarks, and so on.
 
 In all other cases, when an incident is no longer needed, it should be **closed**, not deleted. [Closing an incident](investigate-cases.md#closing-an-incident) requires you to specify the reason for closing it, and allows you to add additional comments for context and clarification. Closing old incidents in this way preserves the transparency and integrity of your SOC, and also allows for the possibility of reopening the incident if the problem resurfaces.
@@ -70,6 +71,10 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 ## Notes
 
 - The incident delete operation is not reversible! After you delete an incident, the only reference to it will be the audit data in the *SecurityIncident* table in the Logs screen. (See the [table's schema documentation in Log Analytics](/azure/azure-monitor/reference/tables/securityincident)). The *Status* field in that table will be updated to "Deleted" for that incident.
+
+    > [!NOTE]
+    >
+    > Due to the 64 KB limit of the record size in the *SecurityIncident* table, incident comments may be truncated (beginning from the earliest) if the limit is exceeded.
 
 - This operation requires a [Microsoft Sentinel Contributor](roles.md) role.
 
