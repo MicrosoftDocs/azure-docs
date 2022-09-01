@@ -370,7 +370,7 @@ groups:
     title: JavaScript
   - id: devlang-react
     title: React
-## WEB APP ##  
+## WEB APP ##
 - id: web-app-quickstart
   title: web-app-quickstart
   prompt: Choose a language or framework
@@ -387,7 +387,7 @@ groups:
     title: Java
   - id: devlang-python
     title: Python
-## WEB API ##  
+## WEB API ##
 - id: web-api-quickstart
   title: web-api-quickstart
   prompt: Choose a language or framework
@@ -396,7 +396,7 @@ groups:
     title: ASP.NET
   - id: devlang-aspnet-core
     title: ASP.NET Core
-## Mobile app ##  
+## Mobile app ##
 - id: mobile-app-quickstart
   title: desktop-app-quickstart
   prompt: Choose a language or framework
@@ -404,8 +404,8 @@ groups:
   - id: devlang-android
     title: Android
   - id: devlang-ios
-    title: iOS and macOS 
-## Desktop app##  
+    title: iOS and macOS
+## Desktop app##
 - id: desktop-app-quickstart
   title: desktop-app-quickstart
   prompt: Choose a language or framework
@@ -463,6 +463,20 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-rest-api
+    title: REST API
+  - id: vision-studio
+    title: Vision Studio
+- id: programming-languages-ocr
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-rest-api
@@ -866,7 +880,7 @@ groups:
     title: Linux container
   - id: container-windows
     title: Windows container    
-- id: app-service-containers-windows-linux-portal
+- id: app-service-containers-windows-linux-portal-ps-cli
   title: App Service with custom containers
   prompt: Choose a custom container platform and deployment environment
   pivots:
@@ -878,6 +892,10 @@ groups:
     title: Windows container - Visual Studio
   - id: container-windows-azure-portal
     title: Windows container - Azure portal
+  - id: container-windows-powershell
+    title: Windows container - Powershell
+  - id: container-windows-cli
+    title: Windows container - CLI
 - id: app-service-containers-code
   title: App Service containers and code
   prompt: Choose a hosting platform
@@ -1413,6 +1431,15 @@ groups:
     title: Alerts
   - id: workbooks
     title: Workbooks
+# Owner: patricka
+- id: iotedge-dev
+  title: IoT Edge development tool
+  prompt: Choose an Azure IoT Edge development tool
+  pivots:
+  - id: iotedge-dev-cli
+    title: Command line interface
+  - id: iotedge-dev-vscode
+    title: Azure IoT Edge VS Code extension
 # Owner: barclayn
 - id: identity-mi-methods
   title: Managed identities methods
@@ -1716,7 +1743,7 @@ groups:
   - id: aro-arm
     title: Azure Resource Manager
   - id: aro-bicep
-    title: Bicep   
+    title: Bicep
 # Owner: cshoe
 - id: container-apps-image-build-type
   title: Container build method
@@ -1732,9 +1759,9 @@ groups:
   prompt: Choose an option
   pivots:
   - id: aro-azurecli
-    title: Azure CLI  
+    title: Azure CLI
   - id: aro-azureportal
-    title: Azure portal  
+    title: Azure portal
 # Owner: cshoe
 - id: devops-or-github
   title: Code host

@@ -22,10 +22,14 @@ The Azure OpenAI Service lets you tailor our models to your personal datasets us
 
 ## Prerequisites
 
-- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
-- The following python libraries: os, requests, json
-- An Azure OpenAI Service resource with a model deployed. If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
+- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
+- Access granted to the Azure OpenAI service in the desired Azure subscription
+
+    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+- The following Python libraries: os, requests, json
+- An Azure OpenAI Service resource with a model deployed
+    
+    If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
 
 ## Fine-tuning workflow
 
@@ -40,7 +44,7 @@ The fine-tuning workflow requires the following steps:
 
 Your training data set consists of input & output examples for how you would like the model perform.
 
-The training dataset you use **must** be a JSON lines (JSONL) document where each line is a prompt-completion pair and a single example. The OpenAI python CLI provides a useful data preparation tool to easily convert your data into this file format.
+The training dataset you use **must** be a JSON lines (JSONL) document where each line is a prompt-completion pair and a single example. The OpenAI Python CLI provides a useful data preparation tool to easily convert your data into this file format.
 
 Here's an example of the format:
 
@@ -89,7 +93,7 @@ Once you've prepared your dataset, you can upload your files to the service. We 
 
 For large data files, we recommend you import from Azure Blob. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
-The following python code will create a sample dataset and show how to upload a file and print the returned ID. Make sure to save the IDs returned as you'll need them for the fine-tuning training job creation.
+The following Python code will create a sample dataset and show how to upload a file and print the returned ID. Make sure to save the IDs returned as you'll need them for the fine-tuning training job creation.
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
@@ -146,7 +150,7 @@ while train_status not in ["succeeded", "failed"] or valid_status not in ["succe
 
 After you've uploaded the training and (optional) validation file, you wish to use for your training job you're ready to start the process. You can use the [Models API](../reference.md#models) to identify which models are fine-tunable.
 
-Once you have the model, you want to fine-tune you need to create a job. The following python code shows an example of how to create a new job:
+Once you have the model, you want to fine-tune you need to create a job. The following Python code shows an example of how to create a new job:
 
 ```python
 create_args = {
@@ -220,7 +224,7 @@ az cognitiveservices account deployment create
 
 ## Use a fine-tuned model
 
-Once your model has been deployed, you can use it like any other model. Reference the deployment name you specified in the previous step. You can use either the REST API or python SDK and can continue to use all the other Completions parameters like temperature, frequency_penalty, presence_penalty, etc., on these requests to fine-tuned models.
+Once your model has been deployed, you can use it like any other model. Reference the deployment name you specified in the previous step. You can use either the REST API or Python SDK and can continue to use all the other Completions parameters like temperature, frequency_penalty, presence_penalty, etc., on these requests to fine-tuned models.
 
 ```python
 print('Sending a test completion job')
@@ -316,4 +320,4 @@ That said, tweaking the hyperparameters used for fine-tuning can often lead to a
 ## Next Steps
 
 - Explore the full REST API Reference documentation to learn more about all the fine-tuning capabilities. You can find the [full REST documentation here](../reference.md).
-- Explore more of the [python SDK operations here](https://github.com/openai/openai-python/blob/main/examples/azure/finetuning.ipynb).
+- Explore more of the [Python SDK operations here](https://github.com/openai/openai-python/blob/main/examples/azure/finetuning.ipynb).

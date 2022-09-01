@@ -72,7 +72,6 @@ Now Microsoft Sentinel will be able to differentiate a logon from 192.168.10.15 
 - SAP - Sensitive Tables
 - SAP - Sensitive ABAP Programs
 - SAP - Sensitive Transactions
-- SAP - Critical Authorizations
 
 All of these watchlists identify sensitive actions or data that can be carried out or accessed by users. Several well-known operations, tables and authorizations have been pre-configured in the watchlists, however we recommend you consult with the SAP BASIS team to identify which operations, transactions, authorizations and tables are considered to be sensitive in your SAP environment.
 
@@ -81,6 +80,7 @@ All of these watchlists identify sensitive actions or data that can be carried o
 - SAP - Sensitive Profiles
 - SAP - Sensitive Roles
 - SAP - Privileged Users
+- SAP - Critical Authorizations
 
 The Microsoft Sentinel Solution for SAP uses User Master data gathered from SAP systems to identify which users, profiles, and roles should be considered sensitive. Some sample data is included in the watchlists, though we recommend you consult with the SAP BASIS team to identify sensitive users, roles and profiles and populate the watchlists accordingly.
 
