@@ -214,7 +214,7 @@ Array of JSON objects that represent devices.
 
 
 
-**Response example**: Successful
+### Response example Successful
 
 ```rest
 {
@@ -222,7 +222,7 @@ Array of JSON objects that represent devices.
 }
 ```
 
-**Response example**: Unsuccessful
+### Response example Unsuccessful
 
 ```rest
 {
@@ -498,7 +498,7 @@ Message string with the operation status details:
 |**token**|String|Not nullable| The sensor's token, to be used when downloading the PCAP file |
 
 
-**Response example**: Success
+### Response example Success
 
 ```json
 {
@@ -510,7 +510,7 @@ Message string with the operation status details:
 }
 ```
 
-**Response example**: Error
+### Response example Error
 
 
 ```json

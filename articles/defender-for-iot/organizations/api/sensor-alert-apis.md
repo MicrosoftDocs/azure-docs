@@ -157,7 +157,7 @@ Event fields include:
 | **owner** | String | Nullable | String. If the event was created manually, this field will include the username that created the event. |
 | **content** | String | Not nullable | String that describes the event. |
 
-**Response example**:
+### Response example
 
 ```rest
 [

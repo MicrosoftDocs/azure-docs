@@ -377,30 +377,31 @@ An array of the following fields:
 |--|--|--|--|
 | **u_id** | Integer | Not nullable | The device's ID in the on-premises management console. |
 | **u_name** | String | Not nullable | The device's name.|
-| **u_ip_address_objects** | JSON array of IP address objects | Not nullable | Array of **u_ip_address**, values, defining the devices IP addresses <!--add xref> |
-| **u_mac_address_objects** | JSON array of MAC address objects | Not nullable | An array of **u_mac_address** values, listing the device's MAC addresses <!--add xref>  |
+| **u_ip_address_objects** | JSON array of IP address objects | Not nullable | Array of **u_ip_address**, values, defining the devices IP addresses. For more information, see [u_ip_address_objects fields](#u_ip_address_objects-fields). |
+| **u_mac_address_objects** | JSON array of MAC address objects | Not nullable | An array of **u_mac_address** values, listing the device's MAC addresses. For more information, see [u_mac_address_objects fields](#u_mac_address_objects-fields).  |
 | **u_last_activity**  | Integer | Not nullable | Timestamp of the last time traffic was seen from or to the device.  |
 | **u_last_update** | Integer | Not nullable | The timestamp of the last time a property was changed on the device, including both user changes and automated system changes. |
-|**u_cves** | JSON array of CVEs | Not nullable | An array of CVE details objects. For more information, see |
+|**u_cves** | JSON array of CVEs | Not nullable | An array of CVE details objects. For more information, see [u_cves fields](#u_cves-fields). |
 
 > [!NOTE]
 > If Defender for IoT can confidently identify the MAC address of one of its IP addresses, the MAC address is returned in the **u_mac_address_objects** field directly.
 >
 > If Defender for IoT is not entirely confident about a MAC address, such as if the traffic has been routed via a router, the MAC address is returned in the **u_guessed_mac_address** field instead, as part of the JSON array of IP addresses.
 
-### IP address fields
+### u_ip_address_objects fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **u_ip_address** | String | Not nullable | One of the device's IP addresses |
 | **u_guessed_mac_address** | JSON array of MAC address objects | Not nullable | JSON array of MAC addresses. FOr more information, see [MAC address fields](#mac-address-fields).  |
 
-### MAC address fields
+### u_mac_address_objects fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **u_mac_address** | String | Not nullable | One of the device's MAC addresses |
 
+### u_cves fields
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|

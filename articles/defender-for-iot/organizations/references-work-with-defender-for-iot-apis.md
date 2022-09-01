@@ -37,28 +37,12 @@ After generating the token, add an HTTP header titled **Authorization** to your 
 
 ## Sensor API version reference
 
-<!--alphabetize these tables-->
-
-missing v1
-- devices
-- vulnerabilities mitigation
-- appliances
-
-what are these for? is there a reason why they're not documented? P2
-- serial
-- database
-- endpoints
-- address mapping
-- traffic
-
-nothing missing in v2
-
-
+<!--notes from original meeting: we were missing in v1: devices, vulnerabilities mitigation, and appliances. Have we filled them? what about the following - is there a reason they're not documented (this is P2): serial, database, endpoints, address mapping, traffic. nothing was missing in v2-->
 
 |Version  |Supported APIs  |
 |---------|---------|
 |**No version**     | **Authentication and password management**: <br>- [set_password (Change your password)](api/sensor-auth-apis.md#set_password-change-your-password) <br>- [set_password_by_admin (Update a user password by admin)](api/sensor-auth-apis.md#set_password_by_admin-update-a-user-password-by-admin)  <br> - [validation (Validate user credentials)](api/sensor-auth-apis.md#validation-validate-user-credentials)    |
-|**New in version 1**     | **Inventory**: <br> - [connections (Retrieve device connection information)](api/sensor-inventory-apis.md#connections-retrieve-device-connection-information) <br>- [cves (Retrieve information on CVEs)](api/sensor-inventory-apis.md#cves-retrieve-information-on-cves)<br>- devices (Retrieve device information)<br><br>**Alerts**: <br>- [alerts (Retrieve alert information)](api/sensor-alert-apis.md#alerts-retrieve-alert-information)<br>- [events (Retrieve timeline events)](api/sensor-alert-apis.md#events-retrieve-timeline-events)<br><br>**Vulnerabilities**: <br>- [operational (Retrieve operational vulnerabilities)](api/sensor-vulnerability-apis.md#operational-retrieve-operational-vulnerabilities)<br>- [devices (Retrieve device vulnerability information)](api/sensor-vulnerability-apis.md#devices-retrieve-device-vulnerability-information)<br>- mitigation (Retrieve mitigation vulnerabilities) <br>- [security (Retrieve security vulnerabilities)](api/sensor-vulnerability-apis.md#security-retrieve-security-vulnerabilities) |
+|**New in version 1**     | **Inventory**: <br> - [connections (Retrieve device connection information)](api/sensor-inventory-apis.md#connections-retrieve-device-connection-information) <br>- [cves (Retrieve information on CVEs)](api/sensor-inventory-apis.md#cves-retrieve-information-on-cves)<br>- [devices (Retrieve device information)](api/sensor-inventory-apis.md#devices-retrieve-device-information)<br><br>**Alerts**: <br>- [alerts (Retrieve alert information)](api/sensor-alert-apis.md#alerts-retrieve-alert-information)<br>- [events (Retrieve timeline events)](api/sensor-alert-apis.md#events-retrieve-timeline-events)<br><br>**Vulnerabilities**: <br>- [operational (Retrieve operational vulnerabilities)](api/sensor-vulnerability-apis.md#operational-retrieve-operational-vulnerabilities)<br>- [devices (Retrieve device vulnerability information)](api/sensor-vulnerability-apis.md#devices-retrieve-device-vulnerability-information)<br>- mitigation (Retrieve mitigation vulnerabilities) <br>- [security (Retrieve security vulnerabilities)](api/sensor-vulnerability-apis.md#security-retrieve-security-vulnerabilities) |
 |**New in version 2**     | **Alerts**: <br>- Updates to [alerts (Retrieve alert information)](api/sensor-alert-apis.md#alerts-retrieve-alert-information) |
 
 

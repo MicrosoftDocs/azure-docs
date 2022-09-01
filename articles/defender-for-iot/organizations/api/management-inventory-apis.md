@@ -79,7 +79,7 @@ Array of JSON objects that represent devices.
 | **slot** | String | Not nullable | `N/A`, or the firmware slot |
 | **address** | String | Not nullable | `N/A`, or the firmware address |
 
-**Response example**:
+### Response example
 
 ```rest
 [
