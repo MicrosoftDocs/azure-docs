@@ -3,7 +3,6 @@ title: Configure your Azure application offer listing details
 description: Configure the listing details for your Azure application offer in Partner Center (Azure Marketplace). 
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

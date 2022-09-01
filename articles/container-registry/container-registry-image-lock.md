@@ -64,7 +64,7 @@ az acr repository update \
 
 ### Lock an image by manifest digest
 
-To lock a *myimage* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr repository show-manifests][az-acr-repository-show-manifests] command.)
+To lock a *myimage* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr manifest list-metadata][az-acr-manifest-list-metadata] command.)
 
 ```azurecli
 az acr repository update \
@@ -149,8 +149,8 @@ To see the attributes set for an image version or repository, use the [az acr re
 For details about delete operations, see [Delete container images in Azure Container Registry][container-registry-delete].
 
 <!-- LINKS - Internal -->
+[az-acr-manifest-list-metadata]: /cli/azure/acr/manifest#az-acr-manifest-list-metadata
 [az-acr-repository-update]: /cli/azure/acr/repository#az_acr_repository_update
 [az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-delete]: container-registry-delete.md

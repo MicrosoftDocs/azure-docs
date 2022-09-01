@@ -149,6 +149,11 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 ![Unity render pipeline](./media/troubleshoot-unity-pipeline.png)
 
+To fix, make sure the provided _HybridRenderingPipeline_ asset is used:
+![Screenshot of the Unity asset browser and Project Settings dialog. The HybridRenderingPipeline asset is highlighted in the asset browser. An arrow points from the asset to the UniversalRenderPipelineAsset field in project settings.](./../tutorials/unity/view-remote-models/media/hybrid-rendering-pipeline.png)
+
+..as described in more detail in the [Unity tutorial to set up the project](./../tutorials/unity/view-remote-models/view-remote-models.md#adjust-the-project-settings).
+
 ## Checkerboard pattern is rendered after model loading
 
 If the rendered image looks like this:

@@ -4,7 +4,7 @@ description: Learn how to provision an account with continuous backup and point 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/28/2022
+ms.date: 08/24/2022
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -64,7 +64,7 @@ For PowerShell and CLI commands, the tier value is optional, if it isn't already
 
 To provision an account with continuous backup, add the argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
-The following cmdlet assumes a single region write account, *Pitracct*, in the in *West US* region in the *MyRG* resource group. The account has continuous backup policy enabled. Continuous backup is configured at the ``Continous7days`` tier:
+The following cmdlet assumes a single region write account, *Pitracct*, in the in *West US* region in the *MyRG* resource group. The account has continuous backup policy enabled. Continuous backup is configured at the ``Continuous7days`` tier:
 
 ```azurepowershell
 New-AzCosmosDBAccount `
@@ -95,7 +95,7 @@ New-AzCosmosDBAccount `
 
 To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
-The following cmdlet is an example of continuous backup policy with the ``Continous7days`` tier:
+The following cmdlet is an example of continuous backup policy with the ``Continuous7days`` tier:
 
 ```azurepowershell
 New-AzCosmosDBAccount `

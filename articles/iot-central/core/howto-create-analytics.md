@@ -16,6 +16,8 @@ ms.custom: [iot-central-frontdoor]
 
 Azure IoT Central provides rich analytics capabilities to analyze historical trends and correlate telemetry from your devices. To get started, select **Data explorer** on the left pane.
 
+To learn how to query devices by using the IoT Central REST API, see [How to use the IoT Central REST API to query devices.](../core/howto-query-with-rest-api.md)
+
 ## Understand the data explorer UI
 
 The analytics user interface has three main components:

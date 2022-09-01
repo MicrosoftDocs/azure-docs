@@ -5,6 +5,7 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
+ms.custom: GGAL-freshness822
 author: MsGabsta
 ms.collection: linux
 ms.date: 04/25/2018
@@ -501,6 +502,10 @@ The output looks like the following text:
   }
 ]
 ```
+
+#### Azure CLI syntax issues
+
+[!INCLUDE [azure-cli-troubleshooting.md](../../../includes/azure-cli-troubleshooting.md)]
 
 ## Next steps
 To see the code, current issues, and versions, go to the [custom-script-extension-linux repo on GitHub](https://github.com/Azure/custom-script-extension-linux).

@@ -6,7 +6,7 @@ ms.author: weetok
 ms.service: data-factory
 ms.subservice: security
 ms.topic: quickstart
-ms.date: 10/22/2021
+ms.date: 08/05/2022
 ms.reviewer: mariozi
 ms.custom: mode-other
 ---

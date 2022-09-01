@@ -69,7 +69,6 @@ An administrator can configure the behavior and appearance of an IoT Central app
 
 - [Change application name and URL](howto-administer.md#change-application-name-and-url)
 - [Customize application UI](howto-customize-ui.md)
-- [Move an application to a different pricing plans](howto-faq.yml#how-do-i-move-from-a-free-to-a-standard-pricing-plan-)
 
 ## Configure device file upload
 

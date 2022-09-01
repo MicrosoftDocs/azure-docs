@@ -4,7 +4,7 @@ description: Operational details of Azure AD trust handling by Azure AD connect.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
-manager: karenhoran
+manager: amycolannino
 ms.subservice: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory    

@@ -325,6 +325,8 @@
         href: service-fabric-cluster-upgrade.md
       - name: Scaling
         href: service-fabric-cluster-scaling.md
+      - name: Node auto-repair
+        href: service-fabric-cluster-node-auto-repair.md
       - name: Cluster networking patterns
         href: service-fabric-patterns-networking.md
       - name: Infrastructure Service for Azure clusters
@@ -432,6 +434,10 @@
       href: how-to-managed-cluster-enable-disk-encryption.md
     - name: Select managed disk types for managed cluster nodes
       href: how-to-managed-cluster-managed-disk.md
+    - name: Use Dedicated Hosts with managed cluster
+      href: how-to-managed-cluster-dedicated-hosts.md
+    - name: Use Ephemeral OS disks for node types in managed cluster
+      href: how-to-managed-cluster-ephemeral-os-disks.md
     - name: Configure managed cluster upgrade options
       href: how-to-managed-cluster-upgrades.md
     - name: Deploy application secrets to a managed cluster

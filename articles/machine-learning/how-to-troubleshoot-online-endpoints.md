@@ -240,11 +240,19 @@ Make sure model and code artifacts are registered to the same workspace as the d
   az ml code show --name <code-name> --version <version>
   ```
  
-  You can also check if the blobs are present in the workspace storage account.
+You can also check if the blobs are present in the workspace storage account.
 
 - For example, if the blob is `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl`, you can use this command to check if it exists:
+   
+   ```azurecli
+   az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+   ```
+  
+- If the blob is present, you can use this command to obtain the logs from the storage initializer:
 
-  `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+  ```azurecli
+  az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
+  ```
 
 #### azureml-fe not ready
 The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
@@ -268,13 +276,49 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 
 ### ERROR: ResourceNotFound
 
-This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources that might have been supplied by exact path or the spelling of their names.
+Below is a list of reasons you might run into this error:
 
-For more information, see [Resolve resource not found errors](../azure-resource-manager/troubleshooting/error-not-found.md). 
+* [Azure Resource Manager cannot find a required resource](#resource-manager-cannot-find-a-resource)
+* [Azure Container Registry is private or otherwise inaccessible](#container-registry-authorization-error)
+
+#### Resource Manager cannot find a resource
+
+This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but is not able to be found at the specified path. Be sure to double-check the spelling of exact paths or resource names.
+
+For more information, see [Resolve Resource Not Found Errors](../azure-resource-manager/troubleshooting/error-not-found.md).
+
+#### Container registry authorization error
+
+This error occurs when an image belonging to a private or otherwise inaccessible container registry was supplied for deployment. 
+At this time, our APIs cannot accept private registry credentials. 
+
+To mitigate this error, either ensure that the container registry is **not private** or follow the following steps:
+1. Grant your private registry's `acrPull` role to the system identity of your online enpdoint.
+1. In your environment definition, specify the address of your private image as well as the additional instruction to not modify (build) the image.
+
+If the mitigation is successful, the image will not require any building and the final image address will simply be the given image address.
+At deployment time, your online endpoint's system identity will pull the image from the private registry.
+
+For more diagnostic information, see [How To Use the Workspace Diagnostic API](../machine-learning/how-to-workspace-diagnostic-api.md).
 
 ### ERROR: OperationCancelled
 
-Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation that has a higher priority. Retrying the operation might allow it to be performed without cancellation.
+Below is a list of reasons you might run into this error:
+
+* [Operation was cancelled by another operation which has a higher priority](#operation-cancelled-by-another-higher-priority-operation)
+* [Operation was cancelled due to a previous operation waiting for lock confirmation](#operation-cancelled-waiting-for-lock-confirmation)
+
+#### Operation cancelled by another higher priority operation
+
+Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation that has a higher priority.
+
+Retrying the operation might allow it to be performed without cancellation.
+
+#### Operation cancelled waiting for lock confirmation
+
+Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we do not run into race conditions. This error happens when the operation you submitted is the same as another operation that is currently still waiting for confirmation that it has received the lock to proceed. It may indicate that you have submitted a very similar request too soon after the initial request.
+
+Retrying the operation after waiting a few seconds up to a minute may allow it to be performed without cancellation.
 
 ### ERROR: InternalServerError
 

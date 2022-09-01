@@ -132,7 +132,7 @@ Use the following tables to ensure that required firewalls are open on your work
 
 | Protocol | Transport | In/Out | Port | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|
-| HTTPS | TCP | Out | 443 | Access to Azure | Sensor |  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net`<br> `download.microsoft.com` |
+| HTTPS | TCP | Out | 443 | Access to Azure | Sensor |  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net`|
 | HTTPS | TCP | Out | 443 | Remote sensor upgrades from the Azure portal  | Sensor| `download.microsoft.com`|
 
 ### Sensor access to the on-premises management console

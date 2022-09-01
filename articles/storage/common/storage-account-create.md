@@ -339,7 +339,7 @@ az storage account create \
 To create an account with Azure DNS zone endpoints (preview), first register for the preview as described in [Azure DNS zone endpoints (preview)](storage-account-overview.md#azure-dns-zone-endpoints-preview). Next, install the preview extension for the Azure CLI if it's not already installed:
 
 ```azurecli
-az extension add -name storage-preview
+az extension add --name storage-preview
 ```
 
 Next, create the account, specifying `AzureDnsZone` for the `--dns-endpoint-type` parameter. After the account is created, you can see the service endpoints by getting the `PrimaryEndpoints` property of the storage account.

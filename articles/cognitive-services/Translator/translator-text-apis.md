@@ -44,6 +44,9 @@ In this how-to guide, you'll learn to use the [Translator service REST APIs](ref
 
     :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
+
 ## Headers
 
 To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to make sure the following headers are included with each request. Don't worry, we'll include the headers in the sample code in the following sections.
@@ -65,7 +68,7 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 
     > [!TIP]
     >
-    > If you're new to Visual Studio, try the [**Introduction to Visual Studio**](/learn/modules/go-get-started/) Microsoft Learn module.
+    > If you're new to Visual Studio, try the [Introduction to Visual Studio](/learn/modules/go-get-started/) Learn module.
 
 1. Open Visual Studio.
 
@@ -122,7 +125,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 > [!TIP]
 >
-> If you're new to Go, try the [**Get started with Go**](/learn/modules/go-get-started/) Microsoft Learn module.
+> If you're new to Go, try the [Get started with Go](/learn/modules/go-get-started/) Learn module.
 
 1. If you haven't done so already, [download and install Go](https://go.dev/doc/install).
 
@@ -246,7 +249,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
     > [!TIP]
     >
-    > If you're new to Node.js, try the [**Introduction to Node.js**](/learn/modules/intro-to-nodejs/) Microsoft Learn module.
+    > If you're new to Node.js, try the [Introduction to Node.js](/learn/modules/intro-to-nodejs/) Learn module.
 
 1. In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `translator-text-app`.
 
@@ -305,7 +308,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
     > [!TIP]
     >
-    > If you're new to Python, try the [**Introduction to Python**](/learn/paths/beginner-python/) Microsoft Learn module.
+    > If you're new to Python, try the [Introduction to Python](/learn/paths/beginner-python/) Learn module.
 
 1. Open a terminal window and use pip to install the Requests library and uuid0 package:
 

@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 09/01/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -19,6 +19,13 @@ This topic covers how to improve the security of user sign-in by adding the appl
 
 Your organization will need to enable Microsoft Authenticator push notifications for some users or groups using the new Authentication Methods Policy API.
 
+This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator push and passwordless notifications. 
+
+## Prerequisites
+
+Your organization will need to enable Microsoft Authenticator push notifications for some users or groups by using the Azure AD portal. The new Authentication Methods Policy API will soon be ready as another configuration option.
+
+
 >[!NOTE]
 >Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy.
 
@@ -32,7 +39,7 @@ The additional context can be combined with [number matching](how-to-mfa-number-
 
 :::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location-with-number-match.png" alt-text="Screenshot of additional context with number matching in the MFA push notification.":::
 
-### Policy schema changes 
+## Enable additional context using Graph API
 
 >[!NOTE]
 >In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
@@ -435,4 +442,3 @@ Additional context is not supported for Network Policy Server (NPS) or Active Di
 ## Next steps
 
 [Authentication methods in Azure Active Directory - Microsoft Authenticator app](concept-authentication-authenticator-app.md)
-

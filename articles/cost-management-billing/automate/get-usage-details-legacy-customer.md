@@ -1,7 +1,7 @@
 ---
-title: Get Azure cost details as a legacy customer
+title: Get Azure cost details for a pay-as-you go subscription
 titleSuffix: Microsoft Cost Management
-description: This article explains how you get cost data if you're a legacy customer.
+description: This article explains how you get cost data if you have a MOSP pay-as-you-go subscription.
 author: bandersmsft
 ms.author: banders
 ms.date: 07/15/2022
@@ -11,9 +11,9 @@ ms.subservice: cost-management
 ms.reviewer: adwise
 ---
 
-# Get cost details as a legacy customer
+# Get cost details for a pay-as-you-go subscription
 
-If you have an MSDN, pay-as-you-go, or Visual Studio Azure subscription, we recommend that you use [Exports](../costs/tutorial-export-acm-data.md) or the [Exports API](../costs/ingest-azure-usage-at-scale.md) to get cost details data (formerly known as usage details). The [Cost Details](/rest/api/cost-management/generate-cost-details-report) API report isn't supported for your subscription type yet.
+If you have an MSDN, Microsoft Online Service Program (MOSP) pay-as-you-go, or Visual Studio Azure subscription, we recommend that you use [Exports](../costs/tutorial-export-acm-data.md) or the [Exports API](../costs/ingest-azure-usage-at-scale.md) to get cost details data (formerly known as usage details). The [Cost Details](/rest/api/cost-management/generate-cost-details-report) API report isn't supported for your subscription type yet.
 
 If you need to download small datasets and you don't want to use Azure Storage, you can also use the Consumption Usage Details API. Instructions about how to use the API are below. 
 
@@ -30,7 +30,7 @@ The following example requests are used by Microsoft customers to address common
 
 The data that's returned by the request corresponds to the date when the data was received by the billing system. It might include costs from multiple invoices. The call to use varies by your subscription type.
 
-For legacy customers, use the following call.
+For pay-as-you-go subscriptions, use the following call.
 
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?$filter=properties%2FusageStart%20ge%20'2020-02-01'%20and%20properties%2FusageEnd%20le%20'2020-02-29'&$top=1000&api-version=2019-10-01

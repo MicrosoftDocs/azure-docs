@@ -192,6 +192,9 @@ The validation technical profile can be any technical profile in the policy, suc
 
 You can also call a REST API technical profile with your business logic, overwrite input claims, or enrich user data by further integrating with corporate line-of-business application. For more information, see [Validation technical profile](validation-technical-profile.md)
 
+> [!NOTE]
+> A validation technical profile is only triggered when there's an input from the user. You can't create an _empty_ self-asserted technical profile to call a validation technical profile just to take advantage of the **ContinueOnError** attribute of a **ValidationTechnicalProfile** element. You can only call a validation technical profile from a self-asserted technical profile that requests an input from the user, or from an orchestration step in a user journey. 
+
 ## Metadata
 
 | Attribute | Required | Description |

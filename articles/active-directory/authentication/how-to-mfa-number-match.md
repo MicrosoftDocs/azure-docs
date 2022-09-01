@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 09/01/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -13,19 +13,17 @@ ms.collection: M365-identity-device-management
 ---
 # How to use number matching in multifactor authentication (MFA) notifications (Preview) - Authentication Methods Policy
 
-This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
+This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security. Number matching can be enabled by using the Azure portal or Microsoft Graph API. 
 
 >[!NOTE]
->Number matching is a key security upgrade to traditional second factor notifications in the Authenticator app that will be enabled by default for all tenants a few months after general availability (GA).<br> 
+>Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator that will be enabled by default for all tenants a few months after general availability (GA).<br> 
 >We highly recommend enabling number matching in the near-term for improved sign-in security.
 
 ## Prerequisites
 
-Your organization will need to enable Authenticator (traditional second factor) push notifications for some users or groups using the new Authentication Methods Policy API. If your organization is using ADFS adapter or NPS extensions, please upgrade to the latest versions for a consistent experience. 
+Your organization will need to enable Authenticator (traditional second factor) push notifications for some users or groups only by using the Azure AD portal. The new Authentication Methods Policy API will soon be ready as another configuration option. If your organization is using ADFS adapter or NPS extensions, please upgrade to the latest versions for a consistent experience. 
 
 ## Number matching
-
-<!---check below with Mayur. The bit about the policy came from the number match FAQ at the end.--->
 
 Number matching can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy. 
 
@@ -44,7 +42,7 @@ Number matching is not supported for Apple Watch notifications. Apple Watch user
 
 ### Multifactor authentication
 
-When a user responds to an MFA push notification using the Authenticator app, they will be presented with a number. They need to type that number into the app to complete the approval. 
+When a user responds to an MFA push notification using the Authenticator app, they'll be presented with a number. They need to type that number into the app to complete the approval. 
 
 ![Screenshot of user entering a number match.](media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
@@ -73,7 +71,7 @@ Make sure you run the latest version of the [NPS extension](https://www.microsof
 
 Because the NPS extension can't show a number, a user who is enabled for number matching will still be prompted to **Approve**/**Deny**. However, you can create a registry key that overrides push notifications to ask a user to enter a One-Time Passcode (OTP). The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in the Authenticator app, other software tokens, and so on. 
 
-If the user doesn't have an OTP method registered, they will continue to get the **Approve**/**Deny** experience. A user with number matching disabled will always see the **Approve**/**Deny** experience.
+If the user doesn't have an OTP method registered, they'll continue to get the **Approve**/**Deny** experience. A user with number matching disabled will always see the **Approve**/**Deny** experience.
 
 To create the registry key that overrides push notifications:
 
@@ -84,7 +82,8 @@ To create the registry key that overrides push notifications:
    Value = TRUE
 1. Restart the NPS Service. 
 
-### Policy schema changes 
+## Enable number matching 
+
 
 >[!NOTE]
 >In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
@@ -332,9 +331,9 @@ To turn number matching off, you will need to PATCH remove **numberMatchingRequi
 To enable number matching in the Azure AD portal, complete the following steps:
 
 1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
-1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone or add selected users and groups. Set the**Authentication mode** for these users/groups to **Any**/**Push**. 
+1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Push**. 
 
-   Only users who are enabled for Microsoft Authenticator here can be included in the policy to require number matching for sign-in, or excluded from it. Users who aren't enabled for Microsoft Authenticator can't see the feature.
+   Only users who are enabled for Microsoft Authenticator here can be included in the policy to require number matching for sign-in, or excluded from it. Users who aren't enabled for Microsoft Authenticator can't see a number match.
 
    :::image type="content" border="true" source="./media/how-to-mfa-number-match/enable-settings-number-match.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Push authentication mode.":::
 

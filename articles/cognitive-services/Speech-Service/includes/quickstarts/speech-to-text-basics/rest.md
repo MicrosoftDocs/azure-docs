@@ -18,6 +18,9 @@ ms.author: eur
 
 At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and replace `YourAudioFile.wav` with the path and name of your audio file.  
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+
 ```console
 key="YourSubscriptionKey"
 region="YourServiceRegion"

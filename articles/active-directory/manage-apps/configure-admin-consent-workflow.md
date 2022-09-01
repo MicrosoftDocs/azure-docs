@@ -51,6 +51,10 @@ Under **Admin consent requests**,  select **Yes** for **Users can request admin 
 > [!NOTE]
 > You can add or remove reviewers for this workflow by modifying the **Select admin consent requests reviewers** list. A current limitation of this feature is that a reviewer can retain the ability to review requests that were made while they were designated as a reviewer.
 
+## Configure the admin consent workflow using Microsoft Graph
+
+To configure the admin consent workflow programmatically, use the [Update adminConsentRequestPolicy](/graph/api/adminconsentrequestpolicy-update) API in Microsoft Graph.
+
 ## Next steps
 
 [Grant tenant-wide admin consent to an application](grant-admin-consent.md)

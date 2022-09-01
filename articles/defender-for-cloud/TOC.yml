@@ -211,6 +211,8 @@
     - name: Apply Azure security baselines
       displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
       href: apply-security-baseline.md
+    - name: Deploy the Azure Monitor agent
+      href: auto-deploy-azure-monitoring-agent.md
     - name: Vulnerability assessments
       items:
       - name: Find vulnerabilities with threat and vulnerability management
@@ -376,7 +378,7 @@
   - name: How Microsoft secures customer data
     href: data-security.md
   - name: REST APIs documentation
-    href: /rest/api/securitycenter/
+    href: /rest/api/defenderforcloud/
   - name: Security baseline
     href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
   - name: FAQ for Microsoft Defender for Cloud
@@ -439,6 +441,8 @@
       href: episode-fourteen.md
     - name: Remediate security recommendations with governance
       href: episode-fifteen.md
+    - name: Defender for Servers integration with Microsoft Defender for Endpoint
+      href: episode-sixteen.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

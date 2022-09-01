@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 08/15/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -12,11 +12,13 @@ ms.custom: ignite-fall-2021
 
 Use this quickstart to create a sentiment analysis application with the client library for Python. In the following example, you will create a Python application that can identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* [Python 3.x](https://www.python.org/)
+* [Python 3.7 or later](https://www.python.org/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
@@ -62,33 +64,11 @@ def authenticate_client():
 
 client = authenticate_client()
 
-# Example function for detecting sentiment in text
-def sentiment_analysis_example(client):
-
-    documents = ["I had the best day of my life. I wish you were there with me."]
-    response = client.analyze_sentiment(documents=documents)[0]
-    print("Document Sentiment: {}".format(response.sentiment))
-    print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
-        response.confidence_scores.positive,
-        response.confidence_scores.neutral,
-        response.confidence_scores.negative,
-    ))
-    for idx, sentence in enumerate(response.sentences):
-        print("Sentence: {}".format(sentence.text))
-        print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
-        print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
-            sentence.confidence_scores.positive,
-            sentence.confidence_scores.neutral,
-            sentence.confidence_scores.negative,
-        ))
-          
-sentiment_analysis_example(client)
-
-# Example method for detecting opinions in text 
+# Example method for detecting sentiment and opinions in text 
 def sentiment_analysis_with_opinion_mining_example(client):
 
     documents = [
-        "The food and service were unacceptable, but the concierge were nice"
+        "The food and service were unacceptable. The concierge was nice, however."
     ]
 
     result = client.analyze_sentiment(documents, show_opinion_mining=True)
@@ -141,52 +121,44 @@ sentiment_analysis_with_opinion_mining_example(client)
 ## Output
 
 ```console
-Document Sentiment: positive
-Overall scores: positive=1.00; neutral=0.00; negative=0.00 
+Document Sentiment: mixed
+Overall scores: positive=0.47; neutral=0.00; negative=0.52 
 
-Sentence: I had the best day of my life.
-Sentence 1 sentiment: positive
+Sentence: The food and service were unacceptable.
+Sentence sentiment: negative
 Sentence score:
-Positive=1.00
+Positive=0.00
 Neutral=0.00
-Negative=0.00
-
-Sentence: I wish you were there with me.
-Sentence 2 sentiment: neutral
-Sentence score:
-Positive=0.21
-Neutral=0.77
-Negative=0.02
-
-Document Sentiment: positive
-Overall scores: positive=0.84; neutral=0.00; negative=0.16
-
-Sentence: The food and service were unacceptable, but the concierge were nice
-Sentence sentiment: positive
-Sentence score:
-Positive=0.84
-Neutral=0.00
-Negative=0.16
+Negative=0.99
 
 ......'negative' target 'food'
 ......Target score:
-......Positive=0.01
-......Negative=0.99
+......Positive=0.00
+......Negative=1.00
 
 ......'negative' assessment 'unacceptable'
 ......Assessment score:
-......Positive=0.01
-......Negative=0.99
+......Positive=0.00
+......Negative=1.00
 
 ......'negative' target 'service'
 ......Target score:
-......Positive=0.01
-......Negative=0.99
+......Positive=0.00
+......Negative=1.00
 
 ......'negative' assessment 'unacceptable'
 ......Assessment score:
-......Positive=0.01
-......Negative=0.99
+......Positive=0.00
+......Negative=1.00
+
+
+
+Sentence: The concierge was nice, however.
+Sentence sentiment: positive
+Sentence score:
+Positive=0.94
+Neutral=0.01
+Negative=0.05
 
 ......'positive' target 'concierge'
 ......Target score:

@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Introduction
 
-This content provides guidance to move:
+Some organizations set goals to remove AD, and their on-premises IT footprint. Others take advantage of some cloud-based capabilities to reduce the AD footprint, but not to completely remove their on-premises environments. This content provides guidance to move:
 
  * **From** - Active Directory (AD) and other non-cloud based services, either hosted on-premises or Infrastructure-as-a-Service (IaaS), that provide identity management (IDM), identity and access management (IAM) and device management.
 
@@ -23,7 +23,7 @@ This content provides guidance to move:
 >[!NOTE]
 > In this content, when we refer to AD, we are referring to Windows Server Active Directory Domain Services.
 
-Some organizations set goals to remove AD, and their on-premises IT footprint. Others set goals to take advantage of some cloud-based capabilities, but not to completely remove their on-premises or IaaS environments. Transformation must be aligned with and achieve business objectives including increased productivity, reduced costs and complexity, and improved security posture. To better understand the costs vs. value of moving to the cloud, see [Forrester TEI for Microsoft Azure Active Directory](https://www.microsoft.com/security/business/forrester-tei-study) and other TEI reports and [Cloud economics](https://azure.microsoft.com/overview/cloud-economics/).
+Transformation must be aligned with and achieve business objectives including increased productivity, reduced costs and complexity, and improved security posture. To better understand the costs vs. value of moving to the cloud, see [Forrester TEI for Microsoft Azure Active Directory](https://www.microsoft.com/security/business/forrester-tei-study) and other TEI reports and [Cloud economics](https://azure.microsoft.com/overview/cloud-economics/).
 
 ## Next steps
 

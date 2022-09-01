@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure App Service
 description: Lists Azure Policy Regulatory Compliance controls available for Azure App Service. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 07/06/2022
+ms.date: 08/29/2022
 ms.topic: sample
 ms.service: app-service
 ms.custom: subject-policy-compliancecontrols
@@ -20,6 +20,19 @@ compliant with the specific standard.
 [!INCLUDE [Azure-policy-compliancecontrols-appservice](../../includes/policy/standards/byrp/microsoft.web.md)]
 
 ## Release notes
+
+### August 2022
+- **App Service apps should only be accessible over HTTPS**
+  - Update scope of policy to remove slots
+    - Creation of "App Service app slots should only be accessible over HTTPS" to monitor slots
+  - Add "Deny" effect
+  - Creation of "Configure App Service apps to only be accessible over HTTPS" for enforcement of policy
+- **App Service app slots should only be accessible over HTTPS**
+  - New policy created
+- **Configure App Service apps to only be accessible over HTTPS**
+  - New policy created
+- **Configure App Service app slots to only be accessible over HTTPS**
+  - New policy created
 
 ### July 2022
 

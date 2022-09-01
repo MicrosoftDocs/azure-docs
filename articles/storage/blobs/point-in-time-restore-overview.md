@@ -88,7 +88,7 @@ Point-in-time restore for block blobs has the following limitations and known is
 - A blob with an active lease cannot be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail atomically. Break any active leases prior to initiating the restore operation.
 - Performing a customer-managed failover on a storage account resets the earliest possible restore point for that storage account. For example, suppose you have set the retention period to 30 days. If more than 30 days have elapsed since the failover, then you can restore to any point within that 30 days. However, if fewer than 30 days have elapsed since the failover, then you cannot restore to a point prior to the failover, regardless of the retention period. For example, if it's been 10 days since the failover, then the earliest possible restore point is 10 days in the past, not 30 days in the past.  
 - Snapshots are not created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
-- Restoring Azure Data Lake Storage Gen2 flat and hierarchical namespaces is not supported.
+- Point-in-time restore is not supported for hierarchical namespaces or operations via Azure Data Lake Storage Gen2.
 
 > [!IMPORTANT]
 > If you restore block blobs to a point that is earlier than September 22, 2020, preview limitations for point-in-time restore will be in effect. Microsoft recommends that you choose a restore point that is equal to or later than September 22, 2020 to take advantage of the generally available point-in-time restore feature.
@@ -101,9 +101,7 @@ Point-in-time restore for block blobs has the following limitations and known is
 
 There is no charge to enable point-in-time restore. However, enabling point-in-time restore also enables blob versioning, soft delete, and change feed, each of which may result in additional charges.
 
-Billing for point-in-time restore depends on the amount of data processed to perform the restore operation. The amount of data processed is based on the number of changes that occurred between the restore point and the present moment. For example, assuming a relatively constant rate of change to block blob data in a storage account, a restore operation that goes back in time 1 day would cost 1/10th of a restore that goes back in time 10 days.
-
-In addition to charges for the changefeed data processed, point-in-time restores also incur charges for any transactions involved in performing the restore.
+Billing for performing point-in-time restores is based on the amount of changefeed data processed for the restore. You are also billed for any storage transactions involved in the restore process. 
 
 For more information about pricing for point-in-time restore, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

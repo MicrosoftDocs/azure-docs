@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 02/17/2022
+ms.date: 08/01/2022
 ms.author: madsd
 ---
 
@@ -83,6 +83,9 @@ You can put your web application firewall devices, such as Azure Application Gat
 
 Your application will use one of the default outbound addresses for egress traffic to public endpoints. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
 
+> [!NOTE]
+> Outbound SMTP connectivity (port 25) is supported for App Service Environment v3. However, the supportability is determined by the subscription where the virtual network is deployed. For virtual networks created before 1. August 2022, you will have to re-enable outbound SMTP connectivity support on the subscription. For more information on subscription type support and how to request support to re-enable outbound SMTP connectivity, see [Troubleshoot outbound SMTP connectivity problems in Azure](../../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
+
 ## Private endpoint
 
 In order to enable Private Endpoints for apps hosted in your App Service Environment, you must first enable this feature at the App Service Environment level.
@@ -95,7 +98,6 @@ az appservice ase update --name myasename --allow-new-private-endpoint-connectio
 ```
 
 For more information about Private Endpoint and Web App, see [Azure Web App Private Endpoint][privateendpoint] 
-
 
 ## DNS
 
@@ -137,10 +139,7 @@ The apps in your App Service Environment will use the DNS that your virtual netw
 
 ## Limitations
 
-While App Service Environment does deploy into your virtual network, there are a few networking features that aren't available:
-
-* Sending SMTP traffic. Although you can still have email-triggered alerts, your app can't send outbound traffic on port 25.
-* Using Azure Network Watcher or NSG flow to monitor outbound traffic.
+While App Service Environment does deploy into your virtual network, you currently cannot use Azure Network Watcher or NSG flow to monitor outbound traffic.
 
 ## More resources
 

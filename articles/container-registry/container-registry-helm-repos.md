@@ -142,7 +142,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
   ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
   PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME \
             --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-             --role acrpull \
+             --role acrpush \
             --query "password" --output tsv)
   USER_NAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
   ```
@@ -213,7 +213,7 @@ Output is similar to:
 }
 ```
 
-Run the [az acr repository show-manifests][az-acr-repository-show-manifests] command to see details of the chart stored in the repository. For example:
+Run the [az acr manifest list-metadata][az-acr-manifest-list-metadata] command to see details of the chart stored in the repository. For example:
 
 ```azurecli
 az acr manifest list-metadata \
@@ -383,5 +383,5 @@ helm repo remove $ACR_NAME
 [az-acr-repository]: /cli/azure/acr/repository
 [az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
+[az-acr-manifest-list-metadata]: /cli/azure/acr/manifest#az-acr-manifest-list-metadata
 [acr-tasks]: container-registry-tasks-overview.md

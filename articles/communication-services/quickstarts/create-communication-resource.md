@@ -2,10 +2,10 @@
 title: Quickstart - Create and manage resources in Azure Communication Services
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to create and manage your first Azure Communication Services resource.
-author: probableprime
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services

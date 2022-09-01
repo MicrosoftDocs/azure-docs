@@ -3,7 +3,7 @@ title: 'Azure AD Connect cloud sync deep dive - how it works'
 description: This topic provides deep dive information on how cloud sync works.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual

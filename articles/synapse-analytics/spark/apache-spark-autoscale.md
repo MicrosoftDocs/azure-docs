@@ -67,7 +67,7 @@ Apache Spark enables configuration of Dynamic Allocation of Executors through co
     {
         "conf" : {
             "spark.dynamicAllocation.maxExecutors" : "6",
-            "spark.dynamicAllocation.enable": "true",
+            "spark.dynamicAllocation.enabled": "true",
             "spark.dynamicAllocation.minExecutors": "2"
      }
     }

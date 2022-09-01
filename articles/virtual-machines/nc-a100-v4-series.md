@@ -16,12 +16,12 @@ ms.date: 06/01/2022
 
 The NC A100 v4 series virtual machine (VM) is a new addition to the Azure GPU family. You can use this series for real-world Azure Applied AI training and batch inference workloads. 
 
-The NC A100 v4 series is powered by NVIDIA A100 PCIe GPU and 3rd-generation AMD Epyc™ 7V13 (Milan) processors.  The VMs feature up to 4 NVIDIA A100 PCIe GPUs with 80GB memory each, up to 96 non-multithreaded AMD EPYC Milan processor cores and 880 GiB of system memory. 
+The NC A100 v4 series is powered by NVIDIA A100 PCIe GPU and 3rd-generation AMD EPYC™ 7V13 (Milan) processors.  The VMs feature up to 4 NVIDIA A100 PCIe GPUs with 80GB memory each, up to 96 non-multithreaded AMD EPYC Milan processor cores and 880 GiB of system memory. 
 These VMs are ideal for real-world Applied AI workloads, such as: 
 
 - GPU-accelerated analytics and databases
 - Batch inferencing with heavy pre- and post-processing
-- Autonomous driving reinforcement learning
+- Autonomy model training
 - Oil and gas reservoir simulation
 - Machine learning (ML) development
 - Video processing
@@ -33,7 +33,9 @@ These VMs are ideal for real-world Applied AI workloads, such as:
 
 To get started with NC A100 v4 VMs, refer to [HPC Workload Configuration and Optimization](./workloads/hpc/configure.md) for steps including driver and network configuration.
 
-Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. The [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9, CentOS 8.4, RHEL 7.9 and RHEL 8.5 images are supported. Windows Service 2019 and Windows Service 2022 images are supported.
+Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. While the [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended, Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9, CentOS 8.4, RHEL 7.9, RHEL 8.5, Windows Service 2019, and Windows Service 2022 images are supported.
+
+Note: The Unbuntu-HPC 18.04-ncv4 image is only valid during preview and deprecated on 7/29/2022.  All changes have been merged into standard Ubuntu-HPC 18.04 image. Please follow instruction [Azure HPC images](./workloads/hpc/configure.md) for configuration.
  
 
 - [Premium Storage](premium-storage-performance.md): Supported
@@ -50,7 +52,7 @@ Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [G
 
 
 
-| Size | vCPU | Memory: GiB | Temp Storage (with NVMe) : GiB  | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp Storage (with NVMe) : GiB  | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (MBps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_NC24ads_A100_v4   | 24  | 220 | 1123 | 1 | 80  | 12 | 30000/1000 | 2/20,000  |
 | Standard_NC48ads_A100_v4   | 48 | 440 | 2246  | 2 | 160 | 24 | 60000/2000 | 4/40,000  | 

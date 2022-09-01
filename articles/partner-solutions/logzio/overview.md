@@ -3,8 +3,8 @@ title: Logz.io overview - Azure partner solutions
 description: Learn about Azure integration using Logz.io in Azure Marketplace.
 ms.topic: conceptual
 ms.date: 10/25/2021
-author: davidsmatlak
-ms.author: davidsmatlak
+author: flang-msft
+ms.author: franlanglois
 ---
 
 # What is Logz.io integration with Azure?

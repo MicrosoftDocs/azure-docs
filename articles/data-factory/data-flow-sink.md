@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/23/2022
+ms.date: 08/04/2022
 ---
 
 # Sink transformation in mapping data flow

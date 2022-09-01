@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 07/21/2022
 ms.author: normesta
 ms.subservice: blobs  
 ms.custom: devx-track-azurepowershell
@@ -19,13 +19,15 @@ Blob soft delete protects an individual blob and its versions, snapshots, and me
 
 Blob soft delete is part of a comprehensive data protection strategy for blob data. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
-Blob soft delete is enabled by default for a new storage account. You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
-
 ## Enable blob soft delete
+
+You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
-To enable blob soft delete for your storage account by using the Azure portal, follow these steps:
+Blob soft delete is enabled by default when you create a new storage account with the Azure portal. The setting to enable or disable blob soft delete when you create a new storage account is on the **Data protection** tab. For more information about creating a storage account, see [Create a storage account](../common/storage-account-create.md).
+
+To enable blob soft delete for an existing storage account by using the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
 1. Locate the **Data Protection** option under **Data management**.
@@ -37,7 +39,9 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 
 ### [PowerShell](#tab/azure-powershell)
 
-To enable blob soft delete with PowerShell, call the [Enable-AzStorageBlobDeleteRetentionPolicy](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) command, specifying the retention period in days.
+Blob soft delete is not enabled when you create a new storage account with PowerShell. You can enable blob soft delete after the new account has been created.
+
+To enable blob soft delete for an existing storage account with PowerShell, call the [Enable-AzStorageBlobDeleteRetentionPolicy](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) command, specifying the retention period in days.
 
 The following example enables blob soft delete and sets the retention period to seven days. Remember to replace the placeholder values in brackets with your own values:
 
@@ -58,7 +62,9 @@ $properties.DeleteRetentionPolicy.Days
 
 ### [Azure CLI](#tab/azure-CLI)
 
-To enable blob soft delete with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command, specifying the retention period in days.
+Blob soft delete is not enabled when you create a new storage account with Azure CLI. You can enable blob soft delete after the new account has been created.
+
+To enable blob soft delete for an existing storage account with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command, specifying the retention period in days.
 
 The following example enables blob soft delete and sets the retention period to seven days. Remember to replace the placeholder values in brackets with your own values:
 
