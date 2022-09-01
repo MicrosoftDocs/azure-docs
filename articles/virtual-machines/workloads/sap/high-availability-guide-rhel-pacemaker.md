@@ -116,7 +116,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > For more information, see [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711).
 
    > [!IMPORTANT]
-   > We recommend the following versions of Azure Fence agent (or later) for customers wishing to use Managed Identities for Azure resources instead of service principal names for the fence agent.
+   > We recommend the following versions of Azure Fence agent (or later) for customers wishing to use Managed Identities for Azure resources instead of service principal names for the fence agent.  
    > RHEL 8.4: fence-agents-4.2.1-54.el8  
    > RHEL 8.2: fence-agents-4.2.1-41.el8_2.4  
    > RHEL 8.1: fence-agents-4.2.1-30.el8_1.4  
