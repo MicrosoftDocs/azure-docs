@@ -12,6 +12,7 @@ ms.author: v-amallick
 
 This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Recovery Services vaults and Backup vault (preview).
 
+
 ::: zone pivot="vaults-recovery-services-vault"
 
 The following sections describes how to configure and manage Multi-user authorization for Recovery Services vault.
