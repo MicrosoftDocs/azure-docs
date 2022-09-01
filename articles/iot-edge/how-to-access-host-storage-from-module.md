@@ -20,9 +20,9 @@ IoT Edge modules can use storage on the host IoT Edge device itself for improved
 
 ## Configure system modules to use persistent storage
 
-By default, IoT Edge system modules, IoT Edge agent and IoT Edge hub, store state in the ephemeral file system of their container instance. This state is lost when the container instance is updated. For example, when their image version or createOptions is updated. 
+By default, IoT Edge system modules, IoT Edge agent and IoT Edge hub, store state in the ephemeral file system of their container instance. This state is lost when the container instance is recycled, for example, when module image version or createOptions is updated. 
 
-For production scenarios, use a persistent storage location on the host filesystem to store system module state. Doing so improves solution robustness, for example, not losing locally queued messages before delivery to the cloud. 
+For production scenarios, use a persistent storage location on the host filesystem to store system module state. Doing so improves solution robustness and cloud message delivery guarantees.
 
 To set up system modules to use persistent storage:
 
