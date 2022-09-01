@@ -162,7 +162,7 @@ You can also set a registry's soft- delete policy in the [Azure portal](https://
 
 1. Select the tag to restore, here you have an option to choose, and recover any additional tags.
 1. Click on **Restore**. 
-1. 
+
 :::image type="content" source="./media/container-registry-soft-delete/08-soft-delete-restore.png" alt-text="soft-delete-artifacts-lifecycle":::
 
 ## Pushing an image
