@@ -14,7 +14,7 @@ The Speech SDK for Go only supports **Ubuntu 18.04/20.04/22.04**, **Debian 9/10/
 
 You must install the [Go binary version 1.13 or later](https://go.dev/dl/).
 
-## Install the Speech SDK
+## Install the Speech SDK for Go
 
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 
