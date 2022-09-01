@@ -103,13 +103,13 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
 - `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if
   any.
 
-## Resource selectors and overrides (preview)
+## Resource selectors (preview)
 
 The **resourceSelectors** property facilitates safe deployment practices (SDP) by enabling you to gradually roll
-out policy by region, by resource type, by pre-defined tags, or some combination thereof.
+out policy by region/location, by resource type, by <insert_here>, or some combination thereof.
 
 You can use resource selectors with policy assignments or policy exemptions to evaluate resources only when the resource
-selectors are applicable with the resource location, type, or tags on the resource.
+selectors are applicable with the resource location, type, or <insert_here> on the resource.
 
 In the following example scenario, the new policy assignment will be evaluated only if the resource's location is
 either **East US** or **West US**.
@@ -165,8 +165,10 @@ shows our policy assignment with two additional Azure regions added to the **SDP
 }
 ```
 
-The **overrides** property allows you to override the property value of a policy definition or policy assignment.
-As expected, the property value corresponds to your resource selector values.
+## Overrides (preview)
+
+The **overrides** property allows you to change the effect and version of a policy definition without modifying
+the policy definition.
 
 
 
