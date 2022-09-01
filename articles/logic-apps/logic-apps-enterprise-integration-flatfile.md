@@ -24,7 +24,6 @@ While no **Flat File** triggers are available, you can use any trigger or action
 
 This article shows how to add the **Flat File** encoding and decoding actions to your workflow.
 
-* Upload the flat file schema to your integration account for Consumption logic app workflows or to your Standard logic app resource for use in any child workflow.
 * Add a **Flat File** encoding or decoding action to your workflow.
 * Select the schema that you want to use.
 
