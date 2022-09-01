@@ -180,23 +180,23 @@ Prevent data breaches caused by misuse and malicious exploitation of permissions
 
         Example: Any activity done by root:
 
-        ![](media/permissions-management-trial-playbook/customalerts-1.png)
+        ![Diagram, Any activity done by root](media/permissions-management-trial-playbook/customalerts-1.png)
 
         Alert for monitoring any direct Azure role assignment
 
-        ![](media/permissions-management-trial-playbook/customalerts-2.png)
+        ![Diagram, Alert for monitoring any direct Azure role assignment](media/permissions-management-trial-playbook/customalerts-2.png)
 
 -   Access to critical sensitive resources
 
     Example: Alert for monitoring any action on Azure resources
 
-    ![](media/permissions-management-trial-playbook/customalerts-3.png)
+    ![Diagram, Alert for monitoring any action on Azure resources](media/permissions-management-trial-playbook/customalerts-3.png)
 
 -   Use of break glass accounts like root in AWS, global admin in Azure AD accessing subscriptions, etc.
 
     Example: BreakGlass users should be used for emergency access only.
 
-    ![](media/permissions-management-trial-playbook/customalerts-4.png)
+    ![Diagram, Example of break glass account users used for emergency access only](media/permissions-management-trial-playbook/customalerts-4.png)
 
 1.  Create and view reports
 
