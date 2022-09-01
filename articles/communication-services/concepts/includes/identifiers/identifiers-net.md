@@ -41,7 +41,7 @@ The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Azure AD use
 
 ```csharp
 // get the Teams user's ID if only the email is known, assuming a helper method
-var userId = await GetUserIdFromGraph("bob@contoso.com");
+string userId = await GetUserIdFromGraph("bob@contoso.com");
 
 // create an identifier
 var teamsUser = new MicrosoftTeamsUserIdentifier(userId);

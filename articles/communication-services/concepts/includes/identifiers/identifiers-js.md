@@ -20,7 +20,7 @@ The `CommunicationUserIdentifier` interface represents a user identity that was 
 
 #### Basic usage
 
-```typescript
+```javascript
 // at some point you will have created a new user identity in your trusted service
 const newUser = await identityClient.createUser();
 
@@ -39,7 +39,7 @@ The `MicrosoftTeamsUserIdentifier` interface represents a Teams user. You need t
 
 #### Basic usage
 
-```typescript
+```javascript
 // get the Teams user's ID if only the email is known, assuming a helper method
 const userId = await getUserIdFromGraph("bob@contoso.com");
 
@@ -60,7 +60,7 @@ The `PhoneNumberIdentifier` interface represents a phone number. The service ass
 
 #### Basic usage
 
-```typescript
+```javascript
 // create an identifier
 const phoneNumber = { phoneNumber: "+112345556789" };
 ```
@@ -75,7 +75,7 @@ The `UnknownIdentifier` interface exists for future-proofing and you might encou
 
 #### Basic usage
 
-```typescript
+```javascript
 // create an identifier
 const unknownId = { id: "a raw id that originated in the service" };
 ```
@@ -88,7 +88,7 @@ const unknownId = { id: "a raw id that originated in the service" };
 
 While you construct identifiers for a concrete type that you pass *into* the SDK, the SDK returns a `CommunicationIdentifierKind`, which is a [discriminated union](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions). It's easy to narrow to a concrete type and we suggest a switch-case statement with pattern matching:
 
-```typescript
+```javascript
 switch (communicationIdentifier.kind)
 {
     case "communicationUser":
@@ -116,7 +116,7 @@ switch (communicationIdentifier.kind)
 
 The identifier interfaces have been designed so that you don't have to specify `kind` to reduce verbosity, and the discriminating union with the `kind` property is only used when returned from the SDK. However, if you find yourself needing to translate an identifier to its corresponding discriminating union type you can use this helper:
 
-```typescript
+```javascript
 const identifierKind = getIdentifierKind(identifier); // now you can switch-case on the kind
 ```
 
@@ -128,7 +128,7 @@ For that purpose, identifiers have another representation called `RawId`. An ide
 
 Since `azure-communication-common@2.1.0` the SDK helps with the conversion:
 
-```typescript
+```javascript
 // get an identifier's raw Id
 const rawId = getIdentifierRawId(communicationIdentifier);
 

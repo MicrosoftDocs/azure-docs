@@ -41,7 +41,7 @@ The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Azure AD use
 
 ```java
 // get the Teams user's ID if only the email is known, assuming a helper method
-var userId = getUserIdFromGraph("bob@contoso.com");
+String userId = getUserIdFromGraph("bob@contoso.com");
 
 // create an identifier
 var teamsUser = new MicrosoftTeamsUserIdentifier(userId);
