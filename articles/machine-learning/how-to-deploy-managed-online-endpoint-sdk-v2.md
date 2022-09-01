@@ -1,7 +1,7 @@
 ---
-title: Deploy machine learning models to managed online endpoint using Python SDK v2 (preview).
+title: Deploy machine learning models to managed online endpoint using Python SDK v2.
 titleSuffix: Azure Machine Learning
-description: Learn to deploy your machine learning model to Azure using Python SDK v2 (preview).
+description: Learn to deploy your machine learning model to Azure using Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: how-to, devplatv2, sdkv2, deployment
 ---
 
-# Deploy and score a machine learning model with managed online endpoint using Python SDK v2 (preview) 
+# Deploy and score a machine learning model with managed online endpoint using Python SDK v2 
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 

@@ -22,7 +22,7 @@ ms.date: 03/15/2022
  
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-In this article, you learn how to train natural language processing (NLP) models with [automated ML](concept-automated-ml.md) in Azure Machine Learning. You can create NLP models with automated ML via the Azure Machine Learning Python SDK v2 (preview) or the Azure Machine Learning CLI v2. 
+In this article, you learn how to train natural language processing (NLP) models with [automated ML](concept-automated-ml.md) in Azure Machine Learning. You can create NLP models with automated ML via the Azure Machine Learning Python SDK v2 or the Azure Machine Learning CLI v2. 
 
 Automated ML supports NLP which allows ML professionals and data scientists to bring their own text data and build custom models for tasks such as, multi-class text classification, multi-label text classification, and named entity recognition (NER).  
 
@@ -45,7 +45,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2](#tab/SDK-v2)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -75,9 +75,9 @@ Determine what NLP task you want to accomplish. Currently, automated ML supports
 
 Task |AutoML job syntax| Description 
 ----|----|---
-Multi-class text classification | CLI v2: `text_classification`  <br> SDK v2 (preview): `text_classification()`| There are multiple possible classes and each sample can be classified as exactly one class. The task is to predict the correct class for each sample. <br> <br> For example, classifying a movie script as "Comedy" or "Romantic". 
-Multi-label text classification |  CLI v2: `text_classification_multilabel`  <br> SDK v2 (preview): `text_classification_multilabel()`| There are multiple possible classes and each sample can be assigned any number of classes. The task is to predict all the classes for each sample<br> <br> For example, classifying a movie script as "Comedy", or "Romantic", or "Comedy and Romantic". 
-Named Entity Recognition (NER)|  CLI v2:`text_ner` <br> SDK v2 (preview): `text_ner()`| There are multiple possible tags for tokens in sequences. The task is to predict the tags for all the tokens for each sequence. <br> <br> For example, extracting domain-specific entities from unstructured text, such as contracts or financial documents
+Multi-class text classification | CLI v2: `text_classification`  <br> SDK v2: `text_classification()`| There are multiple possible classes and each sample can be classified as exactly one class. The task is to predict the correct class for each sample. <br> <br> For example, classifying a movie script as "Comedy" or "Romantic". 
+Multi-label text classification |  CLI v2: `text_classification_multilabel`  <br> SDK v2: `text_classification_multilabel()`| There are multiple possible classes and each sample can be assigned any number of classes. The task is to predict all the classes for each sample<br> <br> For example, classifying a movie script as "Comedy", or "Romantic", or "Comedy and Romantic". 
+Named Entity Recognition (NER)|  CLI v2:`text_ner` <br> SDK v2: `text_ner()`| There are multiple possible tags for tokens in sequences. The task is to predict the tags for all the tokens for each sequence. <br> <br> For example, extracting domain-specific entities from unstructured text, such as contracts or financial documents
 
 ## Preparing data
 
@@ -188,7 +188,7 @@ For CLI v2 AutoML jobs you configure your experiment in a YAML file like the fol
 
 
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2](#tab/SDK-v2)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -239,7 +239,7 @@ featurization:
    dataset_language: "eng"
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2](#tab/SDK-v2)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -260,7 +260,7 @@ You can also run your NLP experiments with distributed training on an Azure ML c
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2](#tab/SDK-v2)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -286,7 +286,7 @@ To submit your AutoML job, you can run the following CLI v2 command with the pat
 az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2](#tab/SDK-v2)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -313,7 +313,7 @@ See the following sample YAML files for each NLP task.
 * [Multi-label text classification](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/automl-standalone-jobs/cli-automl-text-classification-multilabel-paper-cat/cli-automl-text-classification-multilabel-paper-cat.yml)
 * [Named entity recognition](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/automl-standalone-jobs/cli-automl-text-ner-conll/cli-automl-text-ner-conll2003.yml)
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2](#tab/SDK-v2)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 

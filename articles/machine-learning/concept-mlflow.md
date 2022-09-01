@@ -40,7 +40,7 @@ MLflow can manage the complete machine learning lifecycle by using four core cap
 Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments, whether you created the experiments via the Azure Machine Learning Python SDK, the Azure Machine Learning CLI, or Azure Machine Learning studio. We recommend using MLflow for tracking experiments. To get started, see [Log metrics, parameters, and files with MLflow](how-to-log-view-metrics.md).
 
 > [!NOTE]
-> Unlike the Azure Machine Learning SDK v1, there's no logging functionality in the SDK v2 (preview). We recommend that you use MLflow for logging.
+> Unlike the Azure Machine Learning SDK v1, there's no logging functionality in the SDK v2. We recommend that you use MLflow for logging.
 
 With MLflow Tracking, you can connect Azure Machine Learning as the back end of your MLflow experiments. The workspace provides a centralized, secure, and scalable location to store training metrics and models. Capabilities include:
 

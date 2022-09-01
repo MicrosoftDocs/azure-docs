@@ -363,7 +363,7 @@ returned_job.services["Studio"].endpoint
 
 ## Data in pipelines 
 
-If you're working with Azure Machine Learning pipelines, you can read data into and move data between pipeline components with the Azure Machine Learning CLI v2 extension or the Python SDK v2 (preview). 
+If you're working with Azure Machine Learning pipelines, you can read data into and move data between pipeline components with the Azure Machine Learning CLI v2 extension or the Python SDK v2. 
 
 ### Azure Machine Learning CLI v2
 The following YAML file demonstrates how to use the output data from one component as the input for another component of the pipeline using the Azure Machine Learning CLI v2 extension:
@@ -372,7 +372,7 @@ The following YAML file demonstrates how to use the output data from one compone
 
 :::code language="yaml" source="~/azureml-examples-main/CLI/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
-### Python SDK v2 (preview)
+### Python SDK v2
 
 The following example defines a pipeline containing three nodes and moves data between each node.
 
@@ -384,6 +384,6 @@ The following example defines a pipeline containing three nodes and moves data b
 
 ## Next steps
 
-* [Train models with the Python SDK v2 (preview)](how-to-train-sdk.md)
-* [Tutorial: Create production ML pipelines with Python SDK v2 (preview)](tutorial-pipeline-python-sdk.md)
+* [Train models with the Python SDK v2](how-to-train-sdk.md)
+* [Tutorial: Create production ML pipelines with Python SDK v2](tutorial-pipeline-python-sdk.md)
 * Learn more about [Data in Azure Machine Learning](concept-data.md)
