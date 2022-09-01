@@ -72,6 +72,7 @@ The following Azure resources are defined in the template.
     |**Mobile Country Code**     | Enter the mobile country code for the private mobile network.        |
     |**Mobile Network Code**     | Enter the mobile network code for the private mobile network.        |
     |**Site Name**     | Enter a name for your site.        |
+    | **Site Plan** | Enter the billing plan for your site.|
     |**Service Name**     | Leave this field unchanged.        |
     |**Sim Policy Name**     | Leave this field unchanged.        |
     |**Slice Name**     | Leave this field unchanged.        |
