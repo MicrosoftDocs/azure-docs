@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 09/01/2022
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
