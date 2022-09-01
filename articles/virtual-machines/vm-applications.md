@@ -1,13 +1,13 @@
 ---
 title: Overview of VM Applications in the Azure Compute Gallery
 description: Learn more about VM application packages in an Azure Compute Gallery.
-author: nikhilpatel909
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 05/18/2022
 author: nikhilpatel909
+ms.author: erd
 ms.reviewer: erd
 ms.custom: 
 
