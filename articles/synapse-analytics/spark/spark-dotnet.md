@@ -26,25 +26,24 @@ Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache
 1. Configure your `dotnet` application dependencies for compatibility with Synapse Spark.
 The required .NET Spark version will be noted in the Synapse Studio interface under your Apache Spark Pool configuration, under the Manage toolbox.
 
-  ![Screenshot that shows properties, including the .NET Spark version.](./media/apache-spark-job-definitions/net-spark-workspace-compatibility.png)
+   :::image type="content" source="./media/apache-spark-job-definitions/net-spark-workspace-compatibility.png" alt-text="Screenshot that shows properties, including the .NET Spark version.":::
 
-
-  Create your project as a .NET console application that outputs an Ubuntu x86 executable.
+   Create your project as a .NET console application that outputs an Ubuntu x86 executable.
   
-  ```
-  <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-      <OutputType>Exe</OutputType>
-      <TargetFramework>netcoreapp3.1</TargetFramework>
-    </PropertyGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Microsoft.Spark" Version="2.1.0" />
-    </ItemGroup>
-
-  </Project>
-  ```
+   ```
+   <Project Sdk="Microsoft.NET.Sdk">
+ 
+     <PropertyGroup>
+       <OutputType>Exe</OutputType>
+       <TargetFramework>netcoreapp3.1</TargetFramework>
+     </PropertyGroup>
+ 
+     <ItemGroup>
+       <PackageReference Include="Microsoft.Spark" Version="2.1.0" />
+     </ItemGroup>
+ 
+   </Project>
+   ```
 
 2. Run the following commands to publish your app. Be sure to replace *mySparkApp* with the path to your app.
    
