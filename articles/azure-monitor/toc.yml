@@ -25,6 +25,8 @@ items:
     href: essentials/tutorial-resource-logs.md
   - name: Create a log query alert
     href: alerts/tutorial-log-alert.md
+  - name: Forward syslog data to workspace
+    href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Virtual machines
     items:
     - name: Enable monitoring
@@ -907,7 +909,7 @@ items:
                 href: app/java-standalone-telemetry-processors-examples.md
         - name: JVM arguments setup
           href: app/java-standalone-arguments.md
-        - name: Upgrade from 2.x SDK
+        - name: Upgrade from 2.x
           href: app/java-standalone-upgrade-from-2x.md
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python

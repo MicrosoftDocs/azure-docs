@@ -24,7 +24,7 @@ You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You ca
 Run the following command to retrieve all of the purchased phone numbers.
 
 ```azurecli-interactive
-az communication phonenumbers list-phonenumbers --connection-string "<yourConnectionString>"
+az communication phonenumber list --connection-string "<yourConnectionString>"
 ```
 
 Make this replacement in the code:
@@ -36,7 +36,7 @@ Make this replacement in the code:
 Run the following command to get the phone number details for a purchased phone number.
 
 ```azurecli-interactive
-az communication phonenumbers show-phonenumber --phonenumber <purchasedPhoneNumber> --connection-string "<yourConnectionString>"
+az communication phonenumber show --phonenumber <purchasedPhoneNumber> --connection-string "<yourConnectionString>"
 ```
 Make these replacements in the code:
 

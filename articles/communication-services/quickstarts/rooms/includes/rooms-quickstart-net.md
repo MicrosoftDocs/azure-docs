@@ -148,4 +148,4 @@ Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(createdRoomId);
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services rooms from the [.NET SDK reference](https://docs.microsoft.com/dotnet/api/azure.communication.rooms) or [REST API reference](https://docs.microsoft.com/rest/api/communication/rooms).
+Read about the full set of capabilities of Azure Communication Services rooms from the [.NET SDK reference](/dotnet/api/azure.communication.rooms) or [REST API reference](/rest/api/communication/rooms).
