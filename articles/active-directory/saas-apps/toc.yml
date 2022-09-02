@@ -204,6 +204,8 @@
         href: asccontracts-tutorial.md
       - name: Ascentis
         href: ascentis-tutorial.md
+      - name: AsignetSSOIntegration
+        href: asignet-sso-tutorial.md
       - name: askSpoke
         href: askspoke-tutorial.md
       - name: AskYourTeam
