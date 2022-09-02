@@ -218,7 +218,9 @@ Occasionally, operations such as completing a message or renewing a session prod
 }
 ```
 
-The connector uses an in-memory cache to support all the operations associated with the sessions. The service bus receiver which received the messages is cached in the memory in the role instance(virtual machine) which received the message and all the calls for that connection are routed to this same role instance to process all the requests. This is required as all the actions on the session like get more messages/complete/abandon/deadletter/close/renew session etc needs the same receiver which received the messages for a particular session. There are chances when the requests might not be routed to the same role instance, it could happen cause of several reasons like the infrastructure update or the connector deployment, etc. If this happens, then the requests would fail as the receiver for performing earlier mentioned actions on the session is not available on the role instance which serves the request.
+The Service Bus connector uses in-memory cache to support all operations associated with the sessions. The Service Bus message receiver is cached in the memory of the role instance (virtual machine) that receives the messages. To process all requests, all calls for the connection get routed to this same role instance. This behavior is required because all the Service Bus operations in a session require the same receiver that receives the messages for a specific session.
+
+The chance exists that requests might not get routed to the same role instance, due to reasons such as an infrastructure update, connector deployment, and so on. If this event happens, requests fail because the receiver that performs the operations in the session isn't available in the role instance that serves the request.
 
 Thus the above error is expected as long as it happens only occasionally.  When the error happens, the message is still preserved in service bus, and next trigger or run will try to process it again.
 
