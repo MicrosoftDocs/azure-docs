@@ -23,7 +23,7 @@ Artificial intelligence and machine learning systems can display unfair behavior
 
 Two common types of AI-caused harms are:
 
-- **Allocation harm**: An AI system extends or withholds opportunities, resources, or information for certain groups. Examples include hiring, school admissions, and lending, where a model might be better at picking good candidates among a specific group of people than among other groups.
+- **Harm of allocation**: An AI system extends or withholds opportunities, resources, or information for certain groups. Examples include hiring, school admissions, and lending, where a model might be better at picking good candidates among a specific group of people than among other groups.
 
 - **Quality-of-service harm**: An AI system doesn't work as well for one group of people as it does for another. For example, a voice recognition system might fail to work as well for women as it does for men.
 
