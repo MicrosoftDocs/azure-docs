@@ -301,13 +301,13 @@ For example:
 * If you followed the instructions in [Use a self-signed certificate](#use-a-self-signed-certificate):
 
     ```bash
-    curl -L -i -X PUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "my-x509-device"}' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-x509-device/register?api-version=2021-06-01
+    curl -L -i -X PUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "my-x509-device"}' https://global.azure-devices-provisioning.net/0ne00111111/registrations/my-x509-device/register?api-version=2021-06-01
     ```
 
 * If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain):
 
     ```bash
-    curl -L -i -X PUT --cert certs/device-01-full-chain.cert.pem --key private/device-01.key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "device-01"}' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/device-01/register?api-version=2021-06-01
+    curl -L -i -X PUT --cert certs/device-01-full-chain.cert.pem --key private/device-01.key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "device-01"}' https://global.azure-devices-provisioning.net/0ne00111111/registrations/device-01/register?api-version=2021-06-01
     ```
 
 A successful call will have a response similar to the following:
@@ -317,7 +317,7 @@ HTTP/1.1 202 Accepted
 Date: Sat, 27 Aug 2022 17:53:18 GMT
 Content-Type: application/json; charset=utf-8
 Transfer-Encoding: chunked
-Location: https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-x509-device/register
+Location: https://global.azure-devices-provisioning.net/0ne00111111/registrations/my-x509-device/register
 Retry-After: 3
 x-ms-request-id: 05cdec07-c0c7-48f3-b3cd-30cfe27cbe57
 Strict-Transport-Security: max-age=31536000; includeSubDomains
@@ -350,7 +350,7 @@ You'll use the same ID scope, registration ID, and certificate and key as you di
 For example, the following command is for the self-signed certificate created in [Use a self-signed certificate](#use-a-self-signed-certificate). (You need to modify the ID scope and operation ID.)
 
 ```bash
-curl -L -i -X GET --cert ./device-certPUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-x509-device/operations/5.506603669bd3e2bf.b3602f8f-76fe-4341-9214-bb6cfb891b8a?api-version=2021-06-01
+curl -L -i -X GET --cert ./device-certPUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' https://global.azure-devices-provisioning.net/0ne00111111/registrations/my-x509-device/operations/5.506603669bd3e2bf.b3602f8f-76fe-4341-9214-bb6cfb891b8a?api-version=2021-06-01
 ```
 
 The following output shows the response for a device that has been successfully assigned. Notice that the `status` property is `assigned` and that the `registrationState.assignedHub` property is set to the IoT hub where the device was provisioned.

@@ -216,7 +216,7 @@ policy='registration'
 Modify the script for your device and DPS instance and save it as a Python file; for example, *generate_token.ps*. Run the script, for example, `python generate_token.ps`. It should output a SAS token similar to the following:
 
 ```output
-0ne003D3F98%2Fregistrations%2Fmy-symkey-device
+0ne00111111%2Fregistrations%2Fmy-symkey-device
 1663952627
 SharedAccessSignature sr=0ne00111111%2Fregistrations%2Fmy-symkey-device&sig=eNwg52xQdFTNf7bgPAlAJBCIcONivq%2Fck1lf3wtxI4A%3D&se=1663952627&skn=registration
 ```
@@ -266,7 +266,7 @@ HTTP/1.1 202 Accepted
 Date: Wed, 31 Aug 2022 22:02:49 GMT
 Content-Type: application/json; charset=utf-8
 Transfer-Encoding: chunked
-Location: https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-symkey-device/register
+Location: https://global.azure-devices-provisioning.net/0ne00111111/registrations/my-symkey-device/register
 Retry-After: 3
 x-ms-request-id: a021814f-0cf6-4ce9-a1e9-ead7eb5118d9
 Strict-Transport-Security: max-age=31536000; includeSubDomains
@@ -299,7 +299,7 @@ You'll use the same ID scope, registration ID, and SAS token as you did in the *
 For example:
 
 ```bash
-curl -L -i -X GET -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -H 'Authorization: SharedAccessSignature sr=0ne003D3F98%2Fregistrations%2Fmy-symkey-device&sig=eNwg52xQdFTNf7bgPAlAJBCIcONivq%2Fck1lf3wtxI4A%3D&se=1663952627&skn=registration' https://global.azure-devices-provisioning.net/0ne003D3F98/registrations/my-symkey-device/operations/5.316aac5bdc130deb.f4f1828c-4dab-4ca9-98b2-dfc63b5835d6?api-version=2021-06-01
+curl -L -i -X GET -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -H 'Authorization: SharedAccessSignature sr=0ne00111111%2Fregistrations%2Fmy-symkey-device&sig=eNwg52xQdFTNf7bgPAlAJBCIcONivq%2Fck1lf3wtxI4A%3D&se=1663952627&skn=registration' https://global.azure-devices-provisioning.net/0ne00111111/registrations/my-symkey-device/operations/5.316aac5bdc130deb.f4f1828c-4dab-4ca9-98b2-dfc63b5835d6?api-version=2021-06-01
 ```
 
 The following output shows the response for a device that has been successfully assigned. Notice that the `status` property is `assigned` and that the `registrationState.assignedHub` property is set to the IoT hub where the device was provisioned.
