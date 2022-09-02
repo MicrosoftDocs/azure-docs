@@ -126,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Airtable SSO
 
-Follow the instructions given in the [link](https://support.airtable.com/hc/articles/360037475234) to configure single sign-on on **Airtable** side.
+Follow the instructions given in the [link](https://www.zoho.com/vault/steps-to-configure-sso-for-airtable.html) to configure single sign-on on **Airtable** side.
 
 ### Create Airtable test user
 
