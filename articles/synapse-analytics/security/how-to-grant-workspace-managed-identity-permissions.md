@@ -26,19 +26,19 @@ An ADLS Gen2 storage account is required to create an Azure Synapse workspace. T
 
 Azure Synapse will attempt to grant the Storage Blob Data Contributor role to the managed identity after you create the Azure Synapse workspace using Azure portal. You provide the ADLS Gen2 storage account details in the **Basics** tab.
 
-:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-1.png" alt-text="Basics tab in workspace creation flow.":::
+:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-1.png" alt-text="Screenshot of the Basics tab in workspace creation flow.":::
 
 Choose the ADLS Gen2 storage account and filesystem in **Account name** and **File system name**.
 
-:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png" alt-text="Providing an adls gen2 storage account details.":::
+:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png" alt-text="Screenshot of providing the ADLS Gen2 storage account details.":::
 
 If the workspace creator is also **Owner** of the ADLS Gen2 storage account, then Azure Synapse will assign the *Storage Blob Data Contributor* role to the managed identity. You'll see the following message below the storage account details that you entered.
 
-:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-3.png" alt-text="Successful storage blob data contributor assignment.":::
+:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-3.png" alt-text="Screenshot of the successful storage blob data contributor assignment.":::
 
 If the workspace creator isn't the owner of the ADLS Gen2 storage account, then Azure Synapse doesn't assign the *Storage Blob Data Contributor* role to the managed identity. The message appearing below the storage account details notifies the workspace creator that they don't have sufficient permissions to grant the *Storage Blob Data Contributor* role to the managed identity.
 
-:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-4.png" alt-text="Unsuccessful storage blob data contributor assignment.":::
+:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-4.png" alt-text="Screenshot of an unsuccessful storage blob data contributor assignment, with the error box highlighted.":::
 
 As the message states, you can't create Spark pools unless the *Storage Blob Data Contributor* is assigned to the managed identity.
 
@@ -50,13 +50,13 @@ During workspace creation, if you don't assign the *Storage Blob Data contributo
 
 In Azure portal, open the ADLS Gen2 storage account and select **Overview** from the left navigation. You'll only need to assign The *Storage Blob Data Contributor* role at the container or filesystem level. Select **Containers**.
   
-:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png" alt-text="Adls gen2 storage account overview.":::
+:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png" alt-text="Screenshot of the Azure portal, of the Overview of the ADLS Gen2 storage account.":::
 
 #### Step 2: Select the container
 
 The managed identity should have data access to the container (file system) that was provided when the workspace was created. You can find this container or file system in Azure portal. Open the Azure Synapse workspace in Azure portal and select the **Overview** tab from the left navigation.
 
-:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-7.png" alt-text="Adls gen2 storage account container.":::
+:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-7.png" alt-text="Screenshot of the Azure portal showing the name of the ADLS Gen2 storage file 'contosocontainer'.":::
 
 Select that same container or file system to grant the *Storage Blob Data Contributor* role to the managed identity.
 
@@ -87,7 +87,7 @@ Select that same container or file system to grant the *Storage Blob Data Contri
 
 Select **Access Control(IAM)** and then select **Role assignments**.
 
-:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png" alt-text="Screenshot of the Role Assignemnts button in the Azure portal, used to verify role assignment.":::
+:::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png" alt-text="Screenshot of the Role Assignments button in the Azure portal, used to verify role assignment.":::
 
 You should see your managed identity listed under the **Storage Blob Data Contributor** section with the *Storage Blob Data Contributor* role assigned to it.  
 :::image type="content" source="./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png" alt-text="Screenshot of the Azure portal, showing ADLS Gen2 storage account container selection.":::
