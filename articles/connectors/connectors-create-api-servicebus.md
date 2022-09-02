@@ -206,7 +206,7 @@ If a Service Bus trigger's polling interval is small, such as 10 seconds, update
 
 ## Troubleshooting
 
-Occasionally operations like completing a message or renewing a session may end up with the **'No session available'** error.
+Occasionally, operations such as completing a message or renewing a session produce the following error:
 
 ``` json
 {
