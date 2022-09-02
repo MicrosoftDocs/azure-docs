@@ -6,7 +6,7 @@ ms.author: v-bcatherine
 ms.reviewer: keroden
 ms.service: container-apps
 ms.topic: tutorial 
-ms.date: 08/15/2022
+ms.date: 09/02/2022
 ms.custom: template-tutorial
 ---
 
@@ -255,6 +255,13 @@ After the workflow successfully completes, verify the application is running in 
 
       The page is redirected to a new page displaying the order object. 
 
+1. In the Azure portal, navigate to **Application** > **Revision Management** in the **node-app** container. 
+
+   Note that, at this point, only one revision is available for this app.
+
+   :::image type="content" source="media/dapr-github-actions/single-revision-view.png" alt-text="Screenshot of checking the number of revisions at this point of the tutorial.":::
+
+
 ## Modify the source code to trigger a new revision
 
 Container Apps run in single-revision mode by default. In the Container Apps bicep module, we explicitly set the revision mode to multiple. This means that once the source code is changed and committed, the GitHub build/deploy workflow builds and pushes a new container image to GitHub Container Registry. Changing the container image is considered a [revision-scope](revisions.md#revision-scope-changes) change and results in a new container app revision. 
@@ -341,24 +348,13 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
    :::image type="content" source="media/dapr-github-actions/revision-mgmt.png" alt-text="Screenshot that shows Revision Management in the left side menu.":::
 
-1. Check the box in the upper-right corner for **Show inactive revisions**. 
+   Since our container app is in **multiple revision mode**, Container Apps created a new revision and automatically set it to `active` with 100% traffic.
 
-   :::image type="content" source="media/dapr-github-actions/show-inactive.png" alt-text="Screenshot of selecting the Show inactive revisions checkbox.":::
-
-    Notice the node-app now has two revisions:
-
-    | Revision | Description |
-    | -------- | ----------- |
-    | **Inactive** | Created when the application was first deployed |
-    | **Active** | Created when you added the Delete Order operation and pushed the changes |
-
-    :::image type="content" source="media/dapr-github-actions/two-revisions.png" alt-text="Screenshot that shows both the inactive and active revisions on the node app.":::
+   :::image type="content" source="media/dapr-github-actions/two-revisions.png" alt-text="Screenshot that shows both the inactive and active revisions on the node app.":::
 
 1. Select each revision in the **Revision management** table to view revision details.
 
    :::image type="content" source="media/dapr-github-actions/revision-details.png" alt-text="Screenshot of the revision details for the active node app revision.":::
-
-   Since our container app is in **multiple revision mode**, Container Apps created a new revision and automatically set it to `active` with 100% traffic. 
 
 1. View the new revision in action by refreshing the node-app UI.
 
