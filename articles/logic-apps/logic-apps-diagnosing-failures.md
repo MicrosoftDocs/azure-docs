@@ -140,11 +140,11 @@ There are scheduling overheads in running these actions. There could be waiting 
 
 *Logic App Consumption is a multitenant platform, and other customers' workload may negatively affect your logic app performance. 
 
-*If you want more predictable performance, you may consider [Integration Service Evironment (ISE)](./connect-virtual-network-vnet-isolated-environment-overview) or [Logic App Standard](./single-tenant-overview-compare). With ISE and Logic App Standard, you have the control to scale up or scale out to improve the performance. 
+*If you want more predictable performance, you may consider [Integration Service Evironment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview) or [Logic App Standard](../logic-apps/single-tenant-overview-compare). With ISE and Logic App Standard, you have the control to scale up or scale out to improve the performance. 
 
 1. **My action is timing out after 2 minutes. How can I increase the timeout value?**
 
-The action timeout value cannot be changed and it is fixed as 2 minutes. If the action is a HTTP action and you own the service, you have the option to change the service to use aynchronous pattern to avoid the two-minute timeout: [Perform long-running tasks with the polling action pattern](./logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
+The action timeout value cannot be changed and it is fixed as 2 minutes. If the action is a HTTP action and you own the service, you have the option to change the service to use aynchronous pattern to avoid the two-minute timeout: [Perform long-running tasks with the polling action pattern](../logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
 
 ## Common problems - Standard logic apps
 
