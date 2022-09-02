@@ -33,7 +33,7 @@ In this tutorial, you'll learn how to:
   | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-2d7cd011db47  |
   | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
   | refresh_token      | Refresh Token value      | 0.ATcA01-XWHdJ0ES-qDevC6r...........  |
-  | DNS                | URI                      | bseloak.energy.azure.com              |
+  | DNS                | URI                      | bseloak.energy.Azure.com              |
   | data-partition-id  | Data Partition(s)        | bseloak-bseldp1                       |
 
 * Follow the [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to create a user token and note it down for future use.
@@ -47,10 +47,10 @@ In this tutorial, you'll learn how to:
   > For the below Postman files, click the **Raw** file on GitHub and save to your local machine.
   >
   > To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
-  * [CSV Workflow Postman collection](postman/tutorial-csv-ingestion/ingestion-workflows-postman-collection.json)
-  * [CSV Workflow Postman Environment](postman/tutorial-csv-ingestion/ingestion-workflow-environment-postman-environment.json)
+  * [CSV Workflow Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflows.postman_collection.json?token=GHSAT0AAAAAABRNZHEUZZSERHU4MWS6MBDGYYRSUTQ)
+  * [CSV Workflow Postman Environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json?token=GHSAT0AAAAAABRNZHEUCYUV6PO4RETLJEX4YYRST4Q)
   
-* Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services instance details](#project-oak-forest-instance-details)
+* Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services instance details](#microsoft-energy-data-services-instance-details)
 
 ### Executing Postman Requests
 
