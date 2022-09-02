@@ -342,8 +342,6 @@
               href: configure-kubenet-dual-stack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
-            - name: Use Azure-CNI Overlay (Preview)
-              href: azure-cni-overlay.md
         - name: Use API Server VNet Integration
           href: api-server-vnet-integration.md
         - name: Bring your own CNI
