@@ -58,8 +58,13 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/resource-limits-quotas-capacity.md",
-        "redirect_url": "/azure/machine-learning/resource-limits-capacity",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/how-to-manage-quotas",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/resource-limits-capacity.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-quotas",
+        " redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-train-models-with-aml.md",
@@ -1298,7 +1303,12 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-set-up-training-targets.md",
-        "redirect_url": "/azure/machine-learning/how-to-set-up-training-targets",
+        "redirect_url": "/azure/machine-learning/v1/how-to-set-up-training-targets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-set-up-training-targets.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-set-up-training-targets",
         "redirect_document_id": true
     },
     {
@@ -3410,6 +3420,16 @@
         "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/add-columns.md",
         "redirect_url": "/azure/machine-learning/component-reference/add-columns",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/concept-differential-privacy.md",
+        "redirect_url": "/azure/machine-learning/concept-responsible-ml#privacy-and-security",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v1/how-to-differential-privacy.md",
+        "redirect_url": "/azure/machine-learning/concept-responsible-ml#privacy-and-security",
+        "redirect_document_id": false
     }
 ]
 }

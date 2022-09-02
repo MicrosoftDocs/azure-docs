@@ -85,93 +85,6 @@ Azure Monitor Agent is available in all public regions and Azure Government clou
 
 There's no cost for the Azure Monitor Agent, but you might incur charges for the data ingested. For information on Log Analytics data collection and retention and for customer metrics, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Networking
-
-The Azure Monitor Agent supports Azure service tags. Both *AzureMonitor* and *AzureResourceManager* tags are required. It supports connecting via *direct proxies, Log Analytics gateway, and private links* as described in the following sections.
-
-### Firewall requirements
-
-| Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
-|------|------|------|---------|--------|--------|
-| Azure Commercial |global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes |
-| Azure Commercial |`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |
-| Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes |
-| Azure Commercial | management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes |
-| Azure Government | Replace '.com' above with '.us' | Same as above | Same as above | Same as above| Same as above |
-| Azure China | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
-
-If you use private links on the agent, you must also add the [DCE endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).
-
-### Proxy configuration
-
-If the machine connects through a proxy server to communicate over the internet, review the following requirements to understand the network configuration required.
-
-The Azure Monitor Agent extensions for Windows and Linux can communicate either through a proxy server or a [Log Analytics gateway](./gateway.md) to Azure Monitor by using the HTTPS protocol. Use it for Azure virtual machines, Azure virtual machine scale sets, and Azure Arc for servers. Use the extensions settings for configuration as described in the following steps. Both anonymous and basic authentication by using a username and password are supported.
-
-> [!IMPORTANT]
-> Proxy configuration is not supported for [Azure Monitor Metrics (Public preview)](../essentials/metrics-custom-overview.md) as a destination. If you're sending metrics to this destination, it will use the public internet without any proxy.
-
-1. Use this flowchart to determine the values of the *`Settings` and `ProtectedSettings` parameters first.
-
-    ![Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
-
-1. After determining the `Settings` and `ProtectedSettings` parameter values, *provide these other parameters* when you deploy Azure Monitor Agent, using PowerShell commands, as shown in the following examples:
-
-# [Windows VM](#tab/PowerShellWindows)
-
-```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
-
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
-```
-
-# [Linux VM](#tab/PowerShellLinux)
-
-```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
-
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
-```
-
-# [Windows Arc-enabled server](#tab/PowerShellWindowsArc)
-
-```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
-
-New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
-```
-
-# [Linux Arc-enabled server](#tab/PowerShellLinuxArc)
-
-```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
-
-New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
-```
-
----
-
-### Log Analytics gateway configuration
-
-1. Follow the preceding instructions to configure proxy settings on the agent and provide the IP address and port number that corresponds to the gateway server. If you've deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.
-1. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway
-   `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`
-   `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`.
-   (If you're using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).)
-1. Add the **data ingestion endpoint URL** to the allowlist for the gateway
-   `Add-OMSGatewayAllowedHost -Host <log-analytics-workspace-id>.ods.opinsights.azure.com`.
-1. Restart the **OMS Gateway** service to apply the changes
-   `Stop-Service -Name <gateway-name>`
-   `Start-Service -Name <gateway-name>`.
-
-### Private link configuration
-
-To configure the agent to use private links for network communications with Azure Monitor, follow instructions to [enable network isolation](./azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent) by using [data collection endpoints](azure-monitor-agent-data-collection-endpoint.md).
-
 ## Compare to legacy agents
 
 The tables below provide a comparison of Azure Monitor Agent with the legacy the Azure Monitor telemetry agents for Windows and Linux. 
@@ -201,9 +114,10 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Event Hub	|		|		|	X	|
 |	**Services and features supported**	|		|		|		|		|
 |		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|
-|		|	VM Insights	|		|	X (Public preview)	|		|
-|		|	Azure Automation	|		|	X	|		|
-|		|	Microsoft Defender for Cloud	|		|	X	|		|
+|		|	VM Insights	|	X (Public preview)	|	X	|		|
+|		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
+|		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
+|		|	Change Tracking	|	|	X	|		|
 
 ### Linux agents
 
@@ -223,11 +137,11 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Azure Storage	|		|		|	X	|		|
 |		|	Event Hub	|		|		|	X	|		|
 |	**Services and features supported**	|		|		|		|		|		|
-|		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|		|
-|		|	VM Insights	|	X (Public preview)	|	X	|		|		|
-|		|	Container Insights	|	X (Public preview)	|	X	|		|		|
-|		|	Azure Automation	|		|	X	|		|		|
-|		|	Microsoft Defender for Cloud	|		|	X	|		|		|
+|		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|
+|		|	VM Insights	|	X (Public preview)	|	X 	|		|
+|		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
+|		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
+|		|	Change Tracking	|	|	X	|		|
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
@@ -262,36 +176,33 @@ The following tables list the operating systems that Azure Monitor Agent and the
 
 #### Linux
 
-| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>| 
+| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|:---:
-| AlmaLinux 8.*                                               | X | X |   |
+| AlmaLinux 8                                                 | X | X |   |
 | Amazon Linux 2017.09                                        |   | X |   |
 | Amazon Linux 2                                              |   | X |   |
-| CentOS Linux 8                                              | X <sup>3</sup> | X |   |
+| CentOS Linux 8                                              | X | X |   |
 | CentOS Linux 7                                              | X | X | X |
 | CentOS Linux 6                                              |   | X |   |
 | CentOS Linux 6.5+                                           |   | X | X |
-| Debian 11 <sup>1</sup>                                      | X |   |   |
-| Debian 10 <sup>1</sup>                                      | X | X |   |
+| Debian 11                                                   | X |   |   |
+| Debian 10                                                   | X | X |   |
 | Debian 9                                                    | X | X | X |
 | Debian 8                                                    |   | X |   |
 | Debian 7                                                    |   |   | X |
 | OpenSUSE 13.1+                                              |   |   | X |
-| Oracle Linux 8                                              | X <sup>3</sup> | X |   |
+| Oracle Linux 8                                              | X | X |   |
 | Oracle Linux 7                                              | X | X | X |
 | Oracle Linux 6                                              |   | X |   |
 | Oracle Linux 6.4+                                           |   | X | X |
-| Red Hat Enterprise Linux Server 8.5, 8.6                    | X | X |   |
-| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4       | X <sup>3</sup> | X |   |
+| Red Hat Enterprise Linux Server 8                           | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
-| Rocky Linux 8.*                                             | X | X |   |
-| SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |
-| SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |
+| Rocky Linux 8                                               | X | X |   |
+| SUSE Linux Enterprise Server 15 SP2                         | X |   |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X |   |
-| SUSE Linux Enterprise Server 12 SP5                         | X | X | X |
 | SUSE Linux Enterprise Server 12                             | X | X | X |
 | Ubuntu 22.04 LTS                                            | X |   |   |
 | Ubuntu 20.04 LTS                                            | X | X | X |
@@ -300,8 +211,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Ubuntu 14.04 LTS                                            |   | X | X |
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
-<sup>2</sup> Known issue collecting Syslog events in versions prior to 1.9.0.<br>
-<sup>3</sup> Not all kernel versions are supported. For more information, see [Dependency Agent Linux support](../vm/vminsights-dependency-agent-maintenance.md#dependency-agent-linux-support).
+<sup>2</sup> Requires Python 2 to be installed on the machine and aliased to the `python` command.<br>
 
 ## Next steps
 

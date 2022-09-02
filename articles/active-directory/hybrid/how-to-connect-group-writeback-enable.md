@@ -3,7 +3,7 @@ title: 'Enable Azure AD Connect group writeback'
 description: This article describes how to enable Group Writeback in Azure AD Connect. 
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity

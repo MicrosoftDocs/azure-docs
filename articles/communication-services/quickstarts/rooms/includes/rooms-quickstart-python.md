@@ -164,3 +164,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 ```python
 self.rooms_client.delete_room(room_id=room)
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [Python SDK reference](/python/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).
