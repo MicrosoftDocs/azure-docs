@@ -1,5 +1,5 @@
 ---
-title: Microsoft Energy Data Services - Overview of Domain Data Management Services (DDMS). #Required; page title is displayed in search results. Include the brand.
+title: Overview of domain data management services in Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
 description: This article provides an overview of Domain Data Management Services #Required; article description that is displayed in search results. 
 author: marielgherz #Required; your GitHub user alias, with correct capitalization.
 ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
@@ -53,7 +53,7 @@ The seismic DMS is part of the OSDU platform and enables users to connect seismi
 
 ### Services
 
-:::image type="content" source="media/overview-ddms/overview-seismic-store-architecture-diagram.jpg" alt-text="Diagram of Seismic store architecture":::
+:::image type="content" source="media/overview-ddms/overview-seismic-store-architecture-diagram.jpg" alt-text="Diagram of Seismic store architecture.":::
 
 [OSDU Reference overview](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/home/-/wikis/Architecture-Details)
 
@@ -72,10 +72,9 @@ Geoscientists therefore want to access numerous well logs in a single session. T
 - **Objects and Consumption** - The Wellbore DMS can consume Wellbore, log set, log, marker, trajectory, and dip objects. This covers most well related exploration workflows
 - **Lifecycle** – The Wellbore DMS supports the dataset through creation and writing to storage, versioning, lineage, auditing, and deletion
 - **Ingestion**  - connection to file, interpretation software, system of records, and acquisition systems
-- **Enrichment** – Today users can enrich data through log recognition – but in the future will grow to support decimation, interpolation, unit conversion, etc.
 - **Contextualization** (Contextualized Access)
 
-:::image type="content" source="media/overview-ddms/overview-wellbore-dms-service.png" alt-text="Diagram of Wellbore DMS architecture":::
+:::image type="content" source="media/overview-ddms/overview-wellbore-dms-service.png" alt-text="Diagram of Wellbore DMS architecture.":::
 
 ## OSDU - Well Delivery DMS
 
@@ -84,10 +83,10 @@ Geoscientists therefore want to access numerous well logs in a single session. T
 The Well Delivery DMS stores critical drilling domain information related to the planning and execution of a well. Throughout a drilling program, engineers and domain experts need to access a wide variety of data types including activities, trajectories, risks, subsurface information, equipment used, fluid and cementing, rig utilization, and reports. Integrating this collection of data types together are the cornerstone to drilling insights. At the same time, until now, there was no industry wide standardization or enforced format. The common standards the Well Delivery DMS enables is critical to the Drilling Value Chain as it connects a diverse group of personas including operations, oil companies, service companies, logistics companies, etc.
 
 ### Services
-:::image type="content" source="media/overview-ddms/well-delivery-dms-service.png" alt-text="Diagram of Well Delivery DMS architecture":::
+:::image type="content" source="media/overview-ddms/well-delivery-dms-service.png" alt-text="Diagram of Well Delivery DMS architecture.":::
 [OSDU Reference overview](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/well-delivery/well-delivery)
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
-> [DDMS Concepts](/concepts/overview-ddms.md)
+> [DDMS Concepts](concepts-ddms.md)
