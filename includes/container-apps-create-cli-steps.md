@@ -18,7 +18,7 @@ az login
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Connect-AzAccount
 ```
 
@@ -38,13 +38,13 @@ az extension add --name containerapp --upgrade
 
 You must have the latest Az module installed.  Ignore any warnings about modules currently in use.
 
-```azurepowershell-interactive
+```azurepowershell
 Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
 ```
 
 Now install the Az.App module.
 
-```azurepowershell-interactive
+```azurepowershell
 Install-Module -Name Az.App
 ```
 
@@ -63,7 +63,7 @@ az provider register --namespace Microsoft.App
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.App
 ```
 
@@ -79,7 +79,7 @@ az provider register --namespace Microsoft.OperationalInsights
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.OperationalInsights
 ```
 
@@ -97,7 +97,7 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $ResourceGroupName = 'my-container-apps'
 $Location = 'canadacentral'
 $ContainerAppsEnvironment = 'my-environment'
@@ -117,7 +117,7 @@ az group create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzResourceGroup -Location $Location -Name $ResourceGroupName
 ```
 

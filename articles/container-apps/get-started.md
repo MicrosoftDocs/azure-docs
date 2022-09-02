@@ -40,7 +40,7 @@ az containerapp env create \
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to  variables.
 
-```azurepowershell-interactive
+```azurepowershell
 $WorkspaceArgs = @{
     Name = 'myworkspace'
     ResourceGroupName = $ResourceGroupName
@@ -55,7 +55,7 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvArgs = @{
     EnvName = $ContainerAppsEnvironment
     ResourceGroupName = $ResourceGroupName
@@ -94,7 +94,7 @@ By setting `--ingress` to `external`, you make the container app available to pu
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $ImageParams = @{
     Name = 'my-container-app'
     Image = 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
@@ -133,7 +133,7 @@ The `create` command returned the fully qualified domain name for the container 
 
 Get the fully qualified domain name for the container app.
 
-```azurepowershell-interactive
+```azurepowershell
 (Get-AzContainerApp -Name $AppArgs.Name -ResourceGroupName $ResourceGroupName).IngressFqdn
 ```
 
@@ -160,7 +160,7 @@ az group delete --name $RESOURCE_GROUP
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 

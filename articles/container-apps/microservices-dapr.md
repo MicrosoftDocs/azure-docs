@@ -59,7 +59,7 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` may result in a warning, but the command will still succeed.
 
-```azurepowershell-interactive
+```azurepowershell
 $WorkspaceArgs = @{
     Name = 'myworkspace'
     ResourceGroupName = $ResourceGroupName
@@ -74,7 +74,7 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvArgs = @{
     EnvName = $ContainerAppsEnvironment
     ResourceGroupName = $ResourceGroupName
@@ -105,7 +105,7 @@ STORAGE_ACCOUNT_NAME="<storage account name>"
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $StorageAcctName = "<storage account name>"
 ```
 
@@ -124,7 +124,7 @@ STORAGE_ACCOUNT_CONTAINER="mycontainer"
 
 Set the storage account container name.
 
-```azurepowershell-interactive
+```azurepowershell
 $StorageAcctContainerName = 'mycontainer'
 ```
 
@@ -145,7 +145,7 @@ az storage account create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $StorageAcctArgs = @{
     Name = $StorageAcctName
     ResourceGroupName = $ResourceGroupName
@@ -168,7 +168,7 @@ STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GRO
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $StorageAcctKey = (Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAcctName)| Where-Object {$_.KeyName -eq "key1"}
 ```
 
@@ -234,8 +234,9 @@ az containerapp env dapr-component set \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
-$AcctName = New-AzContainerAppDaprMetadataObject -Name "accountName" -Value $StorageAcctContainerName 
+```azurepowershell
+
+$AcctName = New-AzContainerAppDaprMetadataObject -Name "accountName" -Value $StorageAcctName 
 
 $AcctKey = New-AzContainerAppDaprMetadataObject -Name "accountKey" -SecretRef "account-key"
 
@@ -290,7 +291,7 @@ This command deploys:
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
 $EnvVars = New-AzContainerAppEnvironmentVarObject -Name APP_PORT -Value 3000
@@ -348,7 +349,7 @@ az containerapp create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 
 $TemplateArgs = @{ 
   Name = 'pythonapp'
@@ -417,7 +418,7 @@ az monitor log-analytics query \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5 "
 $queryResults.Results
 
@@ -452,7 +453,7 @@ az group delete --resource-group $RESOURCE_GROUP
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 

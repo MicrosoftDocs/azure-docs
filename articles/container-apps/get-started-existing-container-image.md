@@ -46,7 +46,7 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` will result in a warning, but the command will still succeed.
 
-```azurepowershell-interactive
+```azurepowershell
 $WorkspaceArgs = @{
     Name = 'myworkspace'
     ResourceGroupName = $ResourceGroupName
@@ -61,7 +61,7 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvArgs = @{
     EnvName = $ContainerAppsEnvironment
     ResourceGroupName = $ResourceGroupName
@@ -118,7 +118,7 @@ az containerapp create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $ContainerImageName = "<CONTAINER_IMAGE_NAME>"
 $RegistryServer = "<REGISTRY_SERVER>"
 $RegistryUsername = "<REGISTRY_USERNAME>"
@@ -127,7 +127,7 @@ $RegistryPassword = "<REGISTRY_PASSWORD>"
 
 (Replace the \<placeholders\> with your values.)
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
 $TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app -Image $ContainerImageName
@@ -176,13 +176,13 @@ If you have enabled ingress on your container app, you can add `--query properti
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app  -Image "<REGISTRY_CONTAINER_NAME>" 
 ```
 
 (Replace the \<REGISTRY_CONTAINER_NAME\> with your value.)
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
 $ContainerAppArgs = @{
@@ -220,7 +220,7 @@ az monitor log-analytics query \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated"
 $queryResults.Results
 ```
@@ -242,7 +242,7 @@ az group delete --name $RESOURCE_GROUP
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 

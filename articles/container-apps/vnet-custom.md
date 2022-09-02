@@ -69,7 +69,7 @@ VNET_NAME="my-custom-vnet"
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $VnetName = 'my-custom-vnet'
 ```
 
@@ -102,7 +102,7 @@ az network vnet subnet create \
 
 The `New-AzVirtualNetworkSubnetConfig` command may result in a warning, but the command will still be successful.
 
-```azurepowershell-interactive
+```azurepowershell
 $SubnetArgs = @{
     Name = 'infrastructure-subnet'
     AddressPrefix = '10.0.0.0/23'
@@ -110,7 +110,7 @@ $SubnetArgs = @{
 $subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```
 
-```azurepowershell-interactive
+```azurepowershell
 $VnetArgs = @{
     Name = $VnetName
     Location = $Location
@@ -133,7 +133,7 @@ INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_G
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $InfrastructureSubnet=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
 ```
 
@@ -167,7 +167,7 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command will result in a warning message.  The command will still succeed.
 
-```azurepowershell-interactive
+```azurepowershell
 $WorkspaceArgs = @{
     Name = 'myworkspace'
     ResourceGroupName = $ResourceGroupName
@@ -182,7 +182,7 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvArgs = @{
     EnvName = $ContainerAppsEnvironment
     ResourceGroupName = $ResourceGroupName
@@ -238,11 +238,11 @@ VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_N
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvironmentDefaultDomain = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).DefaultDomain
 ```
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvironmentStaticIp = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).StaticIp
 ```
 
@@ -276,15 +276,15 @@ az network private-dns record-set a add-record \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName -Name $EnvironmentDefaultDomain
 ```
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $ResourceGroupName -Name $VnetName -VirtualNetwork $Vnet -ZoneName $EnvironmentDefaultDomain -EnableRegistration
 ```
 
-```azurepowershell-interactive
+```azurepowershell
 $DnsRecords = @()
 $DnsRecords += New-AzPrivateDnsRecordConfig -Ipv4Address $EnvironmentStaticIp
 
@@ -352,7 +352,7 @@ az group delete --name $RESOURCE_GROUP
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 

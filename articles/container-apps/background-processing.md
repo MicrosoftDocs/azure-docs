@@ -44,7 +44,7 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 
 Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command may result in a warning message, however the command will still succeed.
 
-```azurepowershell-interactive
+```azurepowershell
 $WorkspaceArgs = @{
     Name = 'myworkspace'
     ResourceGroupName = $ResourceGroupName
@@ -59,7 +59,7 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvArgs = @{
     EnvName = $ContainerAppsEnvironment
     ResourceGroupName = $ResourceGroupName
@@ -86,7 +86,7 @@ STORAGE_ACCOUNT_NAME="<storage account name>"
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $StorageAcctName = "<storage account name>"
 ```
 
@@ -107,7 +107,7 @@ az storage account create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $StorageAcctArgs = @{
     Name = $StorageAcctName
     ResourceGroupName = $ResourceGroupName
@@ -132,7 +132,7 @@ QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_
 
 Here we use Azure CLI as there isn't an equivalent PowerShell cmdlet to get the connection string for the storage account queue.
 
-```azurepowershell-interactive
+```azurepowershell
  $QueueConnectionString = (Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAcctName).Context.ConnectionString
 ```
 <!--
@@ -155,7 +155,7 @@ az storage queue create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $Queue = New-AzStorageQueue -Name 'myqueue' -Context $StorageAcct.Context
 ```
 
@@ -174,7 +174,7 @@ az storage message put \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $QueueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("Hello Queue Reader App")
 $Queue.CloudQueue.AddMessageAsync($QueueMessage).GetAwaiter().GetResult()
 ```
@@ -281,7 +281,7 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $Params = @{
     environment_name = $ContainerAppsEnvironment
     location = $Location
@@ -322,7 +322,7 @@ az monitor log-analytics query \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Log_s | take 5"
 $queryResults.Results
 ```
@@ -348,7 +348,7 @@ az group delete \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
