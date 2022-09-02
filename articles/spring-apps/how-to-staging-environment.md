@@ -125,27 +125,27 @@ View deployed apps by using the following procedure:
 
 1. From the left pane, open the **Apps** pane to view apps for your service instance.
 
-   ![Screenshot of the open Apps pane.](media/spring-cloud-blue-green-staging/app-dashboard.png)
+   ![Screenshot of the open Apps pane.](media/how-to-staging-environment/app-dashboard.png)
 
 1. You can select an app and view details.
 
-   ![Screenshot of details for an app.](media/spring-cloud-blue-green-staging/app-overview.png)
+   ![Screenshot of details for an app.](media/how-to-staging-environment/app-overview.png)
 
 1. Open **Deployments** to see all deployments of the app. The grid shows both production and staging deployments.
 
-   ![Screenshot that shows listed app deployments.](media/spring-cloud-blue-green-staging/deployments-dashboard.png)
+   ![Screenshot that shows listed app deployments.](media/how-to-staging-environment/deployments-dashboard.png)
 
 1. Select the URL to open the currently deployed application.
 
-   ![Screenshot that shows the U R L for the deployed application.](media/spring-cloud-blue-green-staging/running-blue-app.png)
+   ![Screenshot that shows the U R L for the deployed application.](media/how-to-staging-environment/running-blue-app.png)
 
 1. Select **Production** in the **State** column to see the default app.
 
-   ![Screenshot that shows the U R L for the default app.](media/spring-cloud-blue-green-staging/running-default-app.png)
+   ![Screenshot that shows the U R L for the default app.](media/how-to-staging-environment/running-default-app.png)
 
 1. Select **Staging** in the **State** column to see the staging app.
 
-   ![Screenshot that shows the U R L for the staging app.](media/spring-cloud-blue-green-staging/running-staging-app.png)
+   ![Screenshot that shows the U R L for the staging app.](media/how-to-staging-environment/running-staging-app.png)
 
 >[!TIP]
 > * Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly.
@@ -162,11 +162,11 @@ If you visit your public-facing app gateway at this point, you should see the ol
 
 1. Select the ellipsis after **Registration status** of the green deployment, and then select **Set as production**.
 
-   ![Screenshot that shows selections for setting the staging build to production.](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
+   ![Screenshot that shows selections for setting the staging build to production.](media/how-to-staging-environment/set-staging-deployment.png)
 
 1. Confirm that the URL of the app displays your changes.
 
-   ![Screenshot that shows the U R L of the app now in production.](media/spring-cloud-blue-green-staging/new-production-deployment.png)
+   ![Screenshot that shows the U R L of the app now in production.](media/how-to-staging-environment/new-production-deployment.png)
 
 >[!NOTE]
 > After you've set the green deployment as the production environment, the previous deployment becomes the staging deployment.
