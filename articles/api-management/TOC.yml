@@ -295,6 +295,8 @@
                     href: api-management-howto-create-or-invite-developers.md
                   - name: Manage groups
                     href: api-management-howto-create-groups.md
+                  - name: Authenticate with username and password
+                    href: developer-portal-basic-authentication.md
                   - name: Authenticate with Azure AD
                     href: api-management-howto-aad.md
                   - name: Authenticate with Azure AD B2C

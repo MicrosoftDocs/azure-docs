@@ -1,7 +1,7 @@
 ---
 author: karavar
 ms.author: vakarand
-ms.date: 08/11/2022
+ms.date: 09/01/2022
 ms.service: active-directory
 ms.subservice: managed-identity
 ms.topic: include
@@ -18,7 +18,7 @@ Azure platform services and resources that are owned by the service provider and
 
 For the purposes of this how-to article, assume there are two Azure AD tenants: an independent service provider's tenant (*Tenant1*), and a customer's tenant (*Tenant2*). *Tenant1* hosts Azure platform services and *Tenant2* hosts the customer's key vault.
 
-The service provider first creates a multi-tenant application registration in *Tenant1*. The service provider configures a [federated identity credential](/azure/active-directory/develop/workload-identity-federation-create-trust-managed-identity-as-credential) on this application using a user-assigned managed identity. The service provider then shares the name and application ID of the app with the customer.
+The service provider first creates a multi-tenant application registration in *Tenant1*. The service provider configures a [federated identity credential](../articles/active-directory/develop/workload-identity-federation-create-trust.md) on this application using a user-assigned managed identity. The service provider then shares the name and application ID of the app with the customer.
 
 A user with the appropriate permissions installs the service provider's application in the customer tenant, *Tenant2*. A user then grants the service principal associated with the installed application access to the customer's key vault. The customer also stores the encryption key, or customer-managed key, in the key vault. The customer shares the key location (the URL of the key) with the service provider.
 
@@ -68,6 +68,6 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 - Access to Azure Key Vault can be authorized using Azure RBAC or access policies. When granting access to a key vault, make sure to use the active mechanism for your key vault.
 - An Azure AD application registration has an application ID (client ID). When the application is installed in your tenant, a service principal is created. The service principal shares the same application ID as the app registration, but generates its own object ID. When you authorize the application to have access to resources, you may need to use the service principal `Name` or `ObjectID` property.
 
-### Phase 3
+### Phase 3 - The service provider encrypts data in an Azure resource using the customer-managed key
 
-After phase 1 and 2 are complete, the service provider can configure encryption on the Azure resource to work across tenants. You can do this using an ARM template or REST API.
+After phase 1 and 2 are complete, the service provider can configure encryption on the Azure resource with the key and key vault in the customer's tenant and the Azure resource in the ISV's tenant. The service provider can configure cross-tenant customer-managed keys with the Azure portal, PowerShell, or Azure CLI, with an ARM template, or with the REST API.
