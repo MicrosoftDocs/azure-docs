@@ -16,21 +16,21 @@ ms.custom: devx-track-csharp
 
 # How to use batch transcription
 
-Batch transcription is a set of REST API operations that enables you to transcribe a large amount of audio in storage. You can point to audio files by using a typical URI or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI, and asynchronously receive transcription results. With the v3.0 API, you can transcribe one or more audio files, or process a whole storage container.
+Batch transcription is a set of REST API operations that enables you to transcribe a large amount of audio in storage. You can point to audio files by using a typical URI or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI, and asynchronously receive transcription results. With the [Speech to text REST API](rest-speech-to-text.md), you can transcribe one or more audio files, or process a whole storage container.
 
 You can use batch transcription REST APIs to call the following methods:
 
 |    Batch transcription operation                                             |    Method    |    REST API call                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
-|    Creates a new transcription.                                              |    POST      |    speechtotext/v3.0/transcriptions            |
-|    Retrieves a list of transcriptions for the authenticated subscription.    |    GET       |    speechtotext/v3.0/transcriptions            |
-|    Gets a list of supported locales for offline transcriptions.              |    GET       |    speechtotext/v3.0/transcriptions/locales    |
-|    Updates the mutable details of the transcription identified by its ID.    |    PATCH     |    speechtotext/v3.0/transcriptions/{id}       |
-|    Deletes the specified transcription task.                                 |    DELETE    |    speechtotext/v3.0/transcriptions/{id}       |
-|    Gets the transcription identified by the specified ID.                        |    GET       |    speechtotext/v3.0/transcriptions/{id}       |
-|    Gets the result files of the transcription identified by the specified ID.    |    GET       |    speechtotext/v3.0/transcriptions/{id}/files |
+|    Creates a new transcription.                                              |    POST      |    speechtotext/v3.1/transcriptions            |
+|    Retrieves a list of transcriptions for the authenticated subscription.    |    GET       |    speechtotext/v3.1/transcriptions            |
+|    Gets a list of supported locales for offline transcriptions.              |    GET       |    speechtotext/v3.1/transcriptions/locales    |
+|    Updates the mutable details of the transcription identified by its ID.    |    PATCH     |    speechtotext/v3.1/transcriptions/{id}       |
+|    Deletes the specified transcription task.                                 |    DELETE    |    speechtotext/v3.1/transcriptions/{id}       |
+|    Gets the transcription identified by the specified ID.                        |    GET       |    speechtotext/v3.1/transcriptions/{id}       |
+|    Gets the result files of the transcription identified by the specified ID.    |    GET       |    speechtotext/v3.1/transcriptions/{id}/files |
 
-For more information, see the [Speech-to-text REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation.
+For more information, see the [Speech to text REST API reference](rest-speech-to-text.md) documentation.
 
 Batch transcription jobs are scheduled on a best-effort basis. You can't estimate when a job will change into the running state, but it should happen within minutes under normal system load. When the job is in the running state, the transcription occurs faster than the audio runtime playback speed.
 
@@ -106,7 +106,7 @@ Here's an example of using a custom trained model in a batch transcription. This
   },
   "locale": "en-US",
   "model": {
-    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/models/{id}"
+    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/models/{id}"
   },
   "displayName": "Transcription of file using default model for en-US"
 }
@@ -170,7 +170,7 @@ Use these optional properties to configure transcription:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Optional URL with [ad hoc SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. SAS with stored access policies isn't supported. If you don't specify a container, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), the result data is also deleted.
+      Optional URL with [ad hoc SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. SAS with stored access policies isn't supported. If you don't specify a container, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete), the result data is also deleted.
 :::row-end:::
 
 ### Storage
@@ -180,7 +180,7 @@ and can read audio or write transcriptions by using a SAS URI with [Blob Storage
 
 ## Batch transcription result
 
-For each audio input, one transcription result file is created. The [Get transcriptions files](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles) operation returns a list of result files for this transcription. The only way to confirm the audio input for a transcription, is to check the `source` field in the transcription result file. 
+For each audio input, one transcription result file is created. The [Transcriptions_ListFiles](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) operation returns a list of result files for this transcription. The only way to confirm the audio input for a transcription, is to check the `source` field in the transcription result file. 
 
 Each transcription result file has this format:
 
@@ -310,7 +310,7 @@ Word-level timestamps must be enabled, as the parameters in this request indicat
 
 ## Best practices
 
-The batch transcription service can handle a large number of submitted transcriptions. You can query the status of your transcriptions with [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)
+The batch transcription service can handle a large number of submitted transcriptions. You can query the status of your transcriptions with the [Transcriptions_List](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_List) operation. Call [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
 
 > [!TIP]
@@ -340,11 +340,11 @@ while (completed < 1)
         // <transcriptionstatus>
         if (paginatedTranscriptions == null)
         {
-            paginatedTranscriptions = await client.GetTranscriptionsAsync().ConfigureAwait(false);
+            paginatedTranscriptions = await client.Transcriptions_ListAsync().ConfigureAwait(false);
         }
         else
         {
-            paginatedTranscriptions = await client.GetTranscriptionsAsync(paginatedTranscriptions.NextLink).ConfigureAwait(false);
+            paginatedTranscriptions = await client.Transcriptions_ListAsync(paginatedTranscriptions.NextLink).ConfigureAwait(false);
         }
 
         // delete all pre-existing completed transcriptions. If transcriptions are still running or not started, they will not be deleted
@@ -366,10 +366,10 @@ while (completed < 1)
                     // if the transcription was successful, check the results
                     if (transcription.Status == "Succeeded")
                     {
-                        var paginatedfiles = await client.GetTranscriptionFilesAsync(transcription.Links.Files).ConfigureAwait(false);
+                        var paginatedfiles = await client.Transcriptions_ListFilesAsync(transcription.Links.Files).ConfigureAwait(false);
 
                         var resultFile = paginatedfiles.Values.FirstOrDefault(f => f.Kind == ArtifactKind.Transcription);
-                        var result = await client.GetTranscriptionResultAsync(new Uri(resultFile.Links.ContentUrl)).ConfigureAwait(false);
+                        var result = await client.Transcriptions_GetResultAsync(new Uri(resultFile.Links.ContentUrl)).ConfigureAwait(false);
                         Console.WriteLine("Transcription succeeded. Results: ");
                         Console.WriteLine(JsonConvert.SerializeObject(result, SpeechJsonContractResolver.WriterSettings));
                     }
@@ -401,9 +401,9 @@ while (completed < 1)
 }
 ```
 
-For full details about the preceding calls, see the [Speech-to-text REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation. For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
+For full details about the preceding calls, see the [Speech to text REST API reference](rest-speech-to-text.md) documentation. For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
 
-This sample uses an asynchronous setup to post audio and receive transcription status. The `PostTranscriptions` method sends the audio file details, and the `GetTranscriptions` method receives the states. `PostTranscriptions` returns a handle, and `GetTranscriptions` uses it to create a handle to get the transcription status.
+This sample uses an asynchronous setup to post audio and receive transcription status. The `PostTranscriptions` method sends the audio file details, and the `Transcriptions_List` method receives the states. `PostTranscriptions` returns a handle, and `Transcriptions_List` uses it to create a handle to get the transcription status.
 
 This sample code doesn't specify a custom model. The service uses the base model for transcribing the file or files. To specify the model, you can pass on the same method the model reference for the custom model.
 
@@ -413,4 +413,4 @@ This sample code doesn't specify a custom model. The service uses the base model
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Speech to text v3.0 API reference](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)
+> [Speech to text REST API reference](rest-speech-to-text.md)

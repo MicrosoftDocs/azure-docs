@@ -370,8 +370,12 @@ items:
               href: how-to-migrate-to-custom-neural-voice.md  
             - name: Migrate to prebuilt neural voice
               href: how-to-migrate-to-prebuilt-neural-voice.md 
-        - name: From Speech-to-text v2.0
-          href: migrate-v2-to-v3.md
+        - name: Speech-to-text REST API migration
+          items:
+          - name: From Speech-to-text v3.0 to v3.1
+            href: migrate-v3-0-to-v3-1.md
+          - name: From Speech-to-text v2.0 to v3.0
+            href: migrate-v2-to-v3.md
 - name: Devices
   items:
     - name: Devices overview
@@ -413,15 +417,9 @@ items:
           displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
           href: /python/api/azure-cognitiveservices-speech/
     - name: REST API reference
-      items:
-        - name: Conversation transcription REST APIs
-          href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
-          displayName: reference 
-        - name: Speech-to-text REST API v3.0
+      items: 
+        - name: Speech-to-text REST API
           href: rest-speech-to-text.md
-          displayName: reference 
-        - name: Speech-to-text REST API v3.1 (preview) 
-          href: rest-speech-to-text-v3-1.md
           displayName: reference 
         - name: Speech-to-text REST API for short audio
           href: rest-speech-to-text-short.md    
@@ -432,6 +430,9 @@ items:
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
           displayName: reference 
+        - name: Conversation transcription REST APIs
+          href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
+          displayName: reference
 - name: Responsible use of AI
   items:
     - name: Speech-to-text
