@@ -153,8 +153,7 @@ Prevent data breaches caused by misuse and malicious exploitation of permissions
 -   **New tab (+)**: Select the tab to add a **New Query** tab.
 -   **Saved Queries**: Select to view a list of saved queries.
 
-    **Actions to try:**
-
+    **Actions to try:**  
     a. [Use a query to view information](../cloud-infrastructure-entitlement-management/ui-audit-trail.md)   
     b. [Create a custom query](../cloud-infrastructure-entitlement-management/how-to-create-custom-queries.md)  
     c. [Generate an on-demand report from a query](../cloud-infrastructure-entitlement-management/how-to-audit-trail-results.md)   
