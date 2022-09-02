@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/24/2022
+ms.date: 09/02/2022
 ms.author: amsliu
 ms.reviewer: jgangadhar
 ms.collection: M365-identity-device-management
@@ -64,6 +64,9 @@ If you are reviewing access to an application, then before creating the review, 
 8. Select **Next: Reviews**.
 
 After you have reached this step, you may follow the instructions outlined under **Next: Reviews** in the [Create an access review of groups or applications](create-access-review.md#next-reviews) article to complete your access review.
+
+> [!NOTE]
+> Review of Privileged Access Groups will only assign active owner(s) as the reviewers. Eligible owners are not included. At least one fallback reviewer is required for a Privileged Access Groups review. If there are no active owner(s) when the review begins, the fallback reviewer(s) will be assigned to the review.
 
 ## Next steps
 
