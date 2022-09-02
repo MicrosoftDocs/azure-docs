@@ -21,7 +21,7 @@ On your local computer:
 # [C\#](#tab/csharp)
 
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
-+ [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Csharp#v2)
++ [Azure Functions Core Tools version 4.x](functions-run-local.md?tabs=v4%2Ccsharp#install-the-azure-functions-core-tools)
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)
@@ -29,7 +29,7 @@ On your local computer:
 # [JavaScript](#tab/nodejs)
 
 + [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245.
++ [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Cnode#install-the-azure-functions-core-tools).
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)
@@ -37,10 +37,17 @@ On your local computer:
 # [Python](#tab/python)
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245.
++ [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Cpython#install-the-azure-functions-core-tools)
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)
+
+# [PowerShell](#tab/powershell)
+
++ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Cpowershell#install-the-azure-functions-core-tools) 
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
++ PowerShell 7 requires version 1.2.5 of the connectedk8s Azure CLI extension, or a later version. It also requires version 0.1.3 of the appservice-kube Azure CLI extension, or a later version. Make sure you install the correct version of both of these extensions as you complete this quickstart article.
 
 ---
 
@@ -88,6 +95,13 @@ In Azure Functions, a function project is the context for one or more individual
     ```console
     func init LocalFunctionProj --python --docker
     ```
+    # [PowerShell](#tab/powershell)
+
+
+    ```console
+    func init LocalFunctionProj --powershell --docker
+    ```
+
     ---
 
     The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
@@ -173,7 +187,7 @@ az storage account create --name <STORAGE_NAME> --location westeurope --resource
 ```
 
 > [!NOTE]  
-> A storage account is currently required by Azure Functions tooling. 
+> In some cases, a storage account may not be required. For more information, see [Azure Arc-enabled clusters](storage-considerations.md#azure-arc-enabled-clusters) in the storage considerations article. 
 
 In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements). The `--location` value is a standard Azure region. 
 
@@ -183,18 +197,24 @@ Run the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) co
 
 # [C\#](#tab/csharp)  
 ```azurecli
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime dotnet --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
+az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime dotnet --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
 ```
 
 # [JavaScript](#tab/nodejs)  
 ```azurecli
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime node --runtime-version 12 --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
+az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime node --runtime-version 12 --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
 ```
 
 # [Python](#tab/python)  
 ```azurecli
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime python --runtime-version 3.8 --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
+az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime python --runtime-version 3.8 --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
 ```
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az functionapp create --resource-group myResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime powershell --runtime-version 7.0
+```
+
 ---
 
 In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom location you determined for the App Service Kubernetes environment. Also, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your Docker Hub ID. 
@@ -236,5 +256,10 @@ Now that you have your function app running in a container an Azure Arc-enabled 
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
+
+# [PowerShell](#tab/powershell)
+
+> [!div class="nextstepaction"]
+> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-powershell)
 
 ---
