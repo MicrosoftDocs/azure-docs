@@ -136,7 +136,7 @@ Scheduling overhead exists when running actions, while waiting time between acti
 
 ### Usually, my workflow completes within 10 seconds. But, sometimes, completion can take much longer. How can I make sure the workflow always finishes within 10 seconds?
 
-*There is no SLA guarantee on latency. 
+* No SLA guarantee exists on latency.
 
 *Logic App Consumption is a multitenant platform, and other customers' workload may negatively affect your logic app performance. 
 
