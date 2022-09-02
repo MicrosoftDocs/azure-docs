@@ -296,7 +296,7 @@ $DnsRecordArgs = @{
     Ttl = 3600 
     PrivateDnsRecords = $DnsRecords
 }
-New-AzPrivateDnsARecordSet @DnsRecordArgs
+New-AzPrivateDnsRecordSet @DnsRecordArgs
 ```
 
 ---
