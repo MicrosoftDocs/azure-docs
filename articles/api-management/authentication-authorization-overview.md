@@ -48,7 +48,7 @@ What happens when a client app calls an API with a request that is secured using
 * The resource server validates the access token by checking (at a minimum) that the issuer and audience claims contain expected values. 
 * Based on token validation criteria, access to resources on the server is then granted.
 
-Depending on the type of client app and scenarios, different *authentication flows* are needed to request and manage tokens. For example, the *authorization code* flow and grant type is commonly used in apps that call web APIs. Learn more about [OAuth flows and application scenarios in Azure AD](../active-directory/develop/authentication-flows-app-scenarios).
+Depending on the type of client app and scenarios, different *authentication flows* are needed to request and manage tokens. For example, the *authorization code* flow and grant type is commonly used in apps that call web APIs. Learn more about [OAuth flows and application scenarios in Azure AD](../active-directory/develop/authentication-flows-app-scenarios.md).
 
 
 ### OAuth 2.0 authorization scenarios
@@ -59,7 +59,7 @@ The most common scenario is when the Azure API Management instance is a "transpa
 
 :::image type="content" source="media/authentication-authorization-overview/oauth-token-backend.png" alt-text="Diagram showing OAuth communication where audience is the backend." border="false":::
 
-In this scenario, the access token sent along with the HTTP request is intended for the backend API, not API Management. However, API Management still allows for a defense in depth approach. For example, configure policies to [validate the token](api-management-access-restriction-policies.md#a-namevalidatejwta-validate-jwt), rejecting requests that arrive without a token, or a token that's not valid for the intended backend API. You can also configure API Management to check other claims of interest extracted from the token.
+In this scenario, the access token sent along with the HTTP request is intended for the backend API, not API Management. However, API Management still allows for a defense in depth approach. For example, configure policies to [validate the token](api-management-access-restriction-policies.md#ValidateJWT), rejecting requests that arrive without a token, or a token that's not valid for the intended backend API. You can also configure API Management to check other claims of interest extracted from the token.
 
 For an example, see [Protect an API in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](api-management-howto-protect-backend-with-aad.md). 
 
