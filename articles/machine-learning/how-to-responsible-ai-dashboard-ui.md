@@ -25,7 +25,7 @@ In this article, you create a Responsible AI dashboard with a no-code experience
 
 To learn more, see the Responsible AI dashboard [supported model types and limitations](concept-responsible-ai-dashboard.md#supported-scenarios-and-limitations)
 
-The wizard is designed to provide an interface to input all the necessary parameters to create your Responsible AI dashboard without having to touch code. The experience takes place entirely in the Azure Machine Learning studio UI. The studio presents a guided flow and instructional text to help contextualize the variety of choices about which Responsible AI components you’d like to populate your dashboard with. 
+The wizard provides an interface for entering all the necessary parameters to create your Responsible AI dashboard without having to touch code. The experience takes place entirely in the Azure Machine Learning studio UI. The studio presents a guided flow and instructional text to help contextualize the variety of choices about which Responsible AI components you’d like to populate your dashboard with. 
 
 The wizard is divided into five sections:
 
@@ -93,7 +93,7 @@ Component parameters for model debugging:
 1. **Range of value predictions (required)**: Specify for regression scenarios the range that you want counterfactual examples to have prediction values in. For binary classification scenarios, the range will automatically be set to generate counterfactuals for the opposite class of each data point. For multi-classification scenarios, use the dropdown list to specify which class you want each data point to be predicted as.
 1. **Specify which features to perturb**: By default, all features will be perturbed. However, if you want only specific features to be perturbed, select **Specify which features to perturb for generating counterfactual explanations** to display a pane with a list of features to select.
 
-    When you select **Specify which features to perturb**, you can specify the range you want to allow perturbations in. For example: for the feature YOE (Years of experience), specify that counterfactuals should have feature values ranging from only 10 to 21 instead of the default of 5 to 21.
+    When you select **Specify which features to perturb**, you can specify the range you want to allow perturbations in. For example: for the feature YOE (Years of experience), specify that counterfactuals should have feature values ranging from only 10 to 21 instead of the default values of 5 to 21.
 
     :::image type="content" source="./media/how-to-responsible-ai-dashboard-ui/model-debug-counterfactuals.png" alt-text="Screenshot of the wizard, showing a pane of features you can specify to perturb." lightbox = "./media/how-to-responsible-ai-dashboard-ui/model-debug-counterfactuals.png":::
 
