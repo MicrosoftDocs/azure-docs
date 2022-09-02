@@ -606,92 +606,92 @@
 - name: Resources
   items:
     - name: Support and help options
-      displayName:
+      displayName: support request, Microsoft Q&A, question, problem, Stack Overflow, new release, roadmap
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: IoT Glossary
-      displayName:
+      displayName: common terms, definitions
       href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Azure IoT services
-      items:
+      items: 
       - name: IoT Hub
-        displayName:
+        displayName: documentation, learn, collect, process data, manage, monitor, security, develop with SDKs
         href: ../iot-hub/index.yml
       - name: IoT Hub Device Provisioning Service
-        displayName:
+        displayName: DPS, roles, operations, auto-provisioning, SDKs, symmetric key, geolatency, allocation policies, device manufacturers, CA certificates. X.509
         href: ../iot-dps/index.yml
       - name: IoT Central
-        displayName:
+        displayName: documentation, central architecture, device management, dashboard, scale limits, aPaaS, PaaS, demo, connectivity, implementation, REST API, data integration
         href: ../iot-central/index.yml
       - name: IoT Edge
-        displayName:
+        displayName: documentation, EFLOW, gateway, Linux devices, module, Linux on Windows, provision, debug modules, IoT Edge runtime
         href: ../iot-edge/index.yml
       - name: Azure Maps
-        displayName:
+        displayName: documentation, coverage, localization, map styles, web map, samples, point of interest, store locator, drawing tools, SDK, GeoJSON, Android map control, IO module, layer, polygon, bubble, symbol, heat map, cluster point, indoor map
         href: ../azure-maps/index.yml
       - name: Time Series Insights
-        displayName:
+        displayName: documentation, Gen2, explorer, time series model, Event Hubs, data ingestion, TSID, provision, manage, REST APIs
         href: ../time-series-insights/index.yml
     - name: IoT device developer
-      displayName:
+      displayName: documentation, device types, connection options, sample device, cloud, plug and play, MXCHIP, microchip, NXP MIMXRT, evaluation kit, STMicroelectronics
       href: ../iot-develop/index.yml
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs
-        displayName:
+        displayName: samples, azure-iot-samples-csharp
         href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
       - name: IoT Device SDKs
-        displayName:
+        displayName: client libraries, MCU-based devices, embedded device SDKs, RTOS, FreeRTOS, Bare Metal
         href: ../iot-develop/about-iot-sdks.md
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
-        displayName:
+        displayName: samples, azure-iot-samples-csharp, .NET Core SDK
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
       - name: Node.js
-        displayName:
+        displayName: samples, azure-iot-samples-node, Node.js LTS, npm
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
       - name: Java
-        displayName:
+        displayName: samples, azure-iot-samples-java, Java SE 8, Maven 3, mvn
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
       - name: Python
-        displayName:
+        displayName: samples, azure-iot-samples-python, Azure IoT Python SDK, 
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
       - name: iOS Platform
-        displayName:
+        displayName: samples, azure-iot-samples-iot, XCode, CocoaPods, Swift
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
     - name: Azure Certified Device catalog
-      displayName:
+      displayName: bundles, Edge managed, IoT Plug and Play, gateway, sensor, connectivity, 
       href: https://devicecatalog.azure.com/
     - name: Azure IoT Developer Center
-      displayName:
+      displayName: secure, scalable, edge-to-cloud, connect, monitor, automate, model devices, Microsoft Cloud
       href: https://azure.microsoft.com/develop/iot/
     - name: Customer data requests
-      displayName:
+      displayName: Azure IoT Hub devices, GDPR, REST APIs, Azure Event Grid, deleting customer data, exporting customer data, export operations, tenant administrators
       href: iot-hub-customer-data-requests.md
     - name: Azure Roadmap
-      displayName:
+      displayName: cloud, future plans, RSS feed, Azure products, updates
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Azure IoT Tools
-      displayName:
+      displayName:  VS Code, Visual Studio Code, toolkit, azure-iot-toolkit, Azure loT Device Workbench, command palette
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
     - name: Azure IoT Explorer tool
-      displayName:
+      displayName: azure-iot-explorer, Chocolatey, IoT Hub connection, device CRUD, Plug and Play, contributing
       href: https://github.com/Azure/azure-iot-explorer
     - name: iothub-diagnostics tool
-      displayName:
+      displayName: archived, execution
       href: https://github.com/Azure/iothub-diagnostics
     - name: Pricing
-      displayName:
+      displayName: connect, monitor, manage, enhance security, device authentication, telemetry, custom pricing
       href: https://azure.microsoft.com/pricing/details/iot-hub/
     - name: Pricing calculator
-      displayName:
+      displayName: calculate, estimated, costs, agreement pricing
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Service updates
-      displayName:
+      displayName: latest, features, Azure products, cloud investment, monthly
       href: https://azure.microsoft.com/updates/?product=iot-hub
     - name: Technical case studies
-      displayName:
+      displayName: technical articles, search case studies, filter case studies
       href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
     - name: Videos
-      displayName:
+      displayName: Azure videos, on-demand videos, designed for developers, technical skills, learn, Azure experts, innovative technologies, best practices, Azure engineers
       href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
