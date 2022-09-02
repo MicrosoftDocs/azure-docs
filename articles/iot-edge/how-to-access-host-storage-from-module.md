@@ -47,7 +47,7 @@ Or, you can configure the local storage directly in the deployment manifest. For
         "type": "docker",
         "env": {
             "storageFolder": {
-                "value": "<ModuleStoragePath>/edgeAgent"
+                "value": "<ModuleStoragePath>"
             }
         }
     },
@@ -129,11 +129,11 @@ To enable a link from module storage to the storage on the host system, create a
 For example, if you wanted to enable the IoT Edge hub to store messages in your device's local storage and retrieve them later, you can configure the environment variables and the create options in the Azure portal in the **Runtime Settings** section.
 
 1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **storageFolder** that points to a directory in the module.
-1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example:
+1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example, for version 1.1:
 
    ![Add create options and environment variables for local storage](./media/how-to-access-host-storage-from-module/offline-storage.png)
 
-Or, you can configure the local storage directly in the deployment manifest. For example:
+Or, you can configure the local storage directly in the deployment manifest. For example, for version 1.1:
 
 ```json
 "systemModules": {
@@ -173,7 +173,7 @@ Or, you can configure the local storage directly in the deployment manifest. For
 }
 ```
 
-Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path.
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path. If using version 1.3, update each image version with `1.3`. For example, `mcr.microsoft.com/azureiotedge-agent:1.3`.
 
 For example, on a Linux system, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` means the directory **/etc/iotedge/storage** on your host system is mapped to the directory **/iotedge/storage/** in the container. On a Windows system, as another example, `"Binds":["C:\\temp:C:\\contemp"]` means the directory **C:\\temp** on your host system is mapped to the directory **C:\\contemp** in the container.
 
