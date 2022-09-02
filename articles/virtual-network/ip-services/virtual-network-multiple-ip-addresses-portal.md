@@ -20,14 +20,14 @@ Assigning multiple IP addresses to a VM enables the following capabilities:
 
 * Serve as a network virtual appliance, such as a firewall or load balancer.
 
-* The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool. For more information about load balancing multiple IP configurations, see [Load balancing multiple IP configurations](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool. For more information about load balancing multiple IP configurations, see [Load balancing multiple IP configurations](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. To learn more about IP addresses in Azure, read the [IP addresses in Azure](../articles/virtual-network/ip-services/public-ip-addresses.md) article.
+Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. To learn more about IP addresses in Azure, read the [IP addresses in Azure](../virtual-network/ip-services/public-ip-addresses.md) article.
 
 > [!NOTE]
-> All IP configurations on a single NIC must be associated to the same subnet.  If multiple IPs on different subnets are desired, multiple NICs on a VM can be used.  To learn more about multiple NICs on a VM in Azure, read the [Create VM with Multiple NICs](../articles/virtual-machines/windows/multiple-nics.md) article.
+> All IP configurations on a single NIC must be associated to the same subnet.  If multiple IPs on different subnets are desired, multiple NICs on a VM can be used.  To learn more about multiple NICs on a VM in Azure, read the [Create VM with Multiple NICs](../virtual-machines/windows/multiple-nics.md) article.
 
-There's a limit to how many private IP addresses can be assigned to a NIC. There's also a limit to how many public IP addresses that can be used in an Azure subscription. See the [Azure limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article for details.
+There's a limit to how many private IP addresses can be assigned to a NIC. There's also a limit to how many public IP addresses that can be used in an Azure subscription. See the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article for details.
 
 This article explains how to add multiple IP addresses to a virtual machine using the Azure portal. 
 
@@ -43,7 +43,7 @@ This article explains how to add multiple IP addresses to a virtual machine usin
     - The example used in this article is named **myVM**. Replace this value with your virtual machine name.
 
 > [!NOTE]
-> Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](../articles/virtual-machines/windows/multiple-nics.md).
+> Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](../virtual-machines/windows/multiple-nics.md).
 
 
 ## Add public and private IP address to a VM
