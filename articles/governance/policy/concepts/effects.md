@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 08/26/2022
+ms.date: 09/02/2022
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -18,6 +18,7 @@ These effects are currently supported in a policy definition:
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
+- [Manual (preview)](#manual-preview)
 - [Modify](#modify)
 
 The following effects are _deprecated_:
@@ -741,6 +742,101 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
     }
 }
 ```
+
+## Manual (preview)
+
+The new `manual` (preview) effect
+
+
+In the following example,
+
+```json
+{
+  "if": {
+    "field":  "type",
+    "equals": "Microsoft.Resources/subscriptions"
+  },
+  "then": {
+    "effect": "manual",
+    "details": {
+      "defaultState": "Unknown"
+    }
+  }
+}
+```
+
+The `defaultState` property has three possible values:
+
+- **Unknown**: The initial, default state of the targeted resources.
+- **Compliant**: Resource is compliant according to your manual policy standards
+- **Non-compliant**: Resource is non-compliant according to your manual policy standards
+
+### Evidence
+
+You can store associated compliance evidence to support your manual policy attestations in
+Azure Storage. These fields are stored in the manual policy assignment's metadata, as shown in
+the following example:
+
+```json
+{
+  "properties": {
+    "displayName": "A contingency plan should be in place to ensure operational continuity
+    for each Azure subscription."
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/{definitionId}",
+    "metadata": {
+      "evidenceStorages": [
+        {
+          "displayName": "Default evidence storage",
+          "evidenceStorageAccountId": "/subscriptions/{subscriptionId}/resourceGroups/{rg-name}/
+          providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
+          "evidenceBlobContainer": "evidence-container"
+        }
+      ]
+    }
+  }
+}
+```
+
+Note the `evidenceStorages` element is a JSON array, which means you can store your evidence in
+more than one Azure storage account. The evidence itself resides in an indicated blob container
+within each storage account, indicated by the `evidenceBlobContainer` property value.
+
+The Azure Policy compliance engine evaluates all tracked resources  to the default state specified
+in the definition (`Unknown` if not specified). An `Unknown` compliance state indicates that the
+resource compliance state must be attested to manually.
+
+### Attestations
+
+`Microsoft.PolicyInsights/attestations`, called an Attestation resource, is a new proxy resource type
+ that sets the compliance states for targeted resources in a manual policy. You can only have one
+ attestation on one resource for an individual policy. In preview, Attestations are only available
+ to be created with the Azure Resource Manager (ARM) API.
+
+```http
+PUT http://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/attestations/{name}?api-version=2019-10-01
+```
+
+#### Request body
+
+|Property  |Description  |
+|---------|---------|
+|policyAssignmentId     |Required assignment ID for which the state is being set. |
+|policyDefinitionReferenceId     |Optional definition refernce Id, if within a policy initiative. |
+|complianceState     |Desired state of the resources. Allowed values are `Compliant`, `NonCompliant`, and `Unknown`. |
+|owner     |Optional Azure AD object ID of responsible party. |
+|comments     |Optional description of why state is being set. |
+|evidence     |Optional link array for attestation evidence. |
+
+
+
+
+
+
+
+
+
+
+Because attestations are a separate resource from policy assignments, they have their own lifecycle. You can PUT, GET and DELETE attestations by using the ARM API.
 
 ## Modify
 
