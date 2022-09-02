@@ -144,7 +144,7 @@ Scheduling overhead exists when running actions, while waiting time between acti
 
 ### My action times out after 2 minutes. How can I increase the timeout value?
 
-The action timeout value cannot be changed and it is fixed as 2 minutes. If the action is a HTTP action and you own the service, you have the option to change the service to use aynchronous pattern to avoid the two-minute timeout: [Perform long-running tasks with the polling action pattern](../logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
+The action timeout value can't be changed and is fixed at 2 minutes. If you're using the HTTP action, and you own the service called by the HTTP action, you can change your service to avoid the 2-minute timeout by using the asynchronous pattern. For more information, review [Perform long-running tasks with the polling action pattern](logic-apps-create-api-app.md#perform-long-running-tasks-with-the-polling-action-pattern).
 
 ## Common problems - Standard logic apps
 
