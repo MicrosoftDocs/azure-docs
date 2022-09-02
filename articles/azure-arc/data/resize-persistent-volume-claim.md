@@ -28,7 +28,7 @@ Following are the steps to resize persistent volumes attached to `StatefulSet`:
 
 During the patching of `PersistentVolumeClaim`, the status of the persistent volume claim will likely change from: `Attached` to `Resizing` to `FileSystemResizePending` to `Attached`. The exact states will depend on the storage provisioner. 
 
-> [Note]
+> [!NOTE]
 > Ensure the managed instance is in a healthy state before you proceed. Run `kubectl get sqlmi -n <namespace>` and check the status of the managed instance.
 
 ## 1. Scale the `StatefulSet` replicas to 0
