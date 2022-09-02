@@ -127,7 +127,7 @@ By setting `IngressExternal` to `$true`, you make the container app available to
 
 # [Bash](#tab/bash)
 
-The `create` command returned the fully qualified domain name for the container app. Copy this location to a web browser.
+The `create` command returns the fully qualified domain name for the container app. Copy this location to a web browser.
 
 # [Azure PowerShell](#tab/azure-powershell)
 

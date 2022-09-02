@@ -76,7 +76,7 @@ New-AzContainerAppManagedEnv @EnvArgs
 
 ## Set up a storage queue
 
-Choose a name for storage account. Storage account names must be *unique within Azure* and be from 3 to 24 characters in length containing numbers and lowercase letters only.
+Begin by defining a name for the storage account. Storage account names must be *unique within Azure* and be from 3 to 24 characters in length containing numbers and lowercase letters only.
 
 # [Bash](#tab/bash)
 
