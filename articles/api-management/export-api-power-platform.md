@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 08/12/2022
 ms.author: danlep
 
 ---
@@ -31,6 +31,7 @@ This article walks through the steps in the Azure portal to create a custom Powe
     1. Select an API to publish to the Power Platform.
     1. Select a Power Platform environment to publish the API to. 
     1. Enter a display name, which will be used as the name of the custom connector.  
+    1. Optionally, if the API doesn't already require a subscription, select **Create subscription key connection parameter**.
     1. Optionally, if the API is [protected by an OAuth 2.0 server](api-management-howto-protect-backend-with-aad.md), provide details including **Client ID**, **Client secret**, **Authorization URL**, **Token URL**, and **Refresh URL**.  
 1. Select **Create**. 
 
@@ -40,8 +41,25 @@ Once the connector is created, navigate to your [Power Apps](https://make.powera
 
 :::image type="content" source="media/export-api-power-platform/custom-connector-power-app.png" alt-text="Custom connector in Power Platform":::
 
+## Manage a custom connector
+
+You can manage your custom connector in your Power Apps or Power Platform environment. For details about settings, see [Create a custom connector from scratch](/connectors/custom-connectors/define-blank).
+
+1. Select your connector from the list of custom connectors.
+1. Select the pencil (Edit) icon to edit and test the custom connector. 
+
 > [!NOTE]
-> To call the API from the Power Apps test console, you need to add the "https://flow.microsoft.com" URL as an origin to the [CORS policy](api-management-cross-domain-policies.md#CORS) in your API Management instance.
+> To call the API from the Power Apps test console, you need to add the `https://flow.microsoft.com` URL as an origin to the [CORS policy](api-management-cross-domain-policies.md#CORS) in your API Management instance.
+
+## Update a custom connector
+
+From API Management, you can update a connector to target a different API or Power Apps environment, or to update authorization settings.
+
+1. Navigate to your API Management service in the Azure portal.
+1. In the menu, under **APIs**, select **Power Platform**.
+1. Select **Update a connector**.
+1. Select the API you want to update the connector for, update settings as needed, and select **Update**.
+
 
 ## Next steps
 

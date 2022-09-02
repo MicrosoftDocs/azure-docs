@@ -111,7 +111,7 @@ To delete an IoT hub, find the IoT hub you want to delete, then choose **Delete*
 
 ## Next steps
 
-Follow these links to learn more about managing Azure IoT Hub:
+Learn more about managing Azure IoT Hub:
 
 * [Message routing with IoT Hub](tutorial-routing.md)
 * [Monitor your IoT hub](monitor-iot-hub.md)
