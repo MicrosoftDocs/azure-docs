@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/23/2022
+ms.date: 09/02/2022
 
 ms.author: justinha
 author: justinha
@@ -17,31 +17,36 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD authentication strength 
 
-Authentication strength is a Conditional Access (CA) control that allows administrators to require specific combinations of authentication methods to access a resource. For example, you can require phishing-resistant authentication methods to access a sensitive resource while allowing less secure multifactor authentication (MFA) combinations, such as password + SMS, to access non-sensitive applications. 
+Authentication strength is a Conditional Access (CA) control that allows administrators to require specific combinations of authentication methods to access a resource. For example, you can require phishing-resistant authentication methods to access a sensitive resource, while allowing less secure multifactor authentication (MFA) combinations, such as password + SMS, to access nonsensitive applications. 
 
-Authentication strength is based on the Authentication Method policy, where administrators can scope authentication methods to specific users and groups for different applications in Azure Active Directory (Azure AD). It allows administrators to scope the usage of these methods even further for specific scenarios such as sensitive resource access, user risk, location, and more. 
+Authentication strength is based on the Authentication Methods policy, where administrators can choose authentication methods for specific users and groups for different applications in Azure Active Directory (Azure AD). It allows administrators to further scope the usage of these methods based upon specific scenarios such as sensitive resource access, user risk, location, and more. 
 
-When creating a Conditional Access policy with **Require authentication strength** control, Administrators can choose between three built-in Authentication strengths policies (Multifactor authentication, Passwordless MFA and Phishing-resistant MFA), or create a custom Authentication strength policy based on the authentication methods combinations they want to allow. 
+When administrators create a Conditional Access policy with **Require authentication strength** control, they can choose from three built-in authentication strength policies: MFA, Passwordless MFA, and Phishing-resistant MFA. They can also create a custom authentication strength policy based on the authentication method combinations they want to allow. 
  
 ## Scenarios for authentication strength
 
 Authentication strength can help customers address scenarios such as: 
 
-- Require specific authentication methods when accessing a sensitive resource
-- Require a specific authentication method when a user is taking a sensitive action within an application (in combination with Conditional Access authentication context)
-- Require users to use a specific authentication method when they access sensitive apps outside of the corporate network
-- Require more secure authentication methods for users at high risk 
+- Require specific authentication methods to access a sensitive resource.
+- Require a specific authentication method when a user takes a sensitive action within an application (in combination with Conditional Access authentication context).
+- Require users to use a specific authentication method when they access sensitive apps outside of the corporate network.
+- Require more secure authentication methods for users at high risk. 
 
 ## Authentication strength policy 
 
 Authentication strength policy contains a combination of authentication methods. Users can satisfy the authentication strength policy by authenticating with any of the combinations allowed by the policy.
 
-For example, the built-in “Phishing-resistant MFA” policy has the following combinations:
-•	Windows Hello for Business
-OR
-•	FIDO2 Security Key
-OR
-•	Certificate Based Authentication (Multi-Factor)
+For example, the built-in Phishing-resistant MFA policy has the following combinations:
+
+- Windows Hello for Business
+
+  OR
+
+- FIDO2 Security Key
+
+  OR
+
+- Azure AD Certificate-Based Authentication (multifactor)
 
 <!--placeholder - screenshot of phishing-resistant auth strengths -->
 
