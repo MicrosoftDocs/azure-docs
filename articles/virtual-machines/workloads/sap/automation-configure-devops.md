@@ -4,7 +4,7 @@ description: Configure your Azure DevOps Services for the SAP Deployment Automat
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 12/16/2021
+ms.date: 08/30/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
