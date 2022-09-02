@@ -50,7 +50,7 @@ In the file, create variables for your resource's endpoint and subscription key.
 [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure method to store and access your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure method to store and access your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information, see the Cognitive Services [security](../../cognitive-services-security.md).
 
 ```python
 from azure.cognitiveservices.personalizer import PersonalizerClient
@@ -71,11 +71,11 @@ To request the best action from Personalizer, create a [RankRequest](/python/api
 
 To send a reward score to Personalizer, use the [Reward](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.operations.events_operations.eventsoperations) method in the EventOperations class and include the event ID corresponding to the Rank call that returned the best action, and the reward score.
 
-Later in this quick-start, we'll define a simple reward score. However, this is on one of the most important considerations when designing your Personalizer architecture. In a production system, determining what factors impact the [reward score](../concept-rewards.md) can be challenging, and you may decide to change your reward scoring mechanism as your scenario or business needs evolve.
+Later in this quick-start, we'll define an example reward score. However, the reward is one of the most important considerations when designing your Personalizer architecture. In a production system, determining what factors affect the [reward score](../concept-rewards.md) can be challenging, and you may decide to change your reward score as your scenario or business needs change.
 
 ## Code examples
 
-These code snippets demonstrate how to use the Personalizer client library for Python to do the following:
+These code snippets demonstrate how to use the Personalizer client library for Python to:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Define actions and their features](#define-actions-and-their-features)
@@ -117,7 +117,7 @@ def get_actions():
 
 ## Define users and their context features
 
-Context can represent the current state of your application, system, environment, or user. The following code creates a dictionary with user preferences, and the `get_context()` function assembles these into a list for one particular user, which will be used later when calling the Rank API. In our grocery website scenario, the context consists of dietary preferences, a historical average of the order price, and the web browser type. Let's assume our users are always on the move and include a location context feature, which we choose randomly to simulate their travels every time `get_context()` is called.
+Context can represent the current state of your application, system, environment, or user. The following code creates a dictionary with user preferences, and the `get_context()` function assembles the features into a list for one particular user, which will be used later when calling the Rank API. In our grocery website scenario, the context consists of dietary preferences, a historical average of the order price, and the web browser type. Let's assume our users are always on the move and include a location context feature, which we choose randomly to simulate their travels every time `get_context()` is called.
 
 ```python
 context_features = {
@@ -132,14 +132,14 @@ def get_context(user):
     return res
 ```
 
-The context features in this quick-start are quite simple, however, in a real production system, designing your [features] (../concepts-features.md) and [evaluating their effectiveness](../concept-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance
+The context features in this quick-start are simplistic, however, in a real production system, designing your [features] (../concepts-features.md) and [evaluating their effectiveness](../concept-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance
 
 
 ## Define a reward score based on user behavior
 
-The reward score can be considered an indication how "good" the personalized action is. In a real production system, the reward score should be designed to align with your business objectives and KPIs. For example, your application code can be instrumented to detect a desired user behavior (e.g., a click or purchase) that aligns with your business objective (e.g., a purchase).
+The reward score can be considered an indication how "good" the personalized action is. In a real production system, the reward score should be designed to align with your business objectives and KPIs. For example, your application code can be instrumented to detect a desired user behavior (e.g., a purchase) that aligns with your business objective (e.g., a purchase).
 
-In our grocery website scenario, we have three users: Bill, Satya, and Amy each with their own preferences. If a user purchases the product chosen by Personalizer, a reward score of 1.0 will be sent to the Reward API. Otherwise, the default reward of 0.0 will be used. In a real production system, determining how to design the [reward](../concept-rewards.md) can be non-trivial and and may require some experimentation.
+In our grocery website scenario, we have three users: Bill, Satya, and Amy each with their own preferences. If a user purchases the product chosen by Personalizer, a reward score of 1.0 will be sent to the Reward API. Otherwise, the default reward of 0.0 will be used. In a real production system, determining how to design the [reward](../concept-rewards.md) can be non-trivial and may require some experimentation.
 
 In the code below, the users' preferences and responses to the actions is hard-coded as a series of conditional statements, and explanatory text is included in the code for demonstrative purposes. In a real scenario, Personalizer will learn user preferences from the data sent in Rank and Reward API calls. You won't define these explicitly as in the example code.
 
@@ -188,17 +188,17 @@ def get_reward_score(user, actionid, context):
 
 ## Run Rank and Reward calls for each user
 
-A Personalizer event cycle consists of [Rank](#request-the-best-action) and [Reward](#send-a-reward) API calls. In our grocery website scenario, each Rank call is made to determine which product should be displayed in the "Featured Product" section, and the Reward call informs Personalizer whether the featured product was purchased by the user or not.
+A Personalizer event cycle consists of [Rank](#request-the-best-action) and [Reward](#send-a-reward) API calls. In our grocery website scenario, each Rank call is made to determine which product should be displayed in the "Featured Product" section. Then the Reward call tells Personalizer whether or not the featured product was purchased by the user.
 
 
 ### Request the best action
 
-In a Rank call, you need to provide at least two arguments: a list of `RankActions` (_actions and their features_), and a list of (_context_) features. The response will include the `reward_action_id`, which is the ID of the action Personalizer has determined is best for the given context. The response also includes the `event_id`, which is needed in the Reward API so Personalize knows how to link the data from the Reward and Rank calls. You can refer to the [Rank API docs](/rest/api/personalizer/1.0/rank/rank) for more details.
+In a Rank call, you need to provide at least two arguments: a list of `RankActions` (_actions and their features_), and a list of (_context_) features. The response will include the `reward_action_id`, which is the ID of the action Personalizer has determined is best for the given context. The response also includes the `event_id`, which is needed in the Reward API so Personalize knows how to link the data from the Reward and Rank calls. For more information, refer to the [Rank API docs](/rest/api/personalizer/1.0/rank/rank).
 
 
 ### Send a reward
 
-In a Reward call, you need to provide two arguments: the `event_id`, which links the Reward and Rank calls to the same unique event, and the `value` (reward score). Recall that the reward score is a signal that tells Personalizer if the decision made in the Rank call was a good or not. This is is typically a number between 0.0 and 1.0. It's worth reiterating that determining how to design the [reward](../concept-rewards.md) can be non-trivial.
+In a Reward call, you need to provide two arguments: the `event_id`, which links the Reward and Rank calls to the same unique event, and the `value` (reward score). Recall that the reward score is a signal that tells Personalizer if the decision made in the Rank call was a good or not. A reward score is typically a number between 0.0 and 1.0. It's worth reiterating that determining how to design the [reward](../concept-rewards.md) can be non-trivial.
 
 
 ### Run a Rank and Reward cycle
