@@ -12,12 +12,12 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 # Train a small object detection model with AutoML (preview) (v1)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you'll learn how to train an object detection model to detect small objects in high-resolution images with [automated ML](concept-automated-ml.md) in Azure Machine Learning.
+In this article, you'll learn how to train an object detection model to detect small objects in high-resolution images with [automated ML](concept-automated-ml-v1.md) in Azure Machine Learning.
 
 Typically, computer vision models for object detection work well for datasets with relatively large objects. However, due to memory and computational constraints, these models tend to under-perform when tasked to detect small objects in high-resolution images. Because high-resolution images are typically large, they are resized before input into the model, which limits their capability to detect smaller objects--relative to the initial image size.
 
@@ -25,13 +25,13 @@ To help with this problem, automated ML supports tiling as part of the public pr
 
 When tiling, each image is divided into a grid of tiles. Adjacent tiles overlap with each other in width and height dimensions. The tiles are cropped from the original as shown in the following image.
 
-![Tiles generation](./media/how-to-use-automl-small-object-detect/tiles-generation.png)
+![Tiles generation](../media/how-to-use-automl-small-object-detect/tiles-generation.png)
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md).
 
-* This article assumes some familiarity with how to configure an [automated machine learning experiment for computer vision tasks](how-to-auto-train-image-models.md).
+* This article assumes some familiarity with how to configure an [automated machine learning experiment for computer vision tasks](how-to-auto-train-image-models-v1.md).
 
 ## Supported models
 
@@ -70,7 +70,7 @@ parameter_space = {
 
 When a model trained with tiling is deployed, tiling also occurs during inference. Automated ML uses the `tile_grid_size` value from training to generate the tiles during inference. The entire image and corresponding tiles are passed through the model, and the object proposals from them are merged to output final predictions, like in the following image.
 
-![Object proposals merge](./media/how-to-use-automl-small-object-detect/tiles-merge.png)
+![Object proposals merge](../media/how-to-use-automl-small-object-detect/tiles-merge.png)
 
 > [!NOTE]
 > It's possible that the same object is detected from multiple tiles, duplication detection is done to remove such duplicates.
@@ -103,7 +103,7 @@ See the [object detection sample notebook](https://github.com/Azure/azureml-exam
 ## Next steps
 
 * Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
-* For definitions and examples of the performance charts and metrics provided for each job, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md).
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
-* See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters.md).
-*[Make predictions with ONNX on computer vision models from AutoML](how-to-inference-onnx-automl-image-models.md)
+* For definitions and examples of the performance charts and metrics provided for each job, see [Evaluate automated machine learning experiment results](../how-to-understand-automated-ml.md).
+* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models-v1.md).
+* See [what hyperparameters are available for computer vision tasks](../reference-automl-images-hyperparameters.md).
+*[Make predictions with ONNX on computer vision models from AutoML](how-to-inference-onnx-automl-image-models-v1.md)
