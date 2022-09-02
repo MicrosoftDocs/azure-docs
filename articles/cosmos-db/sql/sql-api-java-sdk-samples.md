@@ -206,7 +206,7 @@ The Query Samples files for [sync](https://github.com/Azure-Samples/azure-cosmos
 <!-- | Query with ORDER BY for partitioned collections | CosmosContainer.queryItems <br> CosmosAsyncContainer.queryItems | -->
 
 ## Change feed examples 
-The [Change Feed Processor Sample](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java) file shows how to do the following tasks. To learn about change feed in Azure Cosmos DB before you run the following samples, see [Read Azure Cosmos DB change feed](read-change-feed.md) and [Change feed processor](https://docs.microsoft.com/azure/cosmos-db/sql/change-feed-processor?tabs=java).
+The [Change Feed Processor Sample](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java) file shows how to do the following tasks. To learn about change feed in Azure Cosmos DB before you run the following samples, see [Read Azure Cosmos DB change feed](read-change-feed.md) and [Change feed processor](/azure/cosmos-db/sql/change-feed-processor?tabs=java).
 
 | Task | API reference |
 | --- | --- |
