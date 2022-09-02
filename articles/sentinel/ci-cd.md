@@ -153,7 +153,7 @@ Select one of the following tabs depending on your connection type:
 
         In the default configuration shown above for the `on` section, the wildcards (`**`) in the first line in the `paths` section indicate that the entire branch is in the path for the deployment triggers.
 
-        This default configuration means that a deployment workflow is triggered any time that content is pushed to any part of the branch.
+        This default configuration means that a deployment workflow is triggered anytime that content is pushed to any part of the branch.
 
         Later on in the file, the `jobs` section includes the following default configuration: `directory: '${{ github.workspace }}'`. This line indicates that the entire GitHub branch is in the path for the content deployment, without filtering for any folder paths.
 
@@ -203,7 +203,7 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
                 - main
         ```
 
-        This default configuration means that a deployment pipeline is triggered any time that content is pushed to any part of the `main` branch.
+        This default configuration means that a deployment pipeline is triggered anytime that content is pushed to any part of the `main` branch.
 
         To deploy content from a specific folder path only, add the folder name to the `include` section, for the trigger, and the `steps` section, for the deployment path, below as needed.
 
