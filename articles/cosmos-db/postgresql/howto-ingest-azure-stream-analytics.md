@@ -11,8 +11,9 @@ ms.date: 08/11/2022
 
 # How to ingest data using Azure Stream Analytics
 
-[Azure Stream
-Analytics](https://azure.microsoft.com/services/stream-analytics/#features)
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
+
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#features)
 (ASA) is a real-time analytics and event-processing engine that is designed to
 process high volumes of fast streaming data from devices, sensors, and web
 sites. It's also available on the Azure IoT Edge runtime, enabling data

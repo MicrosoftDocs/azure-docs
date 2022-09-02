@@ -11,7 +11,7 @@ ms.date: 08/29/2022
 
 # Hyperscale (Citus) server group upgrades
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 The Hyperscale (Citus) managed service can handle upgrades of both the
 PostgreSQL server, and the Citus extension. You can choose these versions

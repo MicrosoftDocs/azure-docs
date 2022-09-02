@@ -13,7 +13,7 @@ ms.date: 06/29/2022
 
 # Tutorial: Design a real-time analytics dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus)
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
 
@@ -28,7 +28,7 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 
 ## Prerequisites
 
-[!INCLUDE [azure-postgresql-hyperscale-create-db](../../../includes/azure-postgresql-hyperscale-create-db.md)]
+[!INCLUDE [azure-postgresql-hyperscale-create-db](includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## Use psql utility to create a schema
 
@@ -92,7 +92,7 @@ SELECT create_distributed_table('http_request',      'site_id');
 SELECT create_distributed_table('http_request_1min', 'site_id');
 ```
 
-[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../../includes/azure-postgresql-hyperscale-dist-alert.md)]
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 ## Generate sample data
 

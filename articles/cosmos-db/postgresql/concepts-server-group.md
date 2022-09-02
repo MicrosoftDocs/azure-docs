@@ -11,7 +11,7 @@ ms.date: 07/15/2022
 
 # Hyperscale (Citus) server group
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## Nodes
 

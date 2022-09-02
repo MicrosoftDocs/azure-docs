@@ -12,6 +12,8 @@ ms.date: 08/11/2022
 
 # Build scalable apps
 
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
+
 Early in the quickstart, we [created a server
 group](quickstart-create-portal.md) using the [basic
 tier](concepts-server-group.md#tiers). The basic tier is good for apps that a

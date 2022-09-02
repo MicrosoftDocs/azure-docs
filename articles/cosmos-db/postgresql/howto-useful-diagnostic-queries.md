@@ -11,7 +11,7 @@ ms.date: 8/23/2021
 
 # Useful Diagnostic Queries
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## Finding which node contains data for a specific tenant
 

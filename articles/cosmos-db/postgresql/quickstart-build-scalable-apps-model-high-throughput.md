@@ -12,7 +12,7 @@ ms.date: 08/11/2022
 
 # Model high-throughput transactional apps
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## Common filter as shard key
 

@@ -11,7 +11,7 @@ ms.date: 01/14/2022
 
 # Security in Azure Database for PostgreSQL – Hyperscale (Citus)
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 This page outlines the multiple layers of security available to protect the data in your
 Hyperscale (Citus) server group. 
@@ -35,7 +35,7 @@ disabled.
 
 ## Network security
 
-[!INCLUDE [azure-postgresql-hyperscale-access](../../../includes/azure-postgresql-hyperscale-access.md)]
+[!INCLUDE [azure-postgresql-hyperscale-access](includes/azure-postgresql-hyperscale-access.md)]
 
 ## Limits and limitations
 

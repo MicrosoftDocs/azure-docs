@@ -11,7 +11,7 @@ ms.date: 08/02/2022
 
 # The Hyperscale (Citus) SQL API
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Azure Database for PostgreSQL - Hyperscale (Citus) includes features beyond
 standard PostgreSQL. Below is a categorized reference of functions and

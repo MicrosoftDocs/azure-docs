@@ -11,7 +11,7 @@ ms.date: 04/07/2021
 
 # Manage scheduled maintenance settings for Azure Database for PostgreSQL – Hyperscale (Citus)
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 You can specify maintenance options for each Hyperscale (Citus) server group in
 your Azure subscription. Options include the maintenance schedule and

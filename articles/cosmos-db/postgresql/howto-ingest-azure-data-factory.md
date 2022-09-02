@@ -11,6 +11,8 @@ ms.date: 06/27/2022
 
 # How to ingest data using Azure Data Factory
 
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
+
 [Azure Data Factory](../../data-factory/introduction.md) (ADF) is a cloud-based
 ETL and data integration service. It allows you to create data-driven workflows
 to move and transform data at scale.

@@ -11,7 +11,7 @@ ms.date: 07/08/2022
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) compute and storage
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
  
 You can select the compute and storage settings independently for
 worker nodes and the coordinator node in a Hyperscale (Citus) server
@@ -81,7 +81,7 @@ following values:
 
 ## Basic tier
 
-The Hyperscale (Citus) [basic tier](concepts-tiers.md) is a server
+The Hyperscale (Citus) [basic tier](concepts-server-group.md) is a server
 group with just one node.  Because there isn't a distinction between
 coordinator and worker nodes, it's less complicated to choose compute and
 storage resources.

@@ -11,7 +11,7 @@ ms.date: 06/28/2021
 
 # Supported database versions in Azure Database for PostgreSQL – Hyperscale (Citus)
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## PostgreSQL versions
 

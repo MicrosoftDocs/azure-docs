@@ -11,7 +11,7 @@ ms.date: 07/09/2021
 
 # Point-in-time restore of a Hyperscale (Citus) server group
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 This article provides step-by-step procedures to perform [point-in-time
 recoveries](concepts-backup.md#restore) for a Hyperscale (Citus)

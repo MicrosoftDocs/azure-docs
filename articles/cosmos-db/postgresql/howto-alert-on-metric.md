@@ -11,7 +11,7 @@ ms.date: 3/16/2020
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on [monitoring metrics](concepts-monitoring.md) for your Azure services.
 

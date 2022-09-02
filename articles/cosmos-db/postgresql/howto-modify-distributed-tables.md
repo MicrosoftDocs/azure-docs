@@ -11,7 +11,7 @@ ms.date: 08/02/2022
 
 # Distribute and modify tables
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## Distributing tables
 

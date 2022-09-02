@@ -12,7 +12,7 @@ ms.date: 08/11/2022
 
 # Classify application workload
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Here are common characteristics of the workloads that are the best fit for
 Hyperscale (Citus).

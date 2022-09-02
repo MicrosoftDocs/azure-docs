@@ -13,7 +13,7 @@ ms.date: 12/16/2020
 
 # Tutorial: Shard data on worker nodes in Azure Database for PostgreSQL – Hyperscale (Citus)
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
 
@@ -28,7 +28,7 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 
 This tutorial requires a running Hyperscale (Citus) server group with two
 worker nodes. If you don't have a running server group, follow the [create
-server group](tutorial-server-group.md) tutorial and then come back
+server group](quickstart-create-portal.md) tutorial and then come back
 to this one.
 
 ## Hash-distributed data
@@ -41,7 +41,7 @@ parallel to execute queries.
 In the prerequisites section, we created a Hyperscale (Citus) server group with
 two worker nodes.
 
-![coordinator and two workers](../tutorial-hyperscale-shard/nodes.png)
+![coordinator and two workers](media/tutorial-shard/nodes.png)
 
 The coordinator node's metadata tables track workers and distributed data. We
 can check the active workers in the
@@ -79,7 +79,7 @@ Hyperscale (Citus) assigns each row to a shard based on the value of the
 *distribution column*, which, in our case, we specified to be `email`. Every
 row will be in exactly one shard, and every shard can contain multiple rows.
 
-![users table with rows pointing to shards](../tutorial-hyperscale-shard/table.png)
+![users table with rows pointing to shards](media/tutorial-shard/table.png)
 
 By default `create_distributed_table()` makes 32 shards, as we can see by
 counting in the metadata table
@@ -117,7 +117,7 @@ The mapping of rows to shards is purely logical. Shards must be assigned to
 specific worker nodes for storage, in what Hyperscale (Citus) calls *shard
 placement*.
 
-![shards assigned to workers](../tutorial-hyperscale-shard/shard-placement.png)
+![shards assigned to workers](media/tutorial-shard/shard-placement.png)
 
 We can look at the shard placements in
 [pg_dist_placement](reference-metadata.md#shard-placement-table).
@@ -281,7 +281,7 @@ select avg(current_date - bday) as avg_days_old from users;
  17926.348000000000
 ```
 
-![query going to shards via coordinator](../tutorial-hyperscale-shard/query-fragments.png)
+![query going to shards via coordinator](media/tutorial-shard/query-fragments.png)
 
 Behind the scenes, the Hyperscale (Citus) executor creates a separate query for
 each shard, runs them on the workers, and combines the result. You can see it

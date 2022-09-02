@@ -11,7 +11,7 @@ ms.date: 02/23/2022
 
 # Pricing for Azure Database for PostgreSQL – Hyperscale (Citus)
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## General pricing
 
@@ -30,9 +30,6 @@ options.
 ## Prepay for compute resources with reserved capacity
 
 Azure Database for PostgreSQL – Hyperscale (Citus) now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Hyperscale (Citus) reserved capacity, you make an upfront commitment on Hyperscale (Citus) server group for a one- or three-year period to get a significant discount on the compute costs. To purchase Hyperscale (Citus) reserved capacity, you need to specify the Azure region, reservation term, and billing frequency.
-
-> [!IMPORTANT]
-> This article is about reserved capacity for Azure Database for PostgreSQL – Hyperscale (Citus). For information about reserved capacity for Azure Database for PostgreSQL – Single Server, see [Prepay for Azure Database for PostgreSQL – Single Server compute resources with reserved capacity](../concept-reserved-pricing.md).
 
 You don't need to assign the reservation to specific Hyperscale (Citus) server groups. An already running Hyperscale (Citus) server group or ones that are newly deployed automatically get the benefit of reserved pricing. By purchasing a reservation, you're prepaying for the compute costs for one year or three years. As soon as you buy a reservation, the Hyperscale (Citus) compute charges that match the reservation attributes are no longer charged at the pay-as-you-go rates. 
 

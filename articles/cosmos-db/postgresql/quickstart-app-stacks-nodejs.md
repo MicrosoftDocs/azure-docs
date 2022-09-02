@@ -12,7 +12,7 @@ ms.date: 08/24/2022
 
 # Node.js app to connect and query Hyperscale (Citus)
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 In this article, you'll connect to a Hyperscale (Citus) server group using a Node.js application. We'll see how to use SQL statements to query, insert, update and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js and are new to working with Hyperscale (Citus).
 
@@ -129,7 +129,7 @@ To execute the code above, run `node create.js`. This command will create a new 
 
 ## Super power of Distributed Tables
 
-Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >

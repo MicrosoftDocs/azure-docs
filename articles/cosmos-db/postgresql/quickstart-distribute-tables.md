@@ -13,7 +13,7 @@ ms.date: 08/11/2022
 
 # Create and distribute tables
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 In this example, we'll use Hyperscale (Citus) distributed tables to store and
 query events recorded from GitHub open source contributors.
@@ -83,7 +83,7 @@ SELECT create_distributed_table('github_users', 'user_id');
 SELECT create_distributed_table('github_events', 'user_id');
 ```
 
-[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../../includes/azure-postgresql-hyperscale-dist-alert.md)]
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 ## Load data into distributed tables
 

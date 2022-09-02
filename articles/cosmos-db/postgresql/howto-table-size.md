@@ -11,7 +11,7 @@ ms.date: 12/06/2021
 
 # Determine table and relation size
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 The usual way to find table sizes in PostgreSQL, `pg_total_relation_size`,
 drastically under-reports the size of distributed tables on Hyperscale (Citus).

@@ -12,7 +12,7 @@ ms.date: 08/11/2022
 
 # Fundamental concepts for scaling
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Before we investigate the steps of building a new app, it's helpful to see a
 quick overview of the terms and concepts involved.

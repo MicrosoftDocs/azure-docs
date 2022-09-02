@@ -12,7 +12,7 @@ ms.date: 08/11/2022
 
 # Model real-time analytics apps
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## Colocate large tables with shard key
 

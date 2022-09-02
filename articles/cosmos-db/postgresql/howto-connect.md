@@ -11,7 +11,7 @@ ms.date: 08/11/2022
 
 # Connect to a server group
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Choose your database client below to learn how to configure it to connect to
 Hyperscale (Citus).

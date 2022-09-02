@@ -12,7 +12,7 @@ ms.date: 08/11/2022
 
 # Model multi-tenant SaaS apps
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## Tenant ID as the shard key
 

@@ -11,7 +11,7 @@ ms.date: 08/30/2022
 
 # Hyperscale (Citus) performance tuning
 
-[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Running a distributed database at its full potential offers high performance.
 However, reaching that performance can take some adjustments in application

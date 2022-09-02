@@ -11,7 +11,7 @@ ms.date: 1/8/2019
 
 # Create users in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## The server admin account
 

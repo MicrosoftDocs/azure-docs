@@ -11,7 +11,7 @@ ms.date: 02/25/2022
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) limits and limitations
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 The following section describes capacity and functional limits in the
 Hyperscale (Citus) service.

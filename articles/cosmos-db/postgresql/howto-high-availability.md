@@ -11,7 +11,7 @@ ms.date: 07/27/2020
 
 # Configure Hyperscale (Citus) high availability
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Azure Database for PostgreSQL - Hyperscale (Citus) provides high availability
 (HA) to avoid database downtime. With HA enabled, every node in a server group

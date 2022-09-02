@@ -14,7 +14,7 @@ ms.date: 06/29/2022
 
 # Create a Hyperscale (Citus) server group in the Azure portal
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Azure Database for PostgreSQL - Hyperscale (Citus) is a managed service that
 allows you to run horizontally scalable PostgreSQL databases in the cloud.
@@ -36,7 +36,7 @@ application requires greater scale, you can add nodes and rebalance your data.
 
 Let's get started!
 
-[!INCLUDE [azure-postgresql-hyperscale-create-db](../../../includes/azure-postgresql-hyperscale-create-db.md)]
+[!INCLUDE [azure-postgresql-hyperscale-create-db](includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## Next steps
 

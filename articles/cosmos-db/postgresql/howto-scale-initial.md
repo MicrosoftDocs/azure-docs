@@ -11,7 +11,7 @@ ms.date: 08/03/2021
 
 # Pick initial size for Hyperscale (Citus) server group
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 The size of a server group, both number of nodes and their hardware capacity,
 is [easy to change](howto-scale-grow.md)). However you still need to
@@ -63,10 +63,10 @@ scaled to suffice, and in other cases it requires the cooperation of multiple
 nodes.
 
 For a comparison of the tiers, see the [basic
-tier](concepts-tiers.md) concepts page.
+tier](concepts-server-group.md) concepts page.
 
 ## Next steps
 
 - [Scale a server group](howto-scale-grow.md)
 - Learn more about server group [performance
-  options](concepts-configuration-options.md).
+  options](resources-compute.md).

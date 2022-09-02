@@ -15,6 +15,8 @@ ms.date: 08/11/2022
 
 # Azure Database for PostgreSQL - Hyperscale (Citus)
 
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
+
 ## The superpower of distributed tables
 
 <!-- markdownlint-disable MD034 -->

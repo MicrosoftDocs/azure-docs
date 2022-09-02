@@ -11,7 +11,7 @@ ms.date: 07/28/2019
 
 # Nodes and tables in Azure Database for PostgreSQL – Hyperscale (Citus)
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## Nodes
 

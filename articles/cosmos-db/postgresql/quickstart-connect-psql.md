@@ -13,7 +13,7 @@ ms.date: 05/05/2022
 
 # Connect to a Hyperscale (Citus) server group with psql
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## Prerequisites
 

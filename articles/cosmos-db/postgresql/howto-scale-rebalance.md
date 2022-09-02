@@ -12,7 +12,7 @@ ms.date: 07/20/2021
 
 # Rebalance shards in Hyperscale (Citus) server group
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 To take advantage of newly added nodes, rebalance distributed table
 [shards](concepts-distributed-data.md#shards). Rebalancing moves shards from existing nodes to the new ones. Hyperscale (Citus) offers

@@ -11,7 +11,7 @@ ms.date: 12/10/2021
 
 # Scale a Hyperscale (Citus) server group
 
-[!INCLUDE[appliesto-postgresql](../includes/appliesto-postgresql.md)]
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Azure Database for PostgreSQL - Hyperscale (Citus) provides self-service
 scaling to deal with increased load. The Azure portal makes it easy to add new
@@ -28,7 +28,7 @@ group.  Dragging the slider for **Worker node count** changes the value.
 > [!NOTE]
 >
 > A Hyperscale (Citus) server group created with the [basic
-> tier](concepts-tiers.md) has no workers. Increasing the worker
+> tier](concepts-server-group.md) has no workers. Increasing the worker
 > count automatically graduates the server group to the standard tier.  After
 > graduating a server group to the standard tier, you can't downgrade it back
 > to the basic tier.
