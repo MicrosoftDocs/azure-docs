@@ -113,13 +113,13 @@ In this step, you create the verified credential expert card by using Microsoft 
                 ],
                 "required": false
               }
-            ],
-            "validityInterval": 2592000,
-            "vc": {
-              "type": [
-                "VerifiedCredentialExpert"
-              ]
-            }
+            ]
+          },
+          "validityInterval": 2592000,
+          "vc": {
+            "type": [
+              "VerifiedCredentialExpert"
+            ]
           }
         }
         ```
@@ -321,8 +321,8 @@ public async Task<ActionResult> issuanceRequest()
     ...
 
     // Here you could change the payload manifest and change the first name and last name.
-    payload["issuance"]["claims"]["given_name"] = "Megan";
-    payload["issuance"]["claims"]["family_name"] = "Bowen";
+    payload["claims"]["given_name"] = "Megan";
+    payload["claims"]["family_name"] = "Bowen";
     ...
 }
   ```
