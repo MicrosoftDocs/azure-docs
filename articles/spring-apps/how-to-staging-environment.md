@@ -25,7 +25,7 @@ This article explains how to set up a staging deployment by using the blue-green
 - Azure Spring Apps instance on a Standard pricing tier
 - [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
-This article uses an application built from Spring Initializr. If you want to use a different application for this example, you'll need to make a simple change in a public-facing portion of the application to differentiate your staging deployment from production.
+This article uses an application built from Spring Initializr. If you want to use a different application for this example, make a change in a public-facing portion of the application to differentiate your staging deployment from the production deployment.
 
 > [!TIP]
 > [Azure Cloud Shell](https://shell.azure.com) is a free interactive shell that you can use to run the instructions in this article.  It has common, preinstalled Azure tools, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you're signed in to your Azure subscription, start your Cloud Shell instance. To learn more, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md).
@@ -148,11 +148,10 @@ View deployed apps by using the following procedure:
    ![Screenshot that shows the U R L for the staging app.](media/how-to-staging-environment/running-staging-app.png)
 
 >[!TIP]
-> * Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly.
-> * If your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the format *https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green*. Use this format to access your endpoint.
+> Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly. If your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the format `https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green`. Use this format to access your endpoint.
 
 >[!NOTE]
-> Configuration server settings apply to both your staging environment and your production environment. For example, if you set the context path (*server.servlet.context-path*) for your app gateway in the configuration server as *somepath*, the path to your green deployment changes to *https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green/somepath/...*.
+> Configuration server settings apply to both your staging environment and your production environment. For example, if you set the context path (*server.servlet.context-path*) for your app gateway in the configuration server as *somepath*, the path to your green deployment changes to `https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green/somepath/...`.
 
 If you visit your public-facing app gateway at this point, you should see the old page without your new change.
 
@@ -191,4 +190,4 @@ az spring app deployment delete -n <staging-deployment-name> -g <resource-group-
 
 ## Next steps
 
-* [CI/CD for Azure Spring Apps](./how-to-cicd.md?pivots=programming-language-java)
+- [CI/CD for Azure Spring Apps](./how-to-cicd.md?pivots=programming-language-java)
