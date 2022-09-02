@@ -4,7 +4,7 @@ description: The Container Monitoring solution in Azure Monitor helps you view a
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/06/2020
+ms.date: 08/29/2022
 ms.reviewer: aul
 
 ---
@@ -16,7 +16,7 @@ ms.reviewer: aul
 This article describes how to set up and use the Container Monitoring solution in Azure Monitor, which helps you view and manage your Docker and Windows container hosts in a single location. Docker is a software virtualization system used to create containers that automate software deployment to their IT infrastructure.
 
 > [!IMPORTANT]
-> The Container Monitoring solution is being phased out, to monitor your Kubernetes environments, we recommend using [Azure Monitor Container insights](container-insights-onboard.md)
+> The Container Monitoring solution is being phased out, to monitor your Kubernetes environments, we recommend transitioning to [Azure Monitor Container insights](container-insights-transition-solution.md)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -26,9 +26,8 @@ The solution shows which containers are running, what container image they’re 
 - DC/OS
 - Service Fabric
 
-We recommend using Azure Monitor Container insights for monitoring your Kubernetes and Red Hat OpenShift:
+We recommend using Azure Monitor Container insights for monitoring your Kubernetes:
 - AKS ([Configure Container insights for AKS](container-insights-enable-existing-clusters.md))
-- Red Hat OpenShift ([Configure Container insights using Azure Arc](container-insights-enable-arc-enabled-clusters.md))
 
 If you have containers deployed in [Azure Service Fabric](../../service-fabric/service-fabric-overview.md), we recommend enabling both the [Service Fabric solution](../../service-fabric/service-fabric-diagnostics-oms-setup.md) and this solution to include monitoring of cluster events. Before enabling the Service Fabric solution, review [Using the Service Fabric solution](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) to understand what it provides and how to use it.
 
@@ -36,7 +35,7 @@ If you are interested in monitoring the performance of your workloads deployed t
 
 The following diagram shows the relationships between various container hosts and agents with Azure Monitor.
 
-![Containers diagram](./media/containers/containers-diagram.png)
+:::image type="content" source="./media/containers/containers-diagram.png" alt-text="Containers diagram" lightbox="media/containers/containers-diagram.png" border="false":::
 
 ## System requirements and supported platforms
 
@@ -71,7 +70,6 @@ The following table outlines the Docker orchestration and operating system monit
 - CentOS 7.2 and 7.3
 - SLES 12
 - RHEL 7.2 and 7.3
-- Red Hat OpenShift Container Platform (OCP) 3.4 and 3.5
 - ACS Mesosphere DC/OS 1.7.3 to 1.8.8
 - ACS Kubernetes 1.4.5 to 1.6
     - Kubernetes events, Kubernetes inventory, and container processes are only supported with version 1.4.1-45 and later of the Log Analytics agent for Linux
@@ -101,7 +99,6 @@ Use the following information to install and configure the solution.
      - On CoreOS, you cannot run the Log Analytics agent for Linux. Instead, you run a containerized version of the Log Analytics agent for Linux. Review Linux container hosts including CoreOS or Azure Government Linux container hosts including CoreOS if you are working with containers in Azure Government Cloud.
      - On Windows Server 2016 and Windows 10, install the Docker Engine and client then connect an agent to gather information and send it to Azure Monitor. Review [Install and configure Windows container hosts](#install-and-configure-windows-container-hosts) if you have a Windows environment.
    - For Docker multi-host orchestration:
-     - If you have a Red Hat OpenShift environment, review Configure a Log Analytics agent for Red Hat OpenShift.
      - If you have a Kubernetes cluster using the Azure Container Service:
        - Review [Configure a Log Analytics Linux agent for Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Review [Configure an Log Analytics Windows agent for Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
@@ -180,117 +177,6 @@ For Docker Swarm, once the secret for Workspace ID and Primary Key is created, u
 
     ```
     sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
-    ```
-
-#### Configure a Log Analytics agent for Red Hat OpenShift
-
-There are three ways to add the Log Analytics agent to Red Hat OpenShift to start collecting container monitoring data.
-
-* [Install the Log Analytics agent for Linux](../vm/monitor-virtual-machine.md) directly on each OpenShift node  
-* [Enable Log Analytics VM Extension](../vm/monitor-virtual-machine.md) on each OpenShift node residing in Azure  
-* Install the Log Analytics agent as an OpenShift daemon-set  
-
-In this section we cover the steps required to install the Log Analytics agent as an OpenShift daemon-set.  
-
-1. Sign on to the OpenShift master node and copy the yaml file [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) from GitHub to your master node and modify the value with your Log Analytics Workspace ID and with your Primary Key.
-2. Run the following commands to create a project for Azure Monitor and set the user account.
-
-    ```
-    oc adm new-project omslogging --node-selector='zone=default'
-    oc project omslogging  
-    oc create serviceaccount omsagent  
-    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
-    ```
-
-3. To deploy the daemon-set, run the following:
-
-    `oc create -f ocp-omsagent.yaml`
-
-4. To verify it is configured and working correctly, type the following:
-
-    `oc describe daemonset omsagent`  
-
-    and the output should resemble:
-
-    ```
-    [ocpadmin@khm-0 ~]$ oc describe ds oms  
-    Name:           oms  
-    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
-    Selector:       name=omsagent  
-    Node-Selector:  zone=default  
-    Labels:         agentVersion=1.4.0-12  
-                    dockerProviderVersion=10.0.0-25  
-                    name=omsagent  
-    Desired Number of Nodes Scheduled: 3  
-    Current Number of Nodes Scheduled: 3  
-    Number of Nodes Misscheduled: 0  
-    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
-    No events.  
-    ```
-
-If you want to use secrets to secure your Log Analytics Workspace ID and Primary Key when using the Log Analytics agent daemon-set yaml file, perform the following steps.
-
-1. Sign on to the OpenShift master node and copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for Log Analytics Workspace ID and Primary Key to secure your secrete information.  
-2. Run the following commands to create a project for Azure Monitor and set the user account. The secret generating script asks for your Log Analytics Workspace ID `<WSID>` and Primary Key `<KEY>` and upon completion, it creates the ocp-secret.yaml file.  
-
-    ```
-    oc adm new-project omslogging --node-selector='zone=default'  
-    oc project omslogging  
-    oc create serviceaccount omsagent  
-    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
-    ```
-
-3. Deploy the secret file by running the following:
-
-    `oc create -f ocp-secret.yaml`
-
-4. Verify deployment by running the following:
-
-    `oc describe secret omsagent-secret`  
-
-    and the output should resemble:  
-
-    ```
-    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
-    Name:           omsagent-secret  
-    Namespace:      omslogging  
-    Labels:         <none>  
-    Annotations:    <none>  
-
-    Type:   Opaque  
-
-    Data  
-    ====  
-    KEY:    89 bytes  
-    WSID:   37 bytes  
-    ```
-
-5. Deploy the Log Analytics agent daemon-set yaml file by running the following:
-
-    `oc create -f ocp-ds-omsagent.yaml`  
-
-6. Verify deployment by running the following:
-
-    `oc describe ds oms`
-
-    and the output should resemble:
-
-    ```
-    [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
-    Name:           oms  
-    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
-    Selector:       name=omsagent  
-    Node-Selector:  zone=default  
-    Labels:         agentVersion=1.4.0-12  
-                    dockerProviderVersion=10.0.0-25  
-                    name=omsagent  
-    Desired Number of Nodes Scheduled: 3  
-    Current Number of Nodes Scheduled: 3  
-    Number of Nodes Misscheduled: 0  
-    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
-    No events.  
     ```
 
 #### Configure a Log Analytics Linux agent for Kubernetes
@@ -553,7 +439,7 @@ Labels appended to *PodLabel* data types are your own custom labels. The appende
 ## Monitor containers
 After you have the solution enabled in the Azure portal, the **Containers** tile shows summary information about your container hosts and the containers running in hosts.
 
-![Containers tile](./media/containers/containers-title.png)
+:::image type="content" source="./media/containers/containers-title.png" alt-text="Containers tile" border="false" lightbox="media/containers/containers-title.png:::
 
 The tile shows an overview of how many containers you have in the environment and whether they're failed, running, or stopped.
 
@@ -575,17 +461,17 @@ Click the **Containers** tile. From there you'll see views organized by:
 
 Each area of the dashboard is a visual representation of a search that is run on collected data.
 
-![Screenshot that shows a dashboard to view the collected data. ](./media/containers/containers-dash01.png)
+:::image type="content" source="./media/containers/containers-dash01.png" alt-text="Screenshot that shows a dashboard to view the collected data." lightbox="media/containers/containers-dash01.png" border="false":::
 
-![Containers dashboard](./media/containers/containers-dash02.png)
+:::image type="content" source="./media/containers/containers-dash02.png" alt-text="Containers dashboard" lightbox="media/containers/containers-dash02.png" border="false":::
 
 In the **Container Status** area, click the top area, as shown below.
 
-![Containers status](./media/containers/containers-status.png)
+:::image type="content" source="./media/containers/containers-status.png" alt-text="Containers status" lightbox="media/containers/containers-status.png" border="false":::
 
 Log Analytics opens, displaying information about the state of your containers.
 
-![Log Analytics for containers](./media/containers/containers-log-search.png)
+:::image type="content" source="./media/containers/containers-log-search.png" alt-text="Log Analytics for containers" border="false" lightbox="media/containers/containers-log-search.png":::
 
 From here, you can edit the search query to modify it to find the specific information you're interested in. For more information about log queries, see [Log queries in Azure Monitor](../logs/log-query-overview.md).
 
@@ -596,15 +482,15 @@ Log Analytics marks a container as **Failed** if it has exited with a non-zero e
 ### To find failed containers
 
 1. Click the **Container Status** area.  
-   ![containers status](./media/containers/containers-status.png)
+   :::image type="content" source="./media/containers/containers-status.png" alt-text="containers status" border="false" lightbox="media/containers/containers-status.png":::
 2. Log Analytics opens and displays the state of your containers, similar to the following.  
-   ![containers state](./media/containers/containers-log-search.png)
+   :::image type="content" source="./media/containers/containers-log-search.png" alt-text="containers state" border="false" lightbox="media/containers/containers-log-search.png":::
 3. Expand the Failed line and click + to add its criteria to the query. Then comment out the Summarize line in the query.
-   ![Screenshot that shows the line that should be commented out.](./media/containers/containers-state-failed-select.png)  
+   :::image type="content" source="./media/containers/containers-state-failed-select.png" alt-text="Screenshot that shows the line that should be commented out." border="false" lightbox="media/containers/containers-state-failed-select.png":::
 1. Run the query and then expand a line in the results to view the image ID.  
-   ![Screenshot that shows how to view the image ID.](./media/containers/containers-state-failed.png)  
+   :::image type="content" source="./media/containers/containers-state-failed.png" alt-text="Screenshot that shows how to view the image ID." border="false" lightbox="media/containers/containers-state-failed.png":::
 1. Type the following in the log query. `ContainerImageInventory | where ImageID == <ImageID>` to see details about the image such as image size and number of stopped and failed images.  
-   ![failed containers](./media/containers/containers-failed04.png)
+   :::image type="content" source="./media/containers/containers-failed04.png" alt-text="failed containers" border="false" lightbox="media/containers/containers-failed04.png":::
 
 ## Query logs for container data
 
@@ -622,7 +508,7 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 ### To query logs for container data
 
 * Choose an image that you know has failed recently and find the error logs for it. Start by finding a container name that is running that image with a **ContainerInventory** search. For example, search for `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
-    ![Search for Ubuntu containers](./media/containers/search-ubuntu.png)
+    :::image type="content" source="./media/containers/search-ubuntu.png" alt-text="Search for Ubuntu containers" lightbox="media/containers/search-ubuntu.png" border="false":::
 
   Expand any row in the results to view details for that container.
 
@@ -630,7 +516,7 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 
 It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **SAMPLE QUERIES** area on the far right of the solution page, to help you build more advanced queries.
 
-![Containers queries](./media/containers/containers-queries.png)
+:::image type="content" source="./media/containers/containers-queries.png" alt-text="Containers queries" border="false" lightbox="media/containers/containers-queries.png":::
 
 ## Saving log queries
 
