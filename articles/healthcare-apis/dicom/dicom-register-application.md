@@ -5,7 +5,7 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 09/01/2022
+ms.date: 09/02/2022
 ms.author: v-smcevoy
 ---
 
@@ -67,7 +67,7 @@ The following steps are required for the DICOM service. In addition, user access
 
 2. Select **Add a permission**.
 
-   If you're using Azure Health Data Services, you'll add a permission to the DICOM service by searching for **Azure API for DICOM** under **APIs my organization** uses. 
+   Add a permission to the DICOM service by searching for **Azure API for DICOM** under **APIs my organization** uses.
 
    [ ![Search API permissions](./media/dicom-search-apis-permissions.png) ](./media/dicom-search-apis-permissions.png#lightbox)
 
@@ -77,7 +77,7 @@ The following steps are required for the DICOM service. In addition, user access
 
 3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **Dicom.ReadWrite**, and then select **Add permissions**.
 
-   [Select permissions scopes](./media/dicom-select-scopes-new.png) ](./media/dicom-select-scopes.new.png#lightbox)
+   [ ![Select permissions scopes](./media/dicom-select-scopes-new.png) ](./media/dicom-select-scopes.new.png#lightbox)
 
 Your application registration is now complete.
 
@@ -87,5 +87,3 @@ In this article, you learned how to register a client application for the DICOM 
 
 >[!div class="nextstepaction"]
 >[Overview of the DICOM service](dicom-services-overview.md)
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

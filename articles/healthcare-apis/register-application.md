@@ -1,12 +1,12 @@
----
+    ---
 title: Register a client application in Azure Active Directory for the Azure Health Data Services
 description: How to register a client application in the Azure AD and how to add a secret and API permissions to the Azure Health Data Services
-services: healthcare-apis
-author: dougseven
+author: mcevoy-building7
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 03/21/2022
-ms.author: dseven
+ms.date: 09/02/2022
+ms.author: v-smcevoy
 ---
 
 # Register a client application in Azure Active Directory
@@ -88,8 +88,8 @@ The following steps are required for the DICOM service, but optional for the FHI
    [ ![Select permissions scopes.](dicom/media/dicom-select-scopes.png) ](dicom/media/dicom-select-scopes.png#lightbox)
 
 >[!NOTE]
->Use  grant_type of client_credentials when trying to otain an access token for the FHIR service using tools such as Postman or Rest Client. For more details, visit [Access using Postman](./fhir/use-postman.md) and [Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code](./fhir/using-rest-client.md).
->>Use  grant_type of client_credentials or authentication_doe when trying to obtain an access token for the DICOM service. For more details, visit [Using DICOM with cURL](dicom/dicomweb-standard-apis-curl.md).
+>Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as Postman or REST Client. For more details, visit [Access using Postman](./fhir/use-postman.md) and [Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code](./fhir/using-rest-client.md).
+>>Use  grant_type of client_credentials or authentication_code when trying to obtain an access token for the DICOM service. For more details, visit [Using DICOM with cURL](dicom/dicomweb-standard-apis-curl.md).
 
 Your application registration is now complete.
 
