@@ -67,7 +67,7 @@ You can create log alerts from queries in Log Analytics.  When you create an ale
 
 To create an alert rule:
 
-1. First create and run a query to validate it.  
+1. First, create and run a query to validate the query.  
 1. Select **New alert rule**.  
 :::image type="content" source="media/observability/log-alert-new-alert-rule.png" alt-text="Screenshot of the Log Analytics interface highlighting the new alert rule button.":::
 1. The **Create an alert rule** editor is opened to the **Condition** tab, which is populated with your log query.  

@@ -28,19 +28,19 @@ The Container Apps service provides system log messages at the container app lev
 
 | Source | Type | Message |
 |---------|------|---------|
-| Dapr | info | Successfully created dapr component \<component-name\> with scope \<dapr-component-scope\> |
-| Dapr | info | Successfully updated dapr component \<component-name\> with scope \<component-type\> |
-| Dapr | error | Error creating dapr component \<component-name\> |
-| Volume Mounts | info | Successfully mounted volume \<volume-name\> for revision \<revision-scope\> |
-| Volume Mounts | error | Error mounting volume \<volume-name\> |
-| Domain Binding | info | Successfully bound Domain \<domain\> to the container app \<container app name\> |
-| Authentication | info | Auth enabled on app. Creating authentication config |
-| Authentication | info | Auth config created successfully |
-| Traffic weight | info | Setting a traffic weight of \<percentage>% for revision \<revision-name\\> |
-| Revision Provisioning | info | Creating a new revision: \<revision-name\> |
-| Revision Provisioning | info | Successfully provisioned revision \<name\> |
-| Revision Provisioning | info| Deactivating Old revisions since 'ActiveRevisionsMode=Single' |
-| Revision Provisioning | error | Error provisioning revision \<revision-name>. ErrorCode: \<[ErrImagePull]\|[Timeout]\|[ContainerCrashing]\> |
+| Dapr | Info | Successfully created dapr component \<component-name\> with scope \<dapr-component-scope\> |
+| Dapr | Info | Successfully updated dapr component \<component-name\> with scope \<component-type\> |
+| Dapr | Error | Error creating dapr component \<component-name\> |
+| Volume Mounts | Info | Successfully mounted volume \<volume-name\> for revision \<revision-scope\> |
+| Volume Mounts | Error | Error mounting volume \<volume-name\> |
+| Domain Binding | Info | Successfully bound Domain \<domain\> to the container app \<container app name\> |
+| Authentication | Info | Auth enabled on app. Creating authentication config |
+| Authentication | Info | Auth config created successfully |
+| Traffic weight | Info | Setting a traffic weight of \<percentage>% for revision \<revision-name\\> |
+| Revision Provisioning | Info | Creating a new revision: \<revision-name\> |
+| Revision Provisioning | Info | Successfully provisioned revision \<name\> |
+| Revision Provisioning | Info| Deactivating Old revisions since 'ActiveRevisionsMode=Single' |
+| Revision Provisioning | Error | Error provisioning revision \<revision-name>. ErrorCode: \<[ErrImagePull]\|[Timeout]\|[ContainerCrashing]\> |
 
 The system log data is accessible by querying the `ContainerAppSystemlogs_CL` table. The most used Container Apps specific columns in the table are:
 
