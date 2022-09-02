@@ -84,7 +84,7 @@ In the following example, an operation in the Demo Conference API hosted by the 
 
 ### Call an API directly through Front Door
 
-In the following example, the same operation in the Demo Conference API is called using the Front Door endpoint configured for your instance. The endpoint's hostname in the `azurefd.net` domain is shown in the portal on the **Properties** page of your Front Door profile. A successful response shows `200 OK` and returns the same data as in the previous example:
+In the following example, the same operation in the Demo Conference API is called using the Front Door endpoint configured for your instance. The endpoint's hostname in the `azurefd.net` domain is shown in the portal on the **Overview** page of your Front Door profile. A successful response shows `200 OK` and returns the same data as in the previous example:
 
 :::image type="content" source="media/front-door-api-management/test-front-door-gateway.png" alt-text="Screenshot showing calling Front Door endpoint using Postman.":::
 
