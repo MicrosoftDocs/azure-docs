@@ -57,9 +57,9 @@ The following table lists the combinations of authentication methods for each bu
 
 •	**MFA strength policy** - the same set of combinations that could be used to satisfy the **Require multifactor authentication setting**.
 
-•	**Passwordless MFA authentication strength policy** - includes authentication methods that satisfy MFA but don't require a password.
+•	**Passwordless MFA strength policy** - includes authentication methods that satisfy MFA but don't require a password.
 
-•	**Phishing-resistant MFA authentication strength policy** - includes methods that require an interaction between the authentication method and the sign-in surface.
+•	**Phishing-resistant MFA strength policy** - includes methods that require an interaction between the authentication method and the sign-in surface.
 
 |Authentication method combination |MFA strength | Passwordless MFA strength| Phishing-resistant MFA strength|
 |----------------------------------|-------------|-------------------------------------|-------------------------------------------|
@@ -122,11 +122,11 @@ If the authentication strength policy doesn't include a method that the user can
  
 The following authentication methods aren't available to register after a user is redirected. For the best user experience, make sure users are registered for the different methods they may need to use.
 
-* Microsoft Authenticator (Phone Sign-in)
-* FIDO2
-* Certificate Based Authentication
-* Windows Hello for Business 
-<!-- Place holder - need links to the above or short description  --->
+* [Microsoft Authenticator (phone sign-in)](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c)
+* [FIDO2](howto-authentication-passwordless-security-key.md)
+* [Certificate-based authentication](concept-certificate-based-authentication.md)
+* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-prepare-people-to-use) 
+
 
 ## External users 
 <!-- Namrata to include admin section-->
