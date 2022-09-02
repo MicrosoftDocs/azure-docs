@@ -37,11 +37,13 @@ Permissions Management helps your organization tackle cloud permissions by enabl
 ### Step 1: Set-up Permissions Management
 
 Before you enable Permissions Management in your organization:
-1.  You must have an Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
-2.  You must be eligible for or have an active assignment to the global administrator role as a user in that tenant.
-3.  Connect Permissions Management to your Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) platforms.
-4.  [Enabling Permissions Management on your Azure AD tenant](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#how-to-enable-permissions-management-on-your-azure-ad-tenant)
-5.  Use the **Data Collectors** dashboard in Permissions Management to configure data collection settings for your authorization system. [Configure data collection settings](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#configure-data-collection-settings).
+-  You must have an Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
+-  You must be eligible for or have an active assignment to the global administrator role as a user in that tenant.
+
+If the above points are met, continue with the following steps:
+1.  Connect Permissions Management to your Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) platforms.
+2.  [Enabling Permissions Management on your Azure AD tenant](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#how-to-enable-permissions-management-on-your-azure-ad-tenant)
+3.  Use the **Data Collectors** dashboard in Permissions Management to configure data collection settings for your authorization system. [Configure data collection settings](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#configure-data-collection-settings).
 
     Note that for each cloud platform, you will have 3 options for onboarding:
 
@@ -55,8 +57,8 @@ Before you enable Permissions Management in your organization:
     -   [Onboard an AWS account](../cloud-infrastructure-entitlement-management/onboard-aws.md)
     -   [Onboard a Microsoft Azure subscription](../cloud-infrastructure-entitlement-management/onboard-azure.md)
     -   [Onboard a GCP project](../cloud-infrastructure-entitlement-management/onboard-gcp.md)
-6.  [Enable or disable the controller after onboarding is complete](../cloud-infrastructure-entitlement-management/onboard-enable-controller-after-onboarding.md)
-7.  [Add an account/subscription/project after onboarding is complete](../cloud-infrastructure-entitlement-management/onboard-add-account-after-onboarding.md)
+4.  [Enable or disable the controller after onboarding is complete](../cloud-infrastructure-entitlement-management/onboard-enable-controller-after-onboarding.md)
+5.  [Add an account/subscription/project after onboarding is complete](../cloud-infrastructure-entitlement-management/onboard-add-account-after-onboarding.md)
 
 ### Step 2: Discover & assess
 
