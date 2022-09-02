@@ -306,5 +306,6 @@ For further details on task definitions and their parameters, see [Lifecycle Wor
 
 ## Next steps
 
+- [Create workflow (lifecycle workflow)](/graph/api/identitygovernance-lifecycleworkflowscontainer-post-workflows?view=graph-rest-beta)
 - [Manage a workflow's properties](manage-workflow-properties.md)
 - [Manage Workflow Versions](manage-workflow-tasks.md)
