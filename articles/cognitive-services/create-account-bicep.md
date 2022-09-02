@@ -39,8 +39,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is a Cognitive Services resource. The `kind` field in the Bicep file defines the type of resource.
 
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
-
+[!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
 ## Deploy the Bicep file
 
