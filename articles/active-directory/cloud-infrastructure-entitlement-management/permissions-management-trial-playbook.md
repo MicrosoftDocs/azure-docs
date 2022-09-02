@@ -76,7 +76,7 @@ The dashboard leverages the Permission Creep Index, which is a single and unifie
     2.  [View information about users, roles, resources, and PCI trends](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-information-about-users-roles-resources-and-pci-trends)
     3.  [View identity findings](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-identity-findings)
     4.  [View resource findings](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-resource-findings)
-2.  [Configure your settings for data collection](../cloud-infrastructure-entitlement-management/product-data-sources.md) - use the **Data Collectors** dashboard in Permissions Management to view and configure settings for collecting data from your authorization systems.
+3.  [Configure your settings for data collection](../cloud-infrastructure-entitlement-management/product-data-sources.md) - use the **Data Collectors** dashboard in Permissions Management to view and configure settings for collecting data from your authorization systems.
 3.  [View organizational and personal information](../cloud-infrastructure-entitlement-management/product-account-settings.md) - the **Account settings** dashboard in Permissions Management allows you to view personal information, passwords, and account preferences.
 4.  [View information about identities, resources and tasks](../cloud-infrastructure-entitlement-management/usage-analytics-home.md) - the **Analytics** dashboard displays detailed information about:
     1.  **Users**: Tracks assigned permissions and usage by users. For more information, see View analytic information about users.
@@ -111,25 +111,15 @@ There are two facets to removing unused permissions: least privilege policy crea
     **Actions to try:**
 
     1. [View roles/policies and requests for permission](../cloud-infrastructure-entitlement-management/ui-remediation.md#view-and-create-rolespolicies)
-
     1. [View information about roles/ policies](../cloud-infrastructure-entitlement-management/ui-remediation.md#view-and-create-rolespolicies)
-
     1. [View information about active and completed tasks](../cloud-infrastructure-entitlement-management/ui-tasks.md)
-
     1. [Create a role/policy](../cloud-infrastructure-entitlement-management/how-to-create-role-policy.md)
-
     1. [Clone a role/policy](../cloud-infrastructure-entitlement-management/how-to-clone-role-policy.md)
-
     1. [Modify a role/policy](../cloud-infrastructure-entitlement-management/how-to-modify-role-policy.md)
-
     1. [Delete a role/policy](../cloud-infrastructure-entitlement-management/how-to-delete-role-policy.md)
-
     1. [Attach and detach policies for Amazon Web Services (AWS) identities](../cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions.md)
-
     1. [Add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities](../cloud-infrastructure-entitlement-management/how-to-add-remove-role-task.md)
-
     1. [Revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities](../cloud-infrastructure-entitlement-management/how-to-revoke-task-readonly-status.md)
-
     1. [Create or approve a request for permissions](../cloud-infrastructure-entitlement-management/how-to-create-approve-privilege-request.md) Request permissions on-demand for one-time use or on a schedule. These permissions will automatically be revoked at the end of the requested period.
 
 **Best Practices for Remediation:**
@@ -163,9 +153,9 @@ Prevent data breaches caused by misuse and malicious exploitation of permissions
 
     **Actions to try:**
 
-    a. [Use a query to view information](../cloud-infrastructure-entitlement-management/ui-audit-trail.md)
-    b. [Create a custom query](../cloud-infrastructure-entitlement-management/how-to-create-custom-queries.md)
-    c. [Generate an on-demand report from a query](../cloud-infrastructure-entitlement-management/how-to-audit-trail-results.md) 
+    a. [Use a query to view information](../cloud-infrastructure-entitlement-management/ui-audit-trail.md)   
+    b. [Create a custom query](../cloud-infrastructure-entitlement-management/how-to-create-custom-queries.md)  
+    c. [Generate an on-demand report from a query](../cloud-infrastructure-entitlement-management/how-to-audit-trail-results.md)   
     d. [Filter and query user activity](../cloud-infrastructure-entitlement-management/product-audit-trail.md)
 
 Use the **Activity triggers** dashboard to view information and set alerts and triggers. 
@@ -222,13 +212,13 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
     -   See data for **identity governance** to ensure inactive users are decommissioned because they left the company or to remove vendor accounts that have been left behind, old consultant accounts, or users who as part of the Joiner/Mover/Leaver process have moved onto another role and are no longer using their access. Consider this a fail-safe to ensure dormant accounts are removed.
     -   Identify over-permissioned access to later use the Remediation to pursue **Zero Trust and least privileges.**
 
-**Example of** [**Permissions Management Report**](https://microsoft.sharepoint.com/:v:/t/MicrosoftEntraPermissionsManagementAssets/EQWmUsMsdkZEnFVv-M9ZoagBd4B6JUQ2o7zRTupYrfxbGA)
-    **Actions to try**
-        a. [View system reports in the Reports dashboard](../cloud-infrastructure-entitlement-management/product-reports.md)
-        b. [View a list and description of system reports](../cloud-infrastructure-entitlement-management/all-reports.md)
-        c. [Generate and view a system report](../cloud-infrastructure-entitlement-management/report-view-system-report.md)
-        d. [Create, view, and share a custom report](../cloud-infrastructure-entitlement-management/report-create-custom-report.md)
-        e. [Generate and download the Permissions analytics report](../cloud-infrastructure-entitlement-management/product-permissions-analytics-reports.md)
+    **Example of** [**Permissions Management Report**](https://microsoft.sharepoint.com/:v:/t/MicrosoftEntraPermissionsManagementAssets/EQWmUsMsdkZEnFVv-M9ZoagBd4B6JUQ2o7zRTupYrfxbGA)                      
+    **Actions to try**    
+    a. [View system reports in the Reports dashboard](../cloud-infrastructure-entitlement-management/product-reports.md)  
+    b. [View a list and description of system reports](../cloud-infrastructure-entitlement-management/all-reports.md)  
+    c. [Generate and view a system report](../cloud-infrastructure-entitlement-management/report-view-system-report.md)  
+    d. [Create, view, and share a custom report](../cloud-infrastructure-entitlement-management/report-create-custom-report.md)  
+    e. [Generate and download the Permissions analytics report](../cloud-infrastructure-entitlement-management/product-permissions-analytics-reports.md)
 
 **Key Reports to Monitor:**
 
