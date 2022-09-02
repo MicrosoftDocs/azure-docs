@@ -10827,11 +10827,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/manage-apps/howto-enforce-signed-saml-authentication.md",
-      "redirect_url": "/azure/active-directory/manage-apps/howto-saml-token-encryption",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/active-directory/manage-apps/recover-deleted-apps-faq.md",
       "redirect_url": "/azure/active-directory/manage-apps/delete-recover-faq",
       "redirect_document_id": false
