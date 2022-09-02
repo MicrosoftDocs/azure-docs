@@ -138,7 +138,7 @@ Scheduling overhead exists when running actions, while waiting time between acti
 
 * No SLA guarantee exists on latency.
 
-*Logic App Consumption is a multitenant platform, and other customers' workload may negatively affect your logic app performance. 
+* Consumption workflows run on multi-tenant Azure Logic Apps, so other customers' workloads might negatively affect your workflow's performance.
 
 *If you want more predictable performance, you may consider [Integration Service Evironment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview) or [Logic App Standard](../logic-apps/single-tenant-overview-compare). With ISE and Logic App Standard, you have the control to scale up or scale out to improve the performance. 
 
