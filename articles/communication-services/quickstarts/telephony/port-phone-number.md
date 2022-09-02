@@ -34,7 +34,7 @@ Record your resource's **Azure ID** and **Immutable Resource ID**:
 
 ## Initiate the port request
 
-Toll-free and geographic numbers are eligible for porting. Follow the "New Port In Request" instructions [here](https://github.com/Azure/Communication/blob/master/special-order-numbers.md) to submit your port request
+Toll-free and geographic numbers are eligible for porting. Follow the ["New Port In Request" instructions](https://github.com/Azure/Communication/blob/master/special-order-numbers.md) to submit your port request
 
 ## Next steps
 
