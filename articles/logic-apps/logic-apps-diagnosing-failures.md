@@ -134,7 +134,7 @@ To help with debugging, you can add diagnostic steps to a logic app workflow, al
 
 Scheduling overhead exists when running actions, while waiting time between actions can happen due to backend system load. A workflow run duration includes these scheduling times and waiting times along with the sum of all of the action durations.
 
-1. **Most times my workflow completes within 10 seconds. But occasionally it takes as long as 50 seconds. How can I make sure it always finishes within 10 seconds?**
+### Usually, my workflow completes within 10 seconds. But, sometimes, completion can take much longer. How can I make sure the workflow always finishes within 10 seconds?
 
 *There is no SLA guarantee on latency. 
 
