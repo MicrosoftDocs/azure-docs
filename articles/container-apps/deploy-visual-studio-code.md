@@ -33,8 +33,8 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
     git clone https://github.com/Azure-Samples/containerapps-albumapi-javascript.git
     ```
 
-> [!NOTE]
-> This tutorial uses a JavaScript project, but the steps are language agnostic.
+    > [!NOTE]
+    > This tutorial uses a JavaScript project, but the steps are language agnostic.
 
 1. Open Visual Studio Code.
 
