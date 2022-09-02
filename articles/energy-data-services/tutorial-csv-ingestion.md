@@ -26,6 +26,7 @@ In this tutorial, you'll learn how to:
 ### Get Microsoft Energy Data Services instance details
 
 * Once the [Microsoft Energy Data Services instance](quickstart-create-project-oak-forest-instance.md) is created, note down the following details:
+
   | Parameter          | Value to use             | Example                               |
   | ------------------ | ------------------------ |-------------------------------------- |
   | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
@@ -39,7 +40,7 @@ In this tutorial, you'll learn how to:
 * Follow the [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to create a user token and note it down for future use.
 * Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user running this tutorial
 
-### How to setup Postman?
+### How to set up Postman
 
 * Download and install [Postman](https://www.postman.com/) desktop app
 * Import the following files into Postman:
@@ -51,7 +52,7 @@ In this tutorial, you'll learn how to:
   
 * Update the **CURRENT_VALUE** of the Postman environment with the information obtained in [Microsoft Energy Data Services instance details](#get-microsoft-energy-data-services-instance-details)
 
-### How to execute Postman requests?
+### How to execute Postman requests
 
   * The Postman collection for CSV parser ingestion contains a total of 10 requests, which have to be executed in a sequential manner.
   * Make sure to choose the **Ingestion Workflow Environment** before triggering the Postman collection.
@@ -61,29 +62,29 @@ In this tutorial, you'll learn how to:
 
 **Successful Postman request**
 
-  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-test-success.png" alt-text="Screenshot of a successful postman call.":::
+  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-test-success.png" alt-text="Screenshot of a successful postman call." lightbox="media/tutorial-csv-ingestion/tutorial-postman-test-success.png":::
 
 **Failed Postman request**
 
-  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure postman call.":::
+  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure postman call." lightbox="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png":::
 
 ## Ingest a sample wellbore data CSV file into the Microsoft Energy Data Services instance
 
-  1. **01 - Get a user token** - Generate the User token, which will be used to authenticate further API calls.
-  2. **02 - Create a schema** - Generate a schema that adheres to the columns present in the CSV file
-  3. **03 - Get schema details** - Get the schema created in the previous step and validate it
-  4. **04 - Create a legal tag** - Create a legal tag that will be added to the CSV data for data compliance purpose
-  5. **05 - Get a signed url for uploading a CSV file** - Get the signed URL path to which the CSV file will be uploaded
-  6. **06 - Upload a CSV file** - Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) to your local machine, and select this file in Postman by clicking the **Select File** option as shown in the Screenshot below.
+  1. **Get a user token** - Generate the User token, which will be used to authenticate further API calls.
+  2. **Create a schema** - Generate a schema that adheres to the columns present in the CSV file
+  3. **Get schema details** - Get the schema created in the previous step and validate it
+  4. **Create a legal tag** - Create a legal tag that will be added to the CSV data for data compliance purpose
+  5. **Get a signed url for uploading a CSV file** - Get the signed URL path to which the CSV file will be uploaded
+  6. **Upload a CSV file** - Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) to your local machine, and select this file in Postman by clicking the **Select File** option as shown in the Screenshot below.
     :::image type="content" source="media/tutorial-csv-ingestion/tutorial-select-csv-file.png" alt-text="Screenshot of uploading a CSV file.":::
-  7. **07 - Upload CSV file metadata** - Upload the file metadata information such as file location & other relevant fields
-  8. **08 - Trigger a CSV parser ingestion workflow** - Triggers the CSV Parser ingestion workflow DAG.
-  9. **09 - Get CSV parser ingestion workflow status** - Gets the status of CSV Parser Dag Run.
+  7. **Upload CSV file metadata** - Upload the file metadata information such as file location & other relevant fields
+  8. **Trigger a CSV parser ingestion workflow** - Triggers the CSV Parser ingestion workflow DAG.
+  9. **Get CSV parser ingestion workflow status** - Gets the status of CSV Parser Dag Run.
 
 ## Search for storage metadata records created during the CSV Ingestion
 
-  1. **10 - Search for ingested CSV records** - Search for the CSV records created earlier.
-    :::image type="content" source="media/tutorial-csv-ingestion/tutorial-search-success.png" alt-text="Screenshot of searching ingested CSV records.":::
+  1. **Search for ingested CSV records** - Search for the CSV records created earlier.
+    :::image type="content" source="media/tutorial-csv-ingestion/tutorial-search-success.png" alt-text="Screenshot of searching ingested CSV records." lightbox="media/tutorial-csv-ingestion/tutorial-search-success.png":::
 
 ## Next steps
 Advance to the next tutorial to learn how to do Manifest ingestion
