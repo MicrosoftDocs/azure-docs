@@ -48,7 +48,9 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of protected volume  |  100 TiB  |  N  |
 |  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
 |  Maximum number of manual backups per volume per day |  5  |  Y  |
-/* The maximum size of a standard volume is 100 TiB. You can create a [large volume](manage-large-volumes.md) up to 500 TiB.
+
+\* The maximum size of a standard volume is 100 TiB. You can create a [large volume](manage-large-volumes.md) up to 500 TiB.
+
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
 For limits and constraints related to Azure NetApp Files network features, see [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
@@ -89,13 +91,21 @@ The service dynamically adjusts the `maxfiles` limit for a volume based on its p
 |    > 1 TiB but <= 2 TiB    |    42,502,252     |
 |    > 2 TiB but <= 3 TiB    |    63,753,378     |
 |    > 3 TiB but <= 4 TiB    |    85,004,504     |
-|    > 4 TiB                 |    106,255,630    |
+|    > 4 TiB but <= 100 TiB  |    106,255,630    |
+
 
 If you have allocated at least 4 TiB of quota for a volume, you can initiate a [support request](#request-limit-increase) to increase the `maxfiles` (inodes) limit beyond 106,255,630. For every 100 million files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB. For example, if you increase the `maxfiles` limit from 106,255,630 files to 212,511,260 files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
 
 You can increase the `maxfiles` limit to 500 million if your volume quota is at least 20 TiB. 
 
-<!-- Add large volume example-->
+**For [large volumes](manage-large-volumes.md):**
+| Volume size (quota) | Automatic readjustment of the `maxfiles` limit |
+| - | - |
+|   > 100 TiB | 2,550,135,120 |
+             
+You can increase the `maxfiles` limit beyond 2,550,135,120 using a support request. For every 2,550,135,120 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 120 TiB. For example, if you increase `maxfiles` limit from 2,550,135,120 to 5,100,270,240 files (or any number in between), you need to increase the volume quota to at least 240 TiB.
+ 
+The maximum `maxfiles` value achievable is for a 500 TiB volume with a value of 10,625,563,000 files
 
 ## Request limit increase
 
