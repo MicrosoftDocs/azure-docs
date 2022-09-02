@@ -18,17 +18,17 @@ Responsible AI dashboards are linked to your registered models. To view your Res
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png" alt-text="Screenshot of the model details pane in Azure Machine Learning studio, with the 'Responsible AI' tab highlighted." lightbox= "./media/how-to-responsible-ai-dashboard/dashboard-model-details-tab.png":::
 
-You can configure multiple dashboards and attach them to your registered model. Various combinations of components (interpretability, error analysis, causal analysis, and so on) can be attached to each Responsible AI dashboard. The following image displays a dashboard's customization and what components were generated within it. In each dashboard, you can view or hide various components within the dashboard UI itself.
+You can configure multiple dashboards and attach them to your registered model. Various combinations of components (interpretability, error analysis, causal analysis, and so on) can be attached to each Responsible AI dashboard. The following image displays a dashboard's customization and the components that were generated within it. In each dashboard, you can view or hide various components within the dashboard UI itself.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-page.png" alt-text="Screenshot of Responsible AI tab with a dashboard name highlighted." lightbox = "./media/how-to-responsible-ai-dashboard/dashboard-page.png":::
 
-Select the name of the dashboard to open your dashboard into a full view in your browser. To return to your list of dashboards, you can select **Back to models details** at any time.
+Select the name of the dashboard to open it into a full view in your browser. To return to your list of dashboards, you can select **Back to models details** at any time.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-full-view.png" alt-text="Screenshot of a Responsible AI dashboard with the 'Back to model details' button highlighted." lightbox = "./media/how-to-responsible-ai-dashboard/dashboard-full-view.png":::
 
 ## Full functionality with integrated compute resource
 
-Some features of the Responsible AI dashboard require dynamic, on-the-fly, and real-time computation (for example, what-if analysis). Unless you connect a compute resource to the dashboard, you might find some functionality missing. Connecting to a compute resource enables full functionality of your Responsible AI dashboard for the following components:
+Some features of the Responsible AI dashboard require dynamic, on-the-fly, and real-time computation (for example, what-if analysis). Unless you connect a compute resource to the dashboard, you might find some functionality missing. When you connect to a compute resource, you enable full functionality of your Responsible AI dashboard for the following components:
 
 - **Error analysis**
     - Setting your global data cohort to any cohort of interest will update the error tree instead of disabling it.
@@ -65,7 +65,7 @@ You can also find this information on the Responsible AI dashboard page by selec
 
     :::image type="content" source="./media/how-to-responsible-ai-dashboard/compute-terminal-error.png" alt-text="Screenshot of an error connecting to a compute." lightbox ="./media/how-to-responsible-ai-dashboard/compute-terminal-error.png":::
 
-    If you're having issues with figuring out how to resolve the "failed to connect to compute instance" issue, select the “smile” icon at the upper right. Submit feedback to us about error or issue you hit. You can include a screenshot and/or your email address in the feedback form.
+    If you're having difficulty figuring out how to resolve the "failed to connect to compute instance" issue, select the **Smile** icon at the upper right. Submit feedback to us about any error or issue you encounter. You can include a screenshot and your email address in the feedback form.
 
 ## UI overview of the Responsible AI dashboard
 
@@ -121,6 +121,8 @@ You can add components back to your dashboard via the blue circular plus sign (*
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-add-component.png" alt-text="Screenshot of adding a component to the dashboard." lightbox= "./media/how-to-responsible-ai-dashboard/dashboard-add-component.png":::
 
 ### Error analysis
+
+The next sections cover how to interpret and use error tree maps and heat maps.
 
 #### Error tree map
 
@@ -192,19 +194,19 @@ Select **Help me choose metrics** to open a panel with a list of model performan
 | Regression | Mean absolute error, Mean squared error, R-squared, Mean prediction. |
 | Classification | Accuracy, Precision, Recall, F1 score, False positive rate, False negative rate, Selection rate. |
 
-Classification scenarios will support accuracy scores, precision scores, recall, false positive rate, false negative rate, and selection rate (the percentage of predictions with label 1): 
+Classification scenarios support accuracy scores, precision scores, recall, false positive rate, false negative rate, and selection rate (the percentage of predictions with label 1): 
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-choose-metrics-classification.png" alt-text="Screenshot of the dashboard 'Model overview' pane, showing supported performance metrics for classification models." lightbox= "./media/how-to-responsible-ai-dashboard/model-overview-choose-metrics-classification.png":::
 
 
-Regression scenarios will support mean absolute error, mean squared error, and mean prediction: 
+Regression scenarios support mean absolute error, mean squared error, and mean prediction: 
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-choose-metrics-regression.png" alt-text="Screenshot of the dashboard 'Model overview' pane, showing supported performance metrics for regression models." lightbox= "./media/how-to-responsible-ai-dashboard/model-overview-choose-metrics-regression.png":::
 
 
 #### Feature cohorts
 
-On the **Feature cohorts** pane, you can investigate your model by comparing model performance across user-specified sensitive/non-sensitive features (for example, performance across various gender, race, and income level cohorts).
+On the **Feature cohorts** pane, you can investigate your model by comparing model performance across user-specified sensitive and non-sensitive features (for example, performance across various gender, race, and income level cohorts).
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/model-overview-feature-cohorts.png" alt-text="Screenshot of the dashboard 'Model overview' pane, showing the 'Feature cohorts' tab." lightbox= "./media/how-to-responsible-ai-dashboard/model-overview-feature-cohorts.png":::
 
@@ -235,7 +237,7 @@ With the data explorer component, you can analyze data statistics along the x-ax
 3. **Y-axis**: Displays the type of value being plotted vertically. Modify the values by selecting the button to open a side panel.
 4. **Chart type**: Specifies the chart type. Choose between aggregate plots (bar charts) or individual data points (scatter plot).
 
-   Selecting the **Individual data points** option under **Chart type** shifts to a disaggregated view of the data with the availability of a color axis.
+   By selecting the **Individual data points** option under **Chart type**, you can shift to a disaggregated view of the data with the availability of a color axis.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/data-explorer-individual.png" alt-text="Screenshot of the dashboard, showing the data explorer with the 'Individual data points' option selected." lightbox= "./media/how-to-responsible-ai-dashboard/data-explorer-individual.png":::
 
@@ -252,17 +254,17 @@ By using the model explanation component, you can see which features were most i
 3. **Sort by**: Allows you to select which cohort's importances to sort the aggregate feature importance graph by.
 4. **Chart type**: Allows you to select between a bar plot view of average importances for each feature and a box plot of importances for all data.
 
-   When you select one of the features in the bar plot, the dependence plot is populated, as shown in the following image. The dependence plot shows the relationship of the values of a feature to its corresponding feature importance values, which affect the model prediction.  
+When you select one of the features in the bar plot, the dependence plot is populated, as shown in the following image. The dependence plot shows the relationship of the values of a feature to its corresponding feature importance values, which affect the model prediction.  
 
-   :::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png" alt-text="Screenshot of the dashboard, showing a populated dependence plot on the 'Aggregate feature importances' pane." lightbox="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png" alt-text="Screenshot of the dashboard, showing a populated dependence plot on the 'Aggregate feature importances' pane." lightbox="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png":::
 
-5. **Feature importance of [feature] (regression) or Feature importance of [feature] on [predicted class] (classification)**: Plots the importance of a particular feature across the predictions. For regression scenarios, the importance values are in terms of the output, so positive feature importance means it contributed positively toward the output. The opposite applies for negative feature importance.  For classification scenarios, positive feature importances mean that feature value is contributing toward the predicted class denoted in the y-axis title. Negative feature importance means it's contributing against the predicted class.
+5. **Feature importance of [feature] (regression) or Feature importance of [feature] on [predicted class] (classification)**: Plots the importance of a particular feature across the predictions. For regression scenarios, the importance values are in terms of the output, so positive feature importance means it contributed positively toward the output. The opposite applies to negative feature importance.  For classification scenarios, positive feature importances mean that feature value is contributing toward the predicted class denoted in the y-axis title. Negative feature importance means it's contributing against the predicted class.
 6. **View dependence plot for**: Selects the feature whose importances you want to plot.
 7. **Select a dataset cohort**: Selects the cohort whose importances you want to plot.
 
 #### Individual feature importances (local explanations)
 
-This pane explains how features influence the predictions that are made on specific data points. You can choose up to five data points to compare feature importances for.
+The following image illustrates how features influence the predictions that are made on specific data points. You can choose up to five data points to compare feature importances for.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/individual-feature-importance.png" alt-text="Screenshot of the dashboard, showing the 'Individual feature importances' pane." lightbox= "./media/how-to-responsible-ai-dashboard/individual-feature-importance.png":::
 
