@@ -7,7 +7,7 @@ metadata:
   ms.service: active-directory
   ms.subservice: B2B
   ms.topic: faq
-  ms.date: 08/10/2022
+  ms.date: 08/30/2022
   ms.author: mimart
   author: msmimart
   manager: celestedg
@@ -18,8 +18,8 @@ summary: |
   These frequently asked questions (FAQs) about Azure Active Directory (Azure AD) business-to-business (B2B) collaboration are periodically updated to include new topics.
   
   > [!IMPORTANT]
-  > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-web-view-sign-in-support).
-  > - The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. Learn more about [configuring email one-time passcode](one-time-passcode.md) and [plans for other fallback authentication methods](one-time-passcode.md#disable-email-one-time-passcode), such as unmanaged ("viral") accounts and Microsoft accounts.
+  > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you're using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-web-view-sign-in-support).
+  > - The [email one-time passcode](one-time-passcode.md) feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 
 sections:
   - name: General
