@@ -141,6 +141,10 @@ For more information, see [Functions Hosting plans comparison](../../azure-funct
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
 
+## Azure Lab Services
+
+[!INCLUDE [azure-lab-services-limits](../../../includes/azure-lab-services-limits.md)]
+
 ## Azure Load Testing limits
 
 For Azure Load Testing limits, see [Service limits in Azure Load Testing](../../load-testing/resource-limits-quotas-capacity.md).
