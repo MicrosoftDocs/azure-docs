@@ -59,7 +59,9 @@ items:
     - name: Proxy updates
       href: device-update-proxy-updates.md
     - name: Multi-step updates
-      href: device-update-multi-step-updates.md  
+      href: device-update-multi-step-updates.md
+    - name: Region mapping for BCDR
+      href: device-update-region-mapping.md  
   - name: Updating disconnected devices
     items:
     - name: Support for disconnected devices
@@ -92,7 +94,7 @@ items:
     displayName: Azure CLI, az iot, az iot device-update
   - name: Use delta updates
     href: delta-updates.md
-  - name: Use Related Files
+  - name: Use related files
     href: related-files.md
   - name: Configure private endpoints
     href: configure-private-endpoints.md

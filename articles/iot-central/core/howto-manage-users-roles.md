@@ -140,6 +140,8 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Delete | View <br/> Other dependencies: View device templates and device groups  |
 | Execute commands | Update, View <br/> Other dependencies: View device templates and device groups  |
 | View raw data | View <br/> Other dependencies: View device templates and device groups  |
+| View uploaded device files | View <br/> Other dependencies: View device templates and device groups  |
+| Delete uploaded device files | View <br/> Other dependencies: View device templates and device groups  |
 | Full Control | View, Update, Create, Delete, Execute commands, View raw data <br/> Other dependencies: View device templates and device groups  |
 
 **Device groups permissions**
@@ -273,6 +275,16 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Create | View, Update   |
 | Delete | View   |
 | Full Control | View, Update, Create, Delete |
+
+**Data explorer permissions**
+
+| Name | Dependencies |
+| ---- | -------- |
+| View | None <br/> Other dependencies: View device groups, device templates, device instances |
+| Update | View <br/> Other dependencies: View device groups, device templates, device instances |
+| Create | View, Update <br/> Other dependencies: View device groups, device templates, device instances |
+| Delete | View <br/> Other dependencies: View device groups, device templates, device instances |
+| Full Control | View, Update, Create, Delete <br/> Other dependencies: View device groups, device templates, device instances |
 
 **Branding, favicon, and colors permissions**
 
