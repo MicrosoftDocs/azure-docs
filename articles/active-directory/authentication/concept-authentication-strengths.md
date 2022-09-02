@@ -90,8 +90,8 @@ https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationStreng
 As we add support for additional authentication methods and combinations, the built-in authentication strengths policies will get updated. 
 
 ### Custom authentication strengths
-In addition to the three built-in authentication strengths, admins can create their own custom authentication strength policies to exactly suit their requirements. A custom authentication strength policy can contain any of the supported combinations in the preceding table. 
-Deleting a custom authentication strength is not allowed if the authentication strength policy is referenced by any Conditional Access policy.
+In addition to the three built-in authentication strengths, administrators can create their own custom authentication strength policies to exactly suit their requirements. A custom authentication strength policy can contain any of the supported combinations in the preceding table. 
+Deleting a custom authentication strength is not allowed if the authentication strength policy is referenced by any CA policy.
 
 <!--
 ### Place holder: How to create custom authentication strengths policy including FIDO2 AA GUID
@@ -106,17 +106,17 @@ Deleting a custom authentication strength is not allowed if the authentication s
 
 To evaluate if the user should gain access to the resource, the following considerations are taken into account: 
 
-- Which methods are available in the Authentication Strength policy? 
-- Which methods are allowed for user sign-in in the Authentication Method policy?
+- Which methods are available in the authentication strength policy? 
+- Which methods are allowed for user sign-in in the authentication methods policy?
 - Is the user registered for the required methods?
 
-When accessing a resource protected by an authentication strength Conditional Access policy, we evaluate if the methods they have previously used satisfy the authentication requirements. For example, let's say a user signs in with Password + SMS. They access a resource protected by an MFA authentication strength policy. In this case, the user can access the resource without another authentication prompt.
+When accessing a resource protected by an authentication strength CA policy, we evaluate if the methods they have previously used satisfy the authentication requirements. For example, let's say a user signs in with Password + SMS. They access a resource protected by an MFA authentication strength policy. In this case, the user can access the resource without another authentication prompt.
 
 Then they access a resource protected by a Phishing-resistant MFA authentication strength policy. At this point, the user will be prompted to provide a phishing-resistant authentication method, such as Windows Hello for Business. 
 
-If the user has never used the method required by the authentication strength policy, the user will be redirected to register the required methods. Registering additional strong authentication methods is possible only if the user can satisfy MFA requirements.
+If the user has never used a method required by the authentication strength policy, the user will be redirected to register a required method. Only users who satisfy MFA are redirected to registering another strong authentication method.
 
-If the authentication strength policy doesn't include methods that the user can register and use, the user is blocked from sign-in to the resource. 
+If the authentication strength policy doesn't include a method that the user can register and use, the user is blocked from sign-in to the resource. 
 
 ### User experience for external users
 <!-- Namrata to add -->
