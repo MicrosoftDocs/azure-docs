@@ -33,7 +33,7 @@ During the patching of `PersistentVolumeClaim`, the status of the persistent vol
 
 ## 1. Scale the `StatefulSets` replicas to 0
 
-There is one `StatefulSet` deployed for each Arc SQL MI. The number of replicas in the `StatefulSet` is equal to the number of replicas in the Arc SQL MI. For General Purpose service tier, this is 1. For Business Critical service tier it could be 1, 2 or 3 depending on how many replicas were specified. Run the below command to get the number of statefulset replicas if you have a Business Critical instance. 
+There is one `StatefulSet` deployed for each Arc SQL MI. The number of replicas in the `StatefulSet` is equal to the number of replicas in the Arc SQL MI. For General Purpose service tier, this is 1. For Business Critical service tier it could be 1, 2 or 3 depending on how many replicas were specified. Run the below command to get the number of `StatefulSet` replicas if you have a Business Critical instance. 
 
 ```console
 kubectl get sts --namespace  <namespace>
@@ -74,7 +74,7 @@ kubectl get pvc --namespace arc
 ```
 
 
-Once the stateful `StatefulSets` replicas has completed scaling down to 0, patch the  `StatefulSets`. Run the following command:
+Once the stateful `StatefulSet` replicas have completed scaling down to 0, patch the  `StatefulSets`. Run the following command:
 
 ```console
 $newsize='{\"spec\":{\"resources\":{\"requests\":{\"storage\":\"<newsize>Gi\"}}}}'
