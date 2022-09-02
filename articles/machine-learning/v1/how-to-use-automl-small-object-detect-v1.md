@@ -7,17 +7,12 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/13/2021
-ms.custom: sdkv2, event-tier1-build-2022
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Train a small object detection model with AutoML (preview)
 
-<todo phm: Check with Samantha is the title1 in the below selector is apprropriate>
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/how-to-use-automl-small-object-detect-v1.md)
-> * [v2 (current version)](how-to-use-automl-small-object-detect.md)
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -44,66 +39,33 @@ Small object detection using tiling is supported for all models supported by Aut
 
 ## Enable tiling during training
 
-To enable tiling, you can set the `tile_grid_size` parameter to a value like `'3x2'`; where 3 is the number of tiles along the width dimension and 2 is the number of tiles along the height dimension. When this parameter is set to `'3x2'`, each image is split into a grid of 3 x 2 tiles. Each tile overlaps with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles. This overlap can be controlled by the `tile_overlap_ratio` parameter, which defaults to 25%.
+To enable tiling, you can set the `tile_grid_size` parameter to a value like (3, 2); where 3 is the number of tiles along the width dimension and 2 is the number of tiles along the height dimension. When this parameter is set to (3, 2), each image is split into a grid of 3 x 2 tiles. Each tile overlaps with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles. This overlap can be controlled by the `tile_overlap_ratio` parameter, which defaults to 25%.
 
 When tiling is enabled, the entire image and the tiles generated from it are passed through the model. These images and tiles are resized according to the `min_size` and `max_size` parameters before feeding to the model. The computation time increases proportionally because of processing this extra data.
 
-For example, when the `tile_grid_size` parameter is `'3x2'`, the computation time would be approximately seven times when compared to no tiling.
+For example, when the `tile_grid_size` parameter is (3, 2), the computation time would be approximately seven times when compared to no tiling.
 
 You can specify the value for `tile_grid_size` in your hyperparameter space as a string.
 
-<todo phm: see if we should use set_image_model here instead of parameter_space>
-
-# [CLI v2](#tab/CLI-v2)
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-```yaml
-search_space:
-  - model_name: "fasterrcnn_resnet50_fpn"
-    tile_grid_size: "choice('3x2')"
-```
-
-# [Python SDK v2 (preview)](#tab/SDK-v2)
-
 ```python
-image_object_detection_job.extend_search_space(
-	ImageObjectDetectionSearchSpace(
-		model_name=Choice(['fasterrcnn_resnet50_fpn']),
-		tile_grid_size=Choice(['3x2'])
-	)
-)
+parameter_space = {
+	'model_name': choice('fasterrcnn_resnet50_fpn'),
+	'tile_grid_size': choice('(3, 2)'),
+	...
+}
 ```
----
 
 The value for `tile_grid_size` parameter depends on the image dimensions and size of objects within the image. For example, larger number of tiles would be helpful when there are smaller objects in the images.
 
 To choose the optimal value for this parameter for your dataset, you can use hyperparameter search. To do so, you can specify a choice of values for this parameter in your hyperparameter space.
 
-<todo phm: need to update the CLI and SDK examples once changes from Nilesh and Madhu are in>
-
-# [CLI v2](#tab/CLI-v2)
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-```yaml
-search_space:
-  - model_name: "fasterrcnn_resnet50_fpn"
-    tile_grid_size: "choice('2x1', '3x2', '5x3')"
-```
-
-# [Python SDK v2 (preview)](#tab/SDK-v2)
-
 ```python
-image_object_detection_job.extend_search_space(
-	ImageObjectDetectionSearchSpace(
-		model_name=Choice(['fasterrcnn_resnet50_fpn']),
-		tile_grid_size=Choice(['2x1', '3x2', '5x3'])
-	)
-)
+parameter_space = {
+	'model_name': choice('fasterrcnn_resnet50_fpn'),
+	'tile_grid_size': choice('(2, 1)', '(3, 2)', '(5, 3)'),
+	...
+}
 ```
----
-
 ## Tiling during inference
 
 When a model trained with tiling is deployed, tiling also occurs during inference. Automated ML uses the `tile_grid_size` value from training to generate the tiles during inference. The entire image and corresponding tiles are passed through the model, and the object proposals from them are merged to output final predictions, like in the following image.
@@ -125,16 +87,14 @@ The following are the parameters you can use to control the tiling feature.
 
 | Parameter Name	| Description	| Default |
 | --------------- |-------------| -------|
-| `tile_grid_size` |  The grid size to use for tiling each image. Available for use during training, validation, and inference.<br><br> Should be passed as a string in `'3x2'` format.<br><br> *Note: Setting this parameter increases the computation time proportionally, since all tiles and images are processed by the model.*| no default value |
+| `tile_grid_size` |  The grid size to use for tiling each image. Available for use during training, validation, and inference.<br><br>Tuple of two integers passed as a string, e.g `'(3, 2)'`<br><br> *Note: Setting this parameter increases the computation time proportionally, since all tiles and images are processed by the model.*| no default value |
 | `tile_overlap_ratio` | Controls the overlap ratio between adjacent tiles in each dimension. When the objects that fall on the tile boundary are too large to fit completely in one of the tiles, increase the value of this parameter so that the objects fit in at least one of the tiles completely.<br> <br>  Must be a float in [0, 1).| 0.25 |
 | `tile_predictions_nms_thresh` | The intersection over union  threshold to use to do non-maximum suppression (nms) while merging predictions from tiles and image. Available during validation and inference. Change this parameter if there are multiple boxes detected per object in the final predictions.  <br><br> Must be float in [0, 1]. | 0.25 |
 
 
 ## Example notebooks
 
-<todo phm: this link in other docs is pointing to sdk-preview branch. needs to be updated>
-
-See the [object detection sample notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb) for detailed code examples of setting up and training an object detection model.
+See the [object detection sample notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection/auto-ml-image-object-detection.ipynb) for detailed code examples of setting up and training an object detection model.
 
 >[!NOTE]
 > All images in this article are made available in accordance with the permitted use section of the [MIT licensing agreement](https://choosealicense.com/licenses/mit/).
