@@ -23,7 +23,7 @@ This page describes the private access option. For public access, see
 **Virtual network**. An Azure Virtual Network (VNet) is the fundamental
 building block for private networking in Azure. Virtual networks enable many
 types of Azure resources, such as database servers and Azure Virtual Machines
-(VM), to securely communicate with each other. Virtual networks support on-prem
+(VM), to securely communicate with each other. Virtual networks support on-premises
 connections, allow hosts in multiple virtual networks to interact with each
 other through peering, and provide added benefits of scale, security options,
 and isolation. Each private endpoint for a Hyperscale (Citus) server group
