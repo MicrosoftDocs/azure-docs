@@ -89,6 +89,8 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on an Azure Kubernetes Service (AKS) cluster limits how you can access cluster resources through the portal. A read-only lock prevents you from using the AKS cluster's Kubernetes resources section in the Azure portal to choose a cluster resource. These operations require a POST method request for authentication.
 
+- A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents certain resource links related to Site Recovery from being removed properly when you remove the protection or disable replication. If you plan to re-protect the VM later, you need to remove the lock prior to disabling protection. In case you miss to remove the lock, you need to follow certain steps to clean up the stale links before you can re-protect the VM. For more information, see [Troubleshoot Azure VM replication](../../site-recovery/azure-to-azure-troubleshoot-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
+
 ## Who can create or delete locks
 
 To create or delete management locks, you need access to `Microsoft.Authorization/*` or `Microsoft.Authorization/locks/*` actions. Only the **Owner** and the **User Access Administrator** built-in roles can create and delete management locks. You can create a custom role with the required permissions.
