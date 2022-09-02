@@ -5,7 +5,7 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 08/30/2022
+ms.date: 09/01/2022
 ms.author: v-smcevoy
 ---
 
@@ -52,9 +52,6 @@ For tools that require a redirect URL, select **Add a platform** to configure th
 Select **Certificates & Secrets** and select **New Client Secret**.
 
 Add and then copy the secret value.
-
->[!NOTE]
->It is important that you save the secret value, not the secret ID.
 
 [ ![Screenshot of certificates and secrets.](media/register-application-six.png) ](media/register-application-six.png#lightbox)
 
