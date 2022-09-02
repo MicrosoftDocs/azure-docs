@@ -217,13 +217,13 @@ Script compilation checks syntax and generates the Azure Resource Manager templa
 
 After compilation, you can see results in the **Output** window. You can find the two generated Azure Resource Manager templates in the **Deploy** subfolder in your project folder. These two files are used for automatic deployment.
 
-:::image type="content" source="./media/quick-create-visual-studio-code/quick-create-visual-studio-code/deployment-templates.png" alt-text="Screenshot showing the generated deployment templates in the project folder."::: 
+:::image type="content" source="./media/quick-create-visual-studio-code/deployment-templates.png" alt-text="Screenshot showing the generated deployment templates in the project folder."::: 
 
 ## Submit a Stream Analytics job to Azure
 
 1. In the script editor window of your query script, select **Submit to Azure**.
 
-:::image type="content" source="./media/quick-create-visual-studio-code/quick-create-visual-studio-code/quick-create-visual-studio-code/submit-job.png" alt-text="Screenshot showing the submit job button to submit the Stream Analytics job to Azure."::: 
+:::image type="content" source="./media/quick-create-visual-studio-code/submit-job.png" alt-text="Screenshot showing the submit job button to submit the Stream Analytics job to Azure."::: 
 2. Select your subscription from the pop-up list.
 3. Choose **Select a job**. Then choose **Create New Job**.
 4. Enter your job name, **myASAjob**. Then follow the instructions to choose the resource group and location.
@@ -235,7 +235,7 @@ After compilation, you can see results in the **Output** window. You can find th
 1. Open **Stream Analytics Explorer** in Visual Studio Code and find your job, **myASAJob**.
 2. Select **Start** from the **Cloud view** page (OR) right-click the job name in Stream Analytics explorer, and select **Start** from the context menu.
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/quick-create-visual-studio-code/quick-create-visual-studio-code/start-asa-job-vs-code.png" alt-text="Screenshot showing the Start job button in the Cloud view page."::: 
+    :::image type="content" source="./media/quick-create-visual-studio-code/start-asa-job-vs-code.png" alt-text="Screenshot showing the Start job button in the Cloud view page."::: 
 4. Note that the job status has changed to **Running**. Right-click the job name and select **Open Job View in Portal** to see the input and output event metrics. This action might take a few minutes.
 5. To view the results, open the blob storage in the Visual Studio Code extension or in the Azure portal.
 
