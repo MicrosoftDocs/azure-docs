@@ -44,7 +44,7 @@ Use the redeployment option if you have set up good Infrastructure as Code (IaC)
 
 - When you redeploy your VM and VMSS resources, the underlying resources such as managed disk and IP address for the VM are created in the same availability zone. You must use a Standard SKU public IP address and load balancer to create zone-redundant network resources.  
 
-- Existing managed disks without availability zone support can't be attached to a VM with availability zone support. To attach an existing managed disk to a VM with availability zone support, you'll need to take a snapshot of the current disk, and then create your VM with the new managed disk attached.
+- Existing managed disks without availability zone support can't be attached to a VM with availability zone support. To attach existing managed disks to a VM with availability zone support, you'll need to take a snapshot of the current disks, and then create your VM with the new managed disks attached.
 
 - For zonal deployments that require reasonably low network latency and good performance between application tier and data tier, use [proximity placement groups](../virtual-machines/co-location.md). Proximity groups can force grouping of different VM resources under a single network spine. For an example of an SAP workload that uses proximity placement groups, see [Azure proximity placement groups for optimal network latency with SAP applications](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md)
 
