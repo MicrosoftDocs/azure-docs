@@ -75,7 +75,7 @@ If you'll be taking a snapshot of a disk that's attached to a running VM, read t
 > The source managed disks remain intact with their current configurations and you'll continue to be billed for them. To avoid this, you must manually delete the disks once you've finished your migration and confirmed the new disks are working. For more information, see [Find and delete unattached Azure managed and unmanaged disks](../virtual-machines/windows/find-unattached-disks.md).
 
 
-#### Step 2: Migrate your managed disk
+#### Step 2: Migrate the data on your managed disks
 
 ##### Migrate your data to zonal managed disks
 
