@@ -78,13 +78,13 @@ handle semi-structured data.
 
 ```sql
 -- Querying JSONB type. Query is parallelized across nodes.
--- Find the number of commits on the master branch per hour 
+-- Find the number of commits on the default branch per hour 
 
 SELECT date_trunc('hour', created_at) AS hour,
        sum((payload->>'distinct_size')::int) AS num_commits
 FROM   github_events
 WHERE  event_type = 'PushEvent' AND
-       payload @> '{"ref":"refs/heads/master"}'
+       payload @> '{"ref":"refs/heads/main"}'
 GROUP BY hour
 ORDER BY hour;
 ```
