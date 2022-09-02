@@ -56,6 +56,14 @@
           href: tutorial-1st-experiment-bring-data.md
     - name: "Build a training pipeline (Python)"
       href: "tutorial-pipeline-python-sdk.md"
+- name: Samples (v1)
+  items: 
+    - name: Jupyter Notebooks
+      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
+      href: samples-notebooks-v1.md
+    - name: Examples repository
+      displayName: example, examples, jupyter, python, notebook, github
+      href: https://github.com/azure/machinelearningnotebooks
 - name: How-to guides (v1)
   items:
   - name: Install and set up the CLI (v1)

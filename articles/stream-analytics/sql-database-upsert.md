@@ -1,9 +1,6 @@
 ---
 title: Update or merge records in Azure SQL Database with Azure Functions
 description: This article describes how to use Azure Functions to update or merge records from Azure Stream Analytics to Azure SQL Database
-author: fleid
-
-ms.author: fleide
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/03/2021

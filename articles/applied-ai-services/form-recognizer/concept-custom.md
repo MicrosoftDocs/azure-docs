@@ -62,7 +62,7 @@ The table below compares custom template and custom neural features:
 |---|---|---|
 |Document structure|Template, form, and structured | Structured, semi-structured, and unstructured|
 |Training time | 1 to 5 minutes | 20 minutes to 1 hour |
-|Data extraction | Key-value pairs, tables, selection marks, coordinates, and signatures | Key-value pairs and selection marks |
+|Data extraction | Key-value pairs, tables, selection marks, coordinates, and signatures | Key-value pairs, selection marks and tables|
 |Document variations | Requires a model per each variation | Uses a single model for all variations |
 |Language support | Multiple [language support](language-support.md#read-layout-and-custom-form-template-model)  | United States English (en-US) [language support](language-support.md#custom-neural-model) |
 
@@ -117,7 +117,7 @@ This table compares the supported data extraction areas:
 |Model| Form fields | Selection marks | Structured fields (Tables) | Signature | Region labeling |
 |--|:--:|:--:|:--:|:--:|:--:|
 |Custom template| ✔ | ✔ | ✔ | ✔ | ✔ |
-|Custom neural| ✔| ✔ |**n/a**| **n/a** | **n/a** |
+|Custom neural| ✔| ✔ | ✔ | **n/a** | **n/a** |
 
 **Table symbols**: ✔—supported; **n/a—currently unavailable
 

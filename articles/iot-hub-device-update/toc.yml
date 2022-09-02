@@ -59,7 +59,9 @@ items:
     - name: Proxy updates
       href: device-update-proxy-updates.md
     - name: Multi-step updates
-      href: device-update-multi-step-updates.md  
+      href: device-update-multi-step-updates.md
+    - name: Region mapping for BCDR
+      href: device-update-region-mapping.md  
   - name: Updating disconnected devices
     items:
     - name: Support for disconnected devices
