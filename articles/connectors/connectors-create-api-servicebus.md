@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 09/02/2021
 tags: connectors
 ---
 
@@ -199,9 +199,28 @@ When you need to send related messages in a specific order, you can use the [*se
 
 When you create a logic app, you can select the **Correlated in-order delivery using service bus sessions** template, which implements the sequential convoy pattern. For more information, see [Send related messages in order](../logic-apps/send-related-messages-sequential-convoy.md).
 
+
 ## Delays in updates to your logic app taking effect
 
 If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your logic app  workflow might not take effect for up to 10 minutes. To work around this problem, you can disable the logic app, make the changes, and then enable the logic app workflow again.
+
+## Troubleshooting
+
+Occasionally operations like completing a message or renewing a session may end up with the **'No session available'** error.
+
+``` json
+{
+  "status": 400,
+  "message": "No session available to complete the message with the lock token 'ce440818-f26f-4a04-aca8-555555555555'. clientRequestId: facae905-9ba4-44f4-a42a-888888888888",
+  "error": {
+    "message": "No session available to complete the message with the lock token 'ce440818-f26f-4a04-aca8-555555555555'."
+  }
+}
+```
+
+The connector uses an in-memory cache to support all the operations associated with the sessions. The service bus receiver which received the messages is cached in the memory in the role instance(virtual machine) which received the message and all the calls for that connection are routed to this same role instance to process all the requests. This is required as all the actions on the session like get more messages/complete/abandon/deadletter/close/renew session etc needs the same receiver which received the messages for a particular session. There are chances when the requests might not be routed to the same role instance, it could happen cause of several reasons like the infrastructure update or the connector deployment, etc. If this happens, then the requests would fail as the receiver for performing earlier mentioned actions on the session is not available on the role instance which serves the request.
+
+Thus the above error is expected as long as it happens only occasionally.  When the error happens, the message is still preserved in service bus, and next trigger or run will try to process it again.
 
 <a name="connector-reference"></a>
 
