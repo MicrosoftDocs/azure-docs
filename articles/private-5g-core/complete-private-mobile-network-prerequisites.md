@@ -76,7 +76,7 @@ For each site you're deploying, do the following:
 
 DNS allows the translation between human-readable domain names and their associated machine-readable IP addresses. Depending on your requirements, you have the following options for configuring a DNS server for your data network:
 
-- If you need the UEs connected to this data network to resolve domain names and access the public internet, you must configure one or more DNS servers. You can use public servers such as Google DNS (*8.8.8.8* and *8.8.4.4*).
+- If you need the UEs connected to this data network to resolve domain names and access the public internet, you must configure one or more DNS servers. For example, you can use public servers such as Google DNS (*8.8.8.8* and *8.8.4.4*).
 - If you only need the UEs in this data network for local traffic (for example, [UE-to-UE traffic](private-5g-core-overview.md#ue-to-ue-traffic)), you can skip this step. Note that all UEs using that network will then be unable to access the public internet.
 
 ## Prepare your networks
