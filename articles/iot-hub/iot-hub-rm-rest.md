@@ -23,9 +23,7 @@ To complete this tutorial, you need the following:
 
 * Visual Studio.
 
-* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
-
-* [Azure PowerShell 1.0](/powershell/azure/install-Az-ps) or later.
+* [Azure PowerShell](/powershell/azure/install-Az-ps).
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 

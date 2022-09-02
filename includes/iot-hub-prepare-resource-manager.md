@@ -31,7 +31,7 @@ The following steps show how to set up password authentication for an AD applica
         -SubscriptionName "{your subscription name}"
     ```
 
-2. Make a note of your **TenantId** and **SubscriptionId**. You need them later.
+2. Make a note of your **Id** and **TenantId**. You need them later.
 3. Create a new Azure Active Directory application using the following command, replacing the place holders:
    
    * **{Display name}:** a display name for your application such as **MySampleApp**
@@ -40,7 +40,7 @@ The following steps show how to set up password authentication for an AD applica
    * **{Password}:** A password that you use to authenticate with your app.
      
      ```powershell
-     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
+     $SecurePassword=ConvertTo-SecureString {password} -asplaintext -force
      New-AzADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. Make a note of the **ApplicationId** of the application you created. You need this later.
