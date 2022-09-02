@@ -191,3 +191,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 ```java
 roomsClient.deleteRoomWithResponse(roomId, Context.NONE);
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [Java SDK reference](/java/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).

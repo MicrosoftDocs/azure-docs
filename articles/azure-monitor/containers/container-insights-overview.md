@@ -20,13 +20,14 @@ Container insights is a feature designed to monitor the performance of container
 Container insights supports clusters running the Linux and Windows Server 2019 operating system. The container runtimes it supports are Moby and any CRI-compatible runtime such as CRI-O and ContainerD. Docker is no longer supported as a container runtime as of September 2022. For more information about this deprecation, see the [AKS release notes][aks-release-notes].
 
 >[!NOTE]
-> Container insights support for Windows Server 2022 operating system is in public preview.
+> Container insights support for Windows Server 2022 operating system and AKS for ARM nodes is in public preview.
 
 Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
 
 Container insights gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable monitoring from Kubernetes clusters, metrics and Container logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux. Metrics are sent to the [metrics database in Azure Monitor](../essentials/data-platform-metrics.md). Log data is sent to your [Log Analytics workspace](../logs/log-analytics-workspace-overview.md).
 
-:::image type="content" source="media/container-insights-overview/azmon-containers-architecture-01.png" lightbox="media/container-insights-overview/azmon-containers-architecture-01.png" alt-text="Screenshot that shows an overview diagram of Container insights.":::
+:::image type="content" source="media/container-insights-overview/azmon-containers-architecture-01.png" lightbox="media/container-insights-overview/azmon-containers-architecture-01.png" alt-text="Overview diagram of Container insights" border="false":::
+
 
 ## Features of Container insights
 

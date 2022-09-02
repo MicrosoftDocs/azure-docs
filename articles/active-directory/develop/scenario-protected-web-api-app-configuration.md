@@ -111,8 +111,11 @@ Microsoft recommends you use the [Microsoft.Identity.Web](https://www.nuget.org/
 
 _Microsoft.Identity.Web_ provides the glue between ASP.NET Core, the authentication middleware, and the [Microsoft Authentication Library (MSAL)](msal-overview.md) for .NET. It allows for a clearer, more robust developer experience and leverages the power of the Microsoft identity platform and Azure AD B2C.
 
+#### ASP.NET for .NET 6.0
 
-**ASP.NET for .NET 6.0** - To create a new web API project that uses Microsoft.Identity.Web, use a project template in the .NET 6.0 CLI or Visual Studio.
+To create a new web API project that uses Microsoft.Identity.Web, use a project template in the .NET 6.0 CLI or Visual Studio.
+
+**Dotnet core CLI**
 
 ```dotnetcli
 # Create new web API that uses Microsoft.Identity.Web
@@ -212,9 +215,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 ```
 
 > [!NOTE]
-> If you use Microsoft.Identity.Web and don't set the `Audience` in *appsettings.json*, the following is used:
-> -  `$"{ClientId}"` if you have set the [access token accepted version](scenario-protected-web-api-app-registration.md#accepted-token-version) to `2`, or for Azure AD B2C web APIs.
-> - `$"api://{ClientId}` in all other cases (for v1.0 [access tokens](access-tokens.md)).
+> If you use Microsoft.Identity.Web and don't set the `Audience` in *appsettings.json*, `$"{ClientId}"` is automatically used if you have set the [access token accepted version](scenario-protected-web-api-app-registration.md#accepted-token-version) to `2`, or for Azure AD B2C web APIs.
 
 ## Token validation
 
@@ -283,3 +284,4 @@ You can also validate incoming access tokens in Azure Functions. You can find ex
 
 Move on to the next article in this scenario,
 [Verify scopes and app roles in your code](scenario-protected-web-api-verification-scope-app-roles.md).
+

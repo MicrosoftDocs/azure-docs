@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: Cloud authentication via Staged Rollout | Microsoft Docs'
 description: This article explains how to migrate from federated authentication, to cloud authentication, by using a Staged Rollout.
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
