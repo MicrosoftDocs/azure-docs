@@ -88,7 +88,6 @@ To migrate a non-zonal managed disk to zonal:
     ```
 
 
-    >[!NOTE]
 
 **To migrate a non-zonal managed disk to zone-redundant:**
 
