@@ -35,7 +35,7 @@ One of the biggest benefits of using the Azure Machine Learning ecosystem is rel
   
   After training your model and generating its corresponding Responsible AI dashboards for assessment and decision-making purposes, you can extract those learnings via our PDF scorecard and share the report easily with your technical and non-technical stakeholders. Doing so helps build trust and gain their approval for deployment.  
 
-* If you're a product manager, business leader, or an accountable stakeholder on an AI product:
+* If you're a product manager, a business leader, or an accountable stakeholder on an AI product:
 
    You can pass your desired model performance and fairness target values, such as target accuracy or target error rate, to your data science team. The team can generate a scorecard with respect to your identified target values, assess whether your model meets them, and then advise as to whether the model should be deployed or further improved.
 
@@ -275,11 +275,11 @@ You can see the top important factors that affect your model predictions, which 
 
 :::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-feature-importance.png" alt-text="Screenshot of the top important factors on the Responsible AI scorecard PDF.":::
 
-You can further see your model fairness insights summarized and inspect how well your model is satisfying the fairness target values you had set for your desired sensitive groups:
+You can further see your model fairness insights summarized and inspect how well your model is satisfying the fairness target values you've set for your desired sensitive groups:
 
 :::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-fairness.png" alt-text="Screenshot of the fairness insights on the Responsible AI scorecard PDF.":::
 
-Finally, you can see your dataset's causal insights summarized, to determine whether your identified factors or treatments have any causal effect on the real-world outcome:
+Finally, you can see your dataset's causal insights summarized, which can help you determine whether your identified factors or treatments have any causal effect on the real-world outcome:
 
 :::image type="content" source="./media/how-to-responsible-ai-scorecard/scorecard-causal.png" alt-text="Screenshot of the dataset's causal insights on the Responsible AI scorecard PDF.":::
 
