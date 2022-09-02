@@ -7,7 +7,6 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 08/30/2022
 ms.author: v-smcevoy
-
 ---
 
 # Register a client application for the DICOM service in Azure Active Directory
