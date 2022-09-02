@@ -297,9 +297,10 @@ Select VMs for migration.
 
 17. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.
-    - If you exclude disks, won't be present on the Azure VM after migration.
+    - If you exclude disks, they won't be present on the Azure VM after migration.
 
     :::image type="content" source="./media/tutorial-migrate-vmware-agent/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware-agent/disks-expanded.png":::
+    - You can exclude disks if the mobility agent is already installed on that server. [Learn more](../site-recovery/exclude-disks-replication.md#exclude-limitations).
 
 18. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
 

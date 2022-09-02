@@ -204,6 +204,8 @@
         href: asccontracts-tutorial.md
       - name: Ascentis
         href: ascentis-tutorial.md
+      - name: AsignetSSOIntegration
+        href: asignet-sso-tutorial.md
       - name: askSpoke
         href: askspoke-tutorial.md
       - name: AskYourTeam
@@ -913,6 +915,8 @@
         href: fortiweb-web-application-firewall-tutorial.md 
       - name: foundU
         href: foundu-tutorial.md
+      - name: FourKites SAML2.0 SSO for Tracking
+        href: fourkites-tutorial.md
       - name: Framer
         href: framer-tutorial.md
       - name: Freedcamp
