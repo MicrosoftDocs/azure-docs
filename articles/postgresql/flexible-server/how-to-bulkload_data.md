@@ -214,7 +214,7 @@ SELECT pg_current_wal_lsn ();
 ```
 
 - Use the two results to check the difference in GB:
-- 
+ 
 ```sql
 SELECT round (pg_wal_lsn_diff('LSN value when run second time','LSN value when run first time')/1024/1024/1024,2) WAL_CHANGE_GB; 
 ```
