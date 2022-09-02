@@ -7,7 +7,7 @@ ms.date: 08/29/2022
 
 # Manage access with the Video Indexer Restricted Viewer role
 
-Azure Video Indexer enables managing access to the Azure Video Indexer resource at account level with the following built-in role: **Video Indexer Restricted Viewer**. 
+Azure Video Indexer enables managing access to the Azure Video Indexer resource at the account level with the following built-in role: **Video Indexer Restricted Viewer**. 
 
 If you have the owner or administrator Azure AD permissions, you can assign **Video Indexer Restricted Viewer** role to specific users or security groups for your account. For information on how to assign roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
 
