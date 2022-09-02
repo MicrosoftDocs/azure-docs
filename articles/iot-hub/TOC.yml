@@ -1,4 +1,4 @@
-﻿- name: IoT Hub documentation
+- name: IoT Hub documentation
   href: index.yml
 - name: Overview
   items:
@@ -175,24 +175,24 @@
         - name: Security baseline
           href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
         - name: Recommendations
-          href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
+          href: ../iot-fundamentals/security-recommendations.md?context=/azure/iot-hub/rc/rc
         - name: Security from the ground up
-          href: ../iot-fundamentals/iot-security-ground-up.md?context=%2fazure%2fiot-hub%2frc%2frc
+          href: ../iot-fundamentals/iot-security-ground-up.md?context=/azure/iot-hub/rc/rc
         - name: Security best practices
-          href: ../iot-fundamentals/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
+          href: ../iot-fundamentals/iot-security-best-practices.md?context=/azure/iot-hub/rc/rc
         - name: Security architecture
-          href: ../iot-fundamentals/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
+          href: ../iot-fundamentals/iot-security-architecture.md?context=/azure/iot-hub/rc/rc
         - name: Secure your IoT deployment
-          href: ../iot-fundamentals/iot-security-deployment.md?context=%2fazure%2fiot-hub%2frc%2frc
+          href: ../iot-fundamentals/iot-security-deployment.md?context=/azure/iot-hub/rc/rc
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
         - name: Secure using X.509 CA certificates
           items:
-            - name: X.509 CA certificate security overview
-              href: iot-hub-x509ca-overview.md
             - name: X.509 CA certificate security concepts
               href: iot-hub-x509ca-concept.md
+            - name: X.509 CA certificates for IoT Hub
+              href: iot-hub-x509ca-overview.md
 
 - name: How-to guides
   items:
