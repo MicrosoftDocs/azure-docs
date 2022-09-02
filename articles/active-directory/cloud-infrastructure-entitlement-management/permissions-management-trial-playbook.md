@@ -229,7 +229,7 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 
 ### Additional Resources
 
-**Microsoft Docs**: [Visit Docs](../cloud-infrastructure-entitlement-management.md).
+**Microsoft Docs**: [Visit Docs](../cloud-infrastructure-entitlement-management/index.yml).
 
 **Datasheet:** <https://aka.ms/PermissionsManagementDataSheet>
 
