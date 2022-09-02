@@ -50,7 +50,7 @@ For [Azure portal](https://portal.azure.com) users, you can set the DNS name reu
 
 ![Screenshot of DNS name reuse policy dropdown menu, PNG.](./media/how-to-reuse-dns-names/portal-dns-name-reuse-policy.png)
 
-For ARM template users, see the [Resource Manager reference](/azure/templates/microsoft.containerinstance/containergroups.md) to see how the dnsNameLabelReusePolicy field fits into the existing schema.
+For ARM template users, see the [Resource Manager reference](/azure/templates/microsoft.containerinstance/containergroups) to see how the dnsNameLabelReusePolicy field fits into the existing schema.
 
 For YAML template users, see the [YAML reference](container-instances-reference-yaml.md) to see how the dnsNameLabelReusePolicy field fits into the existing schema.
 

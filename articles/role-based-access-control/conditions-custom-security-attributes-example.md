@@ -3,6 +3,7 @@ title: Scale the management of Azure role assignments by using conditions and cu
 description: Scale the management of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Azure AD custom security attributes for principals.
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual

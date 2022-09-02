@@ -39,9 +39,9 @@ For more information, see [Azure roles](../../role-based-access-control/rbac-and
 
 ### Supported service regions
 
-Defender for IoT routes all traffic from all European regions to the *West Europe* regional datacenter. It routes traffic from all remaining regions to the *Central US* regional datacenter.
+Defender for IoT routes all traffic from all European regions to the *West Europe* regional datacenter. It routes traffic from all remaining regions to the *East US* regional datacenter.
 
-If you're using a legacy version of the sensor traffic and are connecting through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+If you're using a legacy experience of Defender for IoT and are connecting through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
 ## Identify and plan your OT solution architecture
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/18/2022
+ms.date: 08/07/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: udayh
 #Customer intent: As an application developer, I want to create a trust relationship with a Google Cloud identity so my service in Google Cloud can access Azure AD protected resources without managing secrets.
 ---
 
-# Access Azure AD protected resources from an app in Google Cloud (preview)
+# Access Azure AD protected resources from an app in Google Cloud
 
 Software workloads running in Google Cloud need an Azure Active Directory (Azure AD) application to authenticate and access Azure AD protected resources. A common practice is to configure that application with credentials (a secret or certificate). The credentials are used by a Google Cloud workload to request an access token from Microsoft identity platform. These credentials pose a security risk and have to be stored securely and rotated regularly. You also run the risk of service downtime if the credentials expire.
 

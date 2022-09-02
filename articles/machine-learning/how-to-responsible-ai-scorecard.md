@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 05/10/2022
+ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
@@ -16,25 +16,30 @@ ms.custom: responsible-ml, event-tier1-build-2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning’s Responsible AI dashboard is designed for machine learning professionals and data scientists to explore and evaluate model insights and inform their data-driven decisions, and while it can help you implement Responsible AI practically in your machine learning lifecycle, there are some needs left unaddressed:
+Azure Machine Learning’s Responsible AI scorecard is a PDF report generated based our Responsible AI dashboard insights and customizations to accompany your machine learning models. You can easily configure, download, and share your PDF scorecard with your technical and non-technical stakeholders to educate them about your data and model health, compliance, and build trust. This scorecard could also be used in audit reviews to inform the stakeholders about the characteristics of your model.
+
+
+## Why Responsible AI scorecard?
+
+Our Responsible AI dashboard is designed for machine learning professionals and data scientists to explore and evaluate model insights and inform their data-driven decisions, and while it can help you implement Responsible AI practically in your machine learning lifecycle, there are some needs left unaddressed:
 
 - There often exists a gap between the technical Responsible AI tools (designed for machine-learning professionals) and the ethical, regulatory, and business requirements that define the production environment.
 - While an end-to-end machine learning life cycle includes both technical and non-technical stakeholders in the loop, there's very little support to enable an effective multi-stakeholder alignment, helping technical experts get timely feedback and direction from the non-technical stakeholders.
 - AI regulations make it essential to be able to share model and data insights with auditors and risk officers for auditability purposes.
 
-One of the biggest benefits of using the Azure Machine Learning ecosystem is related to the archival of model and data insights in the Azure Machine Learning Job History (for quick reference in future). As a part of that infrastructure and to accompany machine learning models and their corresponding Responsible AI dashboards, we introduce the Responsible AI scorecard, a customizable report that you can easily configure, download, and share with your technical and non-technical stakeholders to educate them about your data and model health and compliance and build trust. This scorecard could also be used in audit reviews to inform the stakeholders about the characteristics of your model.
+One of the biggest benefits of using the Azure Machine Learning ecosystem is related to the archival of model and data insights in the Azure Machine Learning Run History (for quick reference in future). As a part of that infrastructure and to accompany machine learning models and their corresponding Responsible AI dashboards, we introduce the Responsible AI scorecard to empower ML professionals to generate and share their data and model health records easily. 
 
 ## Who should use a Responsible AI scorecard?
 
-As a data scientist or machine learning professional, after you train a model and generate its corresponding Responsible AI dashboard for assessment and decision-making purposes, you can share your data and model health and ethical insights with non-technical stakeholders to build trust and gain their approval for deployment.  
+- If you are a data scientist or a machine learning professional, after training your model and generating its corresponding Responsible AI dashboard(s) for assessment and decision-making purposes, you can extract those learnings via our PDF scorecard and share the report easily with your technical and non-technical stakeholders to build trust and gain their approval for deployment.  
 
-As a technical or non-technical product owner of a model, you can pass some target values such as minimum accuracy, maximum error rate, etc., to your data science team, asking them to generate this scorecard with respect to your identified target values and whether your model meets them. That can provide guidance into whether the model should be deployed or further improved.
+- If you're a product manager, business leader, or an accountable stakeholder on an AI product, you can pass your desired model performance and fairness target values such as your target accuracy, target error rate, etc., to your data science team, asking them to generate this scorecard with respect to your identified target values and whether your model meets them. That can provide guidance into whether the model should be deployed or further improved.
 
-## How to generate a Responsible AI scorecard
+## How to generate a Responsible AI scorecard?
 
 The configuration stage requires you to use your domain expertise around the problem to set your desired target values on model performance and fairness metrics.
 
-Like other Responsible AI dashboard components configured in the YAML pipeline, you can add a component to generate the scorecard in the YAML pipeline.
+Like other Responsible AI dashboard components [configured in the YAML pipeline](how-to-responsible-ai-dashboard-sdk-cli.md?tabs=yaml#responsible-ai-components), you can add a component to generate the scorecard in the YAML pipeline.
 
 Where pdf_gen.json is the scorecard generation configuration json file and cohorts.json is the prebuilt cohorts definition json file.
 
@@ -59,14 +64,13 @@ scorecard_01:
 
 Sample json for cohorts definition and score card generation config can be found below:
 
-Cohorts definition:
 
+Cohorts definition:
 ```yml
 [ 
   { 
     "name": "High Yoe", 
     "cohort_filter_list": [ 
-
       { 
         "method": "greater", 
         "arg": [ 
@@ -89,10 +93,8 @@ Cohorts definition:
     ] 
   } 
 ] 
-
 ```
-
-Scorecard generation config:
+Scorecard generation config for a regression example:
 
 ```yml
 { 
@@ -116,12 +118,49 @@ Scorecard generation config:
       "age" 
     ] 
   }, 
+  "Fairness": {
+    "metric": ["mean_squared_error"],
+    "sensitive_features": ["YOUR SENSITIVE ATTRIBUTE"],
+    "fairness_evaluation_kind": "difference OR ratio"
+  },
   "Cohorts": [ 
     "High Yoe", 
     "Low Yoe" 
-  ] 
+  ]  
 } 
 ```
+Scorecard generation config for a classification example:
+
+```yml
+{
+  "Model": {
+    "ModelName": "Housing Price Range Prediction",
+    "ModelType": "Classification",
+    "ModelSummary": "This model is a classifier predicting if the house sells for more than median price or not."
+  },
+  "Metrics" :{
+    "accuracy_score": {
+        "threshold": ">=0.85"
+    },
+  }
+  "FeatureImportance": { 
+    "top_n": 6 
+  }, 
+  "DataExplorer": { 
+    "features": [ 
+      "YearBuilt", 
+      "OverallQual", 
+      "GarageCars"
+    ] 
+  },
+  "Fairness": {
+    "metric": ["accuracy_score", "selection_rate"],
+    "sensitive_features": ["YOUR SENSITIVE ATTRIBUTE"],
+    "fairness_evaluation_kind": "difference OR ratio"
+  }
+}
+```
+
 
 ### Definition of inputs of the Responsible AI scorecard component
 
@@ -131,8 +170,11 @@ This section defines the list of parameters required to configure the Responsibl
 
 | ModelName    | Name of Model                                            |
 |--------------|----------------------------------------------------------|
-| ModelType    | Values in [‘classification’, ‘regression’, ‘multiclass’]. |
+| ModelType    | Values in [‘classification’, ‘regression’]. |
 | ModelSummary | Input a blurb of text summarizing what the model is for.  |
+
+> [!NOTE]
+> For multi-class classification, you should first use the One-vs-Rest strategy to choose your reference class, and hence, split your multi-class classification model into a binary classification problem for your selected reference class vs the rest of classes.
 
 #### Metrics
 
@@ -207,7 +249,7 @@ Select which scorecard you’d like to download from the list and select Downloa
 
 :::image type="content" source="./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png" alt-text="Screenshot of selecting a Responsible A I scorecard to download." lightbox= "./media/how-to-responsible-ai-scorecard/studio-select-scorecard.png":::
 
-## How to read your Responsible AI scorecard
+## How to read your Responsible AI scorecard?
 
 The Responsible AI scorecard is a PDF summary of your key insights from the Responsible AI dashboard. The first summary segment of the scorecard gives you an overview of the machine learning model and the key target values you have set to help all stakeholders determine if your model is ready to be deployed.
 
@@ -242,6 +284,6 @@ Finally, you can observe your dataset’s causal insights summarized, figuring o
 - See the how-to guide for generating a Responsible AI dashboard via [CLIv2 and SDKv2](how-to-responsible-ai-dashboard-sdk-cli.md) or [studio UI ](how-to-responsible-ai-dashboard-ui.md).
 - Learn more about the [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - View [sample YAML and Python notebooks](https://aka.ms/RAIsamples) to generate a Responsible AI dashboard with YAML or Python.
-- Learn more about how the Responsible AI Dashboard and Scorecard can be used to debug data and models and inform better decision making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
-- See how the Responsible AI Dashboard and Scorecard were used by the NHS in a [real life customer story](https://aka.ms/NHSCustomerStory)
-- Explore the features of the Responsible AI Dashboard through this [interactive AI Lab web demo](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
+- Learn more about how the Responsible AI dashboard and Scorecard can be used to debug data and models and inform better decision making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
+- See how the Responsible AI dashboard and Scorecard were used by the NHS in a [real life customer story](https://aka.ms/NHSCustomerStory)
+- Explore the features of the Responsible AI dashboard through this [interactive AI Lab web demo](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)

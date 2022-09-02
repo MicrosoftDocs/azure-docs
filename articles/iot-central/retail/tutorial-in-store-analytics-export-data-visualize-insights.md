@@ -102,9 +102,7 @@ Now you have an event hub, you can configure your **In-store analytics - checkou
 1. Select **Create** and then **Save**.
 1. On the **Telemetry export** page, wait for the export status to change to **Healthy**.
 
-The data export may take a few minutes to start sending telemetry to your event hub. You can see the status of the export on the **Data exports** page:
-
-:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/export-configuration.png" alt-text="Screenshot that shows the data export configuration in an IoT Central application.":::
+The data export may take a few minutes to start sending telemetry to your event hub. You can see the status of the export on the **Data exports** page.
 
 ## Create the Power BI datasets
 

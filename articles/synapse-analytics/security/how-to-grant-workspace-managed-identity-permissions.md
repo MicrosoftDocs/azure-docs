@@ -71,7 +71,7 @@ Select that same container or file system to grant the *Storage Blob Data Contri
     
     | Setting | Value |
     | --- | --- |
-    | Role | Storage Blob Contributor |
+    | Role | Storage Blob Data Contributor |
     | Assign access to | MANAGEDIDENTITY |
     | Members | managed identity name  |
 
@@ -82,7 +82,7 @@ Select that same container or file system to grant the *Storage Blob Data Contri
 
 1. Select **Save** to add the role assignment.
 
-#### Step 9: Verify that the Storage Blob Data Contributor role is assigned to the managed identity
+#### Step 4: Verify that the Storage Blob Data Contributor role is assigned to the managed identity
 
 Select **Access Control(IAM)** and then select **Role assignments**.
 

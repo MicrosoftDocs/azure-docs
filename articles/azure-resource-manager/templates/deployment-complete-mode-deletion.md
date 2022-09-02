@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 08/31/2022
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -64,6 +64,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | configurations | No |
 > | generateRecommendations | No |
 > | metadata | No |
+> | predict | No |
 > | recommendations | No |
 > | suppressions | No |
 
@@ -120,6 +121,8 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
+> | connectedEnvironments | Yes |
+> | connectedEnvironments / certificates | Yes |
 > | containerApps | Yes |
 > | managedEnvironments | Yes |
 > | managedEnvironments / certificates | Yes |
@@ -156,6 +159,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
+> | runtimeVersions | No |
 > | Spring | Yes |
 > | Spring / apps | No |
 > | Spring / apps / deployments | No |
@@ -216,6 +220,8 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | configurationProfiles / versions | Yes |
 > | patchJobConfigurations | Yes |
 > | patchJobConfigurations / patchJobs | No |
+> | patchSchedules | Yes |
+> | patchSchedules / associations | Yes |
 > | patchTiers | Yes |
 > | servicePrincipals | No |
 
@@ -248,6 +254,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | accounts | Yes |
 > | accounts / datapools | No |
 > | workspaces | Yes |
+> | workspaces / eventgridfilters | No |
 
 ## Microsoft.AutonomousSystems
 
@@ -293,6 +300,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | ------------- | ----------- |
 > | b2cDirectories | Yes |
 > | b2ctenants | No |
+> | ciamDirectories | Yes |
 > | guestUsages | Yes |
 
 ## Microsoft.AzureArcData
@@ -305,6 +313,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | PostgresInstances | Yes |
 > | SqlManagedInstances | Yes |
 > | SqlServerInstances | Yes |
+> | SqlServerInstances / Databases | Yes |
 
 ## Microsoft.AzureCIS
 
@@ -331,9 +340,17 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | accounts | Yes |
 > | accounts / devices | No |
 > | accounts / devices / sensors | No |
+> | accounts / sensors | No |
 > | accounts / solutioninstances | No |
 > | accounts / solutions | No |
 > | accounts / targets | No |
+
+## Microsoft.AzureScan
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | scanningAccounts | Yes |
 
 ## Microsoft.AzureSphere
 
@@ -348,12 +365,33 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | catalogs / products | No |
 > | catalogs / products / devicegroups | No |
 
+## Microsoft.AzureSphereGen2
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | catalogs | Yes |
+> | catalogs / certificates | No |
+> | catalogs / deviceRegistrations | Yes |
+> | catalogs / provisioningPackages | Yes |
+
+## Microsoft.AzureSphereV2
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | catalogs | Yes |
+> | catalogs / certificates | No |
+> | catalogs / deviceRegistrations | Yes |
+> | catalogs / provisioningPackages | Yes |
+
 ## Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | cloudManifestFiles | No |
+> | generateDeploymentLicense | No |
 > | linkedSubscriptions | Yes |
 > | registrations | Yes |
 > | registrations / customerSubscriptions | No |
@@ -370,11 +408,16 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | clusters / offers | No |
 > | clusters / publishers | No |
 > | clusters / publishers / offers | No |
+> | clusters / updates | No |
+> | clusters / updates / updateRuns | No |
+> | clusters / updateSummaries | No |
 > | galleryImages | Yes |
+> | marketplaceGalleryImages | Yes |
 > | networkinterfaces | Yes |
+> | storageContainers | Yes |
 > | virtualharddisks | Yes |
 > | virtualmachines | Yes |
-> | virtualmachines / extensions | Yes |
+> | virtualMachines / extensions | Yes |
 > | virtualmachines / hybrididentitymetadata | No |
 > | virtualnetworks | Yes |
 
@@ -410,6 +453,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | billingAccounts | No |
 > | billingAccounts / agreements | No |
 > | billingAccounts / appliedReservationOrders | No |
+> | billingAccounts / associatedTenants | No |
 > | billingAccounts / billingPermissions | No |
 > | billingAccounts / billingProfiles | No |
 > | billingAccounts / billingProfiles / billingPermissions | No |
@@ -453,7 +497,10 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | billingAccounts / createBillingRoleAssignment | No |
 > | billingAccounts / customers | No |
 > | billingAccounts / customers / billingPermissions | No |
+> | billingAccounts / customers / billingRoleAssignments | No |
+> | billingAccounts / customers / billingRoleDefinitions | No |
 > | billingAccounts / customers / billingSubscriptions | No |
+> | billingAccounts / customers / createBillingRoleAssignment | No |
 > | billingAccounts / customers / initiateTransfer | No |
 > | billingAccounts / customers / policies | No |
 > | billingAccounts / customers / products | No |
@@ -485,6 +532,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | billingAccounts / invoiceSections / transactions | No |
 > | billingAccounts / invoiceSections / transfers | No |
 > | billingAccounts / lineOfCredit | No |
+> | billingAccounts / notificationContacts | No |
 > | billingAccounts / payableOverage | No |
 > | billingAccounts / paymentMethods | No |
 > | billingAccounts / payNow | No |
@@ -521,6 +569,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
+> | calculateMigrationCost | No |
 > | savingsPlanOrderAliases | No |
 > | savingsPlanOrders | No |
 > | savingsPlanOrders / savingsPlans | No |
@@ -631,9 +680,11 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
+> | canMigrate | No |
 > | CdnWebApplicationFirewallManagedRuleSets | No |
 > | CdnWebApplicationFirewallPolicies | Yes |
 > | edgenodes | No |
+> | migrate | No |
 > | profiles | Yes |
 > | profiles / afdendpoints | Yes |
 > | profiles / afdendpoints / routes | No |
@@ -848,10 +899,12 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | snapshots | Yes |
 > | sshPublicKeys | Yes |
 > | virtualMachines | Yes |
+> | virtualMachines / applications | Yes |
 > | virtualMachines / extensions | Yes |
 > | virtualMachines / metricDefinitions | No |
 > | virtualMachines / runCommands | Yes |
 > | virtualMachineScaleSets | Yes |
+> | virtualMachineScaleSets / applications | No |
 > | virtualMachineScaleSets / extensions | No |
 > | virtualMachineScaleSets / networkInterfaces | No |
 > | virtualMachineScaleSets / publicIPAddresses | No |
@@ -924,9 +977,12 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | VCenters | Yes |
 > | VCenters / InventoryItems | No |
 > | VirtualMachines | Yes |
+> | VirtualMachines / AssessPatches | No |
 > | VirtualMachines / Extensions | Yes |
 > | VirtualMachines / GuestAgents | No |
 > | VirtualMachines / HybridIdentityMetadata | No |
+> | VirtualMachines / InstallPatches | No |
+> | VirtualMachines / UpgradeExtensions | No |
 > | VirtualMachineTemplates | Yes |
 > | VirtualNetworks | Yes |
 
@@ -1011,10 +1067,12 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | containerServices | Yes |
+> | fleetMemberships | No |
+> | fleets | Yes |
+> | fleets / members | No |
 > | managedClusters | Yes |
 > | ManagedClusters / eventGridFilters | No |
 > | managedclustersnapshots | Yes |
-> | openShiftManagedClusters | Yes |
 > | snapshots | Yes |
 
 ## Microsoft.CostManagement
@@ -1046,6 +1104,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | fetchMarketplacePrices | No |
 > | fetchPrices | No |
 > | Forecast | No |
+> | GenerateCostDetailsReport | No |
 > | GenerateDetailedCostReport | No |
 > | Insights | No |
 > | Pricesheets | No |
@@ -1147,6 +1206,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | workspaces / proposals / entitlements / policies | No |
 > | workspaces / proposals / invitations | No |
 > | workspaces / proposals / scriptReferences | No |
+> | workspaces / proposals / virtualOutputReferences | No |
 > | workspaces / resourceReferences | No |
 > | workspaces / scripts | No |
 > | workspaces / scripts / scriptrevisions | No |
@@ -1176,6 +1236,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | dataFactorySchema | No |
 > | factories | Yes |
 > | factories / integrationRuntimes | No |
+> | factories / pipelines | No |
 
 ## Microsoft.DataLakeAnalytics
 
@@ -1264,6 +1325,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
+> | assessForMigration | No |
 > | flexibleServers | Yes |
 > | getPrivateDnsZoneSuffix | No |
 > | servers | Yes |
@@ -1350,6 +1412,37 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | instances / sandboxes | Yes |
 > | instances / sandboxes / experiments | Yes |
 
+## Microsoft.DevCenter
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | devcenters | Yes |
+> | devcenters / attachednetworks | No |
+> | devcenters / catalogs | No |
+> | devcenters / devboxdefinitions | Yes |
+> | devcenters / environmentTypes | No |
+> | devcenters / galleries | No |
+> | devcenters / galleries / images | No |
+> | devcenters / galleries / images / versions | No |
+> | devcenters / images | No |
+> | networkconnections | Yes |
+> | projects | Yes |
+> | projects / allowedEnvironmentTypes | No |
+> | projects / attachednetworks | No |
+> | projects / devboxdefinitions | No |
+> | projects / environmentTypes | No |
+> | projects / pools | Yes |
+> | projects / pools / schedules | No |
+> | registeredSubscriptions | No |
+
+## Microsoft.DevHub
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | workflows | Yes |
+
 ## Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
@@ -1413,6 +1506,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | cassandraClusters | Yes |
 > | databaseAccountNames | No |
 > | databaseAccounts | Yes |
+> | databaseAccounts / encryptionScopes | No |
 > | restorableDatabaseAccounts | No |
 
 ## Microsoft.DomainRegistration
@@ -1483,13 +1577,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | namespaces / networkrulesets | No |
 > | namespaces / privateEndpointConnections | No |
 
-## Microsoft.Experimentation
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | experimentWorkspaces | Yes |
-
 ## Microsoft.Falcon
 
 > [!div class="mx-tableFixed"]
@@ -1535,6 +1622,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | projects / environments / deployments | No |
 > | projects / environmentTypes | No |
 > | projects / pools | Yes |
+> | registeredSubscriptions | No |
 
 ## Microsoft.FluidRelay
 
@@ -1600,6 +1688,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | services / privateEndpointConnectionProxies | No |
 > | services / privateEndpointConnections | No |
 > | services / privateLinkResources | No |
+> | validateMedtechMappings | No |
 > | workspaces | Yes |
 > | workspaces / dicomservices | Yes |
 > | workspaces / eventGridFilters | No |
@@ -1651,6 +1740,8 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | provisionedClusters | Yes |
 > | provisionedClusters / agentPools | Yes |
 > | provisionedClusters / hybridIdentityMetadata | No |
+> | storageSpaces | Yes |
+> | virtualNetworks | Yes |
 
 ## Microsoft.HybridData
 
@@ -1664,10 +1755,26 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
+> | configurationGroupValues | Yes |
 > | devices | Yes |
-> | networkFunctions | Yes |
+> | networkFunctionPublishers | No |
+> | networkFunctionPublishers / networkFunctionDefinitionGroups | No |
+> | networkFunctionPublishers / networkFunctionDefinitionGroups / publisherNetworkFunctionDefinitionVersions | No |
+> | networkfunctions | Yes |
+> | networkfunctions / components | No |
 > | networkFunctionVendors | No |
+> | publishers | Yes |
+> | publishers / artifactStores | Yes |
+> | publishers / artifactStores / artifactManifests | Yes |
+> | publishers / configurationGroupSchemas | Yes |
+> | publishers / networkFunctionDefinitionGroups | Yes |
+> | publishers / networkFunctionDefinitionGroups / networkFunctionDefinitionVersions | Yes |
+> | publishers / networkFunctionDefinitionGroups / previewSubscriptions | Yes |
+> | publishers / networkServiceDesignGroups | Yes |
+> | publishers / networkServiceDesignGroups / networkServiceDesignVersions | Yes |
 > | registeredSubscriptions | No |
+> | siteNetworkServices | Yes |
+> | sites | Yes |
 > | vendors | No |
 
 ## Microsoft.ImportExport
@@ -1937,6 +2044,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | workspaces / onlineEndpoints | Yes |
 > | workspaces / onlineEndpoints / deployments | Yes |
 > | workspaces / registries | Yes |
+> | workspaces / schedules | No |
 > | workspaces / services | No |
 
 ## Microsoft.Maintenance
@@ -2032,6 +2140,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | publishers / offers | No |
 > | publishers / offers / amendments | No |
 > | register | No |
+> | search | No |
 
 ## Microsoft.MarketplaceNotifications
 
@@ -2086,6 +2195,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | ------------- | ----------- |
 > | assessmentProjects | Yes |
 > | migrateprojects | Yes |
+> | modernizeProjects | Yes |
 > | moveCollections | Yes |
 > | projects | Yes |
 
@@ -2110,14 +2220,13 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | mobileNetworks / simPolicies | Yes |
 > | mobileNetworks / sites | Yes |
 > | mobileNetworks / slices | Yes |
-> | networks | Yes |
-> | networks / sites | Yes |
 > | packetCoreControlPlanes | Yes |
 > | packetCoreControlPlanes / packetCoreDataPlanes | Yes |
 > | packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks | Yes |
-> | packetCores | Yes |
+> | packetCoreControlPlaneVersions | No |
+> | simGroups | Yes |
+> | simGroups / sims | No |
 > | sims | Yes |
-> | sims / simProfiles | Yes |
 
 ## Microsoft.Monitor
 
@@ -2158,6 +2267,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | azureWebCategories | No |
 > | bastionHosts | Yes |
 > | bgpServiceCommunities | No |
+> | cloudServiceSlots | No |
 > | connections | Yes |
 > | customIpPrefixes | Yes |
 > | ddosCustomPolicies | Yes |
@@ -2240,7 +2350,10 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | serviceEndpointPolicies | Yes |
 > | trafficManagerGeographicHierarchies | No |
 > | trafficmanagerprofiles | Yes |
+> | trafficmanagerprofiles / azureendpoints | No |
+> | trafficmanagerprofiles / externalendpoints | No |
 > | trafficmanagerprofiles / heatMaps | No |
+> | trafficmanagerprofiles / nestedendpoints | No |
 > | trafficManagerUserMetricsKeys | No |
 > | virtualHubs | Yes |
 > | virtualNetworkGateways | Yes |
@@ -2260,13 +2373,20 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | bareMetalMachines | Yes |
+> | cloudServicesNetworks | Yes |
 > | clusterManagers | Yes |
 > | clusters | Yes |
+> | defaultCniNetworks | Yes |
+> | disks | Yes |
 > | hybridAksClusters | Yes |
 > | hybridAksManagementDomains | Yes |
 > | hybridAksVirtualMachines | Yes |
+> | l2Networks | Yes |
+> | l3Networks | Yes |
 > | rackManifests | Yes |
 > | racks | Yes |
+> | storageAppliances | Yes |
+> | trunkedNetworks | Yes |
 > | virtualMachines | Yes |
 > | workloadNetworks | Yes |
 
@@ -2314,6 +2434,9 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | energyServices | Yes |
+> | energyServices / privateEndpointConnectionProxies | No |
+> | energyServices / privateEndpointConnections | No |
+> | energyServices / privateLinkResources | No |
 
 ## Microsoft.OpenLogisticsPlatform
 
@@ -2334,6 +2457,29 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | workspaces / eventGridFilters | No |
 > | workspaces / shares | No |
 > | workspaces / shareSubscriptions | No |
+
+## Microsoft.OperationalInsights
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | clusters | Yes |
+> | deletedWorkspaces | No |
+> | linkTargets | No |
+> | querypacks | Yes |
+> | storageInsightConfigs | No |
+> | workspaces | Yes |
+> | workspaces / dataExports | No |
+> | workspaces / dataSources | No |
+> | workspaces / linkedServices | No |
+> | workspaces / linkedStorageAccounts | No |
+> | workspaces / metadata | No |
+> | workspaces / networkSecurityPerimeterAssociationProxies | No |
+> | workspaces / networkSecurityPerimeterConfigurations | No |
+> | workspaces / query | No |
+> | workspaces / scopedPrivateLinkProxies | No |
+> | workspaces / storageInsightConfigs | No |
+> | workspaces / tables | No |
 
 ## Microsoft.Orbital
 
@@ -2364,6 +2510,16 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | peeringServiceProviders | No |
 > | peeringServices | Yes |
 
+## Microsoft.Pki
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | Pki | Yes |
+> | Pkis | Yes |
+> | Pkis / certificateAuthorities | Yes |
+> | Pkis / enrollmentPolicies | Yes |
+
 ## Microsoft.PlayFab
 
 > [!div class="mx-tableFixed"]
@@ -2371,6 +2527,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | ------------- | ----------- |
 > | playerAccountPools | Yes |
 > | titles | Yes |
+> | titles / automationRules | No |
 > | titles / segments | No |
 > | titles / titleDataSets | No |
 > | titles / titleInternalDataKeyValues | No |
@@ -2425,17 +2582,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | ------------- | ----------- |
 > | accounts | Yes |
 > | enterprisePolicies | Yes |
-
-## Microsoft.ProjectBabylon
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | accounts | Yes |
-> | deletedAccounts | No |
-> | getDefaultAccount | No |
-> | removeDefaultAccount | No |
-> | setDefaultAccount | No |
 
 ## Microsoft.ProviderHub
 
@@ -2583,6 +2729,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | AvailabilitySets | Yes |
 > | Clouds | Yes |
 > | VirtualMachines | Yes |
+> | VirtualMachines / HybridIdentityMetadata | No |
 > | VirtualMachineTemplates | Yes |
 > | VirtualNetworks | Yes |
 > | VMMServers | Yes |
@@ -2607,6 +2754,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | alertsSuppressionRules | No |
 > | allowedConnections | No |
 > | antiMalwareSettings | No |
+> | applications | No |
 > | assessmentMetadata | No |
 > | assessments | No |
 > | assessments / governanceAssignments | No |
@@ -2622,6 +2770,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | customEntityStoreAssignments | Yes |
 > | dataCollectionAgents | No |
 > | dataScanners | Yes |
+> | dataSensitivitySettings | No |
 > | deviceSecurityGroups | No |
 > | discoveredSecuritySolutions | No |
 > | externalSecuritySolutions | No |
@@ -2664,7 +2813,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | subAssessments | No |
 > | tasks | No |
 > | topologies | No |
-> | vmScanners | Yes |
+> | vmScanners | No |
 > | workspaceSettings | No |
 
 ## Microsoft.SecurityDetonation
@@ -2679,8 +2828,14 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
+> | azureDevOpsConnectors | Yes |
+> | azureDevOpsConnectors / orgs | No |
+> | azureDevOpsConnectors / orgs / projects | No |
+> | azureDevOpsConnectors / orgs / projects / repos | No |
 > | gitHubConnectors | Yes |
 > | gitHubConnectors / gitHubRepos | No |
+> | gitHubConnectors / owners | No |
+> | gitHubConnectors / owners / repos | No |
 
 ## Microsoft.SecurityInsights
 
@@ -2699,11 +2854,13 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | entities | No |
 > | entityQueryTemplates | No |
 > | fileImports | No |
+> | huntsessions | No |
 > | incidents | No |
 > | metadata | No |
 > | MitreCoverageRecords | No |
 > | onboardingStates | No |
 > | overview | No |
+> | recommendations | No |
 > | securityMLAnalyticsSettings | No |
 > | settings | No |
 > | sourceControls | No |
@@ -2817,7 +2974,9 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | instancePools | Yes |
 > | managedInstances | Yes |
 > | managedInstances / administrators | No |
+> | managedInstances / advancedThreatProtectionSettings | No |
 > | managedInstances / databases | Yes |
+> | managedInstances / databases / advancedThreatProtectionSettings | No |
 > | managedInstances / databases / backupLongTermRetentionPolicies | No |
 > | managedInstances / databases / vulnerabilityAssessments | No |
 > | managedInstances / dnsAliases | No |
@@ -2859,6 +3018,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | servers / databases / metrics | No |
 > | servers / databases / recommendedSensitivityLabels | No |
 > | servers / databases / securityAlertPolicies | No |
+> | servers / databases / sqlvulnerabilityassessments | No |
 > | servers / databases / syncGroups | No |
 > | servers / databases / syncGroups / syncMembers | No |
 > | servers / databases / topQueries | No |
@@ -2893,6 +3053,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | servers / restorableDroppedDatabases | No |
 > | servers / securityAlertPolicies | No |
 > | servers / serviceObjectives | No |
+> | servers / sqlvulnerabilityassessments | No |
 > | servers / syncAgents | No |
 > | servers / tdeCertificates | No |
 > | servers / usages | No |
@@ -2941,6 +3102,18 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | caches | Yes |
 > | caches / storageTargets | No |
 > | usageModels | No |
+
+## Microsoft.StorageMover
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | storageMovers | Yes |
+> | storageMovers / agents | No |
+> | storageMovers / endpoints | No |
+> | storageMovers / projects | No |
+> | storageMovers / projects / jobDefinitions | No |
+> | storageMovers / projects / jobDefinitions / jobRuns | No |
 
 ## Microsoft.StoragePool
 
@@ -3029,6 +3202,9 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | testBaseAccounts | Yes |
 > | testBaseAccounts / customerEvents | No |
 > | testBaseAccounts / emailEvents | No |
+> | testBaseAccounts / externalTestTools | No |
+> | testBaseAccounts / externalTestTools / testCases | No |
+> | testBaseAccounts / featureUpdateSupportedOses | No |
 > | testBaseAccounts / flightingRings | No |
 > | testBaseAccounts / packages | Yes |
 > | testBaseAccounts / packages / favoriteProcesses | No |
@@ -3049,6 +3225,13 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | environments / privateEndpointConnections | No |
 > | environments / privateLinkResources | No |
 > | environments / referenceDataSets | Yes |
+
+## Microsoft.UsageBilling
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | accounts | Yes |
 
 ## Microsoft.VideoIndexer
 

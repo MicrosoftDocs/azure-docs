@@ -3,12 +3,12 @@ title: Quickstart - View groups & members - Azure AD
 description: Instructions about how to search for and view your organization's groups and their assigned members.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, mode-other
 ms.reviewer: krbain
@@ -17,6 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: View your organization's groups and members in Azure Active Directory
+
 You can view your organization's existing groups and group members using the Azure portal. Groups are used to manage users (members) that all need the same access and permissions for potentially restricted apps and services.
 
 In this quickstart, you’ll view all of your organization's existing groups and view the assigned members.
@@ -24,14 +25,17 @@ In this quickstart, you’ll view all of your organization's existing groups and
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
 ## Prerequisites
+
 Before you begin, you’ll need to:
 
 - Create an Azure Active Directory tenant. For more information, see [Access the Azure Active Directory portal and create a new tenant](active-directory-access-create-new-tenant.md).
 
 ## Sign in to the Azure portal
+
 You must sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 ## Create a new group 
+
 Create a new group, named _MDM policy - West_. For more information about creating a group, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
 1. Select **Azure Active Directory**, **Groups**, and then select **New group**.
@@ -60,6 +64,7 @@ Create a new user, named _Alain Charon_. A user must exist before being added as
 3. Copy the auto-generated password provided in the **Password** box, and then select **Create**.
 
 ## Add a group member
+
 Now that you have a group and a user, you can add _Alain Charon_ as a member to the _MDM policy - West_ group. For more information about adding group members, see [How to add or remove group members](active-directory-groups-members-azure-portal.md).
 
 1. Select **Azure Active Directory** > **Groups**.

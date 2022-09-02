@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 08/20/2022
 ---
 
 # Call logic apps from Power Automate and Power Apps
