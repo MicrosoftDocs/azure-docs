@@ -8,7 +8,7 @@ manager: dongli
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/08/2022
+ms.date: 08/11/2022
 ms.author: heikora
 zone_pivot_groups: speech-studio-cli-rest
 ---
@@ -22,6 +22,9 @@ Here are some key terms related to the model lifecycle:
 * **Training**: Taking a base model and customizing it to your domain/scenario by using text data and/or audio data. In some contexts such as the REST API properties, training is also referred to as **adaptation**.
 * **Transcription**: Using a model and performing speech recognition (decoding audio into text).
 * **Endpoint**: A specific deployment of either a base model or a custom model that only you can access. 
+
+> [!NOTE]
+> Endpoints used by `F0` Speech resources are deleted after seven days.
 
 ## Expiration timeline
 
@@ -39,7 +42,7 @@ When a custom model or base model expires, it is no longer available for transcr
 
 |Transcription route  |Expired model result  |Recommendation  |
 |---------|---------|---------|
-|Custom endpoint|Speech recognition requests will fall back to the most recent base model for the same [locale](language-support.md). You will get results, but recognition might not accurately transcribe your domain data.  |Update the endpoint's model as described in the [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md) guide. |
+|Custom endpoint|Speech recognition requests will fall back to the most recent base model for the same [locale](language-support.md?tabs=stt-tts). You will get results, but recognition might not accurately transcribe your domain data.  |Update the endpoint's model as described in the [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md) guide. |
 |Batch transcription |[Batch transcription](batch-transcription.md) requests for expired models will fail with a 4xx error. |In each [CreateTranscription](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. |
 
 

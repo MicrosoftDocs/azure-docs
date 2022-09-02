@@ -14,6 +14,8 @@ ms.custom: language-service-pii, ignite-fall-2021
 
 Use this quickstart to send Personally Identifiable Information (PII) detection requests using the REST API. In the following example, you will use cURL to identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
 
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
+
 
 ## Prerequisites
 

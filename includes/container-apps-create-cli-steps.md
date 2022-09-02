@@ -69,6 +69,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.App
 
 ---
 
+
 Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log Analytics workspace if you have not used it before.
 
 # [Bash](#tab/bash)

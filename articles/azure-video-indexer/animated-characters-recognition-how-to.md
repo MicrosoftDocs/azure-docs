@@ -1,6 +1,6 @@
 ---
 title: Animated character detection with Azure Video Indexer how to
-description: This how to demonstrates how to use animated character detection with Azure Video Indexer.
+description: This topic demonstrates how to use animated character detection with Azure Video Indexer.
 author: Juliako
 manager: femila
 
@@ -10,7 +10,7 @@ ms.date: 12/07/2020
 ms.author: juliako
 ---
 
-# Use the animated character detection (preview) with portal and API 
+# Use the animated character detection with portal and API 
 
 Azure Video Indexer supports detection, grouping, and recognition of characters in animated content, this functionality is available through the Azure portal and through API. Review [this overview](animated-characters-recognition.md) article.
 
@@ -48,7 +48,7 @@ Follow these steps to connect your Custom Vision account to Azure Video Indexer,
 1. Select the question mark on the top-right corner of the page and choose **API Reference**.
 1. Make sure you're subscribed to API Management by clicking **Products** tab. If you have an API connected you can continue to the next step, otherwise, subscribe. 
 1. On the developer portal, select the **Complete API Reference** and browse to **Operations**.  
-1. Select **Connect Custom Vision Account (PREVIEW)** and select **Try it**.
+1. Select **Connect Custom Vision Account** and select **Try it**.
 1. Fill in the required fields and the access token and select **Send**. 
 
     For more information about how to get the Video Indexer access token go to the [developer portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token), and see the [relevant documentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
@@ -107,7 +107,7 @@ Before tagging and training the model, all animated characters will be named “
     1. Review each character group: 
 
         * If the group contains unrelated images, it's recommended to delete these in the Custom Vision website. 
-        * If there are images that belong to a different character, change the tag on these specific images by select the image, adding the right tag and deleting the wrong tag. 
+        * If there are images that belong to a different character, change the tag on these specific images by selecting the image, adding the right tag and deleting the wrong tag. 
         * If the group isn't correct, meaning it contains mainly non-character images or images from multiple characters, you can delete in Custom Vision website or in Azure Video Indexer insights. 
         * The grouping algorithm will sometimes split your characters to different groups. It's therefore recommended to give all the groups that belong to the same character the same name (in Azure Video Indexer Insights), which will immediately cause all these groups to appear as on in Custom Vision website. 
     1. Once the group is refined, make sure the initial name you tagged it with reflects the character in the group. 
@@ -151,7 +151,7 @@ Once trained, any video that will be indexed or reindexed with that model will r
 1. Create an animated characters model.
 
     Use the [create animation model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Animation-Model) API.
-1. Index or re-index a video.
+1. Index or reindex a video.
 
     Use the [re-indexing](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API. 
 1. Customize the animated characters models.

@@ -25,3 +25,21 @@ const context = { roomId: '<RoomId>' }
 const call = callAgent.join(context);
 
 ```
+
+To display the role of the local call participant or remote call participants, subscribe to the handler below. Learn more about roles and permissions for room call participants [here](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).
+
+```js
+// Subscribe to changes for your role in a call
+ const callRoleChangedHandler = () => {
+ 	console.log(call.role);
+ };
+
+ call.on('roleChanged', callRoleChangedHandler);
+
+// Subscribe to role changes for remote participants
+ const subscribeToRemoteParticipant = (remoteParticipant) => {
+ 	remoteParticipant.on('roleChanged', () => {
+ 	    console.log(remoteParticipant.role);
+ 	});
+ }
+```

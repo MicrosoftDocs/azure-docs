@@ -31,6 +31,8 @@ Personalizer does not prescribe, limit, or fix what features you can send for ac
 * There must be at least one feature for the context. Personalizer does not support an empty context. If you only send a fixed context every time, Personalizer will choose the action for rankings only regarding the features in the actions.
 * For categorical features, you don't need to define the possible values, and you don't need to pre-define ranges for numerical values.
 
+Features are sent as part of the JSON payload in a [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) call. Each Rank call is associated with a personalization _event_. By default, Personalizer will automatically assign an event ID and return it in the Rank response. This default behavior is recommended for most users, however, if you need to create your own unique event ID (for example, using a GUID), then you can provide it in the Rank call as an argument. 
+
 ## Supported feature types
 
 Personalizer supports features of string, numeric, and boolean types. It is very likely that your application will mostly use string features, with a few exceptions.
@@ -168,7 +170,6 @@ You can use several other [Azure Cognitive Services](https://www.microsoft.com/c
 
 Each action:
 
-* Has an _event_ ID. If you already have an event ID, you should submit that. If you do not have an event ID, do not send one, Personalizer creates one for you and returns it in the response of the Rank request. The ID is associated with the Rank event, not the user. If you create an ID, a GUID works best. 
 * Has a list of features.
 * The list of features can be large (hundreds) but we recommend evaluating feature effectiveness to remove features that aren't contributing to getting rewards. 
 * The features in the **actions** may or may not have any correlation with features in the **context** used by Personalizer.

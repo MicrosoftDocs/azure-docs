@@ -4,7 +4,7 @@ description: Planning for a successful access reviews campaign for a particular 
 services: active-directory
 documentationCenter: ''
 author: markwahl-msft
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity

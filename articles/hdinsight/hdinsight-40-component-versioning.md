@@ -1,18 +1,18 @@
 ---
-title: Apache Hadoop components and versions - Azure HDInsight 4.0
-description: Learn about the Apache Hadoop components and versions in Azure HDInsight 4.0.
+title: Open-source components and versions - Azure HDInsight 4.0
+description: Learn about the open-source  components and versions in Azure HDInsight 4.0.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/10/2022
+ms.date: 08/24/2022
 ---
 
 # HDInsight 4.0 component versions
 
-In this article, you learn about the Apache Hadoop environment components and versions in Azure HDInsight 4.0.
+In this article, you learn about the open-source components and versions in Azure HDInsight 4.0.
 
-## Apache components available with HDInsight version 4.0
+## Open-source components available with HDInsight version 4.0
 
-The OSS component versions associated with HDInsight 4.0 are listed in the following table.
+The Open-source component versions associated with HDInsight 4.0 are listed in the following table.
 
 | Component              | HDInsight 4.0 |
 |------------------------|---------------|
