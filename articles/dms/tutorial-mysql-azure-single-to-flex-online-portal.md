@@ -19,7 +19,7 @@ ms.date: 09/01/2022
 You can migrate an instance of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server by using Azure Database Migration Service (DMS), a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms. In this tutorial, we’ll perform an online migration of a sample database from an Azure Database for MySQL single server to a MySQL flexible server (both running version 5.7) using a DMS migration activity. 
 
 > [!NOTE]
-> DMS supports migration for MySQL versions - 5.7 and 8.0, and also supports migration from lower version MySQL servers (v5.7 and above) to higher versions. In addition, DMS also supports cross-region, cross-resource group, and cross-subscription migrations, which allows you to select a different region, resource group, and subscription for the target server than that specified for your source server.
+> DMS online migration is now in Preview. DMS supports migration for MySQL versions - 5.7 and 8.0, and also supports migration from lower version MySQL servers (v5.7 and above) to higher versions. In addition, DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you can select a different region, resource group, and subscription for the target server than that specified for your source server.
 
 In this tutorial, you will learn how to:
 
@@ -39,7 +39,7 @@ In this tutorial, you will learn how to:
 
 To complete this tutorial, you need to:
 
-* Create or use an existing instance of Azure Database for MySQL – Single Server (the source).
+* Create or use an existing instance of Azure Database for MySQL – Single Server (the source server).
 * To complete the replicate changes migration successfully, ensure that the following prerequisites are in place:
   * Use the MySQL command line tool of your choice to determine whether log_bin is enabled on the source server. The Binlog is not always turned on by default, so verify that it is enabled before starting the migration. To determine whether log_bin is enabled on the source server, run the command: SHOW VARIABLES LIKE 'log_bin’
   * Ensure that the user has “REPLICATION CLIENT” and “REPLICATION SLAVE” permission on source server for reading and applying the bin log.
@@ -96,10 +96,10 @@ DMS supports cross-region, cross-resource group, and cross-subscription migratio
 
 ## Create and configure the target flexible server
 
-With these best practices in mind, create the target server and then configure it.
+With these best practices in mind, create your target flexible server and then configure it.
 
-* Create the target flexible server. For guided steps, see the quickstart Create an Azure Database for MySQL flexible server.
-* Configure the newly created target flexible server as follows: 
+* Create the target flexible server. For guided steps, see the quickstart [Create an Azure Database for MySQL flexible server](./../mysql/flexible-server/quickstart-create-server-portal.md).
+* Next to configure the newly created target flexible server, proceed as follows: 
   * The user performing the migration requires the following permissions:
     * Ensure that the user has “REPLICATION_APPLIER” or “BINLOG_ADMIN” permission on target server for applying the bin log.
     * Ensure that the user has “REPLICATION SLAVE” permission on target server.
@@ -260,7 +260,7 @@ To configure your DMS migration project, perform the following steps.
 
      ![Monitoring migration](media/tutorial-azure-mysql-single-to-flex-online/20.monitor-migration-online.png)
 
-3. Once the **Seconds behind source**  hits 0, proceed to start cutover by clicking on the **Start Cutover** menu tab at the top of the migration activity screen. Follow the steps in the cutover window before you are ready to perform a cutover. Once all steps are completed, click on **Confirm** and next click on **Apply**.
+3. After the **Seconds behind source**  hits 0, proceed to start cutover by clicking on the **Start Cutover** menu tab at the top of the migration activity screen. Follow the steps in the cutover window before you are ready to perform a cutover. Once all steps are completed, click on **Confirm** and next click on **Apply**.
      ![perform cutover](media/tutorial-azure-mysql-single-to-flex-online/21-complete-cutover-online.png)
 
 ## Perform post-migration activities

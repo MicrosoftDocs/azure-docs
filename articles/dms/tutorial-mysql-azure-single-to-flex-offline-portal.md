@@ -19,7 +19,7 @@ ms.date: 09/01/2022
 You can migrate an instance of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server by using Azure Database Migration Service (DMS), a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms. In this tutorial, we’ll perform an offline migration of a sample database from an Azure Database for MySQL single server to a MySQL flexible server (both running version 5.7) using a DMS migration activity. 
 
 > [!NOTE]
-> DMS supports migrating from lower version MySQL servers (v5.6 and above) to higher versions. In addition, DMS also supports cross-region, cross-resource group, and cross-subscription migrations, which allows you to select a different region, resource group, and subscription for the target server than that specified for your source server.
+> DMS supports migrating from lower version MySQL servers (v5.6 and above) to higher versions. In addition, DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you can select a different region, resource group, and subscription for the target server than that specified for your source server.
 
 > [!IMPORTANT]
 For online migrations, you can use the Enable Transactional Consistency feature supported by DMS together with [Data-in replication](./../mysql/single-server/concepts-data-in-replication.md) or [replicate changes](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/azure-dms-mysql-replicate-changes-now-in-preview/ba-p/3601564). Additionally, you can use the online migration scenario to migrate by following the tutorial [here](./tutorial-mysql-azure-single-to-flex-online-portal.md).
@@ -42,7 +42,7 @@ In this tutorial, you will learn how to:
 
 To complete this tutorial, you need to:
 
-* Create or use an existing instance of Azure Database for MySQL – Single Server (the source).
+* Create or use an existing instance of Azure Database for MySQL – Single Server (the source server).
 * To complete a schema migration successfully, on the source server, the user performing the migration requires the following privileges:
   * “READ” privilege on the source database.
   * “SELECT” privilege for the ability to select objects from the database
@@ -93,10 +93,10 @@ DMS supports cross-region, cross-resource group, and cross-subscription migratio
 
 ## Create and configure the target flexible server
 
-With these best practices in mind, create the target server and then configure it.
+With these best practices in mind, create your target flexible server and then configure it.
 
-* Create the target flexible server. For guided steps, see the quickstart Create an Azure Database for MySQL flexible server.
-* Configure the newly created target flexible server as follows: 
+* Create the target flexible server. For guided steps, see the quickstart [Create an Azure Database for MySQL flexible server](./../mysql/flexible-server/quickstart-create-server-portal.md).
+* Next to configure the newly created target flexible server, proceed as follows: 
   * The user performing the migration requires the following permissions:
     * To create tables on the target, the user must have the “CREATE” privilege.
     * If migrating a table with “DATA DIRECTORY” or “INDEX DIRECTORY” partition options, the user must have the “FILE” privilege.
