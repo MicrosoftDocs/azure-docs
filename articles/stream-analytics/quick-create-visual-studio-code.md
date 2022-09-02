@@ -90,7 +90,7 @@ Before you define the Stream Analytics job, you should prepare the data that's l
 2. Replace the placeholder in line 15 with the IoT hub device connection string that you saved earlier.
 3. Select **Run**. The output should show the sensor data and messages that are being sent to your IoT hub.
 
-   ![Raspberry Pi Azure IoT Online Simulator with output](./media/quick-create-visual-studio-code/ras-pi-connection-string.png)
+    :::image type="content" source="./media/quick-create-visual-studio-code/ras-pi-connection-string.png" lightbox="./media/quick-create-visual-studio-code/ras-pi-connection-string.png" alt-text="Screenshot showing the Raspberry Pi Azure IoT Online Simulator with output.":::    
 
 ## Create blob storage
 
@@ -139,26 +139,26 @@ Before you define the Stream Analytics job, you should prepare the data that's l
    WHERE Temperature > 27
    ```
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/query.png" alt-text="Screenshot showing the transformation query.":::       
+    :::image type="content" source="./media/quick-create-visual-studio-code/query.png" lightbox="./media/quick-create-visual-studio-code/query.png" alt-text="Screenshot showing the transformation query.":::       
 
 ## Define a live input
 
 1. Right-click the **Inputs** folder in your Stream Analytics project. Then select **ASA: Add Input** from the context menu.
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png" alt-text="Screenshot showing the ASA: Add input menu in Visual Studio Code.":::   
+    :::image type="content" source="./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png" lightbox="./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png" alt-text="Screenshot showing the ASA: Add input menu in Visual Studio Code.":::   
 
     Or select **Ctrl+Shift+P** (or **View** -> **Command palette** menu) to open the command palette and enter **ASA: Add Input**.
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/add-input.png" alt-text="Screenshot showing the ASA: Add input in the command palette of Visual Studio Code.":::   
+    :::image type="content" source="./media/quick-create-visual-studio-code/add-input.png" lightbox="./media/quick-create-visual-studio-code/add-input.png" alt-text="Screenshot showing the ASA: Add input in the command palette of Visual Studio Code.":::   
 2. Choose **IoT Hub** for the input type.
     
-    :::image type="content" source="./media/quick-create-visual-studio-code/iot-hub.png" alt-text="Screenshot showing the selection of your IoT hub in VS Code command palette.":::   
+    :::image type="content" source="./media/quick-create-visual-studio-code/iot-hub.png" lightbox="./media/quick-create-visual-studio-code/iot-hub.png" alt-text="Screenshot showing the selection of your IoT hub in VS Code command palette.":::   
 3. If you added the input from the command palette, choose the Stream Analytics query script that will use the input. It should be automatically populated with the file path to **myASAproj.asaql**.
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/asa-script.png" alt-text="Screenshot showing the selection of your Stream Analytics script in VS Code command palette.":::   
+    :::image type="content" source="./media/quick-create-visual-studio-code/asa-script.png" lightbox="./media/quick-create-visual-studio-code/asa-script.png" alt-text="Screenshot showing the selection of your Stream Analytics script in VS Code command palette.":::   
 4. Choose **Select from your Azure Subscriptions** from the drop-down menu, and then press **ENTER**.
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/add-input-select-subscription.png" alt-text="Screenshot showing the selection of your Azure subscription in VS Code command palette.":::   
+    :::image type="content" source="./media/quick-create-visual-studio-code/add-input-select-subscription.png" lightbox="./media/quick-create-visual-studio-code/add-input-select-subscription.png" alt-text="Screenshot showing the selection of your Azure subscription in VS Code command palette.":::   
 5. Edit the newly generated **IoTHub1.json** file with the following values. Keep default values for fields not mentioned here.
 
    |Setting|Suggested value|Description|
@@ -169,11 +169,11 @@ Before you define the Stream Analytics job, you should prepare the data that's l
 
    You can use the CodeLens feature to help you enter a string, select from a drop-down list, or change the text directly in the file. The following screenshot shows **Select from your Subscriptions** as an example. The credentials are auto-listed and saved in local credential manager.
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/configure-input.png" alt-text="Screenshot showing the launch of CodeLens feature in VS Code."::: 
+    :::image type="content" source="./media/quick-create-visual-studio-code/configure-input.png" lightbox="./media/quick-create-visual-studio-code/configure-input.png" alt-text="Screenshot showing the launch of CodeLens feature in VS Code."::: 
 
     After you select a subscription, **select an IoT hub** if you have multiple hubs in that subscription. 
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/select-iot-hub.png" alt-text="Screenshot showing the selection of your IoT hub in VS Code."::: 
+    :::image type="content" source="./media/quick-create-visual-studio-code/select-iot-hub.png" lightbox="./media/quick-create-visual-studio-code/select-iot-hub.png" alt-text="Screenshot showing the selection of your IoT hub in VS Code."::: 
 
     > [!IMPORTANT]
     > Make sure that the name of the input is **Input** as the query expect it. 
@@ -182,7 +182,7 @@ Before you define the Stream Analytics job, you should prepare the data that's l
 
 Select **Preview data** in **IoTHub1.json** from the top line. Some input data will be fetched from the IoT hub and shown in the preview window. This process might take a while.
 
-:::image type="content" source="./media/quick-create-visual-studio-code/preview-live-input.png" alt-text="Screenshot showing the preview of input data in your IoT hub."::: 
+:::image type="content" source="./media/quick-create-visual-studio-code/preview-live-input.png" lightbox="./media/quick-create-visual-studio-code/preview-live-input.png"  alt-text="Screenshot showing the preview of input data in your IoT hub."::: 
 
 ## Define an output
 
@@ -199,7 +199,7 @@ Select **Preview data** in **IoTHub1.json** from the top line. Some input data w
    |Container|container1|Select the existing container that you created in your storage account.|
    |Path Pattern|output|Enter the name of a file path to be created within the container.|
 
-   :::image type="content" source="./media/quick-create-visual-studio-code/configure-output.png" alt-text="Screenshot showing the configuration of output for the Stream Analytics job."::: 
+   :::image type="content" source="./media/quick-create-visual-studio-code/configure-output.png" lightbox="./media/quick-create-visual-studio-code/configure-output.png" alt-text="Screenshot showing the configuration of output for the Stream Analytics job."::: 
 
     > [!IMPORTANT]
     > Make sure that the name of the output is **Output** as the query expect it. 
@@ -210,20 +210,20 @@ Script compilation checks syntax and generates the Azure Resource Manager templa
 
 - Select the script from the workspace and then compile from the command palette.
 
-   :::image type="content" source="./media/quick-create-visual-studio-code/compile-script1.png" alt-text="Screenshot showing the compilation of script option from the command palette."::: 
+   :::image type="content" source="./media/quick-create-visual-studio-code/compile-script1.png" lightbox="./media/quick-create-visual-studio-code/compile-script1.png" alt-text="Screenshot showing the compilation of script option from the command palette."::: 
 - Right-click the script and select **ASA: Compile Script**.
 
-   :::image type="content" source="./media/quick-create-visual-studio-code/compile-script2.png" alt-text="Screenshot showing the compilation of script option from the Stream Analytics explorer in VS Code."::: 
+   :::image type="content" source="./media/quick-create-visual-studio-code/compile-script2.png" lightbox="./media/quick-create-visual-studio-code/compile-script2.png" alt-text="Screenshot showing the compilation of script option from the Stream Analytics explorer in VS Code."::: 
 
 After compilation, you can see results in the **Output** window. You can find the two generated Azure Resource Manager templates in the **Deploy** subfolder in your project folder. These two files are used for automatic deployment.
 
-:::image type="content" source="./media/quick-create-visual-studio-code/deployment-templates.png" alt-text="Screenshot showing the generated deployment templates in the project folder."::: 
+:::image type="content" source="./media/quick-create-visual-studio-code/deployment-templates.png" lightbox="./media/quick-create-visual-studio-code/deployment-templates.png" alt-text="Screenshot showing the generated deployment templates in the project folder."::: 
 
 ## Submit a Stream Analytics job to Azure
 
 1. In the script editor window of your query script, select **Submit to Azure**.
 
-:::image type="content" source="./media/quick-create-visual-studio-code/submit-job.png" alt-text="Screenshot showing the submit job button to submit the Stream Analytics job to Azure."::: 
+:::image type="content" source="./media/quick-create-visual-studio-code/submit-job.png" lightbox="./media/quick-create-visual-studio-code/submit-job.png"  alt-text="Screenshot showing the submit job button to submit the Stream Analytics job to Azure."::: 
 2. Select your subscription from the pop-up list.
 3. Choose **Select a job**. Then choose **Create New Job**.
 4. Enter your job name, **myASAjob**. Then follow the instructions to choose the resource group and location.
@@ -235,11 +235,11 @@ After compilation, you can see results in the **Output** window. You can find th
 1. Open **Stream Analytics Explorer** in Visual Studio Code and find your job, **myASAJob**.
 2. Select **Start** from the **Cloud view** page (OR) right-click the job name in Stream Analytics explorer, and select **Start** from the context menu.
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/start-asa-job-vs-code.png" alt-text="Screenshot showing the Start job button in the Cloud view page."::: 
+    :::image type="content" source="./media/quick-create-visual-studio-code/start-asa-job-vs-code.png" lightbox="./media/quick-create-visual-studio-code/start-asa-job-vs-code.png"  alt-text="Screenshot showing the Start job button in the Cloud view page."::: 
 4. Note that the job status has changed to **Running**. Right-click the job name and select **Open Job View in Portal** to see the input and output event metrics. This action might take a few minutes.
 5. To view the results, open the blob storage in the Visual Studio Code extension or in the Azure portal.
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/output-files.png" alt-text="Screenshot showing the output file in the Blob container.":::
+    :::image type="content" source="./media/quick-create-visual-studio-code/output-files.png" lightbox="./media/quick-create-visual-studio-code/output-files.png" alt-text="Screenshot showing the output file in the Blob container.":::
 
     Download and open the file to see output.
 
