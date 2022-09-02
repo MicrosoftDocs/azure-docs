@@ -49,7 +49,7 @@ In this tutorial, you'll learn how to:
   > [!NOTE]
   >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
   
-* Update the **CURRENT_VALUE** of the Postman environment with the information obtained in [Microsoft Energy Data Services instance details](#microsoft-energy-data-services-instance-details)
+* Update the **CURRENT_VALUE** of the Postman environment with the information obtained in [Microsoft Energy Data Services instance details](#get-microsoft-energy-data-services-instance-details)
 
 ### How to execute Postman requests?
 
@@ -67,7 +67,7 @@ In this tutorial, you'll learn how to:
 
   :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure postman call.":::
 
-## Ingest a sample Wellbore data CSV file into the Microsoft Energy Data Services instance
+## Ingest a sample wellbore data CSV file into the Microsoft Energy Data Services instance
 
   1. **01 - Get a user token** - Generate the User token, which will be used to authenticate further API calls.
   2. **02 - Create a schema** - Generate a schema that adheres to the columns present in the CSV file
@@ -82,7 +82,7 @@ In this tutorial, you'll learn how to:
 
 ## Search for storage metadata records created during the CSV Ingestion
 
-  1. **10 - Search for ingested CSV records** - Search for the CSV records created in earlier step.
+  1. **10 - Search for ingested CSV records** - Search for the CSV records created earlier.
     :::image type="content" source="media/tutorial-csv-ingestion/tutorial-search-success.png" alt-text="Screenshot of searching ingested CSV records.":::
 
 ## Next steps
