@@ -10,7 +10,7 @@ ms.date: 10/13/2021
 ms.custom: sdkv1, event-tier1-build-2022
 ---
 
-# Train a small object detection model with AutoML (preview)
+# Train a small object detection model with AutoML (preview) (v1)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: Use AutoML to detect small objects in images
-description: Set up Azure Machine Learning automated ML to train small object detection models.
+description: Set up Azure Machine Learning automated ML to train small object detection models with the CLI v2 and Python SDK v2 (preview).
 author: PhaniShekhar
 ms.author: phmantri
 ms.service: machine-learning
@@ -11,8 +11,6 @@ ms.custom: sdkv2, event-tier1-build-2022
 ---
 
 # Train a small object detection model with AutoML (preview)
-
-<todo phm: Check with Samantha is the title1 in the below selector is apprropriate>
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
@@ -52,8 +50,6 @@ For example, when the `tile_grid_size` parameter is `'3x2'`, the computation tim
 
 You can specify the value for `tile_grid_size` in your hyperparameter space as a string.
 
-<todo phm: see if we should use set_image_model here instead of parameter_space>
-
 # [CLI v2](#tab/CLI-v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -79,8 +75,6 @@ image_object_detection_job.extend_search_space(
 The value for `tile_grid_size` parameter depends on the image dimensions and size of objects within the image. For example, larger number of tiles would be helpful when there are smaller objects in the images.
 
 To choose the optimal value for this parameter for your dataset, you can use hyperparameter search. To do so, you can specify a choice of values for this parameter in your hyperparameter space.
-
-<todo phm: need to update the CLI and SDK examples once changes from Nilesh and Madhu are in>
 
 # [CLI v2](#tab/CLI-v2)
 
@@ -131,8 +125,6 @@ The following are the parameters you can use to control the tiling feature.
 
 
 ## Example notebooks
-
-<todo phm: this link in other docs is pointing to sdk-preview branch. needs to be updated>
 
 See the [object detection sample notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb) for detailed code examples of setting up and training an object detection model.
 
