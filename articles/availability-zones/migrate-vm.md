@@ -77,6 +77,7 @@ If you'll be taking a snapshot of a disk that's attached to a running VM, read t
 
 #### Step 2: Migrate the data on your managed disks
 
+Now that you have snapshots of your original disks, you can use them to create either ZRS managed disks or zonal managed disks.
 ##### Migrate your data to zonal managed disks
 
 To migrate a non-zonal managed disk to zonal:
