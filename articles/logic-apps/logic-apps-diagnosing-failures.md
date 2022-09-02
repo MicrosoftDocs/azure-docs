@@ -130,7 +130,7 @@ To help with debugging, you can add diagnostic steps to a logic app workflow, al
 
 ## Performance - frequently asked questions (FAQ)
 
-1. **Why workflow run duration is LARGER than the sum of all of its action durations?**
+### Why is the workflow run duration longer than the sum of all the workflow action durations?
 
 There are scheduling overheads in running these actions. There could be waiting time between actions due to backend system load. Workflow run duration includes these scheduling times and waiting times, in addtion to the sum of all of its action durations.
 
