@@ -77,7 +77,7 @@ If you'll be taking a snapshot of a disk that's attached to a running VM, make s
 
 #### Step 2: Migrate your managed disk
 
-**To Migrate a non-zonal managed disk to zonal:**
+##### Migrate your data to zonal managed disks
 
 To migrate a non-zonal managed disk to zonal:
 
