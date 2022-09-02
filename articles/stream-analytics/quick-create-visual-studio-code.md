@@ -41,7 +41,7 @@ Here are the prerequisites for the quickstart:
     :::image type="content" source="./media/quick-create-visual-studio-code/azure-sign-in.png" alt-text="Screenshot showing showing how to sign in to Azure.":::
 2. You may need to select a subscription as showing in the following image:
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/select-subscription.png" alt-text="Screenshot showing showing the selection of an Azure subscription.":::
+    :::image type="content" source="./media/quick-create-visual-studio-code/select-subscription.png" alt-text="Screenshot showing the selection of an Azure subscription.":::
 3. Keep Visual Studio Code open. 
 
     > [!NOTE]
@@ -210,10 +210,10 @@ Script compilation checks syntax and generates the Azure Resource Manager templa
 
 - Select the script from the workspace and then compile from the command palette.
 
-   :::image type="content" source="./media/quick-create-visual-studio-code/compile-script1.png" lightbox="./media/quick-create-visual-studio-code/compile-script1.png" alt-text="Screenshot showing the compilation of script option from the command palette."::: 
+   :::image type="content" source="./media/quick-create-visual-studio-code/compile-script-1.png" lightbox="./media/quick-create-visual-studio-code/compile-script-1.png" alt-text="Screenshot showing the compilation of script option from the command palette."::: 
 - Right-click the script and select **ASA: Compile Script**.
 
-   :::image type="content" source="./media/quick-create-visual-studio-code/compile-script2.png" lightbox="./media/quick-create-visual-studio-code/compile-script2.png" alt-text="Screenshot showing the compilation of script option from the Stream Analytics explorer in VS Code."::: 
+   :::image type="content" source="./media/quick-create-visual-studio-code/compile-script-2.png" lightbox="./media/quick-create-visual-studio-code/compile-script-2.png" alt-text="Screenshot showing the compilation of script option from the Stream Analytics explorer in VS Code."::: 
 
 After compilation, you can see results in the **Output** window. You can find the two generated Azure Resource Manager templates in the **Deploy** subfolder in your project folder. These two files are used for automatic deployment.
 
