@@ -10,7 +10,7 @@ ms.date: 05/23/2022
 ms.custom: kr2b-contr-experiment
 ---
 
-# Compress data with columnar tables in Hyperscale (CItus)
+# Compress data with columnar tables in Hyperscale (Citus)
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
