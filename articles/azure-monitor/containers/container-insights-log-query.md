@@ -2,7 +2,7 @@
 title: Query logs from Container insights
 description: Container insights collects metrics and log data, and this article describes the records and includes sample queries.
 ms.topic: conceptual
-ms.date: 08/30/2022
+ms.date: 08/29/2022
 ms.reviewer: aul
 
 ---
@@ -309,7 +309,7 @@ KubeMonAgentEvents | where Level != "Info"
 
 The output shows results similar to the following example:
 
-![Screenshot that shows log query results of informational events from an agent.](./media/container-insights-log-query/log-query-example-kubeagent-events.png)
+:::image type="content" source="./media/container-insights-log-query/log-query-example-kubeagent-events.png" alt-text="Screenshot that shows log query results of informational events from an agent." lightbox="media/container-insights-log-query/log-query-example-kubeagent-events.png":::
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Update Container insights for metrics | Microsoft Docs
 description: This article describes how you update Container insights to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
 ms.topic: conceptual
-ms.date: 08/31/2022 
+ms.date: 08/29/2022 
 ms.custom: devx-track-azurecli
 ms.reviewer: aul
 

@@ -2,7 +2,7 @@
 title: Configure Container insights Prometheus integration | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
-ms.date: 08/31/2022
+ms.date: 08/29/2022
 ms.reviewer: aul
 ---
 
@@ -12,7 +12,7 @@ ms.reviewer: aul
 
 Typically, to use Prometheus, you need to set up and manage a Prometheus server with a store. If you integrate with Azure Monitor, a Prometheus server isn't required. You only need to expose the Prometheus metrics endpoint through your exporters or pods (application). Then the containerized agent for Container insights can scrape the metrics for you.
 
-![Diagram that shows container monitoring architecture for Prometheus.](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
+:::image type="content" source="./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png" alt-text="Diagram that shows container monitoring architecture for Prometheus." border="false" lightbox="media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png":::
 
 >[!NOTE]
 >The minimum agent version supported for scraping Prometheus metrics is ciprod07092019. The agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019.
@@ -200,7 +200,7 @@ InsightsMetrics
 
 The output will show results similar to the following example.
 
-![Screenshot that shows the log query results of data ingestion volume.](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
+:::image type="content" source="./media/container-insights-prometheus-integration/log-query-example-usage-03.png" alt-text="Screenshot that shows the log query results of data ingestion volume." border="false" lightbox="media/container-insights-prometheus-integration/log-query-example-usage-03.png":::
 
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
@@ -215,7 +215,7 @@ InsightsMetrics
 
 The output will show results similar to the following example.
 
-![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
+:::image type="content" source="./media/container-insights-prometheus-integration/log-query-example-usage-02.png" alt-text="Screenshot that shows log query results of data ingestion volume." border="false" lightbox="media/container-insights-prometheus-integration/log-query-example-usage-02.png":::
 
 For more information on how to analyze usage, see [Analyze usage in Log Analytics workspace](../logs/analyze-usage.md).
 
