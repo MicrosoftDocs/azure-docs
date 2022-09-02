@@ -15,11 +15,13 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-The Network Diagnostics Tool enables Azure Communication Services developers to ensure that their device and network conditions are optimal for connecting to the service to ensure a great call experience. The tool can be found at [aka.ms/acsdiagnostics](https://acs-network-diagnostic-tool.azurewebsites.net/). Users can quickly run a test, by pressing the start test button. The tool performs diagnostics on the network, devices, and call quality. The results of the diagnostics are directly provided through the tools UI. No sign-in required to use the tool.
+The **Network Diagnostics Tool** enables Azure Communication Services developers to ensure that their device and network conditions are optimal for connecting to the service to ensure a great call experience. The tool can be found at [aka.ms/acsdiagnostics](https://azurecommdiagnostics.net/). Users can quickly run a test, by pressing the start test button. The tool performs diagnostics on the network, devices, and call quality. The results of the diagnostics are directly provided through the tools UI. No sign-in required to use the tool. After the test, a GUID is presented which can be provided to our support team for further help.
 
 ![Network Diagnostic Tool home screen](../media/network-diagnostic-tool.png)
   
 As part of the diagnostics performed, the user is asked to enable permissions for the tool to access their devices. Next, the user is asked to record their voice, which is then played back using an echo bot to ensure that the microphone is working. The tool finally, performs a video test. The test uses the camera to detect video and measure the quality for sent and received frames. 
+
+If you are looking to build your own Network Diagnostic Tool or to perform deeper integration of this tool into your application, you can levearge [pre-call diagnostic APIs](../voice-video-calling/pre-call-diagnostics.md) for the calling SDK. 
   
 ## Performed tests
 
@@ -36,10 +38,15 @@ As part of the diagnostics performed, the user is asked to enable permissions fo
 ## Privacy
 
 When a user runs a network diagnostic, the tool collects and store service and client telemetry data to verify your network conditions and ensure that they're compatible with Azure Communication Services. The telemetry collected doesn't contain personal identifiable information. The test utilizes both audio and video collected through your device for this verification. The audio and video used for the test aren't stored.
+
+## Support
+
+The test provides a **unique identifier** for your test which you can provide our support team who can provide further help. For more information see [help and support options](../../support.md)
   
 ## Next Steps
 
+- [Use Pre-Call Diagnostic APIs to build your own tech check](../voice-video-calling/pre-call-diagnostics.md)
 - [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
 - [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
-- [Add Real-Time Inspection tool to your application](./real-time-inspection.md)
+- [Debug your application with Monitoring tool](./real-time-inspection.md)
 - [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)

@@ -3,12 +3,12 @@ title: Use scoping filters in Azure Active Directory Application Provisioning
 description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements in Azure Active Directory Application Provisioning.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 06/15/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -96,8 +96,8 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 >[!IMPORTANT] 
 > - The IsMemberOf filter is not supported currently.
 > - The members attribute on a group is not supported currently.
-> - EQUALS and NOT EQUALS are not supported for multi-valued attributes
-> - Scoping filters will return "false" if the value is null / empty
+> - Filtering is not supported for multi-valued attributes.
+> - Scoping filters will return "false" if the value is null / empty.
 
 9. Optionally, repeat steps 7-8 to add more scoping clauses.
 

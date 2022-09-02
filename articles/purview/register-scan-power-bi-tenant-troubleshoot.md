@@ -43,13 +43,17 @@ If delegated auth is used:
 - Validate if user is assigned to Power BI Administrator role.
 - If user is recently created, make sure password is reset successfully and user can successfully initiate the session.
 
+## My schema is not showing up after scanning
+
+It can take some time for schema to finish the scanning and ingestion process, depending on the size of your Power BI Tenant. Currently if you have a large PowerBI tenant, this process could take a few hours.
+
 ## Error code: Test connection failed - AASDST50079
 
 - **Message**: `Failed to get access token with given credential to access Power BI tenant. Authentication type PowerBIDelegated Message: AASDST50079 Due to a configuration change made by your administrator or because you moved to a new location, you must enroll in multi-factor authentication.`
 
 - **Cause**: Authentication is interrupted, due multi-factor authentication requirement for the Power BI admin user.
 
-- **Recommendation**: Disable multi-factor authentication requirement and exclude user from conditional access policies. Login with the user to Power BI dashboard to validate if user can successfully login to the application. 
+- **Recommendation**: Disable multi-factor authentication requirement and exclude user from conditional access policies. Login with the user to Power BI dashboard to validate if user can successfully login to the application.
 
 ## Error code: Test connection failed - AASTS70002
 

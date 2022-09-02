@@ -37,7 +37,7 @@ This article provides guidance on how to configure your NAT gateway to ensure ou
 Check the following configurations to ensure that NAT gateway can be used to direct traffic outbound:
 1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway cannot span beyond a single virtual network. 
-3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](#virtual-appliance-udrs-and-vpn-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
+3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](#virtual-appliance-udrs-and-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 
@@ -55,7 +55,7 @@ Refer to the table below for which tools to use to validate NAT gateway connecti
 | Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
 | Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
 
-To analyze outbound traffic from NAT gateway, use NSG flow logs.
+To analyze outbound traffic from NAT gateway, use NSG flow logs. NSG flow logs provide information on when a connection from your virtual network takes place, from where (source IP and port) to which destination (destination IP and port) along with the state of the connection, the traffic flow direction and size of the traffic (packets and bytes sent). 
 * To learn more about NSG flow logs, see [NSG flow log overview](../../network-watcher/network-watcher-nsg-flow-logging-overview.md).
 * For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#enabling-nsg-flow-logs).
 * For guides on how to read NSG flow logs, see [Working with NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#working-with-flow-logs).
@@ -70,11 +70,20 @@ NAT gateway is not compatible with basic resources, such as Basic Load Balancer 
 
 ### NAT gateway cannot be attached to a gateway subnet
 
-NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway subnets for VPN connections between site-to-site Azure virtual networks and local networks or between two Azure virtual networks. See [VPN gateway overview](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used.
+NAT gateway cannot be deployed in a gateway subnet. A gateway subnet is used by Virtual network (VPN) gateway for sending encrypted traffic over the internet between an Azure virtual network and on-premises location or between Azure virtual networks over the Microsoft network. See [VPN gateway overview](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used by VPN gateway.
 
 ### IPv6 coexistence
 
 [Virtual Network NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT gateway cannot be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. NAT gateway can be deployed on a dual stack subnet, but will still only use IPv4 Public IP addresses for directing outbound traffic. Deploy NAT gateway on a dual stack subnet when you need IPv6 resources to exist in the same subnet as IPv4 resources.
+
+### Cannot attach NAT gateway to a subnet that contains a VM NIC in a failed state
+
+When you try to associate NAT gateway to a subnet that contains a virtual machine network interface (NIC) in a failed state, you will receive an error message indicating that this action cannot be performed. You must first get the VM NIC out of the failed state before you can attach NAT gateway to the subnet.
+
+To troubleshoot NICs in a failed state, follow these steps
+1. Determine the provisioning state of your NICs using the [Get-AzNetworkInterface Powershell command](/powershell/module/az.network/get-aznetworkinterface#example-2-get-all-network-interfaces-with-a-specific-provisioning-state) and setting the value of the "provisioningState" to "Succeeded".
+2. Perform [GET/SET powershell commands](/powershell/module/az.network/set-aznetworkinterface#example-1-configure-a-network-interface) on the network interface to update the provisioning state.
+3. Check the results of this operation by checking the provisioining state of your NICs again (follow commands from step 1).
 
 ## SNAT exhaustion due to NAT gateway configuration
 
@@ -98,7 +107,7 @@ The table below describes two common scenarios in which outbound connectivity ma
 
 ### TCP idle timeout timers set higher than the default value
 
-The NAT gateway TCP idle timeout timer is set to 4 minutes by default but is configurable up to 120 minutes. If this setting is changed to a higher value than the default, NAT gateway will hold on to flows longer and can create [additional pressure on SNAT port inventory](nat-gateway-resource.md#timers). The table below describes a common scenarion in which a high TCP idle timeout may be causing SNAT exhaustion and provides possible mitigation steps to take:
+The NAT gateway TCP idle timeout timer is set to 4 minutes by default but is configurable up to 120 minutes. If this setting is changed to a higher value than the default, NAT gateway will hold on to flows longer and can create [additional pressure on SNAT port inventory](nat-gateway-resource.md#timers). The table below describes a common scenario in which a high TCP idle timeout may be causing SNAT exhaustion and provides possible mitigation steps to take:
 
 | Scenario | Evidence | Mitigation |
 |---|---|---|
@@ -140,13 +149,6 @@ A couple important notes about the NAT gateway and Azure App Services integratio
 * Virtual network integration does not provide inbound private access to your app from the virtual network. 
 * Because of the nature of how virtual network integration operates, the traffic from virtual network integration does not show up in Azure Network Watcher or NSG flow logs. 
 
-### Port 25 cannot be used for regional VNet integration with NAT gateway
-
-Port 25 is an SMTP port that is used to send email. Azure app services regional Virtual network integration cannot use port 25 by design. In a scenario where regional Virtual network integration is enabled for NAT gateway to connect an application to an email SMTP server, traffic will be blocked on port 25 despite NAT gateway working with all other ports for outbound traffic. This block on port 25 cannot be removed.
-
-**Work around solution:**
-* Set up port forwarding to a Windows VM to route traffic to Port 25. 
-
 ## NAT gateway public IP not being used for outbound traffic
 
 ### VMs hold on to prior SNAT IP with active connection after NAT gateway added to a VNet
@@ -159,13 +161,13 @@ Test and resolve issues with VMs holding on to old SNAT IP addresses by:
 
 If you are still having trouble, open a support case for further troubleshooting. 
 
-### Virtual appliance UDRs and VPN ExpressRoute override NAT gateway for routing outbound traffic
+### Virtual appliance UDRs and ExpressRoute override NAT gateway for routing outbound traffic
 
 When forced tunneling with a custom UDR is enabled to direct traffic to a virtual appliance or VPN through ExpressRoute, the UDR or ExpressRoute takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](../virtual-networks-udr-overview.md#custom-routes). 
 
 The order of precedence for internet routing configurations is as follows: 
 
-Virtual appliance UDR / VPN ExpressRoute >> NAT gateway >> default system 
+Virtual appliance UDR / ExpressRoute >> NAT gateway >> instance level public IP addresses >> outbound rules on Load balancer >> default system 
 
 Test and resolve issues with a virtual appliance UDR or VPN ExpressRoute overriding your NAT gateway by: 
 1. [Testing that the NAT gateway public IP](./quickstart-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a custom UDR, follow the remaining steps on how to check for and remove custom UDRs.

@@ -1,6 +1,5 @@
 ---
-title: "Quickstart: Get token & call Microsoft Graph in a console app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Get token & call Microsoft Graph in a console app"
 description: In this quickstart, you learn how a .NET Core sample app can use the client credentials flow to get a token and call Microsoft Graph.
 services: active-directory
 author: jmprieur

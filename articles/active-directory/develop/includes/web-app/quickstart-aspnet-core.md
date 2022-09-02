@@ -1,6 +1,5 @@
 ---
-title: "Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph"
 description: Learn how an ASP.NET Core web app leverages Microsoft.Identity.Web to implement Microsoft sign-in using OpenID Connect and call Microsoft Graph
 services: active-directory
 author: jmprieur
@@ -33,7 +32,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. For **Name**, enter a name for your application. For example, enter **AspNetCore-Quickstart**. Users of your app will see this name, and you can change it later.
-1. For **Redirect URI**, enter **https://localhost:44321/signin-oidc**.
+1. Set the **Redirect URI** type to **Web** and value to `https://localhost:44321/signin-oidc`.
 1. Select **Register**.
 1. Under **Manage**, select **Authentication**.
 1. For **Front-channel logout URL**, enter **https://localhost:44321/signout-oidc**.

@@ -30,7 +30,7 @@ At this time, Custom Commands supports speech subscriptions created in regions t
 
 ## Go to the Speech Studio for Custom Commands
 
-1. In a web browser, go to [Speech Studio](https://speech.microsoft.com/).
+1. In a web browser, go to [Speech Studio](https://aka.ms/speechstudio/customcommands).
 1. Enter your credentials to sign in to the portal.
 
    The default view is your list of Speech subscriptions.

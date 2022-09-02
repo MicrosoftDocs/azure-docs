@@ -4,7 +4,7 @@ services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
 ms.date: 11/23/2021
-ms.topic: article
+ms.topic: how-to
 description: "Apply configurations at-scale using Azure Policy"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---

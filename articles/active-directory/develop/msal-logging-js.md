@@ -1,6 +1,5 @@
 ---
 title: Logging errors and exceptions in MSAL.js
-titleSuffix: Microsoft identity platform
 description: Learn how to log errors and exceptions in MSAL.js
 services: active-directory
 author: mmacy

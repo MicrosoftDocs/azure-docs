@@ -314,6 +314,7 @@ To try the [**Parse JSON** action example](../logic-apps/logic-apps-perform-data
             "Succeeded"
          ]
       }
+   }
 },
 ```
 

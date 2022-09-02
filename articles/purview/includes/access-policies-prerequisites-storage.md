@@ -35,15 +35,22 @@ If the output is *Registering*, wait at least 10 minutes, and then retry the com
 After you’ve enabled the access policy above, create new Azure Storage account(s) in one of the regions listed below. You can [follow this guide to create one](../../storage/common/storage-account-create.md).
 
 Currently, Microsoft Purview access policies can only be enforced in the following Azure Storage regions:
--   France Central
--   Canada Central
 -   East US
 -   East US2
 -   South Central US
 -   West US
 -   West US2
+-   West US3
+-   West Central US
+-   Canada Central
+-   Brazil South
 -   North Europe
 -   West Europe
+-   France Central
 -   UK South
+-   Central India
+-   East Asia
 -   Southeast Asia
+-   Japan East
+-   Japan West
 -   Australia East

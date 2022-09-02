@@ -9,7 +9,7 @@ tags: azure-resource-manager,azure-service-management
 keywords: VM isolation,isolated VM,isolation,isolated
 ms.assetid: 
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/04/2022

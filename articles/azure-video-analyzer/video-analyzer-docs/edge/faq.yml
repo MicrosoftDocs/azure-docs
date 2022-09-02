@@ -224,7 +224,7 @@ sections:
         answer: |
           **How is Video Analyzer billed?**
 
-          For billing details, see [Video Analyzer pricing](https://azure.microsoft.com/pricing/details/video-analyzer/).
+          For billing details, see [Video Analyzer pricing](../index.yml).
 
 additionalContent: |
 

@@ -5,7 +5,7 @@ author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 10/5/2021
 ms.topic: conceptual
-ms.service: iot-hub
+ms.service: iot-hub-device-update
 ---
 
 # Device Update Security Model

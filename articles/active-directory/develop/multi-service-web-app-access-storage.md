@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Web app accesses storage by using managed identities | Azure
+title: Tutorial - Web app accesses storage by using managed identities
 description: In this tutorial, you learn how to access Azure Storage for an app by using managed identities.
 services: storage, app-service-web
 author: rwike77

@@ -56,6 +56,8 @@ landingContent:
           url: concept-app-configuration-event.md
         - text: Soft delete
           url: concept-soft-delete.md
+        - text: Geo-replication 
+          url: concept-geo-replication.md
           
         
   - title: Create and code with Azure App Configuration

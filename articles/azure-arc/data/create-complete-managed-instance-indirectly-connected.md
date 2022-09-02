@@ -4,7 +4,8 @@ description: Demonstrates how to deploy Azure Arc-enabled data services in indir
 author: MikeRayMSFT
 ms.author: mikeray
 services: azure-arc
-ms.service: azure-arc-data
+ms.service: azure-arc
+ms.subservice: azure-arc-data-sqlmi
 ms.topic: quickstart 
 ms.date: 12/09/2021
 ms.custom: template-quickstart , devx-track-azurecli
@@ -160,7 +161,7 @@ NAME          STATE
 <namespace>   Ready
 ```
 
-## Create Azure Arc-enabled SQL Managed Instance
+## Create an instance of Azure Arc-enabled SQL Managed Instance
 
 Now, we can create the Azure MI for indirectly connected mode with the following command: 
 

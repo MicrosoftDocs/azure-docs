@@ -3,7 +3,7 @@ title: Configure device redirections - Azure
 description: How to configure device redirections for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 08/01/2022
 ms.author: helohr
 manager: femila
 ---
@@ -14,6 +14,9 @@ Configuring device redirections for your Azure Virtual Desktop environment allow
 ## Supported device redirections
 
 Each client supports different device redirections. Check out [Compare the clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) for the full list of supported device redirections for each client.
+
+>[!IMPORTANT]
+>You can only enable redirections with binary settings that apply to both to and from the remote machine. The service doesn't currently support one-way blocking of redirections from only one side of the connection.
 
 ## Customizing RDP properties for a host pool
 
@@ -65,6 +68,9 @@ Set the following RDP property to configure COM port redirection:
 
 ### USB redirection
 
+>[!IMPORTANT]
+>To redirect a mass storage USB device connected to your local computer to the remote session host, you'll need to configure the **Drive/storage redirection** RDP property. Enabling the **USB redirection** RDP property by itself won't work. For more information, see [Local drive redirection](#local-drive-redirection).
+
 First, set the following RDP property to enable USB device redirection:
 
 - `usbdevicestoredirect:s:*` enables USB device redirection.
@@ -96,6 +102,15 @@ Set the following RDP property to configure local drive redirection:
 You can also select specific drives using a semicolon-delimited list, such as `drivestoredirect:s:C:;E:;`.
 
 To enable web client file transfer, set `drivestoredirect:s:*`. If you set any other value for this RDP property, web client file transfer will be disabled.
+
+### Location redirection
+
+Set the following RDP property to configure location redirection:
+
+- `redirectlocation:i:1` enables location redirection.
+- `redirectlocation:i:0` disables location redirection.
+
+When enabled, the location of the local device is sent to the session host and set as its location. Location redirection lets applications like Maps or Printer Search use your physical location. When you disable location redirection, these applications will use the location of the session host instead.
 
 ### Printer redirection
 

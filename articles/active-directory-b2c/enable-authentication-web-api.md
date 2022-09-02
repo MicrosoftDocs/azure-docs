@@ -126,7 +126,7 @@ npm install passport-azure-ad
 npm install morgan
 ```
  
-The [morgen package](https://www.npmjs.com/package/morgan) is an HTTP request logger middleware for Node.js.
+The [morgan package](https://www.npmjs.com/package/morgan) is an HTTP request logger middleware for Node.js.
 
 ---
 

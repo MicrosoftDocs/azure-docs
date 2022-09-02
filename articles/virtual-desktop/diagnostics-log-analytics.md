@@ -186,10 +186,11 @@ WVDErrors
 
 
 >[!NOTE]
->- When a user opens Full Desktop, their app usage in the session isn't tracked as checkpoints in the WVDCheckpoints table.
->- The ResourcesAlias column in the WVDConnections table shows whether a user has connected to a full desktop or a published app. The column only shows the first app they open during the connection. Any published apps the user opens are tracked in WVDCheckpoints.
->- The WVDErrors table shows you management errors, host registration issues, and other issues that happen while the user subscribes to a list of apps or desktops.
->- WVDErrors helps you to identify issues that can be resolved by admin tasks. The value on ServiceError always says “false” for those types of issues. If ServiceError = “true”, you'll need to escalate the issue to Microsoft. Ensure you provide the CorrelationID for the errors you escalate.
+>- When a user launches a full desktop session, their app usage in the session isn't tracked as checkpoints in the `WVDCheckpoints` table.
+>- The `ResourcesAlias` column in the `WVDConnections` table shows whether a user has connected to a full desktop or a published app. The column only shows the first app they open during the connection. Any published apps the user opens are tracked in `WVDCheckpoints`.
+>- The `WVDErrors` table shows you management errors, host registration issues, and other issues that happen while the user subscribes to a list of apps or desktops.
+>- The `WVDErrors` table also helps you to identify issues that can be resolved by admin tasks. The value on `ServiceError` should always equal `false` for these types of issues. If `ServiceError` equals `true`, you'll need to escalate the issue to Microsoft. Ensure you provide the *CorrelationID* for errors you escalate.
+>- When debugging connectivity issues, in some cases client information might be missing even if the connection events completes. This applies to the `WVDConnections` and `WVDCheckpoints` tables.
 
 ## Next steps
 

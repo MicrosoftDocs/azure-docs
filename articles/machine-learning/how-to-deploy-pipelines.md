@@ -9,13 +9,12 @@ ms.author: larryfr
 author: blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: contperf-fy21q1
-
+ms.custom: contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Publish and track machine learning pipelines
 
-
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article will show you how to share a machine learning pipeline with your colleagues or customers.
 
@@ -23,7 +22,7 @@ Machine learning pipelines are reusable workflows for machine learning tasks. On
 
 ## Prerequisites
 
-* Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources
+* Create an [Azure Machine Learning workspace](quickstart-create-resources.md) to hold all your pipeline resources
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed
 
@@ -63,6 +62,10 @@ Once you have a pipeline up and running, you can publish a pipeline so that it r
         description="My Published Pipeline Description",
         version="1.0")
    ```
+
+4. After you publish your pipeline, you can check it in the UI. Pipeline ID is the unique identified of the published pipeline.
+
+    :::image type="content" source="./media/how-to-deploy-pipelines/published-pipeline-detail.png" alt-text="Screenshot showing published pipeline detail." lightbox= "./media/how-to-deploy-pipelines/published-pipeline-detail.png":::
 
 ## Run a published pipeline
 
@@ -297,7 +300,7 @@ You can create a Pipeline Endpoint with multiple published pipelines behind it. 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
 
-published_pipeline = PublishedPipeline.get(workspace=ws, name="My_Published_Pipeline")
+published_pipeline = PublishedPipeline.get(workspace=ws, id="My_Published_Pipeline_id")
 pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
                                             pipeline=published_pipeline, description="Test description Notebook")
 ```

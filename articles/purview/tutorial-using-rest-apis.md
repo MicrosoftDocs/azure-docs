@@ -14,7 +14,7 @@ ms.date: 09/17/2021
 
 # Tutorial: Use the REST APIs
 
-In this tutorial, you learn how to use the Microsoft Purview REST APIs. Anyone who wants to submit data to a Microsoft Purview, include Microsoft Purview as part of an automated process, or build their own user experience on the Microsoft Purview can use the REST APIs to do so.
+In this tutorial, you learn how to use the Microsoft Purview REST APIs. Anyone who wants to submit data to Microsoft Purview, include Microsoft Purview as part of an automated process, or build their own user experience on Microsoft Purview can use the REST APIs to do so.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -43,8 +43,7 @@ To create a new service principal:
 
    The application ID is the `client_id` value in the sample code.
 
-To use the service principal (application), you need to get
-its password. Here's how:
+To use the service principal (application), you need to know the service principal's password which can be found by:
 
 1. From the Azure portal, search for and select **Azure Active Directory**, and then select **App registrations** from the left pane.
 1. Select your service principal (application) from the list.
@@ -58,7 +57,7 @@ its password. Here's how:
 
 ## Set up authentication using service principal
 
-Once service principal is created, you need to assign Data plane roles of your purview account to the service principal created above. The below steps need to be followed to assign role to establish trust between the service principal and purview account.
+Once the new service principal is created, you need to assign the data plane roles of your purview account to the service principal created above. Follow the steps below to assign the correct role to establish trust between the service principal and the Purview account:
 
 1. Navigate to your [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 1. Select the Data Map in the left menu.
@@ -104,6 +103,12 @@ Sample response token:
         "access_token": "<<access token>>"
     }
 ```
+
+> [!TIP]
+> If you get an error message that reads: *Cross-origin token redemption is permitted only for the 'Single-Page Application' client-type.*
+> * Check your request headers and confirm that your request **doesn't** contain the 'origin' header.
+> * Confirm that your redirect URI is set to **web** in your service principal.
+> * If you are using an application like Postman, make sure your software is up to date.
 
 Use the access token above to call the Data plane APIs.
 

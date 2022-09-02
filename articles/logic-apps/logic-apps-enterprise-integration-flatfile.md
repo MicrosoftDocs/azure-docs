@@ -12,7 +12,7 @@ ms.date: 11/02/2021
 
 # Encode and decode flat files in Azure Logic Apps
 
-Before you send XML content to a business partner in a business-to-business (B2B) scenario, you might want to encode that content first. By building a logic app workflow, you can encode and decode flat files by using the [built-in](../connectors/built-in.md#integration-account-built-in-actions) **Flat File** actions.
+Before you send XML content to a business partner in a business-to-business (B2B) scenario, you might want to encode that content first. By building a logic app workflow, you can encode and decode flat files by using the [built-in](../connectors/built-in.md#integration-account-built-in) **Flat File** actions.
 
 Although no **Flat File** triggers are available, you can use a different trigger or action to get or feed the XML content from various sources into your workflow for encoding or decoding. For example, you can use the Request trigger, another app, or other [connectors supported by Azure Logic Apps](../connectors/apis-list.md). You can use **Flat File** actions with workflows in the [**Logic App (Consumption)** and **Logic App (Standard)** resource types](single-tenant-overview-compare.md).
 
@@ -40,7 +40,7 @@ This article shows how to add the Flat File encoding and decoding actions to an 
 
     * A [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-  * If you're using use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you don't store schemas in your integration account. Instead, you can [directly add schemas to your logic app resource](logic-apps-enterprise-integration-schemas.md) using either the Azure portal or Visual Studio Code. You can then use these schemas across multiple workflows within the *same logic app resource*.
+  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you don't store schemas in your integration account. Instead, you can [directly add schemas to your logic app resource](logic-apps-enterprise-integration-schemas.md) using either the Azure portal or Visual Studio Code. You can then use these schemas across multiple workflows within the *same logic app resource*.
 
     You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
 

@@ -152,6 +152,12 @@ sections:
         answer: |
           All App Configuration stores in the standard tier support the [soft-delete](concept-soft-delete.md) feature, which cannot be disabled. You can recover a deleted store within its retention period. Follow these [instructions](howto-recover-deleted-stores-in-azure-app-configuration.md) to recover a mistakenly deleted App Configuration store.
 
+      - question: Can I create and update feature flags or Key Vault references programmatically?
+        answer: |
+          While you can manage feature flags and Key Vault references in App Configuration through the Azure portal or CLI, you can also create and update them programmatically using App Configuration SDKs. Therefore, you can write your customized management portal or manage them in your CI/CD programmatically. The feature flag and Key Vault reference APIs are available in SDKs of all supported languages. Check out the [sample links](https://github.com/Azure/AppConfiguration#sdks) for examples in each supported language.
+
+          Evaluating and consuming feature flags in your application requires the App Configuration provider and feature management libraries, which are available in .NET and Java Spring. Check out the _Feature management_ section under _Quickstarts_ and _Tutorials_ for more information.
+          
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |
           Subscribe to our [GitHub announcements repo](https://github.com/Azure/AppConfiguration-Announcements).

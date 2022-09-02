@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2021
+ms.date: 06/28/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -39,7 +39,7 @@ The sign-in flow involves the following steps:
 A computer that's running: 
 
 * [Visual Studio Code](https://code.visualstudio.com/) or another code editor
-* [Python](https://nodejs.org/en/download/) 2.7+ or 3+ 
+* [Python](https://www.python.org/downloads/) 3.9 or above 
 
 ## Step 1: Configure your user flow
 
@@ -53,7 +53,7 @@ During app registration, you'll specify the *Redirect URI*. The redirect URI is 
 
 ### Step 2.1: Register the app
 
-To create the web app registration, do the following:
+To create the web app registration, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -68,7 +68,7 @@ To create the web app registration, do the following:
 1. Select **Overview**.
 1. Record the **Application (client) ID** for later use, when you configure the web application.
 
-    ![Screenshot of the web app Overview page for recording your web app ID.](./media/configure-authentication-sample-python-web-app/get-azure-ad-b2c-app-id.png)  
+    ![Screenshot of the web app Overview page for recording your web app I D.](./media/configure-authentication-sample-python-web-app/get-azure-ad-b2c-app-id.png)  
 
 
 ### Step 2.2: Create a web app client secret
@@ -87,7 +87,7 @@ Extract the sample file to a folder where the total length of the path is 260 or
 
 ## Step 4: Configure the sample web app
 
-In the project's root directory, do the following:
+In the project's root directory, follow these steps:
 
 1. Rename the *app_config.py* file to *app_config.py.OLD*.
 1. Rename the *app_config_b2c.py* file to *app_config.py*. 
@@ -98,7 +98,7 @@ Open the *app_config.py* file. This file contains information about your Azure A
 |---------|---------|
 |`b2c_tenant`| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso`).|
 |`CLIENT_ID`| The web API application ID from [step 2.1](#step-21-register-the-app).|
-|`CLIENT_SECRET`| The client secret you created in [step 2.2](#step-22-create-a-web-app-client-secret). To help increase security, consider storing it instead in an environment variable, as recommended in the comments. |
+|`CLIENT_SECRET`| The client secret value you created in [step 2.2](#step-22-create-a-web-app-client-secret). To help increase security, consider storing it instead in an environment variable, as recommended in the comments. |
 |`*_user_flow`|The user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
 | | |
 
@@ -131,10 +131,28 @@ CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx" # Placeholder - for use ONLY during t
     ```
 1. Install the required packages from PyPi and run the web app on your local machine by running the following commands:
 
-    ```console
-    pip install -r requirements.txt
-    flask run --host localhost --port 5000
+    # [Linux](#tab/linux)    
+
+    ```bash
+    python -m pip install -r requirements.txt
+    python -m flask run --host localhost --port 5000
     ```
+    
+    # [macOS](#tab/macos)
+    
+    ```bash
+    python -m pip install -r requirements.txt
+    python -m flask run --host localhost --port 5000
+    ```
+    
+    # [Windows](#tab/windows)
+    
+    ```bash
+    py -m pip install -r requirements.txt
+    py -m flask run --host localhost --port 5000
+    ```
+    
+    ---
 
     The console window displays the port number of the locally running application:
 
@@ -152,7 +170,7 @@ CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx" # Placeholder - for use ONLY during t
 
 1. Select **Sign In**.
 
-    ![Screenshot showing the sign-in with Azure AD B2C.](./media/configure-authentication-sample-python-web-app/web-app-sign-in.png)
+    ![Screenshot showing the sign-in flow.](./media/configure-authentication-sample-python-web-app/web-app-sign-in.png)
 
 
 1. Complete the sign-up or sign-in process.
@@ -172,7 +190,7 @@ To enable your app to sign in with Azure AD B2C and call a web API, you must reg
 
 The app registrations and the application architecture are described in the following diagrams:
 
-![Diagram describing a web app with web API, registrations, and tokens.](./media/configure-authentication-sample-python-web-app/web-app-with-api-architecture.png) 
+![Diagram describing a web app with web A P I, registrations, and tokens.](./media/configure-authentication-sample-python-web-app/web-app-with-api-architecture.png) 
 
 [!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-app-integration-call-api.md)]
 
@@ -232,7 +250,7 @@ SCOPE = ["https://contoso.onmicrosoft.com/api/demo.read", "https://contoso.onmic
 1. Stop the app. and then rerun it.
 1. Select **Call Microsoft Graph API**.
 
-    ![Screenshot showing how to call a web API.](./media/configure-authentication-sample-python-web-app/call-web-api.png)
+    ![Screenshot showing how to call a web A P I.](./media/configure-authentication-sample-python-web-app/call-web-api.png)
 
 ## Step 7: Deploy your application 
 

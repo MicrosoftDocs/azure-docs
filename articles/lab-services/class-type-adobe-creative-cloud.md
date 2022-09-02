@@ -47,6 +47,12 @@ The size of VM that you need to use for your lab depends on the types of project
 > [!WARNING]
 > The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience and meets [Adobe’s system requirements for each application](https://helpx.adobe.com/creative-cloud/system-requirements.html).  Make sure to choose Small GPU (Visualization) not Small GPU (Compute).  For more information about this virtual machine size, see the article on [how to set up a lab with GPUs](./how-to-setup-lab-gpu.md).
 
+#### GPU drivers
+
+When you create the lab, we recommend that you install the GPU drivers by selecting the **Install GPU drivers** option in the lab creation wizard.  You should also validate that the GPU drivers are correctly installed.  For more information, read the following sections:
+- [Ensure that the appropriate GPU drivers are installed](../lab-services/how-to-setup-lab-gpu.md#ensure-that-the-appropriate-gpu-drivers-are-installed)
+- [Validate the installed drivers](../lab-services/how-to-setup-lab-gpu.md#validate-the-installed-drivers)
+
 ## Template machine configuration
 
 ### Creative Cloud deployment package
@@ -89,6 +95,16 @@ Consider saving your template VM for future use.  To save the template VM, see [
 
 - When self-service is *enabled*, the template VM’s image will have Creative Cloud desktop installed.  Teachers can then reuse this image to create labs and to choose which Creative Cloud apps to install.  This helps reduce IT overhead since teachers can independently set up labs and have full control over installing the Creative Cloud apps required for their classes.
 - When self-service is *disabled*, the template VM’s image will already have the specified Creative Cloud apps installed.  Teachers can reuse this image to create labs; however, they won’t be able to install additional Creative Cloud apps.
+
+### Troubleshooting
+
+Adobe Creative Cloud may show an error saying *Your graphics processor is incompatible* when the GPU drivers or the GPU is not configured correctly.
+
+:::image type="content" source="./media/class-type-adobe-creative-cloud/gpu-driver-error.png" alt-text="Screenshot of Adobe Creative Cloud showing an error message that the graphics processor is incompatible.":::
+
+To fix this issue:
+- Ensure that you selected the Small GPU *(Visualization)* size when you created your lab.  You can see the VM size used by the lab on the lab's [Template page](../lab-services/how-to-create-manage-template.md).
+- Try [manually installing the Small GPU Visualization drivers](../lab-services/how-to-setup-lab-gpu.md#install-the-small-gpu-visualization-drivers). 
 
 ## Cost
 

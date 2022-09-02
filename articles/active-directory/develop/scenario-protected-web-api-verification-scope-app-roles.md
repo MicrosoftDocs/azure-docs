@@ -1,6 +1,5 @@
 ---
-title: Verify scopes and app roles protected web API | Azure
-titleSuffix: Microsoft identity platform
+title: Verify scopes and app roles protected web API
 description: Verify that the API is only called by applications on behalf of users who have the right scopes and by daemon apps that have the right application roles.
 services: active-directory
 author: jmprieur
@@ -9,10 +8,8 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/19/2021
+ms.date: 05/12/2022
 ms.author: jmprieur
-ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to write a protected web API using the Microsoft identity platform for developers.
 ---
 
@@ -256,7 +253,7 @@ For a full version of `ValidateScopes` for ASP.NET Core, [_ScopesRequiredHttpCon
 
 ## Verify app roles in APIs called by daemon apps
 
-If your web API is called by a [daemon app](scenario-daemon-overview.md), that app should require an application permission to your web API. As shown in [Exposing application permissions (app roles)](./scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles), your API exposes such permissions. One example is the `access_as_application` app role.
+If your web API is called by a [daemon app](scenario-daemon-overview.md), that app should require an application permission to your web API. As shown in [Exposing application permissions (app roles)](./scenario-protected-web-api-app-registration.md#expose-application-permissions-app-roles), your API exposes such permissions. One example is the `access_as_application` app role.
 
 You now need to have your API verify that the token it receives contains the `roles` claim and that this claim has the expected value. The verification code is similar to the code that verifies delegated permissions, except that your controller action tests for roles instead of scopes:
 
@@ -335,7 +332,7 @@ For a full version of `ValidateAppRole` for ASP.NET Core, see [_RolesRequiredHtt
 
 Users can also use roles claims in user assignment patterns, as shown in [How to add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md). If the roles are assignable to both, checking roles will let apps sign in as users and users sign in as apps. We recommend that you declare different roles for users and apps to prevent this confusion.
 
-If you have defined app roles with user/group, then roles claim can also be verified in the API along with scopes. The verification logic of the app roles in this scenario remains same as if API is called by the daemon apps since there is no differentiation in the role claim for user/group and application. 
+If you have defined app roles with user/group, then roles claim can also be verified in the API along with scopes. The verification logic of the app roles in this scenario remains same as if API is called by the daemon apps since there is no differentiation in the role claim for user/group and application.
 
 ### Accepting app-only tokens if the web API should be called only by daemon apps
 

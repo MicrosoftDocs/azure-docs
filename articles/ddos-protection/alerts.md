@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/11/2022
+ms.date: 06/07/2022
 ms.author: abell
 
 ---
@@ -89,7 +89,7 @@ There are two specific alerts that you will see for any DDoS attack detection an
 
 - **DDoS Attack detected for Public IP**: This alert is generated when the DDoS protection service detects that one of your public IP addresses is the target of a DDoS attack.
 - **DDoS Attack mitigated for Public IP**: This alert is generated when an attack on the public IP address has been mitigated.
-To view the alerts, open **Defender for Cloud** in the Azure portal. Under **Threat Protection**, select **Security alerts**. The following screenshot shows an example of the DDoS attack alerts.
+To view the alerts, open **Defender for Cloud** in the Azure portal and select **Security alerts**. Under **Threat Protection**, select **Security alerts**. The following screenshot shows an example of the DDoS attack alerts.
 
 ![DDoS Alert in Microsoft Defender for Cloud](./media/manage-ddos-protection/ddos-alert-asc.png)
 

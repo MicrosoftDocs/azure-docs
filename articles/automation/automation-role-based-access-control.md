@@ -1,6 +1,6 @@
 ---
 title: Manage role permissions and security in Azure Automation
-description: This article describes how to use Azure role-based access control (Azure RBAC), which enables access management for Azure resources.
+description: This article describes how to use Azure role-based access control (Azure RBAC), which enables access management and role permissions for Azure resources.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/10/2021
@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell, subject-rbac-steps
 #Customer intent: As an administrator, I want to understand permissions so that I use the least necessary set of permissions.
 ---
 
-# Manage role permissions and security in Automation
+# Manage role permissions and security in Azure Automation
 
 Azure role-based access control (Azure RBAC) enables access management for Azure resources. Using [Azure RBAC](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users, groups, and applications that they need to perform their jobs. You can grant role-based access to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
@@ -469,6 +469,7 @@ When a user assigned to the Automation Operator role on the Runbook scope views 
 
 ## Next steps
 
+* To learn about security guidelines, see [Security best practices in Azure Automation](automation-security-guidelines.md).
 * To find out more about Azure RBAC using PowerShell, see [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * For details of the types of runbooks, see [Azure Automation runbook types](automation-runbook-types.md).
 * To start a runbook, see [Start a runbook in Azure Automation](start-runbooks.md).

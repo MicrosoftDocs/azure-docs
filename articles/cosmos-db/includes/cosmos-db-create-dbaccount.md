@@ -1,6 +1,7 @@
 ---
- author: SnehaGunda
- ms.author: sngun
+ author: seesharprun
+ ms.author: sidandrews
+ms.reviewer: mjbrown
  ms.service: cosmos-db
  ms.topic: include
  ms.date: 07/02/2021

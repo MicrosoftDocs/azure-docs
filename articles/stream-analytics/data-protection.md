@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 05/20/2022
 ---
 
 # Data protection in Azure Stream Analytics 
@@ -40,7 +40,9 @@ If you want to use customer-managed keys to encrypt your data, you can use your 
 
 This setting must be configured at the time of Stream Analytics job creation, and it can't be modified throughout the job's life cycle. Modification or deletion of storage that is being used by your Stream Analytics is not recommended. If you delete your storage account, you will permanently delete all private data assets, which will cause your job to fail. 
 
-Updating or rotating keys to your storage account is not possible using the Stream Analytics portal. You can update the keys using the REST APIs.
+Updating or rotating keys to your storage account is not possible using the Stream Analytics portal. You can update the keys using the REST APIs. You can also connect to your job storage account using managed identity authentication with allow trusted services.
+
+If the storage account you want to use is in an Azure Virtual Network, you must use managed identity authentication mode with **Allow trusted services**. For more information, visit: [Connect Stream Analytics jobs to resources in an Azure Virtual Network (VNet)](connect-job-to-vnet.md).
 
 
 ### Configure storage account for private data 

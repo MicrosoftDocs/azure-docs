@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
-ms.date: 08/04/2021
+ms.date: 05/24/2022
 ms.custom: template-tutorial
 ---
 
@@ -73,7 +73,7 @@ In this section, you'll create a virtual network and subnet.
 
 8. Select **Save**.
 
-9. Select the **Security** tab.
+9. Select the **Security** tab or select the **Next: Security** button at the bottom of the page.
 
 10. Under **BastionHost**, select **Enable**. Enter this information:
 
@@ -112,64 +112,66 @@ During the creation of the load balancer, you'll configure:
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **(US) East US**.                                        |
-    | Type          | Select **Internal**.                                        |
     | SKU           | Leave the default **Standard**. |
+    | Type          | Select **Internal**.                                        |
 
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+5. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
 6. Enter **LoadBalancerFrontend** in **Name**.
 
-7. Select **myBackendSubnet** in **Subnet**.
+7. Select **myVNet** in **Virtual network**.
 
-8. Select **Dynamic** for **Assignment**.
+8. Select **myBackendSubnet** in **Subnet**.
 
-9. Select **Zone-redundant** in **Availability zone**.
+9. Select **Dynamic** for **Assignment**.
+
+10. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
     > In regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../../availability-zones/az-overview.md).
 
-10. Select **Add**.
+11. Select **Add**.
 
-11. Select **Next: Backend pools** at the bottom of the page.
+12. Select **Next: Backend pools** at the bottom of the page.
 
-12. In the **Backend pools** tab, select **+ Add a backend pool**.
+13. In the **Backend pools** tab, select **+ Add a backend pool**.
 
-13. Enter **myBackendPool** for **Name** in **Add backend pool**.
+14. Enter **myBackendPool** for **Name** in **Add backend pool**.
 
-14. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+15. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
-15. Select **IPv4** or **IPv6** for **IP version**.
+16. Select **IPv4** or **IPv6** for **IP version**.
 
-16. Select **Add**.
+17. Select **Add**.
 
-17. Select the **Next: Inbound rules** button at the bottom of the page.
+18. Select the **Next: Inbound rules** button at the bottom of the page.
 
-18. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
+19. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
 
-19. In **Add load balancing rule**, enter or select the following information:
+20. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myHTTPRule** |
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
     | Frontend IP address | Select **LoadBalancerFrontend**. |
+    | Backend pool | Select **myBackendPool**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool**. |
     | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |
     | Floating IP | Select **Disabled**. |
 
-20. Select **Add**.
+21. Select **Add**.
 
-21. Select the blue **Review + create** button at the bottom of the page.
+22. Select the blue **Review + create** button at the bottom of the page.
 
-22. Select **Create**.
+23. Select **Create**.
 
 ## Create virtual machines
 
@@ -275,25 +277,23 @@ In this section, you'll create a NAT gateway and assign it to the subnet in the 
 
 In this section, we'll test the NAT gateway. We'll first discover the public IP of the NAT gateway. We'll then connect to the test virtual machine and verify the outbound connection through the NAT gateway.
     
-1. Find the public IP address for the NAT gateway on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myPublicIP**.
+1. Select **Resource groups** in the left-hand menu, select the **TutorIntLBNAT-rg** resource group, and then from the resources list, select **myNATgatewayIP**.
 
 2. Make note of the public IP address:
 
     :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-internal-portal/find-public-ip.png" alt-text="Screenshot of discover public IP address of NAT gateway." border="true":::
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **TutorIntLBNAT-rg** resource group.
+3. Select **Resource groups** in the left-hand menu, select the **TutorIntLBNAT-rg** resource group, and then from the resources list, select **myVM1**.
 
 4. On the **Overview** page, select **Connect**, then **Bastion**.
 
-5. Select the blue **Use Bastion** button.
+5. Enter the username and password entered during VM creation.
 
-6. Enter the username and password entered during VM creation.
+6. Open **Internet Explorer** on **myVM1**.
 
-7. Open **Internet Explorer** on **myVM1**.
+7. Enter **https://whatsmyip.com** in the address bar.
 
-8. Enter **https://whatsmyip.com** in the address bar.
-
-9. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
+8. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
 
     :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-internal-portal/my-ip.png" alt-text="Screenshot of Internet Explorer showing external outbound IP." border="true":::
 

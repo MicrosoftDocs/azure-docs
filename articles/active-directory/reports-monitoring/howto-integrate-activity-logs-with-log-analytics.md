@@ -82,7 +82,7 @@ If you want to know for how long the activity data is stored in a Premium tenant
     * To send audit logs to the Log Analytics workspace, select the **AuditLogs** check box. 
     * To send sign-in logs to the Log Analytics workspace, select the **SignInLogs** check box.
     * To send non-interactive user sign-in logs to the Log Analytics workspace, select the **NonInteractiveUserSignInLogs** check box.
-    * To send service principle sign-in logs to the Log Analytics workspace, select the **ServicePrincipleSignInLogs** check box.
+    * To send service principal sign-in logs to the Log Analytics workspace, select the **ServicePrincipalSignInLogs** check box.
     * To send managed identity sign-in logs to the Log Analytics workspace, select the **ManagedIdentitySignInLogs** check box.
     * To send provisioning logs to the Log Analytics workspace, select the **ProvisioningLogs** check box.
     * To send Active Directory Federation Services (ADFS) sign-in logs to the Log Analytics workspace, select **ADFSSignInLogs**.

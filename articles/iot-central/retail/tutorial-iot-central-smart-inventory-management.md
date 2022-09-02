@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Azure IoT Smart inventory management | Microsoft Docs
 description: This tutorial shows you how to deploy and use smart inventory management application template for IoT Central
-author: KishorIoT
-ms.author: nandab
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.date: 12/20/2021
+ms.date: 06/13/2022
 ---
 
 # Tutorial: Deploy and walk through the smart inventory management application template
@@ -59,8 +59,7 @@ In this tutorial, you learn how to,
 
 ## Prerequisites
 
-* No specific pre-requisites required to deploy this app.
-* Recommended to have Azure subscription, but you can even try without it.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create smart inventory management application
 

@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Deploy your first container app'
-description: Deploy your first application to Azure Container Apps Preview.
+description: Deploy your first application to Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
 ms.date: 03/21/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli 
+ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
 # Quickstart: Deploy your first container app
 
-The Azure Container Apps Preview service enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while you leave behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+The Azure Container Apps service enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while you leave behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
 In this quickstart, you create a secure Container Apps environment and deploy your first container app.
 

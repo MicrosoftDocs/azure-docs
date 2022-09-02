@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Azure IoT connected waste management | Microsoft Docs
 description: This tutorial shows you how to deploy and use the connected waste management application template for IoT Central.
-author: miriambrus
-ms.author: miriamb
-ms.date: 12/22/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/16/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -56,8 +56,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* There are no specific prerequisites required to deploy this app.
-* You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create connected waste management application
 

@@ -207,7 +207,7 @@ When students use the registration link to sign in to a classroom, they're promp
 Here's a link for students to [sign up for a Microsoft account](http://signup.live.com).  
 
 > [!IMPORTANT]
-> When students sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, <http://signup.live.com>, in the lab registration email that you send to students who are using non-Microsoft accounts.
+> When students sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, `http://signup.live.com`, in the lab registration email that you send to students who are using non-Microsoft accounts.
 
 ### Use a GitHub account
 

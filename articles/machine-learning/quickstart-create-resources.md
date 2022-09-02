@@ -76,7 +76,7 @@ Review the parts of the studio on the left-hand navigation bar:
 * The **Author** section of the studio contains multiple ways to get started in creating machine learning models.  You can:
 
     * **Notebooks** section allows you to create Jupyter Notebooks, copy sample notebooks, and run notebooks and Python scripts.
-    * **Automated ML** steps you though created a machine learning model without writing code.
+    * **Automated ML** steps you through creating a machine learning model without writing code.
     * **Designer** gives you a drag-and-drop way to build models using prebuilt components.
 
 * The **Assets** section of the studio helps you keep track of the assets you create as you run your jobs.  If you have a new workspace, there's nothing in any of these sections yet.

@@ -1,12 +1,13 @@
 ---
 title: RegexMatch in Azure Cosmos DB query language
 description: Learn about the RegexMatch SQL system function in Azure Cosmos DB
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.custom: query-reference
 ---
 # REGEXMATCH (Azure Cosmos DB)

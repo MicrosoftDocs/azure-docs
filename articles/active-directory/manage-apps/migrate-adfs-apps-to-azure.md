@@ -1,7 +1,6 @@
 ---
 title: Moving application authentication from AD FS to Azure Active Directory
 description: Learn how to use Azure Active Directory to replace Active Directory Federation Services (AD FS), giving users single sign-on to all their applications.
-titleSuffix: Azure AD
 services: active-directory
 author: omondiatieno
 manager: CelesteDG

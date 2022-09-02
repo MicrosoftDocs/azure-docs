@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/14/2022
+ms.date: 05/13/2022
 
 ms.author: mimart
 author: msmimart
@@ -16,11 +16,10 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Example: Configure SAML/WS-Fed based identity provider federation with AD FS (preview)
+# Example: Configure SAML/WS-Fed based identity provider federation with AD FS
 
 >[!NOTE]
 >- *Direct federation* in Azure Active Directory is now referred to as *SAML/WS-Fed identity provider (IdP) federation*.
->- SAML/WS-Fed IdP federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article describes how to set up [SAML/WS-Fed IdP federation](direct-federation.md) using Active Directory Federation Services (AD FS) as either a SAML 2.0 or WS-Fed IdP. To support federation, certain attributes and claims must be configured at the IdP. To illustrate how to configure an IdP for federation, we’ll use Active Directory Federation Services (AD FS) as an example. We’ll show how to set up AD FS both as a SAML IdP and as a WS-Fed IdP.
 

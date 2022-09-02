@@ -10,6 +10,7 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: lajanuar
+ms.custom: applied-ai-non-critical-form
 ---
 
 # Tutorial: Use an Azure Function to process stored documents

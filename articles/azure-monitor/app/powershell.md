@@ -4,6 +4,7 @@ description: Automate creating and managing resources, alerts, and availability 
 ms.topic: conceptual
 ms.date: 05/02/2020 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: vitalyg
 ---
 
 #  Manage Application Insights resources using PowerShell
@@ -157,7 +158,8 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 "tags": {},
                 "properties": {
                     "ApplicationId": "[parameters('appName')]",
-                    "retentionInDays": "[parameters('retentionInDays')]"
+                    "retentionInDays": "[parameters('retentionInDays')]",
+                    "ImmediatePurgeDataOn30Days": "[parameters('ImmediatePurgeDataOn30Days')]"
                 },
                 "dependsOn": []
             },

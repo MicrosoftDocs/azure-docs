@@ -7,8 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/26/2022
-
+ms.date: 08/10/2022
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
@@ -27,9 +26,8 @@ You can enable this feature at any time in the Azure portal by configuring the E
 
 > [!IMPORTANT]
 >
-> - We've begun rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](#disable-email-one-time-passcode). Soon, we'll stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption.
+> - The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven’t explicitly turned it off. This feature provides a seamless fallback authentication method for your guest users. If you don’t want to use this feature, you can [disable it](#disable-email-one-time-passcode), in which case users will redeem invitations using unmanaged ("viral") Azure AD accounts as a fallback. Soon, we’ll stop creating new unmanaged accounts and tenants during invitation redemption, and we'll enforce redemption with a Microsoft account instead.
 > - Email one-time passcode settings have moved in the Azure portal from **External collaboration settings** to **All identity providers**.
-
 > [!NOTE]
 > One-time passcode users must sign in using a link that includes the tenant context (for example, `https://myapps.microsoft.com/?tenantid=<tenant id>` or `https://portal.azure.com/<tenant id>`, or in the case of a verified domain, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com` will result in an error.
 
@@ -93,7 +91,7 @@ Guest user teri@gmail.com is invited to Fabrikam, which doesn't have Google fede
 
 ## Disable email one-time passcode
 
-We've begun rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can disable it. Soon, we'll stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption.
+The email one-time passcode feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. This feature provides a seamless fallback authentication method for your guest users. If you don't want to use this feature, you can disable it, in which case users will redeem invitations using unmanaged ("viral") Azure AD accounts as a fallback. Soon, we'll stop creating new unmanaged accounts and tenants during invitation redemption, and we'll enforce redemption with a Microsoft account instead.
 
 > [!NOTE]
 >
@@ -155,38 +153,26 @@ For more information about current limitations, see [Azure AD B2B in government 
 
 ## Frequently asked questions
 
-**Why do I still see “Automatically enable email one-time passcode for guests starting October 2021” selected in my email one-time passcode settings?**
-
-We've begun globally rolling out the change to enable email one-time passcode. In the meantime, you might still see “Automatically enable email one-time passcode for guests starting October 2021” selected in your email one-time passcode settings.
-
 **What happens to my existing guest users if I enable email one-time passcode?**
 
 Your existing guest users won't be affected if you enable email one-time passcode, as your existing users are already past the point of redemption. Enabling email one-time passcode will only affect future redemption activities where new guest users are redeeming into the tenant.
 
-**What is the user experience for guests during global rollout?**
+**What is the user experience when email one-time passcode is disabled?**
 
-The user experience depends on your current email one-time passcode settings, whether the user already has an unmanaged account, and whether you [reset a user's redemption status](reset-redemption-status.md). The following table describes these scenarios.
+If you’ve disabled the email one-time passcode feature, the user redeems invitations using an unmanaged ("viral") account as a fallback. In a separate release, we’ll stop creating new, unmanaged Azure AD accounts and tenants during B2B collaboration invitation redemption and will enforce redemption with a Microsoft account.
 
-|User scenario  |With email one-time passcode enabled prior to rollout  |With email one-time passcode disabled prior to rollout   |
-|---------|---------|---------|
-|**User has an existing unmanaged Azure AD account (not from redemption in your tenant)**      |Both before and after rollout, the user redeems invitations using email one-time passcode.         |Both before and after rollout, the user continues signing in with their unmanaged account.<sup>1</sup>             |
-|**User previously redeemed an invitation to your tenant using an unmanaged Azure AD account**      |Both before and after rollout, the user continues to use their unmanaged account. Or, you can [reset their redemption status](reset-redemption-status.md) so they can redeem a new invitation using email one-time passcode.          |Both before and after rollout, the user continues to use their unmanaged account, even if you reset their redemption status and reinvite them.<sup>1</sup>         |
-|**User with no unmanaged Azure AD account**      |Both before and after rollout, the user redeems invitations using email one-time passcode.           |Both before and after rollout, the user redeems invitations using an unmanaged account.<sup>2</sup>          |
-
-<sup>1</sup> In a separate release, we’ll roll out a change that will enforce redemption with a Microsoft account. To prevent your users from having to manage both an unmanaged Azure AD account and an MSA, we strongly encourage you to enable email one-time passcode.
-
-<sup>2</sup> The user might see a sign-in error when they're redeeming a direct application link and they weren't added to your directory in advance. In a separate release, we’ll roll out a change that will enforce redemption and future sign-ins with a Microsoft account.
+Also, when email one-time passcode is disabled, users might see a sign-in error when they're redeeming a direct application link and they weren't added to your directory in advance.
 
 For more information about the different redemption pathways, see [B2B collaboration invitation redemption](redemption-experience.md).
 
-**Does this mean the “No account? Create one!” option for self-service sign-up is going away?**
+**Will the “No account? Create one!” option for self-service sign-up go away?**
 
-It’s easy to get [self-service sign-up in the context of External Identities](self-service-sign-up-overview.md) confused with self-service sign-up for email-verified users, but they're two different features. The feature that's going away is [self-service sign-up with email-verified users](../enterprise-users/directory-self-service-signup.md), which results in your guests creating an unmanaged Azure AD account. However, self-service sign-up for External Identities will continue to be available, which results in your guests signing up to your organization with a [variety of identity providers](identity-providers.md).  
+No. It’s easy to get [self-service sign-up in the context of External Identities](self-service-sign-up-overview.md) confused with self-service sign-up for email-verified users, but they're two different features. The unmanaged ("viral") feature that's going away is [self-service sign-up with email-verified users](../enterprise-users/directory-self-service-signup.md), which results in your guests creating an unmanaged Azure AD account. However, self-service sign-up for External Identities will continue to be available, which results in your guests signing up to your organization with a [variety of identity providers](identity-providers.md).  
 
 **What does Microsoft recommend we do with existing Microsoft accounts (MSA)?**
 
 When we support the ability to disable Microsoft Account in the Identity providers settings (not available today), we strongly recommend you disable Microsoft Account and enable email one-time passcode. Then you should [reset the redemption status](reset-redemption-status.md) of existing guests with Microsoft accounts so that they can re-redeem using email one-time passcode authentication and use email one-time passcode to sign in going forward.
 
-**Does this change include SharePoint and OneDrive integration with Azure AD B2B?**
+**Regarding the change to enable email one-time-passcode by default, does this include SharePoint and OneDrive integration with Azure AD B2B?**
 
 No, the global rollout of the change to enable email one-time passcode by default doesn't include enabling SharePoint and OneDrive integration with Azure AD B2B. To learn how to enable integration so that collaboration on SharePoint and OneDrive uses B2B capabilities, or how to disable this integration, see [SharePoint and OneDrive Integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration).

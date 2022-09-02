@@ -2,6 +2,7 @@
 title: Reserved instances of Azure VMware Solution
 description: Learn how to buy a reserved instance for Azure VMware Solution. The reserved instance covers only the compute part of your usage and includes software licensing costs.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 05/13/2021
 ---
 

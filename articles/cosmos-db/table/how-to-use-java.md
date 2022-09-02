@@ -87,7 +87,7 @@ public final String connectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key;" +
-    "EndpointSuffix=core.windows.net;
+    "EndpointSuffix=core.windows.net";
 ```
 
 ### Add an Azure Cosmos DB Table API connection string
@@ -101,7 +101,7 @@ public final String connectionString =
     "DefaultEndpointsProtocol=https;" + 
     "AccountName=your_cosmosdb_account;" + 
     "AccountKey=your_account_key;" + 
-    "TableEndpoint=https://your_endpoint;" ;
+    "TableEndpoint=https://your_endpoint;";
 ```
 
 In an app running within a role in Azure, you can store this string in the service configuration file, *ServiceConfiguration.cscfg*. You can access it with a call to the `System.getenv` method. Here's an example of getting the connection string from a **Setting** element named *ConnectionString* in the service configuration file:
@@ -334,7 +334,7 @@ try
         .buildClient();
 
     // Create a filter condition where the partition key is "Sales".
-    ListEntitiesOptions options = new ListEntitiesOptions().setFilter(PARTITION_KEY + " eq 'Sales' AND " + ROW_KEY + " lt '0004' AND ROW_KEY + " gt '0001'");
+    ListEntitiesOptions options = new ListEntitiesOptions().setFilter(PARTITION_KEY + " eq 'Sales' AND " + ROW_KEY + " lt '0004' AND " + ROW_KEY + " gt '0001'");
     
     // Loop through the results, displaying information about the entities.
     tableClient.listEntities(options, null, null).forEach(tableEntity -> {
@@ -377,7 +377,7 @@ try
         System.out.println(specificEntity.getPartitionKey() +
             " " + specificEntity.getRowKey() +
             "\t" + specificEntity.getProperty("FirstName") +
-            "\t" + specificEntity.getProperty("LastName"));
+            "\t" + specificEntity.getProperty("LastName") +
             "\t" + specificEntity.getProperty("Email") +
             "\t" + specificEntity.getProperty("PhoneNumber"));
     }
@@ -503,7 +503,7 @@ try
         .tableName(tableName)
         .buildClient();
 
-    Delete the entity for partition key 'Sales' and row key '0001' from the table.
+    // Delete the entity for partition key 'Sales' and row key '0001' from the table.
     tableClient.deleteEntity("Sales", "0001");
 }
 catch (Exception e)

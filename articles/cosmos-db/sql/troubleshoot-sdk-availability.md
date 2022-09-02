@@ -7,7 +7,7 @@ ms.date: 03/28/2022
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 # Diagnose and troubleshoot the availability of Azure Cosmos SDKs in multiregional environments
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]

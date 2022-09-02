@@ -154,7 +154,7 @@ sections:
 
       - question: Are these containers currently supported on Windows?
         answer: | 
-          Cognitive Services containers are Linux containers, but there is some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](https://www.docker.com/blog/preview-linux-containers-on-windows/).
+          Cognitive Services containers are Linux containers, but there is some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](/virtualization/windowscontainers/deploy-containers/linux-containers).
       
       - question:  How do Cognitive Services containers compare to AWS and Google offerings?
         answer: | 

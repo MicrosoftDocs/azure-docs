@@ -51,7 +51,6 @@ Managed HSM local RBAC has several built-in roles. You can assign these roles to
 |/keys/deletedKeys/delete||<center>X</center>|||||<center>X</center>|
 |/keys/backup/action|||<center>X</center>|||<center>X</center>|
 |/keys/restore/action|||<center>X</center>||||
-|/keys/export/action||<center>X</center>|||||
 |/keys/release/action|||<center>X</center>||||
 |/keys/import/action|||<center>X</center>||||
 |**Key cryptographic operations**|

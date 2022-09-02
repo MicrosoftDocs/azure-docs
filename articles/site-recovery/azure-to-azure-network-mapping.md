@@ -1,12 +1,12 @@
 ---
 title: Map virtual networks between two regions in Azure Site Recovery
 description: Learn about mapping virtual networks between two Azure regions for Azure VM disaster recovery with Azure Site Recovery.
-author: Harsha-CS
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: harshacs
+ms.author: v-pgaddala
 
 ---
 # Set up network mapping and IP addressing for VNets

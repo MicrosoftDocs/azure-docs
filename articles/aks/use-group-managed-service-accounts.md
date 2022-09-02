@@ -41,6 +41,8 @@ az keyvault secret set --vault-name MyAKSGMSAVault --name "GMSADomainUserCred" -
 
 > [!NOTE]
 > Use the Fully Qualified Domain Name for the Domain rather than the Partially Qualified Domain Name that may be used on internal networks.
+>
+> The above command escapes the `value` parameter for running the Azure CLI on a Linux shell. When running the Azure CLI command on Windows PowerShell, you don't need to escape characters in the `value` parameter.
 
 
 ## Optional: Use a custom VNET with custom DNS

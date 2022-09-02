@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 06/06/2022
 ms.author: mikaelw
 ---
 

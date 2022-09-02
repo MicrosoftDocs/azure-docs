@@ -152,6 +152,9 @@ You can use the **Synchronization Details** section to monitor progress and foll
 
 For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
+## Change Logs
+* 05/16/2022 - **Schema Discovery** feature enabled on this app.
+
 ## Additional resources
 
 * [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)

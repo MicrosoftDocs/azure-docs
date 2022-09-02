@@ -61,7 +61,7 @@ To set a new value for read-ahead, run the following command:
  
 ### Example   
 
-```
+```bash
 #!/bin/bash
 # set | show readahead for a specific mount point
 # Useful for things like NFS and if you do not know / care about the backing device
@@ -69,8 +69,7 @@ To set a new value for read-ahead, run the following command:
 # To the extent possible under law, Red Hat, Inc. has dedicated all copyright
 # to this software to the public domain worldwide, pursuant to the
 # CC0 Public Domain Dedication. This software is distributed without any warranty.
-# See <http://creativecommons.org/publicdomain/zero/1.0/>.
-#
+# For more information, see the [CC0 1.0 Public Domain Dedication](http://creativecommons.org/publicdomain/zero/1.0/).
 
 E_BADARGS=22
 function myusage() {

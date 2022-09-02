@@ -1,5 +1,5 @@
 ---
-title: How to create a project - Custom Translator
+title: "Legacy: How to create a project - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: This article explains how to create and manage a project in the Azure Cognitive Services Custom Translator.  
 author: laujan
@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
 
@@ -51,7 +52,7 @@ Creating project is the first step toward building a model.
         use a label *only* if you're planning to build multiple projects for
         the same language pair and same category and want to access these
         projects with a different CategoryID. Don't use this field if you're
-        building systems for one category only. A project label is not required
+        building systems for one category only. A project label isn't required
         and not helpful to distinguish between language pairs. You can use the
         same label for multiple projects.
 
@@ -63,7 +64,7 @@ Creating project is the first step toward building a model.
 
 The Custom Translator landing page shows the first 10 projects in your workspace. It displays the project name, language pair, category, status, and BLEU score.
 
-After selecting a project, you'll see the following on the project page:
+After selecting a project, you'll see the following text on the project page:
 
 - CategoryID: A CategoryID is created by concatenating the WorkspaceID,
     project label, and category code. You use the CategoryID with the Text

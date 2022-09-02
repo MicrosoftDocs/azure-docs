@@ -3,7 +3,7 @@ title: Use properties in an Azure IoT Central solution
 description: Learn how to use read-only and writable properties in an Azure IoT Central solution.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/21/2021
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -18,6 +18,8 @@ This how-to guide shows you how to use device properties that are defined in a d
 Properties represent point-in-time values. For example, a device can use a property to report the target temperature it's trying to reach. By default, device properties are read-only in IoT Central. Writable properties let you synchronize state between your device and your Azure IoT Central application.
 
 You can also define cloud properties in an Azure IoT Central application. Cloud property values are never exchanged with a device and are out of scope for this article.
+
+To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md)
 
 ## Define your properties
 
@@ -83,11 +85,11 @@ Optional fields, such as display name and description, let you add more details 
 
 When you create a property, you can specify complex schema types such as **Object** and **Enum**.
 
-![Screenshot that shows how to add a capability.](./media/howto-use-properties/property.png)
+:::image type="content" source="media/howto-use-properties/property.png" alt-text="Screenshot that shows how to add a capability.":::
 
 When you select the complex **Schema**, such as **Object**, you need to define the object, too.
 
-:::image type="content" source="media/howto-use-properties/object.png" alt-text="Screenshot that shows how to define an object":::
+:::image type="content" source="media/howto-use-properties/object.png" alt-text="Screenshot that shows how to define an object.":::
 
 The following code shows the definition of an Object property type. This object has two fields with types string and integer.
 
@@ -161,7 +163,7 @@ This article uses Node.js for simplicity. For other language examples, see the [
 
 The following view in Azure IoT Central application shows the properties you can see. The view automatically makes the **Device model** property a _read-only device property_.
 
-:::image type="content" source="media/howto-use-properties/read-only.png" alt-text="Screenshot that shows the view of a read-only property":::
+:::image type="content" source="media/howto-use-properties/read-only.png" alt-text="Screenshot that shows the view of a read-only property.":::
 
 ## Implement writable properties
 
@@ -220,9 +222,21 @@ When the operator sets a writable property in the Azure IoT Central application,
 
 The following view shows the writable properties. When you enter the value and select **Save**, the initial status is **Pending**. When the device accepts the change, the status changes to **Accepted**.
 
-![Screenshot that shows Pending status.](./media/howto-use-properties/status-pending.png)
+:::image type="content" source="media/howto-use-properties/status-pending.png" alt-text="Screenshot that shows Pending status for a property update.":::
 
-![Screenshot that shows Accepted property.](./media/howto-use-properties/accepted.png)
+:::image type="content" source="media/howto-use-properties/accepted.png" alt-text="Screenshot that shows Accepted property for a completed update.":::
+
+## Use properties on unassigned devices
+
+You can view and update writable properties on a device that isn't assigned to a device template.
+
+To view existing properties on an unassigned device, navigate to the device in the **Devices** section, select **Manage device**, and then **Device Properties**:
+
+:::image type="content" source="media/howto-use-properties/view-unassigned-device-properties.png" alt-text="Screenshot that shows properties on an unassigned device.":::
+
+You can update the writable properties in this view:
+
+:::image type="content" source="media/howto-use-properties/update-unassigned-device-properties.png" alt-text="Screenshot that shows how to update properties.":::
 
 ## Next steps
 

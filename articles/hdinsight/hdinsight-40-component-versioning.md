@@ -3,7 +3,7 @@ title: Apache Hadoop components and versions - Azure HDInsight 4.0
 description: Learn about the Apache Hadoop components and versions in Azure HDInsight 4.0.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 06/10/2022
 ---
 
 # HDInsight 4.0 component versions
@@ -19,7 +19,7 @@ The OSS component versions associated with HDInsight 4.0 are listed in the follo
 | Apache Hadoop and YARN | 3.1.1         |
 | Apache Tez             | 0.9.1         |
 | Apache Pig             | 0.16.1        |
-| Apache Hive            | 3.1.0         |
+| Apache Hive            | 3.1.2         |
 | Apache Ranger          | 1.1.0         |
 | Apache HBase           | 2.1.6         |
 | Apache Sqoop           | 1.5.0         |

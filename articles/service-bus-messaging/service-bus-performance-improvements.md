@@ -378,7 +378,7 @@ To maximize throughput, follow these guidelines:
 
 * If each receiver is in a different process, use only a single factory per process.
 * Receivers can use synchronous or asynchronous operations. Given the moderate receive rate of an individual receiver, client-side batching of a Complete request doesn't affect receiver throughput.
-* Leave batched store access enabled. This access reduces the overall load of the entity. It also reduces the overall rate at which messages can be written into the queue or topic.
+* Leave batched store access enabled. This access reduces the overall load of the entity. It also increases the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to a small value (for example, PrefetchCount = 10). This count prevents receivers from being idle while other receivers have large numbers of messages cached.
 
 ### Topic with a few subscriptions

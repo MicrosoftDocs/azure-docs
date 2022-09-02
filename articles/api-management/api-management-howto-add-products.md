@@ -57,6 +57,9 @@ In this tutorial, you learn how to:
 
 1. Select **Create** to create your new product.
 
+> [!CAUTION]
+> Use care when configuring a product that doesn't require a subscription. This configuration may be overly permissive and may make the product's APIs more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
+
 ### [Azure CLI](#tab/azure-cli)
 
 To begin using Azure CLI:
@@ -83,6 +86,9 @@ You can specify various values for your product:
    | `--approval-required` | Select if you want an administrator to review and accept or reject subscription attempts to this product. If not selected, subscription attempts are auto-approved. |
    | `--subscriptions-limit` | Optionally, limit the count of multiple simultaneous subscriptions.|
    | `--legal-terms`         | You can include the terms of use for the product, which subscribers must accept to use the product. |
+
+> [!CAUTION]
+> Use care when configuring a product that doesn't require a subscription. This configuration may be overly permissive and may make the product's APIs more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
 
 To see your current products, use the [az apim product list](/cli/azure/apim/product#az-apim-product-list) command:
 

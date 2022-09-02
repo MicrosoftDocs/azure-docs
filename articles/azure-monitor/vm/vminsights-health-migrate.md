@@ -79,11 +79,11 @@ Before you can remove the data collection rule for VM insights guest health, you
 
 From the **Monitor** menu in the Azure portal, select **Data Collection Rules**. Click on the DCR for VM insights guest health, and then select **Resources**. Select the VMs to remove and click **Delete**.
 
-You can also remove the Data Collection Rule Association using [Azure PowerShell](../agents/data-collection-rule-azure-monitor-agent.md#manage-rules-and-association-using-powershell) or [Azure CLI](/cli/azure/monitor/data-collection/rule/association#az-monitor-data-collection-rule-association-delete). 
+You can also remove the Data Collection Rule Association using [Azure PowerShell](../agents/data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) or [Azure CLI](/cli/azure/monitor/data-collection/rule/association#az-monitor-data-collection-rule-association-delete). 
 
 
 ### 3. Delete Data Collection Rule created for VM insights guest health
-To remove the data collection rule, click **Delete** from the DCR page in the Azure portal. You can also delete the Data Collection Rule using [Azure PowerShell](../agents/data-collection-rule-azure-monitor-agent.md#manage-rules-and-association-using-powershell) or [Azure CLI](/cli/azure/monitor/data-collection/rule#az-monitor-data-collection-rule-delete).
+To remove the data collection rule, click **Delete** from the DCR page in the Azure portal. You can also delete the Data Collection Rule using [Azure PowerShell](../agents/data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) or [Azure CLI](/cli/azure/monitor/data-collection/rule#az-monitor-data-collection-rule-delete).
 
 
 ## Next steps

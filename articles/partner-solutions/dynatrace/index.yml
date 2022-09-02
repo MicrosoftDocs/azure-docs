@@ -1,0 +1,55 @@
+### YamlMime:Landing
+
+title: Dynatrace for Azure (preview) - Azure partner solutions
+summary: Dynatrace for Azure (preview) provides a native integrated experience for monitoring where you can create and manage Dynatrace environments from Azure.
+
+metadata:
+  title: Dynatrace for Azure documentation
+  description: Dynatrace for Azure offers a monitoring solution for your Azure workloads through a streamlined workflow.
+  ms.topic: landing-page
+  author: flang-msft
+  ms.author: franlanglois
+  ms.date: 06/07/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Dynatrace for Azure (preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Dynatrace for Azure (preview)?
+            url: dynatrace-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Complete the prerequisites for Dynatrace
+            url: dynatrace-how-to-configure-prereqs.md
+          - text: Manage the Dynatrace resource with the portal
+            url: dynatrace-how-to-manage.md
+
+  # Card
+  - title: Create Dynatrace resource
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a new Dynatrace resource
+            url: dynatrace-create.md
+          - text: Link to an existing Dynatrace environment
+            url: dynatrace-link-to-existing.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting Dynatrace for Azure (preview)
+            url: dynatrace-troubleshoot.md
+
+  # Card
+#  - title: Explore reference content
+#    linkLists:
+#      - linkListType: reference
+#        links:
+#          - text: Azure CLI
+#            url: /cli/azure/Dynatrace
+#          - text: Azure PowerShell
+#            url: /powershell/module/az.Dynatrace/#Dynatrace
+#          - text: REST API
+#            url: /rest/api/Dynatrace

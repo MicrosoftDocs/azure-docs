@@ -2,7 +2,7 @@
 title: Deliver events using private link service
 description: This article describes how to work around the limitation of not able to deliver events using private link service. 
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 05/17/2022
 ---
 
 # Deliver events using private link service
@@ -17,7 +17,7 @@ Then, you can use a private link configured in Azure Functions or your webhook d
 :::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.svg" alt-text="Deliver via private link service":::
 
 
-Under this configuration, the traffic goes over the public IP/internet from Event Grid to Event Hubs, Service Bus, or Azure Storage, but the channel can be encrypted and a managed identity of Event Grid is used. If you configure your Azure Functions or webhook deployed to your virtual network to use an Event Hubs, Service Bus, or Azure Storage via private link, that section of the traffic will evidently stay within Azure.
+Under this configuration, the secured traffic from Event Grid to Event Hubs, Service Bus, or Azure Storage, [stays on the Microsoft backbone](../networking/microsoft-global-network.md#get-the-premium-cloud-network) and a managed identity of Event Grid is used. Configuring your Azure Function or webhook from within your virtual network to use an Event Hubs, Service Bus, or Azure Storage via private link ensures the traffic between those services and your function or webhook stays within your virtual network perimeter.
 
 ## Deliver events to Event Hubs using managed identity
 To deliver events to event hubs in your Event Hubs namespace using managed identity, follow these steps:
@@ -35,7 +35,7 @@ To deliver events to Service Bus queues or topics in your Service Bus namespace 
 1. [Enable the **Allow trusted Microsoft services to bypass this firewall** setting on your Service Bus namespace](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure the event subscription](managed-service-identity.md) that uses a Service Bus queue or topic as an endpoint to use the system-assigned identity.
 
-## Deliver events to Storage 
+## Deliver events to Storage using managed identity
 To deliver events to Storage queues using managed identity, follow these steps:
 
 1. Enable system-assigned identity: [system topics](enable-identity-system-topics.md), [custom topics, and domains](enable-identity-custom-topics-domains.md). 

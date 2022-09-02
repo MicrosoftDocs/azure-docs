@@ -39,11 +39,11 @@ If you want more information about how to choose the right option for you, conti
 
 :::moniker-end
 
-<!--1.2-->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
->The following table reflects the supported scenarios for IoT Edge version 1.2. To see content about Windows containers, switch to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
+>The following table reflects the supported scenarios for IoT Edge version 1.3. To see content about Windows containers, switch to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
 
 |    | Linux containers on Linux hosts |
 |--| ----- |
@@ -104,11 +104,13 @@ For Windows devices, the IoT Edge runtime is installed directly on the host devi
    >
    > Consider using IoT Edge for Linux on Windows, which will be supported in future versions.
 :::moniker-end
+<!--end 1.1-->
 
-<!--1.2-->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
-IoT Edge version 1.2 doesn't support Windows containers. Windows containers won't be supported beyond version 1.1. To learn more about IoT Edge with Windows containers, see the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
+IoT Edge version 1.3 doesn't support Windows containers. Windows containers are not supported beyond version 1.1. To learn more about IoT Edge with Windows containers, see the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
 :::moniker-end
+<!--end iotedge-2020-11-->
 
 ## Choose how to provision your devices
 

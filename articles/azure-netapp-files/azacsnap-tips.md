@@ -116,7 +116,7 @@ Explanation of the above crontab.
         config files are.
   - `azacsnap -c .....` = the full azacsnap command to run, including all the options.
 
-Further explanation of cron and the format of the crontab file here: <https://en.wikipedia.org/wiki/Cron>
+For more information about cron and the format of the crontab file, see [cron](https://wikipedia.org/wiki/Cron).
 
 > [!NOTE]
 > Users are responsible for monitoring the cron jobs to ensure snapshots are being
@@ -198,7 +198,7 @@ A storage volume snapshot can be restored to a new volume (`-c restore --restore
 A snapshot can be copied back to the SAP HANA data area, but SAP HANA must not be running when a
 copy is made (`cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T113043.1586971Z/*`).
 
-For Azure Large Instance, you could contact the Microsoft operations team by opening a service request to restore a desired snapshot from the existing available snapshots. You can open a service request from Azure portal: <https://portal.azure.com>
+For Azure Large Instance, you could contact the Microsoft operations team by opening a service request to restore a desired snapshot from the existing available snapshots. You can open a service request via the [Azure portal](https://portal.azure.com).
 
 If you decide to perform the disaster recovery failover, the `azacsnap -c restore --restore revertvolume` command at the DR site will automatically make available the most recent (`/hana/data` and `/hana/logbackups`) volume snapshots to allow for an SAP HANA recovery. Use this command with caution as it breaks replication between production and DR sites.
 
@@ -355,7 +355,7 @@ A 'boot' snapshot can be recovered as follows:
 
 1. The customer will need to shut down the server.
 1. After the Server is shut down, the customer will need to open a service request that contains the Machine ID and Snapshot to restore.
-    > Customers can open a service request from the Azure portal: <https://portal.azure.com>
+    > Customers can open a service request via the [Azure portal](https://portal.azure.com).
 1. Microsoft will restore the Operating System LUN using the specified Machine ID and Snapshot, and then boot the Server.
 1. The customer will then need to confirm Server is booted and healthy.
 

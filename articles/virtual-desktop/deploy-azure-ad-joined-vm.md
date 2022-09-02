@@ -73,9 +73,9 @@ To enable access from Windows devices not joined to Azure AD, add **targetisaadj
 
 To access Azure AD-joined VMs using the web, Android, macOS and iOS clients, you must add **targetisaadjoined:i:1** as a [custom RDP property](customize-rdp-properties.md) to the host pool. These connections are restricted to entering user name and password credentials when signing in to the session host.
 
-### Enabling MFA for Azure AD joined VMs
+### Enforcing Azure AD Multi-Factor Authentication for Azure AD-joined session VMs
 
-You can enable [multifactor authentication](set-up-mfa.md) for Azure AD-joined VMs by setting a Conditional Access policy on the Azure Virtual Desktop app. For connections to succeed, you must [disable the legacy per-user multifactor authentication](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required). If you don't want to restrict signing in to strong authentication methods like Windows Hello for Business, you'll also need to [exclude the Azure Windows VM Sign-In app](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) from your Conditional Access policy.
+You can use Azure AD Multi-Factor Authentication with Azure AD-joined VMs. Follow the steps to [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md) and note the extra steps for [Azure AD-joined session host VMs](set-up-mfa.md#azure-ad-joined-session-host-vms).
 
 ## User profiles
 

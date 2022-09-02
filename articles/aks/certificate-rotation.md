@@ -55,7 +55,7 @@ az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-
 
 ## Certificate Auto Rotation
 
-For AKS to automatically rotate non-CA certificates, the cluster must have [TLS Bootstrapping](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/) which has been enabled by default in all Azure regions.
+For AKS to automatically rotate non-CA certificates, the cluster must have [TLS Bootstrapping](https://kubernetes.io/docs/reference/access-authn-authz/kubelet-tls-bootstrapping/) which has been enabled by default in all Azure regions.
 
 > [!Note]
 > If you have an existing cluster you have to upgrade that cluster to enable Certificate Auto-Rotation.

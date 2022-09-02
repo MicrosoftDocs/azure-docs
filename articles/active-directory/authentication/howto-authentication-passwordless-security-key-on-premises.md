@@ -288,13 +288,6 @@ Make sure that enough DCs are patched to respond in time to service your resourc
 > [!NOTE]
 > The `/keylist` switch in the `nltest` command is available in client Windows 10 v2004 and later.
 
-### What if I have a CloudTGT but it never gets exchange for a OnPremTGT when I am using Windows Hello for Business Cloud Trust?
-
-Make sure that the user you are signed in as, is a member of the groups of users that can use FIDO2 as an authentication method, or enable it for all users.
-
-> [!NOTE]
-> Even if you are not explicitly using a security key to sign-in to your device, the underlying technology is dependent on the FIDO2 infrastructure requirements.
-
 ### Do FIDO2 security keys work in a Windows login with RODC present in the hybrid environment?
 
 An FIDO2 Windows login looks for a writable DC to exchange the user TGT. As long as you have at least one writable DC per site, the login works fine. 

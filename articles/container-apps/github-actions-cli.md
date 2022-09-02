@@ -1,21 +1,22 @@
 ---
-title: Publish revisions with GitHub Actions in Azure Container Apps Preview
-description: Learn to automatically create new revisions using GitHub Actions in Azure Container Apps Preview
+title: Publish revisions with GitHub Actions in Azure Container Apps
+description: Learn to automatically create new revisions using GitHub Actions in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 12/30/2021
 ms.author: cshoe
 ---
 
-# Publish revisions with GitHub Actions in Azure Container Apps Preview
+# Publish revisions with GitHub Actions in Azure Container Apps
 
-Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a GitHub Action is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
+Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a GitHub Actions is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
 
 :::image type="content" source="media/github-actions/azure-container-apps-github-actions.png" alt-text="Changes to a GitHub repo trigger an action to create a new revision.":::
 
-The GitHub action is triggered by commits to a specific branch in your repository. When creating the integration link, you decide which branch triggers the action.
+The GitHub Actions is triggered by commits to a specific branch in your repository. When creating the integration link, you decide which branch triggers the action.
 
 ## Authentication
 
@@ -24,9 +25,15 @@ When adding or removing a GitHub Actions integration, you can authenticate by ei
 - To pass a personal access token, use the `--token` parameter and provide a token value.
 - If you choose to use interactive login, use the `--login-with-github` parameter with no value.
 
+> [!Note]
+> Your GitHub personal access token needs to have the `workflow` scope selected.
+
 ## Add
 
 The `containerapp github-action add` command creates a GitHub Actions integration with your container app.
+
+> [!Note]
+> Before you proceed with the example below, you must have your first container app already deployed.
 
 The first time you attach GitHub Actions to your container app, you need to provide a service principal context. The following command shows you how to create a service principal.
 
@@ -63,7 +70,7 @@ The following example shows you how to add an integration while using a personal
 ```azurecli
 az containerapp github-action add \
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" \
-  --docker-file-path "./dockerfile" \
+  --context-path "./dockerfile" \
   --branch <BRANCH_NAME> \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
@@ -81,7 +88,7 @@ az containerapp github-action add \
 ```azurecli
 az containerapp github-action add `
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" `
-  --docker-file-path "./dockerfile" `
+  --context-path "./dockerfile" `
   --branch <BRANCH_NAME> `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `

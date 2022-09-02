@@ -29,6 +29,8 @@ landingContent:
             url: trusted-launch.md
           - text: VM applications in Azure Compute Gallery 
             url: vm-applications.md
+          - text: VM restore points 
+            url: virtual-machines-create-restore-points.md
 
   # Card (optional)
   - title: Linux quickstarts

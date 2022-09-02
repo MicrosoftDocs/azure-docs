@@ -51,7 +51,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Cosmos DB insights
 
-Cosmos DB insights is a feature based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) and uses the same monitoring data collected for Azure Cosmos DB described in the sections below. Use Azure Monitor for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience, and use the other features of Azure Monitor for detailed analysis and alerting. To learn more, see the [Explore Cosmos DB insights](../azure-monitor/insights/cosmosdb-insights-overview.md) article.
+Cosmos DB insights is a feature based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) and uses the same monitoring data collected for Azure Cosmos DB described in the sections below. Use Azure Monitor for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience, and use the other features of Azure Monitor for detailed analysis and alerting. To learn more, see the [Explore Cosmos DB insights](cosmosdb-insights-overview.md) article.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
@@ -135,14 +135,14 @@ Azure Cosmos DB stores data in the following tables.
 
 ### Sample Kusto queries
 
-Prior to using Log Analytics to issue Kusto queries, you must [enable diagnostic logs for control plane operations](/azure/cosmos-db/audit-control-plane-logs#enable-diagnostic-logs-for-control-plane-operations). When enabling diagnostic logs, you will select between storing your data in a single [AzureDiagnostics table (legacy)](/azure/azure-monitor/essentials/resource-logs#azure-diagnostics-mode) or [resource-specific tables](/azure/azure-monitor/essentials/resource-logs#resource-specific).
+Prior to using Log Analytics to issue Kusto queries, you must [enable diagnostic logs for control plane operations](./audit-control-plane-logs.md#enable-diagnostic-logs-for-control-plane-operations). When enabling diagnostic logs, you will select between storing your data in a single [AzureDiagnostics table (legacy)](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode) or [resource-specific tables](../azure-monitor/essentials/resource-logs.md#resource-specific).
 
 When you select **Logs** from the Azure Cosmos DB menu, Log Analytics is opened with the query scope set to the current Azure Cosmos DB account. Log queries will only include data from that resource. 
 
 > [!IMPORTANT]
 > If you want to run a query that includes data from other accounts or data from other Azure services, select **Logs** from the **Azure Monitor** menu. For more information, see [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md).
 
-Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos resources. The exact text of the queries will depend on the [collection mode](/azure/azure-monitor/essentials/resource-logs#select-the-collection-mode) you selected when you enabled diagnostics logs.
+Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos resources. The exact text of the queries will depend on the [collection mode](../azure-monitor/essentials/resource-logs.md#select-the-collection-mode) you selected when you enabled diagnostics logs.
 
 #### [AzureDiagnostics table (legacy)](#tab/azure-diagnostics)
 
