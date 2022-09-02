@@ -11,13 +11,66 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2022
+ms.date: 8/12/2022
 ms.author: gunnarc
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
+## August 2022 Guest OS
+
+>[!NOTE] 
+
+>The August Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the August Guest OS. This list is subject to change. 
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 22-08 |  [5016623]  |  Latest Cumulative Update(LCU) | 6.45 | Aug 9, 2022 |
+|  Rel 22-08 |  [5016618]  |  IE Cumulative Updates | 2.127, 3.117, 4.105 | Aug 9, 2022 |
+|  Rel 22-08 |  [5016627]  |  Latest Cumulative Update(LCU) | 7.15 | Aug 9, 2022 |
+|  Rel 22-08 |  [5016622]  |  Latest Cumulative Update(LCU) | 5.71 | Aug 9, 2022 |
+|  Rel 22-08 |  [5013637]  |  .NET Framework 3.5 Security and Quality Rollup | 2.127 | Aug 9, 2022 |
+|  Rel 22-08 |  [5013644]  |  .NET Framework 4.6.2 Security and Quality Rollup | 2.127 | May 10, 2022 |
+|  Rel 22-08 |  [5013638]  |  .NET Framework 3.5 Security and Quality Rollup | 4.107 | Jun 14, 2022 |
+|  Rel 22-08 |  [5013643]  |  .NET Framework 4.6.2 Security and Quality Rollup | 4.107 | May 10, 2022 |
+|  Rel 22-08 |  [5013635]  |  .NET Framework 3.5 Security and Quality Rollup | 3.114 | Aug 9, 2022 |
+|  Rel 22-08 |  [5013642]  |  .NET Framework 4.6.2 Security and Quality Rollup | 3.114 | May 10, 2022 |
+|  Rel 22-08 |  [5013641]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | 6.47 | May 10, 2022 |
+|  Rel 22-08 |  [5013630]  |  .NET Framework 4.8 Security and Quality Rollup | 7.15 | May 10, 2022 |
+|  Rel 22-08 |  [5016676]  |  Monthly Rollup | 2.127 | Aug 9, 2022 |
+|  Rel 22-08 |  [5016672]  |  Monthly Rollup | 3.114 | Aug 9, 2022 |
+|  Rel 22-08 |  [5016681]  |  Monthly Rollup | 4.107 | Aug 9, 2022 |
+|  Rel 22-08 |  [5016263]  |  Servicing Stack update | 3.114 | Jul 12, 2022 |
+|  Rel 22-08 |  [5016264]  |  Servicing Stack update | 4.107 | Jul 12, 2022 |
+|  Rel 22-08 |  [4578013]  |  OOB Standalone Security Update | 4.107 | Aug 19, 2020 |
+|  Rel 22-08 |  [5017095]  |  Servicing Stack update | 5.71 | Aug 9, 2022 |
+|  Rel 22-08 |  [5016057]  |  Servicing Stack update | 2.127 | Jul 12, 2022 |
+|  Rel 22-08 |  [4494175]  |  Microcode | 5.71 | Sep 1, 2020 |
+|  Rel 22-08 |  [4494174]  |  Microcode | 6.47 | Sep 1, 2020 |
+
+[5016623]: https://support.microsoft.com/kb/5016623
+[5016618]: https://support.microsoft.com/kb/5016618
+[5016627]: https://support.microsoft.com/kb/5016627
+[5016622]: https://support.microsoft.com/kb/5016622
+[5013637]: https://support.microsoft.com/kb/5013637
+[5013644]: https://support.microsoft.com/kb/5013644
+[5013638]: https://support.microsoft.com/kb/5013638
+[5013643]: https://support.microsoft.com/kb/5013643
+[5013635]: https://support.microsoft.com/kb/5013635
+[5013642]: https://support.microsoft.com/kb/5013642
+[5013641]: https://support.microsoft.com/kb/5013641
+[5013630]: https://support.microsoft.com/kb/5013630
+[5016676]: https://support.microsoft.com/kb/5016676
+[5016672]: https://support.microsoft.com/kb/5016672
+[5016681]: https://support.microsoft.com/kb/5016681
+[5016263]: https://support.microsoft.com/kb/5016263
+[5016264]: https://support.microsoft.com/kb/5016264
+[4578013]: https://support.microsoft.com/kb/4578013
+[5017095]: https://support.microsoft.com/kb/5017095
+[5016057]: https://support.microsoft.com/kb/5016057
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
 
 ## July 2022 Guest OS
 

@@ -123,7 +123,7 @@
               href: active-directory-optional-claims.md
             - name: Claims mapping policy type
               href: reference-claims-mapping-policy-type.md
-            - name: Use directory schema extension attributes in claims
+            - name: Use directory extension attributes in claims
               href: active-directory-schema-extensions.md
             - name: Customize claims using Azure portal
               href: active-directory-saml-claims-customization.md
@@ -329,6 +329,8 @@
           href: tutorial-blazor-server.md
         - name: Node.js
           href: tutorial-v2-nodejs-webapp-msal.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Secure web app accesses storage and Microsoft Graph
           items:
             - name: Overview
@@ -417,6 +419,8 @@
       items:
         - name: Scopes for web API accepting v1.0 tokens
           href: msal-v1-app-scopes.md
+        - name: Spring Cloud Azure
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/active-directory/develop/toc.json#spring-security-support
 - name: Desktop
   items:
     - name: Desktop app authentication documentation

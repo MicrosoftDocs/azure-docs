@@ -4,7 +4,7 @@ description: Learn how Azure AD Privileged Identity Management (PIM) validates m
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory

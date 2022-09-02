@@ -1,25 +1,20 @@
 ---
-title: How to use custom functions in the MedTech service - Azure Health Data Services
+title: How to use custom functions with the MedTech service device mapping - Azure Health Data Services
 description: This article describes how to use custom functions with MedTech service device mapping.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 08/05/2022
+ms.date: 08/30/2022
 ms.author: jasteppe
 ---
 
 # How to use custom functions
 
-Many functions are available when using **JmesPath** as the expression language. Besides the functions available as part of the JmesPath specification, many more custom functions may also be used. This article describes MedTech service-specific custom functions for use with the MedTech service device mapping during the device message normalization process.
+Many functions are available when using **JmesPath** as the expression language. Besides the functions available as part of the JmesPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](how-to-use-device-mappings.md) during the device message [normalization](iot-data-flow.md#normalize) process.
 
-> [!NOTE]
->
+> [!TIP]
 > For more information on JmesPath functions, see the JmesPath [specification](https://jmespath.org/specification.html#built-in-functions).
-
->[!TIP]
->
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
 
 ## Function signature
 

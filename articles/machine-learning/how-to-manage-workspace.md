@@ -14,7 +14,7 @@ ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-ti
 
 # Manage Azure Machine Learning workspaces in the portal or with the Python SDK
 
-In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/)
+In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/).  
 
 As your needs change or requirements for automation increase you can also manage workspaces [using the CLI](v1/reference-azure-machine-learning-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
 
@@ -34,6 +34,8 @@ As your needs change or requirements for automation increase you can also manage
 [!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
 ## Create a workspace
+
+You can create a workspace [directly in Azure Machine Learning studio](./quickstart-create-resources.md#create-the-workspace), with limited options available. Or use one of the methods below for more control of options.
 
 # [Python](#tab/python)
 
@@ -331,59 +333,6 @@ The Workspace.list(..) method does not return the full workspace object. It incl
 
 ---
 
-## Search for assets across a workspace (preview)
-
-With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and data across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
-
-1. Start from [Azure Machine Learning studio](https://ml.azure.com).  
-1. If a workspace is open, select either the **Microsoft** menu item or the **Microsoft** link in the breadcrumb at the top of the page.
-
-:::image type="content" source="media/how-to-manage-workspace/back-to-main-page.png" alt-text="Screenshot shows two ways to get to the home page - menu item or breadcrumb link.":::
-
-### Free text search
-
-Type search text into the global search bar on the top of the studio **Microsoft** page and hit enter to trigger a 'contains' search.
-A contains search scans across all metadata fields for the given asset and sorts results relevance.
-
-:::image type="content" source="media/how-to-manage-workspace/start-search.png" alt-text="Screenshot shows the top search bar.":::
-
-You can use the asset quick links to navigate to search results for jobs, models, components, environments, and data assets that you created.
-
-Also,  you can change the scope of applicable subscriptions and workspaces via the 'Change' link in the search bar drop down.
-
-:::image type="content" source="./media/how-to-manage-workspace/search-bar.png" alt-text="Search-bar list":::
-
-### Structured search
-
-Select any number of filters to create more specific search queries. The following filters are supported:
-
-* Job:
-* Model:
-* Component:
-* Tags:
-* SubmittedBy:
-* Environment:
-* Data:
-
-If an asset filter (job, model, component, environment, data) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
-
-> [!TIP]
-> * Filters search for exact matches of text. Use free text queries for a contains search.
-> * Quotations are required around values that include spaces or other special characters.  
-> * If duplicate filters are provided, only the first will be recognized in search results.
-> * Input text of any language is supported but filter strings must match the provided options (ex. submittedBy:).
-> * The tags filter can accept multiple key:value pairs separated by a comma (ex. tags:"key1:value1, key2:value2").
-
-### View search results
-
-You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Data** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
-
-:::image type="content" source="./media/how-to-manage-workspace/results.png" alt-text="Results displayed after search":::
-
-If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
-
-> [!IMPORTANT]	
-> Search results may be unexpected for multiword terms in other languages (ex. Chinese characters). 	
 
 ## Delete a workspace
 
@@ -456,8 +405,10 @@ Once you have a workspace, learn how to [Train and deploy a model](tutorial-trai
 
 To learn more about planning a workspace for your organization's requirements, see [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
 
-To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
+* If you need to move a workspace to another Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
 
-If you need to move a workspace to another Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
+* To find a workspace, see [Search for Azure Machine Learning assets (preview)](how-to-search-assets.md).
+
+* If you need to move a workspace to another Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
 
 For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

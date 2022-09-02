@@ -130,6 +130,8 @@ items:
     href: quickstarts/telemetry-application-insights.md
   - name: Add file sharing to your application with UI Library
     href: tutorials/file-sharing-tutorial.md
+  - name: Enable Push Notifications in your chat app
+    href: tutorials/add-chat-push-notifications.md
 - name: Concepts
   expanded: false
   items:
@@ -217,6 +219,8 @@ items:
         href: concepts/detailed-call-flows.md
       - name: Known issues
         href: concepts/known-issues.md
+      - name: Media access
+        href: concepts/voice-video-calling/media-access.md
   - name: Rooms
     items:
       - name: Rooms overview
@@ -266,7 +270,7 @@ items:
         items:        
           - name: Overview
             href: concepts/interop/guest/overview.md
-          - name: Capabilities
+          - name: Meeting capabilities
             href: concepts/interop/guest/capabilities.md
           - name: Teams client experience
             href: concepts/interop/guest/teams-client-experience.md
@@ -286,6 +290,12 @@ items:
             href: concepts/interop/custom-teams-endpoint-authentication-overview.md
           - name: Calling capabilities
             href: concepts/interop/teams-user-calling.md
+          - name: Phone capabilities
+            href: concepts/interop/teams-user/phone-capabilities.md
+          - name: Meeting capabilities
+            href: concepts/interop/teams-user/meeting-capabilities.md
+          - name: Teams client experience
+            href: concepts/interop/teams-user/teams-client-experience.md
           - name: Teams license requirements
             href: quickstarts/eligible-teams-licenses.md
           - name: Azure AD API permissions
@@ -364,6 +374,8 @@ items:
     href: samples/trusted-auth-sample.md
   - name: Web calling sample
     href: samples/web-calling-sample.md
+  - name: UI Library cross platform samples
+    href: samples/ui-library-cross-platform.md
 - name: References
   items:
   - name: Reference documentation overview

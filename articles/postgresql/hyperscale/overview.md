@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
 recommendations: false
-ms.date: 07/12/2022
+ms.date: 08/11/2022
 ---
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD026 -->
@@ -45,8 +45,8 @@ reviewed the following topics:
 <!-- markdownlint-disable MD032 -->
 
 > [!div class="checklist"]
-> - Learn how to [build scalable apps](howto-build-scalable-apps-overview.md)
-> - Connect and query with your [app stack](howto-app-stacks-overview.md)
+> - Learn how to [build scalable apps](quickstart-build-scalable-apps-overview.md)
+> - Connect and query with your [app stack](quickstart-app-stacks-overview.md)
 > - See how the [Hyperscale (Citus) API](reference-overview.md) extends
 >   PostgreSQL, and try [useful diagnostic
 >   queries](howto-useful-diagnostic-queries.md)

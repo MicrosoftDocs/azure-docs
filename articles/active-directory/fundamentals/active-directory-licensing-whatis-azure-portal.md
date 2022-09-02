@@ -4,13 +4,13 @@ description: Learn about Azure Active Directory group-based licensing, including
 services: active-directory
 keywords: Azure AD licensing
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/29/2018
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
@@ -51,7 +51,7 @@ Here are the main features of group-based licensing:
 
 - A user can be a member of multiple groups with license policies specified. A user can also have some licenses that were directly assigned, outside of any groups. The resulting user state is a combination of all assigned product and service licenses. If a user is assigned same license from multiple sources, the license will be consumed only once.
 
-- In some cases, licenses cannot be assigned to a user. For example, there might not be enough available licenses in the tenant, or conflicting services might have been assigned at the same time. Administrators have access to information about users for whom Azure AD could not fully process group licenses. They can then take corrective action based on that information.
+- In some cases, licenses can't be assigned to a user. For example, there might not be enough available licenses in the tenant, or conflicting services might have been assigned at the same time. Administrators have access to information about users for whom Azure AD couldn't fully process group licenses. They can then take corrective action based on that information.
 
 ## Your feedback is welcome!
 

@@ -202,7 +202,7 @@ The possible causes include:
     
     1. Select Snapshot Manager in namespace. Right-click on Snapshot Manager, select **Receive Messages** > **peek**, and select OK.
     
-    If the connection is successful, you will see "[x] messages received" on the console output. If the connection is not successful, you'll see a message stating that the connection failed.
+    If the connection is successful, you'll see "[x] messages received" on the console output. If the connection isn't successful, you'll see a message stating that the connection failed.
     
     **Resolution:** If this test fails, there's a connectivity issue between the Azure Migrate appliance and Service Bus. Engage your local networking team to check these connectivity issues. Typically, there can be some firewall settings that are causing the failures.
     
@@ -241,7 +241,7 @@ Alternatively, you can reset VMware changed block tracking on a virtual machine 
 
 ## An internal error occurred
 
-Sometimes you may hit an error that occurs due to issues in the VMware environment/API. We have identified the following set of errors as VMware environment-related errors. These errors have a fixed format.
+Sometimes you may hit an error that occurs due to issues in the VMware environment/API. We've identified the following set of errors as VMware environment-related errors. These errors have a fixed format.
 
 _Error Message: An internal error occurred. [Error message]_
 
@@ -318,6 +318,31 @@ This error occurs when the size of the snapshot file created is larger than the 
 **Recommendation:**
 
 - Restore the included disks to the original path using storage vMotion and try replication again.
+
+## Host Connection Refused
+
+**Error ID:** 1022
+
+**Error Message:** The Azure Migrate appliance is unable to connect to the vSphere host '%HostName;'
+
+**Possible Causes:** 
+
+This may happen if:
+1. The Azure Migrate appliance is unable to resolve the hostname of the vSphere host.
+2. The Azure Migrate appliance is unable to connect to the vSphere host on port 902 (default port used by VMware vSphere Virtual Disk Development Kit), because TCP port 902 is being blocked on the vSphere host or by a network firewall.
+
+**Recommendations:**
+
+**Ensure that the hostname of the vSphere host is resolvable from the Azure Migrate appliance.** 
+- Sign in to the Azure Migrate appliance and open PowerShell.
+- Perform an `nslookup` on the hostname and verify if the address is being resolved: `nslookup '%HostName;' `. 
+- If the host name isn't getting resolved, ensure that the DNS resolution of the vSphere hostnames can be performed from the Azure Migrate appliance. Alternatively, add a static host entry for each vSphere host to the hosts file(C:\Windows\System32\drivers\etc\hosts) on the appliance.
+
+**Ensure the vSphere host is accepting connections on port 902 and that the endpoint is reachable from the appliance.**
+- Sign in to the Azure Migrate appliance and open PowerShell. 
+- Use the `Test-NetConnection` cmdlet to validate connectivity: `Test-NetConnection '%HostName;' -Port 902`. 
+- If the tcp test doesn't succeed, the connection is being blocked by a firewall or isn't being accepted by the vSphere host. Resolve the network issues to allow replication to proceed.
+
 
 ## Next Steps
 
