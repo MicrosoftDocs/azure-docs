@@ -167,16 +167,54 @@ shows our policy assignment with two additional Azure regions added to the **SDP
 
 ## Overrides (preview)
 
-The **overrides** property allows you to change the effect and version of a policy definition without modifying
-the policy definition.
+The **overrides** property allows you to change the effect of a policy definition without modifying
+the underlying policy definition.
 
+The most common use case for overrides is policy initiatives with a large number of associated policy definitions.
+In this situation, managing multiple policy effects, some of which need to be updated from time to time, can
+consume significant administrative effort.
 
+Let's take a look at an example. Imagine your have a policy initiative named _CostManagement_ that includes a
+custom policy definition with a `kind` (actually the policy's `policyDefinitionReferenceId`) of _corpVMSizePolicy_.
+In the original initiative assignment, the policy effect for this policy was set to `Disabled`.
+
+We now update the initiative definition with an override to set the _corpVMSizePolicy_ policy's effect to `Audit` instead.
+
+```json
+{
+    "properties": {
+        "policyDefinitionId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+        "overrides": [
+            {
+                "kind": "policyEffect",
+                "value": "audit",
+                "selectors": [
+                    {
+                        "kind": "corpVMSizePolicy",
+                        "in": [ "limitSku", "limitType" ]
+                    }
+                ]
+            }
+        ]
+    },
+    "systemData": { ... },
+    "id": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+    "type": "Microsoft.Authorization/policyAssignments",
+    "name": "CostManagement"
+}
+```
+
+> [!NOTE]
+> Although the preceding example shows an override in the context of a resource selector, this is optional. That is,
+> you can use overrides independent of resource selectors.
 
 ## Enforcement Mode
 
 The **enforcementMode** property provides customers the ability to test the outcome of a policy on
 existing resources without initiating the policy effect or triggering entries in the
-[Azure Activity log](../../../azure-monitor/essentials/platform-logs-overview.md). This scenario is
+[Azure Activity log](../../../azure-monitor/essentials/platform-logs-overview.md).
+
+This scenario is
 commonly referred to as "What If" and aligns to safe deployment practices. **enforcementMode** is
 different from the [Disabled](./effects.md#disabled) effect, as that effect prevents resource
 evaluation from happening at all.
