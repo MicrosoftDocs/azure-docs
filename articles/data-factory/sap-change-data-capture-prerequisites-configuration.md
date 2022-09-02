@@ -1,7 +1,7 @@
 ---
-title: SAP change data capture (preview) prerequisites and configuration
+title: Prerequisites and settings for the SAP ODP (preview) feature
 titleSuffix: Azure Data Factory
-description: Learn about the prerequisites and configuration of the SAP change data capture (preview) feature in Azure Data Factory.
+description: Learn about the prerequisites and configuration of the SAP ODP (preview) feature in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
@@ -10,11 +10,11 @@ ms.date: 06/01/2022
 ms.author: ulrichchrist
 ---
 
-# SAP change data capture (preview) prerequisites and configuration
+# Prerequisites and settings for the SAP ODP (preview) feature
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes the prerequisites and configuration of the SAP change data capture (preview) feature in Azure Data Factory.
+This article describes the prerequisites and configuration of the SAP ODP (preview) feature in Azure Data Factory.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ ODP is available by default in software releases of most SAP systems (ECC, S/4HA
 
 ### SAP user configurations
 
-Data extractions via ODP require a properly configured user on SAP systems. The user must be authorized for ODP API invocations over Remote Function Call (RFC() modules. The user configuration is the same configuration that's required for data extractions via ODP from SAP source systems into BW or BW/4HANA:
+Data extractions via ODP require a properly configured user on SAP systems. The user must be authorized for ODP API invocations over Remote Function Call (RFC) modules. The user configuration is the same configuration that's required for data extractions via ODP from SAP source systems into BW or BW/4HANA:
 
 - [2855052 - To authorize ODP API usage](https://launchpad.support.sap.com/#/notes/2855052)
 - [460089 - To authorize ODP RFC invocations](https://launchpad.support.sap.com/#/notes/460089)
@@ -71,7 +71,7 @@ ODP offers various data extraction contexts or *source object types*. Although m
 
 ### SLT configurations
 
-SAP Landscape Transformation Replication Server (SLT) is a database trigger-enabled change data capture solution that can replicate SAP application tables and simple views in near real time from SAP source systems to various targets, including ODQ, such that it can be used as a proxy in data extractions via ODP. It can be installed on SAP source systems as Data Migration Server (DMIS) add-on or on a standalone replication server. In order to use SLT replication server as a proxy, complete the following steps:
+SAP Landscape Transformation Replication Server (SLT) is a database trigger-enabled change data capture solution that can replicate SAP application tables and simple views in near real time from SAP source systems to various targets, including the Operational Delta Queue (ODQ), such that it can be used as a proxy in data extractions via ODP. It can be installed on SAP source systems as Data Migration Server (DMIS) add-on or on a standalone replication server. To use  an SLT replication server as a proxy, complete the following steps:
 
 - Install at least NetWeaver 7.4 SPS04 release and DMIS 2011 SP05 add-on on your replication server, see [Transferring Data from SLT Using Operational Data Provisioning](https://help.sap.com/docs/SAP_NETWEAVER_750/ccc9cdbdc6cd4eceaf1e5485b1bf8f4b/6ca2eb9870c049159de25831d3269f3f.html).
 

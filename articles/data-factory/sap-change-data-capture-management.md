@@ -50,7 +50,7 @@ To monitor data extractions on SAP systems:
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-monitor-delta-queues.png" alt-text="Screenshot of the SAP ODQMON tool with all data extractions for a particular subscriber.":::
 
-1. You can now see all registered subscriber processes in ODQ representing data extractions from Azure Data Factory copy activities that use your SAP ODP linked service. On each ODQ subscription, you can drill down to see individual full/delta extractions. On each extraction, you can drill down to see individual data packages that were consumed.
+1. You can now see all registered subscriber processes in Operational Delta Queue (ODQ) representing data extractions from Azure Data Factory copy activities that use your SAP ODP linked service. On each ODQ subscription, you can drill down to see individual full/delta extractions. On each extraction, you can drill down to see individual data packages that were consumed.
 
 1. When Data Factory copy activities that extract SAP data are no longer needed, their ODQ subscriptions should be deleted, so SAP systems can stop tracking their subscription states and remove the unconsumed data packages from ODQ. To do so, select the unneeded ODQ subscriptions and delete them.
 
@@ -58,7 +58,7 @@ To monitor data extractions on SAP systems:
 
 ## Troubleshoot delta change
 
-The Azure Data Factory ODP connector reads delta changes from the ODP framework, which itself provides them in tables called Operational Delta Queues (ODQs).
+The Azure Data Factory ODP connector reads delta changes from the ODP framework, which itself provides them in ODQ tables.
 
 In situations where the data movement works technically (that is, copy activities complete without errors), but doesn't appear to deliver the data correctly (for example, no data at all, or maybe just a subset of the expected data), you should first investigate if the number of records provided on the SAP side match the number of rows transferred by Data Factory. If so, the issue isn't related to Data Factory, but probably comes from incorrect or missing configuration on SAP side.
 

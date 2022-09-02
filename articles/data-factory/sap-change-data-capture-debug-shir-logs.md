@@ -1,7 +1,7 @@
 ---
-title: SAP change data capture solution (Preview) - Debug issues using SHIR logs
+title: Debug SAP ODP (previee) issues by using self-hosted integration runtime logs
 titleSuffix: Azure Data Factory
-description: This article describes how to debug issues with Copy activity for SAP change data capture (Preview) using self-hosted integration runtime logs in Azure Data Factory.
+description: Learn how to debug issues with the copy activity for SAP ODP (preview) by using self-hosted integration runtime logs in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
@@ -10,24 +10,24 @@ ms.date: 06/01/2022
 ms.author: ulrichchrist
 ---
 
-# Debug Data Factory copy activity issues by sending self-hosted integration runtime logs
+# Debug Data Factory copy activity by sending self-hosted integration runtime logs
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-If you want us to debug your Data Factory copy activity issues, send Microsoft your self-hosted integration runtime logs. To do so, complete the following steps.
+If you want Microsoft to debug your Data Factory copy activity issues, send us your self-hosted integration runtime logs.
 
 ## Send logs to Microsoft
 
-On the computer running the self-hosted integration runtime, open the Microsoft Integration Runtime Configuration Manager app, select the Diagnostics tab, select the Send logs button, and select the Send Logs button again on dialog window that pops up.
+On the computer running the self-hosted integration runtime, open Microsoft Integration Runtime Configuration Manager. Select the **Diagnostics** tab. Under **Logging**, select **Send logs**. Enter or select the information that's requested, and then select **Send Logs**.
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-shir-diagnostics-send-logs.png" alt-text="Screenshot of the self-hosted integration runtime configuration manager's Diagnostics tab highlighting the send logs button.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-shir-diagnostics-send-logs.png" alt-text="Screenshot of self-hosted integration runtime configuration manager's Diagnostics tab, with Send logs highlighted.":::
 
 ## Contact support
 
-When self-hosted integration runtime logs have been uploaded/sent to us and you are contacting support, provide the Report ID and Timestamp values displayed on the dialog window.
+After you've uploaded and sent your self-hosted integration runtime logs, contact support and provide the Report ID and Timestamp values that are shown in the confirmation:
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-diagnostics-report-id.png" alt-text="Screenshot of the self-hosted integration runtime's diagnostic log dialog with the Report ID and Timestamp highlighted.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-diagnostics-report-id.png" alt-text="Screenshot of the self-hosted integration runtime's diagnostic log confirmation, with Report ID and Timestamp highlighted.":::
 
 ## Next steps
 
-[Auto-generate ADF pipeline from SAP data partitioning template](sap-change-data-capture-data-partitioning-template.md)
+[Auto-generate a Data Factory pipeline from a SAP data partitioning template](sap-change-data-capture-data-partitioning-template.md)
