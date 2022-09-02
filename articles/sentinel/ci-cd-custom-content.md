@@ -21,7 +21,7 @@ The Microsoft Sentinel repositories feature provides a central experience for th
 
 ## Plan your repository connection
 
-Microsoft Sentinel repositories require careful planning to ensure you have the proper permissions from your workspace to the repo you want connected. Only connections to GitHub and Azure DevOps repositories with contributor access are currently supported. The Microsoft Sentinel application will need authorization to your repo and have Actions enabled for GitHub and Pipelines enabled for Azure DevOps. 
+Microsoft Sentinel repositories require careful planning to ensure you have the proper permissions from your workspace to the repository (repo) you want connected. Only connections to GitHub and Azure DevOps repositories with contributor access are currently supported. The Microsoft Sentinel application will need authorization to your repo and have Actions enabled for GitHub and Pipelines enabled for Azure DevOps. 
 
 Repositories require an **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you're' unable to use the Owner role in your environment, you can instead use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
 
