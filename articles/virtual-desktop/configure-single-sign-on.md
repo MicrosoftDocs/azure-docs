@@ -13,7 +13,7 @@ ms.author: helohr
 # Configure single sign-on for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Single sign-on using Azure AD authentication is currently in Insider preview.
+> Single sign-on using Azure AD authentication is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -24,17 +24,15 @@ This article will walk you through the process of configuring single sign-on (SS
 
 ## Prerequisites
 
-Single sign-on is currently only available for certain versions of Windows Insider. When deploying new session hosts, you must choose one of the following images:
+Single sign-on is available on session hosts using the following operating systems:
 
-  - Windows 11 version 22H2 Enterprise, (Preview) - X64 Gen 2.
-  - Windows 11 version 22H2 Enterprise multi-session, (Preview) - X64 Gen2.
+  - Windows 11 Enterprise single or multi-session with the [2022-09 Cumulative Updates for Windows 11 Preview (KB5017383)](TODO-ADD-LINK) or later installed.
+  - Windows 10 Enterprise single or multi-session, versions 20H2 or later with the [2022-09 Cumulative Updates for Windows 10 Preview (KB5017380)](TODO-ADD-LINK) or later installed.
+  - Windows Server, version 2022 with the [2022-09 Cumulative Update for Microsoft server operating system preview (KB5017381)](TODO-ADD-LINK) or later installed.
 
 You can enable SSO for connections to Azure Active Directory (AD)-joined VMs. You can also use SSO to access Hybrid Azure AD-joined VMs, but only after creating a Kerberos Server object. Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services.
 
-> [!NOTE]
-> Hybrid Azure AD-joined Windows Server 2019 VMs don't support SSO.
-
-Currently, the [Windows Desktop client](./user-documentation/connect-windows-7-10.md) is the only client that supports SSO. The local PC must be running Windows 10 or later. There's no domain join requirement for the local PC.
+You can use the [Windows Desktop client](user-documentation/connect-windows-7-10.md) on local PCs running Windows 10 or later. There's no domain join requirement for the local PC. You can also have a single sign-on experience when using the [web client](user-documentation/connect-web.md).
 
 SSO is currently supported in the Azure Public cloud.
 
@@ -55,4 +53,5 @@ When enabling single sign-on, you'll currently be prompted to authenticate to Az
 
 - Check out [In-session passwordless authentication (preview)](authentication.md#in-session-passwordless-authentication-preview) to learn how to enable passwordless authentication.
 - If you're accessing Azure Virtual Desktop from our Windows Desktop client, see [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md).
+- If you're accessing Azure Virtual Desktop from our web client, see [Connect with the web client](./user-documentation/connect-web.md).
 - If you encounter any issues, go to [Troubleshoot connections to Azure AD-joined VMs](troubleshoot-azure-ad-connections.md).
