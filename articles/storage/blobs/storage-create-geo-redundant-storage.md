@@ -3,12 +3,12 @@ title: Tutorial - Build a highly available application with Blob storage
 titleSuffix: Azure Storage
 description: Use read-access geo-zone-redundant (RA-GZRS) storage to make your application data highly available.
 services: storage
-author: tamram
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/18/2021
-ms.author: tamram
+ms.date: 09/02/2022
+ms.author: pauljewell
 ms.reviewer: artek
 ms.devlang: csharp, javascript, python
 ms.custom: "mvc, devx-track-python, devx-track-js, devx-track-csharp"
@@ -39,7 +39,9 @@ To complete this tutorial:
 
 # [.NET v12 SDK](#tab/dotnet)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+- Install [Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **Azure development** workload.
+
+  ![Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads-net-v12.png)
 
 # [.NET v11 SDK](#tab/dotnet11)
 
@@ -97,11 +99,19 @@ Follow these steps to create a read-access geo-zone-redundant (RA-GZRS) storage 
 
 # [.NET v12 SDK](#tab/dotnet)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+Download the [sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip), extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file, then navigate to the v12 folder to find the project files.
+
+You can also use [git](https://git-scm.com/) to clone the repository to your local development environment. The sample project in the v12 folder contains a console application.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
+```
 
 # [.NET v11 SDK](#tab/dotnet11)
 
-[Download the sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) and extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a console application.
+Download the [sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip), extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file, then navigate to the v11 folder to find the project files.
+
+You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project in the v11 folder contains a console application.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
@@ -137,7 +147,9 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 # [.NET v12 SDK](#tab/dotnet)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+Application requests to Azure Blob storage must be authorized. Using the `DefaultAzureCredential` class provided by the `Azure.Identity` client library is the recommended approach for connecting to Azure services in your code. The .NET v12 code sample uses this approach. To learn more, please see the [DefaultAzureCredential overview](/dotnet/azure/sdk/authentication#defaultazurecredential).
+
+You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution to protect access keys from being exposed.
 
 # [.NET v11 SDK](#tab/dotnet11)
 
@@ -204,7 +216,17 @@ Install the required dependencies. To do this, open a command prompt, navigate t
 
 # [.NET v12 SDK](#tab/dotnet)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual studio automatically restores missing NuGet packages if configured. Please see [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
+
+When the console window launches, the app will get the status of the secondary region and write that information to the console. Then the app will create a container in the storage account and upload a blob to the container. Once the blob is uploaded, the app will continuously check to see if the blob has replicated to the secondary region. This will continue until the blob is found to be replicated, or we reach the maximum number of iterations as defined by the loop conditions.
+
+Next, the application enters a loop with a prompt to download the blob, initially reading from primary storage. Press any key to download the blob. If there is a retryable error reading from the primary region, a retry of the read request is performed against the secondary region endpoint. The console output will show when the region switches to secondary.
+
+![Console output secondary request](media/storage-create-geo-redundant-storage/request-secondary-region.png)
+
+The application will also track retry requests through an event listener. If the number of retries exceeds the threshold set in the code, the app will switch to send read requests to secondary storage. It will continue to do this until a secondary read threshold is met, at which point the requests will go back to the primary region. 
+
+To exit the loop and clean up resources, make sure requests are being sent to primary storage and press the `Esc` key at the blob download prompt.
 
 # [.NET v11 SDK](#tab/dotnet11)
 
@@ -269,7 +291,69 @@ Deleted container newcontainer1550799840726
 
 # [.NET v12 SDK](#tab/dotnet)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+The sample creates a `BlobServiceClient` object configured with retry options and a secondary region endpoint. This allows the application to automatically switch to the secondary region if the request fails on the primary region endpoint.
+
+```csharp
+string accountName = "<YOURSTORAGEACCOUNTNAME>";
+Uri primaryAccountUri = new Uri($"https://{accountName}.blob.core.windows.net/");
+Uri secondaryAccountUri = new Uri($"https://{accountName}-secondary.blob.core.windows.net/");
+
+// Provide the client configuration options for connecting to Azure Blob storage
+BlobClientOptions blobClientOptions = new BlobClientOptions()
+{
+    Retry = {
+        // The delay between retry attempts for a fixed approach or the delay
+        // on which to base calculations for a backoff-based approach
+        Delay = TimeSpan.FromSeconds(2),
+
+        // The maximum number of retry attempts before giving up
+        MaxRetries = 5,
+
+        // The approach to use for calculating retry delays
+        Mode = RetryMode.Exponential,
+
+        // The maximum permissible delay between retry attempts
+        MaxDelay = TimeSpan.FromSeconds(10)
+    },
+
+    // If the GeoRedundantSecondaryUri property is set, the secondary Uri will be used for 
+    // GET or HEAD requests during retries.
+    // If the status of the response from the secondary Uri is a 404, then subsequent retries
+    // for the request will not use the secondary Uri again, as this indicates that the resource 
+    // may not have propagated there yet.
+    // Otherwise, subsequent retries will alternate back and forth between primary and secondary Uri.
+    GeoRedundantSecondaryUri = secondaryAccountUri
+};
+
+// Create a BlobServiceClient object using the configuration options above
+BlobServiceClient blobServiceClient = new BlobServiceClient(primaryAccountUri, new DefaultAzureCredential(), blobClientOptions);
+```
+Additionally, the app tracks retry requests through an event listener, which listens to events produced by the Azure SDK client libraries. This is a basic sample of how you could set up an `AzureEventSourceListener` to keep track of request retries.
+
+```csharp
+using AzureEventSourceListener listener = new AzureEventSourceListener((args, message) =>
+{
+     if (args.EventSource.Name.StartsWith("Azure-Core") && args.EventName == "RequestRetrying")
+     {
+         retryCount++;
+     }
+}, EventLevel.LogAlways);
+```
+If the number of retries exceeds the threshold set in the code, the app will switch to send read requests to secondary storage. This is done by performing `DownloadAsync()` calls from a `BlobServiceClient` object which is configured to point at the secondary region endpoint.
+ ```csharp
+// Create a client object for the blob service which points to the secondary region endpoint
+BlobServiceClient blobServiceClientSecondary = new BlobServiceClient(secondaryAccountUri, new DefaultAzureCredential(), optionsSecondary);
+
+BlobClient blobSecondary = blobServiceClientSecondary.GetBlobContainerClient(containerName).GetBlobClient(blobName);
+
+// Code omitted for brevity
+
+if (retryCount > retryThreshold)
+{
+     response = await blobSecondary.DownloadAsync();
+}
+```
+It will continue to perform secondary reads until another threshold is met, at which point the requests will go back to the primary region.
 
 # [.NET v11 SDK](#tab/dotnet11)
 
