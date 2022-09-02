@@ -22,18 +22,18 @@ When you deploy an Azure Arc enabled SQL managed instance, you can configure the
 
 Following are the steps to resize persistent volumes attached to `StatefulSets`: 
 
-1. Scale the `StatefulSets` to 0
+1. Scale the `StatefulSets` replicas to 0
 2. Patch the PVC to the new size
-3. Scale the `StatefulSets` back to the original size
+3. Scale the `StatefulSets` replicas back to the original size
 
 During the patching of `PersistentVolumeClaim`, the status of the persistent volume claim will likely change from: `Attached` to `Resizing` to `FileSystemResizePending` to `Attached`. The exact states will depend on the storage provisioner. 
 
 > [Note]
 > Ensure the managed instance is in a healthy state before you proceed. Run `kubectl get sqlmi -n <namespace>` and check the status of the managed instance.
 
-## 1. Scale the `StatefulSets` to 0
+## 1. Scale the `StatefulSets` replicas to 0
 
-The number of `StatefulSets` deployed is equal to the number of replicas. For General Purpose service tier, this is 1. For Business Critical service tier it could be 1, 2 or 3 depending on how many replicas were specified. Run the below command to get the number of stateful sets if you have a Business Critical instance. 
+There is one `StatefulSet` deployed for each Arc SQL MI. The number of replicas in the `StatefulSet` is equal to the number of replicas in the Arc SQL MI. For General Purpose service tier, this is 1. For Business Critical service tier it could be 1, 2 or 3 depending on how many replicas were specified. Run the below command to get the number of statefulset replicas if you have a Business Critical instance. 
 
 ```console
 kubectl get sts --namespace  <namespace>
@@ -45,9 +45,9 @@ For example, if the namespace is `arc`, run:
 kubectl get sts --namespace arc
 ```
 
-Notice the number of stateful sets. 
+Notice the number of stateful sets under the `READY` column for the SQL managed instance(s).
 
-Run the below command to scale the `StatefulSets` to 0:
+Run the below command to scale the `StatefulSets` replicas to 0:
 
 ```console
 kubectl scale statefulsets <statefulset> --namespace <namespace> --replicas= <number>
@@ -74,7 +74,7 @@ kubectl get pvc --namespace arc
 ```
 
 
-Once the stateful `StatefulSets` has been scaled to 0, patch the  `StatefulSets`. Run the following command:
+Once the stateful `StatefulSets` replicas has completed scaling down to 0, patch the  `StatefulSets`. Run the following command:
 
 ```console
 $newsize='{\"spec\":{\"resources\":{\"requests\":{\"storage\":\"<newsize>Gi\"}}}}'
@@ -88,15 +88,15 @@ $newsize='{\"spec\":{\"resources\":{\"requests\":{\"storage\":\"50Gi\"}}}}'
 kubectl patch pvc data-a6gt3be7mrtq60eao0gmgxgd-sqlmi1-0 --namespace arcns --type merge --patch $newsize
 ```
 
-## 3. Scale the `StatefulSets` to original size
+## 3. Scale the `StatefulSets` replicas to original size
 
-Once the resize completes, scale the `StatefulSets` back to its original size by running the below command:
+Once the resize completes, scale the `StatefulSets` replicas back to its original size by running the below command:
 
 ```console
 kubectl scale statefulsets <statefulset> --namespace <namespace> --replicas= <number>
 ```
 
-For example: The below command sets the `StatefulSets` to 3.
+For example: The below command sets the `StatefulSets` replicas to 3.
 
 ```
 kubectl scale statefulsets sqlmi1 --namespace arc --replicas=3
