@@ -3,7 +3,7 @@ title: Capture Azure Kinect device synchronization
 description: Learn how to synchronize Azure Kinect capture devices using the Azure Kinect Sensor SDK.
 author: martinekuan
 ms.author: martinek
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, depth, rgb, internal, external, synchronization, daisy chain, phase offset
