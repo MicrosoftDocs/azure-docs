@@ -5,7 +5,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 11/02/2021
+ms.date: 09/02/2022
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
@@ -40,6 +40,7 @@ This article lists common troubleshooting issues in dedicated SQL pool (formerly
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Exporting empty strings using CETAS will result in NULL values in Parquet and ORC files. Note if you are exporting empty strings from columns with NOT NULL constraints, CETAS will result in rejected records and the export can potentially fail. | Remove empty strings or the offending column in the SELECT statement of your CETAS. |
 | Loading a value outside the range of 0-127 into a tinyint column for Parquet and ORC file format is not supported. | Specify a larger data type  for the target column.           |
+|Msg 105208, Level 16, State 1, Line 1 COPY statement failed with the following error when validating value of option 'FROM': '105200;COPY statement failed because the value for option 'FROM' is invalid.'|Ingesting data using the COPY command into an Azure Storage account which is using the new DNS partitioning feature results in an error. DNS partition feature enables customers to create up to 5000 storage accounts per subscription. To resolve, provision a storage account in a subscription that does not use the new [Azure Storage DNS partition feature](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466) (currently in Public Preview).|
 
 ## Performance
 

@@ -285,8 +285,8 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
     1. To troubleshoot which rows have the issue, apply SQL sink [fault tolerance](./copy-activity-fault-tolerance.md), especially "redirectIncompatibleRowSettings."
 
-    	> [!NOTE]
-    	> Fault tolerance might require additional execution time, which could lead to higher costs.
+        > [!NOTE]
+        > Fault tolerance might require additional execution time, which could lead to higher costs.
 
     2. Double-check the redirected data against the SQL table schema column length to see which columns need to be updated.
 
@@ -297,6 +297,13 @@ This article provides suggestions to troubleshoot common problems with the Azure
 - **Message**: `User does not have permission to perform this action.`
 
 - **Recommendation**: Make sure the user configured in the Azure Synapse Analytics connector must have 'CONTROL' permission on the target database while using PolyBase to load data. For more detailed information, refer to this [document](./connector-azure-sql-data-warehouse.md#required-database-permission).
+
+## Error code: Msg 105208
+
+- **Symptoms**: Error code: `Error code: Msg 105208, Level 16, State 1, Line 1 COPY statement failed with the following error when validating value of option 'FROM': '105200;COPY statement failed because the value for option 'FROM' is invalid.'`
+- **Cause**: Ingesting data using the COPY command into an Azure Storage account which is using the new DNS partitioning feature results in an error. DNS partition feature enables customers to create up to 5000 storage accounts per subscription. 
+- **Resolutions**: Provision a storage account in a subscription that does not use the new [Azure Storage DNS partition feature](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466) (currently in Public Preview).
+
 
 ## Next steps
 

@@ -34,6 +34,7 @@ To run this tutorial, you need:
 
 * A dedicated SQL pool. See [Create a dedicated SQL pool and query data](create-data-warehouse-portal.md).
 * A Data Lake Storage account. See [Get started with Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). For this storage account, you will need to configure or specify one of the following credentials to load: A storage account key, shared access signature (SAS) key, an Azure Directory Application user, or an AAD user which has the appropriate Azure role to the storage account.
+* Currently, ingesting data using the COPY command into an Azure Storage account which is using the new [Azure Storage DNS partition feature](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466) results in an error. Provision a storage account in a subscription that does not use DNS partitioning for this tutorial.
 
 ## Create the target table
 
@@ -69,9 +70,9 @@ COPY INTO [dbo].[DimProduct]
 --You can also specify the default value when there is a NULL value in the file.
 --When the column list is not specified, columns will be mapped based on source and target ordinality
 (
-	ProductKey default -1 1,
-	ProductLabel default 'myStringDefaultWhenNull' 2,
-	ProductName default 'myStringDefaultWhenNull' 3
+    ProductKey default -1 1,
+    ProductLabel default 'myStringDefaultWhenNull' 2,
+    ProductName default 'myStringDefaultWhenNull' 3
 )
 --The storage account location where you data is staged
 FROM 'https://storageaccount.blob.core.windows.net/container/directory/'
