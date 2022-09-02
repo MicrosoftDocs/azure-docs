@@ -105,7 +105,7 @@ You should now have named secrets for your resource information.
 
 We recommend creating an environment variable for your Azure key vault's name. Your application will read this environment variable at runtime to retrieve your key and endpoint information.
 
-To set environment variables, use one the following commands. `KEY_VAULT_NAME` will the name of the environment variable, and replace `Your-Key-Vault-Name` with the name of your key vault, which will be stored in the environment variable.
+To set environment variables, use one the following commands. `KEY_VAULT_NAME` with the name of the environment variable, and replace `Your-Key-Vault-Name` with the name of your key vault, which will be stored in the environment variable.
 
 # [Azure CLI](#tab/azure-cli)
 
