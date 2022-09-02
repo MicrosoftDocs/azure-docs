@@ -214,11 +214,11 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 
     **Example of** [**Permissions Management Report**](https://microsoft.sharepoint.com/:v:/t/MicrosoftEntraPermissionsManagementAssets/EQWmUsMsdkZEnFVv-M9ZoagBd4B6JUQ2o7zRTupYrfxbGA)                      
     **Actions to try**    
-    a. [View system reports in the Reports dashboard](../cloud-infrastructure-entitlement-management/product-reports.md)  
-    b. [View a list and description of system reports](../cloud-infrastructure-entitlement-management/all-reports.md)  
-    c. [Generate and view a system report](../cloud-infrastructure-entitlement-management/report-view-system-report.md)  
-    d. [Create, view, and share a custom report](../cloud-infrastructure-entitlement-management/report-create-custom-report.md)  
-    e. [Generate and download the Permissions analytics report](../cloud-infrastructure-entitlement-management/product-permissions-analytics-reports.md)
+    1. [View system reports in the Reports dashboard](../cloud-infrastructure-entitlement-management/product-reports.md)  
+    2. [View a list and description of system reports](../cloud-infrastructure-entitlement-management/all-reports.md)  
+    3. [Generate and view a system report](../cloud-infrastructure-entitlement-management/report-view-system-report.md)  
+    4. [Create, view, and share a custom report](../cloud-infrastructure-entitlement-management/report-create-custom-report.md)  
+    5. [Generate and download the Permissions analytics report](../cloud-infrastructure-entitlement-management/product-permissions-analytics-reports.md)
 
 **Key Reports to Monitor:**
 
