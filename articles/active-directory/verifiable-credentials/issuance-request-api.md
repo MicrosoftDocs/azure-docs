@@ -35,7 +35,7 @@ The Request Service REST API issuance request requires the following HTTP header
 |`Authorization`| Attach the access token as a bearer token to the authorization header in an HTTP request. For example, `Authorization: Bearer <token>`.|
 |`Content-Type`| `Application/json`|
 
-Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your tenant ID or tenant name.
+Construct an HTTP POST request to the Request Service REST API. 
 
 ```http
 https://verifiedid.did.msidentity.com/v1.0/verifiableCredentials/createIssuanceRequest

@@ -14,18 +14,6 @@
     - name: Azure Percept Vision AI module
       href: azureeyemodule-overview.md   
       
- 
-- name: Azure Percept Overview
-  items:
-    - name: Azure Percept on Azure Stack HCI overview
-      href: ./hci/azure-percept-on-azure-stack-hci-overview.md
-    - name: Azure Percept Studio overview
-      href: ./studio/azure-percept-studio-overview.md
-    - name: Azure Percept for DeepStream overview
-      href: ./deepstream/azure-percept-for-deepstream-overview.md
-    - name: Azure Percept Open-Source Project overview
-      href: ./open-source/azure-percept-open-source-project-overview.md
-   
 
 - name: Azure Percept DK Quickstarts
   items:

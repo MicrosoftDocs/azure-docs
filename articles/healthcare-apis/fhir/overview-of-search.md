@@ -12,7 +12,7 @@ ms.author: mikaelw
 
 The Fast Healthcare Interoperability Resources (FHIR&#174;) specification defines an API for querying resources in a FHIR server database. This article will guide you through some key aspects of querying data in FHIR. For complete details about the FHIR search API, refer to the HL7 [FHIR Search](https://www.hl7.org/fhir/search.html) documentation. 
 
-Throughout this article, we'll demonstrate FHIR search syntax in example API calls with the placeholder `{{FHIR_URL}}` to represent the FHIR server URL. In the case of the FHIR service in Azure Health Data Services, this URL would be `https://<WORKSPACE-NAME>-<FHIR-SERVICE-NAME>.fhir.azurehealthcareapis.com`.
+Throughout this article, we'll demonstrate FHIR search syntax in example API calls with the `{{FHIR_URL}}` placeholder to represent the FHIR server URL. In the case of the FHIR service in Azure Health Data Services, this URL would be `https://<WORKSPACE-NAME>-<FHIR-SERVICE-NAME>.fhir.azurehealthcareapis.com`.
 
 FHIR searches can be against a specific resource type, a specified [compartment](https://www.hl7.org/fhir/compartmentdefinition.html), or all resources in the FHIR server database. The simplest way to execute a search in FHIR is to use a `GET` request. For example, if you want to pull all `Patient` resources in the database, you could use the following request: 
 
@@ -28,7 +28,7 @@ In the following sections, we'll cover the various aspects of querying resources
 
 ## Search parameters
 
-When you do a search in FHIR, you are searching the database for resources that match certain search criteria. The FHIR API specifies a rich set of search parameters for fine-tuning search criteria. Each resource in FHIR carries information as a set of elements, and search parameters work to query the information in these elements. In a FHIR search API call, if a positive match is found between the request's search parameters and element values stored in a resource instance, then the FHIR server returns a bundle containing the resource instance(s) whose elements satisfied the search criteria. 
+When you do a search in FHIR, you are searching the database for resources that match certain search criteria. The FHIR API specifies a rich set of search parameters for fine-tuning search criteria. Each resource in FHIR carries information as a set of elements, and search parameters work to query the information in these elements. In a FHIR search API call, if a positive match is found between the request's search parameters and the corresponding element values stored in a resource instance, then the FHIR server returns a bundle containing the resource instance(s) whose elements satisfied the search criteria. 
 
 For each search parameter, the FHIR specification defines the [data type(s)](https://www.hl7.org/fhir/search.html#ptypes) that can be used. Support in the FHIR service for the various data types is outlined below.
 
@@ -154,13 +154,13 @@ Similarly, you can do a reverse chained search with the `_has` parameter. This a
 
 ## Pagination
 
-As mentioned above, the results from a FHIR search will be available in paginated form at a link provided in the `searchset` bundle. By default, the FHIR service will display 10 search results per page, but this can be increased (or decreased) by setting the `_count` parameter. If there are more matches than fit on one page, the bundle will include a `next` link. Repeatedly fetching the `next` link will yield the subsequent pages of results. Note that the `_count` parameter value cannot exceed 1000. 
+As mentioned above, the results from a FHIR search will be available in paginated form at a link provided in the `searchset` bundle. By default, the FHIR service will display 10 search results per page, but this can be increased (or decreased) by setting the `_count` parameter. If there are more matches than fit on one page, the bundle will include a `next` link. Repeatedly fetching from the `next` link will yield the subsequent pages of results. Note that the `_count` parameter value cannot exceed 1000. 
 
 Currently, the FHIR service in Azure Health Data Services only supports the `next` link and doesn’t support `first`, `last`, or `previous` links in bundles returned from a search.
 
 ## Next steps
 
-Now that you've learned about the basics of FHIR search, see the search samples page for details about how to search using different search parameters, modifiers, and FHIR search methods.  
+Now that you've learned about the basics of FHIR search, see the search samples page for details about how to search using search parameters, modifiers, and other FHIR search methods.  
 
 >[!div class="nextstepaction"]
 >[FHIR search examples](search-samples.md)
