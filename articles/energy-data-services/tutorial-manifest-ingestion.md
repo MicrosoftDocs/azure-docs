@@ -15,11 +15,13 @@ Manifest ingestion provides the capability to ingest manifests into Microsoft En
 
 In this tutorial, you will learn how to:
 
+> [!div class="checklist"]
 > * Ingest sample manifests into the Microsoft Energy Data Services instance
 > * Search for storage metadata records created during the manifest ingestion
 
 ## Prerequisites
 
+Before beginning this tutorial, the following prerequisites must be completed:
 ### Get Microsoft Energy Data Services instance details
 
 * Once the [Quickstart: Create a Microsoft energy data services instance](quickstart-create-project-oak-forest-instance.md) is created, note down the following details:
@@ -50,17 +52,17 @@ In this tutorial, you will learn how to:
 
 * The Postman collection for manifest ingestion contains multiple requests, which will have to be executed in a sequential manner.
 * Make sure to choose the **Ingestion Workflow Environment** before triggering the Postman collection.
-  :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the postman environment." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-choose-environment.png":::
+  :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the Postman environment." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-choose-environment.png":::
 * Each request can be triggered by clicking the **Send** Button.
 * On every request, Postman will validate the actual API response code against the expected response code; if there is any mismatch the test section will indicate failures.
 
 **Successful Postman request**
 
-:::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-success.png" alt-text="Screenshot of a successful postman call." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-test-success.png":::
+:::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-success.png" alt-text="Screenshot of a successful Postman call." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-test-success.png":::
 
 **Failed Postman request**
 
-:::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure postman call." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png":::
+:::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure Postman call." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png":::
 
 ## Ingest sample manifests into the Microsoft Energy Data Services instance
 
@@ -71,15 +73,15 @@ In this tutorial, you will learn how to:
     :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-select-manifest-file.png" alt-text="Screenshot of a select file option." lightbox="media/tutorial-manifest-ingestion/tutorial-select-manifest-file.png":::  
   5. **Upload file metadata** - Upload the file metadata information such as file location & other relevant fields
   6. **Get the file metadata** - Call to validate if the metadata got created successfully
-  7. **Ingest Master, Reference and Work Product Component(WPC) data** - Ingest the Master, Reference and Work Product Component manifest metadata.
+  7. **Ingest Master, Reference and Work Product Component (WPC) data** - Ingest the Master, Reference and Work Product Component manifest metadata.
   8. **Get manifest ingestion workflow status** - The workflow will start and will be in the **running** state.  Keep querying until it changes state to **finished** (typically 20-30 seconds)
    
 ## Search for storage metadata records created during the manifest ingestion
-  1. **Search Work Products** - Call Search service to retrieve the Work Product metadata records
-  2. **Search Work Product Components** - Call Search service to retrieve the Work Product Component metadata records
-  3. **Search for Dataset** - Call Search service to retrieve the Dataset metadata records
-  4. **Search for Master data** - Call Search service to retrieve the Master metadata records
-  5. **Search for Reference data** - Call Search service to retrieve the Reference metadata records
+    - **Search Work Products** - Call Search service to retrieve the Work Product metadata records
+    - **Search Work Product Components** - Call Search service to retrieve the Work Product Component metadata records
+    - **Search for Dataset** - Call Search service to retrieve the Dataset metadata records
+    - **Search for Master data** - Call Search service to retrieve the Master metadata records
+    - **Search for Reference data** - Call Search service to retrieve the Reference metadata records
 
 ## Next steps
 Advance to the next tutorial to learn about sdutil
