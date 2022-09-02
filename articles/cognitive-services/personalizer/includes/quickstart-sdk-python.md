@@ -137,7 +137,7 @@ The context features in this quick-start are simplistic, however, in a real prod
 
 ## Define a reward score based on user behavior
 
-The reward score can be considered an indication how "good" the personalized action is. In a real production system, the reward score should be designed to align with your business objectives and KPIs. For example, your application code can be instrumented to detect a desired user behavior (e.g., a purchase) that aligns with your business objective (e.g., a purchase).
+The reward score can be considered an indication how "good" the personalized action is. In a real production system, the reward score should be designed to align with your business objectives and KPIs. For example, your application code can be instrumented to detect a desired user behavior (for example, a purchase) that aligns with your business objective (for example, increased revenue).
 
 In our grocery website scenario, we have three users: Bill, Satya, and Amy each with their own preferences. If a user purchases the product chosen by Personalizer, a reward score of 1.0 will be sent to the Reward API. Otherwise, the default reward of 0.0 will be used. In a real production system, determining how to design the [reward](../concept-rewards.md) can be non-trivial and may require some experimentation.
 
