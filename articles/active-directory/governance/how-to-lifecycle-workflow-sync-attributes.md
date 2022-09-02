@@ -28,7 +28,7 @@ The following table shows the scheduling (trigger) relevant attributes and the m
 These attributes **are not** automatically populated using such synchronization methods such as Azure AD Connect or Azure AD Connect cloud sync.
 
 > [!NOTE]
-> Currently, automatic synchronization of the employeeLeaveDateTime attribute for HR Inbound scenarios is not available. To take advantaged of leaver scenarios, you can set the employeeLeaveDateTime manually. Manually setting the attribute can be done in the portal or with Graph. For more information see [User profile in Azure](../fundamentals/active-directory-users-profile-azure-portal.md) and [Update user](/graph/api/user-update?view=graph-rest-1.0&tabs=http).
+> Currently, automatic synchronization of the employeeLeaveDateTime attribute for HR Inbound scenarios is not available. To take advantaged of leaver scenarios, you can set the employeeLeaveDateTime manually. Manually setting the attribute can be done in the portal or with Graph. For more information see [User profile in Azure](../fundamentals/active-directory-users-profile-azure-portal.md) and [Update user](/graph/api/user-update?view=graph-rest-beta&tabs=http).
 
 This document explains how to set up synchronization from on-premises Azure AD Connect cloud sync and Azure AD Connect for the required attributes.
 
