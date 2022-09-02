@@ -56,7 +56,7 @@ In this tutorial, you'll learn how to:
 
   * The Postman collection for CSV parser ingestion contains a total of 10 requests, which have to be executed in a sequential manner.
   * Make sure to choose the **Ingestion Workflow Environment** before triggering the Postman collection.
-    :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the postman environment.":::
+    :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the postman environment." lightbox="media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png":::
   * Each request can be triggered by clicking the **Send** Button.
   * On every request Postman will validate the actual API response code against the expected response code; if there's any mismatch the test section will indicate failures.
 
