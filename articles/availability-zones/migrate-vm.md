@@ -90,7 +90,7 @@ To migrate a non-zonal managed disk to zonal:
 
 
 
-**To migrate a non-zonal managed disk to zone-redundant:**
+##### Migrate your data to ZRS managed disks
 
 >![IMPORTANT]
 > Zone-redundant storage (ZRS) for managed disks has some restrictions. For more information see [Limitations](../virtual-machines/disks-deploy-zrs.md?tabs=portal#limitations). 
