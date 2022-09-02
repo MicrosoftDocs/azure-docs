@@ -20,6 +20,27 @@ ms.custom: references_regions
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## August 2022
+
+### FHIR Transfer and Transform COMPASS service
+
+#### **Features**
+
+|Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|`$import` is generally available    |$import API is now generally available in Azure Health Data Services API version 2022-06-01. Executing the import by invoking `$import` operation on FHIR service in [Azure Health Data Services | Microsoft Docs](https://docs.microsoft.com/azure/healthcare-apis/fhir/import-data). |
+|`$convert-data` updated by adding STU3-R4 support. |`$convert-data` added support for FHIR STU3-R4 conversion. [Data conversion for Azure API for FHIR](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/convert-data)   |  
+|Analytics pipeline supports data filtering | Data filtering is now supported in FHIR to data lake pipeline. [FHIR-Analytics-Pipelines/Filter FHIR data in pipeline.md at main](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Filter%20FHIR%20data%20in%20pipeline.md) microsoft/FHIR-Analytics-Pipelines (github.com) |
+|Analytics pipeline supports FHIR extensions | Analytics pipeline can process FHIR extensions to generate parquet data. [FHIR-Analytics-Pipelines/Process FHIR extensions.md at main](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Process%20FHIR%20extensions.md).
+
+### Platform Team MERU AGARTHA 
+
+#### **Features**
+
+|Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|Azure Health Data services availability expands to new regions |Azure Health Data services is now available in the following regions:  Central India, Korea Central, and Sweden Central. |
+
 ## July 2022
 
 ### FHIR service
