@@ -20,7 +20,7 @@ Container insights is a feature designed to monitor the performance of container
 Container insights supports clusters running the Linux and Windows Server 2019 operating system. The container runtimes it supports are Moby and any CRI-compatible runtime such as CRI-O and ContainerD. Docker is no longer supported as a container runtime as of September 2022. For more information about this deprecation, see the [AKS release notes][aks-release-notes].
 
 >[!NOTE]
-> Container insights support for Windows Server 2022 operating system is in public preview.
+> Container insights support for Windows Server 2022 operating system and AKS for ARM nodes is in public preview.
 
 Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
 
