@@ -42,7 +42,6 @@ az containerapp env create \
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
-Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command may result in a warning message, however the command will still succeed.
 
 ```azurepowershell
 $WorkspaceArgs = @{
@@ -81,13 +80,13 @@ Begin by defining a name for the storage account. Storage account names must be 
 # [Bash](#tab/bash)
 
 ```bash
-STORAGE_ACCOUNT_NAME="<storage account name>"
+STORAGE_ACCOUNT_NAME="<STORAGE_ACCOUNT_NAME>"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$StorageAcctName = "<storage account name>"
+$StorageAcctName = "<StorageAccountName>"
 ```
 
 ---

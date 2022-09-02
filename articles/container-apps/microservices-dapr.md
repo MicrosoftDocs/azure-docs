@@ -57,7 +57,6 @@ az containerapp env create \
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.  
 
-Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` may result in a warning, but the command will still succeed.
 
 ```azurepowershell
 $WorkspaceArgs = @{
@@ -260,7 +259,7 @@ New-AzContainerAppManagedEnvDapr @DaprArgs
 
 ---
 
-Your state store is configured using the Dapr component type state.azure.blobstorage. The component is scoped to a container app named `nodeapp` and isn't available to other container apps.
+Your state store is configured using the Dapr component type of `state.azure.blobstorage`. The component is scoped to a container app named `nodeapp` and isn't available to other container apps.
 
 ## Deploy the service application (HTTP web server)
 
@@ -285,8 +284,8 @@ az containerapp create \
 
 This command deploys:
 
-* the service (Node) app server on `--target-port 3000` (the app port) 
-* its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000'` for service discovery and invocation
+* The service (Node) app server on `--target-port 3000` (the app port) 
+* Its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000'` for service discovery and invocation
 
 
 # [Azure PowerShell](#tab/azure-powershell)

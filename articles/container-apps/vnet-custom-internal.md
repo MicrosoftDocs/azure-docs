@@ -97,8 +97,6 @@ az network vnet subnet create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-The `New-AzVirtualNetworkSubnetConfig` command may result in a warning, but the command will still be successful.
-
 ```azurepowershell
 $SubnetArgs = @{
     Name = 'infrastructure-subnet'

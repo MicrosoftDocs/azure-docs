@@ -100,8 +100,6 @@ az network vnet subnet create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-The `New-AzVirtualNetworkSubnetConfig` command may result in a warning, but the command will still be successful.
-
 ```azurepowershell
 $SubnetArgs = @{
     Name = 'infrastructure-subnet'
@@ -164,8 +162,6 @@ The following table describes the parameters used in `containerapp env create`.
 # [Azure PowerShell](#tab/azure-powershell)
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
-
-Note that the `Get-AzOperationalInsightsWorkspaceSharedKey` command will result in a warning message.  The command will still succeed.
 
 ```azurepowershell
 $WorkspaceArgs = @{

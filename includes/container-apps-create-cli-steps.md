@@ -24,8 +24,6 @@ Connect-AzAccount
 
 ---
 
-
-
 # [Bash](#tab/bash)
 
 Next, install the Azure Container Apps extension for the CLI.
@@ -68,7 +66,6 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.App
 ```
 
 ---
-
 
 Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log Analytics workspace if you have not used it before.
 
