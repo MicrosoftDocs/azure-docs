@@ -30,8 +30,6 @@
       href: migrate-container-instances.md
     - name: Log Analytics workspaces
       href: migrate-monitor-log-analytics.md
-    - name: Managed Disks
-      href: migrate-managed-disks.md
     - name: Recovery Services vault
       href: migrate-recovery-services-vault.md
     - name: Storage accounts
