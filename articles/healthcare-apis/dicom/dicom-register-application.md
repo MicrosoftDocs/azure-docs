@@ -77,7 +77,7 @@ The following steps are required for the DICOM service. In addition, user access
 
 3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **Dicom.ReadWrite**, and then select **Add permissions**.
 
-   [ ![Select permissions scopes](./media/dicom-select-scopes-new.png) ](./media/dicom-select-scopes.new.png#lightbox)
+   [ ![Select permissions scopes](./media/dicom-select-scopes-new.png) ](./media/dicom-select-scopes-new.png#lightbox)
 
 Your application registration is now complete.
 
