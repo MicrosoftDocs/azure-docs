@@ -54,7 +54,7 @@ You will need to create a container for the de-identified export in your ADLS Ge
 > It is common practice to name the container `anonymization`. The JSON file within the container is often named `anonymizationConfig.json`.
 
 ## Manage Configuration File in ACR
-It's recommended that you host the export configuration files on Azure Container Registry(ACR). It takes the following steps similar as [hosting templates in ACR for $convert-data](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/convert-data#host-and-use-templates).  
+It's recommended that you host the export configuration files on Azure Container Registry(ACR). It takes the following steps similar as [hosting templates in ACR for $convert-data](convert-data#host-and-use-templates).  
 1. Push the configuration files to your Azure Container Registry.
 2. Enable Managed Identity on your FHIR service instance.
 3. Provide access of the ACR to the FHIR service Managed Identity.
