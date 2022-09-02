@@ -70,7 +70,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
+   ![Screenshot shows to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
@@ -123,13 +123,13 @@ In this section, a user called B.Simon is created in FourKites SAML2.0 SSO for T
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-#### SP initiated:
+### SP initiated:
 
 * Click on **Test this application** in Azure portal. This will redirect to FourKites SAML2.0 SSO for Tracking Sign-on URL where you can initiate the login flow.  
 
 * Go to FourKites SAML2.0 SSO for Tracking Sign-on URL directly and initiate the login flow from there.
 
-#### IDP initiated:
+### IDP initiated:
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the FourKites SAML2.0 SSO for Tracking for which you set up the SSO. 
 
