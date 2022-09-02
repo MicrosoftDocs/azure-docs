@@ -23,6 +23,7 @@ In this tutorial, you will learn how to:
 ### Get Microsoft Energy Data Services instance details
 
 * Once the [Quickstart: Create a Microsoft energy data services instance](quickstart-create-project-oak-forest-instance.md) is created, note down the following details:
+  
   | Parameter          | Value to use             | Example                               |
   | ------------------ | ------------------------ |-------------------------------------- |
   | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
@@ -35,7 +36,7 @@ In this tutorial, you will learn how to:
 
 * To generate a refresh token follow the steps mentioned in [OAuth 2.0 authorization](how-to-generate-refresh-token.md).
 
-### How to setup Postman?
+### How to set up Postman
 
 * Download and install [Postman](https://www.postman.com/) desktop app
 * Import the following files into Postman:
@@ -45,21 +46,21 @@ In this tutorial, you will learn how to:
     >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
 * Update the **CURRENT_VALUE** of the postman environment with the information obtained in [Get Microsoft Energy Data Services instance details](#get-microsoft-energy-data-services-instance-details)
 
-### How to execute Postman requests?
+### How to execute Postman requests
 
 * The Postman collection for manifest ingestion contains multiple requests, which will have to be executed in a sequential manner.
 * Make sure to choose the **Ingestion Workflow Environment** before triggering the Postman collection.
-  :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the postman environment.":::
+  :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the postman environment." lightbox="media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png":::
 * Each request can be triggered by clicking the **Send** Button.
 * On every request, Postman will validate the actual API response code against the expected response code; if there is any mismatch the test section will indicate failures.
 
 **Successful Postman request**
 
-:::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-success.png" alt-text="Screenshot of a successful postman call.":::
+:::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-success.png" alt-text="Screenshot of a successful postman call." lightbox="media/tutorial-csv-ingestion/tutorial-postman-test-success.png":::
 
 **Failed Postman request**
 
-:::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure postman call.":::
+:::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure postman call." lightbox="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png":::
 
 ## Ingest sample manifests into the Microsoft Energy Data Services instance
 
@@ -67,7 +68,7 @@ In this tutorial, you will learn how to:
   2. **Create a legal tag** - Create a legal tag that will be added to the Manifest data for data compliance purpose
   3. **Get a signed url for uploading a file** - Get the signed URL path to which the Manifest file will be uploaded
   4. **Upload a file** - Download the sample [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) to your local machine (it could be any filetype - CSV, LAS, JSON, etc.), and select this file in Postman by clicking the **Select File** option as shown in the Screenshot below.
-    :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-select-manifest-file.png" alt-text="Screenshot of a select file option.":::    
+    :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-select-manifest-file.png" alt-text="Screenshot of a select file option." lightbox="media/tutorial-csv-ingestion/tutorial-select-manifest-file.png":::  
   5. **Upload file metadata** - Upload the file metadata information such as file location & other relevant fields
   6. **Get the file metadata** - Call to validate if the metadata got created successfully
   7. **Ingest Master, Reference and Work Product Component(WPC) data** - Ingest the Master, Reference and Work Product Component manifest metadata.
