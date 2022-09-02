@@ -21,7 +21,7 @@ Authentication strength is a Conditional Access (CA) control that allows adminis
 
 Authentication strength is based on the Authentication Methods policy, where administrators can choose authentication methods for specific users and groups for different applications in Azure Active Directory (Azure AD). It allows administrators to further scope the usage of these methods based upon specific scenarios such as sensitive resource access, user risk, location, and more. 
 
-When administrators create a Conditional Access policy with **Require authentication strength** control, they can choose from three built-in authentication strength policies: MFA strength, Passwordless MFA strength, and Phishing-resistant MFA strength. They can also create a custom authentication strength policy based on the authentication method combinations they want to allow. 
+When administrators create a Conditional Access policy with **Require authentication strength** control, they can choose from three built-in authentication strength policies: **Multifactor strength**, **Passwordless MFA strength**, and **Phishing-resistant MFA strength**. They can also create a custom authentication strength policy based on the authentication method combinations they want to allow. 
 
 <!--place holder - screenshot of CA grant control with auth strength control drop down open-->
  
@@ -99,10 +99,10 @@ Deleting a custom authentication strength is not allowed if the authentication s
 -	Add a note that you can use either require mfa or require auth strengths
 -->
 
-## External users 
-<!-- Namrata to include admin section-->
 
 ## User experience
+
+<!---Should we add a flowchart or another conceptual diagram to illustrate this?--->
 
 To evaluate if the user should gain access to the resource, the following considerations are taken into account: 
 
@@ -110,21 +110,17 @@ To evaluate if the user should gain access to the resource, the following consid
 - Which methods are allowed for user sign-in in the authentication methods policy?
 - Is the user registered for the required methods?
 
-When accessing a resource protected by an authentication strength CA policy, we evaluate if the methods they have previously used satisfy the authentication requirements. For example, let's say a user signs in with Password + SMS. They access a resource protected by an MFA authentication strength policy. In this case, the user can access the resource without another authentication prompt.
+When a user accesses a resource protected by an authentication strength CA policy, we evaluate if the methods they have previously used satisfy the authentication requirements. For example, let's say a user signs in with password + SMS. They access a resource protected by an MFA authentication strength policy. In this case, the user can access the resource without another authentication prompt.
 
-Then they access a resource protected by a Phishing-resistant MFA authentication strength policy. At this point, the user will be prompted to provide a phishing-resistant authentication method, such as Windows Hello for Business. 
+Let's suppose they next access a resource protected by Phishing-resistant MFA authentication strength policy. At this point, the user will be prompted to provide a phishing-resistant authentication method, such as Windows Hello for Business. 
 
-If the user has never used a method required by the authentication strength policy, the user will be redirected to register a required method. Only users who satisfy MFA are redirected to registering another strong authentication method.
+If the user has never used a method required by the authentication strength policy, the user will be redirected to register a required method. Only users who satisfy MFA are redirected to register another strong authentication method.
 
 If the authentication strength policy doesn't include a method that the user can register and use, the user is blocked from sign-in to the resource. 
 
-### User experience for external users
-<!-- Namrata to add -->
-
-### Registering additional authentication strength 
-Not all authentication methods are available to register in the inline registration flow of the combined registration. For the best user experience, make sure users are registered for the different methods they may need to use.
-
-#### Register additional methods that are not supported by the inline registration flow
+### Registering authentication methods
+ 
+The following authentication methods aren't available to register after a user is redirected. For the best user experience, make sure users are registered for the different methods they may need to use.
 
 * Microsoft Authenticator (Phone Sign-in)
 * FIDO2
@@ -132,15 +128,21 @@ Not all authentication methods are available to register in the inline registrat
 * Windows Hello for Business 
 <!-- Place holder - need links to the above or short description  --->
 
+## External users 
+<!-- Namrata to include admin section-->
+
+### User experience for external users
+<!-- Namrata to add -->
+
 
 ## Known issues
 <!-- Inbar to review known issues with engineetring -->
 
 
 ## Limitations
-Conditional access policies are only evaluated after the initial authentication. This means that authentication strengths will not restrict the authentication method used for the user’s first factor. For example, if you are using the phishing-resistant built-in strength, this will not prevent a user from typing in their password, but they will be required to use a FIDO2 key before they can continue.
+CA policies are only evaluated after the initial authentication. This means that authentication strength will not restrict a user's initial authentication. For example, if you are using the built-in phishing-resistant strength, this will not prevent a user from typing in their password, but they will be required to use a phishing-resistant method such as FIDO2 security key before they can continue.
 
-Conditional Access grant controls ‘Require multifactor authentication’ and ‘Require authentication strength’ cannot be used together in the same policy. The built-in authentication strengths ‘Multifactor authentication’ is equivalent to the ‘Require multifactor authentication’ grant control.
+The CA grant controls **Require multifactor authentication** and **Require authentication strength** cannot be used together in the same policy. The built-in authentication strength **Multifactor authentication** is equivalent to the **Require multifactor authentication** grant control.
 
 Combinations that are currently not available: <!-- Namrata to update about B2B, Inbar to work with Vimala on CBA-->
 
