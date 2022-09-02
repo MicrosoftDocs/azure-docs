@@ -5,6 +5,9 @@
     - name: About Azure Energy Data Services
       displayName: Overview
       href: overview-azure-energy-data-services.md
+    - name: About Domain Data Management Services (DDMS)
+      displayName: DDMS overview
+      href: overview-ddms.md
 - name: Quickstarts
   expanded: true
   items:
