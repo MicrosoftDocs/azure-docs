@@ -63,21 +63,23 @@ The following table lists the combinations of authentication methods for each bu
 
 |Authentication method combination |MFA strength | Passwordless MFA strength| Phishing-resistant MFA strength|
 |----------------------------------|-------------|-------------------------------------|-------------------------------------------|
-<!-- |Windows Hello for Business| &#x2705; | &#x2705; | &#x2705; | --> 
-|FIDO2 security key| &#x2705; | &#x2705; | &#x2705; |
+|FIDO2 Security Key| &#x2705; | &#x2705; | &#x2705; |
 |Certificate Based Authentication (Multi-Factor) | &#x2705; | &#x2705; | &#x2705; |
-<!-- |Microsoft Authenticator (Phone Sign-in)| &#x2705; | &#x2705; | | -->
-<!-- |Temporary Access Pass (One-time use AND Multi-use)| &#x2705; | | | -->
 |Password + Something you have*| &#x2705; | | |
-<!--|Federated Multi-Factor| &#x2705; | | |-->
-|Federated Single-Factor+ Something you have*| &#x2705; | | |
+|Federated Single-Factor + Something you have*| &#x2705; | | |
 |Certificate Based Authentication (Single-Factor)| | | |
 |SMS sign-in | | | |
 |Password | | | |
-|Federated single-factor authentication| | | |
-<!--|Email One-time pass (Guest)| | | |-->
+|Federated Single-Factor| | | |
 
-*Something you have refers to one of the following methods: SMS, Voice, Push notification, Software or Hardware-based OATH token. 
+<!-- We will move these methods  back to the table as they become supported - expected very soon
+|Windows Hello for Business| &#x2705; | &#x2705; | &#x2705; |
+|Microsoft Authenticator (Phone Sign-in)| &#x2705; | &#x2705; | | 
+|Temporary Access Pass (One-time use AND Multi-use)| &#x2705; | | | 
+|Email One-time pass (Guest)| | | |
+|Federated Multi-Factor| &#x2705; | | |-->
+
+*Something you have refers to one of the following methods: SMS, Voice, Push notification, Software OATH token. 
 
 The following API call can be used to list definitions of all the built-in authentication strengths:
 
@@ -154,12 +156,14 @@ If a user is not registered for these methods, they will be redirected to the in
 
 **Authentication prompts after using Certificate-based authentication** - If a user have first authenticated using Certificate-based authentication and the authentication strengths requires another method, such as FIDO2 security key, user is not prompted to use FIDO2 and the authentication fails. User must restart their session to sign-in with a FIDO2 key.
 
-**Combinations that are currently not supported**: 
+**Authentication methods that are currently not supported by authentication strengths**: 
+The following authentication methods are included in the available combinations but currently have limited functionality:
 - Windows Hello for Business
 - Microsoft Authenticator (Phone Sign-in)
 - Temporary Access Pass (One-time use AND Multi-use)
 - Federated Multi-Factor
-- Email OTP
+- Email One-time pass (Guest)
+- Hardware-based OATH token
 - <!-- Namrata to update about B2B>
 
 
