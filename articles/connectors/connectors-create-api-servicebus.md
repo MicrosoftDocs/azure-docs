@@ -222,7 +222,7 @@ The Service Bus connector uses in-memory cache to support all operations associa
 
 The chance exists that requests might not get routed to the same role instance, due to reasons such as an infrastructure update, connector deployment, and so on. If this event happens, requests fail because the receiver that performs the operations in the session isn't available in the role instance that serves the request.
 
-Thus the above error is expected as long as it happens only occasionally.  When the error happens, the message is still preserved in service bus, and next trigger or run will try to process it again.
+As long as this error happens only occasionally, the error is expected. When the error happens, the message is still preserved in the service bus. The next trigger or workflow run tries to process the message again.
 
 <a name="connector-reference"></a>
 
