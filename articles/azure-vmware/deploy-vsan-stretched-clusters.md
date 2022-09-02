@@ -3,7 +3,7 @@ title: Deploy vSAN stretched clusters
 description: Learn how to deploy vSAN stretched clusters.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 07/22/2022
+ms.date: 09/02/2022
 ms.custom: references_regions
 ---
 
@@ -44,7 +44,7 @@ It's important to understand that stretched cluster private clouds only offer an
 
         :::image type="content" source="media/stretch-clusters/diagram-3-restart-workload-secondary-site.png" alt-text="Diagram shows vSphere high availability trying to restart the workload virtual machines on the secondary site when preferred site failure or complete partitioning occurs.":::
 
-It should be noted that these types of failures, although rare, fall outside the scope of the protection offered by a stretched cluster private cloud. Because of that, a stretched cluster solution should be regarded as a multi-AZ high availability solution reliant upon vSphere HA. Also, a stretched cluster solution isn't meant to replace a comprehensive multi-region Disaster Recovery strategy that can be employed to ensure application availability. This is because a Disaster Recovery solution typically has separate management and control planes in separate Azure regions. Azure VMware Solution stretched clusters have a single management and control plane stretched across two availability zones within the same Azure region (i.e. one vCenter Server, one NSX-T Manager cluster, one NSX-T Data Center Edge VM pair).
+It should be noted that these types of failures, although rare, fall outside the scope of the protection offered by a stretched cluster private cloud. Because of this, a stretched cluster solution should be regarded as a multi-AZ high availability solution reliant upon vSphere HA. It's important you understand that a stretched cluster solution isn't meant to replace a comprehensive multi-region Disaster Recovery strategy that can be employed to ensure application availability. The reason is because a Disaster Recovery solution typically has separate management and control planes in separate Azure regions. Azure VMware Solution stretched clusters have a single management and control plane stretched across two availability zones within the same Azure region. For example, one vCenter Server, one NSX-T Manager cluster, one NSX-T Data Center Edge VM pair.
 
 ## Deploy a stretched cluster private cloud
 
@@ -142,7 +142,7 @@ No. A stretched cluster is created between two availability zones, while the thi
 
 ### What kind of latencies should I expect between the availability zones (AZs)?
 
-vSAN stretched clusters operate within a 5 ms round trip time (RTT) and 10Gb/s or greater bandwidth between the AZs that host the workload VMs. The Azure VMware Solution stretched cluster deployment follows that guiding principle. Consider that information when deploying applications (with SFTT of dual site mirroring, which uses synchronous writes) that have stringent latency requirements.
+vSAN stretched clusters operate within a 5 minute round trip time (RTT) and 10 Gb/s or greater bandwidth between the AZs that host the workload VMs. The Azure VMware Solution stretched cluster deployment follows that guiding principle. Consider that information when deploying applications (with SFTT of dual site mirroring, which uses synchronous writes) that have stringent latency requirements.
 
 ### Can I mix stretched and standard clusters in my private cloud?
 
