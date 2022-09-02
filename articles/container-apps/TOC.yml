@@ -106,7 +106,7 @@
       href: microservices-dapr.md
     - name: Microservices with Dapr using ARM or Bicep
       href: microservices-dapr-azure-resource-manager.md
-    - name: GitHub Actions revisions on a Dapr container app
+    - name: Deploy a Dapr application using GitHub Actions
       href: dapr-github-actions.md
     - name: Background processing
       href: background-processing.md
