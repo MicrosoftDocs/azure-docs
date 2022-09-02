@@ -140,7 +140,7 @@ Scheduling overhead exists when running actions, while waiting time between acti
 
 * Consumption workflows run on multi-tenant Azure Logic Apps, so other customers' workloads might negatively affect your workflow's performance.
 
-*If you want more predictable performance, you may consider [Integration Service Evironment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview) or [Logic App Standard](../logic-apps/single-tenant-overview-compare). With ISE and Logic App Standard, you have the control to scale up or scale out to improve the performance. 
+* For more predictable performance, you might consider creating [Standard workflows](single-tenant-overview-compare.md), which run in single-tenant Azure Logic Apps. You'll have more control to scale up or out to improve performance.
 
 ### My action times out after 2 minutes. How can I increase the timeout value?
 
