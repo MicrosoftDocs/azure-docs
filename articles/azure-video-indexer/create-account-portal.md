@@ -10,7 +10,9 @@ ms.date: 06/10/2022
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
-This tutorial walks you through the steps of creating an Azure Video Indexer account and its accompanying resources by using the Azure portal. The created account is an Azure Resource Manager (ARM) based account (currently in preview). For information about different Azure Video Indexer account types, see the [Overview of account types](accounts-overview.md) topic.
+To start using unlimited features and robust capabilities of Azure Video Indexer, you need to create an Azure Video Indexer unlimited account. 
+
+This tutorial walks you through the steps of creating the Azure Video Indexer account and its accompanying resources by using the Azure portal. The account that gets created is ARM (Azure Resource Manager) account. For information about different account types, see [Overview of account types](accounts-overview.md).
 
 ## Prerequisites
 

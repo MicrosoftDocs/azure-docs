@@ -5,7 +5,7 @@ description: Get an overview of the audit activities that can be logged in your 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/24/2019
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: dhanyahk
 

@@ -12,7 +12,7 @@ This article shows how to upload and index videos by using the Azure Video Index
 
 When you're creating an Azure Video Indexer account, you choose between:
 
-- A free trial account. Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2,400 minutes of free indexing to API users.
+- A trial account. Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2,400 minutes of free indexing to API users.
 - A paid option where you're not limited by a quota. You create an Azure Video Indexer account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for indexed minutes.
 
 For more information about account types, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).

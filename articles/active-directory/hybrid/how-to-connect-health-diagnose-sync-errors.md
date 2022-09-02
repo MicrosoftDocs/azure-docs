@@ -4,7 +4,7 @@ description: This document describes the diagnosis process of duplicated attribu
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: maheshu
+manager: amycolannino
 editor: billmath
 ms.service: active-directory
 ms.subservice: hybrid

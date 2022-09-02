@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/11/2022
+ms.date: 08/24/2022
 ---
 
 # Python app to connect and query Hyperscale (Citus)
@@ -194,6 +194,43 @@ with conn.cursor() as cur:
 
 conn.commit()
 conn.close()
+```
+## App retry during database request failures
+
+[!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
+
+```python
+import psycopg2
+import time
+from psycopg2 import pool
+
+host = "<host>"
+dbname = "citus"
+user = "citus"
+password = "{your password}"
+sslmode = "require"
+
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(
+        host, user, dbname, password, sslmode)
+postgreSQL_pool = psycopg2.pool.SimpleConnectionPool(1, 20, conn_string)
+
+def executeRetry(query, retryCount):
+    for x in range(retryCount):
+        try:
+            if (postgreSQL_pool):
+                # Use getconn() to Get Connection from connection pool
+                conn = postgreSQL_pool.getconn()
+                cursor = conn.cursor()
+                cursor.execute(query)
+                return cursor.fetchall()
+            break
+        except Exception as err:
+            print(err)
+            postgreSQL_pool.putconn(conn)
+            time.sleep(60)
+    return None
+
+print(executeRetry("select 1", 5))
 ```
 
 ## Next steps

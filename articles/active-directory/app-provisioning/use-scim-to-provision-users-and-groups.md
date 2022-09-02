@@ -969,8 +969,8 @@ The SCIM endpoint must have an HTTP address and server authentication certificat
 
 The .NET Core SDK includes an HTTPS development certificate that can be used during development, the certificate is installed as part of the first-run experience. Depending on how you run the ASP.NET Core Web Application it will listen to a different port:
 
-* Microsoft.SCIM.WebHostSample: <https://localhost:5001>
-* IIS Express: <https://localhost:44359/>
+* Microsoft.SCIM.WebHostSample: `https://localhost:5001`
+* IIS Express: `https://localhost:44359`
 
 For more information on HTTPS in ASP.NET Core use the following link:
 [Enforce HTTPS in ASP.NET Core](/aspnet/core/security/enforcing-ssl)

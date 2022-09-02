@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 08/23/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli 
@@ -23,11 +23,11 @@ This article describes how to expand managed disks for a Linux virtual machine (
 
 ## Expand an Azure Managed Disk
 
-### Expand without downtime (preview)
+### Expand without downtime
 
 You can now expand your managed disks without deallocating your VM.
 
-The preview for this has the following limitations:
+This feature has the following limitations:
 
 [!INCLUDE [virtual-machines-disks-expand-without-downtime-restrictions](../../../includes/virtual-machines-disks-expand-without-downtime-restrictions.md)]
 
@@ -52,7 +52,7 @@ This article requires an existing VM in Azure with at least one data disk attach
 In the following samples, replace example parameter names such as *myResourceGroup* and *myVM* with your own values.
 
 > [!IMPORTANT]
-> If you've enabled **LiveResize** and your disk meets the requirements in [Expand without downtime (preview)](#expand-without-downtime-preview), you can skip step 1 and 3. 
+> If you've enabled **LiveResize** and your disk meets the requirements in [Expand without downtime](#expand-without-downtime), you can skip step 1 and 3. 
 
 1. Operations on virtual hard disks can't be performed with the VM running. Deallocate your VM with [az vm deallocate](/cli/azure/vm#az-vm-deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
 
