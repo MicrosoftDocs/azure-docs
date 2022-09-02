@@ -23,7 +23,7 @@ To complete this quickstart, you need an Azure account with an active subscripti
 
 > [!IMPORTANT]
 > - [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74).
-> - The MySQL Flexible Server is created behind a private [Virtual Network](/virtual-network/virtual-networks-overview) and can't be accessed directly. To access the database, use phpMyAdmin that's deployed with the WordPress site. It can be found at the URL : https://`<sitename>`.azurewebsites.net/phpmyadmin
+> - The MySQL Flexible Server is created behind a private [Virtual Network](/azure/virtual-network/virtual-networks-overview) and can't be accessed directly. To access the database, use phpMyAdmin that's deployed with the WordPress site. It can be found at the URL : https://`<sitename>`.azurewebsites.net/phpmyadmin
 >
 >  If you have feedback to improve this WordPress offering on App Service, submit your ideas at [Web Apps Community](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c).
 

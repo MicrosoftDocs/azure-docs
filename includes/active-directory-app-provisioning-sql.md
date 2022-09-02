@@ -5,10 +5,6 @@ For important details on what this service does, how it works, and frequently as
 
 > [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
->[!IMPORTANT]
->The default verbosity of the logs is set to `Verbose`. If you are using the SQL connector without Windows Integrated Auth, please set the verbosity to `Error` as described [here](../articles/active-directory/app-provisioning/on-premises-ecma-troubleshoot.md#turn-on-verbose-logging).
-
-
 ## Prerequisites for provisioning to a SQL Database
 
 ### On-premises prerequisites

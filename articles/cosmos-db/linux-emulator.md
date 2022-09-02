@@ -145,9 +145,9 @@ Use the following steps to run the emulator on Linux:
 |  Ports:  `-p`   |         |   Currently, only ports 8081 and 10251-10255 are needed by the emulator endpoint.     |
 | `AZURE_COSMOS_EMULATOR_PARTITION_COUNT`    |    10     |    Controls the total number of physical partitions, which in return controls the number of containers that can be created and can exist at a given point in time. We recommend starting small to improve the emulator start up time, i.e 3.     |
 |  Memory: `-m`   |         | On memory, 3 GB or more is required.     |
-| Cores:   `--cpus`  |         |   Make sure to allocate enough memory and CPU cores. At least two cores are recommended.      |
+| Cores:   `--cpus`  |         |   Make sure to allocate enough memory and CPU cores. At least four cores are recommended.      |
 |`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE`  | false  | This setting used by itself will help persist the data between container restarts.  |
-|`AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT`  |        | This setting enables the MongoDB API endpoint for the emulator and configures the MongoDB server version. (Valid server version values include ``3.2``, ``3.6``, and ``4.0``) |
+|`AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT`  |        | This setting enables the MongoDB API endpoint for the emulator and configures the MongoDB server version. (Valid server version values include ``3.2``, ``3.6``, ``4.0`` and ``4.2``) |
 
 ## Troubleshoot issues
 

@@ -109,6 +109,9 @@ sections:
         answer: |
           Azure Media Service’s SLA covers Azure Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) page. The SLA only applies to Azure Video Indexer paid accounts and does not apply to the trial.
 
+      - question: Can’t find my new ARM account in the account list on the Azure Video Indexer website.
+        answer: |
+          For detailed description on how to switch to the correct domain, see [Switch between tenants](switch-tenants-portal.md).
   - name: Privacy Questions
     questions:
       - question: Are video and audio files indexed by Azure Video Indexer stored?
