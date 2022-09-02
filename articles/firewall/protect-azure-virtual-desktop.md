@@ -40,6 +40,7 @@ Based on the Azure Virtual Desktop (AVD) [reference article](../virtual-desktop/
 
 | Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
 | --------- | -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.microsoftonline.com |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | IP Address       | 169.254.169.254, 168.63.129.16    |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | Service Tag      | WindowsVirtualDesktop, AzureFrontDoor.Frontend, AzureMonitor |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
@@ -58,7 +59,6 @@ Azure Virtual Desktop (AVD) official documentation reports the following Network
 | Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
 | ----------| -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | UDP      | 123               | FQDN             | time.windows.com |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.microsoftonline.com |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | login.windows.net |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | www.msftconnecttest.com |
 
