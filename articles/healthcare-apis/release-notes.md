@@ -2,12 +2,12 @@
 title: Azure Health Data Services monthly releases
 description: This article provides details about the Azure Health Data Services monthly features and enhancements.
 services: healthcare-apis
-author: judegnan
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/09/2022
-ms.author: judegnan
+ms.author: dseven
 ms.custom: references_regions
 ---
 
@@ -28,7 +28,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-| `$import` is generally available    |`$import` API is now generally available in Azure Health Data Services API version 2022-06-01. Executing the import by invoking `$import` operation on FHIR service in [Azure Health Data Services | Microsoft Docs](./..//healthcare-apis/fhir/import-data). |
+| `$import` is generally available    |`$import` API is now generally available in Azure Health Data Services API version 2022-06-01. Executing the import by invoking `$import` operation on FHIR service in [Azure Health Data Services | Microsoft Docs](./../healthcare-apis/fhir/import-data). |
 | `$convert-data` updated by adding STU3-R4 support. |`$convert-data` added support for FHIR STU3-R4 conversion. See [Data conversion for Azure API for FHIR](./../healthcare-apis/azure-api-for-fhir/convert-data).   |  
 | Analytics pipeline now supports data filtering. | Data filtering is now supported in FHIR to data lake pipeline. See [FHIR-Analytics-Pipelines_Filter FHIR data](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Filter%20FHIR%20data%20in%20pipeline.md) microsoft/FHIR-Analytics-Pipelines github.com. |
 | Analytics pipeline now supports FHIR extensions. | Analytics pipeline can process FHIR extensions to generate parquet data. See [FHIR-Analytics-Pipelines_Process](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Process%20FHIR%20extensions.md) in pipeline.md at main.
