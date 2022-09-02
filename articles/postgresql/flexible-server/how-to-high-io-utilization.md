@@ -91,7 +91,7 @@ Take a second snapshot as shown below.
 insert into checkpoint_snapshot (select current_timestamp as snapshottime,* from pg_stat_bgwriter);
 ```
 
-Execute the below query which uses the two entries.
+Execute the below checkpoint query which uses the two entries.
 
 ```sql
 SELECT
@@ -143,6 +143,7 @@ The query output has following columns
 **avg_checkpoint_write** : On an average for every checkpoint how much is written out.   
 **written_per_sec** : Average amount of writes to the disk.   
 **alloc_per_sec** : Amount of buffers allocated for reads.   
+
 
 ### Disruptive Autovacuum Daemon Process
 
@@ -228,6 +229,9 @@ Determines the total time between checkpoints, a good practice would be to set i
 Maximum time between automatic WAL checkpoints. The value can be increased from default value set on server, but one should set an appropriate value taking into consideration that increasing the value would also increase the time for crash recovery.
 
 If `max_wal_size` and `shared_buffers` are set optimally on the server but still buffers_checkpoint and the written_per_sec values are high when you execute previously mentioned checkpoint query consider increasing the `checkpoint_timeout` parameter.
+
+> [!NOTE]
+> The process of identifying if checkpoints are happening to soon by using the checkpoint query as previously explained above is referenced from PostgresSQL 10 High Performance Book,for reference review [Book](https://microsoft.sharepoint.com/sites/library/SitePages/Bib/Details.aspx?bibid=463894).
 
 ### Autovacuum Tuning To make it less disruptive
 
