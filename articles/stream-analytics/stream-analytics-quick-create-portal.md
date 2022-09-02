@@ -118,7 +118,7 @@ In this section, you'll configure an IoT Hub device input to the Stream Analytic
  
 ## Define the transformation query
 
-2. Now, select **Query** under **Job topology** on the left menu.
+1. Now, select **Query** under **Job topology** on the left menu.
 1. Enter the following query into the query window. In this example, the query reads the data from IoT Hub and copies it to a new file in the blob. 
 
    ```sql
@@ -127,7 +127,7 @@ In this section, you'll configure an IoT Hub device input to the Stream Analytic
    FROM IoTHubInput
    WHERE Temperature > 27
    ```
-3. Select **Save query** on the toolbar. 
+1. Select **Save query** on the toolbar. 
 
    :::image type="content" source="./media/stream-analytics-quick-create-portal/add-asa-query.png" lightbox="./media/stream-analytics-quick-create-portal/add-asa-query.png" alt-text="Screenshot showing the **Query** page with the sample query."::: 
 
