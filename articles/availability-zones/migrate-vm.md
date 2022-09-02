@@ -63,7 +63,7 @@ To learn how to create VMSS in an availability zone, see [Create a virtual machi
 
 ### Migrate your managed disks
 
-This section show you how to migrate the data on your current managed disks when creating a new VM.
+In this section, you'll migrate the data from your current managed disks to either zone-redundant storage (ZRS) managed disks or zonal managed disks.
 
 #### Step 1: Create your snapshot
 
