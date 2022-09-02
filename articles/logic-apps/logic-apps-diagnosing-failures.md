@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 09/02/2022
 ---
 
 # Troubleshoot and diagnose workflow failures in Azure Logic Apps
@@ -127,6 +127,24 @@ To help with debugging, you can add diagnostic steps to a logic app workflow, al
 1. Paste your URL from Webhook Tester into the HTTP POST action.
 
 1. To review how Azure Logic Apps generates and forms a request, run the logic app workflow. You can then revisit the Webhook Tester site for more information.
+
+### Frequently asked questions on performance
+
+1. **Why workflow run duration is LARGER than the sum of all of its action durations?**
+
+There are scheduling overheads in running these actions. There could be waiting time between actions due to backend system load. Workflow run duration includes these scheduling times and waiting times, in addtion to the sum of all of its action durations.
+
+1. **Most times my workflow completes within 10 seconds. But occasionally it takes as long as 50 seconds. How can I make sure it always finishes within 10 seconds?**
+
+*There is no SLA guarantee on latency. 
+
+*Logic App Consumption is a multitenant platform, and other customers' workload may negatively affect your logic app performance. 
+
+*If you want more predictable performance, you may consider [Integration Service Evironment (ISE)](https://docs.microsoft.com/en-us/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview) or [Logic App Standard](https://docs.microsoft.com/azure/logic-apps/single-tenant-overview-compare). With ISE and Logic App Standard, you have the control to scale up or scale out to improve the performance. 
+
+1. **My action is timing out after 2 minutes. How can I increase the timeout value?**
+
+The action timeout value cannot be changed and it is fixed as 2 minutes. If the action is a HTTP action and you own the service, you have the option to change the service to use aynchronous pattern to avoid the two-minute timeout: [Perform long-running tasks with the polling action pattern](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
 
 ## Common problems - Standard logic apps
 
