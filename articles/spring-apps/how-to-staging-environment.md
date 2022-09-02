@@ -1,5 +1,5 @@
 ---
-title: Set up a staging environment in Azure Spring Apps | Microsoft Docs
+title: Set up a staging environment in Azure Spring Apps
 description: Learn how to use blue-green deployment with Azure Spring Apps
 author: karlerickson
 ms.service: spring-apps
@@ -22,8 +22,8 @@ This article explains how to set up a staging deployment by using the blue-green
 
 ## Prerequisites
 
-* Azure Spring Apps instance on a Standard pricing tier
-* [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
+- Azure Spring Apps instance on a Standard pricing tier
+- [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
 This article uses an application built from Spring Initializr. If you want to use a different application for this example, you'll need to make a simple change in a public-facing portion of the application to differentiate your staging deployment from production.
 
@@ -46,8 +46,8 @@ To build the application, follow these steps:
 
 1. Generate the code for the sample app by using Spring Initializr with [this configuration](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client).
 
-2. Download the code.
-3. Add the following *HelloController.java* source file to the folder *\src\main\java\com\example\hellospring\*:
+1. Download the code.
+1. Add the following *HelloController.java* source file to the folder *\src\main\java\com\example\hellospring\*:
 
    ```java
    package com.example.hellospring;
@@ -67,25 +67,25 @@ To build the application, follow these steps:
    }
    ```
 
-4. Build the *.jar* file:
+1. Build the *.jar* file:
 
    ```azurecli
    mvn clean package -DskipTests
    ```
 
-5. Create the app in your Azure Spring Apps instance:
+1. Create the app in your Azure Spring Apps instance:
 
    ```azurecli
    az spring app create -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --assign-endpoint
    ```
 
-6. Deploy the app to Azure Spring Apps:
+1. Deploy the app to Azure Spring Apps:
 
    ```azurecli
    az spring app deploy -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
 
-7. Modify the code for your staging deployment:
+1. Modify the code for your staging deployment:
 
    ```java
    package com.example.hellospring;
@@ -105,13 +105,13 @@ To build the application, follow these steps:
    }
    ```
 
-8. Rebuild the *.jar* file:
+1. Rebuild the *.jar* file:
 
    ```azurecli
    mvn clean package -DskipTests
    ```
 
-9. Create the green deployment:
+1. Create the green deployment:
 
    ```azurecli
    az spring app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
