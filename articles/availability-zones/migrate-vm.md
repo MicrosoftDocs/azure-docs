@@ -87,7 +87,6 @@ To migrate a non-zonal managed disk to zonal:
         az disk create --resource-group $resourceGroupName --name $diskName --location $location --zone $zone --sku $storageType --size-gb $diskSize --source $snapshotId
     ```
 
-1. Attach the zonal managed disk to the zonal VM. For guidance on how to attach a managed disk, see [Attach a data disk to a Windows VM with Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md) or [Attach a data disk to a Windows VM with PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
     >[!NOTE]
     > The source managed disk remains intact with its current configuration. If you no longer want to keep it, you must manually delete the disk. For more information, see [Find and delete unattached Azure managed and unmanaged disks](../virtual-machines/windows/find-unattached-disks.md).
