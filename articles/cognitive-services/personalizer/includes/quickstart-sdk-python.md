@@ -81,7 +81,7 @@ These code snippets demonstrate how to use the Personalizer client library for P
 * [Define actions and their features](#define-actions-and-their-features)
 * [Define context features](#define-users-and-their-context-features)
 * [Define a reward score](#define-a-reward-score-based-on-user-behavior)
-* [Call the Rank and Reward APIs](#run-a-Rank-and-reward-cycle)
+* [Call the Rank and Reward APIs](#run-a-rank-and-reward-cycle)
 
 
 ## Authenticate the client
@@ -193,7 +193,7 @@ A Personalizer event cycle consists of [Rank](#request-the-best-action) and [Rew
 
 ### Request the best action
 
-In a Rank call, you need to provide at least two arguments: a list of `RankActions` (_actions and their features_), and a list of (_context_) features. The response will include the `reward_action_id`, which is the ID of the action Personalizer has determined is best for the given context. The response also includes the `event_id`, which is needed in the Reward API so Personalize knows how to link the data from the Reward and Rank calls. You can refer to the [Rank API docs](https://docs.microsoft.com/rest/api/personalizer/1.0/rank/rank) for more details.
+In a Rank call, you need to provide at least two arguments: a list of `RankActions` (_actions and their features_), and a list of (_context_) features. The response will include the `reward_action_id`, which is the ID of the action Personalizer has determined is best for the given context. The response also includes the `event_id`, which is needed in the Reward API so Personalize knows how to link the data from the Reward and Rank calls. You can refer to the [Rank API docs](/rest/api/personalizer/1.0/rank/rank) for more details.
 
 
 ### Send a reward
