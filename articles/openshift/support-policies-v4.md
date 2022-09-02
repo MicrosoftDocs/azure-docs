@@ -1,8 +1,8 @@
 ---
 title: Azure Red Hat OpenShift 4 cluster support policy
 description: Understand support policy requirements for Red Hat OpenShift 4
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/05/2021
