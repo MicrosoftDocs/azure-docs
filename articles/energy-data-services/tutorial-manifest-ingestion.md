@@ -77,11 +77,11 @@ Before beginning this tutorial, the following prerequisites must be completed:
   8. **Get manifest ingestion workflow status** - The workflow will start and will be in the **running** state.  Keep querying until it changes state to **finished** (typically 20-30 seconds)
    
 ## Search for storage metadata records created during the manifest ingestion
-    - **Search Work Products** - Call Search service to retrieve the Work Product metadata records
-    - **Search Work Product Components** - Call Search service to retrieve the Work Product Component metadata records
-    - **Search for Dataset** - Call Search service to retrieve the Dataset metadata records
-    - **Search for Master data** - Call Search service to retrieve the Master metadata records
-    - **Search for Reference data** - Call Search service to retrieve the Reference metadata records
+ - **Search Work Products** - Call Search service to retrieve the Work Product metadata records
+ - **Search Work Product Components** - Call Search service to retrieve the Work Product Component metadata records
+ - **Search for Dataset** - Call Search service to retrieve the Dataset metadata records
+ - **Search for Master data** - Call Search service to retrieve the Master metadata records
+ - **Search for Reference data** - Call Search service to retrieve the Reference metadata records
 
 ## Next steps
 Advance to the next tutorial to learn about sdutil
