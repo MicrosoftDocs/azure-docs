@@ -108,7 +108,7 @@ To migrate a non-zonal managed disk to zonal:
 
 #### Step 3: Create a new VM with your new disks
 
-To create a new VM to deploy and boot with the new managed disks, run the following command:
+Now that you have migrated your data to ZRS managed disks or zonal managed disks, create a new VM with these new disks set as the OS and data disks:
 
 ```azurecli
 
