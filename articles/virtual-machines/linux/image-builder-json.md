@@ -4,7 +4,7 @@ description: Learn how to create a Bicep file or ARM template to use with Azure 
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
-ms.date: 09/01/2022
+ms.date: 09/02/2022
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-Azure Image Builder uses a Bicep file or an ARM template file to pass information into the Image Builder service. In this article we'll go over the sections of the files, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
+Azure Image Builder uses a Bicep file or an ARM template file to pass information into the Image Builder service. In this article we'll go over the sections of the files, so you can build your own. For latest API versions, see [template reference](/azure/templates/microsoft.virtualmachineimages/imagetemplates?tabs=bicep&pivots=deployment-language-bicep). To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 The basic format is:
 
