@@ -7,7 +7,7 @@ ms.author: alexwolf
 ms.service: container-apps
 ms.topic: tutorial
 ms.date: 09/01/2022
-ms.custom: mode-ui
+ms.custom: vscode-azure-extension-update-completed
 ---
 
 # Tutorial: Deploy to Azure Container Apps using Visual Studio Code
