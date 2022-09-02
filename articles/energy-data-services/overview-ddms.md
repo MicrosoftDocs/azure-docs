@@ -1,5 +1,5 @@
 ---
-title: Overview of Domain data management services - Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
+title: Overview of domain data management services - Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
 description: This article provides an overview of Domain data management services #Required; article description that is displayed in search results. 
 author: marielgherz #Required; your GitHub user alias, with correct capitalization.
 ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
@@ -75,6 +75,6 @@ Geoscientists therefore want to access numerous well logs in a single session. T
 The Well Delivery DMS stores critical drilling domain information related to the planning and execution of a well. Throughout a drilling program, engineers and domain experts need to access a wide variety of data types including activities, trajectories, risks, subsurface information, equipment used, fluid and cementing, rig utilization, and reports. Integrating this collection of data types together are the cornerstone to drilling insights. At the same time, until now, there was no industry wide standardization or enforced format. The common standards the Well Delivery DMS enables is critical to the Drilling Value Chain as it connects a diverse group of personas including operations, oil companies, service companies, logistics companies, etc.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
+Learn more about DDMS concepts below.
 > [!div class="nextstepaction"]
 > [DDMS Concepts](concepts-ddms.md)
