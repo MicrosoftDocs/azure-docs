@@ -5,6 +5,7 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 04/27/2022
 ms.author: yelevin
+ms.service: microsoft-sentinel
 ---
 
 # Service limits for Microsoft Sentinel
