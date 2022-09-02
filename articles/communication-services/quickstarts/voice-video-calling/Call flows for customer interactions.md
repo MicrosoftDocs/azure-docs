@@ -21,11 +21,11 @@ zone_pivot_groups: acs-csharp-java
 Get started with Azure Communication Services by using the Call Automation SDKs to build an automated workflows to handle common customer support scenarios. 
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Call flows for customer interactions with .NET](./includes/call-automation-api-samples/calling-server-sdk-csharp.md)]
+[!INCLUDE [Call flows for customer interactions with .NET](./includes/call-automation/Callflow-for-customer-interactions-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Call flows for customer interactions with Java](./includes/call-automation-api-samples/calling-server-sdk-java.md)]
+[!INCLUDE [Call flows for customer interactions with Java](./includes/call-automation/Callflow-for-customer-interactions-java.md)]
 ::: zone-end
 
 ## Clean up resources
