@@ -1,6 +1,6 @@
 ---
-title: Overview of domain data management services in Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
-description: This article provides an overview of Domain Data Management Services #Required; article description that is displayed in search results. 
+title: Overview of Domain data management services - Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
+description: This article provides an overview of Domain data management services #Required; article description that is displayed in search results. 
 author: marielgherz #Required; your GitHub user alias, with correct capitalization.
 ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
 ms.topic: overview #Required; leave this attribute/value as-is.
@@ -9,9 +9,9 @@ ms.service: azure
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 
-# What is Domain Data Management Services (DDMS)?
+# Overview of Domain data management services (DDMS)
 
-Domain Data Management Services (DDMS) store, access, and retrieve metadata and bulk data from applications connected to the data platform. The energy industry works with data of an extraordinary magnitude, which has significant ramifications for storage and compute requirements. Geoscientists stream terabytes of seismic, well Log, and other data types at full resolution. Immediate responsiveness of data is essential for all stages of petroleum exploration--particularly for geologic interpretation and analysis. Developers therefore use DDMS to deliver seamless and secure consumption of data in the applications they build on Microsoft Energy Data Services. The Microsoft Energy Data Services suite of DDMS adheres to [Open Subsurface Data Universe](https://osduforum.org/) (OSDU) standards and provides enhancements in performance, geo-availability, and access controls. DDMS is optimized for each data type and can be extended to accommodate new data types. All DDMS preserves raw data and offer multi format support and conversion for consuming applications such as Petrel while tracking lineage. Data within the DDMS is discoverable and governed by entitlement and legal tags.
+Domain data management services (DDMS) store, access, and retrieve metadata and bulk data from applications connected to the data platform. The energy industry works with data of an extraordinary magnitude, which has significant ramifications for storage and compute requirements. Geoscientists stream terabytes of seismic, well Log, and other data types at full resolution. Immediate responsiveness of data is essential for all stages of petroleum exploration--particularly for geologic interpretation and analysis. Developers therefore use DDMS to deliver seamless and secure consumption of data in the applications they build on Microsoft Energy Data Services. The Microsoft Energy Data Services suite of DDMS adheres to [Open Subsurface Data Universe](https://osduforum.org/) (OSDU) standards and provides enhancements in performance, geo-availability, and access controls. DDMS is optimized for each data type and can be extended to accommodate new data types. All DDMS preserves raw data and offer multi format support and conversion for consuming applications such as Petrel while tracking lineage. Data within the DDMS is discoverable and governed by entitlement and legal tags.
 
 **OSDU Definition**
   
@@ -51,12 +51,6 @@ Due to this extraordinary data size, geoscientists working on-premises struggle 
 
 The seismic DMS is part of the OSDU platform and enables users to connect seismic data to cloud storage to applications. It allows secure access to metadata associated with seismic data to efficiently retrieve and handle large blocks of data for OpenVDS, ZGY, and other seismic data formats. The DMS therefore enables users to stream huge amounts of data in OSDU compliant applications in real time. Enabling the seismic DMS on Microsoft Energy Data Services opens a pathway for Azure customers to bring their seismic data to the cloud and take advantage of Azure storage and HPC.
 
-### Services
-
-:::image type="content" source="media/overview-ddms/overview-seismic-store-architecture-diagram.jpg" alt-text="Diagram of Seismic store architecture.":::
-
-[OSDU Reference overview](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/home/-/wikis/Architecture-Details)
-
 ## OSDU - Wellbore DMS
 
 ### Definition and overview
@@ -74,17 +68,11 @@ Geoscientists therefore want to access numerous well logs in a single session. T
 - **Ingestion**  - connection to file, interpretation software, system of records, and acquisition systems
 - **Contextualization** (Contextualized Access)
 
-:::image type="content" source="media/overview-ddms/overview-wellbore-dms-service.png" alt-text="Diagram of Wellbore DMS architecture.":::
-
 ## OSDU - Well Delivery DMS
 
 ### Definition and overview
 
 The Well Delivery DMS stores critical drilling domain information related to the planning and execution of a well. Throughout a drilling program, engineers and domain experts need to access a wide variety of data types including activities, trajectories, risks, subsurface information, equipment used, fluid and cementing, rig utilization, and reports. Integrating this collection of data types together are the cornerstone to drilling insights. At the same time, until now, there was no industry wide standardization or enforced format. The common standards the Well Delivery DMS enables is critical to the Drilling Value Chain as it connects a diverse group of personas including operations, oil companies, service companies, logistics companies, etc.
-
-### Services
-:::image type="content" source="media/overview-ddms/well-delivery-dms-service.png" alt-text="Diagram of Well Delivery DMS architecture.":::
-[OSDU Reference overview](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/well-delivery/well-delivery)
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
