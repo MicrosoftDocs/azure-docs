@@ -17,14 +17,14 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD authentication strength 
 
-Authentication strength is a Conditional Access (CA) control that allows administrators to require specific combinations of authentication methods to access a resource. For example, you can require phishing-resistant authentication methods to access a sensitive resource, while allowing less secure multifactor authentication (MFA) combinations, such as password + SMS, to access nonsensitive applications. 
+Authentication strength is a Conditional Access control that allows administrators to require specific combinations of authentication methods to access a resource. For example, you can require phishing-resistant authentication methods to access a sensitive resource, while allowing less secure multifactor authentication (MFA) combinations, such as password + SMS, to access nonsensitive applications. 
 
 Authentication strength is based on the Authentication Methods policy, where administrators can choose authentication methods for specific users and groups for different applications in Azure Active Directory (Azure AD). It allows administrators to further scope the usage of these methods based upon specific scenarios such as sensitive resource access, user risk, location, and more. 
 
-When administrators create a Conditional Access policy with **Require authentication strength** control, they can choose from three built-in authentication strength policies: **Multifactor strength**, **Passwordless MFA strength**, and **Phishing-resistant MFA strength**. They can also create a custom authentication strength policy based on the authentication method combinations they want to allow. 
+When administrators create a Conditional Access policy with the **Require authentication strength** control, they can choose from three built-in authentication strength policies: **Multifactor strength**, **Passwordless MFA strength**, and **Phishing-resistant MFA strength**. They can also create a custom authentication strength policy based on the authentication method combinations they want to allow. 
 
-<!--place holder - screenshot of CA grant control with auth strength control drop down open-->
- 
+:::image type="content" source="media/concept-authentication-strengths/conditional-access-policy-authentication-strength-grant-control.png" alt-text="Screenshot of a Conditional Access policy with an authentication strength policy configured in grant controls.":::
+
 ## Scenarios for authentication strength
 
 Authentication strength can help customers address scenarios such as: 
@@ -36,7 +36,7 @@ Authentication strength can help customers address scenarios such as:
 
 ## Authentication strength policy 
 
-An authentication strength policy contains a combination of authentication methods. Users can satisfy the policy requirements by authenticating with any of the allowed combinations. For example, the built-in Phishing-resistant MFA strength policy allows the following combinations:
+An authentication strength policy may contain a combination of authentication methods. Users can satisfy the policy requirements by authenticating with any of the allowed combinations. For example, the built-in **Phishing-resistant MFA** policy allows the following combinations:
 
 - Windows Hello for Business
 
@@ -48,18 +48,17 @@ An authentication strength policy contains a combination of authentication metho
 
 - Azure AD Certificate-Based Authentication (multifactor)
 
-<!--placeholder - screenshot of phishing-resistant auth strengths -->
+:::image type="content" source="media/concept-authentication-strengths/authentication-strength-definitions.png" alt-text="Screenshot showing the phish resistant authentication strength policy definition.":::
 
 ### Built-in authentication strengths
+
 Built-in authentication strengths are combinations of authentication methods that are predefined by Microsoft. Built-in authentication strengths are always available and can't be modified.
 
 The following table lists the combinations of authentication methods for each built-in authentication strength policy. Depending on which methods are available in the authentication methods policy and registered for users, they can use any one of the combinations to sign-in.
 
-•	**MFA strength policy** - the same set of combinations that could be used to satisfy the **Require multifactor authentication setting**.
-
-•	**Passwordless MFA strength policy** - includes authentication methods that satisfy MFA but don't require a password.
-
-•	**Phishing-resistant MFA strength policy** - includes methods that require an interaction between the authentication method and the sign-in surface.
+-	**MFA strength policy** - the same set of combinations that could be used to satisfy the **Require multifactor authentication setting**.
+-	**Passwordless MFA strength policy** - includes authentication methods that satisfy MFA but don't require a password.
+-	**Phishing-resistant MFA strength policy** - includes methods that require an interaction between the authentication method and the sign-in surface.
 
 |Authentication method combination |MFA strength | Passwordless MFA strength| Phishing-resistant MFA strength|
 |----------------------------------|-------------|-------------------------------------|-------------------------------------------|
@@ -81,22 +80,31 @@ The following table lists the combinations of authentication methods for each bu
 
 The following API call can be used to list definitions of all the built-in authentication strengths:
 
-<!--Does this need a GET command in front or similar?--->
-
 ```http
-https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationStrengths/policies?$filter=policyType eq 'builtIn'`
+GET https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationStrengths/policies?$filter=policyType eq 'builtIn'`
 ```
 
 As we add support for additional authentication methods and combinations, the built-in authentication strengths policies will get updated. 
 
 ### Custom authentication strengths
+
 In addition to the three built-in authentication strengths, administrators can create their own custom authentication strength policies to exactly suit their requirements. A custom authentication strength policy can contain any of the supported combinations in the preceding table. 
-Deleting a custom authentication strength is not allowed if the authentication strength policy is referenced by any CA policy.
+Deleting a custom authentication strength is not allowed if the authentication strength policy is referenced by any Conditional Access policy.
+
+1. In the Azure portal, browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths (Preview)**.
+1. Select **New authentication strength**.
+1. Provide a descriptive **Name** for your new authentication strength.
+1. Optionally provide a **Description**.
+1. Select any of the available methods you want to be available.
+1. Choose **Next** and review the policy configuration.
+
+:::image type="content" source="media/concept-authentication-strengths/authentication-strength-custom.png" alt-text="Screenshot showing the creation of a custom authentication strength policy.":::
 
 <!--
 ### Place holder: How to create custom authentication strengths policy including FIDO2 AA GUID
 ### Place holder:How to create conditional access policy that uses authentication strength
 -	Add a note that you can use either require mfa or require auth strengths
+- (JF) Possibly add a reference doc that lists all the definitions of the things you can configure?
 -->
 
 
@@ -110,7 +118,7 @@ To evaluate if the user should gain access to the resource, the following consid
 - Which methods are allowed for user sign-in in the authentication methods policy?
 - Is the user registered for the required methods?
 
-When a user accesses a resource protected by an authentication strength CA policy, we evaluate if the methods they have previously used satisfy the authentication requirements. For example, let's say a user signs in with password + SMS. They access a resource protected by an MFA authentication strength policy. In this case, the user can access the resource without another authentication prompt.
+When a user accesses a resource protected by an authentication strength Conditional Access policy, we evaluate if the methods they have previously used satisfy the authentication requirements. For example, let's say a user signs in with password + SMS. They access a resource protected by an MFA authentication strength policy. In this case, the user can access the resource without another authentication prompt.
 
 Let's suppose they next access a resource protected by Phishing-resistant MFA authentication strength policy. At this point, the user will be prompted to provide a phishing-resistant authentication method, such as Windows Hello for Business. 
 
@@ -140,9 +148,10 @@ The following authentication methods aren't available to register after a user i
 
 
 ## Limitations
-CA policies are only evaluated after the initial authentication. This means that authentication strength will not restrict a user's initial authentication. For example, if you are using the built-in phishing-resistant strength, this will not prevent a user from typing in their password, but they will be required to use a phishing-resistant method such as FIDO2 security key before they can continue.
 
-The CA grant controls **Require multifactor authentication** and **Require authentication strength** cannot be used together in the same policy. The built-in authentication strength **Multifactor authentication** is equivalent to the **Require multifactor authentication** grant control.
+Conditional Access policies are only evaluated after the initial authentication. This means that authentication strength will not restrict a user's initial authentication. For example, if you are using the built-in phishing-resistant strength, this will not prevent a user from typing in their password, but they will be required to use a phishing-resistant method such as FIDO2 security key before they can continue.
+
+The Conditional Access grant controls **Require multifactor authentication** and **Require authentication strength** cannot be used together in the same policy. The built-in authentication strength **Multifactor authentication** is equivalent to the **Require multifactor authentication** grant control.
 
 Combinations that are currently not available: <!-- Namrata to update about B2B, Inbar to work with Vimala on CBA-->
 
