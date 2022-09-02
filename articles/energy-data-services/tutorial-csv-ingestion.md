@@ -56,17 +56,17 @@ In this tutorial, you'll learn how to:
 
 * The Postman collection for CSV parser ingestion contains a total of 10 requests, which have to be executed in a sequential manner.
 * Make sure to choose the **Ingestion Workflow Environment** before triggering the Postman collection.
-  ![Choose environment](media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png)
+  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the postman environment.":::
 * Each request can be triggered by clicking the **Send** Button.
 * On every request Postman will validate the actual API response code against the expected response code; if there's any mismatch the Test Section will indicate failures.
 
 #### Successful Postman Call
 
-![Success](media/tutorial-csv-ingestion/tutorial-postman-test-success.png)
+:::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-test-success.png" alt-text="Screenshot of a successful postman call.":::
 
 #### Failed Postman Call
 
-![Failure](media/tutorial-csv-ingestion/tutorial-postman-test-failure.png)
+:::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure postman call.":::
 
 ## Ingest a sample Wellbore data CSV file into the Microsoft Energy Data Services instance
 
@@ -75,8 +75,8 @@ In this tutorial, you'll learn how to:
 1. **03 - Get Schema details** - Get the schema created in the previous step and validate it
 1. **04 - Create a Legal Tag** - Create a legal tag that will be added to the CSV data for data compliance purpose
 1. **05 - Get a signed URL for uploading a CSV file** - Get the signed URL path to which the CSV file will be uploaded
-1. **06 - Upload a CSV file** - Download the [Wellbore.csv](/test-data/wellbore.csv) to your local machine, and select this file in Postman by clicking the **Select File** option as shown in the Screenshot below.
-  ![Screenshot of uploading a CSV file](media/tutorial-csv-ingestion/tutorial-select-csv-file.png)
+1. **06 - Upload a CSV file** - Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) to your local machine, and select this file in Postman by clicking the **Select File** option as shown in the Screenshot below.
+  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-select-csv-file.png" alt-text="Screenshot of uploading a CSV file.":::
 1. **07 - Upload CSV file metadata** - Upload the file metadata information such as file location & other relevant fields
 1. **08 - Trigger a CSV Parser Ingestion workflow** - Triggers the CSV Parser ingestion workflow DAG.
 1. **09 - Get CSV Parser Ingestion Workflow Status** - Gets the status of CSV Parser Dag Run.
@@ -84,7 +84,7 @@ In this tutorial, you'll learn how to:
 ## Search for Storage metadata records created during the CSV Ingestion
 
 1. **10 - Search for ingested CSV records** - Search for the CSV records created in earlier step.
-  ![Screenshot of searching ingested CSV records](media/tutorial-csv-ingestion/tutorial-search-success.png)
+  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-search-success.png" alt-text="Screenshot of searching ingested CSV records.":::
 
 ## Next steps
 Advance to the next tutorial to learn how to do Manifest ingestion
