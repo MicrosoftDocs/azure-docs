@@ -73,7 +73,7 @@ Response<RecordingStateResult> response = await callAutomationClient.getCallReco
 ```
 The `StartRecordingAsync` API response contains the recording ID of the recording session.
 
-## 4.	Stop recording session using 'StopRecordingAsync' server API
+## 3.	Stop recording session using 'StopRecordingAsync' server API
 
 Use the recording ID received in response of `startRecordingWithResponse`.
 
@@ -81,7 +81,7 @@ Use the recording ID received in response of `startRecordingWithResponse`.
 var stopRecording = await callAutomationClient.GetCallRecording().StopRecordingAsync(recording.Value.RecordingId);
 ```
 
-## 5.	Pause recording session using 'PauseRecordingAsync' server API
+## 4.	Pause recording session using 'PauseRecordingAsync' server API
 
 Use the recording ID received in response of `startRecordingWithResponse`.
 
@@ -89,7 +89,7 @@ Use the recording ID received in response of `startRecordingWithResponse`.
 var pauseRecording = await callAutomationClient.GetCallRecording ().PauseRecordingAsync(recording.Value.RecordingId);
 ```
 
-## 6.	Resume recording session using 'ResumeRecordingAsync' server API
+## 5.	Resume recording session using 'ResumeRecordingAsync' server API
 
 Use the recording ID received in response of `startRecordingWithResponse`.
 
@@ -97,7 +97,7 @@ Use the recording ID received in response of `startRecordingWithResponse`.
 var resumeRecording = await callAutomationClient.GetCallRecording().ResumeRecordingAsync(recording.Value.RecordingId);
 ```
 
-## 7.	Download recording File using 'DownloadToAsync' server API
+## 6.	Download recording File using 'DownloadToAsync' server API
 
 Use an [Azure Event Grid](../../../../../event-grid/overview.md) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
 
@@ -140,7 +140,7 @@ var response = await callAutomationClient.GetCallRecording().DownloadStreamingAs
 ```
 The `downloadLocation` for the recording can be fetched from the `contentLocation` attribute of the `recordingChunk`. `DownloadStreamingAsync` method returns response of type `Response<Stream>`, which contains the downloaded content.
 
-## 8. Delete recording content using 'DeleteRecordingAsync' server API
+## 7. Delete recording content using 'DeleteRecordingAsync' server API
 
 Use `DeleteRecordingAsync` API for deleting the recording content (e.g. recorded media, metadata)
 
