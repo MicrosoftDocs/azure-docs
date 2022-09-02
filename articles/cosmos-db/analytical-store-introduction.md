@@ -211,6 +211,8 @@ df = spark.read\
   * Spark pools in Azure Synapse will represent these columns as `string`.
   * SQL serverless pools in Azure Synapse will represent these columns as `varchar(8000)`.
 
+* Properties with `UNIQUEIDENTIFIER (guid)` types are represented as `string` in analytical store and should be converted to `VARCHAR` in **SQL** or to `string` in **Spark** for correct visualization.
+
 * SQL serverless pools in Azure Synapse support result sets with up to 1000 columns, and exposing nested columns also counts towards that limit. Please consider this information when designing your data architecture and modeling your transactional data.
 
 * If you rename a property, in one or many documents, it will be considered a new column. If you execute the same rename in all documents in the collection, all data will be migrated to the new column and the old column will be represented with `NULL` values.
@@ -221,35 +223,6 @@ There are two types of schema representation in the analytical store. These type
 
 * Well-defined schema representation, default option for SQL (CORE) API accounts. 
 * Full fidelity schema representation, default option for Azure Cosmos DB API for MongoDB accounts.
-
-#### Full fidelity schema for SQL API accounts
-
-It's possible to use full fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
-
- * This option is only valid for accounts that **don't** have Synapse Link already enabled.
- * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
- * Currently Azure Cosmos DB API for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
- * Currently this change can't be made through the Azure portal. All database accounts that have Synapse Link enabled by the Azure portal will have the default schema representation type, well-defined schema.
- 
-The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
- 
- With the Azure CLI:
- ```cli
- az cosmosdb create --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --subscription MySubscription --analytical-storage-schema-type "FullFidelity" --enable-analytical-storage true
- ```
- 
-> [!NOTE]
-> In the command above, replace `create` with `update` for existing accounts.
- 
-  With the PowerShell:
-  ```
-   New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
-   ```
- 
-> [!NOTE]
-> In the command above, replace `New-AzCosmosDBAccount` with `Update-AzCosmosDBAccount` for existing accounts.
- 
-
 
 #### Well-defined schema representation
 
@@ -325,7 +298,7 @@ salary: 1000000
 
 The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it's a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
 
-**Data type to suffix map**
+##### Data type to suffix map
 
 Here's a map of all the property data types and their suffix representations in the analytical store:
 
@@ -352,6 +325,63 @@ Here's a map of all the property data types and their suffix representations in 
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
+##### Working with the MongoDB `_id` field
+
+the MongoDB `_id` field is fundamental to every collection in MongoDB and originally has a hexadecimal representation. As you can see in the table above, `Full Fidelity Schema` will preserve its characteristics, creating a challenge for its vizualiation in Azure Synapse Analytics. For correct visualization, you must convert the `_id` datatype as below:
+
+###### Spark
+
+```Python
+import org.apache.spark.sql.types._
+val simpleSchema = StructType(Array(
+    StructField("_id", StructType(Array(StructField("objectId",BinaryType,true)) ),true),
+    StructField("id", StringType, true)
+  ))
+
+df = spark.read.format("cosmos.olap")\
+    .option("spark.synapse.linkedService", "<enter linked service name>")\
+    .option("spark.cosmos.container", "<enter container name>")\
+    .schema(simpleSchema)
+    .load()
+
+df.select("id", "_id.objectId").show()
+```
+###### SQL
+
+```SQL
+SELECT TOP 100 id=CAST(_id as VARBINARY(1000))
+FROM OPENROWSET('CosmosDB',
+                'Your-account;Database=your-database;Key=your-key',
+                HTAP) WITH (_id VARCHAR(1000)) as HTAP
+```
+
+#### Full fidelity schema for SQL API accounts
+
+It's possible to use full fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
+
+ * This option is only valid for accounts that **don't** have Synapse Link already enabled.
+ * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
+ * Currently Azure Cosmos DB API for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+ * Currently this change can't be made through the Azure portal. All database accounts that have Synapse Link enabled by the Azure portal will have the default schema representation type, well-defined schema.
+ 
+The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
+ 
+ With the Azure CLI:
+ ```cli
+ az cosmosdb create --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --subscription MySubscription --analytical-storage-schema-type "FullFidelity" --enable-analytical-storage true
+ ```
+ 
+> [!NOTE]
+> In the command above, replace `create` with `update` for existing accounts.
+ 
+  With the PowerShell:
+  ```
+   New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
+   ```
+ 
+> [!NOTE]
+> In the command above, replace `New-AzCosmosDBAccount` with `Update-AzCosmosDBAccount` for existing accounts.
+> 
 ## <a id="analytical-ttl"></a> Analytical Time-to-Live (TTL)
 
 Analytical TTL (ATTL) indicates how long data should be retained in your analytical store, for a container.

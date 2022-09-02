@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/14/2022
+ms.date: 08/18/2022
 ms.author: aahi
 ms.custom: devx-track-js, ignite-fall-2021
 ---
@@ -13,9 +13,9 @@ ms.custom: devx-track-js, ignite-fall-2021
 
 Use this quickstart to create a text summarization application with the client library for Node.js. In the following example, you will create a JavaScript application that can summarize documents.
 
-## Prerequisites
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
-[!INCLUDE [availability](../regional-availability.md)]
+## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Node.js](https://nodejs.org/) v16 LTS
@@ -125,6 +125,11 @@ summarization_example(textAnalyticsClient).catch((err) => {
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
 
+### Command
+
+```console
+node index.js
+```
 ### Output
 
 ```console

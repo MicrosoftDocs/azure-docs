@@ -3,7 +3,7 @@ title: How to register your website ID
 description: Learn how to register your website ID for did:web
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials

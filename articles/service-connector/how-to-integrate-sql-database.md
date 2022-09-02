@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 08/11/2022
 ---
 
 # Integrate Azure SQL Database with Service Connector
@@ -16,9 +16,13 @@ This page shows all the supported compute services, clients, and authentication 
 
 - Azure App Service
 - Azure Container Apps
-- Azure Spring Cloud
+- Azure Spring Apps
 
 ## Supported authentication types and clients
+
+Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+
+### [Azure App Service](#tab/app-service)
 
 | Client type        | System-assigned managed identity | User-assigned managed identity |       Secret/connection string       | Service principal |
 |--------------------|:--------------------------------:|:------------------------------:|:------------------------------------:|:-----------------:|
@@ -31,6 +35,31 @@ This page shows all the supported compute services, clients, and authentication 
 | Python             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Python - Django    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Ruby               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| None               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+### [Azure Container Apps](#tab/container-apps)
+
+| Client type        | System-assigned managed identity | User-assigned managed identity |       Secret/connection string       | Service principal |
+|--------------------|:--------------------------------:|:------------------------------:|:------------------------------------:|:-----------------:|
+| .NET               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Go                 |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| PHP                |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Node.js            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Python             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Python - Django    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Ruby               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| None               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+### [Azure Spring Apps](#tab/spring-apps)
+
+| Client type        | System-assigned managed identity | User-assigned managed identity |       Secret/connection string       | Service principal |
+|--------------------|:--------------------------------:|:------------------------------:|:------------------------------------:|:-----------------:|
+| Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+
+---
 
 ## Default environment variable names or application properties
 

@@ -4,10 +4,10 @@ description: In this tutorial, you learn how to issue verifiable credentials by 
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 08/16/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -40,7 +40,7 @@ The following diagram illustrates the Microsoft Entra Verified ID architecture a
 - To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
-- Download [ngrok](https://ngrok.com/) and sign up for a free account.
+- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization, please read this [FAQ](verifiable-credentials-faq.md#i-can-not-use-ngrok-what-do-i-do).
 - A mobile device with Microsoft Authenticator:
   - Android version 6.2206.3973 or later installed.
   - iOS version 6.6.2 or later installed.
@@ -56,38 +56,39 @@ In this step, you create the verified credential expert card by using Microsoft 
     1. For **Credential name**, enter **VerifiedCredentialExpert**. This name is used in the portal to identify your verifiable credentials. It's included as part of the verifiable credentials contract.
 
     1. Copy the following JSON and paste it in the  **Display definition** textbox
-    ```json
-    {
-        "locale": "en-US",
-        "card": {
-          "title": "Verified Credential Expert",
-          "issuedBy": "Microsoft",
-          "backgroundColor": "#000000",
-          "textColor": "#ffffff",
-          "logo": {
-            "uri": "https://didcustomerplayground.blob.core.windows.net/public/VerifiedCredentialExpert_icon.png",
-            "description": "Verified Credential Expert Logo"
-          },
-          "description": "Use your verified credential to prove to anyone that you know all about verifiable credentials."
-        },
-        "consent": {
-          "title": "Do you want to get your Verified Credential?",
-          "instructions": "Sign in with your account to get your card."
-        },
-        "claims": [
-          {
-            "claim": "vc.credentialSubject.firstName",
-            "label": "First name",
-            "type": "String"
-          },
-          {
-            "claim": "vc.credentialSubject.lastName",
-            "label": "Last name",
-            "type": "String"
-          }
-        ]
-    }
-    ```
+    
+        ```json
+        {
+            "locale": "en-US",
+            "card": {
+              "title": "Verified Credential Expert",
+              "issuedBy": "Microsoft",
+              "backgroundColor": "#000000",
+              "textColor": "#ffffff",
+              "logo": {
+                "uri": "https://didcustomerplayground.blob.core.windows.net/public/VerifiedCredentialExpert_icon.png",
+                "description": "Verified Credential Expert Logo"
+              },
+              "description": "Use your verified credential to prove to anyone that you know all about verifiable credentials."
+            },
+            "consent": {
+              "title": "Do you want to get your Verified Credential?",
+              "instructions": "Sign in with your account to get your card."
+            },
+            "claims": [
+              {
+                "claim": "vc.credentialSubject.firstName",
+                "label": "First name",
+                "type": "String"
+              },
+              {
+                "claim": "vc.credentialSubject.lastName",
+                "label": "Last name",
+                "type": "String"
+              }
+            ]
+        }
+        ```
 
     1. Copy the following JSON and paste it in the  **Rules definition** textbox
     ```JSON
@@ -122,7 +123,7 @@ In this step, you create the verified credential expert card by using Microsoft 
     }
     ```
 
-    1. Select **Create**.    
+    1. Select **Create**.
 
 The following screenshot demonstrates how to create a new credential:
 

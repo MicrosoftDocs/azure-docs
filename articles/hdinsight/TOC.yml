@@ -531,8 +531,6 @@ items:
     items:
     - name: Use tools
       items:
-      - name: Use Apache Hadoop sandbox
-        href: ./hadoop/apache-hadoop-emulator-get-started.md
       - name: Use Apache Pig
         href: use-pig.md
     - name: Develop

@@ -79,13 +79,13 @@ It's important to ensure that the output of your Stream Analytics job matches th
 * **Type mismatch**: The query and target types aren't compatible. Rows won't be inserted in the destination. Use a [conversion function](/stream-analytics-query/data-types-azure-stream-analytics) such as TRY_CAST() to align types in the query. The alternate option is to alter the destination table in your SQL database.
 * **Range**: The target type range is considerably smaller than the one used in the query. Rows with out-of-range values [may not be inserted](/stream-analytics-query/data-types-azure-stream-analytics) in the destination table, or truncated. Consider altering the destination column to a larger type range.
 * **Implicit**: The query and target types are different but compatible. The data will be implicitly converted, but this could result in data loss or failures. Use a [conversion function](/stream-analytics-query/data-types-azure-stream-analytics) such as TRY_CAST() to align types in the query, or alter the destination table.
-* **Record**: This type isn't yet supported for this output. The value will be replaced by the string ‘record’. Consider [parsing](/stream-analytics-query/stream-analytics-parsing-json.md) the data, or using an UDF to [convert to string](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions).
-* **Array**: This type isn't yet supported natively in Azure SQL Database. The value will be replaced by the string ‘record’. Consider [parsing](/stream-analytics-query/stream-analytics-parsing-json.md) the data, or using an UDF to [convert to string](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions).
+* **Record**: This type isn't yet supported for this output. The value will be replaced by the string ‘record’. Consider [parsing](/azure/stream-analytics/stream-analytics-parsing-json) the data, or using an UDF to [convert to string](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions).
+* **Array**: This type isn't yet supported natively in Azure SQL Database. The value will be replaced by the string ‘record’. Consider [parsing](/azure/stream-analytics/stream-analytics-parsing-json) the data, or using an UDF to [convert to string](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions).
 * **Column missing from destination table**: This column is missing from the destination table. The data won't be inserted. Add this column to your destination table if needed.
 
 ## Next steps
 
-* [Use SQL reference data as input source](/azure/stream-analytics/sql-reference-data)
+* [Use SQL reference data as input source](./sql-reference-data.md)
 * [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md)
 * [Understand inputs for Azure Stream Analytics](stream-analytics-add-inputs.md)

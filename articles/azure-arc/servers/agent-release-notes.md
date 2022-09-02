@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 07/26/2022
+ms.date: 08/17/2022
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,23 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 - Bug fixes
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
+
+## Version 1.21 - August 2022
+
+### New features
+
+- `azcmagent connect` usability improvements:
+  - The `--subscription-id (-s)` parameter now accepts friendly names in addition to subscription IDs
+  - Automatic registration of any missing resource providers for first-time users (additional user permissions required to register resource providers)
+  - A progress bar now appears while the resource is being created and connected
+  - The onboarding script now supports both the yum and dnf package managers on RPM-based Linux systems
+- You can now restrict which URLs can be used to download machine configuration (formerly Azure Policy guest configuration) packages by setting the `allowedGuestConfigPkgUrls` tag on the server resource and providing a comma-separated list of URL patterns to allow.
+
+### Fixed
+
+- Extension installation failures are now reported to Azure more reliably to prevent extensions from being stuck in the "creating" state
+- Metadata for Google Cloud Platform virtual machines can now be retrieved when the agent is configured to use a proxy server
+- Improved network connection retry logic and error handling
 
 ## Version 1.20 - July 2022
 
@@ -81,20 +98,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - `azcmagent show` no longer prints the private link scope ID. You can check if the server is associated with an Azure Arc private link scope by reviewing the machine details in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/servers), [CLI](/cli/azure/connectedmachine?view=azure-cli-latest#az-connectedmachine-show&preserve-view=true), [PowerShell](/powershell/module/az.connectedmachine/get-azconnectedmachine), or [REST API](/rest/api/hybridcompute/machines/get).
 - `azcmagent logs` collects only the 2 most recent logs for each service to reduce ZIP file size.
 - `azcmagent logs` collects Guest Configuration logs again.
-
-## Version 1.16 - March 2022
-
-### Known issues
-
-- `azcmagent logs` doesn't collect Guest Configuration logs in this release. You can locate the log directories in the [agent installation details](deployment-options.md#agent-installation-details).
-
-### New features
-
-- You can now granularly control which extensions are allowed to be deployed to your server and whether or not Guest Configuration should be enabled. See [local agent controls to enable or disable capabilities](security-overview.md#local-agent-security-controls) for more information.
-
-### Fixed
-
-- The "Arc" proxy bypass keyword no longer includes Azure Active Directory endpoints on Linux. Azure Storage endpoints for extension downloads are now included with the "Arc" keyword.
 
 ## Next steps
 

@@ -2946,7 +2946,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | managedInstances | Yes | Yes |
 > | managedInstances / administrators | No | No |
 > | managedInstances / advancedThreatProtectionSettings | No | No |
-> | managedInstances / databases | Yes | Yes |
+> | managedInstances / databases | Yes | No |
 > | managedInstances / databases / advancedThreatProtectionSettings | No | No |
 > | managedInstances / databases / backupLongTermRetentionPolicies | No | No |
 > | managedInstances / databases / vulnerabilityAssessments | No | No |

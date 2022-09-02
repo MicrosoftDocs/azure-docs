@@ -40,7 +40,6 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 ## Limitations
 
 During the preview:
-- You can only share to subscriptions that are also in the preview.
 - You can only share to 30 subscriptions and 5 tenants.
 - Only images can be shared. You can't directly share a [VM application](vm-applications.md) during the preview.
 - A direct shared gallery can't contain encrypted image versions. Encrypted images can't be created within a gallery that is directly shared.

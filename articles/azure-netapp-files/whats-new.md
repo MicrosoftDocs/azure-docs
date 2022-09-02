@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 08/12/2022
+ms.date: 08/16/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -30,6 +30,19 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     You can now create VM consistent snapshot backups of VMs on Azure NetApp Files datastores using [Cloud Backup for Virtual Machines](../azure-vmware/backup-azure-netapp-files-datastores-vms.md). The associated virtual appliance installs in the Azure VMware Solution cluster and provides policy based automated and consistent backup of VMs integrated with Azure NetApp Files snapshot technology for fast backups and restores of VMs, groups of VMs (organized in resource groups) or complete datastores.
     
 ## July 2022
+
+* [Azure Application Consistent Snapshot Tool (AzAcSnap) 6](azacsnap-release-notes.md)
+    
+    [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases (SAP HANA) in Linux environments. With AzAcSnap 6, there is a new [release model](azacsnap-release-notes.md). AzAcSnap 6 also introduces the following new capabilities:
+
+    Now generally available:
+    * Oracle Database support
+    * Backint integration to work with Azure Backup
+    * [RunBefore and RunAfter](azacsnap-cmd-ref-runbefore-runafter.md) CLI options to execute custom shell scripts and commands before or after taking storage snapshots
+
+    In preview: 
+    * Azure Key Vault to store Service Principal content
+    * Azure Managed Disk as an alternate storage back end
 
 * [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now in public preview. You can [Back up Azure NetApp Files datastores and VMs using Cloud Backup](../azure-vmware/backup-azure-netapp-files-datastores-vms.md). This virtual appliance installs in the Azure VMware Solution cluster and provides policy based automated backup of VMs integrated with Azure NetApp Files snapshot technology for fast backups and restores of VMs, groups of VMs (organized in resource groups) or complete datastores. 
 

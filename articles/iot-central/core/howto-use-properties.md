@@ -19,6 +19,8 @@ Properties represent point-in-time values. For example, a device can use a prope
 
 You can also define cloud properties in an Azure IoT Central application. Cloud property values are never exchanged with a device and are out of scope for this article.
 
+To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md)
+
 ## Define your properties
 
 Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on/off state of a device. Properties can also represent basic device properties, such as the software version of the device. You declare properties as read-only or writable.

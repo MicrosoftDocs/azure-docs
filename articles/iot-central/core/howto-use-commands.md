@@ -24,6 +24,8 @@ A device can:
 
 By default, commands expect a device to be connected and fail if the device can't be reached. If you select the **Queue if offline** option in the device template UI a command can be queued until a device comes online. These *offline commands* are described in a separate section later in this article.
 
+To learn how to manage commands by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md)
+
 ## Define your commands
 
 Standard commands are sent to a device to instruct the device to do something. A command can include parameters with additional information. For example, a command to open a valve on a device could have a parameter that specifies how much to open the valve. Commands can also receive a return value when the device completes the command. For example, a command that asks a device to run some diagnostics could receive a diagnostics report as a return value.

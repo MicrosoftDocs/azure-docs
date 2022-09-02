@@ -23,9 +23,9 @@ Azure AD Connect automatic upgrade is a feature that regularly checks for newer 
 Note that for security reasons the agent that performs the automatic upgrade validates the new build of Azure AD Connect based on the digital signature of the downloaded version.
 
 >[!NOTE]
-> Azure Active Directory (AD) Connect follows the [Modern Lifecycle Policy](https://docs.microsoft.com/lifecycle/policies/modern). Changes for products and services  under the Modern Lifecycle Policy may be more frequent and require customers to be alert for forthcoming modifications to their product or service.
+> Azure Active Directory (AD) Connect follows the [Modern Lifecycle Policy](/lifecycle/policies/modern). Changes for products and services  under the Modern Lifecycle Policy may be more frequent and require customers to be alert for forthcoming modifications to their product or service.
 >
-> Product governed by the Modern Policy follow a [continuous support and servicing model](https://docs.microsoft.com/lifecycle/overview/product-end-of-support-overview). Customers must take the latest update to remain supported. 
+> Product governed by the Modern Policy follow a [continuous support and servicing model](/lifecycle/overview/product-end-of-support-overview). Customers must take the latest update to remain supported. 
 >
 > For products and services governed by the Modern Lifecycle Policy, Microsoft's policy is to provide a minimum 30 days' notification when customers are required to take action in order to avoid significant degradation to the normal use of the product or service.
 

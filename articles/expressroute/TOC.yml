@@ -95,6 +95,8 @@
     href: expressroute-global-reach.md
   - name: About ExpressRoute encryption
     href: expressroute-about-encryption.md
+  - name: ExpressRoute Traffic Collector
+    href: traffic-collector.md
   - name: Connect Azure to public cloud
     href: expressroute-connect-azure-to-public-cloud.md
   - name: Connectivity between virtual networks
@@ -159,6 +161,8 @@
       href: expressroute-network-insights.md
     - name: Configure Connection Monitoring for ExpressRoute
       href: how-to-configure-connection-monitor.md
+    - name: Configure ExpressRoute Traffic Collector
+      href: how-to-configure-traffic-collector.md
     - name: ExpressRoute monitoring, metrics, and alerts
       href: expressroute-monitoring-metrics-alerts.md
     - name: View and configure maintenance alerts

@@ -143,7 +143,7 @@ The cmdlets above should return the key value. Once you have the kerb1 key, crea
 1. Set the SPN to **cifs/your-storage-account-name-here.file.core.windows.net** either in the AD GUI or by running the `Setspn` command from the Windows command line as administrator (remember to replace the example text with your storage account name):
 
    ```shell
-   Setspn -S cifs/your-storage-account-name-here.file.core.windows.net
+   Setspn -S cifs/your-storage-account-name-here.file.core.windows.net <ADAccountName>
    ```
 
 2. Use PowerShell to set the AD account password to the value of the kerb1 key (you must have AD PowerShell cmdlets installed):
@@ -158,7 +158,7 @@ Keep the SID of the newly created identity, you'll need it for the next step. Th
 
 ### Enable the feature on your storage account
 
-Modify the following command to include configuration details for the domain properties in the following command, then run it to enable the feature. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#create-an-identity-representing-the-storage-account-in-your-ad-manually).
+Modify the following command to include configuration details for the domain properties in the following command, then run it to enable the feature. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#create-an-identity-representing-the-storage-account-in-your-ad-manually). Make sure that you provide the **ActiveDirectorySamAccountName** property without the trailing '$' sign.
 
 ```PowerShell
 # Set the feature flag on the target storage account and provide the required AD domain information

@@ -89,7 +89,7 @@ The reference architecture shows how both Microsoft Purview and Profisee MDM wor
 ## Microsoft Purview - Profisee integration deployment on Azure Kubernetes Service (AKS)
 Go to [https://github.com/Profisee/kubernetes](https://github.com/Profisee/kubernetes) and select Microsoft Purview [**Azure ARM**]. The deployment process detailed below is owned and hosted by you on your Azure subscription as an IaaS / CaaS (container-as-a-service) AKS Cluster.  
 
-1. [Create a user-assigned managed identity in Azure](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). You must have a managed identity created to run the deployment. This managed identity must have the following permissions when running a deployment. After the deployment is done, the managed identity can be deleted. Based on your ARM template choices, you'll need some or all of the following roles and permissions assigned to your managed identity:
+1. [Create a user-assigned managed identity in Azure](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). You must have a managed identity created to run the deployment. This managed identity must have the following permissions when running a deployment. After the deployment is done, the managed identity can be deleted. Based on your ARM template choices, you'll need some or all of the following roles and permissions assigned to your managed identity:
     - Contributor role to the resource group where AKS will be deployed. It can either be assigned directly to the resource group **OR** at the subscription level and down.
     - DNS Zone Contributor role to the particular DNS zone where the entry will be created **OR** Contributor role to the DNS Zone resource group. This DNS role is needed only if updating DNS hosted in Azure.
     - Application Administrator role in Azure Active Directory so the required permissions that are needed for the application registration can be assigned.
@@ -173,7 +173,8 @@ Recommended: Keep it to "Yes, use default Azure DNS". Choosing Yes, the deployer
 
 - As a final validation step to ensure successful installation and for checking whether Profisee has been successfully connected to your Microsoft Purview instance, go to **/Profisee/api/governance/health** It should look something like - "https://[profisee_name].[region].cloudapp.azure.com//Profisee/api/governance/health". The output response will indicate the words **"Status": "Healthy"** on all the Purview subsystems. 
 
-```{
+```json
+{
   "OverallStatus": "Healthy",
   "TotalCheckDuration": "0:XXXXXXX",
   "DependencyHealthChecks": {

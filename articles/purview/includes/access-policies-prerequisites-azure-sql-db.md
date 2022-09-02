@@ -31,10 +31,7 @@ Each Azure SQL Database server needs a Managed Identity assigned to it. In Azure
 You'll also need to enable external policy based authorization on the server. You can do this in PowerShell:
 
 ```powershell
-Connect-AzAccount
-
-$context = Get-AzSubscription -SubscriptionId xxxx-xxxx-xxxx-xxxx
-Set-AzContext $context
+Connect-AzAccount -TenantId xxxx-xxxx-xxxx-xxxx-xxxx -SubscriptionId xxxx-xxxx-xxxx-xxxx
 
 $server = Get-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME"
 

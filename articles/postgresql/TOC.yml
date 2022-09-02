@@ -791,7 +791,7 @@
         href: hyperscale/howto-scale-rebalance.md
       - name: Change compute quotas
         href: hyperscale/howto-compute-quota.md
-      - name: Manage read replicas
+      - name: Scale with read replicas
         href: hyperscale/howto-read-replicas-portal.md
     - name: Availability and resilience
       items:

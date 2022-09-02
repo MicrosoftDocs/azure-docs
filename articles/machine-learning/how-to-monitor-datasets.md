@@ -22,7 +22,7 @@ Learn how to monitor data drift and set alerts when drift is high.
 
 With Azure Machine Learning dataset monitors (preview), you can:
 * **Analyze drift in your data** to understand how it changes over time.
-* **Monitor model data** for differences between training and serving datasets.  Start by [collecting model data from deployed models](how-to-enable-data-collection.md).
+* **Monitor model data** for differences between training and serving datasets.  Start by [collecting model data from deployed models](v1/how-to-enable-data-collection.md).
 * **Monitor new data** for differences between any baseline and target dataset.
 * **Profile features in data** to track how statistical properties change over time.
 * **Set up alerts on data drift** for early warnings to potential issues. 
@@ -382,5 +382,5 @@ Limitations and known issues for data drift monitors:
 ## Next steps
 
 * Head to the [Azure Machine Learning studio](https://ml.azure.com) or the [Python notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) to set up a dataset monitor.
-* See how to set up data drift on [models deployed to Azure Kubernetes Service](./how-to-enable-data-collection.md).
-* Set up dataset drift monitors with [event grid](how-to-use-event-grid.md).
+* See how to set up data drift on [models deployed to Azure Kubernetes Service](v1/how-to-enable-data-collection.md).
+* Set up dataset drift monitors with [Azure Event Grid](how-to-use-event-grid.md).

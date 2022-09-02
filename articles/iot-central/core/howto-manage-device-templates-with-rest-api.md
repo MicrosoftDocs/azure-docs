@@ -20,6 +20,8 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
+To learn how to manage device templates by using the IoT Central UI, see [How to set up device templates](../core/howto-set-up-template.md) and [How to edit device templates](../core/howto-edit-device-template.md)
+
 ## Device templates
 
 A device template contains a device model, cloud property definitions, and view definitions. The REST API lets you manage the device model and cloud property definitions. Use the UI to create and manage views.

@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 08/18/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -21,9 +21,9 @@ ms.custom: ignite-fall-2021
 
 Use this quickstart to create a text summarization application with the client library for .NET. In the following example, you will create a C# application that can summarize documents or text-based customer service conversations.
 
-## Prerequisites
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
-[!INCLUDE [availability](../regional-availability.md)]
+## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)

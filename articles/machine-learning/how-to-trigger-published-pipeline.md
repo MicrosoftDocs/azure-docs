@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: larryfr
 author: blackmist
-ms.date: 10/21/2021
+ms.date: 08/12/2022
 ms.topic: how-to
 ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data.
@@ -80,6 +80,9 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 ### Create a change-based schedule
 
 Pipelines that are triggered by file changes may be more efficient than time-based schedules. When you want to do something before a file is changed, or when a new file is added to a data directory, you can preprocess that file. You can monitor any changes to a datastore or changes within a specific directory within the datastore. If you monitor a specific directory, changes within subdirectories of that directory will _not_ trigger a job.
+
+> [!NOTE]
+> Change-based schedules only supports monitoring Azure Blob storage.
 
 To create a file-reactive `Schedule`, you must set the `datastore` parameter in the call to [Schedule.create](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). To monitor a folder, set the `path_on_datastore` argument.
 

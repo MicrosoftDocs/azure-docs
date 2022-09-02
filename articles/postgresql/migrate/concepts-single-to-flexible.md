@@ -6,7 +6,7 @@ author: shriram-muthukrishnan
 ms.author: shriramm
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 08/17/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -27,14 +27,17 @@ The migration tool is agnostic of source and target PostgreSQL versions. Here ar
 
 | Source Postgres version (Single Server) | Suggested Target Postgres version (Flexible server) | Remarks |
 |:---------------|:-------------|:-----------------|
-| Postgres 9.5 (Retired) | Postgres 12 | You can even directly migrate to Postgres 14. Verify your application compatibility. |
-| Postgres 9.6 (Retired) | Postgres 12 | You can even directly migrate to Postgres 14. Verify your application compatibility. |
+| Postgres 9.5 (Retired) | Postgres 13 | You can even directly migrate to Postgres 14. Verify your application compatibility. |
+| Postgres 9.6 (Retired) | Postgres 13 | You can even directly migrate to Postgres 14. Verify your application compatibility. |
 | Postgres 10 (Retiring Nov'22) | Postgres 14 |  Verify your application compatibility. |
 | Postgres 11  | Postgres 14 | Verify your application compatibility. |
 | Postgres 11  | Postgres 11 | You can choose to migrate to the same version in Flexible Server. You can then upgrade to a higher version in Flexible Server |
 
 >[!NOTE]
 > Migration initiation from Single Server is enabled in preview in these regions: Central US, West US, South Central US, North Central US, East Asia, Switzerland North, Australia South East, UAE North, UK West and Canada East. However, you can use the migration wizard from the Flexible Server side in all regions.
+
+>[!IMPORTANT]
+> We continue to add support for more regions with Flexible Server. If Flexible Server is not available in your preferred region, you can either choose an alternative region or you can wait until the Flexible server is enabled in that region.
 
 ## Overview
 

@@ -36,12 +36,12 @@ Although Azure Cognitive Search has native [AI enrichment](cognitive-search-conc
 You'll need the `synapseml` library and several Azure resources. If possible, use the same subscription and region for your Azure resources and put everything into one resource group for simple cleanup later. The following links are for portal installs. The sample data is imported from a public site.
 
 + [Azure Cognitive Search](search-create-service-portal.md) (any tier) <sup>1</sup> 
-+ [Azure Cognitive Services](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#create-a-new-azure-cognitive-services-resource) (any tier) <sup>2</sup> 
++ [Azure Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#create-a-new-azure-cognitive-services-resource) (any tier) <sup>2</sup> 
 + [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>3</sup>
 
 <sup>1</sup> You can use the free tier for this walkthrough but [choose a higher tier](search-sku-tier.md) if data volumes are large. You'll need the [API key](search-security-api-keys.md#find-existing-keys) for this resource.
 
-<sup>2</sup> This walkthrough uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a [Cognitive Services multi-service key](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#get-the-keys-for-your-resource) and the region, and it'll work for both services.
+<sup>2</sup> This walkthrough uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a [Cognitive Services multi-service key](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it'll work for both services.
 
 <sup>3</sup> In this walkthrough, Azure Databricks provides the computing platform. You could also use Azure Synapse Analytics or any other computing platform supported by `synapseml`. The Azure Databricks article listed in the prerequisites includes multiple steps. For this walkthrough, follow only the instructions in "Create a workspace".
 
@@ -134,7 +134,7 @@ display(df2)
 
 Paste the following code into the third cell. No modifications are required, so run the code when you're ready.
 
-This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](/azure/applied-ai-services/form-recognizer/concept-invoice) of Azure Forms Analyzer.
+This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](../applied-ai-services/form-recognizer/concept-invoice.md) of Azure Forms Analyzer.
 
 ```python
 from synapse.ml.cognitive import AnalyzeInvoices
@@ -254,4 +254,4 @@ In this walkthrough, you learned about the [AzureSearchWriter](https://microsoft
 As a next step, review the other SynapseML tutorials that produce transformed content you might want to explore through Azure Cognitive Search:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Text Analytics with Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
+> [Tutorial: Text Analytics with Cognitive Services](../synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark.md)

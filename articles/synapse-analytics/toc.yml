@@ -702,6 +702,8 @@ items:
       href: ./spark/apache-spark-gpu-concept.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
+    - name: Optimize Apache Spark writes on Delta Lake
+      href: ./spark/optimize-write-for-apache-spark.md
     - name: Apache Spark autoscale behavior
       href: ./spark/apache-spark-autoscale.md
     - name: Intelligent Cache

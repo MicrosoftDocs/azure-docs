@@ -287,4 +287,4 @@ az ssh vm  -g $myResourceGroup -n $myVM --local-user $myUsername -- -L 3389:loca
 
 
 ## Next steps
-Learn how to transfer files to an existing VM, see [Use SCP to move files to and from a Linux VM](../linux/copy-files-to-linux-vm-using-scp.md). The same steps will also work for Windows machines.
+Learn how to transfer files to an existing VM, see [Use SCP to move files to and from a VM](../copy-files-to-vm-using-scp.md).
