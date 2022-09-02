@@ -22,7 +22,7 @@ Components are independently deployable parts of your distributed or microservic
 * Components run on any number of server, role, or container instances.
 * Components can be separate Application Insights resources, even if subscriptions are different. They can also be different roles that report to a single Application Insights resource. The preview map experience shows the components regardless of how they're set up.
 
-## Composite Application Map
+## Composite application map
 
 You can see the full application topology across multiple levels of related application components. Components can be different Application Insights resources or different roles in a single resource. The application map finds components by following HTTP dependency calls made between servers with the Application Insights SDK installed.
 
