@@ -15,7 +15,7 @@ ms.date: 09/04/2022
 In this article, you'll learn how to configure the Redis software version to be used with your cache instance. Azure Cache for Redis offers the latest major version of Redis and at least one previous version. It will update these versions regularly as newer Redis software is released. You can choose between the two available versions. Keep in mind that your cache will be upgraded to the next version automatically if the version it's using currently is no longer supported.
 
 > [!NOTE]
-> At this time, Redis 6 does not support ACL, and geo-replication between a Redis 4 and 6 cache.
+> At this time, Redis 6 does not support Access Control Lists (ACL) or geo-replication between a Redis 4 cache and Redis 6 cache.
 >
 
 ## Prerequisites
@@ -48,7 +48,7 @@ To create a cache, follow these steps:
 
 1. Select **Create**.
 
-    It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
+    It takes a while for the cache to be created. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
 ## Create a cache using Azure PowerShell
 
@@ -120,15 +120,21 @@ Set-AzRedisCache -Name "CacheName" -ResourceGroupName "ResourceGroupName" -Redis
 ```
  -->
 
+## How to check the version of a cache
+
+You can check the Redis version of a cache by selecting **Properties** from the Resource menu of the Azure Cache for Redis.
+
+:::image type="content" source="media/cache-how-to-version/cache-version-portal.png" alt-text="Screenshot of properties selected in the Resource menu.":::
+
 ## FAQ
 
 ### What features aren't supported with Redis 6?
 
-At this time, Redis 6 doesn't support ACL, and geo-replication between a Redis 4 cache and a Redis 6 cache.
+At this time, Redis 6 doesn't support Access Control Lists (ACL). Geo-replication between a Redis 4 cache and a Redis 6 cache is also not supported.
 
 ### Can I change the version of my cache after it's created?
 
-You can upgrade your existing Redis 4 caches to Redis 6. Upgrading your cache instance is permanent and you cannot downgrade your Redis 6 caches to Redis 4 caches.
+You can upgrade your existing Redis 4 caches to Redis 6. Upgrading your cache instance is permanent and you can't downgrade your Redis 6 caches to Redis 4 caches.
 
 For more information, see [How to upgrade an existing Redis 4 cache to Redis 6](cache-how-to-upgrade.md).
 
