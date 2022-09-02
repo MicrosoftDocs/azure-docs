@@ -33,7 +33,7 @@ Authentication strength can help customers address scenarios such as:
 - Require a specific authentication method when a user takes a sensitive action within an application (in combination with Conditional Access authentication context).
 - Require users to use a specific authentication method when they access sensitive apps outside of the corporate network.
 - Require more secure authentication methods for users at high risk. 
-- Require specific authentication methods from guest users accessing a resource tenant (in combination with Cross tenant settings) <!-- Namrata - Add / review external users scenrio here -->
+- Require specific authentication methods from guest users accessing a resource tenant (in combination with Cross tenant settings) <!-- Namrata - Add / review external users scenario here -->
 
 ## Authentication strength policy 
 
@@ -49,7 +49,7 @@ An authentication strength policy may contain a combination of authentication me
 
 - Azure AD Certificate-Based Authentication (multifactor)
 
-:::image type="content" source="media/concept-authentication-strengths/authentication-strength-definitions.png" alt-text="Screenshot showing the phish resistant authentication strength policy definition.":::
+:::image type="content" source="media/concept-authentication-strengths/authentication-strength-definitions.png" alt-text="Screenshot showing the phishing-resistant MFA strength policy definition.":::
 
 ### Built-in authentication strengths
 
@@ -98,17 +98,17 @@ Deleting a custom authentication strength is not allowed if the authentication s
 1. Select **New authentication strength**.
 1. Provide a descriptive **Name** for your new authentication strength.
 1. Optionally provide a **Description**.
-1. Select any of the available methods you want to be available.
+1. Select any of the available methods you want to allow.
 1. Choose **Next** and review the policy configuration.
 
 :::image type="content" source="media/concept-authentication-strengths/authentication-strength-custom.png" alt-text="Screenshot showing the creation of a custom authentication strength policy.":::
 
-#### FIDO2 Key advanced options
-Custom authentication strengths allow customers to further restrict the usage of some FIDO2 security keys based on their Authenticator Attestation GUIDs (AAGUIDs). The capability allows administrators to require FIDO2 key from specific manufacture in order to access the resource.
+#### FIDO2 security key advanced options
+Custom authentication strengths allow customers to further restrict the usage of some FIDO2 security keys based on their Authenticator Attestation GUIDs (AAGUIDs). The capability allows administrators to require a FIDO2 key from a specific manufacture in order to access the resource.
 <!-- Steps to configure FIDO2 AA GUID -- Justin can you help with this? -->
 
-## Using Authentication strengths policies in Conditional Access
-Once you reviewed the built-in authentication strength policies and decided which one you would like to use, or you have created your own custom strengths, you can start using them in Conditional Access policies. Referencing Authentication strength policy in a Conditional Access policy will restrict the allowed authentication methods to be used when the policy applies on the sign-in.
+## Using authentication strength policies in Conditional Access
+After you review and choose built-in authentication strength policies, or create your own custom strengths, you can use them in Conditional Access policies. BY referencing an authentication strength in a Conditional Access policy, you can restrict which authentication methods are allowed when the Conditional Access policy applies to sign-in.
 <!-- ### Place holder:How to create conditional access policy that uses authentication strength
 -	Add a note that you can use either require mfa or require auth strengths
 - (JF) Possibly add a reference doc that lists all the definitions of the things you can configure?
@@ -141,7 +141,7 @@ The following authentication methods aren't available to register in the inline 
 * [Certificate-based authentication](concept-certificate-based-authentication.md)
 * [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-prepare-people-to-use) 
 
-If a user is not registered for these methods, they will be redirected to the inline registration flow and would be advised to register these methods, however they will blocked from accessing the resource until the register the required methods. For the best user experience, make sure users are registered for the different methods they may need to use.
+If a user is not registered for these methods, they'll be redirected to the inline registration flow and prompted to register these methods. They can't access the resource until they register the required methods. For the best user experience, make sure users are registered for the different methods they may need to use.
 
 
 ## External users 
