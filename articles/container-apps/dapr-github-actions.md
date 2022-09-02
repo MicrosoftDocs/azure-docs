@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Deploy a Dapr application with Github Actions for Azure Container Apps
-description: Learn multiple revision management by deploying a Dapr application with GitHub Actions and Azure Container Apps. 
+title: Tutorial - Deploy a Dapr application with GitHub Actions for Azure Container Apps
+description: Learn about multiple revision management by deploying a Dapr application with GitHub Actions and Azure Container Apps. 
 author: cebundy
 ms.author: v-bcatherine
 ms.reviewer: keroden
@@ -10,13 +10,13 @@ ms.date: 09/02/2022
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Deploy a Dapr application with Github Actions for Azure Container Apps
+# Tutorial: Deploy a Dapr application with GitHub Actions for Azure Container Apps
 
-[GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development lifecycle workflow. In this tutorial, you will see how revision-scope changes to a Container App using [Dapr](https://docs.dapr.io) can be deployed using a GitHub Actions workflow. 
+[GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development lifecycle workflow. In this tutorial, you'll see how revision-scope changes to a Container App using [Dapr](https://docs.dapr.io) can be deployed using a GitHub Actions workflow. 
 
 Dapr is an open source project that helps developers with the inherent challenges presented by distributed applications, such as state management and service invocation. Azure Container Apps integrates with a [managed version of Dapr](./dapr-overview.md).
 
-In this tutorial, you will:
+In this tutorial, you'll:
 
 > [!div class="checklist"]
 > - Configure a GitHub Actions workflow for deploying the end-to-end solution to Azure Container Apps.
@@ -269,7 +269,7 @@ Container Apps run in single-revision mode by default. In the Container Apps bic
 > [!NOTE]
 > [Application-scope](revisions.md#application-scope-changes) changes do not create a new revision.
 
-To demonstrate the inner-loop experience for creating revisions via GitHub actions, you will make a change to the frontend application and commit this change to your repo. 
+To demonstrate the inner-loop experience for creating revisions via GitHub actions, you'll make a change to the frontend application and commit this change to your repo. 
 
 1. Return to the console, and navigate into the *node-service/views* directory in the forked repository.
 
@@ -348,7 +348,7 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
    :::image type="content" source="media/dapr-github-actions/revision-mgmt.png" alt-text="Screenshot that shows Revision Management in the left side menu.":::
 
-   Since our container app is in **multiple revision mode**, Container Apps created a new revision and automatically set it to `active` with 100% traffic.
+   Since our container app is in **multiple revision mode**, Container Apps created a new revision and automatically sets it to `active` with 100% traffic.
 
    :::image type="content" source="media/dapr-github-actions/two-revisions.png" alt-text="Screenshot that shows both the inactive and active revisions on the node app.":::
 

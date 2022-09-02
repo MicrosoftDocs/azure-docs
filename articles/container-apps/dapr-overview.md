@@ -64,20 +64,20 @@ Once Dapr is enabled on your container app, you're able to plug in and use the [
 - Can be easily modified to point to any one of the component implementations.
 - Can reference secure configuration values using Container Apps secrets.
 
-Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. In the examples below, you will find the various schemas available for defining a Dapr component in Azure Container Apps. The Container Apps manifests differ sightly from the Dapr OSS manifests in order to simplify the component creation experience.
+Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. In the examples below, you'll find the various schemas available for defining a Dapr component in Azure Container Apps. The Container Apps manifests differ sightly from the Dapr OSS manifests in order to simplify the component creation experience.
 
 > [!NOTE]
 > By default, all Dapr-enabled container apps within the same environment will load the full set of deployed components. By adding scopes to a component, you tell the Dapr sidecars for each respective container app which components to load at runtime. Using scopes is recommended for production workloads.
 
 # [YAML](#tab/yaml)
 
-When defining a Dapr component via YAML, you will pass your component manifest into the Azure CLI. For example, deploy a `pubsub.yaml` component using the following command:
+When defining a Dapr component via YAML, you'll pass your component manifest into the Azure CLI. For example, deploy a `pubsub.yaml` component using the following command:
 
 ```azurecli
 az containerapp env dapr-component set --name ENVIRONMENT_NAME --resource-group RESOURCE_GROUP_NAME --dapr-component-name pubsub--yaml "./pubsub.yaml"
 ```
 
-The `pubsub.yaml` spec will be scoped to the dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`.
+The `pubsub.yaml` spec will be scoped to the dapr-enabled container apps with app IDs `publisher-app` and `subscriber-app`.
 
 ```yaml
 # pubsub.yaml for Azure Service Bus component
@@ -98,7 +98,7 @@ The `pubsub.yaml` spec will be scoped to the dapr-enabled container apps with ap
 
 # [Bicep](#tab/bicep)
 
-This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr component is defined as a child resource of your Container Apps environment. The `dapr-pubsub` component is scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
+This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr component is defined as a child resource of your Container Apps environment. The `dapr-pubsub` component is scoped to the Dapr-enabled container apps with app IDs `publisher-app` and `subscriber-app`:
 
 ```bicep
 resource daprComponent 'daprComponents@2022-01-01-preview' = {
@@ -129,7 +129,7 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
 
 # [ARM](#tab/arm)
 
-This resource defines a Dapr component called `dapr-pubsub` via ARM. The Dapr component is defined as a child resource of your Container Apps environment. The `dapr-pubsub` component will be scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
+This resource defines a Dapr component called `dapr-pubsub` via ARM. The Dapr component is defined as a child resource of your Container Apps environment. The `dapr-pubsub` component will be scoped to the Dapr-enabled container apps with app IDs `publisher-app` and `subscriber-app`:
 
 ```json
 {
