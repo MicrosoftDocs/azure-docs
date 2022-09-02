@@ -52,7 +52,6 @@ For each of these networks, allocate a subnet and then identify the listed IP ad
 - Default gateway.
 - One IP address for port 6 on the Azure Stack Edge Pro device.
 - One IP address for the user plane interface. For 5G, this interface is the N6 interface, whereas for 4G, it's the SGi interface.
-- Optionally, one or more Domain Name System (DNS) server addresses.
 
 ## Allocate user equipment (UE) IP address pools
 
@@ -72,6 +71,13 @@ For each site you're deploying, do the following:
     If you decide to support both methods for a particular site, ensure that the IP address pools are of the same size and don't overlap.
 
 - Decide whether you want to enable Network Address and Port Translation (NAPT) for the data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the data network, maximizing the utility of a limited supply of public IP addresses.
+
+## Configure Domain Name System (DNS) servers
+
+DNS allows the translation between human-readable domain names and their associated machine-readable IP addresses. Depending on your requirements, you have the following options for configuring a DNS server for your data network:
+
+- If you need the UEs connected to this data network to resolve domain names and access the public internet, you must configure one or more DNS servers. We recommend setting up your own servers. Alternatively, you can use public servers such as Google DNS (*8.8.8.8* and *8.8.4.4*).
+- If you only need the UEs in this data network for local traffic (for example, [UE-to-UE traffic](private-5g-core-overview.md#ue-to-ue-traffic)), you can skip this step. Note that all UEs using that network will then be unable to access the public internet.
 
 ## Prepare your networks
 
