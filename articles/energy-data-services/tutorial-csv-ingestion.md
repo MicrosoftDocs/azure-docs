@@ -76,7 +76,7 @@ In this tutorial, you'll learn how to:
   4. **Create a legal tag** - Create a legal tag that will be added to the CSV data for data compliance purpose
   5. **Get a signed url for uploading a CSV file** - Get the signed URL path to which the CSV file will be uploaded
   6. **Upload a CSV file** - Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) to your local machine, and select this file in Postman by clicking the **Select File** option as shown in the Screenshot below.
-    :::image type="content" source="media/tutorial-csv-ingestion/tutorial-select-csv-file.png" alt-text="Screenshot of uploading a CSV file.":::
+    :::image type="content" source="media/tutorial-csv-ingestion/tutorial-select-csv-file.png" alt-text="Screenshot of uploading a CSV file." lightbox="media/tutorial-csv-ingestion/tutorial-select-csv-file.png":::
   7. **Upload CSV file metadata** - Upload the file metadata information such as file location & other relevant fields
   8. **Trigger a CSV parser ingestion workflow** - Triggers the CSV Parser ingestion workflow DAG.
   9. **Get CSV parser ingestion workflow status** - Gets the status of CSV Parser Dag Run.
