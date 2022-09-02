@@ -34,11 +34,9 @@ Authentication strength can help customers address scenarios such as:
 - Require users to use a specific authentication method when they access sensitive apps outside of the corporate network.
 - Require more secure authentication methods for users at high risk. 
 
-## Authentication Strength policy 
+## Authentication strength policy 
 
-An Authentication Strength policy contains a combination of authentication methods. Users can satisfy the policy requirements by authenticating with any of the combinations allowed by the policy.
-
-For example, the built-in Phishing-resistant MFA policy has the following combinations:
+An authentication strength policy contains a combination of authentication methods. Users can satisfy the policy requirements by authenticating with any of the allowed combinations. For example, the built-in Phishing-resistant MFA strength policy allows the following combinations:
 
 - Windows Hello for Business
 
@@ -55,7 +53,7 @@ For example, the built-in Phishing-resistant MFA policy has the following combin
 ### Built-in authentication strengths
 Built-in authentication strengths are combinations of authentication methods that are predefined by Microsoft. Built-in authentication strengths are always available and can't be modified.
 
-The following table lists the combinations of authentication methods for each built-in authentication strength policy. Depending on which methods are available in the Authentication Methods policy and registered for users, they can use any one of the combinations to sign-in.
+The following table lists the combinations of authentication methods for each built-in authentication strength policy. Depending on which methods are available in the authentication methods policy and registered for users, they can use any one of the combinations to sign-in.
 
 •	**MFA strength policy** - the same set of combinations that could be used to satisfy the **Require multifactor authentication setting**.
 
@@ -81,8 +79,13 @@ The following table lists the combinations of authentication methods for each bu
 
 *Something you have refers to one of the following methods: SMS, Voice, Push notification, Software or Hardware-based OATH token. 
 
-The following API call can be used to list definitions of all the built-in Authentication Strength by calling this API endpoint:
-`https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationStrengths/policies?$filter=policyType eq 'builtIn'`
+The following API call can be used to list definitions of all the built-in authentication strengths:
+
+<!--Does this need a GET command in front or similar?--->
+
+```http
+https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationStrengths/policies?$filter=policyType eq 'builtIn'`
+```
 
 As we add support for additional authentication methods and combinations, the built-in authentication strengths policies will get updated. 
 
