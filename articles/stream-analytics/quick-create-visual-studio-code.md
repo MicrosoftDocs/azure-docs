@@ -38,7 +38,7 @@ Here are the prerequisites for the quickstart:
 1. Select the **Azure** icon on the Visual Studio Code activity bar. Under **Stream Analytics** on the side bar, select **Sign in to Azure**.
 
 
-    :::image type="content" source="./media/quick-create-visual-studio-code/azure-sign-in.png" alt-text="Screenshot showing showing how to sign in to Azure.":::
+    :::image type="content" source="./media/quick-create-visual-studio-code/azure-sign-in.png" alt-text="Screenshot showing how to sign in to Azure.":::
 2. You may need to select a subscription as showing in the following image:
 
     :::image type="content" source="./media/quick-create-visual-studio-code/select-subscription.png" alt-text="Screenshot showing the selection of an Azure subscription.":::
