@@ -19,7 +19,7 @@ The Azure Synapse Analytics workspace enables you to create two types of databas
 - **Lake databases** where you can define tables on top of lake data using Apache Spark notebooks, database templates, or Microsoft Dataverse (previously Common Data Service). These tables will be available for querying using T-SQL (Transact-SQL) language using the serverless SQL pool. 
 - **SQL databases** where you can define your own databases and tables directly using the serverless SQL pools. You can use T-SQL CREATE DATABASE, CREATE EXTERNAL TABLE to define the objects and add additional SQL views, procedures, and inline-table-value functions on top of the tables. 
 
-![Lake and SQL databases](../media/metadata/shared-databases.png)
+![Diagram that shows Lake and SQL databases that are created on top of Data Lake files](../media/metadata/shared-databases.png)
 
 This article focuses on [lake databases](../database-designer/concepts-lake-database.md) in a serverless SQL pool in Azure Synapse Analytics.
 
