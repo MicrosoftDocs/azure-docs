@@ -18,8 +18,8 @@ CSV Parser ingestion provides the capability to ingest CSV files into the Micros
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Ingest a sample Wellbore data CSV file into the Microsoft Energy Data Services instance
-> * Search for Storage metadata records created during the CSV Ingestion
+> * Ingest a sample wellbore data CSV file into the Microsoft Energy Data Services instance
+> * Search for storage metadata records created during the CSV Ingestion
 
 ## Prerequisites
 
