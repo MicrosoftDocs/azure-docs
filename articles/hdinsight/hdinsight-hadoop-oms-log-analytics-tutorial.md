@@ -20,7 +20,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 #### [New Azure monitor experience](#tab/new)
 
 > [!Important]
-> New Azure Monitor experience is available in in all the regions as a preview feature.  
+> New Azure Monitor experience is available in all the regions as a preview feature.  
 >
 
 ## Prerequisites
