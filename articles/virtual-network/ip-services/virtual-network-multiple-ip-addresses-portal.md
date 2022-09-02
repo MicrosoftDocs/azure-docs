@@ -16,18 +16,18 @@ An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached 
 
 Assigning multiple IP addresses to a VM enables the following capabilities:
 
-* Hosting multiple websites or services with different IP addresses and SSL certificates on a single server.
+* Hosting multiple websites or services with different IP addresses and TLS/SSL certificates on a single server.
 
 * Serve as a network virtual appliance, such as a firewall or load balancer.
 
-* The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool. To learn more about how to load balance multiple IP configurations, read the [Load balancing multiple IP configurations](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
+* The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool. For more information about load balancing multiple IP configurations, see [Load balancing multiple IP configurations](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. To learn more about IP addresses in Azure, read the [IP addresses in Azure](../articles/virtual-network/ip-services/public-ip-addresses.md) article.
 
 > [!NOTE]
 > All IP configurations on a single NIC must be associated to the same subnet.  If multiple IPs on different subnets are desired, multiple NICs on a VM can be used.  To learn more about multiple NICs on a VM in Azure, read the [Create VM with Multiple NICs](../articles/virtual-machines/windows/multiple-nics.md) article.
 
-There is a limit to how many private IP addresses can be assigned to a NIC. There is also a limit to how many public IP addresses that can be used in an Azure subscription. See the [Azure limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article for details.
+There's a limit to how many private IP addresses can be assigned to a NIC. There's also a limit to how many public IP addresses that can be used in an Azure subscription. See the [Azure limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article for details.
 
 This article explains how to add multiple IP addresses to a virtual machine using the Azure portal. 
 
@@ -38,7 +38,7 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An existing Azure virtual machine. For more information about creating a virtual machine see [Create a Windows VM](../../virtual-machines/windows/quick-create-portal.md) or [Create a Linux VM](../../virtual-machines/linux/quick-create-portal.md). 
+- An existing Azure virtual machine. For more information about creating a virtual machine, see [Create a Windows VM](../../virtual-machines/windows/quick-create-portal.md) or [Create a Linux VM](../../virtual-machines/linux/quick-create-portal.md). 
     
     - The example used in this article is named **myVM**. Replace this value with your virtual machine name.
 
@@ -58,7 +58,7 @@ You can add a private and public IP address to an Azure network interface by com
 
 4. Select **Networking** in **Settings**.
 
-5. Select the name of the network interface of the virtual machine. In this example it's named **myvm889_z1**.
+5. Select the name of the network interface of the virtual machine. In this example, it's named **myvm889_z1**.
 
 :::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/select-nic.png" alt-text="Screenshot of myVM networking and network interface selection.":::
 
@@ -99,7 +99,7 @@ You can add a private IP address to a virtual machine by completing the followin
 
 4. Select **Networking** in **Settings**.
 
-5. Select the name of the network interface of the virtual machine. In this example it's named **myvm889_z1**.
+5. Select the name of the network interface of the virtual machine. In this example, it's named **myvm889_z1**.
 
 :::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/select-nic.png" alt-text="Screenshot of myVM networking and network interface selection.":::
 
