@@ -128,7 +128,7 @@ To help with debugging, you can add diagnostic steps to a logic app workflow, al
 
 1. To review how Azure Logic Apps generates and forms a request, run the logic app workflow. You can then revisit the Webhook Tester site for more information.
 
-### Frequently asked questions on performance
+## Performance - frequently asked questions (FAQ)
 
 1. **Why workflow run duration is LARGER than the sum of all of its action durations?**
 
