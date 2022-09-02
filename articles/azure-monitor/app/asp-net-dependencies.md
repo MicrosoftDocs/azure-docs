@@ -10,7 +10,7 @@ ms.reviewer: casocha
 
 # Dependency tracking in Application Insights
 
-A *dependency* is a component that's called by your application. It's typically a service called by using HTTP, a database, or a file system. [Application Insights](./app-insights-overview.md) measures the duration of dependency calls, whether it's failing or not, along with information like the name of the dependency. You can investigate specific dependency calls and correlate them to requests and exceptions.
+A *dependency* is a component that's called by your application. It's typically a service called by using HTTP, a database, or a file system. [Application Insights](./app-insights-overview.md) measures the duration of dependency calls and whether it's failing or not, along with information like the name of the dependency. You can investigate specific dependency calls and correlate them to requests and exceptions.
 
 ## Automatically tracked dependencies
 
@@ -45,7 +45,7 @@ For .NET Core console apps, `TelemetryConfiguration.Active` is obsolete. See the
 
 Dependencies are automatically collected by using one of the following techniques:
 
-* Using byte code instrumentation around select methods. Use `InstrumentationEngine` either from `StatusMonitor` or an Azure Web App extension.
+* Using byte code instrumentation around select methods. Use `InstrumentationEngine` either from `StatusMonitor` or an Azure App Service Web Apps extension.
 * `EventSource` callbacks.
 * `DiagnosticSource` callbacks in the latest .NET or .NET Core SDKs.
 
@@ -101,15 +101,15 @@ For ASP.NET Core applications, It's now required to opt in to SQL Text collectio
 services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module. EnableSqlCommandTextInstrumentation = true; });
 ```
 
-For ASP.NET applications, the full SQL query text is collected with the help of byte code instrumentation, which requires using the instrumentation engine or by using the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package instead of the System.Data.SqlClient library. Platform-specific steps to enable full SQL Query collection are described here:
+For ASP.NET applications, the full SQL query text is collected with the help of byte code instrumentation, which requires using the instrumentation engine or by using the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package instead of the System.Data.SqlClient library. Platform-specific steps to enable full SQL Query collection are described in the following table.
 
 | Platform | Steps needed to get full SQL query |
 | --- | --- |
-| Azure Web App |In your web app control panel, [open the Application Insights pane](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET. |
-| IIS Server (Azure VM, on-premises, and so on) | Either use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package or use the Status Monitor PowerShell Module to [install the instrumentation engine](../../azure-monitor/app/status-monitor-v2-api-reference.md#enable-instrumentationengine) and restart IIS. |
-| Azure Cloud Service | Add a [startup task to install StatusMonitor](../../azure-monitor/app/azure-web-apps-net-core.md). <br> Your app should be onboarded to the ApplicationInsights SDK at build time by installing NuGet packages for [ASP.NET](./asp-net.md) or [ASP.NET Core applications](./asp-net-core.md). |
+| Web Apps in Azure App Service|In your web app control panel, [open the Application Insights pane](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET. |
+| IIS Server (Azure Virtual Machines, on-premises, and so on) | Either use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package or use the Status Monitor PowerShell Module to [install the instrumentation engine](../../azure-monitor/app/status-monitor-v2-api-reference.md#enable-instrumentationengine) and restart IIS. |
+| Azure Cloud Services | Add a [startup task to install StatusMonitor](../../azure-monitor/app/azure-web-apps-net-core.md). <br> Your app should be onboarded to the ApplicationInsights SDK at build time by installing NuGet packages for [ASP.NET](./asp-net.md) or [ASP.NET Core applications](./asp-net-core.md). |
 | IIS Express | Use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package.
-| Azure Web Jobs | Use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package.
+| WebJobs in Azure App Service| Use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package.
 
 In addition to the preceding platform-specific steps, you *must also explicitly opt in to enable SQL command collection* by modifying the `applicationInsights.config` file with the following code:
 
@@ -120,7 +120,7 @@ In addition to the preceding platform-specific steps, you *must also explicitly 
   </Add>
 ```
 
-In the preceding cases, the proper way of validating that the instrumentation engine is correctly installed is by validating that the SDK version of collected `DependencyTelemetry` is `rddp`. `rdddsd` or `rddf` indicates dependencies are collected via `DiagnosticSource` or `EventSource` callbacks, so the full SQL query won't be captured.
+In the preceding cases, the proper way of validating that the instrumentation engine is correctly installed is by validating that the SDK version of collected `DependencyTelemetry` is `rddp`. Use of `rdddsd` or `rddf` indicates dependencies are collected via `DiagnosticSource` or `EventSource` callbacks, so the full SQL query won't be captured.
 
 ## Where to find dependency data
 
@@ -136,75 +136,75 @@ Each request event is associated with the dependency calls, exceptions, and othe
 
 ### Tracing from requests to dependencies
 
-Open the **Performance** tab and go to the **Dependencies** tab at the top next to operations.
+Select the **Performance** tab on the left and select the **Dependencies** tab at the top.
 
-Select a **Dependency Name** under overall. After you select a dependency, a graph of that dependency's distribution of durations will show up on the right.
+Select a **Dependency Name** under **Overall**. After you select a dependency, a graph of that dependency's distribution of durations appears on the right.
 
-![In the performance tab, select the Dependency tab at the top then select a Dependency name in the chart](./media/asp-net-dependencies/2-perf-dependencies.png)
+![Screenshot that shows the Dependencies tab open to select a Dependency Name in the chart.](./media/asp-net-dependencies/2-perf-dependencies.png)
 
-Select the **Samples** button at the bottom right and then on a sample to see the end-to-end transaction details.
+Select the **Samples** button at the bottom right. Then select a sample to see the end-to-end transaction details.
 
 ![Screenshot that shows selecting a sample to see the end-to-end transaction details.](./media/asp-net-dependencies/3-end-to-end.png)
 
 ### Profile your live site
 
-No idea where the time goes? The [Application Insights profiler](../../azure-monitor/app/profiler.md) traces HTTP calls to your live site and shows you the functions in your code that took the longest time.
+The [Application Insights profiler](../../azure-monitor/app/profiler.md) traces HTTP calls to your live site and shows you the functions in your code that took the longest time.
 
 ## Failed requests
 
 Failed requests might also be associated with failed calls to dependencies.
 
-We can go to the **Failures** tab on the left and then select on the **dependencies** tab at the top.
+Select the **Failures** tab on the left and then select the **Dependencies** tab at the top.
 
 ![Screenshot that shows selecting the failed requests chart.](./media/asp-net-dependencies/4-fail.png)
 
-Here you'll be able to see the failed dependency count. To get more details about a failed occurrence trying selecting a dependency name in the bottom table. Select the **Dependencies** button at the bottom right to get the end-to-end transaction details.
+Here you'll see the failed dependency count. To get more information about a failed occurrence, select a **Dependency Name** in the bottom table. Select the **Dependencies** button at the bottom right to see the end-to-end transaction details.
 
 ## Logs (Analytics)
 
 You can track dependencies in the [Kusto query language](/azure/kusto/query/). Here are some examples.
 
 * Find any failed dependency calls:
-
-``` Kusto
-
-    dependencies | where success != "True" | take 10
-```
+    
+    ``` Kusto
+    
+        dependencies | where success != "True" | take 10
+    ```
 
 * Find AJAX calls:
 
-``` Kusto
-
-    dependencies | where client_Type == "Browser" | take 10
-```
+    ``` Kusto
+    
+        dependencies | where client_Type == "Browser" | take 10
+    ```
 
 * Find dependency calls associated with requests:
-
-``` Kusto
-
-    dependencies
-    | where timestamp > ago(1d) and  client_Type != "Browser"
-    | join (requests | where timestamp > ago(1d))
-      on operation_Id  
-```
+    
+    ``` Kusto
+    
+        dependencies
+        | where timestamp > ago(1d) and  client_Type != "Browser"
+        | join (requests | where timestamp > ago(1d))
+          on operation_Id  
+    ```
 
 * Find AJAX calls associated with page views:
-
-``` Kusto 
-
-    dependencies
-    | where timestamp > ago(1d) and  client_Type == "Browser"
-    | join (browserTimings | where timestamp > ago(1d))
-      on operation_Id
-```
+    
+    ``` Kusto 
+    
+        dependencies
+        | where timestamp > ago(1d) and  client_Type == "Browser"
+        | join (browserTimings | where timestamp > ago(1d))
+          on operation_Id
+    ```
 
 ## Frequently asked questions
 
 This section provides answers to common questions.
 
-### How does automatic dependency collector report failed calls to dependencies?
+### How does the automatic dependency collector report failed calls to dependencies?
 
-* Failed dependency calls will have the `success` field set to False. The module `DependencyTrackingTelemetryModule` doesn't report `ExceptionTelemetry`. The full data model for dependency is described [Dependency telemetry: Application Insights data model](data-model-dependency-telemetry.md).
+Failed dependency calls will have the `success` field set to False. The module `DependencyTrackingTelemetryModule` doesn't report `ExceptionTelemetry`. The full data model for dependency is described [Dependency telemetry: Application Insights data model](data-model-dependency-telemetry.md).
 
 ### How do I calculate ingestion latency for my dependency telemetry?
 
