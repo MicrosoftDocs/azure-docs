@@ -70,7 +70,7 @@ Response<RecordingStateResult> response = callAutomationClient.getCallRecording(
 ```
 The `startRecordingWithResponse` API response contains the recording ID of the recording session.
 
-## 4.	Stop recording session using 'stopRecordingWithResponse' server API
+## 3.	Stop recording session using 'stopRecordingWithResponse' server API
 
 Use the recording ID received in response of `startRecordingWithResponse`.
 
@@ -79,7 +79,7 @@ Response<Void> response = callAutomationClient.getCallRecording()
                .stopRecordingWithResponse(response.getValue().getRecordingId(), null);
 ```
 
-## 5.	Pause recording session using 'pauseRecordingWithResponse' server API
+## 4.	Pause recording session using 'pauseRecordingWithResponse' server API
 
 Use the recording ID received in response of `startRecordingWithResponse`.
 ```java
@@ -87,7 +87,7 @@ Response<Void> response = callAutomationClient.getCallRecording()
               .pauseRecordingWithResponse(response.getValue().getRecordingId(), null);
 ```
 
-## 6.	Resume recording session using 'resumeRecordingWithResponse' server API
+## 5.	Resume recording session using 'resumeRecordingWithResponse' server API
 
 Use the recording ID received in response of `startRecordingWithResponse`.
 
@@ -96,7 +96,7 @@ Response<Void> response = callAutomationClient.getCallRecording()
                .resumeRecordingWithResponse(response.getValue().getRecordingId(), null);
 ```
 
-## 7.	Download recording File using 'downloadToWithResponse' server API
+## 6.	Download recording File using 'downloadToWithResponse' server API
 
 Use an [Azure Event Grid](../../../../../event-grid/overview.md) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
 
@@ -151,7 +151,7 @@ Response<Void> downloadResponse = callAutomationClient.getCallRecording().downlo
 ```
 The content location and document IDs for the recording files can be fetched from the `contentLocation` and `documentId` fields respectively, for each `recordingChunk`.
 
-## 8. Delete recording content using ‘deleteRecordingWithResponse’ server API.
+## 7. Delete recording content using ‘deleteRecordingWithResponse’ server API.
 
 Use `deleteRecordingWithResponse` method of `CallRecording` class for deleting the recorded media. Following are the supported parameters for `deleteRecordingWithResponse` method:
 •	`deleteLocation`: Azure Communication Services URL where the content to delete is located.
