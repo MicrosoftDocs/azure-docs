@@ -70,4 +70,4 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 
 ### Phase 3 - The service provider encrypts data in an Azure resource using the customer-managed key
 
-After phase 1 and 2 are complete, the service provider can configure encryption on the Azure resource with the key and key vault in the customer's tenant and the Azure resource in the ISV's tenant. The service provider can configure cross-tenant customer-managed keys with the Azure portal, PowerShell, or Azure CLI, with an ARM template, or with the REST API.
+After phase 1 and 2 are complete, the service provider can configure encryption on the Azure resource with the key and key vault in the customer's tenant and the Azure resource in the ISV's tenant. The service provider can configure cross-tenant customer-managed keys with the client tools supported by that Azure resource, with an ARM template, or with the REST API.
