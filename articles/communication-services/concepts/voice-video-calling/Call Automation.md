@@ -25,10 +25,10 @@ Some of the common use cases that can be build using Call Automation include:
 - Protect your customer's identity by building number masking services to connect buyers to sellers or users to partner vendors on your platform.
 - Increase engagement by building automated customer outreach programs for marketing and customer service.
 
-THe below flow diagram shows how your application can use Call Automation SDKs to manage an inbound call, steer to virtual agent or IVRs for simple self-serve scenarios and connect customers to live agents for complex scenarios.
+The below flow diagram shows how your application can use Call Automation SDKs to manage an inbound call, steer to virtual agent or IVRs for simple self-serve scenarios and connect customers to live agents for complex scenarios.
 
 ToDo: Picture to be updated to standard ACS design
-![Call flow](Marchitecture.png)
+![Call flow](./Marchitecture.png)
 
 ## Capabilities
 
@@ -52,7 +52,7 @@ The following list presents the set of features which are currently available in
 
 *Redirecting a call to a phone number is not supported.
 
-** Tranfer of VoIP call to a phone number is not supported.
+** Transfer of VoIP call to a phone number is not supported.
 
 ## Architecture
 
@@ -63,7 +63,7 @@ Event Grid – Azure Communication Services uses Event Grid to deliver the Incom
 Web hooks – Calling Automation SDKs use standard web hook HTTP/S callbacks for call state change events and responses to mid-call actions.
 
 ToDo: Picture to be updated to standard ACS design
-![Action arch](action%20architecture.png)
+![Action arch](./action%20architecture.png)
 
 ## Call Actions
 
