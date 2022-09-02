@@ -89,7 +89,6 @@ To migrate a non-zonal managed disk to zonal:
 
 
     >[!NOTE]
-    > The source managed disk remains intact with its current configuration. If you no longer want to keep it, you must manually delete the disk. For more information, see [Find and delete unattached Azure managed and unmanaged disks](../virtual-machines/windows/find-unattached-disks.md).
 
 **To migrate a non-zonal managed disk to zone-redundant:**
 
