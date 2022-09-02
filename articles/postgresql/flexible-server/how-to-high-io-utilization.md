@@ -52,7 +52,7 @@ LIMIT 5;
 ```
 
 > [!NOTE]
-> For blk_read_time and blk_write_time columns to be populated, one must enable server parameter track_io_timing.
+> When using query store or pg_stat_statements for columns blk_read_time and blk_write_time to be populated one must enable server parameter `track_io_timing`.For more information about the **track_io_timing** parameter, review [Server Parameter](https://www.postgresql.org/docs/current/runtime-config-statistics.html). 
 
 ## Identify root causes 
 
@@ -83,15 +83,15 @@ Take first snapshot of pg_stat_bgwriter as shown below.
 create table checkpoint_snapshot as select current_timestamp as snapshottime,* from pg_stat_bgwriter;
 ```
 
-- Now wait for some time, generally it's recommended to wait for one hour.
+Now wait for some time, generally it's recommended to wait for one hour.
 
-- Take a second snapshot as shown below.
+Take a second snapshot as shown below.
 
 ```sql
 insert into checkpoint_snapshot (select current_timestamp as snapshottime,* from pg_stat_bgwriter);
 ```
 
-- Run the below query to analyze the statistics
+Execute the below query which uses the two entries.
 
 ```sql
 SELECT
@@ -134,7 +134,6 @@ ON two.snapshottime > one.snapshottime
 WHERE (checkpoints_timed + checkpoints_req) > 0;
 ```
 
-- The column avg_checkpoint_interval gives us the average time between checkpoints. If this value isn't closer to `checkpoint_timeout` set on the server, then we can conclude the checkpoints are happening too frequently. Another column checkpoints_req_pct points to pct value of the number of checkpoints required for the total checkpoints completed during the time interval.
 The query output has following columns
 
 **avg_checkpoint_interval**: Average time between checkpoints.If this value is much lower than the `checkpoint_timeout` set on the server then we can conclude the checkpoints are happening too frequently.   
@@ -155,13 +154,13 @@ SELECT schemaname, relname, n_dead_tup, n_live_tup, autovacuum_count, last_vacuu
 
 The query can be monitored to check how frequently the tables in the database are being vacuumed. 
 
-**last_autovacuum** provides date and time when the last autovacuum ran on the table.      
+**last_autovacuum**  : provides date and time when the last autovacuum ran on the table.      
 **autovacuum_count** : provides number of times the table was vacuumed.    
-**autoanalyze_count** provides number of times the table was analyzed.   
+**autoanalyze_count**: provides number of times the table was analyzed.   
 
 ### High Storage Utilization
 
-You can check storage usage using the storage percent metric from Azure Metrics. Storage free, storage with percent gives an amount of storages being used.
+You can check storage utilization using the storage percent metric from Azure Metrics. Storage percent metric gives percentage of total available storage being used.
 
 ## Resolve high IO utilization
 
@@ -198,28 +197,27 @@ If it's observed that the checkpoint is happening too frequently increase `max_w
 
 #### max_wal_size
 
-`max_wal_size` is an important parameter to tune. To tune this, you need to find out the amount of WAL that was written over a specific time; the size of WAL should be able to fit into `checkpoint_timeout` interval.
+One way to tune `max_wal_size` is to find a suitable time to find `max_wal_size` on the server.Peak business hours is a good time to arrive at the value. Follow the below listed steps to arrive at a value
 
-Take the current WAL LSN using the following command, note down the result:
-
-- Take the current WAL LSN using the following command, note down the result:
+Execute the below query to get current WAL LSN, note down the result:
 
  ```sql
 select pg_current_wal_lsn();
 ```
 
-Wait for checkpoint_timeout number of seconds. Take the current WAL LSN using the following command, note down the result:
+Wait for checkpoint_timeout number of seconds. Execute the below query to get current WAL LSN, note down the result:
 
  ```sql
 select pg_current_wal_lsn();
 ```
-Use the two results to check the difference in GB, using the following:
+
+Execute below query that uses the two results to check the difference in GB:
 
  ```sql 
 select round (pg_wal_lsn_diff ('LSN value when run second time', 'LSN value when run first time')/1024/1024/1024,2) WAL_CHANGE_GB;
 ```      
 
-If `max_wal_size` is increased you could also consider increasing shared buffers to 25% - 40% of total RAM, but not more than that. After `max_wal_size` and `shared_buffers` are increased it's expected that percentage of buffers written at checkpoint time increases and buffers written by backend or background writer should decrease. From the checkpoint query [as mentioned above] previously executed  the written_per_sec column should decrease.
+If `max_wal_size` is increased you could also consider increasing `shared buffers` to 25% - 40% of total RAM but not more than that.After `max_wal_size` and `shared_buffers` are increased it is expected that percentage of buffers written at checkpoint time increases and buffers written by backend or background writer should decrease.From the checkpoint query previously executed  the written_per_sec column should decrease,checkpoint_write_pct should increase and backend_write_pct should decrease.Iterate the process till you arrive at best `shared_buffer` and `max_wal_size` values.
 
 #### check_point_completion_target
 
@@ -229,7 +227,7 @@ Determines the total time between checkpoints, a good practice would be to set i
 
 Maximum time between automatic WAL checkpoints. The value can be increased from default value set on server, but one should set an appropriate value taking into consideration that increasing the value would also increase the time for crash recovery.
 
-If `max_wal_size` and `shared_buffers` are set optimally on the server but still large percentages of writes are coming from buffers_checkpoint, and the written_per_sec column seems high consider increasing the `checkpoint_timeout` parameter.
+If `max_wal_size` and `shared_buffers` are set optimally on the server but still buffers_checkpoint and the written_per_sec values are high when you execute previously mentioned checkpoint query consider increasing the `checkpoint_timeout` parameter.
 
 ### Autovacuum Tuning To make it less disruptive
 
