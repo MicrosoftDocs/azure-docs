@@ -31,7 +31,7 @@ The Call Automation platform uses Event Grid to deliver the IncomingCall event t
     - Resource group name
 On the picture below you can see the required fields:
 
-:::image type="content" source="./media/key.png" alt-text="Screenshot of Communication Services Key page.":::
+:::image type="content" source="./../../media/call-automation/portal.png" alt-text="Screenshot of Communication Services resource page on Azure portal":::
 
 2. Communication Service resource name
 3. Determine your local development HTTP port used by your web service application.
@@ -61,7 +61,8 @@ During the preview phase the NuGet package can be obtained by configuring your p
 ### Obtain your connection string and configure your application
 
 1. From the Azure portal, locate your Communication Service resource and click on the Keys section to obtain your connection string.
-??????
+
+:::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
 
 ### Configure Program.cs to answer the call
 
