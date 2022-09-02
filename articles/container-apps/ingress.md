@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 # Set up HTTPS ingress in Azure Container Apps
 
-Azure Container Apps allows you to expose your container app to the public web by enabling ingress. When you enable ingress, you do not need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests.
+Azure Container Apps allows you to expose your container app to the public web by enabling ingress. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests.
 
 With ingress enabled, your container app features the following characteristics:
 
@@ -26,7 +26,7 @@ With ingress enabled, your container app features the following characteristics:
 
 ## Configuration
 
-Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and do not generate new revisions.
+Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and don't generate new revisions.
 
 The ingress configuration section has the following form:
 
@@ -47,10 +47,10 @@ The following settings are available when configuring ingress:
 
 | Property | Description | Values | Required |
 |---|---|---|---|
-| `external` | The ingress IP and fully qualified domain name (FQDN) can either be accessible externally from the internet or a VNET, or internally within the app environment only. | `true` for external visibility from the internet or a VNET, `false` for internal visibility within app environment only (default) | Yes |
+| `external` | When enabled, the environment is assigned a public IP and fully qualified domain name (FQDN) for external ingress and an internal IP and FQDN for internal ingress.  When disabled, only an internal IP/FQDN is created. |`true` for external visibility, `false` for internal visibility (default) | Yes |
 | `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
 | `transport` | You can use either HTTP/1.1 or HTTP/2, or you can set it to automatically detect the transport type. | `http` for HTTP/1, `http2` for HTTP/2, `auto` to automatically detect the transport type (default) | No |
-| `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 are not automatically redirected to port 443 using HTTPS, allowing insecure connections. | No |
+| `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 aren't automatically redirected to port 443 using HTTPS, allowing insecure connections. | No |
 
 > [!NOTE]
 > To disable ingress for your application, you can omit the `ingress` configuration property entirely.
