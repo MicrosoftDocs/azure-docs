@@ -11,7 +11,7 @@ ms.custom: template-concept
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to manage dynamic Sentinel workspace content based on source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 ---
 
-# Manage custom content with Microsoft Sentinel repositories (Public preview)
+# Manage custom content with Microsoft Sentinel repositories (public preview)
 
 The Microsoft Sentinel repositories feature provides a central experience for the deployment and management of Sentinel content as code. Repositories allow connections to an external source control for continuous integration / continuous delivery (CI/CD). This automation removes the burden of manual processes to update and deploy your custom content across workspaces. For more information on Sentinel content, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
 
