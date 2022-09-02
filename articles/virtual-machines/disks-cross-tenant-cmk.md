@@ -4,7 +4,7 @@ description: Learn how to use customer-managed keys with your Azure disks in dif
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 09/02/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -21,7 +21,17 @@ This article covers building a solution where you encrypt managed disks with cus
 If you have any questions about cross-tenant customer-managed keys with managed disks, email <crosstenantcmkvteam@service.microsoft.com>.
 
 ## Prerequisites
-[!INCLUDE [disks-azure-ad-upload-download-prereqs](../../includes/disks-azure-ad-upload-download-prereqs.md)]
+- Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
+- You must enable the preview on your subscription, use the following command to enable the preview:
+    ```azurepowershell
+    Register-AzProviderFeature -FeatureName "EncryptionAtRestWithCrossTenantKey" -ProviderNamespace "Microsoft.Compute"
+    ```
+
+    It may take some time for the feature registration to complete, you can confirm if it has with the following command:
+    
+    ```azurepowershell
+    Get-AzProviderFeature -FeatureName "EncryptionAtRestWithCrossTenantKey" -ProviderNamespace "Microsoft.Compute"
+    ```
 
 ## Limitations
 
@@ -139,10 +149,10 @@ To use Azure PowerShell, install the latest Az module or the Az.Storage module. 
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
-In the script below, `-FederatedClientId` should be the application ID (client ID) of the multi-tenant application.
+In the script below, `-FederatedClientId` should be the application ID (client ID) of the multi-tenant application. You'll also need to provide the subscription ID, resource group name, and identity name.
 
 ```azurepowershell-interactive
-$userAssignedIdentities = @{"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}" = @{}};
+$userAssignedIdentities = @{"/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName" = @{}};
 
 $config = New-AzDiskEncryptionSetConfig `
    -Location 'westcentralus' `
