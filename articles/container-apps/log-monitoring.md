@@ -18,8 +18,8 @@ Log entries are accessible by querying Log Analytics tables through the Azure po
 
 There are two types of logs for Container Apps.  
 
-1. Console logs, which are emitted by your app.
-1. System logs, which are emitted by the Container Apps service.
+- Console logs, which are emitted by your app.
+- System logs, which are emitted by the Container Apps service.
 
 
 ## System Logs
