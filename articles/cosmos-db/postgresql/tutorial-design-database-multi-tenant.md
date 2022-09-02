@@ -53,16 +53,13 @@ CREATE TABLE campaigns (
   cost_model text NOT NULL,
   state text NOT NULL,
   monthly_budget bigint,
-  blacklisted_site_urls text[],
+  blocked_site_urls text[],
   created_at timestamp without time zone NOT NULL,
   updated_at timestamp without time zone NOT NULL,
 
   PRIMARY KEY (company_id, id)
 );
 ```
-
->[!NOTE]
-> This article contains references to the term *blacklisted*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 Each campaign will pay to run ads. Add a table for ads too, by running the following code in psql after the code above:
 
