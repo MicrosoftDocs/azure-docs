@@ -156,7 +156,7 @@ For more information, review the following documentation:
 
 1. In the Azure portal, on the logic app resource menu, under **Settings**, select **Networking**.
 
-1. On the **Networking** pane,  on the **Outbound traffic** card, select **VNet integration**.
+1. On the **Networking** pane, on the **Outbound traffic** card, select **VNet integration**.
 
 1. On the **VNet Integration** pane, select **Add Vnet**.
 
