@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Sample steps to interact with Wellbore DDMS  #Required; page title is displayed in search results. Include the brand.
 description: This tutorial shows you how to interact with Wellbore DDMS in Project Oak #Required; article description that is displayed in search results. 
-author: rishabh92 #Required; your GitHub user alias, with correct capitalization.
-ms.author: rising #Required; microsoft alias of author; optional team alias.
-ms.service: energy #Required; service per approved list. slug assigned by ACOM.
+author: vkamani21 #Required; your GitHub user alias, with correct capitalization.
+ms.author: vkamani #Required; microsoft alias of author; optional team alias.
+ms.service: azure #Required; service per approved list. slug assigned by ACOM.
 ms.topic: tutorial #Required; leave this attribute/value as-is.
 ms.date: 12/08/2021
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
@@ -66,14 +66,14 @@ In this tutorial, you will learn how to:
 1. **Get an SPN Token** - Generate the Service Principal Bearer token, which will be used to authenticate further API calls.
 1. **Create a Legal Tag** - Create a legal tag that will be added to the automatically environment for data compliance purpose.
 1. **Create Well** - Creates the wellbore record in Project Oak.
-  ![Screenshot](/media/tutorial-create-well.png)
+  ![Screenshot-of-tutorial-create-well](/media/tutorial-create-well.png)
 1. **Get Wells** - Returns the well data created in the last step.
-  ![Screenshot](/media/tutorial-get-wells.png)
+  ![Screenshot-of-tutorial-get-wells](/media/tutorial-get-wells.png)
 1. **Get Well Versions** - Returns the versions of each ingested well record.
-  ![Screenshot](/media/tutorial-get-well-versions.png)
+  ![Screenshot-of-tutorial-get-well-versions](/media/tutorial-get-well-versions.png)
 1. **Get specific Well Version** - Returns the details of specified version of specified record.
-  ![Screenshot](/media/tutorial-get-specific-well-version.png)
+  ![Screenshot-of-tutorial-get-specific-well-version](/media/tutorial-get-specific-well-version.png)
 1. **Delete well record** - Deletes the specified record.
-  ![Screenshot](/media/tutorial-delete-well.png)
+  ![Screenshot-of-tutorial-delete-well](/media/tutorial-delete-well.png)
 
 ***Successful completion of above steps indicates success ingestion and retrieval of well records***
