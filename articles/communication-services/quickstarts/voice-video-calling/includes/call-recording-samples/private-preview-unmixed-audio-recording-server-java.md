@@ -8,7 +8,7 @@ ms.author: bharat
 ---
 
 > [!NOTE]
-> Call Recording Unmixed audio formats from Azure Communication Services is available in US only in private preview and may change based on feedback we receive.
+> Call Recording Unmixed audio is available in US only and may change based on feedback we receive during Private Preview.
 
 
 ## Prerequisites
