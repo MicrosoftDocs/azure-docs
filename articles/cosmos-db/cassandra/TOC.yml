@@ -1,8 +1,8 @@
-- name: Apache Cassandra API documentation
+- name: Apache Cassandra documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is Cassandra API in Azure Cosmos DB?
+    - name: What is Azure Cosmos DB for Cassandra?
       href: cassandra-introduction.md
     - name: Wire protocol support
       href: cassandra-support.md

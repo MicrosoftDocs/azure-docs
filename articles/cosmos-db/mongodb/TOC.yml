@@ -1,8 +1,8 @@
-- name: MongoDB API documentation
+- name: MongoDB documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is the API for MongoDB in Azure Cosmos DB?
+    - name: What is Azure Cosmos DB for MongoDB?
       href: mongodb-introduction.md
     - name: API versions
       items:

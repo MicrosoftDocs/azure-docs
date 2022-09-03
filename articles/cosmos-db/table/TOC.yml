@@ -1,8 +1,8 @@
-- name: Table API documentation
+- name: Table documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is Table API in Azure Cosmos DB?
+    - name: What is Azure Cosmos DB for Table?
       href: introduction.md
     - name: FAQ
       href: table-api-faq.yml

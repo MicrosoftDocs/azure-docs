@@ -1,8 +1,8 @@
-- name: Apache Gremlin API documentation
+- name: Apache Gremlin documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is Gremlin API in Azure Cosmos DB?
+    - name: What is Azure Cosmos DB for Apache Gremlin?
       href: graph-introduction.md
     - name: Wire protocol support
       href: gremlin-support.md
