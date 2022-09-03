@@ -20,8 +20,8 @@ This article describes the steps to follow for deploying such logic apps to prot
 
 For more information, review the following documentation:
 
-* [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
-* [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md)
+- [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md)
+- [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
 
 <a name="deploy-with-portal-or-visual-studio-code"></a>
 
