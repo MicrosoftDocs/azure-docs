@@ -16,7 +16,12 @@ ms.date: 08/20/2022
 
 When you create a single-tenant Standard logic app resource, you're required to have a storage account for storing logic app artifacts. You can restrict access to this storage account so that only the resources inside a virtual network can connect to your logic app workflow. Azure Storage supports adding private endpoints to your storage account.
 
-This article describes the steps to follow for deploying such logic apps to protected private storage accounts. For more information, review [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md).
+This article describes the steps to follow for deploying such logic apps to protected private storage accounts.
+
+For more information, review the following documentation:
+
+* [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
+* [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md)
 
 <a name="deploy-with-portal-or-visual-studio-code"></a>
 
@@ -114,11 +119,11 @@ As the logic app isn't running when these errors occur, you can't use the Kudu c
 
      `C:\psping {storage-account-host-name}.blob.core.windows.net:443`
 
-     `C:\psping {storage-account-host-name}.file.core.windows.net:443`
-
      `C:\psping {storage-account-host-name}.queue.core.windows.net:443`
 
      `C:\psping {storage-account-host-name}.table.core.windows.net:443`
+
+     `C:\psping {storage-account-host-name}.file.core.windows.net:445`
 
   1. If the queries resolve from the VM, continue with the following steps:
 
