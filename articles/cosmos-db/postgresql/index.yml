@@ -20,5 +20,5 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a server group in the portal
-            url: quickstart-create-portal.md
+          - text: Placeholder
+            url: placeholder.md
