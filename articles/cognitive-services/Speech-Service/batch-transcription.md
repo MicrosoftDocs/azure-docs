@@ -14,39 +14,38 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# How to use batch transcription
+# How to use batch transcription from audio files in storage
 
-Batch transcription is a set of REST API operations that enables you to transcribe a large amount of audio in storage. You can point to audio files by using a typical URI or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI, and asynchronously receive transcription results. With the [Speech to text REST API](rest-speech-to-text.md), you can transcribe one or more audio files, or process a whole storage container.
+[Speech-to-text REST API](rest-speech-to-text.md) | [Speech CLI](spx-basics.md) | [Additional Samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
-You can use batch transcription REST APIs to call the following methods:
-
-|    Batch transcription operation                                             |    Method    |    REST API call                                   |
-|------------------------------------------------------------------------------|--------------|----------------------------------------------------|
-|    Creates a new transcription.                                              |    POST      |    speechtotext/v3.1/transcriptions            |
-|    Retrieves a list of transcriptions for the authenticated subscription.    |    GET       |    speechtotext/v3.1/transcriptions            |
-|    Gets a list of supported locales for offline transcriptions.              |    GET       |    speechtotext/v3.1/transcriptions/locales    |
-|    Updates the mutable details of the transcription identified by its ID.    |    PATCH     |    speechtotext/v3.1/transcriptions/{id}       |
-|    Deletes the specified transcription task.                                 |    DELETE    |    speechtotext/v3.1/transcriptions/{id}       |
-|    Gets the transcription identified by the specified ID.                        |    GET       |    speechtotext/v3.1/transcriptions/{id}       |
-|    Gets the result files of the transcription identified by the specified ID.    |    GET       |    speechtotext/v3.1/transcriptions/{id}/files |
-
-For more information, see the [Speech to text REST API reference](rest-speech-to-text.md) documentation.
+Batch transcription is used to transcribe a large amount of audio in storage. You should send multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe. The batch transcription service can handle a large number of submitted transcriptions. The service transcribes the files concurrently, which reduces the turnaround time. 
 
 Batch transcription jobs are scheduled on a best-effort basis. You can't estimate when a job will change into the running state, but it should happen within minutes under normal system load. When the job is in the running state, the transcription occurs faster than the audio runtime playback speed.
-
-## Prerequisites
-
-As with all features of the Speech service, you create a Speech resource from the [Azure portal](https://portal.azure.com).
 
 >[!NOTE]
 > To use batch transcription, you need a standard Speech resource (S0) in your subscription. Free resources (F0) aren't supported. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-If you plan to customize models, follow the steps in [Acoustic customization](./how-to-custom-speech-train-model.md) and [Language customization](./how-to-custom-speech-train-model.md). To use the created models in batch transcription, you need their model location. You can retrieve the model location when you inspect the details of the model (the `self` property). A deployed custom endpoint isn't needed for the batch transcription service.
+## REST API reference
 
->[!NOTE]
-> As a part of the REST API, batch transcription has a set of [quotas and limits](speech-services-quotas-and-limits.md#batch-transcription). It's a good idea to review these. To take full advantage of the ability to efficiently transcribe a large number of audio files, send multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe. The service transcribes the files concurrently, which reduces the turnaround time. For more information, see the [Configuration](#configuration) section of this article.
+You can use the REST API operations in this table for batch transcription.
 
-## Batch transcription API
+> [!NOTE]
+> As a part of the REST API, batch transcription has a set of [quotas and limits](speech-services-quotas-and-limits.md#batch-transcription). It's a good idea to review these.
+
+|Path|Method|Operation ID|
+|---------|---------|---------|
+|`/transcriptions`|POST|[Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create)|
+|`/transcriptions/{id}`|DELETE|[Transcriptions_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)|
+|`/transcriptions/{id}`|GET|[Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get)|
+|`/transcriptions/{id}/files/{fileId}`|GET|[Transcriptions_GetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_GetFile)|
+|`/transcriptions`|GET|[Transcriptions_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_List)|
+|`/transcriptions/{id}/files`|GET|[Transcriptions_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles)|
+|`/transcriptions/locales`|GET|[Transcriptions_ListSupportedLocales](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListSupportedLocales)|
+|`/transcriptions/{id}`|PATCH|[Transcriptions_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Update)|
+
+For more information, see the [Speech to text REST API reference](rest-speech-to-text.md) documentation.
+
+## Supported audio formats
 
 The batch transcription API supports the following formats:
 
@@ -58,7 +57,7 @@ The batch transcription API supports the following formats:
 
 For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each channel. To create an ordered final transcript, use the timestamps that are generated per utterance.
 
-### Configuration
+## Configuration
 
 Configuration parameters are provided as JSON. You can transcribe one or more individual files, process a whole storage container, and use a custom trained model in a batch transcription.
 
@@ -112,71 +111,19 @@ Here's an example of using a custom trained model in a batch transcription. This
 }
 ```
 
-### Configuration properties
+## Batch transcription request
 
 Use these optional properties to configure transcription:
 
-:::row:::
-   :::column span="1":::
-      **Parameter**
-   :::column-end:::
-   :::column span="2":::
-      **Description**
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      `profanityFilterMode`
-   :::column-end:::
-   :::column span="2":::
-      Optional, defaults to `Masked`. Specifies how to handle profanity in recognition results. Accepted values are `None` to disable profanity filtering, `Masked` to replace profanity with asterisks, `Removed` to remove all profanity from the result, or `Tags` to add profanity tags.
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      `punctuationMode`
-   :::column-end:::
-   :::column span="2":::
-      Optional, defaults to `DictatedAndAutomatic`. Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation.
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      `wordLevelTimestampsEnabled`
-   :::column-end:::
-   :::column span="2":::
-      Optional, `false` by default. Specifies if word level timestamps should be added to the output.
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      `diarizationEnabled`
-   :::column-end:::
-   :::column span="2":::
-      Optional, `false` by default. Specifies that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains two voices. Requires `wordLevelTimestampsEnabled` to be set to `true`.
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      `channels`
-   :::column-end:::
-   :::column span="2":::
-      Optional, `0` and `1` transcribed by default. An array of channel numbers to process. Here, a subset of the available channels in the audio file can be specified to be processed (for example `0` only).
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      `timeToLive`
-   :::column-end:::
-   :::column span="2":::
-      Optional, no deletion by default. A duration to automatically delete transcriptions after completing the transcription. The `timeToLive` is useful in mass processing transcriptions to ensure they will be eventually deleted (for example, `PT12H` for 12 hours).
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      `destinationContainerUrl`
-   :::column-end:::
-   :::column span="2":::
-      Optional URL with [ad hoc SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. SAS with stored access policies isn't supported. If you don't specify a container, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete), the result data is also deleted.
-:::row-end:::
-
-### Storage
-
-Batch transcription can read audio from a public-visible internet URI,
-and can read audio or write transcriptions by using a SAS URI with [Blob Storage](../../storage/blobs/storage-blobs-overview.md).
+| Property | Description |
+|----------|-------------|
+|`profanityFilterMode`|Optional, defaults to `Masked`. Specifies how to handle profanity in recognition results. Accepted values are `None` to disable profanity filtering, `Masked` to replace profanity with asterisks, `Removed` to remove all profanity from the result, or `Tags` to add profanity tags.|
+|`punctuationMode`|Optional, defaults to `DictatedAndAutomatic`. Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation.|
+|`wordLevelTimestampsEnabled`|Optional, `false` by default. Specifies if word level timestamps should be added to the output.|
+|`diarizationEnabled`|Optional, `false` by default. Specifies that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains two voices. Requires `wordLevelTimestampsEnabled` to be set to `true`.|
+|`channels`|Optional, `0` and `1` transcribed by default. An array of channel numbers to process. Here, a subset of the available channels in the audio file can be specified to be processed (for example `0` only).|
+|`timeToLive`|Optional, no deletion by default. A duration to automatically delete transcriptions after completing the transcription. The `timeToLive` is useful in mass processing transcriptions to ensure they will be eventually deleted (for example, `PT12H` for 12 hours).|
+|`destinationContainerUrl`|Optional URL with [ad hoc SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. SAS with stored access policies isn't supported. If you don't specify a container, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete), the result data is also deleted.|
 
 ## Batch transcription result
 
@@ -244,43 +191,14 @@ Each transcription result file has this format:
 }
 ```
 
-The result contains the following fields:
+The response contains the following properties:
 
-:::row:::
-   :::column span="1":::
-      **Field**
-   :::column-end:::
-   :::column span="2":::
-      **Content**
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      `lexical`
-   :::column-end:::
-   :::column span="2":::
-      The actual words recognized.
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      `itn`
-   :::column-end:::
-   :::column span="2":::
-      The inverse-text-normalized (ITN) form of the recognized text. Abbreviations (for example, "doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      `maskedITN`
-   :::column-end:::
-   :::column span="2":::
-      The ITN form with profanity masking applied.
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      `display`
-   :::column-end:::
-   :::column span="2":::
-      The display form of the recognized text. Added punctuation and capitalization are included.
-:::row-end:::
+| Property | Description |
+|----------|-------------|
+|`lexical`|The actual words recognized.|
+|`itn`|The inverse-text-normalized (ITN) form of the recognized text. Abbreviations (for example, "doctor smith" to "dr smith"), phone numbers, and other transformations are applied.|
+|`maskedITN`|The ITN form with profanity masking applied.|
+|`display`|The display form of the recognized text. Added punctuation and capitalization are included.|
 
 ## Speaker separation (diarization)
 
@@ -310,105 +228,83 @@ Word-level timestamps must be enabled, as the parameters in this request indicat
 
 ## Best practices
 
-The batch transcription service can handle a large number of submitted transcriptions. You can query the status of your transcriptions with the [Transcriptions_List](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_List) operation. Call [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)
+You can query the status of your transcriptions with the [Transcriptions_List](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_List) operation. Call [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
 
-> [!TIP]
-> You can use the [Ingestion Client](ingestion-client.md) tool and resulting solution to process a high volume of audio.
+## Using custom models with batch transcription
 
-## Sample code
-
-Complete samples are available in the [GitHub sample repository](https://aka.ms/csspeech/samples), inside the `samples/batch` subdirectory.
-
-Update the sample code with your subscription information, service region, URI pointing to the audio file to transcribe, and model location if you're using a custom model.
-
-[!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/batchclient/program.cs#transcriptiondefinition)]
-
-The sample code sets up the client and submits the transcription request. It then polls for the status information and prints details about the transcription progress.
-
-```csharp
-// get the status of our transcriptions periodically and log results
-int completed = 0, running = 0, notStarted = 0;
-while (completed < 1)
-{
-    completed = 0; running = 0; notStarted = 0;
-
-    // get all transcriptions for the user
-    paginatedTranscriptions = null;
-    do
-    {
-        // <transcriptionstatus>
-        if (paginatedTranscriptions == null)
-        {
-            paginatedTranscriptions = await client.Transcriptions_ListAsync().ConfigureAwait(false);
-        }
-        else
-        {
-            paginatedTranscriptions = await client.Transcriptions_ListAsync(paginatedTranscriptions.NextLink).ConfigureAwait(false);
-        }
-
-        // delete all pre-existing completed transcriptions. If transcriptions are still running or not started, they will not be deleted
-        foreach (var transcription in paginatedTranscriptions.Values)
-        {
-            switch (transcription.Status)
-            {
-                case "Failed":
-                case "Succeeded":
-                    // we check to see if it was one of the transcriptions we created from this client.
-                    if (!createdTranscriptions.Contains(transcription.Self))
-                    {
-                        // not created form here, continue
-                        continue;
-                    }
-
-                    completed++;
-
-                    // if the transcription was successful, check the results
-                    if (transcription.Status == "Succeeded")
-                    {
-                        var paginatedfiles = await client.Transcriptions_ListFilesAsync(transcription.Links.Files).ConfigureAwait(false);
-
-                        var resultFile = paginatedfiles.Values.FirstOrDefault(f => f.Kind == ArtifactKind.Transcription);
-                        var result = await client.Transcriptions_GetResultAsync(new Uri(resultFile.Links.ContentUrl)).ConfigureAwait(false);
-                        Console.WriteLine("Transcription succeeded. Results: ");
-                        Console.WriteLine(JsonConvert.SerializeObject(result, SpeechJsonContractResolver.WriterSettings));
-                    }
-                    else
-                    {
-                        Console.WriteLine("Transcription failed. Status: {0}", transcription.Properties.Error.Message);
-                    }
-
-                    break;
-
-                case "Running":
-                    running++;
-                    break;
-
-                case "NotStarted":
-                    notStarted++;
-                    break;
-            }
-        }
-
-        // for each transcription in the list we check the status
-        Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
-    }
-    while (paginatedTranscriptions.NextLink != null);
-
-    // </transcriptionstatus>
-    // check again after 1 minute
-    await Task.Delay(TimeSpan.FromMinutes(1)).ConfigureAwait(false);
-}
-```
-
-For full details about the preceding calls, see the [Speech to text REST API reference](rest-speech-to-text.md) documentation. For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
-
-This sample uses an asynchronous setup to post audio and receive transcription status. The `PostTranscriptions` method sends the audio file details, and the `Transcriptions_List` method receives the states. `PostTranscriptions` returns a handle, and `Transcriptions_List` uses it to create a handle to get the transcription status.
-
-This sample code doesn't specify a custom model. The service uses the base model for transcribing the file or files. To specify the model, you can pass on the same method the model reference for the custom model.
+The service uses the base model for transcribing the file or files. To specify the model, you can pass on the same method the model reference for the custom model.
 
 > [!NOTE]
 > For baseline transcriptions, you don't need to declare the ID for the base model.
+
+If you plan to use a Custom Speech model, follow the steps from [Create a Custom Speech project](how-to-custom-speech-create-project.md) to [Train a model](how-to-custom-speech-train-model.md). A [deployed custom endpoint](how-to-custom-speech-deploy-model.md) isn't needed for the batch transcription service.
+
+To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. 
+
+## Azure Storage for audio files
+
+You can point to audio files by using a typical URI or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI, and asynchronously receive transcription results. With the [Speech to text REST API](rest-speech-to-text.md), you can transcribe one or more audio files, or process a whole storage container.
+
+Batch transcription can read audio from a public-visible internet URI and can read audio or write transcriptions by using a SAS URI with [Blob Storage](../../storage/blobs/storage-blobs-overview.md).
+
+Follow these steps to create a storage account, upload wav files from your local directory to a new container, and generate a SAS URL that you can use for batch transcriptions.
+
+1. Set the `RESOURCE_GROUP` environment variable to the name of an existing resource group where the new storage account will be created.
+
+    ```azurecli-interactive
+    set RESOURCE_GROUP=<your existing resource group name>
+    ```
+
+1. Set the `AZURE_STORAGE_ACCOUNT` environment variable to the name of a storage account that you want to create.
+
+    ```azurecli-interactive
+    set AZURE_STORAGE_ACCOUNT=<choose new storage account name>
+    ```
+
+1. Create a new storage account with the [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) command. Replace `eastus` with the region of your resource group.
+
+    ```azurecli-interactive
+    az storage account create -n %AZURE_STORAGE_ACCOUNT% -g %RESOURCE_GROUP% -l eastus
+    ```
+
+    > [!TIP]
+    > When you are finished with batch transcriptions and want to delete your storage account, use the [`az storage delete create`](/cli/azure/storage/account#az-storage-account-delete) command.
+
+1. Get your new storage account keys with the [`az storage account keys list`](/cli/azure/storage/account#az-storage-account-keys-list) command. 
+
+    ```azurecli-interactive
+    az storage account keys list -g %RESOURCE_GROUP% -n %AZURE_STORAGE_ACCOUNT%
+    ```
+
+1. Set the `AZURE_STORAGE_KEY` environment variable to one of the key values retrieved in the previous step.
+
+    ```azurecli-interactive
+    set AZURE_STORAGE_KEY=<your storage account key>
+    ```
+    
+    > [!IMPORTANT]
+    > The remaining steps use the `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_KEY` environment variables. If you didn't set the environment variables, you can pass the values as parameters to the commands. See the [az storage container create](/cli/azure/storage/) documentation for more information.
+    
+1. Create a container with the [`az storage container create`](/cli/azure/storage/container#az-storage-container-create) command. Replace `<mycontainer>` with a name for your container.
+
+    ```azurecli-interactive
+    az storage container create -n <mycontainer>
+    ```
+
+1. The following [`az storage blob upload-batch`](/cli/azure/storage/blob#az-storage-blob-upload-batch) command uploads all .wav files from the current local directory. Replace `<mycontainer>` with a name for your container. Optionally you can modify the command to upload files from a different directory.
+
+    ```azurecli-interactive
+    az storage blob upload-batch -d <mycontainer> -s . --pattern *.wav
+    ```
+
+1. Generate a SAS URL with read (r) and list (l) permissions for the container with the [`az storage container generate-sas`](/cli/azure/storage/container#az-storage-container-generate-sas) command. Replace `<mycontainer>` with the name of your container.
+
+    ```azurecli-interactive
+    az storage container generate-sas -n <mycontainer> --expiry 2022-09-09 --permissions rl --https-only
+    ```
+
+The previous command returns a SAS token. Append the SAS token to your container blob URL to create a SAS URL. For example: `https://<storage_account_name>.blob.core.windows.net/<container_name>?SAS_TOKEN`. You will use the SAS URL for batch transcription.
 
 ## Next steps
 
