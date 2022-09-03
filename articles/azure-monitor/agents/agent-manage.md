@@ -20,7 +20,7 @@ Upgrade to the latest release of the Log Analytics agent for Windows and Linux m
 
 | Environment | Installation method | Upgrade method |
 |--------|----------|-------------|
-| Azure VM | Log Analytics agent VM extension for Windows/Linux | Agent is automatically upgraded [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property _autoUpgradeMinorVersion_ to **false**. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Major version upgrade is always manual. See [VirtualMachineExtensionInner.AutoUpgradeMinorVersion Property](https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute.fluent.models.virtualmachineextensioninner.autoupgrademinorversion?view=azure-dotnet). |
+| Azure VM | Log Analytics agent VM extension for Windows/Linux | Agent is automatically upgraded [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property _autoUpgradeMinorVersion_ to **false**. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Only Linux agent supports automatic update post deployment with_enableAutomaticUpgrade_ property is set(See [Enable Auto-Update for the Linux Agent](#enable-auto-update-for-the-linux-agent)). Major version upgrade is always manual. See [VirtualMachineExtensionInner.AutoUpgradeMinorVersion Property](https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute.fluent.models.virtualmachineextensioninner.autoupgrademinorversion?view=azure-dotnet). |
 | Custom Azure VM images | Manual install of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle.|
 | Non-Azure VMs | Manual install of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle. |
 
@@ -90,10 +90,10 @@ Set-AzVMExtension \
   -ExtensionName OmsAgentForLinux \
   -ExtensionType OmsAgentForLinux \
   -Publisher Microsoft.EnterpriseCloud.Monitoring \
-  -TypeHandlerVersion latestVersion
+  -TypeHandlerVersion latestVersion \
   -ProtectedSettingString '{"workspaceKey":"myWorkspaceKey"}' \
   -SettingString '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}' \
- -EnableAutomaticUpgrade $true
+  -EnableAutomaticUpgrade $true
 ```
 # [Azure CLI](#tab/CLILinux)
 ```powershell
@@ -105,7 +105,7 @@ az vm extension set \
   --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
   --settings '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}' \
   --version latestVersion \
---enable-auto-upgrade true
+  --enable-auto-upgrade true
 ```
 ---
 
