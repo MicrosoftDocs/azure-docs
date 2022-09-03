@@ -16,9 +16,9 @@ zone_pivot_groups: acs-csharp-java
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-
 # Quickstart: Build call workflows for customer interactions
-Get started with Azure Communication Services by using the Call Automation SDKs to build an automated workflows to handle common customer support scenarios. 
+
+Get started with Azure Communication Services by using the Call Automation SDKs to build an automated workflows to handle common customer support scenarios.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Call flows for customer interactions with .NET](./includes/call-automation/Callflow-for-customer-interactions-csharp.md)]
