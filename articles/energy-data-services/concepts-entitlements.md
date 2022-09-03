@@ -3,7 +3,7 @@ title: Microsoft Energy Data Services entitlement concepts #Required; page title
 description:  This article describes the various concepts regarding the entitlement services in Microsoft Energy Data Services #Required; article description that is displayed in search results. 
 author: Lakshmisha-KS #Required; your GitHub user alias, with correct capitalization.
 ms.author: lakshmishaks #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 08/19/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.

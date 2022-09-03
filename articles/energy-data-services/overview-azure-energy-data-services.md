@@ -2,7 +2,7 @@
 title: What is Azure Energy Data Services? #Required; page title is displayed in search results. Include the brand.
 description: This article provides an overview of Azure Energy Data Services #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
-ms.service: azure
+ms.service: energy-data-services
 ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
 ms.topic: overview #Required; leave this attribute/value as-is.
 ms.date: 12/11/2021 #Required; mm/dd/yyyy format.

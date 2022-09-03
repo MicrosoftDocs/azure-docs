@@ -3,7 +3,7 @@ title: Microsoft Energy Data Services - Steps to interact with Well Delivery DDM
 description: This tutorial shows you how to interact with Well Delivery DDMS #Required; article description that is displayed in search results. 
 author: dprakash-sivakumar #Required; your GitHub user alias, with correct capitalization.
 ms.author: disivakumar #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: tutorial #Required; leave this attribute/value as-is.
 ms.date: 07/28/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.

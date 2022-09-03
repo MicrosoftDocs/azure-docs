@@ -3,7 +3,7 @@ title: Microsoft Energy Data Services - How to convert a segy to ovds file #Requ
 description: This article explains how to convert a SGY file to oVDS file format #Required; article description that is displayed in search results. 
 author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
 ms.author: elhalper #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 08/18/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.

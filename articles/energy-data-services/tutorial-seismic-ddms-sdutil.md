@@ -3,7 +3,7 @@ title: Microsoft Energy Data Services - Seismic store sdutil tutorial #Required;
 description: Information on setting up and using sdutil, a command-line interface (CLI) tool that allows users to easily interact with seismic store. #Required; article description that is displayed in search results. 
 author: marielgherz #Required; your GitHub user alias, with correct capitalization.
 ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: tutorial #Required; leave this attribute/value as-is.
 ms.date: 12/10/2021
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
