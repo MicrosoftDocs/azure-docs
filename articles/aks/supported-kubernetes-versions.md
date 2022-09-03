@@ -195,7 +195,7 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 | 1.25 | Aug 2022 | Sept 2022 | Nov 2022 | 1.28 GA
 
 > [!NOTE]
-    > To find out more about the release version by region you can check [AKS release status webpage][release-tracker-webpage], visit [service health notification](../aks/release-tracker.md) for more information.
+> To find out more about the release version by region you can check [AKS release status webpage][release-tracker-webpage], visit [service health notification](../aks/release-tracker.md) for more information.
 
 ## FAQ
 
