@@ -1,4 +1,4 @@
-- name: Cassandra API documentation
+- name: Apache Cassandra API documentation
   href: index.yml
 - name: Overview
   items:
