@@ -72,7 +72,7 @@ IDs users create, own, and control independently of any organization or governme
 **2. Trust System**.
 In order to be able to resolve DID documents, DIDs are typically recorded on an underlying network of some kind that represents a trust system. Microsoft currently supports two trust systems, which are: 
 
-- ION (Identity Overlay Network) ION is a Layer 2 open, permissionless network based on the purely deterministic Sidetree protocol, which requires no special tokens, trusted validators, or other consensus mechanisms; the linear progression of Bitcoin's time chain is all that's required for its operation. We have open sourced a [npm package](https://www.npmjs.com/package/@decentralized-identity/ion-tools) to make working with the ION network easy to integrate into your apps and services. Libraries include creating a new DID, generating keys and anchoring your DID on the Bitcoin blockchain.
+- ION (Identity Overlay Network) ION is a Layer 2 open, permissionless network based on the purely deterministic Sidetree protocol, which requires no special tokens, trusted validators, or other consensus mechanisms; the linear progression of Bitcoin's time chain is all that's required for its operation. We have open sourced an [npm package](https://www.npmjs.com/package/@decentralized-identity/ion-tools) to make working with the ION network easy to integrate into your apps and services. Libraries include creating a new DID, generating keys and anchoring your DID on the Bitcoin blockchain.
 
 - DID:Web is a permission based model that allows trust using a web domain’s existing reputation.
 
@@ -80,7 +80,7 @@ In order to be able to resolve DID documents, DIDs are typically recorded on an 
 Enables real people to use decentralized identities and Verifiable Credentials. Authenticator creates DIDs, facilitates issuance and presentation requests for verifiable credentials and manages the backup of your DID's seed through an encrypted wallet file.
 
 **4. Microsoft Resolver**.
-An API that look up and resolve DIDs using the ```did:web``` or the ```did:ion``` methods and return the DID Document Object (DDO). The DDO includes DPKI metadata associated with the DID such as public keys and service endpoints. 
+An API that looks up and resolves DIDs using the ```did:web``` or the ```did:ion``` methods and returns the DID Document Object (DDO). The DDO includes DPKI metadata associated with the DID such as public keys and service endpoints. 
 
 **5. Entra Verified ID Service**.
 An issuance and verification service in Azure and a REST API for [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) that are signed with the ```did:web``` or the ```did:ion``` method. They enable identity owners to generate, present, and verify claims. This forms the basis of trust between users of the systems.
@@ -97,7 +97,7 @@ The scenario we use to explain how VCs work involves:
 
 Today, Alice provides a username and password to log onto Woodgrove’s networked environment. Woodgrove is deploying a verifiable credential solution to provide a more manageable way for Alice to prove that she is an employee of Woodgrove. Proseware accepts verifiable credentials issued by Woodgrove as proof of employment to offer corporate discounts as part of their corporate discount program.
 
-Alice requests Woodgrove Inc for a proof of employment verifiable credential. Woodgrove Inc attests Alice's identity and issues a signed verfiable credential that Alice can accept and store in her digital wallet application. Alice can now present this verifiable credential as a proof of employement on the Proseware site. After a succesfull presentation of the credential, Prosware offers discount to Alice and the transaction is logged in Alice's wallet application so that she can track where and to whom she has presented her proof of employment verifiable credential.
+Alice requests Woodgrove Inc for a proof of employment verifiable credential. Woodgrove Inc attests Alice's identity and issues a signed verifiable credential that Alice can accept and store in her digital wallet application. Alice can now present this verifiable credential as a proof of employment on the Proseware site. After a successful presentation of the credential, Proseware offers discount to Alice and the transaction is logged in Alice's wallet application so that she can track where and to whom she has presented her proof of employment verifiable credential.
 
 ![microsoft-did-overview](media/decentralized-identifier-overview/did-overview.png)
 
