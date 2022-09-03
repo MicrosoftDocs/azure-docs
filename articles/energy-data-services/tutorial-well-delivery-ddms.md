@@ -48,7 +48,7 @@ In this tutorial, you will learn how to:
    * [Well Delivery DDMS Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WelldeliveryDDMS.postman_collection.json)
    * [Well Delivery DDMS Postman Environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WelldeliveryDDMSEnviroment.postman_environment.json)
  
-* Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services Preview instance details](#get-microsoft-energy-data-services-instance-details).
+* Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services Preview instance details](#get-microsoft-energy-data-services-preview-instance-details).
 
 ### Executing postman requests
 

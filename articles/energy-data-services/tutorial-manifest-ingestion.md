@@ -48,7 +48,7 @@ Before beginning this tutorial, the following prerequisites must be completed:
   * [Manifest Ingestion postman environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json?token=GHSAT0AAAAAABRNZHEUCYUV6PO4RETLJEX4YYRST4Q)
     > [!NOTE]
     >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
-* Update the **CURRENT_VALUE** of the postman environment with the information obtained in [Get Microsoft Energy Data Services Preview instance details](#get-microsoft-energy-data-services-instance-details)
+* Update the **CURRENT_VALUE** of the postman environment with the information obtained in [Get Microsoft Energy Data Services Preview instance details](#get-microsoft-energy-data-services-preview-instance-details)
 
 ### How to execute Postman requests
 
