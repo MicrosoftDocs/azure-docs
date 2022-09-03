@@ -151,7 +151,7 @@ var response = await callAutomationClient.GetCallRecording().DeleteRecordingAsyn
 
 ## Appendix
 
-### Getting serverCallId as a requirement for call recording server APIs from JavaScript application
+### A - Getting serverCallId as a requirement for call recording server APIs from JavaScript application
 
 Call recording is an extended feature of the core Call API. You first need to import calling Features from the Calling SDK.
 
@@ -212,8 +212,11 @@ callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
 });
 ```
 
+### B - How to find the Azure Resource ID
 
+In order to get your Resource ID whitelisted, please send your Immutable Azure Resource ID to the Call Recording Team. For reference see the image below.
 
+![Call recording how to get resource ID](../../media/call-recording/immutable resource id.md)
 
 
 
