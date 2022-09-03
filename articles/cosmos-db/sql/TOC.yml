@@ -1,4 +1,4 @@
-- name: SQL API documentation
+- name: NoSQL API documentation
   href: index.yml
 - name: Quickstarts
   items:
