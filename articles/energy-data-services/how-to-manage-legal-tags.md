@@ -1,6 +1,6 @@
 ---
-title: How to manage legal tags in Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
-description: This article describes how to manage legal tags in Microsoft Energy Data Services #Required; article description that is displayed in search results. 
+title: How to manage legal tags in Microsoft Energy Data Services Preview #Required; page title is displayed in search results. Include the brand.
+description: This article describes how to manage legal tags in Microsoft Energy Data Services Preview #Required; article description that is displayed in search results. 
 author: Lakshmisha-KS #Required; your GitHub user alias, with correct capitalization.
 ms.author: lakshmishaks #Required; microsoft alias of author; optional team alias.
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
@@ -10,7 +10,9 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # How to manage legal tags?
-A Legal tag is the entity that represents the legal status of data in the Microsoft Energy Data Services instance. Legal tag is a collection of properties that governs how the data can be ingested and consumed. A user may have access to manage the data within a data partition however, they may not be able to do so, until certain legal requirements are fulfilled. Data won't be able to be passed into or out of Azure Energy Data services unless the partition has an associated legal tag.
+A Legal tag is the entity that represents the legal status of data in the Microsoft Energy Data Services Preview instance. Legal tag is a collection of properties that governs how the data can be ingested and consumed. A user may have access to manage the data within a data partition however, they may not be able to do so, until certain legal requirements are fulfilled. Data won't be able to be passed into or out of Microsoft Energy Data Services Preview unless the partition has an associated legal tag.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Create a legal tag
 
@@ -45,7 +47,7 @@ A Legal tag is the entity that represents the legal status of data in the Micros
     --header 'Content-Type: application/json' \
     --data-raw '{
         "name": "bseloak-bseldp1-legal-tag",
-        "description": "Microsoft Energy Data Services Legal Tag",
+        "description": "Microsoft Energy Data Services Preview Legal Tag",
         "properties": {
             "contractId": "A1234",
             "countryOfOrigin": ["US"],
@@ -65,7 +67,7 @@ A Legal tag is the entity that represents the legal status of data in the Micros
 ```JSON
     {
         "name": "bseloak-bseldp1-legal-tag",
-        "description": "Microsoft Energy Data Services Legal Tag",
+        "description": "Microsoft Energy Data Services Preview Legal Tag",
         "properties": {
         "countryOfOrigin": [
             "US"
@@ -93,7 +95,7 @@ The country of origin should follow [ISO Alpha2 format](https://www.nationsonlin
     --header 'Content-Type: application/json' \
     --data-raw '{
         "name": "legal-tag",
-        "description": "Microsoft Energy Data Services Legal Tag",
+        "description": "Microsoft Energy Data Services Preview Legal Tag",
         "properties": {
             "contractId": "A1234",
             "countryOfOrigin": ["US"],
@@ -113,7 +115,7 @@ The sample response will have data-partition-id appended to the legal tag name a
 ```JSON
     {
         "name": "bseloak-bseldp1-legal-tag",
-        "description": "Microsoft Energy Data Services Legal Tag",
+        "description": "Microsoft Energy Data Services Preview Legal Tag",
         "properties": {
         "countryOfOrigin": [
             "US"
@@ -150,7 +152,7 @@ The sample response will have data-partition-id appended to the legal tag name a
 ```JSON
     {
     "name": "bseloak-bseldp1-legal-tag",
-    "description": "Microsoft Energy Data Services Legal Tag",
+    "description": "Microsoft Energy Data Services Preview Legal Tag",
     "properties": {
         "countryOfOrigin": [
         "US"

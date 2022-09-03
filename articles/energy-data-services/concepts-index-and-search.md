@@ -1,5 +1,5 @@
 ---
-title: Microsoft Energy Data Services - index and search workflow concepts #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Energy Data Services Preview - index and search workflow concepts #Required; page title is displayed in search results. Include the brand.
 description: Learn how to use indexing and search workflows #Required; article description that is displayed in search results. 
 author: vivekkalra #Required; your GitHub user alias, with correct capitalization.
 ms.author: vivekkalra #Required; microsoft alias of author; optional team alias.
@@ -10,9 +10,11 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 #Customer intent: As a developer, I want to understand indexing and search workflows so that I could search for ingested data in the platform.
 ---
-# Microsoft Energy Data Services indexing and search workflows
+# Microsoft Energy Data Services Preview indexing and search workflows
 
 All data and associated metadata ingested into the platform are indexed to enable search. The metadata is accessible to ensure awareness even when the data isn't available.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Indexer Service
 

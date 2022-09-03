@@ -1,5 +1,5 @@
 ---
-title: Microsoft Energy Data Services - Steps to interact with Well Delivery DDMS  #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Energy Data Services Preview - Steps to interact with Well Delivery DDMS  #Required; page title is displayed in search results. Include the brand.
 description: This tutorial shows you how to interact with Well Delivery DDMS #Required; article description that is displayed in search results. 
 author: dprakash-sivakumar #Required; your GitHub user alias, with correct capitalization.
 ms.author: disivakumar #Required; microsoft alias of author; optional team alias.
@@ -11,18 +11,20 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Steps to interact with Well Delivery DDMS
 
-Well Delivery DDMS provides the capability to manage well related data in the Microsoft Energy Data Services instance.
+Well Delivery DDMS provides the capability to manage well related data in the Microsoft Energy Data Services Preview instance.
 
 In this tutorial, you will learn how to:
 
 
 > * Utilize Well Delivery DDMS Api's to store and retrieve well data
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Prerequisites
 
-### Get Microsoft Energy Data Services instance details
+### Get Microsoft Energy Data Services Preview instance details
 
-* Once the [Microsoft Energy Data Services instance](quickstart-create-project-oak-forest-instance.md) is created, note down the following details:
+* Once the [Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) is created, note down the following details:
 
 ```Table
   | Parameter          | Value to use             | Example                               |
@@ -46,7 +48,7 @@ In this tutorial, you will learn how to:
    * [Well Delivery DDMS Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WelldeliveryDDMS.postman_collection.json)
    * [Well Delivery DDMS Postman Environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WelldeliveryDDMSEnviroment.postman_environment.json)
  
-* Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services instance details](#get-microsoft-energy-data-services-instance-details).
+* Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services Preview instance details](#get-microsoft-energy-data-services-instance-details).
 
 ### Executing postman requests
 

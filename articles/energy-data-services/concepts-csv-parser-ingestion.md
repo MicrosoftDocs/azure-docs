@@ -1,5 +1,5 @@
 ---
-title: Microsoft Energy Data Services csv parser ingestion workflow concept #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Energy Data Services Preview csv parser ingestion workflow concept #Required; page title is displayed in search results. Include the brand.
 description: Learn how to use CSV parser ingestion. #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
 ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
@@ -11,9 +11,11 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # CSV parser ingestion concepts
 
-One of the simplest generic data formats that are supported by the Microsoft Energy Data Services ingestion process is the "comma separated values" format, which is called a CSV format. The CSV format is processed through a CSV Parser DAG definition. 
+One of the simplest generic data formats that are supported by the Microsoft Energy Data Services Preview ingestion process is the "comma separated values" format, which is called a CSV format. The CSV format is processed through a CSV Parser DAG definition. 
 
 CSV Parser DAG implements an ELT approach to data loading, that is, data is loaded after it's extracted. Customers can use CSV Parser DAG to load data that doesn't match the [OSDU](https://osduforum.org) canonical schema. Customers need to create and register a custom schema using the schema service matching the format of the CSV file.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## What does CSV ingestion do?
 

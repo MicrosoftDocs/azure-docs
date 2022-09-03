@@ -1,5 +1,5 @@
 ---
-title: Microsoft Energy Data Services manifest ingestion concepts #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Energy Data Services Preview manifest ingestion concepts #Required; page title is displayed in search results. Include the brand.
 description: This article describes manifest ingestion concepts #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
 ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
@@ -11,9 +11,11 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Manifest-based ingestion concepts
 
-Manifest-based file ingestion provides end-users and systems a robust mechanism for loading metadata in Microsoft Energy Data Services instance. A manifest is a JSON document that has a pre-determined structure for capturing entities that conform to the [OSDU](https://osduforum.org/) Well-known Schema (WKS) definitions.
+Manifest-based file ingestion provides end-users and systems a robust mechanism for loading metadata in Microsoft Energy Data Services Preview instance. A manifest is a JSON document that has a pre-determined structure for capturing entities that conform to the [OSDU](https://osduforum.org/) Well-known Schema (WKS) definitions.
 
 Manifest-based file ingestion doesn't understand the contents of the file or doesn't parse the file. It just creates a metadata record for the file and makes it searchable. It doesn't infer or does anything on top of the file.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Understanding the manifest
 

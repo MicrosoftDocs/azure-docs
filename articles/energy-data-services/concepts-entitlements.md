@@ -1,6 +1,6 @@
 ---
-title: Microsoft Energy Data Services entitlement concepts #Required; page title is displayed in search results. Include the brand.
-description:  This article describes the various concepts regarding the entitlement services in Microsoft Energy Data Services #Required; article description that is displayed in search results. 
+title: Microsoft Energy Data Services Preview entitlement concepts #Required; page title is displayed in search results. Include the brand.
+description:  This article describes the various concepts regarding the entitlement services in Microsoft Energy Data Services Preview #Required; article description that is displayed in search results. 
 author: Lakshmisha-KS #Required; your GitHub user alias, with correct capitalization.
 ms.author: lakshmishaks #Required; microsoft alias of author; optional team alias.
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
@@ -12,6 +12,8 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 # Entitlement service
 
 Access management is a critical function for any service or resource. Entitlement service helps you manage who has access to your Microsoft Energy Data Service instance, what they can do with it, and what services they have access to.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Groups
 
