@@ -187,6 +187,16 @@ If you are utilizing [Prometheus metric scraping](container-insights-prometheus-
 - Container insights supports exclusion & inclusion lists by metric name. For example, if you are scraping **kubedns** metrics in your cluster, there might be hundreds of them that gets scraped by default, but you are most likely only interested in a subset. Confirm you specified a list of metrics to scrape, or exclude others except a few to save on data ingestion volume. It is easy to enable scraping and not use many of those metrics, which will only add additional charges to your Log Analytics bill.
 
 - When scraping through pod annotations, ensure you filter by namespace so that you exclude scraping of pod metrics from namespaces that you don't use (for example, **dev-test** namespace).
+ 
+### Configure Basic Logs
+
+Because Basic Logs is primarily used for debugging, troubleshooting, and auditing, it offers a low-cost alternative to standard analytics logs due to reduced cost for ingestion. For more information, see [Configure Basic Logs (preview)](../best-practices-cost.md#configure-basic-logs-preview). ContainerLogV2 is the configured version of Basic Logs that Container Insights uses and which include verbose text-based log records.
+
+You must be on the ContainerLogV2 schema to configure Basic Logs. For more information, see [Enable the ContainerLogV2 schema (preview)](container-insights-logging-v2.md). To configure Basic Logs for ContainerLogv2, see [Configure Basic Logs in Azure Monitor (Preview)](../logs/basic-logs-configure.md).
+
+#### Limitations
+
+To review the limitations of Basic Logs, see [Configure Basic Logs (preview)](../best-practices-cost.md#configure-basic-logs-preview).
 
 ## Next steps
 
