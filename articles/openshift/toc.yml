@@ -31,7 +31,7 @@
         - name: Use GPU workloads
           href: howto-gpu-workloads.md
         - name: Manually update cluster certificates
-          href: howto-update-certificates
+          href: howto-update-certificates.md
     - name: Networking 
       items:
         - name: Create a private Azure Red Hat OpenShift cluster
