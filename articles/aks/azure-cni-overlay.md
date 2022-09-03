@@ -14,7 +14,8 @@ The traditional [Azure Container Networking Interface (CNI)](./configure-azure-c
 With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Network subnet, whereas pods are assigned IP addresses from a private CIDR logically different from the VNet hosting the nodes. Pod and node traffic within the cluster use an overlay network, and Network Address Translation (via the node's IP address) is used to reach resources outside the cluster. This solution saves a significant amount of VNet IP addresses and enables you to seamlessly scale your cluster to very large sizes. An added advantage is that the private CIDR can be reused in different AKS clusters, truly extending the IP space available for containerized applications in AKS.
 
 > [!NOTE]
-> Azure CNI overlay is currently only available in US West Central region.
+> - Azure CNI overlay is currently only available in US West Central region.
+> - Azure CNI overlay does not currently support _v5 VM SKUs.
 
 ## Overview of overlay networking
 
@@ -85,6 +86,7 @@ The overlay solution has the following limitations today
 * You can't deploy multiple overlay clusters in the same subnet.
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
+* v5 VM SKUs are not currently supported.
 
 ## Steps to set up overlay clusters
 
