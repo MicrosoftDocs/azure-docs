@@ -43,7 +43,7 @@ When preparing your text file, make sure it:
 The rest of this page focuses on Python, but sample code for the Long Audio API is available on GitHub for the following programming languages:
 
 * [Sample code: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
-* [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
+* [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/LongAudioAPI/CSharp/LongAudioAPISample)
 * [Sample code: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
 
 ## Python example
