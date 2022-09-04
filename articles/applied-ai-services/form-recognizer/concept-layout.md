@@ -119,8 +119,6 @@ The pages collection is the the very first object you see in the service respons
 ```
 ### Text lines and words
 
-### Text lines and words
-
 Read extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
 ```json
@@ -140,7 +138,6 @@ Read extracts print and handwritten style text as `lines` and `words`. The model
     }
 ]
 ```
-
 ### Selection marks
 
 Layout API also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). Any associated text if extracted is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
@@ -159,10 +156,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
         }
     ]
 }
-
-
 ```
-
 ### Tables and table headers
 
 Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding `polygon` is output along with information whether it's recognized as a `columnHeader` or not. The API also works with rotated tables. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top level `content` that contains the full text from the document.
@@ -189,7 +183,6 @@ Layout API extracts tables in the `pageResults` section of the JSON output. Docu
 }
 
 ```
-
 ### Paragraphs
 
 The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
@@ -203,7 +196,6 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 	}
 ]
 ```
-
 ### Paragraph roles
 
 The Layout model may flag certain paragraphs with their specialized type or `role` as predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
@@ -225,12 +217,17 @@ The Layout model may flag certain paragraphs with their specialized type or `rol
                     "boundingRegions": [],
                     "role": "title",
                     "content": "NEWS TODAY"
+                },
+                {
+                    "spans": [],
+                    "boundingRegions": [],
+                    "role": "sectionHeading",
+                    "content": "Mirjam Nilsson"
                 }
     ]
 }
 
 ```
-
 ### Select page numbers or ranges for text extraction
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
