@@ -82,7 +82,7 @@ Form Recognizer v3.0 version supports several languages for the read model. *See
 
 ## Data detection and extraction
 
-### Paragraphs <sup>new!</sup>
+### Paragraphs<sup>new!</sup>
 
 The Read model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
 
@@ -95,7 +95,7 @@ The Read model extracts all identified blocks of text in the `paragraphs` collec
 	}
 ]
 ```
-### Language detection <sup>new!</sup>
+### Language detection<sup>new!</sup>
 
 Read adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict all detected languages for text lines along with the `confidence` in the `languages` collection under `analyzeResult`.
 
@@ -113,6 +113,16 @@ Read adds [language detection](language-support.md#detected-languages-read-api) 
     },
 ]
 ```
+### Microsoft Office and HTML support (preview)<sup>new!</sup>
+Use the parameter `api-version=2022-06-30` when using the REST API or the corresoponding SDKs to preview the support for Microsoft Word, Excel, PowerPoint, and HTML files. The page units in the model output are computed as shown:
+
+ **File format**   | **Computed page unit**   | **Total pages**  |
+| --- | --- | --- |
+|Word (preview) | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
+|Excel (preview) | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
+|PowerPoint (preview)|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
+|HTML (preview)| Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+
 ### Pages
 
 The page units in the model output are computed as shown:
@@ -168,16 +178,6 @@ For large multi-page PDF documents, use the `pages` query parameter to indicate 
 
 > [!NOTE]
 > For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, the Read API ignores the pages parameter and extracts all pages by default.
-
-### Microsoft Office and HTML support (preview)
-Use the parameter `api-version=2022-08-31` when using the REST API or the corresoponding SDKs to preview the support for Microsoft Word, Excel, PowerPoint, and HTML files. The page units in the model output are computed as shown:
-
- **File format**   | **Computed page unit**   | **Total pages**  |
-| --- | --- | --- |
-|Word (preview) | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
-|Excel (preview) | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
-|PowerPoint (preview)|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
-|HTML (preview)| Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
 ## Next steps
 
