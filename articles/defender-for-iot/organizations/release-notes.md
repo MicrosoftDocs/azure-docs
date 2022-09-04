@@ -60,6 +60,32 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## September 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     |**All supported OT sensor software versions:** |
+
+### Device vulnerabilities from the Azure portal
+
+Defender for IoT now provides vulnerability data in the Azure portal for detected OT network devices. Vulnerability data is based on the repository of standards based vulnerability data documented at the [US government National Vulnerability Database (NVD)](https://www.nist.gov/programs-projects/national-vulnerability-database-nvd).
+
+Access vulnerability data in the Azure portal from the following locations:
+
+- On a device details page select the **Vulnerabilities** tab to view current vulnerabilities on the selected device. For example, from the **Device inventory** page, select a specific device and then select **Vulnerabilities**.
+
+    For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
+
+- A new **Vulnerabilities** workbook displays vulnerability data across all monitored OT devices. Use the **Vulnerabilities** workbook to view data like CVE by severity or vendor, and full lists of detected vulnerabilities and vulnerable devices and components.
+
+    Select an item in the **Device vulnerabilities**, **Vulnerable devices**, or **Vulnerable components** tables to view related information in the tables on the right.
+
+    For example:
+
+    :::image type="content" source="media/release-notes/vulnerabilities-workbook.png" alt-text="Screenshot of a Vulnerabilties workbook in Defender for IoT.":::
+
+    For more information, see [Use Azure Monitor workbooks in Microsoft Defender for IoT](workbooks.md).
+
 ## August 2022
 
 - **Sensor software version 22.2.5**: Minor version with stability improvements
