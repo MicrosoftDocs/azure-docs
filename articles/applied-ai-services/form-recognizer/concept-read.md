@@ -95,6 +95,21 @@ With the preview support for Microsoft Word, Excel, PowerPoint, and HTML files, 
 |PowerPoint (preview)|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
 |HTML (preview)| Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
+### Paragraphs
+
+The Read model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
+
+```json
+"paragraphs": [
+	{
+		"spans": [],
+		"boundingRegions": [],
+		"content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
+	}
+]
+
+```
+
 ### Text lines and words
 
 Read extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
