@@ -1631,7 +1631,7 @@ Learn more about [secure score and security controls in Azure Security Center](s
 
 ### Secure score API is released for general availability (GA)
 
-You can now access your score via the [secure score API](/rest/api/defenderforcloud/securescores/). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example:
+You can now access your score via the [secure score API](/rest/api/defenderforcloud/secure-scores). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example:
 
 - use the **Secure Scores** API to get the score for a specific subscription
 - use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions
@@ -2594,7 +2594,7 @@ Updates in June include:
 
 ### Secure score API (preview)
 
-You can now access your score via the [secure score API](/rest/api/defenderforcloud/securescores/) (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
+You can now access your score via the [secure score API](/rest/api/defenderforcloud/secure-scores) (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
 
 For examples of external tools made possible with the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 

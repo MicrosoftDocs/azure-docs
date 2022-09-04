@@ -23,7 +23,7 @@ The following reference document provides an overview of a workflow created usin
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-|Column1  |Display String  |Description  |Admin Consent Required  |
+|Parameter  |Display String  |Description  |Admin Consent Required  |
 |---------|---------|---------|---------|
 |LifecycleWorkflows.Read.All     | Read all Lifecycle workflows, tasks, user states| Allows the app to list and read all workflows, tasks, user states related to lifecycle workflows on behalf of the signed-in user.| Yes
 |LifecycleWorkflows.ReadWrite.All     | Read and write all lifecycle workflows, tasks, user states.| Allows the app to create, update, list, read and delete all workflows, tasks, user states related to lifecycle workflows on behalf of the signed-in user.| Yes
