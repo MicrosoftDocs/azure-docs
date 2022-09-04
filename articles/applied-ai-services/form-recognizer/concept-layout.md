@@ -98,34 +98,47 @@ Try extracting data from forms and documents using the Form Recognizer Studio. Y
 
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 
-### Text lines and words
+### Pages
 
-Layout API extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines, if detected, along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
+The pages collection is the the very first object you see in the service response.
 
 ```json
-{
-    "words": [
-        {
-            "content": "CONTOSO",
-            "polygon": [
-                76,
-                30,
-                118,
-                32,
-                118,
-                43,
-                76,
-                43
-            ],
-            "confidence": 1,
-            "span": {
-                "offset": 0,
-                "length": 7
-            }
-        }
-    ]
-}
+"pages": [
+	{
+	    "pageNumber": 1,
+	    "angle": 0,
+	    "width": 915,
+	    "height": 1190,
+	    "unit": "pixel",
+	    "words": [],
+	    "lines": [],
+	    "spans": [],
+	    "kind": "document"
+	}
+]
+```
+### Text lines and words
 
+### Text lines and words
+
+Read extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
+
+```json
+"words": [
+    {
+        "content": "While",
+        "polygon": [],
+        "confidence": 0.997,
+        "span": {}
+    },
+],
+"lines": [
+    {
+        "content": "While healthcare is still in the early stages of its Al journey, we",
+        "polygon": [],
+        "spans": [],
+    }
+]
 ```
 
 ### Selection marks
@@ -137,16 +150,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
     "selectionMarks": [
         {
             "state": "unselected",
-            "polygon": [
-                217,
-                862,
-                254,
-                862,
-                254,
-                899,
-                217,
-                899
-            ],
+            "polygon": [],
             "confidence": 0.995,
             "span": {
                 "offset": 1421,
@@ -176,33 +180,11 @@ Layout API extracts tables in the `pageResults` section of the JSON output. Docu
                     "columnIndex": 0,
                     "columnSpan": 4,
                     "content": "(In millions, except earnings per share)",
-                    "boundingRegions": [
-                        {
-                            "pageNumber": 1,
-                            "polygon": [
-                                36,
-                                184,
-                                843,
-                                183,
-                                843,
-                                209,
-                                36,
-                                207
-                                ]
-                            }
-                        ],
-                        "spans": [
-                            {
-                                "offset": 511,
-                                "length": 40
-                            }
-                        ]
+                    "boundingRegions": [],
+                    "spans": []
                     },
             ]
         }
-        .
-        .
-        .
     ]
 }
 
@@ -213,35 +195,13 @@ Layout API extracts tables in the `pageResults` section of the JSON output. Docu
 The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
 
 ```json
-{
-    "paragraphs": [
-                {
-                    "spans": [
-                        {
-                            "offset": 0,
-                            "length": 21
-                        }
-                    ],
-                    "boundingRegions": [
-                        {
-                            "pageNumber": 1,
-                            "polygon": [
-                                75,
-                                30,
-                                118,
-                                31,
-                                117,
-                                68,
-                                74,
-                                67
-                            ]
-                        }
-                    ],
-                    "content": "Tuesday, Sep 20, YYYY"
-                }
-    ]
-}
-
+"paragraphs": [
+	{
+	    "spans": [],
+	    "boundingRegions": [],
+	    "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
+	}
+]
 ```
 
 ### Paragraph roles
@@ -261,27 +221,8 @@ The Layout model may flag certain paragraphs with their specialized type or `rol
 {
     "paragraphs": [
                 {
-                    "spans": [
-                        {
-                            "offset": 22,
-                            "length": 10
-                        }
-                    ],
-                    "boundingRegions": [
-                        {
-                            "pageNumber": 1,
-                            "polygon": [
-                                139,
-                                10,
-                                605,
-                                8,
-                                605,
-                                56,
-                                139,
-                                58
-                            ]
-                        }
-                    ],
+                    "spans": [],
+                    "boundingRegions": [],
                     "role": "title",
                     "content": "NEWS TODAY"
                 }
