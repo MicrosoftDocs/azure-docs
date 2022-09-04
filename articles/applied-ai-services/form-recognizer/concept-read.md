@@ -98,15 +98,15 @@ With the preview support for Microsoft Word, Excel, PowerPoint, and HTML files, 
 ```json
 "pages": [
 	{
-		"pageNumber": 1,
-		"angle": 0,
-		"width": 915,
-		"height": 1190,
-		"unit": "pixel",
-		"words": [],
-		"lines": [],
-		"spans": [],
-		"kind": "document"
+	    "pageNumber": 1,
+	    "angle": 0,
+	    "width": 915,
+	    "height": 1190,
+	    "unit": "pixel",
+	    "words": [],
+	    "lines": [],
+	    "spans": [],
+	    "kind": "document"
 	}
 ]
 ```
@@ -118,12 +118,11 @@ The Read model extracts all identified blocks of text in the `paragraphs` collec
 ```json
 "paragraphs": [
 	{
-		"spans": [],
-		"boundingRegions": [],
-		"content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
+	    "spans": [],
+	    "boundingRegions": [],
+	    "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
 	}
 ]
-
 ```
 
 ### Text lines and words
@@ -132,10 +131,41 @@ Read extracts print and handwritten style text as `lines` and `words`. The model
 
 For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, Read will extract all embedded text as is. For any embedded images, it will run OCR on the images to extract text and append the text from each image as an added entry to the `pages` collection. These added entries will include the extracted text lines and words, their bounding polygons, confidences, and the spans pointing to the associated text.
 
+```json
+"words": [
+    {
+        "content": "While",
+        "polygon": [],
+        "confidence": 0.997,
+        "span": {}
+    },
+],
+"lines": [
+    {
+        "content": "While healthcare is still in the early stages of its Al journey, we",
+        "polygon": [],
+        "spans": [],
+    }
+]
+```
 ### Language detection
 
 Read adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict all detected languages for text lines along with the `confidence` in the `languages` collection under `analyzeResult`.
 
+```json
+"languages": [
+    {
+        "spans": [
+            {
+                "offset": 0,
+                "length": 131
+            }
+        ],
+        "locale": "en",
+        "confidence": 0.7
+    },
+]
+```
 ### Select page (s) for text extraction
 
 For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
