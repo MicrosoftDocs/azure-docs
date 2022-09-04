@@ -6,7 +6,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 09/03/2022
+ms.date: 09/05/2022
 ms.author: allensu
 
 ---
