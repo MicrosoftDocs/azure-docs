@@ -10,3 +10,81 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
 # Domain data management service concepts
+
+**Domain Data Management Service (DDMS)** – is a platform component, that extend [OSDU](https://osduforum.org) core data platform with domain specific model and optimizations. DDMS is a mechanism of a platform extension that:
+
+* delivers optimized handling of data for each (non-overlapping) "domain."
+* Single vertical discipline or business area e.g., Petrophysics, Geophysics, Seismic
+* A functional aspect of one or more vertical disciplines or business areas e.g., Earth Model
+* delivers high performance capabilities not supported by OSDU generic normal APIs.
+* can help achieve the extension of OSDU scope to new business areas.
+* may be developed in a distributed manner with separate resources/sponsors.
+
+OSDU Technical Standard defines following types of OSDU Application Types:
+
+| Application Type            | Description                                                                                                                                                                               |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| OSDU&trade; Embedded Applications | An application developed and managed within the OSDU Open-Source community that is built on and deployed as part of the OSDU Data Platform distribution.                                  |
+| ISV Extension Applications  | An application, developed and managed in the marketplace that is NOT part of THE OSDU Data Platform distributions, and when selected is deployed within the OSDU Data Platform as add-ons |
+| ISV 3rd Party Applications  | An application, developed and managed in the marketplace that integrates with the OSDU Data Platform, and runs outside the OSDU Data Platform                                             |
+
+
+| Characteristics                           | Embedded                           | Extension                   | 3rd Party |
+| ----------------------------------------- | ---------------------------------- | --------------------------- | --------- |
+| Developed, managed, and deployed by       | The OSDU Data Platform             | ISV                         | ISV       |
+| Software License                          | Apache 2                           | ISV                         | ISV       |
+| Mandatory as part of an OSDU distribution | Yes                                | No                          | No        |
+| Replaceable                               | Yes, with preservation of behavior | Yes                         | Yes       |
+| Architecture Compliance                   | The OSDU Standard                  | The OSDU Standard           | ISV       |
+| Examples                                  | OS CRS <br /> Wellbore DDMS        | ESRI CRS <br /> Petrel DS   | Petrel    |
+
+## Who did we built this for?
+
+**IT Developers** build systems to connect data to domain applications (internal and external – e.g. Petrel) which enables data managers to deliver projects to geoscientists. The DDMS suite on Project Oak Forest helps automate these workflows and eliminates time spent managing updates.
+
+**Geoscientists** use domain applications for key Exploration and Production workflows such as Seismic interpretation and Well tie analysis. While these users will not directly interact with the DDMS, their expectations for data performance and accessibility will drive requirements for the DDMS in the Foundation Tier. Azure will enable geoscientists to stream cross domain data instantly in OSDU compatible applications (e.g. Petrel) connected to Project Oak Forest.
+
+**Data managers** spend a significant amount of time fulfilling requests for data retrieval and delivery. The Seismic, Wellbore, and Petrel Data Services enable them to discover and manage data in one place while tracking version changes as derivatives are created.
+
+## Platform Landscape
+
+Project Oak Forest is a OSDU compatible product, meaning that its landscape and release model are depends on OSDU.
+
+Currently, OSDU Certification and Release process not fully defined yet and this topic should be defined as a part of the Project Oak Forest Foundation Architecture.
+
+OSDU R3 M8 is the base for the scope of the Project Oak Forest Foundation Private Preview– as a latest stable, tested version of the platform.
+
+## Learn more: OSDU DDMS community principles
+
+[OSDU community DDMS Overview](https://community.opengroup.org/osdu/documentation/-/wikis/OSDU-(C)/Design-and-Implementation/Domain-&-Data-Management-Services#ddms-requirements) provides an extensive overview of DDMS motivation and community requirements from a user, technical, and business perspective. These principles are extended to Project Oak Forest.
+
+## DDMS requirements
+
+A DDMS meets the following requirements, further classified into capability, architectural, operational and openness/extensibility requirements:
+
+|**#** | **Description** | **Business rationale** | **Principle** |
+|---------|---------|---------|---------|
+| 1 | Data can be ingested with low friction | Need to seamlessly integrate with systems of record, to start with the industry standards | Capability |
+| 2 | New data is available in workflows with minimal latency | Deliver new data in context of the end-user workflow – seamlessly and fast. | Capability |
+| 3 | Domain data and services are highly usable | The business anticipates a large set of use-cases where domain data is used in various workflows. Need to make the consumption simple and efficient | Capability |
+| 4 | Scalable performance for E&P workflows | E&P data has specific access requirements, way beyond standard cloud storage. Scalable E&P data requires E&P workflow experience and insights | Capability |
+| 5 | Data is available for visual analytics and discovery (Viz/BI) | Deliver minimum set of visualization capabilities on the data | Capability |
+| 6 | One source of truth for data | Drive towards reduction of duplication | Capability |
+| 7 | Data is secured, and access governed | Securely stored and managed | Architectural |
+| 8 | All data is preserved and immutable | Ability to associate data to milestones and have data/workflow traceable across the ecosystem | Architectural |
+| 9 | Data is globally identifiable | No risk of overwriting or creating non-unique relationships between data and activities | Architectural |
+| 10 | Data lineage is tracked | Required for auditability, re-creation of the workflow, and learning from work previously done | Architectural |
+| 11 | Data is discoverable | Possible to find and consume back ingested data | Architectural |
+| 12 | Provisioning | Efficient provisioning of the DDMS and auto integration with the Data Ecosystem | Operational |
+| 13 | Business Continuity | Deliver on industry expectation for business continuity (RPO, RTO, SLA) | Operational |
+| 14 | Cost | Cost efficient delivery of data | Operational |
+| 15 | Auditability | Deliver required forensics to support cyber security incident investigations | Operational |
+| 16 | Accessibility | Deliver technology | Operational |
+| 17 | Domain-Centric Data APIs |  | Openness and Extensibility |
+| 18 | Workflow composability and customizations |  | Openness and Extensibility |
+| 19 | Data-Centric Extensibility |  | Openness and Extensibility |
+
+## Next steps
+Advance to the seismic ddms sdutil tutorial to learn how to use sdutil to load seismic data into seismic store.
+> [!div class="nextstepaction"]
+> [Tutorial: Seismic store sdutil](tutorial-seismic-ddms-sdutil.md)
