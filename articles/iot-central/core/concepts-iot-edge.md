@@ -44,7 +44,6 @@ IoT Central enables the following capabilities to for IoT Edge devices:
   * The commands each module responds to.
   * The relationships between an IoT Edge gateway device and downstream device.
   * Cloud properties that aren't stored on the IoT Edge device.
-  * Customizations that change how the UI shows device capabilities.
   * Device views and forms.
 * The ability to provision IoT Edge devices at scale using Azure IoT device provisioning service.
 * Rules and actions.

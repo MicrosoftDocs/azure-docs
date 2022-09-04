@@ -2,7 +2,7 @@
 title: Get started guide for developers on Azure | Microsoft Docs
 description: This article provides essential information for developers looking to get started using the Microsoft Azure platform for their development needs.
 author: ggailey777
-ms.service: azure
+ms.service: az-devops-project
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
@@ -102,7 +102,7 @@ Azure Spring Cloud is a serverless microservices platform that enables you to bu
 
 > **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you're minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure.
 >
-> **Get started:** [Deploy your first Spring Boot app in Azure Spring Cloud](../../spring-cloud/quickstart.md).
+> **Get started:** [Deploy your first Spring Boot app in Azure Spring Apps](../../spring-apps/quickstart.md).
 
 
 ### Enhance your applications with Azure services

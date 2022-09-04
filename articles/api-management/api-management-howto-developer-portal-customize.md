@@ -30,7 +30,7 @@ You can find more details on the developer portal in the [Azure API Management d
 ## Prerequisites
 
 - Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
-- Import and publish an Azure API Management instance. For more information, see [Import and publish](import-and-publish.md)
+- Import and publish an API. For more information, see [Import and publish](import-and-publish.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -205,3 +205,4 @@ Learn more about the developer portal:
 
 - [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
 - [Migrate to the new developer portal](developer-portal-deprecated-migration.md) from the deprecated legacy portal.
+- Learn more about [customizing and extending](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.

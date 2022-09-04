@@ -247,6 +247,13 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/delete| Deletes a Hybrid Runbook Worker.
 
 
+## Check version of Hybrid Worker
+To check the version of agent-based Linux Hybrid Runbook Worker, go to the following path:
+
+`vi/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION`
+
+The file *VERSION* has the version number of Hybrid Runbook Worker. 
+
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).

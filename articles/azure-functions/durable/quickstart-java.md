@@ -24,7 +24,6 @@ To complete this tutorial, you need:
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
 - Latest version of the [Azure Functions Core Tools](../functions-run-local.md).
-  - For Azure Functions 3.x, Core Tools **v3.0.4585** or newer is required.
   - For Azure Functions 4.x, Core Tools **v4.0.4590** or newer is required.
 
 - An Azure Storage account, which requires that you have an Azure subscription.

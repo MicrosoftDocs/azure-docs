@@ -1,11 +1,11 @@
 ---
 title: Defining availability of a Power BI visual offer in Partner Center for Microsoft AppSource
 description: Learn how to define the availability of a Power VI visual offer in Partner Center.
-author: posurnis
-ms.author: posurnis
+author: trkeya
+ms.author: trkeya
 ms.reviewer: pooja.surnis
-ms.service: powerbi
-ms.subservice: powerbi-custom-visuals
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/18/2022
 ---

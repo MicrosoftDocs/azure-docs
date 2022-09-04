@@ -3,10 +3,16 @@ title: Configure Application Insights Profiler | Microsoft Docs
 description: Use the Azure Application Insights Profiler settings pane to see Profiler status and start profiling sessions
 ms.contributor: Charles.Weininger
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 08/09/2022
 ---
 
 # Configure Application Insights Profiler
+
+Once you've enabled the Application Insights Profiler, you can:
+
+- Start a new profiling session
+- Configure Profiler triggers
+- View recent profiling sessions
 
 To open the Azure Application Insights Profiler settings pane, select **Performance** from the left menu within your Application Insights page.
 

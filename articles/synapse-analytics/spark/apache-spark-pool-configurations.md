@@ -1,14 +1,14 @@
 ---
 title: Apache Spark pool concepts
 description: Introduction to Apache Spark pool sizes and configurations in Azure Synapse Analytics.
-services: synapse-analytics 
-author: DaniBunny
-ms.service:  synapse-analytics 
 ms.topic: conceptual
+services: synapse-analytics 
+ms.service:  synapse-analytics 
 ms.subservice: spark
-ms.date: 07/7/2022 
-ms.author: dacoelho
+author: guyhay
+ms.author: guyhay
 ms.reviewer: martinle
+ms.date: 07/26/2022 
 ---
 
 # Apache Spark pool configurations in Azure Synapse Analytics
@@ -48,8 +48,14 @@ A Spark pool can be defined with node sizes that range from a Small compute node
 
 ## Autoscale
 
-Apache Spark pools provide the ability to automatically scale up and down compute resources based on the amount of activity.  When the autoscale feature is enabled, you can set the minimum and maximum number of nodes to scale.
-When the autoscale feature is disabled, the number of nodes set will remain fixed.  This setting can be altered after pool creation although the instance may need to be restarted.
+Apache Spark pools provide the ability to automatically scale up and down compute resources based on the amount of activity. When the autoscale feature is enabled, you can set the minimum and maximum number of nodes to scale. When the autoscale feature is disabled, the number of nodes set will remain fixed.  This setting can be altered after pool creation although the instance may need to be restarted.
+
+## Elastic pool storage
+
+Apache Spark pools utilize temporary disk storage while the pool is instantiated. For many Spark jobs, it is difficult to estimate cluster storage requirements, which may cause your Spark jobs to fail if the worker nodes exhaust storage. Elastic pool storage allows the Spark engine to monitor worker node temporary cluster storage, and attach additional disks if needed. No action is required by customers. Customers should see fewer job failures as a result of elastic pool storage.
+
+> [!NOTE]
+> Azure Synapse Elastic pool storage is currently in Public Preview. During Public Preview there is no charge for use of Elastic Pool Storage.
 
 ## Automatic pause
 
