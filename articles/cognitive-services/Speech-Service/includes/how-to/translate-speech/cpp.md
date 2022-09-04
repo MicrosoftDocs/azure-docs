@@ -19,7 +19,7 @@ auto SPEECH__SUBSCRIPTION__KEY = getenv("SPEECH__SUBSCRIPTION__KEY");
 auto SPEECH__SERVICE__REGION = getenv("SPEECH__SERVICE__REGION");
 ```
 
-For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables.md).
 
 ## Create a speech translation configuration
 
@@ -67,7 +67,7 @@ void translateSpeech() {
 }
 ```
 
-The [`SpeechRecognitionLanguage`][recognitionlang] property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The [`SpeechRecognitionLanguage`][recognitionlang] property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Add a translation language
 

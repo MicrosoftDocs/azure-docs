@@ -57,7 +57,7 @@ ms.topic: conceptual
     
 * <a id="afs-resource-move"></a>
   **Can I move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant?**  
-   Yes, the storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](../file-sync/file-sync-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+   Yes, the storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](../file-sync/file-sync-troubleshoot-sync-errors.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
@@ -92,6 +92,11 @@ ms.topic: conceptual
 ### AD DS & Azure AD DS Authentication
 * <a id="ad-support-devices"></a>
 **Does Azure Active Directory Domain Services (Azure AD DS) support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
+
+    No, this scenario isn't supported.
+
+* <a id="ad-file-mount-cname"></a>
+**Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication (AD DS or Azure AD DS)?**
 
     No, this scenario isn't supported.
 

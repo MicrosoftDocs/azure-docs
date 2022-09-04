@@ -106,8 +106,8 @@ The SBC makes a DNS query to resolve sip.pstnhub.microsoft.com. Based on the SBC
 
 ## Media traffic: IP and Port ranges
 
-The media traffic flows to and from a separate service in the Microsoft Cloud called Media Processor. The IP address range for media traffic: 
-- `20.202.0.0/16 (IP addresses from 20.202.0.1 to 20.202.255.254)`
+The media traffic flows to and from a separate service called Media Processor. At the moment of publishing, Media Processor for Communication Services can use any Azure IP address. 
+Download [the full list of addresses](https://www.microsoft.com/download/details.aspx?id=56519).
 
 ### Port ranges
 The port ranges of the Media Processors are shown in the following table: 

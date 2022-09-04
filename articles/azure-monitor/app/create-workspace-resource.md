@@ -115,11 +115,46 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 
 For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az-monitor-app-insights-component-create).
 
-### Azure PowerShell
+### Azure PowerShell 
+Create a new workspace-based Application Insights resource
 
-The `New-AzApplicationInsights` PowerShell command does not currently support creating a workspace-based Application Insights resource. To create a workspace-based resource with PowerShell, you can use the Azure Resource Manager templates below and deploy with PowerShell.
+```powershell
+New-AzApplicationInsights -Name <String> -ResourceGroupName <String> -Location <String> -WorkspaceResourceId <String>
+   [-SubscriptionId <String>]
+   [-ApplicationType <ApplicationType>]
+   [-DisableIPMasking]
+   [-DisableLocalAuth]
+   [-Etag <String>]
+   [-FlowType <FlowType>]
+   [-ForceCustomerStorageForProfiler]
+   [-HockeyAppId <String>]
+   [-ImmediatePurgeDataOn30Day]
+   [-IngestionMode <IngestionMode>]
+   [-Kind <String>]
+   [-PublicNetworkAccessForIngestion <PublicNetworkAccessType>]
+   [-PublicNetworkAccessForQuery <PublicNetworkAccessType>]
+   [-RequestSource <RequestSource>]
+   [-RetentionInDays <Int32>]
+   [-SamplingPercentage <Double>]
+   [-Tag <Hashtable>]
+   [-DefaultProfile <PSObject>]
+   [-Confirm]
+   [-WhatIf]
+   [<CommonParameters>]
+```
+
+#### Example
+
+```powershell
+New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus -WorkspaceResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
+```
+
+For the full PowerShell documentation for this cmdlet, and to learn how to retrieve the instrumentation key consult the [Azure PowerShell documentation](/powershell/module/az.applicationinsights/new-azapplicationinsights).
+
 
 ### Azure Resource Manager templates
+
+ To create a workspace-based resource, you can use the Azure Resource Manager templates below and deploy with PowerShell.
 
 #### Template file
 
@@ -167,7 +202,7 @@ The `New-AzApplicationInsights` PowerShell command does not currently support cr
 ```
 
 > [!NOTE]
-> * For more information on resource properties, see [Property values](https://docs.microsoft.com/azure/templates/microsoft.insights/components?tabs=bicep#property-values)
+> * For more information on resource properties, see [Property values](/azure/templates/microsoft.insights/components?tabs=bicep#property-values)
 > * Flow_Type and Request_Source are not used, but are included in this sample for completeness.
 
 #### Parameters file

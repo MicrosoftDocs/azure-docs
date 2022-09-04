@@ -36,7 +36,7 @@ When preparing your text file, make sure it:
   * For SSML text, each SSML piece is considered a paragraph. Separate SSML pieces by different paragraphs. See [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
 
 > [!NOTE]
-> When using SSML text, be sure to use the [supported SSML elements](speech-synthesis-markup.md?tabs=csharp#supported-ssml-elements) except the `audio` and `mstts:backgroundaudio` elements. The `audio` and `mstts:backgroundaudio` elements are not supported by Long Audio API. The `audio` element will be ignored without any error message. The `mstts:backgroundaudio` element will cause the systhesis task failure. If your synthesis task fails, download the audio result (.zip file) and check the error report with suffix name "err.txt" within the zip file for details.
+> When using SSML text, be sure to use the [supported SSML elements](speech-synthesis-markup.md?tabs=csharp#supported-ssml-elements) except the `audio`, `mstts:backgroundaudio`, and `lexicon` elements. The `audio`, `mstts:backgroundaudio`, and `lexicon` elements are not supported by Long Audio API. The `audio` and `lexicon` elements will be ignored without any error message. The `mstts:backgroundaudio` element will cause the systhesis task failure. If your synthesis task fails, download the audio result (.zip file) and check the error report with suffix name "err.txt" within the zip file for details.
 
 ## Sample code
 
@@ -60,7 +60,7 @@ These libraries are used to construct the HTTP request, and call the text-to-spe
 
 ### Get a list of supported voices
 
-The Long Audio API supports a subset of [Public Neural Voices](./language-support.md#prebuilt-neural-voices) and [Custom Neural Voices](./language-support.md#custom-neural-voice).
+The Long Audio API supports a subset of [Public Neural Voices](language-support.md?tabs=stt-tts) and [Custom Neural Voices](language-support.md?tabs=stt-tts).
 
 To get a list of supported voices, send a GET request to `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices`.
 
@@ -169,7 +169,7 @@ Replace the following values:
 * Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<input_file_path>` with the path to the text file you've prepared for text-to-speech.
-* Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md#prebuilt-neural-voices).
+* Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md?tabs=stt-tts).
 
 Use one of the voices returned by your previous call to the `/voices` endpoint.
 

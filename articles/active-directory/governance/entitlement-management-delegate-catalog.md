@@ -4,7 +4,7 @@ description: Learn how to delegate access governance from IT administrators to c
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 07/6/2021
-ms.author: owinfreyatl
+ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 

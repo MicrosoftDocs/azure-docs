@@ -3,8 +3,8 @@ title: Plan an Azure Active Directory access reviews deployment
 description: Planning guide for a successful access reviews deployment.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 04/16/2021
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 

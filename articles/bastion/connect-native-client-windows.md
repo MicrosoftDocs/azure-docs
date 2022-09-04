@@ -103,6 +103,8 @@ To connect to a Windows VM using native client support, you must have the follow
 * Inbound port: RDP (3389) *or*
 * Inbound port: Custom value (you’ll then need to specify this custom port when you connect to the VM via Azure Bastion)
 
+To learn about how to best configure NSGs with Azure Bastion, see [Working with NSG access and Azure Bastion](bastion-nsg.md).
+
 ## <a name="connect"></a>Connect - Windows native client
 
 This section helps you connect to your virtual machine from the native client on a local Windows computer. If you want to upload and download files after connecting, you must use an RDP connection. For more information about file transfers, see  [Upload or download files](vm-upload-download-native.md).

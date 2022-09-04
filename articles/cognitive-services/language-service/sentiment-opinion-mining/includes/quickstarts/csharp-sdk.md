@@ -14,6 +14,9 @@ ms.custom: ignite-fall-2021
 Use this quickstart to create a sentiment analysis application with the client library for .NET. In the following example, you will create a C# application that can identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
 
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)

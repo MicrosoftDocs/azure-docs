@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 08/20/2022
 ---
 
 # Usage metering, billing, and pricing models for Azure Logic Apps

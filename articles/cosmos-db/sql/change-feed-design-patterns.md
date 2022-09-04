@@ -108,7 +108,7 @@ A materialized view of current shopping cart contents is maintained for each cus
 
 ## Examples
 
-Here are some real-world change feed code examples that extend beyond the scope of the samples provided in Microsoft docs:
+Here are some real-world change feed code examples that extend beyond the scope of the provided samples:
 
 - [Introduction to the change feed](https://azurecosmosdb.github.io/labs/dotnet/labs/08-change_feed_with_azure_functions.html)
 - [IoT use case centered around the change feed](https://github.com/AzureCosmosDB/scenario-based-labs)

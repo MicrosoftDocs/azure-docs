@@ -16,7 +16,7 @@ This page explains how to configure and manage adaptive network hardening in Def
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#plan-2-formerly-defender-for-servers)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
 

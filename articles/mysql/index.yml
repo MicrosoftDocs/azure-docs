@@ -171,16 +171,14 @@ landingContent:
             url: single-server/concepts-compatibility.md
       - linkListType: tutorial
         links:
-          - text: Design a Database on Single Server
-            url: single-server/tutorial-design-database-using-portal.md
-          - text: Create a Web App with Flexible server in VNET
-            url: flexible-server/tutorial-webapp-server-vnet.md
-          - text: Deploy Spring Boot app on AKS with Flexible Server
-            url: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
           - text: Build a PHP (Laravel) web app with Flexible server
             url: flexible-server/tutorial-php-database-app.md
-          - text: Build a PHP (Laravel) web app with Single Server
-            url: ../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+          - text: Create a Web App with Flexible server in VNET
+            url: flexible-server/tutorial-webapp-server-vnet.md
+          - text: Deploy Java Spring Boot app on AKS with Flexible Server
+            url: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
+          - text: Deploy WordPress on App Service with Flexible Server
+            url: flexible-server/tutorial-wordpress-app-service.md
 
 # Card 7
   - title: Troubleshoot

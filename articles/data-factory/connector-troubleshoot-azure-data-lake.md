@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/13/2021
+ms.date: 08/10/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -67,6 +67,8 @@ This article provides suggestions to troubleshoot common problems with the Azure
   | If Azure Data Lake Storage Gen2 throws error indicating some operation failed.| Check the detailed error message thrown by Azure Data Lake Storage Gen2. If the error is a transient failure, retry the operation. For further help, contact Azure Storage support, and provide the request ID in error message. |
   | If the error message contains the string "Forbidden", the service principal or managed identity you use might not have sufficient permission to access Azure Data Lake Storage Gen2. | To troubleshoot this error, see [Copy and transform data in Azure Data Lake Storage Gen2](./connector-azure-data-lake-storage.md#service-principal-authentication). |
   | If the error message contains the string "InternalServerError", the error is returned by Azure Data Lake Storage Gen2. | The error might be caused by a transient failure. If so, retry the operation. If the issue persists, contact Azure Storage support and provide the request ID from the error message. |
+  | If the error message is `Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host`, your integration runtime has a network issue in connecting to Azure Data Lake Storage Gen2. | In the firewall rule setting of Azure Data Lake Storage Gen2, make sure Azure Data Factory IP addresses are in the allowed list. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md). |
+  | If the error message is `This endpoint does not support BlobStorageEvents or SoftDelete`, you are using an Azure Data Lake Storage Gen2 linked service to connect to an Azure Blob Storage account that enables Blob storage events or soft delete. | Try the following options：<br>1. If you still want to use an Azure Data Lake Storage Gen2 linked service, upgrade your Azure Blob Storage to Azure Data Lake Storage Gen2. For more information, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](../storage/blobs/upgrade-to-data-lake-storage-gen2-how-to.md).<br>2. Switch your linked service to Azure Blob Storage.<br>3. Disable Blob storage events or soft delete in your Azure Blob Storage account. |
 
 ### Request to Azure Data Lake Storage Gen2 account caused a timeout error
 

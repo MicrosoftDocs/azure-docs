@@ -255,6 +255,6 @@ additionalContent:
             - text: What is Azure Monitor?
               url: ../network-watcher/network-watcher-monitoring-overview.md
             - text: What is Azure Monitor Network Insights?
-              url: ../azure-monitor/insights/network-insights-overview.md
+              url: ../network-watcher/network-insights-overview.md
             - text: See more
               url: ../azure-monitor/index.yml

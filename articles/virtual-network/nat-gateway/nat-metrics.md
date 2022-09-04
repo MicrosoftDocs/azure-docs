@@ -34,8 +34,8 @@ NAT gateway resources provide the following multi-dimensional metrics in Azure M
 | Bytes | Bytes processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
 | Packets | Packets processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
 | Dropped packets | Packets dropped by the NAT gateway | Sum | / |
-| SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | Connection State, Protocol (6 TCP; 17 UDP) |
-| Total SNAT connection count | Total number of active SNAT connections (~ SNAT ports currently in use by NAT gateway) | Sum | Protocol (6 TCP; 17 UDP) |
+| SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | Connection State (Attempted, Established, Failed, Closed, Timed Out), Protocol (6 TCP; 17 UDP) |
+| Total SNAT connection count | Total number of active SNAT connections | Sum | Protocol (6 TCP; 17 UDP) |
 | Data path availability (Preview) | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | Availability (0, 100) |
 
 ## Where to find my NAT gateway metrics
@@ -122,7 +122,7 @@ Reasons for why you may see dropped packets:
 
 ### SNAT connection count
 
-The SNAT connection count metric shows you the number of newly used SNAT ports within a specified time frame. 
+The SNAT connection count metric shows you the number of new SNAT connections within a specified time frame. 
 
 Use this metric to: 
 
@@ -257,7 +257,7 @@ To create the alert, use the following steps:
 
 ## Network Insights
 
-[Azure Monitor Network Insights](../../azure-monitor/insights/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a pre-configured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
+[Azure Monitor Network Insights](../../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a pre-configured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
 
 ### View the topology of your Azure architectural setup
 

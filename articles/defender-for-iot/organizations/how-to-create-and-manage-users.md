@@ -61,6 +61,7 @@ This section describes permissions available to sensor Administrators, Security 
 | Manage alerts: acknowledge, learn, and pin |  | ✓ | ✓ |
 | View events in a timeline |  | ✓ | ✓ |
 | Authorize devices, known scanning devices, programming devices |  | ✓ | ✓ |
+| Merge and delete devices |  |  | ✓ |
 | View investigation data | ✓ | ✓ | ✓ |
 | Manage system settings |  |  | ✓ |
 | Manage users |  |  | ✓ |
@@ -258,6 +259,8 @@ You can recover the password for the on-premises management console or the senso
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
 
     :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of entering enter the unique identifier and then selecting recover." lightbox="media/how-to-create-and-manage-users/enter-identifier.png":::
+
+   [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 1. On the Password recovery screen, select **Upload**. **The Upload Password Recovery File** window will open.
 

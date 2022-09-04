@@ -4,7 +4,7 @@ description: Planning for a successful access reviews campaign for a particular 
 services: active-directory
 documentationCenter: ''
 author: markwahl-msft
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -425,6 +425,7 @@ Before you create new assignments, configure [provisioning of Azure AD users](..
 
    * If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](../app-provisioning/on-premises-ldap-connector-configure.md).
    * If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md).
+   * For other applications, follow steps 1-3 to [configure provisioning via Graph APIs](../app-provisioning/application-provisioning-configuration-api.md).
 
 1. Check the [attribute mappings](../app-provisioning/customize-application-attributes.md) for provisioning to that application. Make sure that **Match objects using this attribute** is set for the Azure AD attribute and column that you used in the previous sections for matching.  
 
@@ -485,13 +486,13 @@ When an application role assignment is created in Azure AD for a user to an appl
 
    If any users aren't assigned to application roles, check the Azure AD audit log for an error from a previous step.
 
-1. If **Provisioning Status** for the application is **Off**, turn it to **On**.
+1. If **Provisioning Status** for the application is **Off**, turn it to **On**.  You can also start provisioning [using Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#step-4-start-the-provisioning-job).
 1. Based on the guidance for [how long will it take to provision users](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users), wait for Azure AD provisioning to match the existing users of the application to those users just assigned.
-1. Monitor the [provisioning status](../app-provisioning/check-status-user-account-provisioning.md) to ensure that all users were matched successfully.  
+1. Monitor the [provisioning status](../app-provisioning/check-status-user-account-provisioning.md) through the Portal or [Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#monitor-the-provisioning-job-status) to ensure that all users were matched successfully.
 
    If you don't see users being provisioned, check the [troubleshooting guide for no users being provisioned](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md). If you see an error in the provisioning status and are provisioning to an on-premises application, check the [troubleshooting guide for on-premises application provisioning](../app-provisioning/on-premises-ecma-troubleshoot.md).
 
-1. Check the [provisioning log](../reports-monitoring/concept-provisioning-logs.md).  Filter the log to the status **Failure**.  If there are failures with an ErrorCode of **DuplicateTargetEntries**,  this indicates an ambiguity in your provisioning matching rules, and you'll need to update the Azure AD users or the mappings that are used for matching to ensure each Azure AD user matches one application user.  Then filter the log to the action **Create** and status **Skipped**.  If users were skipped with the SkipReason code of **NotEffectivelyEntitled**, this may indicate that the user accounts in Azure AD were not matched because the user account status was **Disabled**.
+1. Check the provisioning log through the [Azure portal](../reports-monitoring/concept-provisioning-logs.md) or [Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#monitor-provisioning-events-using-the-provisioning-logs).  Filter the log to the status **Failure**.  If there are failures with an ErrorCode of **DuplicateTargetEntries**,  this indicates an ambiguity in your provisioning matching rules, and you'll need to update the Azure AD users or the mappings that are used for matching to ensure each Azure AD user matches one application user.  Then filter the log to the action **Create** and status **Skipped**.  If users were skipped with the SkipReason code of **NotEffectivelyEntitled**, this may indicate that the user accounts in Azure AD were not matched because the user account status was **Disabled**.
 
 After the Azure AD provisioning service has matched the users based on the application role assignments you've created, subsequent changes will be sent to the application.
 
