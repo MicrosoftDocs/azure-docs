@@ -60,6 +60,23 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## September 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | **Sensor versions 22.1.x**: [Site-based access control for OT networks](#site-based-access-control-for-ot-networks)        |
+
+### Site-based access control for OT networks
+
+Until now, user management in the Azure portal has been limited to the subscription level, where administrators can assign roles that allow users to configure Defender for IoT, define pricing plans, access data about their sites and sensors, and so on.
+
+Defender for IoT now supports site-based access control, which provides new support for administrators to assign roles for security monitoring at the site-level. For example, you can now grant access to view device data, such as inventory and alerts, differently per site.
+
+Manage site access control by selecting the site in the **Sites and sensors** page. For example:
+
+TBD screenshot
+
+For more information, see <xref>
 ## August 2022
 
 - **Sensor software version 22.2.5**: Minor version with stability improvements
