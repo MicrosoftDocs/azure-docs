@@ -405,7 +405,7 @@ This API returns data about CVEs for a specific device. <!-- needs more info-->
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **u_ip_address** | String | Not nullable | One of the device's IP addresses |
-| **u_guessed_mac_address** | JSON array of MAC address objects | Not nullable | JSON array of [MAC addresses](#u_mac_address_objects_fields) |
+| **u_guessed_mac_address** | JSON array of MAC address objects | Not nullable | JSON array of [MAC addresses](#u_mac_address_objects-fields) |
 
 #### u_mac_address_objects fields
 
