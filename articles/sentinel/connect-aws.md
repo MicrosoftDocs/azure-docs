@@ -256,6 +256,7 @@ Permissions policies that must be applied to the [Microsoft Sentinel role you cr
 
 For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md).
 
+More detailed troubleshooting can be found in the blog post Troubleshoot Amazon Web Services S3 connector issues![Troubleshoot Amazon Web Services S3 connector issues](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/troubleshoot-amazon-web-services-s3-connector-issues/ba-p/3608072)
 
 # [CloudTrail connector (legacy)](#tab/ct)
 
