@@ -70,7 +70,7 @@ This article shows how to add a map to your integration account. If you're worki
 
   * Consumption workflows
 
-    * Supports references to external assemblies from maps, which enables direct calls from XSLT maps to custom .NET code with the following requirements:
+    * Supports references to external assemblies from maps, which enable direct calls from XSLT maps to custom .NET code with the following requirements:
 
       * You need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32-bit and 64-bit versions. If you have the option, use the 64-bit version instead.
 
