@@ -76,6 +76,8 @@
     href: tutorial-security-policy.md
   - name: Investigate the health of your resources
     href: investigate-resource-health.md
+  - name: Enable pull request annotations in GitHub or in Azure Devops
+    href: tutorial-enable-pr-annotations.md
 
 - name: Samples
   items:

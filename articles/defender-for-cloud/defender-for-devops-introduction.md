@@ -36,6 +36,45 @@ Defender for DevOps gives security teams the ability to set, evaluate, and enfor
 
 Security teams often operate from a position of Assume Breach and respond to security incidents across the entire cloud application lifecycle. Security teams must detect and respond to suspicious, or unexpected activities by developer identities and attacks on CI/CD pipeline infrastructure, without prior knowledge of all of the code and cloud connections and remediate risks to cloud applications.
 
+## Manage your DevOps environments in Defender for Cloud
+
+Defender for DevOps allows you to manage your connected environments and provides your security teams with a high level overview of all the issues that may exist within them.
+
+:::image type="content" source="media/defender-for-devops-introduction/devops-dashboard.png" alt-text="Screenshot of the Defender for Devops dashboard.":::
+
+From this page you can add environments, open and customize DevOps workbooks to show your desired metrics, view our guides and give feedback, and configure your pull request annotations.
+
+### Understanding your metrics
+
+:::image type="content" source="media/defender-for-devops-introduction/devops-metrics.png" alt-text="Screenshot of the top of the Defender for Devops page which shows all of your attached environments and their metrics.":::
+
+|Page section| Description |
+|--|--|
+| :::image type="content" source="media/defender-for-devops-introduction/number-vulnerabilities.png" alt-text="Screenshot of the vulnerabilities section of the page."::: | From here you can see the total number of vulnerabilities that were found by the Defender for DevOps scanners and you can organize the results by severity level. |
+| :::image type="content" source="media/defender-for-devops-introduction/number-findings.png" alt-text="Screenshot of the findings section and the associated recommendations."::: | Presents the total number of findings by scan type and the associated recommendations for any onboarded resources. Selecting a result will take you to relevant recommendations. |
+| :::image type="content" source="media/defender-for-devops-introduction/connectors-section.png" alt-text="Screenshot of the connectors section."::: | Provides visibility into the number of connectors. The number of repositories that have been onboarded by an environment. |
+
+### Review your findings
+
+The lower half of the page allows you to review all of the onboarded DevOps resources and the security information related to them.
+
+:::image type="content" source="media/defender-for-devops-introduction/results-section.png" alt-text="Screenshot of the lower half of a sample page of Defender for DevOps.":::
+
+In this example we see:
+
+- **Repositories**: Lists all onboarded repositories from GitHub and Azure DevOps. You can get more information about specific resources by selecting it.
+
+- **Pull request status**: Shows whether PR annotations are enabled for the repository. 
+    - `On` - PR annotations are enabled.
+    - `Off`- PR annotations are enabled.
+    - `NA`- Defender for Cloud does not have information about the enablement. Currently, only information about pull request annotations in Azure DevOps is included.
+
+- **Total exposed secrets**: Shows number of secrets identified in the repositories.
+
+- **OSS vulnerabilities** – Shows number of vulnerabilities identified in the repositories. Currently, this information is available only for GitHub repositories.
+
+- **Total code scanning findings** – Shows number of other code vulnerabilities and misconfigurations identified in the repositories.
+
 ## Next steps
 
 Learn how to [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
