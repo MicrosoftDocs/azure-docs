@@ -276,7 +276,7 @@ Grant a user access to log data from their resources and read all Azure AD sign-
 
 ## Table-level role-based access control (RBAC)
 
-Defining table-level [Azure RBAC](../../role-based-access-control/overview.md) lets you control which users have read access to specific tables.
+Define table-level [Azure RBAC](../../role-based-access-control/overview.md) to control which users have read access to specific tables.
 
 To grant users read access to specific tables in a workspace, run the following PowerShell script:
 
@@ -296,7 +296,7 @@ Where:
 - `<table_name>` is the name of a table to which you want to grant read access.
 - `<objectId>` is the ID of the user or group to which you want to grant access.
 
-### Legacy method of setting table-level RBAC
+### Legacy method of setting table-level RBAC using workspace-level custom roles
 
 By using table-level Azure RBAC, you can define more granular control to data in a Log Analytics workspace by defining specific data types that are accessible only to a specific set of users.
 
