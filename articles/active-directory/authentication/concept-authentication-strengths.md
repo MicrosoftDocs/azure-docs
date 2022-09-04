@@ -56,7 +56,7 @@ An authentication strength policy may contain a combination of authentication me
 Built-in authentication strengths are combinations of authentication methods that are predefined by Microsoft. Built-in authentication strengths are always available and can't be modified.
 
 The following table lists the combinations of authentication methods for each built-in authentication strength policy. Depending on which methods are available in the authentication methods policy and registered for users, they can use any one of the combinations to sign-in.
-<!---Can we just refer to each strength without calling each one a policy? Policy gets too repetitive in the context of this topic. Also, can we revise some value names? Should be Federated single-value for example (lower case single-value), and multifactor shouldn't be hyphenated. --->
+<!---Can we refer to each strength without policy? Policy gets too repetitive in the context of this topic. Also, can we revise some value names? Should be Federated single-value for example (lower case single-value), and multifactor shouldn't be hyphenated. --->
 -	**MFA strength policy** - the same set of combinations that could be used to satisfy the **Require multifactor authentication setting**.
 -	**Passwordless MFA strength policy** - includes authentication methods that satisfy MFA but don't require a password.
 -	**Phishing-resistant MFA strength policy** - includes methods that require an interaction between the authentication method and the sign-in surface.
