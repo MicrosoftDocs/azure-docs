@@ -260,7 +260,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 
 <sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
 <sup>2</sup> Using the Azure Monitor agent [client installer (Public preview)](./azure-monitor-agent-windows-client.md)
-<sup>3</sup> Supported on Arm64-based machines
+<sup>3</sup> Also supported on Arm64-based machines
 
 #### Linux
 
@@ -304,7 +304,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
 <sup>2</sup> Requires Python 2 to be installed on the machine and aliased to the `python` command.<br>
-<sup>3</sup> Supported on Arm64-based machines
+<sup>3</sup> Also supported on Arm64-based machines
 ## Next steps
 
 - [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
