@@ -60,6 +60,31 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## September 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     |**All OT sensor software versions**:  - [Security recommendations for OT networks](#security-recommendations-for-ot-networks)|
+### Security recommendations for OT networks
+
+Defender for IoT now provides the following security recommendations in the Azure portal for detected devices across your OT networks:
+
+- **Review PLC operating mode**. Devices with this recommendation are found with PLCs set to unsecure run states. We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.
+
+- **Set a stronger password with minimum length and complexity**. Devices with this recommendation have weak passwords, with fewer possible combinations to test before the password is compromised. We recommend that you set stronger passwords on these devices, with more characters and complexity.
+
+Access security recommendations from one of the following locations:
+
+- The **Recommendations** page, which displays all current recommendations across all detected OT devices.
+
+- The **Recommendations** tab on a device details page, which displays all current recommendations for the selected device.
+
+From either location, select a recommendation to drill down further and view lists of all detected OT devices that are currently in a *healthy* or *unhealthy* state, according to the selected recommendation. Select device links to jump to the device details page.
+
+> [!NOTE]
+> Recommendations in the Azure portal are available for all currently supported OT monitoring software versions.
+>
+
 ## August 2022
 
 - **Sensor software version 22.2.5**: Minor version with stability improvements
