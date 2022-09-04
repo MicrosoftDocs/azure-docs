@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Energy Data Services documentation # < 60 chars
+title: Microsoft Energy Data Services Preview documentation # < 60 chars
 summary: summary # < 160 chars
 
 metadata:
-  title: Azure Energy Data Services # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Microsoft Energy Data Services Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: description # Required; article description that is displayed in search results. < 160 chars.
   ms.service: energy-data-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
@@ -18,12 +18,12 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Energy Data Services
+  - title: About Microsoft Energy Data Services Preview
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Energy Data Services?
-            url: overview-azure-energy-data-services.md
+          - text: What is Microsoft Energy Data Services Preview?
+            url: overview-microsoft-energy-data-services.md
   - title: About Domain Data Management Services (DDMS)
     linkLists:
       - linkListType: overview

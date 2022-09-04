@@ -10,3 +10,5 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
 # Domain data management service concepts
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
