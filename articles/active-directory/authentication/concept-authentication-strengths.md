@@ -56,7 +56,7 @@ An authentication strength policy may contain a combination of authentication me
 Built-in authentication strengths are combinations of authentication methods that are predefined by Microsoft. Built-in authentication strengths are always available and can't be modified.
 
 The following table lists the combinations of authentication methods for each built-in authentication strength policy. Depending on which methods are available in the authentication methods policy and registered for users, they can use any one of the combinations to sign-in.
-
+<!---Can we just refer to each strength without calling each one a policy? Policy gets too repetitive in the context of this topic. Also, can we revise some value names? Should be Federated single-value for example (lower case single-value), and multifactor shouldn't be hyphenated. --->
 -	**MFA strength policy** - the same set of combinations that could be used to satisfy the **Require multifactor authentication setting**.
 -	**Passwordless MFA strength policy** - includes authentication methods that satisfy MFA but don't require a password.
 -	**Phishing-resistant MFA strength policy** - includes methods that require an interaction between the authentication method and the sign-in surface.
@@ -152,39 +152,38 @@ If a user is not registered for these methods, they'll be redirected to the inli
 
 
 ## Known issues
-**Registration experience when the user is already registered for at least one strong authentication method** - If the user is not registered for any of the methods required by the authentication strength policy, the user will be redirected to register a required method. However, if the user is already registered for another strong authentication method, they must complete MFA before registering a new method. At the end of authentication process, the user will land in My Sign-ins page without indication about which methods they should register. This issue is not present if the user is not registered for any strong authentication methods. For optimal user experience, we recommend you ensure your users are registered for the methods enforced by the authentication strengths policy.
+- **Registration experience when the user is already registered for at least one strong authentication method** - If the user is not registered for any of the methods required by the authentication strength policy, the user will be redirected to register a required method. However, if the user is already registered for another strong authentication method, they must complete MFA before registering a new method. At the end of authentication process, the user is redirected to **My Sign-ins page** without indication about which methods they should register. This issue doesn't effect users who haven't registered _any_ strong authentication methods. For optimal user experience, we recommend you ensure your users are registered for the methods enforced by the authentication strengths policy.
 
-**Authentication prompts after using Certificate-based authentication** - If a user have first authenticated using Certificate-based authentication and the authentication strengths requires another method, such as FIDO2 security key, user is not prompted to use FIDO2 and the authentication fails. User must restart their session to sign-in with a FIDO2 key.
 
-**Authentication methods that are currently not supported by authentication strengths**: 
-The following authentication methods are included in the available combinations but currently have limited functionality:
-- Windows Hello for Business
-- Microsoft Authenticator (Phone Sign-in)
-- Temporary Access Pass (One-time use AND Multi-use)
-- Federated Multi-Factor
-- Email One-time pass (Guest)
-- Hardware-based OATH token
-- <!-- Namrata to update about B2B>
+- **Users who signed in by using certificate-based authentication aren't prompted to reauthenticate** - If a user first authenticated by using certificate-based authentication and the authentication strength requires another method, such as a FIDO2 security key, the user isn't prompted to use a FIDO2 security key and authentication fails. The user must restart their session to sign-in with a FIDO2 security key.
 
+- **Authentication methods that are currently not supported by authentication strengths** - The following authentication methods are included in the available combinations but currently have limited functionality:
+  - Windows Hello for Business
+  - Microsoft Authenticator (phone sign-in)
+  - Temporary Access Pass (one-time use and multiuse)
+  - Federated multifactor
+  - Email one-time pass (Guest)
+  - Hardware-based OATH token
+
+<!-- Namrata to update about B2B--->
 
 ## Limitations
 
-**Conditional Access policies are only evaluated after the initial authentication** -  As a result,  authentication strength will not restrict a user's initial authentication. For example, if you are using the built-in phishing-resistant strength, this will not prevent a user from typing in their password, but they will be required to use a phishing-resistant method such as FIDO2 security key before they can continue.
+- **Conditional Access policies are only evaluated after the initial authentication** -  As a result, authentication strength will not restrict a user's initial authentication. Suppose you are using the built-in phishing-resistant MFA strength. A user can still type in their password, but they will be required to use a phishing-resistant method such as FIDO2 security key before they can continue.
 
-**Conditional Access Policy configuration – Require multifactor authentication** - The Conditional Access grant controls **Require multifactor authentication** and **Require authentication strength** cannot be used together in the same policy. The built-in authentication strength **Multifactor authentication** is equivalent to the **Require multifactor authentication** grant control.
+- **Require multifactor authentication and Require authentication strength can't be used together in the same Conditional Access policy** - These two Conditional Access grant controls can't be used together because the built-in authentication strength **Multifactor authentication** is equivalent to the **Require multifactor authentication** grant control.
 
 
-<!-- place holder: Auth Strength with CCS -->
-<! Place holder: what-if tool -->
+<!---place holder: Auth Strength with CCS -->
+<!---Place holder: what-if tool -->
 
 
 ## Prerequisites
 
-**License** Your tenant needs to have Azure AD Premium P1 license to use Conditional Access. If needed, you can enable free trial. 
-**Enable combined registration** -  Authentication strengths policy is supported when using the combined registration. Using the legacy registration will result in poor user experience as the user may register methods who are not required by the authentication method policy.
+- **Azure AD Premium P1** - Your tenant needs to have Azure AD Premium P1 license to use Conditional Access. If needed, you can enable a [free trial](https://www.microsoft.com/security/business/get-started/start-free-trial).
+- **Enable combined registration** - Authentication strengths policy is supported when using [combined MFA and SSPR registration](howto-registration-mfa-sspr-combined.md). Using the legacy registration will result in poor user experience as the user may register methods that aren't required by the authentication method policy.
 
 ## Next steps
 
-- How to configure access control by using authentication strengths
 - [Troubleshoot authentication strengths](troubleshoot-authentication-strengths.md) 
 
