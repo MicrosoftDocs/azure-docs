@@ -3,7 +3,7 @@ title: Microsoft Energy Data Services Preview - index and search workflow concep
 description: Learn how to use indexing and search workflows #Required; article description that is displayed in search results. 
 author: vivekkalra #Required; your GitHub user alias, with correct capitalization.
 ms.author: vivekkalra #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 08/23/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
