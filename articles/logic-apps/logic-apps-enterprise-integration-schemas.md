@@ -106,8 +106,6 @@ This article shows how to add a schema to your integration account. If you're wo
 
 For Consumption workflows, based on your schema's file size, now follow the steps for uploading a schema that's either [up to 2 MB](#smaller-schema) or [more than 2 MB, up to 8 MB](#larger-schema).
 
-### [Consumption](#tab/consumption)
-
 <a name="smaller-schema"></a>
 
 ### Add schemas up to 2 MB
