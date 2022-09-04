@@ -134,7 +134,7 @@ This table describes the ports that your ISE requires to be accessible and the p
 | * | 443 | **VirtualNetwork** | **AzureMonitor** | Publish diagnostic logs & metrics ||
 | * | 1433 | **VirtualNetwork** | **SQL** | Azure SQL dependency ||
 | * | 1886 | **VirtualNetwork** | **AzureMonitor** | Azure Resource Health | Required for publishing health status to Resource Health. |
-| * | 5672 | **VirtualNetwork** | **EventHub** | Dependency from Log to Event Hub policy and monitoring agent ||
+| * | 5672 | **VirtualNetwork** | **EventHub** | Dependency from Log to Event Hubs policy and monitoring agent ||
 | * | 6379 - 6383, plus see **Notes** | **VirtualNetwork** | **VirtualNetwork** | Access Azure Cache for Redis Instances between Role Instances | For ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described by the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 | * | 53 | **VirtualNetwork** | IP addresses for any custom Domain Name System (DNS) servers on your virtual network | DNS name resolution | Required only when you use custom DNS servers on your virtual network |
 
