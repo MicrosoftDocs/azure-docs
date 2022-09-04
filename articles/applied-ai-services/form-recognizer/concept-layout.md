@@ -98,6 +98,51 @@ Try extracting data from forms and documents using the Form Recognizer Studio. Y
 
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 
+### Paragraphs<sup>new!</sup>
+
+The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
+
+```json
+"paragraphs": [
+	{
+	    "spans": [],
+	    "boundingRegions": [],
+	    "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
+	}
+]
+```
+### Paragraph roles<sup>new!</sup>
+
+The Layout model may flag certain paragraphs with their specialized type or `role` as predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
+
+| **Predicted role**   | **Description**   |
+| --- | --- |
+| `title`  | The main heading(s) in the page |
+| `sectionHeading`  | One or more subheading(s) on the page  |
+| `footnote`  | Text near the bottom of the page  |
+| `pageHeader`  | Text near the top edge of the page  |
+| `pageFooter`  | Text near the bottom edge of the page  |
+| `pageNumber`  | Page number  |
+
+```json
+{
+    "paragraphs": [
+                {
+                    "spans": [],
+                    "boundingRegions": [],
+                    "role": "title",
+                    "content": "NEWS TODAY"
+                },
+                {
+                    "spans": [],
+                    "boundingRegions": [],
+                    "role": "sectionHeading",
+                    "content": "Mirjam Nilsson"
+                }
+    ]
+}
+
+```
 ### Pages
 
 The pages collection is the the very first object you see in the service response.
@@ -179,51 +224,6 @@ Layout API extracts tables in the `pageResults` section of the JSON output. Docu
                     },
             ]
         }
-    ]
-}
-
-```
-### Paragraphs
-
-The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
-
-```json
-"paragraphs": [
-	{
-	    "spans": [],
-	    "boundingRegions": [],
-	    "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
-	}
-]
-```
-### Paragraph roles
-
-The Layout model may flag certain paragraphs with their specialized type or `role` as predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
-
-| **Predicted role**   | **Description**   |
-| --- | --- |
-| `title`  | The main heading(s) in the page |
-| `sectionHeading`  | One or more subheading(s) on the page  |
-| `footnote`  | Text near the bottom of the page  |
-| `pageHeader`  | Text near the top edge of the page  |
-| `pageFooter`  | Text near the bottom edge of the page  |
-| `pageNumber`  | Page number  |
-
-```json
-{
-    "paragraphs": [
-                {
-                    "spans": [],
-                    "boundingRegions": [],
-                    "role": "title",
-                    "content": "NEWS TODAY"
-                },
-                {
-                    "spans": [],
-                    "boundingRegions": [],
-                    "role": "sectionHeading",
-                    "content": "Mirjam Nilsson"
-                }
     ]
 }
 
