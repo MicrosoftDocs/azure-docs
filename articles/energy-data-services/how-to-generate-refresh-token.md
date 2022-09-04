@@ -3,7 +3,7 @@ title: How to generate a refresh token for Microsoft Energy Data Service #Requir
 description: This article describes how to generate a refresh token #Required; article description that is displayed in search results. 
 author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
 ms.author: elhalper #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 08/25/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.

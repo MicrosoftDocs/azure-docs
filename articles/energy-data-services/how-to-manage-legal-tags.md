@@ -3,7 +3,7 @@ title: How to manage legal tags in Microsoft Energy Data Services #Required; pag
 description: This article describes how to manage legal tags in Microsoft Energy Data Services #Required; article description that is displayed in search results. 
 author: Lakshmisha-KS #Required; your GitHub user alias, with correct capitalization.
 ms.author: lakshmishaks #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 08/19/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
