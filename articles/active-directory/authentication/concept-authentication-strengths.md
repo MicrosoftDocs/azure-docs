@@ -63,14 +63,14 @@ The following table lists the combinations of authentication methods for each bu
 
 |Authentication method combination |MFA strength | Passwordless MFA strength| Phishing-resistant MFA strength|
 |----------------------------------|-------------|-------------------------------------|-------------------------------------------|
-|FIDO2 Security Key| &#x2705; | &#x2705; | &#x2705; |
-|Certificate Based Authentication (Multi-Factor) | &#x2705; | &#x2705; | &#x2705; |
-|Password + Something you have*| &#x2705; | | |
-|Federated Single-Factor + Something you have*| &#x2705; | | |
-|Certificate Based Authentication (Single-Factor)| | | |
+|FIDO2 security key| &#x2705; | &#x2705; | &#x2705; |
+|Certificate-based authentication (multifactor) | &#x2705; | &#x2705; | &#x2705; |
+|Password + something you have*| &#x2705; | | |
+|Federated single-factor + something you have*| &#x2705; | | |
+|Certificate-based authentication (single-factor)| | | |
 |SMS sign-in | | | |
 |Password | | | |
-|Federated Single-Factor| | | |
+|Federated single-factor| | | |
 
 <!-- We will move these methods  back to the table as they become supported - expected very soon
 |Windows Hello for Business| &#x2705; | &#x2705; | &#x2705; |
@@ -79,7 +79,7 @@ The following table lists the combinations of authentication methods for each bu
 |Email One-time pass (Guest)| | | |
 |Federated Multi-Factor| &#x2705; | | |-->
 
-*Something you have refers to one of the following methods: SMS, Voice, Push notification, Software OATH token. 
+*Something you have refers to one of the following methods: SMS, voice, push notification, software OATH token. 
 
 The following API call can be used to list definitions of all the built-in authentication strengths:
 
