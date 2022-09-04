@@ -259,7 +259,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Azure Stack HCI                                          |   | X |   |
 
 <sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser).<br>
-<sup>2</sup> Using the Azure Monitor agent [client installer (Public preview)](./azure-monitor-agent-windows-client.md).
+<sup>2</sup> Using the Azure Monitor agent [client installer (Public preview)](./azure-monitor-agent-windows-client.md).<br>
 <sup>3</sup> Also supported on Arm64-based machines.
 
 #### Linux
