@@ -3,7 +3,7 @@ title: Check fleet metrics of Azure Active Directory Domain Services | Microsoft
 description: Learn how to check fleet metrics of an Azure Active Directory Domain Services (Azure AD DS) managed domain.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory

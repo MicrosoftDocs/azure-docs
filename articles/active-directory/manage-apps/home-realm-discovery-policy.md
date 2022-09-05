@@ -8,8 +8,9 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/09/2021
+ms.date: 08/24/2022
 ms.author: ludwignick
+ms.reviewer: sreyanth
 
 ---
 # Home Realm Discovery for an application
