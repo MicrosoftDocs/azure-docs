@@ -76,13 +76,17 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Netwo
 | **Azure Firewall logs** | |`_Im_NetworkSession_AzureFirewallVxx`|
 | **Azure Monitor VMConnection** | Collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md). | `_Im_NetworkSession_VMConnectionVxx`  |
 | **Azure Network Security Groups (NSG) logs** | Collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md). | `_Im_NetworkSession_AzureNSGVxx` |
-| **Fortigate FortiOS** | IP connection logs collected using Syslog. | `_Im_NetworkSession_FortinetFortiGateVxx` |
+| **Checkpoint Firewall-1** | Collected using CEF. | `_Im_NetworkSession_FortinetFortiGateVxx` |
+| **Cisco Meraki** | Collected using the Cisco Meraki API connector. | `_Im_NetworkSession_CiscoMerakiVxx` |
+| **Corelight Zeek** | Collected using the Corelight Zeek connector. | `_im_NetworkSession_CorelightZeekVxx` |
+| **Fortigate FortiOS** | IP connection logs collected using Syslog. | _Im_NetworkSession_CheckPointFirewallVxx` |
 | **Microsoft 365 Defender for Endpoint** | | `_Im_NetworkSession_Microsoft365DefenderVxx`|
 | **Microsoft Defender for IoT - Endpoint** | | `_Im_NetworkSession_MD4IoTVxx` |
 | **Palo Alto PanOS traffic logs** | Collected using CEF. | `_Im_NetworkSession_PaloAltoCEFVxx` |
 | **Sysmon for Linux**  (event 3) | Collected using the Log Analytics Agent<br> or the Azure Monitor Agent. |`_Im_NetworkSession_LinuxSysmonVxx`  |
 | **Vectra AI** | | `_Im_NetworkSession_VectraIAVxx`  |
 | **Windows Firewall logs** | Collected as Windows events using the Log Analytics Agent (Event table) or Azure Monitor Agent (WindowsEvent table). Supports Windows events 5150 to 5159. | `_Im_NetworkSession_MicrosoftWindowsEventFirewallVxx`|
+| **Watchguard FirewareOW** | Collected using Syslog. | `_Im_NetworkSession_WatchGuardFirewareOSVxx` |
 | **Zscaler ZIA firewall logs** | Collected using CEF. | `_Im_NetworkSessionZscalerZIAVxx` |
 
 Deploy the workspace deployed parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimNetworkSession).
