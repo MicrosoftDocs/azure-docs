@@ -132,7 +132,7 @@ Once you have enabled MUA, the operations in scope will be restricted on the vau
 
 Depicted below is an illustration of what happens when the Backup admin tries to perform such a protected operation (For example, disabling soft delete is depicted here. Other protected operations have a similar experience). The following steps are performed by a Backup admin without required permissions.
 
-1. To disable soft delete, go to the Recovery Services vault -> **Properties** -> **Security Settings** and select **Update**, which brings up the Security Settings.
+1. To disable soft delete, go to the Recovery Services vault > **Properties** > **Security Settings** and select **Update**, which brings up the Security Settings.
 1. Disable the soft delete using the slider. You're informed that this is a protected operation, and you need to verify their access to the Resource Guard.
 1. Select the directory containing the Resource Guard and Authenticate yourself. This step may not be required if the Resource Guard is in the same directory as the vault.
 1. Proceed to select **Save**. The request fails with an error informing them about not having sufficient permissions on the Resource Guard to let you perform this operation.
@@ -197,7 +197,7 @@ Note if this isn't configured, any requests will be automatically approved witho
 After the security admin creates an eligible assignment, the Backup admin needs to activate the assignment for the Contributor role to be able to perform protected actions. The following actions are performed by the **Backup admin** to activate the role assignment.
 
 1. Go to [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md). If the Resource Guard is in another directory, switch to that directory and then go to [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
-1. Go to **My roles** -> **Azure resources** on the left menu.
+1. Go to **My roles** > **Azure resources** on the left menu.
 1. The Backup admin can see an Eligible assignment for the contributor role. Select **Activate** to activate it.
 1. The Backup admin is informed via portal notification that the request is sent for approval.
 
@@ -229,7 +229,7 @@ The following screenshot shows an example of disabling soft delete for an MUA-en
 Disabling MUA is a protected operation, and hence, is protected using MUA. This means that the Backup admin must have the required Contributor role in the Resource Guard. Details on obtaining this role are described here. Following is a summary of steps to disable MUA on a vault.
 1. The Backup admin requests the Security admin for **Contributor** role on the Resource Guard. They can request this to use the methods approved by the organization such as JIT procedures, like [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), or other internal tools and procedures. 
 1. The Security admin approves the request (if they find it worthy of being approved) and informs the Backup admin. Now the Backup admin has the ‘Contributor’ role on the Resource Guard.
-1. The Backup admin goes to the vault -> **Properties** -> **Multi-user Authorization**.
+1. The Backup admin goes to the vault > **Properties** > **Multi-user Authorization**.
 1. Select **Update**.
    1. Deselect the **Protect with Resource Guard** checkbox.
    1. Choose the Directory that contains the Resource Guard and verify access using the Authenticate button (if applicable).
