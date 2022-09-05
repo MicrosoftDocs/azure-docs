@@ -38,6 +38,8 @@ OSDU Technical Standard defines following types of OSDU Application Types:
 | Architecture Compliance                   | The OSDU Standard                  | The OSDU Standard           | ISV       |
 | Examples                                  | OS CRS <br /> Wellbore DDMS        | ESRI CRS <br /> Petrel DS   | Petrel    |
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Who did we built this for?
 
 **IT Developers** build systems to connect data to domain applications (internal and external – e.g. Petrel) which enables data managers to deliver projects to geoscientists. The DDMS suite on Project Oak Forest helps automate these workflows and eliminates time spent managing updates.

@@ -1,5 +1,5 @@
 ---
-title: Integrate airflow logs with Azure Monitor
+title: Integrate airflow logs with Azure Monitor - Microsoft Energy Data Services Preview
 description: This is a how-to article on how to start collecting Airflow Task logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics Workspace.
 author: nitinnms
 ms.author: nitindwivedi

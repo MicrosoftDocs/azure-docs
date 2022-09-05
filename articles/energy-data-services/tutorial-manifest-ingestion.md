@@ -11,20 +11,22 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Sample steps to perform a manifest-based file ingestion
 
-Manifest ingestion provides the capability to ingest manifests into Microsoft Energy Data Services instance
+Manifest ingestion provides the capability to ingest manifests into Microsoft Energy Data Services Preview instance
 
 In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * Ingest sample manifests into the Microsoft Energy Data Services instance
+> * Ingest sample manifests into the Microsoft Energy Data Services Preview instance
 > * Search for storage metadata records created during the manifest ingestion
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
 Before beginning this tutorial, the following prerequisites must be completed:
-### Get Microsoft Energy Data Services instance details
+### Get Microsoft Energy Data Services Preview instance details
 
-* Once the [Quickstart: Create a Microsoft energy data services instance](quickstart-create-project-oak-forest-instance.md) is created, note down the following details:
+* Once the [Quickstart: Create a Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) is created, note down the following details:
   
   | Parameter          | Value to use             | Example                               |
   | ------------------ | ------------------------ |-------------------------------------- |
@@ -46,7 +48,7 @@ Before beginning this tutorial, the following prerequisites must be completed:
   * [Manifest Ingestion postman environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json?token=GHSAT0AAAAAABRNZHEUCYUV6PO4RETLJEX4YYRST4Q)
     > [!NOTE]
     >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
-* Update the **CURRENT_VALUE** of the postman environment with the information obtained in [Get Microsoft Energy Data Services instance details](#get-microsoft-energy-data-services-instance-details)
+* Update the **CURRENT_VALUE** of the postman environment with the information obtained in [Get Microsoft Energy Data Services Preview instance details](#get-microsoft-energy-data-services-preview-instance-details)
 
 ### How to execute Postman requests
 
@@ -64,7 +66,7 @@ Before beginning this tutorial, the following prerequisites must be completed:
 
 :::image type="content" source="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure Postman call." lightbox="media/tutorial-manifest-ingestion/tutorial-postman-test-failure.png":::
 
-## Ingest sample manifests into the Microsoft Energy Data Services instance
+## Ingest sample manifests into the Microsoft Energy Data Services Preview instance
 
   1. **Get a user token** - Generate the User token, which will be used to authenticate further API calls.
   2. **Create a legal tag** - Create a legal tag that will be added to the Manifest data for data compliance purpose

@@ -17,8 +17,10 @@ The following are the basic steps to use the OAuth 2.0 authorization code grant 
   2. Get authorization.
   3. Get a refresh token.
  
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## 1. Register your app with Azure AD
-To use the Microsoft Energy Data Services platform endpoint, you must register your app using the [Azure app registration portal](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app.
+To use the Microsoft Energy Data Services Preview platform endpoint, you must register your app using the [Azure app registration portal](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app.
 
 To configure an app to use the OAuth 2.0 authorization code grant flow, save the following values when registering the app:
 

@@ -13,13 +13,15 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/azure/m10-master)
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Prerequisites
 
 ### Postman
 
 * Download and install [Postman](https://www.postman.com/) desktop app.
 * Import the [oZGY Conversions.postman_collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M9/Azure-M9/Services/DDMS/oZGY%20Conversions.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
-* Microsoft Energy Data Services instance is created already
+* Microsoft Energy Data Services Preview instance is created already
 * Clone the **sdutil** repo as shown below:
   ```markdown
   git clone https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil.git
