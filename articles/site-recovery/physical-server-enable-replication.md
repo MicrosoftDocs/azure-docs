@@ -6,7 +6,7 @@ manager: jsuri
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: v-pgaddala
-ms.date: 08/23/2022
+ms.date: 09/05/2022
 ---
 
 # Enable replication for a physical server – Modernized
@@ -47,34 +47,33 @@ You can add details of the physical servers, which you plan to protect, when you
 
 This will add your physical server details to the appliance, and you can enable replication on these machines using any appliance which has healthy or warning status. 
 
-To perform credential-less protection on physical servers, you need to manually install the mobility service and then enable replication. [Learn more](/azure/site-recovery/vmware-physical-mobility-service-overview#install-the-mobility-service-using-ui-modernized).
+To perform credential-less protection on physical servers, you must manually install the mobility service and enable replication. [Learn more](/azure/site-recovery/vmware-physical-mobility-service-overview#install-the-mobility-service-using-ui-modernized).
 
 ## Enable replication for Physical servers
 
 Protect the machines, after an Azure Site Recovery replication appliance is added to a vault.
 
-Ensure the [pre-requisites](/azure/site-recovery/vmware-physical-azure-support-matrix) across storage and networking are met.
+Ensure that you meet the [pre-requisites](/azure/site-recovery/vmware-physical-azure-support-matrix) across storage and networking.
 
 Follow these steps to enable replication:
 
 1.	Under **Getting Started**, select **Site Recovery**. 
 
-2. Under **VMware**, select **Enable Replication (Modernized)** and then select the machine type as Physical machines if you want to protect physical machines. 
-Lists all the machines that are  discovered by various appliances registered to the vault.
+2. Under **VMware**, select **Enable Replication (Modernized)** and select the machine type as Physical machines if you want to protect physical machines. 
+Lists all the machines  discovered by various appliances registered to the vault.
 
 3.	Search the source machine name to protect it and review the selected machines. Select **Selected resources**.
 
 4.	Select the desired machine and select **Next**. Source settings page opens. 
 
-5. Select the replication appliance and machine credentials. These credentials will be used to push mobility agent on the machine by the appliance to complete enabling Azure Site Recovery. Ensure to choose accurate credentials.
+5. Select the replication appliance and machine credentials. These credentials will be used to push the mobility agent on the machine by the appliance to complete enabling Azure Site Recovery. Ensure to choose accurate credentials.
 
     >[!Note]
     >- For Linux OS, ensure to provide the root credentials. 
     >- For Windows OS, add a user account with admin privileges. 
     >- These credentials will be used to push mobility service on to the source machine during enable replication operation.
+    >- You may be asked to provide a name for the virtual machine which will be created.
  
-    >[!Note]
-    >You may be asked to provide a name for the virtual machine which will be created.
 
 6.	Select **Next** and provide target region properties. 
 
@@ -82,16 +81,16 @@ By default, Vault subscription and Vault resource group are selected. You can ch
  
 7.	You can select an existing Azure network or create a new target network to be used during failover. 
 
-If you select **Create new**, you will be redirected to **Create virtual network** blade. Provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
+If you select **Create new**, you are redirected to **Create virtual network** blade. Provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
 
 8.	Provide the test failover network details.
 
     >[!Note]
-    >Ensure that the test failover network is different from the failover network. This is to ensure that the failover network is readily available in case of an actual disaster.
+    >Ensure that the test failover network is different from the failover network. This ensures that the failover network is readily available in case of an actual disaster.
 
 9.	Select the storage.
 
-      - **Cache storage account**: Choose the cache storage account which Azure Site Recovery uses for staging purposes – caching and storing logs before writing the changes on to the managed disks.
+      - **Cache storage account**: Choose the cache storage account that Azure Site Recovery uses for staging purposes – caching and storing logs before writing the changes on to the managed disks.
     
       Azure Site recovery creates a new LRS v1 type storage account by default for the first enable replication operation in a vault. For the next operations, the same cache storage account will be re-used.
 
@@ -100,14 +99,14 @@ If you select **Create new**, you will be redirected to **Create virtual network
        By default, Standard HDD managed disks are created in Azure. Select **Customize** to customize the type of Managed disks. Choose the type of disk based on the business requirement. Ensure to [choose the appropriate disk type](/azure/virtual-machines/disks-types#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see [managed disk pricing](/pricing/details/managed-disks/).
  
        >[!Note]
-       >If Mobility Service is installed manually before enabling replication, you can change the type of managed disk, at a disk level. Else, by default, one managed disk type can be chosen at a machine level.
+       >If Mobility Service is installed manually before enabling replication, you can change the type of managed disk, at a disk level. Otherwise, one managed disk type can be chosen at a machine level by default.
 
 10. Create a new replication policy if needed.
 
-    A default replication policy gets created under the vault within 3 days. Recovery point retention and app-consistent recovery points are disabled by default. You can create a new replication policy or modify the existing policy as per your RPO requirements.
+    A default replication policy gets created under the vault within three days. Recovery point retention and app-consistent recovery points are disabled by default. You can create a new replication policy or modify the existing policy as per your RPO requirements.
 
     1. Select **Create new** and enter the **Name**.
-    1. Enter a value ranging from 0 to 15 for **Retention period (in days)**.
+    1. Enter a value ranging from 0 to 15 for the **Retention period (in days)**.
     1. Enable **App consistency frequency** if you wish and enter a value for **App-consistent snapshot frequency (in hours)** as per business requirements.
     1. Select **OK** to save the policy.
 
