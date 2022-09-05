@@ -48,8 +48,8 @@
     - name: Connect GCP projects
       displayName: hybrid, multicloud, multicloud, google
       href: quickstart-onboard-gcp.md
-    - name: Connect Github repositories
-      displayName: Github, DevOps
+    - name: Connect GitHuB repositories
+      displayName: GitHuB, DevOps
       href: quickstart-onboard-github.md
   - name: 4. Configure auto provisioning
     href: enable-data-collection.md
@@ -380,7 +380,7 @@
       displayName: DevOps
       href: defender-for-devops-introduction.md
     - name: Enable Microsoft Security Devops Action
-      displayName: Github, DevOps, 
+      displayName: GitHuB, DevOps, 
       href: msdo-github-action.md
     - name: Configure the Microsoft Security DevOps extension
       href: msdo-azure-devops-extension.md

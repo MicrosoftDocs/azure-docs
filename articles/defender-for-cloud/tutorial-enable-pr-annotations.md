@@ -18,7 +18,7 @@ In this tutorial you'll learn how to:
 
 Before you can follow the steps in this tutorial you must:
 
-**For Github**:
+**For GitHuB**:
 
  - An Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin
  - [Enable Defender for cloud](get-started.md)
@@ -34,7 +34,7 @@ Before you can follow the steps in this tutorial you must:
  - [Enhanced security features](enhanced-security-features-overview.md) enabled on your Azure subscriptions
  - [Configure the Microsoft Security DevOps Azure DevOps extension](msdo-azure-devops-extension.md)
 
-## Enable pull request annotations in Github
+## Enable pull request annotations in GitHuB
 
 By enabling pull request annotations in GitHub, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
 
