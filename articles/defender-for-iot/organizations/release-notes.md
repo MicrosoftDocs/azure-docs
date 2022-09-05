@@ -71,7 +71,7 @@ Defender for IoT now provides the following security recommendations in the Azur
 
 - **Review PLC operating mode**. Devices with this recommendation are found with PLCs set to unsecure run states. We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.
 
-- **Set a stronger password with minimum length and complexity**. Devices with this recommendation have weak passwords, with fewer possible combinations to test before the password is compromised. We recommend that you set stronger passwords on these devices, with more characters and complexity.
+- **Review unauthorized devices**. This recommendation is shown when unauthorized devices are detected in the network. We recommend ensuring that all discovered devices are identified and authorized as part of the network baseline to prevent threats of rogue or potentially malicious devices infiltrating your network.
 
 Access security recommendations from one of the following locations:
 
