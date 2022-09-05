@@ -43,6 +43,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/semitic
 
 When structuring the API request, the relevant language tags must be added for these languages: 
 
+```
 English – “en”
 Spanish – “es”
 French  - “fr”
@@ -50,6 +51,7 @@ German – “de”
 Italian – “it”
 Portuguese – “pt”
 Hebrew – “he”
+```
 
 The following jason is an example of a JSON file attached to the Language request's POST body, for a Spanish document:
 
@@ -80,14 +82,12 @@ example.json
 ## Details of the supported model versions for each language:
 
 
-| Language code       | model version: |  Featured Tag | Specific Tag
+| Language code       | model version: |  Featured Tag | Specific Tag |
 |:--------------------|:-------------:|:-------------------:|:------------------:|
 | en                  |  2022-03-01   |      latest         |   3.0.59413252-onprem-amd64    | 
-|:--------------------|:-------------:|:-------------------:|:------------------:|
 | en,es,it,fr,de,pt   |  2022-08-15-preview  |      latin         |   3.0.59413252-latin-onprem-amd64   | 
-|:--------------------|:-------------:|:-------------------:|:------------------:|
 | he                  |  2022-08-15-preview   |      semitic         |   3.0.59413252-semitic-onprem-amd64   | 
-|:--------------------|:-------------:|:-------------------:|:------------------:|
+
 
 
 
