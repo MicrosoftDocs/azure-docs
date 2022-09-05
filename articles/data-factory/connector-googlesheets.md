@@ -20,6 +20,9 @@ This article outlines how to use Data Flow to transform data in GoogleSheets (Pr
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
+> [!Note]
+> This connector is only available for GoogleSheets with **Anyone with the link** access.
+
 ## Supported capabilities
 
 This GoogleSheets connector is supported for the following capabilities:
@@ -97,8 +100,8 @@ The below table lists the properties supported by GoogleSheets source. You can e
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | SpreadSheet ID | The spreadsheet ID in your Google Sheets. | Yes | String | spreadSheetId |
 | Sheet name | The name of the sheet in the spreadsheet. | Yes | String | sheetName |
-| Start cell | The start cell of the sheet from where the data is required, for example `A2, B4`. | Yes  | String | startCell |
-| End cell | The end cell of the sheet till where the data is required, for example `F10, S600`.  | Yes  | String | endCell |
+| Start cell | The start cell of the sheet from where the data is required, for example A2, B4. | Yes  | String | startCell |
+| End cell | The end cell of the sheet till where the data is required, for example F10, S600.  | Yes  | String | endCell |
 
 #### GoogleSheets source script example
 
@@ -110,8 +113,8 @@ source(allowSchemaDrift: true,
 	store: 'googlesheets',
 	format: 'rest',
 	spreadSheetId: $spreadSheetId,
-	startCell: 'A2, B4',
-	endCell: 'F10, S600',
+	startCell: 'A2',
+	endCell: 'F10',
 	sheetName: 'Sheet1') ~> GoogleSheetsSource
 ```
 
