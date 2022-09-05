@@ -513,7 +513,7 @@ Use the following content for the input file. You need to adapt the content to y
 }
 ```
 
-### **[A]** Assign the custom role to the service principal
+### **[A]** Assign the custom role
 
 #### Using Managed Identity
 
@@ -797,7 +797,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
    > Refer to the bold section in the following command.
   
-   To configure **managed identity** for your fence agent, run the following command (SLES 15 SP1 and newer, only)
+   If using **managed identity** for your fence agent, run the following command (SLES 15 SP1 and newer, only)
    <pre><code>
    # replace the bold strings with your subscription ID and resource group of the VM
    
@@ -809,7 +809,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    sudo crm configure property stonith-timeout=900
    </code></pre>
 
-   To configure **service principal** for your fence agent, run the following command
+   If using **service principal** for your fence agent, run the following command
    <pre><code>
    # replace the bold strings with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
    

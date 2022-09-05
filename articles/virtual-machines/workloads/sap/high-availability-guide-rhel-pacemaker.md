@@ -275,7 +275,7 @@ Use the following content for the input file. You need to adapt the content to y
 }
 ```
 
-### **[A]** Assign the custom role to the Service Principal
+### **[A]** Assign the custom role
 
 #### Using Managed Identity
 
