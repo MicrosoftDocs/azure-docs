@@ -1,12 +1,11 @@
 ---
-title: Quickstart: Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
-description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Modernized.
-ms.service: site-recovery
+title: Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
+description: Quickly set up disaster recovery to Azure for on-premises VMware VMs - Modernized.
 ms.topic: quickstart
 ms.date: 09/05/2022
-ms.custom: MVC, mode-other
-
+ms.custom: mvc, mode-other
 ---
+
 # Quickstart: Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
 
 The [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business applications online during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VM), including replication, failover, and recovery.
@@ -134,6 +133,20 @@ Follow these steps to enable replication:
 
     A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 
+## Clean up resources
+
+To stop replication of the VM in the primary region, you must disable replication:
+
+- The source replication settings are cleaned up automatically.
+- The Site Recovery extension installed on the VM during replication isn't removed.
+- Site Recovery billing for the VM stops.
+
+To disable replication, perform these steps:
+
+1. On the Azure portal menu, select **Virtual machines** and select the VM that you replicated.
+1. In **Operations**, select **Disaster recovery**.
+1. From **Overview**, select **Disable Replication**.
+1. To uninstall the Site Recovery extension, go to the VM's **Settings** > **Extensions**.
 
 ## Next steps
 After enabling replication, run a drill to make sure everything's working as expected.
