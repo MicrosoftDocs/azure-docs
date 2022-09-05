@@ -1,37 +1,30 @@
 ---
-title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Modernized
+title: Quickstart: Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Modernized.
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 09/02/2022
+ms.date: 09/05/2022
 ms.custom: MVC, mode-other
 
 ---
-# Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
+# Quickstart: Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
 
-This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the Modernized VMware/Physical machine protection experience.
+The [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business applications online during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VM), including replication, failover, and recovery.
+
+This quickstart describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the Modernized VMware/Physical machine protection experience.
 
 For information on how to set up disaster recovery in Azure Site Recovery Classic releases, see [the tutorial](vmware-azure-tutorial.md).
 
-This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-modernized.md) for disaster recovery to Azure.
+## Prerequisites
+To complete this tutorial, you need an Azure subscription and a VM.
+
+>- If you don't have an Azure account with an active subscription, you can [create an account for free](/free/?WT.mc_id=A261C142F).
+>- A VM with a minimum 1 GB of RAM is recommended. [Learn more](/azure/virtual-machines/windows/quick-create-portal) about how to create a VM.
 
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Set up the source replication settings.
-> * Set up the replication target settings.
-> * Enable replication for a VMware VM.
-
-## Get started
-
-VMware to Azure replication includes the following procedures:
+## Sign in to Azure
 
 - Sign in to the [Azure portal](https://portal.azure.com/).
-- Prepare Azure account
-- [Create a recovery Services vault](./quickstart-create-vault-template.md?tabs=CLI)
-- Prepare infrastructure - [deploy an Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-modernized.md)
-- Enable replication
 
 ## Prepare Azure account
 
