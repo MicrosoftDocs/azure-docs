@@ -75,6 +75,10 @@ In this example we see:
 
 - **Total code scanning findings** – Shows number of other code vulnerabilities and misconfigurations identified in the repositories.
 
+## Learn more
+
+You can learn more about DevOps from our [DevOps resource center](/devops/).
+
 ## Next steps
 
 Learn how to [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
