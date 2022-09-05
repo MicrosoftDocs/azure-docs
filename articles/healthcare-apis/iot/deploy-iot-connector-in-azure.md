@@ -13,13 +13,7 @@ ms.author: v-smcevoy
 
 MedTech service provides multiple methods for deploying it into an Azure Platform as a service (PaaS) configuration. Each method has different advantages so you can customize your development environment to suit your needs. 
 
-<<<<<<< HEAD
 The different deployment methods are:
-=======
-> [!IMPORTANT]
->
-> You'll want to confirm that the **Microsoft.HealthcareApis** and **Microsoft.EventHub** resource providers have been registered with your Azure subscription for a successful deployment. To learn more about registering resource providers, see [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types) 
->>>>>>> fa77ef4f37fede86273060bcae496c096a9dab4f
 
 ## Choosing Azure portal
 
