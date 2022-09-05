@@ -46,10 +46,10 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 ## Get the container image with `docker pull`
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry.
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the  [dockerhub page](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)  
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name>
 ```
 
 
@@ -84,7 +84,7 @@ To run the container in your own environment after downloading the container ima
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
-mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name> \
 Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \
