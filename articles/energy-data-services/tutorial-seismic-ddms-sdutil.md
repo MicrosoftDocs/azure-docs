@@ -290,7 +290,7 @@ run the changelog script (`./changelog-generator.sh`) to automatically generate 
 ## Setup and Usage for Azure Project Oak Forest
 
 Below steps are for windows subsystem linux - ubuntu 20.04
-Project Oak is using OSDU M8 Version of sdutil
+Project Oak is using OSDU&trade; M8 Version of sdutil
 
 - Download the source code from community [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable/) Azure Stable branch.
 

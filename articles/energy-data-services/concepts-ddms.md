@@ -11,31 +11,31 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Domain data management service concepts
 
-**Domain Data Management Service (DDMS)** – is a platform component that extends [OSDU](https://osduforum.org) core data platform with domain specific model and optimizations. DDMS is a mechanism of a platform extension that:
+**Domain Data Management Service (DDMS)** – is a platform component that extends [OSDU&trade;](https://osduforum.org) core data platform with domain specific model and optimizations. DDMS is a mechanism of a platform extension that:
 
 * delivers optimized handling of data for each (non-overlapping) "domain."
 * single vertical discipline or business area,  for example, Petrophysics, Geophysics, Seismic
 * a functional aspect of one or more vertical disciplines or business areas,  for example, Earth Model
-* delivers high performance capabilities not supported by OSDU generic normal APIs.
-* can help achieve the extension of OSDU scope to new business areas.
+* delivers high performance capabilities not supported by OSDU&trade; generic normal APIs.
+* can help achieve the extension of OSDU&trade; scope to new business areas.
 * may be developed in a distributed manner with separate resources/sponsors.
 
-OSDU technical standard defines the following types of OSDU application types:
+OSDU&trade; Technical Standard defines the following types of OSDU&trade; application types:
 
 | Application Type            | Description                                                                                                                                                                               |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| OSDU&trade; Embedded Applications | An application developed and managed within the OSDU Open-Source community that is built on and deployed as part of the OSDU Data Platform distribution.                                  |
-| ISV Extension Applications  | An application, developed and managed in the marketplace that is NOT part of THE OSDU Data Platform distributions, and when selected is deployed within the OSDU Data Platform as add-ons |
-| ISV third Party Applications  | An application, developed and managed in the marketplace that integrates with the OSDU Data Platform, and runs outside the OSDU Data Platform                                             |
+| OSDU&trade;&trade; Embedded Applications | An application developed and managed within the OSDU&trade; Open-Source community that is built on and deployed as part of the OSDU&trade; Data Platform distribution.                                  |
+| ISV Extension Applications  | An application, developed and managed in the marketplace that is NOT part of THE OSDU&trade; Data Platform distributions, and when selected is deployed within the OSDU&trade; Data Platform as add-ons |
+| ISV third Party Applications  | An application, developed and managed in the marketplace that integrates with the OSDU&trade; Data Platform, and runs outside the OSDU&trade; Data Platform                                             |
 
 
 | Characteristics                           | Embedded                           | Extension                   | Third Party |
 | ----------------------------------------- | ---------------------------------- | --------------------------- | --------- |
-| Developed, managed, and deployed by       | The OSDU Data Platform             | ISV                         | ISV       |
+| Developed, managed, and deployed by       | The OSDU&trade; Data Platform             | ISV                         | ISV       |
 | Software License                          | Apache 2                           | ISV                         | ISV       |
-| Mandatory as part of an OSDU distribution | Yes                                | No                          | No        |
+| Mandatory as part of an OSDU&trade; distribution | Yes                                | No                          | No        |
 | Replaceable                               | Yes, with preservation of behavior | Yes                         | Yes       |
-| Architecture Compliance                   | The OSDU Standard                  | The OSDU Standard           | ISV       |
+| Architecture Compliance                   | The OSDU&trade; Standard                  | The OSDU&trade; Standard           | ISV       |
 | Examples                                  | OS CRS <br /> Wellbore DDMS        | ESRI CRS <br /> Petrel DS   | Petrel    |
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
@@ -44,21 +44,21 @@ OSDU technical standard defines the following types of OSDU application types:
 
 **IT Developers** build systems to connect data to domain applications (internal and external – for example, Petrel) which enables data managers to deliver projects to geoscientists. The DDMS suite on Microsoft Energy Data Services helps automate these workflows and eliminates time spent managing updates.
 
-**Geoscientists** use domain applications for key Exploration and Production workflows such as Seismic interpretation and Well tie analysis. While these users won't directly interact with the DDMS, their expectations for data performance and accessibility will drive requirements for the DDMS in the Foundation Tier. Azure will enable geoscientists to stream cross domain data instantly in OSDU compatible applications (for example, Petrel) connected to Microsoft Energy Data Services.
+**Geoscientists** use domain applications for key Exploration and Production workflows such as Seismic interpretation and Well tie analysis. While these users won't directly interact with the DDMS, their expectations for data performance and accessibility will drive requirements for the DDMS in the Foundation Tier. Azure will enable geoscientists to stream cross domain data instantly in OSDU&trade; compatible applications (for example, Petrel) connected to Microsoft Energy Data Services.
 
 **Data managers** spend a significant number of time fulfilling requests for data retrieval and delivery. The Seismic, Wellbore, and Petrel Data Services enable them to discover and manage data in one place while tracking version changes as derivatives are created.
 
 ## Platform landscape
 
-Microsoft Energy Data Services is an OSDU compatible product, meaning that its landscape and release model are dependent on OSDU.
+Microsoft Energy Data Services is an OSDU&trade; compatible product, meaning that its landscape and release model are dependent on OSDU&trade;.
 
-Currently, OSDU certification and release process are not fully defined yet and this topic should be defined as a part of the Microsoft Energy Data Services Foundation Architecture.
+Currently, OSDU&trade; certification and release process are not fully defined yet and this topic should be defined as a part of the Microsoft Energy Data Services Foundation Architecture.
 
-OSDU R3 M8 is the base for the scope of the Microsoft Energy Data Services Foundation Private Preview – as a latest stable, tested version of the platform.
+OSDU&trade; R3 M8 is the base for the scope of the Microsoft Energy Data Services Foundation Private Preview – as a latest stable, tested version of the platform.
 
-## Learn more: OSDU DDMS community principles
+## Learn more: OSDU&trade; DDMS community principles
 
-[OSDU community DDMS Overview](https://community.opengroup.org/osdu/documentation/-/wikis/OSDU-(C)/Design-and-Implementation/Domain-&-Data-Management-Services#ddms-requirements) provides an extensive overview of DDMS motivation and community requirements from a user, technical, and business perspective. These principles are extended to Microsoft Energy Data Services.
+[OSDU&trade; community DDMS Overview](https://community.opengroup.org/osdu/documentation/-/wikis/OSDU&trade;-(C)/Design-and-Implementation/Domain-&-Data-Management-Services#ddms-requirements) provides an extensive overview of DDMS motivation and community requirements from a user, technical, and business perspective. These principles are extended to Microsoft Energy Data Services.
 
 ## DDMS requirements
 

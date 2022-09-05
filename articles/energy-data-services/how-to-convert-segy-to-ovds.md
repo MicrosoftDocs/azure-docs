@@ -13,7 +13,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 Seismic data stored in the industry standard SEG-Y format can be converted to Open VDS (oVDS) format for use in applications via the Seismic DMS.
 
-[OSDU SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/release/0.15)
+[OSDU&trade; SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/release/0.15)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

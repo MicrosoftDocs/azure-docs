@@ -37,18 +37,18 @@ When the *recordChangedMessages* event is received by the `Indexer Service`, it 
     
 :::image type="content" source="media/concepts-index-and-search/concept-indexer-sequence.png" alt-text="Diagram that shows Indexing sequence flow.":::
 
-For more information, see [Indexer service OSDU documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md) provides information on indexer service
+For more information, see [Indexer service OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md) provides information on indexer service
 
 ## Search workflow
     
 `Search service` provides a mechanism for discovering indexed metadata documents. The Search API supports full-text search on string fields, range queries on date, numeric, or string field, etc. along with geo-spatial searches.
 
-For a detailed tutorial on `Search service`, refer [Search service OSDU documentation](https://community.opengroup.org/osdu/platform/system/search-service/-/blob/release/0.15/docs/tutorial/SearchService.md)
+For a detailed tutorial on `Search service`, refer [Search service OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/search-service/-/blob/release/0.15/docs/tutorial/SearchService.md)
     
 
 ## Reindex workflow 
 Reindex API allows users to reindex a kind without reingesting the records via storage API. For detailed information, refer to 
-[Reindex OSDU documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md#reindex)
+[Reindex OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md#reindex)
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

@@ -130,7 +130,7 @@ For more information, see [Generate refresh tokens](/graph/auth-v2-user#2-get-au
 
 ## Alternative options
 
-If you're struggling with getting a proper authorization token, follow the steps in [OSDU auth app](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/tree/release/0.15/tools/rest/osduauth) to locally run a static webpage that generates the refresh token for you. Once it's running, fill in the correct values in the UI of the static webpage (they may be filled in with the wrong values to start). Use the UI to generate a refresh token.
+If you're struggling with getting a proper authorization token, follow the steps in [OSDU&trade; auth app](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/tree/release/0.15/tools/rest/osduauth) to locally run a static webpage that generates the refresh token for you. Once it's running, fill in the correct values in the UI of the static webpage (they may be filled in with the wrong values to start). Use the UI to generate a refresh token.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
