@@ -76,10 +76,10 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Netwo
 | **Azure Firewall logs** | |`_Im_NetworkSession_AzureFirewallVxx`|
 | **Azure Monitor VMConnection** | Collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md). | `_Im_NetworkSession_VMConnectionVxx`  |
 | **Azure Network Security Groups (NSG) logs** | Collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md). | `_Im_NetworkSession_AzureNSGVxx` |
-| **Checkpoint Firewall-1** | Collected using CEF. | `_Im_NetworkSession_FortinetFortiGateVxx` |
+| **Checkpoint Firewall-1** | Collected using CEF. | `__Im_NetworkSession_CheckPointFirewallVxx` |
 | **Cisco Meraki** | Collected using the Cisco Meraki API connector. | `_Im_NetworkSession_CiscoMerakiVxx` |
 | **Corelight Zeek** | Collected using the Corelight Zeek connector. | `_im_NetworkSession_CorelightZeekVxx` |
-| **Fortigate FortiOS** | IP connection logs collected using Syslog. | _Im_NetworkSession_CheckPointFirewallVxx` |
+| **Fortigate FortiOS** | IP connection logs collected using Syslog. | `_Im_NetworkSession_FortinetFortiGateVxx` |
 | **Microsoft 365 Defender for Endpoint** | | `_Im_NetworkSession_Microsoft365DefenderVxx`|
 | **Microsoft Defender for IoT - Endpoint** | | `_Im_NetworkSession_MD4IoTVxx` |
 | **Palo Alto PanOS traffic logs** | Collected using CEF. | `_Im_NetworkSession_PaloAltoCEFVxx` |
