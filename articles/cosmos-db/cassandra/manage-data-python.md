@@ -122,7 +122,7 @@ Now go back to the Azure portal to get your connection string information and co
     
 ## Use the X509 certificate
 
-1. Copy the Baltimore CyberTrust Root certificate details from [https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html](https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html) into a text file. Save the file using the file extension *.cer*.
+1. Copy the Baltimore CyberTrust Root certificate details from [https://www.digicert.com/kb/digicert-root-certificates.htm](https://www.digicert.com/kb/digicert-root-certificates.htm) into a text file. Save the file using the file extension *.cer*.
 
    The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 

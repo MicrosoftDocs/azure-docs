@@ -281,10 +281,14 @@
           href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
     href: teams-on-avd.md
-  - name: Enforce Azure AD MFA
-    href: set-up-mfa.md
-  - name: Configure AD FS single sign-on
-    href: configure-adfs-sso.md
+  - name: Identity and access management
+    items:
+      - name: Enforce Azure AD MFA
+        href: set-up-mfa.md
+      - name: Configure single sign-on
+        href: configure-single-sign-on.md
+      - name: Set up the KDC proxy
+        href: key-distribution-center-proxy.md
   - name: Deploy updates with Configuration Manager
     href: configure-automatic-updates.md
   - name: Set up multimedia redirection (preview)
@@ -301,8 +305,6 @@
     href: azure-monitor.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
-  - name: Set up the KDC proxy
-    href: key-distribution-center-proxy.md
   - name: Start VM on Connect
     items:
     - name: Set up Start VM on Connect
@@ -345,6 +347,8 @@
     href: remotefx-graphics-performance-counters.md
   - name: Connections to Azure AD-joined VMs
     href: troubleshoot-azure-ad-connections.md
+  - name: Device redirections
+    href: troubleshoot-device-redirections.md
   - name: Azure Monitor
     href: troubleshoot-azure-monitor.md
   - name: Azure Files authorization

@@ -16,8 +16,6 @@ ms.custom: ['Role: Cloud Development']
 
 This article describes how to create and manage IoT hubs using the [Azure portal](https://portal.azure.com).
 
-To use the steps in this tutorial, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Create an IoT hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
@@ -113,7 +111,7 @@ To delete an IoT hub, find the IoT hub you want to delete, then choose **Delete*
 
 ## Next steps
 
-Follow these links to learn more about managing Azure IoT Hub:
+Learn more about managing Azure IoT Hub:
 
 * [Message routing with IoT Hub](tutorial-routing.md)
 * [Monitor your IoT hub](monitor-iot-hub.md)

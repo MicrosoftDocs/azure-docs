@@ -33,7 +33,7 @@ In this section, you'll modify the address range prefix for an existing address 
 :::image type="content" source="media/update-virtual-network-peering-address-space/verify-address-space-thumb.png" alt-text="Image the Address Space page where you verify the address space has changed." lightbox="media/update-virtual-network-peering-address-space/verify-address-space-full.png":::
 
 > [!NOTE]
-> When an update is made to the address space for a virtual network, you will need to sync the virtual network peer for each remote peered VNet to learn of the new address space updates.
+> When an update is made to the address space for a virtual network, you will need to sync the virtual network peer for each remote peered VNet to learn of the new address space updates. We recommend that you run sync after every resize address space operation instead of performing multiple resizing operations and then running the sync operation.
 >
 > The following actions will require a sync:
 > - Modifying the address range prefix of an existing address range (For example changing 10.1.0.0/16 to 10.1.0.0/18)
