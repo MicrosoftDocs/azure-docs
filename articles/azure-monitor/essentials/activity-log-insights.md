@@ -36,9 +36,9 @@ To view activity log insights at the resource group or subscription level:
 
 1. At the top of the **Activity Logs Insights** page, select:
 
-    1. One or more subscriptions from the **Subscriptions** dropdown.
-    1. Resources and resource groups from the **CurrentResource** dropdown.
-    1. A time range for which to view data from the **TimeRange** dropdown.
+    - One or more subscriptions from the **Subscriptions** dropdown.
+    - Resources and resource groups from the **CurrentResource** dropdown.
+    - A time range for which to view data from the **TimeRange** dropdown.
 
 ## View resource-level activity log insights
 

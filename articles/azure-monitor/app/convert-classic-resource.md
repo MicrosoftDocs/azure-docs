@@ -58,7 +58,7 @@ Once the migration is complete, you can use [diagnostic settings](../essentials/
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will affect how long any new ingested data is stored once you migrate your Application Insights resource.
 
     > [!NOTE]
-    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period after migration, you will need to adjust your [workspace retention settings](https://docs.microsoft.com/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2#set-retention-and-archive-policy-by-table) from the default 90 days to the desired longer retention period. 
+    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period after migration, you will need to adjust your [workspace retention settings](/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2#set-retention-and-archive-policy-by-table) from the default 90 days to the desired longer retention period. 
     > - If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource until that data exceeds the retention period.
     > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, then use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 

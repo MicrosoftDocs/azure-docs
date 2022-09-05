@@ -81,7 +81,7 @@ The following APIs are set to be deprecated:
 - Security Statuses
 - Security Summaries
 
-These three APIs exposed old formats of assessments and will be replaced by the [Assessments APIs](/rest/api/securitycenter/assessments) and [SubAssessments APIs](/rest/api/securitycenter/sub-assessments). All data that is exposed by these legacy APIs will also be available in the new APIs.
+These three APIs exposed old formats of assessments and will be replaced by the [Assessments APIs](/rest/api/defenderforcloud/assessments) and [SubAssessments APIs](/rest/api/defenderforcloud/sub-assessments). All data that is exposed by these legacy APIs will also be available in the new APIs.
 
 ## Next steps
 
