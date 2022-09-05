@@ -51,7 +51,7 @@ az aks command invoke \
 
 The above example runs three `helm` commands on the *myAKSCluster* cluster in *myResourceGroup*.
 
-## Use `command invoke` to run commands an with attached file or directory
+## Use `command invoke` to run commands with an attached file or directory
 
 Use `az aks command invoke --command` to run commands on your cluster and `--file` to attach a file or directory for use by those commands. For example:
 

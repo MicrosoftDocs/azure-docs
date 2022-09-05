@@ -1,11 +1,13 @@
 ---
 title: Offerings from partners - Azure partner solutions
 description: Learn about solutions offered by partners on Azure.
+author: flang-msft
+
 ms.topic: conceptual
 ms.custom: event-tier1-build-2022
-ms.date: 06/07/2022
-author: flang-msft
+ms.date: 08/24/2022
 ms.author: franlanglois
+
 ---
 
 # Extend Azure with solutions from partners
@@ -20,5 +22,5 @@ Partner solutions are available through the Marketplace.
 | [Datadog](./datadog/overview.md) | Monitor your servers, clouds, metrics, and apps in one place. |
 | [Elastic](./elastic/overview.md) | Monitor the health and performance of your Azure environment. |
 | [Logz.io](./logzio/overview.md)  | Monitor the health and performance of your Azure environment. |
-| [Dynatrace for Azure (preview)](./dynatrace/dynatrace-overview.md)  | Use Dynatrace for Azure (preview) for monitoring your workflows using the Azure portal. |
+| [Dynatrace for Azure](./dynatrace/dynatrace-overview.md)  | Use Dynatrace for Azure for monitoring your workloads using the Azure portal. |
 | [NGINX for Azure (preview)](./nginx/nginx-overview.md)  | Use NGINX for Azure (preview) as a reverse proxy within your Azure environment. |

@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 08/15/2022
 ms.author: aahi
 ms.custom: language-service-pii, ignite-fall-2021
 ---
@@ -12,6 +12,8 @@ ms.custom: language-service-pii, ignite-fall-2021
 [Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.1) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
 
 Use this quickstart to create a Personally Identifiable Information (PII) detection application with the client library for .NET. In the following example, you'll create a C# application that can identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
+
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
 
 ## Prerequisites

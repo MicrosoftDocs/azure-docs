@@ -96,6 +96,7 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-gensecond |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-smalldisk-g2 |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter    |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-g2    |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core |

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/07/2022
+ms.date: 08/19/2022
 ms.author: jeedes
 
 ---
@@ -19,7 +19,7 @@ ms.author: jeedes
 In this tutorial, you'll learn how to integrate NetMotion Mobility with Azure Active Directory (Azure AD). When you integrate NetMotion Mobility with Azure AD, you can:
 
 * Control in Azure AD who has access to NetMotion Mobility.
-* Enable your users to be automatically signed-in to NetMotion Mobility with their Azure AD accounts.
+* Enable users to be signed-in with a NetMotion Mobility client with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate NetMotion Mobility with Azure Ac
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* NetMotion Mobility single sign-on (SSO) enabled subscription.
+* NetMotion Mobility 12.50 or later.
 * Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
@@ -55,12 +55,19 @@ Configure and test Azure AD SSO with NetMotion Mobility using a test user called
 
 To configure and test Azure AD SSO with NetMotion Mobility, perform the following steps:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+1. **[Configure Mobility for SAML-based Authentication](#configure-mobility-for-saml-based-authentication)** - to enable end users to authenticate using their Azure AD credentials. 
+2. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure NetMotion Mobility SSO](#configure-netmotion-mobility-sso)** - to configure the single sign-on settings on application side.
+3. **[Configure NetMotion Mobility SSO](#configure-netmotion-mobility-sso)** - to configure the single sign-on settings on application side.
     1. **[Create NetMotion Mobility test user](#create-netmotion-mobility-test-user)** - to have a counterpart of B.Simon in NetMotion Mobility that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+4. **[Test SAML-based User Authentication with the Mobility Client](#test-saml-based-user-authentication-with-the-mobility-client)** - to verify whether the configuration works.
+
+## Configure Mobility for SAML-based Authentication
+
+On the Mobility console, follow the procedures in the [Mobility Administrator Guide](https://help.netmotionsoftware.com/support/docs/MobilityXG/1250/help/mobilityhelp.htm#page/Mobility%2520Server%2Fintro.01.01.html%23) to accomplish the following:
+1.	Create an [authentication profile](https://help.netmotionsoftware.com/support/docs/MobilityXG/1250/help/mobilityhelp.htm#page/Mobility%2520Server%2Fconfig.05.41.html%23ww2298330) for SAML – to enable a set of Mobility users to use the SAML protocol.
+2.	Configure [SAML-based user authentication](https://help.netmotionsoftware.com/support/docs/MobilityXG/1250/help/mobilityhelp.htm#context/nmcfgapp/saml_userconfig), in Mobility – to set an SP URL and generate the mobilitySPmetadata.xml file which you will later import into Azure AD.
 
 ## Configure Azure AD SSO
 
@@ -68,31 +75,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **NetMotion Mobility** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click on **Upload Metadata file** just above the **Basic SAML Configuration** section to import your mobilitySPMetadata.xml file into Azure AD.
+    
+    ![Screenshot shows to choose metadata file.](media/netmotion-mobility-tutorial/file.png "Metadata")
 
-    ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
+1.	After importing the metadata file, on the **Basic SAML Configuration** section, perform the following steps to verify that the XML import has been completed successfully:
 
-1. On the **Basic SAML Configuration** section, perform the following steps:
+    a. In the **Identifier** text box, verify that the URL is using the following pattern, where the variables in the following example URL match those for your Mobility server:
+    `https://<YourMobilityServerName>.<CustomerDomain>.<tld>/`
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<MobilityServerName>.<CustomerDomain>.<extension>/`
-
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<MobilityServerName>.<CustomerDomain>.<extension>/saml/login`
-
-    c. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<MobilityServerName>.<CustomerDomain>.<extension>/`
-
-    > [!Note]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [NetMotion Mobility Client support team](mailto:nm-support@absolute.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
+    b. In the **Reply URL** text box, verify that the URL is using the following pattern: 
+    `https://<YourMobilityServerName>.<CustomerDomain>.<tld>/saml/login`
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-    ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
-
-1. On the **Set up NetMotion Mobility** section, copy the appropriate URL(s) based on your requirement.
-
-	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Metadata")  
+    ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate") 
 
 ### Create an Azure AD test user
 
@@ -120,22 +117,20 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure NetMotion Mobility SSO
 
-To configure single sign-on on **NetMotion Mobility** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [NetMotion Mobility support team](mailto:nm-support@absolute.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Follow the instructions in the Mobility Administrator Guide for [Configuring IdP Settings in the Mobility Console](https://help.netmotionsoftware.com/support/docs/MobilityXG/1250/help/mobilityhelp.htm#context/nmcfgapp/saml_userconfig), import the Azure AD metadata file back into your Mobility server and complete the steps for IdP configuration.
+
+1. Once the Mobility authentication settings are configured, assign them to devices or device groups. 
+1.	Go to **Mobility console** > **Configure** > **Client Settings** and select the device or device group on the left that will use SAML-based authentication.
+1.	Select **Authentication - Settings** Profile and choose the settings profile you created from the drop-down list.
+1.	When you click **Apply**, the selected device or group is subscribed to the non-default settings.
 
 ### Create NetMotion Mobility test user
 
 In this section, a user called B.Simon is created in NetMotion Mobility. NetMotion Mobility supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in NetMotion Mobility, a new one is created after authentication.
 
-## Test SSO 
+## Test SAML-based User Authentication with the Mobility Client
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD SAML configuration for client authentication.
 
-* Click on **Test this application** in Azure portal. This will redirect to NetMotion Mobility Sign on URL where you can initiate the login flow. 
-
-* Go to NetMotion Mobility Sign on URL directly and initiate the login flow from there.
-
-* You can use Microsoft My Apps. When you click the NetMotion Mobility tile in the My Apps, this will redirect to NetMotion Mobility Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
-## Next steps
-
-Once you configure NetMotion Mobility you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+1. Follow the guidance in [Configuring Mobility Clients](https://help.netmotionsoftware.com/support/docs/MobilityXG/1250/help/mobilityhelp.htm#page/Mobility%2520Server%2Fusing.06.01.html%23), configure a client device that is assigned a SAML-based authentication profile to access the Mobility server pool you have configured for SAML-based authentication and attempt to connect.
+1. If you encounter problems during the test, follow the guidance under [Troubleshooting the Mobility Client](https://help.netmotionsoftware.com/support/docs/MobilityXG/1250/help/mobilityhelp.htm#page/Mobility%2520Server%2Ftrouble.14.02.html).

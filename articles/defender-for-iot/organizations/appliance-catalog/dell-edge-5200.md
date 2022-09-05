@@ -11,8 +11,8 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | L500|
-|**Performance** | Max bandwidth: 60 Mbp/s<br>Max devices: 1,000 |
+|**Hardware profile** | E500|
+|**Performance** | Max bandwidth: 1 Gbp/s<br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: Wall Mount<br>Ports: 3x RJ45 |
 |**Status** | Supported, Not available preconfigured|
 

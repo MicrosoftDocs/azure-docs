@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 08/01/2022
-ms.reviewer: riroloff
+ms.reviewer: 
 
 ---
 
@@ -22,19 +22,29 @@ Azure autoscale supports many resource types. For more information about support
 
 ## What is autoscale
 
-Autoscale is a service that allows you to automatically add and remove resources according to the load on your application.  
+Autoscale is a service that allows you to automatically add and remove resources according to the load on your application.
 
 When your application experiences higher load, autoscale adds resources to handle the increased load. When load is low, autoscale reduces the number of resources, lowering your costs. You can scale your application based on metrics like CPU usage, queue length, and available memory, or based on a schedule. Metrics and schedules are set up in rules. The rules include a minimum level of resources that you need to run your application, and a maximum level of resources that won't be exceeded.
 
 For example, scale out your application by adding VMs when the average CPU usage per VM is above 70%. Scale it back in removing VMs when CPU usage drops to 40%.
 
- ![Autoscale explained. Add and remove VMs](./media/autoscale-overview/AutoscaleConcept.png)
+:::image type="content" source="./media/autoscale-overview/AutoscaleConcept.png" alt-text="A diagram that shows scaling out by adding virtual machine instances.":::
+
+When the conditions in the rules are met, one or more autoscale actions are triggered, adding or removing VMs. In addition, you can perform other actions like sending email  notifications, or webhooks to trigger processes in other systems.
+
+## Scaling out and scaling up
+
+Autoscale scales in and out, which is an increase, or decrease of the number of resource instances. Scaling in and out is also called horizontal scaling. For example, for a virtual machine scale set, scaling out means adding more virtual machines. Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation as it allows you to run a large number of VMs to handle load.
+
+In contrast, scaling up and down, or vertical scaling, keeps the number of resources constant, but gives those resources more capacity in terms of memory, CPU speed, disk space and network. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling may also require a restart of the virtual machine during the scaling process.
+
+:::image type="content" source="./media/autoscale-overview/vertical-scaling.png" alt-text="A diagram that shows scaling up by adding CPU and memory to a virtual machine.":::
 
 When the conditions in the rules are met, one or more autoscale actions are triggered, adding or removing VMs. In addition, you can perform other actions like sending email  notifications, or webhooks to trigger processes in other systems.
 
 ### Predictive autoscale (preview)
 
-[Predictive autoscale](/azure/azure-monitor/autoscale/autoscale-predictive) uses machine learning to help manage and scale Azure virtual machine scale sets with cyclical workload patterns. It forecasts the overall CPU load on your virtual machine scale set, based on historical CPU usage patterns. The scale set can then be scaled out in time to meet the predicted demand.
+[Predictive autoscale](./autoscale-predictive.md) uses machine learning to help manage and scale Azure virtual machine scale sets with cyclical workload patterns. It forecasts the overall CPU load on your virtual machine scale set, based on historical CPU usage patterns. The scale set can then be scaled out in time to meet the predicted demand.
 
 ## Autoscale setup
 
@@ -53,9 +63,7 @@ The following diagram shows the autoscale architecture.
 
 ### Resource metrics
 
-Resources generate metrics that are used in autoscale rules to trigger scale events. Virtual machine scale sets use telemetry data from Azure diagnostics agents to generate metrics. Telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. 
-
-Some commonly used metrics include CPU usage, memory usage, thread counts, queue length, and disk usage. See [Autoscale Common Metrics](autoscale-common-metrics.md) for a list of available metrics.
+Resources generate metrics that are used in autoscale rules to trigger scale events. Virtual machine scale sets use telemetry data from Azure diagnostics agents to generate metrics. Telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used metrics include CPU usage, memory usage, thread counts, queue length, and disk usage. See [Autoscale Common Metrics](autoscale-common-metrics.md) for a list of available metrics.
 
 ### Custom metrics
 
@@ -98,7 +106,7 @@ Autoscale uses the following terminology and structure. The UI and JSON
 | UI               | JSON/CLI     | Description                                                                                                                                                                                                                                                                   |
 |------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Scale conditions | profiles     | A collection of rules, instance limits and schedules, based on a metric or time. You can define one or more scale conditions or profiles.                                                                                                                                                                                             |
-| Rules            | rules        | A set of time or metric-based conditions that trigger a scale action. You can define one or more rules for both scale in and scale out actions.                                                                                                                                                                                                         |
+| Rules            | rules        | A set of time or metric-based conditions that trigger a scale action. You can define one or more rules for both scale-in and scale-out actions.                                                                                                                                                                                                         |
 | Instance limits  | capacity     | Each scale condition or profile defines th default, max, and min number of instances that can run under that profile.                                                                                                                                                                                                                                    |
 | Schedule         | recurrence   | Indicates when autoscale should put this scale condition or profile into effect. You can have multiple scale conditions, which allow you to handle different and overlapping requirements. For example, you can have different scale conditions for different times of day, or days of the week. |
 | Notify           | notification | Defines the notifications to send when an autoscale event occurs. Autoscale can notify one or more email addresses or make a call one or more webhooks. You can configure multiple webhooks in the JSON but only one in the UI.                                 |
@@ -124,22 +132,10 @@ The following services are supported by autoscale:
 
 | Service | Schema & Documentation |
 | --- | --- |
-| Web Apps |[Scaling Web Apps](autoscale-get-started.md) |
-| Cloud Services |[Autoscale a Cloud Service](../../cloud-services/cloud-services-how-to-scale-portal.md) |
-| Virtual Machines: Windows scale sets |[Scaling virtual machine scale sets in Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
-| Virtual Machines: Linux scale sets |[Scaling virtual machine scale sets in Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Virtual Machines: Windows Example |[Advanced Autoscale configuration using Resource Manager templates for virtual machine scale sets](autoscale-virtual-machine-scale-sets.md) |
-| Azure App Service |[Scale up an app in Azure App service](../../app-service/manage-scale-up.md)|
-| API Management service|[Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)
+| Azure Virtual machines scale sets |[Overview of autoscale with Azure virtual machine scale sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md) |
+| Web apps |[Scaling Web Apps](autoscale-get-started.md) |
+| Azure API Management service|[Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)
 | Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Logic Apps |[Adding integration service environment (ISE) capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
-| Spring Cloud |[Set up autoscale for microservice applications](../../spring-apps/how-to-setup-autoscale.md)|
-| Service Bus |[Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)|
-| Azure SignalR Service | [Automatically scale units of an Azure SignalR service](../../azure-signalr/signalr-howto-scale-autoscale.md) |
-| Media Services | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling) |
-| Logic Apps - Integration Service Environment(ISE) | [Add ISE Environment](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity) |
-| Azure App Service Environment | [Autoscaling and App Service Environment v1](../../app-service/environment/app-service-environment-auto-scale.md) |
-| Service Fabric Managed Clusters | [Introduction to Autoscaling on Service Fabric managed clusters](../../service-fabric/how-to-managed-cluster-autoscale.md) |
 | Azure Stream Analytics | [Autoscale streaming units (Preview)](../../stream-analytics/stream-analytics-autoscale.md) |
 | Azure Machine Learning Workspace | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md) |
 
@@ -148,10 +144,10 @@ The following services are supported by autoscale:
 To learn more about autoscale, see the following resources:
 
 * [Azure Monitor autoscale common metrics](autoscale-common-metrics.md)
-* [Scale virtual machine scale sets](/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell?toc=/azure/azure-monitor/toc.json)
-* [Autoscale using Resource Manager templates for virtual machine scale sets](/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell?toc=/azure/azure-monitor/toc.json)
+* [Scale virtual machine scale sets](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+* [Autoscale using Resource Manager templates for virtual machine scale sets](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Best practices for Azure Monitor autoscale](autoscale-best-practices.md)
 * [Use autoscale actions to send email and webhook alert notifications](autoscale-webhook-email.md)
 * [Autoscale REST API](/rest/api/monitor/autoscalesettings)
 * [Troubleshooting virtual machine scale sets and autoscale](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-* [Troubleshooting Azure Monitor autoscale](/azure/azure-monitor/autoscale/autoscale-troubleshoot)
+* [Troubleshooting Azure Monitor autoscale](./autoscale-troubleshoot.md)

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/05/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb, sandeo
 
 ms.collection: M365-identity-device-management
