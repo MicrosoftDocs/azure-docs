@@ -33,11 +33,11 @@ If enabled Azure Active Directory will validate the requests against the public 
 
 1. Inside the Azure portal, navigate to **Azure Active Directory** from the Search bar or Azure Services. 
     
-    ![Screenshot of Azure Active Directory inside Azure Portal](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation1.png) 
+    ![Screenshot of Azure Active Directory inside the Azure portal.](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation1.png) 
     
 2. Navigate to **Enterprise applications** from the left menu.  
     
-    ![Screenshot of Enterprise Application option inside Azure Portal Navigation](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation2.png) 
+    ![Screenshot of Enterprise Application option inside the Azure portal Navigation.](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation2.png) 
     
 3. Select the application you wish to apply the changes.  
 
@@ -45,7 +45,7 @@ If enabled Azure Active Directory will validate the requests against the public 
 
 5. In the **Single sign-on** screen, there's a new subsection called **Verification certificates** under **SAML Certificates.** 
     
-    ![Screenshot of Verification certificates under SAML Certificates on the Enterprise Application page in the Azure Portal](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation3.png) 
+    ![Screenshot of verification certificates under SAML Certificates on the Enterprise Application page in the Azure portal.](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation3.png) 
     
 6. Click on **Edit.**  
 
@@ -53,25 +53,25 @@ If enabled Azure Active Directory will validate the requests against the public 
 
 8. To enable the verification of signed requests, click **Enable verification certificates** and upload a verification public key that matches with the private key used to sign the request. 
     
-    ![Screenshot of enable verification certificates in Enterprise Application within the Azure Portal](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation4.png) 
+    ![Screenshot of enable verification certificates in Enterprise Application within the Azure portal.](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation4.png) 
     
-    ![Screenshot of upload certificates in Enterprise Application within the Azure Portal](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation5.png) 
+    ![Screenshot of upload certificates in Enterprise Application within the Azure portal.](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation5.png) 
     
-    ![Screenshot of certificate upload success in Enterprise Application within the Azure Portal](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation6.png) 
+    ![Screenshot of certificate upload success in Enterprise Application within the Azure portal.](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation6.png) 
 
 9. Once you have your verification certificate uploaded, click **Save.** 
     
-    ![Screenshot of certificate verification save in Enterprise Application within the Azure Portal](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation7.png) 
+    ![Screenshot of certificate verification save in Enterprise Application within the Azure portal.](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation7.png) 
        
-    ![Screenshot of certificate update success in Enterprise Application within the Azure Portal](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation8.png) 
+    ![Screenshot of certificate update success in Enterprise Application within the Azure portal.](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation8.png) 
 
 10. When the verification of signed requests is enabled, the test experience is disabled as the requests requires to be signed by the service provider.  
     
-    ![Screenshot of testing disabled warning when signed requests enabled in Enterprise Application within the Azure Portal](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation9.png) 
+    ![Screenshot of testing disabled warning when signed requests enabled in Enterprise Application within the Azure portal.](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation9.png) 
     
 11. If you want to see the current configuration of an enterprise application, you can navigate to the **Single Sign-on** screen and see the summary of your configuration under **SAML Certificates**. There you'll be able to see if the verification of signed requests is enabled and the count of Active and Expired verification certificates. 
     
-    ![Screenshot of eEterprise application configuration in Single Sign-on screen within the Azure Portal](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation10.png) 
+    ![Screenshot of enterprise application configuration in single sign-on screen within the Azure portal.](./media/howto-enforce-signed-saml-authentication/samlsignaturevalidation10.png) 
 
 ## Next steps  
 
