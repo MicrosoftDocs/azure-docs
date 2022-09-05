@@ -6,7 +6,11 @@ ms.topic: conceptual
 ms.date: 09/05/2022
 ---
 
-# What is cloud map security
+# What are cloud security graph, Attack Path Analysis, and Cloud Security Explorer?
+
+**Tal will add some lines on contextual security**
+
+## What is cloud security graph <--CHECK TO SEE IF THIS GETS CAPs
 
 Cloud map security allows businesses to prioritize how they organize and remediate their cloud misconfigurations and vulnerabilities based on the risk level. With cloud map security, you'll gain visibility into your cloud environments and allow your security team to hunt and explore all of your cloud risks.
 
@@ -16,9 +20,21 @@ Security teams in general have many cloud misconfigurations and vulnerabilities 
 
 ## What is Attack Path Analysis
 
+Defender for Cloud provides contextual security capabilities that help organizations assess risks that their multicloud environments may be exposed to while taking into account the structure of their cloud environment and 
+their unique circumstances. For example, internet exposure, permissions, connections between resources.
+
+[Attack path analysis](#attack-path-analysis) helps you address misconfigurations and vulnerabilities that pose immediate threats 
+with the greatest potential of being exploited in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate it.
+
+You can also build queries to help you proactively hunt for vulnerabilities in your multicloud environments and mitigate and remediate them based on their priority.
+
 ## What is Cloud Security Explorer
 
-## Assessing risk
+Defender for Cloud provides cloud security capabilities that help organizations assess their risks to their environments that are exposed. Organizations can do this while taking into account the structure of their cloud environment and its unique circumstances. Such as Internet exposure, permissions, connection between resources and more, which can affect the overall level of risk.
+
+Cloud Security Explorer provides you the ability to perform proactive hunting and search for these security risks within your organization by running graph-based path-finding queries on top the contextual security data already provided by Defender for Cloud. Such as, cloud misconfigurations, vulnerabilities, resource context, lateral movement possibilities between resources and more.
+
+## Assessing risk THIS SECTION MAYBE TO REMOVE
 
 Defender for Cloud offers three ways to assess your risk of security issues that exist in your cloud environments. 
 
