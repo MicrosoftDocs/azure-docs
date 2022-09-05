@@ -129,9 +129,9 @@ Return to the terminal and run the following command `git pull origin main`.
 
 ### Configuring Static Rendering
 
-By default, the application will be treated as a hybrid rendered Next.js application, but to continue using it as a static site generator, the deployment task needs to be updated.
+By default, the application is treated as a hybrid rendered Next.js application, but to continue using it as a static site generator, you need to update the deployment task.
 
-1. Open the repository in VS Code
+1. Open the repository in Visual Studio Code.
 
 1. Navigate to the GitHub Actions file that Azure Static Web Apps added to your repository at `.github/workflows/azure-static-web-apps-<your site ID>.yml`
 
@@ -152,7 +152,7 @@ By default, the application will be treated as a hybrid rendered Next.js applica
               is_static_export: true
     ```
 
-1. Commit the changes to git and push them to GitHub
+1. Commit the changes to git and push them to GitHub.
 
     ```bash
     git commit -am "Configuring static site generation" && git push

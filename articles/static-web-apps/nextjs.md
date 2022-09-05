@@ -4,20 +4,23 @@ description: "An overview of the support of Next.js on Azure Static Web Apps"
 services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
-ms.topic:  overview
+ms.topic:  how-to
+
 ms.date: 04/22/2022
 ms.author: aapowell
 ms.custom: devx-track-js
 ---
 # Deploy Next.js websites on Azure Static Web Apps
-Next.js support on Azure Static Web Apps can be categorised as two deployment models, statically exported Next.js and hybrid Next.js.
+Next.js support on Azure Static Web Apps can be categorised as two deployment models, Static Site Generation (SSG) Next.js applications, and _hybrid_ rendering, which covers [Server-Side Rendering](https://nextjs.org/docs/advanced-features/react-18/streaming) and [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration).
+
 
 ## Static HTML export
 
 
-Next.js can be deployed as a static site using the [static HTML export](https://nextjs.org/docs/advanced-features/static-html-export) feature of Next.js. This will generate static HTML files at build time which are cached and reused for all requests.
+You can deploy a Next.js static site using the [static HTML export](https://nextjs.org/docs/advanced-features/static-html-export) feature of Next.js. This configuration generates static HTML files at build time which are cached and reused for all requests.
 
-To enable static export of a Next.js application, add `next export` the to `build` npm script in the package.json:
+To enable static export of a Next.js application, add `next export` the to `build` npm script in _package.json_.
+
 
 ```json
 {
@@ -29,7 +32,8 @@ To enable static export of a Next.js application, add `next export` the to `buil
 
 If you're using custom build scripts, set `IS_STATIC_EXPORT` to `true` in the Static Web Apps task of the GitHub Actions/Azure DevOps YAML file.
 
-Here is an example of the GitHub Actions job that is enabled for static exports:
+The following example shows the GitHub Actions job that is enabled for static exports.
+
 
 ```yaml
       - name: Build And Deploy
@@ -50,7 +54,8 @@ Follow the [deploy static-rendered Next.js websites](deploy-nextjs-ssg.md) tutor
 
 ## Hybrid Next.js applications (preview)
 
-Static Web Apps supports deploying hybrid Next.js websites where you can choose between static generation and server-side rendering (SSR) on a per page basis. It is recommended to use Static Generation over SSR for performance reasons.
+Static Web Apps supports deploying hybrid Next.js websites where you can choose between static generation and server-side rendering (SSR) on a per page basis. Static Generation is often used over SSR for performance reasons.
+
 
 Key features that are available in the preview are:
 

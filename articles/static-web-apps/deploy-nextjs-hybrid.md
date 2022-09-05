@@ -46,9 +46,9 @@ Begin by initializing a new Next.js application.
     npm run dev
     ```
 
-Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your browser:
+    Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your browser:
 
-:::image type="content" source="media/deploy-nextjs/nextjs-hybrid-starter.png" alt-text="Start Next.js app":::
+    :::image type="content" source="media/deploy-nextjs/nextjs-hybrid-starter.png" alt-text="Start Next.js app":::
 
 1. Stop the development server by pressing **CMD/CTRL + C**.
 
@@ -60,14 +60,14 @@ The following steps show how to link your app to Azure Static Web Apps. Once in 
 
 Before deploying to Azure, you'll need to create a GitHub repo and push the application up.
 
-1. Navigate to [https://github.com/new](https://github.com/new) and provide a name for the repo (eg: `nextjs-app`).
-1. From the terminal on your machine, initalise a local git repo and commit the application:
+1. Navigate to [https://github.com/new](https://github.com/new) and name it **nextjs-app**.
+1. From the terminal on your machine, initialize a local git repo and commit your changes using the following command.
 
     ```bash
     git init && git add -A && git commit -m "initial commit"
     ```
 
-1. Add your repo as a remote and push to it:
+1. Add your repo as a remote and push your changes to the server.
 
     ```bash
     git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-app && git push -u origin main
@@ -85,7 +85,7 @@ Before deploying to Azure, you'll need to create a GitHub repo and push the appl
     | _Repository_ | Select **nextjs-app**. |
     | _Branch_ | Select **main**. |
 
-1. In the _Build Details_ section, select **Next.js** from the _Build Presets_ and leave the values it sets as default.
+1. In the _Build Details_ section, select **Next.js** from the _Build Presets_ and keep the default values.
 
 ### Review and create
 
@@ -117,9 +117,9 @@ Return to the terminal and run the following command `git pull origin main`.
 
 ## Add Server-Rendered data
 
-To insert data that is server-rendered to a Next.js page, a special function needs to be exported.
+To insert data server-rendered data to a Next.js page, you need to first export a special function.
 
-1. Open the `pages/index.ts` file and add an exported function named `getServerSideProps`:
+1. Open the _pages/index.ts_ file and add an exported function named `getServerSideProps`.
 
     ```ts
     export async function getServerSideProps() {
@@ -128,7 +128,7 @@ To insert data that is server-rendered to a Next.js page, a special function nee
     }
     ```
 
-1. Update the `Home` component to recieve the server-rendered data:
+1. Update the `Home` component to receive the server-rendered data.
 
     ```ts
     export default function Home({ data }: { data: { time: string } }) {
@@ -137,16 +137,16 @@ To insert data that is server-rendered to a Next.js page, a special function nee
 
 1. Output the server-rendered data in part of the HTML content for the page, then commit and push the changes.
 
-Once the changes are pushed, a new GitHub Actions workflow will be triggered and the changes will be deployed to your site.
+Once the changes are pushed, a new GitHub Actions workflow begins and the changes are deployed to your site.
 
 ## Adding an API route
 
 Next.js has [API routes](https://nextjs.org/docs/api-routes/introduction) which is an alternative to Azure Functions for creating APIs for the Next.js client application.
 
-Let's add an API route:
+Begin by adding an API route.
 
-1. Create a new file at `pages/api/time.ts`.
-1. Add a handler function to return some data from the API:
+1. Create a new file at _pages/api/time.ts_.
+1. Add a handler function to return data from the API.
 
     ```ts
     import type { NextApiRequest, NextApiResponse } from "next";
@@ -156,7 +156,7 @@ Let's add an API route:
     }
     ```
 
-1. Open `pages/index.ts` to add a call to the API, and display the result:
+1. Open _pages/index.ts_ to add a call to the API, and display the result.
 
     ```ts
     export default function Home({ data }: { data: { time: string } }) {
