@@ -13,7 +13,7 @@ ms.author: v-smcevoy
 
 MedTech service provides multiple methods for deploying it into an Azure Platform as a service (PaaS) configuration. Each method has different advantages so you can customize your development environment to suit your needs. 
 
-The different deployment methods are: 
+The different deployment methods are:
 
 ## Choosing Azure portal
 
@@ -67,6 +67,5 @@ The QuickStart template method includes these steps automatically, but is not in
 - Must use managed identity to grant access to the device message event hub.
 - Must also use managed identity to grant access to the FHIR service, enabling FHIR to receive data from the MedTech service.
 - All deployment methods, including QuickStart, manual, and ARM template, must do each part of this step.
-
 
 For more details on all six step of this architecture diagram, see [Get started with the MedTech service in the Azure Health Data Services](./get-started-with-iot.md).
