@@ -109,7 +109,7 @@ rm ./manifest.json
 ```
 ---
 
-Save the app registration ID and password values for later use..
+Save the app registration ID and password values for later use.
 
 
 ## Create Azure Pipelines
