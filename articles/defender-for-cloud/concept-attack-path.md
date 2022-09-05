@@ -3,7 +3,7 @@ title: Attack path security
 description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
-ms.date: 08/21/2022
+ms.date: 09/05/2022
 ---
 
 # What is cloud map security
@@ -14,13 +14,17 @@ Security teams in general have many cloud misconfigurations and vulnerabilities 
 
 :::image type="content" source="media/concept-cloud-map/security-map.png" alt-text="Image of a conceptualized graph that shows the complexity of security graphing." lightbox="media/concept-cloud-map/security-map.png":::
 
+## What is Attack Path Analysis
+
+## What is Cloud Security Explorer
+
 ## Assessing risk
 
-Defender for Cloud offers three ways to asses your risk of security issues that exist in your cloud environments. 
+Defender for Cloud offers three ways to assess your risk of security issues that exist in your cloud environments. 
 
 - **Graph-based context engine**: <NEED A DESCRIPTION FOR THIS>
 
-- **Attack path analysis**: Shows you thr paths potential attackers can use to breach your environment.
+- **Attack path analysis**: Shows you the paths that potential attackers can use to breach your environment.
 
 - **Graph-based queries**: Building a query allows you to proactively find security risks in your environment on top of the context engine.
 
@@ -28,7 +32,7 @@ When you assess your environments, certain scenarios will have lower risks, and 
 
 ### High risk example
 
-:::image type="content" source="media/concept-cloud-map/high-risk.png" alt-text="Image that shows a virtual machine that is exposed to the internet that could get infected and allow credit card information to be stolen. ":::
+:::image type="content" source="media/concept-cloud-map/high-risk.png" alt-text="Image that shows a virtual machine that is exposed to the internet that could get infected and allow credit card information to be stolen.":::
 
 In this scenario, the virtual machine (VM) is exposed to the internet and all internal networks. In this scenario, the VM is putting the company at further risk because it has access to customers credit card information.
 
@@ -54,11 +58,11 @@ Defender for Cloud's security engine gathers all of the relevant information fro
 
 By providing the environmental security context, organizations can prioritize and mitigate their most critical risks in their hybrid cloud environments.
 
-Defender for Cloud can protect your multicloud and hybrid workloads through the use of the following Defender for Cloud plans:
+Defender for Cloud can protect your multicloud and hybrid workloads by using the following Defender for Cloud plans:
 
 | Plan name | Description|
 |--|--|
-| Defender for DevOps | Removes the separation that exist between security teams and developers by embedding security in your developer workflows giving security teams a centralized visibility and policy control.|
+| Defender for DevOps | Removes the separation that exists between security teams and developers by embedding security in your developer workflows giving security teams a centralized visibility and policy control.|
 | Defender for API | Focuses on threat protection for APIs that are built by organizations that provide cross-organizational visibility of the APIM API inventory, data classification and coverage to detect exploits of API risks. |
 | Defender for Serverless | Supports Azure Functions and AWSLambda to help organizations protect their serverless resources. |
 | Defender for Servers | Protects your Windows and Linux machines in Azure, AWS, GCP, and on-premises. |
@@ -71,7 +75,7 @@ The attack path homepage offers you an overview of your total attack paths. From
 
 :::image type="content" source="media/concept-cloud-map/attack-path-homepage.png" alt-text="Screenshot of a sample attack path homepage.":::
 
-On this page you can you can organize your recommendations based on name, environment, paths count, risk categories.
+On this page you can organize your recommendations based on name, environment, paths count, risk categories.
 
 For each recommendation you can also see all of risk categories and affected resources.
 
