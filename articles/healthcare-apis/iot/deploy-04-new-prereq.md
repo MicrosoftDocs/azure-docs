@@ -9,7 +9,7 @@ ms.date: 09/04/2022
 ms.author: v-smcevoy
 ---
 
-# Prerequisites for manually deploying the MedTech service using the Azure portal
+# Prerequisites for manually deploying the MedTech service using the Azure portal 
 
 Before you can configure or deploy MedTech services, you must satisfy the following prerequisites:
 
