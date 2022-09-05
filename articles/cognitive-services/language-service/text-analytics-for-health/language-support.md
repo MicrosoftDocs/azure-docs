@@ -24,13 +24,16 @@ The hosted API service supports English language, model version 03-01-2022.
 ## Docker container
 
 Text Analytics for Health now supports additional languages when using a docker container to deploy the API. This functionality is currently in preview. 
-Full details for deploying the service in a container can be found [here](../use-containers.md)
+Full details for deploying the service in a container can be found [here](../how-to/use-containers.md).
+
 In order to download the new container images from the Microsoft public container registry, use the docker pull command, as follows :
 
 For English, Spanish, Italian, French, German and Portuguese:
+
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/latin
 
 For Hebrew:
+
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/semitic
 
 When structuring the API request, the relevant language tags must be added for these languages: 
@@ -42,14 +45,16 @@ Italian – “it”
 Portuguese – “pt”
 Hebrew – “he”
 
-(Example for Spanish document)
+The following jason is an example of a JSON file attached to the Language request's POST body, for a Spanish document:
+
+```json
 example.json
 
 {
     "analysisInput": {
         "documents": [
             {
-                "text": " El médico prescrió 200 mg de ibuprofeno.",
+                "text": "El médico prescrió 200 mg de ibuprofeno.",
                 "language": "es",
                 "id": "1"
             }
@@ -65,7 +70,8 @@ example.json
         }
     ]
 }
-
+```
+## Details of the supported model versions for each language:
 
 
 | Language code       | model version: |  Featured Tag | Specific Tag
