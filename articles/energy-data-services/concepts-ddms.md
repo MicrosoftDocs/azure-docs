@@ -11,25 +11,25 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Domain data management service concepts
 
-**Domain Data Management Service (DDMS)** – is a platform component, that extends [OSDU](https://osduforum.org) core data platform with domain specific model and optimizations. DDMS is a mechanism of a platform extension that:
+**Domain Data Management Service (DDMS)** – is a platform component that extends [OSDU](https://osduforum.org) core data platform with domain specific model and optimizations. DDMS is a mechanism of a platform extension that:
 
 * delivers optimized handling of data for each (non-overlapping) "domain."
-* Single vertical discipline or business area e.g., Petrophysics, Geophysics, Seismic
-* A functional aspect of one or more vertical disciplines or business areas e.g., Earth Model
+* single vertical discipline or business area,  for example, Petrophysics, Geophysics, Seismic
+* a functional aspect of one or more vertical disciplines or business areas,  for example, Earth Model
 * delivers high performance capabilities not supported by OSDU generic normal APIs.
 * can help achieve the extension of OSDU scope to new business areas.
 * may be developed in a distributed manner with separate resources/sponsors.
 
-OSDU Technical Standard defines following types of OSDU Application Types:
+OSDU technical standard defines the following types of OSDU application types:
 
 | Application Type            | Description                                                                                                                                                                               |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | OSDU&trade; Embedded Applications | An application developed and managed within the OSDU Open-Source community that is built on and deployed as part of the OSDU Data Platform distribution.                                  |
 | ISV Extension Applications  | An application, developed and managed in the marketplace that is NOT part of THE OSDU Data Platform distributions, and when selected is deployed within the OSDU Data Platform as add-ons |
-| ISV 3rd Party Applications  | An application, developed and managed in the marketplace that integrates with the OSDU Data Platform, and runs outside the OSDU Data Platform                                             |
+| ISV third Party Applications  | An application, developed and managed in the marketplace that integrates with the OSDU Data Platform, and runs outside the OSDU Data Platform                                             |
 
 
-| Characteristics                           | Embedded                           | Extension                   | 3rd Party |
+| Characteristics                           | Embedded                           | Extension                   | Third Party |
 | ----------------------------------------- | ---------------------------------- | --------------------------- | --------- |
 | Developed, managed, and deployed by       | The OSDU Data Platform             | ISV                         | ISV       |
 | Software License                          | Apache 2                           | ISV                         | ISV       |
@@ -42,23 +42,23 @@ OSDU Technical Standard defines following types of OSDU Application Types:
 
 ## Who did we build this for?
 
-**IT Developers** build systems to connect data to domain applications (internal and external – e.g. Petrel) which enables data managers to deliver projects to geoscientists. The DDMS suite on Project Oak Forest helps automate these workflows and eliminates time spent managing updates.
+**IT Developers** build systems to connect data to domain applications (internal and external – for example, Petrel) which enables data managers to deliver projects to geoscientists. The DDMS suite on Microsoft Energy Data Services helps automate these workflows and eliminates time spent managing updates.
 
-**Geoscientists** use domain applications for key Exploration and Production workflows such as Seismic interpretation and Well tie analysis. While these users will not directly interact with the DDMS, their expectations for data performance and accessibility will drive requirements for the DDMS in the Foundation Tier. Azure will enable geoscientists to stream cross domain data instantly in OSDU compatible applications (e.g. Petrel) connected to Project Oak Forest.
+**Geoscientists** use domain applications for key Exploration and Production workflows such as Seismic interpretation and Well tie analysis. While these users won't directly interact with the DDMS, their expectations for data performance and accessibility will drive requirements for the DDMS in the Foundation Tier. Azure will enable geoscientists to stream cross domain data instantly in OSDU compatible applications (for example, Petrel) connected to Microsoft Energy Data Services.
 
-**Data managers** spend a significant amount of time fulfilling requests for data retrieval and delivery. The Seismic, Wellbore, and Petrel Data Services enable them to discover and manage data in one place while tracking version changes as derivatives are created.
+**Data managers** spend a significant number of time fulfilling requests for data retrieval and delivery. The Seismic, Wellbore, and Petrel Data Services enable them to discover and manage data in one place while tracking version changes as derivatives are created.
 
 ## Platform landscape
 
-Project Oak Forest is an OSDU compatible product, meaning that its landscape and release model are depends on OSDU.
+Microsoft Energy Data Services is an OSDU compatible product, meaning that its landscape and release model are dependent on OSDU.
 
-Currently, OSDU Certification and Release process not fully defined yet and this topic should be defined as a part of the Project Oak Forest Foundation Architecture.
+Currently, OSDU certification and release process are not fully defined yet and this topic should be defined as a part of the Microsoft Energy Data Services Foundation Architecture.
 
-OSDU R3 M8 is the base for the scope of the Project Oak Forest Foundation Private Preview– as a latest stable, tested version of the platform.
+OSDU R3 M8 is the base for the scope of the Microsoft Energy Data Services Foundation Private Preview – as a latest stable, tested version of the platform.
 
 ## Learn more: OSDU DDMS community principles
 
-[OSDU community DDMS Overview](https://community.opengroup.org/osdu/documentation/-/wikis/OSDU-(C)/Design-and-Implementation/Domain-&-Data-Management-Services#ddms-requirements) provides an extensive overview of DDMS motivation and community requirements from a user, technical, and business perspective. These principles are extended to Project Oak Forest.
+[OSDU community DDMS Overview](https://community.opengroup.org/osdu/documentation/-/wikis/OSDU-(C)/Design-and-Implementation/Domain-&-Data-Management-Services#ddms-requirements) provides an extensive overview of DDMS motivation and community requirements from a user, technical, and business perspective. These principles are extended to Microsoft Energy Data Services.
 
 ## DDMS requirements
 
