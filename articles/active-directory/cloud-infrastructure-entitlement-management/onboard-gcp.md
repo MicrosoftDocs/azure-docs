@@ -20,11 +20,11 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on P
 
 ## Explanation
 
-For GCP, permissions management is scoped to a *GCP project*. A GCP project is a logical collection of your resources in GCP, somewhat analogous to a subscription in Azure, albeit with further configurations you can perform e.g. application registrations.
+For GCP, permissions management is scoped to a *GCP project*. A GCP project is a logical collection of your resources in GCP, somewhat analogous to a subscription in Azure, albeit with further configurations you can perform such as application registrations and OIDC configurations.
 
 <!-- Diagram from Gargi-->
 
-There are several moving parts across GCP and Azure which are required to be configured before onboarding.
+There are several moving parts across GCP and Azure, which are required to be configured before onboarding.
 
 1. An AAD OIDC App
 1. An Workload Identity in GCP
@@ -60,13 +60,13 @@ Choose from 3 options to manage GCP projects.
 
 #### Option 1: Automatically manage 
 
-This option allows projects to be automatically detected and monitored without additional configuration. Steps to detect list of projects and onboard for collection:  
+This option allows projects to be automatically detected and monitored without extra configuration. Steps to detect list of projects and onboard for collection:  
 
 Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope. 
 
-Once done, the steps are listed in the screen to do this manually in the GPC console, or programatically with the gcloud CLI.
+Once done, the steps are listed in the screen to do configure this manually in the GPC console, or programatically with the gcloud CLI.
 
-Once this has been configured, click next, then 'Verify Now & Save'.
+Once everything has been configured, click next, then 'Verify Now & Save'.
 
 Any current or future projects found get onboarded automatically. 
 

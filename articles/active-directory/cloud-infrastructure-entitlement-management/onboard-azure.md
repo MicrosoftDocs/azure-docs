@@ -20,7 +20,7 @@ This article describes how to onboard a Microsoft Azure subscription or subscrip
 
 ## Explanation
 
-Given Permissions Management is hosted on Azure and you are onboarding your Azure subscriptions to be monitored and managed, setup is simple with few moving parts to configure. Below is what is required to configure onboarding:
+Given that Permissions Management is hosted on Azure and you are onboarding your Azure subscriptions to be monitored and managed, setup is simple with few moving parts to configure. Below is what is required to configure onboarding:
 
 1. When your tenant is onboarded, an application is created in the tenant.
 1. This app requires 'reader' permissions on the subscriptions
