@@ -1,5 +1,5 @@
 ---
-title: Provide a virtual network to an external Azure Container Apps environment
+title: Integrate a virtual network with an external Azure Container Apps environment
 description: Learn how to integrate a VNET with an external Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
