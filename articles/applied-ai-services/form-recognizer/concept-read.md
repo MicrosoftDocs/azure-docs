@@ -114,7 +114,7 @@ Read adds [language detection](language-support.md#detected-languages-read-api) 
 ]
 ```
 ### Microsoft Office and HTML support (preview)<sup>new!</sup>
-Use the parameter `api-version=2022-06-30` when using the REST API or the corresponding SDKs to preview the support for Microsoft Word, Excel, PowerPoint, and HTML files. The page units in the model output are computed as shown:
+Use the parameter `api-version=2022-06-30-preview when using the REST API or the corresponding SDKs of that API version to preview the support for Microsoft Word, Excel, PowerPoint, and HTML files. The page units in the model output are computed as shown:
 
  **File format**   | **Computed page unit**   | **Total pages**  |
 | --- | --- | --- |
