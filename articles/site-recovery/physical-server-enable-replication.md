@@ -13,11 +13,11 @@ ms.date: 08/23/2022
 
 This article describes how to enable replication for on-premises physical servers for disaster recovery to Azure using the Azure Site Recovery service - Modernized.
 
-For information on how to set up disaster recovery in Azure Site Recovery Classic releases, see the [tutorial](/azure/site-recovery/physical-azure-disaster-recovery). 
+See the [tutorial](/azure/site-recovery/physical-azure-disaster-recovery) for information on how to set up disaster recovery in Azure Site Recovery Classic releases. 
 
 This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises physical servers. In the previous tutorial, we prepared the Azure Site Recovery replication appliance for disaster recovery to Azure.
 
-In this tutorial, you will learn how to enable replication for a physical server.
+This tutorial, explains on how to enable replication for a physical server.
 
 ## Get started
 
@@ -35,17 +35,17 @@ Physical server to Azure replication includes the following procedures:
  
 ### Add details of physical server to an appliance
 
-You can add details of the physical servers, which you plan to protect, when you’re performing the appliance registration for the first time, or you can also do it once the registration is complete. To add the physical server details in the appliance, follow the steps below:
+You can add details of the physical servers, which you plan to protect, when you’re performing the appliance registration for the first time, or when the registration is complete. To add the physical server details to the appliance, follow the steps below:
 
-1.	After adding the vCenter details, expand **Provide Physical server details** to add the details of the physical servers that you plan to protect. .  
+1.	After adding the vCenter details, expand **Provide Physical server details** to add the details of the physical servers that you plan to protect.
 
-2.	Select **Add credentials** to add credentials of the machine(s) you plan to protect. Add all the details such as operating system, friendly name for the credentials, username, and password. The user account details will be encrypted and stored locally in the machine. 
+2.	Select **Add credentials** to add credentials of the machine(s) you plan to protect. Add all the details such as the operating system, friendly name for the credentials, username, and password. The user account details will be encrypted and stored locally in the machine. 
 
 3. Select **Add**.
 
-4. Select **Add server** to add physical server details. Provide the machine’s IP address and select the credentials of the machine and then select **Add**.
+4. Select **Add server** to add physical server details. Provide the machine’s IP address, select the machine's credentials and then select **Add**.
 
-This will add your physical server details to this appliance, and you can enable replication on these machines using any appliance which has healthy or warning status. 
+This will add your physical server details to the appliance, and you can enable replication on these machines using any appliance which has healthy or warning status. 
 
 To perform credential-less protection on physical servers, you need to manually install the mobility service and then enable replication. [Learn more](/azure/site-recovery/vmware-physical-mobility-service-overview#install-the-mobility-service-using-ui-modernized).
 
