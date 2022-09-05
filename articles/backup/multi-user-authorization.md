@@ -375,7 +375,7 @@ Once you have enabled MUA, the operations in scope will be restricted on the vau
 >[!NOTE]
 >We highly recommend that you test your setup after enabling MUA to ensure that protected operations are blocked as expected and to ensure that MUA is correctly configured.
 
-The following actions demonstrates about what happens when the Backup admin tries to perform such a protected operation, for example, disabling MUA, without required permissions. Other protected operations have a similar experience.
+The following actions demonstrate about what happens when the Backup admin tries to perform such a protected operation, for example, disabling MUA, without required permissions. Other protected operations have a similar experience.
 
 1. To disable MUA on a vault, go to the vault, and then go to **Properties** in the left pane.
 1. Disable MUA by deselecting the checkbox. You're informed that this is a protected operation, and you need to have access to the Resource Guard.
@@ -425,7 +425,7 @@ The **Security admin** can use PIM to create an eligible assignment for the Back
 
 By default, the setup above may not have an approver (and an approval flow requirement) configured in PIM. To ensure that approvers are required for allowing only authorized requests to go through, the Security admin must use the following steps:
 
-Note that if the approver set up isn't configured, any requests are automatically approved without going through the Security admins or a designated approver’s review. [Learn more](../active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings.md)
+Note that if the approver setup isn't configured, any requests are automatically approved without going through the Security admins or a designated approver’s review. [Learn more](../active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings.md)
 
 1. In Azure AD PIM, select **Azure Resources** on the left pane and select your Resource Guard.
 
@@ -478,7 +478,7 @@ The following screenshot shows an example of disabling soft delete for an MUA-en
 
 Disabling MUA is a protected operation that must be done by Backup admin. To do this, the Backup admin must have the required Contributor role in Resource Guard. Learn more on [how to get this role](?pivots=vaults-backup-vault#assign-permissions-to-the-backup-admin-on-the-resource-guard-to-enable-mua).
 
-Backup admins to follow the below steps to disable MUA:
+The Backup admins to follow the below steps to disable MUA:
 
 1. The Backup admin requests the Security admin for **Contributor** role on the Resource Guard. They can request this to use the methods approved by the organization such as JIT procedures, like [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), or other internal tools and procedures.
 
