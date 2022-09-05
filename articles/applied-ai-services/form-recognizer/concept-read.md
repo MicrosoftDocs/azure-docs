@@ -97,7 +97,7 @@ The Read model extracts all identified blocks of text in the `paragraphs` collec
 ```
 ### Language detection<sup>new!</sup>
 
-Read adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict all detected languages for text lines along with the `confidence` in the `languages` collection under `analyzeResult`.
+Read adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
 
 ```json
 "languages": [
