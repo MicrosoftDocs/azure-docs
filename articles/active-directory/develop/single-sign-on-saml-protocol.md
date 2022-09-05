@@ -43,7 +43,7 @@ To request a user authentication, cloud services send an `AuthnRequest` element 
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| ID | Required | Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
+| ID | Required | Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "ID" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
 | Version | Required | This parameter should be set to **2.0**. |
 | IssueInstant | Required | This is a DateTime string with a UTC value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD expects a DateTime value of this type, but doesn't evaluate or use the value. |
 | AssertionConsumerServiceURL | Optional | If provided, this parameter must match the `RedirectUri` of the cloud service in Azure AD. |
@@ -217,7 +217,7 @@ To generate this digital signature, Azure AD uses the signing key in the `IDPSSO
 
 #### Subject
 
-This specifies the principal that is the subject of the statements in the assertion. It contains a `NameID` element, which represents the authenticated user. The `NameID` value is a targeted identifier that is directed only to the service provider that is the audience for the token. It is persistent - it can be revoked, but is never reassigned. It is also opaque, in that it does not reveal anything about the user and cannot be used as an identifier for attribute queries.
+This specifies the principle that is the subject of the statements in the assertion. It contains a `NameID` element, which represents the authenticated user. The `NameID` value is a targeted identifier that is directed only to the service provider that is the audience for the token. It is persistent - it can be revoked, but is never reassigned. It is also opaque, in that it does not reveal anything about the user and cannot be used as an identifier for attribute queries.
 
 The `Method` attribute of the `SubjectConfirmation` element is always set to `urn:oasis:names:tc:SAML:2.0:cm:bearer`.
 
