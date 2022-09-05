@@ -24,7 +24,7 @@ The hosted API service supports English language, model version 03-01-2022.
 ## Docker container
 
 Text Analytics for Health now supports additional languages when using a docker container to deploy the API. This functionality is currently in preview. 
-Full details for deploying the service in a container can be found [here](C:\Developer\azure-docs\articles\cognitive-services\language-service\text-analytics-for-health\how-to\use-containers.md)
+Full details for deploying the service in a container can be found [here](../use-containers.md)
 In order to download the new container images from the Microsoft public container registry, use the docker pull command, as follows :
 
 For English, Spanish, Italian, French, German and Portuguese:
