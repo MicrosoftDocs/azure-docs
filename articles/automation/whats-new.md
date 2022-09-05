@@ -28,7 +28,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 **Type:** Enhancement to an existing feature
 
-In addition to the support for Azure VMs and Arc-enabled Servers, Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs as a target. You can now orchestrate management tasks using PowerShell and Python runbooks on Azure VMs, Arc-enabled Servers, and Arc-enabled VMWare VMs with a similar experience. Read [here](extension-based-hybrid-runbook-worker-install.md) for more information.
+In addition to the support for Azure VMs and Arc-enabled Servers, Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs as a target. You can now orchestrate management tasks using PowerShell and Python runbooks on Azure VMs, Arc-enabled Servers, and Arc-enabled VMWare VMs with an identical experience. Read [here](extension-based-hybrid-runbook-worker-install.md) for more information.
 
 ## March 2022
 
