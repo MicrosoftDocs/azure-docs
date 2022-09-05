@@ -71,6 +71,8 @@
       href: sentinel-solutions.md
     - name: Content hub catalog
       href: sentinel-solutions-catalog.md
+    - name: Manage custom content with repositories
+      href: ci-cd-custom-content.md
   - name: Collect data
     items:
     - name: Data collection methods
