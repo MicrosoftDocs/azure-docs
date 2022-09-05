@@ -216,7 +216,7 @@ callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
 
 In order to get your Resource ID whitelisted, please send your Immutable Azure Resource ID to the Call Recording Team. For reference see the image below.
 
-![Call recording how to get resource ID](../../media/call-recording/immutable resource id.png)
+![Call recording how to get resource ID](../../media/call-recording/immutable-resource-id.png)
 
 
 
