@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 09/05/2022
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
@@ -51,7 +51,6 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name>
 ```
-
 
 [!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 

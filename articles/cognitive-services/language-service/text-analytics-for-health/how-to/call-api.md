@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 09/05/2022
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -61,7 +61,7 @@ The [Text Analytics for health container](use-containers.md) uses separate model
 
 ### Input languages
 
-Currently the Text Analytics for health hosted API only [supports](../language-support.md) the English language. Additional languages are currently in preview as containers, as detailed [under Text Analytics for health languages support](../language-support.md)
+Currently the Text Analytics for health hosted API only [supports](../language-support.md) the English language. Additional languages are currently in preview when deploying the API in containers, as detailed [under Text Analytics for health languages support](../language-support.md)
 
 ## Submitting data
 
