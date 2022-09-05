@@ -43,7 +43,7 @@ sections:
       - question: |
           When I import a certificate via the Azure portal, I get a "The size of the X.509 certificate is too long" error. What should I do?
         answer: |
-          The error indicates that your certificate might be too long, it might be including many certificates in a single file. This is a hard-limit that can't be increased. The solution is to shorten your certificate file's content so that it alligns to our size's limit.
+          The error indicates that your certificate might be too long, it might be including many certificates in a single file. This is a hard-limit that can't be increased. The solution is to shorten your certificate file's content so that it aligns to our size's limit.
       - question: |
           How can I resolve this error? "Error type: Access denied or user is unauthorized to import certificate"
         answer: |
