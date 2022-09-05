@@ -7,12 +7,140 @@ items:
     href: overview.md
   - name: What can you monitor?
     href: monitor-reference.md
-  - name: FAQ
-    href: faq.yml
   - name: What's new?
     href: whats-new.md
+  - name: Best practices
+    items:
+    - name: Overview
+      href: best-practices.md
+    - name: Planning
+      href: best-practices-plan.md
+    - name: Configure data collection
+      href: best-practices-data-collection.md
+    - name: Analysis and visualizations
+      href: best-practices-analysis.md
+    - name: Alerts and automated actions
+      href: best-practices-alerts.md
+    - name: Optimize costs
+      href: best-practices-cost.md
+  - name: FAQ
+    href: faq.yml
+- name: Data sources
+  items:
+  - name: Metrics
+    href: 
+  - name: Logs
+    href: 
+  - name: Changes
+    href: 
+  - name: Traces
+    href: 
+- name: Data collection and processing
+  items:
+  - name: Usage and cost
+    items:
+    - name: View and estimate charges
+      href: usage-estimated-costs.md
+    - name: Logs pricing details
+      href: logs/cost-logs.md
+    - name: Legacy Application Insights pricing
+      href: app/legacy-pricing.md
+    - name: Optimize costs
+      href: best-practices-cost.md
+  - name: Data security
+    items:
+    - name: Roles permissions and security
+      href: roles-permissions-security.md
+    - name: Log data
+      href: logs/data-security.md
+    - name: Customer-managed keys
+      href: logs/customer-managed-keys.md
+    - name: Private storage
+      href: logs/private-storage.md
+    - name: Personal log data handling
+      href: logs/personal-data-mgmt.md
+    - name: Application data collection, retention, and storage
+      href: app/data-retention-privacy.md
+- name: Data platform and storage
+  items:
+  - name: Data platform
+    href: data-platform.md
+- name: Visualizations
+  items:
+  - name: Workbooks
+    href: 
+  - name: Dashboards
+    href: 
+  - name: Integrations
+    items:
+    - name: Power BI
+      href: 
+    - name: Grafana
+      href:
+    - name: Service Health
+      href:
+    - name: Event Hubs
+      href:   
+- name: Insights
+  items:
+  - name: Application Insights
+    items:
+    - name: Tutorials
+      items:
+      - name: Application Insights SDK for ASP.NET Core applications
+        href: app/tutorial-asp-net-core.md
+      - name: Custom metrics with .NET and .NET Core
+        href: app/tutorial-asp-net-custom-metrics.md
+      - name: Find application run-time exceptions   4e4
+        href: app/tutorial-runtime-exceptions.md
+      - name: Find application performance issues
+        href: app/tutorial-performance.md
+      - name: Alert on application health
+        href: app/tutorial-alert.md
+      - name: Understand application users
+        href: app/tutorial-users.md
+      - name: Dashboard with application data
+        href: app/tutorial-app-dashboards.md
+      - name: Monitor mobile or UWP application
+        href: app/mobile-center-quickstart.md
+       
+  - name: Container Insights
+    href: overview.md
+  - name: Container Insights
+    href: overview.md
+  - name: VM Insights
+    href: overview.md
+- name: Analyze
+  items:
+  - name: Metrics Explorer
+    href: 
+  - name: Log Analytics
+    href: 
+  - name: Change Analysis
+    href: 
+- name: Respond
+  items:
+  - name: Alerts
+    items:
+    - name: Overview
+      href: alerts/alerts-overview.md
+    - name: Alert Types
+      href: alerts/alerts-types.md
+  - name: AutoScale
+    href: overview.md
+
+
+
+
+
+
+
+
+
+
   - name: Migrate from Operations Manager
     href: azure-monitor-operations-manager.md
+
 - name: Tutorials
   items:
   - name: Monitor Azure resource
@@ -35,6 +163,9 @@ items:
       href: vm/tutorial-monitor-vm-alert.md
     - name: Collect guest logs and metrics
       href: vm/tutorial-monitor-vm-guest.md
+
+
+
   - name: Application Insights
     items:
     - name: Application Insights SDK for ASP.NET Core applications
@@ -137,38 +268,12 @@ items:
     href: continuous-monitoring.md
   - name: Observability
     href: observability-data.md
-  - name: Data platform
-    href: data-platform.md
-  - name: Usage and cost
-    items:
-    - name: View and estimate charges
-      href: usage-estimated-costs.md
-    - name: Logs pricing details
-      href: logs/cost-logs.md
-    - name: Legacy Application Insights pricing
-      href: app/legacy-pricing.md
-    - name: Optimize costs
-      href: best-practices-cost.md
-  - name: Data security
-    items:
-    - name: Roles permissions and security
-      href: roles-permissions-security.md
-    - name: Log data
-      href: logs/data-security.md
-    - name: Customer-managed keys
-      href: logs/customer-managed-keys.md
-    - name: Private storage
-      href: logs/private-storage.md
-    - name: Personal log data handling
-      href: logs/personal-data-mgmt.md
-    - name: Application data collection, retention, and storage
-      href: app/data-retention-privacy.md
-  - name: Alerts
-    items:
-    - name: Overview
-      href: alerts/alerts-overview.md
-    - name: Alert Types
-      href: alerts/alerts-types.md
+
+
+
+  
+ 
+
   - name: Partner integrations
     href: partners.md
   - name: Security
@@ -182,20 +287,6 @@ items:
     href: monitor-azure-monitor.md 
 - name: How-to guides
   items:
-  - name: Best practices
-    items:
-    - name: Overview
-      href: best-practices.md
-    - name: Planning
-      href: best-practices-plan.md
-    - name: Configure data collection
-      href: best-practices-data-collection.md
-    - name: Analysis and visualizations
-      href: best-practices-analysis.md
-    - name: Alerts and automated actions
-      href: best-practices-alerts.md
-    - name: Optimize costs
-      href: best-practices-cost.md
   - name: Scenarios
     items:
     - name: Monitor virtual machines
