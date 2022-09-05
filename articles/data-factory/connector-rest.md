@@ -680,7 +680,7 @@ Response 2：
 
     :::image type="content" source="media/connector-rest/pagination-rule-example-4-1.png" alt-text="Screenshot showing the End Condition setting for Example 4.1."::: 
 
-- **Example 4.2: The pagination ends when the value of the specific node in response dose not exist** 
+- **Example 4.2: The pagination ends when the value of the specific node in response does not exist** 
 
     The REST API returns the last response in the following structure:
 
