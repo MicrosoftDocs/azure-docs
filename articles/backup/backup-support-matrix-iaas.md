@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 09/07/2022
 ms.custom: references_regions 
 ms.reviewer: geg
 author: v-amallick
@@ -134,7 +134,9 @@ The following table summarizes support for backup during VM management tasks, su
 
 **Restore** | **Supported**
 --- | ---
-Restore across subscription/region/zone. | Not supported.
+<a name="backup-azure-cross-subscription-restore">Restore across subscription</a> | [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) is now supported in Azure VMs.
+[Restore across region](backup/backup-azure-arm-restore-vms.md#cross-region-restore) | Supported.
+Restore across zone | Supported.
 Restore to an existing VM | Use replace disk option.
 Restore disk with storage account enabled for Azure Storage Service Encryption (SSE) | Not supported.<br/><br/> Restore to an account that doesn't have SSE enabled.
 Restore to mixed storage accounts |Not supported.<br/><br/> Based on the storage account type, all restored disks will be either premium or standard, and not mixed.
