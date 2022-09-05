@@ -641,7 +641,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > If using managed identity, the installed version of the *fence-agents* package must be fence-agents 4.5.2+git.1592573838.1eee0863 or later. Earlier versions will not work correctly with a managed identity configuration.  
    > Currently only SLES 15 SP1 and older are supported for managed identity configuration.
 
-1. **[A]** Install the Azure Python SDK and Azure Identity python module.  
+1. **[A]** Install the Azure Python SDK and Azure Identity Python module.  
 
     Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5:
     <pre><code># You might need to activate the public cloud extension first
