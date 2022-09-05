@@ -15,7 +15,7 @@ ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
-# How To: Configure and enable risk policies
+# Configure and enable risk policies
 
 As we learned in the previous article, [Identity Protection policies](concept-identity-protection-policies.md) we have two risk policies that we can enable in our directory. 
 
@@ -59,7 +59,7 @@ There are two locations where these policies may be configured, Conditional Acce
    - Enhanced diagnostic data
    - Report-only mode integration
    - Graph API support
-   - Use more Conditional Access attributes in policy
+   - Use more Conditional Access attributes like sign-in frequency in the policy
 
 Organizations can choose to deploy policies using the steps outlined below or using the [Conditional Access templates (Preview)](../conditional-access/concept-conditional-access-policy-common.md#conditional-access-templates-preview).
 
@@ -84,6 +84,10 @@ Before organizations enable remediation policies, they may want to [investigate]
 1. Under **Access controls** > **Grant**.
    1. Select **Grant access**, **Require password change**.
    1. Select **Select**.
+1. Under **Session**.
+   1. Select **Sign-in frequency**.
+   1. Ensure **Every time** is selected.
+   1. Select **Select**.
 1. Confirm your settings, and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
@@ -104,6 +108,10 @@ Before organizations enable remediation policies, they may want to [investigate]
 1. Under **Access controls** > **Grant**.
    1. Select **Grant access**, **Require multi-factor authentication**.
    1. Select **Select**.
+1. Under **Session**.
+   1. Select **Sign-in frequency**.
+   1. Ensure **Every time** is selected.
+   1. Select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
@@ -113,3 +121,4 @@ Before organizations enable remediation policies, they may want to [investigate]
 - [What is risk](concept-identity-protection-risks.md)
 - [Investigate risk detections](howto-identity-protection-investigate-risk.md)
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)
+- [Require reauthentication every time](../conditional-access/howto-conditional-access-session-lifetime.md#require-reauthentication-every-time)

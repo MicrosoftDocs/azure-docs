@@ -417,7 +417,7 @@ For more information about AzureML environments, see [the Environment class docu
 
 Since the generated code isn’t driven by automated ML anymore, instead of creating an `AutoMLConfig` and then passing it to `experiment.submit()`, you need to create a [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.scriptrunconfig) and provide the generated code (script.py) to it. 
 
-The following example contains the parameters and regular dependencies needed to run `ScriptRunConfig`, such as compute, environment, etc. For more information on how to use ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
+The following example contains the parameters and regular dependencies needed to run `ScriptRunConfig`, such as compute, environment, etc. For more information on how to use ScriptRunConfig, see [Configure and submit training runs](v1/how-to-set-up-training-targets.md).
 
 ```python
 from azureml.core import ScriptRunConfig

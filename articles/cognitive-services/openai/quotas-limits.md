@@ -32,7 +32,7 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Max Files per resource | 50 |
 | Total size of all files per resource | 1 GB| 
 | Max training job time (job will fail if exceeded) | 120 hours |
-| Max training job size (tokens in training file * # of epochs) | **Ada**: 4-M tokens <br> **Babbage**: 4-M tokens <br> **Curie**: 4-M tokens <br> **Cushman**: 4-M tokens <br> **DaVinci**: 500 K |
+| Max training job size (tokens in training file * # of epochs) | **Ada**: 4-M tokens <br> **Babbage**: 4-M tokens <br> **Curie**: 4-M tokens <br> **Cushman**: 4-M tokens <br> **Davinci**: 500 K |
 
 
 ### General best practices to mitigate throttling during autoscaling
