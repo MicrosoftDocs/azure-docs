@@ -2,7 +2,7 @@
 title: Use Azure Monitor workbooks in Microsoft Defender for IoT
 description: Learn how to view and create Azure Monitor workbooks for Defender for IoT data.
 ms.topic: how-to
-ms.date: 06/02/2022
+ms.date: 09/04/2022
 ---
 
 # Use Azure Monitor workbooks in Microsoft Defender for IoT
@@ -36,7 +36,7 @@ Defender for IoT provides the following workbooks out-of-the-box:
 - **Sensor health**. Displays data about your sensor health, such as the sensor console software versions installed on your sensors.
 - **Alerts**. Displays data about alerts occurring on your sensors, including alerts by sensor, alert types, recent alerts generated, and more.
 - **Devices**. Displays data about your device inventory, including devices by vendor, subtype, and new devices identified.
-
+- **Vulnerabilities**. Displays data about the vulnerabilites detected in OT devices across your network. Select an item in the **Device vulnerabilities**, **Vulnerable devices**, or **Vulnerable components** tables to view related information in the tables on the right.
 
 ## Create custom workbooks
 
