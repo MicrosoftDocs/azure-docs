@@ -11,7 +11,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Manifest-based ingestion concepts
 
-Manifest-based file ingestion provides end-users and systems a robust mechanism for loading metadata in Microsoft Energy Data Services Preview instance. A manifest is a JSON document that has a pre-determined structure for capturing entities that conform to the [OSDU](https://osduforum.org/) Well-known Schema (WKS) definitions.
+Manifest-based file ingestion provides end-users and systems a robust mechanism for loading metadata in Microsoft Energy Data Services Preview instance. A manifest is a JSON document that has a pre-determined structure for capturing entities that conform to the [OSDU&trade;](https://osduforum.org/) Well-known Schema (WKS) definitions.
 
 Manifest-based file ingestion doesn't understand the contents of the file or doesn't parse the file. It just creates a metadata record for the file and makes it searchable. It doesn't infer or does anything on top of the file.
 
@@ -57,7 +57,7 @@ The manifest schema has containers for the following entities
 
 ## Manifest ingestion components
 
-* **Workflow Service** is a wrapper service on top of the Airflow workflow engine, which orchestrates the ingestion workflow. Airflow is the chosen workflow engine by the [OSDU](https://osduforum.org/) community to orchestrate and run ingestion workflows. Airflow isn't directly exposed to clients, instead its features are accessed through the workflow service.  
+* **Workflow Service** is a wrapper service on top of the Airflow workflow engine, which orchestrates the ingestion workflow. Airflow is the chosen workflow engine by the [OSDU&trade;](https://osduforum.org/) community to orchestrate and run ingestion workflows. Airflow isn't directly exposed to clients, instead its features are accessed through the workflow service.  
 * **File Service** is used to upload files, file collections, and other types of source data to the data platform.
 * **Storage Service** is used to save the manifest records into the data platform.
 * **Airflow engine** is the workflow engine that executes DAGs (Directed Acyclic Graphs).

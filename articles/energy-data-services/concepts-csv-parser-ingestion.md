@@ -13,7 +13,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 One of the simplest generic data formats that are supported by the Microsoft Energy Data Services Preview ingestion process is the "comma separated values" format, which is called a CSV format. The CSV format is processed through a CSV Parser DAG definition. 
 
-CSV Parser DAG implements an ELT approach to data loading, that is, data is loaded after it's extracted. Customers can use CSV Parser DAG to load data that doesn't match the [OSDU](https://osduforum.org) canonical schema. Customers need to create and register a custom schema using the schema service matching the format of the CSV file.
+CSV Parser DAG implements an ELT approach to data loading, that is, data is loaded after it's extracted. Customers can use CSV Parser DAG to load data that doesn't match the [OSDU&trade;](https://osduforum.org) canonical schema. Customers need to create and register a custom schema using the schema service matching the format of the CSV file.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -83,7 +83,7 @@ The CSV parser ingestion currently supports the following functionality as a one
 * **Create Metadata record for the file** – Use file service to create meta data. The meta data enables discovery of file and secure downloads. It also provides a mechanism to provide information associated with the file that is needed during the processing of the file.  
 * The file ID created is provided to the CSV parser, which takes care of downloading the file, ingesting the file, and ingesting the records with the help of workflow service. The customers also need to register the workflow, the CSV parser DAG is already deployed in the Airflow.
 * **Trigger the Workflow service** – To trigger the workflow, the customer needs to provide the file ID, the kind of the file and data partition ID. Once the workflow is triggered, the customer gets a run ID.
-Workflow service provides API to monitor the status of each workflow run. Once the csv parser run is completed, data is ingested into OSDU platform, and can be searched through search service
+Workflow service provides API to monitor the status of each workflow run. Once the csv parser run is completed, data is ingested into OSDU&trade; Data Platform, and can be searched through search service
 
 ## Next steps
 * [DDMS Concepts](concepts-ddms.md)
