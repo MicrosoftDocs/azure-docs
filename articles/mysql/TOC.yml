@@ -127,8 +127,6 @@
       items:
       - name: Backup & Restore concepts
         href: flexible-server/concepts-backup-restore.md
-      - name: Trigger On-Demand Backup using Azure portal
-        href: flexible-server/how-to-trigger-on-demand-backup.md
   - name: Integrations
     items:
     - name: Azure advisor
@@ -242,6 +240,8 @@
           href: flexible-server/how-to-restore-server-cli.md
       - name: Restore a deleted server
         href: flexible-server/how-to-restore-dropped-server.md 
+      - name: Trigger On-Demand Backup
+        href: flexible-server/how-to-trigger-on-demand-backup.md
     - name: Troubleshooting
       items:
       - name: Troubleshoot Connection errors

@@ -2,9 +2,9 @@
 title: Azure services that support availability zones
 description: Learn what services are supported by availability zones and understand resiliency across all Azure services.
 author: awysza
-ms.service: azure
+ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 08/23/2022
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions

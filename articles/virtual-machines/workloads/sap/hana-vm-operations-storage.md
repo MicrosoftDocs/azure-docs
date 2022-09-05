@@ -1,21 +1,16 @@
 ---
 title: SAP HANA Azure virtual machine storage configurations | Microsoft Docs
 description: Storage recommendations for VM that have SAP HANA deployed in them.
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
 keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/28/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # SAP HANA Azure virtual machine storage configurations

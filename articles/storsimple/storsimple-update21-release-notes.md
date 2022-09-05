@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 Series Update 2.2 release notes | Microsoft Docs
-description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 2.2.
+description: Describes the new features, issues, and work arounds for StorSimple 8000 Series Update 2.2.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,7 +12,7 @@ ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/2022
+ms.date: 08/23/2022
 ms.author: alkohli
 
 ---
@@ -43,7 +43,8 @@ The following key improvements have been made in Update 2.2.
 * **Update reliability improvements** – This release has bug fixes that result in an improved Update reliability.
 
 ## Issues fixed in Update 2.2
-The following tables provide a summary of issues that were fixed in Updates 2.2 and 2.1.    
+
+The following table provides a summary of issues that were fixed in Updates 2.2 and 2.1.    
 
 | No | Feature | Issue | Applies to physical device | Applies to virtual device |
 | --- | --- | --- | --- | --- |
@@ -60,7 +61,7 @@ The following tables provide a summary of issues that were fixed in Updates 2.2 
 ## Known issues in Update 2.2
 The following table provides a summary of known issues in this release.
 
-| No. | Feature | Issue | Comments / workaround | Applies to physical device | Applies to virtual device |
+| No. | Feature | Issue | Comments / work around | Applies to physical device | Applies to virtual device |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Disk quorum |In rare instances, if most disks in the EBOD enclosure of an 8600 device are disconnected resulting in no disk quorum, then the storage pool will go offline. It will stay offline even if the disks are reconnected. |You'll need to reboot the device. If the issue persists, please contact Microsoft Support for next steps. |Yes |No |
 | 2 |Incorrect controller ID |When a controller replacement is performed, controller 0 may show up as controller 1. During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID. In rare instances, this behavior may also be seen after a system reboot. |No user action is required. This situation will resolve itself after the controller replacement is complete. |Yes |No |

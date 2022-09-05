@@ -61,7 +61,7 @@ To create the service:
     |**Maximum bit rate (MBR) - Uplink**     | `2 Gbps`        |
     |**Maximum bit rate (MBR) - Downlink**     | `2 Gbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
-    |**5G QoS Indicator (5QI)**     | `9`        |
+    |**5QI/QCI**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
     |**Preemption vulnerability**     | Select **Not preemptable**.        |
 
@@ -173,7 +173,7 @@ To create the service:
     |**Maximum bit rate (MBR) - Uplink**     | `2 Gbps`        |
     |**Maximum bit rate (MBR) - Downlink**     | `2 Gbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
-    |**5G QoS Indicator (5QI)**     | `9`        |
+    |**5QI/QCI**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
     |**Preemption vulnerability**     | Select **Not preemptable**.        |
 
@@ -260,7 +260,7 @@ To create the service:
     |**Maximum bit rate (MBR) - Uplink**     | `10 Mbps`        |
     |**Maximum bit rate (MBR) - Downlink**     | `15 Mbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
-    |**5G QoS Indicator (5QI)**     | `9`        |
+    |**5QI/QCI**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
     |**Preemption vulnerability**     | Select **Preemptable**.        |
 
@@ -356,12 +356,11 @@ Let's create the SIM policies.
     |**Service configuration**     | Select **service_restricted_udp_and_icmp** and **service_traffic_limits**. |
     |**Session aggregate maximum bit rate - Uplink**     | `2 Gbps`        |
     |**Session aggregate maximum bit rate - Downlink**     | `2 Gbps`        |
-    |**5G QoS Indicator (5QI)**     | `9`        |
+    |**5QI/QCI**     | `9`        |
     |**Allocation and Retention Priority level**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
     |**Preemption vulnerability**     | Select **Preemptable**.        |
     |**Default session type**     | Select **IPv4**.        |
-    |**Additional allowed session types**     | Select **IPv6**.        |
 
 1. Select **Add**.
 
@@ -418,12 +417,11 @@ Let's create the SIM policies.
     |**Service configuration**     | Select **service_blocking_udp_from_specific_sources** and **service_traffic_limits**. |
     |**Session aggregate maximum bit rate - Uplink**     | `2 Gbps`        |
     |**Session aggregate maximum bit rate - Downlink**     | `2 Gbps`        |
-    |**5G QoS Indicator (5QI)**     | `9`        |
+    |**5QI/QCI**     | `9`        |
     |**Allocation and Retention Priority level**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
     |**Preemption vulnerability**     | Select **Preemptable**.        |
     |**Default session type**     | Select **IPv4**.        |
-    |**Additional allowed session types**     | Select **IPv6**.        |
 
 1. Select **Add**.
 1. On the **Basics** configuration tab, select **Review + create**.

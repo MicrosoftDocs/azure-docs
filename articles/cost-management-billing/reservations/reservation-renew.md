@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 08/29/2022
 ms.author: banders
 ---
 
@@ -87,6 +87,8 @@ Emails are sent to different people depending on your purchase method:
 - EA customers - Emails are sent to the notification contacts set on the EA portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
 - Individual subscription customers with pay-as-you-go rates - Emails are sent to users who are set up as account administrators.
 - Cloud Solution Provider customers - Emails are sent to the partner notification contact. This notification isn't currently supported for Microsoft Customer Agreement subscriptions (CSP Azure Plan subscription).
+
+Renewal notifications are not sent to any Microsoft Customer Agreement (Azure Plan) users.
 
 ## Next steps
 - To learn more about Azure Reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)

@@ -15,7 +15,7 @@ keywords:
 
 # Codex models and Azure OpenAI
 
-The Codex model series is a descendant of our GPT-3 series that's been trained on both natural language and billions of lines of code. It's most capable in Python and proficient in over a dozen languages including JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell.
+The Codex model series is a descendant of our GPT-3 series that's been trained on both natural language and billions of lines of code. It's most capable in Python and proficient in over a dozen languages including C#, JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell.
 
 You can use Codex for a variety of tasks including:
 
@@ -27,7 +27,7 @@ You can use Codex for a variety of tasks including:
 
 ## How to use the Codex models
 
-Here are a few examples of using Codex that can be tested in the [Azure OpenAI Studio's](https://oai.azure.com) playground with a deployment of a code series model such as `code-cushman-001`.
+Here are a few examples of using Codex that can be tested in the [Azure OpenAI Studio's](https://oai.azure.com) playground with a deployment of a Codex series model, such as `code-davinci-002`.
 
 ### Saying "Hello" (Python)
 
@@ -180,7 +180,7 @@ animals  = [ {"name": "Chomper", "species": "Hamster"}, {"name":
 
 ### Lower temperatures give more precise results
 
-Setting the API temperature to 0, or close to zero (such as 0.1 or 0.2) tends to give better results in most cases. Unlike GPT-3, where a higher temperature can provide useful creative and random results, higher temperatures with Codex may give you really random or erratic responses.
+Setting the API temperature to 0, or close to zero (such as 0.1 or 0.2) tends to give better results in most cases. Unlike GPT-3 models, where a higher temperature can provide useful creative and random results, higher temperatures with Codex models may give you really random or erratic responses.
 
 In cases where you need Codex to provide different potential results, start at zero and then increment upwards by 0.1 until you find suitable variation.
 

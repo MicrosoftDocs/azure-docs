@@ -158,9 +158,7 @@ For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, a
 
 # [Java](#tab/java)
 
-**Java agent**
-
-For [Java agent 3.0](./java-in-process-agent.md) the cloud role name is set as follows:
+The cloud role name is set as follows:
 
 ```json
 {
@@ -170,27 +168,8 @@ For [Java agent 3.0](./java-in-process-agent.md) the cloud role name is set as f
 }
 ```
 
-You can also set the cloud role name using the environment variable ```APPLICATIONINSIGHTS_ROLE_NAME```.
-
-**Java SDK**
-
-If you're using the SDK, starting with Application Insights Java SDK 2.5.0, you can specify the cloud role name
-by adding `<RoleName>` to your `ApplicationInsights.xml` file, for example.
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-   <RoleName>** Your role name **</RoleName>
-   ...
-</ApplicationInsights>
-```
-
-If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
-
-`spring.application.name=<name-of-app>`
-
-The Spring Boot starter will automatically assign cloud role name to the value you enter for the spring.application.name property.
+You can also set the cloud role name using via environment variable or system property,
+see [configuring cloud role name](./java-standalone-config.md#cloud-role-name) for details.
 
 # [Node.js](#tab/nodejs)
 
