@@ -48,7 +48,7 @@ landingContent:
         links:
           - text: What is Domain Data Management Services (DDMS)?
             url: overview-ddms.md
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: DDMS concepts
             url: concepts-ddms.md
