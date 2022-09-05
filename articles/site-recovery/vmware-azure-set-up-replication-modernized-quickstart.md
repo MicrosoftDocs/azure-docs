@@ -17,8 +17,8 @@ For information on how to set up disaster recovery in Azure Site Recovery Classi
 ## Prerequisites
 To complete this tutorial, you need an Azure subscription and a VM.
 
->- If you don't have an Azure account with an active subscription, you can [create an account for free](/free/?WT.mc_id=A261C142F).
->- A VM with a minimum 1 GB of RAM is recommended. [Learn more](/azure/virtual-machines/windows/quick-create-portal) about how to create a VM.
+- If you don't have an Azure account with an active subscription, you can [create an account for free](/free/?WT.mc_id=A261C142F).
+- A VM with a minimum 1 GB of RAM is recommended. [Learn more](/azure/virtual-machines/windows/quick-create-portal) about how to create a VM.
 
 
 ## Sign in to Azure
@@ -45,25 +45,25 @@ Use the following steps to assign the required permissions:
 
 4. In **Add a role assignment**, Select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
 
-5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the AAD apps.
+5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the Azure Active Directory apps.
 
 **Follow these steps to assign required permissions**:
 
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**. In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
 
-2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of AAD App.
+2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Azure Active Directory App.
 
 ## Prepare infrastructure - set up Azure Site Recovery Replication appliance
 
 You need to [set up an Azure Site Recovery replication appliance on the on-premises environment](deploy-vmware-azure-replication-appliance-modernized.md) to channel mobility agent communications.
 
-![Replication appliance](./media/vmware-azure-set-up-replication-tutorial-modernized/replication-appliance.png)
+![Screenshot of replication appliance](./media/vmware-azure-set-up-replication-tutorial-modernized/replication-appliance.png)
 
 ## Enable replication of VMware VMs
 
 After an Azure Site Recovery replication appliance is added to a vault, you can get started with protecting the machines.
 
-Ensure the [pre-requisites](vmware-physical-azure-support-matrix.md) across storage and networking are met.
+Ensure the [prerequisites](vmware-physical-azure-support-matrix.md) across storage and networking are met.
 
 Follow these steps to enable replication:
 
@@ -74,7 +74,7 @@ Follow these steps to enable replication:
    > [!NOTE]
    > In Modernized, the support is limited to virtual machines.
 
-   ![Select source machines](./media/vmware-azure-set-up-replication-tutorial-modernized/select-source.png)
+   ![Screenshot of source machines](./media/vmware-azure-set-up-replication-tutorial-modernized/select-source.png)
 
 3. After choosing the machine type, select the vCenter server added to Azure Site Recovery replication appliance, registered in this vault.
 
@@ -85,11 +85,11 @@ Follow these steps to enable replication:
    >[!NOTE]
    >For Linux OS, ensure to provide the root credentials. For Windows OS, a user account with admin privileges should be added. These credentials will be used to push Mobility Service on to the source machine during enable replication operation.
 
-   ![Source settings](./media/vmware-azure-set-up-replication-tutorial-modernized/source-settings.png)
+   ![Screenshot of source settings](./media/vmware-azure-set-up-replication-tutorial-modernized/source-settings.png)
 
 6. Select **Next** to provide target region properties. By default, Vault subscription and Vault resource group are selected. You can choose a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
 
-   ![Target properties](./media/vmware-azure-set-up-replication-tutorial-modernized/target-properties.png)
+   ![Screenshot of target properties](./media/vmware-azure-set-up-replication-tutorial-modernized/target-properties.png)
 
 7. Next, you can select an existing Azure network or create a new target network to be used during failover. If you select **Create new**, you will be redirected to create virtual network context blade and asked to provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
 
@@ -129,7 +129,7 @@ Follow these steps to enable replication:
 
 11. After choosing the replication policy, select **Next**. Review the Source and Target properties. Select **Enable  Replication** to initiate the operation.
 
-    ![Site recovery](./media/vmware-azure-set-up-replication-tutorial-modernized/enable-replication.png)
+    ![Screenshot of site recovery](./media/vmware-azure-set-up-replication-tutorial-modernized/enable-replication.png)
 
     A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 

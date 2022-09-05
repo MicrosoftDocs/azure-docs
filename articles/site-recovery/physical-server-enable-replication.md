@@ -77,11 +77,11 @@ Lists all the machines  discovered by various appliances registered to the vault
 
 6.	Select **Next** and provide target region properties. 
 
-By default, Vault subscription and Vault resource group are selected. You can choose a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
+    By default, Vault subscription and Vault resource group are selected. You can choose a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
  
 7.	You can select an existing Azure network or create a new target network to be used during failover. 
 
-If you select **Create new**, you are redirected to **Create virtual network** blade. Provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
+    If you select **Create new**, you are redirected to **Create virtual network** blade. Provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
 
 8.	Provide the test failover network details.
 
@@ -92,7 +92,7 @@ If you select **Create new**, you are redirected to **Create virtual network** b
 
       - **Cache storage account**: Choose the cache storage account that Azure Site Recovery uses for staging purposes – caching and storing logs before writing the changes on to the managed disks.
     
-      Azure Site recovery creates a new LRS v1 type storage account by default for the first enable replication operation in a vault. For the next operations, the same cache storage account will be re-used.
+         Azure Site recovery creates a new LRS v1 type storage account by default for the first enable replication operation in a vault. For the next operations, the same cache storage account will be re-used.
 
      - **Managed disks**
 
@@ -110,9 +110,9 @@ If you select **Create new**, you are redirected to **Create virtual network** b
     1. Enable **App consistency frequency** if you wish and enter a value for **App-consistent snapshot frequency (in hours)** as per business requirements.
     1. Select **OK** to save the policy.
 
-Use the policy to protect the chosen source machines.
+    Use the policy to protect the chosen source machines.
 
 11. Choose the replication policy and select **Next**. Review the Source and Target properties and select **Enable Replication** to initiate the operation.
  
-A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
+    A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 
