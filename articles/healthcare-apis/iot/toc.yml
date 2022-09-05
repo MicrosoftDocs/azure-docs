@@ -16,6 +16,12 @@ items:
     items:
     - name: Using portal
       href: deploy-iot-connector-in-azure.md
+    - name: Deploy the MedTech service with a QuickStart template
+      href: deploy-02-new-button.md
+    - name: Manual deploy overview of the MedTech service
+      href: deploy-03-new-manual.md
+    - name: Prerequisites for manually deploying the MedTech service
+      href: deploy-04-new-prereq.md
 - name: Tutorials
   expanded: true
   items:
