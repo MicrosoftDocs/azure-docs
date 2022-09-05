@@ -64,7 +64,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     |**All supported OT sensor software versions: [Device vulnerabilities from the Azure portal](#device-vulnerabilities-from-the-azure-portal)  |
+|**OT networks**     |**All supported OT sensor software versions**: [Device vulnerabilities from the Azure portal](#device-vulnerabilities-from-the-azure-portal)  |
 
 ### Device vulnerabilities from the Azure portal
 
