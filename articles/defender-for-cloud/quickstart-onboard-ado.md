@@ -7,7 +7,7 @@ ms.topic: quickstart
 
 # Quickstart: Connect your Azure DevOps to Microsoft Defender for Cloud
 
-With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP),GitHuB and Azure DevOps (ADO).
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), GitHuB and Azure DevOps (ADO).
 
 To protect your ADO-based resources, you can connect your ADO account on the environment settings page. This page provides a simple onboarding experience (including auto provisioning). 
 
