@@ -257,9 +257,9 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
    The hybrid worker group will be deleted.
 
-## Install Hybrid worker extension
+## Manage Hybrid Worker extension using ARM template, REST API, and Azure CLI
 
-#### [Using ARM template](#tab/arm-template)
+#### [ARM template](#tab/arm-template)
 
 You can use an Azure Resource Manager (ARM) template to create a new Azure Windows VM and connect it to an existing Automation account and Hybrid Worker Group. To learn more about ARM templates, see [What are ARM templates?](../azure-resource-manager/templates/overview.md)
 
@@ -566,7 +566,7 @@ Review the parameters used in this template.
 | dnsNameForPublicIP | The DNS name for the public IP. |
 
  
-#### [Using REST API](#tab/rest-api)
+#### [REST API](#tab/rest-api)
 
 **Prerequisites**
 
@@ -678,7 +678,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
     ```
    Response of the *PUT* call will confirm if the extension is successfully installed or not on the targeted VM. You can also go to the VM in the Azure portal, and check status of extensions installed on the target VM under **Extensions** tab.
 
-#### [Using Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
 **Manage Hybrid Worker Extension**
 
