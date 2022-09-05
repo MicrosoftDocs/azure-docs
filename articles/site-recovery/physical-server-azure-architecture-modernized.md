@@ -95,8 +95,8 @@ After you set up replication and run a disaster recovery drill (test failover) t
     - Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
 
 >[!Note] 
->To execute failback using the modernized architecture, you need not setup a process server, master target server or failback policy in Azure.
->Failback to physical machines is not supported. You must failback to a VMware site. 
+>- To execute failback using the modernized architecture, you need not setup a process server, master target server or failback policy in Azure.
+>- Failback to physical machines is not supported. You must failback to a VMware site. 
 
 ## Next steps
 
