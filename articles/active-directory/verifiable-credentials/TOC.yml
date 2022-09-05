@@ -38,11 +38,13 @@
     items:
     - name: Directory based - Employee
       href: how-to-use-quickstart-verifiedemployee.md
-    - name: ID Token Hint credentials
+    - name: ID Token Hint attestation
       href: how-to-use-quickstart.md
-    - name: ID Token credentials
+    - name: ID Token attestation
       href: how-to-use-quickstart-idtoken.md      
-    - name: Self Issued credentials
+    - name: Presentation attestation
+      href: how-to-use-quickstart-vc.md
+    - name: Self Issued attestation
       href: how-to-use-quickstart-selfissued.md
   - name: Use the Verified ID Network
     href: how-use-vcnetwork.md
