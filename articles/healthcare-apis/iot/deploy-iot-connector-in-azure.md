@@ -63,9 +63,15 @@ The QuickStart template method includes these steps automatically, but is not in
 
 ### Step 4: Post-Deployment
 
-- Connect to services. 
+- Connect to services.
 - Must use managed identity to grant access to the device message event hub.
 - Must also use managed identity to grant access to the FHIR service, enabling FHIR to receive data from the MedTech service.
 - All deployment methods, including QuickStart, manual, and ARM template, must do each part of this step.
 
 For more details on all six step of this architecture diagram, see [Get started with the MedTech service in the Azure Health Data Services](./get-started-with-iot.md).
+
+## Granting access to the device message event hub
+
+See [Granting access to the device message event hub](deploy-07-new-post-deploy.md) for more information.
+
+
