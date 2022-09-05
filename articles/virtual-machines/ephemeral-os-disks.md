@@ -110,7 +110,7 @@ You can choose to use customer managed keys or platform managed keys when you en
 > 
 > [Updating a CMK key version](../storage/common/customer-managed-keys-overview.md#update-the-key-version) or [key rotation](../key-vault/keys/how-to-configure-key-rotation.md) of customer managed key is not supported with Ephemeral OS disk. VMs using Ephemeral OS disks need to be deleted before updating or rotating the keys and can be re-created subsequently.
 > 
-For more information on [Encryption at host](./disk-encryption.md#9)
+For more information on [Encryption at host](./disk-encryption.md)
  
 ## Next steps
 Create a VM with ephemeral OS disk using [Azure Portal/CLI/PowerShell/ARM template](ephemeral-os-disks-deploy.md).
