@@ -11,7 +11,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Domain data management service concepts
 
-**Domain Data Management Service (DDMS)** – is a platform component, that extend [OSDU](https://osduforum.org) core data platform with domain specific model and optimizations. DDMS is a mechanism of a platform extension that:
+**Domain Data Management Service (DDMS)** – is a platform component, that extends [OSDU](https://osduforum.org) core data platform with domain specific model and optimizations. DDMS is a mechanism of a platform extension that:
 
 * delivers optimized handling of data for each (non-overlapping) "domain."
 * Single vertical discipline or business area e.g., Petrophysics, Geophysics, Seismic
@@ -40,7 +40,7 @@ OSDU Technical Standard defines following types of OSDU Application Types:
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## Who did we built this for?
+## Who did we build this for?
 
 **IT Developers** build systems to connect data to domain applications (internal and external – e.g. Petrel) which enables data managers to deliver projects to geoscientists. The DDMS suite on Project Oak Forest helps automate these workflows and eliminates time spent managing updates.
 
@@ -48,9 +48,9 @@ OSDU Technical Standard defines following types of OSDU Application Types:
 
 **Data managers** spend a significant amount of time fulfilling requests for data retrieval and delivery. The Seismic, Wellbore, and Petrel Data Services enable them to discover and manage data in one place while tracking version changes as derivatives are created.
 
-## Platform Landscape
+## Platform landscape
 
-Project Oak Forest is a OSDU compatible product, meaning that its landscape and release model are depends on OSDU.
+Project Oak Forest is an OSDU compatible product, meaning that its landscape and release model are depends on OSDU.
 
 Currently, OSDU Certification and Release process not fully defined yet and this topic should be defined as a part of the Project Oak Forest Foundation Architecture.
 
