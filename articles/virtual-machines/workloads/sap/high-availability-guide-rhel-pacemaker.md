@@ -237,7 +237,7 @@ To create a managed identity (MSI), [create a system-assigned](/azure/active-dir
 ### Using Service Principal
 Follow these steps to create a service principal, if not using managed identity.
 
-1. Go to [Azure portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 1. Open the Azure Active Directory blade  
    Go to Properties and make a note of the Directory ID. This is the **tenant ID**.
 1. Click App registrations
