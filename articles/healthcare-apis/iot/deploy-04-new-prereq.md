@@ -21,7 +21,7 @@ Before you can configure or deploy MedTech services, you must satisfy the follow
 
 ## Azure account
 
-You can get a free Azure account at [Cloud Computing Services | Microsoft Azure](https://azure.microsoft.com/en-us/). Once you have logged in to your Azure account, go to the [Azure portal to begin](https://portal.azure.com/#home).
+You can get a free Azure account at [Cloud Computing Services | Microsoft Azure](https://azure.microsoft.com/en-us/). Once you have logged in to your Azure account, go to the [Azure portal to begin](https://portal.azure.com/#home). 
 
 ## Deploy a resource group in the Azure portal
 
