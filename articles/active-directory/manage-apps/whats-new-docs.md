@@ -19,7 +19,7 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 
 ### Updated articles
 
-- [Hide an enterprise application](hide-application-from-user-portal)
+- [Hide an enterprise application](hide-application-from-user-portal.md)
 
 ## July 2022
 
