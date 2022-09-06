@@ -67,7 +67,7 @@ To create a Data Factory copy activity that uses an SAP ODP data source:
        - To extract ABAP CDS views from S/4HANA, select **ABAP_CDS**.
        - To extract InfoProviders or InfoObjects from SAP BW or BW/4HANA, select **BW**.
        - To extract SAP extractors from SAP ECC, select **SAPI**.
-       - To extract SAP application tables from SAP source systems via SLT replication server as a proxy, select **SLT_\<*your queue alias*\>**.
+       - To extract SAP application tables from SAP source systems via SLT replication server as a proxy, select **SLT_\<your queue alias\>**.
 
        If you want to extract SAP application tables, but you don’t want to use the SLT replication server as a proxy, you can create SAP extractors by using the RSO2 transaction code or CDS views on top of the tables. Then, extract the tables directly from your SAP source systems by using either an **SAPI** or an **ABAP_CDS** context.
 
