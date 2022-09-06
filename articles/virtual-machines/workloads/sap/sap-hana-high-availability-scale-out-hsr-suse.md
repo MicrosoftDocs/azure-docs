@@ -45,14 +45,14 @@ ms.author: radeltch
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 
-This article describes how to deploy a highly available SAP HANA system in a scale-out configuration with HANA system replication (HSR) and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs). The shared file systems in the presented architecture are NFS mounted and are provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](https://docs.microsoft.com/azure/storage/files/files-nfs-protocol).  
+This article describes how to deploy a highly available SAP HANA system in a scale-out configuration with HANA system replication (HSR) and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs). The shared file systems in the presented architecture are NFS mounted and are provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../files/files-nfs-protocol).  
 
 In the example configurations, installation commands, and so on, the HANA instance is **03** and the HANA system ID is **HN1**. The examples are based on HANA 2.0 SP5 and SUSE Linux Enterprise Server 12 SP5. 
 
 Before you begin, refer to the following SAP notes and papers:
 
 * [Azure NetApp Files documentation][anf-azure-doc]
-* [Azure Files documentation](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)  
+* [Azure Files documentation](../../../files/storage-files-introduction)  
 * SAP Note [1928533] includes:  
   * A list of Azure VM sizes that are supported for the deployment of SAP software
   * Important capacity information for Azure VM sizes
@@ -81,9 +81,10 @@ Before you begin, refer to the following SAP notes and papers:
 One method to achieve HANA high availability for HANA scale-out installations, is to configure HANA system replication and protect the solution with Pacemaker cluster to allow automatic failover. When an active node fails, the cluster fails over the HANA resources to the other site.  
 The presented configuration shows three HANA nodes on each site, plus majority maker node to prevent split-brain scenario. The instructions can be adapted, to include more VMs as HANA DB nodes.  
 
-The HANA shared file system `/hana/shared` in the presented architecture can be provided provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](https://docs.microsoft.com/azure/storage/files/files-nfs-protocol). It is mounted via NFSv4.1 on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and are not shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
+The HANA shared file system `/hana/shared` in the presented architecture can be provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../files/files-nfs-protocol). The HANA shared file system is NFS mounted on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and are not shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
 
-> [!TIP]
+> [!WARNING]
+> Placing `/hana/data` and `/hana/log` on NFS on Azure Files is not supported.  
 > For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md).   
 
 [![SAP HANA scale-out with HSR and Pacemaker cluster on SLES](./media/sap-hana-high-availability/sap-hana-high-availability-scale-out-hsr-suse.png)](./media/sap-hana-high-availability/sap-hana-high-availability-scale-out-hsr-suse-detail.png#lightbox)
@@ -122,7 +123,8 @@ For the configuration presented in this document, deploy seven virtual machines:
 
 
    > [!IMPORTANT]
-   > Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you're using. For a list of SAP HANA certified VM types and OS releases for those types, go to the [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120) site. Click into the details of the listed VM type to get the complete list of SAP HANA-supported OS releases for that type.  
+   > Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you're using. For a list of SAP HANA certified VM types and OS releases for those types, go to the [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120) site. Click into the details of the listed VM type to get the complete list of SAP HANA-supported OS releases for that type. 
+   > If you choose to deploy `/hana/shared` on NFS on Azure Files, we recommend to deploy on SLES15 SP2 and above. 
   
 
 2. Create six network interfaces, one for each HANA DB virtual machine, in the `inter` virtual network subnet (in this example, **hana-s1-db1-inter**, **hana-s1-db2-inter**, **hana-s1-db3-inter**, **hana-s2-db1-inter**, **hana-s2-db2-inter**, and **hana-s2-db3-inter**).  
@@ -218,9 +220,9 @@ For the configuration presented in this document, deploy seven virtual machines:
 
 ### Deploy NFS
 
-There are two options for deploying Azure native NFS to host `/hana/shared`. You can either deploy NFS volume on [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../storage/files/files-nfs-protocol.md). Azure files supports NFSv4.1 protocol, NFS on Azure NetApp files supports both NFSv4.1 and NFSv3.
+There are two options for deploying Azure native NFS for `/hana/shared`. You can deploy NFS volume on [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../storage/files/files-nfs-protocol.md). Azure files supports NFSv4.1 protocol, NFS on Azure NetApp files supports both NFSv4.1 and NFSv3.
 
-The next sections describe the steps to deploy NFS - you'll need to select only **one** of the options. 
+The next sections describe the steps to deploy NFS - you'll need to select only *one* of the options. 
 
 > [!TIP]
 > You chose to deploy `/hana/shared` on [NFS share on Azure Files](../../../storage/files/files-nfs-protocol.md) or [NFS volume on Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).  
