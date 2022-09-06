@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Discover misconfigurations in Infrastructure as Code (IaC)
 
-Once you have set up the Microsoft Security DevOps Extension, or Workflow, there is additional support located in the YAML configuration that can be used to run a tool, or several of the tools. For example, setting up Infrastructure as Code (IaC) scanning.
+Once you have set up the Microsoft Security DevOps Extension, or Workflow, extra support is located in the YAML configuration that can be used to run a tool, or several of the tools. For example, setting up Infrastructure as Code (IaC) scanning.
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, there
 
 ## View the results of the IaC scan in GitHub 
 
-1. Sign in to [Github](https://www.github.com). 
+1. Sign in to [GitHub](https://www.github.com). 
 
 1. Navigate to **`your repository's home page`** > **.github/workflows** > **msdevopssec.yml** that was created in the [prerequisites](msdo-github-action.md#setup-github-action).
 
@@ -24,7 +24,7 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, there
 
     :::image type="content" source="media/tutorial-iac-vulnerabilities/workflow-yaml.png" alt-text="Screenshot that shows where to find the edit button for the msdevopssec.yml file.":::
 
-1. Under the Run Analyzers section, add the following: **DOES NOT EXIST**
+1. Under the Run Analyzers section, add:
 
     ```yml
     with:
@@ -124,7 +124,7 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, there
     }
     ```
 
-    1. On gitHub, navigate to your repository.
+    1. On GitHub, navigate to your repository.
     
     1. **Select Add file** > **Create new file**.
     
@@ -150,7 +150,7 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, there
 
 1. To see the results in the GitHub Code scanning interface, navigate to **Security** > **Code scanning alerts**.
 
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/code-scan-results.png" alt-text="Screenshot that shows you how to find the results of your doe scan.":::
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/code-scan-results.png" alt-text="Screenshot that shows you how to find the results of your scan.":::
 
 ## View the results of the IaC scan in Azure DevOps
 
@@ -160,7 +160,7 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, there
 
 1. Navigate to **Pipeline**.
 
-1. Locate the pipeline with MSDO Azure DevOps Extension configured.
+1. Locate the pipeline with MSDO Azure DevOps Extension is configured.
 
 2. Select **Edit**.
 
@@ -176,7 +176,7 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, there
 
 5.  Select **Save** to commit directly to the main branch or Create a new branch for this commit
 
-6.  Select **Pipeline** > **`Your created pipeline`** to view the results of the IaC scan. and click on 
+6.  Select **Pipeline** > **`Your created pipeline`** to view the results of the IaC scan. and select on 
 
     :::image type="content" source="media/tutorial-iac-vulnerabilities/your-pipeline.png" alt-text="Screenshot showing you where your pipeline is located.":::
 
@@ -218,7 +218,7 @@ Enable FTPS enforcement for enhanced security.
 
 API apps should require HTTPS to ensure connections are made to the expected server and data in transit is protected from network layer eavesdropping attacks.
 
-**Recommendation**: To [use HTTPS to ensure server/service authentication and protect data in transit from network layer eavesdropping attacks](/azure/app-service/configure-ssl-bindings#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
+**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](/azure/app-service/configure-ssl-bindings#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
 
 **Severity level**: 2
 
@@ -266,7 +266,7 @@ Enable FTPS enforcement for enhanced security.
 
 Function apps should require HTTPS to ensure connections are made to the expected server and data in transit is protected from network layer eavesdropping attacks.
 
-**Recommendation**: To [use HTTPS to ensure server/service authentication and protect data in transit from network layer eavesdropping attacks](/azure/app-service/configure-ssl-bindings#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
+**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](/azure/app-service/configure-ssl-bindings#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
 
 **Severity level**: 2
 
@@ -419,9 +419,14 @@ Set the data retention for your SQL Server's auditing to storage account destina
 
 Set the protocols property to only include HTTPs.
 
-**Recommendation**: To use encrypted protocols only, add (or update) the *protocols* property in the [Microsoft.ApiManagement/service/apis resource properties](/azure/templates/microsoft.apimanagement/service/apis?tabs=json), to only include HTTPS. Allowing any additional protocols (e.g. HTTP, WS) is insecure.
+**Recommendation**: To use encrypted protocols only, add (or update) the *protocols* property in the [Microsoft.ApiManagement/service/apis resource properties](/azure/templates/microsoft.apimanagement/service/apis?tabs=json), to only include HTTPS. Allowing any additional protocols (for example, HTTP, WS) is insecure.
 
 **Severity level**: 1
+
+## Learn more
+
+- You can learn more and add the [Microsoft Security DevOps extension](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops) to Visual Studio Code.
+- Learn the [template for Best Practice Analyzer](https://github.com/Azure/template-analyzer) (BPA).
 
 ## Next steps
 

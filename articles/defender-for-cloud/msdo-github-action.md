@@ -1,7 +1,7 @@
 ---
 title: Enable Microsoft Security DevOps
 description: Learn how to enable the Microsoft Security DevOps actions.
-ms.date: 08/16/2022
+ms.date: 09/06/2022
 ms.topic: how-to
 ---
 
@@ -102,7 +102,7 @@ Security DevOps uses the following Open Source tools:
 
 1.  Select **Commit new file**.
 
-    :::image type="content" source="media/msdo-github-action/commit-new.png" alt-text="Screenshot showing you where to select commit new file.":::
+    :::image type="content" source="media/msdo-github-action/commit-new.png" alt-text="Screenshot showing you how to commit a new file.":::
 
     The process can take up to one minute to complete.
 
@@ -123,6 +123,11 @@ Security DevOps uses the following Open Source tools:
 **THEN WHAT THIS IS UNCLEAR**
 
 :::image type="content" source="media/msdo-github-action/tool-dropdown.png" alt-text="Screenshot showing you how to navigate to the filter by tool option.":::
+
+## Learn more
+
+- You can learn about [GitHub actions for Azure](/azure/developer/github/github-actions).
+- Learn how to [deploy apps from GitHub to Azure](/azure/developer/github/deploy-to-azure).
 
 ## Next steps
 [Discover vulnerabilities in Infrastructure as Code (IaC)](iac-vulnerabilities.md)

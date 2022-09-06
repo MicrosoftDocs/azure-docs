@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud'
 description: Learn how to connect your GitHub repository to Defender for Cloud.
-ms.date: 08/10/2022
+ms.date: 09/06/2022
 ms.topic: quickstart
 ---
 
@@ -9,7 +9,7 @@ ms.topic: quickstart
 
 Defender for Cloud has the ability to protect workloads that are stored in GitHub. To protect your GitHub-based resources, you must connect your GitHub account to Defender for Cloud on the Environment settings page that includes auto provisioning. By connecting your GitHub repository to Defender for Cloud, you'll extend Defender for Cloud's enhanced security features to your GitHub resources. These features include:
 
-- **Defender for Cloud's CSPM features** - Assesses your GitHub resources according to GitHub-specific security recommendations. These recommendations are also included in your secure score. Resources will be assessed for compliance with built-in standards that are specific to DevOps. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature that helps you manage your GitHub resources alongside your Azure resources.
+- **Defender for Cloud's CSPM features** - Assesses your GitHub resources according to GitHub-specific security recommendations. These recommendations are also included in your secure score. Resources will be assessed for compliance with built-in standards that are specific to DevOps. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature that helps you manage your GitHub resources alongside your Azure resources.
 
 - **Microsoft Defender for DevOps** - Extends Defender for Cloud's threat detection capabilities and advanced defenses to your GitHub resources.
 
@@ -26,7 +26,6 @@ You can view all of the [recommendations for Azure DevOps](recommendations-refer
 | Aspect | Details |
 |--|--|
 | Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
-| Pricing: | The Defender for DevOps plan is free during the Preview. <br><br> GitHub Advanced Security is a paid service and will be billed through your GitHub Enterprise Account |
 | Required roles and permissions: | **Contributor** on the relevant Azure subscription <br> **Security Admin Role** in Defender for Cloud <br> **GitHub Organization Administrator** |
 | Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial clouds <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Azure China 21Vianet) |
 
@@ -75,6 +74,11 @@ When the process completes, the GitHub connector appears on your Environmental s
 :::image type="content" source="media/quickstart-onboard-github/github-connector.png" alt-text="Screenshot showing the Environmental page with the GitHub connector now connected." lightbox="media/quickstart-onboard-github/github-connector.png":::
 
 The Defender for DevOps service automatically discovers your repositories and analyzes them for any security issues. The Inventory page will populate with your repositories, and the Recommendations page will show any security issues related to a repository.
+
+## Learn more
+
+- You can learn more about how [Azure and GitHub integrate](/azure/developer/github/).
+- Learn about [security hardening practices in GitHub Action](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
 
 ## Next steps
 Learn how to [connect your Azure DevOps](quickstart-onboard-ado.md) to Defender for Cloud.
