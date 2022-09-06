@@ -1,4 +1,6 @@
 ---
+title: Play action
+description: Conceptual information about using Play action with Call Automation.
 author: Kunaal
 ms.service: azure-communication-services
 ms.topic: include
@@ -48,10 +50,10 @@ As part of compliance requirements in various industries, vendors are expected t
 
 ### Text-to-Speech
 
-Microsoft uses deep neural networks to overcome the limits of traditional speech synthesis with regards to stress and intonation in spoken language. Prosody prediction and voice synthesis occur simultaneously, resulting in a more fluid and natural sounding output. You can use these neural voices to make interactions with your chatbots and voice assistants more natural and engaging. There are over 100 pre-built voices to choose from. [Learn more about Azure Text-to-Speech voices](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support?tabs=speechtotext#prebuilt-neural-voices).
+Microsoft uses deep neural networks to overcome the limits of traditional speech synthesis with regards to stress and intonation in spoken language. Prosody prediction and voice synthesis occur simultaneously, resulting in a more fluid and natural sounding output. You can use these neural voices to make interactions with your chatbots and voice assistants more natural and engaging. There are over 100 pre-built voices to choose from. [Learn more about Azure Text-to-Speech voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support?tabs=speechtotext#prebuilt-neural-voices).
 
 ### Fine tuning Text-to-Speech output with SSML
-Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. With SSML developers can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume, and attribute multiple voices to a single document. With SSML you can also define your own lexicons or switch to different speaking styles. For scenarios where you wish to provide [multilingual voice](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/azure-text-to-speech-updates-at-build-2021/ba-p/2382981) outputs, you can adjust the spoken languages via SSML. To fine-tune the voice output for your scenario see our documentation [Improve synthesis with Speech Synthesis Markup Language](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-synthesis-markup?tabs=csharp).
+Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. With SSML developers can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume, and attribute multiple voices to a single document. With SSML you can also define your own lexicons or switch to different speaking styles. For scenarios where you wish to provide [multilingual voice](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/azure-text-to-speech-updates-at-build-2021/ba-p/2382981) outputs, you can adjust the spoken languages via SSML. To fine-tune the voice output for your scenario see our documentation [Improve synthesis with Speech Synthesis Markup Language](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-synthesis-markup?tabs=csharp).
 
 ## Benefits of Text-to-Speech and Text-to-Speech SSML
 
