@@ -300,14 +300,15 @@ Where:
 
 ### Legacy method of setting table-level RBAC using workspace-level custom roles
 
-By using table-level Azure RBAC, you can define more granular control to data in a Log Analytics workspace by defining specific data types that are accessible only to a specific set of users.
+[Azure custom roles](../../role-based-access-control/custom-roles.md) let you grant access to specific [tables](../logs/data-platform-logs.md) in the workspace, although we recommend defining [table-level access control](#table-level-access-control) as described above. 
 
-Implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to grant access to specific [tables](../logs/data-platform-logs.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](#access-control-mode) regardless of the user's [access mode](#access-mode).
+Azure custom roles apply to workspaces with either workspace-context or resource-context [access control modes](#access-control-mode) regardless of the user's [access mode](#access-mode).
 
-Create a [custom role](../../role-based-access-control/custom-roles.md) with the following actions to define access to a particular table:
+To define access to a particular table, create a [custom role](../../role-based-access-control/custom-roles.md):
 
-* Include the **Actions** section of the role definition. To subtract access from the allowed **Actions**, include it in the **NotActions** section.
-* Use `Microsoft.OperationalInsights/workspaces/query/*` to specify all tables.
+* Set the user permissions in the **Actions** section of the role definition. 
+* Use `Microsoft.OperationalInsights/workspaces/query/*` to grant access to all tables.
+* To exclude access to specific tables when you use a wildcard in **Actions**, list the tables excluded tables in the **NotActions** section of the role definition.
 
 ### Examples
 
@@ -348,9 +349,9 @@ Grant access to all tables except the _SecurityAlert_ table:
 ],
 ```
 
-### Custom logs
+### Custom tables
 
- Custom logs are tables created from data sources such as [text logs](../agents/data-sources-custom-logs.md) and the [HTTP Data Collector API](data-collector-api.md). The easiest way to identify the type of log is by checking the tables listed under [Custom Logs in the log schema](./log-analytics-tutorial.md#view-table-information).
+ Custom tables store data you collect from data sources such as [text logs](../agents/data-sources-custom-logs.md) and the [HTTP Data Collector API](data-collector-api.md). To identify the table type, [view table information in Log Analytics](./log-analytics-tutorial.md#view-table-information).
 
 > [!NOTE]
 > Tables created by the [Logs ingestion API](../essentials/../logs/logs-ingestion-api-overview.md) don't yet support table-level RBAC.
