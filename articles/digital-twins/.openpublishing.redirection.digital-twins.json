@@ -145,7 +145,7 @@
     {
       "source_path": "how-to-configure-postman.md",
       "redirect_url": "/azure/digital-twins/how-to-use-postman-with-digital-twins",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "how-to-use-postman.md",
