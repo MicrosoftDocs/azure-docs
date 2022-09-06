@@ -1,8 +1,9 @@
 ---
 title: include file
-description: Java call automation quickstart
+description: Provides a quickstart on how to use Call Automation Java SDK to build call flow for customer interactions.
 services: azure-communication-services
 author: ashwinder
+
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 09/06/2022
@@ -14,8 +15,8 @@ ms.author: askaur
 ## Prerequisites
 
 - Azure account with an active subscription.
-- Azure Communication Services resource. See [Create an Azure Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp). We will use the resource connection string for this quickstart.
-- [Acquire a PSTN phone number from Azure Communication Services.](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-java&tabs=windows)
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp). We will use the resource connection string for this quickstart.
+- [Acquire a PSTN phone number from Azure Communication Services.](../../../telephony/get-phone-number.md?pivots=programming-language-java&tabs=windows)
 - [Java Development Kit (JDK)](https://docs.microsoft.com/en-us/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
