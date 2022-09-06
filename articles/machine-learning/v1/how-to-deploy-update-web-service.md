@@ -18,8 +18,6 @@ ms.custom: deploy, cliv1, sdkv1, event-tier1-build-2022
 
 In this article, you learn how to update a web service that was deployed with Azure Machine Learning.
 
-[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
-
 ## Prerequisites
 
 - This article assumes you have already deployed a web service with Azure Machine Learning. If you need to learn how to deploy a web service, [follow these steps](how-to-deploy-and-where.md).
@@ -33,6 +31,8 @@ In this article, you learn how to update a web service that was deployed with Az
                    resource_group="myresourcegroup",
                    workspace_name="myworkspace")
     ```
+
+[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Update web service
 
