@@ -99,9 +99,7 @@ For more information about retry policies, settings, limits, and other options, 
 
 #### Default retry policy
 
-If you don't specify a retry policy, the action uses the default policy. The default is actually an [exponential interval policy](#exponential-interval) that sends up to four retries at exponentially increasing intervals, which scales by 7.5 seconds. The interval is capped between 5 and 45 seconds.
-
-Though not explicitly defined in your action or trigger, the following example shows how the default policy behaves in an example HTTP action:
+Triggers and actions that support retry policies use the **Default** policy unless you select a different retry policy. For example, the default retry policy for the HTTP action is the [exponential interval policy](#exponential-interval) that sends up to four retries at exponentially increasing intervals, which scales by 7.5 seconds. The interval is capped between 5 and 45 seconds. The default policy isn't explicitly defined in your trigger or action, but the following example shows how the default policy behaves for the HTTP action:
 
 ```json
 "HTTP": {
