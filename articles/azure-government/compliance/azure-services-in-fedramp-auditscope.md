@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 08/19/2022
+ms.date: 09/02/2022
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -177,7 +177,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Media Services](/azure/media-services/) | &#x2705; | &#x2705; |
 | [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; |
 | [Microsoft Azure Attestation](../../attestation/index.yml)| &#x2705; | &#x2705; |
-| [Microsoft Azure Marketplace portal](https://azuremarketplace.microsoft.com/marketplace/)| &#x2705; | &#x2705; |
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)| &#x2705; | &#x2705; |
 | [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) (formerly Azure Security Center) | &#x2705; | &#x2705; |
 | [Microsoft Defender for Cloud Apps](/defender-cloud-apps/) (formerly Microsoft Cloud App Security) | &#x2705; | &#x2705; |
@@ -187,8 +186,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Graph](/graph/) | &#x2705; | &#x2705; |
 | [Microsoft Intune](/mem/intune/) | &#x2705; | &#x2705; |
 | [Microsoft Sentinel](../../sentinel/index.yml)  | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Microsoft Stream](/stream/) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; |
 | [Migrate](../../migrate/index.yml) | &#x2705; | &#x2705; |
 | [Network Watcher](../../network-watcher/index.yml) (incl. [Traffic Analytics](../../network-watcher/traffic-analytics.md)) | &#x2705; | &#x2705; |
@@ -203,8 +202,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Power BI Embedded](/power-bi/developer/embedded/) | &#x2705; | &#x2705; |
 | [Power Data Integrator for Dataverse](/power-platform/admin/data-integrator) (formerly Dynamics 365 Integrator App) | &#x2705; | &#x2705; |
 | [Power Virtual Agents](/power-virtual-agents/) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Private Link](../../private-link/index.yml) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | &#x2705; | &#x2705; |
 | [Resource Graph](../../governance/resource-graph/index.yml) | &#x2705; | &#x2705; |
 | [Resource Mover](../../resource-mover/index.yml) | &#x2705; | &#x2705; |
@@ -219,8 +218,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates) | &#x2705; | &#x2705; |
 | [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | &#x2705; | &#x2705; |
 | [Storage: Archive](../../storage/blobs/access-tiers-overview.md) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Storage: Blobs](../../storage/blobs/index.yml) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Storage: Disks (incl. managed disks)](../../virtual-machines/managed-disks-overview.md) | &#x2705; | &#x2705; |
 | [Storage: Files](../../storage/files/index.yml) | &#x2705; | &#x2705; |
 | [Storage: Queues](../../storage/queues/index.yml) | &#x2705; | &#x2705; |
@@ -235,8 +234,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Virtual Network](../../virtual-network/index.yml) | &#x2705; | &#x2705; |
 | [Virtual Network NAT](../../virtual-network/nat-gateway/index.yml) | &#x2705; | &#x2705; |
 | [Virtual WAN](../../virtual-wan/index.yml) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [VPN Gateway](../../vpn-gateway/index.yml) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Web Application Firewall](../../web-application-firewall/index.yml) | &#x2705; | &#x2705; |
 | [Web Apps (App Service)](../../app-service/index.yml) | &#x2705; | &#x2705; |
 | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) | &#x2705; | &#x2705; |

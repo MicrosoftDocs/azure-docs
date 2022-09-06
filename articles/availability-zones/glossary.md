@@ -2,7 +2,7 @@
 title: Azure resiliency terminology
 description: Understanding terms
 author: mamccrea
-ms.service: azure
+ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/01/2021
 ms.author: mamccrea
