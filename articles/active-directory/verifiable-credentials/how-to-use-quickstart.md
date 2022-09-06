@@ -17,7 +17,7 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) that uses the [idTokenHint attestation](#idtokenhintattestation-type) produces an issuance flow where the relying party application passes claim values in the [issuance request payload](issuance-request-api.md#issuance-request-payload). It is the relying party application's responsibility to ensure that required claim values are passed in the request. How the claim values are gathered is up to the application. 
+A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) that uses the [idTokenHint attestation](rules-and-display-definitions-model.md#idtokenhintattestation-type) produces an issuance flow where the relying party application passes claim values in the [issuance request payload](issuance-request-api.md#issuance-request-payload). It is the relying party application's responsibility to ensure that required claim values are passed in the request. How the claim values are gathered is up to the application. 
 
 ## Create a custom credential
 
