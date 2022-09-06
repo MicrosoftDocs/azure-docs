@@ -73,6 +73,8 @@
     href: agent-upgrade.md
   - name: Securely connect to cluster from anywhere
     href: cluster-connect.md
+  - name: Use Private Link Scope
+    href: private-link.md
   - name: Azure portal Kubernetes resource view
     href: kubernetes-resource-view.md
   - name: Use Azure AD RBAC for authorization checks

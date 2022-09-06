@@ -16,7 +16,7 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 ## Core rule sets
 
-The Application Gateway WAF comes pre-configured with CRS 3.1 by default, but you can choose to use any other supported CRS version.
+The Application Gateway WAF comes pre-configured with CRS 3.2 by default, but you can choose to use any other supported CRS version.
  
 CRS 3.2 offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
 

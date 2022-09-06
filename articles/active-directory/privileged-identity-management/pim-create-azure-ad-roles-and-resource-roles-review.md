@@ -4,7 +4,7 @@ description: Learn how to create an access review of Azure resource and Azure AD
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
