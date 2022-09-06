@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 09/02/2022
+ms.date: 09/06/2022
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -745,10 +745,12 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 
 ## Manual (preview)
 
-The new `manual` (preview) effect
+The new `manual` (preview) effect enables you to define and track your own custom attestation
+resources. nlike other Policy definitions that actively scan for evaluation, the Manual effect
+allows for manual changes to the compliance state. To change the compliance for a manual policy,
+you will need to create an attestation for that compliance state.
 
-
-In the following example,
+The following example targets Azure subscriptions and sets the initial compliance state to `Unknown`.
 
 ```json
 {
@@ -770,6 +772,15 @@ The `defaultState` property has three possible values:
 - **Unknown**: The initial, default state of the targeted resources.
 - **Compliant**: Resource is compliant according to your manual policy standards
 - **Non-compliant**: Resource is non-compliant according to your manual policy standards
+
+### Assignments
+
+You assign manual policy definitions in the usual manner. Optionally, you can include
+fields in the assignment metadata; the list of capabilities available here will grow
+over time.
+
+Currently, you can include compliance evidence to the assignment metadata as explained
+in the following section.
 
 ### Evidence
 
@@ -804,6 +815,20 @@ within each storage account, indicated by the `evidenceBlobContainer` property v
 The Azure Policy compliance engine evaluates all tracked resources  to the default state specified
 in the definition (`Unknown` if not specified). An `Unknown` compliance state indicates that the
 resource compliance state must be attested to manually.
+
+### Compliance
+
+The Azure Policy compliance engine evaluates all the tracked resources
+(that is, those resources applicable to the `if` statement inf your policy
+definition) to the default state specified in the definition. If the effect state
+is unspecified, it defaults to `Unknown`.
+
+`Unknown` compliance state indicates that you must attest the compliance state yourself.
+
+The following screenshot shows how a manual policy assignment with the `Unknown`
+state appears in the Azure portal:
+
+![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
 
 ### Attestations
 
