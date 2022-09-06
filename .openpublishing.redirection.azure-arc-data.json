@@ -274,6 +274,11 @@
             "source_path_from_root": "/articles/azure-arc/data/configure-server-parameters-postgresql.md",
             "redirect_url": "/azure/azure-arc/data/show-configuration-postgresql-server",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/what-is-azure-arc-enabled-postgresql",
+            "redirect_document_id": false
           }
           ]
 }
