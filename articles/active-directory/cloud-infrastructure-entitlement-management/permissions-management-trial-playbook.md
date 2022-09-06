@@ -135,7 +135,7 @@ There are two facets to removing unused permissions: least privilege policy crea
 -   **Requesting Delete Permissions:** No user will have delete permissions unless they request them and are approved.
 -   **Requesting Privileged Access:** High-privileged access is only granted through just-enough permissions and just-in-time access.
 -   **Requesting Periodic Access:** Schedule reoccurring daily, weekly, or monthly permissions that are time-bound and revoked at the end of period.
-2.  Manage users, roles and their access levels with the User management dashboard.
+-  Manage users, roles and their access levels with the User management dashboard.
 
     **Actions to try:**
 
