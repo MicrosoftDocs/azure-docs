@@ -30,9 +30,9 @@ In this step, browse to your FHIR service in the Azure portal and select the **I
 
 ## Give permission in the storage account for FHIR service access
 
-1. Go to your ADLS Gen2 storage account in the Azure portal.
+1. Go to your [ADLS Gen2](../../storage/blobs/data-lake-storage-introduction.md) account in the Azure portal. If you don't already have an ADSL Gen2 account deployed, follow [these instructions](../../storage/common/storage-account-create.md) for creating an Azure storage account and upgrading to ADLS Gen2. Make sure to enable the hierarchical namespace option in the **Advanced** tab to create an ADLS Gen2 account.
 
-2. Select **Access control (IAM)**.
+2. In your ADLS Gen2 account, select **Access control (IAM)**.
 
 3. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator for help with this step.
 
@@ -52,7 +52,7 @@ In this step, browse to your FHIR service in the Azure portal and select the **I
 
 For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
-Now you're ready to configure the FHIR service with the ADLS Gen2 account as the default storage account for export.
+Now you're ready to configure the FHIR service by setting the ADLS Gen2 account as the default storage account for export.
 
 ## Specify the storage account for FHIR service export
 
@@ -121,7 +121,7 @@ After running this command, in the **Firewall** section under **Resource instanc
 
   :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings with resource type and instance names." lightbox="media/export-data/storage-networking-2.png":::
 
-You're now ready to securely export FHIR data to the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable private endpoints for the storage account.
+You're now ready to securely export FHIR data to the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable [private endpoints](../../storage/common/storage-private-endpoints.md) for the storage account.
 
 ### Allowing specific IP addresses from other Azure regions to access the Azure storage account
 

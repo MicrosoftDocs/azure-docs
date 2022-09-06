@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/27/2017
+ms.date: 08/20/2022
 ---
 
 # XML messages and flat files in Azure Logic Apps with Enterprise Integration Pack

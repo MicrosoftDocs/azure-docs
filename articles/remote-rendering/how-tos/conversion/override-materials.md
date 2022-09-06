@@ -185,7 +185,7 @@ The full JSON schema for materials files is given here. Except for `unlit` and `
             "useVertexColor": { "type" : "boolean" },
             "isDoubleSided": { "type" : "boolean" },
             "ignoreTextureMaps": { "$ref" : "#/definitions/listOfMaps" },
-            "transparencyWriteDepth": {"type" : "boolean" }
+            "transparencyWritesDepth": {"type" : "boolean" }
         },
         "required": ["name"],
         "additionalProperties" : false

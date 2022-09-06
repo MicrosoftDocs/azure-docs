@@ -13,7 +13,7 @@ ms.date: 07/10/2022
 
 # Migrate from diagnostic settings storage retention to Azure Storage lifecycle management
 
-This guide walks you through migrating from using Azure diagnostic settings storage retention to using [Azure Storage lifecycle management](/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal) for retention.
+This guide walks you through migrating from using Azure diagnostic settings storage retention to using [Azure Storage lifecycle management](../../storage/blobs/lifecycle-management-policy-configure.md?tabs=azure-portal) for retention.
 
 ## Prerequisites
 
@@ -50,4 +50,4 @@ To set the rule for a specific subscription, resource group, and function app na
 
 ## Next steps
 
-[Configure a lifecycle management policy](/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal).
+[Configure a lifecycle management policy](../../storage/blobs/lifecycle-management-policy-configure.md?tabs=azure-portal).
