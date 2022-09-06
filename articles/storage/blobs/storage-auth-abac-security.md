@@ -7,10 +7,10 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/29/2022
+ms.date: 09/01/2022
 ms.author: jammart
-ms.reviewer: jiacfan
-ms.subservice: common
+ms.reviewer: nachakra
+ms.subservice: blobs
 ---
 
 # Security considerations for Azure role assignment conditions in Azure Storage (preview)
@@ -33,7 +33,7 @@ Role assignment conditions are only evaluated when using Azure RBAC for authoriz
 
 Similarly, conditions are not evaluated when access is granted using [access control lists (ACLs)](../blobs/data-lake-storage-access-control.md) in storage accounts with a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS).
 
-You can prevent shared key, account-level SAS, and service-level SAS authorization by [disabling shared key authorization](shared-key-authorization-prevent.md) for your storage account. Since user delegation SAS depends on Azure RBAC, role-assignment conditions are evaluated when using this method of authorization.
+You can prevent shared key, account-level SAS, and service-level SAS authorization by [disabling shared key authorization](../common/shared-key-authorization-prevent.md) for your storage account. Since user delegation SAS depends on Azure RBAC, role-assignment conditions are evaluated when using this method of authorization.
 
 > [!NOTE]
 > Role-assignment conditions are not evaluated when access is granted using ACLs with Data Lake Storage Gen2. In this case, you must plan the scope of access so it does not overlap with that granted through ACLs.
