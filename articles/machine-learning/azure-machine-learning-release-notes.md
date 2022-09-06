@@ -28,6 +28,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Fixed an issue where AutoML Regression tasks may fall back to train-valid split for model evaluation, when CV would have been a more appropriate choice.
   + **azureml-core**
     + New cloud configuration suffix added, "aml_discovery_endpoint".
+    + Updated the vendored azure-storage package from version 2 to version 12.
   + **azureml-mlflow**
     + New cloud configuration suffix added, "aml_discovery_endpoint".
   + **azureml-responsibleai**
