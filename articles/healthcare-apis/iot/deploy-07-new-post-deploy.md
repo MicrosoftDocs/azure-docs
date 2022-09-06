@@ -111,5 +111,11 @@ The **FHIR Data Writer** role provides read and write access to your FHIR servic
 >
 > For more information about application roles, see [Authentication & Authorization for Azure Health Data Services](.././authentication-authorization.md).
 
+## Next steps
+
+In this article, you learned how perform post-deployment steps needed to make sure MedTech service performs properly. To learn more about other methods of deployment, see
+
+>[!div class="nextstepaction"]
+>[Choosing a method of deployment for MedTech service in Azure](deploy-iot-connector-in-azure.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

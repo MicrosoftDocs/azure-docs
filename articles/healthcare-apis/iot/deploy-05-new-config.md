@@ -11,7 +11,12 @@ ms.author: v-smcevoy
 
 # Configure the MedTech service for manual deployment using the Azure portal
 
-## Configuraton overview
+Before you can deploy the MedTech service, you must configure several things:
+
+- Configure MedTech service to ingest data
+- Configure device mapping
+- Configure destination mapping
+- Configure (optional) tags
 
 ## Configure the MedTech service to ingest data
 
@@ -160,5 +165,8 @@ Tags are name and value pairs used for categorizing resources. For more informat
    >
    > If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. It's recommended that you review the properties under each MedTech service tab that you've configured.
 
+## Next steps
+
+In this article, you learned about configuring MedTech service in preparation for deployment. Next you will want to learn [Manually creating a deployment of the MedTech service using the Azure portal](deploy-06-new-deploy.md).
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

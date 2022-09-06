@@ -9,7 +9,7 @@ ms.date: 08/22/2022
 ms.author: v-smcevoy
 ---
 
-# Manual creating a deployment of the MedTech service using the Azure portal
+# Manually creating a deployment of the MedTech service using the Azure portal
 
 ## Create your MedTech service
 
@@ -21,5 +21,11 @@ ms.author: v-smcevoy
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\deploy-medtech-service-status.png" alt-text="Screenshot of the MedTech service deployment status and a red box around deployment information." lightbox="media\iot-deploy-manual-in-portal\deploy-medtech-service-status.png":::
 
+## Next steps
+
+In this article, you learned how to manually deploy the MedTech service in Azure. To ensure that MedTech service runs properly, you must perform some post-deployment actions. To learn more about post-deployment, see
+
+>[!div class="nextstepaction"]
+>[HNecessary post-deployment tasks needed after a manual deployment of the MedTech service using the Azure portal](deploy-07-new-post-deploy.md).
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
