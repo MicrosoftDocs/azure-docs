@@ -209,10 +209,11 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 <details>
   <summary>Expand</summary>
 
-Ubuntu 18.04 and above have changed to `netplan` for OS network management. We recommend looking at the latest documentation for your Linux distribution. 
+Ubuntu 18.04 and above have changed to **`netplan`** for OS network management. We recommend looking at the latest documentation for your Linux distribution. 
 
 1. Open a terminal window.
-2. Make sure you're the root user. If you are not, enter the following command:
+
+2. Ensure you're the root user. If you are not, enter the following command:
 
     ```bash
     sudo -i
@@ -224,7 +225,7 @@ Ubuntu 18.04 and above have changed to `netplan` for OS network management. We r
     vi /etc/netplan/60-static.yaml
     ```
 
-4. Add the following lines to the file, replacing `10.0.0.6/24` with your IP/netmask:
+4. Add the following lines to the file, replacing **`10.1.0.5/24`** with your IP and subnet mask:
 
     ```bash
     network:
@@ -232,7 +233,18 @@ Ubuntu 18.04 and above have changed to `netplan` for OS network management. We r
         ethernets:
             eth0:
                 addresses:
-                    - 10.0.0.6/24
+                    - 10.1.0.5/24
+    ```
+    To add additional private IP addresses, edit the file and add the new private IP addresses on subsequent lines:
+
+    ```bash
+    network:
+        version: 2
+        ethernets:
+            eth0:
+                addresses:
+                    - 10.1.0.5/24
+                    - 10.1.0.6/24
     ```
 
 5. Save the file by using the following command:
@@ -241,16 +253,16 @@ Ubuntu 18.04 and above have changed to `netplan` for OS network management. We r
     :wq
     ```
 
-6. Test the changes using [netplan try](https://manpages.ubuntu.com/manpages/kinetic/en/man8/netplan-try.8.html) to confirm syntax:
+6. Test the changes with [netplan try](https://manpages.ubuntu.com/manpages/kinetic/en/man8/netplan-try.8.html) to confirm syntax:
 
     ```bash
     netplan try
     ```
 
     > [!NOTE]
-    > `netplan try` will apply the changes temporarily and roll the changes back after 120 seconds. If there is a loss of connectivity, please wait 120 seconds, and then reconnect. At that time, the changes will have been rolled back.
+    > **`**netplan try`** will apply the changes temporarily and roll the changes back after 120 seconds. If there is a loss of connectivity, please wait 120 seconds, and then reconnect. At that time, the changes will have been rolled back.
 
-7. Assuming no issues with `netplan try`, apply the configuration changes:
+7. Assuming no issues with **`netplan try`**, apply the configuration changes:
 
     ```bash
     netplan apply
@@ -265,20 +277,16 @@ Ubuntu 18.04 and above have changed to `netplan` for OS network management. We r
     You should see the IP address you added as part of the list. Example:
 
     ```bash
-    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-        inet 127.0.0.1/8 scope host lo
-        valid_lft forever preferred_lft forever
-        inet6 ::1/128 scope host
-        valid_lft forever preferred_lft forever
     2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-        link/ether 00:0d:3a:8c:14:a5 brd ff:ff:ff:ff:ff:ff
-        inet 10.0.0.6/24 brd 10.0.0.255 scope global eth0
-        valid_lft forever preferred_lft forever
-        inet 10.0.0.4/24 brd 10.0.0.255 scope global secondary eth0
-        valid_lft forever preferred_lft forever
-        inet6 fe80::20d:3aff:fe8c:14a5/64 scope link
-        valid_lft forever preferred_lft forever
+    link/ether 00:0d:3a:04:45:16 brd ff:ff:ff:ff:ff:ff
+    inet 10.1.0.5/24 brd 10.1.0.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet 10.1.0.6/24 brd 10.1.0.255 scope global secondary eth0
+       valid_lft forever preferred_lft forever
+    inet 10.1.0.4/24 brd 10.1.0.255 scope global secondary eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::20d:3aff:fe04:4516/64 scope link
+       valid_lft forever preferred_lft forever
     ```
 
 #### Validation (Ubuntu 18.04+)
@@ -286,24 +294,27 @@ Ubuntu 18.04 and above have changed to `netplan` for OS network management. We r
 To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
 
 ```bash
-ping -I 10.0.0.5 outlook.com
+ping -I 10.1.0.5 outlook.com
 ```
 
 >[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+>For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address isn't required to ping to the Internet.
 
 For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
 
-ip rule add from 10.0.0.5 lookup custom
-ip route add default via 10.0.0.1 dev eth2 table custom
+ip rule add from 10.1.0.5 lookup custom
+ip route add default via 10.1.0.1 dev eth2 table custom
 ```
 
-- Be sure to replace:
-  - **10.0.0.5** with the private IP address that has a public IP address associated to it
-  - **10.0.0.1** to your default gateway
+- Ensure you replace:
+  
+  - **10.1.0.5** with the private IP address that has a public IP address associated to it
+  
+  - **10.1.0.1** to your default gateway
+  
   - **eth2** to the name of your secondary NIC
 
 </details>
