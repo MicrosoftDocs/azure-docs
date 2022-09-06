@@ -16,7 +16,7 @@ Azure Cosmos DB API for MongoDB introduced a new data compression algorithm in v
 ## How it works
 The API for MongoDB charges users based on how many [request units](../request-units.md) (RUs) are consumed for each operation. With the new compression format, a reduction in storage size and query size directly results in a reduction in RU usage, saving you money. Performance and costs are coupled in Cosmos DB.
 
-When [upgrading](upgrade-mongodb-version.md) from an API for MongoDB database account versions 3.6 or 3.2 to a version 4.0 or greater, all new documents (data) written to that account will be stored in the improved compression format. Older documents, written before the account was upgraded, remains fully backwards compatible, but will remain stored in the older compression format.
+When [upgrading](upgrade-mongodb-version.md) from an API for MongoDB database account versions 3.6 or 3.2 to version 4.0 or greater, all new documents (data) written to that account will be stored in the improved compression format. Older documents, written before the account was upgraded, remain fully backwards compatible, but will remain stored in the older compression format.
 
 ## Upgrading older documents
 When upgrading your database account to versions 4.0+, it's good idea to consider upgrading your older documents as well. Doing so will provide you with efficiency improvements on your older data as well as new data that gets written to the account after the upgrade. The following steps upgrade your older documents to the new compression format:
@@ -27,7 +27,7 @@ When upgrading your database account to versions 4.0+, it's good idea to conside
 
 
 ## Next steps
-Learn about upgrading and the API for MongoDB versions:
+Learn more about upgrading and the API for MongoDB versions:
 * [Introduction to the API for MongoDB](mongodb-introduction.md)
 * [Upgrade guide](upgrade-mongodb-version.md)
 * [Version 4.2](feature-support-42.md)
