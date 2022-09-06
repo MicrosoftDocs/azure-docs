@@ -208,6 +208,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "troubleshoot-error-403.md",
+      "redirect_url": "/azure/digital-twins/troubleshoot-error-403-digital-twins",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "troubleshoot-error-404.md",
+      "redirect_url": "/azure/digital-twins/troubleshoot-error-404-digital-twins",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "how-to-multitenant-applications.md",
       "redirect_url": "/previous-versions/azure/digital-twins/how-to-multitenant-applications",
       "redirect_document_id": false
