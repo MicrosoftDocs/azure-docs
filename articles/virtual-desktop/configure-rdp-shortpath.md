@@ -265,7 +265,7 @@ To configure managed Windows clients using Intune:
 
 1. Sign in to the [Endpoint Manager admin center](https://endpoint.microsoft.com/).
 
-1. Create or edit a *Configuration profile* for **Windows 10 and later** devices, using Administrative templates.
+1. Create or edit a configuration profile for **Windows 10 and later** devices, using Administrative templates.
 
 1. Browse to **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client**.
 
