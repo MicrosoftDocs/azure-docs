@@ -16,7 +16,7 @@ ms.custom: responsible-ml, event-tier1-build-2022
 
 What-if counterfactuals address the question of what the model would predict if you changed the action input. They enable understanding and debugging of a machine learning model in terms of how it reacts to input (feature) changes. 
 
-Standard interpretability techniques approximate a machine learning model or rank features by their predictive importance. By contrast, counterfactual analysis "interrogates" a model to determine what changes to a particular datapoint would flip the model decision. 
+Standard interpretability techniques approximate a machine learning model or rank features by their predictive importance. By contrast, counterfactual analysis "interrogates" a model to determine what changes to a particular data point would flip the model decision. 
 
 Such an analysis helps in disentangling the impact of correlated features in isolation. It also helps you get a more nuanced understanding of how much of a feature change is needed to see a model decision flip for classification models and a decision change for regression models.
 
