@@ -89,7 +89,7 @@ These actions can be performed if Calling Automation SDKs were used to answer an
 
 **Add/Remove participant(s)** – One or more participants can be added in a single request with each participant being a variation of supported destination endpoints. A web hook callback is sent for every participant successfully added to the call.
 
-**Play** - When your application answers a call or places an outbound call it can, you can play an audio prompt for the caller, this can be looped if needed in scenarios like playing hold music. To learn more view our [quickstart](../../quickstarts/voice-video-calling/call-automation-media/Play-Action.md)
+**Play** - When your application answers a call or places an outbound call it can, you can play an audio prompt for the caller, this can be looped if needed in scenarios like playing hold music. To learn more view our [quickstart](../../quickstarts/voice-video-calling/Play-Action.md)
 
 **Transfer** – When your application answers a call or places an outbound call to an endpoint, that endpoint can be transferred to another destination endpoint. Tranfering a 1:1 call will remove your application's ability to control the call using the Call Automation SDKs.
 
