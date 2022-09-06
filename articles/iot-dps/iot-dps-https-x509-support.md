@@ -427,13 +427,13 @@ For example:
 * If you followed the instructions in [Use a self-signed certificate](#use-a-self-signed-certificate):
 
     ```bash
-    curl -L -i -X PUT --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"temperature": 30}' https://MyExampleHub.azure-devices.net/devices/my-x509-device/messages/events?api-version=2020-03-13
+    curl -L -i -X POST --cert device-cert.pem:1234 --key device-key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"temperature": 30}' https://MyExampleHub.azure-devices.net/devices/my-x509-device/messages/events?api-version=2020-03-13
     ```
 
 * If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain):
 
     ```bash
-    curl -L -i -X PUT --cert certs/device-01-full-chain.cert.pem --key private/device-01.key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"temperature": 30}' https://MyExampleHub.azure-devices.net/devices/my-x509-device/messages/events?api-version=2020-03-13
+    curl -L -i -X POST --cert certs/device-01-full-chain.cert.pem --key private/device-01.key.pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"temperature": 30}' https://MyExampleHub.azure-devices.net/devices/my-x509-device/messages/events?api-version=2020-03-13
     ```
 
 A successful call will have a response similar to the following:
