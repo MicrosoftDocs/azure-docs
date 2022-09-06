@@ -51,7 +51,7 @@ landingContent:
           - text: Create an ARM-based account
             url: create-account-portal.md
           - name: Connect an existing classic account to ARM
-            href: connect-classic-account-to-arm.md
+            url: connect-classic-account-to-arm.md
           - text: Use Azure Video Indexer API
             url: video-indexer-use-apis.md 
           - text: Upload and index your videos
