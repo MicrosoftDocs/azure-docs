@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/19/2022
+ms.date: 09/06/2022
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -19,17 +19,17 @@ ms.collection: M365-identity-device-management
 
 The security of business assets depends on the integrity of the privileged accounts that administer your IT systems. Cyber-attackers use credential theft attacks to target admin accounts and other privileged access accounts to try gaining access to sensitive data.
 
-For cloud services, prevention and response are the joint responsibilities of the cloud service provider and the customer. 
+For cloud services, prevention and response are the joint responsibilities of the cloud service provider and the customer.
 
 Traditionally, organizational security has focused on the entry and exit points of a network as the security perimeter. However, SaaS apps and personal devices have made this approach less effective. In Azure Active Directory (Azure AD), we replace the network security perimeter with authentication in your organization's identity layer. As users are assigned to privileged administrative roles, their access must be protected in on-premises, cloud, and hybrid environments.
 
-You're entirely responsible for all layers of security for your on-premises IT environment. When you use Azure cloud services, prevention and response are joint responsibilities of Microsoft as the cloud service provider and you as the customer. 
+You're entirely responsible for all layers of security for your on-premises IT environment. When you use Azure cloud services, prevention and response are joint responsibilities of Microsoft as the cloud service provider and you as the customer.
 
 * For more information on the shared responsibility model, see [Shared responsibility in the cloud](../../security/fundamentals/shared-responsibility.md).
 
 * For more information on securing access for privileged users, see [Securing Privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md).
 
-* For a wide range of videos, how-to guides, and content of key concepts for privileged identity, visit [Privileged Identity Management documentation](../privileged-identity-management/index.yml). 
+* For a wide range of videos, how-to guides, and content of key concepts for privileged identity, visit [Privileged Identity Management documentation](../privileged-identity-management/index.yml).
 
 Privileged Identity Management (PIM) is an Azure AD service that enables you to manage, control, and monitor access to important resources in your organization. These resources include resources in Azure AD, Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune. You can use PIM to help mitigate the following risks:
 
@@ -41,29 +41,31 @@ Privileged Identity Management (PIM) is an Azure AD service that enables you to 
 
 * Reduce the possibility of an unauthorized user inadvertently impacting sensitive resources.
 
-This article provides guidance on setting baselines, auditing sign-ins and usage of privileged accounts, and the source of audit logs you can use to help maintain the integrity of your privilege accounts. 
+This article provides guidance on setting baselines, auditing sign-ins and usage of privileged accounts, and the source of audit logs you can use to help maintain the integrity of your privilege accounts.
 
 ## Where to look
 
-The log files you use for investigation and monitoring are: 
+The log files you use for investigation and monitoring are:
 
 * [Azure AD Audit logs](../reports-monitoring/concept-audit-logs.md)
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview) 
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
 In the Azure portal you can view the Azure AD Audit logs and download them as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
-* [**Microsoft Sentinel**](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
+* [**Microsoft Sentinel**](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
+
+* **[Sigma rules GitHub repo](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we have added a link to the Sigma repo. The Sigma templates are not written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
 * [**Azure Monitor**](../../azure-monitor/overview.md) – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
 * [**Azure Event Hubs**](../../event-hubs/event-hubs-about.md) **integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
 
-* [**Microsoft Defender for Cloud Apps**](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
+* [**Microsoft Defender for Cloud Apps**](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
 * **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
 
@@ -71,7 +73,7 @@ The rest of this article provides recommendations for setting a baseline to moni
 
 * Baselines
 
-* Azure AD role assignment 
+* Azure AD role assignment
 
 * Azure AD role alert settings
 
@@ -100,14 +102,13 @@ A privileged role administrator can customize PIM in their Azure AD organization
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Alert on Add changes to privileged account permissions| High| Azure AD Audit logs| Category = Role Management<br>-and-<br>Activity Type – Add eligible member (permanent) <br>-and-<br>Activity Type – Add eligible member (eligible) <br>-and-<br>Status = Success/failure<br>-and-<br>Modified properties = Role.DisplayName| Monitor and always alert for any changes to privileged role administrator and global administrator. <li>This can be an indication an attacker is trying to gain privilege to modify role assignment settings<li> If you don’t have a defined threshold, alert on 4 in 60 minutes for users and 2 in 60 minutes for privileged accounts. |
-| Alert on bulk deletion changes to privileged account permissions| High| Azure AD Audit logs| Category = Role Management<br>-and-<br>Activity Type – Remove eligible member (permanent) <br>-and-<br>Activity Type – Remove eligible member (eligible) <br>-and-<br>Status = Success/failure<br>-and-<br>Modified properties = Role.DisplayName| Investigate immediately if not a planned change. This setting could enable an attacker access to Azure subscriptions in your environment.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/BulkChangestoPrivilegedAccountPermissions.yaml) |
-| Changes to PIM settings| High| Azure AD Audit Log| Service = PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type = Update role setting in PIM<br>-and-<br>Status Reason = MFA on activation disabled (example)| Monitor and always alert for any changes to Privileged Role Administrator and Global Administrator. <li>This can be an indication an attacker already gained access able to modify to modify role assignment settings<li>One of these actions could reduce the security of the PIM elevation and make it easier for attackers to acquire a privileged account. |
-| Approvals and deny elevation| High| Azure AD Audit Log| Service = Access Review<br>-and-<br>Category = UserManagement<br>-and-<br>Activity Type = Request Approved/Denied<br>-and-<br>Initiated actor = UPN| All elevations should be monitored. Log all elevations as this could give a clear indication of timeline for an attack. |
-| Alert setting changes to disabled.| High| Azure AD Audit logs| Service =PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type = Disable PIM Alert<br>-and-<br>Status = Success /Failure| Always alert. <li>Helps detect bad actor removing alerts associated with Azure MFA requirements to activate privileged access.<li>Helps detect suspicious or unsafe activity.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityAlert/DetectPIMAlertDisablingActivity.yaml) |
+| Alert on Add changes to privileged account permissions| High| Azure AD Audit logs| Category = Role Management<br>-and-<br>Activity Type – Add eligible member (permanent) <br>-and-<br>Activity Type – Add eligible member (eligible) <br>-and-<br>Status = Success/failure<br>-and-<br>Modified properties = Role.DisplayName| Monitor and always alert for any changes to privileged role administrator and global administrator. <li>This can be an indication an attacker is trying to gain privilege to modify role assignment settings<li> If you don’t have a defined threshold, alert on 4 in 60 minutes for users and 2 in 60 minutes for privileged accounts.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/UserAddedtoAdminRole.yaml)<br><br>[Link to Sigma repo](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Alert on bulk deletion changes to privileged account permissions| High| Azure AD Audit logs| Category = Role Management<br>-and-<br>Activity Type – Remove eligible member (permanent) <br>-and-<br>Activity Type – Remove eligible member (eligible) <br>-and-<br>Status = Success/failure<br>-and-<br>Modified properties = Role.DisplayName| Investigate immediately if not a planned change. This setting could enable an attacker access to Azure subscriptions in your environment.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/BulkChangestoPrivilegedAccountPermissions.yaml)<br><br>[Link to Sigma repo](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Changes to PIM settings| High| Azure AD Audit Log| Service = PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type = Update role setting in PIM<br>-and-<br>Status Reason = MFA on activation disabled (example)| Monitor and always alert for any changes to Privileged Role Administrator and Global Administrator. <li>This can be an indication an attacker already gained access able to modify to modify role assignment settings<li>One of these actions could reduce the security of the PIM elevation and make it easier for attackers to acquire a privileged account.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoPIMSettings.yaml)<br><br>[Link to Sigma repo](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Approvals and deny elevation| High| Azure AD Audit Log| Service = Access Review<br>-and-<br>Category = UserManagement<br>-and-<br>Activity Type = Request Approved/Denied<br>-and-<br>Initiated actor = UPN| All elevations should be monitored. Log all elevations as this could give a clear indication of timeline for an attack.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/PIMElevationRequestRejected.yaml)<br><br>[Link to Sigma repo](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Alert setting changes to disabled.| High| Azure AD Audit logs| Service =PIM<br>-and-<br>Category = Role Management<br>-and-<br>Activity Type = Disable PIM Alert<br>-and-<br>Status = Success /Failure| Always alert. <li>Helps detect bad actor removing alerts associated with Azure MFA requirements to activate privileged access.<li>Helps detect suspicious or unsafe activity.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SecurityAlert/DetectPIMAlertDisablingActivity.yaml)<br><br>[Link to Sigma repo](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
-
-For more information on identifying role setting changes in the Azure AD Audit log, see [View audit history for Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-use-audit-log.md). 
+For more information on identifying role setting changes in the Azure AD Audit log, see [View audit history for Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-use-audit-log.md).
 
 ## Azure resource role assignment
 
@@ -126,7 +127,6 @@ Monitoring Azure resource role assignments provides visibility into activity and
 | Audit Alert Resource Audit for Disable Alert| Medium| In PIM, under Azure Resources, Resource Audit| Action : Disable Alert<br>-and-<br>Primary Target : Too many permanent owners assigned to a resource<br>-and-<br>Status = Succeeded| Prevent bad actor from disable alerts from Alerts pane which can bypass malicious activity being investigated |
 | Audit Alert Resource Audit for Disable Alert| Medium| In PIM, under Azure Resources, Resource Audit| Action : Disable Alert<br>-and-<br>Primary Target Duplicate role created<br>-and-<br>Status = Succeeded| Prevent bad actor from disable alerts from Alerts pane which can bypass malicious activity being investigated |
 
-
 For more information on configuring alerts and auditing Azure resource roles, see:
 
 * [Configure security alerts for Azure resource roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-configure-alerts.md)
@@ -135,14 +135,13 @@ For more information on configuring alerts and auditing Azure resource roles, se
 
 ## Access management for Azure resources and subscriptions
 
-Users or members of a group assigned to the Owner or User Access Administrator subscriptions roles, and Azure AD Global administrators that enabled subscription management in Azure AD have Resource administrator permissions by default. These administrators can assign roles, configure role settings, and review access using Privileged Identity Management (PIM) for Azure resources. 
+Users or members of a group assigned to the Owner or User Access Administrator subscriptions roles, and Azure AD Global administrators that enabled subscription management in Azure AD have Resource administrator permissions by default. These administrators can assign roles, configure role settings, and review access using Privileged Identity Management (PIM) for Azure resources.
 
 A user who has Resource administrator permissions can manage PIM for Resources. The risk this introduces that you must monitor for and mitigate, is that the capability can be used to allow bad actors to have privileged access to Azure subscription resources, such as virtual machines or storage accounts.
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
 | Elevations| High| Azure AD, under Manage, Properties| Periodically review setting.<br>Access management for Azure resources| Global administrators can elevate by enabling Access management for Azure resources.<br>Verify bad actors have not gained permissions to assign roles in all Azure subscriptions and management groups associated with Active Directory. |
-
 
 For more information see [Assign Azure resource roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)
 
@@ -153,9 +152,9 @@ See these security operations guide articles:
 
 [Security operations for user accounts](security-operations-user-accounts.md)
 
-[Security operations for privileged accounts](security-operations-privileged-accounts.md)
+[Security operations for consumer accounts](security-operations-consumer-accounts.md)
 
-[Security operations for Privileged Identity Management](security-operations-privileged-identity-management.md)
+[Security operations for privileged accounts](security-operations-privileged-accounts.md)
 
 [Security operations for applications](security-operations-applications.md)
 
