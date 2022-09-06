@@ -16,18 +16,19 @@ Azure Elastic SAN is Microsoft's answer to the problem of workload optimization 
 Elastic SAN is designed for large scale IO-intensive workloads and top tier databases, such as:
 - SAP HANA
 - SQL
+- MariaDB
 - Epic
-- Azure Kubernetes Service
+- Containers, such as Azure Kubernetes Service
 
 ## Benefits of Elastic SAN
 
-### Unified interface
+### Unified provisioning and management
 
-Elastic SAN offers a unified storage provisioning experience that simplifies deploying and managing storage at scale through grouping and policy enforcement.
+Elastic SAN offers a unified storage provisioning experience that simplifies deploying and managing storage at scale through grouping and policy enforcement. An elastic SAN can serve as the storage solution for multiple compute options while being managed separately from each option.
 
 ### Performance
 
-With Elastic SAN, it's possible to scale your performance up to millions of IOPS, double-digit GB/s throughput, and have single-digit ms latency. Elastic SAN volumes connect to your clients using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI), which allows them to bypass an Azure VM's IOPS limit and offers high throughput limits.
+With Elastic SAN, it's possible to scale your performance up to millions of IOPS, double-digit GB/s throughput, and have single-digit ms latency. Elastic SAN volumes connect to your clients using the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI), which allows them to bypass the IOPS limit of an Azure VM and offers high throughput limits.
 
 ### Cost optimization
 
@@ -41,13 +42,17 @@ Elastic SAN has three resources:
 - Volume groups
 - Volumes
 
+The following diagram illustrates the relationship and mapping of an Azure Elastic SAN's resources to those of the on-premises SAN:
+
+:::image type="content" source="media/elastic-san-introduction/elastic-san-resource-relationship-diagram.png" alt-text="The elastic san is like an on-premises san appliance and is where billing and provisioning is handled, volume groups are like network endpoints and handles access and management, volumes are the storage, same as volumes in an on-premises san.":::
+
 ### The SAN
 
 At the SAN-level, you select the redundancy of the entire SAN and provision storage. The storage you provision determines how much performance your SAN has, and the total capacity that can be distributed to each volume within the SAN.
 
 ### Volume groups
 
-Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network ACLs, are inherited by any volumes associated with that volume group. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
+Volume groups are management constructs that you use to manage volumes at scale. Any settings or configurations applied to a volume group, such as virtual network rules, are inherited by any volumes associated with that volume group. A SAN can have up to 20 volume groups and a volume group can contain up to 1,000 volumes.
 
  Your volume group's name is part of your volume's iSCSI Qualified Name (IQN). Follow these rules when naming a volume group: The name must be 1 to 80 characters long, must be lowercase, and can only contain alphanumeric characters, underscores, and hyphens.
 
