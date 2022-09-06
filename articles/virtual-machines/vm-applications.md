@@ -1,14 +1,14 @@
 ---
 title: Overview of VM Applications in the Azure Compute Gallery
 description: Learn more about VM application packages in an Azure Compute Gallery.
-author: ericd-mst-github
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 05/18/2022
+author: nikhilpatel909
 ms.author: erd
-ms.reviewer: amjads
+ms.reviewer: erd
 ms.custom: 
 
 ---
@@ -65,6 +65,7 @@ The VM application packages use multiple resource types:
 - **Requires a VM Agent**: The VM agent must exist on the VM and be able to receive goal states.
 
 - **Multiple versions of same application on the same VM**: You can't have multiple versions of the same application on a VM.
+- **Move operations currently not supported**: Moving VMs with VM Apps to other resource groups are not supported at this time.
 
 
 ## Cost
@@ -118,7 +119,7 @@ When the application file gets downloaded to the VM, the file name is the same a
 
 For example, if I name my VM application `myApp` when I create it in the Gallery, but it's stored as `myApplication.exe` in the storage account, when it gets downloaded to the VM the file name will be `myApp`. My install string should start by renaming the file to be whatever it needs to be to run on the VM (like myApp.exe).
 
-The install, update, and remove commands must be written with file naming in mind. The `configFileName` is assigned to the config file for the VM and `packageFileName` is the name assigned downloaded package on the VM. For more information regarding these additional VM settings, refer to [UserArtifactSettings](https://docs.microsoft.com/rest/api/compute/gallery-application-versions/create-or-update?tabs=HTTP#userartifactsettings) in our API docs.
+The install, update, and remove commands must be written with file naming in mind. The `configFileName` is assigned to the config file for the VM and `packageFileName` is the name assigned downloaded package on the VM. For more information regarding these additional VM settings, refer to [UserArtifactSettings](/rest/api/compute/gallery-application-versions/create-or-update?tabs=HTTP#userartifactsettings) in our API docs.
  
 ## Command interpreter  
 
@@ -131,7 +132,7 @@ It's possible to use a different interpreter like Chocolatey or PowerShell, as l
 
 ## How updates are handled
 
-When you update an application version, the update command you provided during deployment will be used. If the updated version doesn’t have an update command, then the current version will be removed and the new version will be installed. 
+When you update an application version on a VM or VMSS, the update command you provided during deployment will be used. If the updated version doesn’t have an update command, then the current version will be removed and the new version will be installed. 
 
 Update commands should be written with the expectation that it could be updating from any older version of the VM application.
 

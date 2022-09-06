@@ -5,7 +5,7 @@ description: Microsoft Connected Cache two level nested Azure IoT Edge Gateway w
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
