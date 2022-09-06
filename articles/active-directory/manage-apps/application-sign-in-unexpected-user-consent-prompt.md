@@ -52,7 +52,7 @@ To ensure you have the most up-to-date permissions granted for the application, 
 1. Sign-in to the Azure portal with an administrator account.
 2. Navigate to **Enterprise applications**.
 3. Select the application in question from the list.
-4. Under Security in the left-hand navigation, choose **Permissions*
+4. Under Security in the left-hand navigation, choose **Permissions**
 5. View the list of already granted permissions from the table on the Permissions page
 6. To view the requested permissions, click on the **Grant admin consent** button. (NOTE: This will open a consent prompt listing all of the requested permissions. Do not click accept on the consent prompt unless you are sure you want to grant tenant-wide admin consent.)
 7. Within the consent prompt, expand the listed permissions and compare with the table on the permissions page. If any are present in the consent prompt but not the permissions page, that permission has yet to be consented to. Unconsented permissions may be the cause for unexpected consent prompts showing for the application.
