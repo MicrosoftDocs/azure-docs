@@ -3,6 +3,9 @@ title: "Quickstart: Create Azure Kubernetes Fleet Manager and join member cluste
 description: In this quickstart, you learn how to create an Azure Kubernetes Fleet Manager resource and how to join member clusters to the fleet resource.
 ms.topic: quickstart
 ms.date: 09/06/2022
+author: shashankbarsin
+ms.author: shasb
+ms.service: kubernetes-fleet
 ms.custom: template-quickstart, mode-other, devx-track-azurecli
 ms.devlang: azurecli
 ---
