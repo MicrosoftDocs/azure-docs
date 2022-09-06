@@ -34,7 +34,7 @@ az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities En
 ```
 If you are are using PowerShell and receive an error using the command above, try using a powershell array instead to list the capabilities: 
 ```powershell
-az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities @("EnableMongo","EnableMongoRoleBasedAccessControl")
+az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities @("EnableMongo","DisableRateLimitingResponses")
 ```
 
 ## Disable a capability
