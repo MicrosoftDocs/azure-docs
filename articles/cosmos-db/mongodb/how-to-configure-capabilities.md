@@ -32,7 +32,7 @@ Copy each of these capabilities. In this example, we have EnableMongo and Disabl
 ```powershell
 az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongo, DisableRateLimitingResponses
 ```
-If you are are using PowerShell and receive an error using the command above, try using a powershell array instead to list the capabilities: 
+If you are using PowerShell and receive an error using the command above, try using a PowerShell array instead to list the capabilities: 
 ```powershell
 az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities @("EnableMongo","DisableRateLimitingResponses")
 ```
