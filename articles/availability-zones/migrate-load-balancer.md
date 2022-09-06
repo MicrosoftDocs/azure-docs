@@ -43,7 +43,6 @@ As Frontend IP can be either zonal or zone redundant, users need to decide which
 |Zonal Frontend | We recommend creating zonal frontend when backend is concentrated in a particular zone. For example, if backend instances are pinned to zone 2 then it makes sense to create Frontend IP configuration in Availability zone 2. |
 | Zone Redundant Frontend | When the resources (VMs, NICs, IP addresses, etc.) inside a backend pool are distributed across zones, then it's recommended to create Zone redundant Frontend. This will provide the high availability and ensure seamless connectivity even if a zone goes down. |
 
-To move a load balancer within the same region, see [migrate a load balancer to availability zone]().
 ## Migration option 2: Migrate Load Balancer to another region with AZs
 
 Depending on the type of load balancer you have, you'll need to follow different steps. The following sections cover migrating both external and internal load balancers
