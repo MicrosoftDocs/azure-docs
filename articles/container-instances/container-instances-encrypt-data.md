@@ -36,7 +36,7 @@ This article reviews two flows for encrypting data with a customer-managed key:
 1. Encrypt data with a customer-managed key stored in a standard Azure Key Vault
 2. Encrypt data with a customer-managed key stored in a network-proteted Azure Key Vault with [Trusted Services](../key-vault/general/network-security.md) enabled.
 
-## Encrypt data with a customer-managed key in a network-proected Azure Key Vault with Trusted Services enabled
+## Encrypt data with a customer-managed key stored in a standard Azure Key Vault
 
 ### Create Service Principal for ACI
 
@@ -243,31 +243,11 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 
 Within a few seconds, you should receive an initial response from Azure. Once the deployment completes, all data related to it persisted by the ACI service will be encrypted with the key you provided.
 
-## Encrypt data with a customer-managed key in a standard Azure Key Vault
-
-### Create Service Principal for ACI
-
-The first step is to ensure that your [Azure tenant](../active-directory/develop/quickstart-create-new-tenant.md) has a service principal assigned for granting permissions to the Azure Container Instances service. 
-
-> [!IMPORTANT]
-> In order to run the following command and create a service principal successfully, confirm that you have permissions to create service principals in your tenant.
->
-
-The following CLI command will set up the ACI SP in your Azure environment:
-
-```azurecli-interactive
-az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
-```
-
-The output from running this command should show you a service principal that has been set up with "displayName": "Azure Container Instance Service."
-
-In case you are unable to successfully create the service principal:
-* confirm that you have permissions to do so in your tenant
-* check to see if a service principal already exists in your tenant for deploying to ACI. You can do that by running `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` and use that service principal instead
+## Encrypt data with a customer-managed key in a network protected Azure Key Vault with Trusted Services enabled
 
 ### Create a Key Vault resource
 
-Create an Azure Key Vault using [Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
+Create an Azure Key Vault using [Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md). To start, do not apply any network-limitations so we can add necessary keys to the vault. In subsequent steps, we will add network-limitations and enable trusted services. 
 
 For the properties of your key vault, use the following guidelines: 
 * Name: A unique name is required. 
@@ -285,33 +265,74 @@ Once your key vault is created, navigate to the resource in Azure portal. On the
 
 ![Generate a new key](./media/container-instances-encrypt-data/generate-key.png)
 
+### Create a user-assigned managed identity for your container group
+Create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You can use the same resource group used to create the key vault, or use a different one.
+
+```azurecli-interactive
+az identity create \
+  --resource-group myResourceGroup \
+  --name myACIId
+```
+
+To use the identity in the following steps, use the [az identity show](/cli/azure/identity#az-identity-show) command to store the identity's service principal ID and resource ID in variables.
+
+```azurecli-interactive
+# Get service principal ID of the user-assigned identity
+spID=$(az identity show \
+  --resource-group myResourceGroup \
+  --name myACIId \
+  --query principalId --output tsv)
+```
+
 ### Set access policy
 
-Create a new access policy for allowing the ACI service to access your Key.
+Create a new access policy for allowing the user-assigned identity to access your Key.
 
-* Once your key has been generated, back in your key vault resource blade, under Settings, click **Access Policies**.
-* On the "Access Policies" page for your key vault, click **Add Access Policy**.
-* Set the *Key Permissions* to include **Get** and **Unwrap Key**
-    ![Set key permissions](./media/container-instances-encrypt-data/set-key-permissions.png)
-* For *Select Principal*, select **Azure Container Instance Service**
-* Click **Add** at the bottom 
+```azurecli-interactive
+az keyvault set-policy \
+    --name mykeyvault \
+    --resource-group myResourceGroup \
+    --object-id $spID \
+    --secret-permissions get unwrap
+ ```   
 
 The access policy should now show up in your key vault's access policies.
 
 ![New access policy](./media/container-instances-encrypt-data/access-policy.png)
 
+### Modify Azure Key Vault's network permissions
+The following commands set up an Azure Firewall for your Azure Key Vault and allow Azure Trusted Services such as ACI access. 
+
+```azurecli-interactive
+az keyvault update \
+    --name mykeyvault \
+    --resource-group myResourceGroup \
+    --default-action Deny
+ ```   
+ 
+```azurecli-interactive
+az keyvault update \
+    --name mykeyvault \
+    --resource-group myResourceGroup \
+    --bypass AzureServices
+ ```    
+
 ### Modify your JSON deployment template
 
 > [!IMPORTANT]
-> Encrypting deployment data with a customer-managed key is available in the latest API version (2019-12-01) that is currently rolling out. Specify this API version in your deployment template. If you have any issues with this, please reach out to Azure Support.
+> Encrypting deployment data with a customer-managed key is available in the latest API version (2022-09-01) that is currently rolling out. This API version is only available via ARM or REST. If you have any issues with this, please reach out to Azure Support.
 
 Once the key vault key and access policy are set up, add the following properties to your ACI deployment template. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](./container-instances-multi-container-group.md). 
-* Under `resources`, set `apiVersion` to `2019-12-01`.
+* Under `resources`, set `apiVersion` to `2022-09-01`.
 * Under the container group properties section of the deployment template, add an `encryptionProperties`, which contains the following values:
   * `vaultBaseUrl`: the DNS Name of your key vault, can be found  on the overview blade of the key vault resource in Portal
   * `keyName`: the name of the key generated earlier
   * `keyVersion`: the current version of the key. This can be found by clicking into the key itself (under "Keys" in the Settings section of your key vault resource)
-* Under the container group properties, add a `sku` property with value `Standard`. The `sku` property is required in API version 2019-12-01.
+  * `identity`: this is the resource URI of the Managed Identity instance created earlier
+* Under the container group properties, add a `sku` property with value `Standard`. The `sku` property is required in API version 2022-09-01.
+* Under resources, add the `identity` object required to use Managed Identity with ACI, whichcontainsthe following values:
+  * `type`: the type of the identity being used (either user-assigned or system-assigned). This case will be set to "UserAssigned"
+  * `userAssignedIdentities`: the resourceURI of the same user-assigned identity used above in the `encryptionProperties` object. 
 
 The following template snippet shows these additional properties to encrypt deployment data:
 
@@ -323,11 +344,18 @@ The following template snippet shows these additional properties to encrypt depl
         "type": "Microsoft.ContainerInstance/containerGroups",
         "apiVersion": "2019-12-01",
         "location": "[resourceGroup().location]",    
+        "identity": {
+         "type": "UserAssigned",
+         "userAssignedIdentities": {
+           "/subscriptions/XXXXXXXXXXXXXXXXXXXXXX/resourcegroups/XXXXXXXXXXXXXXXXXXXXXX/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACIId": {}
+         }
+        },
         "properties": {
             "encryptionProperties": {
                 "vaultBaseUrl": "https://example.vault.azure.net",
                 "keyName": "acikey",
-                "keyVersion": "xxxxxxxxxxxxxxxx"
+                "keyVersion": "xxxxxxxxxxxxxxxx",
+                "identity": "/subscriptions/XXXXXXXXXXXXXXXXXXXXXX/resourcegroups/XXXXXXXXXXXXXXXXXXXXXX/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACIId"
             },
             "sku": "Standard",
             "containers": {
@@ -365,13 +393,20 @@ Following is a complete template, adapted from the template in [Tutorial: Deploy
       "type": "Microsoft.ContainerInstance/containerGroups",
       "apiVersion": "2019-12-01",
       "location": "[resourceGroup().location]",
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "/subscriptions/XXXXXXXXXXXXXXXXXXXXXX/resourcegroups/XXXXXXXXXXXXXXXXXXXXXX/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACIId": {}
+        }
+      },
       "properties": {
         "encryptionProperties": {
-            "vaultBaseUrl": "https://example.vault.azure.net",
-            "keyName": "acikey",
-            "keyVersion": "xxxxxxxxxxxxxxxx"
+          "vaultBaseUrl": "https://example.vault.azure.net",
+          "keyName": "acikey",
+          "keyVersion": "xxxxxxxxxxxxxxxx",
+          "identity": "/subscriptions/XXXXXXXXXXXXXXXXXXXXXX/resourcegroups/XXXXXXXXXXXXXXXXXXXXXX/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACIId"
         },
-        "sku": "Standard",  
+        "sku": "Standard",
         "containers": [
           {
             "name": "[variables('container1name')]",
@@ -415,8 +450,8 @@ Following is a complete template, adapted from the template in [Tutorial: Deploy
               "port": "80"
             },
             {
-                "protocol": "tcp",
-                "port": "8080"
+              "protocol": "tcp",
+              "port": "8080"
             }
           ]
         }
