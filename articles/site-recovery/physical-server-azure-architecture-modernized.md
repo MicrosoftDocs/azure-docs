@@ -8,7 +8,7 @@ ms.date: 09/05/2022
 
 # Physical server to Azure disaster recovery architecture – Modernized 
 
-This article describes the architecture and processes used when you replicate, failover, and recover physical Windows and Linux servers between an on-premises site and Azure, using the [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) service. 
+This article describes the modernized architecture and processes used when you replicate, failover, and recover physical Windows and Linux servers between an on-premises site and Azure, using the [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) service. 
 
 For information about configuration server requirements in Classic releases, see [Physical server to Azure disaster recovery architecture](/azure/site-recovery/physical-azure-architecture).  
 
