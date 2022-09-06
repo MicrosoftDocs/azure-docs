@@ -16,11 +16,18 @@ The UI Library now gives developers the ability to provide a more customized exp
 
 #### Local Options
 
-`LocalOptions` is data model that can have `ParticipantViewData` that will represent the local participant.  By default, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components.
+`LocalOptions` is data model that can have `ParticipantViewData` and `NavigationBarViewData` that will represent the local participant.  By default for `ParticipantViewData`, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components. 
+
+Similarly, for 'NavigationBarViewData', by default the UI library will display 'Setup' as the title and subtitle will be set to hidden. The `title` and `subtitle` in 'NavigationBarViewData' would overwrite the navigation bar's title and subtitle in pre-meeting screen respectively. 
 
 #### Participant View Data
 
 `ParticipantViewData` is an object that sets the `displayName` and `avatar` UIImage for avatar components. This class is injected into the UI Library to set avatar information, and it will always be locally stored and never sent up to the server.
+
+#### Navigation Bar View Data
+
+`NavigationBarViewData` is an object that sets the `title` and `subtitle` for the navigationBar on pre-meeting screen (aka. Setup View). 
+If `subtitle` is not defined, then subtitle would always be set to hidden. If `subtitle` is defined but not `title`, the default localized title 'Setup' would be used and given `subtitle` would be ignored. This class is locally stored and its information will not be sent up to the server.
 
 #### Usage
 
@@ -28,13 +35,14 @@ The UI Library now gives developers the ability to provide a more customized exp
 // LocalOptions (data not sent to server)
 let localParticipantViewData = ParticipantViewData(avatar: <Some UIImage>,
                                                    displayName: "<DISPLAY_NAME>")
-let localOptions = LocalOptions(participantViewData: localParticipantViewData)
-
+let localNavigationBarViewData = NavigationBarViewData(title: "<NAV_TITLE>",
+                                                               subtitle: "<NAV_SUBTITLE>")
+let localOptions = LocalOptions(participantViewData: localParticipantViewData, 
+                                navigationBarViewData: localNavigationBarViewData)
 // RemoteOptions (data sent to server)
 let remoteOptions = RemoteOptions(for: .groupCall(groupId: UUID()),
                                   credential: <Some CommunicationTokenCredential>,
                                   displayName: "<DISPLAY_NAME>")
-
 // Launch
 callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
 ```
