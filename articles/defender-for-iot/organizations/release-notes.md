@@ -65,13 +65,16 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 |Service area  |Updates  |
 |---------|---------|
 |**OT networks**     |**All OT sensor software versions**:  - [Security recommendations for OT networks](#security-recommendations-for-ot-networks)|
+
 ### Security recommendations for OT networks
 
-Defender for IoT now provides the following security recommendations in the Azure portal for detected devices across your OT networks:
+Defender for IoT now provides security recommendations to help customers manage their OT/IoT network security posture. Defender for IoT recommendations help users form actionable, prioritized mitigation plans that address the unique challenges of OT/IoT networks. Use recommendations for lower your network's risk and attack surface.
 
-- **Review PLC operating mode**. Devices with this recommendation are found with PLCs set to unsecure run states. We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.
+You can see the following security recommendations from the Azure portal for detected devices across your networks:
 
-- **Review unauthorized devices**. This recommendation is shown when unauthorized devices are detected in the network. We recommend ensuring that all discovered devices are identified and authorized as part of the network baseline to prevent threats of rogue or potentially malicious devices infiltrating your network.
+- **Review PLC operating mode**. Devices with this recommendation are found with PLCs set to unsecure operating mode states. We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.
+
+- **Review unauthorized devices**. Devices with this recommendation must be identified and authorized as part of the network baseline. We recommend taking action to identify any indicated devices. Disconnect any devices from your network that remain unknown even after investigation to reduce the threat of rogue or potentially malicious devices.
 
 Access security recommendations from one of the following locations:
 
