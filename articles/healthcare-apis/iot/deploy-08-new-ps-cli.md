@@ -37,12 +37,12 @@ You can also review the **location** section of the **azuredeploy.json** file on
 
 ## Prerequisites
 
-### [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/PowerShell)
 
 * An Azure account with an active subscription: [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally: [Azure PowerShell](/powershell/azure/install-az-ps).
 
-### [CLI](#tab/CLI)
+# [CLI](#tab/CLI)
 
 * An Azure account with an active subscription: [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally:

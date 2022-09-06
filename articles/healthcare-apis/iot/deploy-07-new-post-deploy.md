@@ -119,7 +119,7 @@ In this article, you learned how to perform post-deployment steps to make the Me
 >[How to manually deploy MedTech service with Azure portal](deploy-03-new-manual.md)
 
 >[!div class="nextstepaction"]
->[Deploy the MedTech service with a QuickStart template](deploy-02-new-ps-cli.md)
+>[Deploy the MedTech service with a QuickStart template](deploy-02-new-button.md)
 
 To learn about choosing a deployment method for the MedTech service, see
 
