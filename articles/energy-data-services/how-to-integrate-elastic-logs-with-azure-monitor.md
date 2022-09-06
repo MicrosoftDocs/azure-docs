@@ -49,16 +49,12 @@ We support two destinations for your Elasticsearch logs from Microsoft Energy Da
   
     [![Screenshot for diagnostic settings overview page. It shows the list of existing settings as well as the option to create a new diagnostic setting.](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-overview-page.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-overview-page.png#lightbox)
 
-
 1. Select *Add diagnostic setting*.
- 
-    [![Screenshot for diagnostic settings configuration page. The image shows source and destination details for the diagnostic setting.](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-configuration-page.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-configuration-page.png#lightbox)
 
-1. Select "Elasticsearch logs" and "Elasticsearch Operator logs" under Log categories
+1. Select *Elasticsearch logs* and *Elasticsearch Operator logs* under Log categories
  
-    [![Screenshot for Configuring Diagnostic Settings to Collect Elasticsearch logs. The image shows a valid diagnostic name entered.](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-configuration-page-logs-chosen.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-configuration-page-logs-chosen.png#lightbox)
+1. Select *Send to a Log Analytics workspace*
 
-1. Select "Send to a Log Analytics workspace"
 1. Choose Subscription and the Log Analytics workspace Name. You would have created it already as a prerequisite.
 
   
@@ -69,44 +65,45 @@ We support two destinations for your Elasticsearch logs from Microsoft Energy Da
 1. Choose Subscription and storage account Name. You would have created it already as a prerequisite.
     [![Screenshot that shows choosing destination settings for storage account. Required fields include regions, subscription and storage account.](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-archive-storage-account.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-archive-storage-account.png#lightbox)
 
-1. Select Save and go back to the diagnostic settings page to see the latest created setting added to the list. 
-    Go back to the Diagnostic Settings page. You would now see a new diagnostic setting created along with the names of the destination storage account and Log Analytics workspace you chose for this setting. 
+1. Select *Save*.
+
+Go back to the Diagnostic Settings page. You would now see a new diagnostic setting created along with the names of the destination storage account and Log Analytics workspace you chose for this setting. 
  
-    [![Screenshot for diagnostic settings overview Page. The page shows a sample diagnostic setting to link Elasticsearch logs with Azure Monitor.](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-created-page.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-created-page.png#lightbox)
+[![Screenshot for diagnostic settings overview page. The page shows a sample diagnostic setting to link Elasticsearch logs with Azure Monitor.](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-created-page.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-created-page.png#lightbox)
 
 ## View Elasticsearch logs in Log Analytics workspace or download them as JSON files using storage account
 
-### How to view & query logs in Log Analytics workspace:
+### How to view & query logs in Log Analytics workspace
 The editor in Log Analytics workspace support Kusto (KQL) queries through which you can easily perform complicated queries to extract interesting logs data from the Elasticsearch service running in your Microsoft Energy Data Services instance.
  
  
 * Run queries and see Elasticsearch logs in the Log Analytics workspace.
 
-[![Screenshot for Elasticsearch logs. The image shows the simplest KQL query that shows all logs in the last 24 hours.](media/how-to-integrate-elastic-logs-with-azure-monitor/view-elastic-search-logs.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/view-elastic-search-logs.png#lightbox)
+    [![Screenshot for Elasticsearch logs. The image shows the simplest KQL query that shows all logs in the last 24 hours.](media/how-to-integrate-elastic-logs-with-azure-monitor/view-elasticsearch-logs.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/view-elasticsearch-logs.png#lightbox)
 
 * Run queries and see Elasticsearch Operator logs in the Log Analytics workspace.
 
-[![Screenshot for elasticsearch Operator logs. The image shows the simplest KQL query that shows all logs in the last 24 hours.](media/how-to-integrate-elastic-logs-with-azure-monitor/view-elastic-search-operator-logs.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/view-elastic-search-operator-logs.png#lightbox)
+    [![Screenshot for elasticsearch Operator logs. The image shows the simplest KQL query that shows all logs in the last 24 hours.](media/how-to-integrate-elastic-logs-with-azure-monitor/view-elasticsearch-operator-logs.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/view-elasticsearch-operator-logs.png#lightbox)
 
 
-### How to download logs as JSON files by navigating through the container explorer options in storage account
+### How to download logs as JSON files from storage account
 
 * The *Containers* menu option in the left panel of your storage account's overview page allows you to browse through the various directories that neatly store your log files. 
     
 
-[![Screenshot for storage account that stores elastic logs. The stored logs can be viewed by selecting 'containers' under the data storage menu-item on the left.](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-containers-page.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-containers-page.png#lightbox)
+    [![Screenshot for storage account that stores elastic logs. The stored logs can be viewed by selecting 'containers' under the data storage menu-item on the left.](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-containers-page.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-containers-page.png#lightbox)
  
 * Logs are organized into different folders. Drill down by month, date and time. 
 
-[![Screenshot for JSON file view inside storage account. The image shows the tracked path from year, month, data, and time to locate the right log file in JSON format.](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-log-file.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-log-file.png#lightbox)
+    [![Screenshot for JSON file view inside storage account. The image shows the tracked path from year, month, data, and time to locate the right log file in JSON format.](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-log-file.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-log-file.png#lightbox)
  
 * Select any JSON file in your containers to view other options. 
 
-[![Screenshot to view the downloaded JSON file from storage account. Other options shown include getting a URL for the JSON file.](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-download-log-file-json.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-download-log-file-json.png#lightbox)
+    [![Screenshot to view the downloaded JSON file from storage account. Other options shown include getting a URL for the JSON file.](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-download-log-file-json.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-download-log-file-json.png#lightbox)
 
 * Select *Download* option to download the JSON file. Open it in a code editor of your choice. 
  
-[![Screenshot to view downloaded JSON file locally. The images shows formatted logs in Visual Studio Code.](media/how-to-integrate-elastic-logs-with-azure-monitor/logs-downloaded-opened-editor.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/logs-downloaded-opened-editor.png#lightbox)
+    [![Screenshot to view downloaded JSON file locally. The images shows formatted logs in Visual Studio Code.](media/how-to-integrate-elastic-logs-with-azure-monitor/logs-downloaded-opened-editor.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/logs-downloaded-opened-editor.png#lightbox)
 
  
 ## Next steps
