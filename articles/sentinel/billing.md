@@ -180,37 +180,27 @@ The following data sources are free with Microsoft Sentinel:
 
 Although alerts are free, the raw logs for some Microsoft 365 Defender, Defender for Cloud Apps, Azure Active Directory (Azure AD), and Azure Information Protection (AIP) data types are paid.
 
-The following table lists the free data sources you can enable in Microsoft Sentinel. Some of the data connectors, such as Microsoft 365 Defender and Defender for Cloud Apps, include both free and paid data types.
+The following table lists the free data sources you can enable in Microsoft Sentinel. 
 
-| Microsoft Sentinel Data Connector   | Data type | Free or paid |
-|-------------------------------------|--------------------------------|------------------|
-| **Azure Activity Logs**         | AzureActivity                  | Free             |
-| **Azure AD Identity Protection**         | SecurityAlert (IPC)                  | Free             |
-| **Office 365**                     | OfficeActivity (SharePoint)    | Free|
-|| OfficeActivity (Exchange)|Free|
-|| OfficeActivity (Teams)          | Free|
-| **Microsoft Defender for Cloud**                  | SecurityAlert (Defender for Cloud)             | Free             |
-| **Microsoft Defender for IoT**          | SecurityAlert (Defender for IoT)     | Free             |
-| **Microsoft 365 Defender**          | SecurityIncident | Free|
-||SecurityAlert| Free|
-||DeviceEvents                    | Paid|
-||DeviceFileEvents                | Paid|
-||DeviceImageLoadEvents           | Paid|
-||DeviceInfo                      | Paid|
-||DeviceLogonEvents               | Paid|
-||DeviceNetworkEvents             | Paid|
-||DeviceNetworkInfo               | Paid|
-||DeviceProcessEvents             | Paid|
-||DeviceRegistryEvents            | Paid|
-||DeviceFileCertificateInfo       | Paid|
-| **Microsoft Defender for Endpoint** | SecurityAlert (MDATP)          | Free             |
-| **Microsoft Defender for Identity** | SecurityAlert (AATP)           | Free             |
-| **Microsoft Defender for Cloud Apps**   | SecurityAlert (Defender for Cloud Apps)           | Free             |
-||MCASShadowITReporting           | Paid|
+| Microsoft Sentinel data connector   | Free data type | 
+|-------------------------------------|--------------------------------|
+| **Azure Activity Logs**         | AzureActivity                  |           
+| **Azure AD Identity Protection**         | SecurityAlert (IPC)                  | 
+| **Office 365**                     | OfficeActivity (SharePoint)    | 
+|| OfficeActivity (Exchange)|
+|| OfficeActivity (Teams)          | 
+| **Microsoft Defender for Cloud**                  | SecurityAlert (Defender for Cloud)             | 
+| **Microsoft Defender for IoT**          | SecurityAlert (Defender for IoT)     | 
+| **Microsoft 365 Defender**          | SecurityIncident | 
+||SecurityAlert|
+| **Microsoft Defender for Endpoint** | SecurityAlert (MDATP)          | 
+| **Microsoft Defender for Identity** | SecurityAlert (AATP)           | 
+| **Microsoft Defender for Cloud Apps**   | SecurityAlert (Defender for Cloud Apps)           | 
+
 
 For data connectors that include both free and paid data types, you can select which data types you want to enable.
 
-:::image type="content" source="media/billing/data-types.png" alt-text="Screenshot of the Data connector page for Defender for Cloud Apps, with the free security alerts selected and the paid M C A S Shadow I T Reporting not selected." lightbox="media/billing/data-types.png":::
+:::image type="content" source="media/billing/data-types.png" alt-text="Screenshot of the Data connector page for Defender for Cloud Apps, with the free security alerts selected and the paid MCAS Shadow IT Reporting not selected." lightbox="media/billing/data-types.png":::
 
 Learn more about how to [connect data sources](connect-data-sources.md), including free and paid data sources.
 

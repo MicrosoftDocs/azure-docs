@@ -54,3 +54,27 @@ call.addOnStateChangedListener { args: PropertyChangedEvent? ->
     )
 }
 ```
+
+To display the role of the local call participant or remote call participants, subscribe to the handler below. Learn more about roles and permissions for room call participants [here](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).
+
+```java
+// Get your role in the call
+call.getRole();
+
+// Subscribe to changes for your role in a call
+private void isCallRoleChanged(PropertyChangedEvent propertyChangedEvent) {
+    // handle self-role change
+}
+
+call.addOnRoleChangedListener(isCallRoleChanged);
+
+// Subscribe to role changes for remote participants
+private void isRoleChanged(PropertyChangedEvent propertyChangedEvent) {
+    // handle remote participant role change
+}
+
+remoteParticipant.addOnRoleChangedListener(isRoleChanged);
+
+// Get role of the remote participant
+remoteParticipant.getRole();
+```
