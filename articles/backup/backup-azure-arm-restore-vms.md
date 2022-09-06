@@ -95,6 +95,14 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 
     ![Restore configuration wizard - choose restore options](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
+1. Azure Backup now supports Cross Subscription Restore (CSR), you can now restore an Azure VM from a recovery point in one subscription to another.
+
+   Choose the required subscription from the **Subscription** drop-down list.
+
+   The following screenshot lists all subscriptions under the tenant where you have permissions, which enables you to restore the Azure VM to another subscription.
+
+   :::image type="content" source="./media/backup-azure-arm-restore-vms/backup-azure-cross-subscription-restore-inline.png" alt-text="Screenshot showing the list of all subscriptions under the tenant where you have permissions." lightbox="./media/backup-azure-arm-restore-vms/backup-azure-cross-subscription-restore-expanded.png":::
+
 1. Select **Restore** to trigger the restore operation.
 
 >[!Note]
@@ -113,6 +121,10 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 1. In **Staging location**, specify the storage account to which to copy the VHDs. [Learn more](#storage-accounts).
 
    :::image type="content" source="./media/backup-azure-arm-restore-vms/trigger-restore-operation-disks.png" alt-text="Screenshot showing to select Resource disks.":::
+
+1. Azure Backup now supports Cross Subscription Restore (CSR). Like Azure VM, you can now restore an Azure VM disks from a recovery point in one subscription to another.
+
+   Choose the required subscription from the **Subscription** drop-down list to restore the VM disks.
 
 1. Select **Restore** to trigger the restore operation.
 
