@@ -38,6 +38,26 @@ In the case of availability sets and virtual machine scale sets, you should set 
 
 A proximity placement group is a colocation constraint rather than a pinning mechanism. It is pinned to a specific data center with the deployment of the first resource to use it. Once all resources using the proximity placement group have been stopped (deallocated) or deleted, it is no longer pinned. Therefore, when using a proximity placement group with multiple VM series, it is important to specify all the required types upfront in a template when possible or follow a deployment sequence which will improve your chances for a successful deployment. If your deployment fails, restart the deployment with the VM size which has failed as the first size to be deployed.
 
+## Proximity Placement Group Intent
+
+Intent is an optional parameter which you can provide while creating a new proximity placement group. This parameter can also be added or modified while updating the proximity placement group after deallocating all the VMs from the proximity placement group. This parameter provides the flexibility to indicate the intended [VM Sizes](../virtual-machines/sizes.md) to be part of the proximity placement group.
+
+Intent allows you to provide one or more VM Sizes that you require to be deployed as part of the Proximity Placement Group (across single VMs, Availability Sets and VM Scale Sets). Additionally, an optional avaiability zone can be indicated through intent by providing the zone parameter, in case the proximity placement group must be created within a specific availability zone. Please note the following while providing zone parameter:
+
+- The availability zone parameter can only be provided while creation of the proximity placement group and cannot be modified even after deallocating all VMs
+- The availability zone can be specified only within the intent and not independently without providing intent
+- Only one availability zone can be specified in this parameter
+
+Proximity Placement Group creation or update will succeed only when at least one data center supports all the VM Sizes speicified in the intent. Otherwise, the creation or update would fail with "ProximityPlacementGroupOverconstrainedIntent", indicating that the combination of VM Sizes cannot be supported within a proximity placement group. The **Intent does not provide any capacity reservation or guarantee**; it only uses the provided intent VM Sizes and zones to select an appropriate data center, reducing the chances of failure arising from non-existence of the intended VM Sizes in a single data center. Therefore, **Allocation Failures** can still occur if there's no capacity for a VM Size at the time of deployment. 
+
+## Best Practices while using Proximity Placement Group with Intent
+
+1.	Ensure that you provide an availability zone for your PPG only when you provide an intent. Providing an availability zone without intent will result in an error while creating the PPG
+2.	If you have provided an availability zone in the intent, ensure that the availability zone of the VMs you deploy match with what you have provided in the intent to avoid errors while deploying VMs 
+3.	Creating or adding VMs of sizes different from those provided in the intent is allowed but not recommended as they may not exist in the selected datacenter and hence can result in failures at the time of VM deployment
+4.	For existing PPG, it is recommended to include the sizes of the existing VMs on the PPG while updating intent, in order to avoid failure while re-deploying the VMs
+5.	If you have an existing PPG with deallocated VMs, and you want to update the PPG with an intent, ensure that you include the existing VM Sizes (in the PPG) in the intent so that they are considered while selecting an appropriate data center
+
 ## What to expect when using Proximity Placement Groups 
 Proximity placement groups offer colocation in the same data center. However, because proximity placement groups represent an additional deployment constraint, allocation failures can occur. There are few use cases where you may see allocation failures when using proximity placement groups:
 
