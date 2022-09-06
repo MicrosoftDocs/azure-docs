@@ -266,6 +266,10 @@ Select the logged metrics to render charts on the right side.
 
 :::image type="content" source="media/how-to-log-view-metrics/metrics-old.png" alt-text="Screenshot of the current metrics view.":::
 
+For a customizable view of your job metrics (preview), use the [preview panel](./how-to-enable-preview-features.md) to enable the feature. Once enabled, you can add/remove charts and customize them by applying smoothing, changing the color, or plotting multiple metrics on a single graph. You can also resize and rearrange the layout as you wish. Once you have created your desired view, you can save it for future use and share it with your teammates using a direct link.
+
+:::image type="content" source="media/how-to-log-view-metrics/metrics-new.png" alt-text="Screenshot of the new metrics view.":::
+
 ### View and download diagnostic logs
 
 Log files are an essential resource for debugging the Azure ML workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  

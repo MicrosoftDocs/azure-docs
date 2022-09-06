@@ -260,7 +260,7 @@ Azure App Service provides a web-based diagnostics console named Kudu. Kudu lets
 
 To use Kudu, go to one of the following URLs. You'll need to sign into the Kudu site with your Azure credentials.
 
-* For apps deployed in Free, Shared, Basic, Standard, and Premium App Service plans - `https:/<app-name>.scm.azurewebsites.net`
+* For apps deployed in Free, Shared, Basic, Standard, and Premium App Service plans - `https://<app-name>.scm.azurewebsites.net`
 * For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
 From the main page in Kudu, you can find information about the application-hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
 

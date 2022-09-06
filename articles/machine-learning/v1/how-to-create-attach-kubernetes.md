@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv1, sdkv1, event-tier1-build-2022
-ms.author: ssambare
-author:  shivanissambare
+ms.author: larryfr
+author:  larryfr
 ms.reviewer: larryfr
 ms.date: 04/21/2022
 ---
@@ -209,9 +209,9 @@ az ml computetarget create aks -n myaks
 
 For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-aks) reference.
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
-For information on creating an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#inference-clusters).
+For information on creating an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
 
 ---
 
@@ -232,7 +232,7 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
-* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
+* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=/azure/bread/toc.json&toc=/azure/aks/TOC.json#az-aks-create)
 * [Create an AKS cluster (portal)](../../aks/learn/quick-kubernetes-deploy-portal.md)
 * [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
@@ -290,9 +290,9 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 
 For more information, see the [az ml computetarget attach aks](/cli/azure/ml(v1)/computetarget/attach#az-ml-computetarget-attach-aks) reference.
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
-For information on attaching an AKS cluster in the portal, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#inference-clusters).
+For information on attaching an AKS cluster in the studio, see [Create compute targets in Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#other-compute-targets).
 
 ---
 
@@ -433,7 +433,7 @@ To detach the existing cluster to your workspace, use the following command. Rep
 az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 ```
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
 In Azure Machine Learning studio, select __Compute__, __Inference clusters__, and the cluster you wish to remove. Use the __Detach__ link to detach the cluster.
 

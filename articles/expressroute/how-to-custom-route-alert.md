@@ -60,7 +60,7 @@ In order to create an Automation account, you need privileges and permissions. F
 
 ### <a name="about"></a>1. Create an automation account
 
-Create an Automation account with run-as permissions. For instructions, see [Create an Azure Automation account](../automation/quickstarts/create-account-portal.md).
+Create an Automation account with run-as permissions. For instructions, see [Create an Azure Automation account](../automation/quickstarts/create-azure-automation-account-portal.md).
 
 :::image type="content" source="./media/custom-route-alert-portal/create-account.png" alt-text="Add automation account" lightbox="./media/custom-route-alert-portal/create-account-expand.png":::
 

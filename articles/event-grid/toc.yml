@@ -21,9 +21,9 @@ items:
       - name: Portal
         href: blob-event-quickstart-portal.md
       - name: Azure CLI
-        href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+        href: ../storage/blobs/storage-blob-event-quickstart.md?toc=/azure/event-grid/toc.json
       - name: Azure PowerShell
-        href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
+        href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=/azure/event-grid/toc.json
       - name: Bicep
         displayName: Resource Manager,ARM,template
         href: blob-event-quickstart-bicep.md
@@ -45,11 +45,11 @@ items:
     - name: Event Hubs as event handler
       href: custom-event-to-eventhub.md
     - name: Container Registry events
-      href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+      href: ../container-registry/container-registry-event-grid-quickstart.md?toc=/azure/event-grid/toc.json
     - name: Handle Azure Communication Services events
-      href: ../communication-services/quickstarts/sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json
+      href: ../communication-services/quickstarts/sms/handle-sms-events.md?toc=/azure/event-grid/toc.json
     - name: Azure Cache for Redis events
-      href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md?toc=%2fazure%2fevent-grid%2ftoc.json
+      href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md?toc=/azure/event-grid/toc.json
   - name: Tutorials
     items:
     - name: Email when VM changes
@@ -67,9 +67,9 @@ items:
     - name: Handle Service Bus events via Event Grid
       items:
       - name: Azure Logic Apps
-        href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+        href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=/azure/event-grid/toc.json
       - name: Azure Functions
-        href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=%2fazure%2fevent-grid%2ftoc.json
+        href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=/azure/event-grid/toc.json
     - name: Stream data from Event Hubs
       href: event-grid-event-hubs-integration.md
     - name: Route Media Services events
@@ -315,7 +315,7 @@ items:
       - name: Build your own client-side disaster recovery
         href: custom-disaster-recovery-client-side.md
     - name: Track asynchronous REST operations
-      href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+      href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
     - name: Move
       items:
       - name: Move system topics across regions

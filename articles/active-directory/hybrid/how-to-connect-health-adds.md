@@ -4,7 +4,7 @@ description: This is the Azure AD Connect Health page that will discuss how to m
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: curtand
 
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700

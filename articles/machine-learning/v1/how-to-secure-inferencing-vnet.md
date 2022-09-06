@@ -98,7 +98,7 @@ To add AKS in a virtual network to your workspace, use the following steps:
 
 1. When you deploy a model as a web service to AKS, a scoring endpoint is created to handle inferencing requests. Make sure that the network security group (NSG) that controls the virtual network has an inbound security rule enabled for the IP address of the scoring endpoint if you want to call it from outside the virtual network.
 
-    To find the IP address of the scoring endpoint, look at the scoring URI for the deployed service. For information on viewing the scoring URI, see [Consume a model deployed as a web service](../how-to-consume-web-service.md#connection-information).
+    To find the IP address of the scoring endpoint, look at the scoring URI for the deployed service. For information on viewing the scoring URI, see [Consume a model deployed as a web service](how-to-consume-web-service.md#connection-information).
 
    > [!IMPORTANT]
    > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](../../virtual-network/network-security-groups-overview.md#default-security-rules).

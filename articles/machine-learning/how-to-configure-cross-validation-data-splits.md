@@ -31,7 +31,7 @@ For this article you need,
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
-* Familiarity with setting up an automated machine learning experiment with the Azure Machine Learning SDK. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the fundamental automated machine learning experiment design patterns.
+* Familiarity with setting up an automated machine learning experiment with the Azure Machine Learning SDK. Follow the [tutorial](tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train.md) to see the fundamental automated machine learning experiment design patterns.
 
 * An understanding of train/validation data splits and cross-validation as machine learning concepts. For a high-level explanation,
 
@@ -251,5 +251,5 @@ Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, autom
 ## Next steps
 
 * [Prevent imbalanced data and overfitting](concept-manage-ml-pitfalls.md).
-* [Tutorial: Use automated machine learning to predict taxi fares - Split data section](tutorial-auto-train-models.md#split-the-data-into-train-and-test-sets).
+
 * How to [Auto-train a time-series forecast model](how-to-auto-train-forecast.md).
