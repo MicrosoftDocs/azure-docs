@@ -45,7 +45,7 @@ In this tutorial, the following network layers are defined:
 
 This tutorial uses a two device hierarchy for simplicity, pictured below. One device, the **top layer device**, represents a device at the top layer of the hierarchy, which can connect directly to the cloud. This device will also be referred to as the **parent device**. The other device, the **lower layer device**, represents a device at the lower layer of the hierarchy, which can't connect directly to the cloud. You can add more lower layer devices to represent your production environment, as needed. Devices at lower layers will also be referred to as **child devices**.
 
-![Diagram that shows the structure of the tutorial hierarchy, containing two devices: the top layer device and the lower layer device](./media/tutorial-nested-iot-edge/tutorial-hierarchy-diagram.png)
+![Diagram that shows the structure of the tutorial hierarchy, containing two devices: the top layer device and the lower layer device.](./media/tutorial-nested-iot-edge/tutorial-hierarchy-diagram.png)
 
 ## Prerequisites
 
@@ -133,7 +133,7 @@ To use the `iotedge-config` tool to create and configure your hierarchy, follow 
 
    You can define the parent-child relationships manually as well. See the [create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy) section of the how-to guide to learn more.
 
-   ![Screenshot of the edgedevices section of the configuration file allows you to define your hierarchy](./media/tutorial-nested-iot-edge/hierarchy-config-sample.png)
+   ![Screenshot of the edgedevices section of the configuration file allows you to define your hierarchy.](./media/tutorial-nested-iot-edge/hierarchy-config-sample.png)
 
 1. Save and close the file:
 
@@ -156,7 +156,7 @@ To use the `iotedge-config` tool to create and configure your hierarchy, follow 
 
    The configuration tool creates your IoT Edge devices and sets up the parent-child relationships between them. Optionally, it creates certificates for your devices to use. If paths to deployment JSONs are provided, the tool will automatically create these deployments to your devices, but this isn't required. Finally, the tool will generate the configuration bundles for your devices and place them in the output directory. For a thorough look at the steps taken by the configuration tool, see the log file in the output directory.
 
-   ![Screenshot of the output of the script will display a topology of your hierarchy upon execution](./media/tutorial-nested-iot-edge/successful-setup-tool-run.png)
+   ![Screenshot of the output of the script will display a topology of your hierarchy upon execution.](./media/tutorial-nested-iot-edge/successful-setup-tool-run.png)
 
 1. Navigate to your `output` directory and download the _lower-layer.zip_ and _top-layer.zip_ files. 
    ```bash
@@ -211,7 +211,7 @@ Each device needs its corresponding configuration bundle. You can use a USB driv
    ```
    The output of the install script is pictured below.
    
-   ![Screenshot of the output of the script installing the configuration bundles will update the config.toml files on your device and restart all IoT Edge services automatically](./media/tutorial-nested-iot-edge/configuration-install-output.png)
+   ![Screenshot of the output of the script installing the configuration bundles will update the config.toml files on your device and restart all IoT Edge services automatically.](./media/tutorial-nested-iot-edge/configuration-install-output.png)
 
 1. Apply the correct certificate permissions and restart the IoT Edge runtime.
 
