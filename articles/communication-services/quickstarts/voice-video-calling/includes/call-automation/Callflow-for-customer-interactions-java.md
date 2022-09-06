@@ -114,6 +114,8 @@ Now, given that all setup is completed, you can test your application:
 1. Call the number you acquired in the prerequisites section of this guide.
 2. The incoming call event is sent to the application’s `/api/incomingCall` endpoint. Application answers the call using Call Automation SDK.
 3. `CallConnected` event is delivered to `/api/callback` endpoint. Application adds a participant to the call (web app user created earlier in this quickstart).
-4. User accepts the invitation to join the call, in our case the invitation will appear on the `https://acs-sample-app.azurewebsites.net/`
-5. `AddParticipantsSucceeded` event is delivered to `/api/callback` endpoint.
-6. After all participants have left the call, `CallDisconnected` event is delivered to `/api/callback` endpoint.
+4. At this point you can play audio on a loop to all participants on the call.
+5. When the audio file has played, a `PlayCompleted` event is received.
+6. User accepts the invitation to join the call, in our case the invitation will appear on the `https://acs-sample-app.azurewebsites.net/`
+7. `AddParticipantsSucceeded` event is delivered to `/api/callback` endpoint.
+8. After all participants have left the call, `CallDisconnected` event is delivered to `/api/callback` endpoint.
