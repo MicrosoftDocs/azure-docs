@@ -144,7 +144,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 ---
 
-## Azure RBAC
+## Workspace-level access control
 
 Access to a workspace is managed by using [Azure RBAC](../../role-based-access-control/role-assignments-portal.md). To grant access to the Log Analytics workspace by using Azure permissions, follow the steps in [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
@@ -276,7 +276,7 @@ Grant a user access to log data from their resources and read all Azure AD sign-
   - `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`: Required to be able to use Update Management solutions
 - Grant users the following permissions to their resources: `*/read`, assigned to the Reader role, or `Microsoft.Insights/logs/*/read`
 
-## Table-level role-based access control (RBAC)
+## Table-level access control
 
 Define table-level [Azure RBAC](../../role-based-access-control/overview.md) to control which users have read access to specific tables.
 
