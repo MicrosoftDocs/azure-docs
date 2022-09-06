@@ -296,10 +296,6 @@ az keyvault set-policy \
     --key-permissions get unwrapKey
  ```   
 
-The access policy should now show up in your key vault's access policies.
-
-![New access policy](./media/container-instances-encrypt-data/access-policy.png)
-
 ### Modify Azure Key Vault's network permissions
 The following commands set up an Azure Firewall for your Azure Key Vault and allow Azure Trusted Services such as ACI access. 
 
