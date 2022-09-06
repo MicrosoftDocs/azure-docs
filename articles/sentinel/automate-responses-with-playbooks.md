@@ -312,7 +312,7 @@ The following recommended playbooks, and other similar playbooks are available t
 
 - **Notification playbooks** are triggered when an alert or incident is created and send a notification to a configured destination:
 
-    - [Post a message in a Microsoft Teams channel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Teams)
+    - [Post a message in a Microsoft Teams channel](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Teams/Playbooks/Post-Message-Teams)
     - [Send an Outlook email notification](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification)
     - [Post a message in a Slack channel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Slack)
 
