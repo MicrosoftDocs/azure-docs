@@ -113,7 +113,15 @@ The **FHIR Data Writer** role provides read and write access to your FHIR servic
 
 ## Next steps
 
-In this article, you learned how perform post-deployment steps needed to make sure MedTech service performs properly. To learn more about other methods of deployment, see
+In this article, you learned how to perform post-deployment steps to make the MedTech service work properly. To learn more about other methods of deployment, see
+
+>[!div class="nextstepaction"]
+>[How to manually deploy MedTech service with Azure portal](deploy-03-new-manual.md)
+
+>[!div class="nextstepaction"]
+>[Deploy the MedTech service with a QuickStart template](deploy-02-new-ps-cli.md)
+
+To learn about choosing a deployment method for the MedTech service, see
 
 >[!div class="nextstepaction"]
 >[Choosing a method of deployment for MedTech service in Azure](deploy-iot-connector-in-azure.md)
