@@ -91,11 +91,11 @@ The editor in Log Analytics workspace support Kusto (KQL) queries through which 
 * The *Containers* menu option in the left panel of your storage account's overview page allows you to browse through the various directories that neatly store your log files. 
     
 
-    [![Screenshot for storage account that stores elastic logs. The stored logs can be viewed by selecting 'containers' under the data storage menu-item on the left.](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-containers-page.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-containers-page.png#lightbox)
+    [![Screenshot for storage account that stores elastic logs. The logs can be viewed by selecting 'containers' under the data storage menu-item.](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-containers-page.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-containers-page.png#lightbox)
  
 * Logs are organized into different folders. Drill down by month, date and time. 
 
-    [![Screenshot for JSON file view inside storage account. The image shows the tracked path from year, month, data, and time to locate the right log file in JSON format.](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-log-file.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-log-file.png#lightbox)
+    [![Screenshot for JSON file view in storage account. The image shows tracked path from year, month, data, and time to locate a log file.](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-log-file.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/storage-account-log-file.png#lightbox)
  
 * Select any JSON file in your containers to view other options. 
 
