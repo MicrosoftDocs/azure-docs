@@ -3,7 +3,7 @@ title: Abort an Azure Kubernetes Service (AKS) long running operation
 description: Learn how to terminate a long running operation on an Azure Kubernetes Service cluster at the node pool or cluster level. 
 services: container-service
 ms.topic: article
-ms.date: 08/30/2022
+ms.date: 09/06/2022
 
 ---
 
@@ -12,6 +12,12 @@ ms.date: 08/30/2022
 Sometimes deployment or other processes running within pods on nodes in a cluster can run for periods of time longer than expected due to various reasons. While it's important to allow those processes to gracefully terminate when they're no longer needed, there are circumstances where you need to release control of node pools and clusters with long running operations using an *abort* command.
 
 AKS now supports aborting a long running operation, allowing you to take back control and run another operation seamlessly. This design is supported using the [Azure REST API](/rest/api/azure/) or the [Azure CLI](/cli/azure/).
+
+The abort operation supports the following scenarios:
+
+- If a long running operation is stuck or suspected to be in a bad state or failing, That operation can be aborted provided it's the last running operation on the Managed Cluster or agent pool.
+- If a long running operation is stuck or failing, then that operation can be aborted.
+- An operation that was triggered in error can be aborted as long as the operation does not reach a terminal state firs
 
 ## Before you begin
 
@@ -35,7 +41,7 @@ The following example terminates a process for a specified managed cluster.
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedclusters/{resourceName}/abort
 ```
 
-The Provisioning states to be used for this feature are *Canceling* and *Canceled*. Its important to understand that the abort call ultimately results in a **Canceled** provisioning state.
+In the response, an HTTP status code of 204 is returned.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -57,7 +63,11 @@ The following example terminates an operation against a specified managed cluste
 az aks operation-abort --name myAKSCluster --resource-group myResourceGroup
 ```
 
+In the response, an HTTP status code of 204 is returned.
+
 ---
+
+The provisioning state on the managed cluster or agent pool should be *Canceled*. Run [Get Managed Clusters](/rest/api/aks/managed-clusters/get) or [Get Agent Pools](/rest/api/aks/agent-pools/get) to verify the operation. The provisioning state should update to *Canceled* within a few seconds of the abort request being accepted. Operation status of last running operation ID on the managed cluster/agent pool, which can be retrieved by performing a GET operation against the Managed Cluster or agent pool, should show a status of *Canceling*.
 
 ## Next steps
 
