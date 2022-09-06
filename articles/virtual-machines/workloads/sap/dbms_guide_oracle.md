@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/22/2022
-ms.author: raklahr, cgardin
+ms.author: ralfklahrMS
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -31,13 +31,21 @@ General information about running SAP Business Suite on Oracle can be found at 
 **SAP Notes relevant for Oracle, SAP, and Azure**
 
 [1738053 - SAPinst for Oracle ASM installation - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0001738053)
+
 [2896926 - ASM disk group compatibility - NetWeaver - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0002896926)
+
 [1550133 - Using Oracle Automatic Storage Management (ASM) with SAP NetWeaver based Products - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0001550133)
+
 [888626 - Redo log layout for high-end systems - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000888626)
+
 [105047 - Support for Oracle functions in the SAP environment - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000105047)
+
 [2799920 - Patches for 19c: Database - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0002799920)
+
 [974876 - Oracle Transparent Data Encryption (TDE) - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000974876)
+
 [2936683 - Oracle Linux 8: SAP Installation and Upgrade - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2936683)
+
 [1672954 - Oracle 11g, 12c, 18c and 19c: Usage of hugepages on Linux](https://launchpad.support.sap.com/#/notes/1672954)
 
 **Specifics for Oracle Database on Oracle Linux**
@@ -50,24 +58,21 @@ The specific scenario of SAP applications using Oracle Databases is supported as
 
 When installing or migrating existing SAP on Oracle systems to Azure, the following deployment pattern should be followed:
 
-1.  Use the most [recent Oracle
-    Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/) version available (Oracle Linux 8.6 or higher)
+1.  Use the most [recent Oracle Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/) version available (Oracle Linux 8.6 or higher)
 
-2.  Use the most recent Oracle Database version available with the latest SAP Bundle Patch (SBP) (Oracle 19 Patch 15 or higher)
-    [2799920 - Patches for 19c: Database](https://launchpad.support.sap.com/#/notes/2799920)
+2.  Use the most recent Oracle Database version available with the latest SAP Bundle Patch (SBP) (Oracle 19 Patch 15 or higher) [2799920 - Patches for 19c: Database](https://launchpad.support.sap.com/#/notes/2799920)
 
 3.  Use Automatic Storage Management (ASM) for small, medium and large sized databases on block storage
 
 4.  Azure Premium Storage SSD or Premium Storage SSD v2 should be used. Do not use Standard or other storage types.
 
-5.  ASM removes the requirement for Mirror Log. Follow the guidance from Oracle in Note [888626 - Redo log layout for high-end
-    systems](https://launchpad.support.sap.com/#/notes/888626)
+5.  ASM removes the requirement for Mirror Log. Follow the guidance from Oracle in Note [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
 
 6.  Use ASMLib and do not use udev
 
 7.  Azure NetApp Files deployments should use Oracle dNFS (Oracle’s own high performance Direct NFS solution)
 
-8.  Large databases benefit greatly from large SGA sizes. Large customers should deploy on Azure M-series with 4TB or more RAM size.
+8.  Large databases benefit greatly from large SGA sizes. Large customers should deploy on Azure M-series with 4 TB or more RAM size.
 
     1.  Set Linux Huge Pages to 75% of Physical RAM size
 
@@ -81,8 +86,7 @@ When installing or migrating existing SAP on Oracle systems to Azure, the follow
 
 12. Check for updates in this documentation and SAP note [2039619 - SAP Applications on Microsoft Azure using the Oracle Database: Supported Products and Versions - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2039619)
 
-For information about which Oracle versions and corresponding OS versions are supported for running SAP on Oracle on Azure Virtual
-Machines, see SAP Note [<u>2039619</u>](https://launchpad.support.sap.com/#/notes/2039619).
+For information about which Oracle versions and corresponding OS versions are supported for running SAP on Oracle on Azure Virtual Machines, see SAP Note [<u>2039619</u>](https://launchpad.support.sap.com/#/notes/2039619).
 
 General information about running SAP Business Suite on Oracle can be found in the [<u>SAP on Oracle community page</u>](https://www.sap.com/community/topic/oracle.html). SAP on Oracle on Azure is only supported on Oracle Linux (and not Suse or Red Hat). Oracle RAC is not supported on Azure because RAC would require Multicast networking.
 
@@ -113,12 +117,9 @@ Checklist for Oracle Automatic Storage Management:
 
 Part II of the official Oracle Guide describes the installation and the management of ASM:
 
-[Oracle Automatic Storage Management Administrator's Guide,
-19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/index.html)
+[Oracle Automatic Storage Management Administrator's Guide, 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/index.html)
 
-[Oracle Grid Infrastructure Grid Infrastructure Installation and Upgrade
-Guide, 19c for
-Linux](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/index.html)
+[Oracle Grid Infrastructure Grid Infrastructure Installation and Upgrade Guide, 19c for Linux](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/index.html)
 
 The following ASM limits exist for Oracle Database 12c or later:
 
@@ -126,7 +127,7 @@ The following ASM limits exist for Oracle Database 12c or later:
 
 Review the ASM documentation in the relevant SAP Installation Guide for Oracle available from <https://help.sap.com/viewer/nwguidefinder>
 
-**Variant 1** – small to medium data volumes up to \~**3TB**, restore time not critical
+**Variant 1** – small to medium data volumes up to \~**3 TB**, restore time not critical
 
 Customer has small or medium sized databases where backup and/or restore + recovery of all databases can be accomplished by RMAN in a timely fashion. Example: When a complete Oracle ASM disk group, with data files, from one or more databases is broken and all data files from all databases need to be restored to a newly created Oracle ASM disk group using RMAN.
 
@@ -152,26 +153,26 @@ Oracle ASM disk group recommendation:
 <p>- All temp files</p>
 <p>- Control file (first copy)</p>
 <p>- Online redo logs (first copy)</p></td>
-<td><p>3-6 x P30 (1TB)</p>
+<td><p>3-6 x P30 (1 TB)</p>
 <p>To increase DB size, add extra P30 disks</p></td>
 </tr>
 <tr class="even">
 <td>+ARCH</td>
 <td><p>- Control file (second copy)</p>
 <p>- Archived redo logs</p></td>
-<td>2 x P20 (512GB)</td>
+<td>2 x P20 (512 GB)</td>
 </tr>
 <tr class="odd">
 <td>+RECO</td>
 <td><p>- Control file (third copy)</p>
 <p>- RMAN backups (optional)</p>
 <p>- Fast recovery area (optional)</p></td>
-<td>2 x P20 (512GB)</td>
+<td>2 x P20 (512 GB)</td>
 </tr>
 </tbody>
 </table>
 
-**Variant 2** – medium to large data volumes between \~**3TB** to \~**12TB**, restore time important
+**Variant 2** – medium to large data volumes between \~**3 TB** to \~**12 TB**, restore time important
 
 Customer has medium to large sized databases where backup and/or restore
 +
@@ -212,25 +213,25 @@ Major differences to Variant 1 are:
 <tr class="even">
 <td>+OLOG</td>
 <td>- Online redo logs (first copy)</td>
-<td>3 x P20 (512GB)</td>
+<td>3 x P20 (512 GB)</td>
 </tr>
 <tr class="odd">
 <td>+ARCH</td>
 <td><p>- Control file (second copy)</p>
 <p>- Archived redo logs</p></td>
-<td>3 x P20 (512GB)</td>
+<td>3 x P20 (512 GB)</td>
 </tr>
 <tr class="even">
 <td>+RECO</td>
 <td><p>- Control file (third copy)</p>
 <p>- RMAN backups (optional)</p>
 <p>- Fast recovery area (optional)</p></td>
-<td>3 x P20 (512GB)</td>
+<td>3 x P20 (512 GB)</td>
 </tr>
 </tbody>
 </table>
 
-**Variant 3** – huge data and data change volumes more than \~**5TB**, restore time crucial
+**Variant 3** – huge data and data change volumes more than \~**5 TB**, restore time crucial
 
 Customer has a huge database where backup and/or restore + recovery of a single databases cannot be accomplished in a timely fashion.
 
@@ -255,13 +256,13 @@ Usually customers will use RMAN, Azure Backup for Oracle and/or disk snap techni
 <td><p>- All data files</p>
 <p>- All temp files</p>
 <p>- Control file (first copy)</p></td>
-<td><p>5-30 or more x P30 (1TB) or P40 (2TB)</p>
+<td><p>5-30 or more x P30 (1 TB) or P40 (2 TB)</p>
 <p>To increase DB size, <u>add</u> extra disks</p></td>
 </tr>
 <tr class="even">
 <td>+OLOG</td>
 <td>- Online redo logs (first copy)</td>
-<td><p>3-8 x P20 (512GB) or P30 (1TB)</p>
+<td><p>3-8 x P20 (512 GB) or P30 (1 TB)</p>
 <p>For more safety “Normal Redundancy” can be selected for this
 ASM Disk Group</p></td>
 </tr>
@@ -269,14 +270,14 @@ ASM Disk Group</p></td>
 <td>+ARCH</td>
 <td><p>- Control file (second copy)</p>
 <p>- Archived redo logs</p></td>
-<td>3-8 x P20 (512GB) or P30 (1TB)</td>
+<td>3-8 x P20 (512GB) or P30 (1 TB)</td>
 </tr>
 <tr class="even">
 <td>+RECO</td>
 <td><p>- Control file (third copy)</p>
 <p>- RMAN backups (optional)</p>
 <p>- Fast recovery area (optional)</p></td>
-<td>3 x P30 (1TB), P40 (2TB) or P50 (4TB)</td>
+<td>3 x P30 (1 TB), P40 (2 TB) or P50 (4 TB)</td>
 </tr>
 </tbody>
 </table>
@@ -484,7 +485,7 @@ Another good Oracle whitepaper [Setting up Oracle 12c Data Guard for SAP Custome
 
 VLDB SAP on Oracle on Azure deployments apply SGA sizes in excess of 3TB.  Modern versions of Oracle handle large SGA sizes well and significantly reduce IO.  Review the AWR report and increase the SGA size to reduce read IO. 
 
-As general guidance Linux Huge Pages should be configured to approximately 75% of the VM RAM size.  The SGA size can be set to 90% of the Huge Page size.  A approximate example would be a m192ms VM with 4TB of RAM would have Huge Pages set proximately 3TB.  The SGA can be set to a value a little less such as 2.95TB.
+As general guidance Linux Huge Pages should be configured to approximately 75% of the VM RAM size.  The SGA size can be set to 90% of the Huge Page size.  A approximate example would be a m192ms VM with 4 TB of RAM would have Huge Pages set proximately 3 TB.  The SGA can be set to a value a little less such as 2.95 TB.
 
 Large SAP customers running on High Memory Azure VMs greatly benefit from HugePages 
 
