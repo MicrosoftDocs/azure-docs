@@ -69,4 +69,4 @@ With the integration of Azure Cognitive Services and Azure Communication Service
 
 
 ## Next Steps
-Check out the [Play action quickstart](../../quickstarts/voice-video-calling/Play Action.md) to learn more.
+Check out the [Play action quickstart](../../quickstarts/voice-video-calling/Play-Action.md) to learn more.
