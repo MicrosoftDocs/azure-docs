@@ -1,6 +1,6 @@
 ---
 title: include file
-description: C# call automation quickstart
+description: Java Call Automation quickstart for PSTN calls
 services: azure-communication-services
 author: ashwinder
 ms.service: azure-communication-services
@@ -14,11 +14,11 @@ ms.author: askaur
 ## Prerequisites
 
 - Azure account with an active subscription.
-- Azure Communication Services resource. See [Create an Azure Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
-- A [web service application](https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-6.0) to handle web hook callback events.
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp).
+- A [web service application](https://docs.microsoft.com/aspnet/core/web-api) to handle web hook callback events.
 - Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
 - The [ARMClient application](https://github.com/projectkudu/ARMClient), used to configure the Event Grid subscription.
-- [Java Development Kit (JDK)](https://docs.microsoft.com/en-us/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
+- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## Create a new Java application
