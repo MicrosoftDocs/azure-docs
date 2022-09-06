@@ -62,7 +62,7 @@ items:
   - name: Data sources
     href: data-sources.md
   - name: Metrics
-    href: essentials/data-platform-metrics
+    href: essentials/data-platform-metrics.md
   - name: Logs
     href: logs/data-platform-logs.md  
   - name: Changes
