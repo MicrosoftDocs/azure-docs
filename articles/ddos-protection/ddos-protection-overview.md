@@ -52,7 +52,7 @@ The following table shows features and corresponding SKUs.
 | Mitigation policy customizations | Not available | Yes| Yes |
 | DDoS rapid response support | Not available| Not available | Yes |
 | Cost | Free | Per protected IP | Per 100 protected IP addresses |
-## Features
+
 
 ### Native platform integration
  Natively integrated into Azure. Includes configuration through the Azure portal. DDoS Protection Standard understands your resources and resource configuration.
