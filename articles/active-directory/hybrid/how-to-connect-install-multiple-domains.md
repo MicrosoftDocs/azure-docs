@@ -4,7 +4,7 @@ description: This document describes setting up and configuring multiple top lev
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: curtand
 
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4

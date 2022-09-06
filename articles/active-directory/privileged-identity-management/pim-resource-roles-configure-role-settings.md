@@ -4,7 +4,7 @@ description: Learn how to configure Azure resource role settings in Azure AD Pri
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
