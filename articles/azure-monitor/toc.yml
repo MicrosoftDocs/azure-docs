@@ -62,7 +62,7 @@ items:
   - name: Data sources
     href: data-sources.md
   - name: Metrics
-    href: 
+    href: essentials/data-platform-metrics
   - name: Logs
     href: logs/data-platform-logs.md  
   - name: Changes
@@ -1357,6 +1357,7 @@ items:
 - name: Migrate from Operations Manager
   href: azure-monitor-operations-manager.md
 - name: Tutorials
+  items:
   - name: Create a metric alert
     href: alerts/tutorial-metric-alert.md
   - name: Create a log query alert
@@ -1681,6 +1682,6 @@ items:
      - name: Connect Configuration Manager
        href: logs/collect-sccm.md
 - name: Service Health
-  href:
+  href: 
 - name: Event Hubs
   href:   
