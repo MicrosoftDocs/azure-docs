@@ -4,8 +4,8 @@ description: Article describes how to upgrade a directly connected Azure Arc dat
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: grrlgeek
-ms.author: jeschult
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/07/2022
 ms.topic: how-to
