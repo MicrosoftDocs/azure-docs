@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Many applications that integrate with Azure Active Directory require permissions to various resources in order to run. When these resources are also integrated with Azure Active Directory, permissions to access them is requested using the Azure AD consent framework. This results in a consent prompt being shown the first time an application is used, which is often a one-time operation.
 
-In certain scenarios, additional consent prompts can show. In this article, we will diagnose the reason for the additional consent prompts showing, and how to troubleshoot.
+In certain scenarios, additional consent prompts can appear when a user attempts to sign-in. In this article, we will diagnose the reason for the additional consent prompts showing, and how to troubleshoot.
 
 > [!VIDEO https://www.youtube.com/embed/a1AjdvNDda4]
 
