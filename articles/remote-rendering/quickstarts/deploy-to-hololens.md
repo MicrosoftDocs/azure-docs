@@ -23,8 +23,9 @@ In this quickstart you will learn how to:
 ## Prerequisites
 
 In this quickstart we will deploy the sample project from [Quickstart: Render a model with Unity](render-model.md).
-
 Make sure your credentials are saved properly with the scene and you can connect to a session from within the Unity editor.
+
+The HoloLens 2 must be in developer mode and paired with the desktop machine. Refer to [using the device portal](/windows/mixed-reality/develop/advanced-concepts/using-the-windows-device-portal#setting-up-hololens-to-use-windows-device-portal) for further instructions.
 
 ## Build the sample project
 
