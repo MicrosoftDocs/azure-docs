@@ -92,7 +92,7 @@ Lists all the machines  discovered by various appliances registered to the vault
 
       - **Cache storage account**: Choose the cache storage account that Azure Site Recovery uses for staging purposes – caching and storing logs before writing the changes on to the managed disks.
     
-         Azure Site recovery creates a new LRS v1 type storage account by default for the first enable replication operation in a vault. For the next operations, the same cache storage account will be re-used.
+         Azure Site Recovery creates a new LRS v1 type storage account by default for the first enable replication operation in a vault. For the next operations, the same cache storage account will be re-used.
 
      - **Managed disks**
 

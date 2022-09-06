@@ -142,13 +142,13 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 4. In **Add a role assignment**, select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
 
-  To register the appliance, your Azure account needs permissions to register AAD apps.
+  To register the appliance, your Azure account needs permissions to register Azure Active Directory apps.
 
   **Follow these steps to assign required permissions**:
 
   - In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**. In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
 
-  - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of AAD App.
+  - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Azure Active Directory App.
 
 
 ## Prepare infrastructure

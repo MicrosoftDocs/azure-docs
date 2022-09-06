@@ -48,7 +48,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
 |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
 |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure machines to replicate have access to this. |
-|aka.ms |Allow access to aka links. Used for Azure Site Recovery appliance updates. |
+|aka.ms |Allow access to aka.ms links. Used for Azure Site Recovery appliance updates. |
 |download.microsoft.com/download |Allow downloads from Microsoft download. |
 |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
 |`*.discoverysrv.windowsazure.com `|Connect to Azure Site Recovery discovery service URL. |
