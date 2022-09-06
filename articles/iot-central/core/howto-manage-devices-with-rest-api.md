@@ -254,10 +254,10 @@ Use **$filter** to create expressions that filter the list of devices. The follo
 | -------------------- | ------ | --------------------------------------- |
 | Equals               | eq     | id eq 'device1' and scopes eq 'redmond' |
 | Not Equals           | ne     | Enabled ne true                         |
-| Less than or equals       | le     | indexof(displayName, 'device1') le -1   |
-| Less than            | lt     | indexof(displayName, 'device1') lt 0    |
-| Greater than or equals      | ge     | indexof(displayName, 'device1') ge 0    |
-| Greater than           | gt     | indexof(displayName, 'device1') gt 0    |
+| Less than or equals       | le     | contains(displayName, 'device1') le -1   |
+| Less than            | lt     | contains(displayName, 'device1') lt 0    |
+| Greater than or equals      | ge     | contains(displayName, 'device1') ge 0    |
+| Greater than           | gt     | contains(displayName, 'device1') gt 0    |
 
 The following table shows the logic operators you can use in *$filter* expressions:
 
@@ -280,10 +280,10 @@ Currently, *$filter* works with the following device fields:
 
 **$filter supported functions:**
 
-Currently, the only supported filter function for device lists is the `indexof` function:
+Currently, the only supported filter function for device lists is the `contains` function:
 
 ```
-$filter=indexof(displayName, 'device1') ge 0
+$filter=contains(displayName, 'device1') ge 0
 ```
 
 The following example shows how to retrieve all the devices where the display name has index the string `thermostat`:
