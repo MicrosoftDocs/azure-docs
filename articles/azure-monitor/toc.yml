@@ -764,6 +764,78 @@ items:
       href: vm/vminsights-optout.md
     - name: Troubleshoot
       href: vm/vminsights-troubleshoot.md
+  - name: Monitoring solutions
+    items:
+    - name: Overview
+      href: insights/solutions.md
+      displayName: Azure CLI, az monitor log-analytics
+    - name: Target solutions
+      href: insights/solution-targeting.md
+    - name: Available solutions
+      items:
+      - name: AD health assessment
+        href: insights/ad-assessment.md
+      - name: AD Replication Status
+        href: insights/ad-replication-status.md
+      - name: Capacity and performance solution
+        href: insights/capacity-performance.md
+      - name: Docker and Windows Container monitoring
+        href: containers/containers.md
+      - name: Networks
+        items:
+        - name: Networking Analytics
+          href: insights/azure-networking-analytics.md
+        - name: DNS
+          href: insights/dns-analytics.md
+        - name: Network Performance Monitor
+          items:
+          - name: Solution overview
+            href: insights/network-performance-monitor.md
+          - name: Performance Monitor
+            href: insights/network-performance-monitor-performance-monitor.md
+          - name: Service Connectivity Monitor
+            href: insights/network-performance-monitor-service-connectivity.md
+          - name: ExpressRoute
+            href: insights/network-performance-monitor-expressroute.md
+          - name: Pricing
+            href: insights/network-performance-monitor-pricing-faq.yml
+          - name: FAQ
+            href: insights/network-performance-monitor-faq.yml
+      - name: Office 365
+        href: insights/solution-office-365.md
+      - name: Service Map solution
+        href: vm/service-map.md
+      - name: Service Map and Operations Manager
+        href: vm/service-map-scom.md
+      - name: Azure SQL
+        href: insights/sql-assessment.md
+      - name: Surface Hub
+        href: insights/surface-hubs.md
+      - name: VMware Analytics solution
+        href: insights/vmware.md
+      - name: Wire Data solution
+        href: insights/wire-data.md
+      - name: Alert Management solution
+        href: insights/alert-management-solution.md
+  - name: Activity logs
+    href: essentials/activity-log-insights.md
+  - name: Azure Cache for Redis
+    href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
+  - name: Azure Cosmos DB
+    href: ../cosmos-db/cosmosdb-insights-overview.md?toc=/azure/azure-monitor/toc.json
+  - name: Azure Data Explorer
+    href: /azure/data-explorer/data-explorer-insights?toc=/azure/azure-monitor/toc.json
+  - name: Log Analytics workspace
+    href: logs/log-analytics-workspace-insights-overview.md
+  - name: Networks
+    href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
+  - name: Key Vault
+    href: ../key-vault/key-vault-insights-overview.md?toc=/azure/azure-monitor/toc.json
+  - name: Storage
+    displayName: storage, monitor, insights, storage accounts, azure storage
+    href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
+  - name: Resource groups
+    href: insights/resource-group-insights.md
 - name: Analyze
   items:
   - name: Metrics explorer
@@ -975,14 +1047,14 @@ items:
       items:
       - name: Track web outages
         href: change/tutorial-outages.md
-- name: Alerts
+- name: Respond and take action
   items:
-  - name: Overview
-    href: alerts/alerts-overview.md
-  - name: Alert Types
-    href: alerts/alerts-types.md
-  - name: How-tos
+  - name: Alerts
     items:
+    - name: Overview
+      href: alerts/alerts-overview.md
+    - name: Alert Types
+      href: alerts/alerts-types.md
     - name: Create a new alert rule
       href: alerts/alerts-create-new-alert-rule.md
     - name: Manage alert rules
@@ -1106,34 +1178,40 @@ items:
         href: alerts/alerts-enable-template.md
       - name: Classic metric alert calling a webhook
         href: alerts/alerts-webhooks.md
-- name: AutoScale
-  items:
-    - name: Overview
-      href: autoscale/autoscale-overview.md
-    - name: Walkthrough
-      href: autoscale/autoscale-get-started.md
-    - name: Configuration settings
-      href: autoscale/autoscale-understanding-settings.md
-    - name: Predictive autoscale
-      href: autoscale/autoscale-predictive.md
-    - name: Best practices
-      href: autoscale/autoscale-best-practices.md
-    - name: Common metrics
-      href: autoscale/autoscale-common-metrics.md
-    - name: Common patterns
-      href: autoscale/autoscale-common-scale-patterns.md
-    - name: Scale with custom metrics
-      href: autoscale/autoscale-custom-metric.md
-    - name: Scale virtual machine scale sets
-      href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
-    - name: Scale virtual machine scale sets using Resource Manager templates
-      href: autoscale/autoscale-virtual-machine-scale-sets.md
-    - name: Use webhooks and email notifications
-      href: autoscale/autoscale-webhook-email.md
-    - name: Troubleshooting
-      href: autoscale/autoscale-troubleshoot.md
-    - name: Resource Log schemas
-      href: autoscale/autoscale-resource-log-schema.md  
+    - name: Tutorials
+      items:
+      - name: Create a metric alert
+        href: alerts/tutorial-metric-alert.md
+      - name: Create a log query alert
+        href: alerts/tutorial-log-alert.md
+  - name: AutoScale
+    items:
+      - name: Overview
+        href: autoscale/autoscale-overview.md
+      - name: Walkthrough
+        href: autoscale/autoscale-get-started.md
+      - name: Configuration settings
+        href: autoscale/autoscale-understanding-settings.md
+      - name: Predictive autoscale
+        href: autoscale/autoscale-predictive.md
+      - name: Best practices
+        href: autoscale/autoscale-best-practices.md
+      - name: Common metrics
+        href: autoscale/autoscale-common-metrics.md
+      - name: Common patterns
+        href: autoscale/autoscale-common-scale-patterns.md
+      - name: Scale with custom metrics
+        href: autoscale/autoscale-custom-metric.md
+      - name: Scale virtual machine scale sets
+        href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
+      - name: Scale virtual machine scale sets using Resource Manager templates
+        href: autoscale/autoscale-virtual-machine-scale-sets.md
+      - name: Use webhooks and email notifications
+        href: autoscale/autoscale-webhook-email.md
+      - name: Troubleshooting
+        href: autoscale/autoscale-troubleshoot.md
+      - name: Resource Log schemas
+        href: autoscale/autoscale-resource-log-schema.md  
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -1374,10 +1452,6 @@ items:
   href: azure-monitor-operations-manager.md
 - name: Tutorials
   items:
-  - name: Create a metric alert
-    href: alerts/tutorial-metric-alert.md
-  - name: Create a log query alert
-    href: alerts/tutorial-log-alert.md
   - name: Forward syslog data to workspace
     href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Virtual machines
@@ -1593,82 +1667,6 @@ items:
       - name: Snapshot Debugger troubleshooting
         displayName: troubleshoot, troubleshooting
         href: snapshot-debugger/snapshot-debugger-troubleshoot.md
-   - name: Insights
-     items:
-     - name: Activity logs
-       href: essentials/activity-log-insights.md
-     - name: Azure Cache for Redis
-       href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
-     - name: Azure Cosmos DB
-       href: ../cosmos-db/cosmosdb-insights-overview.md?toc=/azure/azure-monitor/toc.json
-     - name: Azure Data Explorer
-       href: /azure/data-explorer/data-explorer-insights?toc=/azure/azure-monitor/toc.json
-     - name: Log Analytics workspace
-       href: logs/log-analytics-workspace-insights-overview.md
-     - name: Networks
-       href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
-     - name: Key Vault
-       href: ../key-vault/key-vault-insights-overview.md?toc=/azure/azure-monitor/toc.json
-     - name: Storage
-       displayName: storage, monitor, insights, storage accounts, azure storage
-       href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
-     - name: Resource groups
-       href: insights/resource-group-insights.md
-   - name: Other visualizations
-     items:
-     - name: Monitoring solutions
-       items:
-       - name: Overview
-         href: insights/solutions.md
-         displayName: Azure CLI, az monitor log-analytics
-       - name: Target solutions
-         href: insights/solution-targeting.md
-       - name: Available solutions
-         items:
-         - name: AD health assessment
-           href: insights/ad-assessment.md
-         - name: AD Replication Status
-           href: insights/ad-replication-status.md
-         - name: Capacity and performance solution
-           href: insights/capacity-performance.md
-         - name: Docker and Windows Container monitoring
-           href: containers/containers.md
-         - name: Networks
-           items:
-           - name: Networking Analytics
-             href: insights/azure-networking-analytics.md
-           - name: DNS
-             href: insights/dns-analytics.md
-           - name: Network Performance Monitor
-             items:
-             - name: Solution overview
-               href: insights/network-performance-monitor.md
-             - name: Performance Monitor
-               href: insights/network-performance-monitor-performance-monitor.md
-             - name: Service Connectivity Monitor
-               href: insights/network-performance-monitor-service-connectivity.md
-             - name: ExpressRoute
-               href: insights/network-performance-monitor-expressroute.md
-             - name: Pricing
-               href: insights/network-performance-monitor-pricing-faq.yml
-             - name: FAQ
-               href: insights/network-performance-monitor-faq.yml
-         - name: Office 365
-           href: insights/solution-office-365.md
-         - name: Service Map solution
-           href: vm/service-map.md
-         - name: Service Map and Operations Manager
-           href: vm/service-map-scom.md
-         - name: Azure SQL
-           href: insights/sql-assessment.md
-         - name: Surface Hub
-           href: insights/surface-hubs.md
-         - name: VMware Analytics solution
-           href: insights/vmware.md
-         - name: Wire Data solution
-           href: insights/wire-data.md
-         - name: Alert Management solution
-           href: insights/alert-management-solution.md
    - name: System Center integration
      items:
      - name: Connect Operations Manager
