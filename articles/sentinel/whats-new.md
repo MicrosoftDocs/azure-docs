@@ -28,7 +28,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 ## September 2022
 
 - [Add entities to threat intelligence (Preview)](#add-entities-to-threat-intelligence-preview)
-- [Windows DNS Events via AMA connector (Preview)](#windows-dns-events-via-ama-connector)
+- [Windows DNS Events via AMA connector (Preview)](#windows-dns-events-via-ama-connector-preview)
 
 ### Add entities to threat intelligence (Preview)
 
