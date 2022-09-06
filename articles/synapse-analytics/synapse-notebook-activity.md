@@ -29,8 +29,8 @@ Drag and drop **Synapse notebook** under **Activities** onto the Synapse pipelin
 
 (Optional) You can also reconfigure Spark pool\Executor size\Dynamically allocate executors\Min executors\Max executors\Driver size in settings. It should be noted that the settings reconfigured here will replace the settings of the Configure session in Notebook. If nothing is set in the settings of the current notebook activity, it will run with the settings of the configure session in that notebook.
 
-[!div class="mx-imgBorder"]
-![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
+> [!div class="mx-imgBorder"]
+> ![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
 
 
 |  Property   | Description   |  Required   |
