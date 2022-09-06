@@ -66,37 +66,37 @@ For more information about private IP addresses, see [Private IP address](../art
 
 16. Verify the primary and secondary private IP addresses have been added to the configuration.
 
-```powershell
-PS C:\Users\azureuser> ipconfig /all
+    ```powershell
+    PS C:\Users\azureuser> ipconfig /all
 
-Windows IP Configuration
+    Windows IP Configuration
 
-   Host Name . . . . . . . . . . . . : myVM
-   Primary Dns Suffix  . . . . . . . :
-   Node Type . . . . . . . . . . . . : Hybrid
-   IP Routing Enabled. . . . . . . . : No
-   WINS Proxy Enabled. . . . . . . . : No
+       Host Name . . . . . . . . . . . . : myVM
+       Primary Dns Suffix  . . . . . . . :
+       Node Type . . . . . . . . . . . . : Hybrid
+       IP Routing Enabled. . . . . . . . : No
+       WINS Proxy Enabled. . . . . . . . : No
 
-Ethernet adapter Ethernet:
+    Ethernet adapter Ethernet:
 
-   Connection-specific DNS Suffix  . :
-   Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
-   Physical Address. . . . . . . . . : 00-0D-3A-E6-CE-A3
-   DHCP Enabled. . . . . . . . . . . : No
-   Autoconfiguration Enabled . . . . : Yes
-   Link-local IPv6 Address . . . . . : fe80::a8d1:11d5:3ab2:6a51%5(Preferred)
-   IPv4 Address. . . . . . . . . . . : 10.1.0.4(Preferred)
-   Subnet Mask . . . . . . . . . . . : 255.255.255.0
-   IPv4 Address. . . . . . . . . . . : 10.1.0.5(Preferred)
-   Subnet Mask . . . . . . . . . . . : 255.255.255.0
-   IPv4 Address. . . . . . . . . . . : 10.1.0.6(Preferred)
-   Subnet Mask . . . . . . . . . . . : 255.255.255.0
-   Default Gateway . . . . . . . . . : 10.1.0.1
-   DHCPv6 IAID . . . . . . . . . . . : 100666682
-   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2A-A8-26-B1-00-0D-3A-E6-CE-A3
-   DNS Servers . . . . . . . . . . . : 168.63.129.16
-   NetBIOS over Tcpip. . . . . . . . : Enabled
-```
+       Connection-specific DNS Suffix  . :
+       Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+       Physical Address. . . . . . . . . : 00-0D-3A-E6-CE-A3
+       DHCP Enabled. . . . . . . . . . . : No
+       Autoconfiguration Enabled . . . . : Yes
+       Link-local IPv6 Address . . . . . : fe80::a8d1:11d5:3ab2:6a51%5(Preferred)
+       IPv4 Address. . . . . . . . . . . : 10.1.0.4(Preferred)
+       Subnet Mask . . . . . . . . . . . : 255.255.255.0
+       IPv4 Address. . . . . . . . . . . : 10.1.0.5(Preferred)
+       Subnet Mask . . . . . . . . . . . : 255.255.255.0
+       IPv4 Address. . . . . . . . . . . : 10.1.0.6(Preferred)
+       Subnet Mask . . . . . . . . . . . : 255.255.255.0
+       Default Gateway . . . . . . . . . : 10.1.0.1
+       DHCPv6 IAID . . . . . . . . . . . : 100666682
+       DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2A-A8-26-B1-00-0D-3A-E6-CE-A3
+       DNS Servers . . . . . . . . . . . : 168.63.129.16
+       NetBIOS over Tcpip. . . . . . . . : Enabled
+    ```
 
 17. Ensure the primary private IP address used in windows is the same as the primary IP address of the Azure VM network interface. For more information, see [No Internet access from Azure Windows VM that has multiple IP addresses](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse).
 
