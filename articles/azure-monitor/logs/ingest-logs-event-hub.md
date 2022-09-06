@@ -1,4 +1,225 @@
 ---
+title: Send events from Azure Event Hubs to Azure Monitor Logs with a data collection rule
+description: Ingest logs from Event Hub into Azure Monitor Logs 
+author: guywi-ms
+ms.author: guywild
+ms.service: Azure Monitor Logs
+ms.reviewer: ilanawaitser
+ms.topic: tutorial 
+ms.date: 09/20/22
+ms.custom: template-tutorial 
+
+# customer-intent: As a workspace administrator, I want to collect data from an event hub into a Log Analytics workspace so that I can monitor application logs that I ingest using Azure Event Hubs.
+---
+
+
+# Tutorial: Send events from Azure Event Hubs to Azure Monitor Logs with a data collection rule   
+
+<!-- 2. Introductory paragraph 
+Required. Lead with a light intro that describes, in customer-friendly language, 
+what the customer will learn, or do, or accomplish. Answer the fundamental “why 
+would I want to do this?” question. Keep it short.
+-->
+
+Azure Event Hubs is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. This article explains how to ingest data directly from an event hub into a Log Analytics workspace using a data collection rule.
+
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a destination table for Event Hub data in your Log Analytics workspace
+> * Create a data collection endpoint
+> * Create a data collection rule
+> * Grant the data collection rule permissions to the Event Hub
+> * Associate the data collection rule with the Event Hub
+
+## Prerequisites
+
+- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac)
+- [Dedicated cluster linked to the Log Analytics workspace](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
+- [Event hub](/azure/event-hubs/event-hubs-create) with events.
+    
+    You can send to an event hub
+
+## Create a destination table for Event Hub data in your Log Analytics workspace
+<!-- Introduction paragraph -->
+
+1. Sign in to the [<service> portal](url).
+1. <!-- Step 2 -->
+1. <!-- Step n -->
+
+
+## Create a data collection endpoint
+
+Data collection rules require you to specify a data collection endpoint from which to collect data.
+
+[Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint) from which the data collection rule will send data from Azure Event Hubs to your Log Analytics workspace.
+
+## Create a data collection rule
+
+Azure Monitor uses [data collection rules](../essentials/data-collection-rule-overview.md) to define what data should be collected, how to transform that data, and where to send the data you collect.
+
+
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dataCollectionRuleName": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the name of the Data Collection Rule to create."
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the location in which to create the Data Collection Rule."
+            }
+        },
+        "workspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Log Analytics workspace to use."
+            }
+        },
+        "workspaceResourceId": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the Azure resource ID of the Log Analytics workspace to use."
+            }
+        },
+        "endpointResourceId": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the Azure resource ID of the Data Collection Endpoint to use."
+            }
+        },
+        "consumerGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies consumer group of event hub. If not filled, default consumer group will be used"
+            }
+            "defaultValue": ""
+        },
+        "tableName": { 
+            "type": "string", 
+            "metadata": { 
+                "description": "Specifies the name of the table in the workspace." 
+            } 
+        } 
+
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Insights/dataCollectionRules",
+            "name": "[parameters('dataCollectionRuleName')]",
+            "location": "[parameters('location')]",
+            "apiVersion": "2022-06-01",
+            "identity": {
+                             "type": "systemAssigned"
+              },
+            "properties": {
+                "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
+                "streamDeclarations": {
+                    "Custom-MyEventHubStream": {
+                        "columns": [
+                {
+                    "name": "TimeGenerated",
+                    "type": "datetime"
+                },
+                {
+                    "name": "RawData",
+                    "type": "string"
+                },
+                {
+                    "name": "Properties",
+                    "type": "dynamic"
+                }
+            ]
+                    }
+                },
+                "dataSources": {
+                    "dataImports": {
+                         "eventHub": {
+                                    "consumerGroup": "[parameters('consumerGroup')]"
+                                    "stream": "Custom-MyEventHubStream",
+                                     "name": "myEventHubDataSource1"
+                                                          }
+                                           }
+
+                },
+                "destinations": {
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[parameters('workspaceResourceId')]",
+                            "name": "[parameters('workspaceName')]"
+                        }
+                    ]
+                },
+                "dataFlows": [
+                    {
+                        "streams": [
+                            "Custom-MyEventHubStream"
+                        ],
+                        "destinations": [
+                            "[parameters('workspaceName')]"
+                        ],
+                        "transformKql": "source",
+                        "outputStream": "[concat('Custom-', parameters('tableName'))]" 
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+        "dataCollectionRuleId": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Insights/dataCollectionRules', parameters('dataCollectionRuleName'))]"
+        }
+    }
+}
+```
+
+## Grant the data collection rule permissions to the Event Hub
+<!-- Introduction paragraph -->
+1. <!-- Step 1 -->
+1. <!-- Step 2 -->
+1. <!-- Step n -->
+
+## Associate the data collection rule with the Event Hub
+<!-- Introduction paragraph -->
+1. <!-- Step 1 -->
+1. <!-- Step 2 -->
+1. <!-- Step n -->
+
+
+## Clean up resources
+
+If you're not going to continue to use this application, delete
+<resources> with the following steps:
+
+1. From the left-hand menu...
+1. ...click Delete, type...and then click Delete
+
+<!-- 7. Next steps
+Required: A single link in the blue box format. Point to the next logical tutorial 
+in a series, or, if there are no other tutorials, to some other cool thing the 
+customer can do. 
+-->
+
+## Next steps
+
+Advance to the next article to learn how to create...
+> [!div class="nextstepaction"]
+> [Next steps button](contribute-how-to-mvc-tutorial.md)
+
+<!--
+Remove all the comments in this template before you sign-off or merge to the 
+main branch.
+-->
+---
 title: Ingest logs from Event Hub into Azure Monitor Logs
 description: Ingest logs from Event Hub into Azure Monitor Logs. 
 author: guywi-ms
@@ -21,102 +242,36 @@ would I want to do this?” question. Keep it short.
 
 [Add your introductory paragraph]
 
+<!-- 3. Prerequisites 
+Optional. If you need prerequisites, make them your first H2 in a how-to guide. 
+Use clear and unambiguous language and use a list format.
+-->
+
 ## Prerequisites
 
-- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac)
-- [Dedicated cluster linked to the Log Analytics workspace](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
+- <!-- prerequisite 1 -->
+- <!-- prerequisite 2 -->
+- <!-- prerequisite n -->
+<!-- remove this section if prerequisites are not needed -->
 
-## Create a custom table
+<!-- 4. H2s 
+Required. A how-to article explains how to do a task. The bulk of each H2 should be 
+a procedure.
+-->
 
-```json
-$tableParams = @'
-{
-    "properties": {
-        "schema": {
-            "name": "MyTable_CL",
-            "columns": [
-                {
-                    "name": "TimeGenerated",
-                    "type": "datetime",
-                    "description": "The time at which the data was generated"
-                },
-                {
-                    "name": "RawData",
-                    "type": "string",
-                    "description": "Body of the event"
-                },
-                {
-                    "name": "Properties",
-                    "type": "dynamic",
-                    "description": "Additional message properties"
-                }
-            ]
-        }
-    }
-}
-'@
-```
+## [Section 1 heading]
+<!-- Introduction paragraph -->
+1. <!-- Step 1 -->
+1. <!-- Step 2 -->
+1. <!-- Step n -->
 
-Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/MyTable_CL?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+## [Section 2 heading]
+<!-- Introduction paragraph -->
+1. <!-- Step 1 -->
+1. <!-- Step 2 -->
+1. <!-- Step n -->
 
-Guy - maybe MyTable_CL - replace with {table} - agreed to replace with {}
-also in DCR I changed that table name is parameter in template and not MyTable_CL hard-coded
-
-## Create a data collection endpoint
-
-USE same article, via template 
-Guy - use same json like in article 
-
-
-create same DCE or can use existing - consider limits
-add link -  Ilana
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "dataCollectionEndpointName": {
-            "type": "string",
-            "metadata": {
-                "description": "Specifies the name of the Data Collection Endpoint to create."
-            }
-        },
-        "location": {
-            "type": "string",
-            "metadata": {
-                "description": "Specifies the location in which to create the Data Collection Endpoint."
-            }
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Insights/dataCollectionEndpoints",
-            "name": "[parameters('dataCollectionEndpointName')]",
-            "location": "[parameters('location')]",
-            "apiVersion": "2021-04-01",
-            "properties": {
-                "networkAcls": {
-                "publicNetworkAccess": "Enabled"
-                }
-            }
-        }
-    ],
-    "outputs": {
-        "dataCollectionEndpointId": {
-            "type": "string",
-            "value": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dataCollectionEndpointName'))]"
-        }
-    }
-}
-```
-
-
-filled:IlanaEventHub-DCE
-eastus2euap
-CHECK: if need properties??
-
-## Create a data collection rule
+## [Section n heading]
 <!-- Introduction paragraph -->
 1. <!-- Step 1 -->
 1. <!-- Step 2 -->
@@ -126,18 +281,6 @@ CHECK: if need properties??
 Required. Provide at least one next step and no more than three. Include some 
 context so the customer can determine why they would click the link.
 -->
-
-## Associate the data collection rule to the destination table
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
-
-<!-- 5. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
-
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
