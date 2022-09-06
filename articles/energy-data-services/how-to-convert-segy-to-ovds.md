@@ -1,9 +1,9 @@
 ---
-title: Microsoft Energy Data Services - How to convert a segy to ovds file #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Energy Data Services Preview - How to convert a segy to ovds file #Required; page title is displayed in search results. Include the brand.
 description: This article explains how to convert a SGY file to oVDS file format #Required; article description that is displayed in search results. 
 author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
 ms.author: elhalper #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 08/18/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
@@ -13,7 +13,9 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 Seismic data stored in the industry standard SEG-Y format can be converted to Open VDS (oVDS) format for use in applications via the Seismic DMS.
 
-[OSDU SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/release/0.15)
+[OSDU&trade; SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/release/0.15)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
@@ -21,7 +23,7 @@ Seismic data stored in the industry standard SEG-Y format can be converted to Op
 
 * Download and install [Postman](https://www.postman.com/) desktop app.
 * Import the [oVDS Conversions.postman_collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M9/Azure-M9/Services/DDMS/oVDS_Conversions.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
-* Microsoft Energy Data Services instance is created already
+* Microsoft Energy Data Services Preview instance is created already
 * Clone the **sdutil** repo as shown below:
   ```markdown
   git clone https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil.git

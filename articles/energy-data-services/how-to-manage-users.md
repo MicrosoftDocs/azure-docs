@@ -1,24 +1,26 @@
 ---
-title: How to manage users in Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
-description: This article describes how to manage users in Microsoft Energy Data Services #Required; article description that is displayed in search results. 
+title: How to manage users in Microsoft Energy Data Services Preview #Required; page title is displayed in search results. Include the brand.
+description: This article describes how to manage users in Microsoft Energy Data Services Preview #Required; article description that is displayed in search results. 
 author: Lakshmisha-KS #Required; your GitHub user alias, with correct capitalization.
 ms.author: lakshmishaks #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 08/19/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # How to manage users?
-This article describes how to manage users in Microsoft Energy Data Services. It uses the [entitlements API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) and acts as a group-based authorization system for data partitions within Microsoft Energy Data Service instance. 
+This article describes how to manage users in Microsoft Energy Data Services Preview. It uses the [entitlements API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) and acts as a group-based authorization system for data partitions within Microsoft Energy Data Service instance. 
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## 1. Prerequisites
 
-Create a Microsoft Energy Data Services instance using guide at [How to create Microsoft Energy Data Services instance](quickstart-create-project-oak-forest-instance.md).
+Create a Microsoft Energy Data Services Preview instance using guide at [How to create Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md).
 
 Keep the following values handy. These values will be used to: 
 
-* Generate the access token, which you'll need to make valid calls to the Entitlements API of your Microsoft Energy Data Services instance
+* Generate the access token, which you'll need to make valid calls to the Entitlements API of your Microsoft Energy Data Services Preview instance
 * Pass as parameters for different user management requests to the Entitlements API. 
 
 #### 1. Find `tenant-id`
@@ -29,29 +31,29 @@ Navigate to the Azure Active Directory account for your organization. One way to
 :::image type="content" source="media/how-to-manage-users/tenant-id.png" alt-text="Screenshot of finding the tenant-id.":::
 
 #### 2. Find `client-id`
-Often called `app-id`, it's the same value that you used to register your application during the provisioning of your Microsoft Energy Data Services instance. *link to the Microsoft Energy Data Services provisioning page here*. You'll find the `client-id` in the *Essentials* pane of Microsoft Energy Data Services *Overview* page. Copy the `client-id` and paste in an editor to be used later. 
+Often called `app-id`, it's the same value that you used to register your application during the provisioning of your Microsoft Energy Data Services Preview instance. *link to the Microsoft Energy Data Services Preview provisioning page here*. You'll find the `client-id` in the *Essentials* pane of Microsoft Energy Data Services Preview *Overview* page. Copy the `client-id` and paste in an editor to be used later. 
 
 :::image type="content" source="media/how-to-manage-users/client-id-or-app-id.png" alt-text="Screenshot of finding the client-id for your registered App.":::
 
 #### 3. Find `client-secret`
-Sometimes called an application password, a `client-secret` is a string value your app can use in place of a certificate to identity itself. Navigate to *App Registrations*. One way to do so is searching for "App Registrations" in the Azure portal's search bar. Once there, open 'Certificates & secrets' under the *Manage* section. If you haven't yet created a `client-secret` for the `client-id` that you used to create your Microsoft Energy Data Services instance, you can add one now by clicking on *New Client Secret*. Record the secret's `value` for use in your client application code. 
+Sometimes called an application password, a `client-secret` is a string value your app can use in place of a certificate to identity itself. Navigate to *App Registrations*. One way to do so is searching for "App Registrations" in the Azure portal's search bar. Once there, open 'Certificates & secrets' under the *Manage* section. If you haven't yet created a `client-secret` for the `client-id` that you used to create your Microsoft Energy Data Services Preview instance, you can add one now by clicking on *New Client Secret*. Record the secret's `value` for use in your client application code. 
 
 > [!NOTE]
 > Don't forget to record the secret's value for use in your client application code. This secret value is never displayed again after you leave this page.
 
 :::image type="content" source="media/how-to-manage-users/client-secret.png" alt-text="Screenshot of finding the client secret.":::
 
-#### 4. Find the `url`for your Microsoft Energy Data Services instance
-Navigate to your Microsoft Energy Data Services *Overview* page on Azure portal. Copy the URI from the essentials pane. 
+#### 4. Find the `url`for your Microsoft Energy Data Services Preview instance
+Navigate to your Microsoft Energy Data Services Preview *Overview* page on Azure portal. Copy the URI from the essentials pane. 
 
-:::image type="content" source="media/how-to-manage-users/endpoint-url.png" alt-text="Screenshot of finding the url from Microsoft Energy Data Services instance.":::
+:::image type="content" source="media/how-to-manage-users/endpoint-url.png" alt-text="Screenshot of finding the url from Microsoft Energy Data Services Preview instance.":::
 
 #### 5. Find the `data-partition-id` for your group
-You have two ways to get the list of data-partitions in your Microsoft Energy Data Services instance. 
-- By navigating *Data Partitions* menu-item under the Advanced section of your Microsoft Energy Data Services UI.
-- By clicking on the *#* against the *data partitions* field in the essentials pane of your Microsoft Energy Data Services *Overview* page. 
+You have two ways to get the list of data-partitions in your Microsoft Energy Data Services Preview instance. 
+- By navigating *Data Partitions* menu-item under the Advanced section of your Microsoft Energy Data Services Preview UI.
+- By clicking on the *#* against the *data partitions* field in the essentials pane of your Microsoft Energy Data Services Preview *Overview* page. 
 
-:::image type="content" source="media/how-to-manage-users/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Microsoft Energy Data Services instance.":::
+:::image type="content" source="media/how-to-manage-users/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Microsoft Energy Data Services Preview instance.":::
 
 ## 2. Generate access token
 
@@ -79,12 +81,12 @@ curl --location --request POST 'https://login.microsoftonline.com/{{tenant-id}}/
         "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZ..."
     }
 ```
-Copy the `access token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements API of your Microsoft Energy Data Services instance. 
+Copy the `access token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements API of your Microsoft Energy Data Services Preview instance. 
 
 ## 3. User management activities
 Get all groups that are either built in groups or have been made for your Oak instance or data partitions. Find the following two fields first. 
 
-You'll need `object-id` (OID) for your users as parameters in the calls to the Entitlements API of your Microsoft Energy Data Services Instance. `object-id`(OID) is the Azure Active Directory User Object ID.
+You'll need `object-id` (OID) for your users as parameters in the calls to the Entitlements API of your Microsoft Energy Data Services Preview Instance. `object-id`(OID) is the Azure Active Directory User Object ID.
 
 :::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot of finding the object-id from Azure Active Directory.":::
 

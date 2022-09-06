@@ -1,18 +1,18 @@
-- name: Azure Energy Data Services Documentation
+- name: Microsoft Energy Data Services Preview Documentation
   href: index.yml
 - name: Overview
   items:
-    - name: About Azure Energy Data Services
+    - name: About Microsoft Energy Data Services Preview
       displayName: Overview
-      href: overview-azure-energy-data-services.md
+      href: overview-microsoft-energy-data-services.md
     - name: About Domain Data Management Services (DDMS)
       displayName: DDMS overview
       href: overview-ddms.md
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create an Azure Energy Data Service instance
-      href: quickstart-create-project-oak-forest-instance.md
+    - name: Create an Microsoft Energy Data Service instance
+      href: quickstart-create-microsoft-energy-data-services-instance.md
 - name: Tutorials
   items:
     - name: CSV Parser ingestion tutorial
@@ -23,9 +23,11 @@
       href: tutorial-seismic-ddms-sdutil.md
     - name: Wellbore DDMS tutorial
       href: tutorial-wellbore-ddms.md
+    - name: Well delivery tutorial
+      href: tutorial-well-delivery-ddms.md
 - name: Concepts
   items:
-    - name: CSV Parser ingestion
+    - name: CSV parser ingestion
       href: concepts-csv-parser-ingestion.md
     - name: Manifest ingestion
       href: concepts-manifest-ingestion.md

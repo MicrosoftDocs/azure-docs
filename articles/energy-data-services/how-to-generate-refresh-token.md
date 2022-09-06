@@ -3,7 +3,7 @@ title: How to generate a refresh token for Microsoft Energy Data Service #Requir
 description: This article describes how to generate a refresh token #Required; article description that is displayed in search results. 
 author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
 ms.author: elhalper #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 08/25/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -17,8 +17,10 @@ The following are the basic steps to use the OAuth 2.0 authorization code grant 
   2. Get authorization.
   3. Get a refresh token.
  
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## 1. Register your app with Azure AD
-To use the Microsoft Energy Data Services platform endpoint, you must register your app using the [Azure app registration portal](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app.
+To use the Microsoft Energy Data Services Preview platform endpoint, you must register your app using the [Azure app registration portal](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app.
 
 To configure an app to use the OAuth 2.0 authorization code grant flow, save the following values when registering the app:
 
@@ -128,7 +130,7 @@ For more information, see [Generate refresh tokens](/graph/auth-v2-user#2-get-au
 
 ## Alternative options
 
-If you're struggling with getting a proper authorization token, follow the steps in [OSDU auth app](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/tree/release/0.15/tools/rest/osduauth) to locally run a static webpage that generates the refresh token for you. Once it's running, fill in the correct values in the UI of the static webpage (they may be filled in with the wrong values to start). Use the UI to generate a refresh token.
+If you're struggling with getting a proper authorization token, follow the steps in [OSDU&trade; auth app](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/tree/release/0.15/tools/rest/osduauth) to locally run a static webpage that generates the refresh token for you. Once it's running, fill in the correct values in the UI of the static webpage (they may be filled in with the wrong values to start). Use the UI to generate a refresh token.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

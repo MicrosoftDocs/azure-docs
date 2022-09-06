@@ -1,18 +1,20 @@
 ---
-title: Microsoft Energy Data Services - index and search workflow concepts #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Energy Data Services Preview - index and search workflow concepts #Required; page title is displayed in search results. Include the brand.
 description: Learn how to use indexing and search workflows #Required; article description that is displayed in search results. 
 author: vivekkalra #Required; your GitHub user alias, with correct capitalization.
 ms.author: vivekkalra #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 08/23/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 #Customer intent: As a developer, I want to understand indexing and search workflows so that I could search for ingested data in the platform.
 ---
-# Microsoft Energy Data Services indexing and search workflows
+# Microsoft Energy Data Services Preview indexing and search workflows
 
 All data and associated metadata ingested into the platform are indexed to enable search. The metadata is accessible to ensure awareness even when the data isn't available.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Indexer Service
 
@@ -35,18 +37,18 @@ When the *recordChangedMessages* event is received by the `Indexer Service`, it 
     
 :::image type="content" source="media/concepts-index-and-search/concept-indexer-sequence.png" alt-text="Diagram that shows Indexing sequence flow.":::
 
-For more information, see [Indexer service OSDU documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md) provides information on indexer service
+For more information, see [Indexer service OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md) provides information on indexer service
 
 ## Search workflow
     
 `Search service` provides a mechanism for discovering indexed metadata documents. The Search API supports full-text search on string fields, range queries on date, numeric, or string field, etc. along with geo-spatial searches.
 
-For a detailed tutorial on `Search service`, refer [Search service OSDU documentation](https://community.opengroup.org/osdu/platform/system/search-service/-/blob/release/0.15/docs/tutorial/SearchService.md)
+For a detailed tutorial on `Search service`, refer [Search service OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/search-service/-/blob/release/0.15/docs/tutorial/SearchService.md)
     
 
 ## Reindex workflow 
 Reindex API allows users to reindex a kind without reingesting the records via storage API. For detailed information, refer to 
-[Reindex OSDU documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md#reindex)
+[Reindex OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md#reindex)
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

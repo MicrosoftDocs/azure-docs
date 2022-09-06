@@ -1,9 +1,9 @@
 ---
-title: Microsoft Energy Data Services - Seismic store sdutil tutorial #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Energy Data Services Preview - Seismic store sdutil tutorial #Required; page title is displayed in search results. Include the brand.
 description: Information on setting up and using sdutil, a command-line interface (CLI) tool that allows users to easily interact with seismic store. #Required; article description that is displayed in search results. 
 author: marielgherz #Required; your GitHub user alias, with correct capitalization.
 ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: tutorial #Required; leave this attribute/value as-is.
 ms.date: 12/10/2021
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
@@ -18,6 +18,8 @@ A command line python utility designed to easily interact with seismic store.
 Seismic store is a cloud-based solution designed to store and manage datasets of any size in the cloud by enabling a secure way to access them through a scoped authorization mechanism. Seismic Store overcomes the object size limitations imposed by a cloud provider, by managing generic datasets as multi-independent objects and, therefore, provides a generic, reliable and a better performed solution to handle data on a cloud storage.
 
 The **sdutil** is an intuitive command line utility tool to interact with seismic store and perform some basic operations like upload or download datasets to or from seismic store, manage users, list folders content and more.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
@@ -288,7 +290,7 @@ run the changelog script (`./changelog-generator.sh`) to automatically generate 
 ## Setup and Usage for Azure Project Oak Forest
 
 Below steps are for windows subsystem linux - ubuntu 20.04
-Project Oak is using OSDU M8 Version of sdutil
+Project Oak is using OSDU&trade; M8 Version of sdutil
 
 - Download the source code from community [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable/) Azure Stable branch.
 

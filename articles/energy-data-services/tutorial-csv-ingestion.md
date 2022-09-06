@@ -3,29 +3,31 @@ title: Microsoft Energy Data Service - Steps to perform a CSV parser ingestion #
 description: This tutorial shows you how to perform CSV ingestion #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
 ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: tutorial #Required; leave this attribute/value as-is.
 ms.date: 08/18/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
-#Customer intent: As a customer, I want to learn how to use CSV parser ingestion so that I can load CSV data into the Microsoft Energy Data Services instance.
+#Customer intent: As a customer, I want to learn how to use CSV parser ingestion so that I can load CSV data into the Microsoft Energy Data Services Preview instance.
 ---
 
 # Tutorial: Sample steps to perform a CSV parser ingestion
 
-CSV Parser ingestion provides the capability to ingest CSV files into the Microsoft Energy Data Services instance.
+CSV Parser ingestion provides the capability to ingest CSV files into the Microsoft Energy Data Services Preview instance.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Ingest a sample wellbore data CSV file into the Microsoft Energy Data Services instance
+> * Ingest a sample wellbore data CSV file into the Microsoft Energy Data Services Preview instance
 > * Search for storage metadata records created during the CSV Ingestion
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
-### Get Microsoft Energy Data Services instance details
+### Get Microsoft Energy Data Services Preview instance details
 
-* Once the [Microsoft Energy Data Services instance](quickstart-create-project-oak-forest-instance.md) is created, note down the following details:
+* Once the [Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) is created, note down the following details:
 
   | Parameter          | Value to use             | Example                               |
   | ------------------ | ------------------------ |-------------------------------------- |
@@ -50,7 +52,7 @@ In this tutorial, you'll learn how to:
   > [!NOTE]
   >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
   
-* Update the **CURRENT_VALUE** of the Postman environment with the information obtained in [Microsoft Energy Data Services instance details](#get-microsoft-energy-data-services-instance-details)
+* Update the **CURRENT_VALUE** of the Postman environment with the information obtained in [Microsoft Energy Data Services Preview instance details](#get-microsoft-energy-data-services-preview-instance-details)
 
 ### How to execute Postman requests
 
@@ -68,7 +70,7 @@ In this tutorial, you'll learn how to:
 
   :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure postman call." lightbox="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png":::
 
-## Ingest a sample wellbore data CSV file into the Microsoft Energy Data Services instance
+## Ingest a sample wellbore data CSV file into the Microsoft Energy Data Services Preview instance
 
   1. **Get a user token** - Generate the User token, which will be used to authenticate further API calls.
   2. **Create a schema** - Generate a schema that adheres to the columns present in the CSV file
