@@ -276,6 +276,8 @@ items:
         href: security-operations-introduction.md
       - name: Security operations for user accounts
         href: security-operations-user-accounts.md
+      - name: Security operations for consumer accounts
+        href: security-operations-consumer-accounts.md
       - name: Security operations for privileged accounts
         href: security-operations-privileged-accounts.md
       - name: Security operations for PIM
