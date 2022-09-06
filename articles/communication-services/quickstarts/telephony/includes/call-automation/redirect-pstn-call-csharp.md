@@ -1,6 +1,6 @@
 ---
 title: include file
-description: C# call automation quickstart
+description: C# call automation quickstart for PSTN calls
 services: azure-communication-services
 author: ashwinder
 ms.service: azure-communication-services
