@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 09/02/2022
 ms.author: alkohli
 ms.custom: references_regions
 zone_pivot_groups: data-box-shipping
@@ -42,6 +42,9 @@ Before you begin, make sure you've completed the [Tutorial: Copy data to Azure D
 ::: zone-end
 
 1. Once the data validation is complete, unplug the disks. Remove the connecting cables.
+    - For Windows machines, safely remove the disks prior to unplugging them.
+    - For Linux machines, use the following command to safely remove the disks prior to unplugging them: `sudo DataBoxDiskUnlock /Unmount`.
+
 2. Wrap all the disks and the connecting cables with a bubble wrap and place them into the shipping box. Charges may apply if the accessories are missing.
     - Reuse the packaging from the initial shipment.  
     - We recommend that you pack disks using a well-secured bubbled wrap.
