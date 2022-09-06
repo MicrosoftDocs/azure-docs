@@ -146,7 +146,8 @@ _Creating diff between input source file and recompressed/re-signed target file:
 
 ```bash
 sudo ./DiffGenTool  
-/mnt/o/temp/[source file.swu]  
+/mnt/o/temp/[source file.swu]
+/mnt/o/temp/[target file.swu]   
 /mnt/o/temp/[delta file to be created]  
 /mnt/o/temp/logs  
 /mnt/o/temp/working  
