@@ -57,7 +57,7 @@ Use the following steps to assign the required permissions:
 
 You need to [set up an Azure Site Recovery replication appliance on the on-premises environment](deploy-vmware-azure-replication-appliance-modernized.md) to channel mobility agent communications.
 
-![Screenshot of replication appliance](./media/vmware-azure-set-up-replication-tutorial-modernized/replication-appliance.png)
+![Screenshot of replication appliance.](./media/vmware-azure-set-up-replication-tutorial-modernized/replication-appliance.png)
 
 ## Enable replication of VMware VMs
 
@@ -74,7 +74,7 @@ Follow these steps to enable replication:
    > [!NOTE]
    > In Modernized, the support is limited to virtual machines.
 
-   ![Screenshot of source machines](./media/vmware-azure-set-up-replication-tutorial-modernized/select-source.png)
+   ![Screenshot of source machines.](./media/vmware-azure-set-up-replication-tutorial-modernized/select-source.png)
 
 3. After choosing the machine type, select the vCenter server added to Azure Site Recovery replication appliance, registered in this vault.
 
@@ -85,11 +85,11 @@ Follow these steps to enable replication:
    >[!NOTE]
    >For Linux OS, ensure to provide the root credentials. For Windows OS, a user account with admin privileges should be added. These credentials will be used to push Mobility Service on to the source machine during enable replication operation.
 
-   ![Screenshot of source settings](./media/vmware-azure-set-up-replication-tutorial-modernized/source-settings.png)
+   ![Screenshot of source settings.](./media/vmware-azure-set-up-replication-tutorial-modernized/source-settings.png)
 
 6. Select **Next** to provide target region properties. By default, Vault subscription and Vault resource group are selected. You can choose a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
 
-   ![Screenshot of target properties](./media/vmware-azure-set-up-replication-tutorial-modernized/target-properties.png)
+   ![Screenshot of target properties.](./media/vmware-azure-set-up-replication-tutorial-modernized/target-properties.png)
 
 7. Next, you can select an existing Azure network or create a new target network to be used during failover. If you select **Create new**, you will be redirected to create virtual network context blade and asked to provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
 
@@ -129,7 +129,7 @@ Follow these steps to enable replication:
 
 11. After choosing the replication policy, select **Next**. Review the Source and Target properties. Select **Enable  Replication** to initiate the operation.
 
-    ![Screenshot of site recovery](./media/vmware-azure-set-up-replication-tutorial-modernized/enable-replication.png)
+    ![Screenshot of site recovery.](./media/vmware-azure-set-up-replication-tutorial-modernized/enable-replication.png)
 
     A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 
