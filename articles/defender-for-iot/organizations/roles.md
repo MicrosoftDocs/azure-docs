@@ -22,26 +22,38 @@ The following tables list functionality that is available to each user role by d
 |Sensor operator  |Security reader  |Security admin  |Contributor  |Owner  |
 |---------|---------|---------|---------|---------|
 |  **Download sensor and on-premises management console software and threat intelligence packages**<br>Resource scope: *Subscription*   |   Yes      |  Yes       |   Yes      | Yes | Yes |
-|  **Download activation files**<br>Resource scope: *Subscription*   |   Yes      |  No       |   Yes      | Yes | Yes |
-|  **Modify values on the Pricing page, update committed devices**<br>Resource scope: *Subscription*   |   Read-only      |  No       |   Read-write      | Read-write | Read-write |
-|  **Recover on-premises passwords**<br>Resource scope: *Subscription*   |   Yes      |  No       |   Yes     | Yes | Yes |
-|  **Push threat intelligence updates**<br>Resource scope: *Subscription*   |   No      |  No       |   Yes     | Yes | Yes |
-|  **Modify values on the Sites and sensors page**<br>Resource scope: *Subscription*   |   Read-write      |  No       |   Read-write     | Read-write | Read-write |
+|  **Download activation files**<br>Resource scope: *Subscription*   |   Yes      |         |   Yes      | Yes | Yes |
+|  **Modify values on the Pricing page, update committed devices**<br>Resource scope: *Subscription*   |   Read-only      |         |   Read-write      | Read-write | Read-write |
+|  **Recover on-premises passwords**<br>Resource scope: *Subscription*   |   Yes      |         |   Yes     | Yes | Yes |
+|  **Push threat intelligence updates**<br>Resource scope: *Subscription*   |         |         |   Yes     | Yes | Yes |
+|  **Modify values on the Sites and sensors page**<br>Resource scope: *Subscription*   |   Read-write      |         |   Read-write     | Read-write | Read-write |
 
 **Permissions for security monitoring functionalities**:
 
 |Sensor operator  |Security reader  |Security admin  |Contributor  |Owner  |
 |---------|---------|---------|---------|---------|
-| **Alerts page** <br><br>Resource scope: *Subscription* or *site* | No | Read-only | Read-write | Read-write | Read-write |
-| **Device inventory** <br><br>Resource scope: *Subscription* or *site* | No | Read-only | Read-write | Read-write | Read-write |
+| **Alerts page** <br><br>Resource scope: *Subscription* or *site* |  | Read-only | Read-write | Read-write | Read-write |
+| **Device inventory** <br><br>Resource scope: *Subscription* or *site* |  | Read-only | Read-write | Read-write | Read-write |
 
 For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ## On-premises users for Defender for IoT
 
-By default, each sensor and on-premises management console is installed with the *cyberx* and *support* users. Sensors are also installed with the *cyberx_host* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create extra users for security analysts and read-only users.
+By default, each sensor and on-premises management console is installed with the *cyberx* and *support* privileged users. Sensors are also installed with the *cyberx_host* privileged user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create extra users for security analysts and read-only users.
 
-The following additional roles are also available to apply to other users:
+### Default privileged on-premises users
+
+The following table describes each default privileged user in detail:
+
+|Name  |Connects to  |Permissions  |
+|---------|---------|---------|
+|**cyberx**     |   The sensor or on-premises management console's `sensor_app` container      | Serves as a root user within the main application container. <br><br>Used for troubleshooting with advanced root access.<br><br>Can access the container filesystem, commands, and dedicated CLI commands for controlling OT monitoring  <br><br>Can recover or change passwords for users with any roles.       |
+|**support**     |   The sensor or on-premises management console's `sensor_app` container       | Serves as a locked-down, user shell for dedicated CLI tools<br><br>Has no filesystem access<br><br>Can access only  dedicated CLI commands for controlling OT monitoring <br><br>Can recover or change passwords for the **support** user, and any user with the **Administrator**, **Security Analyst**, and **Read-only** roles. For more information, see [On-premises user roles](#on-premises-user-roles).  |
+|**cyberx_host**     | The on-premises management console's host OS        | Serves as a root user in the on-premises management console's host OS<br><br>Used for support scenarios with containers and filesystem access        |
+
+### On-premises user roles
+
+The following roles are available on OT network sensors and on-premises management consoles.
 
 - **Read only**: Read-only users perform tasks such as viewing alerts and devices on the device map. These users have access to options displayed under **Discover**.
 
@@ -49,65 +61,52 @@ The following additional roles are also available to apply to other users:
 
 - **Administrator**: Administrators have access to all tools, including system configurations, creating and managing users, and more. These users have access to options displayed under **Discover**, **Analyze**, and **Manage** sections of the console main screen.
 
-Permissions applied to each role differ between the sensor and the on-premises management console. The following sections list the permissions available for each role, in each location.
+Permissions applied to each role differ between the sensor and the on-premises management console. The following tables list the permissions available for each role, in each location.
 
-### Role-based permissions to OT monitoring sensors
-
-This section describes permissions available to sensor Administrators, Security Analysts, and Read-only users.
+**Role-based permissions for OT network sensors**:
 
 | Permission | Read-only | Security Analyst | Administrator |
 |--|--|--|--|
-| View the dashboard | ✓ | ✓ | ✓ |
-| Control map zoom views |  |  | ✓ |
-| View alerts | ✓ | ✓ | ✓ |
-| Manage alerts: acknowledge, learn, and pin |  | ✓ | ✓ |
-| View events in a timeline |  | ✓ | ✓ |
-| Authorize devices, known scanning devices, programming devices |  | ✓ | ✓ |
-| Merge and delete devices |  |  | ✓ |
-| View investigation data | ✓ | ✓ | ✓ |
-| Manage system settings |  |  | ✓ |
-| Manage users |  |  | ✓ |
-| DNS servers for reverse lookup |  |  | ✓ |
-| Send alert data to partners |  | ✓ | ✓ |
-| Create alert comments |  | ✓ | ✓ |
-| View programming change history | ✓ | ✓ | ✓ |
-| Create customized alert rules |  | ✓ | ✓ |
-| Manage multiple notifications simultaneously |  | ✓ | ✓ |
-| Manage certificates |  |  | ✓ |
+| View the dashboard | Yes | Yes |Yes |
+| Control map zoom views |  |  | Yes |
+| View alerts | Yes | Yes | Yes |
+| Manage alerts: acknowledge, learn, and pin |  | Yes | Yes |
+| View events in a timeline |  | Yes | Yes |
+| Authorize devices, known scanning devices, programming devices |  | Yes | Yes |
+| Merge and delete devices |  |  | Yes |
+| View investigation data | Yes | Yes | Yes |
+| Manage system settings |  |  | Yes |
+| Manage users |  |  | Yes |
+| Change passwords | | | Yes, for users with the **Security Analyst** and **Read-only** roles only. |
+| DNS servers for reverse lookup |  |  | Yes |
+| Send alert data to partners |  | Yes | Yes |
+| Create alert comments |  | Yes | Yes |
+| View programming change history | Yes | Yes | Yes |
+| Create customized alert rules |  | Yes | Yes |
+| Manage multiple notifications simultaneously |  | Yes | Yes |
+| Manage certificates |  |  | Yes |
 | Session timeout when users are not active | 30 minutes | 30 minutes | 30 minutes |
 
-### Role-based permissions for the on-premises management console
-
-This section describes permissions available to Administrators, Security Analysts, and Read-only users for the on-premises management console.  
+**Role-based permissions for the on-premises management console**
 
 | Permission | Read-only | Security Analyst | Administrator |
 |--|--|--|--|
-| View and filter the enterprise map | ✓ | ✓ | ✓ |
-| Build a site |  |  | ✓ |
-| Manage a site (add and edit zones) |  |  | ✓ |
-| View and filter device inventory | ✓ | ✓ | ✓ |
-| View and manage alerts: acknowledge, learn, and pin | ✓ | ✓ | ✓ |
-| Generate reports |  | ✓ | ✓ |
-| View risk assessment reports |  | ✓ | ✓ |
-| Set alert exclusions |  | ✓ | ✓ |
-| View or define access groups |  |  | ✓ |
-| Manage system settings |  |  | ✓ |
-| Manage users |  |  | ✓ |
-| Send alert data to partners |  |  | ✓ |
-| Manage certificates |  |  | ✓ |
+| View and filter the enterprise map | Yes | Yes | Yes |
+| Build a site |  |  | Yes |
+| Manage a site (add and edit zones) |  |  | Yes |
+| View and filter device inventory | Yes | Yes | Yes |
+| View and manage alerts: acknowledge, learn, and pin | Yes | Yes | Yes |
+| Generate reports |  | Yes | Yes |
+| View risk assessment reports |  | Yes | Yes |
+| Set alert exclusions |  | Yes | Yes |
+| View or define access groups |  |  | Yes |
+| Manage system settings |  |  | Yes |
+| Manage users |  |  | Yes |
+| Change passwords | | | Yes, for users with the **Security Analyst** and **Read-only** roles only. |
+| Send alert data to partners |  |  | Yes |
+| Manage certificates |  |  | Yes |
 | Session timeout when users aren't active | 30 minutes | 30 minutes  | 30 minutes  |
 
+## Next steps
 
-**Administrator users**
-
-The Administrator can change the password for the Security Analyst and Read-only roles. The Administrator role user can't change their own password and must contact a higher-level role. 
-
-**Security Analyst and Read-only users**
-
-The Security Analyst and Read-only roles can't reset any passwords. The Security Analyst and Read-only roles need to contact a user with a higher role level to have their passwords reset.
-
-**CyberX and Support users**
-
-CyberX role can change the password for all user roles. The Support role can change the password for a Support, Administrator, Security Analyst, and Read-only user roles.  
-
-You can recover the password for the on-premises management console or the sensor with the Password recovery feature. Only the CyberX and Support users have access to the Password recovery feature.
+For more information, see [Manage users for OT network security](manage-users-ot.md).
