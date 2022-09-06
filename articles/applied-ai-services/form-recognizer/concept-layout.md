@@ -111,7 +111,7 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 	}
 ]
 ```
-### Paragraph roles<sup>new!</sup>
+### Paragraph roles<sup> 🆕</sup>
 
 The Layout model may flag certain paragraphs with their specialized type or `role` as predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
 
