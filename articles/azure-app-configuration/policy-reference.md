@@ -3,8 +3,8 @@ title: Built-in policy definitions for Azure App Configuration
 description: Lists Azure Policy built-in policy definitions for Azure App Configuration. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.date: 08/16/2022
 ms.topic: reference
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: subject-policy-reference
 ---

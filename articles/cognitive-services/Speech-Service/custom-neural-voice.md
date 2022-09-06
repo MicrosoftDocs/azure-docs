@@ -16,7 +16,7 @@ ms.author: eur
 
 Custom Neural Voice is a text-to-speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. With Custom Neural Voice, you can build a highly natural-sounding voice by providing your audio samples as training data. If you're looking for ready-to-use options, check out our [text-to-speech](text-to-speech.md) service.
 
-Based on the neural text-to-speech technology and the multilingual, multi-speaker, universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
+Based on the neural text-to-speech technology and the multilingual, multi-speaker, universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the [supported languages](language-support.md?tabs=stt-tts) for Custom Neural Voice.
 
 > [!IMPORTANT]
 > Custom Neural Voice access is limited based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).
@@ -89,11 +89,11 @@ Creating a great custom neural voice requires careful quality control in each st
 
 ### Persona design
 
-First, [design a persona](/record-custom-voice-samples.md#choose-your-voice-talent) of the voice that represents your brand by using a persona brief document. This document defines elements such as the features of the voice, and the character behind the voice. This helps to guide the process of creating a custom neural voice model, including defining the scripts, selecting your voice talent, training, and voice tuning.
+First, [design a persona](record-custom-voice-samples.md#choose-your-voice-talent) of the voice that represents your brand by using a persona brief document. This document defines elements such as the features of the voice, and the character behind the voice. This helps to guide the process of creating a custom neural voice model, including defining the scripts, selecting your voice talent, training, and voice tuning.
 
 ### Script selection
  
-Carefully [select the recording script](/record-custom-voice-samples.md#script-selection-criteria) to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you're creating a customer service bot. Include different sentence types in your scripts, including statements, questions, and exclamations.
+Carefully [select the recording script](record-custom-voice-samples.md#script-selection-criteria) to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you're creating a customer service bot. Include different sentence types in your scripts, including statements, questions, and exclamations.
 
 ### Preparing training data
 

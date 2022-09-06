@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 08/26/2022
 
 ms.author: jricketts
 author: janicericketts
-manager: martinco
+manager: amycolannino
 
 ms.collection: M365-identity-device-management
 ---
@@ -86,7 +86,7 @@ Proactively communicate with your users how their experience will change, when i
 
 ### Plan the maintenance window
 
-After the domain conversion, Azure AD might continue to send some legacy authentication requests from Exchange Online to your AD FS servers for up to four hours. The delay is because the Exchange Online cache for [legacy applications authentication](../fundamentals/concept-fundamentals-block-legacy-authentication.md) can take up to 4 hours to be aware of the cutover from federation to cloud authentication.
+After the domain conversion, Azure AD might continue to send some legacy authentication requests from Exchange Online to your AD FS servers for up to four hours. The delay is because the Exchange Online cache for legacy applications authentication can take up to 4 hours to be aware of the cutover from federation to cloud authentication.
 
 During this four-hour window, you may prompt users for credentials repeatedly when reauthenticating to applications that use legacy authentication. Although the user can still successfully authenticate against AD FS, Azure AD no longer accepts the user's issued token because that federation trust is now removed.
 

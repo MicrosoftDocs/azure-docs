@@ -30,9 +30,9 @@ In this step, browse to your FHIR service in the Azure portal and select the **I
 
 ## Give permission in the storage account for FHIR service access
 
-1. Go to your ADLS Gen2 account in the Azure portal.
+1. Go to your [ADLS Gen2](../../storage/blobs/data-lake-storage-introduction.md) account in the Azure portal. If you don't already have an ADSL Gen2 account deployed, follow [these instructions](../../storage/common/storage-account-create.md) for creating an Azure storage account and upgrading to ADLS Gen2. Make sure to enable the hierarchical namespace option in the **Advanced** tab to create an ADLS Gen2 account.
 
-2. Select **Access control (IAM)**.
+2. In your ADLS Gen2 account, select **Access control (IAM)**.
 
 3. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator for help with this step.
 

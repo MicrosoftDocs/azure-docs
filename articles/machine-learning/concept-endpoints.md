@@ -208,7 +208,7 @@ You can [override compute resource settings](how-to-use-batch-endpoint.md#config
 
 You can use the following options for input data when invoking a batch endpoint:
 
-- Cloud data - Either a path on Azure Machine Learning registered datastore, a reference to Azure Machine Learning registered V2 data asset, or a public URI. For more information, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md)
+- Cloud data - Either a path on Azure Machine Learning registered datastore, a reference to Azure Machine Learning registered V2 data asset, or a public URI. For more information, see [Connect to data with the Azure Machine Learning studio](v1/how-to-connect-data-ui.md)
 - Data stored locally - it will be automatically uploaded to the Azure ML registered datastore and passed to the batch endpoint.
 
 > [!NOTE]

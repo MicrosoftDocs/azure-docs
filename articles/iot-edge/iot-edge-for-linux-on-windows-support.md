@@ -11,7 +11,7 @@ services: iot-edge
 
 # Azure IoT Edge for Linux on Windows supported systems
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides details about which systems are supported by IoT Edge for Linux on Windows, whether generally available or in preview. 
 

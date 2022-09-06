@@ -1,8 +1,8 @@
 ---
 title: Geo-replication in Azure App Configuration (Preview)
 description: Details of the geo-replication feature in Azure App Configuration. 
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: 
 ms.topic: conceptual

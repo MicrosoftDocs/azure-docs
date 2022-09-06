@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 6/23/2022
+ms.date: 8/31/2022
 ms:reviwer: harelbr
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -361,6 +361,7 @@ The table below lists the metrics that aren't supported by dynamic thresholds.
 | Microsoft.Network/expressRouteGateways | ExpressRouteGatewayPacketsPerSecond |
 | Microsoft.Network/expressRouteGateways | ExpressRouteGatewayNumberOfVmInVnet |
 | Microsoft.Network/expressRouteGateways | ExpressRouteGatewayFrequencyOfRoutesChanged |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayBitsPerSecond |
 | Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayPacketsPerSecond |
 | Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayNumberOfVmInVnet |
 | Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayFrequencyOfRoutesChanged |
