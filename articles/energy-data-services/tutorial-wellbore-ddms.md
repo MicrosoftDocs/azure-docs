@@ -43,8 +43,8 @@ In this tutorial, you will learn how to:
   > For the below Postman files, click the **Raw** file on GitHub and save to your local machine.
   >
   > To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
-  * [Wellbore DDMS Postman collection](/postman/WellboreDDMS.postman_collection.json)
-  * [Wellbore DDMS Postman Environment](/postman/WellboreDDMSEnvironment.postman_environment.json)
+  * [Wellbore DDMS Postman collection](https://raw.githubusercontent.com/MicrosoftDocs/Project-Oak-Forest/main/postman/WellboreDDMS.postman_collection.json?token=GHSAT0AAAAAABYK75SGN22O6Y33VK4AWRQSYYX3GMA)
+  * [Wellbore DDMS Postman Environment](https://raw.githubusercontent.com/MicrosoftDocs/Project-Oak-Forest/main/postman/WellboreDDMSEnvironment.postman_environment.json?token=GHSAT0AAAAAABYK75SGVI5F2KGSVBDXDRF4YYX3G2Q)
   
 * Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Project Oak Forest instance details](#project-oak-forest-instance-details)
 
@@ -52,36 +52,36 @@ In this tutorial, you will learn how to:
 
 * The Postman collection for Wellbore DDMS contains requests which allows interaction with wells, wellbore, welllog and well trajectory data.
 * Make sure to choose the **Wellbore DDMS Environment** before triggering the Postman collection.
-  ![Choose environment](/media/tutorial-wellbore-ddms/tutorial-postman-choose-wellbore-environment.png)
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-choose-wellbore-environment.png" alt-text="Choose environment":::
 * Each request can be triggered by clicking the **Send** Button.
 * On every request Postman will validate the actual API response code against the expected response code; if there is any mismatch the Test Section will indicate failures.
 
 **Successful Postman Call**
 
-![Success](/media/tutorial-wellbore-ddms/tutorial-postman-test-success.png)
+:::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-test-success.png" alt-text="Success":::
 
 **Failed Postman Call**
 
-![Failure](/media/tutorial-wellbore-ddms/tutorial-postman-test-failure.png)
+:::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-test-failure.png" alt-text="Failure":::
 
 ### Steps to insert and get the Well data
 
 1. **Get an SPN Token** - Generate the Service Principal Bearer token, which will be used to authenticate further API calls.
 1. **Create a Legal Tag** - Create a legal tag that will be added to the automatically environment for data compliance purpose.
 1. **Create Well** - Creates the wellbore record in Project Oak.
-  ![Screenshot-of-tutorial-create-well](/media/tutorial-wellbore-ddms/tutorial-create-well.png)
+   :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-create-well.png" alt-text="Screenshot-of-tutorial-create-well":::
 1. **Get Wells** - Returns the well data created in the last step.
-  ![Screenshot-of-tutorial-get-wells](/media/tutorial-wellbore-ddms/tutorial-get-wells.png)
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-wells.png" alt-text="Screenshot-of-tutorial-get-wells":::
 1. **Get Well Versions** - Returns the versions of each ingested well record.
-  ![Screenshot-of-tutorial-get-well-versions](/media/tutorial-wellbore-ddms/tutorial-get-well-versions.png)
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-well-versions.png" alt-text="Screenshot-of-tutorial-get-well-versions":::
 1. **Get specific Well Version** - Returns the details of specified version of specified record.
-  ![Screenshot-of-tutorial-get-specific-well-version](/media/tutorial-wellbore-ddms/tutorial-get-specific-well-version.png)
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-specific-well-version.png" alt-text="Screenshot-of-tutorial-get-specific-well-version":::
 1. **Delete well record** - Deletes the specified record.
-  ![Screenshot-of-tutorial-delete-well](/media/tutorial-wellbore-ddms/tutorial-delete-well.png)
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-delete-well.png" alt-text="Screenshot-of-tutorial-delete-well":::
 
 ***Successful completion of above steps indicates success ingestion and retrieval of well records***
 
 ## Next steps
 
 - ***Similar steps could be followed for wellbore, welllog and well trajectory data***
-- [Seismic DMS SDUTIL Tutorial](/tutorials/tutorial-seismic-ddms-sdutil.md)
+- [Seismic DMS SDUTIL Tutorial](/articles/energy-data-services/tutorial-seismic-ddms-sdutil.md)
