@@ -18,11 +18,11 @@ This article describes the prerequisites and configuration of the SAP ODP (previ
 
 ## Prerequisites
 
-To preview our new SAP change data capture solution in Azure Data Factory:
+To preview our new SAP change data capture solution in Azure Data Factory, be able to complete these prerequisites:
 
-- Configure SAP systems to use the SAP Operational Data Provisioning (ODP) framework
+- Configure SAP systems to use the [SAP Operational Data Provisioning (ODP) framework](https://help.sap.com/docs/SAP_LANDSCAPE_TRANSFORMATION_REPLICATION_SERVER/007c373fcacb4003b990c6fac29a26e4/b6e26f56fbdec259e10000000a441470.html?q=SAP%20Operational%20Data%20Provisioning%20%28ODP%29%20framework).
 - Be familiar with Data Factory concepts like integration runtimes, linked services, datasets, activities, data flows, pipelines, templates, and triggers.
-- Set up a self-hosted integration runtime with the SAP ODP connector.
+- Set up a self-hosted integration runtime to use for the SAP ODP connector.
 - Set up an SAP ODP linked service.
 - Set up the Data Factory copy activity with the SAP ODP source dataset.
 - Debug Data Factory copy activity issues by sending self-hosted integration runtime logs.

@@ -1,5 +1,5 @@
 ---
-title: Debug SAP ODP (previee) issues by using self-hosted integration runtime logs
+title: Debug SAP ODP (preview) issues by using self-hosted integration runtime logs
 titleSuffix: Azure Data Factory
 description: Learn how to debug issues with the copy activity for SAP ODP (preview) by using self-hosted integration runtime logs in Azure Data Factory.
 author: ukchrist
