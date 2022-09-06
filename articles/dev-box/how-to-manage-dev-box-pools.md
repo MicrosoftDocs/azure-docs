@@ -13,7 +13,7 @@ ms.topic: how-to
 <!-- Intent: As a dev infrastructure manager, I want to be able to manage dev box pools so that I can provide appropriate dev boxes to my users. -->
 
 # Manage a dev box pool
-To enable developers to self-serve dev boxes in projects, you must configure dev box pools that specify the dev box definitions and network connections used when dev boxes are created. Dev box users create dev boxes using the dev box pool. 
+To enable developers to self-serve dev boxes from projects, you must configure dev box pools that specify the dev box definitions and network connections used when dev boxes are created. Dev box users create dev boxes using the dev box pool. 
 
 ## Permissions
 To manage a dev box pool, you need the following permissions:
@@ -23,11 +23,11 @@ To manage a dev box pool, you need the following permissions:
 |Create, delete, or update dev box pool|Owner or Contributor permissions on an Azure Subscription or a specific resource group. </br> DevCenter Project Admin for the project.|
 
 ## Create a dev box pool
-A dev box pool is a collection of dev boxes that you manage together. You must have a pool before users can create a dev box, and all dev boxes created in the pool will be in the same region. 
+A dev box pool is a collection of dev boxes that you manage together. You must have a pool before users can create a dev box.  
 
 The following steps show you how to create a dev box pool associated with a project. You'll use an existing dev box definition and network connection in the dev center to configure a dev box pool. 
 
-<!-- how many can you create dev box pools? can you create -->
+<!-- how many dev box pools can you create -->
 
 If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md) to create them.
 
@@ -37,7 +37,7 @@ If you don't have an available dev center with an existing dev box definition an
 
    :::image type="content" source="./media/how-to-manage-dev-box-pools/discover-projects.png" alt-text="Screenshot showing a search for projects from the Azure portal search box.":::
 
-1. Open the project in which you want to create the dev box pool.
+1. Open the project with which you want to associate the new dev box pool.
   
    :::image type="content" source="./media/how-to-manage-dev-box-pools/projects-grid.png" alt-text="Screenshot of the list of existing projects.":::
 
@@ -67,9 +67,9 @@ The dev box pool will be deployed and health checks will be run to ensure the im
 
 
 ## Delete a dev box pool
-You can delete a dev box pool when you are no longer using it. Deleting a dev box pool will delete all the existing dev boxes within the pool.
+You can delete a dev box pool when you are no longer using it. 
 
-> [!IMPORTANT]
+> [!CAUTION]
 > When you delete a dev box pool, all existing dev boxes within the pool will be permanently deleted.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
