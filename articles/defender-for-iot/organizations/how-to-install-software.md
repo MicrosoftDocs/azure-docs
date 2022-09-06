@@ -119,6 +119,8 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are listed. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
 
+    For more information, see [Default privileged on-premises users](roles.md#default-privileged-on-premises-users).
+
     Select `<Ok>` when you're ready to continue.
 
     The installation continues running again, and then reboots when the installation is complete. Upon reboot, you're prompted to enter credentials to sign in. For example:
@@ -185,11 +187,13 @@ During the installation process, you can add a secondary NIC. If you choose not 
 
 1. Accept the settings and continue by typing `Y`.
 
-1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.
+1. After about 10 minutes, the two sets of credentials appear. For example:
 
    :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they won't be presented again.":::
 
    Save the usernames and passwords, you'll need these credentials to access the platform the first time you use it.
+
+    For more information, see [Default privileged on-premises users](roles.md#default-privileged-on-premises-users).
 
 1. Select **Enter** to continue.
 
@@ -246,7 +250,7 @@ This command will cause the light on the port to flash for the specified time pe
 
 After you've finished installing OT monitoring software on your appliance, test your system to make sure that processes are running correctly. The same validation process applies to all appliance types.
 
-System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the **Support** and **CyberX** users.
+System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the **support** and **cyber** users.
 
 After installing OT monitoring software, make sure to run the following tests:
 
@@ -274,7 +278,7 @@ The interface between the IT firewall, on-premises management console, and the O
 
 **To enable tunneling access for sensors**:
 
-1. Sign in to the on-premises management console's CLI with the **CyberX** or the **Support** user credentials.
+1. Sign in to the on-premises management console's CLI with the **cyberx** or the **support** user credentials. For more information, see [On-premises users for Defender for IoT](roles.md#on-premises-users-for-defender-for-iot).
 
 1. Enter `sudo cyberx-management-tunnel-enable`.
 

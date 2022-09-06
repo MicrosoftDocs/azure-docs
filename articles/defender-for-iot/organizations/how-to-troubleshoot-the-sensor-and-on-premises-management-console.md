@@ -252,7 +252,8 @@ In cases where the sensor needs to be relocated or erased, the sensor can be res
 > Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
 
 **To clear system data**:
-1. Sign in to the sensor as the **cyberx** user.
+1. Sign in to the sensor as the **cyberx** user. For more information, see [On-premises users for Defender for IoT](roles.md#on-premises-users-for-defender-for-iot).
+
 1. Select **Support** > **Clear system data**, and confirm that you do want to reset the sensor to factory default data.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/warning-screenshot.png" alt-text="Screenshot of warning message.":::

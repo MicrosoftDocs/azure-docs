@@ -131,9 +131,11 @@ This procedure describes how to install the sensor software on your VM.
 
 1. The following credentials are automatically generated and presented. Copy the usernames and passwords to a safe place, because they're required to sign-in and manage your sensor. The usernames and passwords won't be presented again.
 
-    - **Support**: The administrative user for user management.
+    - **support**: The administrative user for user management.
 
-    - **CyberX**: The equivalent of root for accessing the appliance.
+    - **cyberX**: The equivalent of root for accessing the appliance.
+
+    For more information, see [On-premises users for Defender for IoT](roles.md#on-premises-users-for-defender-for-iot).
 
 1. When the appliance restarts, access the sensor via the IP address previously configured: `https://<ip_address>`.
 

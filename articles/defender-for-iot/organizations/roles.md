@@ -39,7 +39,9 @@ For more information, see [Azure built-in roles](/azure/role-based-access-contro
 
 ## On-premises users for Defender for IoT
 
-By default, each sensor and on-premises management console is installed with the *cyberx* and *support* privileged users. Sensors are also installed with the *cyberx_host* privileged user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create extra users for security analysts and read-only users.
+By default, each sensor and on-premises management console is installed with the *cyberx* and *support* privileged users. Sensors are also installed with the *cyberx_host* privileged user. For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software).
+
+Privileged users have access to advanced tools for troubleshooting and setup. When first deploying Defender for IoT, sign in with these user credentials, create an admin user, and then create extra users with **Security Analyst** or **Read-only** roles.
 
 ### Default privileged on-premises users
 
