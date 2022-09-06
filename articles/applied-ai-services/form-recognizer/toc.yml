@@ -228,7 +228,8 @@ items:
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     - name: Error codes and messages v3.0
       href: v3-error-guide.md
-    - name: "Supported REST API v3.0 SDKs\n\n (Search for Form Recognizer)"
+    - name: Supported REST API v3.0 SDKs\n\n |
+            (Search for Form Recognizer)
       items:
       - name: .NET
         href: https://azure.github.io/azure-sdk/releases/latest/dotnet.html
