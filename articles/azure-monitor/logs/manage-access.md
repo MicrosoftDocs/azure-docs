@@ -78,7 +78,7 @@ The *access control mode* is a setting on each workspace that defines how permis
     > [!NOTE]
     > If a user has only resource permissions to the workspace, they can only access the workspace by using resource-context mode assuming the workspace access mode is set to **Use resource or workspace permissions**.
 
-### Configure access control mode for a workspace
+### Configure workspace access control mode
 
 # [Azure portal](#tab/portal)
 
@@ -144,7 +144,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 ---
 
-## Workspace-level access control
+## Set workspace-level permissions
 
 Access to a workspace is managed by using [Azure RBAC](../../role-based-access-control/role-assignments-portal.md). To grant access to the Log Analytics workspace by using Azure permissions, follow the steps in [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
@@ -276,7 +276,7 @@ Grant a user access to log data from their resources and read all Azure AD sign-
   - `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`: Required to be able to use Update Management solutions
 - Grant users the following permissions to their resources: `*/read`, assigned to the Reader role, or `Microsoft.Insights/logs/*/read`
 
-## Table-level access control
+## Set table-level read access
 
 Define [Azure RBAC](../../role-based-access-control/overview.md) at the table level to control which users have read access to any specific table.
 
@@ -291,7 +291,7 @@ $objectId = '<ID of the user or group to which you want to grant access>'
 .\grantTableLevelRbacps1.ps -workspaceFullId $workspaceFullId -subscriptionId $subscriptionId -tableNames $tableNames -objectId $objectId
 ```
 
-### Legacy method of setting table-level access control
+### Legacy method of setting table-level read access
 
 [Azure custom roles](../../role-based-access-control/custom-roles.md) let you grant access to specific [tables](../logs/data-platform-logs.md) in the workspace, although we recommend defining [table-level access control](#table-level-access-control) as described above. 
 
