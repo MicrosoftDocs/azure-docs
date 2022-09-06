@@ -2,7 +2,7 @@
 title:  Perform ongoing administration for Arc-enabled VMware vSphere
 description: Learn how to perform day 2 administrator operations related to Azure Arc-enabled VMware vSphere
 ms.topic: how-to 
-ms.date: 03/28/2022
+ms.date: 08/25/2022
 
 ---
 
@@ -10,7 +10,7 @@ ms.date: 03/28/2022
 
 In this article, you'll learn how to perform various administrative operations related to Azure Arc-enabled VMware vSphere (preview):
 
-- Upgrading the Arc resource bridge
+- Upgrading the Azure Arc resource bridge (preview)
 - Updating the credentials
 - Collecting logs from the Arc resource bridge
 
@@ -21,7 +21,7 @@ Each of these operations requires either SSH key to the resource bridge VM or th
 Azure Arc-enabled VMware vSphere requires the Arc resource bridge to connect your VMware vSphere environment with Azure. Periodically, new images of Arc resource bridge will be released to include security and feature updates.
 
 > [!NOTE]
-> To upgrade the arc resource bridge VM to the latest version, you will need to perform the onboarding again with the **same resource IDs**. This will cause some downtime as operations performed through Arc during this time might fail.
+> To upgrade the Arc resource bridge VM to the latest version, you will need to perform the onboarding again with the **same resource IDs**. This will cause some downtime as operations performed through Arc during this time might fail.
 
 To upgrade to the latest version of the resource bridge, perform the following steps:
 
@@ -63,7 +63,7 @@ Azure Arc-enabled VMware vSphere uses the vSphere account credentials you provid
 
 As part of your security practices, you might need to rotate credentials for your vCenter accounts. As credentials are rotated, you must also update the credentials provided to Azure Arc to ensure the functioning of Azure Arc-enabled VMware services.
 
-There are two different sets of credentials stored on the Arc resource bridge. But you can use the same account credentials for both.
+There are two different sets of credentials stored on the Arc resource bridge. You can use the same account credentials for both.
 
 - **Account for Arc resource bridge**. This account is used for deploying the Arc resource bridge VM and will be used for upgrade.
 - **Account for VMware cluster extension**. This account is used to discover inventory and perform all VM operations through Azure Arc-enabled VMware vSphere
@@ -100,7 +100,7 @@ az arcappliance logs <provider> --out-dir <path to specified output directory> -
 
 During initial onboarding, SSH keys are saved to the workstation. If you're running this command from the workstation that was used for onboarding, no other steps are required.
 
-If you're running this command from a different workstation,  you must make sure the following files are copied to the new workstation in the same location.
+If you're running this command from a different workstation, make sure the following files are copied to the new workstation in the same location.
 
 - For a Windows workstation, `C:\ProgramData\kva\.ssh\logkey` and `C:\ProgramData\kva\.ssh\logkey.pub`
   
@@ -108,4 +108,5 @@ If you're running this command from a different workstation,  you must make sure
 
 ## Next steps
 
-[Troubleshoot common issues related to resource bridge](../resource-bridge/troubleshoot-resource-bridge.md)
+- [Troubleshoot common issues related to resource bridge](../resource-bridge/troubleshoot-resource-bridge.md)
+- [Understand disaster recovery operations for resource bridge](disaster-recovery.md)

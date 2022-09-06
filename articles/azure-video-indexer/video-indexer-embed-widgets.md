@@ -7,7 +7,7 @@ ms.author: juliako
 ms.custom: devx-track-js
 ---
 
-# Embed Video Analyzer for Media widgets in your apps
+# Embed Azure Video Indexer widgets in your apps
 
 This article shows how you can embed Azure Video Indexer widgets in your apps. Azure Video Indexer supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
 

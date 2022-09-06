@@ -12,7 +12,7 @@
       href: integrations.md
       displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul, github, actions
     - name: Solution architectures
-      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json?WT.mc_id=AKSDOCSTOC
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
 - name: Quickstarts
   expanded: true
   items:
@@ -25,6 +25,9 @@
           href: learn/quick-kubernetes-deploy-powershell.md
         - name: Use the Azure portal
           href: learn/quick-kubernetes-deploy-portal.md
+        - name: Use Bicep
+          displayName: Resource Manager,arm,template
+          href: learn/quick-kubernetes-deploy-bicep.md
         - name: Use ARM template
           displayName: Resource Manager
           href: learn/quick-kubernetes-deploy-rm-template.md
@@ -96,7 +99,7 @@
     - name: Service meshes
       href: servicemesh-about.md
     - name: Sustainable software engineering
-      href: concepts-sustainable-software-engineering.md      
+      href: concepts-sustainable-software-engineering.md
     - name: Dapr
       href: dapr-overview.md
     - name: GitOps
@@ -169,6 +172,16 @@
   items:
     - name: Cluster operations
       items:
+        - name: Abort long running operations
+          href: manage-abort-operations.md
+        - name: Automatically upgrade an AKS cluster
+          href: auto-upgrade-cluster.md
+        - name: Configure an AKS cluster
+          href: cluster-configuration.md
+        - name: Custom node configuration
+          href: custom-node-configuration.md
+        - name: Integrate ACR with an AKS cluster
+          href: cluster-container-registry-integration.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop/Deallocate nodes with Scale-down Mode
@@ -181,8 +194,6 @@
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
-        - name: Automatically upgrade an AKS cluster
-          href: auto-upgrade-cluster.md
         - name: Use Uptime SLA
           href: uptime-sla.md
         - name: Use Draft (preview)
@@ -195,12 +206,6 @@
           href: node-upgrade-github-actions.md
         - name: Process node OS updates
           href: node-updates-kured.md
-        - name: Configure an AKS cluster
-          href: cluster-configuration.md
-        - name: Custom node configuration
-          href: custom-node-configuration.md
-        - name: Integrate ACR with an AKS cluster
-          href: cluster-container-registry-integration.md
         - name: Create virtual nodes
           items:
             - name: Use virtual nodes
@@ -265,7 +270,7 @@
             - name: Create service principal
               href: kubernetes-service-principal.md
             - name: Use managed identities
-              href: use-managed-identity.md 
+              href: use-managed-identity.md
             - name: Limit access to cluster configuration file
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
@@ -308,7 +313,7 @@
             - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
             - name: Secure pod traffic with network policies
-              href: use-network-policies.md  
+              href: use-network-policies.md
             - name: Use pod security policies (preview)
               href: use-pod-security-policies.md
             - name: Use Pod Security Admission
@@ -322,7 +327,7 @@
                 - name: Configure TLS for NGINX ingress controller
                   href: csi-secrets-store-nginx-tls.md
                 - name: Troubleshooting
-                  href: csi-secrets-store-troubleshooting.md        
+                  href: csi-secrets-store-troubleshooting.md
     - name: Configure private clusters
       items:
       - name: Create a private cluster
@@ -339,6 +344,8 @@
               href: configure-kubenet-dual-stack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
+            - name: Use Azure-CNI Overlay (Preview)
+              href: azure-cni-overlay.md
         - name: Use API Server VNet Integration
           href: api-server-vnet-integration.md
         - name: Bring your own CNI
@@ -371,7 +378,7 @@
             - name: Use a user defined route for egress
               href: egress-outboundtype.md
             - name: Managed NAT Gateway
-              href: nat-gateway.md              
+              href: nat-gateway.md
         - name: Customize CoreDNS
           href: coredns-custom.md
     - name: Configure storage

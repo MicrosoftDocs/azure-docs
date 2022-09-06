@@ -77,6 +77,9 @@ You need an Azure Media Services account. You can create one for free through [C
 
 ### managedIdentityId
 
+> [!NOTE]
+> User assigned managed Identify must have at least Contributor role on the Media Service before deployment, when using System Assigned Managed Identity the Contributor role should be assigned after deployment.
+
 * Type: string
 * Description: The resource ID of the managed identity that's used to grant access between Azure Media Services resource and the Azure Video Indexer account.
 * Required: true
