@@ -241,7 +241,7 @@ To enable SMB signing in your Azure Device:
 
 ## Enable Backup Operator privileges
 
-Your web UI users have Backup Operator privileges on SMB shares by default. If you don't want this, use **Enable Back Operator privileges** to disable or enable the privileges.
+Your web UI users have Backup Operator privileges on SMB shares by default. If you don't want this, use **Enable Backup Operator privileges** to disable or enable the privileges.
 
 For information, see Backup Operators in [Active Directory Security Groups](/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
 
