@@ -283,7 +283,7 @@ Azure App Service provides a web-based diagnostics console named [Kudu](./resour
         **Step 2.** In the Kudu page, select **Deployments**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-2.png" alt-text="A screenshot of the main page in the Kudu SCM app showing the different information available about the hosting environment. lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-2.png":::
+        :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-2.png" alt-text="A screenshot of the main page in the Kudu SCM app showing the different information available about the hosting environment." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
