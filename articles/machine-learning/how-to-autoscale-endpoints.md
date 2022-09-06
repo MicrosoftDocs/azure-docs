@@ -50,6 +50,7 @@ The following snippet creates the autoscale profile:
 > For more, see the [reference page for autoscale](/cli/azure/monitor/autoscale)
 
 # [Python](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 Import modules:
 ```python
@@ -150,8 +151,7 @@ Under __Choose how to scale your resources__, select __Custom autoscale__ to beg
 A common scaling out rule is one that increases the number of VM instances when the average CPU load is high. The following example will allocate two more nodes (up to the maximum) if the CPU average a load of greater than 70% for five minutes::
 
 # [Python](#tab/python)
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_out_on_cpu_util" :::
 
@@ -238,6 +238,7 @@ When load is light, a scaling in rule can reduce the number of VM instances. The
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_in_on_cpu_util" :::
 
 # [Python](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 Create the rule definition: 
 
@@ -320,6 +321,7 @@ The previous rules applied to the deployment. Now, add a rule that applies to th
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_up_on_request_latency" :::
 
 # [Python](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 Create the rule definition: 
 
@@ -403,6 +405,7 @@ You can also create rules that apply only on certain days or at certain times. I
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="weekend_profile" :::
 
 # [Python](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python 
 mon_client.autoscale_settings.create_or_update(
@@ -459,6 +462,7 @@ If you are not going to use your deployments, delete them:
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
 mon_client.autoscale_settings.delete(
