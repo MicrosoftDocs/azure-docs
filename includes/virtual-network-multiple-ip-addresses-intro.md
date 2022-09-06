@@ -22,6 +22,7 @@ An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached 
 * Hosting multiple websites or services with different IP addresses and SSL certificates on a single server.
 * Serve as a network virtual appliance, such as a firewall or load balancer.
 * The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool. To learn more about how to load balance inbound multiple IP configurations, read the [Load balancing multiple IP configurations](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
+
 > [!NOTE]
 > Secondary IPConfigs are not supported for use in Outbound rules in Public Load Balancers.
 
