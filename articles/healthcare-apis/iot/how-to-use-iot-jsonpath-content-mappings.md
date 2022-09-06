@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 09/02/2022
+ms.date: 09/06/2022
 ms.author: jasteppe
 ---
 
@@ -41,8 +41,8 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 ```json
 
 {
-    "Body": {
-        "heartRate": "78"        
+   "Body": {
+   "heartRate": "78"        
     },
     "Properties": {
         "iothub-creation-time-utc" : "2021-02-01T22:46:01.8750000Z"
@@ -59,19 +59,24 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 ```json
 
 {
-  "templateType": "IotJsonPathContentTemplate",
-  "template": {
-    "typeName": "heartrate",
-    "typeMatchExpression": "$..[?(@Body.heartRate)]"
-    "values": [
+    "templateType": "CollectionContent",
+    "template": [
       {
-            "required": "true",
-            "valueExpression": "$.Body.heartRate",
-            "valueName": "hr"
+        "templateType": "IotJsonPathContentTemplate",
+        "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@Body.heartRate)]",
+        "values": [
+          {  
+             "required": "true",
+             "valueExpression": "$.Body.heartRate",
+             "valueName": "hr"
+          }
+        ]
       }
-    ]
-  }
-}   
+    }
+  ]
+}  
 
 ```
 
@@ -82,17 +87,17 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 ```json
 
 {
-    "Body": {
-        "systolic": "123",
-        "diastolic" : "87"
-    },
-    "Properties": {
-        "iothub-creation-time-utc" : "2021-02-01T22:46:01.8750000Z"
-    },
-    "SystemProperties": {
-        "iothub-connection-device-id" : "device123"
+   "Body": {
+   "systolic": "123",
+   "diastolic" : "87"
+      },
+      "Properties": {
+         "iothub-creation-time-utc" : "2021-02-01T22:46:01.8750000Z"
+      },
+      "SystemProperties": {
+         "iothub-connection-device-id" : "device123"
     }
-}
+}   
 
 ```
 
@@ -101,23 +106,76 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 ```json
 
 {
-  "templateType": "IotJsonPathContentTemplate",
-  "template": {
-    "typeName": "bloodpressure",
-    "typeMatchExpression": "$..[?(@Body.systolic && @Body.diastolic)]",
-    "values": [
-      {
+    "templateType": "CollectionContent",
+    "template": [
+      { 
+        "templateType": "IotJsonPathContentTemplate",
+        "template": {
+        "typeName": "bloodpressure",
+        "typeMatchExpression": "$..[?(@Body.systolic && @Body.diastolic)]",
+        "values": [
+          {
+             "required": "true",
+             "valueExpression": "$.Body.systolic",
+             "valueName": "systolic"
+          },
+          {
+             "required": "true",
+             "valueExpression": "$.Body.diastolic",
+             "valueName": "diastolic"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+```
+
+> [!TIP]
+> The above IotJsonPathTemplate examples will work separately with your MedTech service device mapping or you can combine them into a single MedTech service device mapping as shown below. Additionally, the IotJasonPathTemplates can also be combined with with other template types such as [JasonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to create and tune your MedTech service device mapping to meet your individual needs and scenarios. 
+
+*Template*
+
+```json
+
+{
+    "templateType": "CollectionContent",
+    "template": [
+    {
+       "templateType": "IotJsonPathContentTemplate",
+       "template": {
+       "typeName": "heartrate",
+       "typeMatchExpression": "$..[?(@Body.heartRate)]",
+       "values": [
+           {
+             "required": "true",
+             "valueExpression": "$.Body.heartRate",
+             "valueName": "hr"
+           }
+         ]  
+      }
+    },
+    {
+       "templateType": "IotJsonPathContentTemplate",
+       "template": {
+       "typeName": "bloodpressure",
+       "typeMatchExpression": "$..[?(@Body.systolic && @Body.diastolic)]",
+       "values": [
+          {  
             "required": "true",
             "valueExpression": "$.Body.systolic",
             "valueName": "systolic"
-      },
-      {
+          },
+          {
             "required": "true",
             "valueExpression": "$.Body.diastolic",
             "valueName": "diastolic"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }
 
 ```
@@ -130,6 +188,6 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 In this article, you learned how to use IotJsonPathContentTemplate mappings with the MedTech service device mapping. To learn how to use MedTech service FHIR destination mapping, see
 
 >[!div class="nextstepaction"]
->[How to use FHIR destination mapping](how-to-use-fhir-mappings.md)
+>[How to use the FHIR destination mapping](how-to-use-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

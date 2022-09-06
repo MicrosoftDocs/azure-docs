@@ -20,10 +20,8 @@
     href: invite-users.md
 - name: Tutorials
   items:
-  - name: Create an ARM-based account (preview)
+  - name: Create an ARM-based account
     href: create-account-portal.md
-  - name: Create a classic account
-    href: connect-to-azure.md
   - name: Deploy using Bicep
     displayName: ARM,template,resource manager
     href: deploy-with-bicep.md
@@ -103,7 +101,7 @@
         href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: How to guides
   items:
-  - name: Connect an existing account to ARM (preview)
+  - name: Connect an existing account to ARM
     href: connect-classic-account-to-arm.md
   - name: Add contributor role to Media Services
     href: add-contributor-role-on-the-media-service.md    
