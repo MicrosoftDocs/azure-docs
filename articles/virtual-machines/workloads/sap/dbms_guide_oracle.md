@@ -207,7 +207,7 @@ Major differences to Variant 1 are:
 <td><p>- All data files</p>
 <p>- All temp files</p>
 <p>- Control file (first copy)</p></td>
-<td><p>3-12 x P30 (1TB)</p>
+<td><p>3-12 x P30 (1 TB)</p>
 <p>To increase DB size, add extra P30 disks</p></td>
 </tr>
 <tr class="even">
@@ -270,7 +270,7 @@ ASM Disk Group</p></td>
 <td>+ARCH</td>
 <td><p>- Control file (second copy)</p>
 <p>- Archived redo logs</p></td>
-<td>3-8 x P20 (512GB) or P30 (1 TB)</td>
+<td>3-8 x P20 (512 GB) or P30 (1 TB)</td>
 </tr>
 <tr class="even">
 <td>+RECO</td>
