@@ -21,7 +21,7 @@ zone_pivot_groups: acs-csharp-java
 This quickstart will help you get started with playing audio files to participants by using the play action provided through Azure Communication Services Call Automation SDK.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Play audio with .NET](./includes/call-automation-media/Play-audio-quickstart-c#.md)]
+[!INCLUDE [Play audio with .NET](./includes/call-automation-media/Play-audio-quickstart-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
