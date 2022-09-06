@@ -244,7 +244,7 @@ Customer-initiated live migration is only available from the Azure portal, not f
 
 #### Support-requested live migration
 
-Customer-initiated live migration is preferred over requesting it by opening a support request. However, if you do not want to use the preview feature, you can still request live migration through the [Azure Support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Customer-initiated live migration is preferred over requesting it by opening a support request. However, if you do not want to use the preview feature, you can request live migration through the [Azure Support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 > [!IMPORTANT]
 > If you need to migrate more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Details** tab.
