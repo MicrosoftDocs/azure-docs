@@ -96,7 +96,7 @@ Follow these steps to enable replication:
 8. Then, provide the test failover network details.
 
    > [!NOTE]
-   > Ensure that the test failover network is different from the failover network. This is to make sure the failover network is readily available readily in case of an actual disaster.
+   > Ensure that the test failover network is different from the failover network. This is to make sure the failover network is readily available in case of an actual disaster.
 
 9. Select the storage.
 
@@ -106,7 +106,7 @@ Follow these steps to enable replication:
       By default, a new LRS v1 type storage account will be created by Azure Site Recovery for the first enable replication operation in a vault. For the next operations, the same cache storage account will be re-used.
     -  Managed disks
 
-       By default, Standard HDD managed disks are created in Azure. You can customize the type of Managed disks by Selecting **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](../virtual-machines/disks-types.md#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, refer to the managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
+       By default, Standard HDD managed disks are created in Azure. You can customize the type of Managed disks by Selecting **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](../virtual-machines/disks-types.md#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
 
        >[!NOTE]
        > If Mobility Service is installed manually before enabling replication, you can change the type of managed disk, at a disk level. Else, by default, one managed disk type can be chosen at a machine level
@@ -141,9 +141,9 @@ To stop replication of the VM in the primary region, you must disable replicatio
 - The Site Recovery extension installed on the VM during replication isn't removed.
 - Site Recovery billing for the VM stops.
 
-To disable replication, perform these steps:
+To disable replication, follow these steps:
 
-1. On the Azure portal menu, select **Virtual machines** and select the VM that you replicated.
+1. On the Azure portal, select **Virtual machines** and select the VM that you replicated.
 1. In **Operations**, select **Disaster recovery**.
 1. From **Overview**, select **Disable Replication**.
 1. To uninstall the Site Recovery extension, go to the VM's **Settings** > **Extensions**.
