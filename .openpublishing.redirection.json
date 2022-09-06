@@ -1,14 +1,19 @@
 {
 	"redirections": [
-		{
+{
     "source_path":  "articles/api-management/zone-redundancy.md",
     "redirect_url":  "/azure/availability-zones/migrate-api-mgt",
     "redirect_document_id":  false
 },
 {
-  "source_path":  "articles/api-management/breaking-changes/rp-source-ip-address-change-mar2023.md",
-  "redirect_url":  "/azure/api-management/breaking-changes/rp-source-ip-address-change-mar-2023",
-  "redirect_document_id":  false
+    "source_path":  "articles/api-management/breaking-changes/rp-source-ip-address-change-mar2023.md",
+    "redirect_url":  "/azure/api-management/breaking-changes/rp-source-ip-address-change-mar-2023",
+    "redirect_document_id":  false
+},
+{
+    "source_path":  "articles/api-management/developer-portal-implement-widgets.md",
+    "redirect_url":  "/azure/api-management/developer-portal-extend-custom-functionality",
+    "redirect_document_id":  false
 },
 {
     "source_path":  "articles/virtual-machines/linux/find-unattached-nics.md",
@@ -6926,6 +6931,11 @@
 {
     "source_path_from_root":  "/articles/azure-government/documentation-government-services-webandmobile.md",
     "redirect_url":  "/azure/azure-government/compare-azure-government-global-azure",
+    "redirect_document_id":  false
+},
+{
+    "source_path_from_root":  "/articles/azure-government/documentation-government-overview.md",
+    "redirect_url":  "/azure/azure-government/documentation-government-plan-security",
     "redirect_document_id":  false
 },
 {
@@ -23119,6 +23129,11 @@
     "redirect_document_id":  false
 },
 {
+    "source_path_from_root":  "/articles/virtual-machines/virtual-machines-windows-sizes.md",
+    "redirect_url":  "/azure/virtual-machines/acu",
+    "redirect_document_id":  true
+},
+{
     "source_path_from_root":  "/articles/storage/storage-file-how-to-create-file-share.md",
     "redirect_url":  "/azure/storage/files/storage-how-to-create-file-share",
     "redirect_document_id":  true
@@ -34241,6 +34256,11 @@
 {
     "source_path_from_root":  "/articles/virtual-machines/windows/winrm.md",
     "redirect_url":  "/azure/virtual-machines/windows/connect-winrm",
+    "redirect_document_id":  false
+},
+{
+    "source_path_from_root":  "/articles/azure-arc/servers/data-residency.md",
+    "redirect_url":  "/azure/azure-arc/servers/overview",
     "redirect_document_id":  false
 },
 {

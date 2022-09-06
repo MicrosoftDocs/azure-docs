@@ -45,8 +45,13 @@ The following image shows a properly configured distributed availability group:
 
 2. Provision the managed instance in the secondary site and configure as a disaster recovery instance. At this point, the system databases are not part of the contained availability group.
 
+> [!NOTE]
+> - It is important to specify `--license-type DisasterRecovery` **during** the Azure Arc SQL MI creation. This will allow the DR instance to be seeded from the primary instance in the primary data center. Updating this property post deployment will not have the same effect.
+
+
+
    ```azurecli
-   az sql mi-arc create --name <secondaryinstance> --tier bc --replicas 3 –license-type DisasterRecovery --k8s-namespace <namespace> --use-k8s
+   az sql mi-arc create --name <secondaryinstance> --tier bc --replicas 3 --license-type DisasterRecovery --k8s-namespace <namespace> --use-k8s
    ```
 
 3. Copy the mirroring certificates from each site to a location that's accessible to both the geo-primary and geo-secondary instances. 
