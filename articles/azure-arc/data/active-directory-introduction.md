@@ -3,7 +3,7 @@ title: Introduction to Azure Arc-enabled data services with Active Directory aut
 description: Introduction to Azure Arc-enabled data services with Active Directory authentication
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray

@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 08/04/2022
 ---
 
 # Move Azure Machine Learning workspaces between subscriptions (preview)
@@ -25,7 +25,8 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 
 | Workspace contents | Moved with workspace |
 | ----- |:-----:|
-| Datasets | Yes |
+| Datastores | Yes |
+| Datasets | No |
 | Experiment jobs | Yes |
 | Environments | Yes |
 | Models and other assets stored in the workspace | Yes |
@@ -72,6 +73,7 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 * The workspace mustn't be in use during the move operation. Verify that all experiment jobs, data profiling jobs, and labeling projects have completed. Also verify that inference endpoints aren't being invoked.
 * The workspace will become unavailable during the move.
 * Before to the move, you must delete or detach computes and inference endpoints from the workspace.
+* Datastores may still show the old subscription information after the move.
 
 ## Prepare and validate the move
 

@@ -24,7 +24,7 @@ Samples to get started:
 * [Quickstart: ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB on Azure App Service](https://github.com/azure-samples/todo-nodejs-mongo) to get started. \
 This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Node.js for the API, Azure Cosmos DB API for MongoDB for storage, and Azure Monitor for monitoring and logging.
 
-* [Quickstart: ToDo Application with a C# API and Azure Cosmos DB API for MongoDB on Azure App Service](https://github.com/Azure-Samples/todo-csharp-mongo) \
+* [Quickstart: ToDo Application with a C# API and Azure Cosmos DB API for MongoDB on Azure App Service](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) \
 This sample demonstrates how to build an Azure solution using C#, Azure Cosmos DB API for MongoDB for storage, and Azure Monitor for monitoring and logging.
 
 * [Quickstart: ToDo Application with a Python API and Azure Cosmos DB API for MongoDB on Azure App Service](https://github.com/Azure-Samples/todo-python-mongo) \
@@ -94,4 +94,4 @@ Azure AD managed identities eliminate the need for developers to manage credenti
 
 Learn about other key integrations:
 * [Monitor Azure Cosmos DB with Azure Monitor.](/azure/cosmos-db/monitor-cosmos-db?tabs=azure-diagnostics.md)
-* [Set up analytics with Azure Synapse Link.](/azure/cosmos-db/configure-synapse-link.md)
+* [Set up analytics with Azure Synapse Link.](/azure/cosmos-db/configure-synapse-link)

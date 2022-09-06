@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/21/2022
+ms.date: 08/19/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp
@@ -21,7 +21,6 @@ ms.custom: azureday1, devx-track-azurepowershell
 [!INCLUDE [tutorial-content-above-code](./includes/tutorial-microsoft-graph-as-app/introduction.md)]
 
 ## Call Microsoft Graph
-
 
 The [ChainedTokenCredential](/dotnet/api/azure.identity.chainedtokencredential), [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential), and [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) classes are used to get a token credential for your code to authorize requests to Microsoft Graph. Create an instance of the [ChainedTokenCredential](/dotnet/api/azure.identity.chainedtokencredential) class, which uses the managed identity in the App Service environment or the development environment variables to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
 

@@ -139,7 +139,7 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
 
     - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that are not connected to Arc will be surfaced by the recommendation “GCP VM instances should be connected to Azure Arc”. Use the “Fix” option offered in this recommendation to install Azure Arc on the selected machines.
 
-- Ensure you've fulfilled the [network requirements for Azure Arc](/azure-arc/servers/network-requirements.md).
+- Ensure you've fulfilled the [network requirements for Azure Arc](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud).
 
 - Additional extensions should be enabled on the Arc-connected machines.
     - Microsoft Defender for Endpoint
@@ -378,11 +378,12 @@ To view all the active recommendations for your resources by resource type, use 
 ## FAQ - Connecting GCP projects to Microsoft Defender for Cloud
 
 ### Is there an API for connecting my GCP resources to Defender for Cloud?
-Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/securitycenter/security-connectors).
+Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/defenderforcloud/security-connectors).
 
 ## Next steps
 
-Connecting your GCP project is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following page:
+Connecting your GCP project is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following pages:
 
 - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
-- [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)--Learn about the Google Cloud resource hierarchy in Google's online docs
+- [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) - Learn about the Google Cloud resource hierarchy in Google's online docs
+- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector)

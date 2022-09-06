@@ -150,7 +150,16 @@ In the following example:
 If the `microsoft.flux` extension isn't already installed in the cluster, it'll be installed. When the flux configuration is installed, the initial compliance state may be "Pending" or "Non-compliant" because reconciliation is still on-going.  After a minute you can query the configuration again and see the final compliance state.
 
 ```console
-az k8s-configuration flux create -g flux-demo-rg -c flux-demo-arc -n cluster-config --namespace cluster-config -t connectedClusters --scope cluster -u https://github.com/Azure/gitops-flux2-kustomize-helm-mt --branch main  --kustomization name=infra path=./infrastructure prune=true --kustomization name=apps path=./apps/staging prune=true dependsOn=["infra"]
+az k8s-configuration flux create -g flux-demo-rg \
+-c flux-demo-arc \
+-n cluster-config \
+--namespace cluster-config \
+-t connectedClusters \
+--scope cluster \
+-u https://github.com/Azure/gitops-flux2-kustomize-helm-mt \
+--branch main  \
+--kustomization name=infra path=./infrastructure prune=true \
+--kustomization name=apps path=./apps/staging prune=true dependsOn=\["infra"\]
 
 'Microsoft.Flux' extension not found on the cluster, installing it now. This may take a few minutes...
 'Microsoft.Flux' extension was successfully installed on the cluster

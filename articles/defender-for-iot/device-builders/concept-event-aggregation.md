@@ -69,7 +69,7 @@ The data collected for each event is:
 | **Transport_protocol** | Can be TCP, UDP, or ICMP. |
 | **Application protocol** | The application protocol associated with the connection. |
 | **Extended properties** | The Additional details of the connection. For example, `host name`. |
-| **DNS hit count** | Total hit count of DNS requests |
+| **Hit count** | The count of packets observed |
 
 ## Login collector (event-based collector)
 
@@ -90,7 +90,6 @@ The following data is collected:
 | **user_name** | The Linux user. |
 | **executable** | The terminal device. For example, `tty1..6` or `pts/n`. |
 | **remote_address** | The source of connection, either a remote IP address in IPv6 or IPv4 format, or `127.0.0.1/0.0.0.0` to indicate local connection. |
-| **Login_UsePAM** | Boolean: <br>- **True**: Only the PAM Login collector is used <br>- **False**: The UTMP Login collector is used, with SYSLOG if SYSLOG is enabled |
 
 ## System Information (trigger-based collector)
 
@@ -152,6 +151,9 @@ How event aggregation works for the [Process events](#process-events-event-based
 Defender for IoT agents aggregate events during the send interval defined in the message frequency configuration for each collector, such as [**Process_MessageFrequency**](concept-micro-agent-configuration.md#process-collector-specific-settings) or [**NetworkActivity_MessageFrequency**](concept-micro-agent-configuration.md#network-activity-collector-specific-settings). Once the send interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis. The aggregated events are stored in memory until being sent to the Azure cloud.
 
 When the agent collects similar events to the ones that are already stored in memory, the agent will increase the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is the aggregation of the hit counts of similar events. For example, network activity with the same remote host and on the same port, is aggregated as one event, instead of as a separate event for each packet.
+
+> [!NOTE]
+> By default, the micro agent sends logs and telemetry to the cloud for troubleshooting and monitoring purposes. This behavior can be configured or turned off through the twin.
 
 ## Next steps
 

@@ -52,7 +52,7 @@ DESC LIMIT 5;
 ```
 
 
-##### [Postgres v9.6-12 & above](#tab/postgres9-12)
+##### [Postgres v9.6-12](#tab/postgres9-12)
 
 For Postgres versions 9.6, 10, 11, and 12, use the following statement to view the top five SQL statements by mean or average execution time: 
 
@@ -81,12 +81,12 @@ ORDER BY total_exec_time
 DESC LIMIT 5;   
 ```
 
-##### [Postgres v9.6-12 & above](#tab/postgres9-12)
+##### [Postgres v9.6-12](#tab/postgres9-12)
 
 For Postgres versions 9.6, 10, 11, and 12, use the following statement to view the top five SQL statements by total execution time: 
 
 ```postgresql
-SELECT userid: :regrole, dbid, query, 
+SELECT userid::regrole, dbid, query, 
 FROM pg_stat_statements 
 ORDER BY total_time 
 DESC LIMIT 5;    
