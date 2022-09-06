@@ -67,7 +67,7 @@ The dev box pool will be deployed and health checks will be run to ensure the im
 
 
 ## Delete a dev box pool
-You can delete a dev box pool when you are no longer using it. This will delete all the existing dev boxes within the pool.
+You can delete a dev box pool when you are no longer using it. Deleting a dev box pool will delete all the existing dev boxes within the pool.
 
 > [!IMPORTANT]
 > When you delete a dev box pool, all existing dev boxes within the pool will be permanently deleted.
@@ -75,8 +75,6 @@ You can delete a dev box pool when you are no longer using it. This will delete 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box, type *Projects* and then select **Projects** from the list.
-
-    <!--    :::image type="content" source="./media/how-to-manage-dev-box-pools/discovery-via-azure-portal.png" alt-text="Screenshot showing the Azure portal with the search box highlighted."::: -->
 
 1. Open the project from which you want to delete the dev box pool.
   
