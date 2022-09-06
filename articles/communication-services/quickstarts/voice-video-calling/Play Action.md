@@ -32,6 +32,5 @@ This quickstart will help you get started with playing audio files to participan
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
-## Next steps
 
-For more information, see the following articles:
+
