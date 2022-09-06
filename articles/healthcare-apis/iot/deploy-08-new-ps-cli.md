@@ -37,21 +37,17 @@ You can also review the **location** section of the **azuredeploy.json** file on
 
 ## Prerequisites
 
----
-
-# [PowerShell](#tab/PowerShell)
+### [PowerShell](#tab/PowerShell)
 
 * An Azure account with an active subscription: [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally: [Azure PowerShell](/powershell/azure/install-az-ps).
 
-# [CLI](#tab/CLI)
+### [CLI](#tab/CLI)
 
 * An Azure account with an active subscription: [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally:
     * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org).
     * [Azure CLI](/cli/azure/install-azure-cli).
-
----
 
 ## Deploy the MedTech service ARM template quickstart template
 
@@ -59,8 +55,6 @@ You can also review the **location** section of the **azuredeploy.json** file on
 > If you want to run the Azure PowerShell commands locally, first enter `Connect-AzAccount` into your PowerShell command-line shell to set up your Azure credentials.
 >
 > If you want to run the Azure CLI scripts commands locally, first enter `az login` into your PowerShell command-line shell to set up your Azure credentials.
-
----
 
 # [PowerShell](#tab/PowerShell)
 
@@ -77,11 +71,6 @@ You can also review the **location** section of the **azuredeploy.json** file on
    ```azurecli
    az account list-locations -o table
    ```
-
----
-
----
-
 # [PowerShell](#tab/PowerShell)
 
 2. If the `Microsoft.EventHub` resource provider isn't already registered with your subscription, you can use this code to register it.
@@ -189,5 +178,12 @@ deployment.
 > [!TIP]
 >
 > For a step-by-step tutorial that guides you through the process of creating an ARM template, see [Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+
+## Next steps
+
+In this article, you learned how perform post-deployment steps needed to make sure MedTech service performs properly. To learn more about other methods of deployment, see
+
+>[!div class="nextstepaction"]
+>[Choosing a method of deployment for MedTech service in Azure](deploy-iot-connector-in-azure.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
