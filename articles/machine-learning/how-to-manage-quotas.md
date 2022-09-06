@@ -219,11 +219,9 @@ When you're requesting a quota increase, select the service that you have in min
 When requesting the quota increase, provide the following information:
 
 1. When opening the support request, select __Machine Learning Service: Endpoint Limits__ as the __Quota type__.
-1. On the __Additional details__ tab, select __Enter details__ and then provide the quota you'd like to increase and the new value. Also provide the reason for the quota increase request.
+1. On the __Additional details__ tab, select __Enter details__ and then provide the quota you'd like to increase and the new value, the reason for the quota increase request, and __location(s)__ where you need the quota increase. Finally, select __Save and continue__ to continue.
 
     :::image type="content" source="./media/how-to-manage-quotas/quota-details.png" lightbox="./media/how-to-manage-quotas/quota-details.png" alt-text="Screenshot of the quota details form.":::
-
-1. Select the __location(s)__ where you need the quota increase, and then select __Save and continue__ to continue.
 
 ## Next steps
 
