@@ -39,8 +39,9 @@ Along with managing quotas, you can learn how to [plan and manage costs for Azur
 In this section, you learn about the default and maximum quota limits for the following resources:
 
 + Azure Machine Learning assets
-  + Azure Machine Learning compute
-  + Azure Machine Learning pipelines
+    + Azure Machine Learning compute
+    + Azure Machine Learning managed online endpoints
+    + Azure Machine Learning pipelines
 + Virtual machines
 + Azure Container Instances
 + Azure Storage
@@ -218,9 +219,11 @@ When you're requesting a quota increase, select the service that you have in min
 When requesting the quota increase, provide the following information:
 
 1. When opening the support request, select __Machine Learning Service: Endpoint Limits__ as the __Quota type__.
-1. On the __Additional details__ tab, select __Enter details__ and then provide the quota you'd like to increase and the new value. Also provide the reason for the quota increase. Select __Save and continue__ to continue.
+1. On the __Additional details__ tab, select __Enter details__ and then provide the quota you'd like to increase and the new value. Also provide the reason for the quota increase request.
 
-    :::image type="content" source="./media/how-to-manage-quotas/quota-details.png" alt-text="Screenshot of the quota details form.":::
+    :::image type="content" source="./media/how-to-manage-quotas/quota-details.png" lightbox="./media/how-to-manage-quotas/quota-details.png" alt-text="Screenshot of the quota details form.":::
+
+1. Select the __location(s)__ where you need the quota increase, and then select __Save and continue__ to continue.
 
 ## Next steps
 
