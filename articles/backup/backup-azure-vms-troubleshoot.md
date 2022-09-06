@@ -414,7 +414,7 @@ To resolve this issue:
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Original Location Recovery.
 
-**Resolution**: Ensure that you select Create New/ Restore Disk for restore operation.
+**Resolution**: Ensure that you [select Create New/ Restore Disk](backup-azure-arm-restore-vms.md#restore-disks) for restore operation.
 
 #### UserErrorCrossSubscriptionRestoreNotSuppportedForUnManagedAzureVM   
 
