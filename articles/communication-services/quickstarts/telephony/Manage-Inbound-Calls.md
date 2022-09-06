@@ -34,4 +34,4 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-For more information, see the following articles:
+Learn more about [Call Automation](../../concepts/voice-video-calling/CallAutomation.md) and its features. 
