@@ -43,7 +43,7 @@ platform :ios, '14.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'AzureCommunicationUICalling', '1.0.0'
+    pod 'AzureCommunicationUICalling'
 end
 ```
 
