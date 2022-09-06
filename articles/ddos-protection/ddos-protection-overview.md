@@ -44,6 +44,7 @@ The following table shows features and corresponding tiers.
 | Active traffic monitoring & always on detection| Yes |  Yes| Yes |
 | Automatic attack mitigation | Yes | Yes | Yes |
 | Availability guarantee| Not available | Yes | Yes |
+| Cost protection | Not available | Yes |
 | Application based mitigation policies | Not available | Yes| Yes |
 | Metrics & alerts | Not available  | Yes | Yes |
 | Mitigation reports | Not available | Yes | Yes |
