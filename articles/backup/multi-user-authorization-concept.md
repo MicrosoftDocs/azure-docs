@@ -2,7 +2,7 @@
 title: Multi-user authorization using Resource Guard
 description: An overview of Multi-user authorization using Resource Guard.
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 09/15/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -33,17 +33,17 @@ The following table lists the operations defined as critical operations and can 
 --- | ---
 Disable soft delete | Mandatory
 Disable MUA protection | Mandatory
-Modify backup policy (reduced retention) | Optional <br><br> Can be excluded.
-Modify protection (reduced retention) | Optional <br><br> Can be excluded.
-Stop protection with delete data | Optional <br><br> Can be excluded.
-Change MARS security PIN | Optional <br><br> Can be excluded.
+Modify backup policy (reduced retention) | Optional
+Modify protection (reduced retention) | Optional
+Stop protection with delete data | Optional
+Change MARS security PIN | Optional
 
 # [Backup vault (preview)](#tab/backup-vault)
 
 **Operation** | **Mandatory/ Optional**
 --- | ---
 Disable MUA protection | Mandatory
-Delete backup instance | Optional <br><br> Can be excluded.
+Delete backup instance | Optional
 
 ---
 
@@ -81,7 +81,7 @@ Here's the flow of events in a typical scenario:
 
 ## Usage scenarios
 
-The following table depicts scenarios for creating your Resource Guard and Vaults (Recovery Services vault and Backup vault), along with the relative protection offered by each.
+The following table lists the scenarios for creating your Resource Guard and vaults (Recovery Services vault and Backup vault), along with the relative protection offered by each.
 
 >[!Important]
 > The Backup admin must not have Contributor permissions to the Resource Guard in any scenario.
