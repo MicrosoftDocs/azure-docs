@@ -22,24 +22,49 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 ## August 2022
 
-### Azure Health Data Services 
-
-#### **Features**
-
-|Enhancements | Related information |
-| :------------------------ | :------------------------------- |
-|Azure Health Data services availability expands to new regions |Azure Health Data services is now available in the following regions: Central India, Korea Central, and Sweden Central. |
-
 ### FHIR service
 
 #### **Features**
 
 | Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-| `$import` is generally available    |`$import` API is now generally available in Azure Health Data Services API version 2022-06-01. Executing the import by invoking `$import` operation on FHIR service in [Azure Health Data Services | Microsoft Docs](.\..\healthcare-apis\fhir\import-data.md). |
-| `$convert-data` updated by adding STU3-R4 support. |`$convert-data` added support for FHIR STU3-R4 conversion. See [Data conversion for Azure API for FHIR](.\..\healthcare-apis\azure-api-for-fhir\convert-data.md). |  
+| Azure Health Data services availability expands to new regions | Azure Health Data services is now available in the following regions:  Central India, Korea Central, and Sweden Central.   
+| `$import` is generally available. | `$import` API is now generally available in Azure Health Data Services API version 2022-06-01. See [Executing the import](./../healthcare-apis/fhir/import-data.md) by invoking the `$import` operation on FHIR service in Azure Health Data Services.
+| `$convert-data` updated by adding STU3-R4 support. |`$convert-data` added support for FHIR STU3-R4 conversion. See [Data conversion for Azure API for FHIR](./../healthcare-apis/azure-api-for-fhir/convert-data.md). |  
 | Analytics pipeline now supports data filtering. | Data filtering is now supported in FHIR to data lake pipeline. See [FHIR-Analytics-Pipelines_Filter FHIR data](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Filter%20FHIR%20data%20in%20pipeline.md) microsoft/FHIR-Analytics-Pipelines github.com. |
 | Analytics pipeline now supports FHIR extensions. | Analytics pipeline can process FHIR extensions to generate parquet data. See [FHIR-Analytics-Pipelines_Process](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Process%20FHIR%20extensions.md) in pipeline.md at main.
+
+#### **Bug fixes**
+
+|Bug fixes |Related information |
+| :----------------------------------- | :--------------- |
+| History bundles were sorted with the oldest version first |We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per FHIR specification, the sorting of versions defaults to the oldest version last. <br><br>This bug fix, addresses FHIR server behavior for sorting history bundle. <br><br>We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP GET command utilized for retrieving history. <br><br>For example: `<server URL>/_history?_sort=_lastUpdated` <br><br>For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689).  |
+| Queries not providing consistent result count after appended with `_sort` operator. | Issue is now fixed and queries should provide consistent result count, with and without sort operator. 
+
+#### **Known issues**
+
+| Known Issue | Description |
+| :------------------------ | :------------------------------- |
+| Using [token type fields](https://www.hl7.org/fhir/search.html#token) of more than 128 characters in length can result in undesired behavior on `create`, `search`, `update`, and `delete` operations.  | Currently, no workaround available. |
+
+For more information about the currently known issues with the FHIR service, see [Known issues: FHIR service](known-issues.md).
+
+### MedTech service
+
+#### **Features and enhancements**
+
+|Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|New Metric Chart  |Customers can now see predefined metrics graphs in the MedTech landing page, complete with alerts to ease customers' burden of monitoring their MedTech service.  |
+|Availability of Diagnostic Logs  |There are now pre-defined queries with relevant logs for common issues so that customers can easily debug and diagnose issues in their MedTech service.   |
+
+### DICOM service
+
+#### **Features and enhancements**
+
+|Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|Modality worklists (UPS-RS) is GA.   |The modality worklists (UPS-RS) service is now generally available. Learn more about the [worklists service](https://github.com/microsoft/dicom-server/blob/main/docs/resources/conformance-statement.md#worklist-service-ups-rs).  |
 
 ## July 2022
 
@@ -49,7 +74,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
-| (Open Source) History bundles were sorted with the oldest version first.   | We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<Server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
+| (Open Source) History bundles were sorted with the oldest version first.   | We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
 
 #### **Known issues**
 
