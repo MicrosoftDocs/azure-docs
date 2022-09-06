@@ -171,10 +171,6 @@ For information on using a firewall solution, see [Use a firewall with Azure Mac
 
 ## <a name="compute-cluster"></a>Compute clusters
 
-Use the tabs below to select how you plan to create a compute cluster:
-
-# [Studio](#tab/azure-studio)
-
 Use the following steps to create a compute cluster in the Azure Machine Learning studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
@@ -196,11 +192,6 @@ Use the following steps to create a compute cluster in the Azure Machine Learnin
 
 1. Select __Create__ to create the compute cluster.
 
-# [Python SDK v2](#tab/python)
-
-TODO - update with SDK v2 code sample
-
----
 
 When the creation process finishes, you train your model by using the cluster in an experiment. 
 
