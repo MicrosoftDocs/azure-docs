@@ -153,7 +153,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Prepare infrastructure
 
-You need to set up an Azure Site Recovery replication appliance in the on-premises environment to enable recovery on your on premises machine. For detailed information on the operations performed by the appliance [see this section](vmware-azure-architecture-modernized.md)
+You need to set up an Azure Site Recovery replication appliance in the on-premises environment to enable recovery on your on-premises machine. For detailed information on the operations performed by the appliance [see this section](vmware-azure-architecture-modernized.md)
 
 Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select
 **Prepare Infrastructure** and proceed with the sections detailed below:
@@ -217,7 +217,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
       - Ensure the group policy 'Turn on Script Execution Attachment Manager' is not set to Disabled or 'Allow only signed scripts'
 
 
-  **Use the following steps to register the appliance**:.
+  **Use the following steps to register the appliance**:
 
 1. Configure the proxy settings by toggling on the **use proxy to connect to internet** option.
 

@@ -82,7 +82,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 After replication is set up and you run a disaster recovery drill (test failover) to check that everything's working as expected, you can run failover and failback as you need to.
 
-1. You can run fail over for a single machine or create a recovery plan to fail over multiple servers at the same time. The advantage of a recovery plan rather than single machine failover include:
+1. You can run fail over for a single machine or create a recovery plan to fail over multiple servers at the same time. The advantages of a recovery plan over a single machine failover include:
     - You can model app-dependencies by including all the servers across the app in a single recovery plan.
     - You can add scripts, Azure runbooks, and pause for manual actions.
 2. After triggering the initial failover, you commit it to start accessing the workload from the Azure VM.
