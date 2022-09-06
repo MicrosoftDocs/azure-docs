@@ -17,7 +17,7 @@ ms.custom:
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
 > * [SDK/CLI v1](v1/how-to-secure-inferencing-vnet.md)
-> * [SDK/CLI v2 (current version)](../how-to-secure-inferencing-vnet.md)
+> * [SDK/CLI v2 (current version)](how-to-secure-inferencing-vnet.md)
 
 In this article, you learn how to secure inferencing environments (online endpoints) with a virtual network in Azure Machine Learning. There are two inference options that can be secured using a VNet:
 
@@ -38,7 +38,7 @@ In this article, you learn how to secure inferencing environments (online endpoi
 
 ## Prerequisites
 
-+ Read the [Network security overview](../how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
++ Read the [Network security overview](how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
 
 + An existing virtual network and subnet, that is used to secure the Azure Machine Learning workspace.
 
@@ -47,7 +47,7 @@ In this article, you learn how to secure inferencing environments (online endpoi
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../../role-based-access-control/built-in-roles.md#networking)
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking).
 
 + If using Azure Kubernetes Service (AKS), you must have an existing AKS cluster secured as described in the [Secure Azure Kubernetes Service inference environment](how-to-secure-kubernetes-inferencing-environment.md) article.
 
@@ -55,9 +55,9 @@ In this article, you learn how to secure inferencing environments (online endpoi
 
 ### Azure Kubernetes Service
 
-* If your AKS cluster is behind of a VNET, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please read tutorial [create a secure workspace](../tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
+* If your AKS cluster is behind of a VNET, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please read tutorial [create a secure workspace](tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
 * If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
-* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine learning.
+* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](/azure/aks/private-clusters) is __not supported__ with Azure Machine learning.
 
 ## Secure managed online endpoints
 
@@ -82,9 +82,9 @@ If you don't want to use the default outbound rules and you do want to limit the
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Virtual network overview](../how-to-network-security-overview.md)
-* [Secure the workspace resources](../how-to-secure-workspace-vnet.md)
-* [Secure the training environment](../how-to-secure-training-vnet.md)
-* [Enable studio functionality](../how-to-enable-studio-virtual-network.md)
-* [Use custom DNS](../how-to-custom-dns.md)
-* [Use a firewall](../how-to-access-azureml-behind-firewall.md)
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
