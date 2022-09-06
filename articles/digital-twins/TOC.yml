@@ -103,8 +103,8 @@
       href: how-to-query-graph.md
   - name: Develop client apps
     items:
-    - name: Make API requests with Postman
-      href: how-to-use-postman.md
+    - name: Call Azure Digital Twins APIs with Postman
+      href: how-to-use-postman-with-digital-twins.md
     - name: Use 3D Scenes Studio
       href: how-to-use-3d-scenes-studio.md
     - name: Write app authentication code
