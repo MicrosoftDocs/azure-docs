@@ -349,7 +349,7 @@ YouTube](https://www.youtube.com/watch?v=pRJgiuT-S2M)
 
 The combination of Azure VM’s and ANF is a robust and proven combination implemented by many customers on an exceptionally large scale.
 
-Databases of 100+TB are already running productive on this combination. To start, we wrote a detailed blog on how to set up this combination:
+Databases of 100+ TB are already running productive on this combination. To start, we wrote a detailed blog on how to set up this combination:
 
 [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 
@@ -451,19 +451,11 @@ The following recommendations should be followed when selecting a VM type:
 3.  For ANF, the Network throughput is important as all storage traffic is counted as “Network” rather than Disk throughput
 4.  Review this blog for Network tuning for M-series [Optimizing Network Throughput on Azure M-series VMs HCMT (microsoft.com)](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/optimizing-network-throughput-on-azure-m-series-vms/ba-p/3581129)
 
-5.  Review this
-    [link](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-design)
-    that describes how to use an AWR report to select the correct Azure
-    VM
-
-Azure Intel Ev5 [Edv5 and Edsv5-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/edv5-edsv5-series#edsv5-series)
-
-Azure AMD Eadsv5 [Easv5 and Eadsv5-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/easv5-eadsv5-series#eadsv5-series)
-
-Azure M-series/Msv2-series [M-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/m-series)
-/ [Msv2/Mdsv2 Medium Memory Series - Azure Virtual Machines \| Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/msv2-mdsv2-series)
-
-Azure Mv2 [Mv2-series - Azure Virtual Machines \| Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/mv2-series)
+5.  Review this [link](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-design) that describes how to use an AWR report to select the correct Azure VM
+6.  Azure Intel Ev5 [Edv5 and Edsv5-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/edv5-edsv5-series#edsv5-series)
+7.  Azure AMD Eadsv5 [Easv5 and Eadsv5-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/easv5-eadsv5-series#eadsv5-series)
+8.  Azure M-series/Msv2-series [M-series - Azure Virtual Machines \|Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/m-series) and [Msv2/Mdsv2 Medium Memory Series - Azure Virtual Machines \| Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/msv2-mdsv2-series) 
+9.  Azure Mv2 [Mv2-series - Azure Virtual Machines \| Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/mv2-series)
 
 **Backup/restore**
 
