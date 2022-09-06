@@ -61,7 +61,7 @@ The [Text Analytics for health container](use-containers.md) uses separate model
 
 ### Input languages
 
-Currently the Text Analytics for health hosted API only [supports](../language-support.md) the English language. Additional languages are currently in preview when deploying the API in a container, as detailed [under Text Analytics for health languages support](../language-support.md)
+Currently the Text Analytics for health hosted API only [supports](../language-support.md) the English language. Additional languages are currently in preview when deploying the API in a container, as detailed [under Text Analytics for health languages support](../language-support.md).
 
 ## Submitting data
 
