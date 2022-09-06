@@ -18,7 +18,7 @@ The UI Library now gives developers the ability to provide a more customized exp
 
 `LocalOptions` is data model that can have `ParticipantViewData` and `NavigationBarViewData` that will represent the local participant.  By default for `ParticipantViewData`, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components. 
 
-Similarly, for 'NavigationBarViewData', by default the UI library will display 'Setup' as the title and subtitle will be set to hidden. The `title` and `subtitle` in 'NavigationBarViewData' would overwrite their contents respectively. 
+Similarly, for 'NavigationBarViewData', by default the UI library will display 'Setup' as the title and subtitle will be set to hidden. The `title` and `subtitle` in 'NavigationBarViewData' would overwrite the navigation bar's title and subtitle in pre-meeting screen respectively. 
 
 #### Participant View Data
 
