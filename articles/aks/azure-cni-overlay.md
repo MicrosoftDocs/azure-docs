@@ -141,6 +141,6 @@ az aks create -n $clusterName -g $resourceGroup --location $location --network-p
   No, a private pod CIDR can only be specified at the time of cluster creation.
 
 
-* *What are the max nodes and pods per cluster supported by Overlay?*
+* *What are the max nodes and pods per cluster supported by Azure CNI Overlay?*
 
   The max scale in terms of nodes and pods per cluster is the same as the max limits supported by AKS today.
