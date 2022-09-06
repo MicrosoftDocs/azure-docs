@@ -1,15 +1,16 @@
 ---
-title: "Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with minimal downtime"
+title: "Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server offline"
 description: This article describes how to perform a minimal-downtime migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server.
 author: SudheeshGH
 ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 09/06/2022
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-ms.date: 06/20/2022
 ---
 
-# Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with minimal downtime
+# Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server offline
 
 You can migrate an instance of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with minimum downtime to your applications by using a combination of open-source tools such as mydumper/myloader and Data-in replication.
 
@@ -198,7 +199,7 @@ To configure Data in replication, perform the following steps:
 
 To confirm that Data-in replication is working properly, you can verify that the changes to the tables in primary were replicated to the replica.
 
-1. Identify a table to use for testing, for example the Customers table, and then confirm that the number of entries it contains is the same on the primary and replica servers by running the following command on each:
+1. Identify a table to use for testing, for example, the Customers table, and then confirm that the number of entries it contains is the same on the primary and replica servers by running the following command on each:
 
     ```
     select count(*) from customers;
@@ -206,7 +207,7 @@ To confirm that Data-in replication is working properly, you can verify that the
 
 2. Make a note of the entry count for later comparison.
 
-    To test replication, try adding some data to the customer tables on the primary server and see then verify that the new data is replicated. In this case, you’ll add two rows to a table on the primary server and then confirm that they are replicated on the replica server.
+    To test replication, try adding some data to the customer tables on the primary server and see then verify that the new data is replicated. In this case, you’ll add two rows to a table on the primary server and then confirm that they're replicated on the replica server.
 
 3. In the Customers table on the primary server, insert rows by running the following command:
 
