@@ -98,7 +98,7 @@ Try extracting data from forms and documents using the Form Recognizer Studio. Y
 
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 
-### Paragraphs<sup>new!</sup>
+### Paragraphs <sup>🆕</sup>
 
 The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
 
