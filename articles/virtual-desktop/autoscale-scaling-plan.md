@@ -3,7 +3,7 @@ title: Create an autoscale scaling plan for Azure Virtual Desktop
 description: How to create an autoscale scaling plan to optimize deployment costs.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/08/2022
+ms.date: 08/15/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -35,13 +35,17 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 >   - Central US
 >   - East US
 >   - East US 2
+>   - Japan East
 >   - North Central US
 >   - North Europe
 >   - South Central US
+>   - UK South
+>   - UK West
 >   - West Central US
 >   - West Europe
 >   - West US
 >   - West US 2
+>   - West US 3
 
 ## Prerequisites
 

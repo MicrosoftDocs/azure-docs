@@ -100,7 +100,7 @@ This guide covers the following replication scenarios:
 
 1. After selecting **Test**, the recovery operation begins.
 
-1. When finished, you can check the new VM in the Azure VMware Solution private cloud vCenter.
+1. When finished, you can check the new VM in the Azure VMware Solution private cloud vCenter Server.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="Screenshot showing the check recovery operation summary." border="true" lightbox="./media/disaster-recovery-virtual-machines/verify-test-recovery.png":::
 

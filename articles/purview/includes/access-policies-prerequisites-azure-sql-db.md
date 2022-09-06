@@ -10,13 +10,13 @@ ms.custom:
 
 - Create a new Azure SQL DB or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL DB](/azure/azure-sql/database/single-database-create-quickstart).
 
-**Enforcement of Microsoft Purview policies is available only in the following regions for Azure SQL DB**
+**Enforcement of Microsoft Purview policies is available only in the following regions for Azure SQL Database**
+- East US
 - East US2
 - West US3
 - South Central US
 - West Central US
 - Canada Central
-- Brazil South
 - North Europe
 - West Europe
 - France Central
@@ -26,15 +26,12 @@ ms.custom:
 
 ### Azure SQL Database configuration
 Each Azure SQL Database server needs a Managed Identity assigned to it. In Azure portal navigate to the Azure SQL Server that hosts the Azure SQL DB and then navigate to Identity on the side menu. Under System assigned managed identity check status to *On* and save. See screenshot:
-![Screenshot shows how to assign system managed identity to Azure SQL Server.](../media/how-to-data-owner-policies-sql/assign-identity-azure-sql-db.png)
+![Screenshot shows how to assign system managed identity to Azure SQL Server.](../media/how-to-policies-data-owner-sql/assign-identity-azure-sql-db.png)
 
 You'll also need to enable external policy based authorization on the server. You can do this in PowerShell:
 
 ```powershell
-Connect-AzAccount
-
-$context = Get-AzSubscription -SubscriptionId xxxx-xxxx-xxxx-xxxx
-Set-AzContext $context
+Connect-AzAccount -TenantId xxxx-xxxx-xxxx-xxxx-xxxx -SubscriptionId xxxx-xxxx-xxxx-xxxx
 
 $server = Get-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME"
 
