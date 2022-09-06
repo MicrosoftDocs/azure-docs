@@ -278,25 +278,18 @@ Grant a user access to log data from their resources and read all Azure AD sign-
 
 ## Table-level access control
 
-Define table-level [Azure RBAC](../../role-based-access-control/overview.md) to control which users have read access to specific tables.
+Define [Azure RBAC](../../role-based-access-control/overview.md) at the table level to control which users have read access to any specific table.
 
-To grant users read access to specific tables in a workspace, run the following PowerShell script:
+To grant users read access to specific tables in a workspace, download the [Azure table-level RBAC PowerShell script] and run:
 
 ```powershell
-$workspaceFullId = '<workspaceFullId>'
-$subscriptionId = '<subscriptionId>'
+$workspaceFullId = '<workspace_ID>'
+$subscriptionId = '<subscription_ID>'
 $tableNames = $('<table_name1>', '<table_name2>')
-$objectId = '<objectId>'
+$objectId = '<ID of the user or group to which you want to grant access>'
 
 .\grantTableLevelRbacps1.ps -workspaceFullId $workspaceFullId -subscriptionId $subscriptionId -tableNames $tableNames -objectId $objectId
 ```
-
-Where:
- 
-- `<workspaceFullId>` is the workspace ID.
-- `<subscriptionId>` is the subscription ID.
-- `<table_name>` is the name of a table to which you want to grant read access.
-- `<objectId>` is the ID of the user or group to which you want to grant access.
 
 ### Legacy method of setting table-level RBAC using workspace-level custom roles
 
