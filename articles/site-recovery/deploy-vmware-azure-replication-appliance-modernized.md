@@ -116,7 +116,7 @@ For detailed information about how to use multiple appliances and failover a rep
 To create and register the Azure Site Recovery replication appliance, you need an Azure account with:
 
 - Contributor or Owner permissions on the Azure subscription.
-- Permissions to register Azure Active Directory (AAD) apps.
+- Permissions to register Azure Active Directory apps.
 - Owner or Contributor plus User Access Administrator permissions on the Azure subscription to create a Key Vault, used during registration of the Azure Site Recovery replication appliance with Azure.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner for the required permissions.
