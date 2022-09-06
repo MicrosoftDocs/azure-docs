@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 # How to use batch transcription from audio files in storage
 
-[Speech-to-text REST API](rest-speech-to-text.md) | [Speech CLI](spx-basics.md) | [Additional Samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+[Speech-to-text REST API](rest-speech-to-text.md#transcriptions) | [Speech CLI](spx-basics.md) | [Additional Samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 Batch transcription is used to transcribe a large amount of audio in storage. You should send multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe. The batch transcription service can handle a large number of submitted transcriptions. The service transcribes the files concurrently, which reduces the turnaround time. 
 
@@ -25,37 +25,80 @@ Batch transcription jobs are scheduled on a best-effort basis. You can't estimat
 >[!NOTE]
 > To use batch transcription, you need a standard Speech resource (S0) in your subscription. Free resources (F0) aren't supported. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
+
 ## REST API reference
 
-You can use the REST API operations in this table for batch transcription.
+You can use the REST API for batch transcription. For more information, see the [Speech to text REST API reference](rest-speech-to-text.md#transcriptions) documentation.
 
 > [!NOTE]
 > As a part of the REST API, batch transcription has a set of [quotas and limits](speech-services-quotas-and-limits.md#batch-transcription). It's a good idea to review these.
 
-|Path|Method|Operation ID|
-|---------|---------|---------|
-|`/transcriptions`|POST|[Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create)|
-|`/transcriptions/{id}`|DELETE|[Transcriptions_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)|
-|`/transcriptions/{id}`|GET|[Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get)|
-|`/transcriptions/{id}/files/{fileId}`|GET|[Transcriptions_GetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_GetFile)|
-|`/transcriptions`|GET|[Transcriptions_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_List)|
-|`/transcriptions/{id}/files`|GET|[Transcriptions_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles)|
-|`/transcriptions/locales`|GET|[Transcriptions_ListSupportedLocales](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListSupportedLocales)|
-|`/transcriptions/{id}`|PATCH|[Transcriptions_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Update)|
 
-For more information, see the [Speech to text REST API reference](rest-speech-to-text.md) documentation.
+## Create a transcription job
 
-## Supported audio formats
+To create a transcription, use the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md#transcriptions). Construct the request body according to the following instructions:
 
-The batch transcription API supports the following formats:
+- You must set either the `contentContainerUrl` or `contentContainerUrl` property. The SAS URL for the container must have read (r) and list (l) permissions. This property will not be returned in a response. For more information about Azure blob storage and SAS URLs, see [Azure storage for audio files](#azure-storage-for-audio-files).
+- Set the required `locale` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later.
+- Set the required `displayName` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later.
 
-| Format | Codec | Bits per sample | Sample rate             |
-|--------|-------|---------|---------------------------------|
-| WAV    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
-| MP3    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
-| OGG    | OPUS  | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
+Make an HTTP POST request using the URI as shown in the following [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
-For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each channel. To create an ordered final transcript, use the timestamps that are generated per utterance.
+```azurecli-interactive
+curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
+  "contentContainerUrl": "https://YourStorageAccountName.blob.core.windows.net/YourContainerName?YourSASToken",
+  "locale": "en-US",
+  "model": null,
+  "displayName": "Transcription using the default base model for en-US",
+  "properties": {
+    "wordLevelTimestampsEnabled": true,
+    "languageIdentification": {
+      "candidateLocales": [
+        "en-US", "es-ES", "de-DE", "fr-FR"
+      ],
+    },
+  },
+  "displayName": "Transcription using the default base model for en-US"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+```
+
+You should receive a response body in the following format:
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/transcriptions/ca33f326-a85a-495e-8bb2-ce0413635d6c",
+  "model": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+  },
+  "links": {
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/transcriptions/ca33f326-a85a-495e-8bb2-ce0413635d6c/files"
+  },
+  "properties": {
+    "diarizationEnabled": false,
+    "wordLevelTimestampsEnabled": true,
+    "displayFormWordLevelTimestampsEnabled": false,
+    "channels": [
+      0,
+      1
+    ],
+    "punctuationMode": "DictatedAndAutomatic",
+    "profanityFilterMode": "Masked"
+  },
+  "lastActionDateTime": "2022-09-06T16:06:47Z",
+  "status": "NotStarted",
+  "createdDateTime": "2022-09-06T16:06:47Z",
+  "locale": "en-US",
+  "displayName": "Transcription using the default base model for en-US"
+}
+```
+
+The top-level `self` property in the response body is the transcription's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) details such as the URI of the transcriptions and transcription report files. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete) a transcription.
+
+You can query the status of your transcriptions with the [Transcriptions_List](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_List) operation. 
+
+Call [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)
+regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
+
 
 ## Configuration
 
@@ -65,11 +108,7 @@ If you have more than one file to transcribe, it's a good idea to send multiple 
 
 ```json
 {
-  "contentUrls": [
-    "<URL to an audio file 1 to transcribe>",
-    "<URL to an audio file 2 to transcribe>",
-    "<URL to an audio file 3 to transcribe>"
-  ],
+  "contentContainerUrl": "<SAS URL to the Azure blob container to transcribe>",
   "properties": {
     "wordLevelTimestampsEnabled": true
   },
@@ -91,15 +130,11 @@ To process a whole storage container, you can make the following configurations.
 }
 ```
 
-Here's an example of using a custom trained model in a batch transcription. This example uses three files:
+Here's an example of using a custom trained model in a batch transcription. 
 
 ```json
 {
-  "contentUrls": [
-    "<URL to an audio file 1 to transcribe>",
-    "<URL to an audio file 2 to transcribe>",
-    "<URL to an audio file 3 to transcribe>"
-  ],
+  "contentContainerUrl": "<SAS URL to the Azure blob container to transcribe>",
   "properties": {
     "wordLevelTimestampsEnabled": true
   },
@@ -202,7 +237,7 @@ The response contains the following properties:
 
 ## Speaker separation (diarization)
 
-*Diarization* is the process of separating speakers in a piece of audio. The batch pipeline supports diarization and is capable of recognizing two speakers on mono channel recordings. The feature isn't available on stereo recordings.
+Diarization is the process of separating speakers in audio data. The batch pipeline can recognize and separate multiple speakers on mono channel recordings. The feature isn't available with stereo recordings.
 
 The output of transcription with diarization enabled contains a `Speaker` entry for each transcribed phrase. If diarization isn't used, the `Speaker` property isn't present in the JSON output. For diarization, the speakers are identified as `1` or `2`.
 
@@ -210,11 +245,15 @@ To request diarization, set the `diarizationEnabled` property to `true`. Here's 
 
 ```json
 {
-  "contentUrls": [
-    "<URL to an audio file to transcribe>",
-  ],
+  "contentContainerUrl": "<SAS URL to the Azure blob container to transcribe>",
   "properties": {
     "diarizationEnabled": true,
+    "diarization": {
+      "speakers": {
+        "minCount": 1,
+        "maxCount": 2
+      }
+    },
     "wordLevelTimestampsEnabled": true,
     "punctuationMode": "DictatedAndAutomatic",
     "profanityFilterMode": "Masked"
@@ -226,27 +265,56 @@ To request diarization, set the `diarizationEnabled` property to `true`. Here's 
 
 Word-level timestamps must be enabled, as the parameters in this request indicate.
 
-## Best practices
-
-You can query the status of your transcriptions with the [Transcriptions_List](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_List) operation. Call [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)
-regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
 
 ## Using custom models with batch transcription
 
-The service uses the base model for transcribing the file or files. To specify the model, you can pass on the same method the model reference for the custom model.
+The service uses the base model for transcribing the file or files. For baseline transcriptions, you don't need to declare the ID for the base model. To specify the model, you can pass on the same method the model reference for the custom model.
 
-> [!NOTE]
-> For baseline transcriptions, you don't need to declare the ID for the base model.
+Optionally, you can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. 
 
-If you plan to use a Custom Speech model, follow the steps from [Create a Custom Speech project](how-to-custom-speech-create-project.md) to [Train a model](how-to-custom-speech-train-model.md). A [deployed custom endpoint](how-to-custom-speech-deploy-model.md) isn't needed for the batch transcription service.
+```azurecli-interactive
+curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
+  "contentContainerUrl": "https://YourStorageAccountName.blob.core.windows.net/YourContainerName?YourSASToken",
+  "locale": "en-US",
+  "model": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+  },
+  "displayName": "Transcription using a specific base model for en-US",
+  "properties": {
+    "wordLevelTimestampsEnabled": true,
+    "languageIdentification": {
+      "candidateLocales": [
+        "en-US", "es-ES", "de-DE", "fr-FR"
+      ],
+    },
+  },
+  "displayName": "Transcription using the default base model for en-US"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+```
 
-To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. 
+To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. A [deployed custom endpoint](how-to-custom-speech-deploy-model.md) isn't needed for the batch transcription service.
+
+Batch transcription requests for expired models will fail with a 4xx error. In each [Transcriptions_Create](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model.
+
+
+## Supported audio formats
+
+The batch transcription API supports the following formats:
+
+| Format | Codec | Bits per sample | Sample rate             |
+|--------|-------|---------|---------------------------------|
+| WAV    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
+| MP3    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
+| OGG    | OPUS  | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
+
+For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each channel. To create an ordered final transcript, use the timestamps that are generated per utterance.
 
 ## Azure Storage for audio files
 
-You can point to audio files by using a typical URI or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI, and asynchronously receive transcription results. With the [Speech to text REST API](rest-speech-to-text.md), you can transcribe one or more audio files, or process a whole storage container.
+You can point to audio files by using a typical URI or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI, and asynchronously receive transcription results. With the [Speech to text REST API](rest-speech-to-text.md#transcriptions), you can transcribe one or more audio files, or process a whole storage container.
 
-Batch transcription can read audio from a public-visible internet URI and can read audio or write transcriptions by using a SAS URI with [Blob Storage](../../storage/blobs/storage-blobs-overview.md).
+
+Batch transcription can read audio from a public-visible internet URI and can read audio or write transcriptions by using a SAS URI with [Blob Storage](../../storage/blobs/storage-blobs-overview.md). The Azure blob container must have at most 5GB of audio data and a maximum number of 10,000 blobs. The maximum size for a blob is 2.5GB. 
 
 Follow these steps to create a storage account, upload wav files from your local directory to a new container, and generate a SAS URL that you can use for batch transcriptions.
 
@@ -309,4 +377,4 @@ The previous command returns a SAS token. Append the SAS token to your container
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Speech to text REST API reference](rest-speech-to-text.md)
+> [Speech to text REST API reference](rest-speech-to-text.md#transcriptions)
