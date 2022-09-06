@@ -21,9 +21,6 @@ The IoT Central REST API lets you develop client applications that integrate wit
 
 Scheduled jobs are created to run at a future time. You can set a start date and time for a scheduled job to run one-time, daily, or weekly. Non-scheduled jobs run only one-time.
 
-> [!IMPORTANT]
-> The jobs API is currently in preview. All The REST API calls described in this article should include `?api-version=2022-07-31`.
-
 This article describes how to use the `/jobs/{job_id}` API to control devices in bulk. You can also control devices individually.
 
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
@@ -349,27 +346,11 @@ PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/rerun/reru
 
 The payload for a scheduled job is similar to a standard job but includes the following additional fields:
 
-| Field |Type| Description |
-| ----- | --------| ----------- |
-schedule|JobSchedule| The schedule at which to execute the job.
-
-### JobSchedule
-
-The schedule definition of job.
-
-| Field |Type| Description |
-| ----- | --------| ----------- |
-end| `JobScheduleEnd`, `DateJobScheduleEnd`, `OccurrencesJobScheduleEnd`|The specification of when to end the scheduled job.
-recurrence | `JobRecurrence`| The recurrence of the scheduled job. If not provided, the job will run once at the specified start time.
-start| string |The start time for the scheduled job.
-
-### JobRecurrence
-
-| Field |Type| Description |
-| ----- | --------| ----------- |
-daily| string |The job will run once daily.
-monthly| string| The job will run once every month.
-weekly| string| The job will run once every week.
+| Field | Description |
+| ----- | ----------- |
+schedule/start |The start date and time for the job in ISO 8601 format
+schedule/recurrence| One of `daily`, `monthly`, `yearly`
+schedule/end| An optional field that either specifies the number of occurrences for the job or an end date in ISO 8601 format
 
 ```http
 PUT https://{your app subdomain}.azureiotcentral.com/api/scheduledJobs/scheduled-Job-001?api-version=2022-07-31
@@ -391,7 +372,11 @@ The following example shows a request body that creates a scheduled job.
     ],
     "schedule": {
         "start": "2022-10-24T22:29:01Z",
-        "recurrence": "daily"
+        "recurrence": "daily",
+        "end": {
+            "type": "date",
+            "date": "2022-12-30"
+        }
     }
 }
 ```
@@ -414,7 +399,11 @@ The response to this request looks like the following example:
     ],
     "schedule": {
         "start": "2022-10-24T22:29:01Z",
-        "recurrence": "daily"
+        "recurrence": "daily",
+        "end": {
+            "type": "date",
+            "date": "2022-12-30"
+        }
     },
     "enabled": false,
     "completed": false,
