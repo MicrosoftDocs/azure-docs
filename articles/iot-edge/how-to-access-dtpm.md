@@ -16,7 +16,7 @@ services: iot-edge
 
 A Trusted platform module (TPM) chip is a secure crypto-processor that is designed to carry out cryptographic operations. This technology is designed to provide hardware-based, security-related functions. The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine doesn't have a virtual TPMs attached to the VM. However, the user can enable or disable the TPM passthrough feature, that allows the EFLOW virtual machine to use the Windows host OS TPM. The TPM passthrough feature enables two main scenarios:
 
-- Use TPM technology for IoT Edge device provisioning using Device Provision Service (DPS)
+- Use TPM technology for IoT Edge device provisioning using Device Provisioning Service (DPS)
 - Read-only access to cryptographic keys stored inside the TPM. 
 
 This article describes how to develop a sample code in C# to read cryptographic keys stored inside the device TPM. 
@@ -51,7 +51,7 @@ The following steps show you how to create a sample executable to access a TPM i
 
 1. In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**.
 
-1. Select **Browse** and then search for `Microsoft.TSS`.
+1. Select **Browse** and then search for `Microsoft.TSS`. For more information about this package, see [Microsoft.TSS](https://www.nuget.org/packages/Microsoft.TSS).
 
 1. Choose the **Microsoft.TSS** package from the list then select **Install**.
 

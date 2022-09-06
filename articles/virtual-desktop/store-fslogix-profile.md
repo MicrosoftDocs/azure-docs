@@ -67,8 +67,5 @@ To learn more about FSLogix profile containers, user profile disks, and other us
 
 If you're ready to create your own FSLogix profile containers, get started with one of these tutorials:
 
-- [Create an Azure file share with Active Directory Domain Services](create-file-share.md)
-- [Create an Azure file share with Azure Active Directory](create-profile-container-azure-ad.md)
-- [Create an Azure file share with Azure Active Directory Domain Services](create-profile-container-adds.md)
-- [Create an FSLogix profile container for a host pool using Azure NetApp files](create-fslogix-profile-container.md)
-- The instructions in [Deploy a two-node Storage Spaces Direct scale-out file server for UPD storage in Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) also apply when you use an FSLogix profile container instead of a user profile disk
+- [Set up FSLogix Profile Container with Azure Files and Active Directory](fslogix-profile-container-configure-azure-files-active-directory.md)
+- [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)

@@ -48,6 +48,9 @@ In this article you learn how to enable the following workspaces resources in a 
 
 + An existing virtual network and subnet to use with your compute resources.
 
+    > [!IMPORTANT]
+    > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
+
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
@@ -255,7 +258,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     > [!IMPORTANT]
     > The following limitations apply When using a compute cluster for image builds:
     > * Only a CPU SKU is supported.
-    > * You can't use a compute cluster configured for no public IP address.
+    > * If you use a compute cluster configured for no public IP address, you must provide some way for the cluster to access the public internet. Internet access is required when accessing images stored on the Microsoft Container Registry, packages installed on Pypi, Conda, etc. You need to configure User Defined Routing (UDR) to reach to a public IP to access the internet. For example, you can use the public IP of your firewall, or you can use [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) with a public IP. For more information, see [How to securely train in a VNet](how-to-secure-training-vnet.md).
 
     # [Azure CLI](#tab/cli)
 

@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/28/2022
+ms.date: 08/08/2022
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022
 ---
@@ -50,7 +50,7 @@ The following table compares how services access different parts of an Azure Mac
 | Scenario | Workspace | Associated resources | Training compute environment | Inferencing compute environment |
 |-|-|-|-|-|-|
 |**No virtual network**| Public IP | Public IP | Public IP | Public IP |
-|**Public workspace, all other resources in a virtual network** | Public IP | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Private IP | Private IP  |
+|**Public workspace, all other resources in a virtual network** | Public IP | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Public IP | Private IP  |
 |**Secure resources in a virtual network**| Private IP (private endpoint) | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Private IP | Private IP  | 
 
 * **Workspace** - Create a private endpoint for your workspace. The private endpoint connects the workspace to the vnet through several private IP addresses.
@@ -167,7 +167,7 @@ For more information, see [Enable network isolation for managed online endpoints
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
-In this section, you learn the options available for securing an inferencing environment. When doing a v1 deployment, we recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
+In this section, you learn the options available for securing an inferencing environment when using the Azure CLI extension for ML v1 or the Azure ML Python SDK v1. When doing a v1 deployment, we recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
 
 You have two options for AKS clusters in a virtual network:
 

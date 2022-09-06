@@ -216,7 +216,7 @@ For any support-related questions, issues or customization requirements, contact
 * [JBoss EAP in Azure App Service](/azure/developer/java/ee/jboss-on-azure) 
 * [Azure Hybrid Benefits](../../windows/hybrid-use-benefit-licensing.md)
 * [Red Hat Subscription Management](https://access.redhat.com/products/red-hat-subscription-management)
-* [Microsoft docs for Red Hat on Azure](./overview.md)
+* [Red Hat on Azure overview](./overview.md)
 
 ## Next steps
 

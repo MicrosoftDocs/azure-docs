@@ -126,4 +126,4 @@ To build a Power BI report/dashboard:
                            
 ## Next steps
 * To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
-* To learn more about Azure Cosmos DB, see the [Azure Cosmos DB documentation landing page](https://azure.microsoft.com/documentation/services/cosmos-db/).
+* To learn more about Azure Cosmos DB, see the [Azure Cosmos DB documentation landing page](/azure/cosmos-db/).

@@ -41,6 +41,9 @@ This article outlines how to make an access request.
 1. The **Request access** window will open. You can provide comments on why data access is requested.
 1. Select **Send** to trigger the self-service data access workflow.
 
+    > [!NOTE]
+    > If you want to request access on behalf of another user, select the checkbox **Request for someone else** and populate the email id of that user.
+
     :::image type="content" source="./media/how-to-request-access/send.png" alt-text="Screenshot of a data asset's overview page, with the Request access window overlaid. The Send button is highlighted at the bottom of the Request access window.":::
 
     > [!NOTE]

@@ -125,9 +125,9 @@ EFLOW uses the [route](https://man7.org/linux/man-pages/man8/route.8.html) servi
     >[!TIP]
     >The previous image shows the route command output with the two NIC's assigned (*eth0* and *eth1*). The virtual machine creates two different *default* destinations rules with different metrics. A lower metric value has a higher priority. This routing table will vary depending on the networking scenario configured in the previous steps.
 
-###  Static routes fix
+###  Static routes configuration
 
-Every time EFLOW VM starts, the networking services recreates all routes, and any previously assigned priority could change. To work around this issue, you can assign the desired priority for each route every time the EFLOW VM starts. You can create a service that executes every time the VM starts and use the `route` command to set the desired route priorities.
+Every time EFLOW VM starts, the networking services recreates all routes, and any previously assigned priority could change. To work around this issue, you can assign the desired priority for each route every time the EFLOW VM starts. You can create a service that executes on every VM boot and uses the `route` command to set the desired route priorities.
 
 First, create a bash script that executes the necessary commands to set the routes. For example, following the networking scenario mentioned earlier, the EFLOW VM has two NICs (offline and online networks). NIC *eth0* is connected using the gateway IP xxx.xxx.xxx.xxx. NIC *eth1* is connected using the gateway IP yyy.yyy.yyy.yyy. 
 

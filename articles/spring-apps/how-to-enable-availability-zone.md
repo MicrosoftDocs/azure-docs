@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: How to create an Azure Spring Apps instance with availability zone enabled.
 author: karlerickson
 ms.author: wenhaozhang
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 04/14/2022
 ms.custom: devx-track-java, event-tier1-build-2022

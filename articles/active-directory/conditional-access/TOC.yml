@@ -39,12 +39,14 @@
     href: service-dependencies.md
   - name: Location conditions
     href: location-condition.md
-  - name: Continuous access evaluation
-    href: concept-continuous-access-evaluation.md
   - name: Workload identities
     href: workload-identity.md
-  - name: CAE for workload identities
-    href: concept-continuous-access-evaluation-workload.md
+  - name: Continuous access evaluation
+    items:
+    - name: CAE for users
+      href: concept-continuous-access-evaluation.md
+    - name: CAE for workload identities
+      href: concept-continuous-access-evaluation-workload.md
   - name: Filter for devices
     href: concept-condition-filters-for-devices.md
   - name: What if tool
@@ -80,6 +82,8 @@
       href: howto-conditional-access-policy-location.md
     - name: Block access
       href: howto-conditional-access-policy-block-access.md
+    - name: Require MFA for Intune enrollment
+      href: /mem/intune/enrollment/multi-factor-authentication?toc=/azure/active-directory/conditional-access/TOC.json
   - name: Configure resilience defaults
     href: resilience-defaults.md
   - name: Configure report only mode

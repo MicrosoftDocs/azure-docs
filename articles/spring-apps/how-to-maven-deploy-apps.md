@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: Use Maven to deploy applications to Azure Spring Apps.
 ms.author: jialuogan
 author: KarlErickson
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 04/07/2022
 ms.custom: devx-track-java, event-tier1-build-2022
