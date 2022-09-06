@@ -88,4 +88,4 @@ End-users will not be able to grant consent to apps that have been detected as r
 
 [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](../develop/v2-permissions-and-consent.md)
 
-[Unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt)
+[Unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt.md)
