@@ -20,9 +20,9 @@ In this article, you'll learn how to configure the Redis software version to be 
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
-## Create a cache using the Azure portal
+## How to create a cache using the Azure portal
 
 To create a cache, follow these steps:
 
@@ -36,9 +36,9 @@ To create a cache, follow these steps:
 
     | Setting      | Suggested value  | Description |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Subscription** | Select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. | 
-    | **Resource group** | Select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
-    | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contains only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. | 
+    | **Subscription** | Select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. |
+    | **Resource group** | Select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
+    | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contains only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. |
     | **Location** | Select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
     | **Cache type** | Select a [cache tier and size](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
 
@@ -140,6 +140,6 @@ For more information, see [How to upgrade an existing Redis 4 cache to Redis 6](
 
 ## Next Steps
 
-- To learn more about upgrading your cache, see [Set Redis version for Azure Cache for Redis](cache-how-to-version.md)
+- To learn more about upgrading your cache, see [How to upgrade an existing Redis 4 cache to Redis 6](cache-how-to-upgrade.md)
 - To learn more about Redis 6 features, see [Diving Into Redis 6.0 by Redis](https://redis.com/blog/diving-into-redis-6/)
 - To learn more about Azure Cache for Redis features: [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)

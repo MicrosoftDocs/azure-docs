@@ -33,8 +33,8 @@ Before you upgrade, check the Redis version of a cache by selecting **Properties
 
 ### Limitations
 
-- Upgrading a basic cache will result in brief unavailability and data loss.
-- Upgrading on geo-replicated cache is not supported. You have to manually unlink the cache instances before upgrading.
+- Upgrading a Basic tier cache results in brief unavailability and data loss.
+- Upgrading on geo-replicated cache is not supported. You must manually unlink the cache instances before upgrading.
 - Upgrading a cache with a dependency on Cloud Services is not supported. You should migrate your cache instance to virtual machine scale set before upgrading.For more information, see [Caches with a dependency on Cloud Services (classic)](/azure/azure-cache-for-redis/cache-faq) for details on cloud services hosted caches.
 
 ## Upgrade using the Azure portal
@@ -73,6 +73,6 @@ Set-AzRedisCache -Name "CacheName" -ResourceGroupName "ResourceGroupName" -Redis
 
 ## Next steps
 
-- To learn more about Azure Cache for Redis versions, see [How to upgrade an existing Redis 4 cache to Redis 6](cache-how-to-upgrade.md)
+- To learn more about Azure Cache for Redis versions, see lin[Set Redis version for Azure Cache for Redis](cache-how-to-version.md)
 - To learn more about Redis 6 features, see [Diving Into Redis 6.0 by Redis](https://redis.com/blog/diving-into-redis-6/)
 - To learn more about Azure Cache for Redis features: [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
