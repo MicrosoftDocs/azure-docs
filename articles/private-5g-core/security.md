@@ -24,9 +24,15 @@ Azure Private 5G Core requires deployment of packet core instances onto a secure
 
 ## Encryption at rest
 
-The Azure Private 5G Core service stores all data securely at rest, including SIM credentials. It provides [encryption of data at rest](../security/fundamentals/encryption-overview.md) using platform-managed encryption keys, managed by Microsoft.
+The Azure Private 5G Core service stores all data securely at rest, including SIM credentials. It provides [encryption of data at rest](../security/fundamentals/encryption-overview.md) using platform-managed encryption keys, managed by Microsoft. Encryption at rest is used by default when [creating a SIM group](manage-sim-groups.md#create-a-sim-group).
 
-Azure Private 5G Core packet core instances are deployed on Azure Stack Edge devices, which handle [protection of data](../databox-online/azure-stack-edge-security.md#protect-your-data). 
+Azure Private 5G Core packet core instances are deployed on Azure Stack Edge devices, which handle [protection of data](../databox-online/azure-stack-edge-security.md#protect-your-data).
+
+## Customer managed keys
+
+Alternatively, instead of Microsoft Managed Keys (MMK), you have the choice of using a Customer Managed Key (CMK) when [creating a SIM group](manage-sim-groups.md#create-a-sim-group). If you elect to use a CMK, you will need to provide a Key URI and [User-assigned identity](../active-directory/managed-identities-azure-resources/overview) with wrap, unwrap and read access to the key within your [Azure Key Vault](../key-vault/).
+
+Once a SIM group is created, you cannot change the encryption type. However, if the SIM group uses CML, you can update the key used for encryption.
 
 ## Write-only SIM credentials
 
