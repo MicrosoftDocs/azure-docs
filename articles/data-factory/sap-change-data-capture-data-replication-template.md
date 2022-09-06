@@ -34,7 +34,7 @@ Learn how to use the SAP ODP (preview) data replication template to auto-generat
 
 1. Select **Use this template** to auto-generate an SAP data replication pipeline that contains Azure Data Factory copy and data flow activities.
 
-    The Data Factory copy activity runs on the self-hosted integration runtime to extract raw data (full + deltas) from the SAP system. The copy activity loads the raw data into Data Lake Storage Gen2 as a persisted CSV file Historical changes are archived and preserved. The files are stored in the *sapcdc* container under the *deltachange/\<your pipeline name\>\<your pipeline run timestamp\>* folder path. The **Extraction mode** property of the copy activity is set to **Delta**. The **Subscriber process** property of copy activity is parameterized.
+    The Data Factory copy activity runs on the self-hosted integration runtime to extract raw data (full + deltas) from the SAP system. The copy activity loads the raw data into Data Lake Storage Gen2 as a persisted CSV file. Historical changes are archived and preserved. The files are stored in the *sapcdc* container under the *deltachange/\<your pipeline name\>\<your pipeline run timestamp\>* folder path. The **Extraction mode** property of the copy activity is set to **Delta**. The **Subscriber process** property of copy activity is parameterized.
 
     The Data Factory data flow activity runs on the Azure integration runtime to transform the raw data and merge all changes into Azure Synapse Analytics. The process replicates the SAP data.
 

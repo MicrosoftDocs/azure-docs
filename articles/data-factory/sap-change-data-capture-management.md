@@ -66,13 +66,13 @@ In situations where the data movement works technically (that is, copy activitie
 
 To analyze what data the SAP system has provided for your scenario, start transaction ODQMON in your SAP backend system. If you're using the SLT scenario, with a standalone SLT server, start the transaction there.
 
-To find the Operational Delta Queue(s) corresponding to your copy activities or copy activity runs, use the filter options (blurred out below). In the field “Queue” you can use wildcards to narrow down the search, for example, by table name *EKKO*, etc.
+To find the Operational Delta Queue(s) corresponding to your copy activities or copy activity runs, use the filter options (blurred out below). In **Queue**, you can use wildcards to narrow the search. For example, you can search by the table name *EKKO*.
 
 Selecting the checkbox “Calculate Data Volume” provides details about the number of rows and data volume (in bytes) contained in the ODQs.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshooting-1.png" alt-text="Screenshot of the SAP ODQMON tool with delta queues displayed.":::
 
-Double clicking on the queue will bring you to the subscriptions of this ODQ. Because there can be multiple subscribers to the same ODQ, check for the subscriber name (which you entered in the Data Factory linked service) and pick the subscription whose timestamp best fits your copy activity run. (Note that for delta subscriptions, the first run of the copy activity will be recorded on SAP side for the subscription).
+Double clicking on the queue will bring you to the subscriptions of this ODQ. Because there can be multiple subscribers to the same ODQ, check for the subscriber name (which you entered in the Data Factory linked service) and pick the subscription whose timestamp best fits your copy activity run. For delta subscriptions, the first run of the copy activity will be recorded on SAP side for the subscription.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshooting-2.png" alt-text="Screenshot of the SAP ODQMON tool with delta queue subscriptions displayed.":::
 

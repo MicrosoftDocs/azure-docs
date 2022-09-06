@@ -95,7 +95,7 @@ To create a Data Factory copy activity that uses an SAP ODP data source:
 
        If you have many columns and you want to include only a few columns in your data extraction, select the checkboxes for those columns. If you have many columns and you want to exclude only a few in your data extraction, select the **Select all** checkbox first, and then clear the checkboxes for those columns. If no column is selected, all columns are extracted.
 
-      To enter the selections yourself, select the **Edit** checkboxes.
+       To enter the selections yourself, select the **Edit** checkboxes.
 
        :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-source-projection-configuration.png" alt-text="Screenshot of the SAP CDC (preview) source configuration with the Projection, Selection, and Additional columns sections highlighted.":::
 
@@ -113,10 +113,10 @@ To create a Data Factory copy activity that uses an SAP ODP data source:
 
         | Row selection condition | Field name | Sign | Option | Low | High |
         |---------|---------|---------|---------|---------|---------|
-        | Include only rows where the value in *COUNTRY* column is *CHINA*     | *COUNTRY*         | *Inclusive*         | *EQ*         | *CHINA*         |         |
-        | Exclude only rows where the value in *COUNTRY* column is *CHINA*     | *COUNTRY*         | *Exclusive*         | *EQ*         | *CHINA*         |         |
-        | Include only rows where the value in *FIRSTNAME* column contains *JO** pattern     | *FIRSTNAME*         | *Inclusive*         | *CP*         | *JO**         |         |
-        | Include only rows where the value in *CUSTOMERID* column is between *1* and *999999*     | *CUSTOMERID*         | *Inclusive*         | *BT*         | *1*         | *999999*         |
+        | Include only rows in which the value in the **COUNTRY** column is **CHINA**     | **COUNTRY**         | **Inclusive**         | **EQ**         | **CHINA**         |         |
+        | Exclude only rows in which the value in the **COUNTRY** column is **CHINA**     | **COUNTRY**         | **Exclusive**         | **EQ**         | **CHINA**         |         |
+        | Include only rows in which the value in the **FIRSTNAME** column contains the **JO\*** pattern     | **FIRSTNAME**         | **Inclusive**         | **CP**         | **JO\***         |         |
+        | Include only rows in which the value in the **CUSTOMERID** column is between **1** and **999999**     | **CUSTOMERID**         | **Inclusive**         | **BT**         | **1**         | **999999**         |
   
         :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-selection-additional-columns.png" alt-text="Screenshot of the SAP ODP (preview) source configuration for a copy activity with the Selection and Additional columns sections highlighted.":::
 
@@ -142,7 +142,7 @@ To create a Data Factory copy activity that uses an SAP ODP data source:
 
 1. If you set **Extraction mode** in the Data Factory copy activity to **Delta**, your initial or subsequent extractions consume full data or new data changes produced in the ODQ by your SAP system since the last extraction.
 
-    For each extraction, you can skip the actual data production or consumption or transfer and simply initialize or advance your delta subscription state. This option is especially useful if you want to perform full and delta extractions by using separate copy activities with different partitions. To set up full and delta extractions by using separate copy activities with different partitions, select **Code** for the Data Factory pipeline. Add the **deltaExtensionNoData** property of the Data Factory copy activity and set it to **true**. Remove that property when you want to resume extracting data.
+    For each extraction, you can skip the actual data production, consumption, or transfer and directly initialize or advance your delta subscription state. This option is especially useful if you want to perform full and delta extractions by using separate copy activities with different partitions. To set up full and delta extractions by using separate copy activities with different partitions, select **Code** for the Data Factory pipeline. Add the **deltaExtensionNoData** property of the Data Factory copy activity and set it to **true**. Remove that property when you want to resume extracting data.
 
      :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-code-2.png" alt-text="Screenshot of the code configuration for a pipeline with the deltaExtensionNoData property highlighted.":::
 

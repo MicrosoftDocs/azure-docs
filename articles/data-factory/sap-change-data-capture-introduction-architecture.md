@@ -14,7 +14,7 @@ ms.author: ulrichchrist
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article introduces and describes the architecture for SAP ODp (preview) connector in Azure Data Factory.
+This article introduces and describes the architecture for SAP ODP (preview) connector in Azure Data Factory.
 
 Azure Data Factory is a data integration (ETL and ELT) platform as a service (PaaS). For SAP data integration, Data Factory currently offers six connectors:
 
