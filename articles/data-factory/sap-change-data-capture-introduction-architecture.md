@@ -10,7 +10,7 @@ ms.date: 06/01/2022
 ms.author: ulrichchrist
 ---
 
-# Introduction to the SAP ODP (preview) connector in Azure Data Factory
+# Introduction to the SAP ODP (preview) template in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
