@@ -260,7 +260,7 @@ Ubuntu 18.04 and above have changed to **`netplan`** for OS network management. 
     ```
 
     > [!NOTE]
-    > **`**netplan try`** will apply the changes temporarily and roll the changes back after 120 seconds. If there is a loss of connectivity, please wait 120 seconds, and then reconnect. At that time, the changes will have been rolled back.
+    > `netplan try` will apply the changes temporarily and roll the changes back after 120 seconds. If there is a loss of connectivity, please wait 120 seconds, and then reconnect. At that time, the changes will have been rolled back.
 
 7. Assuming no issues with **`netplan try`**, apply the configuration changes:
 
