@@ -104,26 +104,25 @@ In addition to creating private routes, you can also control if the Azure Virtua
 
 To control public traffic:
 
-1. Go to **Host pools** > **Networking** > **Firewall and virtual networks**.
+1. Go to **Host pools** > **Networking** > **Firewall and virtual networks**. You should see the two check boxes shown in the following screenshot:
 
-![](media/image7.emf){width="3.2291666666666665in"
-height="0.9588790463692038in"}
+   :::image type="content" source="media/firewall-and-virtual-networks.png" alt-text="A screenshot of two check boxes labeled allow end users access from public network and allow session hosts access from public network.":::
 
-2. Configure the **Allow end users access from public network** setting.
+2. First, configure the **Allow end users access from public network** setting.
 
-    - If you enable the setting, users can connect to the host pool using public internet or private endpoints.
+    - If you select the check box, users can connect to the host pool using public internet or private endpoints.
 
-    - If you disable the setting, users can only connect to host pool using private endpoints.
+    - If you don't select the check box, users can only connect to host pool using private endpoints.
 
-3. Configure the **Allow session hosts access from public network** setting.
+3. Next, configure the **Allow session hosts access from public network** setting.
 
-    - If you enable this setting, Azure Virtual Desktop VMs will talk to the Azure Virtual Desktop service over public internet or private endpoints.
+    - If you select the check box, Azure Virtual Desktop VMs will talk to the Azure Virtual Desktop service over public internet or private endpoints.
 
-    - If you disable this setting, Azure Virtual Desktop VMs can only talk to the Azure Virtual Desktop service over private endpoint connections.
+    - If you don't select the check box, Azure Virtual Desktop VMs can only talk to the Azure Virtual Desktop service over private endpoint connections.
 
 ## Network connectivity <!--How/where do we configure network connectivity?-->
 
-You can set up a network security group (NSG) to block the WindowsVirtualDesktop server tag. If you block this server tag, all service traffic will use private routes only.
+You can [set up a network security group (NSG)](../virtual-network/tutorial-filter-network-traffic.md) to block the WindowsVirtualDesktop server tag. If you block this server tag, all service traffic will use private routes only.
 
 When you set up your NSG, you must configure it to allow the URLs in the [required URL list](safe-url-list.md). Make sure to include the URLs for Azure Monitor.
 
