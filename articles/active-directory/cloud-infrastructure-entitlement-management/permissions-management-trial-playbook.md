@@ -85,7 +85,8 @@ The dashboard leverages the Permission Creep Index, which is a single and unifie
     
 2.  View data about the activity in your authorization system
 
-    1.  [View user data on the PCI heat map](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-user-data-on-the-pci-heat-map). **Note:** The higher the PCI, the higher the risk.
+    1.  [View user data on the PCI heat map](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-user-data-on-the-pci-heat-map). [!Note] 
+    The higher the PCI, the higher the risk.
     
     2.  [View information about users, roles, resources, and PCI trends](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-information-about-users-roles-resources-and-pci-trends)
     3.  [View identity findings](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-identity-findings)
@@ -109,7 +110,7 @@ Right-size excessive and/or unused permissions in only a few clicks. Avoid any e
 
 There are two facets to removing unused permissions: least privilege policy creation (remediation) and permissions-on-demand. With remediation, an administrator can create policies that remove unused permissions (also known as right-sizing permissions) to achieve least privilege across their multicloud environment.
 
-1.  [Manage roles/policies and permissions requests using the Remediation dashboard](../cloud-infrastructure-entitlement-management/ui-remediation.md).
+-  [Manage roles/policies and permissions requests using the Remediation dashboard](../cloud-infrastructure-entitlement-management/ui-remediation.md).
 
     The dashboard includes six subtabs:
 
@@ -146,7 +147,7 @@ There are two facets to removing unused permissions: least privilege policy crea
 
 Prevent data breaches caused by misuse and malicious exploitation of permissions with anomaly and outlier detection that alerts on any suspicious activity. Permissions Management continuously updates your Permission Creep Index and flags any incident, then immediately informs you with alerts via email. To further support rapid investigation and remediation, you can generate context-rich forensic reports around identities, actions, and resources.
 
-1.  Use queries to view information about user access with the **Audit** dashboard in Permissions Management. You can get an overview of queries a Permissions Management user has created to review how users access their authorization systems and accounts. The following options display at the top of the **Audit** dashboard:
+-  Use queries to view information about user access with the **Audit** dashboard in Permissions Management. You can get an overview of queries a Permissions Management user has created to review how users access their authorization systems and accounts. The following options display at the top of the **Audit** dashboard:
 -   A tab for each existing query. Select the tab to see details about the query.
 -   **New Query**: Select the tab to create a new query.
 -   **New tab (+)**: Select the tab to add a **New Query** tab.
@@ -161,7 +162,7 @@ Prevent data breaches caused by misuse and malicious exploitation of permissions
 
 Use the **Activity triggers** dashboard to view information and set alerts and triggers. 
 
-2. Set activity alerts and triggers
+- Set activity alerts and triggers
 
     Our customizable machine learning-powered anomaly and outlier detection alerts will notify you of any suspicious activity such as deviations in usage profiles or abnormal access times. Alerts can be used to alert on permissions usage, access to resources, indicators of compromise, insider threats, or to track previous incidents.
 
@@ -180,25 +181,25 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 
         Example: Any activity done by root:
 
-        ![Diagram, Any activity done by root user in AWS](media/permissions-management-trial-playbook/custom-alerts-1.png)
+        ![Diagram, Any activity done by root user in AWS.](media/permissions-management-trial-playbook/custom-alerts-1.png)
 
         Alert for monitoring any direct Azure role assignment
 
-        ![Diagram, Alert for monitoring any direct Azure role assignment done by anyone other than Admin user](media/permissions-management-trial-playbook/custom-alerts-2.png)
+        ![Diagram, Alert for monitoring any direct Azure role assignment done by anyone other than Admin user.](media/permissions-management-trial-playbook/custom-alerts-2.png)
 
 -   Access to critical sensitive resources
 
     Example: Alert for monitoring any action on Azure resources
 
-    ![Diagram, Alert for monitoring any action on Azure resources](media/permissions-management-trial-playbook/custom-alerts-3.png)
+    ![Diagram, Alert for monitoring any action on Azure resources.](media/permissions-management-trial-playbook/custom-alerts-3.png)
 
 -   Use of break glass accounts like root in AWS, global admin in Azure AD accessing subscriptions, etc.
 
     Example: BreakGlass users should be used for emergency access only.
 
-    ![Diagram, Example of break glass account users used for emergency access only](media/permissions-management-trial-playbook/custom-alerts-4.png)
+    ![Diagram, Example of break glass account users used for emergency access only.](media/permissions-management-trial-playbook/custom-alerts-4.png)
 
-3.  Create and view reports
+-  Create and view reports
 
     To support rapid remediation, you can set up security reports to be delivered at custom intervals. Permissions Management has various types of system report types available that capture specific sets of data by cloud infrastructure (AWS, Azure, GCP), by account/subscription/project, and more. Reports are fully customizable and can be delivered via email at pre-configured intervals.
 
