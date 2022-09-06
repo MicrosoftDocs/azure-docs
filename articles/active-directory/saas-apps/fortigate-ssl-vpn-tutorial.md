@@ -199,8 +199,8 @@ To complete these steps, you'll need the values you recorded earlier:
    | SP entity ID (`entity-id`) |	Identifier (Entity ID) |
 | SP Single Sign-On URL (`single-sign-on-url`) |	Reply URL (Assertion Consumer Service URL) |
 | SP Single Logout URL (`single-logout-url`) | Logout URL |
-| IdP Entity ID (`idp-entity-id`) | Azure Login URL |
-| IdP Single Sign-On URL (`idp-single-sign-on-url`) | Azure AD Identifier |
+| IdP Entity ID (`idp-entity-id`) | Azure AD Identifier |
+| IdP Single Sign-On URL (`idp-single-sign-on-url`) | Azure Login URL |
 | IdP Single Logout URL (`idp-single-logout-url`) | Azure Logout URL |
 | IdP certificate (`idp-cert`) | Base64 SAML certificate name (REMOTE_Cert_N) |
 | Username attribute (`user-name`) | username |
