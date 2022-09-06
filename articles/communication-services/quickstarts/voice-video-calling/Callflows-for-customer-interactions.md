@@ -1,8 +1,9 @@
 ---
-title: Azure Communication Services Call Automation API quickstart
+title: Azure Communication Services Call Automation API quickstart for VoIP calls
 titleSuffix: An Azure Communication Services quickstart document
-description: Provides a quickstart sample for the Call Automation APIs.
+description: Provides a quickstart on how to use Call Automation to build call flow for customer interactions.
 author: ashwinder
+
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/06/2022
@@ -12,11 +13,11 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
+# Quickstart: Build call workflows for customer interactions
+
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
-
-# Quickstart: Build call workflows for customer interactions
 
 Get started with Azure Communication Services by using the Call Automation SDKs to build an automated workflows to handle common customer support scenarios.
 
@@ -33,5 +34,4 @@ Get started with Azure Communication Services by using the Call Automation SDKs 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
-
-For more information, see the following articles:
+Learn more about [Call Automation](../../concepts/voice-video-calling/CallAutomation.md) and its features. 
