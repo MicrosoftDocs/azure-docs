@@ -23,6 +23,8 @@ In this tutorial, you will learn how to:
 ### Project Oak Forest instance details
 
 * Once the [Project Oak Forest instance](/how-to/how-to-create-project-oak-forest-instance.md) is created, note down the following details:
+
+```Table
   | Parameter          | Value to use             | Example                               |
   | ------------------ | ------------------------ |-------------------------------------- |
   | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
@@ -31,6 +33,7 @@ In this tutorial, you will learn how to:
   | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
   | base_uri           | URI                      | bseloak.energy.azure.com              |
   | data-partition-id  | Data Partition(s)        | bseloak-bseldp1                       |
+```
 
 ### Postman setup
 
@@ -47,33 +50,38 @@ In this tutorial, you will learn how to:
 
 ### Executing Postman Requests
 
-* The Postman collection for Wellbore DDMS contains requests which allows interaction with wells, wellbore, welllog and well tragectory data.
+* The Postman collection for Wellbore DDMS contains requests which allows interaction with wells, wellbore, welllog and well trajectory data.
 * Make sure to choose the **Wellbore DDMS Environment** before triggering the Postman collection.
-  ![Choose environment](/media/tutorial-postman-choose-wellbore-environment.png)
+  ![Choose environment](/media/tutorial-wellbore-ddms/tutorial-postman-choose-wellbore-environment.png)
 * Each request can be triggered by clicking the **Send** Button.
 * On every request Postman will validate the actual API response code against the expected response code; if there is any mismatch the Test Section will indicate failures.
 
-#### Successful Postman Call
+**Successful Postman Call**
 
-![Success](/media/tutorial-postman-test-success.png)
+![Success](/media/tutorial-wellbore-ddms/tutorial-postman-test-success.png)
 
-#### Failed Postman Call
+**Failed Postman Call**
 
-![Failure](/media/tutorial-postman-test-failure.png)
+![Failure](/media/tutorial-wellbore-ddms/tutorial-postman-test-failure.png)
 
 ### Steps to insert and get the Well data
 
 1. **Get an SPN Token** - Generate the Service Principal Bearer token, which will be used to authenticate further API calls.
 1. **Create a Legal Tag** - Create a legal tag that will be added to the automatically environment for data compliance purpose.
 1. **Create Well** - Creates the wellbore record in Project Oak.
-  ![Screenshot-of-tutorial-create-well](/media/tutorial-create-well.png)
+  ![Screenshot-of-tutorial-create-well](/media/tutorial-wellbore-ddms/tutorial-create-well.png)
 1. **Get Wells** - Returns the well data created in the last step.
-  ![Screenshot-of-tutorial-get-wells](/media/tutorial-get-wells.png)
+  ![Screenshot-of-tutorial-get-wells](/media/tutorial-wellbore-ddms/tutorial-get-wells.png)
 1. **Get Well Versions** - Returns the versions of each ingested well record.
-  ![Screenshot-of-tutorial-get-well-versions](/media/tutorial-get-well-versions.png)
+  ![Screenshot-of-tutorial-get-well-versions](/media/tutorial-wellbore-ddms/tutorial-get-well-versions.png)
 1. **Get specific Well Version** - Returns the details of specified version of specified record.
-  ![Screenshot-of-tutorial-get-specific-well-version](/media/tutorial-get-specific-well-version.png)
+  ![Screenshot-of-tutorial-get-specific-well-version](/media/tutorial-wellbore-ddms/tutorial-get-specific-well-version.png)
 1. **Delete well record** - Deletes the specified record.
-  ![Screenshot-of-tutorial-delete-well](/media/tutorial-delete-well.png)
+  ![Screenshot-of-tutorial-delete-well](/media/tutorial-wellbore-ddms/tutorial-delete-well.png)
 
 ***Successful completion of above steps indicates success ingestion and retrieval of well records***
+
+## Next steps
+
+- ***Similar steps could be followed for wellbore, welllog and well trajectory data***
+- [Seismic DMS SDUTIL Tutorial](/tutorials/tutorial-seismic-ddms-sdutil.md)
