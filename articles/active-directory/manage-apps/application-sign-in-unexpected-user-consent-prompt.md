@@ -50,10 +50,10 @@ Additional prompts can be expected in various scenarios:
 To ensure you have the most up-to-date permissions granted for the application, you can compare the permissions that are being requested by the application with the permissions already granted in the tenant. 
 
 1. Sign-in to the Azure portal with an administrator account.
-2. Navigate to **Enterprise applications** 
-3. Select the application in question from the list
+2. Navigate to **Enterprise applications**.
+3. Select the application in question from the list.
 4. Under Security in the left-hand navigation, choose **Permissions*
-5. View the list of already granted permissions from the table on the Permissions page. 
+5. View the list of already granted permissions from the table on the Permissions page
 6. To view the requested permissions, click on the **Grant admin consent** button. (NOTE: This will open a consent prompt listing all of the requested permissions. Do not click accept on the consent prompt unless you are sure you want to grant tenant-wide admin consent.)
 7. Within the consent prompt, expand the listed permissions and compare with the table on the permissions page. If any are present in the consent prompt but not the permissions page, that permission has yet to be consented to. Unconsented permissions may be the cause for unexpected consent prompts showing for the application.
 
@@ -62,10 +62,10 @@ To ensure you have the most up-to-date permissions granted for the application, 
 If the application requires assignment, individual users cannot consent for themselves. To check if assignment is required for the application, do the following:
 
 1. Sign-in to the Azure portal with an administrator account.
-2. Navigate to **Enterprise applications** 
-3. Select the application in question from the list
-4. Under Manage in the left-hand navigation, choose **Properties**
-5. Check to see if **Assignment required?** is set to **Yes**
+2. Navigate to **Enterprise applications**.
+3. Select the application in question from the list.
+4. Under Manage in the left-hand navigation, choose **Properties**.
+5. Check to see if **Assignment required?** is set to **Yes**.
 6. If set to yes, then an admin must consent to the permissions on behalf of the entire organization. 
 
 ### Review tenant-wide user consent settings
@@ -73,8 +73,8 @@ If the application requires assignment, individual users cannot consent for them
 Determining whether an individual user can consent to an application can be configured by every organization, and may differ from directory to directory. Even if every permission does not require admin consent by default, your organization may have disabled user consent entirely, preventing an individual user to consent for themselves for an application. To view your organization's user consent settings, do the following:
 
 1. Sign-in to the Azure portal with an administrator account.
-2. Navigate to **Enterprise applications** 
-3. Under Security in the left-hand navigation, choose **Consent and permissions*
+2. Navigate to **Enterprise applications**.
+3. Under Security in the left-hand navigation, choose **Consent and permissions**.
 
 ## Next steps
 
