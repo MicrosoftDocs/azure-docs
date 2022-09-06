@@ -55,11 +55,11 @@ Speech Synthesis Markup Language (SSML) is an XML-based markup language that let
 
 ## Benefits of Text-to-Speech and Text-to-Speech SSML
 
-## Improve customer interaction
+### Improve customer interaction
 
 You can enhance your play action to play more fluid and natural sounding speech that provides a more approachable experience to your customers. This can be enabled by integrating your Azure Cognitive Services with Azure Communication Services. 
 
-## Personalization
+### Personalization
 
 With the integration of Azure Cognitive Services and Azure Communication Services you can support a wide variety of languages and voices, based on the configuration you have enabled on your Azure Cognitive Services resource. You can enable your participants to select the language and voice of the audio they hear, providing a more personalized and inclusive experience.
 
