@@ -227,7 +227,7 @@ items:
           - name: Log Analytics VM Extension
             displayName: troubleshoot, troubleshooting
             href: visualize/vmext-troubleshoot.md
-          -  name: Log Analytics Windows agent
+          - name: Log Analytics Windows agent
             displayName: troubleshoot, troubleshooting
             href: agents/agent-windows-troubleshoot.md
           - name: Log Analytics Linux agent
@@ -1611,7 +1611,6 @@ items:
       href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor
-
   - name: Profiler
     items:
     - name: Overview
