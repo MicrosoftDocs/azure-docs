@@ -6929,6 +6929,11 @@
     "redirect_document_id":  false
 },
 {
+    "source_path_from_root":  "/articles/azure-government/documentation-government-overview.md",
+    "redirect_url":  "/azure/azure-government/documentation-government-plan-security",
+    "redirect_document_id":  false
+},
+{
     "source_path_from_root":  "/articles/security/compliance/azure-services-in-fedramp-auditscope.md",
     "redirect_url":  "/azure/azure-government/compliance/azure-services-in-fedramp-auditscope",
     "redirect_document_id":  false
@@ -34241,6 +34246,11 @@
 {
     "source_path_from_root":  "/articles/virtual-machines/windows/winrm.md",
     "redirect_url":  "/azure/virtual-machines/windows/connect-winrm",
+    "redirect_document_id":  false
+},
+{
+    "source_path_from_root":  "/articles/azure-arc/servers/data-residency.md",
+    "redirect_url":  "/azure/azure-arc/servers/overview",
     "redirect_document_id":  false
 },
 {

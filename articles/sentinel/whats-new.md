@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 08/31/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -24,6 +24,18 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Microsoft Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
+
+## September 2022
+
+- [Add entities to threat intelligence (Preview)](#add-entities-to-threat-intelligence-preview)
+
+### Add entities to threat intelligence (Preview)
+
+When investigating an incident, you examine entities and their context as an important part of understanding the scope and nature of the incident. In the course of the investigation, you may discover an entity in the incident that should be labeled and tracked as an indicator of compromise (IOC), a threat indicator.
+
+Microsoft Sentinel allows you to flag the entity as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade in Sentinel.
+
+Learn how to [add an entity to your threat intelligence](add-entity-to-threat-intelligence.md).
 
 ## August 2022
 
