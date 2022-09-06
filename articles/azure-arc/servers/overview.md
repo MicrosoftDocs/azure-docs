@@ -83,6 +83,10 @@ Azure Arc-enabled servers has a limit for the number of instances that can be cr
 
 To learn more about resource type limits, see the [Resource instance limit](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) article.
 
+## Data residency
+
+Azure Arc-enabled servers doesn't store/process customer data outside the region the customer deploys the service instance in.
+
 ## Next steps
 
 * Before evaluating or enabling Azure Arc-enabled servers across multiple hybrid machines, review the [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
