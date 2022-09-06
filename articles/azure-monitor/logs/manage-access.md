@@ -303,7 +303,7 @@ To define access to a particular table, create a [custom role](../../role-based-
 * Use `Microsoft.OperationalInsights/workspaces/query/*` to grant access to all tables.
 * To exclude access to specific tables when you use a wildcard in **Actions**, list the tables excluded tables in the **NotActions** section of the role definition.
 
-### Examples
+#### Examples
 
 Here are examples of custom role actions to grant and deny access to specific tables.
 
@@ -342,7 +342,7 @@ Grant access to all tables except the _SecurityAlert_ table:
 ],
 ```
 
-### Custom tables
+#### Custom tables
 
  Custom tables store data you collect from data sources such as [text logs](../agents/data-sources-custom-logs.md) and the [HTTP Data Collector API](data-collector-api.md). To identify the table type, [view table information in Log Analytics](./log-analytics-tutorial.md#view-table-information).
 
@@ -365,7 +365,7 @@ Some custom logs come from sources that aren't directly associated to a specific
 
 For example, if a specific firewall is sending custom logs, create a resource group called *MyFireWallLogs*. Make sure that the API requests contain the resource ID of *MyFireWallLogs*. The firewall log records are then accessible only to users who were granted access to *MyFireWallLogs* or those users with full workspace access.
 
-### Considerations
+#### Considerations
 
 - If a user is granted global read permission with the standard Reader or Contributor roles that include the _\*/read_ action, it will override the per-table access control and give them access to all log data.
 - If a user is granted per-table access but no other permissions, they can access log data from the API but not from the Azure portal. To provide access from the Azure portal, use Log Analytics Reader as its base role.
