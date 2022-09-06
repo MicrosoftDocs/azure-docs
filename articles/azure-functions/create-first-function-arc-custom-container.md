@@ -22,32 +22,36 @@ On your local computer:
 
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 + [Azure Functions Core Tools version 4.x](functions-run-local.md?tabs=v4%2Ccsharp#install-the-azure-functions-core-tools)
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)
 
 # [JavaScript](#tab/nodejs)
 
-+ [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
-+ [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Cnode#install-the-azure-functions-core-tools).
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
++ [Node.js](https://nodejs.org/) version 12 (Node.js version 10 is also supported)
++ [Azure Functions Core Tools version 4.x](functions-run-local.md?tabs=v4%2Cnode#install-the-azure-functions-core-tools)
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)
 
 # [Python](#tab/python)
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Cpython#install-the-azure-functions-core-tools)
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
++ [Azure Functions Core Tools version 4.x](functions-run-local.md?tabs=v4%2Cpython#install-the-azure-functions-core-tools)
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)
 
 # [PowerShell](#tab/powershell)
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
-+ [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Cpowershell#install-the-azure-functions-core-tools) 
++ [Azure Functions Core Tools version 4.x](functions-run-local.md?tabs=v4%2Cpowershell#install-the-azure-functions-core-tools) 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
-+ PowerShell 7 requires version 1.2.5 of the connectedk8s Azure CLI extension, or a later version. It also requires version 0.1.3 of the appservice-kube Azure CLI extension, or a later version. Make sure you install the correct version of both of these extensions as you complete this quickstart article.
++ [Docker](https://docs.docker.com/install/)  
++ [Docker ID](https://hub.docker.com/signup)
++ PowerShell 7 requires recent versions of two Azure CLI extensions. Make sure you install the correct versions of the following extensions as you complete this quickstart article:
+    + `connectedk8s` version 1.2.5, or a later version 
+    + `appservice-kube` version 0.1.3 or a later version 
 
 ---
 
