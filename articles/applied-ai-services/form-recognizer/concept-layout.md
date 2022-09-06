@@ -145,7 +145,7 @@ The Layout model may flag certain paragraphs with their specialized type or `rol
 ```
 ### Pages
 
-The pages collection is the the very first object you see in the service response.
+The pages collection is the very first object you see in the service response.
 
 ```json
 "pages": [
