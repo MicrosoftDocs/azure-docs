@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/31/2022
+ms.date: 08/30/2022
 
 ms.author: gasinh
 author: gargi-sinha
@@ -241,6 +241,8 @@ Microsoft Authenticator can be used as a passwordless sign-in method and a secon
 ### Register for combined security registration (recommended)
 
 We recommend having your users register for combined security information, which is a single place to register their authentication methods and devices for both MFA and SSPR. 
+
+Authentication data can be migrated from MFA Server to Azure AD. This process doesn't require any end-user interaction during or after the migration, but it can result in stale data being migrated.
 
 Microsoft provides communication templates that you can provide to your users to guide them through the combined registration process. 
 These include templates for email, posters, table tents, and various other assets. Users register their information at `https://aka.ms/mysecurityinfo`, which takes them to the combined security registration screen. 

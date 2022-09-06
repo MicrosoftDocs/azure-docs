@@ -2,8 +2,8 @@
 metadata:
   title: Frequently asked questions for Azure Red Hat OpenShift
   description: Here are answers to common questions about Microsoft Azure Red Hat OpenShift
-  author: rahulm23
-  ms.author: rahul mehta
+  author: johnmarco
+  ms.author: johnmarc
   ms.service: azure-redhat-openshift
   ms.topic: faq
   ms.date: 07/31/2020

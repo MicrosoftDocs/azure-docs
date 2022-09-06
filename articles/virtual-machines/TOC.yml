@@ -12,6 +12,9 @@
       href: ./linux/quick-create-portal.md
     - name: PowerShell
       href: ./linux/quick-create-powershell.md
+    - name: Terraform
+      displayName: Terraform
+      href: ./linux/quick-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./linux/quick-create-bicep.md
@@ -674,6 +677,10 @@
     - name: Error codes
       displayName: pre-empt, preempt, spot, low priority, low-priority
       href: error-codes-spot.md
+    - name: Handle Spot Evictions
+      displayName: pre-empt, preempt, spot, low priority, low-priority
+      href: /azure/architecture/guide/spot/spot-eviction
+      maintainContext: true
   - name: Azure Hybrid Benefit
     items:
     - name: Linux
