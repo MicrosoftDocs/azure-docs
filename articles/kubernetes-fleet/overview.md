@@ -18,9 +18,9 @@ Azure Kubernetes Fleet Manager supports the following scenarios:
 
 * Create fleet resource and group AKS clusters as member clusters of the fleet.
 
-* Create Kubernetes objects on fleet cluster and control their proagatation to all or a subset of all member clusters.
+* Create Kubernetes objects on fleet cluster and control their propagation to all or a subset of all member clusters.
 
-* Export a service from one member cluster to the fleet. Once successfully exported, the service and its endpoints are synced the hub, which other member clusters (or any fleet-scoped load balancer) can consume.
+* Export a service from one member cluster to the fleet. Once successfully exported, the service and its endpoints are synced to the hub, which other member clusters (or any fleet-scoped load balancer) can consume.
 
 
 ## Next steps
