@@ -20,8 +20,8 @@ ms.custom: devx-track-python, references_regions, contperf-fy21q1, contperf-fy21
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [SDK v1](v1/how-to-network-security-overview.md)
-> * [SDK v2 (current version)](how-to-network-security-overview.md)
+> * [SDK/CLI v1](v1/how-to-network-security-overview.md)
+> * [SDK/CLI v2 (current version)](how-to-network-security-overview.md)
 
 Secure Azure Machine Learning workspace resources and compute environments using virtual networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
 
@@ -30,7 +30,7 @@ Secure Azure Machine Learning workspace resources and compute environments using
 >
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
@@ -230,7 +230,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
-* [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
