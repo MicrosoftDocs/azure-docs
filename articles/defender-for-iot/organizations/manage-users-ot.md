@@ -107,6 +107,8 @@ By default, on-premises users are signed out of their sessions after 30 minutes 
     - To turn off user session timeouts entirely, change `infinity_session_expiration = true` to `infinity_session_expiration = false`. Change it back to turn it back on again.
     - To adjust an inactivity timeout period, adjust the `= <number>` value to the required time, in seconds.
 
+For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+
 ### Track user activity
 
 Track user activity on a sensor's event timeline, or by viewing audit logs generated on an on-premises management console.
@@ -124,6 +126,20 @@ For example:
 :::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Screenshot of the Event timeline showing a user that signed in to Defender for IoT.":::
 
 Use the filters or search using CTRL+F to find the information of interest to you.
+
+The maximum number of events displayed depends on the [hardware profile](how-to-install-software.md#install-ot-monitoring-software) configured for your sensor during installation. While the event timeline isn't limited by time, after the maximum number of events is reached, the oldest events are deleted.
+
+|Hardware profile  |Number of events displayed  |
+|---------|---------|
+| C5600     |   10 million events      |
+| E1800    |   10 million events      |
+| E1000     |   6 million events     |
+| E500     |   6 million events     |
+| L500     |  3 million events       |
+| L100     |   500 thousand events      |
+| L60     |   500 thousand events      |
+
+For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
 
 #### View audit log data on the on-premises management console
 
@@ -160,11 +176,12 @@ Audit logs include the following data:
 
 ### Change a user's password
 
+<!--validate this procedure-->
 Users with an administrator role can change passwords for other users who have either the **Security Analyst** or **Read-only** role.
 
 Administrator users cannot change their own passwords, and must contact a user who has access to either the *cyberx* or *support* user to have their passwords reset.
 
-This procedure is not available for users with **Security analyst** or **Read-only** roles.
+This procedure is not supported for users with **Security analyst** or **Read-only** roles. For more information, see [Defender for IoT users, roles, and permissions](roles.md).
 
 **To reset a user's password on the sensor**:
 
@@ -179,17 +196,21 @@ This procedure is not available for users with **Security analyst** or **Read-on
 
 1. In the **Change password** pane that appears, enter and confirm the new password.
 
-    Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the following symbols: #%*+,-./:=?@[]^_{}~
+    Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers, and one of the following symbols: **#%*+,-./:=?@[]^_{}~**
 
 1. Select **Update** when you're done.
 
 ### Recover a password
 
+<!--validate this procedure-->
+
 The *cyberx* and *support* users can recover passwords for users on sensor or on-premises management console.
+
+This procedure is not supported for users with **Security analyst** or **Read-only** roles. For more information, see [Defender for IoT users, roles, and permissions](roles.md).
 
 **To recover a password**:
 
-1. Start signing in to your sensor or on-premises management console. On the sign-in screen, select **Password recovery**. For example: TBD
+1. Start signing in to your sensor or on-premises management console. On the sign-in screen, select **Password recovery**. <!--For example: TBD-->
 
 1. Select either **CyberX** or **Support** from the drop-down menu, and copy the unique identifier code to the clipboard.
 
@@ -221,140 +242,128 @@ The *cyberx* and *support* users can recover passwords for users on sensor or on
 1. Select **Next** > you user account. A system-generated password for your management console appears for you to use.
 
 
+## Integrate on-premises users with Active Directory
 
-## Define on-premises global user access control
+Allow Active Directory users to sign in to your sensors or an on-premises management console by configuring the integration with Active Directory. You can also create Active Directory groups and assign specific user permissions to all users in that group, such as if you want a specific group of users to have read-only permissions.
 
-In large organizations, user permissions can be complex and might be determined by a global organizational structure, in addition to the standard site and zone structure.
-
-To support the demand for user access permissions that are global and more complex, you can create a global business topology that's based on business units, regions, and sites. Then you can define user access permissions around these entities.
-
-Working with access tools for business topology helps organizations implement zero-trust strategies by better controlling where users manage and analyze devices in the Microsoft Defender for IoT platform.
-
-### About access groups
-
-Global access control is established through the creation of user access groups. Access groups consist of rules regarding which users can access specific business entities. Working with groups lets you control view and configuration access to Defender for IoT for specific user roles at relevant business units, regions, and sites.
-
-For example, allow security analysts from an Active Directory group to access all West European automotive and glass production lines, along with a plastics line in one region.
-
-:::image type="content" source="media/how-to-define-global-user-access-control/sa-diagram.png" alt-text="Diagram of the Security Analyst Active Directory group.":::
-
-Before you create access groups, we recommend that you:
-
-- Carefully set up your business topology. For more information about business topology, see [Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views).
-
-- Plan which users are associated with the access groups that you create. Two options are available for assigning users to access groups:
-
-  - **Assign groups of Active Directory groups**: Verify that you set up an Active Directory instance to integrate with the on-premises management console.
-  
-  - **Assign local users**: Verify that you created users. For more information, see [Define users](how-to-create-and-manage-users.md#define-users).
-
-Admin users can't be assigned to access groups. These users have access to all business topology entities by default.
-
-### Create access groups
-
-This section describes how to create access groups. Default global business units and regions are created for the first group that you create. You can edit the default entities when you define your first group.
-
-To create groups:
-
-1. Select **Access Groups** from the side menu of the on-premises management console.
-
-2. Select :::image type="icon" source="media/how-to-define-global-user-access-control/add-icon.png" border="false":::. In the **Add Access Group** dialog box, enter a name for the access group. The console supports 64 characters. Assign the name in a way that will help you easily distinguish this group from other groups.
-
-   :::image type="content" source="media/how-to-define-global-user-access-control/add-access-group.png" alt-text="The Add Access Group dialog box where you create access groups.":::
-
-3. If the **Assign an Active Directory Group** option appears, you can assign one Active Directory group of users to this access group.
-
-   :::image type="content" source="media/how-to-define-global-user-access-control/add-access-group.png" alt-text="Assign an Active Directory group in the Create Access Group dialog box.":::
-
-   If the option doesn't appear, and you want to include Active Directory groups in access groups, select **System Settings**. On the **Integrations** pane, define the groups. Enter a group name exactly as it appears in the Active Directory configurations, and in lowercase.
-
-5. On the **Users** pane, assign as many users as required to the group. You can also assign users to different groups. If you work this way, you must create and save the access group and rules, and then assign users to the group from the **Users** pane.
-
-   :::image type="content" source="media/how-to-define-global-user-access-control/role-management.png" alt-text="Manage your users' roles and assign them as needed.":::
-
-6. Create rules in the **Add Rules for *name*** dialog box based on your business topology's access requirements. Options that appear here are based on the topology that you designed in the **Enterprise View** and **Site Management** windows. 
-
-   You can create more than one rule per group. You might need to create more than one rule per group when you're working with complex access granularity at multiple sites. 
-
-   :::image type="content" source="media/how-to-define-global-user-access-control/add-rule.png" alt-text="Add a rule to your system.":::
-
-The rules that you create appear in the **Add Access Group** dialog box. There, you can delete or edit them.
-
-:::image type="content" source="media/how-to-define-global-user-access-control/edit-access-groups.png" alt-text="View and edit all of your access groups from this window.":::
-
-#### About rules
-
-When you're creating rules, be aware of the following information:
-
-- When an access group contains several rules, the rule logic aggregates all rules. For example, the rules use AND logic, not OR logic.
-
-- For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window.
-
-- You can assign only one element per rule. For example, you can assign one business unit, one region, and one site for each rule. Create more rules for the group if, for example, you want users in one Active Directory group to have access to different business units in different regions.
-
-- If you change an entity and the change affects the rule logic, the rule will be deleted. If changes made to a topology entity affect the rule logic such that all rules are deleted, the access group remains but the users can't sign in to the on-premises management console. Users are notified to contact their administrator to sign in.
-
-- If no business unit or region is selected, users will have access to all defined business units and regions.
-
-## Integrate with Active Directory
-
-Configure the sensor or on-premises management console to work with Active Directory. This allows Active Directory users to access the Microsoft Defender for IoT consoles by using their Active Directory credentials.
-
-> [!Note]
-> LDAP v3 is supported.
-
-Two types of LDAP-based authentication are supported:
+The Defender for IoT Active Directory integration supports LDAP v3 and the following types of LDAP-based authentication.
 
 - **Full authentication**: User details are retrieved from the LDAP server. Examples are the first name, last name, email, and user permissions.
 
 - **Trusted user**: Only the user password is retrieved. Other user details that are retrieved are based on users defined in the sensor.
 
-For more information, see [networking requirements](how-to-set-up-your-network.md#other-firewall-rules-for-external-services-optional).
+For more information, see [Other firewall rules for external services (optional)](how-to-set-up-your-network.md#other-firewall-rules-for-external-services-optional).
 
-### Active Directory and Defender for IoT permissions
+**To integrate with Active Directory**:
 
-You can associate Active Directory groups defined here with specific permission levels. For example, configure a specific Active Directory group and assign Read-only permissions to all users in the group.
+1. Sign in to your sensor console or on-premises management console as an **Administrator** user.
 
-### Active Directory configuration guidelines
+1. From the left navigation menu, select **System Settings**, and then select one of the following:
 
-- You must define the LDAP parameters here exactly as they appear in Active Directory.
-- For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
-- You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
+    - On the sensor console: Expand the **Integrations** area and then select **Active Directory**.
+    - On the on-premises management console: Scroll down to the **Management console integrations** area on the right, and then select **Active Directory**.
 
-**To configure Active Directory**:
+1. Toggle on or select the **Active Directory Integration Enabled** option, depending on where you're configuring the integration.
 
-1. From the left pane, select **System Settings**.
-1. Select **Integrations** and then select **Active Directory**.
-:::image type="content" source="media/how-to-create-and-manage-users/active-directory-configuration.png" alt-text="Screenshot of the Active Directory configuration dialog box.":::
+1. Enter the following values for an Active Directory server:
 
-1. Enable the **Active Directory Integration Enabled** toggle.
+    - **Domain Controller FQDN**: The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`.
 
-1. Set the Active Directory server parameters, as follows:
+    - **Domain Controller Port**: The port on which your LDAP is configured.
 
-   | Server parameter | Description |
-   |--|--|
-   | Domain controller FQDN | Set the fully qualified domain name (FQDN) exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`. |
-   | Domain controller port | Define the port on which your LDAP is configured. |
-   | Primary domain | Set the domain name (for example, `subdomain.domain.com`) and the connection type according to your LDAP configuration. |
-   | Active Directory groups | Enter the group names that are defined in your Active Directory configuration on the LDAP server. You can enter a group name that you'll associate with Admin, Security Analyst and Read-only permission levels. Use these groups when creating new sensor users.|
-   | Trusted domains | To add a trusted domain, add the domain name and the connection type of a trusted domain. <br />You can configure trusted domains only for users who were defined under users. |
+    - **Primary Domain**: The domain name, such as `subdomain.domain.com`, and then select the connection type for your LDAP configuration.
 
-    ### Active Directory groups for the on-premises management console
+    - **Active Directory Groups**: Select **+ Add** to add an Active Directory group to each permission level listed, as needed. When you enter a group name, make sure that you enter the group name as it's defined in your Active Directory configuration on the LDAP server. Then, make sure to use these groups when creating new sensor users from Active Directory.
 
-    If you're creating Active Directory groups for on-premises management console users, you must create an Access Group rule for each Active Directory group. On-premises management console Active Directory credentials won't work if an Access Group rule doesn't exist for the Active Directory user group. For more information, see [Define global access control](how-to-define-global-user-access-control.md).
+        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**. On the on-premises management console, add groups as **Trusted Domains** in a separate row from the other Active Directory groups.
 
-1. Select **Save**.
+    Select **+ Add Server** to add another server and enter its values as needed, and **Save** when you're done.
 
-1. To add a trusted server, select **Add Server** and configure another server.
+> [!IMPORTANT]
+> When entering LDAP parameters:
+>
+> - Define values exactly as they appear in Active directory, except for the case.
+> - User lowercase only, even if the configuration in Active Directory uses uppercase.
+> - LDAP and LDAPS can't be configured for the same domain. However, you can configure each in different domains and then use them at the same time.
+>
+
+1. Create access group rules for on-premises console users. If you configure Active Directory groups for on-premises management console users, you must also create an access group rule for each Active Directory group. Active Directory credentials won't work for on-premises management console users without a corresponding access group rule. For more information, see [Define global access permission for on-premises users](#define-global-access-permission-for-on-premises-users).
 
 
+## Define global access permission for on-premises users
+
+Large organizations often have a complex user permissions model based on global organizational structures. To manage your on-premises Defender for IoT users, use a global business topology that's based on business units, regions, and sites, and then define user access permissions around those entities.
+
+> [!TIP]
+> Access groups and rules help to implement zero-trust strategies by controlling where users manage and analyze devices on Defender for IoT sensors and the on-premises management console. For more information, see [Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md).
+>
+
+### Create on-premises access groups
+
+Create user access groups to establish global access control across Defender for IoT on-premises resources. Each access group includes rules about the users that can access specific entities in your business topology, including business units, regions, and sites.
+
+For example, the following diagram shows how you can allow security analysts from an Active Directory group to access all West European automotive and glass production lines, along with a plastics line in one region:
+
+:::image type="content" source="media/how-to-define-global-user-access-control/sa-diagram.png" alt-text="Diagram of the Security Analyst Active Directory group.":::
+
+**Prerequisites**:
+
+You must have administrator access to an on-premises management console to create access groups.
+
+Before you create access groups, we also recommend that you:
+
+- Carefully set up your business topology. For more information about business topology, see [Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views).
+
+    - For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window.
+
+- Plan which users are associated with the access groups that you create. Two options are available for assigning users to access groups:
+
+  - **Assign groups of Active Directory groups**: Verify that you set up an Active Directory instance to integrate with the on-premises management console.
+
+  - **Assign local users**: Verify that you created users. For more information, see [Define users](how-to-create-and-manage-users.md#define-users).
+
+
+> [!NOTE]
+> Users with **Administrator** roles can't be assigned to access groups, and have access to all business topology entities by default.
+
+**To create access groups**:
+
+<!--validate this procedure, use consistent language for UI elements-->
+
+1. Sign in to the on-premises management console as user with an **Administrator** role.
+
+1. Select **Access Groups** from the left navigation menu, and then select **Add** :::image type="icon" source="media/how-to-define-global-user-access-control/add-icon.png" border="false":::.
+
+1. In the **Add Access Group** dialog box, enter a meaningful name for the access group, with a maximum of 64 characters.
+
+1. Add users with one or both of the following methods:
+
+    - If the **Assign an Active Directory Group** option appears, assign an Active Directory group of users to this access group as needed. For example:
+
+       :::image type="content" source="media/how-to-define-global-user-access-control/add-access-group.png" alt-text="Assign an Active Directory group in the Create Access Group dialog box.":::
+
+       If the option doesn't appear, and you want to include Active Directory groups in access groups, select **System Settings**. On the **Integrations** pane, define the groups you want to include, in lowercase and exactly as they appear in the Active Directory configuration.
+
+    - Add local users by assigning users in the **Users** pane.
+
+    If you have previously created access groups and rules, you can assign users to multiple groups at the same time.
+
+1. Select **ADD RULE**, and then select the business topology options that you want to include in the access group. The options that appear  in the **Add Rule** dialog are the entities that you'd created in the **Enterprise View** and **Site Management** pages. For example:
+
+   :::image type="content" source="media/how-to-define-global-user-access-control/add-rule.png" alt-text="Add a rule to your system.":::
+
+    If they don't otherwise exist yet, default global business units and regions are created for the first group you create, which you can edit as needed. If you don't select any business units or regions, users in the access group will have access to all business topology entities.
+
+    Each rule can include only one element per type. For example, you can assign one business unit, one region, and one site for each rule. If you want the same users to have access to multiple business units, in different regions, create more rules for the group. When an access group contains several rules, the rule logic aggregates all rules using an AND logic.
+
+Any rules you create are listed in the **Add Access Group** dialog box, where you can edit them further or delete them as needed. For example:
+
+:::image type="content" source="media/how-to-define-global-user-access-control/edit-access-groups.png" alt-text="View and edit all of your access groups from this window.":::
+
+> [!IMPORTANT]
+> If you later modify a topology entity and the change affects the rule logic, the rule is automatically deleted. If modifications to topology entities affect rule logic so that all rules are deleted, the access group remains but users won't be able to sign in to the on-premises management console. Instead, users are notified to contact their on-premises management console administrator for help signing in.
 
 ## Next steps
 
-- [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
-
-- [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
-
+- [Defender for IoT users, roles, and permissions](roles.md)
 - [Track sensor activity](how-to-track-sensor-activity.md)
-
-- [Integrate with Active Directory servers](integrate-with-active-directory.md)

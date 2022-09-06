@@ -15,7 +15,7 @@ This articles provides a reference of all roles relevant to Defender for IoT, th
 
 ## On-premises users for Defender for IoT
 
-The following users are installed by default together with OT network sensors and on-premises management consoles:
+By default, each sensor and on-premises management console is installed with the *cyberx* and *support* users. Sensors are also installed with the *cyberx_host* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create extra users for security analysts and read-only users.
 
 The following additional roles are also available to apply to other users:
 
