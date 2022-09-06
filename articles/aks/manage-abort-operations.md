@@ -15,9 +15,9 @@ AKS now supports aborting a long running operation, allowing you to take back co
 
 The abort operation supports the following scenarios:
 
-- If a long running operation is stuck or suspected to be in a bad state or failing, That operation can be aborted provided it's the last running operation on the Managed Cluster or agent pool.
-- If a long running operation is stuck or failing, then that operation can be aborted.
-- An operation that was triggered in error can be aborted as long as the operation does not reach a terminal state firs
+- If a long running operation is stuck or suspected to be in a bad state or failing, the operation can be aborted provided it's the last running operation on the Managed Cluster or agent pool.
+- If a long running operation is stuck or failing, that operation can be aborted.
+- An operation that was triggered in error can be aborted as long as the operation doesn't reach a terminal state first.
 
 ## Before you begin
 
