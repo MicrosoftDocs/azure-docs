@@ -14,6 +14,10 @@ ms.custom: ignite-fall-2021
 
 Microsoft Sentinel uses the Azure foundation to provide built-in, service-to-service support for data ingestion from many Azure and Microsoft 365 services, Amazon Web Services, and various Windows Server services. There are a few different methods through which these connections are made, and this article describes how to make these connections.
 
+This article describes the collection of Windows Security Events. For Windows DNS events, learn about the [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md).
+
+## Types of connections
+
 This article discusses the following types of connectors:
 
 - **API-based** connections

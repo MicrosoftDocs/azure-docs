@@ -216,6 +216,16 @@ Filters are based on a combination of numerous fields.
 
 Review the [available fields for filtering](dns-ama-fields.md#available-fields-for-filtering).
 
+### Use wildcards
+
+You can use wildcards in advanced filters. Review these considerations when using wildcards: 
+
+- Add a dot after each asterisk (`*.`).
+- Do not use spaces between the list of domains.
+- Wildcards apply to the domain's subdomains only, including `www.domain.com`, regardless of the protocol. For example, if you use `*.facebook.com` in an advanced filter: 
+    - The filter applies to `www.facebook.com` and `subdomain.example.com`, regardless of whether the protocols is HTTPS, FTP, and so on. 
+    - The filter doesn't apply to `example.com`. To apply a filter to `example.com`, specify the domain directly, without using a wildcard.  
+
 ### Advanced filter examples
 
 #### Do not collect specific event IDs
@@ -275,20 +285,23 @@ This filter instructs the connector not to collect EventID 256 or EventID 257 or
 
 #### Do not collect events with specific domains
  
-This filter instructs the connector not to collect events from any subdomains of microsoft.com, google.com, amazon.com, or events from facebook.com or center.local: 
+This filter instructs the connector not to collect events from any subdomains of microsoft.com, google.com, amazon.com, or events from facebook.com or center.local.
+
+You can also use wildcards in your filter. Learn [how to use wildcards](#use-wildcards). 
 
 **Using the Microsoft Sentinel portal**:
 
-Set the **DnsQuery** field using the **Equals** operator, with the list *\*.microsoft.com,\*.google.com,facebook.com,\*.amazon.com,center.local*.
+Set the **DnsQuery** field using the **Equals** operator, with the list *\*.microsoft.com,\*.google.com,facebook.com,\*.amazon.com,center.local*. 
 
-> [!NOTE]
-> When you use wildcards, add a dot after each asterisk (`*.`), and do not use spaces between the list of domains.  
+Review these considerations for [using wildcards](#use-wildcards). 
 
 :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-domain-filter.png" alt-text="Screenshot of filtering out domains for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png"::: 
 
 To define different values in a single field, use the **OR** operator.
 
 **Using the API**:
+
+Review these considerations for [using wildcards](#use-wildcards). 
 
 ```rest
 "Filters": [ 

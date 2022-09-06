@@ -1824,12 +1824,12 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Azure monitor Agent-based connection](connect-dns-ama.md)** |
 | **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
-| **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **DCR support** | [Standard DCR](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?tabs=portal) |
 | **Supported by** | Microsoft |
 
 ## Windows DNS Server (Preview)
 
-We recommend that you use the DNS over AMA connector above.
+This connector uses the legacy agent. We recommend that you use the DNS over AMA connector above.
 
 | Connector attribute | Description |
 | --- | --- |
