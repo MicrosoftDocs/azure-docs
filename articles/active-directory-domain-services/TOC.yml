@@ -83,6 +83,8 @@
           href: manage-dns.md
         - name: Check health status
           href: check-health.md
+        - name: Fleet metrics
+          href: fleet-metrics.md
         - name: Configure email notifications
           href: notifications.md
         - name: Delete a managed domain

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory architecture overview
+title: Microsoft Entra Verified ID architecture overview
 description: Learn foundational information to plan and design your solution
 documentationCenter: ''
 author: barclayn
@@ -44,7 +44,7 @@ However, there are scenarios where using a decentralized architecture with verif
 
 * accessing resources outside the trust boundary, such as accessing partners’ resources, with a portable credential issued by the organization.
 
- 
+
 
 ### Decentralized identity systems
 

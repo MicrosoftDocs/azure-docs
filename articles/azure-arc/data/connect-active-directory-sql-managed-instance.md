@@ -3,7 +3,7 @@ title: Connect to AD-integrated Azure Arc-enabled SQL Managed Instance
 description: Connect to AD-integrated Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray

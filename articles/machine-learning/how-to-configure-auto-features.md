@@ -388,4 +388,4 @@ automl_settings = {
 
 * Learn more about [how and where to deploy a model](./v1/how-to-deploy-and-where.md).
 
-* Learn more about [how to train a regression model by using automated machine learning](tutorial-auto-train-models.md) or [how to train by using automated machine learning on a remote resource](./v1/concept-automated-ml-v1.md#local-remote).
+* Learn more about [how to train a regression model by using automated machine learning](./v1/how-to-auto-train-models-v1.md) or [how to train by using automated machine learning on a remote resource](./v1/concept-automated-ml-v1.md#local-remote).

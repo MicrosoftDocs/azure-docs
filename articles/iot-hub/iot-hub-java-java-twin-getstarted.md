@@ -42,7 +42,161 @@ In this article, you create two Java console apps:
 
 [!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
-## Create the service app
+## Create a device app with a direct method
+
+In this section, you create a Java console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to confirm that it's connected using a cellular network.
+
+1. In the **iot-java-twin-getstarted** folder, create a Maven project named **simulated-device** using the following command at your command prompt:
+
+    ```cmd/sh
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
+
+2. At your command prompt, navigate to the **simulated-device** folder.
+
+3. Using a text editor, open the **pom.xml** file in the **simulated-device** folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the **iot-device-client** package in your app to communicate with your IoT hub.
+
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-device-client</artifactId>
+      <version>1.17.5</version>
+    </dependency>
+    ```
+
+    > [!NOTE]
+    > You can check for the latest version of **iot-device-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+
+4. Add the following dependency to the **dependencies** node. This dependency configures a NOP for the Apache [SLF4J](https://www.slf4j.org/) logging facade, which is used by the device client SDK to implement logging. This configuration is optional, but, if you omit it, you may see a warning in the console when you run the app. For more information about logging in the device client SDK, see [Logging](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/readme.md#logging) in the *Samples for the Azure IoT device SDK for Java* readme file.
+
+    ```xml
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-nop</artifactId>
+      <version>1.7.28</version>
+    </dependency>
+    ```
+
+5. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
+
+    ```xml
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.3</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+    ```
+
+6. Save and close the **pom.xml** file.
+
+7. Using a text editor, open the **simulated-device\src\main\java\com\mycompany\app\App.java** file.
+
+8. Add the following **import** statements to the file:
+
+    ```java
+    import com.microsoft.azure.sdk.iot.device.*;
+    import com.microsoft.azure.sdk.iot.device.DeviceTwin.*;
+
+    import java.io.IOException;
+    import java.net.URISyntaxException;
+    import java.util.Scanner;
+    ```
+
+9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you saw when you registered a device in the IoT Hub:
+
+    ```java
+    private static String connString = "{yourdeviceconnectionstring}";
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
+    private static String deviceId = "myDeviceId";
+    ```
+
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object.
+
+10. Add the following method to the **App** class to print information about twin updates:
+
+    ```java
+    protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
+        @Override
+        public void execute(IotHubStatusCode status, Object context) {
+          System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+        }
+      }
+    ```
+
+11. Replace the code in the **main** method with the following code to:
+
+    * Create a device client to communicate with IoT Hub.
+
+    * Create a **Device** object to store the device twin properties.
+
+    ```java
+    DeviceClient client = new DeviceClient(connString, protocol);
+
+    // Create a Device object to store the device twin properties
+    Device dataCollector = new Device() {
+      // Print details when a property value changes
+      @Override
+      public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
+        System.out.println(propertyKey + " changed to " + propertyValue);
+      }
+    };
+    ```
+
+12. Add the following code to the **main** method to create a **connectivityType** reported property and send it to IoT Hub:
+
+    ```java
+    try {
+      // Open the DeviceClient and start the device twin services.
+      client.open();
+      client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, dataCollector, null);
+
+      // Create a reported property and send it to your IoT hub.
+      dataCollector.setReportedProp(new Property("connectivityType", "cellular"));
+      client.sendReportedProperties(dataCollector.getReportedProp());
+    }
+    catch (Exception e) {
+      System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
+      dataCollector.clean();
+      client.closeNow();
+      System.out.println("Shutting down...");
+    }
+    ```
+
+13. Add the following code to the end of the **main** method. Waiting for the **Enter** key allows time for IoT Hub to report the status of the device twin operations.
+
+    ```java
+    System.out.println("Press any key to exit...");
+
+    Scanner scanner = new Scanner(System.in);
+    scanner.nextLine();
+
+    dataCollector.clean();
+    client.close();
+    ```
+
+14. Modify the signature of the **main** method to include the exceptions as follows:
+
+     ```java
+     public static void main(String[] args) throws URISyntaxException, IOException
+     ```
+
+15. Save and close the **simulated-device\src\main\java\com\mycompany\app\App.java** file.
+
+16. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the **simulated-device** folder and run the following command:
+
+    ```cmd/sh
+    mvn clean package -DskipTests
+    ```
+
+## Create a service app to trigger a reboot
 
 In this section, you create a Java app that adds location metadata as a tag to the device twin in IoT Hub associated with **myDeviceId**. The app queries IoT hub for devices located in the US and then queries devices that report a cellular network connection.
 
@@ -200,162 +354,6 @@ In this section, you create a Java app that adds location metadata as a tag to t
 15. Save and close the **add-tags-query\src\main\java\com\mycompany\app\App.java** file
 
 16. Build the **add-tags-query** app and correct any errors. At your command prompt, navigate to the **add-tags-query** folder and run the following command:
-
-    ```cmd/sh
-    mvn clean package -DskipTests
-    ```
-
-In the next section, you create a device app that reports connectivity information and changes the result of the query in the previous section.
-
-## Create the device app
-
-In this section, you create a Java console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to confirm that it's connected using a cellular network.
-
-1. In the **iot-java-twin-getstarted** folder, create a Maven project named **simulated-device** using the following command at your command prompt:
-
-    ```cmd/sh
-    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-    ```
-
-2. At your command prompt, navigate to the **simulated-device** folder.
-
-3. Using a text editor, open the **pom.xml** file in the **simulated-device** folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the **iot-device-client** package in your app to communicate with your IoT hub.
-
-    ```xml
-    <dependency>
-      <groupId>com.microsoft.azure.sdk.iot</groupId>
-      <artifactId>iot-device-client</artifactId>
-      <version>1.17.5</version>
-    </dependency>
-    ```
-
-    > [!NOTE]
-    > You can check for the latest version of **iot-device-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
-
-4. Add the following dependency to the **dependencies** node. This dependency configures a NOP for the Apache [SLF4J](https://www.slf4j.org/) logging facade, which is used by the device client SDK to implement logging. This configuration is optional, but, if you omit it, you may see a warning in the console when you run the app. For more information about logging in the device client SDK, see [Logging](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/readme.md#logging) in the *Samples for the Azure IoT device SDK for Java* readme file.
-
-    ```xml
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-nop</artifactId>
-      <version>1.7.28</version>
-    </dependency>
-    ```
-
-5. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
-
-    ```xml
-    <build>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.3</version>
-          <configuration>
-            <source>1.8</source>
-            <target>1.8</target>
-          </configuration>
-        </plugin>
-      </plugins>
-    </build>
-    ```
-
-6. Save and close the **pom.xml** file.
-
-7. Using a text editor, open the **simulated-device\src\main\java\com\mycompany\app\App.java** file.
-
-8. Add the following **import** statements to the file:
-
-    ```java
-    import com.microsoft.azure.sdk.iot.device.*;
-    import com.microsoft.azure.sdk.iot.device.DeviceTwin.*;
-
-    import java.io.IOException;
-    import java.net.URISyntaxException;
-    import java.util.Scanner;
-    ```
-
-9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you saw when you registered a device in the IoT Hub:
-
-    ```java
-    private static String connString = "{yourdeviceconnectionstring}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
-    private static String deviceId = "myDeviceId";
-    ```
-
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object.
-
-10. Add the following method to the **App** class to print information about twin updates:
-
-    ```java
-    protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
-        @Override
-        public void execute(IotHubStatusCode status, Object context) {
-          System.out.println("IoT Hub responded to device twin operation with status " + status.name());
-        }
-      }
-    ```
-
-11. Replace the code in the **main** method with the following code to:
-
-    * Create a device client to communicate with IoT Hub.
-
-    * Create a **Device** object to store the device twin properties.
-
-    ```java
-    DeviceClient client = new DeviceClient(connString, protocol);
-
-    // Create a Device object to store the device twin properties
-    Device dataCollector = new Device() {
-      // Print details when a property value changes
-      @Override
-      public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
-        System.out.println(propertyKey + " changed to " + propertyValue);
-      }
-    };
-    ```
-
-12. Add the following code to the **main** method to create a **connectivityType** reported property and send it to IoT Hub:
-
-    ```java
-    try {
-      // Open the DeviceClient and start the device twin services.
-      client.open();
-      client.startDeviceTwin(new DeviceTwinStatusCallBack(), null, dataCollector, null);
-
-      // Create a reported property and send it to your IoT hub.
-      dataCollector.setReportedProp(new Property("connectivityType", "cellular"));
-      client.sendReportedProperties(dataCollector.getReportedProp());
-    }
-    catch (Exception e) {
-      System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
-      dataCollector.clean();
-      client.closeNow();
-      System.out.println("Shutting down...");
-    }
-    ```
-
-13. Add the following code to the end of the **main** method. Waiting for the **Enter** key allows time for IoT Hub to report the status of the device twin operations.
-
-    ```java
-    System.out.println("Press any key to exit...");
-
-    Scanner scanner = new Scanner(System.in);
-    scanner.nextLine();
-
-    dataCollector.clean();
-    client.close();
-    ```
-
-14. Modify the signature of the **main** method to include the exceptions as follows:
-
-     ```java
-     public static void main(String[] args) throws URISyntaxException, IOException
-     ```
-
-15. Save and close the **simulated-device\src\main\java\com\mycompany\app\App.java** file.
-
-16. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the **simulated-device** folder and run the following command:
 
     ```cmd/sh
     mvn clean package -DskipTests
