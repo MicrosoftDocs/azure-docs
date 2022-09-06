@@ -411,49 +411,65 @@ To resolve this issue:
 #### UserErrorCrossSubscriptionRestoreNotSuppportedForOLR  
 
 **Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForOLR 
+
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Original Location Recovery.
+
 **Resolution**: Ensure that you select Create New/ Restore Disk for restore operation.
 
 #### UserErrorCrossSubscriptionRestoreNotSuppportedForUnManagedAzureVM   
 
 **Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForUnManagedAzureVM  
+
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Azure VMs with Unmanaged Disks.
+
 **Resolution**: Perform standard restores within the same subscription instead.
 
 #### UserErrorCrossSubscriptionRestoreNotSuppportedForCRR
 
 **Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForCRR  
+
 **Error message**: Operation failed as Cross Subscription Restore is not supported along-with Cross Region Restore.
+
 **Resolution**: Use either Cross Subscription Restore' or Cross Region Restore.  
   
 #### UserErrorCrossSubscriptionRestoreNotSuppportedFromSnapshot  
 
 **Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedFromSnapshot 
+
 **Error message**: Operation failed as Cross Subscription Restore is not supported when restoring from a Snapshot recovery point.
+
 **Resolution**: Select a different recovery point where Tier 2 (Vault-Tier) is available. 
   
 #### UserErrorCrossSubscriptionRestoreInvalidTenant  
 
 **Error code**: UserErrorCrossSubscriptionRestoreInvalidTenant 
+
 **Error message**: Operation failed as the tenant IDs for source and target subscriptions don't match.
+
 **Resolution**: Ensure that the source and target subscriptions belong to the same tenant.
 
 #### UserErrorCrossSubscriptionRestoreInvalidTargetSubscription  
 
 **Error code**: UserErrorCrossSubscriptionRestoreInvalidTargetSubscription 
+
 **Error message**: Operation failed as the target subscription specified for restore is not registered to the Azure Recovery Services Resource Provider.  
+
 **Resolution**:  Ensure the target subscription is registered to the Recovery Services Resource Provider before you attempt a cross subscription restore.
  
 #### UserErrorCrossSubscriptionRestoreNotSuppportedForEncryptedAzureVM 
 
 **Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForEncryptedAzureVM
+
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Encrypted Azure VMs.
+
 **Resolution**: Use the same subscription for Restore of Encrypted AzureVMs. 
  
 #### UserErrorCrossSubscriptionRestoreNotSuppportedForTrustedLaunchAzureVM 
 
 **Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForTrustedLaunchAzureVM
+
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Trusted Launch Azure VMs (TVMs).
+
 **Resolution**: Use the same subscription for Restore of Trusted Launch Azure VMs. 
 
 ## Backup or restore takes time
