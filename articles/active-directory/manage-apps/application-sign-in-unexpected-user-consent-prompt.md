@@ -64,7 +64,7 @@ If the application requires assignment, individual users cannot consent for them
 1. Sign-in to the Azure portal with an administrator account.
 2. Navigate to **Enterprise applications** 
 3. Select the application in question from the list
-4. Under Manage in the left-hand navigation, choose **Properties*
+4. Under Manage in the left-hand navigation, choose **Properties**
 5. Check to see if **Assignment required?** is set to **Yes**
 6. If set to yes, then an admin must consent to the permissions on behalf of the entire organization. 
 
