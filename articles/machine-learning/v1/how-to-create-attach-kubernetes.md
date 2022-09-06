@@ -27,7 +27,9 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
+- The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 - If you plan on using an Azure Virtual Network to secure communication between your Azure ML workspace and the AKS cluster, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please follow tutorial [create a secure workspace](../tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
 

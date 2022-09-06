@@ -31,6 +31,8 @@ The general workflow for creating a client that uses a machine learning web serv
 > [!TIP]
 > The examples in this document are manually created without the use of OpenAPI (Swagger) specifications. If you've enabled an OpenAPI specification for your deployment, you can use tools such as [swagger-codegen](https://github.com/swagger-api/swagger-codegen) to create client libraries for your service.
 
+[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 ## Connection information
 
 > [!NOTE]
