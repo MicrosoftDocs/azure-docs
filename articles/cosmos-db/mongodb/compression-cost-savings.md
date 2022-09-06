@@ -1,5 +1,5 @@
 ---
-title: Improve performance and optimize costs with better data compression
+title: Improve performance and optimize costs with better data compression when upgrading to 4.0+
 description: Learn how upgrading your API for MongoDB account to versions 4.0+ saves you money on queries and storage.
 author: gahl.levy
 ms.service: cosmos-db
@@ -8,15 +8,14 @@ ms.date: 09/06/2022
 ms.author: gahllevy
 ---
 
-# Improve performance and optimize costs with better data compression in 4.0+
+# Improve performance and optimize costs with better data compression when upgrading to 4.0+
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB API for MongoDB introduced a new data compression algorithm in versions 4.0+ that improve query/storage performance and save up to 90% on RU costs.
-
-## How do the costs savings work
-The API for MongoDB charges users based on how many [request units](../request-units.md) (RUs) are consumed for each operation. With the new compression format, a reduction in storage size and query size directly results in a reduction in RU usage, saving you money. Performance and costs are coupled in Cosmos DB.
+Azure Cosmos DB API for MongoDB introduced a new data compression algorithm in versions 4.0+ that improve query/storage performance and save up to 90% on RU costs. Upgrading your database account to versions 4.0+ and following this guide will help you realize the maximum performance and cost improvements. 
 
 ## How it works
+The API for MongoDB charges users based on how many [request units](../request-units.md) (RUs) are consumed for each operation. With the new compression format, a reduction in storage size and query size directly results in a reduction in RU usage, saving you money. Performance and costs are coupled in Cosmos DB.
+
 When [upgrading](upgrade-mongodb-version.md) from an API for MongoDB database account versions 3.6 or 3.2 to a version 4.0 or greater, all new documents (data) written to that account will be stored in the improved compression format. Older documents, written before the account was upgraded, remains fully backwards compatible, but will remain stored in the older compression format.
 
 ## Upgrading older documents
