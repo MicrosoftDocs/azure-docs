@@ -291,7 +291,7 @@ $objectId = '<ID of the user or group to which you want to grant access>'
 .\grantTableLevelRbacps1.ps -workspaceFullId $workspaceFullId -subscriptionId $subscriptionId -tableNames $tableNames -objectId $objectId
 ```
 
-### Legacy method of setting table-level RBAC using workspace-level custom roles
+### Legacy method of setting table-level access control
 
 [Azure custom roles](../../role-based-access-control/custom-roles.md) let you grant access to specific [tables](../logs/data-platform-logs.md) in the workspace, although we recommend defining [table-level access control](#table-level-access-control) as described above. 
 
