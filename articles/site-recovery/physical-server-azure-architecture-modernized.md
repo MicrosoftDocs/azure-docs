@@ -3,12 +3,12 @@ title: Physical server to Azure disaster recovery architecture – Modernized
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises Windows and Linux servers to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 09/05/2022
 ---
 
 # Physical server to Azure disaster recovery architecture – Modernized 
 
-This article describes the architecture and processes used when you replicate, fail over, and recover physical Windows and Linux servers between an on-premises site and Azure, using the [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) service. 
+This article describes the architecture and processes used when you replicate, failover, and recover physical Windows and Linux servers between an on-premises site and Azure, using the [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) service. 
 
 For information about configuration server requirements in Classic releases, see [Physical server to Azure disaster recovery architecture](/azure/site-recovery/physical-azure-architecture).  
 
@@ -48,7 +48,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
 |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
 |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure machines to replicate have access to this. |
-|aka.ms |Allow access to aka links. Used for Azure Site Recovery appliance updates. |
+|aka.ms |Allow access to aka.ms links. Used for Azure Site Recovery appliance updates. |
 |download.microsoft.com/download |Allow downloads from Microsoft download. |
 |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
 |`*.discoverysrv.windowsazure.com `|Connect to Azure Site Recovery discovery service URL. |
@@ -80,25 +80,24 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 ## Failover and failback process
 
-After replication is set up and you run a disaster recovery drill (test failover) to check that everything's working as expected, you can run failover and failback as you need to.
+After you set up replication and run a disaster recovery drill (test failover) to check that everything's working as expected, you can run failover and failback as you need to.
 
-1. You can run fail over for a single machine or create a recovery plan to fail over multiple servers at the same time. The advantages of a recovery plan over a single machine failover include:
+
+1. You can run failover for a single machine or create a recovery plan to failover multiple servers simultaneously. The advantage of a recovery plan rather than single machine failover include:
     - You can model app-dependencies by including all the servers across the app in a single recovery plan.
     - You can add scripts, Azure runbooks, and pause for manual actions.
 2. After triggering the initial failover, you commit it to start accessing the workload from the Azure VM.
-3. When your primary on-premises site is available again, you can prepare for fail back. If you need to fail back large volumes of traffic, set up a new Azure Site Recovery replication appliance.
+3. When your primary on-premises site is available again, you can prepare for failback. If you need to failback large traffic volume, set up a new Azure Site Recovery replication appliance.
 
-    - Stage 1: Reprotect the Azure VMs so that they replicate from Azure back to the on-premises VMware VMs.
+    - Stage 1: Reprotect the Azure VMs to replicate from Azure back to the on-premises VMware VMs.
       >[!Note]
-      >Failback to physical servers is not supported. Thus, reprotect will happen to a VMware VM.
+      >Failback to physical servers is not supported. Thus, reprotection of VMware VM happens.
     - Stage 2: Run a failover to the on-premises site.
     - Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
 
 >[!Note] 
->To execute failback using the preview architecture, there is no need to setup a process server, master target server or failback policy in Azure. 
-
->[!Note]
->Failback to physical machines is not supported. You must failback to a VMware site. 
+>- To execute failback using the modernized architecture, you need not setup a process server, master target server or failback policy in Azure.
+>- Failback to physical machines is not supported. You must failback to a VMware site. 
 
 ## Next steps
 

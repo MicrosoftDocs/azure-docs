@@ -116,7 +116,7 @@ For detailed information about how to use multiple appliances and failover a rep
 To create and register the Azure Site Recovery replication appliance, you need an Azure account with:
 
 - Contributor or Owner permissions on the Azure subscription.
-- Permissions to register Azure Active Directory (AAD) apps.
+- Permissions to register Azure Active Directory apps.
 - Owner or Contributor plus User Access Administrator permissions on the Azure subscription to create a Key Vault, used during registration of the Azure Site Recovery replication appliance with Azure.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner for the required permissions.
@@ -142,13 +142,13 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 4. In **Add a role assignment**, select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
 
-  To register the appliance, your Azure account needs permissions to register AAD apps.
+  To register the appliance, your Azure account needs permissions to register Azure Active Directory apps.
 
   **Follow these steps to assign required permissions**:
 
   - In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**. In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
 
-  - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of AAD App.
+  - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Azure Active Directory App.
 
 
 ## Prepare infrastructure
@@ -277,15 +277,15 @@ In case of any organizational restrictions, you can manually set up the Site Rec
     >[!NOTE]
     > Appliance cloning is not supported with this preview. If you attempt to clone, it might disrupt the recovery flow.
 
-10.	After you add the vCenter details, expand **Provide Physical server details** to add the details of any physical servers that you plan to protect.
+10.	After you add the vCenter details, expand **Provide Physical server details** to add the details of any physical servers you plan to protect.
 
     :::image type="Physical server credentials." source="./media/deploy-vmware-azure-replication-appliance-modernized/physical-server-credentials.png" alt-text="Screenshot of Physical server credentials..":::
 
-11. Select **Add credentials** to add the credentials of the machine(s) you plan to protect. Add all the details such as *Operating system*, *Provide a friendly name for the credential*, *Username*, and *Password*. The user account details will be encrypted and stored locally in the machine. Select **Add**. 
+11. Select **Add credentials** to add the credentials of the machine(s) you plan to protect. Add all the details such as the **Operating system**, **Provide a friendly name for the credential**, **Username**, and **Password**. The user account details will be encrypted and stored locally in the machine. Select **Add**. 
 
     :::image type="Add Physical server credentials." source="./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-credentials.png" alt-text="Screenshot of Add Physical server credentials..":::
 
-12. Select **Add server** to add physical server details. Provide the machine’s *IP address/FQDN of  physical server* and *Select credential account* and select **Add**.
+12. Select **Add server** to add physical server details. Provide the machine’s **IP address/FQDN of  physical server**, **Select credential account** and select **Add**.
 
     ![Screenshot of Add Physical server details.](./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-details.png)
 
