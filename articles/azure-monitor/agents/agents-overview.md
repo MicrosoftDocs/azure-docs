@@ -164,28 +164,31 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Windows Server 2008 R2 SP1                               | X | X | X |
 | Windows Server 2008 R2                                   |   |   | X |
 | Windows Server 2008 SP2                                  |   | X |   |
-| Windows 11 client OS                                     | X<sup>2</sup> |  |  |
+| Windows 11 Client Enterprise and Pro                     | X<sup>2</sup>, <sup>3</sup> |  |  |
 | Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |
 | Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | 
 | Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X |   |
 | Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X |   |
 | Azure Stack HCI                                          |   | X |   |
 
-<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
-<sup>2</sup> Using the Azure Monitor agent [client installer (Public preview)](./azure-monitor-agent-windows-client.md)
+<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser).<br>
+<sup>2</sup> Using the Azure Monitor agent [client installer (Public preview)](./azure-monitor-agent-windows-client.md).<br>
+<sup>3</sup> Also supported on Arm64-based machines.
 
 #### Linux
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|:---:
+| AlmaLinux 8.5                                               | X<sup>3</sup> |   |   |
 | AlmaLinux 8                                                 | X | X |   |
 | Amazon Linux 2017.09                                        |   | X |   |
 | Amazon Linux 2                                              |   | X |   |
 | CentOS Linux 8                                              | X | X |   |
-| CentOS Linux 7                                              | X | X | X |
+| CentOS Linux 7                                              | X<sup>3</sup> | X | X |
 | CentOS Linux 6                                              |   | X |   |
 | CentOS Linux 6.5+                                           |   | X | X |
-| Debian 11                                                   | X |   |   |
+| CBL-Mariner 2.0                                             | X |   |   |
+| Debian 11                                                   | X<sup>3</sup> |   |   |
 | Debian 10                                                   | X | X |   |
 | Debian 9                                                    | X | X | X |
 | Debian 8                                                    |   | X |   |
@@ -195,24 +198,26 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Oracle Linux 7                                              | X | X | X |
 | Oracle Linux 6                                              |   | X |   |
 | Oracle Linux 6.4+                                           |   | X | X |
+| Red Hat Enterprise Linux Server 8.6                         | X<sup>3</sup> |   |   |
 | Red Hat Enterprise Linux Server 8                           | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
 | Rocky Linux 8                                               | X | X |   |
+| SUSE Linux Enterprise Server 15 SP4                         | X<sup>3</sup> |   |   |
 | SUSE Linux Enterprise Server 15 SP2                         | X |   |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X |   |
 | SUSE Linux Enterprise Server 12                             | X | X | X |
 | Ubuntu 22.04 LTS                                            | X |   |   |
-| Ubuntu 20.04 LTS                                            | X | X | X |
-| Ubuntu 18.04 LTS                                            | X | X | X |
+| Ubuntu 20.04 LTS                                            | X<sup>3</sup> | X | X |
+| Ubuntu 18.04 LTS                                            | X<sup>3</sup> | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X |
 | Ubuntu 14.04 LTS                                            |   | X | X |
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
 <sup>2</sup> Requires Python 2 to be installed on the machine and aliased to the `python` command.<br>
-
+<sup>3</sup> Also supported on Arm64-based machines.
 ## Next steps
 
 - [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
