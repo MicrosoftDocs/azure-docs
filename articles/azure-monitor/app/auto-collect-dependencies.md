@@ -34,31 +34,9 @@ Below is the currently supported list of dependency calls that are automatically
 
 
 ## Java
-| App servers | Versions |
-|-------------|----------|
-| [Tomcat](https://tomcat.apache.org/) | 7, 8 | 
-| [JBoss EAP](https://developers.redhat.com/products/eap/download/) | 6, 7 |
-| [Jetty](https://www.eclipse.org/jetty/) | 9 |
-| <b>App frameworks </b> |  |
-| [Spring](https://spring.io/) | 3.0 |
-| [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9+<sup>*</sup> |
-| Java Servlet | 3.1+ |
-| <b>Communication libraries</b> |  |
-| [Apache Http Client](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
-| <b>Storage clients</b> | |
-| [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
-| [PostgreSQL (Beta Support)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
-| [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
-| [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
-| <b>Logging libraries</b> | |
-| [Logback](https://logback.qos.ch/) | 1+ |
-| [Log4j](https://logging.apache.org/log4j/) | 1.2+ |
-| <b>Metrics libraries</b> |  |
-| JMX | 1.0+ |
 
-> [!NOTE]
-> *Except reactive programing support.
-> <br>†Requires installation of [JVM Agent](java-2x-agent.md#install-the-application-insights-agent-for-java).
+See the list of Application Insights Java's
+[autocollected dependencies](java-in-process-agent.md#autocollected-dependencies).
 
 ## Node.js
 
@@ -73,7 +51,7 @@ A list of the latest [currently-supported modules](https://github.com/microsoft/
 ## Next steps
 
 - Set up custom dependency tracking for [.NET](./asp-net-dependencies.md).
-- Set up custom dependency tracking for [Java](java-2x-agent.md).
+- Set up custom dependency tracking for [Java](java-in-process-agent.md#add-spans).
 - Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 - [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 - See [data model](./data-model.md) for Application Insights types and data model.
