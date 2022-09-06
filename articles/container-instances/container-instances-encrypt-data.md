@@ -387,7 +387,7 @@ Following is a complete template, adapted from the template in [Tutorial: Deploy
     {
       "name": "[parameters('containerGroupName')]",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2019-12-01",
+      "apiVersion": "2022-09-01",
       "location": "[resourceGroup().location]",
       "identity": {
         "type": "UserAssigned",
