@@ -38,9 +38,9 @@ Before you enable Permissions Management in your organization:
 -  You must be eligible for or have an active assignment to the global administrator role as a user in that tenant.
 
 If the above points are met, continue with the following steps:
-1.  Connect Permissions Management to your Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) platforms.
-2.  [Enabling Permissions Management on your Azure AD tenant](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#how-to-enable-permissions-management-on-your-azure-ad-tenant)
-3.  Use the **Data Collectors** dashboard in Permissions Management to configure data collection settings for your authorization system. [Configure data collection settings](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#configure-data-collection-settings).
+
+1.  [Enabling Permissions Management on your Azure AD tenant](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#how-to-enable-permissions-management-on-your-azure-ad-tenant)
+2.  Use the **Data Collectors** dashboard in Permissions Management to configure data collection settings for your authorization system. [Configure data collection settings](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#configure-data-collection-settings).
 
     Note that for each cloud platform, you will have 3 options for onboarding:
 
@@ -54,9 +54,23 @@ If the above points are met, continue with the following steps:
     -   [Onboard an AWS account](../cloud-infrastructure-entitlement-management/onboard-aws.md)
     -   [Onboard a Microsoft Azure subscription](../cloud-infrastructure-entitlement-management/onboard-azure.md)
     -   [Onboard a GCP project](../cloud-infrastructure-entitlement-management/onboard-gcp.md)
-4.  [Enable or disable the controller after onboarding is complete](../cloud-infrastructure-entitlement-management/onboard-enable-controller-after-onboarding.md)
-5.  [Add an account/subscription/project after onboarding is complete](../cloud-infrastructure-entitlement-management/onboard-add-account-after-onboarding.md)
+3.  [Enable or disable the controller after onboarding is complete](../cloud-infrastructure-entitlement-management/onboard-enable-controller-after-onboarding.md)
+4.  [Add an account/subscription/project after onboarding is complete](../cloud-infrastructure-entitlement-management/onboard-add-account-after-onboarding.md)
 
+ **Actions to try:**             
+                                                                 
+    - [View roles/policies and requests for permission](../cloud-infrastructure-entitlement-management/ui-remediation.md#view-and-create-rolespolicies)
+    - [View information about roles/ policies](../cloud-infrastructure-entitlement-management/ui-remediation.md#view-and-create-rolespolicies)
+    - [View information about active and completed tasks](../cloud-infrastructure-entitlement-management/ui-tasks.md)
+    - [Create a role/policy](../cloud-infrastructure-entitlement-management/how-to-create-role-policy.md)
+    - [Clone a role/policy](../cloud-infrastructure-entitlement-management/how-to-clone-role-policy.md)
+    - [Modify a role/policy](../cloud-infrastructure-entitlement-management/how-to-modify-role-policy.md)
+    - [Delete a role/policy](../cloud-infrastructure-entitlement-management/how-to-delete-role-policy.md)
+    - [Attach and detach policies for Amazon Web Services (AWS) identities](../cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions.md)
+    - [Add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities](../cloud-infrastructure-entitlement-management/how-to-add-remove-role-task.md)
+    - [Revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities](../cloud-infrastructure-entitlement-management/how-to-revoke-task-readonly-status.md)
+    - [Create or approve a request for permissions](../cloud-infrastructure-entitlement-management/how-to-create-approve-privilege-request.md) Request permissions on-demand for one-time use or on a schedule. These permissions will automatically be revoked at the end of the requested period.
+    - 
 ## Step 2: Discover & assess
 
 Improve your security posture by getting comprehensive and granular visibility to enforce the principle of least privilege access across your entire multicloud environment. The Permissions Management dashboard gives you an overview of your permission profile and locates where the riskiest identities and resources are across your digital estate. 
@@ -64,20 +78,22 @@ Improve your security posture by getting comprehensive and granular visibility t
 The dashboard leverages the Permission Creep Index, which is a single and unified metric, ranging from 0 to 100, that calculates the gap between permissions granted and permissions used over a specific period. The higher the gap, the higher the index and the larger the potential attack surface. The Permission Creep Index only considers high-risk actions, meaning any action that can cause data leakage, service disruption degradation, or security posture change. Permissions Management creates unique activity profiles for each identity and resource which are used as a baseline to detect anomalous behaviors.
 
 1.  [View risk metrics in your authorization system](../cloud-infrastructure-entitlement-management/ui-dashboard.md#view-metrics-related-to-avoidable-risk) in the Permissions Management Dashboard. This information is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
-    1.  View metrics related to avoidable risk - these metrics allow the Permission Management administrator to identify areas where they can reduce risks related to the principle of least permissions. Information includes [the Permissions Creep Index](../cloud-infrastructure-entitlement-management/ui-dashboard.md#the-pci-heat-map) and [Analytics Dashboard](../cloud-infrastructure-entitlement-management/usage-analytics-home.md).
+    1.  View metrics related to avoidable risk - these metrics allow the Permission Management administrator to identify areas where they can reduce risks related to the principle of least permissions. Information includes [the Permissions Creep Index (PCI)](../cloud-infrastructure-entitlement-management/ui-dashboard.md#the-pci-heat-map) and [Analytics Dashboard](../cloud-infrastructure-entitlement-management/usage-analytics-home.md).
+
      
     1. Understand the [components of the Permissions Management Dashboard.](../cloud-infrastructure-entitlement-management/ui-dashboard.md#components-of-the-permissions-management-dashboard)
     
-1.  View data about the activity in your authorization system
+2.  View data about the activity in your authorization system
 
-    1.  [View user data on the PCI heat map](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-user-data-on-the-pci-heat-map)
+    1.  [View user data on the PCI heat map](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-user-data-on-the-pci-heat-map). **Note:** The higher the PCI, the higher the risk.
     
     2.  [View information about users, roles, resources, and PCI trends](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-information-about-users-roles-resources-and-pci-trends)
     3.  [View identity findings](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-identity-findings)
     4.  [View resource findings](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-resource-findings)
 3.  [Configure your settings for data collection](../cloud-infrastructure-entitlement-management/product-data-sources.md) - use the **Data Collectors** dashboard in Permissions Management to view and configure settings for collecting data from your authorization systems.
-3.  [View organizational and personal information](../cloud-infrastructure-entitlement-management/product-account-settings.md) - the **Account settings** dashboard in Permissions Management allows you to view personal information, passwords, and account preferences.
-4.  [View information about identities, resources and tasks](../cloud-infrastructure-entitlement-management/usage-analytics-home.md) - the **Analytics** dashboard displays detailed information about:
+4.  [View organizational and personal information](../cloud-infrastructure-entitlement-management/product-account-settings.md) - the **Account settings** dashboard in Permissions Management allows you to view personal information, passwords, and account preferences.
+5.  [Select group-based permissions settings](../cloud-infrastructure-entitlement-management/how-to-create-group-based-permissions.md)
+6.  [View information about identities, resources and tasks](../cloud-infrastructure-entitlement-management/usage-analytics-home.md) - the **Analytics** dashboard displays detailed information about:
     1.  **Users**: Tracks assigned permissions and usage by users. For more information, see View analytic information about users.
     2.  **Groups**: Tracks assigned permissions and usage of the group and the group members. For more information, see View analytic information about groups
     3.  **Active Resources**: Tracks resources that have been used in the last 90 days. For more information, see View analytic information about active resources
@@ -106,20 +122,6 @@ There are two facets to removing unused permissions: least privilege policy crea
     -   **Requests**: Use this subtab to view approved, pending, and processed Permission on Demand (POD) requests.
     -   **My Requests**: Use this tab to manage lifecycle of the POD request either created by you or needs your approval.
     -   **Settings**: Use this subtab to select **Request Role/Policy Filters**, **Request Settings**, and **Auto-Approve** settings.
-
-    **Actions to try:**
-
-    - [View roles/policies and requests for permission](../cloud-infrastructure-entitlement-management/ui-remediation.md#view-and-create-rolespolicies)
-    - [View information about roles/ policies](../cloud-infrastructure-entitlement-management/ui-remediation.md#view-and-create-rolespolicies)
-    - [View information about active and completed tasks](../cloud-infrastructure-entitlement-management/ui-tasks.md)
-    - [Create a role/policy](../cloud-infrastructure-entitlement-management/how-to-create-role-policy.md)
-    - [Clone a role/policy](../cloud-infrastructure-entitlement-management/how-to-clone-role-policy.md)
-    - [Modify a role/policy](../cloud-infrastructure-entitlement-management/how-to-modify-role-policy.md)
-    - [Delete a role/policy](../cloud-infrastructure-entitlement-management/how-to-delete-role-policy.md)
-    - [Attach and detach policies for Amazon Web Services (AWS) identities](../cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions.md)
-    - [Add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities](../cloud-infrastructure-entitlement-management/how-to-add-remove-role-task.md)
-    - [Revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities](../cloud-infrastructure-entitlement-management/how-to-revoke-task-readonly-status.md)
-    - [Create or approve a request for permissions](../cloud-infrastructure-entitlement-management/how-to-create-approve-privilege-request.md) Request permissions on-demand for one-time use or on a schedule. These permissions will automatically be revoked at the end of the requested period.
 
 **Best Practices for Remediation:**
 
@@ -150,7 +152,8 @@ Prevent data breaches caused by misuse and malicious exploitation of permissions
 -   **New tab (+)**: Select the tab to add a **New Query** tab.
 -   **Saved Queries**: Select to view a list of saved queries.
 
-    **Actions to try:**  
+    **Actions to try:** 
+ 
     - [Use a query to view information](../cloud-infrastructure-entitlement-management/ui-audit-trail.md)   
     - [Create a custom query](../cloud-infrastructure-entitlement-management/how-to-create-custom-queries.md)  
     - [Generate an on-demand report from a query](../cloud-infrastructure-entitlement-management/how-to-audit-trail-results.md)   
@@ -177,11 +180,11 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 
         Example: Any activity done by root:
 
-        ![Diagram, Any activity done by root](media/permissions-management-trial-playbook/custom-alerts-1.png)
+        ![Diagram, Any activity done by root user in AWS](media/permissions-management-trial-playbook/custom-alerts-1.png)
 
         Alert for monitoring any direct Azure role assignment
 
-        ![Diagram, Alert for monitoring any direct Azure role assignment](media/permissions-management-trial-playbook/custom-alerts-2.png)
+        ![Diagram, Alert for monitoring any direct Azure role assignment done by anyone other than Admin user](media/permissions-management-trial-playbook/custom-alerts-2.png)
 
 -   Access to critical sensitive resources
 
@@ -210,7 +213,8 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
     -   See data for **identity governance** to ensure inactive users are decommissioned because they left the company or to remove vendor accounts that have been left behind, old consultant accounts, or users who as parts of the Joiner/Mover/Leaver process have moved onto another role and are no longer using their access. Consider this a fail-safe to ensure dormant accounts are removed.
     -   Identify over-permissioned access to later use the Remediation to pursue **Zero Trust and least privileges.**
 
-    **Example of** [**Permissions Management Report**](https://microsoft.sharepoint.com/:v:/t/MicrosoftEntraPermissionsManagementAssets/EQWmUsMsdkZEnFVv-M9ZoagBd4B6JUQ2o7zRTupYrfxbGA)                      
+    **Example of** [**Permissions Management Report**](https://microsoft.sharepoint.com/:v:/t/MicrosoftEntraPermissionsManagementAssets/EQWmUsMsdkZEnFVv-M9ZoagBd4B6JUQ2o7zRTupYrfxbGA)                                 
+               
     **Actions to try**    
     - [View system reports in the Reports dashboard](../cloud-infrastructure-entitlement-management/product-reports.md)  
     - [View a list and description of system reports](../cloud-infrastructure-entitlement-management/all-reports.md)  
@@ -225,7 +229,8 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 -   **Access Key Entitlements and Usage reports**: Identifies high risk service principals with old secrets that haven’t been rotated every 90 days (best practice) or decommissioned due to lack of use (as recommended by the Cloud Security Alliance).
 
 ## Next Steps
-For more information about Permissions Manager, see
+For more information about Permissions Management, see:                     
+                     
 **Microsoft Docs**: [Visit Docs](../cloud-infrastructure-entitlement-management/index.yml).
 
 **Datasheet:** <https://aka.ms/PermissionsManagementDataSheet>
