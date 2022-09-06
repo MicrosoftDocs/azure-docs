@@ -30,7 +30,7 @@ You can run queries against your IoT hub directly in the Azure portal.
 
 You also can run queries within your applications using the Azure IoT service SDKs and service APIs.
 
-For example code implementing IoT Hub queries, see the [Add queries to service apps](#add-queries-to-service-apps) section.
+For example code implementing IoT Hub queries, see the [Add queries with the service SDK](#add-queries-with-the-service-sdk) section.
 
 For links to SDK reference pages and samples, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 

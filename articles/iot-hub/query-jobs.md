@@ -9,7 +9,7 @@ ms.date: 08/12/2022
 ms.author: kgremban
 ---
 
-## Queries for IoT Hub jobs
+# Queries for IoT Hub jobs
 
 [Jobs](iot-hub-devguide-jobs.md) provide a way to execute operations on sets of devices. Each device twin contains the information of the jobs of which it is part in a collection called **jobs**.
 
