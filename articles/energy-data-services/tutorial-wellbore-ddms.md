@@ -52,32 +52,32 @@ In this tutorial, you will learn how to:
 
 * The Postman collection for Wellbore DDMS contains requests which allows interaction with wells, wellbore, welllog and well trajectory data.
 * Make sure to choose the **Wellbore DDMS Environment** before triggering the Postman collection.
-  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-choose-wellbore-environment.png" alt-text="Choose environment":::
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-choose-wellbore-environment.png" alt-text="Choose environment.":::
 * Each request can be triggered by clicking the **Send** Button.
 * On every request Postman will validate the actual API response code against the expected response code; if there is any mismatch the Test Section will indicate failures.
 
 **Successful Postman Call**
 
-:::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-test-success.png" alt-text="Success":::
+:::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-test-success.png" alt-text="Screenshot-of-Success.":::
 
 **Failed Postman Call**
 
-:::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-test-failure.png" alt-text="Failure":::
+:::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-test-failure.png" alt-text="Screenshot-of-Failure.":::
 
 ### Steps to insert and get the Well data
 
 1. **Get an SPN Token** - Generate the Service Principal Bearer token, which will be used to authenticate further API calls.
 1. **Create a Legal Tag** - Create a legal tag that will be added to the automatically environment for data compliance purpose.
 1. **Create Well** - Creates the wellbore record in Project Oak.
-   :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-create-well.png" alt-text="Screenshot-of-tutorial-create-well":::
+   :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-create-well.png" alt-text="Screenshot-of-tutorial-create-well.":::
 1. **Get Wells** - Returns the well data created in the last step.
-  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-wells.png" alt-text="Screenshot-of-tutorial-get-wells":::
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-wells.png" alt-text="Screenshot-of-tutorial-get-wells.":::
 1. **Get Well Versions** - Returns the versions of each ingested well record.
-  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-well-versions.png" alt-text="Screenshot-of-tutorial-get-well-versions":::
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-well-versions.png" alt-text="Screenshot-of-tutorial-get-well-versions.":::
 1. **Get specific Well Version** - Returns the details of specified version of specified record.
-  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-specific-well-version.png" alt-text="Screenshot-of-tutorial-get-specific-well-version":::
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-specific-well-version.png" alt-text="Screenshot-of-tutorial-get-specific-well-version.":::
 1. **Delete well record** - Deletes the specified record.
-  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-delete-well.png" alt-text="Screenshot-of-tutorial-delete-well":::
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-delete-well.png" alt-text="Screenshot-of-tutorial-delete-well.":::
 
 ***Successful completion of above steps indicates success ingestion and retrieval of well records***
 
