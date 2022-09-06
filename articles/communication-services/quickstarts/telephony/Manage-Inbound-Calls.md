@@ -1,8 +1,9 @@
 ---
-title: Azure Communication Services Call Automation API quickstart
+title: Azure Communication Services Call Automation quickstart for PSTN calls
 titleSuffix: An Azure Communication Services quickstart document
-description: Provides a quickstart sample for the Call Automation APIs.
+description: Provides a quickstart for managing PSTN calls with Call Automation.
 author: ashwinder
+
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/06/2022
@@ -12,11 +13,10 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
+# Quickstart: Manage inbound telephony calls to your resource
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
-
-# Quickstart: Manage inbound telephony calls to your resource
 
 Get started with Azure Communication Services by using the Call Automation SDKs to build an automated workflows that listen for and manage inbound calls placed to a phone number or received via Direct Routing.
 
