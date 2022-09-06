@@ -32,7 +32,7 @@ The following steps show how to set up password authentication for an AD applica
    Select-AzSubscription -SubscriptionName "{your subscription name}"
    ```
 
-1. Save your **TenantId** and **SubscriptionId** for later.
+1. Save your **Id** and **TenantId** for later.
 
 1. Create a new Azure Active Directory application using the following command, replacing the placeholders:
    
