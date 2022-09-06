@@ -31,17 +31,17 @@ Connect and sign in to a VM you created with multiple private IP addresses. You 
 
 6. Select **Use the following IP address:**. Enter the following values.
 
-| Setting | Value |
-| ------- | ----- |
-| **IP address:** | Enter the **Primary** private IP address. |
-| **Subnet mask:** | Enter a subnet mask based on your IP address. </br> For example, if the subnet is a **/24** subnet then the subnet mask is **255.255.255.0**. |
-| **Default gateway:** | The first IP address in the subnet. </br> If your subnet is **10.0.0.0/24**, then the gateway IP address is **10.0.0.1**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | **IP address:** | Enter the **Primary** private IP address. |
+    | **Subnet mask:** | Enter a subnet mask based on your IP address. </br> For example, if the subnet is a **/24** subnet then the subnet mask is **255.255.255.0**. |
+    | **Default gateway:** | The first IP address in the subnet. </br> If your subnet is **10.0.0.0/24**, then the gateway IP address is **10.0.0.1**. |
 
 7. Select **Use the following DNS server addresses:**. Enter the following values.
 
-| Setting | Value |
-| ------- | ----- |
-| **Preferred DNS server:** | Enter your primary DNS server. </br> Enter the IP address of **168.63.129.16** to use the default Azure provided DNS. |
+    | Setting | Value |
+    | ------- | ----- |
+    | **Preferred DNS server:** | Enter your primary DNS server. </br> Enter the IP address of **168.63.129.16** to use the default Azure provided DNS. |
 
 8. Select the **Advanced** button.
 
