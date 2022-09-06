@@ -14,8 +14,8 @@ The traditional [Azure Container Networking Interface (CNI)](./configure-azure-c
 With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Network subnet, whereas pods are assigned IP addresses from a private CIDR logically different from the VNet hosting the nodes. Pod and node traffic within the cluster use an overlay network, and Network Address Translation (via the node's IP address) is used to reach resources outside the cluster. This solution saves a significant amount of VNet IP addresses and enables you to seamlessly scale your cluster to very large sizes. An added advantage is that the private CIDR can be reused in different AKS clusters, truly extending the IP space available for containerized applications in AKS.
 
 > [!NOTE]
-> - Azure CNI overlay is currently only available in US West Central region.
-> - Azure CNI overlay does not currently support _v5 VM SKUs.
+> - Azure CNI Overlay is currently only available in US West Central region.
+> - Azure CNI Overlay does not currently support _v5 VM SKUs.
 
 ## Overview of overlay networking
 
@@ -23,7 +23,7 @@ In overlay networking, only the Kubernetes cluster nodes are assigned IPs from a
 
 A separate routing domain is created in the Azure Networking stack for the pod's private CIDR space, which creates an overlay network for direct communication between pods. There is no need to provision custom routes on the cluster subnet or use an encapsulation method to tunnel traffic between pods. This provides connectivity performance between pods on par with VMs in a VNet. 
 
-:::image type="content" source="media/azure-cni-overlay/AzureCNI-Overlay.png" alt-text="A diagram showing two nodes with three pods each running in an overlay network. Pod traffic to endpoints outside the cluster is routed via NAT.":::
+:::image type="content" source="media/azure-cni-overlay/azure-cni-overlay.png" alt-text="A diagram showing two nodes with three pods each running in an overlay network. Pod traffic to endpoints outside the cluster is routed via NAT.":::
 
 Communication with endpoints outside the cluster, such as on-premises and peered VNets, happens using the node IP through Network Address Translation. Azure CNI translates the source IP (overlay IP of the pod) of the traffic to the primary IP address of the VM, which enables the Azure Networking stack to route the traffic to the destination. Endpoints outside the cluster can't connect to a pod directly. You will have to publish the pod's application as a Kubernetes Load Balancer service to make it reachable on the VNet.
 
