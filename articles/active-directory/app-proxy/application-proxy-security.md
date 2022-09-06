@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 09/02/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -23,7 +23,7 @@ The following diagram shows how Azure AD enables secure remote access to your on
 
 ## Security benefits
 
-Azure AD Application Proxy offers the following security benefits:
+Azure AD Application Proxy offers many security benefits including authenticated access, conditional access, traffic termination, all outbound access, cloud scale analytics and machine learning, and remote access as a service. It is important to note that even with all of the added security provided by Application Proxy, the systems being accessed must continually be updated with the latest patches.
 
 ### Authenticated access 
 

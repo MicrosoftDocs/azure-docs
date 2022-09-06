@@ -34,7 +34,7 @@ This article explains how to provision an account with continuous backup and poi
 
 When creating a new Azure Cosmos DB account, in the **Backup policy** tab, choose **continuous** mode to enable the point in time restore functionality for the new account. With the point-in-time restore, data is restored to a new account, currently you can't restore to an existing account.
 
-:::image type="content" source="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png":::
+:::image type="content" source="./media/provision-account-continuous-backup/provision-account-continuous-mode.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/provision-account-continuous-backup/provision-account-continuous-mode.png":::
 
 Table API and Gremlin API are in preview and can be provisioned with PowerShell and Azure CLI.
 
@@ -46,19 +46,20 @@ For PowerShell and CLI commands, the tier value is optional, if it isn't already
 
     * Before provisioning the account, install any version of Azure PowerShell higher than 6.2.0. For more information about the latest version of Azure PowerShell, see [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true).
     * For provisioning the ``Continuous7Days`` tier, you'll need to install the preview version of the module by running ``Install-Module -Name Az.CosmosDB -AllowPrerelease``.  
-    * Next connect to your Azure account and select the required subscription with the following commands:
 
-        1. Sign into Azure using the following command:
+1. Next connect to your Azure account and select the required subscription with the following commands:
 
-           ```azurepowershell
-           Connect-AzAccount
-           ```
+    1. Sign into Azure using the following command:
 
-        1. Select a specific subscription with the following command:
+        ```azurepowershell
+        Connect-AzAccount
+        ```
 
-           ```azurepowershell
-           Select-AzSubscription -Subscription <SubscriptionName>
-           ```
+    2. Select a specific subscription with the following command:
+
+        ```azurepowershell
+        Select-AzSubscription -Subscription <SubscriptionName>
+        ```
 
 ### <a id="provision-powershell-sql-api"></a>SQL API account
 
@@ -135,7 +136,7 @@ Before provisioning the account, install Azure CLI with the following steps:
    * If you have already installed CLI, run ``az upgrade`` command to update to the latest version. This command will only work with CLI version higher than 2.11. If you have an earlier version, use the above link to install the latest version.
    * For provisioning the ``Continuous7Days`` tier, you'll need to install the preview version of the extension by ``az extension update --name cosmosdb-preview``
 
-1. Sign in and select your subscription
+2. Sign in and select your subscription
 
    * Sign into your Azure account with ``az login`` command.
    * Select the required subscription using ``az account set -s <subscriptionguid>`` command.
