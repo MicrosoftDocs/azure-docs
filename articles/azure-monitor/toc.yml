@@ -82,7 +82,7 @@ items:
       href: insights/scom-assessment.md
     - name: Connect Configuration Manager
       href: logs/collect-sccm.md
-  - name: Forward syslog data to workspace
+  - name: Forward syslog data to a workspace
     href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Self-monitoring
     href: monitor-azure-monitor.md 
@@ -698,6 +698,58 @@ items:
         href: app/annotations.md
       - name: Continuous monitoring
         href: app/continuous-monitoring.md
+    - name: Profiler
+      items:
+      - name: Overview
+        displayName: profiling, debugging, code performance, perf
+        href: profiler/profiler-overview.md
+      - name: Enable Profiler
+        items:        
+        - name: Azure App Service
+          href: profiler/profiler.md
+        - name: Azure Functions app
+          href: profiler/profiler-azure-functions.md
+        - name: Azure Cloud Service
+          href: profiler/profiler-cloudservice.md
+        - name: Azure Service Fabric app
+          href: profiler/profiler-servicefabric.md
+        - name: Azure Virtual Machine
+          href: profiler/profiler-vm.md
+        - name: ASP.NET Core app hosted in Linux on App Service
+          href: profiler/profiler-aspnetcore-linux.md
+        - name: ASP.NET Core app running in container
+          href: profiler/profiler-containers.md
+      - name: View Profiler data
+        displayName: profiling, debugging, code performance, perf
+        href: profiler/profiler-data.md
+      - name: Configure
+        items:        
+        - name: Configure Profiler
+          href: profiler/profiler-settings.md
+        - name: Configure BYOS (Bring Your Own Storage)
+          href: profiler/profiler-bring-your-own-storage.md
+      - name: Track Requests
+        href: profiler/profiler-trackrequests.md
+      - name: Troubleshooting
+        href: profiler/profiler-troubleshooting.md
+    - name: Snapshot Debugger
+      items:
+        - name: Overview
+          displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
+          href: snapshot-debugger/snapshot-debugger.md
+        - name: Enable Snapshot Debugger for an App Service
+          href: snapshot-debugger/snapshot-debugger-app-service.md
+        - name: Enable Snapshot Debugger for a Function App
+          href: snapshot-debugger/snapshot-debugger-function-app.md
+        - name: Enable Snapshot Debugger for other environments
+          href: snapshot-debugger/snapshot-debugger-vm.md
+        - name: Upgrade Snapshot Debugger
+          href: snapshot-debugger/snapshot-debugger-upgrade.md
+        - name: Configure BYOS (Bring Your Own Storage)
+          href: profiler/profiler-bring-your-own-storage.md
+        - name: Snapshot Debugger troubleshooting
+          displayName: troubleshoot, troubleshooting
+          href: snapshot-debugger/snapshot-debugger-troubleshoot.md
     - name: Advanced configuration
       items:
       - name: Access control
@@ -1611,55 +1663,3 @@ items:
       href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor
-- name: Profiler
-  items:
-  - name: Overview
-    displayName: profiling, debugging, code performance, perf
-    href: profiler/profiler-overview.md
-  - name: Enable Profiler
-    items:        
-    - name: Azure App Service
-      href: profiler/profiler.md
-    - name: Azure Functions app
-      href: profiler/profiler-azure-functions.md
-    - name: Azure Cloud Service
-      href: profiler/profiler-cloudservice.md
-    - name: Azure Service Fabric app
-      href: profiler/profiler-servicefabric.md
-    - name: Azure Virtual Machine
-      href: profiler/profiler-vm.md
-    - name: ASP.NET Core app hosted in Linux on App Service
-      href: profiler/profiler-aspnetcore-linux.md
-    - name: ASP.NET Core app running in container
-      href: profiler/profiler-containers.md
-  - name: View Profiler data
-    displayName: profiling, debugging, code performance, perf
-    href: profiler/profiler-data.md
-  - name: Configure
-    items:        
-    - name: Configure Profiler
-      href: profiler/profiler-settings.md
-    - name: Configure BYOS (Bring Your Own Storage)
-      href: profiler/profiler-bring-your-own-storage.md
-  - name: Track Requests
-    href: profiler/profiler-trackrequests.md
-  - name: Troubleshooting
-    href: profiler/profiler-troubleshooting.md
-- name: Snapshot Debugger
-  items:
-    - name: Overview
-      displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
-      href: snapshot-debugger/snapshot-debugger.md
-    - name: Enable Snapshot Debugger for an App Service
-      href: snapshot-debugger/snapshot-debugger-app-service.md
-    - name: Enable Snapshot Debugger for a Function App
-      href: snapshot-debugger/snapshot-debugger-function-app.md
-    - name: Enable Snapshot Debugger for other environments
-      href: snapshot-debugger/snapshot-debugger-vm.md
-    - name: Upgrade Snapshot Debugger
-      href: snapshot-debugger/snapshot-debugger-upgrade.md
-    - name: Configure BYOS (Bring Your Own Storage)
-      href: profiler/profiler-bring-your-own-storage.md
-    - name: Snapshot Debugger troubleshooting
-      displayName: troubleshoot, troubleshooting
-      href: snapshot-debugger/snapshot-debugger-troubleshoot.md
