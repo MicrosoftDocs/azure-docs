@@ -20,7 +20,7 @@ ms.subservice: blobs
 
 This tutorial is part one of a series. In it, you learn how to make your application data highly available in Azure.
 
-When you've completed this tutorial, you will have a console application that uploads and retrieves a blob from a [read-access geo-zone-redundant](../common/storage-redundancy.md) (RA-GZRS) storage account.
+When you've completed this tutorial, you'll have a console application that uploads and retrieves a blob from a [read-access geo-zone-redundant](../common/storage-redundancy.md) (RA-GZRS) storage account.
 
 Geo-redundancy in Azure Storage replicates transactions asynchronously from a primary region to a secondary region that is hundreds of miles away. This replication process guarantees that the data in the secondary region is eventually consistent. The console application uses the [circuit breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to, automatically switching between endpoints as failures and recoveries are simulated.
 
@@ -91,7 +91,7 @@ Follow these steps to create a read-access geo-zone-redundant (RA-GZRS) storage 
    | **Performance** | *Standard* | Standard performance is a good option for the example scenario. |
    | **Account kind** | *StorageV2* | Using a general-purpose v2 storage account is recommended. For more information on types of Azure storage accounts, see [Storage account overview](../common/storage-account-overview.md). |
    | **Replication**| *Read-access geo-zone-redundant storage (RA-GZRS)* | The primary region is zone-redundant and is replicated to a secondary region, with read access to the secondary region enabled. |
-   | **Access tier**| *Hot* | Use the hot tier for frequently-accessed data. |
+   | **Access tier**| *Hot* | Use the hot tier for frequently accessed data. |
 
     ![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -155,7 +155,7 @@ You can also authorize requests to Azure Blob Storage by using the account acces
 
 In the application, you must provide the connection string for your storage account. You can store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
 
-In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Run one of the following commands based on your operating system, replacing \<yourconnectionstring\> with your actual connection string. This command saves an environment variable to the local machine. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using.
+In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Run one of the following commands based on your operating system, replacing \<yourconnectionstring\> with your actual connection string. This command saves an environment variable to the local machine. In Windows, the environment variable isn't available until you reload the **Command Prompt** or shell you're using.
 
 ### Linux
 
@@ -177,7 +177,7 @@ We are currently working to create code snippets reflecting version 12.x of the 
 
 In the application, you must provide your storage account credentials. You can store this information in environment variables on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variables.
 
-In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Paste the **Storage account name** and **Key** values into the following commands, replacing the \<youraccountname\> and \<youraccountkey\> placeholders. This command saves the environment variables to the local machine. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using.
+In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Paste the **Storage account name** and **Key** values into the following commands, replacing the \<youraccountname\> and \<youraccountkey\> placeholders. This command saves the environment variables to the local machine. In Windows, the environment variable isn't available until you reload the **Command Prompt** or shell you're using.
 
 ### Linux
 
@@ -208,7 +208,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 You can find this information in the Azure portal by navigating to your storage account and selecting **Access keys** in the **Settings** section.
 
-Install the required dependencies. To do this, open a command prompt, navigate to the sample folder, then enter `npm install`.
+Install the required dependencies by opening a command prompt, navigating to the sample folder, then entering `npm install`.
 
 ---
 
@@ -216,15 +216,15 @@ Install the required dependencies. To do this, open a command prompt, navigate t
 
 # [.NET v12 SDK](#tab/dotnet)
 
-In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual Studio automatically restores missing NuGet packages if configured. Please see [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
+In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual Studio automatically restores missing NuGet packages if configured. See [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
-When the console window launches, the app will get the status of the secondary region and write that information to the console. Then the app will create a container in the storage account and upload a blob to the container. Once the blob is uploaded, the app will continuously check to see if the blob has replicated to the secondary region. This will continue until the blob is found to be replicated, or we reach the maximum number of iterations as defined by the loop conditions.
+When the console window launches, the app will get the status of the secondary region and write that information to the console. Then the app will create a container in the storage account and upload a blob to the container. Once the blob is uploaded, the app will continuously check to see if the blob has replicated to the secondary region. This check continues until the blob is replicated, or we reach the maximum number of iterations as defined by the loop conditions.
 
-Next, the application enters a loop with a prompt to download the blob, initially reading from primary storage. Press any key to download the blob. If there is a retryable error reading from the primary region, a retry of the read request is performed against the secondary region endpoint. The console output will show when the region switches to secondary.
+Next, the application enters a loop with a prompt to download the blob, initially reading from primary storage. Press any key to download the blob. If there's a retryable error reading from the primary region, a retry of the read request is performed against the secondary region endpoint. The console output will show when the region switches to secondary.
 
 ![Console output secondary request](media/storage-create-geo-redundant-storage/request-secondary-region.png)
 
-The application will also track retry requests through an event listener. If the number of retries exceeds the threshold set in the code, the app will switch to send read requests to secondary storage. It will continue to do this until a secondary read threshold is met, at which point the requests will go back to the primary region. 
+The application will also track retry requests through an event listener. If the number of retries exceeds the threshold set in the code, the app will switch to send read requests to secondary storage. This behavior will continue until a secondary read threshold is met, at which point the requests will go back to the primary region. 
 
 To exit the loop and clean up resources, make sure requests are being sent to primary storage and press the `Esc` key at the blob download prompt.
 
@@ -359,7 +359,7 @@ It will continue to perform secondary reads until a threshold is reached, at whi
 
 ### Retry event handler
 
-The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.
+The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint isn't retried indefinitely.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -414,7 +414,7 @@ We are currently working to create code snippets reflecting version 12.x of the 
 
 ### Retry event handler
 
-The `retry_callback` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode) of the request is changed to `SECONDARY`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.
+The `retry_callback` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode) of the request is changed to `SECONDARY`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint isn't retried indefinitely.
 
 ```python
 def retry_callback(retry_context):
