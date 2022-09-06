@@ -431,7 +431,7 @@ Using Write Accelerator is optional but can be enabled if the AWR report indicat
 
 The mount option “nconnect” is NOT recommended when the dNFS client is configured. dNFS manages the IO channel and makes use of multiple sessions, so this option is obsolete and can cause manifold issues. The dNFS client will ignore the mount options and will handle the IO directly.
 
-Both NFS versions (v3 and v4.1) with ANF are supported for the Oracle data- and log-files.
+Both NFS versions (v3 and v4.1) with ANF are supported for the Oracle binaries, data- and log-files.
 
 We highly recommend using the Oracle dNFS clint for all Oracle volumes.
 
