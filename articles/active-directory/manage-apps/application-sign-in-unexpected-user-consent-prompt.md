@@ -75,6 +75,7 @@ Determining whether an individual user can consent to an application can be conf
 1. Sign-in to the Azure portal with an administrator account.
 2. Navigate to **Enterprise applications**.
 3. Under Security in the left-hand navigation, choose **Consent and permissions**.
+4. View the user consent settings. If set to *Do not allow user consent*, users will never be able to consent on behalf of themselves for an application.
 
 ## Next steps
 
