@@ -13,6 +13,30 @@ This articles provides a reference of all roles relevant to Defender for IoT, th
 
 ## Azure user roles for Defender for IoT
 
+The built-in **Security reader**, **Security administrator**, **Contributor**, and **Owner** roles are relevant for use in Defender for IoT. An extra **Sensor operator** role is also added for Defender for IoT users.
+
+The following tables list functionality that is available to each user role by default.
+
+**Permissions for management functionalities**:
+
+|Sensor operator  |Security reader  |Security admin  |Contributor  |Owner  |
+|---------|---------|---------|---------|---------|
+|  **Download sensor and on-premises management console software and threat intelligence packages**<br>Resource scope: *Subscription*   |   Yes      |  Yes       |   Yes      | Yes | Yes |
+|  **Download activation files**<br>Resource scope: *Subscription*   |   Yes      |  No       |   Yes      | Yes | Yes |
+|  **Modify values on the Pricing page, update committed devices**<br>Resource scope: *Subscription*   |   Read-only      |  No       |   Read-write      | Read-write | Read-write |
+|  **Recover on-premises passwords**<br>Resource scope: *Subscription*   |   Yes      |  No       |   Yes     | Yes | Yes |
+|  **Push threat intelligence updates**<br>Resource scope: *Subscription*   |   No      |  No       |   Yes     | Yes | Yes |
+|  **Modify values on the Sites and sensors page**<br>Resource scope: *Subscription*   |   Read-write      |  No       |   Read-write     | Read-write | Read-write |
+
+**Permissions for security monitoring functionalities**:
+
+|Sensor operator  |Security reader  |Security admin  |Contributor  |Owner  |
+|---------|---------|---------|---------|---------|
+| **Alerts page** <br><br>Resource scope: *Subscription* or *site* | No | Read-only | Read-write | Read-write | Read-write |
+| **Device inventory** <br><br>Resource scope: *Subscription* or *site* | No | Read-only | Read-write | Read-write | Read-write |
+
+For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
+
 ## On-premises users for Defender for IoT
 
 By default, each sensor and on-premises management console is installed with the *cyberx* and *support* users. Sensors are also installed with the *cyberx_host* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create extra users for security analysts and read-only users.
