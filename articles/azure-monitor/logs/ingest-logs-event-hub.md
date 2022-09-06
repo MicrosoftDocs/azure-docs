@@ -21,22 +21,10 @@ would I want to do this?” question. Keep it short.
 
 [Add your introductory paragraph]
 
-<!-- 3. Prerequisites 
-Optional. If you need prerequisites, make them your first H2 in a how-to guide. 
-Use clear and unambiguous language and use a list format.
--->
-
 ## Prerequisites
 
-- A workspace linked to a dedicated cluster.
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
-<!-- remove this section if prerequisites are not needed -->
-
-<!-- 4. H2s 
-Required. A how-to article explains how to do a task. The bulk of each H2 should be 
-a procedure.
--->
+- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac)
+- [Dedicated cluster linked to the Log Analytics workspace](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 
 ## Create a custom table
 
