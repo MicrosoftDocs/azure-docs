@@ -4,3 +4,7 @@
   items:
   - name: About Azure Kubernetes Fleet Manager
     href: overview.md
+- name: Quickstarts
+  items:
+  - name: Create fleet and join member clusters
+    href: quickstart-create-fleet-and-members.md

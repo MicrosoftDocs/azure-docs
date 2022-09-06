@@ -23,3 +23,10 @@ landingContent:
         links:
          - text: Azure CLI
            url: /cli/azure/fleet
+
+   - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create fleet and join member clusters
+            url: quickstart-create-fleet-and-members.md
