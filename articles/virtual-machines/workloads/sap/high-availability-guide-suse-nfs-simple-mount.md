@@ -60,7 +60,7 @@ This article describes how to deploy and configure Azure virtual machines (VMs),
 The following guides contain all the required information to set up a NetWeaver HA system:
 
 * [SAP S/4 HANA - Enqueue Replication 2 High Availability Cluster With Simple Mount](https://documentation.suse.com/sbp/sap/html/SAP-S4HA10-setupguide-simplemount-sle15/index.html) 
-* [Use of Filesystem resource for ASCS/ERS HA setup not possible](https://www.suse.com/support/kb/doc/?id=000019944)
+* [Use of Filesystem resource for ABAP SAP Central Services (ASCS)/ERS HA setup not possible](https://www.suse.com/support/kb/doc/?id=000019944)
 * SAP Note [1928533][1928533], which has:  
   * A list of Azure VM sizes that are supported for the deployment of SAP software
   * Important capacity information for Azure VM sizes
@@ -85,7 +85,7 @@ The following guides contain all the required information to set up a NetWeaver 
 
 ## Overview
 
-This article describes a high-availability configuration for ABAP SAP Central Services (ASCS) with a simple mount structure. To deploy the SAP application layer, you need shared directories like `/sapmnt/SID`, `/usr/sap/SID`, and  `/usr/sap/trans`, which are highly available. You can deploy these file systems on [NFS on Azure Files](../../../storage/files/files-nfs-protocol.md) *or* [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).   
+This article describes a high-availability configuration for ASCS with a simple mount structure. To deploy the SAP application layer, you need shared directories like `/sapmnt/SID`, `/usr/sap/SID`, and  `/usr/sap/trans`, which are highly available. You can deploy these file systems on [NFS on Azure Files](../../../storage/files/files-nfs-protocol.md) *or* [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).   
 
 You still need a Pacemaker cluster to help protect single-point-of-failure components like SAP Central Services (SCS) and ASCS.     
 
@@ -608,7 +608,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
     ```
 
    > [!NOTE]
-   > Use SWPM SP 20 PL 05 or later. Earlier versions don't set the permissions correctly and cause the installation to fail.
+   > Use SWPM SP 20 PL 05 or later. Earlier versions don't set the permissions correctly, and they cause the installation to fail.
 
    If the installation fails to create a subfolder in `/usr/sap/NW1/ERS01`, set the owner and group of the `ERS01` folder and retry.
 
