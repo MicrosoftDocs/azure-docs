@@ -48,7 +48,7 @@
       maintainContext: true
     - name: Azure CLI
       items:
-        - name: Table API
+        - name: API for Table
           items:
             - name: Overview
               href: cli-samples.md
@@ -80,7 +80,7 @@
               href: ../scripts/cli/common/free-tier.md
     - name: Azure PowerShell
       items:
-        - name: Table API
+        - name: API for Table
           items:
             - name: Overview
               href: powershell-samples.md
@@ -263,9 +263,9 @@
                   href: how-to-dotnet-create-item.md
                 - name: Read an item
                   href: how-to-dotnet-read-item.md
-        - name: Build apps with Table API
+        - name: Build apps with API for Table
           href: table-support.md
-        - name: Create a table - Table API
+        - name: Create a table - API for Table
           href: how-to-create-container.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption

@@ -41,7 +41,7 @@
   items:
     - name: Azure CLI
       items:
-        - name: Cassandra API
+        - name: API for Apache Cassandra
           items:
             - name: Overview
               href: cli-samples.md
@@ -73,7 +73,7 @@
               href: ../scripts/cli/common/free-tier.md
     - name: Azure PowerShell
       items:
-        - name: Cassandra API
+        - name: API for Apache Cassandra
           items:
             - name: Overview
               href: powershell-samples.md
@@ -119,14 +119,14 @@
       items:
         - name: Partitioning overview
           href: ../partitioning-overview.md
-        - name: Partitioning for Cassandra API
+        - name: Partitioning for API for Apache Cassandra
           href: cassandra-partitioning.md
     - name: Throughput (RU/s)
       items:
         - name: Request units
           displayName: RUs, RU
           href: ../request-units.md
-        - name: Scale a Cassandra API account
+        - name: Scale a API for Apache Cassandra account
           href: scale-account-throughput.md
         - name: Estimate RU/s with capacity planner
           href: ../mongodb/estimate-ru-capacity-planner.md
@@ -252,7 +252,7 @@
   items:
     - name: Develop applications
       items:
-        - name: Cassandra API extensions overview
+        - name: API for Apache Cassandra extensions overview
           href: cassandra-driver-extensions.md
         - name: Create a table
           href: how-to-create-container-cassandra.md
@@ -269,9 +269,9 @@
           href: prevent-rate-limiting-errors.md
         - name: Materialized View (Preview)
           href: materialized-views-cassandra.md
-        - name: Lightweight Transactions in Cassandra API
+        - name: Lightweight Transactions in API for Apache Cassandra
           href: lwt-cassandra-api.md
-        - name: Change feed for Cassandra API
+        - name: Change feed for API for Apache Cassandra
           href: cassandra-change-feed.md
         - name: Store and manage Spring Data
           href: access-data-spring-data-app.md
@@ -303,23 +303,23 @@
           href: spark-aggregation-operations.md
         - name: Copy table data
           href: spark-table-copy-operations.md
-    - name: Migrate to Cassandra API
+    - name: Migrate to API for Apache Cassandra
       items:
-        - name: Differences between Cassandra API and Apache Cassandra
+        - name: Differences between API for Apache Cassandra and Apache Cassandra
           href: cassandra-adoption.md
-        - name: Migrate to Cassandra API using Kafka Connect
+        - name: Migrate to API for Apache Cassandra using Kafka Connect
           href: kafka-connect.md
-        - name: Migrate - Apache Cassandra to Cassandra API using Arcion
+        - name: Migrate - Apache Cassandra to API for Apache Cassandra using Arcion
           href: migrate-data-arcion.md
-        - name: Migrate - Apache Cassandra to Cassandra API using dual-write proxy
+        - name: Migrate - Apache Cassandra to API for Apache Cassandra using dual-write proxy
           href: migrate-data-dual-write-proxy.md
-        - name: Migrate - Apache Cassandra to Cassandra API using Databricks
+        - name: Migrate - Apache Cassandra to API for Apache Cassandra using Databricks
           href: migrate-data-databricks.md
-        - name: Migrate - PostgreSQL to Cassandra API using Apache Kafka
+        - name: Migrate - PostgreSQL to API for Apache Cassandra using Apache Kafka
           href: postgres-migrate-cosmos-db-kafka.md
-        - name: Migrate - Oracle DB to Cassandra API using Striim
+        - name: Migrate - Oracle DB to API for Apache Cassandra using Striim
           href: migrate-data-striim.md
-        - name: Migrate - Oracle DB to Cassandra API using Arcion
+        - name: Migrate - Oracle DB to API for Apache Cassandra using Arcion
           href: oracle-migrate-cosmos-db-arcion.md
     - name: Use developer tools
       items:
@@ -351,14 +351,14 @@
           href: troubleshoot-common-issues.md
         - name: Troubleshoot NoHostAvailableException
           href: troubleshoot-nohostavailable-exception.md
-        - name: Glowroot application performance monitoring (APM) with Cassandra API
+        - name: Glowroot application performance monitoring (APM) with API for Apache Cassandra
           displayName: Glowroot, APM, monitor
           href: glowroot-cassandra.md
-        - name: Understand Cassandra API error codes
+        - name: Understand API for Apache Cassandra error codes
           href: error-codes-solution.md
-        - name: Monitor and debug with insights in Cassandra API
+        - name: Monitor and debug with insights in API for Apache Cassandra
           href: cassandra-monitor-insights.md
-        - name: Advanced diagnostics for Cassandra API
+        - name: Advanced diagnostics for API for Apache Cassandra
           href: diagnostic-queries-cassandra.md
     - name: Manage Azure Cosmos DB resources
       items:

@@ -30,7 +30,7 @@
   items:
     - name: Azure CLI
       items:
-        - name: Gremlin API
+        - name: API for Apache Gremlin
           items:
             - name: Overview
               href: cli-samples.md
@@ -62,7 +62,7 @@
               href: ../scripts/cli/common/free-tier.md
     - name: Azure PowerShell
       items:
-        - name: Gremlin API
+        - name: API for Apache Gremlin
           items:
             - name: Overview
               href: powershell-samples.md
@@ -232,9 +232,9 @@
           href: graph-modeling.md
         - name: Designing for partitioned graph data
           href: graph-partitioning.md
-        - name: Create a container - Gremlin API
+        - name: Create a container - API for Apache Gremlin
           href: how-to-create-container-gremlin.md
-        - name: Allocate throughput - Gremlin API
+        - name: Allocate throughput - API for Apache Gremlin
           displayName: request units, RUs, RU, collection level
           href: how-to-provision-throughput-gremlin.md
         - name: Find request unit charge
@@ -370,7 +370,7 @@
           href: ../monitor-cosmos-db-reference.md
         - name: Third-party monitoring solutions
           href: ../monitoring-solutions.md
-    - name: Migrate data to Gremlin API
+    - name: Migrate data to API for Apache Gremlin
       items:
         - name: Import using graph bulk executor
           href: bulk-executor-graph-dotnet.md
