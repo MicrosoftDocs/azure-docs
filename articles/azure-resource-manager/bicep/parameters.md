@@ -15,7 +15,7 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
-You are limited to 256 parameters. For more information, see [Template limits](../bicep/best-practices.md#template-limits).
+You are limited to 256 parameters. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
