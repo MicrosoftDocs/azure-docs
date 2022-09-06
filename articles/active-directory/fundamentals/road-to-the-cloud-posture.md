@@ -88,7 +88,7 @@ In enterprise-sized organizations, IAM transformation, or even transformation fr
 
 * A plan to move apps that depend on AD and are part of the vision for the future state Azure AD environment is being executed. A plan to replace services that won't move (file, print, fax services) is in place.
 
-* On-premises workloads have been replaced with cloud alternatives such as Windows Virtual Desktop, Azure Files, Cloud Print. SQL is replaced by SQL MI. Azure AD Kerberos is being migrated to Azure AD.
+* On-premises workloads have been replaced with cloud alternatives such as Windows Virtual Desktop, Azure Files, Cloud Print. SQL is replaced by Azure SQL Managed Instance.
 
 **State 5 100% cloud** - In this state, IAM capability is all provided by Azure AD and other Azure tools. This is the long-term aspiration for many organizations. In this state:
 
