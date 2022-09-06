@@ -67,7 +67,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerService
 
 ImageCleaner does not support the following:
 
-* ARM 64 node pools. For more information, see [Azure Virtual Machines with ARM-based processors][arm-vms].
+* ARM64 node pools. For more information, see [Azure Virtual Machines with ARM-based processors][arm-vms].
 * Windows node pools.
 
 ## How ImageCleaner works
