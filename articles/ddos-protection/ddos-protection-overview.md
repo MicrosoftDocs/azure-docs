@@ -33,24 +33,24 @@ DDoS Protection Standard applies three auto-tuned mitigation policies (TCP SYN, 
 ### Azure DDoS Rapid Response
  During an active attack, Azure DDoS Protection Standard customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis. For more information, see [Azure DDoS Rapid Response](ddos-rapid-response.md).
  
-## Tiers
+## SKU
 
-Azure DDoS Protection is offered in three available tiers, DDoS Protection Basic, DDoS IP Protection, and DDoS Network Protection. DDoS Protection Basic. For more information about the tiers, see **(New Article link)**
+Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection and DDoS Network Protection. For more information about the SKUs, see **(New Article link)**.
 
-The following table shows features and corresponding tiers.
+The following table shows features and corresponding SKUs.
 
 | Feature |  DDoS Protection Basic | DDoS IP Protection | DDoS Network Protection |
 |---|---|---|---|
 | Active traffic monitoring & always on detection| Yes |  Yes| Yes |
 | Automatic attack mitigation | Yes | Yes | Yes |
 | Availability guarantee| Not available | Yes | Yes |
-| Cost protection | Not available | Yes |
+| Cost protection | Not available | Not available  | Yes |
 | Application based mitigation policies | Not available | Yes| Yes |
 | Metrics & alerts | Not available  | Yes | Yes |
 | Mitigation reports | Not available | Yes | Yes |
 | Mitigation flow logs| Not available  | Yes| Yes |
 | Mitigation policy customizations | Not available | Yes| Yes |
-| DDoS rapid response support | Not available| Yes| Yes |
+| DDoS rapid response support | Not available| Not available | Yes |
 | Cost | Free | Per protected IP | Per 100 protected IP addresses |
 ## Features
 
