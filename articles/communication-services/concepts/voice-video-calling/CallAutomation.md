@@ -1,17 +1,20 @@
 ---
+title: Call Automation overview
+titleSuffix: An Azure Communication Services concept document
+description: Learn about Azure Communication Services Call Automation.
 author: ashwinder
+
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/06/2022
 ms.author: askaur
 ms.custom: private_preview
 ---
+# Call Automation Overview
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
-
-# Call Automation Overview
 
 Azure Communication Services Call Automation provides developers the ability to build  server-based, intelligent call workflows for voice and PSTN channels. The SDKs, available for .NET and Java, uses an action-event model to help you build personalised customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, etc) to steer and control calls based on your business logic.
 
@@ -130,4 +133,4 @@ The Call Automation events are sent to the web hook callback URI specified when 
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Get started with Call Automation](link)
+> [Get started with Call Automation](./../../quickstarts/voice-video-calling/Callflows-for-customer-interactions.md)

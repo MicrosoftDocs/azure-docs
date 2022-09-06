@@ -1,8 +1,9 @@
 ---
 title: include file
-description: C# call automation quickstart
+description: Provides a quickstart on how to use Call Automation C# SDK to build call flow for customer interactions.
 services: azure-communication-services
 author: ashwinder
+
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 09/06/2022
@@ -15,7 +16,7 @@ ms.author: askaur
 
 - An Azure account with an active subscription.
 - A deployed Communication Service resource.
-- [Acquire a PSTN phone number from the Communication Service resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-csharp).
+- [Acquire a PSTN phone number from the Communication Service resource](../../../telephony/get-phone-number.md?pivots=programming-language-csharp).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - A [web service application](https://dotnet.microsoft.com/download/dotnet-core) to handle web hook callback events.
 - Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
