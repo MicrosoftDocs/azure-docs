@@ -7,7 +7,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/18/2022
+ms.date: 09/06/2022
 ms.author: duau
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
@@ -37,11 +37,15 @@ A custom domain is managed by Domains section in the portal. A custom domain can
 
     :::image type="content" source="../media/how-to-add-custom-domain/add-domain-button.png" alt-text="Screenshot of add domain button on domain landing page.":::
 
-1. The **Add a domain** page will appear where you can enter information about of the custom domain. You can choose Azure-managed DNS, which is recommended or you can choose to use your own DNS provider. If you choose Azure-managed DNS, select an existing DNS zone and then select a custom subdomain or create a new one. If you're using another DNS provider, manually enter the custom domain name. Select **Add** to add your custom domain.
+1. The **Add a domain** page will appear where you can enter information about of the custom domain. You can choose **Non-Azure validated domain** or **Azure pre-validated domain**.
+      * **Azure pre-validated domain** are domains validated by another Azure service. When you select this option, there is no need to valiate domain ownership on Azure Front Door. A dropdown list of the domains validated and grouped by the supported Azure services are populated. 
+      * **Non-Azure validated domain** need domain ownership validation. When you select Non-Azure validated domain, Azure-managed DNS is recommended or you can choose to use your own DNS provider. If you choose Azure-managed DNS, select an existing DNS zone and then select a custom subdomain or create a new one. If you're using another DNS provider, manually enter the custom domain name. Select **Add** to add your custom domain.
 
    > [!NOTE]
-   > Azure Front Door supports both Azure managed certificate and customer-managed certificates. If you want to use customer-managed certificate, see [Configure HTTPS on a custom domain](how-to-configure-https-custom-domain.md).
-
+   > *  Azure Front Door supports both Azure managed certificate and customer-managed certificates. For Non-Azure validated domain, the managed certificate is issued and managed by Azure Front Door. For Azure pre-validated domain, the managed certificate (Azure managed) is issued and managed by the other Azure service. For both scenarios, you can bring your own certificate. If you want to use customer-managed certificate, see [Configure HTTPS on a custom domain](how-to-configure-https-custom-domain.md).
+   > * Azure Front Door supports loading Azure pre-validated domains and Azure DNS zones cross subscriptions on portal.
+   > * Currently Azure pre-validated domain supports domain validated by Static Web App.
+   
     :::image type="content" source="../media/how-to-add-custom-domain/add-domain-page.png" alt-text="Screenshot of add a domain page.":::
 
     A new custom domain is created with a validation state of **Submitting**.
@@ -49,6 +53,8 @@ A custom domain is managed by Domains section in the portal. A custom domain can
     :::image type="content" source="../media/how-to-add-custom-domain/validation-state-submitting.png" alt-text="Screenshot of domain validation state submitting.":::
 
     Wait until the validation state changes to **Pending**. This operation could take a few minutes.
+    > [!NOTE]
+    > The validation state for Azure pre-validated domain goes into **Approved**. Please skip to Associate the custom domain with your Front Door Endpoint directly and complete the remaining steps. 
 
     :::image type="content" source="../media/how-to-add-custom-domain/validation-state-pending.png" alt-text="Screenshot of domain validation state pending.":::
 
@@ -97,6 +103,9 @@ After you've validated your custom domain, you can then add it to your Azure Fro
 1. The **Add or update the CNAME record** page will appear and display the CNAME record information that must be provided before traffic can start flowing. If you're using Azure DNS hosted zones, the CNAME records can be created by selecting the **Add** button on the page. If you're using another DNS provider, you must manually enter the CNAME record name and value as shown on the page.
 
     :::image type="content" source="../media/how-to-add-custom-domain/add-update-cname-record.png" alt-text="Screenshot of add or update CNAME record.":::
+    
+   > [!NOTE]
+   > For Azure pre-validated domain, please go to the DNS hosting service and manually change the CNAME record for this domain from the other Azure service endpoint to Azure Front Door endpoint, regardless of whether the domain is hosted on Azure DNS or other DNS services. The DNS state column on Azure Front Door domain blade is non-editable or clickable.
 
 1. Once the CNAME record gets created and the custom domain is associated to the Azure Front Door endpoint completes, traffic flow will start flowing.
 
