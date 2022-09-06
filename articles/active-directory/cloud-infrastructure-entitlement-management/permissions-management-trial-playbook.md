@@ -85,8 +85,9 @@ The dashboard leverages the Permission Creep Index, which is a single and unifie
     
 2.  View data about the activity in your authorization system
 
-    1.  [View user data on the PCI heat map](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-user-data-on-the-pci-heat-map). [!Note] 
-    The higher the PCI, the higher the risk.
+    1.  [View user data on the PCI heat map](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-user-data-on-the-pci-heat-map).
+    > [!NOTE]
+    > The higher the PCI, the higher the risk. 
     
     2.  [View information about users, roles, resources, and PCI trends](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-information-about-users-roles-resources-and-pci-trends)
     3.  [View identity findings](../cloud-infrastructure-entitlement-management/product-dashboard.md#view-identity-findings)
