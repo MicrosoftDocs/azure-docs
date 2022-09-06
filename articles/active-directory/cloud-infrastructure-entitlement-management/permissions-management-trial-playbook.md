@@ -28,7 +28,7 @@ Permissions Management helps your organization tackle cloud permissions by enabl
 -   Enforce least privilege - Right-size permissions based on usage and activity and enforce permissions on-demand at cloud scale.
 -   Monitor and detect anomalies - Detect anomalous permission usage and generate detailed forensic reports.
 
-![Diagram, schematic Description automatically generated](media/permissions-management-trial-playbook/diagram.png)
+![Diagram, schematic Description automatically generated](media/permissions-management-trial-playbook/microsoft-entra-permissions-management-diagram.png)
 
 
 ## Step 1: Set-up Permissions Management
