@@ -180,7 +180,7 @@ The request body has some required fields:
 * `capabilityModel` : Every device template has a capability model. A relationship is established between each module capability model and a device model. A capability model implements one or more module interfaces.
 
 > [!TIP]
-> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API and the CLI.
+> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API, the CLI, and the UI.
 
 There are some optional fields you can use to add more details to the capability model, such as display name and description.
 

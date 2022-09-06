@@ -509,4 +509,4 @@ Follow these links to learn more about Azure Storage and the Table API in Azure 
 * [Introduction to the Table API](introduction.md)
 * [List Azure Storage resources in C++](../../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ reference](https://azure.github.io/azure-storage-cpp)
-* [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Storage documentation](/azure/storage/)

@@ -745,6 +745,8 @@
       items:
       - name: Monitoring
         href: hyperscale/concepts-monitoring.md
+      - name: Performance tuning
+        href: hyperscale/concepts-performance-tuning.md
       - name: Audit logs
         href: hyperscale/concepts-audit.md
     - name: Columnar storage

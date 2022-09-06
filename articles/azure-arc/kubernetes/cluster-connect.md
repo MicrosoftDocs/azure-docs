@@ -2,7 +2,7 @@
 title: "Use the cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 07/22/2022
+ms.date: 08/30/2022
 ms.topic: how-to
 description: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 ---
@@ -49,6 +49,9 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
   |`*.servicebus.windows.net` | 443 |
   |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
 
+  > [!NOTE]
+  > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+
 - Replace the placeholders and run the below command to set the environment variables used in this document:
 
   ```azurecli
@@ -73,6 +76,9 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
   |----------------|-------|
   |`*.servicebus.windows.net` | 443 |
   |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
+
+  > [!NOTE]
+  > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
 - Replace the placeholders and run the below command to set the environment variables used in this document:
 
@@ -180,7 +186,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     ```
 
     ```console
-    TOKEN=$(kubectl get secret demo-user-secret -o jsonpath='{$.data.token}' | base64 -d | sed $'s/$/\\\n/g')
+    TOKEN=$(kubectl get secret demo-user-secret -o jsonpath='{$.data.token}' | base64 -d | sed 's/$/\\\n/g')
     ```
 1. Get the token to output to console
   

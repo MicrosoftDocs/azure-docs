@@ -217,15 +217,6 @@ You can set the connection string in the `applicationinsights.json` configuratio
 
 For more information, [connection string configuration](./java-standalone-config.md#connection-string).
 
-For Application Insights Java 2.x, you can set the connection string in the `ApplicationInsights.xml` configuration file:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
-</ApplicationInsights>
-```
-
 # [JavaScript](#tab/js)
 
 Important: JavaScript doesn't support the use of Environment Variables.

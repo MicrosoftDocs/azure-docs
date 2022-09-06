@@ -4,7 +4,7 @@ description: Learn how to write PowerShell scripts in Azure Automation to intera
 services: active-directory
 documentationCenter: ''
 author: amsliu
-manager: daveba
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -208,4 +208,4 @@ There are two places where you can see the expiration date in the Azure portal.
 
 ## Next steps
 
-- [Create an Automation account using the Azure portal](../../automation/quickstarts/create-account-portal.md)
+- [Create an Automation account using the Azure portal](/azure/automation/quickstarts/create-azure-automation-account-portal)
