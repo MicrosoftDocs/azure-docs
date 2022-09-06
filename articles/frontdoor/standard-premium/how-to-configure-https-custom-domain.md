@@ -17,7 +17,10 @@ ms.custom: devx-track-azurepowershell
 
 Azure Front Door enables secure TLS delivery to your applications by default when a custom domain is added. By using the HTTPS protocol on your custom domain, you ensure your sensitive data get delivered securely with TLS/SSL encryption when it's sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site's security certificate and verifies it gets issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
 
-Azure Front Door supports both Azure managed certificate and customer-managed certificates. Azure Front Door by default automatically enables HTTPS to all your custom domains using Azure managed certificates. No extra steps are required for getting an Azure managed certificate. A certificate is created during the domain validation process. You can also use your own certificate by integrating Azure Front Door Standard/Premium with your Key Vault.
+Azure Front Door supports both Azure managed certificate and customer-managed certificates.
+* Non-Azure validated domain requires domain ownership validation. The managed certificate (AFD managed) is issued and managed by Azure Front Door. Azure Front Door by default automatically enables HTTPS to all your custom domains using Azure managed certificates. No extra steps are required for getting an AFD managed certificate. A certificate is created during the domain validation process. 
+* Azure pre-validated domain doesn't require domain validation because it is already validated by another Azure service. The managed certificate (Azure managed) is issued and managed by the other Azure service. No extra steps are required for getting an Azure managed certificate. Azure Front Door doesn't issue managed certificate for this scenario and reuse the managed certificat issued by the other Azure service. For supported Azure service for pre-validated domain, please refer to [custom domain](how-to-add-custom-domain.md).
+* For both scenarios, you can bring your own certificate. 
 
 ## Prerequisites
 
@@ -27,19 +30,36 @@ Azure Front Door supports both Azure managed certificate and customer-managed ce
 
 * If you're using Azure to host your [DNS domains](../../dns/dns-overview.md), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](../../dns/dns-delegate-domain-azure-dns.md). Otherwise, if you're using a domain provider to handle your DNS domain, you must manually validate the domain by entering prompted DNS TXT records.
 
-## Azure managed certificates
+## AFD managed certificates for Non-Azure pre-validated domain
 
 1. Select **Domains** under settings for your Azure Front Door profile and then select **+ Add** to add a new domain.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-new-custom-domain.png" alt-text="Screenshot of domain configuration landing page.":::
 
-1. On the **Add a domain** page, for *DNS management* select the **Azure managed DNS** option.
+1. On the **Add a domain** page, for *DNS type* select the **Non-Azure pre-validated domain** option. 
+1. For *DNS management* select the **Azure managed DNS** option.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-domain-azure-managed.png" alt-text="Screen shot of add a domain page with Azure managed DNS selected.":::
 
 1. Validate and associate the custom domain to an endpoint by following the steps in enabling [custom domain](how-to-add-custom-domain.md).
 
-1. Once the custom domain gets associated to endpoint successfully, an Azure managed certificate gets deployed to Front Door. This process may take from several minutes to an hour to complete.
+1. Once the custom domain gets associated to endpoint successfully, an AFD managed certificate gets deployed to Front Door. This process may take from several minutes to an hour to complete.
+
+## Azure managed certificates for Azure pre-validated domain
+
+1. Select **Domains** under settings for your Azure Front Door profile and then select **+ Add** to add a new domain.
+
+    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-new-custom-domain.png" alt-text="Screenshot of domain configuration landing page.":::
+
+1. On the **Add a domain** page, for *DNS type* select the **Azure pre-validated domain** option. 
+
+1. For *Pre-validated custom domains* select the pre-validated domain from the dropdown list.
+
+1. For HTTPS select **Azure managed**.
+
+1. Validate and associate the custom domain to an endpoint by following the steps in enabling [custom domain](how-to-add-custom-domain.md).
+
+1. Once the custom domain gets associated to endpoint successfully, an AFD managed certificate gets deployed to Front Door. This process may take from several minutes to an hour to complete.
 
 ## Using your own certificate
 
@@ -143,9 +163,9 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
 ## Certificate renewal and changing certificate types
 
-### Azure-managed certificate
+### AFD managed certificate for Non-Azure pre-validated domain
 
-Azure-managed certificates are automatically rotated when your custom domain uses a CNAME record that points to an Azure Front Door standard or premium endpoint.
+AFD managed certificates are automatically rotated when your custom domain uses a CNAME record that points to an Azure Front Door standard or premium endpoint.
 
 Front Door won't automatically rotate certificates in the following scenarios:
 
@@ -153,6 +173,10 @@ Front Door won't automatically rotate certificates in the following scenarios:
 * The custom domain points to Azure Front Door through a long chain. For example, if you put Azure Traffic Manager before Azure Front Door, the CNAME chain is `contoso.com` CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`.
 
 The domain validation state will become *Pending Revalidation* 45 days before the managed certificate expires, or *Rejected* if the managed certificate issuance is rejected by the certificate authority.  Refer to [Add a custom domain](how-to-add-custom-domain.md#domain-validation-state) for actions for each of the domain states.
+
+### Azure managed certificate for Azure pre-validated domain
+
+Azure managed certifiate is automatically rotated by the other Azure service.
 
 ### <a name="rotate-own-certificate"></a>Use your own certificate
 
