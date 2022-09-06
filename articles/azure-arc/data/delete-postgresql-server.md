@@ -22,7 +22,7 @@ This document describes the steps to delete a server from your Azure Arc setup.
 As an example, let's consider we want to delete the _postgres01_ instance from the below setup:
 
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+az postgres server-arc list --k8s-namespace <namespace> --use-k8s
 Name        State  
 ----------  -------
 postgres01  Ready  
