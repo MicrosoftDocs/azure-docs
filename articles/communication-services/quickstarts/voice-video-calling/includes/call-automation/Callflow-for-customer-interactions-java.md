@@ -73,9 +73,7 @@ Google Gson package: [com.google.code.gson : gson](https://search.maven.org/arti
 
 ## Create a Communication Services User
 
-You will need a Communication Services user to try out the functionality of adding participants to a call. If you don’t have a Communication Services user yet, go [here](https://acs-sample-app.azurewebsites.net/), enter the connection string and a display name, then press 'login'. The application will generate ACS User Id which we’ll use later to invite this participant into a call.
-
-Note that to later accept the invitation to join the call, you’ll need to keep this tab open, a pop-up will appear asking whether you want to join the call.
+You will need a Communication Services user to try out the functionality of adding participants to a call. If you don’t have a Communication Services user yet, you can read [here](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/identity/quick-create-identity) how to create one.
 
 ## Update App.java with code
 
@@ -114,9 +112,10 @@ Now, given that all setup is completed, you can test your application:
 
 1. Call the number you acquired in the prerequisites section of this guide.
 2. The incoming call event is sent to the application’s `/api/incomingCall` endpoint. Application answers the call using Call Automation SDK.
-3. `CallConnected` event is delivered to `/api/callback` endpoint. Application adds a participant to the call (web app user created earlier in this quickstart).
+3. `CallConnected` event is delivered to `/api/callback` endpoint.
 4. At this point you can play audio on a loop to all participants on the call.
-5. When the audio file has played, a `PlayCompleted` event is received.
-6. User accepts the invitation to join the call, in our case the invitation will appear on the `https://acs-sample-app.azurewebsites.net/`
-7. `AddParticipantsSucceeded` event is delivered to `/api/callback` endpoint.
-8. After all participants have left the call, `CallDisconnected` event is delivered to `/api/callback` endpoint.
+5. When the audio file has played, a `PlayCompleted` event is received. 
+6. Application adds a participant to the call (web app user created earlier in this quickstart).
+7. User accepts the invitation to join the call. 
+8. `AddParticipantsSucceeded` event is delivered to `/api/callback` endpoint.
+9. After all participants have left the call, `CallDisconnected` event is delivered to `/api/callback` endpoint.
