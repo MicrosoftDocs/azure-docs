@@ -191,7 +191,7 @@ Using the same `cosmos.oltp` data source, we can do partial update in Cosmos DB 
 #### [Python](#tab/python)
 
 ```python
-cfgSet = {"spark.cosmos.accountEndpoint": cosmosEndpoint,
+cfgPatch = {"spark.cosmos.accountEndpoint": cosmosEndpoint,
           "spark.cosmos.accountKey": cosmosMasterKey,
           "spark.cosmos.database": cosmosDatabaseName,
           "spark.cosmos.container": cosmosContainerName,
@@ -212,7 +212,7 @@ dfBeforePatch.show()
 data = [{"id": id, "name": "Joel Brakus"}]
 patchDf = spark.createDataFrame(data)
 
-patchDf.write.format("cosmos.oltp").mode("Append").options(**cfgSet).save()
+patchDf.write.format("cosmos.oltp").mode("Append").options(**cfgPatch).save()
 
 dfAfterPatch = spark.sql(query)
 print("document after patch operation")
@@ -225,7 +225,7 @@ For more samples related to partial document update, see the Github code sample 
 #### [Scala](#tab/scala)
 
 ```scala
-val cfgSet = Map("spark.cosmos.accountEndpoint" -> cosmosEndpoint,
+val cfgPatch = Map("spark.cosmos.accountEndpoint" -> cosmosEndpoint,
         "spark.cosmos.accountKey" -> cosmosMasterKey,
         "spark.cosmos.database" -> cosmosDatabaseName,
         "spark.cosmos.container" -> cosmosContainerName,
