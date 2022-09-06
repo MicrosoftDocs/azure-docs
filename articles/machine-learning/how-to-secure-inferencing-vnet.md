@@ -19,7 +19,7 @@ ms.custom:
 > * [SDK/CLI v1](v1/how-to-secure-inferencing-vnet.md)
 > * [SDK/CLI v2 (current version)](../how-to-secure-inferencing-vnet.md)
 
-In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning. There are two inference options that can be secured using a VNet:
+In this article, you learn how to secure inferencing environments (online endpoints) with a virtual network in Azure Machine Learning. There are two inference options that can be secured using a VNet:
 
 * Azure Machine Learning managed online endpoints
 * Azure Kubernetes Service 

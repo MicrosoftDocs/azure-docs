@@ -1,7 +1,7 @@
 ---
-title: Secure inferencing environments with virtual networks
+title: Secure v1 inferencing environments with virtual networks
 titleSuffix: Azure Machine Learning
-description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning inferencing environment.
+description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning inferencing environment (v1).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -13,7 +13,7 @@ ms.date: 07/28/2022
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022
 ---
 
-# Secure an Azure Machine Learning inferencing environment with virtual networks
+# Secure an Azure Machine Learning inferencing environment with virtual networks (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
@@ -22,7 +22,7 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecl
 > * [SDK/CLI v1](how-to-network-secure-inferencing-vnet.md)
 > * [SDK/CLI v2 (current version)](../how-to-secure-inferencing.md)
 
-In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning.
+In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning. This article is specific to the SDK/CLI v1 deployment workflow of deploying a model as a web service.
 
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
