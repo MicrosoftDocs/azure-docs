@@ -175,13 +175,24 @@ And then defining these elements for the resulting alert actions using:
 
     1. In the **Conditions** pane, select the **Chart period**.
     1. The **Preview** chart shows you the results of your selection.
-    1. In the **Alert logic** section:
+    1. Select values for each of these fields in the **Alert logic** section:
 
         |Field |Description |
         |---------|---------|
         |Event level| Select the level of the events that this alert rule monitors. Values are: **Critical**, **Error**, **Warning**, **Informational**, **Verbose** and **All**.|
         |Status|Select the status levels for which the alert is evaluated.|
         |Event initiated by|Select the user or service principal that initiated the event.|
+
+    ### [Resource Health alert](#tab/resource-health)
+
+     1. In the **Conditions** pane, select Select values for each of these fields
+
+        |Field |Description |
+        |---------|---------|
+        |Event status| Select the type(s) of Resource Health events this alert will monitor. Values are: **Active**, **In Progress**, **Resolved**, and **Updated**.|
+        |Current resource status|Select the current resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, and **Unavailable**.|
+        |Previous resource status|Select the previous resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
+        |Reason type|Select the the cause(s) of the Resource Health events this alert will monitor. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.| 
 
     ---
 
@@ -250,7 +261,10 @@ And then defining these elements for the resulting alert actions using:
     1. (Optional) If you have configured action groups for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot of the actions tab when creating a new activity log alert rule.":::
+    ### [Resource Health alert](#tab/resource-health)
 
+     1. Enter values for the **Alert rule name** and the **Alert rule description**.
+     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
     ---
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
@@ -295,7 +309,9 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
      - [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
      - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
 
-    ---
+    ### [Resource Health alert](#tab/resource-health)
+ 
+   ---
 
 ## Create a new alert rule using PowerShell
 
