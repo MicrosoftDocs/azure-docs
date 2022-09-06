@@ -42,7 +42,7 @@ As part of compliance requirements in various industries, vendors are expected t
 
 ## How the play action workflow looks
 
-![Play action]()
+![Play action](./PlayAction.png)
 
 ## What's coming up next for Play action
 
