@@ -48,12 +48,12 @@ To enable RDP Shortpath for managed networks, you need to enable the RDP Shortpa
 1. Depending on whether you want to configure Group Policy centrally from your domain, or locally for each session host:
    
    **AD Domain**:
-   1. Open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
    1. Copy and paste the **terminalserver-avd.admx** file to the Central Store for your domain, for example `\\contoso.com\SYSVOL\contoso.com\policies\PolicyDefinitions`, where *contoso.com* is your domain name. Then copy the **en-us\terminalserver-avd.adml** file to the `en-us` subfolder.
+   1. Open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
    
    **Locally**:
-   1. Open the **Local Group Policy Editor** on the session host.
    1. Copy and paste the **terminalserver-avd.admx** file to `%windir%\PolicyDefinitions`. Then copy the **en-us\terminalserver-avd.adml** file to the `en-us` subfolder.
+   1. Open the **Local Group Policy Editor** on the session host.
 
 1. Browse to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see policy settings for Azure Virtual Desktop, as shown in the following screenshot:
 

@@ -23,13 +23,13 @@ When choosing the base and pool size, consider the number of ports you choose. T
 
 1. To enable a limited port range when using RDP Shortpath for public networks, open an elevated PowerShell prompt on your session hosts and run the following command to add the required registry value:
 
-```powershell
-New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server" -Name ICEEnableClientPortRange -PropertyType DWORD -Value 1
-```
+   ```powershell
+   New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server" -Name ICEEnableClientPortRange -PropertyType DWORD -Value 1
+   ```
 
 2. To further specify the port range to use, open an elevated PowerShell prompt on your session hosts and run the following commands, where the value for `ICEClientPortBase` is the start of the range, and `ICEClientPortRange` is the number of ports to use from the start of the range. For example, if you select 25000 as a port base and 1000 as pool size, the upper bound will be 25999.
 
-```powershell
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name ICEClientPortBase -PropertyType DWORD -Value 25000
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name ICEClientPortRange -PropertyType DWORD -Value 1000
-```
+   ```powershell
+   New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name ICEClientPortBase -PropertyType DWORD -Value 25000
+   New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name ICEClientPortRange -PropertyType DWORD -Value 1000
+   ```
