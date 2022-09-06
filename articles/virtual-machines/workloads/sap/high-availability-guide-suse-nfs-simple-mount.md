@@ -18,7 +18,7 @@ ms.author: radeltch
 
 ---
 
-# Install high-availability SAP NetWeaver with simple mount and NFS on virtual machines 
+# High-availability SAP NetWeaver with simple mount and NFS on SLES for SAP Applications VMs 
 
 [dbms-guide]:dbms_guide_general.md
 [deployment-guide]:deployment-guide.md
@@ -101,6 +101,9 @@ The example configurations and installation commands use the following instance 
 | Additional Application Server (AAS) | 03 |
 | SAP system identifier | NW1 |
 
+> [!IMPORTANT]
+> The configuration with simple mount structure is supported only on SLES for SAP Applications 15 and later releases.
+
 :::image type="complex" source="./media/high-availability-guide-suse/high-availability-guide-suse-nfs-simple-mount.png" alt-text="Diagram that shows SAP NetWeaver high availability with simple mount and NFS.":::
    This diagram shows a typical SAP NetWeaver HA architecture with a simple mount. The "sapmnt" and "saptrans" file systems are deployed on Azure native NFS: NFS shares on Azure Files or NFS volumes on Azure NetApp Files. A Pacemaker cluster protects the SAP central services. The clustered VMs are behind an Azure load balancer. The Pacemaker cluster doesn't manage the file systems, in contrast to the classic Pacemaker configuration.  
 :::image-end:::
@@ -111,7 +114,8 @@ This article assumes that you've already deployed an [Azure virtual network](../
 
 1. Deploy your VMs. You can deploy VMs in availability sets or in availability zones, if the Azure region supports these options. 
 
-   If you need additional IP addresses for your VMs, deploy and attach a second network interface controller (NIC). Don't add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../../load-balancer/load-balancer-multivip-overview.md#limitations).  
+   > [!IMPORTANT]
+   > If you need additional IP addresses for your VMs, deploy and attach a second network interface controller (NIC). Don't add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../../load-balancer/load-balancer-multivip-overview.md#limitations).  
  
 2. For your virtual IPs, deploy and configure an [Azure load balancer](../../../load-balancer/load-balancer-overview.md). We recommend that you use a [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
    1. Create front-end IP address 0.27.0.9 for the ASCS instance:
@@ -266,9 +270,9 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 
    Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. This example uses two Azure NetApp Files volumes: `sapNW1` and `trans`. The file paths that are mounted to the corresponding mount points are:  
 
-   - `sapNW1` (`nfs://10.27.1.5/usrsapnw1/sapmntNW1`)
-   - `sapNW1` (`nfs://10.27.1.5/usrsapnw1/usrsapNW1`)
-   - `trans` (`nfs://10.27.1.5/trans`)
+   - Volume `sapNW1` (`nfs://10.27.1.5/usrsapnw1/sapmntNW1`)
+   - Volume `sapNW1` (`nfs://10.27.1.5/usrsapnw1/usrsapNW1`)
+   - Volume `trans` (`nfs://10.27.1.5/trans`)
    
    
 The SAP file systems that don't need to be shared can also be deployed on  [Azure disk storage](../../disks-types.md#premium-ssds). For example, `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` could be deployed as Azure disk storage.  
@@ -378,7 +382,7 @@ The following items are prefixed with:
     sudo service waagent restart
     ```
 
-### Prepare SAP directories for NFS on Azure Files
+### Prepare SAP directories if you're using NFS on Azure Files
 
 1. **[1]** Create the SAP directories on the NFS share. 
 
@@ -422,7 +426,7 @@ The following items are prefixed with:
     mount -a 
     ```
 
-### Prepare SAP directories for NFS on Azure NetApp Files
+### Prepare SAP directories if you're using NFS on Azure NetApp Files
 
 The instructions in this section are applicable only if you're using Azure NetApp Files volumes with the NFSv4.1 protocol. Perform the configuration on all VMs where Azure NetApp Files NFSv4.1 volumes will be mounted. 
 
@@ -630,7 +634,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
     enque/encni/set_so_keepalive = true
     ```
 
-    For Standalone Enqueue Server versions 1 and 2 (ENSA1 and ENSA2), make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
+    For Standalone Enqueue Server 1 and 2 (ENSA1 and ENSA2), make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
 
     Now adapt the ERS instance profile.
 
@@ -811,7 +815,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
 
 ## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Prepare the SAP application server 
 
-Some databases require you to install the database instance on an application server. Prepare the application server VMs to be able to use the databases in these cases.
+Some databases require you to execute the database installation on an application server. Prepare the application server VMs to be able to execute the database installation.
 
 The following common steps assume that you install the application server on a server that's different from the ASCS and HANA servers:  
 
