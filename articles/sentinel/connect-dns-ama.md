@@ -222,9 +222,9 @@ You can use wildcards in advanced filters. Review these considerations when usin
 
 - Add a dot after each asterisk (`*.`).
 - Do not use spaces between the list of domains.
-- Wildcards apply to the domain's subdomains only, including `www.domain.com`, regardless of the protocol. For example, if you use `*.facebook.com` in an advanced filter: 
-    - The filter applies to `www.facebook.com` and `subdomain.example.com`, regardless of whether the protocols is HTTPS, FTP, and so on. 
-    - The filter doesn't apply to `example.com`. To apply a filter to `example.com`, specify the domain directly, without using a wildcard.  
+- Wildcards apply to the domain's subdomains only, including `www.domain.com`, regardless of the protocol. For example, if you use `*.domain.com` in an advanced filter: 
+    - The filter applies to `www.domain.com` and `subdomain.domain.com`, regardless of whether the protocols is HTTPS, FTP, and so on. 
+    - The filter doesn't apply to `domain.com`. To apply a filter to `domain.com`, specify the domain directly, without using a wildcard.  
 
 ### Advanced filter examples
 

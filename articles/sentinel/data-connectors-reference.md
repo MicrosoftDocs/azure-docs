@@ -1824,7 +1824,7 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Azure monitor Agent-based connection](connect-dns-ama.md)** |
 | **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
-| **DCR support** | [Standard DCR](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?tabs=portal) |
+| **DCR support** | Standard DCR |
 | **Supported by** | Microsoft |
 
 ## Windows DNS Server (Preview)

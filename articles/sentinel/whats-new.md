@@ -29,7 +29,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### Windows DNS Events via AMA connector (Preview)
 
-You can now use the new [Windows DNS Events via AMA connector](connect-dns-ama.md) to stream and filter events from your Windows Domain Name System (DNS) server logs. You can then dive deep into your data to protect your DNS servers from threats and attacks.
+You can now use the new [Windows DNS Events via AMA connector](connect-dns-ama.md) to stream and filter events from your Windows Domain Name System (DNS) server logs to the `ASimDnsActivityLog` normalized schema table. You can then dive into your data to protect your DNS servers from threats and attacks.
 
 The Azure Monitor Agent (AMA) and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace.
 
