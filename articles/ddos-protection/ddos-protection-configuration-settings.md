@@ -38,13 +38,13 @@ The following table shows features and corresponding SKUs.
 | Active traffic monitoring & always on detection| Yes |  Yes| Yes |
 | Automatic attack mitigation | Yes | Yes | Yes |
 | Availability guarantee| Not available | Yes | Yes |
-| Cost protection | Not available | Yes | Yes |
+| Cost protection | Not available | Not available  | Yes |
 | Application based mitigation policies | Not available | Yes| Yes |
 | Metrics & alerts | Not available  | Yes | Yes |
 | Mitigation reports | Not available | Yes | Yes |
 | Mitigation flow logs| Not available  | Yes| Yes |
 | Mitigation policy customizations | Not available | Yes| Yes |
-| DDoS rapid response support | Not available| Yes| Yes |
+| DDoS rapid response support | Not available| Not available | Yes |
 | Cost | Free | Per protected IP | Per 100 protected IP addresses |
 
 ## DDoS Protection Basic
@@ -55,12 +55,14 @@ The following table shows features and corresponding SKUs.
 
 ## DDoS IP Protection
 
-- 
-- 
+Per public IP address.
 
 ## DDoS Network Protection
 
-DDoS Network Protection provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network.
+DDoS Network Protection provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Per virtual network.
+
+## Cloud availability 
+
 
 <!-- 4. Next steps
 Required. Provide at least one next step and no more than three. Include some 
