@@ -15,7 +15,7 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 In this quickstart, you'll learn how to create and deploy a Microsoft Energy Data Services instance. 
 
-Microsoft Energy Data Services (or MEDS, in short) is a managed Platform-as-a-service (PaaS) offering from Microsoft that builds on top of the Open Subsurface Data Universe (OSDU) data platform. MEDS lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
+Microsoft Energy Data Services (or MEDS, in short) is a managed Platform-as-a-service (PaaS) offering from Microsoft that builds on top of the Open Subsurface Data Universe (OSDU&trade;) data platform. MEDS lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
 
 ## Before you start
 
@@ -37,19 +37,19 @@ Application ID | You'll need an application ID (often referred to as "App ID" or
 
 1. Select *Register a new application*.
 
-1. Add a redirect URI as shown below. 
+1. Add a redirect URI.
 
 
 1. *Save* your application registration. 
 
 1. Add a client secret with the steps laid out in [this documentation](/articles/active-directory/develop/quickstart-register-app.md)
 
->[!NOTE]
+> [!NOTE]
 > It might be handy to note your application ID and secret in text editor. You will be using these values throughout this quick-start guide.
 
 ## Create a Microsoft energy data services instance
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Please use the link below as it contains a *hidden flag* which is needed to be able to find the 'Project Oak Forest' in the Azure Marketplace.
 
 1. Log in to [Microsoft Azure Marketplace (Hidden items enabled)](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden)
@@ -86,7 +86,7 @@ Application ID | You'll need an application ID (often referred to as "App ID" or
 
     [![Screenshot of the review tab. It shows that data validation happens before you start deployment.](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details.png)](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details.png#lightbox)
 
-1. At this stage, you can also download an Azure Resource Manager (ARM) template to use for automated deployments of Microsoft Energy data services in future.  
+1. At this stage, you can also download an Azure Resource Manager (ARM) template to use for automated deployments of Microsoft Energy Data Services in future.  
 
     [![Screenshot of the template that opens up when you select 'download template for automation'. Options are available to download or deploy from this page.](media/quickstart-create-microsoft-energy-data-services-instance/automate-deploy-resource-using-azure-resource-manager.png)](media/quickstart-create-microsoft-energy-data-services-instance/automate-deploy-resource-using-azure-resource-manager.png#lightbox)
 
@@ -101,10 +101,11 @@ To uninstall a Microsoft Energy Data Services instance, complete the following s
 
 1. Sign in to the Azure portal and **delete the resource groups** in which these components are installed.
 
-2. Go to Azure Active Directory & **delete the Azure AD application** linked to the Project Oak Forest installation.
+2. Go to Azure Active Directory and **delete the Azure AD application** linked to the Project Oak Forest installation.
 
 ## Next steps
 
 After installing a Microsoft Energy Data Services instance, you can learn about user management on this instance.
 
-- [How to manage users](how-to-manage-users.md)
+> [!div class="nextstepaction"]
+> [How to manage users](how-to-manage-users.md)
