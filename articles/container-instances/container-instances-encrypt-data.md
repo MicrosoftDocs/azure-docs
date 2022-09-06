@@ -286,14 +286,14 @@ spID=$(az identity show \
 
 ### Set access policy
 
-Create a new access policy for allowing the user-assigned identity to access your Key.
+Create a new access policy for allowing the user-assigned identity to access abd unwrap your Key for encryption purposes.
 
 ```azurecli-interactive
 az keyvault set-policy \
     --name mykeyvault \
     --resource-group myResourceGroup \
     --object-id $spID \
-    --secret-permissions get unwrap
+    --key-permissions get unwrapKey
  ```   
 
 The access policy should now show up in your key vault's access policies.
