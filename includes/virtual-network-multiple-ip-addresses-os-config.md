@@ -5,50 +5,111 @@
  author: asudbring
  ms.service: virtual-network
  ms.topic: include
- ms.date: 05/10/2019
- ms.author: anavin
+ ms.date: 09/05/2022
+ ms.author: allensu
  ms.custom: include file
 ---
 
 ## <a name="os-config"></a>Add IP addresses to a VM operating system
 
-Connect and sign in to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the steps that following for your VM operating system.
+Connect and sign in to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses, including the primary, that you added to the VM. Complete the following steps for your VM operating system.
 
 ### Windows Server
 
 <details>
   <summary>Expand</summary>
 
-1. From a command prompt, type *ipconfig /all*.  You only see the *Primary* private IP address (through DHCP).
-2. Type *ncpa.cpl* in the command prompt to open the **Network connections** window.
-3. Open the properties for the appropriate adapter: **Ethernet**.
-4. Double-click Internet Protocol version 4 (IPv4).
-5. Select **Use the following IP address** and enter the following values:
+1. Open a command prompt or PowerShell.
 
-    * **IP address**: Enter the *Primary* private IP address
-    * **Subnet mask**: Set based on your subnet. For example, if the subnet is a /24 subnet then the subnet mask is 255.255.255.0.
-    * **Default gateway**: The first IP address in the subnet. If your subnet is 10.0.0.0/24, then the gateway IP address is 10.0.0.1.
-    * Select **Use the following DNS server addresses** and enter the following values:
-      * **Preferred DNS server**: If you aren't using your own DNS server, enter 168.63.129.16.  If you're using your own DNS server, enter the IP address for your server.  (For Alternate DNS Server you can pick any free public DNS server address.)
-    * Select the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses, that you added to the Azure network interface in a previous step, to the Windows network interface that is assigned the primary IP address assigned to the Azure network interface.
+2. Enter **`ipconfig /all`** at the command line. You'll see the **Primary** private IP address that was assigned through DHCP.
 
-      You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. When you manually set the IP address within the operating system, ensure that it's the same address as the private IP address assigned to the Azure [network interface](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#private) settings. You should never assign an Azure public IP address within the operating system.
+3. Enter **`ncpa.cpl`** at the command line to open the **Network Connections** configuration.
 
-    * Select **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
+4. Open the **Properties** for the network adapter assigned the new IP addresses.
 
-6. From a command prompt, type *ipconfig /all*. Verify all IP addresses you added are shown and DHCP is turned off.
-7. Configure Windows to use the private IP address of the primary IP configuration in Azure as the primary IP address for Windows. See [No Internet access from Azure Windows VM that has multiple IP addresses](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) for details. 
+5. Double-click **Internet Protocol Version 4 (TCP/IPv4)**.
+
+6. Select **Use the following IP address:**. Enter the following values.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **IP address:** | Enter the **Primary** private IP address. |
+    | **Subnet mask:** | Enter a subnet mask based on your IP address. </br> For example, if the subnet is a **/24** subnet then the subnet mask is **255.255.255.0**. |
+    | **Default gateway:** | The first IP address in the subnet. </br> If your subnet is **10.0.0.0/24**, then the gateway IP address is **10.0.0.1**. |
+
+7. Select **Use the following DNS server addresses:**. Enter the following values.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Preferred DNS server:** | Enter your primary DNS server. </br> Enter the IP address of **168.63.129.16** to use the default Azure provided DNS. |
+
+8. Select the **Advanced** button.
+
+9. Select **Add**.
+
+10. Enter the private **IP address** you added to the Azure network interface. Enter the corresponding **Subnet mask**. Select **Add**.
+
+11. Repeat the previous steps to add any additional private IP addresses that you added to the Azure network interface.
+
+> [!IMPORTANT]
+> You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. When you manually set the IP address within the operating system, ensure that it's the same address as the private IP address assigned to the Azure network interface. Failure to assign the address correctly can cause loss of connectivity to the virtual machine. For more information, see [Change IP address settings](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings).
+>
+For more information about private IP addresses, see [Private IP address](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#private).
+
+12. Select **OK** to close the secondary IP address settings.
+
+13. Select **OK** to close the adapter settings. Your RDP connection will re-establish.
+
+14. Open a command prompt or PowerShell.
+
+15. Enter **`ipconfig /all`** at the command line.
+
+16. Verify the primary and secondary private IP addresses have been added to the configuration.
+
+    ```powershell
+    PS C:\Users\azureuser> ipconfig /all
+
+    Windows IP Configuration
+
+       Host Name . . . . . . . . . . . . : myVM
+       Primary Dns Suffix  . . . . . . . :
+       Node Type . . . . . . . . . . . . : Hybrid
+       IP Routing Enabled. . . . . . . . : No
+       WINS Proxy Enabled. . . . . . . . : No
+
+    Ethernet adapter Ethernet:
+
+       Connection-specific DNS Suffix  . :
+       Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+       Physical Address. . . . . . . . . : 00-0D-3A-E6-CE-A3
+       DHCP Enabled. . . . . . . . . . . : No
+       Autoconfiguration Enabled . . . . : Yes
+       Link-local IPv6 Address . . . . . : fe80::a8d1:11d5:3ab2:6a51%5(Preferred)
+       IPv4 Address. . . . . . . . . . . : 10.1.0.4(Preferred)
+       Subnet Mask . . . . . . . . . . . : 255.255.255.0
+       IPv4 Address. . . . . . . . . . . : 10.1.0.5(Preferred)
+       Subnet Mask . . . . . . . . . . . : 255.255.255.0
+       IPv4 Address. . . . . . . . . . . : 10.1.0.6(Preferred)
+       Subnet Mask . . . . . . . . . . . : 255.255.255.0
+       Default Gateway . . . . . . . . . : 10.1.0.1
+       DHCPv6 IAID . . . . . . . . . . . : 100666682
+       DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2A-A8-26-B1-00-0D-3A-E6-CE-A3
+       DNS Servers . . . . . . . . . . . : 168.63.129.16
+       NetBIOS over Tcpip. . . . . . . . : Enabled
+    ```
+
+17. Ensure the primary private IP address used in windows is the same as the primary IP address of the Azure VM network interface. For more information, see [No Internet access from Azure Windows VM that has multiple IP addresses](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse).
 
 #### Validation (Windows Server)
 
-To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated it, once you've added it correctly using steps above, use the following command (replacing 10.0.0.7 with the secondary, private IP address):
+To validate connectivity to the internet from the secondary IP configuration via the public IP, use the following command. Replace 10.1.0.5 with the secondary private IP address you added to the Azure VM network interface.
 
-```bash
-ping -S 10.0.0.7 outlook.com
+```powershell
+ping -S 10.1.0.5 outlook.com
 ```
  
 > [!NOTE]
-> For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+> For secondary IP configurations, you can ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
 </details>
 

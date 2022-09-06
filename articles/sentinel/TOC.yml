@@ -71,6 +71,8 @@
       href: sentinel-solutions.md
     - name: Content hub catalog
       href: sentinel-solutions-catalog.md
+    - name: Manage custom content with repositories
+      href: ci-cd-custom-content.md
   - name: Collect data
     items:
     - name: Data collection methods
@@ -284,6 +286,8 @@
       href: indicators-bulk-file-import.md
     - name: Work with threat indicators
       href: work-with-threat-indicators.md
+    - name: Add entity to threat indicators
+      href: add-entity-to-threat-intelligence.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
