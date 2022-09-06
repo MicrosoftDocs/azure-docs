@@ -8,8 +8,8 @@ ms.service: storage
 ms.topic: tutorial
 ms.author: jammart
 ms.reviewer: 
-ms.subservice: common
-ms.date: 11/16/2021
+ms.subservice: blobs
+ms.date: 09/01/2022
 
 #Customer intent:
 
