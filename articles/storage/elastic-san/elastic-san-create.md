@@ -63,7 +63,7 @@ Get-AzProviderFeature -FeatureName "ElasticSanPreviewAccess" -ProviderNamespace 
 ```azurepowershell
 ## Variables
 $rgName = "yourResourceGroupName"
-## Select the same availability zone as your other azure resources
+## Select the same availability zone as where you plan to host your workload
 $zone = 1
 ## Select the same region as your Azure virtual network
 $region = "yourRegion"
@@ -144,8 +144,8 @@ Update-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanNa
 
 ## Connect a volume
 
-Once your networking has been configured, you can begin connecting volumes to your Azure VMs.
+Once your networking has been configured, you can begin connecting volumes to your clients over iSCSI.
 
 1. Navigate to your SAN and select **Volumes**.
 1. Select the volume you'd like to connect to and select **Connect**.
-1. Copy the PowerShell commands provided and run them as an Administrator in a shell on your Azure VM.
+1. Copy the PowerShell commands provided and run them as an Administrator in a shell on your client.
