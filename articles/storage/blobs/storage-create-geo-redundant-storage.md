@@ -216,7 +216,7 @@ Install the required dependencies. To do this, open a command prompt, navigate t
 
 # [.NET v12 SDK](#tab/dotnet)
 
-In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual studio automatically restores missing NuGet packages if configured. Please see [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
+In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual Studio automatically restores missing NuGet packages if configured. Please see [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
 When the console window launches, the app will get the status of the secondary region and write that information to the console. Then the app will create a container in the storage account and upload a blob to the container. Once the blob is uploaded, the app will continuously check to see if the blob has replicated to the secondary region. This will continue until the blob is found to be replicated, or we reach the maximum number of iterations as defined by the loop conditions.
 
@@ -230,7 +230,7 @@ To exit the loop and clean up resources, make sure requests are being sent to pr
 
 # [.NET v11 SDK](#tab/dotnet11)
 
-In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual studio automatically restores missing NuGet packages if configured, visit [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
+In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual Studio automatically restores missing NuGet packages if configured, visit [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
 A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GZRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
 
@@ -339,7 +339,7 @@ using AzureEventSourceListener listener = new AzureEventSourceListener((args, me
      }
 }, EventLevel.LogAlways);
 ```
-If the number of retries exceeds the threshold set in the code, the app will switch to send read requests to secondary storage. This is done by performing `DownloadAsync()` calls from a `BlobServiceClient` object which is configured to point at the secondary region endpoint.
+If the number of retries exceeds the threshold set in the code, the app will switch to send read requests to secondary storage. This is done by calling `DownloadAsync()` from a `BlobServiceClient` object which is configured to point at the secondary region endpoint.
  ```csharp
 // Create a client object for the blob service which points to the secondary region endpoint
 BlobServiceClient blobServiceClientSecondary = new BlobServiceClient(secondaryAccountUri, new DefaultAzureCredential(), optionsSecondary);
@@ -353,7 +353,7 @@ if (retryCount > retryThreshold)
      response = await blobSecondary.DownloadAsync();
 }
 ```
-It will continue to perform secondary reads until another threshold is met, at which point the requests will go back to the primary region.
+It will continue to perform secondary reads until a threshold is reached, at which point the requests will go back to the primary region.
 
 # [.NET v11 SDK](#tab/dotnet11)
 
