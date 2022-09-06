@@ -1,0 +1,14 @@
+items:
+- name: '@@SERVICE@@ documentation'
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is @@SERVICE@@?
+    href: overview.md
+- name: Deploy
+  items:
+  - name: Prepare to deploy @@SERVICE@@
+    href: prepare-to-deploy.md
+  - name: Deploy @@SERVICE@@
+    href: deploy.md
