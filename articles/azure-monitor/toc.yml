@@ -64,7 +64,16 @@ items:
   - name: Metrics
     href: essentials/data-platform-metrics.md
   - name: Logs
-    href: logs/data-platform-logs.md  
+    items:
+     - name: Overview
+       displayName: Platform logs, Resource logs, Activity log
+       href: essentials/platform-logs-overview.md
+     - name: Platform logs
+       href: logs/data-platform-logs.md 
+     - name: Activity log
+       href: essentials/activity-log.md
+     - name: Resource logs
+       href: essentials/resource-logs.md
   - name: Changes
     href: 
   - name: Traces
@@ -242,7 +251,6 @@ items:
         href: visualize/workbooks-view-designer-conversions.md 
     - name: Workbook Samples
       href: visualize/workbooks-samples.md          
-
   - name: Dashboards
     items:
      - name: Dashboard using log data
@@ -934,6 +942,14 @@ items:
         href: app/automate-with-logic-apps.md
     - name: Tutorials
       items:
+        - name: Workspace transformations
+          items:
+          - name: Azure portal
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-portal.md
+          - name: Resource Manager templates
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-api.md
         - name: Custom logs
           items:
           - name: Custom logs in the Azure portal
@@ -1118,6 +1134,64 @@ items:
       href: autoscale/autoscale-troubleshoot.md
     - name: Resource Log schemas
       href: autoscale/autoscale-resource-log-schema.md  
+- name: Samples
+  items:
+  - name: Resource Manager templates
+    items:
+    - name: Overview
+      href: resource-manager-samples.md
+    - name: Agents
+      href: agents/resource-manager-agent.md
+    - name: Alerts
+      items:
+      - name: Log alert rules
+        href: alerts/resource-manager-alerts-log.md
+      - name: Metric alert rules
+        href: alerts/resource-manager-alerts-metric.md
+      - name: Action groups
+        href: alerts/resource-manager-action-groups.md
+    - name: Application Insights
+      items:
+        - name: Create a resource
+          href: app/resource-manager-app-resource.md
+        - name: Azure App Service
+          href: app/resource-manager-web-app.md
+        - name: Azure Functions
+          href: app/resource-manager-function-app.md
+    - name: Container insights
+      href: containers/resource-manager-container-insights.md
+    - name: Data collection rules
+      href: agents/resource-manager-data-collection-rules.md
+    - name: Data collection endpoints
+      href: essentials/data-collection-endpoint-sample.md
+    - name: Diagnostic settings
+      href: essentials/resource-manager-diagnostic-settings.md
+    - name: Log Analytics workspaces
+      href: logs/resource-manager-workspace.md
+    - name: Log Analytics clusters
+      href: logs/resource-manager-cluster.md
+    - name: Log queries
+      href: logs/resource-manager-log-queries.md
+    - name: SQL Insights (preview)
+      href: insights/resource-manager-sql-insights.md
+    - name: Workbooks
+      href: visualize/resource-manager-workbooks.md
+    - name: VM insights
+      href: vm/resource-manager-vminsights.md
+  - name: Data collection rules
+    items:
+    - name: Agent
+      href: agents/data-collection-rule-sample-agent.md
+    - name: Custom logs
+      href: logs/data-collection-rule-sample-custom-logs.md
+  - name: Monitor Logs in Azure CLI
+    href: logs\azure-cli-log-analytics-workspace-sample.md
+  - name: Configure workspaces using PowerShell
+    href: logs/powershell-workspace-configuration.md
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
+  - name: Azure CLI metric alerts
+    href: azure-cli-metrics-alert-sample.md
 - name: Reference
   items:
   - name: Service limits
@@ -1296,64 +1370,6 @@ items:
       href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor
-- name: Samples
-  items:
-  - name: Resource Manager templates
-    items:
-    - name: Overview
-      href: resource-manager-samples.md
-    - name: Agents
-      href: agents/resource-manager-agent.md
-    - name: Alerts
-      items:
-      - name: Log alert rules
-        href: alerts/resource-manager-alerts-log.md
-      - name: Metric alert rules
-        href: alerts/resource-manager-alerts-metric.md
-      - name: Action groups
-        href: alerts/resource-manager-action-groups.md
-    - name: Application Insights
-      items:
-        - name: Create a resource
-          href: app/resource-manager-app-resource.md
-        - name: Azure App Service
-          href: app/resource-manager-web-app.md
-        - name: Azure Functions
-          href: app/resource-manager-function-app.md
-    - name: Container insights
-      href: containers/resource-manager-container-insights.md
-    - name: Data collection rules
-      href: agents/resource-manager-data-collection-rules.md
-    - name: Data collection endpoints
-      href: essentials/data-collection-endpoint-sample.md
-    - name: Diagnostic settings
-      href: essentials/resource-manager-diagnostic-settings.md
-    - name: Log Analytics workspaces
-      href: logs/resource-manager-workspace.md
-    - name: Log Analytics clusters
-      href: logs/resource-manager-cluster.md
-    - name: Log queries
-      href: logs/resource-manager-log-queries.md
-    - name: SQL Insights (preview)
-      href: insights/resource-manager-sql-insights.md
-    - name: Workbooks
-      href: visualize/resource-manager-workbooks.md
-    - name: VM insights
-      href: vm/resource-manager-vminsights.md
-  - name: Data collection rules
-    items:
-    - name: Agent
-      href: agents/data-collection-rule-sample-agent.md
-    - name: Custom logs
-      href: logs/data-collection-rule-sample-custom-logs.md
-  - name: Monitor Logs in Azure CLI
-    href: logs\azure-cli-log-analytics-workspace-sample.md
-  - name: Configure workspaces using PowerShell
-    href: logs/powershell-workspace-configuration.md
-  - name: Azure Resource Graph queries
-    href: ./resource-graph-samples.md
-  - name: Azure CLI metric alerts
-    href: azure-cli-metrics-alert-sample.md
 - name: Migrate from Operations Manager
   href: azure-monitor-operations-manager.md
 - name: Tutorials
@@ -1372,17 +1388,6 @@ items:
       href: vm/tutorial-monitor-vm-alert.md
     - name: Collect guest logs and metrics
       href: vm/tutorial-monitor-vm-guest.md
-
-
-
-  - name: Workspace transformations
-    items:
-    - name: Azure portal
-      displayName: Workspace transformations
-      href: logs/tutorial-workspace-transformations-portal.md
-    - name: Resource Manager templates
-      displayName: Workspace transformations
-      href: logs/tutorial-workspace-transformations-api.md
 - name: Partner integrations
   href: partners.md
 - name: Security
@@ -1396,15 +1401,6 @@ items:
   href: monitor-azure-monitor.md 
 - name: How-to guides
   items:
-   - name: Platform logs
-     items:
-     - name: Overview
-       displayName: Platform logs, Resource logs, Activity log
-       href: essentials/platform-logs-overview.md
-     - name: Activity log
-       href: essentials/activity-log.md
-     - name: Resource logs
-       href: essentials/resource-logs.md
    - name: Azure Monitor Agent
      items:
      - name: Overview
