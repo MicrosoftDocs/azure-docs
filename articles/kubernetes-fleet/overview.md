@@ -4,6 +4,8 @@ services: kubernetes-fleet
 ms.service: kubernetes-fleet
 ms.date: 08/29/2022
 ms.topic: overview
+author: shashankbarsin
+ms.author: shasb
 description: "This article provides an overview of Azure Kubernetes Fleet Manager."
 keywords: "Kubernetes, Azure, multi-cluster, multi, containers"
 ---
