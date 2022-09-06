@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot Azure Files problems in Windows
-description: Troubleshooting Azure Files problems in Windows. See common issues related to Azure Files when you connect from Windows clients, and see possible resolutions. Only for SMB shares
+description: Troubleshoot problems with SMB Azure file shares in Windows. See common issues related to Azure Files when you connect from Windows clients, and see possible resolutions.
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/04/2022
+ms.date: 08/26/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -43,7 +43,7 @@ Windows 8, Windows Server 2012, and later versions of each system negotiate requ
 3. Verify the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is disabled on the storage account if the client does not support SMB encryption.
 
 ### Cause 2: Virtual network or firewall rules are enabled on the storage account 
-Network traffic is denied if virtual network (VNET) and firewall rules are configured on the storage account, unless the client IP address or virtual network is allow listed.
+Network traffic is denied if virtual network (VNET) and firewall rules are configured on the storage account, unless the client IP address or virtual network is allow-listed.
 
 ### Solution for cause 2
 
@@ -434,7 +434,7 @@ Enable Azure AD DS on the Azure AD tenant of the subscription that your storage 
 ### Self diagnostics steps
 First, make sure that you have followed through all four steps to [enable Azure Files AD Authentication](./storage-files-identity-auth-active-directory-enable.md).
 
-Second, try [mounting Azure file share with storage account key](./storage-how-to-use-files-windows.md). If you failed to mount, download [`AzFileDiagnostics`](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to help you validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, gives prescriptive guidance on self-fix and, collect the diagnostics traces.
+Second, try [mounting Azure file share with storage account key](./storage-how-to-use-files-windows.md). If you failed to mount, download [`AzFileDiagnostics`](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to help you validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, give prescriptive guidance on self-fix and collect the diagnostics traces.
 
 Third, you can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on [AzFilesHybrid v0.1.2+ version](https://github.com/Azure-Samples/azure-files-samples/releases). You need to run this cmdlet with an AD user that has owner permission on the target storage account.  
 ```PowerShell
@@ -445,7 +445,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 ```
 The cmdlet performs these checks below in sequence and provides guidance for failures:
 1. CheckADObjectPasswordIsCorrect: Ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb1 or kerb2 key. If the password is incorrect, you can run [Update-AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) to reset the password. 
-2. CheckADObject: Confirm that there is an object in the Active Directory that represents the storage account and has the correct SPN (service principal name). If the SPN isn't correctly setup, please run the Set-AD cmdlet returned in the debug cmdlet to configure the SPN.
+2. CheckADObject: Confirm that there is an object in the Active Directory that represents the storage account and has the correct SPN (service principal name). If the SPN isn't correctly set up, please run the Set-AD cmdlet returned in the debug cmdlet to configure the SPN.
 3. CheckDomainJoined: Validate that the client machine is domain joined to AD. If your machine is not domain joined to AD, please refer to this [article](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain) for domain join instruction.
 4. CheckPort445Connectivity: Check that Port 445 is opened for SMB connection. If the required Port is not open, please refer to the troubleshooting tool [`AzFileDiagnostics`](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) for connectivity issues with Azure Files.
 5. CheckSidHasAadUser: Check that the logged on AD user is synced to Azure AD. If you want to look up whether a specific AD user is synchronized to Azure AD, you can specify the -UserName and -Domain in the input parameters. 
@@ -557,5 +557,49 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 6. Select **Add permissions** at the bottom of the page.
 7. Select **Grant admin consent for "DirectoryName"**.
 
-## Need help? Contact support.
+## Potential errors when enabling Azure AD Kerberos authentication for hybrid users
+
+You might encounter the following errors when trying to enable Azure AD Kerberos authentication for hybrid user accounts, which is currently in public preview.
+
+### Error - Grant admin consent disabled
+
+In some cases, Azure AD admin may disable the ability to grant admin consent to Azure AD applications. Below is the screenshot of what this may look like in the Azure portal.
+
+   :::image type="content" source="media/storage-troubleshoot-windows-file-connection-problems/grant-admin-consent-disabled.png" alt-text="Screenshot of the Azure portal configured permissions blade displaying a warning that some actions may be disabled due to your permissions." lightbox="media/storage-troubleshoot-windows-file-connection-problems/grant-admin-consent-disabled.png":::
+
+If this is the case, ask your Azure AD admin to grant admin consent to the new Azure AD application. To find and view your administrators, select **roles and administrators**, then select **Cloud application administrator**.
+
+### Error - "The request to AAD Graph failed with code BadRequest"
+
+####  Cause 1: an application management policy is preventing credentials from being created
+
+When enabling Azure AD Kerberos authentication, you might encounter this error if the following conditions are met:
+
+1. You're using the beta/preview feature of [application management policies](/graph/api/resources/applicationauthenticationmethodpolicy?view=graph-rest-beta).
+2. You (or your administrator) have set a [tenant-wide policy](/graph/api/resources/tenantappmanagementpolicy?view=graph-rest-beta) that:
+    - Has no start date, or has a start date before 2019-01-01
+    - Sets a restriction on service principal passwords, which either disallows custom passwords or sets a maximum password lifetime of less than 365.5 days
+
+There is currently no workaround for this error during the public preview.
+
+#### Cause 2: an application already exists for the storage account
+
+You might also encounter this error if you have previously enabled Azure AD Kerberos authentication through manual limited preview steps. To delete the existing application, the customer or their IT admin can run the following script. Running this script will remove the old manually created application and allow the new experience to auto-create and manage the newly created application.
+
+> [!IMPORTANT]
+> This script must be run in PowerShell 5 because the AzureAD module doesn't work in PowerShell 7. This PowerShell snippet uses Azure AD Graph.
+
+```powershell
+$storageAccount = "exampleStorageAccountName"
+$tenantId = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+Import-Module AzureAD
+Connect-AzureAD -TenantId $tenantId
+
+$application = Get-AzureADApplication -Filter "DisplayName eq '${storageAccount}'"
+if ($null -ne $application) {
+   Remove-AzureADApplication -ObjectId $application.ObjectId
+}
+```
+
+## Need help?
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

@@ -28,7 +28,46 @@ To create a new glossary term, follow these steps:
 3. Give your new term a name, which must be unique in the catalog. The term name is case-sensitive, meaning you could have a term called **Sample** and **sample** in the catalog.
 
 4. Add a **Definition**.
+                                                                                                                                                           
+### Adding rich text to a definition
 
+Microsoft Purview enables users to add rich formatting to term definitions such as adding bolding, underlining, or italicizing text. Users can also create tables, bulleted lists, or hyperlinks to external resources.
+
+:::image type="content" source="media/how-to-create-import-export-glossary/rich-text-editor.png" alt-text="Screenshot that shows the rich text editor.":::
+
+Below are the rich text formatting options:
+
+| Name | Description | Shortcut key |
+| ---- | ----------- | ------------ |
+| Bold | Make your text bold. Adding the '*' character around text will also bold it.  | Ctrl+B |
+| Italic | Italicize your text. Adding the '_' character around text will also italicize it. | Ctrl+I |
+| Underline | Underline your text. | Ctrl+U |
+| Bullets | Create a bulleted list. Adding the '-' character before text will also create a bulleted list. | |
+| Numbering | Create a numbered list Adding the '1' character before text will also create a bulleted list. | | 
+| Heading | Add a formatted heading | |
+| Font size | Change the size of your text. The default size is 12. | |
+| Decrease indent | Move your paragraph closer to the margin. | |
+| Increase indent | Move your paragraph farther away from the margin. | |
+| Add hyperlink | Create a link in your document for quick access to web pages and files. | | 
+| Remove hyperlink | Change a link to plain text. | |
+| Quote | Add quote text | |
+| Add table | Add a table to your content. | |
+| Edit table | Insert or delete a column or row from a table | |
+| Clear formatting | Remove all formatting from a selection of text, leaving only the normal, unformatted text. | |
+| Undo | Undo changes you made to the content. | Ctrl+Z | 
+| Redo | Redo changes you made to the content. | Ctrl+Y | 
+
+> [!NOTE]
+> Updating a definition with the rich text editor adds a new additional attribute `microsoft_isDescriptionRichText": "true"` in the term payload. This attribute is not visible on the UX and is automatically populated when any rich text action is taken by user. See the snippet of term JSON message with rich text definition populated below.
+
+>```json
+>   {
+>        "additionalAttributes": {
+>        "microsoft_isDescriptionRichText": "true"
+>        }
+>    }
+>```
+                             
 5. Set the **Status** for the term. New terms default to **Draft** status.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/overview-tab.png" alt-text="Screenshot of the status choices.":::
@@ -38,8 +77,11 @@ To create a new glossary term, follow these steps:
    - **Draft**: This term isn't yet officially implemented.
    - **Approved**: This term is official/standard/approved.
    - **Expired**: This term should no longer be used.
-   - **Alert**: This term needs attention.
+   - **Alert**: This term needs attention.   
 
+    > [!Important]
+    > if an approval workflow is enabled on the term hierarchy then when a new term is created it will go through the approval process and only when it is approved it is stored in catalog. See here to learn about how to manage approval workflows for business glossary [Approval workflows for business glossary](how-to-workflow-business-terms-approval.md)
+                                                                                                                                                              
 6. Add **Resources** and **Acronym**. If the term is part of hierarchy, you can add parent terms at **Parent** in the overview tab.
 
 7. Add **Synonyms** and **Related terms** in the related tab.
@@ -49,6 +91,11 @@ To create a new glossary term, follow these steps:
 8. Optionally, select the **Contacts** tab to add Experts and Stewards to your term.
 
 9. Select **Create** to create your term.
+
+    > [!Important]
+    > if an approval workflow is enabled on term hierarchy path, you will see **Submit for approval** instead of create button. Clicking on submit for approval will trigger the approval workflow for this term.
+
+    :::image type="content" source="media/how-to-create-import-export-glossary/submit-for-approval.png" alt-text="Screenshot of submit for approval." border="true":::
 
 ## Import terms into the glossary
 
@@ -71,6 +118,7 @@ Notice that term names are case-sensitive. For example, `Sample` and `saMple` co
    > [!Important]
    > The system only supports importing columns that are available in the template. The "System Default" template will have all the default attributes.
    > However, custom term templates will have out of the box attributes and additional custom attributes defined in the template. Therefore, the .CSV file differs both from total number of columns and column names depending on the term template selected. You can also review the file for issues after upload.
+   > if you want to upload a file with rich text definition, make sure to enter the definition with markup tags and populate the column **IsDefinitionRichText** to true in the .csv file.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-file-for-import.png" alt-text="Screenshot of the Glossary terms page, select file for Import.":::
 

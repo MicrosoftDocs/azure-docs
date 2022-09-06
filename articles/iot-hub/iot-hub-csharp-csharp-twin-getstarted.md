@@ -41,99 +41,19 @@ In this article, you create two .NET console apps:
 
 [!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
-## Create the service app
-
-In this section, you create a .NET console app, using C#, that adds location metadata to the device twin associated with **myDeviceId**. The app queries IoT hub for devices located in the US and then queries devices that report a cellular network connection.
-
-1. In Visual Studio, select **File > New > Project**. In **Create a new project**, select **Console App (.NET Framework)**, and then select **Next**.
-
-1. In **Configure your new project**, name the project **AddTagsAndQuery**, the select **Next**.
-
-   :::image type="content" source="./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png" alt-text="Screenshot of how to create a new Visual Studio project." lightbox="./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png":::
-
-1. Accept the default version of the .NET Framework, then select **Create** to create the project.
-
-1. In Solution Explorer, right-click the **AddTagsAndQuery** project, and then select **Manage NuGet Packages**.
-
-1. Select **Browse** and search for and select **Microsoft.Azure.Devices**. Select **Install**.
-
-    ![NuGet Package Manager window](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
-
-   This step downloads, installs, and adds a reference to the [Azure IoT service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet package and its dependencies.
-
-1. Add the following `using` statements at the top of the **Program.cs** file:
-
-    ```csharp  
-    using Microsoft.Azure.Devices;
-    ```
-
-1. Add the following fields to the **Program** class. Replace `{iot hub connection string}` with the IoT Hub connection string that you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
-
-    ```csharp  
-    static RegistryManager registryManager;
-    static string connectionString = "{iot hub connection string}";
-    ```
-
-1. Add the following method to the **Program** class:
-
-    ```csharp  
-    public static async Task AddTagsAndQuery()
-    {
-        var twin = await registryManager.GetTwinAsync("myDeviceId");
-        var patch =
-            @"{
-                tags: {
-                    location: {
-                        region: 'US',
-                        plant: 'Redmond43'
-                    }
-                }
-            }";
-        await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
-
-        var query = registryManager.CreateQuery(
-          "SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
-        var twinsInRedmond43 = await query.GetNextAsTwinAsync();
-        Console.WriteLine("Devices in Redmond43: {0}", 
-          string.Join(", ", twinsInRedmond43.Select(t => t.DeviceId)));
-
-        query = registryManager.CreateQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
-        var twinsInRedmond43UsingCellular = await query.GetNextAsTwinAsync();
-        Console.WriteLine("Devices in Redmond43 using cellular network: {0}", 
-          string.Join(", ", twinsInRedmond43UsingCellular.Select(t => t.DeviceId)));
-    }
-    ```
-
-    The **RegistryManager** class exposes all the methods required to interact with device twins from the service. The previous code first initializes the **registryManager** object, then retrieves the device twin for **myDeviceId**, and finally updates its tags with the desired location information.
-
-    After updating, it executes two queries: the first selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through cellular network.
-
-    The previous code, when it creates the **query** object, specifies a maximum number of returned documents. The **query** object contains a **HasMoreResults** boolean property that you can use to invoke the **GetNextAsTwinAsync** methods multiple times to retrieve all results. A method called **GetNextAsJson** is available for results that are not device twins, for example, results of aggregation queries.
-
-1. Finally, add the following lines to the **Main** method:
-
-    ```csharp  
-    registryManager = RegistryManager.CreateFromConnectionString(connectionString);
-    AddTagsAndQuery().Wait();
-    Console.WriteLine("Press Enter to exit.");
-    Console.ReadLine();
-    ```
-
-1. Run this application by right-clicking on the **AddTagsAndQuery** project and selecting **Debug**, followed by **Start new instance**. You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
-
-    ![Query results in window](./media/iot-hub-csharp-csharp-twin-getstarted/addtagapp.png)
-
-In the next section, you create a device app that reports connectivity information and changes the result of the query in the previous section.
-
-## Create the device app
+## Create a device app with a direct method
 
 In this section, you create a .NET console app that connects to your hub as **myDeviceId**, and then updates its reported properties to confirm that it's connected using a cellular network.
 
-1. In Visual Studio, select **File** > **New** > **Project**. In **Create new project**, choose **Console App (.NET Framework)**, and then select **Next**.
+1. Open Visual Studio and select **Create new project**.
 
-1. In **Configure your new project**, name the project **ReportConnectivity**. For **Solution**, choose **Add to solution**, and then select **Create**.
+1. Choose **Console App (.NET Framework)**, then select **Next**.
+
+1. In **Configure your new project**, name the project **ReportConnectivity**, then select **Next**.
 
 1. In Solution Explorer, right-click the **ReportConnectivity** project, and then select **Manage NuGet Packages**.
+
+1. Keep the default .NET Framework, then select **Create** to create the project.
 
 1. Select **Browse** and search for and choose **Microsoft.Azure.Devices.Client**. Select **Install**.
 
@@ -233,6 +153,88 @@ In this section, you create a .NET console app that connects to your hub as **my
 1. Right-click the **AddTagsAndQuery** project and select **Debug** > **Start new instance** to run the queries again. This time, **myDeviceId** should appear in both query results.
 
     ![Device connectivity reported successfully](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
+
+## Create a service app to trigger a reboot
+
+In this section, you create a .NET console app, using C#, that adds location metadata to the device twin associated with **myDeviceId**. The app queries IoT hub for devices located in the US and then queries devices that report a cellular network connection.
+
+1. In Visual Studio, select **File > New > Project**. In **Create a new project**, select **Console App (.NET Framework)**, and then select **Next**.
+
+1. In **Configure your new project**, name the project **AddTagsAndQuery**, the select **Next**.
+
+   :::image type="content" source="./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png" alt-text="Screenshot of how to create a new Visual Studio project." lightbox="./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png":::
+
+1. Accept the default version of the .NET Framework, then select **Create** to create the project.
+
+1. In Solution Explorer, right-click the **AddTagsAndQuery** project, and then select **Manage NuGet Packages**.
+
+1. Select **Browse** and search for and select **Microsoft.Azure.Devices**. Select **Install**.
+
+    ![NuGet Package Manager window](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
+
+   This step downloads, installs, and adds a reference to the [Azure IoT service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet package and its dependencies.
+
+1. Add the following `using` statements at the top of the **Program.cs** file:
+
+    ```csharp  
+    using Microsoft.Azure.Devices;
+    ```
+
+1. Add the following fields to the **Program** class. Replace `{iot hub connection string}` with the IoT Hub connection string that you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+
+    ```csharp  
+    static RegistryManager registryManager;
+    static string connectionString = "{iot hub connection string}";
+    ```
+
+1. Add the following method to the **Program** class:
+
+    ```csharp  
+    public static async Task AddTagsAndQuery()
+    {
+        var twin = await registryManager.GetTwinAsync("myDeviceId");
+        var patch =
+            @"{
+                tags: {
+                    location: {
+                        region: 'US',
+                        plant: 'Redmond43'
+                    }
+                }
+            }";
+        await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
+
+        var query = registryManager.CreateQuery(
+          "SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
+        var twinsInRedmond43 = await query.GetNextAsTwinAsync();
+        Console.WriteLine("Devices in Redmond43: {0}", 
+          string.Join(", ", twinsInRedmond43.Select(t => t.DeviceId)));
+
+        query = registryManager.CreateQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
+        var twinsInRedmond43UsingCellular = await query.GetNextAsTwinAsync();
+        Console.WriteLine("Devices in Redmond43 using cellular network: {0}", 
+          string.Join(", ", twinsInRedmond43UsingCellular.Select(t => t.DeviceId)));
+    }
+    ```
+
+    The **RegistryManager** class exposes all the methods required to interact with device twins from the service. The previous code first initializes the **registryManager** object, then retrieves the device twin for **myDeviceId**, and finally updates its tags with the desired location information.
+
+    After updating, it executes two queries: the first selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through cellular network.
+
+    The previous code, when it creates the **query** object, specifies a maximum number of returned documents. The **query** object contains a **HasMoreResults** boolean property that you can use to invoke the **GetNextAsTwinAsync** methods multiple times to retrieve all results. A method called **GetNextAsJson** is available for results that are not device twins, for example, results of aggregation queries.
+
+1. Finally, add the following lines to the **Main** method:
+
+    ```csharp  
+    registryManager = RegistryManager.CreateFromConnectionString(connectionString);
+    AddTagsAndQuery().Wait();
+    Console.WriteLine("Press Enter to exit.");
+    Console.ReadLine();
+    ```
+
+1. Run this application by right-clicking on the **AddTagsAndQuery** project and selecting **Debug**, followed by **Start new instance**. You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
+
+    ![Query results in window](./media/iot-hub-csharp-csharp-twin-getstarted/addtagapp.png)
 
 In this article, you:
 

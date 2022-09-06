@@ -20,6 +20,8 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
+To learn how to manage users and roles by using the IoT Central UI, see [Manage users and roles in your IoT Central application.](../core/howto-manage-users-roles.md)
+
 ## Manage roles
 
 The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of role IDs from your application:
@@ -181,7 +183,7 @@ The response to this request looks like the following example. The role value id
 }
 ```
 
-You can also add a service principal user which is useful if you need to use service principal authentication for REST API calls. To learn more, see [Add or update a service principal user](/rest/api/iotcentral/2022-05-31dataplane/users/create#add-or-update-a-service-principal-user).
+You can also add a service principal user which is useful if you need to use service principal authentication for REST API calls. To learn more, see [Add or update a service principal user](/rest/api/iotcentral/2022-07-31dataplane/users/create#add-or-update-a-service-principal-user).
 
 ### Change the role of a user
 
