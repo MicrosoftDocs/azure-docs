@@ -97,4 +97,5 @@ Browse through the available queries. Identify one to run and select Run. The qu
 ## Next steps
 Now that you're collecting resource logs, create a log query alert to be proactively notified when interesting data is identified in your log data.
 
-- [Create a log query alert for an Azure resource](/articles/azure-monitor/alerts/tutorial-log-alert.md)
+> [!div class="nextstepaction"]
+> [Create a log query alert for an Azure resource](/articles/azure-monitor/alerts/tutorial-log-alert.md)
