@@ -18,6 +18,13 @@ When you use Azure Front Door for application delivery, a custom domain is neces
 
 After you create an Azure Front Door Standard/Premium profile, the default frontend host will have a subdomain of `azurefd.net`. This subdomain gets included in the URL when Azure Front Door Standard/Premium delivers content from your backend by default. For example, `https://contoso-frontend.azurefd.net/activeusers.htm`. For your convenience, Azure Front Door provides the option of associating a custom domain with the default host. With this option, you deliver your content with a custom domain in your URL instead of an Azure Front Door owned domain name. For example, `https://www.contoso.com/photo.png`.
 
+Azure Front Door suppport two types of domains, Non-Azure validated domain and Azure pre-validated domain. Azure managed certificate and customer certificate are supported on both types. For more details, see [Configure HTTPS on a custom domain](how-to-configure-https-custom-domain.md).
+* Azure pre-validated domains are domains validated by another Azure service. This domain type is useful when you onboard and valiated a domain to an Azure service, and then want to enable Azure Front Door for application acceleration and/or WAF protection. There is no need to validate the domain on Azure Front Door when you onboard this type of domain.
+* Non-Azure validated domains refer to domains that are not validated by any Azure service. This domain type can be hosted on any DNS service and requires domain ownership validation on Azure Front Door. 
+
+   > [!NOTE]
+   > * Currently Azure pre-validated domain supports domain validated by Static Web App.
+
 ## Prerequisites
 
 * Before you can complete the steps in this tutorial, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door Standard/Premium](create-front-door-portal.md).
@@ -37,7 +44,7 @@ A custom domain is managed by Domains section in the portal. A custom domain can
 
     :::image type="content" source="../media/how-to-add-custom-domain/add-domain-button.png" alt-text="Screenshot of add domain button on domain landing page.":::
 
-1. The **Add a domain** page will appear where you can enter information about of the custom domain. You can choose **Non-Azure validated domain** or **Azure pre-validated domain**.
+1. The **Add a domain** page will appear where you can enter information about of the custom domain. For **Domain type**, you can choose **Non-Azure validated domain** or **Azure pre-validated domain**.
       * **Azure pre-validated domain** are domains validated by another Azure service. When you select this option, there is no need to valiate domain ownership on Azure Front Door. A dropdown list of the domains validated and grouped by the supported Azure services are populated. 
       * **Non-Azure validated domain** need domain ownership validation. When you select Non-Azure validated domain, Azure-managed DNS is recommended or you can choose to use your own DNS provider. If you choose Azure-managed DNS, select an existing DNS zone and then select a custom subdomain or create a new one. If you're using another DNS provider, manually enter the custom domain name. Select **Add** to add your custom domain.
 
