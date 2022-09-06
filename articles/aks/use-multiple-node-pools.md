@@ -120,44 +120,9 @@ The following example output shows that *mynodepool* has been successfully creat
 > [!TIP]
 > If no *VmSize* is specified when you add a node pool, the default size is *Standard_D2s_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. If no *OrchestratorVersion* is specified, it defaults to the same version as the control plane.
 
-### Add an ARM64 node pool (preview)
+### Add an ARM64 node pool
 
 The ARM64 processor provides low power compute for your Kubernetes workloads. To create an ARM64 node pool, you will need to choose an [ARM capable instance SKU][arm-sku-vm].
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-#### Install the `aks-preview` Azure CLI
-
-You also need the *aks-preview* Azure CLI extension version 0.5.23 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-#### Register the `AKSARM64Preview` preview feature
-
-To use the feature, you must also enable the `AKSARM64Preview` feature flag on your subscription.
-
-Register the `AKSARM64Preview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKSARM64Preview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSARM64Preview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 Use `az aks nodepool add` command to add an ARM64 node pool.
 
