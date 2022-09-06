@@ -126,7 +126,7 @@
         - name: Request units
           displayName: RUs, RU
           href: ../request-units.md
-        - name: Scale a API for Apache Cassandra account
+        - name: Scale an API for Apache Cassandra account
           href: scale-account-throughput.md
         - name: Estimate RU/s with capacity planner
           href: ../mongodb/estimate-ru-capacity-planner.md
