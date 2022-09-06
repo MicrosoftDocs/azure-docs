@@ -150,8 +150,9 @@ Under __Choose how to scale your resources__, select __Custom autoscale__ to beg
 
 A common scaling out rule is one that increases the number of VM instances when the average CPU load is high. The following example will allocate two more nodes (up to the maximum) if the CPU average a load of greater than 70% for five minutes::
 
-# [Python](#tab/python)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_out_on_cpu_util" :::
 
@@ -160,7 +161,8 @@ The rule is part of the `my-scale-settings` profile (`autoscale-name` matches th
 > [!NOTE]
 > For more information on the CLI syntax, see [`az monitor autoscale`](/cli/azure/monitor/autoscale).
 
-# [AzureML Python SDKv2](#tab/azureml-python-sdkv2)
+# [Python](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 Create the rule definition:
 
@@ -455,8 +457,6 @@ From the bottom of the page, select __+ Add a scale condition__. On the new scal
 If you are not going to use your deployments, delete them:
 
 # [Azure CLI](#tab/azure-cli)
-
-
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="delete_endpoint" :::
