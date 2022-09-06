@@ -27,7 +27,7 @@ In the Azure portal, when you select **Add credential**, you get the option to l
 
 On the **Create a new credential** page, enter the JSON code for the display and the rules definitions. In the **Credential name** box, give the credential a name. This name is just an internal name for the credential in the portal. The type name of the credential is defined in the `vc.type` property name in the rules definition. To create the credential, select **Create**.
 
-![Screenshot of the "Create a new credential" page, displaying JSON samples for the display and rules files.](media/how-to-use-quickstart/quickstart-create-new.png)
+:::image type="content" source="media/how-to-use-quickstart/quickstart-create-new.png" alt-text="Screenshot of the "Create a new credential" page, displaying JSON samples for the display and rules files.":::
 
 ## Sample JSON display definitions
 
@@ -123,7 +123,7 @@ Values
 
 During issuance, Authenticator prompts the user to select a matching credential. If the user has multiple matching credentials in the wallet, the user must select which one to present.
 
-![Screenshot of presentations claims input.](media/how-to-use-quickstart-vc\issue-verifiedid-vc.png)
+:::image type="content" source="media/how-to-use-quickstart-presentation/issue-presentation.png" alt-text="Screenshot of presentations claims input.":::
 
 ## Configure the samples to issue your custom credential
 
@@ -135,7 +135,7 @@ To configure your sample code to issue and verify your custom credential, you ne
 
 The easiest way to find this information for a custom credential is to go to your credential in the Azure portal. Select **Issue credential**. Then you have access to a text box with a JSON payload for the Request Service API. Replace the placeholder values with your environment's information. The issuer’s DID is the authority value.
 
-![Screenshot of the quickstart custom credential issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
+:::image type="content" source="media/how-to-use-quickstart/quickstart-config-sample-2.png" alt-text="Screenshot of the quickstart custom credential issue.":::
 
 ## Next steps
 
