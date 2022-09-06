@@ -45,6 +45,7 @@ The following list presents the set of features which are currently available in
 |                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |
 |                       | Reject an incoming call                           | ✔️    | ✔️    |
 | Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |
+|                       | Play Audio from an audio file                     | ✔️    | ✔️    |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |
 |                       | Blind Transfer** a call to another endpoint         | ✔️    | ✔️    |
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |
@@ -88,6 +89,8 @@ These actions can be performed if Calling Automation SDKs were used to answer an
 
 **Add/Remove participant(s)** – One or more participants can be added in a single request with each participant being a variation of supported destination endpoints. A web hook callback is sent for every participant successfully added to the call.
 
+**Play** - When your application answers a call or places an outbound call it can, you can play an audio prompt for the caller, this can be looped if needed in scenarios like playing hold music. To learn more view our [quickstart](./../../quickstarts/voice-video-calling/call-automation-media/Play-Action.md)
+
 **Transfer** – When your application answers a call or places an outbound call to an endpoint, that endpoint can be transferred to another destination endpoint. Tranfering a 1:1 call will remove your application's ability to control the call using the Call Automation SDKs.
 
 **Hang-up** – When your application has answered a one-to-one call, the hang-up action will remove the call leg and terminate the call with the other endpoint. If there are more than two participants in the call (group call), performing a ‘hang-up’ action will remove your application’s endpoint from the group call.
@@ -124,6 +127,7 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | RemoveParticipantSucceeded|Your application removed a participant |
 | RemoveParticipantFailed |Your application was unable to remove a participant |
 | ParticipantUpdated    | The status of a participant changed while your application’s call leg was connected to a call  |
+| PlayCompleted| Your application successfully played the audio file provided |
 
 ## Known Issues
 
