@@ -48,7 +48,7 @@ You can review logs and cancel running jobs and pipelines if you're a Synapse Co
 
 ### Debug pipelines
 
-You can review and make changes in pipelines with Synapse User Role but if you want to be able to debug it you also need Synapse Credential User
+You can review and make changes in pipelines as a Synapse User, but if you want to be able to debug it you also need to have Synapse Credential User.
 
 ### Publish and save your code
 
