@@ -1,20 +1,19 @@
 ---
-title: Work with threat indicators
-
-description: This article explains how to view, create, manage, visualize, and detect threats with threat intelligence indicators in Microsoft Sentinel.
+title: Use threat intelligence to detect threats
+description: This article explains how to detect threats with threat intelligence indicators in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 8/19/2022
+ms.date: 8/30/2022
 ms.author: austinmc
 ---
 
-## Detect threats with threat indicator-based analytics
+# Detect threats with threat indicator-based analytics
 
 The most important use case for threat indicators in SIEM solutions like Microsoft Sentinel is to power threat detection analytics rules. These indicator-based rules compare raw events from your data sources against your threat indicators to determine the presence of security threats in your organization. In Microsoft Sentinel **Analytics**, you create analytics rules that run on a scheduled basis and generate security alerts. The rules are driven by queries, along with configurations that determine how often the rule should run, what kind of query results should generate security alerts and incidents, and which automations to trigger in response.
 
 While you can always create new analytics rules from scratch, Microsoft Sentinel provides a set of built-in rule templates, created by Microsoft security engineers, that you can use as-is or modify to meet your needs. You can readily identify the rule templates that use threat indicators, as they are all titled beginning with "*TI map*…". All these rule templates operate similarly, with the only difference being which type of threat indicators are used (domain, email, file hash, IP address, or URL) and which event type to match against. Each template lists the required data sources needed for the rule to function, so you can see at a glance if you have the necessary events already imported in Microsoft Sentinel. When you edit and save an existing rule template or create a new rule, it is enabled by default.
 
-### Configure a rule to generate security alerts
+## Configure a rule to generate security alerts
 
 Below is an example of how to enable and configure a rule to generate security alerts using the threat indicators you’ve imported into Microsoft Sentinel. For this example, use the rule template called **TI map IP entity to AzureActivity**. This rule will match any IP address-type threat indicator with all your Azure Activity events. When a match is found, an **alert** will be generated, and a corresponding **incident** for investigation by your security operations team. This analytics rule will operate successfully only if you have enabled one or both of the **Threat Intelligence** data connectors (to import threat indicators) and the **Azure Activity** data connector (to import your Azure subscription-level events).
 
@@ -131,3 +130,12 @@ Microsoft Threat Intelligence Matching Analytics only matches IPv4 indicators.
 |[CEF](connect-common-event-format.md) | Matching is done for all CEF logs that are ingested in the Log Analytics **CommonSecurityLog** table, except when the `DeviceVendor` is `Cisco`. <br><br>To match Microsoft generated threat intelligence with MDTI indicators in CEF logs, no manual mapping needs to be done. The URL is populated in the `RequestURL` field by default.|
 
 ---
+
+## Next steps
+
+In this article, you learned how to use threat intelligence indicators to detect threats. For more about threat intelligence in Microsoft Sentinel, see the following articles:
+
+- [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md).
+- Connect Microsoft Sentinel to [STIX/TAXII threat intelligence feeds](./connect-threat-intelligence-taxii.md).
+- [Connect threat intelligence platforms](./connect-threat-intelligence-tip.md) to Microsoft Sentinel.
+- See which [TIP platforms, TAXII feeds, and enrichments](threat-intelligence-integration.md) can be readily integrated with Microsoft Sentinel.
