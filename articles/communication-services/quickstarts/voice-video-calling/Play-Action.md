@@ -21,7 +21,7 @@ zone_pivot_groups: acs-csharp-java
 This quickstart will help you get started with playing audio files to participants by using the play action provided through Azure Communication Services Call Automation SDK.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Play audio with .NET](./includes/call-automation-media/Play-audio-quickstart-c#.md)]
+[!INCLUDE [Play audio with .NET](./includes/call-automation-media/Play-audio-quickstart-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -32,6 +32,5 @@ This quickstart will help you get started with playing audio files to participan
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
-## Next steps
 
-For more information, see the following articles:
+
