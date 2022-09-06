@@ -4,7 +4,7 @@ description: Learn how to create a Bicep file or ARM template to use with Azure 
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
-ms.date: 09/02/2022
+ms.date: 09/06/2022
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -18,42 +18,6 @@ ms.custom: devx-track-azurepowershell
 Azure Image Builder uses a Bicep file or an ARM template file to pass information into the Image Builder service. In this article we'll go over the sections of the files, so you can build your own. For latest API versions, see [template reference](/azure/templates/microsoft.virtualmachineimages/imagetemplates?tabs=bicep&pivots=deployment-language-bicep). To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 The basic format is:
-
-# [Bicep](#tab/bicep)
-
-```bicep
-resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-02-14' = {
-  name: azureImageBuilderName
-  location: '<region>'
-  tags:{
-    <name>: '<value>'
-    <name>: '<value>'
-  }
-  identity:{}
-  properties:{
-    buildTimeoutInMinutes: <minutes>
-    customize: []
-    distribute: []
-    source: {}
-    stagingResourceGroup: '/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>'
-    validate: {}
-    vmProfile:{
-      vmSize: '<vmSize>'
-      proxyVmSize: '<vmSize>'
-      osDiskSizeGB: <sizeInGB>
-      vnetConfig: {
-        subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
-      }
-      userAssignedIdentities: [
-        '/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName1>'
-        '/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName2>'
-        '/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName3>'
-        ...
-      ]
-    }
-  }
-}
-```
 
 # [JSON](#tab/json)
 
@@ -92,23 +56,59 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-02-14' = {
+  name: azureImageBuilderName
+  location: '<region>'
+  tags:{
+    <name>: '<value>'
+    <name>: '<value>'
+  }
+  identity:{}
+  properties:{
+    buildTimeoutInMinutes: <minutes>
+    customize: []
+    distribute: []
+    source: {}
+    stagingResourceGroup: '/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>'
+    validate: {}
+    vmProfile:{
+      vmSize: '<vmSize>'
+      proxyVmSize: '<vmSize>'
+      osDiskSizeGB: <sizeInGB>
+      vnetConfig: {
+        subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
+      }
+      userAssignedIdentities: [
+        '/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName1>'
+        '/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName2>'
+        '/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName3>'
+        ...
+      ]
+    }
+  }
+}
+```
+
 ---
 
 ## Type and API version
 
 The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. The `apiVersion` will change over time as the API changes. The latest API version is `2022-02-14` when this article is written.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-02-14' = {}
-```
-
 # [JSON](#tab/json)
 
 ```json
 "type": "Microsoft.VirtualMachineImages/imageTemplates",
 "apiVersion": "2022-02-14",
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-02-14' = {}
 ```
 
 ---
@@ -168,16 +168,16 @@ az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPub
 
 ---
 
-# [Bicep](#tab/bicep)
-
-```bicep
-location: '<region>'
-```
-
 # [JSON](#tab/json)
 
 ```json
 "location": "<region>"
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+location: '<region>'
 ```
 
 ---
@@ -202,17 +202,6 @@ There are two ways to add user assigned identities explained below.
 
 Required - For Image Builder to have permissions to read/write images, and read in scripts from Azure Storage, you must create an Azure user-assigned identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, see [Create an image and use a user-assigned managed identity to access files in an Azure storage account](image-builder-user-assigned-identity.md).
 
-# [Bicep](#tab/bicep)
-
-```bicep
-identity:{
-  type:'UserAssigned'
-  userAssignedIdentities:{
-    '<imgBuilderId>': {}
-  }
-}
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -221,6 +210,17 @@ identity:{
     "userAssignedIdentities": {
         "<imgBuilderId>": {}
     }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+identity:{
+  type:'UserAssigned'
+  userAssignedIdentities:{
+    '<imgBuilderId>': {}
+  }
 }
 ```
 
@@ -243,18 +243,6 @@ Optional - The Image Builder Build VM, that is created by the Image Builder serv
 > [!NOTE]
 > Be aware that multiple identities can be specified for the Image Builder Build VM, including the identity you created for the [image template resource](#user-assigned-identity-for-azure-image-builder-image-template-resource). By default, the identity you created for the image template resource won't automatically be added to the build VM.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-properties:{
-  vmProfile:{
-    userAssignedIdentities: [
-      '/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName>'
-    ]
-  }
-}
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -262,6 +250,18 @@ properties:{
   "vmProfile": {
     "userAssignedIdentities": [
       "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName>"
+    ]
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+properties:{
+  vmProfile:{
+    userAssignedIdentities: [
+      '/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName>'
     ]
   }
 }
@@ -307,6 +307,46 @@ When using `customize`:
 - The script locations need to be publicly accessible, unless you're using [MSI](./image-builder-user-assigned-identity.md).
 
 The `customize` section is an array. The supported customizer types are: File, PowerShell, Shell, WindowsRestart, and WindowsUpdate.
+
+# [JSON](#tab/json)
+
+```json
+"customize": [
+  {
+    "type": "File",
+    "destination": "string",
+    "sha256Checksum": "string",
+    "sourceUri": "string"
+  },
+  {
+    "type": "PowerShell",
+    "inline": [ "string" ],
+    "runAsSystem": "bool",
+    "runElevated": "bool",
+    "scriptUri": "string",
+    "sha256Checksum": "string",
+    "validExitCodes": [ "int" ]
+  },
+  {
+    "type": "Shell",
+    "inline": [ "string" ],
+    "scriptUri": "string",
+    "sha256Checksum": "string"
+  },
+  {
+    "type": "WindowsRestart",
+    "restartCheckCommand": "string",
+    "restartCommand": "string",
+    "restartTimeout": "string"
+  },
+  {
+    "type": "WindowsUpdate",
+    "filters": [ "string" ],
+    "searchCriteria": "string",
+    "updateLimit": "int"
+  }
+]
+```
 
 # [Bicep](#tab/bicep)
 
@@ -356,69 +396,11 @@ customize: [
 ]
 ```
 
-# [JSON](#tab/json)
-
-```json
-"customize": [
-  {
-    "type": "File",
-    "destination": "string",
-    "sha256Checksum": "string",
-    "sourceUri": "string"
-  },
-  {
-    "type": "PowerShell",
-    "inline": [ "string" ],
-    "runAsSystem": "bool",
-    "runElevated": "bool",
-    "scriptUri": "string",
-    "sha256Checksum": "string",
-    "validExitCodes": [ "int" ]
-  },
-  {
-    "type": "Shell",
-    "inline": [ "string" ],
-    "scriptUri": "string",
-    "sha256Checksum": "string"
-  },
-  {
-    "type": "WindowsRestart",
-    "restartCheckCommand": "string",
-    "restartCommand": "string",
-    "restartTimeout": "string"
-  },
-  {
-    "type": "WindowsUpdate",
-    "filters": [ "string" ],
-    "searchCriteria": "string",
-    "updateLimit": "int"
-  }
-]
-```
-
 ---
 
 ### Shell customizer
 
 The `Shell` customizer supports running shell scripts on Linux. The shell scripts must be publicly accessible or you must have configured an [MSI](./image-builder-user-assigned-identity.md) for Image Builder to access them.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-customize: [
-  {
-    type: 'Shell'
-    name: '<name>'
-    scriptUri: '<link to script>'
-    sha256Checksum: '<sha256 checksum>'
-  }
-  {
-    type: 'Shell'
-    name: '<name>'
-    inline: '<commands to run>'
-  }
-]
-```
 
 # [JSON](#tab/json)
 
@@ -436,6 +418,24 @@ customize: [
     "type": "Shell",
     "name": "<name>",
     "inline": "<commands to run>"
+  }
+]
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+customize: [
+  {
+    type: 'Shell'
+    name: '<name>'
+    scriptUri: '<link to script>'
+    sha256Checksum: '<sha256 checksum>'
+  }
+  {
+    type: 'Shell'
+    name: '<name>'
+    inline: '<commands to run>'
   }
 ]
 ```
@@ -459,17 +459,6 @@ Customize properties:
 
 Prefix the commands with `sudo` to run them with super user privileges. You can add the commands into scripts or use it inline commands, for example:
 
-# [Bicep](#tab/bicep)
-
-```bicep
-type: 'Shell'
-name: 'setupBuildPath'
-inline: [
-    'sudo mkdir /buildArtifacts'
-    'sudo cp /tmp/index.html /buildArtifacts/index.html'
-]
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -478,6 +467,17 @@ inline: [
 "inline": [
     "sudo mkdir /buildArtifacts",
     "sudo cp /tmp/index.html /buildArtifacts/index.html"
+]
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+type: 'Shell'
+name: 'setupBuildPath'
+inline: [
+    'sudo mkdir /buildArtifacts'
+    'sudo cp /tmp/index.html /buildArtifacts/index.html'
 ]
 ```
 
@@ -499,19 +499,6 @@ sudo touch /myfiles/somethingElevated.txt
 
 The `WindowsRestart` customizer allows you to restart a Windows VM and wait for the VM come back online, this customizer allows you to install software that requires a reboot.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-customize: [
-  {
-    type: 'WindowsRestart'
-    restartCommand: 'shutdown /r /f /t 0'
-    restartCheckCommand: 'echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt'
-    restartTimeout: '5m'
-  }
-]
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -521,6 +508,19 @@ customize: [
     "restartCommand": "shutdown /r /f /t 0",
     "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
     "restartTimeout": "5m"
+  }
+]
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+customize: [
+  {
+    type: 'WindowsRestart'
+    restartCommand: 'shutdown /r /f /t 0'
+    restartCheckCommand: 'echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt'
+    restartTimeout: '5m'
   }
 ]
 ```
@@ -540,27 +540,6 @@ Customize properties:
 ### PowerShell customizer
 
 The `PowerShell` customizer supports running PowerShell scripts and inline command on Windows, the scripts must be publicly accessible for the IB to access them.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-customize: [
-  {
-    type: 'PowerShell'
-    name:   '<name>'
-    scriptUri: '<path to script>'
-    runElevated: <true false>
-    sha256Checksum: '<sha256 checksum>'
-  }
-  {
-    type: 'PowerShell'
-    name: '<name>'
-    inline: '<PowerShell syntax to run>'
-    validExitCodes: [<exit code>]
-    runElevated: <true or false>
-  }
-]
-```
 
 # [JSON](#tab/json)
 
@@ -583,6 +562,27 @@ customize: [
 ]
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+customize: [
+  {
+    type: 'PowerShell'
+    name:   '<name>'
+    scriptUri: '<path to script>'
+    runElevated: <true false>
+    sha256Checksum: '<sha256 checksum>'
+  }
+  {
+    type: 'PowerShell'
+    name: '<name>'
+    inline: '<PowerShell syntax to run>'
+    validExitCodes: [<exit code>]
+    runElevated: <true or false>
+  }
+]
+```
+
 ---
 
 Customize properties:
@@ -600,20 +600,6 @@ Customize properties:
 
 The `File` customizer lets Image Builder download a file from a GitHub repo or Azure storage. The customizer supports both Linux and Windows. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-customize: [
-  {
-    type: 'File'
-    name: '<name>'
-    sourceUri: '<source location>'
-    destination: '<destination>'
-    sha256Checksum: '<sha256 checksum>'
-  }
-]
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -624,6 +610,20 @@ customize: [
     "sourceUri": "<source location>",
     "destination": "<destination>",
     "sha256Checksum": "<sha256 checksum>"
+  }
+]
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+customize: [
+  {
+    type: 'File'
+    name: '<name>'
+    sourceUri: '<source location>'
+    destination: '<destination>'
+    sha256Checksum: '<sha256 checksum>'
   }
 ]
 ```
@@ -653,22 +653,6 @@ If there's an error trying to download the file, or put it in a specified direct
 
 The `WindowsUpdate` customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project isn't officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-customize: [
-  {
-    type: 'WindowsUpdate'
-    searchCriteria: 'IsInstalled=0'
-    filters: [
-      exclude:$_.Title -like '*Preview*''
-      include:$true'
-    ]
-    updateLimit: 20
-  }
-]
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -681,6 +665,22 @@ customize: [
       "include:$true"
     ],
     "updateLimit": 20
+  }
+]
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+customize: [
+  {
+    type: 'WindowsUpdate'
+    searchCriteria: 'IsInstalled=0'
+    filters: [
+      exclude:$_.Title -like '*Preview*''
+      include:$true'
+    ]
+    updateLimit: 20
   }
 ]
 ```
@@ -801,21 +801,6 @@ Output:
 
 The image output will be a managed image resource.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-{
-  type:'managedImage'
-  imageId: '<resource ID>'
-  location: '<region>'
-  runOutputName: '<name>'
-  artifactTags: {
-      <name>: '<value>'
-      <name>: '<value>'
-  }
-}
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -827,6 +812,21 @@ The image output will be a managed image resource.
   "artifactTags": {
       "<name>": "<value>",
       "<name>": "<value>"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  type:'managedImage'
+  imageId: '<resource ID>'
+  location: '<region>'
+  runOutputName: '<name>'
+  artifactTags: {
+      <name>: '<value>'
+      <name>: '<value>'
   }
 }
 ```
@@ -857,24 +857,6 @@ an Azure Compute Gallery is made up of:
 
 Before you can distribute to the gallery, you must create a gallery and an image definition, see [Create a gallery](../create-gallery.md).
 
-# [Bicep](#tab/bicep)
-
-```bicep
-{
-  type: 'SharedImage'
-  galleryImageId: '<resource ID>'
-  runOutputName: '<name>'
-  artifactTags: {
-      <name>: '<value>'
-      <name>: '<value>'
-  }
-  replicationRegions: [
-      '<region where the gallery is deployed>'
-      '<region>'
-  ]
-}
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -889,6 +871,24 @@ Before you can distribute to the gallery, you must create a gallery and an image
   "replicationRegions": [
       "<region where the gallery is deployed>",
       "<region>"
+  ]
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  type: 'SharedImage'
+  galleryImageId: '<resource ID>'
+  runOutputName: '<name>'
+  artifactTags: {
+      <name>: '<value>'
+      <name>: '<value>'
+  }
+  replicationRegions: [
+      '<region where the gallery is deployed>'
+      '<region>'
   ]
 }
 ```
@@ -920,19 +920,6 @@ Distribute properties for galleries:
 
 You can output to a VHD. You can then copy the VHD, and use it to publish to Azure MarketPlace, or use with Azure Stack.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-{
-  type: 'VHD'
-  runOutputName: '<VHD name>'
-  artifactTags: {
-      <name>: '<value>'
-      <name>: '<value>'
-  }
-}
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -942,6 +929,19 @@ You can output to a VHD. You can then copy the VHD, and use it to publish to Azu
   "artifactTags": {
       "<name>": "<value>",
       "<name>": "<value>"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  type: 'VHD'
+  runOutputName: '<VHD name>'
+  artifactTags: {
+      <name>: '<value>'
+      <name>: '<value>'
   }
 }
 ```
@@ -983,18 +983,6 @@ The API requires a `SourceType` that defines the source for the image build, cur
 
 Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [Learn about Azure Image Builder](../image-builder-overview.md#os-support) for the full list.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-source:{
-  type: 'PlatformImage'
-  publisher: 'Canonical'
-  offer: 'UbuntuServer'
-  sku: '18.04-LTS'
-  version: 'latest'
-}
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -1004,6 +992,18 @@ source:{
   "offer": "UbuntuServer",
   "sku": "18.04-LTS",
   "version": "latest"
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+source:{
+  type: 'PlatformImage'
+  publisher: 'Canonical'
+  offer: 'UbuntuServer'
+  sku: '18.04-LTS'
+  version: 'latest'
 }
 ```
 
@@ -1020,23 +1020,6 @@ You can use `latest` in the version, the version is evaluated when the image bui
 #### Support for Market Place Plan Information
 
 You can also specify plan information, for example:
-
-# [Bicep](#tab/bicep)
-
-```bicep
-source: {
-  type: 'PlatformImage'
-  publisher: 'RedHat'
-  offer: 'rhel-byos'
-  sku: 'rhel-lvm75'
-  version: 'latest'
-  planInfo: {
-    planName: 'rhel-lvm75'
-    planProduct: 'rhel-byos'
-    planPublisher: 'redhat'
-  }
-}
-```
 
 # [JSON](#tab/json)
 
@@ -1055,6 +1038,23 @@ source: {
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+source: {
+  type: 'PlatformImage'
+  publisher: 'RedHat'
+  offer: 'rhel-byos'
+  sku: 'rhel-lvm75'
+  version: 'latest'
+  planInfo: {
+    planName: 'rhel-lvm75'
+    planProduct: 'rhel-byos'
+    planPublisher: 'redhat'
+  }
+}
+```
+
 ---
 
 ### ManagedImage source
@@ -1064,21 +1064,21 @@ Sets the source image as an existing managed image of a generalized VHD or VM.
 > [!NOTE]
 > The source managed image must be of a supported OS and the image must reside in the same subscription and region as your Azure Image Builder template.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-source: {
-  type: 'ManagedImage',
-  imageId: '/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>'
-}
-```
-
 # [JSON](#tab/json)
 
 ```json
 "source": {
   "type": "ManagedImage",
   "imageId": "/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>"
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+source: {
+  type: 'ManagedImage',
+  imageId: '/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>'
 }
 ```
 
@@ -1093,21 +1093,21 @@ Sets the source image as an existing image version in an Azure Compute Gallery.
 > [!NOTE]
 > The source shared image version must be of a supported OS and the image version must reside in the same region as your Azure Image Builder template, if not, replicate the image version to the Image Builder Template region.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-source: {
-  type: 'SharedImageVersion',
-  imageVersionID: '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>'
-}
-```
-
 # [JSON](#tab/json)
 
 ```json
 "source": {
   "type": "SharedImageVersion",
   "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+source: {
+  type: 'SharedImageVersion',
+  imageVersionID: '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>'
 }
 ```
 
@@ -1119,19 +1119,19 @@ The `imageVersionId` should be the ResourceId of the image version. Use [az sig 
 
 The `stagingResourceGroup` property contains information about the staging resource group that the Image Builder service will create for use during the image build process. The `stagingResourceGroup` is an optional property for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-properties: {
-  stagingResourceGroup: '/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>'
-}
-```
-
 # [JSON](#tab/json)
 
 ```json
 "properties": {
   "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>"
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+properties: {
+  stagingResourceGroup: '/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>'
 }
 ```
 
@@ -1178,38 +1178,6 @@ When using `validate`:
 
 How to use the `validate` property to validate Windows images:
 
-# [Bicep](#tab/bicep)
-
-```bicep
-{
-  properties: {
-    validate: {
-      continueDistributeOnFailure: false
-      sourceValidationOnly: false
-      inVMValidations: [
-        {
-          type: 'PowerShell'
-          name: 'test PowerShell validator inline'
-          inline: [
-            '<command to run inline>'
-          ]
-          validExitCodes: <exit code>
-          runElevated: <true or false>
-          runAsSystem: <true or false>
-        }
-        {
-          type: 'PowerShell'
-          name: '<name>'
-          scriptUri: '<path to script>'
-          runElevated: <true false>,
-          sha256Checksum: '<sha256 checksum>'
-        }
-      ]
-    }
-  }
-}
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -1242,6 +1210,38 @@ How to use the `validate` property to validate Windows images:
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  properties: {
+    validate: {
+      continueDistributeOnFailure: false
+      sourceValidationOnly: false
+      inVMValidations: [
+        {
+          type: 'PowerShell'
+          name: 'test PowerShell validator inline'
+          inline: [
+            '<command to run inline>'
+          ]
+          validExitCodes: <exit code>
+          runElevated: <true or false>
+          runAsSystem: <true or false>
+        }
+        {
+          type: 'PowerShell'
+          name: '<name>'
+          scriptUri: '<path to script>'
+          runElevated: <true false>,
+          sha256Checksum: '<sha256 checksum>'
+        }
+      ]
+    }
+  }
+}
+```
+
 ---
 
 `inVMValidations` properties:
@@ -1257,34 +1257,6 @@ How to use the `validate` property to validate Windows images:
     To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash)
 
 How to use the `validate` property to validate Linux images:
-
-# [Bicep](#tab/bicep)
-
-```bicep
-{
-  properties: {
-    validate: {
-      continueDistributeOnFailure: false
-      sourceValidationOnly: false
-      inVMValidations: [
-        {
-          type: 'Shell'
-          name: '<name>'
-          inline: [
-            '<command to run inline>'
-          ]
-        }
-        {
-          type: 'Shell'
-          name: '<name>'
-          scriptUri: '<path to script>'
-          sha256Checksum: '<sha256 checksum>'
-        }
-      ]
-    }
-  }
-}
-```
 
 # [JSON](#tab/json)
 
@@ -1312,6 +1284,34 @@ How to use the `validate` property to validate Linux images:
     }
   }
  }
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  properties: {
+    validate: {
+      continueDistributeOnFailure: false
+      sourceValidationOnly: false
+      inVMValidations: [
+        {
+          type: 'Shell'
+          name: '<name>'
+          inline: [
+            '<command to run inline>'
+          ]
+        }
+        {
+          type: 'Shell'
+          name: '<name>'
+          scriptUri: '<path to script>'
+          sha256Checksum: '<sha256 checksum>'
+        }
+      ]
+    }
+  }
+}
 ```
 
 ---
@@ -1344,12 +1344,6 @@ Image Builder uses a default SKU size of `Standard_D1_v2` for Gen1 images and `S
 
 By default, Image Builder doesn't change the size of the image, it uses the size from the source image. You can optionally **only** increase the size of the OS Disk (Win and Linux), and a value of 0 means leaving the same size as the source image. You can't reduce the OS Disk size to smaller than the size from the source image.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-  osDiskSizeGB: 100
-```
-
 # [JSON](#tab/json)
 
 ```json
@@ -1358,25 +1352,31 @@ By default, Image Builder doesn't change the size of the image, it uses the size
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+  osDiskSizeGB: 100
+```
+
 ---
 
 ### vnetConfig (optional)
 
 If you don't specify any VNet properties, Image Builder will create its own VNet, Public IP, and network security group (NSG). The Public IP is used for the service to communicate with the build VM. If you don't want to have a Public IP or you want Image Builder to have access to your existing VNet resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNet. For more information, review the [networking documentation](image-builder-networking.md).
 
-# [Bicep](#tab/bicep)
-
-```bicep
-vnetConfig: {
-  subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
-}
-```
-
 # [JSON](#tab/json)
 
 ```json
 "vnetConfig": {
   "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+vnetConfig: {
+  subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
 }
 ```
 
