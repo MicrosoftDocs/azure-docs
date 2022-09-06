@@ -52,8 +52,8 @@ This table provides recent version history for IoT Edge package releases, and hi
 | IoT Edge release | Available in EFLOW branch | Release date | Highlights |
 |------------------|--------------------------|--------------|------------|
 | 1.4 | Continuous release (CR) <br> Long-term support (LTS) | TBA |  |
-| 1.3 | Continuous release (CR) | TBA |  |
-| 1.2 | [Continuous release (CR)](https://github.com/Azure/iotedge-eflow/releases/tag/1.2.7.07022) | January 2022 | **Public Preview** |
+| 1.3 | [Continuous release (CR)](https://github.com/Azure/iotedge-eflow/releases/tag/1.3.1.02092) | September 2022 | [Azure IoT Edge 1.3.0](https://github.com/Azure/azure-iotedge/releases/tag/1.3.0)<br/> [CBL-Mariner 2.0](https://microsoft.github.io/CBL-Mariner/announcing-mariner-2.0/)<br/> [USB passthrough using USB-Over-IP](https://aka.ms/AzEFLOW-USBIP)<br/>[File/Folder sharing between Windows OS and the EFLOW VM](https://aka.ms/AzEFLOW-FolderSharing) |
+| 1.2 | [Continuous release (CR)](https://github.com/Azure/iotedge-eflow/releases/tag/1.2.7.07022) | January 2022 | [Public Preview](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-edge-for-linux-on-windows-eflow-continuous-release/ba-p/3169590) |
 | 1.1 | [Long-term support (LTS)](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2106.0) | June 2021 | [Long-term support plan and supported systems updates](support.md) |
 
 ## Next steps
