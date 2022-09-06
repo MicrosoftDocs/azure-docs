@@ -51,6 +51,9 @@
     - name: Connect GitHuB repositories
       displayName: GitHuB, DevOps
       href: quickstart-onboard-github.md
+    - name: Connect Azure Devops
+      displayName: DevOps, connect, Azure
+      href: quickstart-onboard-ado.md
   - name: 4. Configure auto provisioning
     href: enable-data-collection.md
   - name: 5. Set up email notifications
