@@ -45,6 +45,8 @@ items:
     href: how-to-enable-zone-redundancy.md
   - name: Use deterministic outbound IPs
     href: how-to-deterministic-ip.md
+  - name: Known limitations
+    href: known-limitations.md
 - name: Reference
   items:
   - name: Azure CLI
