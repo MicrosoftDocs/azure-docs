@@ -58,7 +58,7 @@ az vm run-command list --vm-name "myVM" --resource-group "myRG"
 This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```azurecli-interactive
-az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --instance-view
+az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --expand instanceView
 ```
 
 ### Delete RunCommand resource from the VM
