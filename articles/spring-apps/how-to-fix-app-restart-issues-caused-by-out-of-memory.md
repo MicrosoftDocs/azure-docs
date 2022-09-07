@@ -41,17 +41,17 @@ The **Resource health** page on the Azure portal shows app restart events due to
 
 ### Configure memory size
 
-The metrics *App memory Usage*, `jvm.memory.used`, and `jvm.memory.committed` provide a view of memory usage. For more information, see the [Metrics section of Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md#metrics). Make sure to configure the maximum memory sizes in the JVM options to ensure that memory is under the limit.
+The metrics *App memory Usage*, `jvm.memory.used`, and `jvm.memory.committed` provide a view of memory usage. For more information, see the [Metrics section](tools-to-troubleshoot-memory-issues.md#metrics) of [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md). Configure the maximum memory sizes in JVM options to ensure that memory is under the limit.
 
-The sum of the maximum memory sizes of all the parts in the [Java memory model](concepts-for-java-memory-management.md#java-memory-model) should be less than the real available app memory. To set your maximum memory sizes, see the typical memory layout described in the [Memory usage layout section of Java memory management](concepts-for-java-memory-management.md#memory-usage-layout).
+The sum of the maximum memory sizes of all the parts in the [Java memory model](concepts-for-java-memory-management.md#java-memory-model) should be less than the real available app memory. To set your maximum memory sizes, see the typical memory layout described in the [Memory usage layout section](concepts-for-java-memory-management.md#memory-usage-layout) of [Java memory management](concepts-for-java-memory-management.md).
 
-Try to find a balance when you set the maximum memory size. When you set the maximum memory size too high, there is a risk of container OOM. When you set the maximum memory size too low, there is a risk of JVM OOM, and garbage collection will be frequent and will slow down the app.
+Find a balance when you set the maximum memory size. When you set the maximum memory size too high, there's a risk of container OOM. When you set the maximum memory size too low, there's a risk of JVM OOM, and garbage collection will be of and will slow down the app.
 
 #### Control heap memory
 
 You can set the maximum heap size by using the `-Xms`, `-Xmx`, `-XX:InitialRAMPercentage`, and `-XX:MaxRAMPercentage` JVM options.
 
-When the value of `jvm.memory.used` is too high in the metrics, you may need to adjust the maximum heap size settings. For more information, see the [jvm.memory.used section of Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md#jvmmemoryusedcommittedmax).
+You may need to adjust the maximum heap size settings when the value of `jvm.memory.used` is too high in the metrics. For more information, see the [`jvm.memory.used` section](tools-to-troubleshoot-memory-issues.md#jvmmemoryusedcommittedmax) of [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md).
 
 #### Control direct memory
 

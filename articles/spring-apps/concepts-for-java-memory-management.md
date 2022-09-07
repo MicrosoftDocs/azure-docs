@@ -72,7 +72,7 @@ Full GC or major GC does garbage collection in the entire heap. Full GC can also
 
 The maximum heap size influences the frequency of minor GC and full GC. The maximum metaspace and maximum direct memory size influence full GC.
 
-When you set the maximum heap size to a lower value, garbage collections occur more frequently, which slow the app a little, but better limits the memory usage. When you set the maximum heap size to a higher value, garbage collections occur less frequently, which may create more out-of-memory (OOM) risk. For more information, see the [OOM concepts](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#oom-concepts) section of [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
+When you set the maximum heap size to a lower value, garbage collections occur more frequently, which slow the app a little, but better limits the memory usage. When you set the maximum heap size to a higher value, garbage collections occur less frequently, which may create more out-of-memory (OOM) risk. For more information, see the [Types of out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#types-of-out-of-memory-issues) section of [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
 
 Metaspace and direct memory can be collected only by full GC. When metaspace or direct memory is full, full GC will occur.
 
