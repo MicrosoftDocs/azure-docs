@@ -3,7 +3,7 @@ title: NCv2-series retirement
 description: NCv2-series retirement by August 31, 2023
 author: sherrywangms
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/01/2021
 ms.author: sherrywang

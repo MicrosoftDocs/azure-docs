@@ -30,7 +30,7 @@ This article assumes familiarity with indexer concepts and configuration. If you
 For a code example in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
 > [!NOTE]
-> If storage is network-protected and in the same region as your search service, you must use a system-assigned managed identity and either one of the following network options: [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md), or [connect using the resource instance rule (preview)](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview). 
+> If storage is network-protected and in the same region as your search service, you must use a system-assigned managed identity and either one of the following network options: [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md), or [connect using the resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances). 
 
 ## Prerequisites
 

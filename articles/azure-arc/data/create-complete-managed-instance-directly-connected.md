@@ -4,7 +4,8 @@ description: Demonstrates how to deploy Azure Arc-enabled data services from beg
 author: MikeRayMSFT
 ms.author: mikeray
 services: azure-arc
-ms.service: azure-arc-data
+ms.service: azure-arc
+ms.subservice: azure-arc-data-sqlmi
 ms.topic: quickstart 
 ms.date: 12/09/2021
 ms.custom: template-quickstart 
@@ -181,7 +182,7 @@ NAME          STATE
 <namespace>   Ready
 ```
 
-## Create an Azure Arc-enabled SQL Managed Instance 
+## Create an instance of Azure Arc-enabled SQL Managed Instance 
 
 1. In the portal, locate the resource group.
 1. In the resource group, select **Create**.

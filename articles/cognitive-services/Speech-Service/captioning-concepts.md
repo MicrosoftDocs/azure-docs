@@ -8,14 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 06/02/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 ---
 
 # Captioning with speech to text
 
-In this guide, you learn how to create captions with speech to text. Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios. This guide covers captioning for speech, but doesn't include speaker ID or sound effects such as bells ringing. 
+In this guide, you learn how to create captions with speech to text. Captioning is the process of converting the audio content of a television broadcast, webcast, film, video, live event, or other production into text, and then displaying the text on a screen, monitor, or other visual display system. 
+
+Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios. This guide covers captioning for speech, but doesn't include speaker ID or sound effects such as bells ringing. 
 
 Here are some common captioning scenarios:
 - Online courses and instructional videos
@@ -30,7 +32,7 @@ The following are aspects to consider when using captioning:
 * Consider output formats such as SRT (SubRip Text) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
 
 > [!TIP]
-> Try the [Azure Video Indexer](/azure/azure-video-indexer/video-indexer-overview) as a demonstration of how you can get captions for videos that you upload. 
+> Try the [Azure Video Indexer](../../azure-video-indexer/video-indexer-overview.md) as a demonstration of how you can get captions for videos that you upload. 
 
 Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
 
@@ -223,7 +225,7 @@ Profanity filter is applied to the result `Text` and `MaskedNormalizedForm` prop
 
 ## Language identification
 
-If the language in the audio could change, use continuous [language identification](language-identification.md). Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md#language-identification). You provide up to 10 candidate languages, at least one of which is expected be in the audio. The Speech service returns the most likely language in the audio. 
+If the language in the audio could change, use continuous [language identification](language-identification.md). Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification). You provide up to 10 candidate languages, at least one of which is expected be in the audio. The Speech service returns the most likely language in the audio. 
 
 ## Customizations to improve accuracy
 

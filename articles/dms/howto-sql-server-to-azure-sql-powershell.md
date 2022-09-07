@@ -3,8 +3,8 @@ title: "PowerShell: Migrate SQL Server to SQL Database"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate a database from SQL Server to Azure SQL Database by using Azure PowerShell with the Azure Database Migration Service.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms

@@ -1,6 +1,5 @@
 ---
-title: "Quickstart: Add sign-in with Microsoft to a Python web app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Add sign-in with Microsoft to a Python web app"
 description: In this quickstart, learn how a Python web app can sign in users, get an access token from the Microsoft identity platform, and call the Microsoft Graph API.
 services: active-directory
 author: abhidnya13
@@ -23,7 +22,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
-- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pypi.org/project/Flask-Session/), [requests](https://requests.kennethreitz.org/en/master/)
+- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pypi.org/project/Flask-Session/), [requests](https://requests.readthedocs.io/en/latest/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 

@@ -8,7 +8,7 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 09/04/2022
 ms.author: mbaldwin
 # Customer intent: As a developer who's using Key Vault, I want to know the best practices so I can implement them.
 ---
@@ -59,6 +59,10 @@ Make sure you take regular backups of your vault. Backups should be performed wh
 
 - Turn on [soft-delete](soft-delete-overview.md).
 - Turn on purge protection if you want to guard against force deletion of the secrets and key vault even after soft-delete is turned on.
+
+## Multitenant solutions and Key Vault
+
+A multitenant solution is built on an architecture where components are used to serve multiple customers or tenants. Multitenant solutions are often used to support software as a service (SaaS) solutions. If you're building a multitenant solution that includes Key Vault, review [Multitenancy and Azure Key Vault](/azure/architecture/guide/multitenant/service/key-vault).
 
 ## Learn more
 - [Best practices for secrets management in Key Vault](../secrets/secrets-best-practices.md)

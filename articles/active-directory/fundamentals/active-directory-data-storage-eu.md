@@ -2,21 +2,22 @@
 title: Identity data storage for European customers - Azure AD
 description: Learn about where Azure Active Directory stores identity-related data for its European customers.
 services: active-directory
-author: ajburnle
-manager: karenhoran
-ms.author: ajburnle
+author: barclayn
+manager: amycolannino
+ms.author: barclayn
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/20/2022
+ms.date: 08/17/2022
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
 # Identity data storage for European customers in Azure Active Directory
-Identity data is stored by Azure AD in a geographical location based on the address provided by your organization when it subscribed for a Microsoft Online service such as Microsoft 365 and Azure. For information on where your identity data is stored, you can use the [Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location) section of the Microsoft Trust Center.
+
+Azure AD stores identity data in a location chosen based on the address provided by your organization when subscribing to a Microsoft service like Microsoft 365 or Azure. For information on where your identity data is stored, you can use the [Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location) section of the Microsoft Trust Center.
 
 For customers who provided an address in Europe, Azure AD keeps most of the identity data within European datacenters. This document provides information on any data that is stored outside of Europe by Azure AD services.
 
@@ -30,11 +31,7 @@ For cloud-based Azure AD Multi-Factor Authentication, authentication is complete
     * Device vendor-specific services, such as Apple Push Notifications, may be outside Europe.
 * Multi-factor authentication requests using OATH codes that originate from EU datacenters are validated in the EU.
 
-For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure AD MFA, see [Azure Multi-Factor Authentication user data collection](../authentication/howto-mfa-reporting-datacollection.md).
-
-## Password-based Single Sign-On for Enterprise Applications
- 
-If a customer creates a new enterprise application (whether through Azure AD Gallery or non-Gallery) and enables password-based SSO, the Application sign in URL, and custom capture sign in fields are stored in the United States. For more information, see [Configure password-based single sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
+For more information about what user information is collected by Azure Active Directory Multi-Factor Authentication Server (MFA Server) and cloud-based Azure AD MFA, see [Azure Active Directory Multi-Factor Authentication user data collection](../authentication/howto-mfa-reporting-datacollection.md).
 
 ## Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
@@ -59,12 +56,14 @@ For more info about federation in Microsoft Exchange server, see the [Federation
 
 ## Other considerations
 
-Services and applications that integrate with Azure AD have access to identity data. Evaluate each service and application you use to determine how identity data is processed by that specific service and application, and whether they meet your company's data storage requirements.
+Services and applications that integrate with Azure AD have access to identity data. Review how each service and application processes identity data, and verify that they meet your company's data storage requirements.
 
 For more information about Microsoft services' data residency, see the [Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location) section of the Microsoft Trust Center.
 
 ## Next steps
+
 For more information about any of the features and functionality described above, see these articles:
+
 - [What is Multi-Factor Authentication?](../authentication/concept-mfa-howitworks.md)
 
 - [Azure AD self-service password reset](../authentication/concept-sspr-howitworks.md)

@@ -46,7 +46,7 @@ This script performs the following actions:
 
 - Installs prerequisites.
 
-- Adds a service user (with interactive sign in disabled).
+- Adds a service user (with interactive sign-in disabled).
 
 - Installs the agent as a **Daemon** - assumes the device uses **systemd** for legacy deployment model.
 

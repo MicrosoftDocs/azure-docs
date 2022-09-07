@@ -1,21 +1,24 @@
 ---
 title: 'Tutorial: Configure Atlassian Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Atlassian Cloud.
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to Atlassian Cloud.
 services: active-directory
-author: zhchia
-writer: zhchia
-manager: CelesteDG
+documentationcenter: ''
+author: twimmers
+writer: Thwimmer
+manager: beatrizd
+ms.assetid: 53b804ba-b632-4c4b-a77e-ec6468536898
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.author: jeedes
+ms.author: Thwimmer
 ---
 
 # Tutorial: Configure Atlassian Cloud for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Atlassian Cloud and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [Atlassian Cloud](https://www.atlassian.com/licensing/cloud). For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Atlassian Cloud and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Atlassian Cloud](https://www.atlassian.com/cloud) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported
@@ -32,30 +35,35 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* Make sure you're an admin for an Atlassian organization. See [Organization administration.](https://support.atlassian.com/organization-administration/docs/explore-an-atlassian-organization).
+* Verify one or more or your domains in your organization. See [Domain verification](https://support.atlassian.com/user-management/docs/verify-a-domain-to-manage-accounts).
+* Subscribe to Atlassian Access from your organization. See [Atlassian Access security policies and features](https://support.atlassian.com/security-and-access-policies/docs/understand-atlassian-access).
 * [An Atlassian Cloud tenant](https://www.atlassian.com/licensing/cloud) with an Atlassian Access subscription.
-* A user account in Atlassian Cloud with Admin permissions.
+* Make sure you're an admin for at least one Jira or Confluence site that you want to grant synced users access to.
 
-> [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+   > [!NOTE]
+   > This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and Atlassian Cloud](../app-provisioning/customize-application-attributes.md).
+1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine what data to [map between Azure AD and Atlassian Cloud](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Atlassian Cloud to support provisioning with Azure AD
+1. Navigate to [Atlassian Admin Console](http://admin.atlassian.com/). Select your organization if you have more than one.
+1. Select **Settings > User provisioning**.
+	![Screenshot showing the User Provisioning tab.](media/atlassian-cloud-provisioning-tutorial/atlassian-select-settings.png)
+1. Select **Create a directory**.
+1. Enter a name to identify the user directory, for example Azure AD users, then select **Create**.
+	![Screenshot showing the Create directory page.](media/atlassian-cloud-provisioning-tutorial/atlassian-create-directory.png)
+1. Copy the values for **Directory base URL** and **API key**. You'll need those for your identity provider configuration later.
 
-1. Navigate to [Atlassian Organization Manager](https://admin.atlassian.com) **> select the org > directory**.
+   > [!NOTE]
+   > Make sure you store these values in a safe place, as we won't show them to you again.
 
-	![Screenshot of the Administration page with the Directory option called out.](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
+	![Screenshot showing the API key page.](media/atlassian-cloud-provisioning-tutorial/atlassian-apikey.png)
 
-2. Click **User Provisioning** and click on **Create a directory**. Copy the **Directory base URL** and **Bearer Token** which will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Atlassian Cloud application in the Azure AD portal respectively.
-
-	![Screenshot of the Administration page with the User provisioning option called out.](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png)
-	![Screenshot of the Create a token page.](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
-	![Screenshot of the demo time directory token page.](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
-
-
+   Users and groups will automatically be provisioned to your organization. See the [user provisioning](https://support.atlassian.com/provisioning-users/docs/understand-user-provisioning) page for more details on how your users and groups sync to your organization.
 ## Step 3. Add Atlassian Cloud from the Azure AD application gallery
 
 Add Atlassian Cloud from the Azure AD application gallery to start managing provisioning to Atlassian Cloud. If you have previously setup Atlassian Cloud for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 

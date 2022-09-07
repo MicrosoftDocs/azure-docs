@@ -1,12 +1,13 @@
 ---
 title: Logical operators in Azure Cosmos DB
 description: Learn about SQL logical operators supported by Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/07/2022
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # Logical operators in Azure Cosmos DB

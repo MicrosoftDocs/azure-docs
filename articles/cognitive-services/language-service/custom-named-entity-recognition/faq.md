@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 08/08/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021
+ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
 
 
@@ -44,7 +44,7 @@ When you're ready to start [using your model to make predictions](#how-do-i-use-
 
 ## What is the recommended CI/CD process?
 
-You can train multiple models on the same dataset within the same project. After you have trained your model successfully, you can [view its evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you [train your data](how-to/train-model.md) you can determine how your dataset is split into training and testing sets. You can also have your data split randomly into training and testing set where there is no guarantee that the reflected model evaluation is about the same test set, and the results are not comparable. It's recommended that you develop your own test set and use it to evaluate both models so you can measure improvement.
+You can train multiple models on the same dataset within the same project. After you have trained your model successfully, you can [view its performance](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove labels from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you [train a model](how-to/train-model.md), you can determine how your dataset is split into training and testing sets. You can also have your data split randomly into training and testing set where there is no guarantee that the reflected model evaluation is about the same test set, and the results are not comparable. It's recommended that you develop your own test set and use it to evaluate both models so you can measure improvement.
 
 ## Does a low or high model score guarantee bad or good performance in production?
 
@@ -57,23 +57,23 @@ See the [data selection and schema design](how-to/design-schema.md) article for 
 
 ## How do I improve model performance?
 
-* View the model [confusion matrix](how-to/view-model-evaluation.md). If you notice that a certain entity type is frequently not predicted correctly, consider adding more tagged instances for this class. If you notice that two entity types are frequently predicted as each other, this means the schema is ambiguous and you should consider merging them both into one entity type for better performance.
+* View the model [confusion matrix](how-to/view-model-evaluation.md). If you notice that a certain entity type is frequently not predicted correctly, consider adding more tagged instances for this class. If you notice that two entity types are frequently predicted as each other, this means the schema is ambiguous, and you should consider merging them both into one entity type for better performance.
 
-* [Examine the data distribution](how-to/improve-model.md#examine-data-distribution). If one of the entity types has a lot more tagged instances than the others, your model may be biased towards this type. Add more data to the other entity types or remove examples from the dominating type.
+* [Review test set predictions](how-to/view-model-evaluation.md). If one of the entity types has a lot more tagged instances than the others, your model may be biased towards this type. Add more data to the other entity types or remove examples from the dominating type.
 
 * Learn more about [data selection and schema design](how-to/design-schema.md).
 
-* [Review your test set](how-to/improve-model.md) to see predicted and tagged entities side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.
+* [Review your test set](how-to/view-model-evaluation.md) to see predicted and tagged entities side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.
 
 ## Why do I get different results when I retrain my model?
 
 * When you [train your model](how-to/train-model.md), you can determine if you want your data to be split randomly into train and test sets. If you do, so there is no guarantee that the reflected model evaluation is on the same test set, so results are not comparable.
 
-* If you're retraining the same model, your test set will be the same but you might notice a slight change in predictions made by the model. This is because the trained model is not robust enough and this is a factor of how representative and distinct your data is and the quality of your tagged data.
+* If you're retraining the same model, your test set will be the same, but you might notice a slight change in predictions made by the model. This is because the trained model is not robust enough and this is a factor of how representative and distinct your data is and the quality of your tagged data.
 
 ## How do I get predictions in different languages?
 
-First, you need to enable the multilingual option when [creating your project](how-to/create-project.md) or you can enable it later from the project settings page. After you train and deploy your model, you can start querying it in [multiple languages](language-support.md#multiple-language-support). You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language.
+First, you need to enable the multilingual option when [creating your project](how-to/create-project.md) or you can enable it later from the project settings page. After you train and deploy your model, you can start querying it in [multiple languages](language-support.md#multi-lingual-option). You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language.
 
 ## I trained my model, but I can't test it
 

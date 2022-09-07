@@ -3,13 +3,13 @@ title: Management concepts for Azure AD Domain Services | Microsoft Docs
 description: Learn about how to administer an Azure Active Directory Domain Services managed domain and the behavior of user accounts and passwords
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/15/2022
 ms.author: justinha
 
 ---

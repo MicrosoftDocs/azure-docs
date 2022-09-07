@@ -2,6 +2,7 @@
 title: Configure Windows Server Failover Cluster on Azure VMware Solution vSAN
 description: Learn how to configure Windows Server Failover Cluster (WSFC) on Azure VMware Solution vSAN with native shared disks.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ---
 

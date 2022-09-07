@@ -7,7 +7,7 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, event-tier1-build-2022
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning
 
@@ -17,14 +17,13 @@ You can implement machine learning models as a user-defined function (UDF) in yo
 
 Complete the following steps before you add a machine learning model as a function to your Stream Analytics job:
 
-1. Use Azure Machine Learning to [deploy your model as a web service](../machine-learning/how-to-deploy-and-where.md).
+1. Use Azure Machine Learning to [deploy your model as a web service](../machine-learning/how-to-deploy-managed-online-endpoints.md).
 
-2. Your machine learning endpoint must have an associated [swagger](../machine-learning/how-to-deploy-advanced-entry-script.md) that helps Stream Analytics understand the schema of the input and output. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/asa-mlswagger.json) as a reference to ensure you have set it up correctly.
+2. Your machine learning endpoint must have an associated [swagger](../machine-learning/v1/how-to-deploy-advanced-entry-script.md) that helps Stream Analytics understand the schema of the input and output. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/asa-mlswagger.json) as a reference to ensure you have set it up correctly.
 
 3. Make sure your web service accepts and returns JSON serialized data.
 
-4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency. Models deployed on Azure Container Instances are supported only when you use the Azure portal.
-
+4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-managed-online-endpoints.md#use-different-cpu-and-gpu-instance-types) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency. Models deployed on Azure Container Instances are supported only when you use the Azure portal.
 ## Add a machine learning model to your job
 
 You can add Azure Machine Learning functions to your Stream Analytics job directly from the Azure portal or Visual Studio Code.
@@ -180,7 +179,7 @@ After you have deployed your web service, you send sample request with varying b
 
 At optimal scaling, your Stream Analytics job should be able to send multiple parallel requests to your web service and get a response within few milliseconds. The latency of the web service's response can directly impact the latency and performance of your Stream Analytics job. If the call from your job to the web service takes a long time, you will likely see an increase in watermark delay and may also see an increase in the number of backlogged input events.
 
-You can achieve low latency by ensuring that your Azure Kubernetes Service (AKS) cluster has been provisioned with the [right number of nodes and replicas](../machine-learning/how-to-deploy-azure-kubernetes-service.md?tabs=python#autoscaling). It's critical that your web service is highly available and returns successful responses. If your job receives an error that is retriable such as service unavailable response (503), it will automaticaly retry with exponential back off. If your job receives one of these errors as a response from the endpoint, the job will go to a failed state.
+You can achieve low latency by ensuring that your Azure Kubernetes Service (AKS) cluster has been provisioned with the [right number of nodes and replicas](../machine-learning/v1/how-to-deploy-azure-kubernetes-service.md?tabs=python#autoscaling). It's critical that your web service is highly available and returns successful responses. If your job receives an error that is retriable such as service unavailable response (503), it will automaticaly retry with exponential back off. If your job receives one of these errors as a response from the endpoint, the job will go to a failed state.
 * Bad Request (400)
 * Conflict (409)
 * Not Found (404)

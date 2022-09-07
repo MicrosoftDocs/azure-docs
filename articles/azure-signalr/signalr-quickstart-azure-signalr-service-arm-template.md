@@ -237,4 +237,4 @@ read -p "Press [ENTER] to continue: "
 For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

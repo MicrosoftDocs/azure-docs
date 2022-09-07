@@ -4,12 +4,12 @@ description:  Delegate user management using My Staff and administrative units
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 03/11/2021
+ms.date: 05/18/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
@@ -23,7 +23,7 @@ Before you configure My Staff for your organization, we recommend that you revie
 
 ## How My Staff works
 
-My Staff is based on administrative units, which are a container of resources which can be used to restrict the scope of a role assignment's administrative control. For more information, see [Administrative units management in Azure Active Directory](administrative-units.md). In My Staff, administrative units can used to contain a group of users in a store or department. A team manager can then be assigned to an administrative role at a scope of one or more units.
+My Staff is based on administrative units, which are a container of resources which can be used to restrict the scope of a role assignment's administrative control. For more information, see [Administrative units management in Azure Active Directory](administrative-units.md). In My Staff, administrative units can be used to contain a group of users in a store or department. A team manager can then be assigned to an administrative role at a scope of one or more units.
 
 ## Before you begin
 
@@ -46,9 +46,9 @@ To complete this article, you need the following resources and privileges:
 
 Once you have configured administrative units, you can apply this scope to your users who access My Staff. Only users who are assigned an administrative role can access My Staff. To enable My Staff, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as a User Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as a Global Administrator, User Administrator, or Group Administrator.
 
-1. Select **Azure Active Directory** > **User settings** > **User feature ** > **Manage user feature settings**.
+1. Select **Azure Active Directory** > **User settings** > **User feature** > **Manage user feature settings**.
 
 1. Under **Administrators can access My Staff**, you can choose to enable for all users, selected users, or no user access.
 

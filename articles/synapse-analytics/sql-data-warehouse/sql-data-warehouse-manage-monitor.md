@@ -1,14 +1,14 @@
 ---
 title: Monitor your dedicated SQL pool workload using DMVs 
 description: Learn how to monitor your Azure Synapse Analytics dedicated SQL pool workload and query execution using DMVs.
-author: ronortloff
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/15/2021
-ms.author: rortloff
-ms.reviewer: igorstan
+ms.author: wiassaf
+ms.reviewer: wiassaf
 ms.custom: synapse-analytics
 ---
 
@@ -61,7 +61,7 @@ ORDER BY total_elapsed_time DESC;
 
 From the preceding query results, **note the Request ID** of the query that you would like to investigate.
 
-Queries in the **Suspended** state can be queued due to a large number of active running queries. These queries also appear in the [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) waits query with a type of UserConcurrencyResourceType. For information on concurrency limits, see [Memory and concurrency limits](memory-concurrency-limits.md) or [Resource classes for workload management](resource-classes-for-workload-management.md). Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources](#monitor-waiting-queries) further down in this article.
+Queries in the **Suspended** state can be queued due to a large number of active running queries. These queries also appear in the [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). In that case, look for waits such as UserConcurrencyResourceType. For information on concurrency limits, see [Memory and concurrency limits](memory-concurrency-limits.md) or [Resource classes for workload management](resource-classes-for-workload-management.md). Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources](#monitor-waiting-queries) further down in this article.
 
 To simplify the lookup of a query in the [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) table, use [LABEL](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to assign a comment to your query, which can be looked up in the sys.dm_pdw_exec_requests view.
 
@@ -212,7 +212,7 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-If you have a query that is consuming a large amount of memory or have received an error message related to allocation of tempdb, it could be due to a very large [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or [INSERT SELECT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement running that is failing in the final data movement operation. This can usually be identified as a ShuffleMove operation in the distributed query plan right before the final INSERT SELECT.  Use [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to monitor ShuffleMove operations.
+If you have a query that is consuming a large amount of memory or have received an error message related to the allocation of tempdb, it could be due to a very large [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or [INSERT SELECT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement running that is failing in the final data movement operation. This can usually be identified as a ShuffleMove operation in the distributed query plan right before the final INSERT SELECT.  Use [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to monitor ShuffleMove operations.
 
 The most common mitigation is to break your CTAS or INSERT SELECT statement into multiple load statements so the data volume will not exceed the 2TB per node tempdb limit (when at or above DW500c). You can also scale your cluster to a larger size which will spread the tempdb size across more nodes reducing the tempdb on each individual node.
 
@@ -301,6 +301,65 @@ GROUP BY
 ORDER BY
     nbr_files desc,
     gb_processed desc;
+```
+
+## Monitor query blockings
+
+The following query provides the top 500 blocked queries in the environment. 
+
+```sql
+
+--Collect the top blocking
+SELECT 
+    TOP 500 waiting.request_id AS WaitingRequestId,
+    waiting.object_type AS LockRequestType,
+    waiting.object_name AS ObjectLockRequestName,
+    waiting.request_time AS ObjectLockRequestTime,
+    blocking.session_id AS BlockingSessionId,
+    blocking.request_id AS BlockingRequestId
+FROM 
+    sys.dm_pdw_waits waiting
+    INNER JOIN sys.dm_pdw_waits blocking
+    ON waiting.object_type = blocking.object_type 
+    AND waiting.object_name = blocking.object_name 
+WHERE 
+    waiting.state = 'Queued' 
+    AND blocking.state = 'Granted'
+ORDER BY 
+    ObjectLockRequestTime ASC;
+    
+``` 
+
+## Retrieve query text from waiting and blocking queries
+
+The following query provides the query text and identifier for the waiting and blocking queries to easily troubleshoot.
+
+```sql
+
+-- To retrieve query text from waiting and blocking queries
+
+SELECT waiting.session_id AS WaitingSessionId,
+       waiting.request_id AS WaitingRequestId,
+       COALESCE(waiting_exec_request.command,waiting_exec_request.command2) AS WaitingExecRequestText, 
+       blocking.session_id AS BlockingSessionId,
+       blocking.request_id AS BlockingRequestId,
+       COALESCE(blocking_exec_request.command,blocking_exec_request.command2) AS BlockingExecRequestText,
+       waiting.object_name AS Blocking_Object_Name,
+       waiting.object_type AS Blocking_Object_Type,
+       waiting.type AS Lock_Type,
+       waiting.request_time AS Lock_Request_Time,
+       datediff(ms, waiting.request_time, getdate())/1000.0 AS Blocking_Time_sec 
+FROM sys.dm_pdw_waits waiting
+       INNER JOIN sys.dm_pdw_waits blocking
+       ON waiting.object_type = blocking.object_type
+       AND waiting.object_name = blocking.object_name 
+       INNER JOIN sys.dm_pdw_exec_requests blocking_exec_request
+       ON blocking.request_id = blocking_exec_request.request_id
+       INNER JOIN sys.dm_pdw_exec_requests waiting_exec_request 
+       ON waiting.request_id = waiting_exec_request.request_id
+WHERE waiting.state = 'Queued'
+       AND blocking.state = 'Granted'
+ORDER BY Lock_Request_Time DESC;
 ```
 
 ## Next steps

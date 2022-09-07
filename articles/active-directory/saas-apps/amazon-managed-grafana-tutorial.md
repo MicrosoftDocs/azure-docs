@@ -147,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Review and create** page, verify all the workspace details and click **Create workspace**.
 
-	![Screenshot shows review and create page.](./media/amazon-managed-grafana-tutorial/review-workspace.png " Create Workspace")
+	![Screenshot shows review and create page.](./media/amazon-managed-grafana-tutorial/review-workspace.png "Create Workspace")
 
 1. After creating workspace, click **Complete setup** to complete the SAML configuration.
 

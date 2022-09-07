@@ -3,8 +3,8 @@ title: Change request settings for an access package in Azure AD entitlement man
 description: Learn how to change request settings for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 07/01/2021
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -22,17 +22,19 @@ ms.collection: M365-identity-device-management
 ---
 # Change request settings for an access package in Azure AD entitlement management
 
-As an access package manager, you can change the users who can request an access package at any time by editing the policy or adding a new policy. This article describes how to change the request settings for an existing access package.
+As an access package manager, you can change the users who can request an access package at any time by editing a policy for access package assignment requests, or adding a new policy to the access package. This article describes how to change the request settings for an existing access package assignment policy.
 
 ## Choose between one or multiple policies
 
 The way you specify who can request an access package is with a policy. Before creating a new policy or editing an existing policy in an access package, you need to determine how many policies the access package needs. 
 
-When you create an access package, you specify the request setting which creates a policy. Most access packages will have a single policy, but a single access package can have multiple policies. You would create multiple policies for an access package if you want to allow different sets of users to be granted assignments with different request and approval settings. 
+When you create an access package, you can specify the request, approval and lifecycle settings, which are stored on the first policy of the access package. Most access packages will have a single policy for users to request access, but a single access package can have multiple policies. You would create multiple policies for an access package if you want to allow different sets of users to be granted assignments with different request and approval settings.
 
-For example, a single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package, one for internal users and one for external users. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to. The following diagram shows an access package with two policies.
+For example, a single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package, one for internal users and one for external users. If there are multiple policies that apply to a user to request, they will be prompted at the time of their request to select the policy they would like to be assigned to. The following diagram shows an access package with two policies.
 
-![Multiple policies in an access package](./media/entitlement-management-access-package-request-policy/access-package-policy.png)
+![Diagram that illustrates multiple policies, along with multiple resource roles, can be contained within an access package.](./media/entitlement-management-access-package-request-policy/access-package-policy.png)
+
+In addition to policies for users to request access, you can also have policies for [automatic assignment](entitlement-management-access-package-auto-assignment-policy.md), and policies for direct assignment by administrators or catalog owners.
 
 ### How many policies will I need?
 
@@ -40,14 +42,16 @@ For example, a single policy cannot be used to assign internal and external user
 | --- | --- |
 | I want all users in my directory to have the same request and approval settings for an access package | One |
 | I want all users in certain connected organizations to be able to request an access package | One |
-| I want to allow users in my directory and also users outside my directory to request an access package | Multiple |
-| I want to specify different approval settings for some users | Multiple |
-| I want some users access package assignments to expire while other users can extend their access | Multiple |
+| I want to allow users in my directory and also users outside my directory to request an access package | Two |
+| I want to specify different approval settings for some users | One for each group of users |
+| I want some users access package assignments to expire while other users can extend their access | One for each group of users |
+| I want some users to request access and other users to be assigned access by an administrator | Two |
+| I want some users in my organization to receive access automatically, other users in my organization to be able to request, and other users to be assigned access by an administrator | Three |
 
 For information about the priority logic that is used when multiple policies apply, see [Multiple policies](entitlement-management-troubleshoot.md#multiple-policies
 ).
 
-## Open an existing access package and add a new policy of request settings
+## Open an existing access package and add a new policy with different request settings
 
 If you have a set of users that should have different request and approval settings, you'll likely need to create a new policy. Follow these steps to start adding a new policy to an existing access package:
 
@@ -104,7 +108,7 @@ Follow these steps if you want to allow users in your directory to be able to re
  
 ## For users not in your directory
 
- **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
+ **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to allow invitations in **Collaboration restrictions**. For more information, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 
 > [!NOTE]
 > A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../external-identities/user-properties.md).
@@ -138,7 +142,7 @@ Follow these steps if you want to allow users not in your directory to request t
 1. Once you've selected all your connected organizations, click **Select**.
 
     > [!NOTE]
-    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or blocklist. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
+    > All users from the selected connected organizations can request this access package. For a connected organization that has an Azure AD directory, users from all verified domains associated with the Azure AD directory can request, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
 
 1. If you want to require approval, use the steps in [Change approval settings for an access package in Azure AD entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
  
@@ -160,9 +164,9 @@ Follow these steps if you want to bypass access requests and allow administrator
 > When assigning users to an access package, administrators will need to verify that the users are eligible for that access package based on the existing policy requirements. Otherwise, the users won't successfully be assigned to the access package. If the access package contains a policy that requires user requests to be approved, users can't be directly assigned to the package without necessary approval(s) from the designated approver(s).
 
 
-## Open and edit an existing policy of request settings
+## Open and edit an existing policy's request settings
 
-To change the request and approval settings for an access package, you need to open the corresponding policy. Follow these steps to open and edit the request settings for an access package:
+To change the request and approval settings for an access package, you need to open the corresponding policy with those settings. Follow these steps to open and edit the request settings for an access package assignment policy:
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -205,7 +209,11 @@ To change the request and approval settings for an access package, you need to o
 
 1. If you are editing a policy click **Update**. If you are adding a new policy, click **Create**.
 
-## Prevent requests from users with incompatible access (preview)
+## Creating an access package assignment policy programmatically
+
+You can also create a policy using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application in a catalog role or with the `EntitlementManagement.ReadWrite.All` permission, can call the [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-1.0&preserve-view=true) API.
+
+## Prevent requests from users with incompatible access
 
 In addition to the policy checks on who can request, you may wish to further restrict access, in order to avoid a user who already has some access - via a group or another access package - from obtaining excessive access.
 

@@ -6,21 +6,23 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: lostmygithubaccount
-ms.author: copeters
+author: s-polly
+ms.author: scottpolly
 ms.date: 04/08/2022
 ms.reviewer: nibaccam
-ms.custom: devx-track-azurecli, devplatv2
+ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 ---
 
 # Install and set up the CLI (v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](v1/reference-azure-machine-learning-cli.md)
+> * [v2 (current version)](how-to-configure-cli.md)
 
 The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -39,7 +41,7 @@ Check the Azure CLI extensions you've installed:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
 
-Ensure no conflicting extension using the `ml` namespace is installed, including the `azure-cli-ml` extension:
+Remove any existing installation of the of `ml` extension and also the CLI v1 `azure-cli-ml` extension:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_remove":::
 

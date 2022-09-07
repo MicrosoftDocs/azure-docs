@@ -20,31 +20,16 @@ In this article, you'll learn how to create a Translator resource in the Azure p
 
 To get started, you'll need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free 12-month subscription**](https://azure.microsoft.com/free/).
 
-## Translator resource types
+## Create your resource
 
 The Translator service can be accessed through two different resource types:
 
-* **Single-service** resource types enable access to a single service API key and endpoint.  
+* [**Single-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource types enable access to a single service API key and endpoint.
 
-* **Multi-service** resource types enable access to multiple Cognitive Services using a single API key and endpoint. The Cognitive Services resource is currently available for the following services:
-  * Language ([Translator](../translator/translator-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [Language service](../text-analytics/overview.md))  
-  * Vision ([Computer Vision](../computer-vision/overview.md)), ([Face](../face/overview.md))  
-  * Decision ([Content Moderator](../content-moderator/overview.md))  
+* [**Multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource types enable access to multiple Cognitive Services using a single API key and endpoint.
 
-## Create your resource
-
-* Navigate directly to the [**Create Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) page in the Azure portal to complete your project details.
-
-* Navigate directly to the [**Create Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) page in the Azure portal to complete your project details.
-
->[!TIP]
->If you prefer, you can start on the Azure Portal home page to begin the **Create** process as follows:
->
-> 1. Navigate to the [**Azure Portal**](https://portal.azure.com/#home) home page.
-> 1. Select ➕**Create a resource**  from the Azure services menu.
->1. In the **Search the Marketplace** search box, enter and select **Translator** (single-service resource) or **Cognitive Services** (multi-service resource).  *See* [Choose your resource type](#create-your-resource), above.
-> 1. Select **Create** and you will be taken to the project details page.
-><br/><br/>
+> [!TIP]
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Translator Service access only, create a Translator single-service resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
 
 ## Complete your project and instance details
 
@@ -62,8 +47,8 @@ The Translator service can be accessed through two different resource types:
 1. **Pricing tier**. Select a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/translator) that meets your needs:
 
    * Each subscription has a free tier.
-   * The free tier has the same features and functionalities as paid plans and doesn't expire.
-   * Only have one free subscription per account is allowed.
+   * The free tier has the same features and functionality as the paid plans and doesn't expire.
+   * Only one free tier is available per subscription.
    * Document Translation isn't supported in the free tier. Select Standard S1 to try that feature.
 
 1. If you've created a multi-service resource, you'll need to confirm additional usage details via the check boxes.

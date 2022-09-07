@@ -114,7 +114,7 @@ Follow the steps mentioned in [this tutorial](tutorial-register-applications.md?
    | Property | Value |
    |:--------|:-------------|
    |Name  | Login with Asignio *(or a name of your choice)*
-   |Metadata URL |  https://authorization.asignio.com/.well-known/openid-configuration|
+   |Metadata URL |  `https://authorization.asignio.com/.well-known/openid-configuration`|
    | Client ID |  enter the client ID that you previously generated in [step 1](#step-1-configure-an-application-with-asignio)|
    |Client Secret |  enter the Client secret that you previously generated in [step 1](#step-1-configure-an-application-with-asignio)|
    | Scope | openid email profile |

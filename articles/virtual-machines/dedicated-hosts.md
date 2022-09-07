@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: brittanyrowe
-ms.reviewer: brittanyrowe
+ms.reviewer: mattmcinnes
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
@@ -25,7 +25,7 @@ Azure Dedicated Host is a service that provides physical servers - able to host 
 Reserving the entire host provides the following benefits:
 
 -   Hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
--   Control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt-in to a maintenance window to reduce the impact to your service.
+-   Control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt in to a maintenance window to reduce the impact to your service.
 -   With the Azure hybrid benefit, you can bring your own licenses for Windows and SQL to Azure. Using the hybrid benefits provides you with additional benefits. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 
@@ -110,7 +110,7 @@ The infrastructure supporting your virtual machines may occasionally be updated 
 
 **Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window. Within the maintenance window, you can apply maintenance directly at the host level, in any order. Once the maintenance window is over, Microsoft will move forward and apply the pending maintenance to the hosts in an order which may not follow the user defined fault domains.
 
-For more information, see [Managing platform updates with Maintenance Control](./maintenance-control.md).
+For more information, see [Managing platform updates with Maintenance Control](./maintenance-configurations.md).
 
 ## Capacity considerations
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 06/16/2022
 ms.custom: devx-track-csharp
 #Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
 ---
@@ -92,7 +92,7 @@ In `RunQueriesWithNonExistentTermsInIndex`, issue search queries with "five star
 
 Phrase queries, such as "five star", must be enclosed in quotation marks, and might also need escape characters depending on your client.
 
-```csharp
+```bash
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = searchClient.Search<Hotel>("\"five star\"", searchOptions);
 WriteDocuments(results);
@@ -144,7 +144,7 @@ After the "before" queries are run, the sample code enables synonyms. Enabling s
 
 After the synonym map is uploaded and the index is updated to use the synonym map, the second `RunQueriesWithNonExistentTermsInIndex` call outputs the following:
 
-```dos
+```bash
 Search the entire index for the phrase "five star":
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]

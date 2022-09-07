@@ -1,5 +1,5 @@
 ---
-title: What are parallel documents? - Custom Translator
+title: "Legacy: What are parallel documents? - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: Parallel documents are pairs of documents where one is the translation of the other. One document in the pair contains sentences in the source language and the other document contains these sentences translated into the target language.
 author: laujan
@@ -23,9 +23,9 @@ system in either direction.
 
 ## Requirements
 
-You will need a minimum of 10,000 unique aligned parallel sentences to train a system. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. As a best practice, continuously add more parallel content and retrain to improve the quality of your translation system. For more information, *see* [Sentence Alignment](./sentence-alignment.md).
+You'll need a minimum of 10,000 unique aligned parallel sentences to train a system. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. As a best practice, continuously add more parallel content and retrain to improve the quality of your translation system. For more information, *see* [Sentence Alignment](./sentence-alignment.md).
 
-Microsoft requires that documents uploaded to the Custom Translator do not violate a third party's copyright or intellectual properties. For more information, please see the [Terms of Use](https://azure.microsoft.com/support/legal/cognitive-services-terms/). Uploading a document using the portal does not alter the ownership of the intellectual property in the document itself.
+Microsoft requires that documents uploaded to the Custom Translator don't violate a third party's copyright or intellectual properties. For more information, please see the [Terms of Use](https://azure.microsoft.com/support/legal/cognitive-services-terms/). Uploading a document using the portal doesn't alter the ownership of the intellectual property in the document itself.
 
 ## Use of parallel documents
 
@@ -38,7 +38,7 @@ Parallel documents are used by the system:
     phrases. A word may not always translate to the exact same word in the other
     language.
 
-As a best practice, make sure that there is a 1:1 sentence correspondence between
+As a best practice, make sure that there's a 1:1 sentence correspondence between
 the source and target language versions of the documents.
 
 If your project is domain (category) specific, your documents should be
@@ -51,8 +51,8 @@ can do during translation.
 Documents uploaded are private to each workspace and can be used in as many
 projects or trainings as you like. Sentences extracted from your documents are
 stored separately in your repository as plain Unicode text files and are
-available for you delete. Do not use the Custom Translator as a document
-repository, you will not be able to download the documents you uploaded in the
+available for you to delete. Don't use the Custom Translator as a document
+repository, you won't be able to download the documents you uploaded in the
 format you uploaded them.
 
 ## Next steps

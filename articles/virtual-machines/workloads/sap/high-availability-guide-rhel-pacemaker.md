@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 12/07/2021
+ms.date: 08/29/2022
 ms.author: radeltch
 
 ---
@@ -114,6 +114,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > RHEL 7.5: fence-agents-4.0.11-86.el7_5.8  
    > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12  
    > For more information, see [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711).
+
+   > [!IMPORTANT]
+   > We recommend the following versions of Azure Fence agent (or later) for customers wishing to use Managed Identities for Azure resources instead of service principal names for the fence agent.  
+   > RHEL 8.4: fence-agents-4.2.1-54.el8  
+   > RHEL 8.2: fence-agents-4.2.1-41.el8_2.4  
+   > RHEL 8.1: fence-agents-4.2.1-30.el8_1.4  
+   > RHEL 7.9: fence-agents-4.2.1-41.el7_9.4.
 
    Check the version of the Azure fence agent. If necessary, update it to a version equal to or later than the stated above.
 
@@ -222,9 +229,15 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 ## Create STONITH device
 
-The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
+The STONITH device uses either a managed identity for Azure resource or service principal to authorize against Microsoft Azure. 
 
-1. Go to <https://portal.azure.com>
+### Using Managed Identity
+To create a managed identity (MSI), [create a system-assigned](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time.
+
+### Using Service Principal
+Follow these steps to create a service principal, if not using managed identity.
+
+1. Go to the [Azure portal](https://portal.azure.com).
 1. Open the Azure Active Directory blade  
    Go to Properties and make a note of the Directory ID. This is the **tenant ID**.
 1. Click App registrations
@@ -234,22 +247,22 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
    The sign-on URL is not used and can be any valid URL
 1. Select Certificates and Secrets, then click New client secret
 1. Enter a description for a new key, select "Never expires" and click Add
-1. Make a node the Value. It is used as the **password** for the Service Principal
-1. Select Overview. Make a note the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
+1. Make a node the Value. It is used as the **password** for the service principal
+1. Select Overview. Make a note the Application ID. It is used as the username (**login ID** in the steps below) of the service principal
 
 ### **[1]** Create a custom role for the fence agent
 
-The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/role-assignments-powershell.md) or [Azure CLI](../../../role-based-access-control/role-assignments-cli.md)
+Neither managed identity nor service principal have permissions to access your Azure resources by default. You need to give the managed identity or service principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
 
-Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
+Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
 ```json
 {
       "Name": "Linux Fence Agent Role",
       "description": "Allows to power-off and start virtual machines",
       "assignableScopes": [
-              "/subscriptions/e663cc2d-722b-4be1-b636-bbd9e4c60fd9",
-              "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+              "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+              "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
       ],
       "actions": [
               "Microsoft.Compute/*/read",
@@ -262,11 +275,20 @@ Use the following content for the input file. You need to adapt the content to y
 }
 ```
 
-### **[A]** Assign the custom role to the Service Principal
+### **[A]** Assign the custom role
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
+#### Using Managed Identity
+
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Verify each VM's managed identity role assignment contains all cluster VMs.
+
+> [!IMPORTANT]
+> Be aware assignment and removal of authorization with managed identities [can be delayed](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization) until effective.
+
+#### Using Service Principal
+
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the service principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
 Make sure to assign the role for both cluster nodes.    
-      
+
 ### **[1]** Create the STONITH devices
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
@@ -279,17 +301,42 @@ sudo pcs property set stonith-timeout=900
 > Option 'pcmk_host_map' is ONLY required in the command, if the RHEL host names and the Azure VM names are NOT identical. Specify the mapping in the format **hostname:vm-name**.
 > Refer to the bold section in the command. For more information, see [What format should I use to specify node mappings to stonith devices in pcmk_host_map](https://access.redhat.com/solutions/2619961)
 
+
+#### [Managed Identity](#tab/msi)
+
 For RHEL **7.X**, use the following command to configure the fence device:    
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \ 
+subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
 
 For RHEL **8.X**, use the following command to configure the fence device:  
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \
+subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
+
+#### [Service Principal](#tab/spn)
+
+For RHEL **7.X**, use the following command to configure the fence device:    
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" \
+resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" \
+<b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+op monitor interval=3600
+</code></pre>
+
+For RHEL **8.X**, use the following command to configure the fence device:  
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" \
+resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" \
+<b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+op monitor interval=3600
+</code></pre>
+
+---
 
 > [!TIP]
 > Only configure the `pcmk_delay_max` attribute in two node Pacemaker clusters. For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829). 

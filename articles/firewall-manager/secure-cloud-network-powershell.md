@@ -21,6 +21,9 @@ In this tutorial, you learn how to:
 > * Deploy Azure Firewall and configure custom routing
 > * Test connectivity
 
+> [!IMPORTANT]
+> A Virtual WAN is a collection of hubs and services made available inside the hub. You can deploy as many Virtual WANs that you need. In a Virtual WAN hub, there are multiple services such as VPN, ExpressRoute, and so on. Each of these services is automatically deployed across **Availability Zones** *except* Azure Firewall, if the region supports Availability Zones. To upgrade an existing Azure Virtual WAN Hub to a Secure Hub and have the Azure Firewall use Availability Zones, you must use Azure PowerShell, as described later in this article.
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -28,6 +31,8 @@ In this tutorial, you learn how to:
 - PowerShell 7
 
    This tutorial requires that you run Azure PowerShell locally on PowerShell 7. To install PowerShell 7, see [Migrating from Windows PowerShell 5.1 to PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7&preserve-view=true).
+
+- "Az.Network" module version must be 4.17.0 or higher.
 
 ## Sign in to Azure
 
@@ -46,6 +51,8 @@ $RG = "vwan-rg"
 $Location = "westeurope"
 $VwanName = "vwan"
 $HubName =  "hub1"
+$FirewallTier = "Standard" # or "Premium"
+
 # Create Resource Group, Virtual WAN and Virtual Hub
 New-AzResourceGroup -Name $RG -Location $Location
 $Vwan = New-AzVirtualWan -Name $VwanName -ResourceGroupName $RG -Location $Location -AllowVnetToVnetTraffic -AllowBranchToBranchTraffic -VirtualWANType "Standard"
@@ -74,8 +81,12 @@ $AzFWHubIPs = New-AzFirewallHubIpAddress -PublicIP $AzFWPIPs
 # New Firewall
 $AzFW = New-AzFirewall -Name "azfw1" -ResourceGroupName $RG -Location $Location `
             -VirtualHubId $Hub.Id -FirewallPolicyId $FWPolicy.Id `
-            -Sku AZFW_Hub -HubIPAddress $AzFWHubIPs
+            -SkuName "AZFW_Hub" -HubIPAddress $AzFWHubIPs `
+            -SkuTier $FirewallTier 
 ```
+
+> [!NOTE]
+> The following Firewall creation command does **not** use Availability Zones. If you want to use this feature, an additional parameter **-Zone** is required. An example is provided in the upgrade section at the end of this article.
 
 Enabling logging from the Azure Firewall to Azure Monitor is optional, but in this example you use the Firewall logs to prove that traffic is traversing the firewall:
 
@@ -199,7 +210,7 @@ Get-AzEffectiveRouteTable -ResourceGroupName $RG -NetworkInterfaceName $NIC2.Nam
 Now generate traffic from one Virtual Machine to the other, and verify that it's dropped in the Azure Firewall. In the following SSH commands you need to accept the virtual machines fingerprints, and provide the password that you defined when you created the virtual machines. In this example, you're going to send five ICMP echo request packets from the virtual machine in spoke1 to spoke2, plus a TCP connection attempt on port 22 using the Linux utility `nc` (with the `-vz` flags it just sends a connection request and shows the result). You should see the ping failing, and the TCP connection attempt on port 22 succeeding, since it's allowed by the network rule you configured previously:
 
 ```azurepowershell
-# Connect to one VM and ping the other. It shouldnt work, because the firewall should drop the traffic, since no rule for ICMP is configured
+# Connect to one VM and ping the other. It should not work, because the firewall should drop the traffic, since no rule for ICMP is configured
 ssh $AzFWPublicAddress -p 10001 -l $VMLocalAdminUser "ping $Spoke2VMPrivateIP -c 5"
 # Connect to one VM and send a TCP request on port 22 to the other. It should work, because the firewall is configured to allow SSH traffic (port 22)
 ssh $AzFWPublicAddress -p 10001 -l $VMLocalAdminUser "nc -vz $Spoke2VMPrivateIP 22"
@@ -271,6 +282,46 @@ To delete the test environment, you can remove the resource group with all conta
 # Delete resource group and all contained resources
 Remove-AzResourceGroup -Name $RG
 ```
+
+## Upgrade an existing Hub with Availability Zones
+
+The previous procedure uses Azure PowerShell to create a **new** Azure Virtual WAN Hub, and then immediately converts it to a Secured Hub using Azure Firewall.
+A similar approach can be applied to an **existing** Azure Virtual WAN Hub. Firewall Manager can be also used for the conversion, but it isn't possible to deploy Azure Firewall across Availability Zones without a script-based approach.
+You can use the following code snippet to convert an existing Azure Virtual WAN Hub to a Secured Hub, using an Azure Firewall deployed across all three Availability Zones.  
+
+```azurepowershell
+# Variable definition
+$RG = "vwan-rg"
+$Location = "westeurope"
+$VwanName = "vwan"
+$HubName =  "hub1"
+$FirewallName = "azfw1"
+$FirewallTier = "Standard" # or "Premium"
+$FirewallPolicyName = "VwanFwPolicy"
+
+# Get references to vWAN and vWAN Hub to convert #
+$Vwan = Get-AzVirtualWan -ResourceGroupName $RG -Name $VwanName
+$Hub = Get-AzVirtualHub -ResourceGroupName  $RG -Name $HubName
+
+# Create a new Firewall Policy #
+$FWPolicy = New-AzFirewallPolicy -Name $FirewallPolicyName -ResourceGroupName $RG -Location $Location
+
+# Create a new Firewall Public IP #
+$AzFWPIPs = New-AzFirewallHubPublicIpAddress -Count 1
+$AzFWHubIPs = New-AzFirewallHubIpAddress -PublicIP $AzFWPIPs
+
+# Create Firewall instance #
+$AzFW = New-AzFirewall -Name $FirewallName -ResourceGroupName $RG -Location $Location `
+            -VirtualHubId $Hub.Id -FirewallPolicyId $FWPolicy.Id `
+            -SkuName "AZFW_Hub" -HubIPAddress $AzFWHubIPs `
+            -SkuTier $FirewallTier `
+            -Zone 1,2,3 
+```
+After you run this script, Availability Zones should appear in the secured hub properties as shown in the following screenshot:
+
+:::image type="content" source="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png" alt-text="Screenshot of Secured virtual hub availability zones." lightbox="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png":::
+
+After the Azure Firewall is deployed, a configuration procedure must be completed as described in the previous *Deploy Azure Firewall and configure custom routing* section.
 
 ## Next steps
 

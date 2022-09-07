@@ -1,15 +1,15 @@
 ---
-title: Embed Azure Video Indexer (formerly Azure Video Analyzer for Media) widgets in your apps
-description: Learn how to embed Azure Video Indexer (formerly Azure Video Analyzer for Media) widgets in your apps.
+title: Embed Azure Video Indexer widgets in your apps
+description: Learn how to embed Azure Video Indexer widgets in your apps.
 ms.topic: how-to
 ms.date: 04/15/2022
 ms.author: juliako
 ms.custom: devx-track-js
 ---
 
-# Embed Video Analyzer for Media widgets in your apps
+# Embed Azure Video Indexer widgets in your apps
 
-This article shows how you can embed Azure Video Indexer (formerly Azure Video Analyzer for Media) widgets in your apps. Azure Video Indexer supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
+This article shows how you can embed Azure Video Indexer widgets in your apps. Azure Video Indexer supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
 
 Starting with version 2, the widget base URL includes the region of the specified account. For example, an account in the West US region generates: `https://www.videoindexer.ai/embed/insights/.../?location=westus2`.
 

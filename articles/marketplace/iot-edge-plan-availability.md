@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: aarathin
 ms.author: aarathin
-ms.date: 05/21/2021
+ms.date: 06/20/2022
 ---
 
 # Set plan availability for an IoT Edge Module offer

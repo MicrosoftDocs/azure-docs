@@ -1,13 +1,11 @@
 ---
 title: Use dependency injection in .NET Azure Functions
 description: Learn how to use dependency injection for registering and using services in .NET functions
-author: ggailey777
 
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 03/24/2021
-ms.author: glenga
 ms.reviewer: jehollan
 ---
 # Use dependency injection in .NET Azure Functions

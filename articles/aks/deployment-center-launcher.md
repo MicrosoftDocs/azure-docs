@@ -1,10 +1,10 @@
 ---
 title: Deployment Center for Azure Kubernetes
 description: Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application
-ms.author: puagarw
+ms.author: rayoflores
 ms.topic: tutorial
 ms.date: 07/12/2019
-author: pulkitaggarwl
+author: rayoef
 ---
 
 # Deployment Center for Azure Kubernetes

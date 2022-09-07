@@ -41,9 +41,9 @@ If the agent configuration object does not exist in the **azureiotsecurity** mod
 
 ## Configuration schema and validation
 
-Make sure to validate your agent configuration against this [schema](https://aka.ms/iot-security-github-module-schema). An agent will not launch if the configuration object does not match the schema.
+Make sure to validate your agent configuration against this [schema](https://aka.ms/iot-security-github-module-schema). An agent will not launch if the configuration object doesn't match the schema.
 
-If, while the agent is running, the configuration object is changed to a non-valid configuration (the configuration does not match the schema), the agent will ignore the invalid configuration and will continue using the current configuration.
+If, while the agent is running, the configuration object is changed to a non-valid configuration (the configuration doesn't match the schema), the agent will ignore the invalid configuration and will continue using the current configuration.
 
 ### Configuration validation
 
@@ -100,7 +100,7 @@ To use a default property value, remove the property from the configuration obje
 
 The following table contains the controllable properties of Defender for IoT security agents.
 
-Default values are available in the proper schema in [GitHub](https\://aka.ms/iot-security-module-default).
+Default values are available in the proper schema in [GitHub](https://aka.ms/iot-security-module-default).
 
 | Name| Status | Valid values| Default values| Description |
 |----------|--------|--|-------|----|

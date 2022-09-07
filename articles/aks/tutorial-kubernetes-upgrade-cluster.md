@@ -4,9 +4,7 @@ description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to u
 services: container-service
 ms.topic: tutorial
 ms.date: 05/24/2021
-
-ms.custom: mvc, devx-track-azurepowershell
-
+ms.custom: mvc, devx-track-azurepowershell, event-tier1-build-2022
 #Customer intent: As a developer or IT pro, I want to learn how to upgrade an Azure Kubernetes Service (AKS) cluster so that I can use the latest version of Kubernetes and features.
 ---
 
@@ -118,6 +116,8 @@ To minimize disruption to running applications, AKS nodes are carefully cordoned
 1. A node is created that runs the latest Kubernetes components.
 1. When the new node is ready and joined to the cluster, the Kubernetes scheduler begins to run pods on it.
 1. The old node is deleted, and the next node in the cluster begins the cordon and drain process.
+
+[!INCLUDE [alias minor version callout](./includes/aliasminorversion/alias-minor-version-upgrade.md)]
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -291,7 +291,7 @@ For more information on AKS, see [AKS overview][aks-intro]. For guidance on a cr
 [az aks upgrade]: /cli/azure/aks#az_aks_upgrade
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-group-delete]: /cli/azure/group#az_group_delete
-[sp-delete]: kubernetes-service-principal.md#additional-considerations
+[sp-delete]: kubernetes-service-principal.md#other-considerations
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [get-azakscluster]: /powershell/module/az.aks/get-azakscluster

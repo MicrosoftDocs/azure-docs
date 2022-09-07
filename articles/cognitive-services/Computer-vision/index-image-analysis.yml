@@ -54,7 +54,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Call the Image Analysis API
-            url: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+            url: how-to/call-analyze-image.md
       - linkListType: tutorial
         links:
           - text: Generate metadata for images

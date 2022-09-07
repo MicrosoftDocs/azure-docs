@@ -6,7 +6,7 @@ ms.date: 10/11/2021
 ms.author: mahender
 ---
 
-When hosted in the Azure Functions service, identity-based connections use a [managed identity](../articles/app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity is used by default, although a user-assigned identity can be specified with the `credential` and `clientID` properties. When run in other contexts, such as local development, your developer identity is used instead, although this can be customized. See [Local development with identity-based connections](../articles/azure-functions/functions-reference.md#local-development-with-identity-based-connections).
+When hosted in the Azure Functions service, identity-based connections use a [managed identity](../articles/app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity is used by default, although a user-assigned identity can be specified with the `credential` and `clientID` properties. Note that configuring a user-assigned identity with a resource ID is **not** supported. When run in other contexts, such as local development, your developer identity is used instead, although this can be customized. See [Local development with identity-based connections](../articles/azure-functions/functions-reference.md#local-development-with-identity-based-connections).
 
 #### Grant permission to the identity
 

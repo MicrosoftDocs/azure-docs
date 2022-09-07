@@ -1,11 +1,14 @@
 ---
 title: Create container images on Service Fabric in Azure 
 description: In this tutorial, you learn how to create container images for a multi-container Service Fabric application.
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurecli
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Create container images on a Linux Service Fabric cluster
 
 This tutorial is part one of a tutorial series that demonstrates how to use containers in a Linux Service Fabric cluster. In this tutorial, a multi-container application is prepared for use with Service Fabric. In subsequent tutorials, these images are used as part of a Service Fabric application. In this tutorial you learn how to:

@@ -3,12 +3,12 @@ title: Publish on-premises apps with Azure Active Directory Application Proxy
 description: Understand why to use Application Proxy to publish on-premises web applications externally to remote users. Learn about Application Proxy architecture, connectors, authentication methods, and security benefits.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/27/2021
+ms.date: 08/29/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ms.custom: has-adal-ref
@@ -62,7 +62,8 @@ In today's digital workplace, users work anywhere with multiple devices and apps
 
 With Application Proxy, Azure AD keeps track of users who need to access web apps published on-premises and in the cloud. It provides a central management point for those apps. While not required, it's recommended you also enable Azure AD Conditional Access. By defining conditions for how users authenticate and gain access, you further ensure that the right people access your applications.
 
-**Note:** It's important to understand that Azure AD Application Proxy is intended as a VPN or reverse proxy replacement for roaming (or remote) users who need access to internal resources. It's not intended for internal users on the corporate network. Internal users who unnecessarily use Application Proxy can introduce unexpected and undesirable performance issues.
+> [!NOTE]
+> It's important to understand that Azure AD Application Proxy is intended as a VPN or reverse proxy replacement for roaming (or remote) users who need access to internal resources. It's not intended for internal users on the corporate network. Internal users who unnecessarily use Application Proxy can introduce unexpected and undesirable performance issues.
 
 ![Azure Active Directory and all your apps](media/what-is-application-proxy/azure-ad-and-all-your-apps.png)
 

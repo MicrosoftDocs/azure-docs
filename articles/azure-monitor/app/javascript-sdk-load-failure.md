@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.devlang: javascript
 ms.custom: devx-track-js
+ms.reviewer: mmcc
 ---
 
 # Troubleshooting SDK load failure for JavaScript web apps

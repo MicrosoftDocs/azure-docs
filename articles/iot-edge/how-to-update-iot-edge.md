@@ -1,11 +1,11 @@
 ---
 title: Update IoT Edge version on devices - Azure IoT Edge | Microsoft Docs 
-description: How to update IoT Edge devices to run the latest versions of the security daemon and the IoT Edge runtime
+description: How to update IoT Edge devices to run the latest versions of the security subsystem and the IoT Edge runtime
 keywords: 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/15/2021
+ms.date: 06/03/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,26 +13,27 @@ services: iot-edge
 
 # Update IoT Edge
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
-Two components of an IoT Edge device need to be updated if you want to move to a newer version. The first is the security daemon, which runs on the device and starts the runtime modules when the device starts. Currently, the security daemon can only be updated from the device itself. The second component is the runtime, made up of the IoT Edge hub and IoT Edge agent modules. Depending on how you structure your deployment, the runtime can be updated from the device or remotely.
+Two logical components of an IoT Edge device need to be updated if you want to move to a newer version. The first is the security subsystem. Although the architecture of the security subsystem [changed between version 1.1 and 1.2](iot-edge-security-manager.md), its overall responsibilities remained the same. It runs on the device, handles security-based tasks, and starts the modules when the device starts. Currently, the security subsystem can only be updated from the device itself. The second component is the runtime, made up of the IoT Edge hub and IoT Edge agent modules. Depending on how you structure your deployment, the runtime can be updated from the device or remotely.
 
 To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
-## Update the security daemon
+## Update the security subsystem
 
-The IoT Edge security daemon is a native component that needs to be updated using the package manager on the IoT Edge device.
+The IoT Edge security subsystem includes a set of native components that need to be updated using the package manager on the IoT Edge device.
 
-Check the version of the security daemon running on your device by using the command `iotedge version`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the version.
+Check the version of the security subsystem running on your device by using the command `iotedge version`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the version.
 
-# [Linux](#tab/linux)
+<!-- Separated Linux content support RHEL - Some content repeated in RHEL tab-->
+# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
 
 >[!IMPORTANT]
->If you are updating a device from version 1.0 or 1.1 to version 1.2, there are differences in the installation and configuration processes that require extra steps. For more information, refer to the steps later in this article: [Special case: Update from 1.0 or 1.1 to 1.2](#special-case-update-from-10-or-11-to-12).
+>If you are updating a device from version 1.0 or 1.1 to the latest release, there are differences in the installation and configuration processes that require extra steps. For more information, refer to the steps later in this article: [Special case: Update from 1.0 or 1.1 to latest release](#special-case-update-from-10-or-11-to-latest-release).
 
-On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version.
+On Linux x64 devices, use apt-get or your appropriate package manager to update the runtime module to the latest version.
 
 Update apt.
 
@@ -52,13 +53,13 @@ Check to see which versions of IoT Edge are available.
    apt list -a iotedge
    ```
 
-If you want to update to the most recent version of the security daemon, use the following command which also updates **libiothsm-std** to the latest version:
+If you want to update to the most recent version of the runtime module, use the following command which also updates **libiothsm-std** to the latest version:
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-If you want to update to a specific version of the security daemon, specify the version from the apt list output. Whenever **iotedge** is updated, it automatically tries to update the **libiothsm-std** package to its latest version, which may cause a dependency conflict. If you aren't going to the most recent version, be sure to target both packages for the same version. For example, the following command installs a specific version of the 1.1 release:
+If you want to update to a specific version of the runtime module, specify the version from the apt list output. Whenever **iotedge** is updated, it automatically tries to update the **libiothsm-std** package to its latest version, which may cause a dependency conflict. If you aren't going to the most recent version, be sure to target both packages for the same version. For example, the following command installs a specific version of the 1.1 release:
 
    ```bash
    sudo apt-get install iotedge=1.1.1 libiothsm-std=1.1.1
@@ -73,23 +74,56 @@ curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
 <!-- end 1.1 -->
 :::moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 Check to see which versions of IoT Edge are available.
 
-   ```bash
-   apt list -a aziot-edge
-   ```
+```bash
+apt list -a aziot-edge
+```
 
-If you want to update to the most recent version of IoT Edge, use the following command which also updates the identity service to the latest version:
+If you want to update to the most recent version of IoT Edge, use the following command which also updates the [identity service](https://azure.github.io/iot-identity-service/) to the latest version:
 
-   ```bash
-   sudo apt-get install aziot-edge defender-iot-micro-agent-edge
-   ```
-It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../defender-for-iot/device-builders/overview.md).
-<!-- end 1.2 -->
+```bash
+sudo apt-get install aziot-edge defender-iot-micro-agent-edge
+```
+
+It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../defender-for-iot/device-builders/overview.md).
+
+<!-- end iotedge-2020-11 -->
 :::moniker-end
+
+<!--Repeated Linux content for RHEL-->
+# [Red Hat Enterprise Linux](#tab/rhel)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+IoT Edge version 1.1 isn't supported on Red Hat Enterprise Linux 8.
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
+
+Check to see which versions of IoT Edge are available.
+
+```bash
+yum list aziot-edge
+```
+
+If you want to update to the most recent version of IoT Edge, use the following command which also updates the [identity service](https://azure.github.io/iot-identity-service/) to the latest version:
+
+```bash
+sudo yum install aziot-edge
+```
+---
+
+<!-- end iotedge-2020-11 -->
+:::moniker-end
+<!--End repeated Linux content for RHEL-->
 
 # [Linux on Windows](#tab/linuxonwindows)
 
@@ -97,31 +131,31 @@ For information about IoT Edge for Linux on Windows updates, see [EFLOW Updates]
 
 # [Windows](#tab/windows)
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
->Currently, there is not support for IoT Edge version 1.2 running on Windows devices.
+>Currently, there is no support for IoT Edge version 1.4 running on Windows devices.
 >
 >To view the steps for updating IoT Edge for Linux on Windows, see [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true&tabs=windows).
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 
 With IoT Edge for Windows, IoT Edge runs directly on the Windows device.
 
-Use the `Update-IoTEdge` command to update the security daemon. The script automatically pulls the latest version of the security daemon.
+Use the `Update-IoTEdge` command to update the module runtime. The script automatically pulls the latest version of the module runtime.
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge
 ```
 
-Running the Update-IoTEdge command removes and updates the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine. Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process.
+Running the `Update-IoTEdge` command removes and updates the runtime module from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine. Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process.
 
-If you want to update to a specific version of the security daemon, find the version from 1.1 release channel you want to target from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the **Microsoft-Azure-IoTEdge.cab** file. Then, use the `-OfflineInstallationPath` parameter to point to the local file location. For example:
+If you want to update to a specific version of the security subsystem, find the version from 1.1 release channel you want to target from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the **Microsoft-Azure-IoTEdge.cab** file. Then, use the `-OfflineInstallationPath` parameter to point to the local file location. For example:
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -OfflineInstallationPath <absolute path to directory>
@@ -168,7 +202,7 @@ The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version 
 
 If you use rolling tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.1**) then you need to force the container runtime on your device to pull the latest version of the image.
 
-Delete the local version of the image from your IoT Edge device. On Windows machines, uninstalling the security daemon also removes the runtime images, so you don't need to take this step again.
+Delete the local version of the image from your IoT Edge device. On Windows machines, uninstalling the security subsystem also removes the runtime images, so you don't need to take this step again.
 
 ```bash
 docker rmi mcr.microsoft.com/azureiotedge-hub:1.1
@@ -201,24 +235,23 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
 1. Select **Review + create**, review the deployment, and select **Create**.
 
-## Special case: Update from 1.0 or 1.1 to 1.2
+## Special case: Update from 1.0 or 1.1 to latest release
 
->[!NOTE]
->If you're using Windows containers or IoT Edge for Linux on Windows, this special case section does not apply.
+# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
 
-Starting with version 1.2, the IoT Edge service uses a new package name and has some differences in the installation and configuration processes. If you have an IoT Edge device running version 1.0 or 1.1, use these instructions to learn how to update to 1.2.
+Starting with version 1.2, the IoT Edge service uses a new package name and has some differences in the installation and configuration processes. If you have an IoT Edge device running version 1.0 or 1.1, use these instructions to learn how to update to the latest release.
 
->[!NOTE]
->Currently, there is no support for IoT Edge version 1.2 running on Windows devices.
-
-Some of the key differences between 1.2 and earlier versions include:
+Some of the key differences between the latest release and version 1.1 and earlier include:
 
 * The package name changed from **iotedge** to **aziot-edge**.
 * The **libiothsm-std** package is no longer used. If you used the standard package provided as part of the IoT Edge release, then your configurations can be transferred to the new version. If you used a different implementation of libiothsm-std, then any user-provided certificates like the device identity certificate, device CA, and trust bundle will need to be reconfigured.
-* A new identity service, **aziot-identity-service** was introduced as part of the 1.2 release. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub, like [Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md).
+* A new identity service, **[aziot-identity-service](https://azure.github.io/iot-identity-service/)** was introduced as part of the 1.2 release. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub, like [Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md).
 * The default config file has a new name and location. Formerly `/etc/iotedge/config.yaml`, your device configuration information is now expected to be in `/etc/aziot/config.toml` by default. The `iotedge config import` command can be used to help migrate configuration information from the old location and syntax to the new one.
   * The import command cannot detect or modify access rules to a device's trusted platform module (TPM). If your device uses TPM attestation, you need to manually update the /etc/udev/rules.d/tpmaccess.rules file to give access to the aziottpm service. For more information, see [Give IoT Edge access to the TPM](how-to-auto-provision-simulated-device-linux.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm).
-* The workload API in version 1.2 saves encrypted secrets in a new format. If you upgrade from an older version to version 1.2, the existing master encryption key is imported. The workload API can read secrets saved in the prior format using the imported encryption key. However, the workload API can't write encrypted secrets in the old format. Once a secret is re-encrypted by a module, it is saved in the new format. Secrets encrypted in version 1.2 are unreadable by the same module in version 1.1. If you persist encrypted data to a host-mounted folder or volume, always create a backup copy of the data *before* upgrading to retain the ability to downgrade if necessary.
+* The workload API in the latest version saves encrypted secrets in a new format. If you upgrade from an older version to latest version, the existing master encryption key is imported. The workload API can read secrets saved in the prior format using the imported encryption key. However, the workload API can't write encrypted secrets in the old format. Once a secret is re-encrypted by a module, it is saved in the new format. Secrets encrypted in the latest version are unreadable by the same module in version 1.1. If you persist encrypted data to a host-mounted folder or volume, always create a backup copy of the data *before* upgrading to retain the ability to downgrade if necessary.
+* For backward compatibility when connecting devices that do not support TLS 1.2, you can configure Edge Hub to still accept TLS 1.0 or 1.1 via the [SslProtocols environment variable](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md#edgehub).  Please note that support for [TLS 1.0 and 1.1 in IoT Hub is considered legacy](../iot-hub/iot-hub-tls-support.md) and may also be removed from Edge Hub in future releases.  To avoid future issues, use TLS 1.2 as the only TLS version when connecting to Edge Hub or IoT Hub.
+* The preview for the experimental MQTT broker in Edge Hub 1.2 has ended and is not included in Edge Hub 1.4. We are continuing to refine our plans for an MQTT broker based on feedback received. In the meantime, if you need a standards-compliant MQTT broker on IoT Edge, consider deploying an open-source broker like Mosquitto as an IoT Edge module. 
+* Starting with version 1.2, when a backing image is removed from a container, the container keeps running and it persists across restarts. In 1.1, when a backing image is removed, the container is immediately recreated and the backing image is updated.
 
 Before automating any update processes, validate that it works on test machines.
 
@@ -241,7 +274,7 @@ When you're ready, follow these steps to update IoT Edge on your devices:
    ```bash
    sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
-It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../defender-for-iot/device-builders/overview.md).
+It's recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../defender-for-iot/device-builders/overview.md).
 
 1. Import your old config.yaml file into its new format, and apply the configuration info.
 
@@ -251,22 +284,19 @@ It is recommended to install the micro agent with the Edge agent to enable se
 
 Now that the IoT Edge service running on your devices has been updated, follow the steps in this article to also [Update the runtime containers](#update-the-runtime-containers).
 
-## Special case: Update to a release candidate version
+# [Red Hat Enterprise Linux](#tab/rhel)
 
->[!NOTE]
->If you're using Windows containers or IoT Edge for Linux on Windows, this special case section does not apply.
+IoT Edge version 1.1 isn't supported on Red Hat Enterprise Linux 8.
 
-Azure IoT Edge regularly releases new versions of the IoT Edge service. Before each stable release, there is one or more release candidate (RC) versions. RC versions include all the planned features for the release, but are still going through testing and validation. If you want to test a new feature early, you can install an RC version and provide feedback through GitHub.
+# [Linux on Windows](#tab/linuxonwindows)
 
-Release candidate versions follow the same numbering convention of releases, but have **-rc** plus an incremental number appended to the end. You can see the release candidates in the same list of [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) as the stable versions. For example, find **1.2.0-rc4**, one of the release candidates released before **1.2.0**. You can also see that RC versions are marked with **pre-release** labels.
+If you're using Windows containers or IoT Edge for Linux on Windows, this special case section does not apply.
 
-The IoT Edge agent and hub modules have RC versions that are tagged with the same convention. For example, **mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4**.
+# [Windows](#tab/windows)
 
-As previews, release candidate versions aren't included as the latest version that the regular installers target. Instead, you need to manually target the assets for the RC version that you want to test. For the most part, installing or updating to an RC version is the same as targeting any other specific version of IoT Edge.
+Currently, there is no support for IoT Edge version 1.4 running on Windows devices.
 
-Use the sections in this article to learn how to update an IoT Edge device to a specific version of the security daemon or runtime modules.
-
-If you're installing IoT Edge, rather than upgrading an existing installation, use the steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
+---
 
 ## Next steps
 

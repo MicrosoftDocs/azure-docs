@@ -3,13 +3,13 @@ title: Compare Active Directory to Azure Active Directory
 description: This document compares Active Directory Domain Services (ADDS) to Azure Active Directory (AD). It outlines key concepts in both identity solutions and explains how it's different or similar.
 services: active-directory
 author: martincoetzer
-manager: karenhoran
+manager: rkarlin
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: fundamentals
-ms.date: 12/23/2021
+ms.date: 08/17/2022
 ms.author: martinco
 ---
 
@@ -30,7 +30,7 @@ Most IT administrators are familiar with Active Directory Domain Services concep
 | Admin management|Organizations will use a combination of domains, organizational units, and groups in AD to delegate administrative rights to manage the directory and resources it controls.| Azure AD provides [built-in roles](./active-directory-users-assign-role-azure-portal.md) with its Azure AD role-based access control (Azure AD RBAC) system, with limited support for [creating custom roles](../roles/custom-overview.md) to delegate privileged access to the identity system, the apps, and resources it controls.</br>Managing  roles can be enhanced with [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) to provide just-in-time, time-restricted, or workflow-based access to privileged roles. |
 | Credential management| Credentials in Active Directory are based on passwords, certificate authentication, and smartcard authentication. Passwords are managed using password policies that are based on password length, expiry, and complexity.|Azure AD uses intelligent [password protection](../authentication/concept-password-ban-bad.md) for cloud and on-premises. Protection includes smart lockout plus blocking common and custom password phrases and substitutions. </br>Azure AD significantly boosts security [through Multi-factor authentication](../authentication/concept-mfa-howitworks.md) and [passwordless](../authentication/concept-authentication-passwordless.md) technologies, like FIDO2. </br>Azure AD reduces support costs by providing users a [self-service password reset](../authentication/concept-sspr-howitworks.md) system. |
 | **Apps**|||
-| Infrastructure apps|Active Directory forms the basis for many infrastructure on-premises components, for example, DNS, DHCP, IPSec, WiFi, NPS, and VPN access|In a new cloud world, Azure AD, is the new control plane for accessing apps versus relying on networking controls. When users authenticate[, Conditional access (CA)](../conditional-access/overview.md), will control which users, will have access to which apps under required conditions.|
+| Infrastructure apps|Active Directory forms the basis for many infrastructure on-premises components, for example, DNS, DHCP, IPSec, WiFi, NPS, and VPN access|In a new cloud world, Azure AD, is the new control plane for accessing apps versus relying on networking controls. When users authenticate, [Conditional access (CA)](../conditional-access/overview.md) controls which users have access to which apps under required conditions.|
 | Traditional and legacy apps| Most on-premises apps use LDAP, Windows-Integrated Authentication (NTLM and Kerberos), or Header-based authentication to control access to users.| Azure AD can provide access to these types of on-premises apps using [Azure AD application proxy](../app-proxy/application-proxy.md) agents running on-premises. Using this method Azure AD can authenticate Active Directory users on-premises using Kerberos while you migrate or need to coexist with legacy apps. |
 | SaaS apps|Active Directory doesn't support SaaS apps natively and requires federation system, such as AD FS.|SaaS apps supporting OAuth2, SAML, and WS-\* authentication can be integrated to use Azure AD for authentication. |
 | Line of business (LOB) apps with modern authentication|Organizations can use AD FS with Active Directory to support LOB apps requiring modern authentication.| LOB apps requiring modern authentication can be configured to use Azure AD for authentication. |

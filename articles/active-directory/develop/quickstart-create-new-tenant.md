@@ -1,6 +1,5 @@
 ---
 title: "Quickstart: Create an Azure Active Directory tenant"
-titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how to create an Azure Active Directory tenant for use in developing applications that use the Microsoft identity platform for authentication and authorization.
 services: active-directory
 author: rwike77

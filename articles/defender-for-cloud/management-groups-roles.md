@@ -14,7 +14,7 @@ For visibility into the security posture of all subscriptions linked to an Azure
 
 ## Organize your subscriptions into management groups
 
-### Introduction to management groups
+### Overview of management groups
 
 Use management groups to efficiently manage access, policies, and reporting on **groups of subscriptions**, as well as effectively manage the entire Azure estate by performing actions on the root management group. You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. 
 

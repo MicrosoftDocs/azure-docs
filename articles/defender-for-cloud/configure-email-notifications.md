@@ -7,7 +7,7 @@ author: bmansheim
 ms.date: 11/09/2021
 ms.custom: mode-other
 ---
-# Configure email notifications for security alerts 
+# Quickstart: Configure email notifications for security alerts 
 
 Security alerts need to reach the right people in your organization. By default, Microsoft Defender for Cloud emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
 
@@ -48,7 +48,7 @@ You can send email notifications to individuals or to all users with specific Az
 1. To apply the security contact information to your subscription, select **Save**.
 
 ## Customize the alerts email notifications through the API
-You can also manage your email notifications through the supplied REST API. For full details see the [SecurityContacts API documentation](/rest/api/securitycenter/securitycontacts).
+You can also manage your email notifications through the supplied REST API. For full details see the [SecurityContacts API documentation](/rest/api/defenderforcloud/security-contacts).
 
 This is an example request body for the PUT request when creating a security contact configuration:
 

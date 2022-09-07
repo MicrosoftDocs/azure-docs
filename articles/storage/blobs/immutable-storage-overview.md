@@ -3,12 +3,12 @@ title: Overview of immutable storage for blob data
 titleSuffix: Azure Storage
 description: Azure Storage offers WORM (Write Once, Read Many) support for Blob Storage that enables users to store data in a non-erasable, non-modifiable state. Time-based retention policies store blob data in a WORM state for a specified interval, while legal holds remain in effect until explicitly cleared.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/01/2021
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ---
 
@@ -112,6 +112,9 @@ Immutability policies are supported for both new and existing storage accounts. 
 | Legal hold | Version-level scope | General-purpose v2<br />Premium block blob | No |
 | Legal hold | Container-level scope | General-purpose v2<br />Premium block blob<br />General-purpose v1 (legacy)<sup>1</sup><br> Blob storage (legacy) | Yes |
 
+> [!NOTE]
+> Immutability policies are not supported in accounts that have the Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
+
 <sup>1</sup> Microsoft recommends upgrading general-purpose v1 accounts to general-purpose v2 so that you can take advantage of more features. For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
 
 ### Access tiers
@@ -159,16 +162,7 @@ If you fail to pay your bill and your account has an active time-based retention
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
-
-<sup>2</sup> Feature is supported at the preview level.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Next steps
 

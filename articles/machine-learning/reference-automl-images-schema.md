@@ -38,7 +38,7 @@ Azure Machine Learning AutoML for Images requires input image data to be prepare
 
 | Key       | Description  | Example |
 | -------- |----------|-----|
-| `image_url` | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_url` | Image location in AzureML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
 | `image_details` | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
 | `format`  | Image type (all the available Image formats in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif","bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
 | `width` | Width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
@@ -84,7 +84,7 @@ The following is an example of input data format/schema in each JSON Line for im
 
 | Key       | Description  | Example |
 | -------- |----------|-----|
-| `image_url` | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_url` | Image location in AzureML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
 | `image_details` | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
 | `format`  | Image type (all the Image formats available in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
 | `width` | Width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
@@ -149,7 +149,7 @@ Here,
 
 | Key       | Description  | Example |
 | -------- |----------|-----|
-| `image_url` | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_url` | Image location in AzureML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
 | `image_details` | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
 | `format`  | Image type (all the Image formats available in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported. But for YOLO only image formats allowed by [opencv](https://pypi.org/project/opencv-python/4.3.0.36/) are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
 | `width` | Width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
@@ -202,7 +202,7 @@ The following is an example JSONL file for instance segmentation.
 
 | Key       | Description  | Example |
 | -------- |----------|-----|
-| `image_url` | Image location in AML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_url` | Image location in AzureML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
 | `image_details` | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
 | `format`  | Image type<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
 | `width` | Width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|

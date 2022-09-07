@@ -4,7 +4,7 @@ description: Learn what the basic info in the sign-in logs is about.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/05/2022
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -94,7 +94,7 @@ This attribute describes the type of cross-tenant access used by the actor to ac
 - `b2bDirectConnect` - A cross tenant sign-in performed by a B2B.
 - `microsoftSupport`- A cross tenant sign-in performed by a Microsoft support agent in a Microsoft customer tenant.
 - `serviceProvider` - A cross-tenant sign-in performed by a Cloud Service Provider (CSP) or similar admin on behalf of that CSP's customer in a tenant
-- `unknownFutureValue` - A sentinel value used by MS Graph to help clients handle changes in enum lists. For more information, see [Best practices for working with Microsoft Graph](https://docs.microsoft.com/graph/best-practices-concept).
+- `unknownFutureValue` - A sentinel value used by MS Graph to help clients handle changes in enum lists. For more information, see [Best practices for working with Microsoft Graph](/graph/best-practices-concept).
 
 If the sign-in did not the pass the boundaries of a tenant, the value is `none`.
 

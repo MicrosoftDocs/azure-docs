@@ -1,13 +1,14 @@
 ---
 title: Move an Azure Cosmos DB account to another region
 description: Learn how to move an Azure Cosmos DB account to another region.
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 03/15/2022
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Move an Azure Cosmos DB account to another region

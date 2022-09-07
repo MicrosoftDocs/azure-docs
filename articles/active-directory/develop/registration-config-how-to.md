@@ -1,6 +1,5 @@
 ---
 title: Get the endpoints for an Azure AD app registration
-titleSuffix: Microsoft identity platform
 description: How to find the authentication endpoints for a custom application you're developing or registering with Azure AD.
 services: active-directory
 author: rwike77

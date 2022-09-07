@@ -31,7 +31,7 @@ This how-to is a prerequisite for the [how to retrain designer models](how-to-re
 
 ## Transform a dataset
 
-In this section, you learn how to import the sample dataset and split the data into US and non-US datasets. For more information on how to import your own data into the designer, see [how to import data](how-to-designer-import-data.md).
+In this section, you learn how to import the sample dataset and split the data into US and non-US datasets. For more information on how to import your own data into the designer, see [how to import data](v1/how-to-designer-import-data.md).
 
 ### Import data
 
@@ -103,7 +103,7 @@ Now that your pipeline is set up to split the data, you need to specify where to
     **File format**: csv
 
     > [!NOTE]
-    > This article assumes that you have access to a datastore registered to the current Azure Machine Learning workspace. For instructions on how to setup a datastore, see [Connect to Azure storage services](how-to-connect-data-ui.md#create-datastores).
+    > This article assumes that you have access to a datastore registered to the current Azure Machine Learning workspace. For instructions on how to setup a datastore, see [Connect to Azure storage services](v1/how-to-connect-data-ui.md#create-datastores).
 
     If you don't have a datastore, you can create one now. For example purposes, this article will save the datasets to the default blob storage account associated with the workspace. It will save the datasets into the `azureml` container in a new folder called `data`.
 
@@ -127,15 +127,15 @@ Now that your pipeline is set up to split the data, you need to specify where to
     
     ![Screenshot showing how to configure the Export Data components](media/how-to-designer-transform-data/us-income-export-data.png).
 
-### Submit the run
+### Submit the job
 
-Now that your pipeline is setup to split and export the data, submit a pipeline run.
+Now that your pipeline is setup to split and export the data, submit a pipeline job.
 
 1. At the top of the canvas, select **Submit**.
 
-1. In the **Set up pipeline run** dialog, select **Create new** to create an experiment.
+1. In the **Set up pipeline job** dialog, select **Create new** to create an experiment.
 
-    Experiments logically group together related pipeline runs. If you run this pipeline in the future, you should use the same experiment for logging and tracking purposes.
+    Experiments logically group together related pipeline jobs. If you run this pipeline in the future, you should use the same experiment for logging and tracking purposes.
 
 1. Provide a descriptive experiment name like "split-census-data".
 
