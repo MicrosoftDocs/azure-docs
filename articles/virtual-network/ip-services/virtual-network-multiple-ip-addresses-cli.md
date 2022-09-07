@@ -133,6 +133,7 @@ You'll use [az network nic create](/cli/azure/network/nic#az-network-nic-create)
   az network nic create \
     --resource-group myResourceGroup \
     --name myNIC1 \
+    --private-ip-address-version IPv4 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
     --network-security-group myNSG \
