@@ -12,12 +12,8 @@ items:
     href: deployment-planning.md
   - name: Resource Hierarchy
     href: resource-hierarchy.md
-  - name: Scale and performance targets
-    href: performance-targets.md
   - name: Understanding billing
     href: billing.md
-  - name: Permissions and data security
-    href: data-security.md
 - name: How-To
   items: 
   - name: Deploy
@@ -26,36 +22,16 @@ items:
       href: resource-create.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
-  - name: Network
-    items:
-    - name: Configure agent proxy and firewall settings
-      href: network-firewall-configure.md
   - name: Manage
     items:
       - name: Register or unregister an agent
-        href: agent-manage.md
-      - name: Manage endpoints
-        href: endpoints-manage.md
+        href: agent-register.md
       - name: Manage projects
         href: projects-manage.md
-      - name: Manage job definitions
-        href: job-definitions-manage.md
-      - name: Manage job runs
-        href: job-runs-manage.md
-  - name: Monitor
-    items:
-      - name: Monitor job definitions
-        href: job-definitions-monitor.md
   - name: Decommission
     items:
-      - name: Delete the Mover resource
-        href: resource-delete.md
       - name: Unregister an agent
-        href: agent-manage.md
-  - name: Troubleshoot
-    items:
-      - name: File copy errors
-        href: copy-errors.md
+        href: agent-register.md
 - name: Tutorials
   items:
     - name: InstallStorage Mover modules for PowerShell
