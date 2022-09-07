@@ -5,7 +5,7 @@
  author: asudbring
  ms.service: virtual-network
  ms.topic: include
- ms.date: 09/05/2022
+ ms.date: 09/06/2022
  ms.author: allensu
  ms.custom: include file
 ---
@@ -355,13 +355,14 @@ ip route add default via 10.1.0.1 dev eth2 table custom
   <summary>Expand</summary>
 
 1. Open a terminal window.
-2. Make sure you're the root user. If you are not, enter the following command:
+
+2. Ensure you're the root user. If you aren't, enter the following command:
 
     ```bash
     sudo -i
     ```
 
-3. Enter your password and follow instructions as prompted. Once you're the root user, navigate to the network scripts folder with the following command:
+3. Enter your password and follow instructions as prompted. Once you're the root user, go to the network scripts folder with the following command:
 
     ```bash
     cd /etc/sysconfig/network-scripts
@@ -373,7 +374,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
     ls ifcfg-*
     ```
 
-    You should see *ifcfg-eth0* as one of the files.
+    You should see **ifcfg-eth0** as one of the files.
 
 5. To add an IP address, create a configuration file for it as shown below. Note that one file must be created for each IP configuration.
 
@@ -387,13 +388,13 @@ ip route add default via 10.1.0.1 dev eth2 table custom
     vi ifcfg-eth0:0
     ```
 
-7. Add content to the file, *eth0:0* in this case, with the following command. Be sure to update information based on your IP address.
+7. Add content to the file, **eth0:0** in this case, with the following command. Replace **`10.1.0.5`** with your additional private IP address and subnet mask.
 
     ```bash
     DEVICE=eth0:0
     BOOTPROTO=static
     ONBOOT=yes
-    IPADDR=192.168.101.101
+    IPADDR=10.1.0.5
     NETMASK=255.255.255.0
     ```
 
@@ -403,18 +404,60 @@ ip route add default via 10.1.0.1 dev eth2 table custom
     :wq
     ```
 
+9. To add additional private IP addresses to the network configuration, create additional config files and add the IP information into the file.
+
+    ```bash
+    touch ifcfg-eth0:1
+    ```
+
+        
+    ```bash
+    vi ifcfg-eth0:1
+    ```
+
+    ```bash
+    DEVICE=eth0:1
+    BOOTPROTO=static
+    ONBOOT=yes
+    IPADDR=10.1.0.6
+    NETMASK=255.255.255.0
+    ```
+
+    ```bash
+    :wq
+    ```
+
 9. Restart the network services and make sure the changes are successful by running the following commands:
 
     ```bash
-    /etc/init.d/network restart
+    systemctl restart NetworkManager.service
     ifconfig
     ```
 
-    You should see the IP address you added, *eth0:0*, in the list returned.
+    You should see the IP address or addresses you added in the list returned.
+
+    ```bash
+    eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.1.0.4  netmask 255.255.255.0  broadcast 10.1.0.255
+        inet6 fe80::6245:bdff:fe7d:704a  prefixlen 64  scopeid 0x20<link>
+        ether 60:45:bd:7d:70:4a  txqueuelen 1000  (Ethernet)
+        RX packets 858  bytes 244215 (238.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1021  bytes 262077 (255.9 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+    eth0:0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.1.0.5  netmask 255.255.255.0  broadcast 10.1.0.255
+        ether 60:45:bd:7d:70:4a  txqueuelen 1000  (Ethernet)
+
+    eth0:1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.1.0.6  netmask 255.255.255.0  broadcast 10.1.0.255
+        ether 60:45:bd:7d:70:4a  txqueuelen 1000  (Ethernet)
+    ```
 
 #### Validation (Red Hat, CentOS, and others)
 
-To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
+To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated with it, use the following command:
 
 ```bash
 ping -I 10.0.0.5 outlook.com
@@ -422,18 +465,21 @@ ping -I 10.0.0.5 outlook.com
 >[!NOTE]
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
-For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
+For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
 
-ip rule add from 10.0.0.5 lookup custom
-ip route add default via 10.0.0.1 dev eth2 table custom
+ip rule add from 10.1.0.5 lookup custom
+ip route add default via 10.1.0.1 dev eth2 table custom
 ```
 
-- Be sure to replace:
+- Ensure to replace:
+  
   - **10.0.0.5** with the private IP address that has a public IP address associated to it
+  
   - **10.0.0.1** to your default gateway
+  
   - **eth2** to the name of your secondary NIC
 
 
