@@ -92,7 +92,7 @@ To migrate a non-zonal managed disk to zonal:
 
 ##### Migrate your data to ZRS managed disks
 
->![IMPORTANT]
+>[!IMPORTANT]
 > Zone-redundant storage (ZRS) for managed disks has some restrictions. For more information see [Limitations](../virtual-machines/disks-deploy-zrs.md?tabs=portal#limitations). 
 
 1. Create a ZRS managed disk from the source disk snapshot by using the following Azure CLI snippet: 
