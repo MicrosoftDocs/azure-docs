@@ -46,7 +46,7 @@ To use RDP Shortpath for managed networks, you must enable a UDP listener on you
 
 The following diagram gives a high-level overview of the RDP Shortpath network connection:
 
-:::image type="content" source="media/rdp-shortpath-connections.svg" alt-text="Diagram of RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-connections.svg":::
+:::image type="content" source="media/rdp-shortpath-connections.svg" alt-text="Diagram of RDP Shortpath Network Connections." lightbox="media/rdp-shortpath-connections.svg":::
 
 ### Connection sequence
 

@@ -139,11 +139,11 @@ To make sure connections are using RDP Shortpath, you can check the connection i
 
 1. Open the *Connection Information* dialog by going to the **Connection** tool bar on the top of the screen and select the signal strength icon, as shown in the following screenshot:
 
-   :::image type="content" source="media/rdp-shortpath-connection-bar.png" alt-text="Image of Remote Desktop Connection Bar of remote desktop client":::
+   :::image type="content" source="media/rdp-shortpath-connection-bar.png" alt-text="Screenshot of Remote Desktop Connection Bar of Remote Desktop client.":::
 
 1. You can verify in the output that UDP is enabled, as shown in the following screenshot:
 
-   :::image type="content" source="media/rdp-shortpath-connection-info.png" alt-text="Image of Remote Desktop Connection Info dialog":::
+   :::image type="content" source="media/rdp-shortpath-connection-info.png" alt-text="Screenshot of Remote Desktop Connection Info dialog.":::
 
 ### Event Viewer
 
@@ -221,7 +221,7 @@ To disable RDP Shortpath for public networks on your session hosts, you can set 
 > [!CAUTION]
 > This will also disable RDP Shortpath for managed networks. 
 
-Alternatively, if you want disable RDP Shortpath for public networks only, you'll need to block access to the STUN endpoints on a firewall or Network Security Group. The IP addresses for the STUN endpoints can be found in the table for [Session host virtual network](rdp-shortpath.md#session-host-virtual-network).
+Alternatively, if you want to disable RDP Shortpath for public networks only, you'll need to block access to the STUN endpoints on a firewall or Network Security Group. The IP addresses for the STUN endpoints can be found in the table for [Session host virtual network](rdp-shortpath.md#session-host-virtual-network).
 
 1. Depending on whether you want to configure Group Policy centrally from your domain, or locally for each session host:
    
