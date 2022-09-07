@@ -51,8 +51,7 @@ There are several moving parts across GCP and Azure, which are required to be co
     > [!NOTE]
     > 1. To confirm that the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
     > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your GCP account.
-
-    1. Return to Permissions Management, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
+    > 1. Return to the Permissions Management window, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
 
 ### 2. Set up a GCP OIDC project.
 
