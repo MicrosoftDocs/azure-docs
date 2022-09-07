@@ -1134,17 +1134,19 @@ items:
     - name: Overview
       displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
       href: snapshot-debugger/snapshot-debugger.md
-    - name: Enable Snapshot Debugger for an App Service
-      href: snapshot-debugger/snapshot-debugger-app-service.md
-    - name: Enable Snapshot Debugger for a Function App
-      href: snapshot-debugger/snapshot-debugger-function-app.md
-    - name: Enable Snapshot Debugger for other environments
-      href: snapshot-debugger/snapshot-debugger-vm.md
+    - name: Enable Snapshot Debugger
+      items:        
+      - name: Azure App Service
+        href: snapshot-debugger/snapshot-debugger-app-service.md
+      - name: Azure Function App
+        href: snapshot-debugger/snapshot-debugger-function-app.md
+      - name: Other environments
+        href: snapshot-debugger/snapshot-debugger-vm.md
     - name: Upgrade Snapshot Debugger
       href: snapshot-debugger/snapshot-debugger-upgrade.md
     - name: Configure BYOS (Bring Your Own Storage)
       href: profiler/profiler-bring-your-own-storage.md
-    - name: Snapshot Debugger troubleshooting
+    - name: Troubleshooting
       displayName: troubleshoot, troubleshooting
       href: snapshot-debugger/snapshot-debugger-troubleshoot.md
   - name: Change Analysis
