@@ -37,6 +37,10 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ##### Form Recognizer service updates
 
+* [**prebuilt-read**](concept-read.md). Read OCR model is now also available in Form Recognizer with paragraphs and language detection as the two new features. Form Recognizer Read targets advanced document scenarios aligned with the broader document intelligence capabilities in Form Recognizer.
+
+* [**prebuilt-layout**](concept-layout.md). The Layout model extracts paragraphs and whether the extracted text is a paragraph, title, section heading, footnote, page header, page footer, or page number.
+
 * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields will now resolve to the existing fields TotalTax and Line/Tax respectively.
 
 * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
@@ -47,11 +51,14 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * **AI quality improvements**
 
-  * [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
+  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices as well as improved processing of digital PDF documents.
 
-  * [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables, and improved recognition of long spanning cells. As well improved paragraph grouping detection and logical identification of headers and titles.
+  * [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables, and improved recognition of long spanning cells.
 
   * [**prebuilt-document**](concept-general-document.md). Improved value and check box detection.
+
+  * [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
+
 
 ## June 2022
 
