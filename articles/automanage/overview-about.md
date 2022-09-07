@@ -87,3 +87,12 @@ For the complete list of participating Azure services, as well as their supporte
 - [Automanage for Windows Server](automanage-windows-server.md)
 
  We will automatically onboard you to these participating services when you use the Best Practices Configuration Profiles. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
+
+ ## Next steps
+
+In this article, you learned that Automanage for machines provides a means for which you can eliminate the need for you to know of, onboard to, and configure best practices Azure services. In addition, if a machine you onboarded to Automanage for virtual machines drifts from the configuration profile, we will automatically bring it back into compliance.
+
+Try enabling Automanage for Azure virtual machines or Arc-enabled servers in the Azure portal.
+
+> [!div class="nextstepaction"]
+> [Enable Automanage for virtual machines in the Azure portal](virtual-machines-custom-profile.md)
