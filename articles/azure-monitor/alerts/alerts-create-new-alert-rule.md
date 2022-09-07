@@ -185,14 +185,24 @@ And then defining these elements for the resulting alert actions using:
 
     ### [Resource Health alert](#tab/resource-health)
 
-     1. In the **Conditions** pane, select Select values for each of these fields
+     1. In the **Conditions** pane, select Select values for each of these fields:
 
         |Field |Description |
         |---------|---------|
         |Event status| Select the type(s) of Resource Health events this alert will monitor. Values are: **Active**, **In Progress**, **Resolved**, and **Updated**.|
         |Current resource status|Select the current resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, and **Unavailable**.|
         |Previous resource status|Select the previous resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
-        |Reason type|Select the the cause(s) of the Resource Health events this alert will monitor. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.| 
+        |Reason type|Select the the cause(s) of the Resource Health events this alert will monitor. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.|  
+    ### [Service Health alert](#tab/service-health)
+   
+ 1. In the **Conditions** pane, select Select values for each of these fields:
+
+        |Field |Description |
+        |---------|---------|
+        |Event status| Select the type(s) of Resource Health events this alert will monitor. Values are: **Active**, **In Progress**, **Resolved**, and **Updated**.|
+        |Current resource status|Select the current resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, and **Unavailable**.|
+        |Previous resource status|Select the previous resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
+        |Reason type|Select the the cause(s) of the Resource Health events this alert will monitor. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.|
 
     ---
 
@@ -265,6 +275,11 @@ And then defining these elements for the resulting alert actions using:
 
      1. Enter values for the **Alert rule name** and the **Alert rule description**.
      1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    ### [Service Health alert](#tab/service-health)
+    
+    1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+
     ---
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
@@ -302,7 +317,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 
     ### [Activity log alert](#tab/activity-log)
 
-    To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
+    To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the activity log alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
 
     To create a new activity log alert rule, use the following commands:
      - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
@@ -311,6 +326,20 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 
     ### [Resource Health alert](#tab/resource-health)
  
+    To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
+
+    To create a new activity log alert rule, use the following commands:
+     - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
+     - [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
+     - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
+    ### [Service Health alert](#tab/service-health)
+
+    To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
+
+    To create a new activity log alert rule, use the following commands:
+     - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource using the Service Health category.
+     - [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
+     - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
    ---
 
 ## Create a new alert rule using PowerShell
