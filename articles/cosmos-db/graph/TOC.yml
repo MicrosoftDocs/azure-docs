@@ -30,66 +30,54 @@
   items:
     - name: Azure CLI
       items:
-        - name: Gremlin API
-          items:
-            - name: Overview
-              href: cli-samples.md
-            - name: Create account, database and graph
-              href: ../scripts/cli/gremlin/create.md
-            - name: Create serverless
-              href: ../scripts/cli/gremlin/serverless.md
-            - name: Create with autoscale
-              href: ../scripts/cli/gremlin/autoscale.md
-            - name: Perform throughput operations
-              href: ../scripts/cli/gremlin/throughput.md
-            - name: Lock resources from deletion
-              href: ../scripts/cli/gremlin/lock.md
-        - name: Common
-          items:
-            - name: Overview
-              href: ../common-cli-samples.md
-            - name: Add or fail over regions
-              href: ../scripts/cli/common/regions.md
-            - name: Perform account key operations
-              href: ../scripts/cli/common/keys.md
-            - name: Secure with IP firewall
-              href: ../scripts/cli/common/ipfirewall.md
-            - name: Secure new account with service endpoints
-              href: ../scripts/cli/common/service-endpoints.md
-            - name: Secure existing account with service endpoints
-              href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
-            - name: Find existing free-tier accounts
-              href: ../scripts/cli/common/free-tier.md
+        - name: Overview
+          href: cli-samples.md
+        - name: Create account, database and graph
+          href: ../scripts/cli/gremlin/create.md
+        - name: Create serverless
+          href: ../scripts/cli/gremlin/serverless.md
+        - name: Create with autoscale
+          href: ../scripts/cli/gremlin/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/cli/gremlin/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/cli/gremlin/lock.md
+        - name: Add or fail over regions
+          href: ../scripts/cli/common/regions.md
+        - name: Perform account key operations
+          href: ../scripts/cli/common/keys.md
+        - name: Secure with IP firewall
+          href: ../scripts/cli/common/ipfirewall.md
+        - name: Secure new account with service endpoints
+          href: ../scripts/cli/common/service-endpoints.md
+        - name: Secure existing account with service endpoints
+          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+        - name: Find existing free-tier accounts
+          href: ../scripts/cli/common/free-tier.md
     - name: Azure PowerShell
       items:
-        - name: Gremlin API
-          items:
-            - name: Overview
-              href: powershell-samples.md
-            - name: Create account, database and graph
-              href: ../scripts/powershell/gremlin/create.md
-            - name: Create with autoscale
-              href: ../scripts/powershell/gremlin/autoscale.md
-            - name: Perform throughput operations
-              href: ../scripts/powershell/gremlin/throughput.md
-            - name: Lock resources from deletion
-              href: ../scripts/powershell/gremlin/lock.md
-            - name: List and get databases and graphs
-              href: ../scripts/powershell/gremlin/list-get.md
-        - name: Common
-          items:
-            - name: Overview
-              href: ../common-powershell-samples.md
-            - name: Account keys or connection strings
-              href: ../scripts/powershell/common/keys-connection-strings.md
-            - name: Change failover priority or trigger failover
-              href: ../scripts/powershell/common/failover-priority-update.md
-            - name: Create an account with IP Firewall
-              href: ../scripts/powershell/common/firewall-create.md
-            - name: Update account
-              href: ../scripts/powershell/common/account-update.md
-            - name: Update an account's regions
-              href: ../scripts/powershell/common/update-region.md
+        - name: Overview
+          href: powershell-samples.md
+        - name: Create account, database and graph
+          href: ../scripts/powershell/gremlin/create.md
+        - name: Create with autoscale
+          href: ../scripts/powershell/gremlin/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/powershell/gremlin/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/powershell/gremlin/lock.md
+        - name: List and get databases and graphs
+          href: ../scripts/powershell/gremlin/list-get.md
+        - name: Account keys or connection strings
+          href: ../scripts/powershell/common/keys-connection-strings.md
+        - name: Change failover priority or trigger failover
+          href: ../scripts/powershell/common/failover-priority-update.md
+        - name: Create an account with IP Firewall
+          href: ../scripts/powershell/common/firewall-create.md
+        - name: Update account
+          href: ../scripts/powershell/common/account-update.md
+        - name: Update an account's regions
+          href: ../scripts/powershell/common/update-region.md
     - name: Manage using Bicep
       href: manage-with-bicep.md
     - name: Manage using Resource Manager templates
