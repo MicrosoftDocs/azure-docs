@@ -46,29 +46,13 @@ As part of compliance requirements in various industries, vendors are expected t
 
 ![Play action](./PlayAction.png)
 
-## What's coming up next for Play action
-
-### Text-to-Speech
-
-Microsoft uses deep neural networks to overcome the limits of traditional speech synthesis with regards to stress and intonation in spoken language. Prosody prediction and voice synthesis occur simultaneously, resulting in a more fluid and natural sounding output. You can use these neural voices to make interactions with your chatbots and voice assistants more natural and engaging. There are over 100 pre-built voices to choose from. [Learn more about Azure Text-to-Speech voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support?tabs=speechtotext#prebuilt-neural-voices).
-
-### Fine tuning Text-to-Speech output with SSML
-Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. With SSML developers can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume, and attribute multiple voices to a single document. With SSML you can also define your own lexicons or switch to different speaking styles. For scenarios where you wish to provide [multilingual voice](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/azure-text-to-speech-updates-at-build-2021/ba-p/2382981) outputs, you can adjust the spoken languages via SSML. To fine-tune the voice output for your scenario see our documentation [Improve synthesis with Speech Synthesis Markup Language](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-synthesis-markup?tabs=csharp).
-
-## Benefits of Text-to-Speech and Text-to-Speech SSML
-
-### Improve customer interaction
-
-You can enhance your play action to play more fluid and natural sounding speech that provides a more approachable experience to your customers. This can be enabled by integrating your Azure Cognitive Services with Azure Communication Services. 
-
-### Personalization
-
-With the integration of Azure Cognitive Services and Azure Communication Services you can support a wide variety of languages and voices, based on the configuration you have enabled on your Azure Cognitive Services resource. You can enable your participants to select the language and voice of the audio they hear, providing a more personalized and inclusive experience.
-
 ## Known Issues/Limitations
 1. Play action is not enabled to work with Teams Interoperability.
 2. Play will not support loop for targeted playing. 
 
+## What's coming up next for Play action
+
+As we invest more into this functionality, we recommend developers sign up to our TAP program that allows you to get early access to the newest feature releases. Over the coming months the play action will add in new capabilities that leverage our integration with Azure Cognitive Services to provide AI capabilities such as Text-to-Speech and fine tuning Text-to-Speech with SSML. With these you can improve customer interactions and create more personalized messages. 
 
 ## Next Steps
 Check out the [Play action quickstart](../../quickstarts/voice-video-calling/Play-Action.md) to learn more.
