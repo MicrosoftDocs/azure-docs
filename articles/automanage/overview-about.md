@@ -4,7 +4,7 @@ description: Learn about Azure Automanage for virtual machines.
 author: mmccrory
 ms.service: automanage
 ms.workload: infrastructure
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 9/07/2022
 ms.author: memccror
 ms.custom: overview
