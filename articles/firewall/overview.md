@@ -45,10 +45,6 @@ To learn about Firewall Premium features, see [Azure Firewall Premium features](
 > Azure Firewall Basic is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Firewall Basic is a managed, stateful, highly available, fixed-scale with limited throughput cloud-native network 
-security service. It supports 99.99% SLA, Threat intelligence (Alert mode), Availability Zones, application rules 
-filtering (HTTP/s), FQDN tags, 5-tuple network rule filtering, service tags, central logging, and analytics.
-
 Azure Firewall Basic is intended mainly for small and medium size companies who need to secure their cloud 
 environment. It provides the essential protection they need at an affordable price point.
 
