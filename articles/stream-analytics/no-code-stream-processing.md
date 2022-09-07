@@ -120,7 +120,7 @@ To configure SQL Database as reference data input, select **Reference SQL Databa
 
 Streaming data transformations are inherently different from batch data transformations. Almost all streaming data has a time component, which affects any data-preparation tasks involved.
 
-To add a streaming data transformation to your job, select the transformation symbol under **Operations** section on the ribbon for that transformation. The respective tile will be dropped in the diagram view. After you select it, you'll see the side pane for that transformation to configure it.
+To add a streaming data transformation to your job, select the transformation symbol under the **Operations** section on the ribbon for that transformation. The respective tile will be dropped in the diagram view. After you select it, you'll see the side pane for that transformation to configure it.
 
 :::image type="content" source="./media/no-code-stream-processing/transformation-operations.png" alt-text="Screenshot that shows the transformation operations." lightbox="./media/no-code-stream-processing/transformation-operations.png" :::
 
@@ -244,7 +244,7 @@ When you're connecting to Azure Cosmos DB, if you select **Managed Identity** as
 
 Managed identities eliminate the limitations of user-based authentication methods. These limitations include the need to reauthenticate because of password changes or user token expirations that occur every 90 days. 
 
-![Screenshot that shows selecting managed identity as the authentication method for Cosmos DB.](./media/no-code-stream-processing/msi-cosmosdb-nocode.png)
+![Screenshot that shows selecting managed identity as the authentication method for Azure Cosmos DB.](./media/no-code-stream-processing/msi-cosmosdb-nocode.png)
 
 ### Azure SQL Database
 
