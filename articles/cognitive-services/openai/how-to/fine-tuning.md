@@ -23,18 +23,18 @@ The Azure OpenAI Service lets you tailor our models to your personal datasets us
 
 ::: zone pivot="programming-language-studio"
 
-[!INCLUDE [Studio fine-tuning](includes/fine-tuning-studio.md)]
+[!INCLUDE [Studio fine-tuning](../includes/fine-tuning-studio.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python SDK fine-tuning](includes/fine-tuning-python.md)]
+[!INCLUDE [Python SDK fine-tuning](../includes/fine-tuning-python.md)]
 
 ::: zone-end
 
 ::: zone pivot="rest-api"
 
-[!INCLUDE [REST API fine-tuning](includes/fine-tuning-rest.md)]
+[!INCLUDE [REST API fine-tuning](../includes/fine-tuning-rest.md)]
 
 ::: zone-end
