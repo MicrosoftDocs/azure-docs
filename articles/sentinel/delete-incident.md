@@ -70,15 +70,15 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ## Notes
 
-- The incident delete operation is not reversible! After you delete an incident, the only reference to it will be the audit data in the *SecurityIncident* table in the Logs screen. (See the [table's schema documentation in Log Analytics](/azure/azure-monitor/reference/tables/securityincident)). The *Status* field in that table will be updated to "Deleted" for that incident.
+- To delete an incident, you must have the [**Microsoft Sentinel Contributor**](roles.md) role.
+
+- Deleting an incident is not reversible! After you delete an incident, the only reference to it will be the audit data in the *SecurityIncident* table in the Logs screen. (See the [table's schema documentation in Log Analytics](/azure/azure-monitor/reference/tables/securityincident)). The *Status* field in that table will be updated to "Deleted" for that incident.
 
     > [!NOTE]
     >
     > Due to the 64 KB limit of the record size in the *SecurityIncident* table, incident comments may be truncated (beginning from the earliest) if the limit is exceeded.
 
-- This operation requires a [Microsoft Sentinel Contributor](roles.md) role.
-
-- This operation is not available for [incidents imported from and synchronized with Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md).
+- You can't delete incidents from within Microsoft Sentinel that were [imported from and synchronized with Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md).
 
 - If an alert [related to a deleted incident](relate-alerts-to-incidents.md) gets updated, or if a new alert is grouped under a deleted incident, a new incident will be created to replace the deleted one.
 
