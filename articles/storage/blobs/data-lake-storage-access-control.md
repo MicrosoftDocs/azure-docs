@@ -5,7 +5,7 @@ author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 09/07/2021
 ms.author: jammart
 ms.reviewer: jamesbak
 ms.devlang: python
@@ -236,17 +236,17 @@ When a new file or directory is created under an existing directory, the default
 
 ### umask
 
-When creating a file or directory, umask is used to modify how the default ACLs are set on the child item. umask is a 9-bit value on parent directories that contains an RWX value for **owning user**, **owning group**, and **other**.
+When creating a default ACL, the umask is applied to the access ACL to determine the initial permissions of a default ACL. If a default ACL is defined on the parent directory, the umask is effectively ignored and the default ACL of the parent directory is used to define these initial values instead.  
+
+The umask is a 9-bit value on parent directories that contains an RWX value for **owning user**, **owning group**, and **other**.
 
 The umask for Azure Data Lake Storage Gen2 a constant value that is set to 007. This value translates to:
 
 | umask component     | Numeric form | Short form | Meaning |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   `---`      | For owning user, copy the parent's default ACL to the child's access ACL |
-| umask.owning_group  |    0         |   `---`      | For owning group, copy the parent's default ACL to the child's access ACL |
+| umask.owning_user   |    0         |   `---`      | For owning user, copy the parent's access ACL to the child's default ACL |
+| umask.owning_group  |    0         |   `---`      | For owning group, copy the parent's access ACL to the child's default ACL |
 | umask.other         |    7         |   `RWX`      | For other, remove all permissions on the child's access ACL |
-
-The umask value used by Azure Data Lake Storage Gen2 effectively means that the value for **other** is never transmitted by default on new children, unless a default ACL is defined on the parent directory. In that case, the umask is effectively ignored and the permissions defined by the default ACL are applied to the child item.
 
 The following pseudocode shows how the umask is applied when creating the ACLs for a child item.
 
