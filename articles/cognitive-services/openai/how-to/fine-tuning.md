@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 06/30/2022
 author: ChrisHMSFT
 ms.author: chrhoder
+zone_pivot_groups: openai-fine-tuning
 keywords: 
 
 ---
@@ -22,18 +23,18 @@ The Azure OpenAI Service lets you tailor our models to your personal datasets us
 
 ::: zone pivot="programming-language-studio"
 
-[!INCLUDE [Studio](includes/fine-tuning-studio.md)]
+[!INCLUDE [Studio fine-tuning](includes/fine-tuning-studio.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python](includes/fine-tuning-python.md)]
+[!INCLUDE [Python SDK fine-tuning](includes/fine-tuning-python.md)]
 
 ::: zone-end
 
 ::: zone pivot="rest-api"
 
-[!INCLUDE [REST](includes/fine-tuning-rest.md)]
+[!INCLUDE [REST API fine-tuning](includes/fine-tuning-rest.md)]
 
 ::: zone-end
