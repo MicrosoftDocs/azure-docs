@@ -29,7 +29,8 @@ Before you can enable RDP Shortpath, you'll need to meet the prerequisites. Sele
 > The steps to configure RDP Shortpath for public networks are provided for session hosts and clients in case these defaults have been changed. 
 
 - A client device running the [Remote Desktop client for Windows](user-documentation/connect-windows-7-10.md), version 1.2.3488 or later. Currently, non-Windows clients aren't supported.
-- Internet access for both clients and session hosts. Session hosts require outbound UDP connectivity from your session hosts to the internet. To reduce the number of ports required, you can [limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md). For more information you can use to configure firewalls and Network Security Group, see [Network configurations for RDP Shortpath](rdp-shortpath.md#network-configuration). 
+- Internet access for both clients and session hosts. Session hosts require outbound UDP connectivity from your session hosts to the internet. To reduce the number of ports required, you can [limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md). For more information you can use to configure firewalls and Network Security Group, see [Network configurations for RDP Shortpath](rdp-shortpath.md#network-configuration).
+- Check your client can connect to the STUN endpoints and verify that basic UDP functionality works by running the `Test-Shortpath.ps1` PowerShell script. For steps of how to do this, see [Verifying STUN server connectivity and NAT type](troubleshoot-rdp-shortpath.md#verifying-stun-server-connectivity-and-nat-type).
 
 ---
 

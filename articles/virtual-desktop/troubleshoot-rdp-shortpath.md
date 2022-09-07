@@ -12,7 +12,7 @@ If you're having issues when using RDP Shortpath for public networks, use the in
 
 ### Verifying STUN server connectivity and NAT type
 
-If you're unable to establish connection using RDP Shortpath for public networks, you can use the `Test-Shortpath.ps1` PowerShell script to validate connectivity to STUN servers.
+You can validate connectivity to the STUN endpoints and verify that basic UDP functionality works by running the `Test-Shortpath.ps1` PowerShell script.
 
 1. Open a PowerShell prompt and run the following command to download the PowerShell script. Alternatively, go to [our GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/AVD-TestShortpath) and download the `Test-Shortpath.ps1` file.
 
