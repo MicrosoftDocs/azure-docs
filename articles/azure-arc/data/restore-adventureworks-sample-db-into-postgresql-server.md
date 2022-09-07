@@ -3,8 +3,8 @@ title: Import the AdventureWorks sample database to Azure Arc-enabled PostgreSQL
 description: Restore the AdventureWorks sample database to Azure Arc-enabled PostgreSQL server
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
-author: grrlgeek
-ms.author: jeschult
+author: dhanmm
+ms.author: dhmahaja
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
