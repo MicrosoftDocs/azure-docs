@@ -37,9 +37,7 @@ Create an audio file, if you do not already have one, to use for playing prompts
 
 ## Update App.java with code
 
-In your editor of choice, open App.java file and update it with the following code. Please see comments in the code for more details.
-
-[Pastebin code reference](https://paste.microsoft.com/1207add3-8fda-4e75-ba31-0a54679f66c7)
+In your editor of choice, open App.java file and update it with the [following code](../call-automation/Callflow-for-customer-interactions-java.md#update-appjava-with-code). 
 
 ## Establish a call
 
