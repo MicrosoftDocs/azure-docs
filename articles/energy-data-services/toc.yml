@@ -19,11 +19,11 @@
       href: tutorial-csv-ingestion.md
     - name: Manifest ingestion tutorial
       href: tutorial-manifest-ingestion.md
-    - name: Seismic DDMS sdutil tutorial
+    - name: Seismic ddms sdutil tutorial
       href: tutorial-seismic-ddms-sdutil.md
-    - name: Wellbore DDMS tutorial
+    - name: Wellbore ddms tutorial
       href: tutorial-wellbore-ddms.md
-    - name: Well delivery tutorial
+    - name: Well delivery ddms tutorial
       href: tutorial-well-delivery-ddms.md
 - name: Concepts
   items:

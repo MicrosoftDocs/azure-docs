@@ -5,24 +5,25 @@ author: vkamani21 #Required; your GitHub user alias, with correct capitalization
 ms.author: vkamani #Required; microsoft alias of author; optional team alias.
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
 ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: 12/08/2021
+ms.date: 09/07/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
-# Tutorial: Sample steps to interact with Wellbore DDMS
+# Tutorial: Sample steps to interact with Wellbore ddms
 
-Wellbore DDMS provides the capability to operate on well data in the Project Oak Forest instance.
+Wellbore ddms provides the capability to operate on well data in the Microsoft Energy Data Services instance.
 
-In this tutorial, you will learn how to:
+In this tutorial, you'll learn how to:
+> [!div class="checklist"]
+> * Utilize Wellbore ddms APIs to store and retrieve Wellbore and well log data
 
-
-> * Utilize Wellbore DDMS Api's to store and retrieve well data
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
-### Project Oak Forest instance details
+### Microsoft Energy Data Services instance details
 
-* Once the [Project Oak Forest instance](/how-to/how-to-create-project-oak-forest-instance.md) is created, note down the following details:
+* Once the [Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) is created, note down the following details:
 
 ```Table
   | Parameter          | Value to use             | Example                               |
@@ -39,49 +40,45 @@ In this tutorial, you will learn how to:
 
 * Download and install [Postman](https://www.postman.com/) desktop app
 * Import the following files into Postman:
-  > [!NOTE]
-  > For the below Postman files, click the **Raw** file on GitHub and save to your local machine.
-  >
-  > To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
-  * [Wellbore DDMS Postman collection](https://raw.githubusercontent.com/MicrosoftDocs/Project-Oak-Forest/main/postman/WellboreDDMS.postman_collection.json?token=GHSAT0AAAAAABYK75SGN22O6Y33VK4AWRQSYYX3GMA)
-  * [Wellbore DDMS Postman Environment](https://raw.githubusercontent.com/MicrosoftDocs/Project-Oak-Forest/main/postman/WellboreDDMSEnvironment.postman_environment.json?token=GHSAT0AAAAAABYK75SGVI5F2KGSVBDXDRF4YYX3G2Q)
+  * [Wellbore ddms Postman collection](https://raw.githubusercontent.com/MicrosoftDocs/Project-Oak-Forest/main/postman/WellboreDDMS.postman_collection.json)
+  * [Wellbore ddms Postman Environment](https://raw.githubusercontent.com/MicrosoftDocs/Project-Oak-Forest/main/postman/WellboreDDMSEnvironment.postman_environment.json)
   
-* Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Project Oak Forest instance details](#project-oak-forest-instance-details)
+* Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services instance details](#microsoft-energy-data-services-instance-details)
 
 ### Executing Postman Requests
 
-* The Postman collection for Wellbore DDMS contains requests which allows interaction with wells, wellbore, welllog and well trajectory data.
+* The Postman collection for Wellbore ddms contains requests that allows interaction with wells, wellbore, well log and well trajectory data.
 * Make sure to choose the **Wellbore DDMS Environment** before triggering the Postman collection.
-  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-choose-wellbore-environment.png" alt-text="Choose environment.":::
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-choose-wellbore-environment.png" alt-text="Choose environment." lightbox="media/tutorial-wellbore-ddms/tutorial-postman-choose-wellbore-environment.png":::
 * Each request can be triggered by clicking the **Send** Button.
-* On every request Postman will validate the actual API response code against the expected response code; if there is any mismatch the Test Section will indicate failures.
+* On every request Postman will validate the actual API response code against the expected response code; if there's any mismatch the Test Section will indicate failures.
 
 **Successful Postman Call**
 
-:::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-test-success.png" alt-text="Screenshot-of-Success.":::
+:::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-test-success.png" alt-text="Screenshot-of-Success." lightbox="media/tutorial-wellbore-ddms/tutorial-postman-test-success.png":::
 
 **Failed Postman Call**
 
-:::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-test-failure.png" alt-text="Screenshot-of-Failure.":::
+:::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-test-failure.png" alt-text="Screenshot-of-Failure." lightbox="media/tutorial-wellbore-ddms/tutorial-postman-test-failure.png":::
 
-### Steps to insert and get the Well data
+### Utilize Wellbore ddms APIs to store and retrieve wellbore and well log data
 
 1. **Get an SPN Token** - Generate the Service Principal Bearer token, which will be used to authenticate further API calls.
-1. **Create a Legal Tag** - Create a legal tag that will be added to the automatically environment for data compliance purpose.
-1. **Create Well** - Creates the wellbore record in Project Oak.
-   :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-create-well.png" alt-text="Screenshot-of-tutorial-create-well.":::
-1. **Get Wells** - Returns the well data created in the last step.
-  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-wells.png" alt-text="Screenshot-of-tutorial-get-wells.":::
+2. **Create a Legal Tag** - Create a legal tag that will be added automatically to the environment for data compliance purpose.
+3. **Create Well** - Creates the wellbore record in Project Oak.
+   :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-create-well.png" alt-text="Screenshot of creating a Well." lightbox="media/tutorial-wellbore-ddms/tutorial-create-well.png":::
+4. **Get Wells** - Returns the well data created in the last step.
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-wells.png" alt-text="Screenshot of getting all wells." lightbox="media/tutorial-wellbore-ddms/tutorial-get-wells.png":::
 1. **Get Well Versions** - Returns the versions of each ingested well record.
-  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-well-versions.png" alt-text="Screenshot-of-tutorial-get-well-versions.":::
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-well-versions.png" alt-text="Screenshot of getting all Well versions." lightbox="media/tutorial-wellbore-ddms/tutorial-get-well-versions.png":::
 1. **Get specific Well Version** - Returns the details of specified version of specified record.
-  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-specific-well-version.png" alt-text="Screenshot-of-tutorial-get-specific-well-version.":::
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-specific-well-version.png" alt-text="Screenshot of getting a specific well version." lightbox="media/tutorial-wellbore-ddms/tutorial-get-specific-well-version.png":::
 1. **Delete well record** - Deletes the specified record.
-  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-delete-well.png" alt-text="Screenshot-of-tutorial-delete-well.":::
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-delete-well.png" alt-text="Screenshot of delete well record." lightbox="media/tutorial-wellbore-ddms/tutorial-delete-well.png":::
 
 ***Successful completion of above steps indicates success ingestion and retrieval of well records***
 
 ## Next steps
-
-- ***Similar steps could be followed for wellbore, welllog and well trajectory data***
-- [Seismic DMS SDUTIL Tutorial](/articles/energy-data-services/tutorial-seismic-ddms-sdutil.md)
+Advance to the next tutorial to learn about sdutil
+> [!div class="nextstepaction"]
+> [Tutorial: Seismic store sdutil](tutorial-seismic-ddms-sdutil.md)
