@@ -353,7 +353,7 @@ FOR_EACH filter IN (a, b, c)
 See [Limitations](#limitations) section for current limitation of this operator.
 
 ## StringBeginsWith
-The **StringBeginsWith** operator evaluates to true if the **key** value **begins with** any of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section begins with `event` or `grid`. For example, `event hubs` begins with `event`.  
+The **StringBeginsWith** operator evaluates to true if the **key** value **begins with** any of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section begins with `event` or `message`. For example, `event hubs` begins with `event`.  
 
 ```json
 "advancedFilters": [{
