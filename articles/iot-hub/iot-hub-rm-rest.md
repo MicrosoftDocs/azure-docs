@@ -23,7 +23,7 @@ You can use the [IoT Hub resource provider REST API](/rest/api/iothub/iothubreso
 
 * Visual Studio
 
-* [Azure PowerShell module][lnk-powershell-install]
+* [Azure PowerShell module](/powershell/azure/install-az-ps)
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
