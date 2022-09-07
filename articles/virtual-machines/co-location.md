@@ -48,7 +48,7 @@ Additionally, an optional avaiability zone can be indicated through intent by pr
 - The availability zone can be specified only when intent is specified and not otherwise
 - Only one availability zone can be specified
 
-Proximity Placement Group creation or update will succeed only when at least one data center supports all the VM Sizes speicified in the intent. Otherwise, the creation or update would fail with "OverconstrainedAllocationRequest", indicating that the combination of VM Sizes cannot be supported within a proximity placement group. The **intent does not provide any capacity reservation or guarantee**; it only uses the provided intent VM Sizes and zone to select an appropriate data center, reducing the chances of failure arising from non-existence of the intended VM Sizes in a single data center. Therefore, **allocation failures** can still occur if there's no capacity for a VM Size at the time of deployment. 
+Proximity Placement Group creation or update will succeed only when at least one data center supports all the VM Sizes speicified in the intent. Otherwise, the creation or update would fail with "OverconstrainedAllocationRequest", indicating that the combination of VM Sizes cannot be supported within a proximity placement group. The **intent does not provide any capacity reservation or guarantee**; it only uses the provided intent VM Sizes and zone to select an appropriate data center, reducing the chances of failure arising from non-existence of the intended VM Sizes in a single data center. Therefore, **allocation failures** can still occur if there is no capacity for a VM Size at the time of deployment. 
 
 ## Best Practices while using Proximity Placement Group with Intent
 
