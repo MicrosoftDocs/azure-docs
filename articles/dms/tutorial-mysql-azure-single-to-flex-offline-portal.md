@@ -2,16 +2,14 @@
 title: "Tutorial: Migrate Azure Database for MySQL - Single Server to Flexible Server offline using DMS via the Azure portal"
 titleSuffix: "Azure Database Migration Service"
 description: "Learn to perform an offline migration from Azure Database for MySQL - Single Server to Flexible Server by using Azure Database Migration Service."
-services: dms
 author: "adig"
 ms.author: "adig"
 manager: "pariks"
-ms.reviewer: "pariks"
+ms.reviewer: ""
+ms.date: 09/07/2022
 ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 09/15/2022
+ms.custom: seo-lt-2019
 ---
 
 # Tutorial: Migrate Azure Database for MySQL - Single Server to Flexible Server offline using DMS via the Azure portal
@@ -22,7 +20,7 @@ You can migrate an instance of Azure Database for MySQL – Single Server to Azu
 > DMS supports migrating from lower version MySQL servers (v5.6 and above) to higher versions. In addition, DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you can select a different region, resource group, and subscription for the target server than that specified for your source server.
 
 > [!IMPORTANT]
-For online migrations, you can use the Enable Transactional Consistency feature supported by DMS together with [Data-in replication](./../mysql/single-server/concepts-data-in-replication.md) or [replicate changes](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/azure-dms-mysql-replicate-changes-now-in-preview/ba-p/3601564). Additionally, you can use the online migration scenario to migrate by following the tutorial [here](./tutorial-mysql-azure-single-to-flex-online-portal.md).
+For online migrations, you can use the Enable Transactional Consistency feature supported by DMS together with [Data-in replication](./../mysql/single-server/concepts-data-in-replication.md) or [replicate changes](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/azure-dms-mysql-replicate-changes-now-in-preview/ba-p/3601564). Additionally, you can use the online migration scenario to migrate by following the tutorial [here](./tutorial-mysql-azure-single-to-flex-offline-portal.md).
 
 In this tutorial, you will learn how to:
 
@@ -117,7 +115,7 @@ With these best practices in mind, create your target flexible server and then c
       * slow_query_log – set to OFF to turn off the slow query log. This will eliminate the overhead caused by slow query logging during data loads.
       * query_store_capture_mode – set to NONE to turn off the Query Store. This will eliminate the overhead caused by sampling activities by Query Store.
       * innodb_buffer_pool_size – Innodb_buffer_pool_size can only be increased by scaling up compute for Azure Database for MySQL server. Scale up the server to 64 vCore General Purpose SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size.
-      * innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.
+      * innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.to-flex-offline
       * innodb_write_io_threads & innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
   * Configure the firewall rules and replicas on the target server to match those on the source server.
   * Replicate the following server management features from the source single server to the target flexible server:
@@ -136,35 +134,35 @@ With your target flexible server deployed and configured, you next need to set u
 To register the Microsoft.DataMigration resource provider, perform the following steps.
 
 1. Before creating your first DMS instance, sign in to the Azure portal, and then search for and select **Subscriptions**.
-    ![Azure Marketplace](media/tutorial-azure-mysql-single-to-flex-online/1-subscriptions.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/1-subscriptions.png" alt-text="Azure Marketplace.":::
 
 2. Select the subscription that you want to use to create the DMS instance, and then select **Resource providers**.
-    ![Select resource provider](media/tutorial-azure-mysql-single-to-flex-online/2-resource-provider.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/2-resource-provider.png" alt-text="Select resource provider.":::
 
 3. Search for the term “Migration”, and then, for **Microsoft.DataMigration**, select **Register**.
-    ![Select Register](media/tutorial-azure-mysql-single-to-flex-online/3-register.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/3-register.png" alt-text="Select Register.":::
 
 ### Create a Database Migration Service (DMS) instance
 
 01. In the Azure portal, select + **Create a resource**, search for the term “Azure Database Migration Service”, and then select **Azure Database Migration Service** from the drop-down list.
-    ![Search Azure Database Migration Service](media/tutorial-azure-mysql-single-to-flex-online/4-dms-portal-marketplace.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/4-dms-portal-marketplace.png" alt-text="Search Azure Database Migration Service.":::
 
 02. On the **Azure Database Migration Service** screen, select **Create**.
-    ![Create Azure Database Migration Service instance](media/tutorial-azure-mysql-single-to-flex-online/5-dms-portal-marketplace-create.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/5-dms-portal-marketplace-create.png" alt-text="Create Azure Database Migration Service instance.":::
   
 03. On the **Select migration scenario and Database Migration Service** page, under **Migration scenario**, select **Azure Database for MySQL-Single Server** as the source server type, and then select **Azure Database for MySQL** as target server type, and then select **Select**.
-    ![Select Migration Scenario](media/tutorial-azure-mysql-single-to-flex-online/6-create-dms-service-scenario-offline.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/6-create-dms-service-scenario-offline.png" alt-text="Select Migration Scenario.":::
 
 04. On the **Create Migration Service** page, on the **Basics** tab, under **Project details**, select the appropriate subscription, and then select an existing resource group or create a new one.
 
 05. Under **Instance details**, specify a name for the service, select a region, and then verify that **Azure** is selected as the service mode.
 
 06. To the right of **Pricing tier**, select **Configure tier**.
-    ![Select Configure Tier](media/tutorial-azure-mysql-single-to-flex-online/7-%20project-details.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/7-project-details.png" alt-text="Select Configure Tier.":::
 
 07. On the Configure page, select the pricing tier and number of vCores for your DMS instance, and then select Apply.
     For more information on DMS costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
-    ![Select Pricing tier](media/tutorial-azure-mysql-single-to-flex-online/8-%20configure-pricing-tier.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/8-configure-pricing-tier.png" alt-text="Select Pricing tier.":::
 
     Next, we need to specify the VNet that will provide the DMS instance with access to the source single server and the target flexible server.
 
@@ -172,7 +170,7 @@ To register the Microsoft.DataMigration resource provider, perform the following
 
 09. On the **Networking** tab, select an existing VNet from the list or provide the name of new VNet to create, and then select **Review + Create**.
     For more information, see the article [Create a virtual network using the Azure portal](./../virtual-network/quick-create-portal.md).
-    ![Select Networking](media/tutorial-azure-mysql-single-to-flex-online/8-1-networking.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/8-1-networking.png" alt-text="Select Networking.":::
 
     > [!IMPORTANT]
     > Your vNet must be configured with access to both the source single server and the target flexible server, so be sure to:
@@ -184,11 +182,11 @@ To register the Microsoft.DataMigration resource provider, perform the following
     > If you want to add tags to the service, first select Next : Tags to advance to the Tags tab first. Adding tags to the service is optional.
 
 10. Navigate to the **Review + create** tab, review the configurations, view the terms, and then select **Create**.
-     ![Select Review+Create](media/tutorial-azure-mysql-single-to-flex-online/9-%20review-create.png)
+     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/9-review-create.png" alt-text="Select Review+Create.":::
     Deployment of your instance of DMS now begins. The message **Deployment is in progress** appears for a few minutes, and then the message changes to **Your deployment is complete**.
 
 11. Select **Go to resource**.
-     ![Select Go to resource](media/tutorial-azure-mysql-single-to-flex-online/9-1-go-to-resource.png)
+     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/9-1-go-to-resource.png" alt-text="Select Go to resource.":::
 
 ### Create a migration project
 
@@ -196,24 +194,24 @@ To create a migration project, perform the following steps.
 
 1. In the Azure portal, select **All services**, search for Azure Database Migration Service, and then select **Azure Database Migration Services**.
 
-    ![Locate all instances of Azure Database Migration Service](media/tutorial-azure-mysql-single-to-flex-online/10-%20dms-search.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/10-dms-search.png" alt-text="Locate all instances of Azure Database Migration Service.":::
 
 2. In the search results, select the DMS instance that you just created, and then select + **New Migration Project**.
 
-    ![CSelect a new migration project](media/tutorial-azure-mysql-single-to-flex-online/11-%20select-create.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/11-select-create.png" alt-text="CSelect a new migration project.":::
 
 3. On the **New migration project** page, specify a name for the project, in the Source server type selection box, select **Azure Database For MySQL – Single Server**, in the Target server type selection box, select **Azure Database For MySQL**, in the **Migration activity type** selection box, select **Online migration**, and then select **Create and run activity**.
     > [!NOTE]
     > Selecting Create project only as the migration activity type will only create the migration project; you can then run the migration project at a later time.
 
-    ![Create a new migration project](media/tutorial-azure-mysql-single-to-flex-online/12-create-project-offline.png)
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/12-create-project-offline.png" alt-text="Create a new migration project.":::
 
 ### Configure the migration project
 
 To configure your DMS migration project, perform the following steps.
 
 1. On the **Select source** screen, specify the connection details for the source MySQL instance.
-       ![Add source details screen](media/tutorial-azure-mysql-single-to-flex-online/13-%20select-source-offline.png)
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/13-select-source-offline.png" alt-text="Add source details screen.":::
     When performing an offline migration, it’s important to stop incoming traffic on the source when configuring the migration project.
 
 2. To proceed with the offline migration, select the **Make Source Server Read Only** check box.
@@ -222,10 +220,10 @@ Selecting this check box prevents Write/Delete operations on the source server d
     > Alternately, if you were performing an online migration, you would select the **Enable Transactional Consistency** check box. For more information about consistent backup, see [MySQL Consistent Backup](./migrate-azure-mysql-consistent-backup.md).
 
 3. Select **Next : Select target>>**, and then, on the **Select target** screen, specify the connection details for the target flexible server.
-       ![Select target](media/tutorial-azure-mysql-single-to-flex-online/15-select-target.png)
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/15-select-target.png" alt-text="Select target.":::
 
 4. Select **Next : Select databases>>**, and then, on the Select databases tab, under [Preview] Select server objects, select the server objects that you want to migrate.
-       ![Select databases](media/tutorial-azure-mysql-single-to-flex-online/16-select-db.png)
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/16-select-db.png" alt-text="Select databases.":::
 
 5. In the **Select databases** section, under **Source Database**, select the database(s) to migrate.
     The non-table objects in the database(s) you specified will be migrated, while the items you didn’t select will be skipped.
@@ -235,7 +233,7 @@ Selecting this check box prevents Write/Delete operations on the source server d
 
 7. Select the tables that you want to migrate.
    If you select a table in the source database that doesn’t exist on the target database, the box under **Migrate schema** is selected by default. For tables that do exist in the target database, a note indicates that the selected table already contains data and will be truncated. In addition, if the schema of a table on the target server does not match the schema on the source, the table will be dropped before the migration continues.
-   ![Select Tables](media/tutorial-azure-mysql-single-to-flex-online/17-select-tables.png)
+   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/17-select-tables.png" alt-text="Select Tables.":::
 
     DMS validates your inputs, and if the validation passes, you will be able to start the migration.
 
@@ -244,11 +242,11 @@ Selecting this check box prevents Write/Delete operations on the source server d
     > You only need to navigate to the Configure migration settings tab if you are trying to troubleshoot failing migrations.
 
 9. On the **Summary** tab, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
-   ![Select Summary](media/tutorial-azure-mysql-single-to-flex-online/18-%20summary-offline.png)
+   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/18-summary-offline.png" alt-text="Select Summary.":::
 
 10. Select **Start migration**.
     The migration activity window appears, and the Status of the activity is Initializing. The Status changes to Running when the table migrations start.
-   ![Running status](media/tutorial-azure-mysql-single-to-flex-online/19-%20running-project-offline.png)
+   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/19-running-project-offline.png" alt-text="Running status.":::
 
 ### Monitor the migration
 
@@ -256,10 +254,10 @@ Selecting this check box prevents Write/Delete operations on the source server d
 
 2. To see the status of each table during the migration, select the database name and then select Refresh to update the display.
 
-     ![Monitoring migration](media/tutorial-azure-mysql-single-to-flex-online/20-%20monitor-migration-offline.png)
+     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/20-monitor-migration-offline.png" alt-text="Monitoring migration.":::
 
 3. Select **Refresh** to update the display until the **Status** of the migration shows as **Completed**.
-     ![Status of Migration](media/tutorial-azure-mysql-single-to-flex-online/21-status-complete-offline.png)
+     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/21-status-complete-offline.png" alt-text="Status of Migration.":::
 
 ## Perform post-migration activities
 
