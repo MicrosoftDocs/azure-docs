@@ -6,16 +6,16 @@ author: anmolbohra
 manager: komivi.agbakpem
 services: azure-communication-services
 ms.author: anmolbohra
-ms.date: 05/25/2022
+ms.date: 07/09/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: email
 ---
-# Quickstart: Handle EMAIL and delivery report events
+# Quickstart: Handle Email events
 
-Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services EMAIL events. After subscribing to EMAIL events such as delivery reports and engagement reports, you generate and receive these events. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services Email events. After subscribing to Email events such as delivery reports and engagement reports, you generate and receive these events. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ For this quickstart, we'll use an Event Grid viewer to view events in near-real 
 
 To set up the viewer, follow the steps in [Azure Event Grid Viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
 
-## Subscribe to EMAIL events by using web hooks
+## Subscribe to Email events by using web hooks
 
 You can subscribe to specific events to provide Event Grid with information about where to send the events that you want to track.
 
@@ -111,7 +111,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-In this quickstart, you learned how to consume EMAIL events. You can receive EMAIL events by creating an Event Grid subscription.
+In this quickstart, you learned how to consume Email events. You can receive Email events by creating an Event Grid subscription.
 
 > [!div class="nextstepaction"]
 > [Send Email](../email/send-email.md)
