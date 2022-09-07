@@ -2,7 +2,7 @@
 title: Enable password hash sync for Azure AD Domain Services | Microsoft Docs
 description: In this tutorial, learn how to enable password hash synchronization using Azure AD Connect to an Azure Active Directory Domain Services managed domain.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services

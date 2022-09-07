@@ -192,4 +192,4 @@ run.properties['azureml.git.commit']
 
 ## Next steps
 
-* [Use compute targets for model training](how-to-set-up-training-targets.md)
+* [Use compute targets for model training](v1/how-to-set-up-training-targets.md)

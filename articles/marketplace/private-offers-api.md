@@ -6,13 +6,10 @@ ms.service: marketplace
 ms.topic: article
 author: rigonzales
 ms.author: rigonzales
-ms.date: 06/07/2022
+ms.date: 07/21/2022
 ---
 
-# Create and manage private offers via API (preview)
-
-> [!NOTE]
-> This API is in preview. If you have any questions about the preview program, contact [privateofferspreview@microsoft.com](mailto:privateofferspreview@microsoft.com).
+# Create and manage private offers via API
 
 Private offers allow publishers and customers to transact one or more products in Azure Marketplace by creating time-bound pricing with customized terms. The private offers API enables ISVs to programmatically create and manage private offers for customers and resellers. This API is useful if your account manages many private offers and you want to automate and optimize their management workflows. This API uses Azure Active Directory (Azure AD) to authenticate the calls from your app or service.
 
@@ -86,7 +83,7 @@ To use this API, you may need to reference several different types of IDs associ
 
 A private offer is based on an existing product in your Partner Center account. To see a list of products associated with your Partner Center account, use this API call:
 
-`GET https://graph.microsoft.com/rp/product-ingestion/product/`
+`GET https://graph.microsoft.com/rp/product-ingestion/product?$version=2022-07-01`
 
 The response appears in the following sample format:
 
@@ -94,7 +91,7 @@ The response appears in the following sample format:
 {
   "value": [
     {
-      "$schema": "https://product-ingestion.azureedge.net/schema/product/2022-03-01-preview2",
+      "$schema": "https://schema.mp.microsoft.com/schema/product/2022-07-01",
       "id": "string",
       "identity": {
         "externalId": "string"
@@ -111,7 +108,7 @@ The response appears in the following sample format:
 
 For products that contain more than one plan, you may want to create a private offer based on one specific plan. If so, you'll need that plan's ID. Obtain a list of the plans (such as variants or SKUs) for the product using the following API call:
 
-`GET https://graph.microsoft.com/rp/product-ingestion/plan/?product=<product-id>`
+`GET https://graph.microsoft.com/rp/product-ingestion/plan?product=<product-id>&$version=2022-07-01`
 
 The response appears in the following sample format:
 
@@ -119,7 +116,7 @@ The response appears in the following sample format:
 {
   "value": [
     {
-      "$schema": "https://product-ingestion.azureedge.net/schema/plan/2022-03-01-preview2",
+      "$schema": "https://schema.mp.microsoft.com/schema/plan/2022-07-01",
       "product": "string",
       "id": "string",
       "identity": {
@@ -135,7 +132,7 @@ The response appears in the following sample format:
 
 To see a list of all private offers associated with your seller account, use the following API call:
 
-`GET https://graph.microsoft.com/rp/product-ingestion/private-offer/query?`
+`GET https://graph.microsoft.com/rp/product-ingestion/private-offer/query?$version=2022-07-01`
 
 ## How to use the API
 
@@ -179,7 +176,7 @@ Use this method to create a private offer for a customer.
 
 ### Request
 
-`POST https://graph.microsoft.com/rp/product-ingestion/configure`
+`POST https://graph.microsoft.com/rp/product-ingestion/configure?$version=2022-07-01`
 
 #### Request Header
 
@@ -191,7 +188,7 @@ Optional: clientID
 
 #### Request parameters
 
-There are no parameters for this method.
+$version - required. This is the version of the schema that is being used in the request
 
 #### Request body
 
@@ -199,10 +196,10 @@ Provide the details of the private offer using the ISV to Customer private offer
 
 ```json
 {
- "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2",
+ "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01",
   "resources": [ 
     {
-       "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2", 
+       "$schema": "https://schema.mp.microsoft.com/schema/private-offer/2022-07-01", 
        "name": "privateOffercustomer1705",
        "state": "live",
        "privateOfferType": "customerPromotion",
@@ -229,13 +226,13 @@ If you're using absolute pricing instead of percentage-based discounting, you ca
 
 Use this method to obtain the pricing resource for your existing public plan, edit the prices, and then use the edited resource for your private offer. 
 
-`GET https://graph.microsoft.com/rp/product-ingestion/price-and-availability-private-offer-plan/{productId}?plan={planId}`
+`GET https://graph.microsoft.com/rp/product-ingestion/price-and-availability-private-offer-plan/{productId}?plan={planId}&$version=2022-07-01`
 
 Sample absolute pricing resource:
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/price-and-availability-private-offer-plan/2022-03-01-preview2",
+    "$schema": "https://schema.mp.microsoft.com/schema/price-and-availability-private-offer-plan/2022-07-01",
     "resourceName": "newSimpleAbsolutePricing",
     "product": "product/7ba807c8-386a-4efe-80f1-b97bf8a554f8",
     "plan": "plan/987654",
@@ -303,7 +300,7 @@ The response will contain the jobId you can use later to poll the status:
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
@@ -326,7 +323,7 @@ Use this method to create a new private offer for a customer.
 
 ### Request
 
-`POST https://graph.microsoft.com/rp/product-ingestion/configure`
+`POST https://graph.microsoft.com/rp/product-ingestion/configure?$version=2022-07-01`
 
 #### Request header
 
@@ -336,7 +333,7 @@ Use this method to create a new private offer for a customer.
 
 #### Request parameters
 
-There are no parameters for this method.
+$version - required. This is the version of the schema that is being used in the request
 
 #### Request body
 
@@ -344,10 +341,10 @@ Provide the details of the private offer using the **ISV to reseller margin priv
 
 ```json
 {
- "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2", 
+ "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01", 
   "resources": [ 
     { 
-       "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2", 
+       "$schema": "https://schema.mp.microsoft.com/schema/private-offer/2022-07-01", 
        "privateOfferType": "cspPromotion",
        "name": "privateOffercsp1034",
        "state": "live",
@@ -394,7 +391,7 @@ The response will contain the jobId you can use later to poll the status.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
@@ -417,7 +414,7 @@ Use this method to delete an existing private offer while it's still in draft st
 
 ### Request
 
-`POST https://graph.microsoft.com/rp/product-ingestion/configure`
+`POST https://graph.microsoft.com/rp/product-ingestion/configure?$version=2022-07-01`
 
 #### Request header
 
@@ -427,16 +424,16 @@ Use this method to delete an existing private offer while it's still in draft st
 
 #### Request parameters
 
-There are no parameters for this method.
+$version - required. This is the version of the schema that is being used in the request
 
 #### Request body
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2"
+    "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01"
      "resources": [
         {
-            "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2",
+            "$schema": "https://schema.mp.microsoft.com/schema/private-offer/2022-07-01",
             "id": "private-offer/456e-a345-c457-1234",
             "name": "privateOffercustomer1705",
             "state": "deleted"
@@ -451,7 +448,7 @@ The response will contain the jobId you can use later to poll the status.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
@@ -476,7 +473,7 @@ You must use the private offer ID to specify which private offer you want to wit
 
 ### Request
 
-`POST https://graph.microsoft.com/rp/product-ingestion/configure`
+`POST https://graph.microsoft.com/rp/product-ingestion/configure?$version=2022-07-01`
 
 #### Request header
 
@@ -486,16 +483,16 @@ You must use the private offer ID to specify which private offer you want to wit
 
 #### Request parameters
 
-There are no parameters for this method.
+$version - required. This is the version of the schema that is being used in the request
 
 #### Request body
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2"
+    "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01"
      "resources": [
          {
-            "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2",
+            "$schema": "https://schema.mp.microsoft.com/schema/private-offer/2022-07-01",
             "id": "private-offer/456e-a345-c457-1234",
             "name": "privateOffercustomer1705", 
             "state": "withdrawn"
@@ -510,7 +507,7 @@ The response will contain the jobId you can later use to poll the status.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
@@ -533,7 +530,7 @@ Use this method to upgrade an existing customer private offer. You must provide 
 
 ### Request
 
-`POST https://graph.microsoft.com/rp/product-ingestion/configure`
+`POST https://graph.microsoft.com/rp/product-ingestion/configure?$version=2022-07-01`
 
 #### Request header
 
@@ -543,7 +540,7 @@ Use this method to upgrade an existing customer private offer. You must provide 
 
 #### Request parameters
 
-There are no parameters for this method.
+$version - required. This is the version of the schema that is being used in the request
 
 #### Request body
 
@@ -554,10 +551,10 @@ You can use the same schemas as the two methods to create a new private offer de
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01",
      "resources": [ 
        { 
-          "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2", 
+          "$schema": "https://schema.mp.microsoft.com/schema/private-offer/2022-07-01", 
           "name": "publicApiCustAPIUpgrade1",
           "state": "live",
           "privateOfferType": "customerPromotion",
@@ -584,7 +581,7 @@ The response will contain the jobId you can use later to poll the status.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
@@ -607,7 +604,7 @@ Use this method to query the status of an existing job. You can poll the status 
 
 ### Request
 
-`GET https://graph.microsoft.com/rp/product-ingestion/configure/<jobId>/status`
+`GET https://graph.microsoft.com/rp/product-ingestion/configure/<jobId>/status?$version=2022-07-01`
 
 #### Request header
 
@@ -618,6 +615,8 @@ Use this method to query the status of an existing job. You can poll the status 
 #### Request parameters
 
 jobId – required. This is the ID of the job you want to query the status of. It's available in the response data generated during a previous request to either create, delete, withdraw, or upgrade a private offer.
+
+$version - required. This is the version of the schema that is being used in the request
 
 #### Request body
 
@@ -639,7 +638,7 @@ Sample outputs:
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "running",
     "jobResult": "pending",
@@ -653,7 +652,7 @@ Sample outputs:
 
 ```json
 {
-    "$schema": " https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
+    "$schema": " https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "b3f49dff-381f-480d-a10e-17f4ce49b65f",
     "jobStatus": "completed",
     "jobResult": "succeeded",
@@ -672,7 +671,7 @@ Sample outputs:
 
 ```json
 {
-    "$schema": " https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
+    "$schema": " https://schema.mp.microsoft.com/schema/configure-status/2022-07-01",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "completed",
     "jobResult": "failed",
@@ -699,11 +698,11 @@ There are two methods to do this depending whether you have the resourceURI or t
 
 ### Request
 
-`GET https://graph.microsoft.com/rp/product-ingestion/private-offer/<id>`
+`GET https://graph.microsoft.com/rp/product-ingestion/private-offer/<id>?$version=2022-07-01`
 
 or
 
-`GET https://graph.microsoft.com/rp/product-ingestion/configure/<jobId>`
+`GET https://graph.microsoft.com/rp/product-ingestion/configure/<jobId>?$version=2022-07-01`
 
 #### Request header
 
@@ -717,6 +716,8 @@ ID - required. This is the ID of the private offer you want the full details of.
 
 jobId - required. This is the ID of the job you want the full details of. This ID is available in the response data generated during a previous request to either create, delete, withdraw, or upgrade a private offer.
 
+$version - required. This is the version of the schema that is being used in the request
+
 #### Request body
 
 Don't provide a request body for this method.
@@ -727,7 +728,7 @@ You'll receive the full details of the private offer.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2",
+    "$schema": "https://schema.mp.microsoft.com/schema/configure/2022-07-01",
     "resources": [
         {
             "id": "private-offer/07380dd9-bcbb-cccbb-bbccbc",

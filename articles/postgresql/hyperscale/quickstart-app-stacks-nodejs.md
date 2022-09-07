@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/18/2022
+ms.date: 08/24/2022
 ---
 
 # Node.js app to connect and query Hyperscale (Citus)
@@ -73,10 +73,10 @@ const pool = new Pool({
   max: 300,
   connectionTimeoutMillis: 5000,
 
-  host: 'c.citustest.postgres.database.azure.com',
+  host: '<host>',
   port: 5432,
   user: 'citus',
-  password: 'Password123$',
+  password: '<your password>',
   database: 'citus',
   ssl: true,
 });
@@ -385,6 +385,50 @@ async function importInMemoryDatabase() {
   await pool.end();
   console.log('Inserted inmemory data successfully.');
 })();
+```
+
+## App retry during database request failures
+
+[!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
+
+```javascript
+const { Pool } = require('pg');
+const { sleep } = require('sleep');
+
+const pool = new Pool({
+  host: '<host>',
+  port: 5432,
+  user: 'citus',
+  password: '<your password>',
+  database: 'citus',
+  ssl: true,
+  connectionTimeoutMillis: 0,
+  idleTimeoutMillis: 0,
+  min: 10,
+  max: 20,
+});
+
+(async function() {
+  res = await executeRetry('select nonexistent_thing;',5);
+  console.log(res);
+  process.exit(res ? 0 : 1);
+})();
+
+async function executeRetry(sql,retryCount)
+{
+  for (let i = 0; i < retryCount; i++) {
+    try {
+      result = await pool.query(sql)
+      return result;
+    } catch (err) {
+      console.log(err.message);
+      sleep(60);
+    }
+  }
+
+  // didn't succeed after all the tries
+  return null;
+}
 ```
 
 ## Next steps

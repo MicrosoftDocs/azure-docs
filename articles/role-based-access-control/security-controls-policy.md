@@ -4,6 +4,7 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.date: 08/17/2022
 ms.topic: sample
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-compliancecontrols

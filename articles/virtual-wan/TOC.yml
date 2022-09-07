@@ -227,7 +227,7 @@
           href: virtual-wan-route-table-nva-portal.md
         - name: Azure PowerShell
           href: virtual-wan-route-table-nva.md
-    - name: Configure BGP peering with virtual hub
+    - name: Configure BGP peering to an NVA
       href: create-bgp-peering-hub-portal.md
   - name: Security
     items:
