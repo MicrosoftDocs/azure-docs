@@ -60,7 +60,7 @@ Apache Spark pools now support elastic pool storage.  Elastic pool storage allow
 No action is required by you, plus you should see fewer job failures as a result.
 
 > [!NOTE]
-> Azure Synapse Elastic pool storage is currently in Public Preview.  During Public Preview there is no charge for use of Elastic Pool Storage.
+> Azure Synapse Elastic pool storage is currently in Public Preview.  During Public Preview there is no charge for use of Elastic pool storage.
 
 ## Automatic pause
 
