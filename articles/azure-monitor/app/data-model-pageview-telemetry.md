@@ -12,7 +12,7 @@ PageView telemetry (in [Application Insights](./app-insights-overview.md)) is lo
 
 > [!NOTE]
 > * By default, Application Insights SDKs log single PageView events on each browser webpage load action, with [`pageViews.duration`](/azure/azure-monitor/reference/tables/pageviews) populated by [browser timing](#measuring-browsertiming-in-application-insights). Developers can extend additional tracking of PageView events by using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
-> * The default logs retention is 30 days and needs to be adjusted if you want ot view page view statistics over a longer period of time.
+> * The default logs retention is 30 days and needs to be adjusted if you want to view page view statistics over a longer period of time.
 
 ## Measuring browserTiming in Application Insights
 
