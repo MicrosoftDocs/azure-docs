@@ -275,7 +275,7 @@ max_concurrent_iterations = number_of_vms
 enable_distributed_dnn_training = True
 ```
 
-Note that the feature 'enable_distributed_dnn_training' is only supported with hold-out validation data, not cross validation data.
+A validation dataset is required because in AutoML NLP only hold-out validation is supported. 
 
 ---
 
