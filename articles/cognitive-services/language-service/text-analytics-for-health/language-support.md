@@ -57,7 +57,7 @@ Hebrew – “he”
 The following json is an example of a JSON file attached to the Language request's POST body, for a Spanish document:
 
 ```json
-example.json
+json
 
 {
     "analysisInput": {
