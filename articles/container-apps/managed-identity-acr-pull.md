@@ -169,7 +169,6 @@ This article describes how to configure your container app to use managed identi
 - If using PowerShell, install the latest version of the Azure PowerShell Az.App module.
 - If using user-assigned managed identity, create a user-assigned managed identity.
 
-
 ## Setup
 
 First, sign in to Azure from the CLI or PowerShell. Run the following command, and follow the prompts to complete the authentication process.
@@ -182,6 +181,13 @@ az login
 
 Now that the current extension or module is installed, register the `Microsoft.App` namespace and the `Microsoft.OperationalInsights` provider if you haven't register them before.
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Connect-AzAccount
+```
+
+---
 
 # [Bash](#tab/bash)
 
