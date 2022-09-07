@@ -17,14 +17,13 @@ ms.author: kpunjabi
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp)
 - Create a new web service application using the [Call Automation SDK](../../Callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## Install ACS call automation package
 
 Install the **azure-communication-callingserver** package:
 
 ``` console 
-Install-Package Azure.Communication.CallingServer -version 1.0.0-alpha.20220824.1
+Install-Package Azure.Communication.CallingServer -version 1.0.0-alpha.20220829.1
 ```
 
 ## Prepare your audio file
@@ -85,7 +84,7 @@ If you will be playing the same audio file multiple times, your application can 
 var targetUser = new PhoneNumberIdentifier(<target>);
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
 var fileSource = new FileSource(new Uri(<audioUri>)) {
-    PlaySourceId = "<playSourceId"
+    PlaySourceId = "<playSourceId>"
 };
 var playResponse = await callMedia.PlayAsync(fileSource, new PhoneNumberIdentifier[] { targetUser });
 Assert.AreEqual(202, playResponse.Status) // The request was accepted.
@@ -126,5 +125,5 @@ Cancel all media operations, all pending media operations will be cancelled. Thi
 ```console
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
 var cancelResponse = await callMedia.CancelAllMediaOperations();
-Assert.AreEqual(202, cancelResponse.Status) // The request was accepted
+Assert.AreEqual(202, cancelResponse.Status) // The request was accepted.
 ```
