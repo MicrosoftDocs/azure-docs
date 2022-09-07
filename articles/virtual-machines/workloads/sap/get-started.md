@@ -66,6 +66,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- September 6, 2022: Add managed identity for pacemaker fence agent [Set up Pacemaker on SUSE Linux Enterprise Server (SLES) in Azure](high-availability-guide-suse-pacemaker.md) on SLES and [Setting up Pacemaker on RHEL in Azure](high-availability-guide-rhel-pacemaker.md) RHEL.
 - August 22, 2022: Release of cost optimization scenario [Deploy PAS and AAS with SAP NetWeaver HA cluster](high-availability-guide-rhel-with-dialog-instance.md) on RHEL.
 - August 09, 2022: Release of scenario [HA for SAP ASCS/ERS with NFS simple mount](./high-availability-guide-suse-nfs-simple-mount.md) on SLES 15 for SAP Applications.
 - July 18, 2022: Clarify statement around Pacemaker support on Oracle Linux in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
