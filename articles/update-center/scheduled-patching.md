@@ -257,6 +257,7 @@ The known issues and limitations of scheduled patching are:
 
 1. For concurrent/conflicting schedule, only one schedule will be triggered. The other schedule will be triggered once a schedule is finished.
 1. If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in case of Azure VMs.
+1. Policy definition "[Preview]: Schedule recurring updates using Update Management Center" with version "1.0.0-preview" successfully remediates resources, but will always show them as non-compliant. The current value of the existenceCondition is a placeholder that will always evaluate to false.
 
 ## Next steps
 
