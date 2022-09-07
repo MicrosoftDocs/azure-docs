@@ -267,8 +267,16 @@
     href: sensor-health-messages.md
   - name: Defender for IoT APIs
     href: references-work-with-defender-for-iot-apis.md
-  - name: Defender for IoT CLI commands
-    href: references-work-with-defender-for-iot-cli-commands.md
+  - name: Defender for IoT CLI
+    items:
+    - name: Overview
+      href: cli-overview.md
+    - name: Appliance management commands
+      href: cli-appliance.md
+    - name: Configuration commands
+      href: cli-configuration.md
+    - name: On-premises management console commands
+      href: cli-management.md
   - name: Frequently asked questions
     items:
     - name: General FAQ
