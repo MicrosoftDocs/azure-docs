@@ -62,11 +62,10 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Region* &rarr; Any Azure region near you.
         1. *Name* &rarr; **msdocs-expressjs-mongodb-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
         1. *Runtime stack* &rarr; **Node 16 LTS**.
-            **Cosmos DB API for MongoDB** is selected for you by default as the database engine. Azure Cosmos DB is a cloud native database offering a 100% MongoDB compatible API.
         1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. Note the database name that's generated for you (*\<app-name>-database*). You'll need it later.
+        1. **Cosmos DB API for MongoDB** is selected by default as the database engine. Azure Cosmos DB is a cloud native database offering a 100% MongoDB compatible API. Note the database name that's generated for you (*\<app-name>-database*). You'll need it later.
         1. Select **Review + create**.
-        After validation completes, select **Create**.
+        1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-create-app-cosmos-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-create-app-cosmos-2.png":::
@@ -74,7 +73,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** The deployment takes a few minutes to complete, and creates the following resources:
+        **Step 3.** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
         - **Resource group** &rarr; The container for all the created resources.
         - **App Service plan** &rarr; Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
         - **App Service** &rarr; Represents your app and runs in the App Service plan.
@@ -83,7 +82,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Network interface** &rarr; Represents a private IP address for the private endpoint.
         - **Cosmos DB API for MongoDB** &rarr; Accessible only from behind the private endpoint. A database and a user are created for you on the server.
         - **Private DNS zone** &rarr; Enables DNS resolution of the Cosmos DB server in the virtual network.
-        Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app.
+        
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-create-app-cosmos-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-create-app-cosmos-3.png":::
@@ -128,9 +127,7 @@ The creation wizard generated the MongoDB URI for you already, but your app need
 :::row:::
     :::column span="2":::
         **Step 4.** 
-        1. Using the same steps in **Step 2**, create another application setting with the following parameters:
-            - **Name**: *DATABASE_URL*
-            - **Value**: Paste the value you copied from the `MONGODB_URI` connection string.
+        1. Using the same steps in **Step 2**, create an app setting named *DATABASE_URL* and set the value to the one you copied from the `MONGODB_URI` connection string (i.e. `mongodb://...`).
         1. In the menu bar at the top, select **Save**.
         1. When prompted, select **Continue**.
     :::column-end:::
@@ -188,8 +185,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         1. In **Organization**, select your account.
         1. In **Repository**, select **msdocs-nodejs-mongodb-azure-sample-app**.
         1. In **Branch**, select **main**.
-        1. In the top menu, select **Save**.
-        App Service commits a workflow file into the selected GitHub repository, in the `.github/workflows` directory.
+        1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-5.png":::
@@ -199,8 +195,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
     :::column span="2":::
         **Step 6.** In the Deployment Center page:
         1. Select **Logs**. A deployment run is already started.
-        1. In the log item for the deployment run, select **Build/Deploy Logs**.
-            You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy.
+        1. In the log item for the deployment run, select **Build/Deploy Logs**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-6.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-6.png":::
@@ -208,21 +203,20 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** Wait for the GitHub run to show a status of **Complete**. It takes about 15 minutes.
+        **Step 7.** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 15 minutes.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-7.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-7.png":::
     :::column-end:::
 :::row-end:::
 
-## 4 - Browse to the app
+## 4. Browse to the app
 
 :::row:::
     :::column span="2":::
         **Step 1.** In the App Service page:
         1. From the left menu, select **Overview**.
-        1. Select the URL of your app.
-            You can also navigate directly to `https://<app-name>.azurewebsites.net`.
+        1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-1.png":::
@@ -256,8 +250,7 @@ Azure App Service captures all messages logged to the console to assist you in d
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** From the left menu, select **Log stream**.
-        You see the logs for your app, including platform logs and logs from inside the container.
+        **Step 4.** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-stream-diagnostic-logs-2.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-stream-diagnostic-logs-2.png":::
@@ -272,7 +265,7 @@ Azure App Service provides a web-based diagnostics console named [Kudu](./resour
     :::column span="2":::
         **Step 1.** In the App Service page:
         1. From the left menu, select **Advanced Tools**.
-        1. Select **Go**.
+        1. Select **Go**. You can also navigate directly to `https://<app-name>.scm.azurewebsites.net`.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-1.png" alt-text="A screenshot showing how to navigate to the App Service Kudu page." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-1.png":::
@@ -304,8 +297,7 @@ Azure App Service provides a web-based diagnostics console named [Kudu](./resour
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** From the left menu, select **Log stream**.
-        You see the logs for your app, including platform logs and logs from inside the container.
+        You can see the deployed folder structure and click to browse and view the files.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-5.png" alt-text="A screenshot of deployed files in the wwwroot directory." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-5.png":::
