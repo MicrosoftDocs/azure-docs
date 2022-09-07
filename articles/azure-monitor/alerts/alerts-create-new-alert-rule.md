@@ -200,7 +200,7 @@ And then defining these elements for the resulting alert actions using:
 1. In the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
     - Select the **Resource group**.
-    - (Optional) If you're creating a metric alert rule that monitors a custom metric on a subscription from one of the regions below, and you want to make sure that the data processing for the alert rule takes place within that region, you can select to process the alert rule in one of these regions: 
+    - (Optional) If you're creating a metric alert rule that monitors a custom metric with the scope defined as one of the regions below, and you want to make sure that the data processing for the alert rule takes place within that region, you can select to process the alert rule in one of these regions: 
         - North Europe
         - West Europe
         - Sweden Central

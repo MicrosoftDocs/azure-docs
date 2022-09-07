@@ -142,7 +142,7 @@ To avoid having the deployment fail when trying to validate the custom metric’
 
 ## Process data for a metric alert rule in a specific region
 
-You can make sure that the an alert rule is processed in a specified region if your metric alert rule is defined on a subscription in that region and if it monitors a custom metric.
+You can make sure that the an alert rule is processed in a specified region if your metric alert rule is defined with a scope of that region and if it monitors a custom metric.
 
 These are the currently support regions for regional processing of metric alert rules:
 - North Europe
