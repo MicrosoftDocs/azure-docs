@@ -106,6 +106,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Teams Communications Support Engineer](#teams-communications-support-engineer) | Can troubleshoot communications issues within Teams using advanced tools. | f70938a0-fc10-4177-9e90-2178f8765737 |
 > | [Teams Communications Support Specialist](#teams-communications-support-specialist) | Can troubleshoot communications issues within Teams using basic tools. | fcf91098-03e3-41a9-b5ba-6f0ec8188a12 |
 > | [Teams Devices Administrator](#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. | 3d762c5a-1b6c-493f-843e-55a3b42923d4 |
+> | [Tenant Creator](#tenant-creator) | Create new Azure AD or Azure AD B2C tenants. | 112ca1a2-15ad-4102-995e-45b0bc479a6a |
 > | [Usage Summary Reports Reader](#usage-summary-reports-reader) | Can see only tenant level aggregates in Microsoft 365 Usage Analytics and Productivity Score. | 75934031-6c7e-415a-99d7-48dbd49e875e |
 > | [User Administrator](#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins. | fe930be7-5e62-47db-91af-98c3a49a38b1 |
 > | [Virtual Visits Administrator](#virtual-visits-administrator) | Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app. | e300d9e7-4a2b-4295-9eff-f1c78b36cc98 |
@@ -2169,6 +2170,65 @@ Users with this role can manage [Teams-certified devices](https://www.microsoft.
 > | --- | --- |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 > | microsoft.teams/devices/standard/read | Manage all aspects of Teams-certified devices including configuration policies |
+
+## Tenant Creator
+  
+Create new Azure AD or Azure AD B2C tenants.
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/administrativeUnits/standard/read | Read basic properties on administrative units |
+ > | microsoft.directory/administrativeUnits/members/read | Read members of administrative units |
+ > | microsoft.directory/applications/standard/read | Read standard properties of applications |
+ > | microsoft.directory/applications/owners/read | Read owners of applications |
+ > | microsoft.directory/applications/policies/read | Read policies of applications |
+ > | microsoft.directory/contacts/standard/read | Read basic properties on contacts in Azure AD |
+ > | microsoft.directory/contacts/memberOf/read | Read the group membership for all contacts in Azure AD |
+ > | microsoft.directory/contracts/standard/read | Read basic properties on partner contracts |
+ > | microsoft.directory/devices/standard/read | Read basic properties on devices |
+ > | microsoft.directory/devices/memberOf/read | Read device memberships |
+ > | microsoft.directory/devices/registeredOwners/read | Read registered owners of devices |
+ > | microsoft.directory/devices/registeredUsers/read | Read registered users of devices |
+ > | microsoft.directory/directoryRoles/standard/read | Read basic properties of Azure AD roles |
+ > | microsoft.directory/directoryRoles/eligibleMembers/read | Read the eligible members of Azure AD roles |
+ > | microsoft.directory/directoryRoles/members/read | Read all members of Azure AD roles |
+ > | microsoft.directory/domains/standard/read | Read basic properties on domains |
+ > | microsoft.directory/groups/standard/read | Read standard properties of Security groups and Microsoft 365 groups, including role-assignable groups |
+ > | microsoft.directory/groups/appRoleAssignments/read | Read application role assignments of groups |
+ > | microsoft.directory/groups/memberOf/read | Read the memberOf property on Security groups and Microsoft 365 groups, including role-assignable groups |
+ > | microsoft.directory/groups/members/read | Read members of Security groups and Microsoft 365 groups, including role-assignable groups |
+ > | microsoft.directory/groups/owners/read | Read owners of Security groups and Microsoft 365 groups, including role-assignable groups |
+ > | microsoft.directory/groups/settings/read | Read settings of groups |
+ > | microsoft.directory/groupSettings/standard/read | Read basic properties on group settings |
+ > | microsoft.directory/groupSettingTemplates/standard/read | Read basic properties on group setting templates |
+ > | microsoft.directory/oAuth2PermissionGrants/standard/read | Read basic properties on OAuth 2 |0 permission grants |
+ > | microsoft.directory/organization/standard/read | Read basic properties on an organization |
+ > | microsoft.directory/organization/trustedCAsForPasswordlessAuth/read | Read trusted certificate authorities for passwordless authentication |
+ > | microsoft.directory/applicationPolicies/standard/read | Read standard properties of application policies |
+ > | microsoft.directory/roleAssignments/standard/read | Read basic properties on role assignments |
+ > | microsoft.directory/roleDefinitions/standard/read | Read basic properties on role definitions |
+ > | microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Read service principal role assignments |
+ > | microsoft.directory/servicePrincipals/appRoleAssignments/read | Read role assignments assigned to service principals |
+ > | microsoft.directory/servicePrincipals/standard/read | Read basic properties of service principals |
+ > | microsoft.directory/servicePrincipals/memberOf/read | Read the group memberships on service principals |
+ > | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/read | Read delegated permission grants on service principals |
+ > | microsoft.directory/servicePrincipals/owners/read | Read owners of service principals |
+ > | microsoft.directory/servicePrincipals/ownedObjects/read | Read owned objects of service principals |
+ > | microsoft.directory/servicePrincipals/policies/read | Read policies of service principals |
+ > | microsoft.directory/subscribedSkus/standard/read | Read basic properties on subscriptions |
+ > | microsoft.directory/users/standard/read | Read basic properties on users |
+ > | microsoft.directory/users/appRoleAssignments/read | Read application role assignments for users |
+ > | microsoft.directory/users/deviceForResourceAccount/read | Read deviceForResourceAccount of users |
+ > | microsoft.directory/users/directReports/read | Read the direct reports for users |
+ > | microsoft.directory/users/licenseDetails/read | Read license details of users |
+ > | microsoft.directory/users/manager/read | Read manager of users |
+ > | microsoft.directory/users/memberOf/read | Read the group memberships of users |
+ > | microsoft.directory/users/oAuth2PermissionGrants/read | Read delegated permission grants on users |
+ > | microsoft.directory/users/ownedDevices/read | Read owned devices of users |
+ > | microsoft.directory/users/ownedObjects/read | Read owned objects of users |
+ > | microsoft.directory/users/photo/read | Read photo of users |
+ > | microsoft.directory/users/registeredDevices/read | Read registered devices of users |
+ > | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit |
 
 ## Usage Summary Reports Reader
 
