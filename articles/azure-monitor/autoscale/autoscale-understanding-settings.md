@@ -12,9 +12,9 @@ Autoscale settings help you provision just the right mount of resources to suppo
 
 ## Autoscale setting schema
 
-To illustrate the autoscale setting schema, the following autoscale setting is used. It is important to note that this autoscale setting has:
+To illustrate the autoscale setting schema, the following autoscale setting is used. It's important to note that this autoscale setting has:
 - One profile. 
-- Two metric rules in this profile: one for scale out, and one for scale in.
+- Two metric rules in this profile: one for scale-out, and one for scale-in.
   - The scale-out rule is triggered when the virtual machine scale set's average percentage CPU metric is greater than 85 percent for the past 10 minutes.
   - The scale-in rule is triggered when the virtual machine scale set's average is less than 60 percent for the past minute.
 
@@ -90,9 +90,9 @@ To illustrate the autoscale setting schema, the following autoscale setting is u
 | properties | targetResourceUri | The resource ID of the resource being scaled. You can only have one autoscale setting per resource. |
 | properties | profiles | An autoscale setting is composed of one or more profiles. Each time the autoscale engine runs, it executes one profile. |
 | profile | name | The name of the profile. You can choose any name that helps you identify the profile. |
-| profile | Capacity.maximum | The maximum capacity allowed. It ensures that autoscale, when executing this profile, does not scale your resource above this number. |
-| profile | Capacity.minimum | The minimum capacity allowed. It ensures that autoscale, when executing this profile, does not scale your resource below this number. |
-| profile | Capacity.default | If there is a problem reading the resource metric (in this case, the CPU of “vmss1”), and the current capacity is below the default, autoscale scales out to the default. This is to ensure the availability of the resource. If the current capacity is already higher than the default capacity, autoscale does not scale in. |
+| profile | Capacity.maximum | The maximum capacity allowed. It ensures that autoscale doesn't scale your resource above this number when executing the profile. |
+| profile | Capacity.minimum | The minimum capacity allowed. It ensures that autoscale doesn't scale your resource below this number when executing the profile |
+| profile | Capacity.default | If there's a problem reading the resource metric (in this case, the CPU of “vmss1”), and the current capacity is below the default, autoscale scales out to the default. This ensures the availability of the resource. If the current capacity is already higher than the default capacity, autoscale does not scale in. |
 | profile | rules | Autoscale automatically scales between the maximum and minimum capacities, by using the rules in the profile. You can have multiple rules in a profile. Typically there are two rules: one to determine when to scale out, and the other to determine when to scale in. |
 | rule | metricTrigger | Defines the metric condition of the rule. |
 | metricTrigger | metricName | The name of the metric. |
@@ -288,9 +288,9 @@ Autoscale uses the following sequence to pick the profile:
 2. If there are no fixed date profiles,autoscale looks at recurrence profiles. If a recurrence profile is found, it runs it.
 3. If there are no fixed date or recurrence profiles,autoscale runs the regular profile.
 
-### How doesautoscale evaluate multiple rules?
+### How does autoscale evaluate multiple rules?
 
-Afterautoscale determines which profile to run, it evaluates all the scale-out rules in the profile (these are rules with **direction = “Increase”**).
+After autoscale determines which profile to run, it evaluates all the scale-out rules in the profile (these are rules with **direction = “Increase”**).
 
 If one or more scale-out rules are triggered,autoscale calculates the new capacity determined by the **scaleAction** of each of those rules. Then it scales out to the maximum of those capacities, to ensure service availability.
 
@@ -300,10 +300,10 @@ If no scale-out rules are triggered,autoscale evaluates all the scale-in rules (
 
 Autoscale calculates the new capacity determined by the **scaleAction** of each of those rules. Then it chooses the scale action that results in the maximum of those capacities to ensure service availability.
 
-For example, let's say there is a virtual machine scale set with a current capacity of 10. There are two scale-in rules: one that decreases capacity by 50 percent, and one that decreases capacity by 3 counts. The first rule would result in a new capacity of 5, and the second rule would result in a capacity of 7. To ensure service availability,autoscale chooses the action that results in the maximum capacity, so the second rule is chosen.
+For example, let's say there is a virtual machine scale set with a current capacity of 10. There are two scale-in rules: one that decreases capacity by 50 percent, and one that decreases capacity by 3 counts. The first rule would result in a new capacity of 5, and the second rule would result in a capacity of 7. To ensure service availability, autoscale chooses the action that results in the maximum capacity, so the second rule is chosen.
 
 ## Next steps
-Learn more aboutautoscale by referring to the following:
+Learn more about autoscale by referring to the following:
 
 * [Overview of autoscale](./autoscale-overview.md)
 * [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
