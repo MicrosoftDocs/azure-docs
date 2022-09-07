@@ -172,7 +172,7 @@ The [prerequisites][prerequisites] already listed for Azure CNI still apply, but
 
 When using this feature, planning is much simpler. Since the nodes and pods scale independently, their address spaces can also be planned separately. Since pod subnets can be configured to the granularity of a node pool, customers can always add a new subnet when they add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
  
-However ips are allocated in batches of 16 (currently may lower in future). So you do need to plan assume at least 16*nodes ips per subnet and each node will request another batch of 16 once it's over half the batch size. So a node will ask for 32 once it's got >8 pod ips in use. 
+IPs are allocated to nodes in batches of 16. Pod subnet IP allocation should be planned with a minimum of 16 IPs per node in the cluster; nodes will request 16 IPs on startup and will request another batch of 16 any time there are <8 IPs unallocated in their allotment.
 
 The planning of IPs for Kubernetes services and Docker bridge remain unchanged.
 
