@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 08/15/2022
+ms.date: 09/07/2022
 ms.author: greglin
 ---
 
@@ -30,19 +30,20 @@ To understand how many private DNS zones you can create in a subscription and ho
 
     | Public | Azure Government | Azure China |
     | --- | --- | --- |
-    |azure.com |	azure.us	| azure.cn
-    |microsoft.com |	microsoft.us |	microsoft.cn
-    |trafficmanager.net	| usgovtrafficmanager.net |	trafficmanager.cn
-    |cloudapp.net |	usgovcloudapp.net	| chinacloudapp.cn
     |azclient.ms	| azclient.us	| azclient.cn
-    |windows.net| 	usgovcloudapi.net	| chinacloudapi.cn
-    |msidentity.com	| msidentity.us	| msidentity.cn
+    |azure.com |	azure.us	| azure.cn
+    |azure-api.net	| azure-api.us	| azure-api.cn
+    |cloudapp.net |	usgovcloudapp.net	| chinacloudapp.cn
     |core.windows.net |	core.usgovcloudapi.net	| core.chinacloudapi.cn
+    |microsoft.com |	microsoft.us |	microsoft.cn
+    |msidentity.com	| msidentity.us	| msidentity.cn
+    |trafficmanager.net	| usgovtrafficmanager.net |	trafficmanager.cn
+    |windows.net| 	usgovcloudapi.net	| chinacloudapi.cn
+
+
 
 ## Next steps
 
 * Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
-
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
-
 * For common questions and answers about private zones in Azure DNS, see [Private DNS FAQ](./dns-faq-private.yml).
