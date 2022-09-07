@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 09/07/2022
 ---
 
 # Built-in connectors in Azure Logic Apps
@@ -28,7 +28,7 @@ The following table lists the current and expanding galleries of built-in connec
 
 | Consumption | Standard |
 |-------------|----------|
-| Azure API Management<br>Azure App Services <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | Azure Blob* <br>Azure Cosmos DB* <br>Azure Functions <br>Azure Queue* <br>Azure Table Storage* <br>Control <br>Data Operations <br>Date Time <br>DB2* <br>Event Hubs* <br>Flat File <br>FTP* <br>HTTP <br>IBM Host File* <br>Inline Code <br>Liquid operations <br>MQ* <br>Request <br>Schedule <br>Service Bus* <br>SFTP* <br>SQL Server* <br>Variables <br>Workflow operations <br>XML operations |
+| Azure API Management<br>Azure App Services <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | AS2 (v2) <br>Azure Automation* <br>Azure Blob* <br>Azure Cosmos DB* <br>Azure File Storage* <br>Azure Functions <br>Azure Queue* <br>Azure Table Storage* <br>Control <br>Data Operations <br>Date Time <br>DB2* <br>Event Hubs* <br>Flat File <br>FTP* <br>HTTP <br>IBM Host File* <br>Inline Code <br>Key Vault* <br>Liquid operations <br>MQ* <br>Request <br>Schedule <br>Service Bus* <br>SFTP* <br>SMTP* <br>SQL Server* <br>Variables <br>Workflow operations <br>XML operations |
 |||
 
 <a name="service-provider-interface-implementation"></a>
@@ -497,15 +497,19 @@ Azure Logic Apps provides the following built-in actions for working with data o
 
 ## Integration account built-in connectors
 
-Integration account operations specifically support business-to-business (B2B) communication scenarios in Azure Logic Apps. After you create an integration account and define your B2B artifacts, such as trading partners, agreements, maps, and schemas, you can use integration account built-in actions to encode and decode messages, transform content, and more.
+Integration account operations support business-to-business (B2B) communication scenarios in Azure Logic Apps. After you create an integration account and define your B2B artifacts, such as trading partners, agreements, and others, you can use integration account built-in actions to encode and decode messages, transform content, and more.
 
-* Consumption logic apps
+* Consumption logic app workflows
 
-  Before you use any integration account operations in a Consumption logic app, you have to [link your logic app to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+  Before you use any integration account operations in a workflow, [link your logic app resource to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
-* Standard logic apps
+* Standard logic app workflows
 
-  Integration account operations don't require that you link your logic app to your integration account. Instead, you create a connection to your integration account when you add the operation to your Standard logic app workflow. Actually, the built-in Liquid operations and XML operations don't even need an integration account. However, you have to upload Liquid maps, XML maps, or XML schemas through the respective operations in the Azure portal or add these files to your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
+  Integration account operations don't require that you link your logic app resource to your integration account, although linking lets you share artifacts across multiple logic apps. Instead, based on the operation, you complete one of the following steps before you use the operation:
+
+  * Upload [maps](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard) or [schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md?tabs=standard) to your logic app resource using the Azure portal or Visual Studio Code. Or, [link your logic app resource to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+
+  * Connect to your integration account when you add the operation to your workflow.
 
 For more information, review the following documentation:
 
@@ -513,6 +517,18 @@ For more information, review the following documentation:
 * [Create and manage integration accounts for B2B workflows](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 :::row:::
+    :::column:::
+        [![AS2 Decode v2 icon][as2-v2-icon]][as2-doc]
+        \
+        \
+        [**AS2 Decode (v2)**][as2-doc]<br>(*Standard logic app only*)
+    :::column-end:::
+    :::column:::
+        [![AS2 Encode (v2) icon][as2-v2-icon]][as2-doc]
+        \
+        \
+        [**AS2 Encode (v2)**][as2-doc]<br>(*Standard logic app only*)
+    :::column-end:::
     :::column:::
         [![Flat file decoding icon][flat-file-decode-icon]][flat-file-decode-doc]
         \
@@ -531,6 +547,8 @@ For more information, review the following documentation:
         \
         Decode XML after receiving the content from a trading partner.
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         [![Integration account icon][integration-account-icon]][integration-account-doc]
         \
@@ -549,8 +567,6 @@ For more information, review the following documentation:
         \
         Convert the following formats by using Liquid templates: <p><p>- JSON to JSON <br>- JSON to TEXT <br>- XML to JSON <br>- XML to TEXT
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![Transform XML icon][xml-transform-icon]][xml-transform-doc]
         \
@@ -613,6 +629,7 @@ For more information, review the following documentation:
 [variables-icon]: ./media/apis-list/variables.png
 
 <!--Built-in integration account connector icons -->
+[as2-v2-icon]: ./media/apis-list/as2-v2.png
 [flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
 [flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
 [integration-account-icon]: ./media/apis-list/integration-account.png
@@ -658,9 +675,10 @@ For more information, review the following documentation:
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Perform operations with variables, such as initialize, set, increment, decrement, and append to string or array variable"
 
 <!--Built-in integration account doc links-->
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
+[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Encode and decode messages that use the AS2 protocol"
+[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Decode XML content with a flat file schema"
+[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Encode XML content with a flat file schema"
 [integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Manage metadata for integration account artifacts"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transform JSON with Liquid templates"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML messages"
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML messages"
+[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transform JSON or XML content with Liquid templates"
+[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML content"
+[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML content"

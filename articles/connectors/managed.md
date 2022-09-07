@@ -273,15 +273,15 @@ For a *Consumption* logic app, this section lists example [Standard connectors](
 
 ## Integration account connectors
 
-Integration account operations specifically support business-to-business (B2B) communication scenarios in Azure Logic Apps. After you create an integration account and define your B2B artifacts, such as trading partners, agreements, maps, and schemas, you can use integration account connectors to encode and decode messages, transform content, and more.
+Integration account operations support business-to-business (B2B) communication scenarios in Azure Logic Apps. After you create an integration account and define your B2B artifacts, such as trading partners, agreements, and others, you can use integration account connectors to encode and decode messages, transform content, and more.
 
 For example, if you use Microsoft BizTalk Server, you can create a connection from your workflow using the [on-premises BizTalk Server connector](/connectors/biztalk/). You can then extend or perform BizTalk-like operations in your workflow by using these integration account connectors.
 
-* Consumption logic apps
+* Consumption logic app workflows
 
-  Before you use any integration account operations in a Consumption logic app, you have to [link your logic app to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+  Before you use any integration account operations in a Consumption workflow, you have to [link your logic app resource to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
-* Standard logic apps
+* Standard logic app workflows
 
   Integration account operations don't require that you link your logic app to your integration account. Instead, you create a connection to your integration account when you add the operation to your Standard logic app workflow.
 
@@ -291,6 +291,18 @@ For more information, review the following documentation:
 * [Create and manage integration accounts for B2B workflows](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 :::row:::
+    :::column:::
+        [![AS2 Decode v2 icon][as2-v2-icon]][as2-doc]
+        \
+        \
+        [**AS2 Decode (v2)**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![AS2 Encode (v2) icon][as2-v2-icon]][as2-doc]
+        \
+        \
+        [**AS2 Encode (v2)**][as2-doc]
+    :::column-end:::
     :::column:::
         [![AS2 decoding icon][as2-icon]][as2-doc]
         \
@@ -303,6 +315,8 @@ For more information, review the following documentation:
         \
         [**AS2 encoding**][as2-doc]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         [![EDIFACT decoding icon][edifact-icon]][edifact-decode-doc]
         \
@@ -632,6 +646,7 @@ For more information, see these topics:
 [youtube-doc]: ./connectors-create-api-youtube.md "Connect to YouTube. Manage your videos and channels"
 
 <!--Integration account connector icons -->
+[as2-v2-icon]: ./media/apis-list/as2-v2.png
 [as2-icon]: ./media/apis-list/as2.png
 [edifact-icon]: ./media/apis-list/edifact.png
 [x12-icon]: ./media/apis-list/x12.png
