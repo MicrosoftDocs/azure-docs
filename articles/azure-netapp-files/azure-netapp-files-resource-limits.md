@@ -92,7 +92,7 @@ The service dynamically adjusts the `maxfiles` limit for a volume based on its p
 >[!IMPORTANT]
 > To increase the quota for a volume with a quota of at least 4 TiB, you must initiate [a support request](#request-limit-increase).
 
-For volumes with at least 4 Tib of quota, you can increase the `maxfiles` (inodes) limit beyond 100 million. For every 100 million files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB.  For example, if you increase the `maxfiles` limit from 100 million files to 200 million files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
+For volumes with at least 4 TiB of quota, you can increase the `maxfiles` (inodes) limit beyond 100 million. For every 100 million files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB.  For example, if you increase the `maxfiles` limit from 100 million files to 200 million files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
 
 You can increase the `maxfiles` limit to 500 million if your volume quota is at least 20 TiB. 
 
