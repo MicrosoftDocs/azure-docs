@@ -40,8 +40,6 @@ To understand how many private DNS zones you can create in a subscription and ho
     |trafficmanager.net	| usgovtrafficmanager.net |	trafficmanager.cn
     |windows.net| 	usgovcloudapi.net	| chinacloudapi.cn
 
-
-
 ## Next steps
 
 * Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
