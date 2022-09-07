@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Call Automation API quickstart for VoIP calls
-titleSuffix: An Azure Communication Services quickstart document
-description: Provides a quickstart on how to use Call Automation to build call flow for customer interactions.
+title: Azure Communication Services Call Automation API tutorial for VoIP calls
+titleSuffix: An Azure Communication Services tutorial document
+description: Tutorial on how to use Call Automation to build call flow for customer interactions.
 author: ashwinder
 
 ms.service: azure-communication-services
@@ -13,13 +13,16 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
-# Quickstart: Build call workflows for customer interactions
+# Tutorial: Build call workflows for customer interactions
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-Get started with Azure Communication Services by using the Call Automation SDKs to build an automated workflows to handle common customer support scenarios.
+In this tutorial, you will learn how to build applications that use Azure Communication Services Call Automation SDKs to handle common customer support scenarios. You will learn how your application can build a call flow which involves: 
+- receiving notifications for incoming calls to a phone number using Event Grid,
+- answer the call and play audio file using Call Automation SDK, 
+- add a Communication User to the call using Call Automation SDK. This user can be a customer service agent who uses a web application built using Calling SDKs to connect to Azure Communication Services.  
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Call flows for customer interactions with .NET](./includes/call-automation/Callflow-for-customer-interactions-csharp.md)]
