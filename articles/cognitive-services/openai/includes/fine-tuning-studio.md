@@ -20,9 +20,9 @@ keywords:
 - Access granted to the Azure OpenAI service in the desired Azure subscription
 
     Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI Service resource
+- An Azure OpenAI resource with a model deployed
     
-    If you don't already have an available resource, the process to create a resource is documented in our [resource deployment guide](../how-to/create-resource.md)
+    For more information about creating a resource and deploying a model, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
 
 ## Fine-tuning workflow
 
@@ -49,7 +49,7 @@ Here's an example of the training data format:
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 ```
 
-For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](prepare-dataset.md).
+For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
 ### Creating your training and validation datasets
 
@@ -57,7 +57,7 @@ Designing your prompts and completions for fine-tuning is different from designi
 
 The more training examples you have, the better. We recommend having at least 200 training examples. In general, we've found that each doubling of the dataset size leads to a linear increase in model quality.
 
-For more information about preparing training data for various tasks, see [Learn how to prepare your dataset for fine-tuning](prepare-dataset.md).
+For more information about preparing training data for various tasks, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
 ### OpenAI CLI data preparation tool
 
@@ -75,6 +75,20 @@ openai tools fine_tunes.prepare_data -f <LOCAL_FILE>
 ```
 
 This tool accepts different data formats, with the only requirement that they contain a prompt and a completion column/key. You can pass a CSV, TSV, XLSX, JSON, or JSONL file, and the tool reformats your training data and saves output into a JSONL file ready for fine-tuning, after guiding you through the process of implementing suggested changes.
+
+## Go to the Azure OpenAI Studio
+
+Navigate to the Azure OpenAI Studio: <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a>and sign in with credentials that have access to the Azure OpenAI resource you've created. During the sign-in workflow, select the appropriate Directory, Azure Subscription and Azure OpenAI resource.
+
+## Landing page
+
+You'll first land on our main page for the Azure OpenAI Studio. From here, you can start fine-tuning a custom model.
+
+:::image type="content" source="../media/fine-tuning/studio-portal.png" alt-text="Screenshot of the landing page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/fine-tuning/studio-portal.png":::
+
+If a model deployment isn't detected for your resource, a prompt to create a new deployment is displayed; select **Create new deployment** and follow the steps provided in the [Deploy a model](../how-to/create-resource.md?pivots=web-portal#deploy-a-model) section of [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
+
+If you already have a model deployment for your resource, select **Customize a model with fine-tuning** to start fine-tuning a custom model. 
 
 ## Select a base model
 

@@ -57,7 +57,7 @@ Prompts for completions calls, often use either detailed instructions or few-sho
 
 The more training examples you have, the better. We recommend having at least a couple hundred examples. In general, we've found that each doubling of the dataset size leads to a linear increase in model quality.
 
-For more detailed guidance on how to prepare training data for various tasks, please refer to our [how to on preparing your dataset](prepare-dataset.md)
+For more detailed guidance on how to prepare training data for various tasks, please refer to our [how to on preparing your dataset](../how-to/prepare-dataset.md)
 
 ### CLI dataset creation tool
 

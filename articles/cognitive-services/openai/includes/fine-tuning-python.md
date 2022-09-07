@@ -58,7 +58,7 @@ Here's an example of the training data format:
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 ```
 
-For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](prepare-dataset.md).
+For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
 ### Creating your training and validation data
 
@@ -68,7 +68,7 @@ The more training examples you have, the better. We recommend having at least 20
 
 If you create validation data for your fine-tuned model, your training data and validation data should be mutually exclusive.
 
-For more information about preparing training data for various tasks, see [Learn how to prepare your dataset for fine-tuning](prepare-dataset.md).
+For more information about preparing training data for various tasks, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
 ### OpenAI CLI data preparation tool
 
