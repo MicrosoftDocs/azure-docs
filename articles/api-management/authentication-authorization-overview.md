@@ -43,7 +43,7 @@ What happens when a client app calls an API with a request that is secured using
 * The client (the calling app, or *bearer*) authenticates using credentials to an *identity provider*.
 * The client obtains a time-limited *access token* (a JSON web token, or JWT) from the identity provider's *authorization server*. 
     
-    The identity provider (for example, Azure AD) is the *issuer* of the token, and the token includes one or more *audience claims* that authorize access to a *resource server* (for example, to a backend API, or to the API Management gateway itself).
+    The identity provider (for example, Azure AD) is the *issuer* of the token, and the token includes an *audience claim* that authorize access to a *resource server* (for example, to a backend API, or to the API Management gateway itself).
 * The client calls the API and presents the access token - for example, in an Authorization header.
 * The *resource server* validates the access token by checking (at a minimum) that the *issuer* and *audience* claims contain expected values. 
 * Based on token validation criteria, access to resources of the [backend] API are then granted.
