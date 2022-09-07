@@ -6,7 +6,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 09/22/2022
 ---
-# Tutorial: Connect to PostgreSQL Database from Java Quarkus App Service without secrets using a managed identity
+# Tutorial: Connect to PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity
 
 [App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](/azure/postgresql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you will learn:
 
@@ -39,14 +39,14 @@ Follow these steps to create an Azure Database for Postgres in your subscription
 
 1. Login to your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
-    ```Azure CLI
+    ```azurecli-interactive
     az login
     az account set -s <your-subscription-id>
     ```
 
 1. Create an Azure Resource Group, noting the resource group name.
 
-    ```Azure CLI
+    ```azurecli-interactive
     RESOURCE_GROUP=[YOUR RESOURCE GROUP]
     LOCATION=eastus
 
@@ -55,7 +55,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
 
 1. Create Azure Postgres Database server. It is created with an administrator account, but it won't be used as it wil be used the Azure AD admin account to perform the administrative tasks.
 
-    ```Azure CLI
+    ```azurecli-interactive
     POSTGRESQL_ADMIN_USER=azureuser
     # postgres admin won't be used as Azure AD authentication is leveraged also for administering the database
     POSTGRESQL_ADMIN_PASSWORD=[YOUR ADMIN PASSWORD]
@@ -74,7 +74,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
 
 1. Create a database for the application
 
-    ```Azure CLI
+    ```azurecli-interactive
     DATABASE_NAME=checklist
 
     az postgres db create -g $RESOURCE_GROUP -s $POSTGRESQL_HOST -n $DATABASE_NAME
@@ -99,7 +99,7 @@ Remember that the same changes you made in `application.properties` works with t
 1. Create Azure App Service on Linux using Tomcat 9.0.
 
 
-    ```Azure CLI
+    ```azurecli-interactive
     # Create app service plan
     az appservice plan create --name $APPSERVICE_PLAN --resource-group $RESOURCE_GROUP --location $LOCATION --sku B1 --is-linux
     # Create application service
@@ -109,7 +109,7 @@ Remember that the same changes you made in `application.properties` works with t
 1. Deploy the war package to App Service.
 
 
-    ```Azure CLI
+    ```azurecli-interactive
     # Create webapp deployment
     az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path target/app.war --type war
     ```
@@ -121,22 +121,22 @@ Next, you configure your App Service app to connect to SQL Database with a syste
 
 To enable a managed identity for your Azure app, use the [az webapp connection create](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
 
-    ```azurecli-interactive
-    az webapp connection create postgres --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --system-assigned-identity
-    ```
+```azurecli-interactive
+az webapp connection create postgres --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --system-assigned-identity
+```
 
-    This command will do the following things,
-      - TODO
-      - TODO
-      - TODO
+This command will do the following things,
+    - TODO
+    - TODO
+    - TODO
 
 ## View sample web app
 
 Run the following command to open the deployed web app in your browser.
 
-    ```azurecli-interactive
-    az webapp browse --name MyWebapp --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME
-    ```
+```azurecli-interactive
+az webapp browse --name MyWebapp --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME
+```
 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
