@@ -40,7 +40,7 @@ Resource Health Alert using Azure portal
     ![Service Health Selection](./media/resource-health-alert-monitor-guide/service-health-selection.png)
 1. In the **Resource Health** section, select **Service Health**.
 1. Select **Add resource health alert**.
-1. Follow the steps for Resource Health alerts in the [create a new alert rule wizard](./alerts/alerts-create-new-alert-rule.md).
+1. Follow the steps for Resource Health alerts in the [create a new alert rule wizard](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 ## Next steps
 

@@ -194,15 +194,15 @@ And then defining these elements for the resulting alert actions using:
         |Previous resource status|Select the previous resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
         |Reason type|Select the the cause(s) of the Resource Health events this alert will monitor. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.|  
     ### [Service Health alert](#tab/service-health)
-   
- 1. In the **Conditions** pane, select Select values for each of these fields:
 
-        |Field |Description |
-        |---------|---------|
-        |Event status| Select the type(s) of Resource Health events this alert will monitor. Values are: **Active**, **In Progress**, **Resolved**, and **Updated**.|
-        |Current resource status|Select the current resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, and **Unavailable**.|
-        |Previous resource status|Select the previous resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
-        |Reason type|Select the the cause(s) of the Resource Health events this alert will monitor. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.|
+     1. In the **Conditions** pane, select Select values for each of these fields:
+
+      |Field |Description |
+      |---------|---------|
+      |Event status| Select the type(s) of Resource Health events this alert will monitor. Values are: **Active**, **In Progress**, **Resolved**, and **Updated**.|
+      |Current resource status|Select the current resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, and **Unavailable**.|
+      |Previous resource status|Select the previous resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
+      |Reason type|Select the the cause(s) of the Resource Health events this alert will monitor. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.| 
 
     ---
 

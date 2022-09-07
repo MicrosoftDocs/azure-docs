@@ -48,7 +48,7 @@ For information on how to configure service health notification alerts by using 
 
     ![The "Create service health alert" command](media/alerts-activity-log-service-notifications/service-health-alert.png)
 
-1.  Follow the steps for Resource Health alerts in the [create a new alert rule wizard](./alerts/alerts-create-new-alert-rule.md).
+1. Follow the steps for Resource Health alerts in the [create a new alert rule wizard](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 
 Learn how to [Configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md). For information on the webhook schema for activity log alerts, see [Webhooks for Azure activity log alerts](../azure-monitor/alerts/activity-log-alerts-webhook.md).
