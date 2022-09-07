@@ -15,43 +15,49 @@ Sometimes DPS needs more data from devices to properly provision them to the rig
 
 ## When to use it
 
-This feature can be used as an enhancement for [custom allocation](./how-to-use-custom-allocation-policies.md). For example, you want to allocate your devices based on the device model without human intervention. In this case, you can configure the device to report its model information as part of the [register device call](/rest/api/iot-dps/device/runtime-registration/register-device). DPS will pass the device’s payload to the custom allocation webhook. Then your function can decide which IoT hub the device will be provisioned to based on the device model information. If needed, the webhook can return data back to the device as a JSON object in the webhook response.  
+This feature can be used as an enhancement for [custom allocation](./how-to-use-custom-allocation-policies.md). For example, you want to allocate your devices based on the device model without human intervention. In this case, you can configure the device to report its model information as part of the [register device call](/rest/api/iot-dps/device/runtime-registration/register-device). DPS will pass the device’s payload to the custom allocation webhook. Then your function can decide which IoT hub the device will be provisioned to based on the device model information. If needed, the webhook can return data back to the device as a JSON object in the webhook response. 
 
 ## Device sends data payload to DPS
 
-When your device is sending a [register device call](/rest/api/iot-dps/device/runtime-registration/register-device) to DPS, The register call can be enhanced to take other fields in the body. The body looks like the following:
+When your device calls [Register Device](/rest/api/iot-dps/device/runtime-registration/register-device) to register with DPS, it can include additional data in the **payload** property. For example, the following JSON shows the body for a request to register using TPM attestation:
 
 ```json
 { 
     "registrationId": "mydevice", 
     "tpm": { 
-        "endorsementKey": "stuff", 
-        "storageRootKey": "things" 
+        "endorsementKey": "xxxx-device-endorsement-key-xxxx", 
+        "storageRootKey": "xxx-device-storage-root-key-xxxx" 
     }, 
     "payload": { A JSON object that contains your additional data } 
 } 
 ```
 
+The **payload** property must be a JSON object and can contain any data relevant to your IoT solution or scenario.
+
 ## DPS returns data to the device
 
-If the custom allocation policy webhook wishes to return some data to the device, it will pass the data back as a JSON object in the webhook response. The change is in the payload section below.
+DPS can return data back to the device in the registration response. This feature is most often used in custom allocation scenarios. If the custom allocation policy webhook needs to return data to the device, it will pass the data back as a JSON object in the webhook response. DPS will then pass that data back in the **payload** property in the Register Device response. For example, the following JSON, shows the body of a successful response to register using TPM attestation.
 
 ```json
-{ 
-    "iotHubHostName": "sample-iot-hub-1.azure-devices.net", 
-    "initialTwin": { 
-        "tags": { 
-            "tag1": true 
-        }, 
-        "properties": { 
-            "desired": { 
-                "prop1": true 
-            } 
-        } 
-    }, 
-    "payload": { A JSON object that contains the data returned by the webhook } 
-} 
+{
+   "operationId":"5.316aac5bdc130deb.b1e02da8-xxxx-xxxx-xxxx-7ea7a6b7f550",
+   "status":"assigned",
+   "registrationState":{
+      "registrationId":"my-tpm-device",
+      "createdDateTimeUtc":"2022-08-31T22:02:50.5163352Z",
+      "assignedHub":"sample-iot-hub-1.azure-devices.net",
+      "deviceId":"my-tpm-device",
+      "status":"assigned",
+      "substatus":"initialAssignment",
+      "lastUpdatedDateTimeUtc":"2022-08-31T22:02:50.7370676Z",
+      "etag":"xxxx-etag-value-xxxx",
+      "tpm": {"authenticationKey": "xxxx-encrypted-authentication-key-xxxxx"},
+      "payload": {A JSON object that contains the data returned by the webhook }
+   }
+}
 ```
+
+The **payload** property must be a JSON object and can contain any data relevant to your IoT solution or scenario.
 
 ## SDK support
 
