@@ -13,9 +13,9 @@ ms.custom: template-how-to
 
 # Set employeeLeaveDateTime for leaver workflows
 
-When creating leaver workflows, it is required to set the date and time for when a user leaves.This parameter, employeeLeaveDateTime, is used to trigger the leaver workflow to run. Unlike other parameters which can be synchronized using HR inbound Provisioning, Azure AD Connect sync, or Azure AD Connect Cloud sync, you must currently manually set the employeeLeaveDateTime for each user you want to process a leaver workflow for.
+When creating leaver workflows, it's required to set the date and time for when a user leaves. This parameter, employeeLeaveDateTime, is used to trigger the leaver workflow to run. Unlike other parameters, which can be synchronized using HR inbound Provisioning, Azure AD Connect sync, or Azure AD Connect Cloud sync, you must currently manually set the employeeLeaveDateTime for each user you want to process a leaver workflow for.
 
-To set the employeeLeaveDateTime for a user using Powershell enter the following information:
+To set the employeeLeaveDateTime for a user using PowerShell enter the following information:
 
     ```powershell
     Connect-MgGraph -Scopes "User.ReadWrite.All","User-LifeCycleInfo.ReadWrite.All"
@@ -27,7 +27,7 @@ To set the employeeLeaveDateTime for a user using Powershell enter the following
     Invoke-MgGraphRequest -Method PATCH -Uri $URI -Body $Body
     ```
 
-This is an example of a user who will leave on September 30th, 2022 at 23:59.
+This is an example of a user who will leave on September 30, 2022 at 23:59.
 
  ```powershell
     Connect-MgGraph -Scopes "User.ReadWrite.All","User-LifeCycleInfo.ReadWrite.All"
