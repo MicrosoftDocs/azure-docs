@@ -72,28 +72,31 @@ If you want to know for how long the activity data is stored in a Premium tenant
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-2. Select **Azure Active Directory** > **Diagnostic settings** -> **Add diagnostic setting**. You can also select **Export Settings** from the **Audit Logs** or **Sign-ins** page to get to the diagnostic settings configuration page.  
-    
-3. In the **Diagnostic settings** menu, select the **Send to Log Analytics workspace** check box, and then select **Configure**.
+2. Select **Azure Active Directory** > **Diagnostic settings**. You can also select **Export Settings** from the **Audit Logs** or **Sign-ins** page to get to the diagnostic settings configuration page.  
 
-4. Select the Log Analytics workspace you want to send the logs to, or create a new workspace in the provided dialog box.  
+3. Select one of the existent Log Analytics workspace
 
-5. Do any or all of the following:
-    * To send audit logs to the Log Analytics workspace, select the **AuditLogs** check box. 
-    * To send sign-in logs to the Log Analytics workspace, select the **SignInLogs** check box.
-    * To send non-interactive user sign-in logs to the Log Analytics workspace, select the **NonInteractiveUserSignInLogs** check box.
-    * To send service principal sign-in logs to the Log Analytics workspace, select the **ServicePrincipalSignInLogs** check box.
-    * To send managed identity sign-in logs to the Log Analytics workspace, select the **ManagedIdentitySignInLogs** check box.
-    * To send provisioning logs to the Log Analytics workspace, select the **ProvisioningLogs** check box.
-    * To send Active Directory Federation Services (ADFS) sign-in logs to the Log Analytics workspace, select **ADFSSignInLogs**.
-    * To send risky users logs to the Log Analytics workspace, select the **RiskyUsers** check box. (public preview)
-    * To send risk detections logs to the Log Analytics workspace, select the **UserRiskEvents** check box. (public preview)
+4. Click  **+ Add diagnostic setting** link
 
-6. Select **Save** to save the setting.
+5. Type a name to this new diagnostic setting
+ 
+6. Select one or more available sources (Logs and/or Metrics), by checking existent check box
+
+7. In the **Destination details** section, select one of the available storage destinations:
+    * To send to a log analytics workspace, select the **Send to Log Analytics workspace** check box. 
+    * To archive on a storage account, select the **Archive to a storage account** check box.
+    * To stream to an event hub, select the **Stream to an event hub** check box.
+    * To send to a partner solution, select the **Send to partner solution** check box.
+
+If you want to know each storage destination in detail, see: [Destinations](https://docs.microsoft.com/en-gb/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal#destinations)
+
+8. For each selected check box, confirm the Azure suscription associated and fulfil the displayed fields
+
+9. Select **Save** to save the setting.
 
     ![Diagnostics settings](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
 
-7. After about 15 minutes, verify that events are streamed to your Log Analytics workspace.
+10. After about 15 minutes, verify that events are streamed to your Log Analytics workspace.
 
 ## Next steps
 
