@@ -4,8 +4,8 @@ description: Monitor Azure Arc-enabled PostgreSQL services
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
-author: grrlgeek
-ms.author: jeschult
+author: dhanmm
+ms.author: dhmahaja
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
