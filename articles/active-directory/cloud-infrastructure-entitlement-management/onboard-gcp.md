@@ -18,11 +18,6 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on P
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
-## View a training video on configuring and onboarding a GCP account
-
-To view a video on how to configure and onboard GCP accounts in Permissions Management, select [Configure and onboard GCP accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
-
-
 ## Onboard a GCP project
 
 1. If the **Data Collectors** dashboard isn't displayed when Permissions Management launches:
@@ -41,7 +36,7 @@ To view a video on how to configure and onboard GCP accounts in Permissions Mana
 
     > [!NOTE]
     > 1. To confirm that the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
-    > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your AWS account.
+    > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your GCP account.
 
     1. Return to Permissions Management, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
 
@@ -53,14 +48,18 @@ Choose from 3 options to manage GCP projects.
 
 This option allows projects to be automatically detected and monitored without additional configuration. Steps to detect list of projects and onboard for collection:  
 
-- Grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope.  
+Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope. 
+
+Once done, the steps are listed in the screen to do this manually in the GPC console, or programatically with the gcloud CLI.
+
+Once this has been configured, click next, then 'Verify Now & Save'.
 
 Any current or future projects found get onboarded automatically. 
 
 To view status of onboarding after saving the configuration: 
 
-- Navigate to data collectors tab.  
-- Click on the status of the data collector.  
+- Navigate to data collectors tab
+- Click on the status of the data collector
 - View projects on the In Progress page 
 
 #### Option 2: Enter authorization systems 
@@ -81,11 +80,13 @@ To view status of onboarding after saving the configuration:
 
 This option detects all projects that are accessible by the Cloud Infrastructure Entitlement Management application.  
 
-- Grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope. 
-- Click Verify and Save. 
-- Navigate to newly create Data Collector row under GCP data collectors. 
+- Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope
+- Once done, the steps are listed in the screen to do this manually in the GPC console, or programatically with the gcloud CLI
+- Click Next
+- Click 'Verify Now & Save' 
+- Navigate to newly create Data Collector row under GCP data collectors
 - Click on Status column when the row has “Pending” status 
-- To onboard and start collection, choose specific ones from the detected list and consent for collection. 
+- To onboard and start collection, choose specific ones from the detected list and consent for collection
 
 ### 3. Set up GCP member projects.
 

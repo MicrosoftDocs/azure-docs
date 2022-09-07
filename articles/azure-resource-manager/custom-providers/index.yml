@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Custom Providers documentation
-summary: Define custom APIs that extend the Azure experience
+summary: Define custom APIs that extend the Azure experience.
 
 metadata:
   title: Azure Custom Providers documentation
-  description: Azure Custom Providers is an extensibility platform to Azure that enables you define to custom APIs
+  description: Azure Custom Providers is an extensibility platform to Azure that enables you to define custom APIs.
   ms.service: azure-custom-providers
   ms.topic: landing-page
   ms.collection: na
-  author: tfitzmac
-  ms.author: tomfitz
+  author: davidsmatlak
+  ms.author: davidsmatlak
   ms.date: 01/02/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -29,7 +29,7 @@ landingContent:
             url: concepts-built-in-policy.md
           - text: Resource onboarding overview
             url: concepts-resource-onboarding.md
-      
+
   # Card
   - title: Create custom providers
     linkLists:
@@ -67,5 +67,3 @@ landingContent:
             url: proxy-cache-resource-endpoint-reference.md
           - text: Custom provider RESTful endpoint reference
             url: reference-custom-providers-csharp-endpoint.md
-          
-        

@@ -2,7 +2,7 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: conceptual
-ms.date: 01/20/2022
+ms.date: 08/11/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -13,6 +13,9 @@ ms.author: v-amallick
 This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. You'll learn how to monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
 
 If you haven't yet configured backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
+
+>[!Note]
+>See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Monitor backup jobs in the portal
 
@@ -105,7 +108,13 @@ You can run different types of on-demand backups:
 - Differential backup
 - Log backup
 
-While you need to specify the retention duration for Copy-only full backup, the retention range for on-demand full backup will automatically be set to 45 days from current time.
+>[!Note]
+>The retention period of this backup is determined by the type of on-demand backup you have run.
+>
+>- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
+>- *On-demand copy only full* accepts any v0alue for retaintion.
+>- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
+>- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
 

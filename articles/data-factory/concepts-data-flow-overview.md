@@ -50,7 +50,7 @@ Each transformation contains at least four configuration tabs.
 
 The first tab in each transformation's configuration pane contains the settings specific to that transformation. For more information, see that transformation's documentation page.
 
-:::image type="content" source="media/data-flow/source1.png" alt-text="Source settings tab":::
+:::image type="content" source="media/data-flow/source-1.png" alt-text="Source settings tab":::
 
 #### Optimize
 

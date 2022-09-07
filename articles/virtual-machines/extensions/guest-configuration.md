@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: extensions
 author: mgreenegit
 ms.author: migreene
-ms.date: 04/15/2021 
+ms.date: 04/15/2021
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 # Overview of the guest configuration extension
 
 The Guest Configuration extension is a component of Azure Policy that performs audit and configuration operations inside virtual machines.
-Policies such as security baseline definitions for 
+Policies such as security baseline definitions for
 [Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd)
 and [Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc)
 can't check settings inside machines until the extension is installed.
@@ -34,7 +34,7 @@ The identity requirement on a virtual machine is met if the following property i
 ### Operating Systems
 
 Support for the Guest Configuration extension is the same as operating system support
-[documented for the end to end solution](../../governance/policy/concepts/guest-configuration.md#supported-client-types).
+[documented for the end to end solution](../../governance/machine-configuration/overview.md#supported-client-types).
 
 ### Internet connectivity
 
@@ -45,7 +45,7 @@ The machine can connect using outbound HTTPS over
 TCP port 443, or if a connection is provided through private networking.
 To learn more about private networking, see the following articles:
 
-- [Guest Configuration, communicate over private link in Azure](../../governance/policy/concepts/guest-configuration.md#communicate-over-private-link-in-azure)
+- [Guest Configuration, communicate over private link in Azure](../../governance/machine-configuration/overview.md#communicate-over-private-link-in-azure)
 - [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints.md)
 
 ## How can I install the extension?
@@ -252,8 +252,8 @@ See below for a list of the possible error messages when enabling the extension
 
 ## Next steps
 
-* For more information about Azure Policy's guest configuration, see [Understand Azure Policy's Guest Configuration](../../governance/policy/concepts/guest-configuration.md)
+* For more information about Azure Policy's guest configuration, see [Understand Azure Policy's Guest Configuration](../../governance/machine-configuration/overview.md)
 * For more information about how the Linux Agent and extensions work, see [Azure VM extensions and features for Linux](features-linux.md).
-* For more information about how the Windows Guest Agent and extensions work, see [Azure VM extensions and features for Windows](features-windows.md).  
-* To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent Overview](agent-windows.md).  
-* To install the Linux Agent, see [Azure Linux Virtual Machine Agent Overview](agent-linux.md).  
+* For more information about how the Windows Guest Agent and extensions work, see [Azure VM extensions and features for Windows](features-windows.md).
+* To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent Overview](agent-windows.md).
+* To install the Linux Agent, see [Azure Linux Virtual Machine Agent Overview](agent-linux.md).

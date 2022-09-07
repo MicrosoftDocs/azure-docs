@@ -1,11 +1,11 @@
 ---
 title: VirtualNetworkCombo UI element
 description: Describes the Microsoft.Network.VirtualNetworkCombo UI element for Azure portal.
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: conceptual
 ms.date: 06/28/2018
-ms.author: tomfitz
+ms.author: davidsmatlak
 
 ---
 # Microsoft.Network.VirtualNetworkCombo UI element
@@ -81,19 +81,22 @@ When the user picks an existing virtual network, the user must map each subnet t
 ```json
 {
   "name": "vnet01",
-  "resourceGroup": "rg01",
-  "addressPrefixes": ["10.0.0.0/16"],
+  "resourceGroup": "demoRG",
+  "addressPrefixes": [
+    "10.0.0.0/16"
+  ],
+  "addressPrefix": "10.0.0.0/16",
   "newOrExisting": "new",
   "subnets": {
     "subnet1": {
       "name": "subnet-1",
       "addressPrefix": "10.0.0.0/24",
-      "startAddress": "10.0.0.1"
+      "startAddress": "10.0.0.4"
     },
     "subnet2": {
       "name": "subnet-2",
       "addressPrefix": "10.0.1.0/26",
-      "startAddress": "10.0.1.1"
+      "startAddress": "10.0.1.4"
     }
   }
 }

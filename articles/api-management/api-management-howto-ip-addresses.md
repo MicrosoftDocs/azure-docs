@@ -94,16 +94,42 @@ API Management uses a public IP address for a connection outside the VNet or a p
 
 If your API Management service is a Consumption tier service, it doesn't have a dedicated IP address. Consumption tier service runs on a shared infrastructure and without a deterministic IP address.
 
-For traffic restriction purposes, you can use the range of IP addresses of Azure data centers. Refer to [the Azure Functions documentation article](../azure-functions/ip-addresses.md#data-center-outbound-ip-addresses) for precise steps.
+If you need to add the outbound IP addresses used by your Consumption tier instance to an allowlist, you can add the instance's data center (Azure region) to an allowlist. You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your instance runs in.
+
+For example, the following JSON fragment is what the allowlist for Western Europe might look like:
+
+```json
+{
+  "name": "AzureCloud.westeurope",
+  "id": "AzureCloud.westeurope",
+  "properties": {
+    "changeNumber": 9,
+    "region": "westeurope",
+    "platform": "Azure",
+    "systemService": "",
+    "addressPrefixes": [
+      "13.69.0.0/17",
+      "13.73.128.0/18",
+      ... Some IP addresses not shown here
+     "213.199.180.192/27",
+     "213.199.183.0/24"
+    ]
+  }
+}
+```
+
+For information about when this file is updated and when the IP addresses change, expand the **Details** section of the [Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
 ## Changes to the IP addresses
 
-In the Developer, Basic, Standard, and Premium tiers of API Management, the public IP addresses (VIP) and private VIP addresses (if configured in the internal VNet mode) are static for the lifetime of a service, with the following exceptions:
+In the Developer, Basic, Standard, and Premium tiers of API Management, the public IP address or addresses (VIP) and private VIP addresses (if configured in the internal VNet mode) are static for the lifetime of a service, with the following exceptions:
 
-* The service is deleted and then re-created.
+* The API Management service is deleted and then re-created.
 * The service subscription is [suspended](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) or [warned](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (for example, for nonpayment) and then reinstated.
-* Azure Virtual Network is added to or removed from the service.
-* API Management service is switched between External and Internal VNet deployment mode.
-* [Availability zones](zone-redundancy.md) are enabled, added, or removed.
+* (Developer and Premium tiers) Azure Virtual Network is added to or removed from the service.
+* (Developer and Premium tiers) API Management service is switched between external and internal VNet deployment mode.
+* (Premium tier) [Availability zones](../availability-zones/migrate-api-mgt.md) are enabled, added, or removed.
+* (Premium tier) In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
 
-In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
+    > [!IMPORTANT]
+    > When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you must configure a different [public IP address](api-management-using-with-vnet.md?tabs=stv2#prerequisites) resource than the one configured previously. You may swap back to the original IP address if needed.

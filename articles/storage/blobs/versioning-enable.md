@@ -3,12 +3,12 @@ title: Enable and manage blob versioning
 titleSuffix: Azure Storage
 description: Learn how to enable blob versioning in the Azure portal or by using an Azure Resource Manager template.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/07/2021
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---

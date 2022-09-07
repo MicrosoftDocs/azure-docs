@@ -360,9 +360,9 @@ Scans can be managed or run again on completion
 
 ## Access policy
 
-To create an access policy for Azure Data Lake Storage Gen 2, follow these guides:
-* [Single SQL account](./how-to-data-owner-policies-azure-sql-db.md) - This guide will allow you to enable access policies on a single Azure SQL Database account in your subscription.
-* [All sources in a subscription or resource group](./how-to-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
+To create an access policy for Azure SQL Database, follow these guides:
+* [Single SQL account](./how-to-policies-data-owner-azure-sql-db.md) - This guide will allow you to enable access policies on a single Azure SQL Database account in your subscription.
+* [All data sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
 
 ## Lineage (Preview) 
 <a id="lineagepreview"></a>

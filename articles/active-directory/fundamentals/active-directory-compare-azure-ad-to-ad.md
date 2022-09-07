@@ -3,13 +3,13 @@ title: Compare Active Directory to Azure Active Directory
 description: This document compares Active Directory Domain Services (ADDS) to Azure Active Directory (AD). It outlines key concepts in both identity solutions and explains how it's different or similar.
 services: active-directory
 author: martincoetzer
-manager: karenhoran
+manager: rkarlin
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: fundamentals
-ms.date: 12/23/2021
+ms.date: 08/17/2022
 ms.author: martinco
 ---
 

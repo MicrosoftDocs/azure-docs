@@ -334,7 +334,7 @@ The resource group, app name, db name are drawn from the cached values. You need
 
 ::: zone pivot="postgres-flexible-server"
 ```azurecli
-az webapp connection create postgres --client-type django
+az webapp connection create postgres-flexible --client-type django
 ```
 
 The resource group, app name, db name are drawn from the cached values. You need to provide admin password of your postgres database during the execution of this command.

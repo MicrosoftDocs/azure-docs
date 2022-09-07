@@ -2,7 +2,7 @@
 title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
 description: Learn about the steps required to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 09/23/2020 
+ms.date: 08/23/2022
 ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
 ---
@@ -13,11 +13,11 @@ This guide will walk you through migrating a classic Application Insights resour
 
 Workspace-based resources enable common Azure role-based access control (Azure RBAC) across your resources, and eliminate the need for cross-app/workspace queries.
 
-**Workspace-based resources are currently available in all commercial regions and Azure US Government**
+**Workspace-based resources are currently available in all commercial regions and Azure US Government.**
 
 ## New capabilities
 
-Workspace-based Application Insights allows you to take advantage of all the latest capabilities of Azure Monitor and Log Analytics including:
+Workspace-based Application Insights allows you to take advantage of all the latest capabilities of Azure Monitor and Log Analytics, including:
 
 * [Customer-Managed Keys (CMK)](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
 * [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
@@ -29,16 +29,16 @@ Workspace-based Application Insights allows you to take advantage of all the lat
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 > [!NOTE]
-> After migrating to a workspace-based Application Insights resource, telemetry from multiple Application Insights resources may be stored in a common Log Analytics workspace. You will still be able to pull data from a specific Application Insights resource, [as described here](#understanding-log-queries).
+> After migrating to a workspace-based Application Insights resource, telemetry from multiple Application Insights resources may be stored in a common Log Analytics workspace. You will still be able to pull data from a specific Application Insights resource, as described under [Understanding log queries](#understanding-log-queries).
 
 ## Migration process
 
-When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate will change the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data. 
+When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate will change the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data.
 
 Your classic resource data will persist and be subject to the retention settings on your classic Application Insights resource. All new data ingested post migration will be subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table).
 The migration process is **permanent, and cannot be reversed**. Once you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. However, once you migrate you're able to change the target workspace as often as needed. 
 
-If you don't need to migrate an existing resource and instead want to create a new workspace-based Application Insights resource, use the [workspace-based resource creation guide](create-workspace-resource.md).
+If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource, use the [workspace-based resource creation guide](create-workspace-resource.md).
 
 ## Pre-requisites
 
@@ -58,7 +58,7 @@ Once the migration is complete, you can use [diagnostic settings](../essentials/
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will affect how long any new ingested data is stored once you migrate your Application Insights resource.
 
     > [!NOTE]
-    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period, you may need to adjust your workspace retention settings.
+    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period after migration, you will need to adjust your [workspace retention settings](/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2#set-retention-and-archive-policy-by-table) from the default 90 days to the desired longer retention period. 
     > - If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource until that data exceeds the retention period.
     > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, then use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 
@@ -70,24 +70,26 @@ This section walks through migrating a classic Application Insights resource to 
 
 1. From your Application Insights resource, select **Properties** under the **Configure** heading in the left-hand menu bar.
 
-    ![Properties highlighted in red box](./media/convert-classic-resource/properties.png)
+![Properties highlighted in red box](./media/convert-classic-resource/properties.png)
 
 2. Select **`Migrate to Workspace-based`**.
     
-     ![Migrate resource button](./media/convert-classic-resource/migrate.png)
+![Migrate resource button](./media/convert-classic-resource/migrate.png)
 
-3. Choose the Log Analytics workspace where you want all future ingested Application Insights telemetry to be stored. It can either be a Log Analytics workspace in the same subscription, or in a different subscription that shares the same Azure AD tenant. The Log Analytics workspace does not have to be in the same resource group as the Application Insights resource.
+3. Choose the Log Analytics workspace where you want all future ingested Application Insights telemetry to be stored. It can either be a Log Analytics workspace in the same subscription, or in a different subscription that shares the same Azure AD tenant. The Log Analytics workspace doesn't have to be in the same resource group as the Application Insights resource.
 
-     ![Migration wizard UI with option to select targe workspace](./media/convert-classic-resource/migration.png)
+> [!NOTE]
+> Migrating to a workspace-based resource can take up to 24 hours, but is usually faster than that. Please rely on accessing data through your Application Insights resource while waiting for the migration process to complete. Once completed, you will start seeing new data stored in the Log Analytics workspace tables.
+
+![Migration wizard UI with option to select targe workspace](./media/convert-classic-resource/migration.png)
     
-
 Once your resource is migrated, you'll see the corresponding workspace info in the **Overview** pane:
 
 ![Workspace Name](./media/create-workspace-resource/workspace-name.png)
 
 Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
-> [!NOTE]
+> [!TIP]
 > After migrating to a workspace-based Application Insights resource, we recommend using the [workspace's daily cap](../logs/daily-cap.md) to limit ingestion and costs instead of the cap in Application Insights.
 
 ## Understanding log queries
@@ -98,7 +100,7 @@ To write queries against the [new workspace-based table structure/schema](#works
 
 To ensure the queries successfully run, validate that the query's fields align with the [new schema fields](#appmetrics).
 
-If you have multiple Application Insights resources store their telemetry in one Log Analytics workspace, but you only want to query data from one specific Application Insights resource, you have two options:
+If you have multiple Application Insights resources store telemetry in one Log Analytics workspace, but you only want to query data from one specific Application Insights resource, you have two options:
 
 - Option 1: Go to the desired Application Insights resource and open the **Logs** tab. All queries from this tab will automatically pull data from the selected Application Insights resource.
 - Option 2: Go to the Log Analytics workspace that you configured as the destination for your Application Insights telemetry and open the **Logs** tab. To query data from a specific Application Insights resource, filter for the built-in ```_ResourceId``` property that is available in all application specific tables.
@@ -227,6 +229,51 @@ Once a workspace-based Application Insights resource has been created, you can m
 
 From within the Application Insights resource pane, select **Properties** > **Change Workspace** > **Log Analytics Workspaces**.
 
+## Frequently asked questions
+
+### Is there any implication on the cost from migration?
+
+There's usually no difference, with a couple of exceptions.
+
+ - Migrated Application Insights resources can use [Log Analytics Commitment Tiers](../logs/cost-logs.md#commitment-tiers) to reduce cost if the data volumes in the workspace are high enough.
+ - Grandfathered Application Insights resources will no longer get 1 GB per month free from the original Application Insights pricing model.
+
+### How will telemetry capping work?
+
+You can set a [daily cap on the Log Analytics workspace](../logs/daily-cap.md#application-insights).
+
+There's no strict (billing-wise) capping available.
+
+### How will ingestion-based sampling work?
+
+There are no changes to ingestion-based sampling.
+
+### Will there be any gap in data collected during migration?
+
+No. We merge data during query time.
+
+### Will my old logs queries continue to work?
+
+Yes, they'll continue to work.
+
+### Will my dashboards that have pinned metric and log charts continue to work after migration?
+
+Yes, they'll continue to work.
+
+### Will migration impact AppInsights API accessing data?
+
+No, migration won't impact existing API access to data. After migration, you'll be able to access data directly from a workspace using a [slightly different schema](#workspace-based-resource-changes).
+
+### Will there be any impact on Live Metrics or other monitoring experiences?
+
+No, there's no impact to [Live Metrics](live-stream.md#live-metrics-monitor--diagnose-with-1-second-latency) or other monitoring experiences.
+
+### What happens with Continuous export after migration?
+
+Continuous export doesn't support workspace-based resources.
+
+You'll need to switch to [Diagnostic Settings](../essentials/diagnostic-settings.md#diagnostic-settings-in-azure-monitor).
+
 ## Troubleshooting
 
 ### Access mode
@@ -257,7 +304,7 @@ The legacy continuous export functionality isn't supported for workspace-based r
 
 ### Retention settings
 
-**Warning Message:** *Your customized Application Insights retention settings will not apply to data sent to the workspace. You'll need to reconfigure these separately.*
+**Warning Message:** *Your customized Application Insights retention settings won't apply to data sent to the workspace. You'll need to reconfigure these separately.*
 
 You don't have to make any changes prior to migrating. This message alerts you that your current Application Insights retention settings aren't set to the default 90-day retention period. This warning message means you may want to modify the retention settings for your Log Analytics workspace prior to migrating and starting to ingest new data. 
 
@@ -265,10 +312,10 @@ You can check your current retention settings for Log Analytics under **General*
 
 ## Workspace-based resource changes
 
-Prior to the introduction of [workspace-based Application Insights resources](create-workspace-resource.md), Application Insights data was stored separate from other log data in Azure Monitor. Both are based on Azure Data Explorer and use the same Kusto Query Language (KQL). Workspace-based Application Insights resources data is stored in a Log Analytics workspace, together with other monitoring data and application data. This simplifies your configuration by allowing you to more easily analyze data across multiple solutions and to leverage the capabilities of workspaces.
+Prior to the introduction of [workspace-based Application Insights resources](create-workspace-resource.md), Application Insights data was stored separate from other log data in Azure Monitor. Both are based on Azure Data Explorer and use the same Kusto Query Language (KQL). Workspace-based Application Insights resources data is stored in a Log Analytics workspace, together with other monitoring data and application data. This simplifies your configuration by allowing you to analyze data across multiple solutions more easily, and to use the capabilities of workspaces.
 
 ### Classic data structure
-The structure of a Log Analytics workspace is described in [Log Analytics workspace overview](../logs/log-analytics-workspace-overview.md). For a classic application, the data is not stored in a Log Analytics workspace. It uses the same query language, and you create and run queries by using the same Log Analytics tool in the Azure portal. Data items for classic applications are stored separately from each other. The general structure is the same as for workspace-based applications, although the table and column names are different. 
+The structure of a Log Analytics workspace is described in [Log Analytics workspace overview](../logs/log-analytics-workspace-overview.md). For a classic application, the data isn't stored in a Log Analytics workspace. It uses the same query language, and you create and run queries by using the same Log Analytics tool in the Azure portal. Data items for classic applications are stored separately from each other. The general structure is the same as for workspace-based applications, although the table and column names are different. 
 
 > [!NOTE]
 > The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](#table-structure), you must first go to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. For more information, see [Query scope](../logs/scope.md).
@@ -290,11 +337,14 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 | exceptions | AppExceptions | Exceptions thrown by the application runtime, captures both server side and client-side (browsers) exceptions. |
 | traces | AppTraces | Detailed logs (traces) emitted through application code/logging frameworks recorded via TrackTrace(). |
 
+> [!CAUTION]
+> Do not take a production dependency on the Log Analytics tables, until you see new telemetry records show up directly in Log Analytics. This might take up to 24 hours after the migration process started.
+
 ### Table schemas
 
 The following sections show the mapping between the classic property names and the new workspace-based Application Insights property names.  Use this information to convert any queries using legacy tables.
 
-Most of the columns have the same name with different capitalization. Since KQL is case-sensitive, you will need to change each column name along with the table names in existing queries. Columns with changes in addition to capitalization are highlighted. You can still use your classic Application Insights queries within the **Logs** pane of your Application Insights resource, even if it is a workspace-based resource. The new property names are required for when querying from within the context of the Log Analytics workspace experience.
+Most of the columns have the same name with different capitalization. Since KQL is case-sensitive, you'll need to change each column name along with the table names in existing queries. Columns with changes in addition to capitalization are highlighted. You can still use your classic Application Insights queries within the **Logs** pane of your Application Insights resource, even if it's a workspace-based resource. The new property names are required for when querying from within the context of the Log Analytics workspace experience.
 
 #### AppAvailabilityResults
 

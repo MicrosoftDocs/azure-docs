@@ -19,7 +19,7 @@ As a prerequisite, you'll need an Azure subscription and have been granted prope
 
 ## Create Azure resource
 
-To get started with Azure API for FHIR, you must [create a resource](https://ms.portal.azure.com/#create/hub) in the Azure portal.  Enter *Azure API for FHIR* in the **Search services and marketplace** box.
+To get started with Azure API for FHIR, you must [create a resource](https://portal.azure.com/#create/hub) in the Azure portal.  Enter *Azure API for FHIR* in the **Search services and marketplace** box.
 
  
 [![Screenshot of the Azure search services and marketplace text box.](media/get-started/search-services-marketplace.png)](media/get-started/search-services-marketplace.png#lightbox)

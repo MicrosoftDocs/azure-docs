@@ -4,7 +4,7 @@ description: Provides information about how password hash synchronization works 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
@@ -217,6 +217,7 @@ If your server has been locked down according to Federal Information Processing 
 3. Go to the configuration/runtime node at the end of the file.
 4. Add the following node: `<enforceFIPSPolicy enabled="false"/>`
 5. Save your changes.
+6. Reboot for the changes to take effect.
 
 For reference, this snippet is what it should look like:
 

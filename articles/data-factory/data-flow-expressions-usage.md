@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/05/2022
+ms.date: 08/03/2022
 ---
 
 # Data transformation expression usage in mapping data flow
@@ -401,6 +401,17 @@ Collects all values of the expression in the aggregated group into an array. Str
 ___
 
 
+<a name="collectUnique" ></a>
+
+### <code>collectUnique</code>
+<code><b>collectUnique(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
+Collects all values of the expression in the aggregated group into a unique array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  
+* ``collect(salesPerson)``
+* ``collect(firstName + lastName))``
+* ``collect(@(name = salesPerson, sales = salesAmount) )``
+___
+
+
 <a name="columnNames" ></a>
 
 ### <code>columnNames</code>
@@ -592,7 +603,7 @@ ___
 
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Gets the current date when this job starts to run. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). 
+Gets the current date when this job starts to run. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone of the data factory's data center/region is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). 
 * ``currentDate() == toDate('2250-12-31') -> false``  
 * ``currentDate('PST')  == toDate('2250-12-31') -> false``  
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``  
@@ -2249,7 +2260,18 @@ Extracts a substring of a certain length from a position. Position is 1 based. I
 * ``substring('Cat in the hat', 100, 100) -> ''``  
 ___
 
+<a name="substringIndex" ></a>
 
+### <code>substringIndex</code>
+<code><b>substringIndex(<i>&lt;string to subset&gt;</i> : string, <i>&lt;delimiter&gt;</i> : string, &lt;count of delimiter occurences&gt;</i> : integral]) => string</b></code><br/><br/>
+Extracts the substring before `count` occurrences of the delimiter. If `count` is positive, everything to the left of the final delimiter (counting from the left) is returned. If `count` is negative, everything to the right of the final delimiter (counting from the right) is returned.  
+* ``substringIndex('111-222-333', '-', 1) -> '111'``  
+* ``substringIndex('111-222-333', '-', 2) -> '111-222'``  
+* ``substringIndex('111-222-333', '-', -1) -> '333'``  
+* ``substringIndex('111-222-333', '-', -2) -> '222-333'``  
+___   
+      
+      
 <a name="sum" ></a>
 
 ### <code>sum</code>
@@ -2417,6 +2439,15 @@ Converts any numeric or string to a long value. An optional Java decimal format 
 * ``toLong('$123', '$###') -> 123``  
 ___
 
+      
+<a name="topN" ></a>
+
+### <code>topN</code>
+<code><b>topN(<i>&lt;column/expression&gt;</i> : any, <i>&lt;count&gt;</i> : long, <i>&lt;n&gt;</i> : integer) => array</b></code><br/><br/>
+Gets the top N values for this column based on the count argument.  
+* ``topN(custId, count, 5)``
+* ``topN(productId, num_sales, 10)``
+___
 
 <a name="toShort" ></a>
 

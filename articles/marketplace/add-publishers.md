@@ -4,8 +4,8 @@ description: How to add new publishers to the commercial marketplace program for
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: varsha-sarah
-ms.author: vavargh
+author: sharath-satish-msft
+ms.author: shsatish
 ms.custom: contperf-fy21q2
 ms.date: 01/20/2022
 ---
@@ -19,8 +19,8 @@ ms.date: 01/20/2022
 
 An organization can have multiple publishers associated with a commercial marketplace account. A user who is part of an existing publisher account can add publishers.
 
->[!NOTE]
->Before you add a new publisher, review your list of existing publishers by signing into Partner Center and selecting **Settings** > **Account Settings**. Then in the left-menu, under **Organization profile**, select **Identifiers**. The publishers on your account are listed under **Publisher**.
+> [!NOTE]
+> Before you add a new publisher, review your list of existing publishers by signing into Partner Center and selecting **Settings** > **Account Settings**. Then in the left-menu, under **Organization profile**, select **Identifiers**. The publishers on your account are listed under **Publisher**.
 
 ## Add new publishers
 

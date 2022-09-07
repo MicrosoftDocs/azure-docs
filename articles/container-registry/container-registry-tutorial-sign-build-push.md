@@ -24,8 +24,8 @@ In this tutorial:
 
 ## Prerequisites
 
-> * Install, create and sign in to [ORAS artifact enabled registry](/azure/container-registry/container-registry-oras-artifacts#create-oras-artifact-enabled-registry)
-> * Create or use an [Azure Key Vault](/azure/key-vault/general/quick-create-cli)
+> * Install, create and sign in to [ORAS artifact enabled registry](./container-registry-oras-artifacts.md#create-oras-artifact-enabled-registry)
+> * Create or use an [Azure Key Vault](../key-vault/general/quick-create-cli.md)
 >*  This tutorial can be run in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 ## Install the notation CLI and AKV plugin

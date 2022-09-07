@@ -4,7 +4,7 @@ description: Manage users or devices for an administrative unit with dynamic mem
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles

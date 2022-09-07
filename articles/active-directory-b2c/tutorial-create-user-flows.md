@@ -343,7 +343,7 @@ As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 In this article, you learned how to:
 
 > [!div class="checklist"]
-> * Create a sig- up and sign in user flow
+> * Create a sign-up and sign in user flow
 > * Create a profile editing user flow
 > * Create a password reset user flow
 

@@ -15,7 +15,8 @@ ms.author: kenwith
 
 This article describes how you can create  and manage group-based permissions in Permissions Management with the User management dashboard.
 
-[!NOTE] The Permissions Management Administrator for all authorization systems will be able to create the new group based permissions.
+> [!NOTE] 
+> The Permissions Management Administrator for all authorization systems will be able to create the new group based permissions.
 
 ## Select administrative permissions settings for a group
 
