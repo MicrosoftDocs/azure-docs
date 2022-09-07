@@ -19,7 +19,7 @@ This topic demonstrates creating a sample application that uses Java and [JDBC](
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
-In this article, we will include two authentication methods, one is Azure Active Directory (Azure AD) authenction and the other is PostgreSQL authentication. The "Credential-free connection" tab is using the Azure AD authentication, and the "Password" tab is using the PostgreSQL authentication.
+In this article, we will include two authentication methods, one is Azure Active Directory (Azure AD) authenction and the other is PostgreSQL authentication. The "Passwordless connection" tab is using the Azure AD authentication, and the "Password" tab is using the PostgreSQL authentication.
 - Azure AD authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 - PostgreSQL authentication is to use accounts that stored in PostgreSQL. And if you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. So these passwords are stored in PostgreSQL and you will need to manage the rotation of the passwords by yourself.
 ## Prerequisites
@@ -35,15 +35,16 @@ We are going to use environment variables to limit typing mistakes, and to make 
 
 First, set up some environment variables. In [Azure Cloud Shell](https://shell.azure.com/), run the following commands:
 
-### [Credential-free connection (Recommended)](#tab/credential-free)
+### [Passwordless connection (Recommended)](#tab/passwordless)
 
 ```bash
 export AZ_RESOURCE_GROUP=database-workshop
 export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 export AZ_LOCATION=<YOUR_AZURE_REGION>
-export AZ_POSTGRESQL_AD_ADMIN_USERNAME=demo@tenant.com
 export AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME=<YOUR_POSTGRESQL_AD_NON_ADMIN_USERNAME>
 export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+export CURRENT_USERNAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
+export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id -o tsv)
 ```
 
 Replace the placeholders with the following values, which are used throughout this article:
@@ -96,7 +97,7 @@ The first thing we'll create is a managed PostgreSQL server with an admin user.
 > [!NOTE]
 > You can read more detailed information about creating PostgreSQL servers in [Create an Azure Database for PostgreSQL server by using the Azure portal](./quickstart-create-server-database-portal.md).
 
-#### [Credential-free connection (Recommended)](#tab/credential-free)
+#### [Passwordless connection (Recommended)](#tab/passwordless)
 
 If you are using Azure CLI, run the following command to make sure it has sufficient permission:
 
@@ -122,8 +123,8 @@ Then to set the Azure AD admin user:
 az postgres server ad-admin create \
     --resource-group $AZ_RESOURCE_GROUP \
     --server-name $AZ_DATABASE_NAME \
-    --display-name $AZ_POSTGRESQL_AD_ADMIN_USERNAME \
-    --object-id `(az ad signed-in-user show --query id -o tsv)`
+    --display-name $CURRENT_USERNAME \
+    --object-id $CURRENT_USER_OBJECTID
 ```
 
 > [!IMPORTANT]
@@ -207,7 +208,7 @@ This step will create a non-admin user and grant all permissions on the `demo` d
 
 > [!NOTE]
 > You can read more detailed information about creating PostgreSQL users in [Create users in Azure Database for PostgreSQL](/azure/PostgreSQL/single-server/how-to-create-users).
-#### [Credential-free connection (Recommended)](#tab/credential-free)
+#### [Passwordless connection (Recommended)](#tab/passwordless)
 
 We have already enabled the Azure AD authentication, and this step will create an Azure AD user and grant permissions.
 
@@ -224,7 +225,7 @@ EOF
 Run the sql script to create the Azure AD non-admin user:
 
 ```bash
-psql "host=$AZ_DATABASE_NAME.postgres.database.azure.com user=$AZ_POSTGRESQL_AD_ADMIN_USERNAME@$AZ_DATABASE_NAME dbname=demo port=5432 password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` sslmode=require" < create_ad_user.sql
+psql "host=$AZ_DATABASE_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_NAME dbname=demo port=5432 password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` sslmode=require" < create_ad_user.sql
 ```
 
 Remove the temporary sql script file:
@@ -262,7 +263,7 @@ rm create_user.sql
 
 Using your favorite IDE, create a new Java project using Java 8 or above, and add a `pom.xml` file in its root directory:
 
-#### [Credential-free connection (Recommended)](#tab/credential-free)
+#### [Passwordless connection (Recommended)](#tab/passwordless)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -329,7 +330,7 @@ This file is an [Apache Maven](https://maven.apache.org/) that configures our pr
 
 Create a *src/main/resources/application.properties* file, and add:
 
-#### [Credential-free connection (Recommended)](#tab/credential-free)
+#### [Passwordless connection (Recommended)](#tab/passwordless)
 
 ```bash
 cat << EOF > src/main/resources/application.properties
@@ -373,7 +374,7 @@ Next, add the Java code that will use JDBC to store and retrieve data from your 
 
 Create a *src/main/java/DemoApplication.java* file, that contains:
 
-#### [Credential-free connection (Recommended)](#tab/credential-free)
+#### [Passwordless connection (Recommended)](#tab/passwordless)
 
 ```java
 package com.example.demo;
