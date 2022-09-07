@@ -23,7 +23,7 @@ items:
   expanded: true
   items:
   - name: What is Text Translation?
-    displayName: neural,machine,deployment
+    displayName: deploy, deployment
     href: text-translation-overview.md
   - name: Create a Translator resource
     displayName: endpoint,key,portal,azure,authentication,delete,resource
