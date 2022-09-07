@@ -181,7 +181,7 @@ public class App
                     // Participant list of the call is updated
                 } else if (event.getClass() == PlayCompleted.class) {
                     PlayCompleted event = (PlayCompleted) acsEvent;
-                    // Call was answered and is now established
+                    // Add participant to the call after audio has completed playing.
                     String callConnectionId = event.getCallConnectionId();
                     CallConnection callConnection = client.getCallConnection(callConnectionId);
                     // Invite other participants to the call
