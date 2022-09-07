@@ -83,11 +83,6 @@ Follow these steps to create an Azure Database for Postgres in your subscription
 ## Deploy the application on App Service
 Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat using WAR packaging.
 
-
-
-
-### Modify application settings
-
 Remember that the same changes you made in `application.properties` works with the managed identity, so the only thing to do is to remove the existing application settings in App Service.
 
 1. The sample app contains a `pom-war.xml` file that can generate the WAR file. Run the following command to build the app.
