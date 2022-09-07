@@ -39,8 +39,7 @@ Azure NetApp Files allows you to create volumes up to 500 TiB in size, exceeding
 
 You must first request [an increase in regional capacity quota](azure-netapp-files-resource-limits.md#request-limit-increase) before you can use large volumes. 
 
-Once your capacity quota has increased, you can create volumes to 500 TiB in size. Large Volumes are managed the same way as existing Azure NetApp Files Volumes. Large volumes are managed with the same interfaces as volumes less than 100 TiB in size. 
-
+Once your capacity quota has increased, you can create volumes to 500 TiB in size. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Otherwise, large volumes are managed the same way as existing Azure NetApp Files volumes. 
 
 ## Next steps
 * [Create an NFS volume](azure-netapp-files-create-volumes.md)
