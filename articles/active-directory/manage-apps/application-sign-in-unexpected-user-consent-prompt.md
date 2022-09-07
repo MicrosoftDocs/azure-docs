@@ -32,13 +32,13 @@ Further prompts can be expected in various scenarios:
 
 * The user who originally consented to the application was not an administrator, and now a different (non-admin) user is using the application for the first time.
 
-* The user who originally consented to the application was an administrator, but they did not consent on-behalf of the entire organization.
+* The user who originally consented to the application was an administrator, but they didn't consent on-behalf of the entire organization.
 
 * The application is using [incremental and dynamic consent](../azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) to request further permissions after consent was initially granted. Incremental and dynamic consent is often used when optional features of an application require permissions beyond those required for baseline functionality.
 
 * Consent was revoked after being granted initially.
 
-* The developer has configured the application to require a consent prompt every time it is used (note: this behavior is not best practice).
+* The developer has configured the application to require a consent prompt every time it is used (note: this behavior isn't best practice).
 
    > [!NOTE]
    > Following Microsoft's recommendations and best practices, many organizations have disabled or limited users' permission to grant consent to apps. If an application forces users to grant consent every time they sign in, most users will be blocked from using these applications even if an administrator grants tenant-wide admin consent. If you encounter an application which is requiring user consent even after admin consent has been granted, check with the app publisher to see if they have a setting or option to stop forcing user consent on every sign in.
@@ -47,19 +47,19 @@ Further prompts can be expected in various scenarios:
 
 ### Compare permissions requested and granted for the applications
 
-To ensure you have the most up-to-date permissions granted for the application, you can compare the permissions that are being requested by the application with the permissions already granted in the tenant. 
+To ensure the permissions granted for the application are up-to-date, you can compare the permissions that are being requested by the application with the permissions already granted in the tenant. 
 
 1. Sign-in to the Azure portal with an administrator account.
 2. Navigate to **Enterprise applications**.
 3. Select the application in question from the list.
 4. Under Security in the left-hand navigation, choose **Permissions**
 5. View the list of already granted permissions from the table on the Permissions page
-6. To view the requested permissions, click on the **Grant admin consent** button. (NOTE: This will open a consent prompt listing all of the requested permissions. Do not click accept on the consent prompt unless you are sure you want to grant tenant-wide admin consent.)
+6. To view the requested permissions, click on the **Grant admin consent** button. (NOTE: This will open a consent prompt listing all of the requested permissions. Don't click accept on the consent prompt unless you are sure you want to grant tenant-wide admin consent.)
 7. Within the consent prompt, expand the listed permissions and compare with the table on the permissions page. If any are present in the consent prompt but not the permissions page, that permission has yet to be consented to. Unconsented permissions may be the cause for unexpected consent prompts showing for the application.
 
 ### View user assignment settings
 
-If the application requires assignment, individual users cannot consent for themselves. To check if assignment is required for the application, do the following:
+If the application requires assignment, individual users can't consent for themselves. To check if assignment is required for the application, do the following:
 
 1. Sign-in to the Azure portal with an administrator account.
 2. Navigate to **Enterprise applications**.
@@ -70,7 +70,7 @@ If the application requires assignment, individual users cannot consent for them
 
 ### Review tenant-wide user consent settings
 
-Determining whether an individual user can consent to an application can be configured by every organization, and may differ from directory to directory. Even if every permission does not require admin consent by default, your organization may have disabled user consent entirely, preventing an individual user to consent for themselves for an application. To view your organization's user consent settings, do the following:
+Determining whether an individual user can consent to an application can be configured by every organization, and may differ from directory to directory. Even if every permission doesn't require admin consent by default, your organization may have disabled user consent entirely, preventing an individual user to consent for themselves for an application. To view your organization's user consent settings, do the following:
 
 1. Sign-in to the Azure portal with an administrator account.
 2. Navigate to **Enterprise applications**.
