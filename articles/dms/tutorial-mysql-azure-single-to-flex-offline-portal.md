@@ -222,7 +222,7 @@ Selecting this check box prevents Write/Delete operations on the source server d
        :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/15-select-target.png" alt-text="Screenshot of a Select target.":::
 
 4. Select **Next : Select databases>>**, and then, on the Select databases tab, under [Preview] Select server objects, select the server objects that you want to migrate.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/16-select-db.png" alt-text="Screenshot of a Select databases.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/16-select-db.png" alt-text="Screenshot of a Select database.":::
 
 5. In the **Select databases** section, under **Source Database**, select the database(s) to migrate.
     The non-table objects in the database(s) you specified will be migrated, while the items you didn’t select will be skipped.
