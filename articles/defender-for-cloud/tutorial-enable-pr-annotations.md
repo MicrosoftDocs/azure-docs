@@ -21,16 +21,16 @@ Before you can follow the steps in this tutorial you must:
 **For GitHuB**:
 
  - An Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin
- - [Enable Defender for cloud](get-started.md)
+ - [Enable Defender for Cloud](get-started.md)
  - [Enhanced security features](enhanced-security-features-overview.md) enabled on your Azure subscriptions
  - [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md)
- - [Enable Microsoft Security DevOps GitHub Action](msdo-github-action.md)
+ - [Configure the Microsoft Security DevOps GitHub action](msdo-github-action.md)
  - Be a [GitHub Advanced Security customer](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security)
  
 **For Azure DevOps**:
 
  - An Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin
- - [Enable Defender for cloud](get-started.md)
+ - [Enable Defender for Cloud](get-started.md)
  - [Enhanced security features](enhanced-security-features-overview.md) enabled on your Azure subscriptions
  - [Configure the Microsoft Security DevOps Azure DevOps extension](msdo-azure-devops-extension.md)
 
@@ -38,7 +38,7 @@ Before you can follow the steps in this tutorial you must:
 
 By enabling pull request annotations in GitHub, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
 
-**To enable pull request annotations in GitHub and Azure DevOps**:
+**To enable pull request annotations in GitHub**:
 
 1. Sign in to [Github](https://github.com/).
 
@@ -107,7 +107,7 @@ Once you have configured the scanner you will be able to view all issues that we
 
 By enabling pull request annotations in Azure DevOps, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
 
-**To enable annotations in Azure DevOps**:
+**To enable pull request annotations in Azure DevOps**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -131,7 +131,7 @@ All annotations will now be displayed based on your configurations with the rele
 
 ## Next steps
 
-In this tutorial you learned how to enable Pull Request annotations in GitHub and Azure DevOps.
+In this tutorial you learned how to enable pull request annotations in GitHub and Azure DevOps.
 
 
 > [!div class="nextstepaction"]

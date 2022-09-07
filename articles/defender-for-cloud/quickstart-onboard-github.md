@@ -1,23 +1,26 @@
 ---
 title: 'Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud'
-description: Learn how to connect your GitHub repository to Defender for Cloud.
+description: Learn how to connect your GitHub repositories to Defender for Cloud.
 ms.date: 09/06/2022
 ms.topic: quickstart
 ---
 
 # Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud 
 
-Defender for Cloud has the ability to protect workloads that are stored in GitHub. To protect your GitHub-based resources, you must connect your GitHub account to Defender for Cloud on the Environment settings page that includes auto provisioning. By connecting your GitHub repository to Defender for Cloud, you'll extend Defender for Cloud's enhanced security features to your GitHub resources. These features include:
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), GitHub, and Azure DevOps (ADO).
+
+To protect your GitHub-based resources, you can connect your GitHub organizations on the environment settings page. This page provides a simple onboarding experience (including auto provisioning). 
+
+By connecting your GitHub repositories to Defender for Cloud, you'll extend Defender for Cloud's enhanced security features to your GitHub resources. These features include:
 
 - **Defender for Cloud's CSPM features** - Assesses your GitHub resources according to GitHub-specific security recommendations. These recommendations are also included in your secure score. Resources will be assessed for compliance with built-in standards that are specific to DevOps. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature that helps you manage your GitHub resources alongside your Azure resources.
 
 - **Microsoft Defender for DevOps** - Extends Defender for Cloud's threat detection capabilities and advanced defenses to your GitHub resources.
 
-You can view all of the [recommendations for Azure DevOps](recommendations-reference.md) resources.
+You can view all of the [recommendations for DevOps](recommendations-reference.md) resources.
 
 ## Prerequisites
 
-- A GitHub Enterprise account, or a public repository with GitHub Advanced Security enabled.
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -43,7 +46,7 @@ You can view all of the [recommendations for Azure DevOps](recommendations-refer
 
     :::image type="content" source="media/quickstart-onboard-github/select-github.png" alt-text="Screenshot that shows you where to select, to select GitHub.":::
 
-1. Enter a name, select your subscription, resource group and region.
+1. Enter a name, select your subscription, resource group, and region.
 
 1. Select a **region**, **subscription**, and **resource group** from the drop-down menus.
 
@@ -69,7 +72,7 @@ You can view all of the [recommendations for Azure DevOps](recommendations-refer
 
 10. Select **Create**.
 
-When the process completes, the GitHub connector appears on your Environmental settings page.
+When the process completes, the GitHub connector appears on your Environment settings page.
 
 :::image type="content" source="media/quickstart-onboard-github/github-connector.png" alt-text="Screenshot showing the Environmental page with the GitHub connector now connected." lightbox="media/quickstart-onboard-github/github-connector.png":::
 

@@ -24,7 +24,7 @@ Defender for DevOps strengthens the development lifecycle by protecting code man
 | Aspect | Details |
 |--|--|
 | Release state: | Preview<br>The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
-| Required roles and permissions: | - **Contributor**: on the relevant Azure subscription <br> - **Security Admin Role**: for Defender for Cloud <br>- **GitHub Organization Administrator**<br>- **Developer(s)/Engineer(s)**: Access to setup GitHub workflows and Azure DevOps builds<br>- **Security Administrator(s)**: The ability to set up and evaluate the connector, evaluate and respond to Microsoft Defender for Cloud recommendations <br> - **Azure account**: with permissions to sign into Azure portal <br>- **Security Admin** permissions in Defender for Cloud to configure a connection to GitHub in Defender for Cloud <br>- **Security Reader** permissions in Defender for Cloud to view recommendations <br><br>If previewing the Azure DevOps Extension, your organization must be granted access. Contact the Preview Team for access |
+| Required roles and permissions: | - **Contributor**: on the relevant Azure subscription <br> - **Security Admin Role**: for Defender for Cloud <br>- **GitHub Organization Administrator**<br>- **Developer(s)/Engineer(s)**: Access to setup GitHub workflows and Azure DevOps builds<br>- **Security Administrator(s)**: The ability to set up and evaluate the connector, evaluate and respond to Microsoft Defender for Cloud recommendations <br> - **Azure account**: with permissions to sign into Azure portal <br>- **Security Admin** permissions in Defender for Cloud to configure a connection to GitHub in Defender for Cloud <br>- **Security Reader** permissions in Defender for Cloud to view recommendations  |
 
 ## Benefits of Defender for DevOps
 
@@ -32,9 +32,9 @@ Defender for DevOps gives Security Operators the ability to see how their organi
 
 Developers often need examples of code to fix security issues at the time of development and on pull requests. These examples are needed so that the developers can use the tools with which they're most familiar. With the ability to scan code, infrastructure as code, credentials, and containers, Defender for DevOps makes the overall process easier for Developers to find and remediate security issues.
 
-Defender for DevOps gives security teams the ability to set, evaluate, and enforce security policies and address risks before they  deploy to the cloud. Security teams that lack visibility into their organizations' engineering systems risks and pre-production security debt across a multitude of development environments and their effect on cloud applications.
+Defender for DevOps gives security teams the ability to set, evaluate, and enforce security policies and address risks before they are deployed to the cloud. Security teams gain visibility into their organizations' engineering systems, including security risks and pre-production security debt across multiple development environments and cloud applications.
 
-Security teams often operate from a position of Assume Breach and respond to security incidents across the entire cloud application lifecycle. Security teams must detect and respond to suspicious, or unexpected activities by developer identities and attacks on CI/CD pipeline infrastructure, without prior knowledge of all of the code and cloud connections and remediate risks to cloud applications.
+Security teams often operate from a position of Assume Breach and respond to security incidents across the entire cloud application lifecycle. Security teams must detect and respond to suspicious or unexpected activities by developer identities and attacks on CI/CD pipeline infrastructure, usually without prior knowledge of all the code and cloud connections, and they must remediate risks to cloud applications.
 
 ## Manage your DevOps environments in Defender for Cloud
 

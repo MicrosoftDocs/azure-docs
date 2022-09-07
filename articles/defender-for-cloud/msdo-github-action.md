@@ -1,11 +1,11 @@
 ---
-title: Enable Microsoft Security DevOps
-description: Learn how to enable the Microsoft Security DevOps actions.
+title: Configure the Microsoft Security DevOps GitHub action
+description: Learn how to configure the Microsoft Security DevOps GitHub action.
 ms.date: 09/06/2022
 ms.topic: how-to
 ---
 
-# Enable Microsoft Security DevOps GitHub Action
+# Configure the Microsoft Security DevOps GitHub action
 
 Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Security DevOps installs, configures, and runs the latest versions of static analysis tools such as, SDL, security and compliance tools. Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
 
@@ -28,11 +28,11 @@ Security DevOps uses the following Open Source tools:
 
 - Open [Microsoft DevOps Security GitHub action](https://github.com/marketplace/actions/security-devops-action) in a new window.
 
-## Setup GitHub action
+## Configure the Microsoft Security DevOps GitHub action
 
 **To setup GitHub action**:
 
-1. Sign in [GitHub](https://www.github.com).
+1. Sign in to [GitHub](https://www.github.com).
 
 1. Select a repository to configure the GitHub action to.
 
@@ -40,6 +40,7 @@ Security DevOps uses the following Open Source tools:
 
     :::image type="content" source="media/msdo-github-action/actions.png" alt-text="Screenshot that shows you where the Actions button is located.":::
 
+1. Select **New workflow**. 
 1. On the Get started with GitHub Actions page, select **set up a workflow yourself**
 
     :::image type="content" source="media/msdo-github-action/new-workflow.png" alt-text="Screenshot showing where to select the new workflow button.":::
@@ -116,7 +117,7 @@ Security DevOps uses the following Open Source tools:
 
 **To view your scan results**:
 
-1. Sign in [GitHub](https://www.github.com).
+1. Sign in to [GitHub](https://www.github.com).
 
 1. Navigate to **Security** > **Code scanning alerts** > **Tool**. 
 

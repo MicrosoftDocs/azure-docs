@@ -9,17 +9,15 @@ ms.topic: quickstart
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), GitHub and Azure DevOps (ADO).
 
-To protect your ADO-based resources, you can connect your ADO account on the environment settings page. This page provides a simple onboarding experience (including auto provisioning). 
+To protect your ADO-based resources, you can connect your ADO organizations on the environment settings page. This page provides a simple onboarding experience (including auto discovery). 
 
 When you connect your ADO to Defender for Cloud, you're extending Defender for Cloud's enhanced security features and CSPM features to your Azure DevOps resources. This feature assesses your ADO resources with ADO-specific security recommendations that are included in your secure score. Your resources will also be assessed for compliance with built-in standards specific to DevOps. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature helping you manage your Azure DevOps resources alongside your Azure resources. 
 
-Microsoft Defender for DevOps also extends Defender for Cloud’s threat detection capabilities and advanced defenses to your Azure DevOps resources. 
 
-You can view all of the [recommendations for Azure DevOps](recommendations-reference.md) resources.
+You can view all of the [recommendations for DevOps](recommendations-reference.md) resources.
 
 ## Prerequisites
 
-- A GitHub Enterprise account, or a public repository with GitHub Advanced Security enabled.
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -31,7 +29,7 @@ You can view all of the [recommendations for Azure DevOps](recommendations-refer
 |--|--|
 | Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
 | Pricing: | The Defender for DevOps plan is free during the Preview. <br><br> After which it will be billed. Pricing to be determined at a later date. |
-| Required roles and permissions: | **Contributor** on the relevant Azure subscription <br> **Security Admin Role** in Defender for Cloud <br> **GitHub Organization Administrator** |
+| Required roles and permissions: | **Contributor** on the relevant Azure subscription <br> **Security Admin Role** in Defender for Cloud <br> **Azure DevOps Organization Administrator**  <br> Third-party applications can gain access using an OAuth which must be set to `On` . [Learn more about Oath](/azure/devops/organizations/accounts/change-application-access-policies?view=azure-devops)|
 | Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial clouds <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Connect your Azure DevOps organization
@@ -44,11 +42,11 @@ You can view all of the [recommendations for Azure DevOps](recommendations-refer
 
 1. Select **Add environment**.
 
-1. Select **AzureDevOps**.
+1. Select **Azure DevOps**.
 
     :::image type="content" source="media/quickstart-onboard-ado/devop-connector.png" alt-text="Screenshot that shows you where to navigate to select the DevOps connector.":::
 
-1. Enter a name, select a subscription, resource group and region.
+1. Enter a name, select a subscription, resource group, and region.
 
     > [!NOTE] 
     > The subscription will be the location where Defender for DevOps will create and store the Azure DevOps connection.

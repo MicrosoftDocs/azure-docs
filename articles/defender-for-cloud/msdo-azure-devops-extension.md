@@ -27,9 +27,9 @@ The Microsoft Security DevOps uses the following Open Source tools:
 
 If you don't have access to install the extension, you must request access from your Azure DevOps organization's administrator during the installation process.
 
-## Configure the Microsoft Security DevOps extension
+## Configure the Microsoft Security DevOps Azure DevOps extension
 
-**To configure the Microsoft Security DevOps extension**:
+**To configure the Microsoft Security DevOps Azure DevOps extension**:
 
 1. Sign in to [Azure DevOps](https://dev.azure.com/)
 
