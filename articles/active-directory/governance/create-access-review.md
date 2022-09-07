@@ -96,7 +96,7 @@ If you are reviewing access to an application, then before creating the review, 
    If you choose either **Managers of users** or **Group owner(s)**, you can also specify a fallback reviewer. Fallback reviewers are asked to do a review when the user has no manager specified in the directory or if the group doesn't have an owner.
 
     >[!IMPORTANT]
-    > For Privileged Access Groups (Preview), it is mandatory to assign at least one fallback reviewer to the review. The review will only assign active owner(s) as the reviewers. Eligible owners are not included. If there are no active owner(s) when the review begins, the fallback reviewer(s) will be assigned to the review.
+    > For Privileged Access Groups (Preview), you must select **Group owner(s)**. It is mandatory to assign at least one fallback reviewer to the review. The review will only assign active owner(s) as the reviewer(s). Eligible owners are not included. If there are no active owners when the review begins, the fallback reviewer(s) will be assigned to the review.
 
       ![Screenshot that shows New access review.](./media/create-access-review/new-access-review.png)
 
