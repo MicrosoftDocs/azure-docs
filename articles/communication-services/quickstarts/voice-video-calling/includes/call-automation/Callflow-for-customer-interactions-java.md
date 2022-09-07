@@ -54,14 +54,14 @@ In your POM file, add the following dependencies for the project.
 
 Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed configured above.
 
-Please look for a version that is published after 2022-08-17 from [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callautomation/overview/1.0.0-alpha.20220906.2)
+Please look for the recently published version from [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callingserver/overview/1.0.0-alpha.20220829.1)
 
-And then add it to your POM file like this (using version 1.0.0-alpha.20220817.1 as example)
+And then add it to your POM file like this (using version 1.0.0-alpha.20220829.1 as example)
 ```xml
 <dependency>
 <groupId>com.azure</groupId>
 <artifactId>azure-communication-callingserver</artifactId>
-<version>1.0.0-alpha.20220817.1</version>
+<version>1.0.0-alpha.20220829.1</version>
 </dependency>
 ```
 
