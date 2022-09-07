@@ -11,11 +11,17 @@ services: iot-dps
 
 # How to transfer payloads between devices and DPS
 
-Sometimes DPS needs more data from devices to properly provision them to the right IoT Hub, and that data needs to be provided by the device. Vice versa, DPS can return data to the device to facilitate client-side logic.
+Devices that register with DPS are required to provide a registration ID and valid credentials (keys or X.509 certificates) when they register. However, there may be IoT solutions or scenarios in which additional data is needed from the device. For example, a custom allocation policy webhook may use information like a device model number to select an IoT hub to provision the device to. Likewise, a device may require additional data in the registration response to facilitate its client-side logic. DPS provides the capability for devices to both send and receive an optional payload when they register.
 
 ## When to use it
 
-This feature can be used as an enhancement for [custom allocation](./how-to-use-custom-allocation-policies.md). For example, you want to allocate your devices based on the device model without human intervention. In this case, you can configure the device to report its model information as part of the [register device call](/rest/api/iot-dps/device/runtime-registration/register-device). DPS will pass the device’s payload to the custom allocation webhook. Then your function can decide which IoT hub the device will be provisioned to based on the device model information. If needed, the webhook can return data back to the device as a JSON object in the webhook response. 
+Common scenarios for sending optional payloads are:
+
+* [Custom allocation policies](concepts-custom-allocation.md) can use the device payload to help select an IoT hub for a device or set its initial twin. For example, you may want to allocate your devices based on the device model. In this case, you can configure the device to report its model information when it registers. DPS will pass the device’s payload to the custom allocation webhook. Then your function can decide which IoT hub the device will be provisioned to based on the device model information. If needed, the webhook can also return data back to the device as a JSON object in the webhook response. To learn more, see [Use device payloads in custom allocation](concepts-custom-allocation.md#use-device-payloads-in-custom-allocation).
+
+* [IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) devices CAN use the payload to send their model ID when they register with DPS. You can find examples of this usage in the PnP samples in the SDK or sample repositories. For example, [C# PnP thermostat](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/main/iot-hub/Samples/device/PnpDeviceSamples/Thermostat/Program.cs) or [Node.js PnP temperature controller](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/pnp_temperature_controller.js).
+
+* [IoT Central](../iot-central/core/overview-iot-central.md) devices that connect through DPS SHOULD follow [IoT Plug and Play conventions](..//iot-develop/concepts-convention.md) and send their model ID when they register. IoT Central uses the model ID to assign the device to the correct device template. To learn more, see [Device implementation and best practices for IoT Central](../iot-central/core/concepts-device-implementation.md).  
 
 ## Device sends data payload to DPS
 
@@ -36,7 +42,7 @@ The **payload** property must be a JSON object and can contain any data relevant
 
 ## DPS returns data to the device
 
-DPS can return data back to the device in the registration response. This feature is most often used in custom allocation scenarios. If the custom allocation policy webhook needs to return data to the device, it will pass the data back as a JSON object in the webhook response. DPS will then pass that data back in the **payload** property in the Register Device response. For example, the following JSON, shows the body of a successful response to register using TPM attestation.
+DPS can return data back to the device in the registration response. Currently, this feature is exclusively used in custom allocation scenarios. If the custom allocation policy webhook needs to return data to the device, it can pass the data back as a JSON object in the webhook response. DPS will then pass that data back in the **payload** property in the Register Device [response](). For example, the following JSON, shows the body of a successful response to register using TPM attestation.
 
 ```json
 {
@@ -61,9 +67,7 @@ The **payload** property must be a JSON object and can contain any data relevant
 
 ## SDK support
 
-This feature is available in C, C#, JAVA and Node.js client SDKs. To learn more about the Azure IoT SDKs available for IoT Hub and the IoT Hub Device Provisioning service, see [Microsoft Azure IoT SDKs]( https://github.com/Azure/azure-iot-sdks).
-
-[IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) devices use the payload to send their model ID when they register with DPS. You can find examples of this usage in the PnP samples in the SDK or sample repositories. For example, [C# PnP thermostat](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/main/iot-hub/Samples/device/PnpDeviceSamples/Thermostat/Program.cs) or [Node.js PnP temperature controller](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/pnp_temperature_controller.js).
+This feature is available in C, C#, JAVA and Node.js client SDKs. To learn more about the Azure IoT SDKs available for IoT Hub and IoT Hub Device Provisioning service, see [Microsoft Azure IoT SDKs]( https://github.com/Azure/azure-iot-sdks).
 
 ## IoT Edge support
 
@@ -92,5 +96,7 @@ The payload file (in this case `/home/aziot/payload/json`) can contain any valid
 ```
 
 ## Next steps
+
+* For an overview of custom allocation policies, see [Using custom allocation policies](./concepts-custom-allocation.md)
 
 * To learn how to provision devices using a custom allocation policy, see [How to use custom allocation policies](./how-to-use-custom-allocation-policies.md)
