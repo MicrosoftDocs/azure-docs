@@ -22,29 +22,28 @@ The way that any integration architecture appropriately handles downtime or issu
 
 For the most basic exception and error handling, you can use the *retry policy* when supported on a trigger or action, such as the [HTTP action](logic-apps-workflow-actions-triggers.md#http-trigger). If the trigger or action's original request times out or fails, resulting in a 408, 429, or 5xx response, the retry policy specifies that the trigger or action resend the request per policy settings.
 
-### Retry policy types
-
-By default, the retry policy is set to the **Default** type.
-
-| Retry policy | Description |
-|--------------|-------------|
-| **Default** | This policy sends up to 4 retries at *exponentially increasing* intervals, which scale by 7.5 seconds but are capped between 5 and 45 seconds. For more information, review the [Default](#default) policy type. |
-| **None** | Don't resend the request. For more information, review the [None](#none) policy type. |
-| **Exponential Interval**  | This policy waits a random interval, which is selected from an exponentially growing range before sending the next request. For more information, review the [Exponential Interval](#exponential-interval) policy type. |
-| **Fixed Interval**  | This policy waits the specified interval before sending the next request. For more information, review the [Fixed Interval](#fixed-interval) policy type. |
-|||
-
 <a name="retry-policy-limits"></a>
 
 ### Retry policy limits
 
 For more information about retry policies, settings, limits, and other options, review [Retry policy limits](logic-apps-limits-and-config.md#retry-policy-limits).
 
+### Retry policy types
+
+Connector operations that support retry policies use the **Default** policy unless you select a different retry policy.
+
+| Retry policy | Description |
+|--------------|-------------|
+| **Default** | For most operations, the **Default** retry policy is an [exponential interval policy](#exponential-interval) that sends up to 4 retries at *exponentially increasing* intervals. These intervals scale by 7.5 seconds but are capped between 5 and 45 seconds. Several operations use a different **Default** retry policy, such as a [fixed interval policy](#fixed-interval). For more information, review the [Default retry policy type](#default). |
+| **None** | Don't resend the request. For more information, review [None - No retry policy](#none). |
+| **Exponential Interval** | This policy waits a random interval, which is selected from an exponentially growing range before sending the next request. For more information, review the [exponential interval policy type](#exponential-interval). |
+| **Fixed Interval** | This policy waits the specified interval before sending the next request. For more information, review the [fixed interval policy type](#fixed-interval). |
+
 ### Change retry policy type in the designer
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Based on your [logic app type](logic-apps-overview.md#resource-environment-differences), open the trigger or action's **Settings**.
+1. Based on whether you're working on a Consumption or Standard workflow, open the trigger or action's **Settings**.
 
    * **Consumption**: On the action shape, open the ellipses menu (**...**), and select **Settings**.
 
@@ -99,7 +98,7 @@ For more information about retry policies, settings, limits, and other options, 
 
 #### Default retry policy
 
-Connector operations that support retry policies use the **Default** policy unless you select a different retry policy. For most operations, the default retry policy is the [exponential interval policy](#exponential-interval). For several operations, the default policy might be the [fixed interval policy](#fixed-interval) or another retry policy.
+Connector operations that support retry policies use the **Default** policy unless you select a different retry policy. For most operations, the **Default** retry policy is an exponential interval policy that sends up to 4 retries at *exponentially increasing* intervals. These intervals scale by 7.5 seconds but are capped between 5 and 45 seconds. Several operations use a different **Default** retry policy, such as a fixed interval policy.
 
 In your workflow definition, the trigger or action definition doesn't explicitly define the default policy, but the following example shows how the default retry policy behaves for the HTTP action:
 
