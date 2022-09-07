@@ -216,7 +216,7 @@ To create a migration project, perform the following steps.
 To configure your DMS migration project, perform the following steps.
 
 1. On the **Select source** screen, specify the connection details for the source MySQL instance.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/13-select-source-online.png" alt-text="Screenshot of a Add source details screen.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/13-select-source-online.png" alt-text="Screenshot of an Add source details screen.":::
 
 2. Select **Next : Select target>>**, and then, on the **Select target** screen, specify the connection details for the target flexible server.
        :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/15-select-target.png" alt-text="Screenshot of a Select target.":::
