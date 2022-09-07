@@ -17,7 +17,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article describes out-of-memory (OOM) issues for Java applications in Azure Spring Apps. For container OOM
+This article describes out-of-memory (OOM) issues for Java applications in Azure Spring Apps.
 
 ## OOM concepts
 
