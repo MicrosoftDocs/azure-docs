@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Access data with managed identity in Java'
-description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Spring app, and also how to apply it to other Azure services.
+description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Tomcat app, and also how to apply it to other Azure services.
 
 ms.devlang: java
 ms.topic: tutorial
@@ -12,7 +12,7 @@ ms.date: 09/22/2022
 
 > [!div class="checklist"]
 > * Create a Postgres database.
-> * Deploy the sample app to Azure
+> * Deploy the sample app to Azure App Service on Tomcat using WAR packaging
 > * Configure Spring Boot web application to use Azure AD authentication with PostgreSQL Database
 > * Connect to PostgreSQL Database with Managed Identity using Service Connector
 
@@ -80,71 +80,77 @@ Follow these steps to create an Azure Database for Postgres in your subscription
     az postgres db create -g $RESOURCE_GROUP -s $POSTGRESQL_HOST -n $DATABASE_NAME
     ```
 
+## Deploy the application on App Service
+Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat using WAR packaging.
 
-## 2. Connect Postgres Database with identity connectivity
 
-Next, you configure your App Service app to connect to SQL Database with a system-assigned managed identity.
 
-### Connect to Postgres Database using Service Connector
-
-To enable a managed identity for your Azure app, use the [az webapp connection create](/cli/azure/webapp/identity#az-webapp-identity-assign) command in the Cloud Shell. In the following command, replace *\<app-name>*.
-
-```azurecli-interactive
-az webapp connection create --resource-group myResourceGroup --name <app-name>
-```
 
 ### Modify application settings
 
 Remember that the same changes you made in `application.properties` works with the managed identity, so the only thing to do is to remove the existing application settings in App Service.
 
-```azurecli-interactive
-az webapp config appsettings delete --name MyWebApp --resource-group MyResourceGroup --setting-names {setting-names}
-```
+1. The sample app contains a `pom-war.xml` file that can generate the WAR file. Run the following command to build the app.
+
+    ```bash
+    mvn clean package -f pom-war.xml
+    ```
+
+1. Create Azure App Service on Linux using Tomcat 9.0.
 
 
-## 3. Publish and review your changes
+    ```Azure CLI
+    # Create app service plan
+    az appservice plan create --name $APPSERVICE_PLAN --resource-group $RESOURCE_GROUP --location $LOCATION --sku B1 --is-linux
+    # Create application service
+    az webapp create --name $APPSERVICE_NAME --resource-group $RESOURCE_GROUP --plan $APPSERVICE_PLAN --runtime "TOMCAT:9.0-jre8" 
+    ```
 
-All that's left now is to publish your changes to Azure. Publish your changes using Azure CLI with the following command.
+1. Deploy the war package to App Service.
 
-```azurecli
-az webapp deploy \
-    --resource-group $RESOURCE_GROUP \
-    --name $WEBAPP_NAME \
-    --src-path target/*.jar --type jar
-```
 
-You can then access the application using the following command:
+    ```Azure CLI
+    # Create webapp deployment
+    az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path target/app.war --type war
+    ```
 
-```azurecli
-az webapp browse \
-    --resource-group $RESOURCE_GROUP \
-    --name $WEBAPP_NAME
-```
 
-When the new webpage shows your to-do list, your app is connecting to the database using the managed identity.
+## Connect Postgres Database with identity connectivity
 
-You should now be able to edit the to-do list as before.
+Next, you configure your App Service app to connect to SQL Database with a system-assigned managed identity using Service Connector.
+
+To enable a managed identity for your Azure app, use the [az webapp connection create](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
+
+    ```azurecli-interactive
+    az webapp connection create postgres --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --system-assigned-identity
+    ```
+
+    This command will do the following things,
+      - TODO
+      - TODO
+      - TODO
+
+## View sample web app
+
+Run the following command to open the deployed web app in your browser.
+
+    ```azurecli-interactive
+    az webapp browse --name MyWebapp --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME
+    ```
+
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 
-What you learned:
+[Azure for Java Developers](/java/azure/)
+[Spring Boot](https://spring.io/projects/spring-boot), 
+[Spring Data for Cosmos DB](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db), 
+[Azure Cosmos DB](../cosmos-db/introduction.md)
+and
+[App Service Linux](overview.md).
 
-> [!div class="checklist"]
-> * Enable managed identities
-> * Grant SQL Database access to the managed identity
-> * Configure Entity Framework to use Azure AD authentication with SQL Database
-> * Connect to SQL Database from Visual Studio using Azure AD authentication
+Learn more about running Java apps on App Service on Linux in the developer guide.
 
-> [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Connect to Azure services that don't support managed identities (using Key Vault)](tutorial-connect-msi-key-vault.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Isolate back-end communication with Virtual Network integration](tutorial-networking-isolate-vnet.md)
+> [!div class="nextstepaction"] 
+> [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
