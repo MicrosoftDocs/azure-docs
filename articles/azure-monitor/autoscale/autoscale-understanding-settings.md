@@ -82,29 +82,29 @@ To illustrate the autoscale setting schema, the following autoscale setting is u
 }
 ```
 
-| Section | Element name | Description |
-| --- | --- | --- |
-| Setting | ID | The autoscale setting's resource ID. Autoscale settings are an Azure Resource Manager resource. |
-| Setting | name | The autoscale setting name. |
-| Setting | location | The location of the autoscale setting. This location can be different from the location of the resource being scaled. |
-| properties | targetResourceUri | The resource ID of the resource being scaled. You can only have one autoscale setting per resource. |
-| properties | profiles | An autoscale setting is composed of one or more profiles. Each time the autoscale engine runs, it executes one profile. |
-| profile | name | The name of the profile. You can choose any name that helps you identify the profile. |
-| profile | Capacity.maximum | The maximum capacity allowed. It ensures that autoscale doesn't scale your resource above this number when executing the profile. |
-| profile | Capacity.minimum | The minimum capacity allowed. It ensures that autoscale doesn't scale your resource below this number when executing the profile |
-| profile | Capacity.default | If there's a problem reading the resource metric (in this case, the CPU of “vmss1”), and the current capacity is below the default, autoscale scales out to the default. This ensures the availability of the resource. If the current capacity is already higher than the default capacity, autoscale does not scale in. |
-| profile | rules | Autoscale automatically scales between the maximum and minimum capacities, by using the rules in the profile. You can have multiple rules in a profile. Typically there are two rules: one to determine when to scale out, and the other to determine when to scale in. |
-| rule | metricTrigger | Defines the metric condition of the rule. |
-| metricTrigger | metricName | The name of the metric. |
-| metricTrigger |  metricResourceUri | The resource ID of the resource that emits the metric. In most cases, it is the same as the resource being scaled. In some cases, it can be different. For example, you can scale a virtual machine scale set based on the number of messages in a storage queue. |
-| metricTrigger | timeGrain | The metric sampling duration. For example, **TimeGrain = “PT1M”** means that the metrics should be aggregated every 1 minute, by using the aggregation method specified in the statistic element. |
-| metricTrigger | statistic | The aggregation method within the timeGrain period. For example, **statistic = “Average”** and **timeGrain = “PT1M”** means that the metrics should be aggregated every 1 minute, by taking the average. This property dictates how the metric is sampled. |
-| metricTrigger | timeWindow | The amount of time to look back for metrics. For example, **timeWindow = “PT10M”** means that every time autoscale runs, it queries metrics for the past 10 minutes. The time window allows your metrics to be normalized, and avoids reacting to transient spikes. |
-| metricTrigger | timeAggregation | The aggregation method used to aggregate the sampled metrics. For example, **TimeAggregation = “Average”** should aggregate the sampled metrics by taking the average. In the preceding case, take the ten 1-minute samples, and average them. |
-| rule | scaleAction | The action to take when the metricTrigger of the rule is triggered. |
-| scaleAction | direction | "Increase" to scale out, or "Decrease" to scale in.|
-| scaleAction | value | How much to increase or decrease the capacity of the resource. |
-| scaleAction | cooldown | The amount of time to wait after a scale operation before scaling again. For example, if **cooldown = “PT10M”**, autoscale does not attempt to scale again for another 10 minutes. The cooldown is to allow the metrics to stabilize after the addition or removal of instances. |
+| Section | Element name |Portal name| Description |
+| --- | --- | --- |--- |
+| Setting | ID | |The autoscale setting's resource ID. Autoscale settings are an Azure Resource Manager resource. |
+| Setting | name | |The autoscale setting name. |
+| Setting | location | |The location of the autoscale setting. This location can be different from the location of the resource being scaled. |
+| properties | targetResourceUri | |The resource ID of the resource being scaled. You can only have one autoscale setting per resource. |
+| properties | profiles | Scale condition |An autoscale setting is composed of one or more profiles. Each time the autoscale engine runs, it executes one profile. |
+| profile | name | |The name of the profile. You can choose any name that helps you identify the profile. |
+| profile | Capacity.maximum | Instance limits - Maximum |The maximum capacity allowed. It ensures that autoscale doesn't scale your resource above this number when executing the profile. |
+| profile | Capacity.minimum | Instance limits - Minimum  |The minimum capacity allowed. It ensures that autoscale doesn't scale your resource below this number when executing the profile |
+| profile | Capacity.default | Instance limits - Default  |If there's a problem reading the resource metric (in this case, the CPU of “vmss1”), and the current capacity is below the default, autoscale scales out to the default. This ensures the availability of the resource. If the current capacity is already higher than the default capacity, autoscale does not scale in. |
+| profile | rules | Rules |Autoscale automatically scales between the maximum and minimum capacities, by using the rules in the profile. You can have multiple rules in a profile. Typically there are two rules: one to determine when to scale out, and the other to determine when to scale in. |
+| rule | metricTrigger | Scale rule |Defines the metric condition of the rule. |
+| metricTrigger | metricName | Metric name |The name of the metric. |
+| metricTrigger |  metricResourceUri | |The resource ID of the resource that emits the metric. In most cases, it is the same as the resource being scaled. In some cases, it can be different. For example, you can scale a virtual machine scale set based on the number of messages in a storage queue. |
+| metricTrigger | timeGrain | Time grain (minutes) |The metric sampling duration. For example, **TimeGrain = “PT1M”** means that the metrics should be aggregated every 1 minute, by using the aggregation method specified in the statistic element. |
+| metricTrigger | statistic | Time grain statistic |The aggregation method within the timeGrain period. For example, **statistic = “Average”** and **timeGrain = “PT1M”** means that the metrics should be aggregated every 1 minute, by taking the average. This property dictates how the metric is sampled. |
+| metricTrigger | timeWindow | Duration |The amount of time to look back for metrics. For example, **timeWindow = “PT10M”** means that every time autoscale runs, it queries metrics for the past 10 minutes. The time window allows your metrics to be normalized, and avoids reacting to transient spikes. |
+| metricTrigger | timeAggregation |Time aggregation |The aggregation method used to aggregate the sampled metrics. For example, **TimeAggregation = “Average”** should aggregate the sampled metrics by taking the average. In the preceding case, take the ten 1-minute samples, and average them. |
+| rule | scaleAction | Action |The action to take when the metricTrigger of the rule is triggered. |
+| scaleAction | direction | Operation |"Increase" to scale out, or "Decrease" to scale in.|
+| scaleAction | value |Instance count |How much to increase or decrease the capacity of the resource. |
+| scaleAction | cooldown | Cool down (minutes)|The amount of time to wait after a scale operation before scaling again. For example, if **cooldown = “PT10M”**, autoscale does not attempt to scale again for another 10 minutes. The cooldown is to allow the metrics to stabilize after the addition or removal of instances. |
 
 ## Autoscale profiles
 
