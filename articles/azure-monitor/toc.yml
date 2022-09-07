@@ -25,6 +25,8 @@ items:
     href: essentials/tutorial-resource-logs.md
   - name: Create a log query alert
     href: alerts/tutorial-log-alert.md
+  - name: Forward syslog data to workspace
+    href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Virtual machines
     items:
     - name: Enable monitoring
@@ -907,7 +909,7 @@ items:
                 href: app/java-standalone-telemetry-processors-examples.md
         - name: JVM arguments setup
           href: app/java-standalone-arguments.md
-        - name: Upgrade from 2.x SDK
+        - name: Upgrade from 2.x
           href: app/java-standalone-upgrade-from-2x.md
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python
@@ -1132,17 +1134,19 @@ items:
     - name: Overview
       displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
       href: snapshot-debugger/snapshot-debugger.md
-    - name: Enable Snapshot Debugger for an App Service
-      href: snapshot-debugger/snapshot-debugger-app-service.md
-    - name: Enable Snapshot Debugger for a Function App
-      href: snapshot-debugger/snapshot-debugger-function-app.md
-    - name: Enable Snapshot Debugger for other environments
-      href: snapshot-debugger/snapshot-debugger-vm.md
+    - name: Enable Snapshot Debugger
+      items:        
+      - name: Azure App Service
+        href: snapshot-debugger/snapshot-debugger-app-service.md
+      - name: Azure Function App
+        href: snapshot-debugger/snapshot-debugger-function-app.md
+      - name: Other environments
+        href: snapshot-debugger/snapshot-debugger-vm.md
     - name: Upgrade Snapshot Debugger
       href: snapshot-debugger/snapshot-debugger-upgrade.md
     - name: Configure BYOS (Bring Your Own Storage)
       href: profiler/profiler-bring-your-own-storage.md
-    - name: Snapshot Debugger troubleshooting
+    - name: Troubleshooting
       displayName: troubleshoot, troubleshooting
       href: snapshot-debugger/snapshot-debugger-troubleshoot.md
   - name: Change Analysis
