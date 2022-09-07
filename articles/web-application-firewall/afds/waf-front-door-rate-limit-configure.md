@@ -5,20 +5,17 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 08/29/2022
+ms.date: 09/06/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 zone_pivot_groups: web-application-firewall-configuration
 ---
 
 # Configure a Web Application Firewall rate limit rule
-
+[](vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.html)
 The Azure Web Application Firewall (WAF) rate limit rule for Azure Front Door controls the number of requests allowed from a particular client IP address to the application during a rate limit duration. For more information about rate limiting, see [What is rate limiting for Azure Front Door Service?](waf-front-door-rate-limit.md).
 
-This article shows how to configure a WAF rate limit rule.
-
-> [!NOTE]
-> This article describes how to use rate limiting for Azure Front Door Standard/Premium.
+This article shows how to configure a WAF rate limit rule on Azure Front Door Standard and Premium tiers.
 
 ::: zone pivot="portal,powershell"
 
@@ -71,20 +68,6 @@ You decide to create a rate limiting rule that restricts each client IP address 
 
 1. Select **Review + create**, then select **Create**.
 
-## Use prevention mode on the WAF
-
-By default, the Azure portal creates WAF policies in detection mode. This setting means that the WAF won't block requests. For more information, see [WAF modes](afds-overview.md#waf-modes).
-
-Here, you reconfigure the WAF to use prevention mode.
-
-1. Open the WAF policy.
-
-   Notice that the *Policy mode* is *Detection*.
-
-   ![Screenshot of the Azure portal showing the WAF policy, with the policy mode and 'Switch to prevention mode' button highlighted.](../media/waf-front-door-rate-limit-configure/waf-policy-mode.png)
-
-1. Select **Switch to prevention mode**.
-
 ## Create a rate limit rule
 
 1. Select **Custom rules** > **Add custom rule**.
@@ -114,6 +97,22 @@ Here, you reconfigure the WAF to use prevention mode.
 1. Select **Save**.
 
    ![Screenshot of the Azure portal showing the custom rule list, including the new rate limiting rule.](../media/waf-front-door-rate-limit-configure/custom-rule-save.png)
+
+## Use prevention mode on the WAF
+
+By default, the Azure portal creates WAF policies in detection mode. This setting means that the WAF won't block requests. For more information, see [WAF modes](afds-overview.md#waf-modes).
+
+It's a good practice to [tune your WAF](waf-front-door-tuning.md) before using prevention mode, to avoid false positive detections and your WAF blocking legitimate requests.
+
+Here, you reconfigure the WAF to use prevention mode.
+
+1. Open the WAF policy.
+
+   Notice that the *Policy mode* is *Detection*.
+
+   ![Screenshot of the Azure portal showing the WAF policy, with the policy mode and 'Switch to prevention mode' button highlighted.](../media/waf-front-door-rate-limit-configure/waf-policy-mode.png)
+
+1. Select **Switch to prevention mode**.
 
 ::: zone-end
 

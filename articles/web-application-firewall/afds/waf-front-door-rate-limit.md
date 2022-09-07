@@ -5,7 +5,7 @@ author: johndowns
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 08/28/2022
+ms.date: 09/06/2022
 ms.author: jodowns
 ---
 
@@ -21,24 +21,13 @@ Rate limiting is configured by using [custom WAF rules](./waf-front-door-custom-
 
 When you configure a rate limit rule, you specify the *threshold*: the number of web requests allowed from each client IP address within a time period of either one minute or five minutes.
 
-> [!TIP]
-> It's usually a good practice to set your rate limit threshold to be quite high. For example, if you know that a single client IP address might send around 10 requests to your server each minute, consider specifying a threshold of 20 requests per minute.
-> 
-> High rate limit thresholds avoid blocking legitimate traffic, while still providing protection against extremely high numbers of requests that might overwhelm your infrastructure. 
-
 You also must specify at least one *match condition*, which tells Front Door when to activate the rate limit. You can configure multiple rate limits that apply to different paths within your application.
 
-> [!TIP]
-> If you need to apply a rate limit rule to all of your requests, consider using a match condition like the following:
-> 
-> If *Match type*: Size
-> *Match variable*: RequestHeader
-> *Header name*: Host
-> *Operation*: Is
-> *Operator*: Greater than
-> *Match values:* 0
->
-> The match condition above identifies all requests with a `Host` header of length greater than 0. Because all valid HTTP requests for Front Door contain a `Host` header, this match condition has the effect of matching all HTTP requests.
+For example, if you need to apply a rate limit rule to all of your requests, consider using a match condition like the following:
+
+![Screenshot of the Azure portal showing the a match condition that applies to all requests. The match condition looks for requests where the Host header size is 0 or greater.](../media/waf-front-door-rate-limit/match-condition-match-all.png)
+
+The match condition above identifies all requests with a `Host` header of length greater than 0. Because all valid HTTP requests for Front Door contain a `Host` header, this match condition has the effect of matching all HTTP requests.
 
 ## Rate limiting and Front Door servers
 
@@ -48,4 +37,5 @@ However, it's possible that requests from the same client might arrive at a diff
 
 ## Next steps
 
-- [Configure rate limiting on your Front Door WAF](waf-front-door-rate-limit-powershell.md)
+- [Configure rate limiting on your Front Door WAF](waf-front-door-rate-limit-configure.md)
+- Review [Rate limiting best practices](waf-front-door-best-practices.md#rate-limiting-best-practices)
