@@ -236,11 +236,11 @@ This filter instructs the connector not to collect EventID 256 or EventID 257 or
 
 1. Create a filter with the **EventOriginalType** field, using the **Equals** operator, with the values **256**, **257**, and **260**. 
 
-    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-filter.png" alt-text="Screenshot of filtering out event IDs for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/windows-dns-ama-connector-eventid-filter.png":::
+    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-filter.png" alt-text="Screenshot of filtering out event IDs for the Windows D N S over A M A connector.":::
 
 1. Create a filter with the **EventOriginalType** field defined above, and using the **And** operator, also including the **DnsQueryTypeName** field set to **AAAA**.
 
-    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-dnsquery-filter.png" alt-text="Screenshot of filtering out event IDs and IPv6 addresses for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/windows-dns-ama-connector-eventid-dnsquery-filter.png":::
+    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-dnsquery-filter.png" alt-text="Screenshot of filtering out event IDs and IPv6 addresses for the Windows D N S over A M A connector.":::
 
 **Using the API**:
 
@@ -293,7 +293,7 @@ Set the **DnsQuery** field using the **Equals** operator, with the list *\*.micr
 
 Review these considerations for [using wildcards](#use-wildcards). 
 
-:::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-domain-filter.png" alt-text="Screenshot of filtering out domains for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/windows-dns-ama-connector-domain-filter.png"::: 
+:::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-domain-filter.png" alt-text="Screenshot of filtering out domains for the Windows D N S over A M A connector."::: 
 
 To define different values in a single field, use the **OR** operator.
 
