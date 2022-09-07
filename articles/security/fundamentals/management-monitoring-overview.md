@@ -54,7 +54,7 @@ Multi-Factor Authentication helps safeguard access to data and applications whil
 
 Learn more:
 
-* [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+* [Multi-Factor Authentication](/azure/multi-factor-authentication/)
 * [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [How Azure AD Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 

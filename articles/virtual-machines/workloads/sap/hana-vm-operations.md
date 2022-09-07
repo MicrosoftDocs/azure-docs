@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 06/06/2022
+ms.date: 08/30/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -43,7 +43,7 @@ Site-to-site connectivity via VPN or ExpressRoute is necessary for production sc
 
 
 ### Choose Azure VM types
-The Azure VM types that can be used for production scenarios are listed in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). For non-production scenarios, a wider variety of native Azure VM types is available.
+SAP lists which [Azure VM types that you can use for production scenarios](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;iaas;ve:24). For non-production scenarios, a wider variety of native Azure VM types is available.
 
 >[!NOTE]
 > For non-production scenarios, use the VM types that are listed in the [SAP note #1928533](https://launchpad.support.sap.com/#/notes/1928533). For the usage of Azure VMs for production scenarios, check for SAP HANA certified VMs in the SAP published [Certified IaaS Platforms list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120).

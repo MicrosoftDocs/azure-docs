@@ -164,7 +164,7 @@ Due to the dynamic nature of user settings and risk of data corruption, you can'
 
 ### Restore default settings
 
-If you've made changes to the Azure portal settings and want to discard them, select **Restore default settings** from the top of the settings **Overview** pane. You'll be prompted to confirm this action. When you do so, any changes you've made to your Azure portal settings will be lost. This option doesn't affect dashboard customizations.
+If you've made changes to the Azure portal settings and want to discard them, select **Restore default settings** from the top of the settings **My information** pane. You'll be prompted to confirm this action. When you do so, any changes you've made to your Azure portal settings will be lost. This option doesn't affect dashboard customizations.
 
 ### Delete user settings and dashboards
 

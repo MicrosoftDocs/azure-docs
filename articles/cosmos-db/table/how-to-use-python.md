@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Table API with Python - Azure Cosmos DB'
 description: This quickstart shows how to access the Azure Cosmos DB Table API from a Python application using the Azure Data Tables SDK
-author: sakash279
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/23/2021
-ms.author: akshanka
+ms.author: jroth
 ms.reviewer: mjbrown
 ms.custom: devx-track-python, mode-api, devx-track-azurecli
 ---

@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: timwarner
 ms.service: machine-configuration
 ---
-# Understand the machine configuration feature of Azure Policy
+# Understand the machine configuration feature of Azure Automanage
 
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
@@ -270,9 +270,9 @@ For more information about troubleshooting machine configuration, see
 
 ### Multiple assignments
 
-Machine configuration policy definitions currently only support assigning the same
-guest assignment once per machine when the policy assignment uses different
-parameters.
+Guest Configuration policy definitions now support assigning the same
+guest assignment to more than once per machine when the policy assignment uses different
+parameters. 
 
 ### Assignments to Azure Management Groups
 

@@ -159,6 +159,10 @@ The service runs the community version of PostgreSQL. This allows full applicati
 
 We continue to support Single Server and encourage you to adopt Flexible Server which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you'll receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
 
+**2. What is Microsoft’s policy to address PostgreSQL engine defects?**
+
+Please refer to  Microsoft’s current policy [here](../../postgresql/flexible-server/concepts-supported-versions.md#managing-postgresql-engine-defects)
+
 
 ## Contacts
 For any questions or suggestions you might have on Azure Database for PostgreSQL flexible server, send an email to the Azure Database for PostgreSQL Team ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Please note that this email address isn't  a technical support alias.
