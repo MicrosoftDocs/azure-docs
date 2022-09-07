@@ -54,7 +54,7 @@ The cloud service component is represented by a storage mover resource, deployed
 
 When you deploy an Azure storage mover resource, you'll also need to decide on a region. The region you select only determines where control messages are sent and metadata about your migration is stored. The data that is migrated, is sent directly from the agent to the target in Azure Storage. Your files never travel through the Storage Mover service or the resource in that region. That means the proximity between source, agent, and target storage is more important for migration performance than the location of your storage mover resource.
 
-:::image type="content" source="media/resource-hierarchy/data-vs-management-path.png" alt-text="Illustrating the previous paragraph by showing two arrows. The first arrow for data traveling to a storage account from the source/agent and a second arrow for only the management/control info to the storage mover resource/service." lightbox="media/resource-hierarchy/data-vs-management-path-large.png":::
+:::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="Illustrating the previous paragraph by showing two arrows. The first arrow for data traveling to a storage account from the source/agent and a second arrow for only the management/control info to the storage mover resource/service." lightbox="media/across-articles/data-vs-management-path-large.png":::
 
 In most cases, deploying only a single storage mover resource is the best option, even when you need to migrate files located in other countries. You'll register one or more migration agents to a storage mover resource - and an agent can only be used for migrations by the storage mover it is registered with. The agents themselves should be located close to the source storage, even if that means registering  agents deployed in other countries to a storage mover resource located across the globe.
 
@@ -96,10 +96,10 @@ Azure Storage Mover requires special care for the permissions an admin needs for
 |Scenario |Minimal RBAC role assignments needed                                             |
 |:--------|--------------------------------------------------------------------------------:|
 |Register a resource provider namespace with a subscription|	Subscription: `Contributor`	|
-|Deploy a storage mover resource </br>*([Both RP namespaces already registered](#resource-provider-namespaces))*|	Subscription: `Reader` </br>Resource group: `Contributor` |
-|Register an agent </br>*([Both RP namespaces already registered](#resource-provider-namespaces))*| Subscription: `Reader` </br>Resource group: `Contributor` </br>Storage mover: `Owner`	|
-|Start a migration </br>*(first time this agent is used for this target)* | Subscription: `Reader` </br>Resource group: `Contributor` </br>Storage mover: `Contributor` </br>Target storage account: `Owner`	|
-|Re-run a migration </br> *(second + n time this agent is used for this target)*| Subscription: `Reader` </br>Resource group: `Contributor` </br>Target storage mover: `Contributor` </br>Storage account: *none*	|
+|Deploy a storage mover resource <br />*([Both RP namespaces already registered](#resource-provider-namespaces))*|	Subscription: `Reader` <br />Resource group: `Contributor` |
+|Register an agent <br />*([Both RP namespaces already registered](#resource-provider-namespaces))*| Subscription: `Reader` <br />Resource group: `Contributor` <br />Storage mover: `Owner`	|
+|Start a migration <br />*(first time this agent is used for this target)* | Subscription: `Reader` <br />Resource group: `Contributor` <br />Storage mover: `Contributor` <br />Target storage account: `Owner`	|
+|Re-run a migration <br /> *(second + n time this agent is used for this target)*| Subscription: `Reader` <br />Resource group: `Contributor` <br />Target storage mover: `Contributor` <br />Storage account: *none*	|
 
 
 

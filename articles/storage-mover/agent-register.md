@@ -30,8 +30,8 @@ In this article you'll learn how to successfully register a previously deployed 
 ## Prerequisites
 
 There are two prerequisites before you can register an Azure Storage Mover agent:
-1. You need to have an Azure Storage Mover resource deployed. </br>Follow the steps in the <!!!!! ARTICLE AND LINK NEEDED !!!!!> article to deploy this resource in an Azure subscription and region of your choice.
-1. You need to deploy the Azure Storage Mover agent VM. </br> Follow the steps in the [Azure Storage Mover agent VM deployment](agent-deploy.md) article to run the agent VM and to get it connected to the internet.
+1. You need to have an Azure Storage Mover resource deployed. <br />Follow the steps in the <!!!!! ARTICLE AND LINK NEEDED !!!!!> article to deploy this resource in an Azure subscription and region of your choice.
+1. You need to deploy the Azure Storage Mover agent VM. <br /> Follow the steps in the [Azure Storage Mover agent VM deployment](agent-deploy.md) article to run the agent VM and to get it connected to the internet.
 
 ## Registration overview
 

@@ -125,7 +125,7 @@ There are two copy modes:
 
 :::row:::
     :::column:::
-        **Mirror** </br>
+        **Mirror** <br />
         *Make the target look like the source.*
     :::column-end:::
     :::column:::        
@@ -134,11 +134,11 @@ There are two copy modes:
     :::column-end:::
 :::row-end:::
 
-</br>
+<br />
 
 :::row:::
     :::column:::
-        **Merge** </br>
+        **Merge** <br />
         *The target has more content than the source, keep adding to it.*
     :::column-end:::
     :::column:::

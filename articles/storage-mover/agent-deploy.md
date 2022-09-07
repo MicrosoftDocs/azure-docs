@@ -6,7 +6,6 @@ ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
 ms.date: 08/25/2022
-ms.custom: template-how-to
 ---
 
 <!-- 
@@ -179,7 +178,7 @@ The unregistration process has multiple effects:
 
 - The agent is removed from the storage mover resource. You'll no longer be able to see the agent in the *Registered agents* tab in the portal or select it for new migration jobs.
 - The agent is also removed from the Azure ARC service. This removal deletes the hybrid compute resource of type *Server - Azure Arc* that represented the agent with the Azure ARC service in the same resource group as your storage mover resource.
-- Unregistration removes the managed identity of the agent from Azure Active Directory (AAD). The associated service principal is automatically removed, invalidating any permissions this agent may have had on other Azure resources. If you check the RBAC (role based access control) role assignments, for instance of a target storage container the agent previously had permissions to, you'll no longer find the service principal of the agent, because it was deleted. The assignment itself is still visible as "Unknown service principal" but this assignment no longer connects to an identity and can never be reconnected. It is simply a sign that a role assignment used to be here, of a service principal that no longer exists. </br></br>This is standard behavior and not specific to Azure Storage Mover. You can observe the same behavior if you remove a different service principal from AAD and then check a former role assignment.
+- Unregistration removes the managed identity of the agent from Azure Active Directory (AAD). The associated service principal is automatically removed, invalidating any permissions this agent may have had on other Azure resources. If you check the RBAC (role based access control) role assignments, for instance of a target storage container the agent previously had permissions to, you'll no longer find the service principal of the agent, because it was deleted. The assignment itself is still visible as "Unknown service principal" but this assignment no longer connects to an identity and can never be reconnected. It is simply a sign that a role assignment used to be here, of a service principal that no longer exists. <br /><br />This is standard behavior and not specific to Azure Storage Mover. You can observe the same behavior if you remove a different service principal from AAD and then check a former role assignment.
 
 > [!WARNING]
 > During public preview, unregistration of an offline agent is supported but the Azure ARC resource for the agent is not automatically deleted. You must manually delete the resource after unregistering an offline agent. The lifecycle of the agent's managed identity is tied to this resource. Removing it removes the managed identity and service principal, as previously described.
