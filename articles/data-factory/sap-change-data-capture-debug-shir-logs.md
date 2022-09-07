@@ -1,7 +1,7 @@
 ---
-title: Debug SAP ODP (preview) issues by using self-hosted integration runtime logs
+title: Debug copy activity issues in your SAP CDC solution by using self-hosted integration runtime logs
 titleSuffix: Azure Data Factory
-description: Learn how to debug issues with the copy activity for SAP ODP (preview) by using self-hosted integration runtime logs in Azure Data Factory.
+description: Learn how to debug issues with the Azure Data Factory copy activity for your SAP change data capture (CDC) solution by using self-hosted integration runtime logs.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
@@ -14,7 +14,7 @@ ms.author: ulrichchrist
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-If you want Microsoft to debug your Data Factory copy activity issues, send us your self-hosted integration runtime logs.
+If you want Microsoft to debug Azure Data Factory copy activity issues in your SAP change data capture (CDC) solution, send us your self-hosted integration runtime logs.
 
 ## Send logs to Microsoft
 
@@ -24,10 +24,10 @@ On the computer running the self-hosted integration runtime, open Microsoft Inte
 
 ## Contact support
 
-After you've uploaded and sent your self-hosted integration runtime logs, contact support and provide the Report ID and Timestamp values that are shown in the confirmation:
+After you've uploaded and sent your self-hosted integration runtime logs, contact Microsoft support. In your support request, include the Report ID and Timestamp values that are shown in the confirmation:
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-diagnostics-report-id.png" alt-text="Screenshot of the self-hosted integration runtime's diagnostic log confirmation, with Report ID and Timestamp highlighted.":::
 
 ## Next steps
 
-[Auto-generate a Data Factory pipeline from a SAP data partitioning template](sap-change-data-capture-data-partitioning-template.md)
+[Auto-generate a Data Factory pipeline from an SAP ODP data partitioning template](sap-change-data-capture-data-partitioning-template.md)

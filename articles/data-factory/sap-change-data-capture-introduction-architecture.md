@@ -1,5 +1,5 @@
 ---
-title: Introduction to the SAP change data capture solution and architecture overview
+title: Introduction to the SAP CDC solution and architecture overview
 titleSuffix: Azure Data Factory
 description: Learn about the SAP change data capture (CDC) solution in Azure Data Factory and understand its architecture.
 author: ukchrist

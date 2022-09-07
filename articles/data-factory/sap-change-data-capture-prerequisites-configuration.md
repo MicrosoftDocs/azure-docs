@@ -1,5 +1,5 @@
 ---
-title: Prerequisites and settings for the SAP change data capture solution
+title: Prerequisites and settings for the SAP CDC solution
 titleSuffix: Azure Data Factory
 description: Learn about the prerequisites and configuration of the SAP change data capture (CDC) solution in Azure Data Factory.
 author: ukchrist

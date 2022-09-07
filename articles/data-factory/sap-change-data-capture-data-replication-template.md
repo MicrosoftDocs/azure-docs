@@ -1,7 +1,7 @@
 ---
 title: Auto-generate a pipeline by using the SAP ODP (preview) data replication template
 titleSuffix: Azure Data Factory
-description: Learn how to use the SAP ODP (preview) data replication template for SAP change data capture extraction in Azure Data Factory.
+description: Learn how to use the SAP ODP (preview) data replication template for SAP CDC extraction in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
@@ -14,7 +14,7 @@ ms.author: ulrichchrist
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn how to use the SAP ODP (preview) data replication template to auto-generate a pipeline. Then, use the pipeline in Azure Data Factory for SAP change data capture extraction in your datasets.
+Learn how to use the SAP ODP (preview) data replication template to auto-generate a pipeline. Then, use the pipeline in Azure Data Factory for SAP change data capture (CDC) extraction in your datasets.
 
 ## Create a data replication pipeline from a template
 
@@ -26,19 +26,19 @@ Learn how to use the SAP ODP (preview) data replication template to auto-generat
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-data-replication-template.png" alt-text="Screenshot of the template gallery with the SAP data replication template highlighted.":::
 
-1. Create new or use existing [linked services](sap-change-data-capture-prepare-linked-service-source-dataset.md) for SAP CDC (preview), Azure Data Lake Storage Gen2, and Azure Synapse Analytics. Use the linked services as inputs in the SAP data replication template.
+1. Create new or use existing [linked services](sap-change-data-capture-prepare-linked-service-source-dataset.md) for SAP CDC, Azure Data Lake Storage Gen2, and Azure Synapse Analytics. Use the linked services as inputs in the SAP data replication template.
 
-    For **Connect via integration runtime** in the SAP ODP linked service, select your self-hosted integration runtime. For **Connect via integration runtime** in the Data Lake Storage Gen2 and Azure Synapse Analytics linked services, select **AutoResolveIntegrationRuntime**.
+    For the SAP ODP linked service, in **Connect via integration runtime**, select your self-hosted integration runtime. For the Data Lake Storage Gen2 and Azure Synapse Analytics linked services, in **Connect via integration runtime**, select **AutoResolveIntegrationRuntime**.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-data-replication-template-configuration.png" alt-text="Screenshot of the configuration page for the SAP data replication template.":::
 
 1. Select **Use this template** to auto-generate an SAP data replication pipeline that contains Azure Data Factory copy and data flow activities.
 
-    The Data Factory copy activity runs on the self-hosted integration runtime to extract raw data (full + deltas) from the SAP system. The copy activity loads the raw data into Data Lake Storage Gen2 as a persisted CSV file. Historical changes are archived and preserved. The files are stored in the *sapcdc* container under the *deltachange/\<your pipeline name\>\<your pipeline run timestamp\>* folder path. The **Extraction mode** property of the copy activity is set to **Delta**. The **Subscriber process** property of copy activity is parameterized.
+    The Data Factory copy activity runs on the self-hosted integration runtime to extract raw data (full + deltas) from the SAP system. The copy activity loads the raw data into Data Lake Storage Gen2 as a persisted CSV file. Historical changes are archived and preserved. The files are stored in the *sapcdc* container under the *deltachange/\<your pipeline name\>\<your pipeline run timestamp\>* folder path. Be sure that **Extraction mode** for the Data Factory copy activity is set to **Delta**. The **Subscriber process** property of copy activity is parameterized.
 
     The Data Factory data flow activity runs on the Azure integration runtime to transform the raw data and merge all changes into Azure Synapse Analytics. The process replicates the SAP data.
 
-    To ensure high throughput, deploy your SAP system, self-hosted integration runtime, Data Lake Storage Gen2, Azure integration runtime, and Azure Synapse Analytics in the same region.
+    To ensure high throughput, deploy your SAP system, self-hosted integration runtime, Data Lake Storage Gen2, Azure integration runtime, and Azure Synapse Analytics deployment in the same region.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-data-replication-architecture.png" alt-text="Shows a diagram of the architecture of the SAP data replication scenario.":::
 
@@ -62,8 +62,8 @@ The Data Factory data flow activity runs on the Azure integration runtime to tra
 
 The table is stored in the *saptimetravel* container under the *\<your SAP table or object name\>* folder that has the *\*delta\*log* subfolder and Parquet files. You can [query the table by using a Synapse Analytics serverless SQL pool](../synapse-analytics/sql/query-delta-lake-format.md). You also can use Time Travel by using a Synapse Analytics serverless Apache Spark pool. For more information, see [Quickstart: Create a serverless Apache Spark pool in Azure Synapse Analytics using web tools](../synapse-analytics/quickstart-apache-spark-notebook.md) and [Read older versions of data by using Time Travel](../synapse-analytics/spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 
-To ensure high throughput, deploy your SAP system, self-hosted integration runtime, Azure Data Lake Storage Gen2, Azure integration runtime, and Delta Lake or Lakehouse instances in the same region.
+To ensure high throughput, deploy your SAP system, self-hosted integration runtime, Data Lake Storage Gen2, Azure integration runtime, and Delta Lake or Lakehouse instances in the same region.
 
 ## Next steps
 
-[Manage your SAP change data capture solution](sap-change-data-capture-management.md)
+[Manage your SAP CDC solution](sap-change-data-capture-management.md)

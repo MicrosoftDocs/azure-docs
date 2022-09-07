@@ -1,5 +1,5 @@
 ---
-title: Manage your SAP change data capture solution in Azure Data Factory
+title: Manage your SAP CDC solution in Azure Data Factory
 titleSuffix: Azure Data Factory
 description: Learn how to manage your SAP change data capture (CDC) solution in Azure Data Factory.
 author: ukchrist
@@ -14,13 +14,13 @@ ms.author: ulrichchrist
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how to manage your SAP CDC solution in Azure Data Factory.
+After you create a pipeline in Azure Data Factory by using the SAP ODP (preview) connector, it's important to manage your SAP CDC solution.
 
 ## Run an SAP data replication pipeline on a recurring schedule
 
 To run an SAP data replication pipeline on a recurring schedule with a specified frequency:
 
-1. Create a tumbling window trigger that runs the SAP data replication pipeline frequently. Set **Max concurrency** to **1**. 
+1. Create a tumbling window trigger that runs the SAP data replication pipeline frequently. Set **Max concurrency** to **1**.
 
     For more information, see [Create a trigger that runs a pipeline on a tumbling window](how-to-create-tumbling-window-trigger.md?tabs=data-factory).
 

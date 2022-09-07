@@ -16,7 +16,7 @@ ms.author: ulrichchrist
 
 Learn how to set up the linked service and source dataset for SAP ODP (preview) in Azure Data Factory.
 
-## Set up an SAP ODP (preview) linked service
+## Set up an SAP ODP linked service
 
 To set up an SAP Operational Data Provisioning (ODP) linked service:
 
@@ -87,7 +87,7 @@ To create a Data Factory copy activity that uses an SAP ODP data source:
 
 1. For **Subscriber process** in the Data Factory copy activity, enter a unique name to register and identify this Data Factory copy activity as a delta subscriber of the selected data source object. Your SAP system manages its subscription state to keep track of data changes produced in the ODQ and consumed in consecutive extractions. You don't need to manually watermark data changes. For example, you might name the subscriber process `<your pipeline name>`_`<your copy activity name>`.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-source-configuration.png" alt-text="Screenshot of the SAP CDC (preview) source configuration in a Copy activity.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-source-configuration.png" alt-text="Screenshot of the SAP CDC source configuration in a Copy activity.":::
 
 1. If you want to extract only data from some columns or rows, you can use the column projection or row selection features:
 
@@ -97,7 +97,7 @@ To create a Data Factory copy activity that uses an SAP ODP data source:
 
        To enter the selections yourself, select the **Edit** checkboxes.
 
-       :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-source-projection-configuration.png" alt-text="Screenshot of the SAP CDC (preview) source configuration with the Projection, Selection, and Additional columns sections highlighted.":::
+       :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-source-projection-configuration.png" alt-text="Screenshot of the SAP CDC source configuration with the Projection, Selection, and Additional columns sections highlighted.":::
 
     1. For **Selection** in the Data Factory copy activity, select **New** to add a new row selection condition that contains arguments.
 
@@ -118,7 +118,7 @@ To create a Data Factory copy activity that uses an SAP ODP data source:
         | Include only rows in which the value in the **FIRSTNAME** column contains the **JO\*** pattern     | **FIRSTNAME**         | **Inclusive**         | **CP**         | **JO\***         |         |
         | Include only rows in which the value in the **CUSTOMERID** column is between **1** and **999999**     | **CUSTOMERID**         | **Inclusive**         | **BT**         | **1**         | **999999**         |
   
-        :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-selection-additional-columns.png" alt-text="Screenshot of the SAP ODP (preview) source configuration for a copy activity with the Selection and Additional columns sections highlighted.":::
+        :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-selection-additional-columns.png" alt-text="Screenshot of the SAP ODP source configuration for a copy activity with the Selection and Additional columns sections highlighted.":::
 
         Row selections are especially useful to divide large data sets into multiple partitions, where each partition can be extracted using a single copy activity, so you can perform full extractions using multiple copy activities running in parallel. These copy activities will in turn invoke parallel processes on your SAP system to produce data packages in ODQ that can also be consumed by parallel processes in each copy activity, thus increasing throughput significantly.
 
