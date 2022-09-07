@@ -5,11 +5,11 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/28/2022
+ms.date: 09/06/2022
 ms.author: v-smcevoy
 ---
 
-# Choose a deployment method 
+# Choose a deployment method
 
 MedTech service provides multiple methods for deploying it into an Azure Platform as a service (PaaS) configuration. Each method has different advantages so you can customize your development environment to suit your needs.
 
