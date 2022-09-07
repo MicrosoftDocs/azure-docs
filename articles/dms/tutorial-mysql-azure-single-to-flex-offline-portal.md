@@ -211,7 +211,6 @@ To configure your DMS migration project, perform the following steps.
 
 1. On the **Select source** screen, specify the connection details for the source MySQL instance.
        :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/13-select-source-offline.png" alt-text="Screenshot of an Add source details screen.":::
-    When performing an offline migration, it’s important to stop incoming traffic on the source when configuring the migration project.
 
 2. To proceed with the offline migration, select the **Make Source Server Read Only** check box.
 Selecting this check box prevents Write/Delete operations on the source server during migration, which ensures the data integrity of the target database as the source is migrated. When you make your source server read only as part of the migration process, all the databases on the source server, regardless of whether they are selected for migration, will be read-only.
