@@ -78,38 +78,58 @@ This tool accepts different data formats, with the only requirement that they co
 
 ## Go to the Azure OpenAI Studio
 
-Navigate to the Azure OpenAI Studio: <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a>and sign in with credentials that have access to the Azure OpenAI resource you've created. During the sign-in workflow, select the appropriate Directory, Azure Subscription and Azure OpenAI resource.
+Navigate to the Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a>and sign in with credentials that have access to your Azure OpenAI resource. During the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
 ## Landing page
 
 You'll first land on our main page for the Azure OpenAI Studio. From here, you can start fine-tuning a custom model.
 
+If a deployment isn't detected for your resource, a prompt to create a new deployment is displayed on the landing page. Select **Create new deployment** and follow the steps provided in the [Deploy a model](../how-to/create-resource.md?pivots=web-portal#deploy-a-model) section of [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md) to create a deployment you can then use to start fine-tuning a custom model.
+
+If you have a deployment for your resource, select the **Start fine-tuning a custom model** button under **Manage deployments and models** section of the landing page, highlighted in the following picture, to start fine-tuning a custom model. 
+
 :::image type="content" source="../media/fine-tuning/studio-portal.png" alt-text="Screenshot of the landing page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/fine-tuning/studio-portal.png":::
 
-If a model deployment isn't detected for your resource, a prompt to create a new deployment is displayed; select **Create new deployment** and follow the steps provided in the [Deploy a model](../how-to/create-resource.md?pivots=web-portal#deploy-a-model) section of [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
+## Models page
 
-If you already have a model deployment for your resource, select **Customize a model with fine-tuning** to start fine-tuning a custom model. 
+To create a customized model, select the **Create customized model** button under the **Provided models** section on the Models page, highlighted in the following picture, to start the **Create customized model** wizard.
+
+:::image type="content" source="../media/fine-tuning/studio-models.png" alt-text="Screenshot of the Models page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/fine-tuning/studio-models.png":::
 
 ## Select a base model
 
-You can create a customized model from one of the following available base models:
+The first step in creating a customized model is to choose a base model. The **Base model** pane allows you to select a base model to use for your customized model, and the choice influences both the performance and the cost of your model. You can create a customized model from one of the following available base models:
 - `ada`
 - `babbage`
 - `curie`
 - `davinci`
 - `code-cushman-001`
 
-For more information about our base models, see [Models](../concepts/models.md).
+For more information about our base models, see [Models](../concepts/models.md). Select a base model from the **Base model type** dropdown, as shown in the following picture, and then select **Next** to continue.
 
-## Upload your training data
+:::image type="content" source="../media/fine-tuning/studio-base-model.png" alt-text="Screenshot of the **Base model** pane of the **Create customized model** wizard." lightbox="../media/fine-tuning/studio-base-model.png":::
 
-Once you've prepared your dataset, you can upload your files to the service. We offer two ways to do this:
+## Choose your training data
 
-1. [From a local file](../reference.md#upload-a-file)
-1. [Import from an Azure Blob store or other web location](../reference.md#import-a-file-from-azure-blob)
+The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. The **Training data** pane, shown in the following picture, displays any existing, previously-uploaded datasets and provides options by which you can upload new training data. 
+
+:::image type="content" source="../media/fine-tuning/studio-training-data.png" alt-text="Screenshot of the **Training data** pane of the **Create customized model** wizard." lightbox="../media/fine-tuning/studio-training-data.png":::
+
+We offer two ways to upload training data:
+
+1. [From a local file](#to-upload-training-data-from-a-local-file)
+1. [Import from an Azure Blob store or other web location](#to-import-training-data-from-an-azure-blob-store)
 
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
+### To upload training data from a local file
+
+:::image type="content" source="../media/fine-tuning/studio-base-model.png" alt-text="Screenshot of the Base model pane of the Create customized model dialog." lightbox="../media/fine-tuning/studio-base-model.png":::
+
+### To import training data from an Azure Blob store
+
+
+After your training data is uploaded, select the training
 The following Python example creates a sample training dataset file, then uploads the file and prints the returned ID. Make sure to save the IDs returned by the example, because you'll need them for the fine-tuning training job creation.
 
 > [!IMPORTANT]
