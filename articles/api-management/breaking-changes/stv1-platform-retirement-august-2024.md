@@ -36,9 +36,9 @@ Support for API Management instances hosted on the `stv1` platform will be retir
 
 After 31 August 2024, any instance hosted on the `stv1` platform won't be supported, and could experience system outages. 
 
-## Required action
+## What do I need to do?
 
-**Please migrate all your existing instances hosted on the `stv1` compute platform to the `stv2` compute platform by 31 August 2024.**  
+**Migrate all your existing instances hosted on the `stv1` compute platform to the `stv2` compute platform by 31 August 2024.**  
 
 If you have existing instances hosted on the `stv1` platform, you can follow our [migration guide](../compute-infrastructure.md#how-do-i-migrate-to-the-stv2-platform) which provides all the details to ensure a successful migration. 
 
