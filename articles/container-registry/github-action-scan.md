@@ -5,7 +5,8 @@ author: georgewallace
 ms.author: gwallace
 ms.topic: quickstart
 ms.reviewer: jukullam
-ms.service: azure
+ms.service: azure-monitor
+ms.subservice: containers
 ms.date: 05/20/2021
 ms.custom: github-actions-azure, mode-other
 ---

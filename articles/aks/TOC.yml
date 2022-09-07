@@ -172,6 +172,16 @@
   items:
     - name: Cluster operations
       items:
+        - name: Abort long running operations
+          href: manage-abort-operations.md
+        - name: Automatically upgrade an AKS cluster
+          href: auto-upgrade-cluster.md
+        - name: Configure an AKS cluster
+          href: cluster-configuration.md
+        - name: Custom node configuration
+          href: custom-node-configuration.md
+        - name: Integrate ACR with an AKS cluster
+          href: cluster-container-registry-integration.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop/Deallocate nodes with Scale-down Mode
@@ -184,8 +194,6 @@
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
-        - name: Automatically upgrade an AKS cluster
-          href: auto-upgrade-cluster.md
         - name: Use Uptime SLA
           href: uptime-sla.md
         - name: Use Draft (preview)
@@ -198,12 +206,6 @@
           href: node-upgrade-github-actions.md
         - name: Process node OS updates
           href: node-updates-kured.md
-        - name: Configure an AKS cluster
-          href: cluster-configuration.md
-        - name: Custom node configuration
-          href: custom-node-configuration.md
-        - name: Integrate ACR with an AKS cluster
-          href: cluster-container-registry-integration.md
         - name: Create virtual nodes
           items:
             - name: Use virtual nodes
