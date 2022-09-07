@@ -58,7 +58,7 @@ az acr config soft-delete update -r MyRegistry --days 7 --status <enabled/disabl
 az acr config soft-delete show -r MyRegistry 
 ```
 
-## List the soft-delete artifacts- CLI
+### List the soft-delete artifacts- CLI
 
 The `az acr repository list-deleted` commands enable fetching and listing of the soft-deleted repositories. For more information use `--help`.
 
@@ -90,7 +90,7 @@ az acr manifest list-deleted-tags -r MyRegistry -n hello-world
 az acr manifest list-deleted-tags -r MyRegistry -n hello-world:latest
 ```
 
-## Restore the soft delete artifacts - CLI
+### Restore the soft delete artifacts - CLI
 
 The `az acr manifest restore` commands restore a single image by tag and digest. 
 
@@ -133,7 +133,7 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 :::image type="content" source="./media/container-registry-soft-delete/02-soft-delete-policy.png" alt-text="soft-delete-policy":::
 
-## Restore the soft deleted artifacts - Portal
+### Restore the soft deleted artifacts - Portal
 
 1. Navigate to your Azure Container Registry.
 1. Under the **Menu** section, find **Services**, and Select **Repositories**.
@@ -151,7 +151,7 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 :::image type="content" source="./media/container-registry-soft-delete/05-restore-artifact.png" alt-text="soft-delete-restore-artifacts":::
 
-## Restore from soft deleted repositories - Portal
+### Restore from soft deleted repositories - Portal
 
 1. Navigate to your Azure Container Registry.
 1. Under the **Menu** section, find **Services**, and Select **Repositories**.
