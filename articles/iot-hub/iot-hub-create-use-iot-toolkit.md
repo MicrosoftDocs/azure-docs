@@ -37,7 +37,7 @@ The following steps show how to create an IoT Hub without an IoT Project in Visu
 
    :::image type="content" source="./media/iot-hub-create-use-iot-toolkit/create-iot-hub.png" alt-text="A screenshot that shows the location of the Create IoT Hub list item in VS Code." lightbox="./media/iot-hub-create-use-iot-toolkit/create-iot-hub.png":::
 
-5. A pop-up will show in the bottom-right corner to let you sign in to Azure for the first time, if you are not signed in already.
+5. A pop-up will show in the bottom-right corner to let you sign in to Azure for the first time, if you're not signed in already.
 
 6. From the command palette at the top of VS Code, select your Azure subscription. 
 
@@ -49,7 +49,7 @@ The following steps show how to create an IoT Hub without an IoT Project in Visu
 
 10. Enter a globally unique name for your IoT hub, then press **Enter**.
 
-11. Wait a few minutes until the IoT Hub is created. You'll see a confirmation in the output console.
+11. Wait a few minutes until the IoT hub is created. You'll see a confirmation in the output console.
 
 ## Create an IoT hub and device in an existing IoT project
 
@@ -57,7 +57,7 @@ The following steps show how to create an IoT Hub and register a device to the h
 
 This method allows you to provision in VS Code without leaving your development environment.
 
-1. In the new opened project window, click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Provision Azure Services...**. Follow the step-by-step guide to finish provisioning your Azure IoT Hub and creating the IoT Hub device.
+1. In the new opened project window, click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Provision Azure Services...**.
 
    :::image type="content" source="media/iot-hub-create-use-iot-toolkit/provision.png" alt-text="A screenshot that shows how to open the command palette in VS Code." lightbox="media/iot-hub-create-use-iot-toolkit/provision.png":::
 
@@ -68,7 +68,7 @@ This method allows you to provision in VS Code without leaving your development 
 
    :::image type="content" source="media/iot-hub-create-use-iot-toolkit/select-subscription.png" alt-text="A screenshot that shows how to choose your Azure subscription in VS Code." lightbox="media/iot-hub-create-use-iot-toolkit/select-subscription.png":::
 
-1. Then select and existing resource group or create a new [resource group](../azure-resource-manager/management/overview.md#terminology).
+1. Select an existing resource group or create a new [resource group](../azure-resource-manager/management/overview.md#terminology).
 
    :::image type="content" source="media/iot-hub-create-use-iot-toolkit/select-resource-group.png" alt-text="A screenshot that shows how to choose a resource group or create a new one in VS Code." lightbox="media/iot-hub-create-use-iot-toolkit/select-resource-group.png":::
 
@@ -90,7 +90,7 @@ This method allows you to provision in VS Code without leaving your development 
 
    :::image type="content" source="media/iot-hub-create-use-iot-toolkit/select-iot-device.png" alt-text="A screenshot that shows an example of an existing IoT Hub in VS Code." lightbox="media/iot-hub-create-use-iot-toolkit/select-iot-device.png":::
 
-1. Now you have Azure IoT Hub provisioned and device created in it. Also the device connection string will be saved in VS Code.
+1. Now you have an Azure IoT Hub provisioned and a device created in it. The device connection string will be saved in VS Code.
 
    :::image type="content" source="media/iot-hub-create-use-iot-toolkit/provision-done.png" alt-text="A screenshot that shows IoT Hub details in the output window in VS Code." lightbox="media/iot-hub-create-use-iot-toolkit/provision-done.png":::
 

@@ -21,7 +21,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ### Form Recognizer v3.0 generally available
 
-**Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!**
+**Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!** Update your applications with [**REST API version 2022-08-31**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
 
 #### The August release introduces the following new capabilities and updates:
 
@@ -277,7 +277,7 @@ The `BuildModelOperation` and `CopyModelOperation` now correctly populate the `P
 
 #### Feature updates
 
-* The `get_words()` method has been added to the `DocumentLine` model. *See* our [How to get words contained in a Document line](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_get_words_on_document_line.py) sample on GitHub.
+* The `get_words()` method has been added to the `DocumentLine` model. *See* our [How to get words contained in a Document line](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2/sample_get_words_on_document_line.py) sample on GitHub.
 
 #### Breaking changes
 
