@@ -292,11 +292,6 @@
         href: ../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md?toc=/azure/frontdoor/toc.json
       - name: Configure rate limits
         href: ../web-application-firewall/afds/waf-front-door-rate-limit-configure.md?toc=%2fazure%2ffrontdoor%2ftoc.json
-<<<<<<< HEAD
-        href: ../web-application-firewall/afds/waf-front-door-rate-limit-configure.md?toc=%2fazure%2ffrontdoor%2ftoc.json
-=======
-        href: ../web-application-firewall/afds/waf-front-door-rate-limit-powershell.md?toc=/azure/frontdoor/toc.json
->>>>>>> main
       - name: Configure IP restriction
         href: ../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md?toc=/azure/frontdoor/toc.json
     - name: Troubleshoot
