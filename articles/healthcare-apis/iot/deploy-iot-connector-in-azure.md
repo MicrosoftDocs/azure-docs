@@ -11,7 +11,7 @@ ms.author: v-smcevoy
 
 # Choose a deployment method
 
-MedTech service provides multiple methods for deploying it into an Azure Platform as a service (PaaS) configuration. Each method has different advantages so you can customize your development environment to suit your needs. 
+MedTech service provides multiple methods for deploying it into an Azure Platform as a service (PaaS) configuration. Each method has different advantages so you can customize your development environment to suit your needs.
 
 The different deployment methods are:
 
