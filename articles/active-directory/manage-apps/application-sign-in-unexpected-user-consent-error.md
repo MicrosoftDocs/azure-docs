@@ -51,7 +51,7 @@ This error indicates that an intermittent service side issue has occurred. It ca
 
 * **AADSTS65005:** &lt;clientAppDisplayName&gt; is requesting access to a resource &lt;resourceAppDisplayName&gt; that is not available in your organization &lt;tenantDisplayName&gt;.
 
-Ensure that this resources that provide the permissions requested are available in your tenant or contact an administrator of &lt;tenantDisplayName&gt;. Otherwise, there is a misconfiguration in how the application requests resources, and you should contact the application developer.
+Ensure that these resources that provide the permissions requested are available in your tenant or contact an administrator of &lt;tenantDisplayName&gt;. Otherwise, there is a misconfiguration in how the application requests resources, and you should contact the application developer.
 
 ## Permissions mismatch error
 
