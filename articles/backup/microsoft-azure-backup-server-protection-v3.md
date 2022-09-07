@@ -130,7 +130,7 @@ Azure Backup Server can protect data in the following clustered applications:
   - If you run Hyper-V on Windows Server 2008 R2, make sure to install the update described in KB [975354](https://support.microsoft.com/kb/975354).
   - If you run Hyper-V on Windows Server 2008 R2 in a cluster configuration, make sure you install SP2 and KB [971394](https://support.microsoft.com/kb/971394).
 
-  Note that Windows Server 2008 R2 is at end of support and we recommend you to upgrade it soon.fff
+  Note that Windows Server 2008 R2 is at end of support and we recommend you to upgrade it soon.
 
 * Exchange Server - Azure Backup Server can protect non-shared disk clusters for supported Exchange Server versions (cluster-continuous replication), and can also protect Exchange Server configured for local continuous replication.
 

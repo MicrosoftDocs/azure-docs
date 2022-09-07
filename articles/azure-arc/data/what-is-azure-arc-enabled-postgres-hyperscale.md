@@ -3,7 +3,7 @@ title: What is Azure Arc-enabled PostgreSQL Hyperscale?
 description: What is Azure Arc-enabled PostgreSQL Hyperscale?
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

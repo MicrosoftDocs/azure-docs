@@ -30,6 +30,8 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
+To learn how to upload files by using the IoT Central UI, see [How to configure file uploads.](../core/howto-configure-file-uploads.md)
+
 ## Prerequisites
 
 To test the file upload, install the following prerequisites in your local development environment:

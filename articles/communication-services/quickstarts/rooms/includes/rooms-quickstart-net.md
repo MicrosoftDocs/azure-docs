@@ -20,6 +20,10 @@ ms.author: radubulboaca
 - Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/RoomsQuickstart).
+
 ## Setting up
 
 ### Create a new C# application
@@ -141,3 +145,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 ```csharp
 Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(createdRoomId);
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [.NET SDK reference](/dotnet/api/azure.communication.rooms) or [REST API reference](/rest/api/communication/rooms).

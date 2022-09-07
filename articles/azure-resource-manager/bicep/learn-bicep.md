@@ -1,23 +1,21 @@
 ---
-title: Discover Bicep on Microsoft Learn
-description: Provides an overview of the units that are available on Microsoft Learn for Bicep.
+title: Learn modules for Bicep
+description: Provides an overview of the Learn modules for Bicep.
 ms.topic: conceptual
 ms.date: 12/03/2021
 ---
-# Bicep on Microsoft Learn
+# Learn modules for Bicep
 
-Ready to see how Bicep can help simplify and accelerate your deployments to Azure? Check out the many hands-on courses on Microsoft Learn.
+Ready to see how Bicep can help simplify and accelerate your deployments to Azure? Check out the many hands-on courses.
 
 > [!TIP]
 > Want to learn Bicep live from subject matter experts? [Learn Live with our experts every Tuesday (Pacific time) beginning March 8, 2022.](/events/learntv/learnlive-iac-and-bicep/)
 
 ## Get started
 
-If you're new to Bicep, a great way to get started is by taking this module on Microsoft Learn.
+If you're new to Bicep, a great way to get started is by reviewing the following Learn module. You'll learn how Bicep makes it easier to define how your Azure resources should be configured and deployed in a way that's automated and repeatable. You’ll deploy several Azure resources so you can see for yourself how Bicep works. We provide free access to Azure resources to help you practice the concepts.
 
-There you'll learn how Bicep makes it easier to define how your Azure resources should be configured and deployed in a way that's automated and repeatable. You’ll deploy several Azure resources so you can see for yourself how Bicep works. We provide free access to Azure resources to help you practice the concepts.
-
-[<img src="media/learn-bicep/build-first-bicep-template.svg" width="101" height="120" alt="The badge for the Build your first Bicep template module on Microsoft Learn." role="presentation"></img>](/learn/modules/build-first-bicep-template/)
+[<img src="media/learn-bicep/build-first-bicep-template.svg" width="101" height="120" alt="The badge for the Build your first Bicep template module." role="presentation"></img>](/learn/modules/build-first-bicep-template/)
 
 [Build your first Bicep template](/learn/modules/build-first-bicep-template/)
 

@@ -2,7 +2,7 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, discover how to restore SAP HANA databases that are running on Azure Virtual Machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 08/11/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -13,6 +13,9 @@ ms.author: v-amallick
 This article describes how to restore SAP HANA databases running on an Azure Virtual Machine (VM), which the Azure Backup service has backed up to a Recovery Services vault. Restores can be used to create copies of the data for dev / test scenarios or to return to a previous state.
 
 For more information, on how to back up SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md).
+
+>[!Note]
+>See the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Restore to a point in time or to a recovery point
 
@@ -243,7 +246,7 @@ For eg., when you have a backup policy of weekly fulls, daily differentials and 
 
 #### Excluding backup file types
 
-The **ExtensionSettingOverrides.json** is a JSON (JavaScript Object Notation) file, that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field ``` RecoveryPointsToBeExcludedForRestoreAsFiles ``` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
+The **ExtensionSettingOverrides.json** is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field ` RecoveryPointsToBeExcludedForRestoreAsFiles ` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
 
 1. In the target machine where files are to be downloaded, go to "opt/msawb/bin" folder
 2. Create a new JSON file named "ExtensionSettingOverrides.JSON", if it doesn't already exist.
@@ -339,6 +342,7 @@ The secondary region restore user experience will be similar to the primary regi
 >[!NOTE]
 >* After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
 >* The role/access level required to perform restore operation in cross-regions are _Backup Operator_ role in the subscription and _Contributor(write)_ access on the source and target virtual machines. To view backup jobs, _ Backup reader_ is the minimum premission required in the subscription.
+>* The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
 
 ### Monitoring secondary region restore jobs
 

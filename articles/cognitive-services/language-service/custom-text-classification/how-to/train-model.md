@@ -15,7 +15,7 @@ ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1
 
 # How to train a custom text classification model
 
-Training is the process where the model learns from your [labeled data](tag-data.md). After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to determine if you need to [improve your model](improve-model.md).
+Training is the process where the model learns from your [labeled data](tag-data.md). After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to determine if you need to improve your model.
 
 To train a model, start a training job. Only successfully completed jobs create a usable model. Training jobs expire after seven days. After this period, you won't be able to retrieve the job details. If your training job completed successfully and a model was created, it won't be affected by the job expiration. You can only have one training job running at a time, and you can't start other jobs in the same project. 
 
@@ -84,4 +84,4 @@ Training could take sometime depending on the size of your training data and com
 
 ## Next steps
 
-After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to optionally [improve your model](improve-model.md) if needed. Once you're satisfied with your model, you can deploy it, making it available to use for [classifying text](call-api.md).
+After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to optionally improve your model if needed. Once you're satisfied with your model, you can deploy it, making it available to use for [classifying text](call-api.md).

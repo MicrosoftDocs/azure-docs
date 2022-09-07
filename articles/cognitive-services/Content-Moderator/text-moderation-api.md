@@ -124,7 +124,15 @@ The following example shows a sample response:
 
 ## Auto-correction
 
-The text moderation response can optionally return the text with basic auto-correction applied. It can fix some spelling errors, for example.
+The text moderation response can optionally return the text with basic auto-correction applied. 
+
+For example, the following input text has a misspelling.
+
+> The quick brown fox jumps over the lazzy dog.
+
+If you specify auto-correction, the response contains the corrected version of the text:
+
+> The quick brown fox jumps over the lazy dog.
 
 ## Creating and managing your custom lists of terms
 
