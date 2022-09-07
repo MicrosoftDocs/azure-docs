@@ -251,7 +251,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header. The *Referer* header is a potential vector for cross-site scripting attacks.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -448,7 +448,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header. The *Referer* header is a potential vector for cross-site scripting attacks.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -631,7 +631,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header. The *Referer* header is a potential vector for cross-site scripting attacks.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
