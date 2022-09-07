@@ -133,10 +133,10 @@ With your target flexible server deployed and configured, you next need to set u
 To register the Microsoft.DataMigration resource provider, perform the following steps.
 
 1. Before creating your first DMS instance, sign in to the Azure portal, and then search for and select **Subscriptions**.
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/1-subscriptions.png" alt-text="Screenshot of a Azure Marketplace.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/1-subscriptions.png" alt-text="Screenshot of an Azure Marketplace.":::
 
 2. Select the subscription that you want to use to create the DMS instance, and then select **Resource providers**.
-    :::image type="content" source="media/tutorial-Azure-mysql-single-to-flex-offline/2-resource-provider.png" alt-text="Screenshot of a Screenshot of a Select resource provider.":::
+    :::image type="content" source="media/tutorial-Azure-mysql-single-to-flex-offline/2-resource-provider.png" alt-text="Screenshot of a Select resource provider.":::
 
 3. Search for the term “Migration”, and then, for **Microsoft.DataMigration**, select **Register**.
     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/3-register.png" alt-text="Screenshot of a Select Register.":::
@@ -210,7 +210,7 @@ To create a migration project, perform the following steps.
 To configure your DMS migration project, perform the following steps.
 
 1. On the **Select source** screen, specify the connection details for the source MySQL instance.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/13-select-source-offline.png" alt-text="Screenshot of a Add source details screen.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/13-select-source-offline.png" alt-text="Screenshot of an Add source details screen.":::
     When performing an offline migration, it’s important to stop incoming traffic on the source when configuring the migration project.
 
 2. To proceed with the offline migration, select the **Make Source Server Read Only** check box.
