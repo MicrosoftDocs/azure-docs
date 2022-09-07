@@ -24,17 +24,17 @@ Make sure to check back here often to keep up with new updates.
 
 Here's what changed in August 2022:
 
-### Updates to the preview version ofFSLogix profiles for Azure AD-joined VMs
+### Updates to the preview version of FSLogix profiles for Azure AD-joined VMs
 
 We've updated the public preview version of the Azure Files integration with Azure Active Directory (Azure AD) Kerberos for hybrid identities so that it's now simpler to deploy and manage. The update should give users using FSLogix user profiles on Azure AD-joined session host an overall better experience. For more information, see [the Azure Files blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-leverage-azure-active-directory-kerberos-with/ba-p/3612111).  
 
-### Single sign-on and passwordless authentication for Azure Virtual Desktop public preview
+### Single sign-on and passwordless authentication now in Windows Insider preview
 
-In the Windows Insider build of Windows 11 22H2, you can now enable an Azure Active Directory (AD)-based single sign-on experience. The Windows Insider build also supports passwordless authentication with Windows Hello and security devices like FIDO2 keys. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842). 
+In the Windows Insider build of Windows 11 22H2, you can now enable a preview version of the Azure Active Directory (AD)-based single sign-on experience. This Windows Insider build also supports passwordless authentication with Windows Hello and security devices like FIDO2 keys. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842). 
 
-### Universal Print for Azure Virtual Desktop now in public preview
+### Universal Print for Azure Virtual Desktop now in Windows Insider preview
 
-The Windows Insider build of Windows 11 22H2 also includes a public preview of the Universal Print for Azure Virtual Desktop feature. We hope this feature will provide an improved printing experience that combines the benefits of Azure Virtual Desktop and Universal Print for Windows 11 multi-session users. Learn more at [Printing on Azure Virtual Desktop using Universal Print](/universal-print/fundamentals/universal-print-avd) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/a-better-printing-experience-for-azure-virtual-desktop-with/m-p/3598592). 
+The Windows Insider build of Windows 11 22H2 also includes a preview version of the Universal Print for Azure Virtual Desktop feature. We hope this feature will provide an improved printing experience that combines the benefits of Azure Virtual Desktop and Universal Print for Windows 11 multi-session users. Learn more at [Printing on Azure Virtual Desktop using Universal Print](/universal-print/fundamentals/universal-print-avd) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/a-better-printing-experience-for-azure-virtual-desktop-with/m-p/3598592). 
 
 ### Autoscale for pooled host pools now generally available
 
