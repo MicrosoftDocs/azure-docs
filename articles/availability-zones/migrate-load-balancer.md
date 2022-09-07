@@ -31,7 +31,7 @@ You can choose to have a frontend guaranteed to a single zone, which is known as
 Downtime is required. All migration scenarios require some level of downtime down to the changing of resources used by the load balancer configurations.
 ## Migration option 1: Enable existing Load Balancer to use Availability Zones (same region)
 
- Let's say you need to enable an existing load balancer to use Availability Zones within the same Azure region. You can't just switch an existing Azure load balancer from non-AZ to be AZ aware. But you won't have to redeploy a load balancer to take advantage of this migration. A quick Frontend IP configuration change is all you need to do.
+Let's say you need to enable an existing load balancer to use Availability Zones within the same Azure region. You can't just switch an existing Azure load balancer from non-AZ to be AZ aware. However, you won't have to redeploy a load balancer to take advantage of this migration. In order to make your load balancer AZ aware, you'll have to recreate your load balancer's frontend IP configuration using a new zonal/zone-redundant IP and reassociate any existing load balancing rules to the new frontend. Not that this migration will incur downtime as rules are reassociated.
 
 > [NOTE!]
 > It isn't required to have a load balancer for each zone, rather having a single load balancer with multiple frontends (zonal or zone redundant) associated to their respective backend pools will serve the purpose. 
