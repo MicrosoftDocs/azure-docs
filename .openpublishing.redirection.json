@@ -23124,6 +23124,11 @@
     "redirect_document_id":  false
 },
 {
+    "source_path_from_root":  "/articles/virtual-machines/virtual-machines-windows-sizes.md",
+    "redirect_url":  "/azure/virtual-machines/acu",
+    "redirect_document_id":  true
+},
+{
     "source_path_from_root":  "/articles/storage/storage-file-how-to-create-file-share.md",
     "redirect_url":  "/azure/storage/files/storage-how-to-create-file-share",
     "redirect_document_id":  true
