@@ -140,35 +140,35 @@ With your target flexible server deployed and configured, you next need to set u
 To register the Microsoft.DataMigration resource provider, perform the following steps.
 
 1. Before creating your first DMS instance, sign in to the Azure portal, and then search for and select **Subscriptions**.
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/1-subscriptions.png" alt-text="Select subscriptions from Azure Marketplace.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/1-subscriptions.png" alt-text="Screenshot of a Select subscriptions from Azure Marketplace.":::
 
 2. Select the subscription that you want to use to create the DMS instance, and then select **Resource providers**.
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/2-resource-provider.png" alt-text="Select Resource Provider.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/2-resource-provider.png" alt-text="Screenshot of a Select Resource Provider.":::
 
 3. Search for the term “Migration”, and then, for **Microsoft.DataMigration**, select **Register**.
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/3-register.png" alt-text="Register your resource provider.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/3-register.png" alt-text="Screenshot of a Register your resource provider.":::
 
 ### Create a Database Migration Service (DMS) instance
 
 01. In the Azure portal, select + **Create a resource**, search for the term “Azure Database Migration Service”, and then select **Azure Database Migration Service** from the drop-down list.
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/4-dms-portal-marketplace.png" alt-text="Search Azure Database Migration Service.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/4-dms-portal-marketplace.png" alt-text="Screenshot of a Search Azure Database Migration Service.":::
 
 02. On the **Azure Database Migration Service** screen, select **Create**.
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/5-dms-portal-marketplace-create.png" alt-text="Create Azure Database Migration Service instance.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/5-dms-portal-marketplace-create.png" alt-text="Screenshot of a Create Azure Database Migration Service instance.":::
   
 03. On the **Select migration scenario and Database Migration Service** page, under **Migration scenario**, select **Azure Database for MySQL-Single Server** as the source server type, and then select **Azure Database for MySQL** as target server type, and then select **Select**.
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/6-create-dms-service-scenario-online.png" alt-text="Select Migration Scenario.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/6-create-dms-service-scenario-online.png" alt-text="Screenshot of a Select Migration Scenario.":::
 
 04. On the **Create Migration Service** page, on the **Basics** tab, under **Project details**, select the appropriate subscription, and then select an existing resource group or create a new one.
 
 05. Under **Instance details**, specify a name for the service, select a region, and then verify that **Azure** is selected as the service mode.
 
 06. To the right of **Pricing tier**, select **Configure tier**.
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/7-project-details.png" alt-text="Select Configure Tier.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/7-project-details.png" alt-text="Screenshot of a Select Configure Tier.":::
 
 07. On the Configure page, select the pricing tier and number of vCores for your DMS instance, and then select Apply.
     For more information on DMS costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/8-configure-pricing-tier.png" alt-text="Select Pricing tier.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/8-configure-pricing-tier.png" alt-text="Screenshot of a Select Pricing tier.":::
 
     Next, we need to specify the VNet that will provide the DMS instance with access to the source single server and the target flexible server.
 
@@ -176,7 +176,7 @@ To register the Microsoft.DataMigration resource provider, perform the following
 
 09. On the **Networking** tab, select an existing VNet from the list or provide the name of new VNet to create, and then select **Review + Create**.
     For more information, see the article [Create a virtual network using the Azure portal.](./../virtual-network/quick-create-portal.md).
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/8-1-networking.png" alt-text="Select Networking.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/8-1-networking.png" alt-text="Screenshot of a Select Networking.":::
 
     > [!IMPORTANT]
     > Your vNet must be configured with access to both the source single server and the target flexible server, so be sure to:
@@ -188,11 +188,11 @@ To register the Microsoft.DataMigration resource provider, perform the following
     > If you want to add tags to the service, first select Next : Tags to advance to the Tags tab first. Adding tags to the service is optional.
 
 10. Navigate to the **Review + create** tab, review the configurations, view the terms, and then select **Create**.
-     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/9-review-create.png" alt-text="Select Review+Create.":::
+     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/9-review-create.png" alt-text="Screenshot of a Select Review+Create.":::
     Deployment of your instance of DMS now begins. The message **Deployment is in progress** appears for a few minutes, and then the message changes to **Your deployment is complete**.
 
 11. Select **Go to resource**.
-     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/9-1-go-to-resource.png" alt-text="Select Go to resource.":::
+     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/9-1-go-to-resource.png" alt-text="Screenshot of a Select Go to resource.":::
 
 ### Create a migration project
 
@@ -200,30 +200,30 @@ To create a migration project, perform the following steps.
 
 1. In the Azure portal, select **All services**, search for Azure Database Migration Service, and then select **Azure Database Migration Services**.
 
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/10-dms-search.png" alt-text="Locate all instances of Azure Database Migration Service.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/10-dms-search.png" alt-text="Screenshot of a Locate all instances of Azure Database Migration Service.":::
 
 2. In the search results, select the DMS instance that you just created, and then select + **New Migration Project**.
 
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/11-select-create.png" alt-text="Select a new migration project.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/11-select-create.png" alt-text="Screenshot of a Select a new migration project.":::
 
 3. On the **New migration project** page, specify a name for the project, in the Source server type selection box, select **Azure Database For MySQL – Single Server**, in the Target server type selection box, select **Azure Database For MySQL**, in the **Migration activity type** selection box, select **Online migration**, and then select **Create and run activity**.
     > [!NOTE]
     > Selecting Create project only as the migration activity type will only create the migration project; you can then run the migration project at a later time.
 
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/12-create-project-online.png" alt-text="Create a new migration project.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/12-create-project-online.png" alt-text="Screenshot of a Create a new migration project.":::
 
 ### Configure the migration project
 
 To configure your DMS migration project, perform the following steps.
 
 1. On the **Select source** screen, specify the connection details for the source MySQL instance.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/13-select-source-online.png" alt-text="Add source details screen.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/13-select-source-online.png" alt-text="Screenshot of a Add source details screen.":::
 
 2. Select **Next : Select target>>**, and then, on the **Select target** screen, specify the connection details for the target flexible server.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/15-select-target.png" alt-text="Select target.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/15-select-target.png" alt-text="Screenshot of a Select target.":::
 
 3. Select **Next : Select databases>>**, and then, on the Select databases tab, under [Preview] Select server objects, select the server objects that you want to migrate.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/16-select-db.png" alt-text="Select databases.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/16-select-db.png" alt-text="Screenshot of a Select databases.":::
 
 4. In the **Select databases** section, under **Source Database**, select the database(s) to migrate.
     The non-table objects in the database(s) you specified will be migrated, while the items you didn’t select will be skipped. You can only select the source and target databases whose names match that on the source and target server.
@@ -235,7 +235,7 @@ To configure your DMS migration project, perform the following steps.
 6. Select the tables that you want to migrate.
     You can only select the source and target tables whose names match that on the source and target server.
     If you select a table in the source database that doesn’t exist on the target database, you will see a warning message ‘Not available at Target’ and you won’t be able to select the table for migration.
-   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/17-select-tables.png" alt-text="Select Tables.":::
+   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/17-select-tables.png" alt-text="Screenshot of a Select Tables.":::
 
     DMS validates your inputs, and if the validation passes, you will be able to start the migration.
 
@@ -244,11 +244,11 @@ To configure your DMS migration project, perform the following steps.
     > You only need to navigate to the Configure migration settings tab if you are trying to troubleshoot failing migrations.
 
 8. On the **Summary** tab, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
-   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/18-summary-online.png" alt-text="Select Summary.":::
+   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/18-summary-online.png" alt-text="Screenshot of a Select Summary.":::
 
 9. Select **Start migration**.
     The migration activity window appears, and the Status of the activity is Initializing. The Status changes to Running when the table migrations start.
-   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/19-running-project-online.png" alt-text="Running status.":::
+   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/19-running-project-online.png" alt-text="Screenshot of a Running status.":::
 
 ### Monitor the migration
 
@@ -256,10 +256,10 @@ To configure your DMS migration project, perform the following steps.
 
 2. On the migration activity screen navigate to **Replicate Data Changes** tab, select **Refresh** to update the display and view the seconds behind source.
 
-     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/20-monitor-migration-online.png" alt-text="Monitoring migration.":::
+     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/20-monitor-migration-online.png" alt-text="Screenshot of a Monitoring migration.":::
 
 3. After the **Seconds behind source**  hits 0, proceed to start cutover by clicking on the **Start Cutover** menu tab at the top of the migration activity screen. Follow the steps in the cutover window before you are ready to perform a cutover. Once all steps are completed, click on **Confirm** and next click on **Apply**.
-     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/21-complete-cutover-online.png" alt-text="Perform cutover.":::
+     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/21-complete-cutover-online.png" alt-text="Screenshot of a Perform cutover.":::
 
 ## Perform post-migration activities
 
