@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Alert when Azure virtual is down
+title: Alert when Azure virtual is down
 description: Create an alert rule in Azure Monitor to proactively notify you if a virtual machine is unavailable.
 ms.service: azure-monitor
 ms.topic: article
@@ -8,18 +8,18 @@ ms.date: 11/04/2021
 ms.reviewer: Xema Pathak
 ---
 
-# Tutorial: Create alert when Azure virtual machine is unavailable
+# Create alert when Azure virtual machine is unavailable
 One of the most common alerting conditions for a virtual machine is whether the virtual machine is running. Once you enable monitoring with VM insights in Azure Monitor for the virtual machine, a heartbeat is sent to Azure Monitor every minute. You can create a log query alert rule that sends an alert if a heartbeat isn't detected. This method not only alerts if the virtual machine isn't running, but also if it's not responsive.
 
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * View log data collected by VM insights in Azure Monitor for a virtual machine.
 > * Create an alert rule from log data that will proactively notify you if the virtual machine is unavailable.
 
 ## Prerequisites
-To complete this tutorial you need the following: 
+To complete the steps in this article you need the following: 
 
 - An Azure virtual machine to monitor.
 - Monitoring with VM insights enabled for the virtual machine. See [Tutorial: Enable monitoring for Azure virtual machine](tutorial-monitor-vm-enable.md).

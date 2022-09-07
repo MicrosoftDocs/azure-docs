@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Enable monitoring for Azure virtual machine
+title: Enable monitoring for Azure virtual machine
 description: Enable monitoring with VM insights in Azure Monitor to monitor an Azure virtual machine.
 ms.service: azure-monitor
 ms.topic: article
@@ -8,13 +8,13 @@ ms.date: 11/04/2021
 ms.reviewer: Xema Pathak
 ---
 
-# Tutorial: Enable monitoring for Azure virtual machine
+# Enable monitoring for Azure virtual machine
 To monitor the health and performance of an Azure virtual machine, you need to install an agent to collect data from its guest operating system. VM insights is a feature of Azure Monitor for monitoring the guest operating system and workloads running on Azure virtual machines. When you enable monitoring for an Azure virtual machine, it installs the necessary agents and starts collecting performance, process, and dependency information from the guest operating system. 
 
 > [!NOTE]
 > If you're completely new to Azure Monitor, you should start with [Tutorial: Monitor Azure resources with Azure Monitor](../essentials/monitor-azure-resource.md). Azure virtual machines generate similar monitoring data as other Azure resources such as platform metrics and Activity log. This tutorial describes how to enable additional monitoring unique to virtual machines.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Log Analytics workspace to collect performance and log data from the virtual machine.
