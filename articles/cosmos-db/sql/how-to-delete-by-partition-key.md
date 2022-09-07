@@ -27,7 +27,7 @@ To help limit the resources used by this background task, the delete by partitio
 
 To use the feature, your Cosmos account must be enrolled in the preview. To enroll, submit a request for the **DeleteAllItemsByPartitionKey** feature via the [**Preview Features** page](../../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. 
 
-:::image type="content" source="media/how-to-delete-by-partition-key/preview-enrollment-delete-by-partition-key.png" alt-text="Enroll in DeleteAllItemsByPartitionKey in Preview Features blade":::
+:::image type="content" source="media/how-to-delete-by-partition-key/preview-enrollment-delete-by-partition-key.png" alt-text="Screenshot that shows the enroll in Delete All Items By Partition Key in Preview Features blade.":::
 
 #### [.NET](#tab/dotnet-example)
 
@@ -63,7 +63,7 @@ CosmosItemResponse<?> deleteResponse = container.deleteAllItemsByPartitionKey(
 
 ### Frequently asked questions (FAQ)
 #### Are the results of the delete by partition key operation reflected immediately?
-Yes, once the delete by partition key operation starts, the documents to be deleted will not appear in the results of queries or read operations. This also means that you can write new a new document with the same id and partition key as a document to be deleted without resulting in a conflict.
+Yes, once the delete by partition key operation starts, the documents to be deleted will not appear in the results of queries or read operations. This also means that you can write new a new document with the same ID and partition key as a document to be deleted without resulting in a conflict.
 
 See [Known issues](#known-issues) for exceptions. 
 
