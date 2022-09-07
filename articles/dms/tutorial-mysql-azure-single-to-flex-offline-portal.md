@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 09/01/2022
+ms.date: 09/15/2022
 ---
 
 # Tutorial: Migrate Azure Database for MySQL - Single Server to Flexible Server offline using DMS via the Azure portal
