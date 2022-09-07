@@ -46,7 +46,7 @@ To enable tiling, you can set the `tile_grid_size` parameter to a value like '3x
 
 When tiling is enabled, the entire image and the tiles generated from it are passed through the model. These images and tiles are resized according to the `min_size` and `max_size` parameters before feeding to the model. The computation time increases proportionally because of processing this extra data.
 
-For example, when the `tile_grid_size` parameter is '3x2', the computation time would be approximately seven times when compared to no tiling.
+For example, when the `tile_grid_size` parameter is '3x2', the computation time would be approximately seven times higher than without tiling.
 
 You can specify the value for `tile_grid_size` in your training parameters as a string.
 
@@ -79,11 +79,11 @@ To choose the optimal value for this parameter for your dataset, you can use hyp
 ```yaml
 search_space:
   - model_name:
-  	  type: choice
-	  values: ['fasterrcnn_resnet50_fpn']
+      type: choice
+      values: ['fasterrcnn_resnet50_fpn']
     tile_grid_size:
-	  type: choice
-	  values: ['2x1', '3x2', '5x3']
+      type: choice
+      values: ['2x1', '3x2', '5x3']
 ```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
@@ -119,7 +119,7 @@ The following are the parameters you can use to control the tiling feature.
 
 | Parameter Name	| Description	| Default |
 | --------------- |-------------| -------|
-| `tile_grid_size` |  The grid size to use for tiling each image. Available for use during training, validation, and inference.<br><br> Should be passed as a string in `'3x2'` format.<br><br> *Note: Setting this parameter increases the computation time proportionally, since all tiles and images are processed by the model.*| no default value |
+| `tile_grid_size` |  The grid size to use for tiling each image. Available for use during training, validation, and inference.<br><br>Should be passed as a string in `'3x2'` format.<br><br> *Note: Setting this parameter increases the computation time proportionally, since all tiles and images are processed by the model.*| no default value |
 | `tile_overlap_ratio` | Controls the overlap ratio between adjacent tiles in each dimension. When the objects that fall on the tile boundary are too large to fit completely in one of the tiles, increase the value of this parameter so that the objects fit in at least one of the tiles completely.<br> <br>  Must be a float in [0, 1).| 0.25 |
 | `tile_predictions_nms_thresh` | The intersection over union  threshold to use to do non-maximum suppression (nms) while merging predictions from tiles and image. Available during validation and inference. Change this parameter if there are multiple boxes detected per object in the final predictions.  <br><br> Must be float in [0, 1]. | 0.25 |
 

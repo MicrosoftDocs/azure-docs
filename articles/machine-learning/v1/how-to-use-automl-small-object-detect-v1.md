@@ -50,7 +50,7 @@ To enable tiling, you can set the `tile_grid_size` parameter to a value like (3,
 
 When tiling is enabled, the entire image and the tiles generated from it are passed through the model. These images and tiles are resized according to the `min_size` and `max_size` parameters before feeding to the model. The computation time increases proportionally because of processing this extra data.
 
-For example, when the `tile_grid_size` parameter is (3, 2), the computation time would be approximately seven times when compared to no tiling.
+For example, when the `tile_grid_size` parameter is (3, 2), the computation time would be approximately seven times higher than without tiling.
 
 You can specify the value for `tile_grid_size` in your hyperparameter space as a string.
 
