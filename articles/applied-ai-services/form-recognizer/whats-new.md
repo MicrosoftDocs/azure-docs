@@ -17,10 +17,6 @@ ms.author: lajanuar
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
-## September 2022
-
-Form Recognizer SDK
-
 ## August 2022
 
 #### Form Recognizer SDK beta August 2022 preview release
