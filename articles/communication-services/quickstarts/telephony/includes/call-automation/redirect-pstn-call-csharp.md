@@ -107,7 +107,7 @@ app.MapPost("/api/incomingCall", async (
 
             var jsonObject = JsonNode.Parse(eventGridEvent.Data).AsObject();
             var incomingCallContext = (string)jsonObject["incomingCallContext"];
-            await client.RedirectCallAsync(incomingCallContext, new CommunicationUserIdentifier("[INSERT_ACS_ID"));
+            await client.RedirectCallAsync(incomingCallContext, new CommunicationUserIdentifier("<INSERT_ACS_ID>"));
         }
 
         return Results.Ok();
