@@ -121,15 +121,17 @@ ping -S 10.1.0.5 outlook.com
 We recommend looking at the latest documentation for your Linux distribution. 
 
 1. Open a terminal window.
-2. Make sure you're the root user. If you aren't, enter the following command:
+
+2. Ensure you're the root user. If you aren't, enter the following command:
 
    ```bash
    sudo -i
    ```
 
-3. Update the configuration file of the network interface (assuming ‘eth0’).
+3. Update the configuration file of the network interface (assuming **‘eth0’**).
 
    * Keep the existing line item for dhcp. The primary IP address remains configured as it was previously.
+   
    * Add a configuration for an additional static IP address with the following commands:
 
      ```bash
@@ -138,20 +140,32 @@ We recommend looking at the latest documentation for your Linux distribution.
      ```
 
      You should see a .cfg file.
-4. Open the file. You should see the following lines at the end of the file:
 
+4. Open the file. You should see the following lines at the end of the file:
+a
    ```bash
    auto eth0
    iface eth0 inet dhcp
    ```
 
-5. Add the following lines after the lines that exist in this file:
+5. Add the following lines after the lines that exist in the file. Replace **`10.1.0.5`** with your private IP address and subnet mask.
 
    ```bash
    iface eth0 inet static
-   address <your private IP address here>
-   netmask <your subnet mask>
+   address 10.1.0.5
+   netmask 255.255.255.0
    ```
+    
+    To add additional private IP addresses, edit the file and add the new private IP addresses on subsequent lines:
+
+    ```bash
+    iface eth0 inet static
+    address 10.1.0.5
+    netmask 255.255.255.0
+    iface eth0 inet static
+    address 10.1.0.6
+    netmask 255.255.255.0
+    ```
 
 6. Save the file by using the following command:
 
@@ -162,11 +176,11 @@ We recommend looking at the latest documentation for your Linux distribution.
 7. Reset the network interface with the following command:
 
    ```bash
-   sudo ifdown eth0 && sudo ifup eth0
+   ifdown eth0 && ifup eth0
    ```
 
    > [!IMPORTANT]
-   > Run both ifdown and ifup in the same line if using a remote connection.
+   > Execute both ifdown and ifup in the same line if using a remote connection.
    >
 
 8. Verify the IP address is added to the network interface with the following command:
@@ -175,31 +189,47 @@ We recommend looking at the latest documentation for your Linux distribution.
    ip addr list eth0
    ```
 
-   You should see the IP address you added as part of the list.
+   You should see the IP address you added as part of the list. Example:
+
+    ```bash
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:0d:3a:04:45:16 brd ff:ff:ff:ff:ff:ff
+    inet 10.1.0.5/24 brd 10.1.0.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet 10.1.0.6/24 brd 10.1.0.255 scope global secondary eth0
+       valid_lft forever preferred_lft forever
+    inet 10.1.0.4/24 brd 10.1.0.255 scope global secondary eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::20d:3aff:fe04:4516/64 scope link
+       valid_lft forever preferred_lft forever
+    ```
 
 #### Validation (Ubuntu 14/16)
 
-To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
+To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated with it, use the following command:
 
 ```bash
-ping -I 10.0.0.5 outlook.com
+ping -I 10.1.0.5 outlook.com
 ```
 
 > [!NOTE]
 > For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
-For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
+For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. See appropriate documentation for your Linux distribution. The following is one method to accomplish this:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
 
-ip rule add from 10.0.0.5 lookup custom
-ip route add default via 10.0.0.1 dev eth2 table custom
+ip rule add from 10.1.0.5 lookup custom
+ip route add default via 10.1.0.1 dev eth2 table custom
 ```
 
-- Be sure to replace:
-  - **10.0.0.5** with the private IP address that has a public IP address associated to it
-  - **10.0.0.1** to your default gateway
+- Ensure to replace:
+  
+  - **10.1.0.5** with the private IP address that has a public IP address associated to it
+  
+  - **10.1.0.1** to your default gateway
+  
   - **eth2** to the name of your secondary NIC
 
 </details>
@@ -291,7 +321,7 @@ Ubuntu 18.04 and above have changed to **`netplan`** for OS network management. 
 
 #### Validation (Ubuntu 18.04+)
 
-To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
+To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated with it, use the following command:
 
 ```bash
 ping -I 10.1.0.5 outlook.com
