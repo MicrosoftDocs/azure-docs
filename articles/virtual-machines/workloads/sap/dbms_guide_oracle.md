@@ -15,8 +15,7 @@ ms.custom: H1Hack27Feb2017
 
 # Azure Virtual Machines Oracle DBMS deployment for SAP workload
 
-This document covers several different areas to consider when deploying Oracle Database for SAP workload in Azure IaaS. Before you read this document, we recommend you read [Considerations for Azure Virtual
-Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general).
+This document covers several different areas to consider when deploying Oracle Database for SAP workload in Azure IaaS. Before you read this document, we recommend you read [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general).
 We also recommend that you read other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
 
 You can find information about Oracle versions and corresponding OS versions that are supported for running SAP on Oracle on Azure in SAP Note [2039619](https://launchpad.support.sap.com/#/notes/2039619).
@@ -317,8 +316,7 @@ Oracle DBAs that are not familiar with Oracle ASM follow the training materials 
 
 [Sap on Oracle with ASM on Microsoft Azure - Part1 - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-oracle-with-asm-on-microsoft-azure-part1/ba-p/1865024)
 
-[Oracle19c DB \[ ASM \] installation on \[ Oracle Linux 8.3 \] \[ Grid \| ASM \| UDEV \| OEL 8.3 \] \[ VMware \] - 
-YouTube](https://www.youtube.com/watch?v=pRJgiuT-S2M)
+[Oracle19c DB \[ ASM \] installation on \[ Oracle Linux 8.3 \] \[ Grid \| ASM \| UDEV \| OEL 8.3 \] \[ VMware \] - YouTube](https://www.youtube.com/watch?v=pRJgiuT-S2M)
 
 [ASM Administrator's Guide (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/automatic-storage-management-administrators-guide.pdf)
 
