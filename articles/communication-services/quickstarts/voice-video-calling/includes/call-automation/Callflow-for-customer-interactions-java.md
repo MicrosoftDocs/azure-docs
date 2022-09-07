@@ -107,7 +107,6 @@ You will need a Communication Services user to try out the functionality of addi
 In your editor of choice, open App.java file and update it with the following code. Please see comments in the code for more details.
 ```Java
 package com.communication.quickstart;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -116,7 +115,6 @@ import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 import java.time.Duration;
-
 import com.azure.communication.callingserver.*;
 import com.azure.communication.callingserver.models.*;
 import com.azure.communication.callingserver.models.events.*;
@@ -126,8 +124,7 @@ import com.azure.communication.common.PhoneNumberIdentifier;
 import com.azure.messaging.eventgrid.*;
 import com.google.gson.*;
 import static spark.Spark.*;
-
-public class App 
+public class App
 {
     public static void main( String[] args ) throws URISyntaxException
     {
@@ -135,31 +132,27 @@ public class App
         // callbackUri - location where CallingServer platform's events will be delivered
         // The endpoint must be reachable from the internet, therefore, the base address is Ngrok URI
         URI callbackUri = new URI(args[0] + "/api/callback");
-        String connectionString = "<connectionString>";
+        String connectionString = "[connectionString]";
         CallAutomationClient client = new CallAutomationClientBuilder()
             .connectionString(connectionString)
             .buildClient();
-
         // Endpoint to receive EventGrid IncomingCall event
         post("/api/incomingCall", (request, response) -> {
             Logger.getAnonymousLogger().info(request.body());
             List<EventGridEvent> eventGridEvents = EventGridEvent.fromString(request.body());
             for (EventGridEvent eventGridEvent : eventGridEvents) {
                 JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class);
-
                 // When registering an EventGrid subscription, EventGrid sends a specific request to validate the ownership of the endpoint
                 if (eventGridEvent.getEventType().equals("Microsoft.EventGrid.SubscriptionValidationEvent")) {
                     String validationCode = data.get("validationCode").getAsString();
                     return "{\"validationResponse\": \"" + validationCode + "\"}";
                 }
-
                 // Answer the incoming call and pass the callbackUri where ServerCalling events will be delivered
                 String incomingCallContext = data.get("incomingCallContext").getAsString();
                 client.answerCall(incomingCallContext, callbackUri);
             }
             return "";
         });
-
         // Endpoint to receive CallingServer events
         post("/api/callback", (request, response) -> {
             Logger.getAnonymousLogger().info(request.body());
@@ -170,32 +163,35 @@ public class App
             for (CallAutomationEventBase acsEvent : acsEvents) {
                 if (acsEvent.getClass() == CallConnectedEvent.class) {
                     CallConnectedEvent event = (CallConnectedEvent) acsEvent;
-
                     // Call was answered and is now established
                     String callConnectionId = event.getCallConnectionId();
                     CallConnection callConnection = client.getCallConnection(callConnectionId);
-                    
+                    // Play audio to participants in the call
+                    CallMedia callMedia = callConnection.getCallMedia();
+                    FileSource fileSource = new FileSource().setUri("<Audio file URL>");
+                    PlayOptions playOptions = new PlayOptions.setLoop(false);
+                    callMedia.playToAllWithResponse(fileSource, playOptions);
+                } else if (event.getClass() == CallDisconnectedEvent.class) {
+                    // Call disconnected, perform some custom logic
+                } else if (event.getClass() == AddParticipantsSucceededEvent.class) {
+                    // CommunicationUser was added to the call
+                } else if (event.getClass() == AddParticipantsFailedEvent.class) {
+                    // CommunicationUser failed to be added to the call
+                } else if (event.getClass() == ParticipantsUpdatedEvent.class) {
+                    // Participant list of the call is updated
+                } else if (event.getClass() == PlayCompleted.class) {
+                    PlayCompleted event = (PlayCompleted) acsEvent;
+                    // Call was answered and is now established
+                    String callConnectionId = event.getCallConnectionId();
+                    CallConnection callConnection = client.getCallConnection(callConnectionId);
                     // Invite other participants to the call
                     List<CommunicationIdentifier> participants = new ArrayList<>(
-                        Arrays.asList(new CommunicationUserIdentifier("<acsUserId>")));
+                        Arrays.asList(new CommunicationUserIdentifier("[acsUserId]")));
                     AddParticipantsOptions options = new AddParticipantsOptions(participants)
                         .setInvitationTimeout(Duration.ofSeconds(30))
                         .setOperationContext(UUID.randomUUID().toString())
-                        .setSourceCallerId(new PhoneNumberIdentifier("<phoneNumber>"));
+                        .setSourceCallerId(new PhoneNumberIdentifier("[phoneNumber]"));
                     callConnection.addParticipants(options);
-
-                } else if (event.getClass() == CallDisconnectedEvent.class) {
-                    // Call disconnected, perform some custom logic
-
-                } else if (event.getClass() == AddParticipantsSucceededEvent.class) {
-                    // CommunicationUser was added to the call
-
-                } else if (event.getClass() == AddParticipantsFailedEvent.class) {
-                    // CommunicationUser failed to be added to the call
-
-                } else if (event.getClass() == ParticipantsUpdatedEvent.class) {
-                    // Participant list of the call is updated
-
                 }
             }
             return "";
