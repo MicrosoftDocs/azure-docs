@@ -15,7 +15,7 @@ ms.author: kpunjabi
 
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp)
-- Create a new web service application using the [!INCLUDE[Call Automation SDK](../Call%flows%for%customer%interactions.md)].
+- Create a new web service application using the [Call Automation SDK](../../Callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
@@ -33,7 +33,7 @@ Create an audio file, if you do not already have one, to use for playing prompts
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about how to start call please view our [quickstart](../Call%flows%for%customer%interactions.md)]. In this instance we will answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about how to start call please view our [quickstart](../../Callflows-for-customer-interactions.md). In this instance we will answer an incoming call.
 
 ## Play audio
 
@@ -77,7 +77,7 @@ var playResponse = await callMedia.PlayToAllAsync(fileSource, playOptions);
 Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 ```
 
-## Play audio with sourceID
+## Enhance play with audio file caching
 
 If you will be playing the same audio file multiple times, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
 
