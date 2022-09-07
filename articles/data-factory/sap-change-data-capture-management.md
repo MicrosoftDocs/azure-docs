@@ -1,7 +1,7 @@
 ---
-title: SAP change data capture solution (preview) - management
+title: Manage your SAP change data capture solution in Azure Data Factory
 titleSuffix: Azure Data Factory
-description: This article describes how to manage SAP change data capture (preview) in Azure Data Factory.
+description: Learn how to manage your SAP change data capture (CDC) solution in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
@@ -10,55 +10,65 @@ ms.date: 06/01/2022
 ms.author: ulrichchrist
 ---
 
-# Management of SAP change data capture (preview) in Azure Data Factory
+# Manage your SAP CDC solution in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how to manage SAP change data capture (preview) in Azure Data Factory.
+This article describes how to manage your SAP CDC solution in Azure Data Factory.
 
 ## Run an SAP data replication pipeline on a recurring schedule
 
-To run an SAP data replication pipeline on a recurring schedule with a specified frequency, complete the following steps:
+To run an SAP data replication pipeline on a recurring schedule with a specified frequency:
 
-1. Create a tumbling window trigger that runs SAP data replication pipeline frequently with the **Max concurrency** property set to *1*, see [Create a trigger that runs a pipeline on a tumbling window](how-to-create-tumbling-window-trigger.md?tabs=data-factory).
+1. Create a tumbling window trigger that runs the SAP data replication pipeline frequently. Set **Max concurrency** to **1**. 
 
-1. After the tumbling window trigger is created, add a self-dependency on it, such that subsequent pipeline runs always waits until previous pipeline runs are successfully completed, see [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md).
+    For more information, see [Create a trigger that runs a pipeline on a tumbling window](how-to-create-tumbling-window-trigger.md?tabs=data-factory).
+
+1. Add a self-dependency on the tumbling window trigger so that a subsequent pipeline run always waits until earlier pipeline runs are successfully completed.
+
+   For more information, see [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md).
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-tumbling-window-trigger.png" alt-text="Screenshot of the Edit trigger window with values highlighted to configure the tumbling window trigger.":::
 
 ## Recover a failed SAP data replication pipeline run
 
-To recover a failed SAP data replication pipeline run, complete the following steps:
+If an SAP data replication pipeline run fails, a subsequent run that's scheduled via a tumbling window trigger is suspended as it waits on the dependency.
 
-1. If any SAP data replication pipeline run fails, the subsequent run scheduled by tumbling window trigger will be suspended, waiting on dependency.
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-trigger-status.png" alt-text="Screenshot of the trigger status window with an SAP tumbling window trigger in the failed state.":::
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-trigger-status.png" alt-text="Screenshot of the trigger status window with an SAP tumbling window trigger in the failed state.":::
+To recover a failed SAP data replication pipeline run:
 
-1. In that case, you can fix the issues causing pipeline run failure, switch the **Extraction mode** property of the copy activity to **Recovery**. Then, manually run the SAP data replication pipeline in this mode.
+1. Fix the issues that caused the pipeline run failure.
 
-1. If the recovery run is successfully completed, switch back the **Extraction mode** property of the copy activity to **Delta**. Next to the failed run of the tumbling window trigger, select **Rerun**.
+1. Switch the **Extraction mode** property of the copy activity to **Recovery**.
+
+1. Manually run the SAP data replication pipeline.
+
+1. If the recovery run finishes successfully, change the **Extraction mode** property of the copy activity to **Delta**.
+
+1. Next to the failed run of the tumbling window trigger, select **Rerun**.
 
 ## Monitor data extractions on SAP systems
 
 To monitor data extractions on SAP systems:
 
-1. Using SAP Logon Tool on your SAP source system, run the ODQMON transaction code.
+1. In the SAP Logon tool on your SAP source system, run the ODQMON transaction code.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-logon-tool.png" alt-text="Screenshot of the SAP Logon Tool.":::
 
-1. Enter the value for the **Subscriber name** property of your SAP ODP linked service in the **Subscriber** input field and select *All* in the **Request Selection** dropdown menu to show all data extractions using that linked service.
+1. In **Subscriber**, enter the value for the **Subscriber name** property of your SAP ODP linked service. In the **Request Selection** dropdown, select **All** to show all data extractions that use the linked service.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-monitor-delta-queues.png" alt-text="Screenshot of the SAP ODQMON tool with all data extractions for a particular subscriber.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-monitor-delta-queues.png" alt-text="Screenshot of the SAP ODQMON tool with all data extractions for a specific subscriber.":::
 
-1. You can now see all registered subscriber processes in Operational Delta Queue (ODQ) representing data extractions from Azure Data Factory copy activities that use your SAP ODP linked service. On each ODQ subscription, you can drill down to see individual full/delta extractions. On each extraction, you can drill down to see individual data packages that were consumed.
+   You can now see all registered subscriber processes in the operational delta queue (ODQ). Subscriber processes represent data extractions from Azure Data Factory copy activities that use your SAP ODP linked service. For each ODQ subscription, you can look at details to see individual full and delta extractions. For each extraction, you can see individual data packages that were consumed.
 
-1. When Data Factory copy activities that extract SAP data are no longer needed, their ODQ subscriptions should be deleted, so SAP systems can stop tracking their subscription states and remove the unconsumed data packages from ODQ. To do so, select the unneeded ODQ subscriptions and delete them.
+1. When Data Factory copy activities that extract SAP data are no longer needed, you should delete their ODQ subscriptions. When you delete ODQ subscriptions, SAP systems can stop tracking their subscription states and remove the unconsumed data packages from the ODQ. To delete an ODQ subscription, select the subscription and delete it.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-delete-queue-subscriptions.png" alt-text="Screenshot of the SAP ODQMON tool with the delete button highlighted for a particular queue subscription.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-delete-queue-subscriptions.png" alt-text="Screenshot of the SAP ODQMON tool with the delete button highlighted for a specific queue subscription.":::
 
-## Troubleshoot delta change
+## Troubleshoot delta changes
 
-The Azure Data Factory ODP connector reads delta changes from the ODP framework, which itself provides them in ODQ tables.
+The SAP ODP connector in Data Factory reads delta changes from the ODP framework. The deltas are recorded in ODQ tables.
 
 In situations where the data movement works technically (that is, copy activities complete without errors), but doesn't appear to deliver the data correctly (for example, no data at all, or maybe just a subset of the expected data), you should first investigate if the number of records provided on the SAP side match the number of rows transferred by Data Factory. If so, the issue isn't related to Data Factory, but probably comes from incorrect or missing configuration on SAP side.
 
