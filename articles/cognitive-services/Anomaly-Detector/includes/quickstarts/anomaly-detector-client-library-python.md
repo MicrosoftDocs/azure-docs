@@ -85,7 +85,7 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
     ```
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../security-features.md) article for more information.
 
 3. Run the application with the `python` command on your quickstart file
 
@@ -118,7 +118,7 @@ Anomaly detected at index:      44
 
 In our script we call the Anomaly Detector API twice. The first call checks for trend change points across our sample data series with the `detect_change_point` method. This call returns a `ChangePointDetectResponse` that we stored in a variable we named `change_point_request`. We then iterate through the response's `is_change_point` list, and print the index of any values with a boolean of `true`.
 
-The second call checks the entire sample data series for anomalies using the [`detect_entire_series`](python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-entire-series) method. This call returns a [`EntireDetectResponse`](python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.models.entiredetectresponse?view=azure-python-preview) that we stored in a variable we named `anomaly_response` We iterate through the response's `is_anomaly` list, and print the index of any values with a boolean of `true`. Alternatively, we could have used the [`detect_last_point`](python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-last-point) method which is more appropriate for detecting anomalies in real-time data.
+The second call checks the entire sample data series for anomalies using the [`detect_entire_series`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-entire-series) method. This call returns a [`EntireDetectResponse`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.models.entiredetectresponse?view=azure-python-preview) that we stored in a variable we named `anomaly_response` We iterate through the response's `is_anomaly` list, and print the index of any values with a boolean of `true`. Alternatively, we could have used the [`detect_last_point`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-last-point) method which is more appropriate for detecting anomalies in real-time data.
 
 ## Visualize results
 
@@ -169,8 +169,9 @@ pip install matplotlib
             plt.plot(date,data_file.values[i][1], 'o', color ='green')
     plt.show()
     ```
+
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
 
 3. Run the application with the `python` command on your quickstart file
 
@@ -181,8 +182,6 @@ pip install matplotlib
 ### Output
 
 :::image type="content" source="../../media/quickstart/output.png" alt-text="Screenshot of anomaly detection results with indexes of anomalies and change points on a scatter plot. Anomalies are represented as red triangles, change points are represented as blue squares, and normal data is represented as green circles." lightbox="../../media/quickstart/output.png":::
-
-
 
 ## Clean up resources
 
