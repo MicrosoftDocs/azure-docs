@@ -75,8 +75,8 @@ landingContent:
             url:  /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
       - linkListType: how-to-guide
         links:
-          - text: Make API requests with Postman 
-            url: how-to-use-postman.md
+          - text: Call the Azure Digital Twins APIs with Postman
+            url: how-to-use-postman-with-digital-twins.md
 
   - title: DTDL-based industry ontologies
     linkLists:
