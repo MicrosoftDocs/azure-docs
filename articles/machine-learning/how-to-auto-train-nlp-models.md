@@ -81,7 +81,7 @@ Named Entity Recognition (NER)|  CLI v2:`text_ner` <br> SDK v2 (preview): `text_
 
 ##Thresholding
 
-Thresholding is the multi-label feature that allows users to pick the threshold above which the predicted probabilities will lead to a positive label. Lower values allow for more labels, which is better when users care more about recall. Higher values allow fewer labels and hence better for users who care about precision.
+Thresholding is the multi-label feature that allows users to pick the threshold above which the predicted probabilities will lead to a positive label. Lower values allow for more labels, which is better when users care more about recall, but this option could lead to more false positives. Higher values allow fewer labels and hence better for users who care about precision, but this option could lead to more false negatives.
 
 ## Preparing data
 
