@@ -1,6 +1,6 @@
 ---
 title: What is Private Link for Azure Virtual Desktop preview - Azure
-description: A brief overview of Private Link for Azure Virtual Desktop (preview) and how to set it up.
+description: A brief overview of Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 09/06/2022
@@ -61,3 +61,13 @@ The current public preview version of Private Link for Azure Virtual Desktop has
 - Service tags are used for agent monitoring traffic.
 
 - The preview version of this feature doesn't currently support enabling both Private Link and [RDP Shortpath](./shortpath.md) at the same time.
+
+## Next steps
+
+- Learn about how to set up Private Link for Azure Virtual Desktop at [Set up Private Link for Azure Virtual Desktop](private-link-setup.md).
+- Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
+- For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md)
+- Learn how to use Azure Firewall to inspect traffic going towards a private endpoint at [Use Azure Firewall to inspect traffic destined to a private endpoint](../private-link/inspect-traffic-with-azure-firewall.md).
+- Learn more about Azure Virtual Desktop architecture at [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop?context=/azure/virtual-desktop/context/context).
+- Understand how connectivity for the Azure Virtual Desktop service works at[Azure Virtual Desktop network connectivity](network-connectivity.md)
+- See the [Required URL list](safe-url-list.md) for the list of URLs you'll need to unblock to ensure network access to the Azure Virtual Desktop service.

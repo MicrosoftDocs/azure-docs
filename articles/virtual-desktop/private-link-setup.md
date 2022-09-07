@@ -1,6 +1,6 @@
 ---
 title: Set up Private Link for Azure Virtual Desktop preview - Azure
-description: A brief overview of Private Link for Azure Virtual Desktop (preview) and how to set it up.
+description: How to set up Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/06/2022
@@ -24,33 +24,20 @@ To configure Private Link in the Azure portal:
 
 2. Create a private endpoint to connect the host pool to the customer VNET by going to **Home** > **Azure Virtual Desktop** > **Host pools**. Select the name of the host pool you want to connect to, then go to **Networking** > **Private Endpoints** > **Add**.
 
-3. Create a private endpoint that will connect the host pool to a customer VNET by going to **Azure Virtual Desktop** > **Host pools**. Select the name of the host pool you want to connect to, then <!--Do we need to create these two at the same time like this, or can we create one and then go back to do the other?-->
+3. Create a private endpoint that will connect the host pool to a customer VNET by going to **Azure Virtual Desktop** > **Host pools**. Select the name of the host pool you want to connect to, then go to **Networking** > **Private endpoints** and select **Add**. <!--Do we need to create processes for in-Azure Virtual Desktop and outside of Azure Virtual Desktop at the same time like this, or can we create one and then go back to do the other?-->
 
-Home-\>Private Link Center-\>Private Endpoints -\> Add
+4. Enter the name of your new private endpoint, then select the location you want to put the endpoint in. The endpoint's location must be the same location as the VNET you're connecting the endpoint to. It must also be in the same VNET as your session host VM.
 
-> Home-\> Azure Virtual Desktop hub -\> hostpools -\> select hostpool -\> Networking -\>
-> Private Endpoints -\> Add
-
-1. Enter the name of your new private endpoint, then select the location you want to put the endpoint in. The endpoint's location must be the same location as the VNET you're connecting the endpoint to. It must also be in the same VNET as your session host VM.
-
-2. Select the Azure Virtual Desktop resource you're creating this private endpoint for. The Private Link feature supports the Microsoft.DesktopVirtualization resource type. 
-   
-   In the following screenshot, we selected Resource named "PrivateLinkHostpool" and target sub-resource "hostpool" to enable access to global URLs. <!--Remove?-->
+5. Select the Azure Virtual Desktop resource you're creating this private endpoint for. The Private Link feature supports the Microsoft.DesktopVirtualization resource type.
 
    >[!NOTE]
    >You'll need to repeat this process to create a private endpoint for every resource you want to put into Private Link.
 
-![](media/image4.png)
+6. Select the VNET and subnet you want to use. You can use your own DNS service, but we recommend you select **Integrate with private DNS zone** to use Azure private DNS zones.
 
-3. Select the VNET and subnet you want to use. You can use your own DNS service, or select "Integrate with private DNS zone" to use Azure private DNS zones (recommended)
+7. On the **Review and create** page, select **Create** to finish making the private endpoint.
 
-![](media/image5.png)
-
-1. On the **Review and create** page, select **Create** to finish making the private endpoint.
-
-![](media/image6.png)
-
-6. Repeat this process to create an endpoint to connect in the opposite direction between the VNET and the host pool for every resource you connected to.
+8. Repeat this process to create an endpoint to connect in the opposite direction between the VNET and the host pool for every resource you connected to.
 
 ## Closing public routes
 
