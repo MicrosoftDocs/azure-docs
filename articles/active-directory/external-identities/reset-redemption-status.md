@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 09/07/2022
 
 ms.author: mimart
 author: msmimart
@@ -62,8 +62,8 @@ If a user wants to sign in using a different email:
 
 > [!NOTE]
 >- When you're resetting the user's email address to a new address, we recommend setting the `mail` property. This way the user can redeem the invitation by signing into your directory in addition to using the redemption link in the invitation.
->- When you're resetting the status for a B2B guest user, be sure to do so under the user context. App-only calls are currently not supported.
->
+>- For app-only calls, the redemption status can't be reset if there are any roles assigned to the target user account.
+
 ### Use PowerShell to reset redemption status
 
 ```powershell
