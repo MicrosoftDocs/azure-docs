@@ -474,6 +474,10 @@
                       href: api-management-template-resources.md
             - name: stv1 compute platform retirement (August 2024)
               href: breaking-changes/stv1-platform-retirement-august-2024.md
+            - name: ADAL-based identity provider retirement (September 2025)
+              href: breaking-changes/identity-provider-adal-retirement-sep-2025.md
+            - name: CAPTCHA endpoint update (September 2025)
+              href: breaking-changes/captcha-endpoint-change-sep-2025.md       
       - name: Regional availability
         href: https://azure.microsoft.com/global-infrastructure/services/
       - name: Microsoft Q&A question page
