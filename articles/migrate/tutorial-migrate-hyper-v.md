@@ -13,6 +13,9 @@ ms.custom: [ "MVC", "fasttrack-edit"]
 
 This article shows you how to migrate on-premises Hyper-V VMs to Azure with the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
 
+You can also connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using [Private Link](how-to-use-azure-migrate-with-private-endpoints.md). Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
+
+
 This tutorial is the third in a series that demonstrates how to assess and migrate machines to Azure.
 
 > [!NOTE]

@@ -13,6 +13,9 @@ ms.custom: MVC
 
 This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs, using Azure Migrate: Server Assessment and Azure Migrate: Server Migration tools.
 
+You can also connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using [Private Link](how-to-use-azure-migrate-with-private-endpoints.md). Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
+
+
 > [!NOTE]
 > You migrate AWS VMs to Azure by treating them as physical servers.
 
