@@ -153,7 +153,7 @@ To register the Microsoft.DataMigration resource provider, perform the following
     ![Create Azure Database Migration Service instance](media/tutorial-azure-mysql-single-to-flex-online/5-dms-portal-marketplace-create.png)
   
 03. On the **Select migration scenario and Database Migration Service** page, under **Migration scenario**, select **Azure Database for MySQL-Single Server** as the source server type, and then select **Azure Database for MySQL** as target server type, and then select **Select**.
-    ![Select Migration Scenario](media/tutorial-azure-mysql-single-to-flex-online/6-%20create-dms-service-scenario-offline.png)
+    ![Select Migration Scenario](media/tutorial-azure-mysql-single-to-flex-online/6-create-dms-service-scenario-offline.png)
 
 04. On the **Create Migration Service** page, on the **Basics** tab, under **Project details**, select the appropriate subscription, and then select an existing resource group or create a new one.
 
@@ -225,7 +225,7 @@ Selecting this check box prevents Write/Delete operations on the source server d
        ![Select target](media/tutorial-azure-mysql-single-to-flex-online/15-select-target.png)
 
 4. Select **Next : Select databases>>**, and then, on the Select databases tab, under [Preview] Select server objects, select the server objects that you want to migrate.
-       ![Select databases](media/tutorial-azure-mysql-single-to-flex-online/16-%20select-db.png)
+       ![Select databases](media/tutorial-azure-mysql-single-to-flex-online/16-select-db.png)
 
 5. In the **Select databases** section, under **Source Database**, select the database(s) to migrate.
     The non-table objects in the database(s) you specified will be migrated, while the items you didn’t select will be skipped.

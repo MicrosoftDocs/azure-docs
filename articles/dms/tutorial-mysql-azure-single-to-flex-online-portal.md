@@ -225,7 +225,7 @@ To configure your DMS migration project, perform the following steps.
        ![Select target.](media/tutorial-azure-mysql-single-to-flex-online/15-select-target.png)
 
 3. Select **Next : Select databases>>**, and then, on the Select databases tab, under [Preview] Select server objects, select the server objects that you want to migrate.
-       ![Select databases.](media/tutorial-azure-mysql-single-to-flex-online/16-%20select-db.png)
+       ![Select databases.](media/tutorial-azure-mysql-single-to-flex-online/16-select-db.png)
 
 4. In the **Select databases** section, under **Source Database**, select the database(s) to migrate.
     The non-table objects in the database(s) you specified will be migrated, while the items you didn’t select will be skipped. You can only select the source and target databases whose names match that on the source and target server.
