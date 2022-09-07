@@ -18,13 +18,13 @@ This section shows you how to enable public or private network access for an Eve
 
 1. On the **Basics** page of the **Create topic** wizard, select **Next: Networking** at the bottom of the page after filling the required fields. 
 
-    :::image type="content" source="./media/configure-firewall/networking-link.png" alt-text="Image showing the selection of Networking link at the bottom of the page. ":::
+    :::image type="content" source="./media/configure-firewall/networking-link.png" alt-text="Screenshot showing the selection of Networking link at the bottom of the page. ":::
 1. If you want to allow clients to connect to the topic endpoint via a public IP address, keep the **Public access** option selected. 
 
-    :::image type="content" source="./media/configure-firewall/networking-page-public-access.png" alt-text="Image showing the selection of Public access option on the Networking page of the Create topic wizard. ":::
+    :::image type="content" source="./media/configure-firewall/networking-page-public-access.png" alt-text="Screenshot showing the selection of Public access option on the Networking page of the Create topic wizard. ":::
 1. To allow access to the Event Grid topic via a private endpoint, select the **Private access** option. 
 
-    :::image type="content" source="./media/configure-firewall/networking-page-private-access.png" alt-text="Image showing the selection of Private access option on the Networking page of the Create topic wizard. ":::    
+    :::image type="content" source="./media/configure-firewall/networking-page-private-access.png" alt-text="Screenshot showing the selection of Private access option on the Networking page of the Create topic wizard. ":::    
 1. Follow instructions in the [Add a private endpoint using Azure portal](configure-private-endpoints.md#use-azure-portal) section to create a private endpoint. 
 
 ### For an existing topic

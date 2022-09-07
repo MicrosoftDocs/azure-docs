@@ -8,12 +8,12 @@ ms.date: 09/29/2021
 
 # Tutorial: Deploy an Azure VMware Solution private cloud
 
-The Azure VMware Solution private gives you the ability to deploy a vSphere cluster in Azure. For each private cloud created, there's one vSAN cluster by default. You can add, delete, and scale clusters.  The minimum number of hosts per cluster is three. More hosts can be added one at a time, up to a maximum of 16 hosts per cluster. The maximum number of clusters per private cloud is four.  The initial deployment of Azure VMware Solution has three hosts. 
+The Azure VMware Solution private gives you the ability to deploy a vSphere cluster in Azure. For each private cloud created, there's one vSAN cluster by default. You can add, delete, and scale clusters.  The minimum number of hosts per cluster is three. More hosts can be added one at a time, up to a maximum of 16 hosts per cluster. The maximum number of clusters per private cloud is 12.  The initial deployment of Azure VMware Solution has three hosts.
 
 You use vCenter Server and NSX-T Manager to manage most other aspects of cluster configuration or operation. All local storage of each host in a cluster is under the control of vSAN.
 
 >[!TIP]
->You can always extend the cluster and add additional clusters later if you need to go beyond the initial deployment number.
+>You can always extend the cluster and add more clusters later if you need to go beyond the initial deployment number.
 
 Because Azure VMware Solution doesn't allow you to manage your private cloud with your cloud vCenter Server at launch, you'll need to do additional steps for the configuration. This tutorial covers these steps and related prerequisites.
 

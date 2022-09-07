@@ -211,9 +211,20 @@ The visualizer shows the resources defined in the Bicep file with the resource d
 ## Deploy the Bicep file
 
 1. Right-click the Bicep file inside the VSCode, and then select **Deploy Bicep file**.
+
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy.png" alt-text="Screenshot of Deploy Bicep file.":::
+
 1. From the **Select Resource Group** listbox on the top, select **Create new Resource Group**.
 1. Enter **exampleRG** as the resource group name, and then press **[ENTER]**.
+1. Select a location for the resource group, and then press **[ENTER]**.
+1. From **Select a parameter file**, select **None**.
+
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-select-parameter-file.png" alt-text="Screenshot of Select parameter file.":::
+
 1. Enter a unique storage account name, and then press **[ENTER]**. If you get an error message indicating the storage account is already taken, the storage name you provided is in use. Provide a name that is more likely to be unique.
+1. From **Create parameters file from values used in this deployment?**, select **No**.
+
+It takes a few moments to create the resources. For more information, see [Deploy Bicep files with visual Studio Code](./deploy-vscode.md).
 
 You can also deploy the Bicep file by using Azure CLI or Azure PowerShell:
 
@@ -258,4 +269,4 @@ Remove-AzResourceGroup -Name exampleRG
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bicep in Microsoft Learn](learn-bicep.md)
+> [Learn modules for Bicep](learn-bicep.md)

@@ -50,7 +50,7 @@ Currently, **Train PyTorch Model** component supports both single node and distr
     > In distributed training, to keep gradient descent stable, the actual learning rate is calculated by `lr * torch.distributed.get_world_size()` because batch size of the process group is world size times that of single process.
     > Polynomial learning rate decay is applied and can help result in a better performing model.
 
-8.  For **Random seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the experiment across runs.
+8.  For **Random seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the experiment across jobs.
 
 9.  For **Patience**, specify how many epochs to early stop training if validation loss does not decrease consecutively. by default 3.
 
@@ -77,12 +77,12 @@ Click on this component 'Metrics' tab and see training metric graphs, such as 'T
 
 ### How to enable distributed training
 
-To enable distributed training for **Train PyTorch Model** component, you can set in **Run settings** in the right pane of the component. Only **[AML Compute cluster](../how-to-create-attach-compute-cluster.md?tabs=python)** is supported for distributed training.
+To enable distributed training for **Train PyTorch Model** component, you can set in **Job settings** in the right pane of the component. Only **[AML Compute cluster](../how-to-create-attach-compute-cluster.md?tabs=python)** is supported for distributed training.
 
 > [!NOTE]
 > **Multiple GPUs** are required to activate distributed training because NCCL backend Train PyTorch Model component uses needs cuda.
 
-1. Select the component and open the right panel. Expand the **Run settings** section.
+1. Select the component and open the right panel. Expand the **Job settings** section.
 
     [![Screenshot showing how to set distributed training in runsetting](./media/module/distributed-training-run-setting.png)](./media/module/distributed-training-run-setting.png#lightbox)
 
@@ -116,7 +116,7 @@ You can refer to [this article](designer-error-codes.md) for more details about 
 
 ## Results
 
-After pipeline run is completed, to use the model for scoring, connect the [Train PyTorch Model](train-PyTorch-model.md) to [Score Image Model](score-image-model.md), to predict values for new input examples.
+After pipeline job is completed, to use the model for scoring, connect the [Train PyTorch Model](train-PyTorch-model.md) to [Score Image Model](score-image-model.md), to predict values for new input examples.
 
 ## Technical notes
 ###  Expected inputs  

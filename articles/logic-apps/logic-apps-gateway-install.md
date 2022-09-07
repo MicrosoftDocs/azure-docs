@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, azla
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 08/20/2022
 
 #Customer intent: As a software developer, I want to install and set up the on-premises data gateway so that I can create logic app workflows that can access data in on-premises systems.
 ---
@@ -47,7 +47,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
   **Minimum requirements**
 
-  * .NET Framework 4.7.2
+  * .NET Framework 4.8
   * 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
 
   **Recommended requirements**

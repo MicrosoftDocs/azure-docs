@@ -73,6 +73,13 @@ In the following tables, the term alphanumeric refers to:
 > | service / templates | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
 > | service / users | service | 1-80 | Alphanumerics and hyphens.<br><br>Start with letter and end with alphanumeric. |
 
+## Microsoft.App
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | containerApps | resource group | 2-32 | 	Lowercase letters, numbers, and hyphens..<br><br>Start with letter and end with alphanumeric. |
+
 ## Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
@@ -581,6 +588,7 @@ In the following tables, the term alphanumeric refers to:
 > | networkWatchers | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | privateDnsZones | resource group | 1-63 characters<br><br>2 to 34 labels<br><br>Each label is a set of characters separated by a period. For example, **contoso.com** has 2 labels. | Each label can contain alphanumerics, underscores, and hyphens.<br><br>Each label is separated by a period. |
 > | privateDnsZones / virtualNetworkLinks | private DNS zone | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | privateEndpoints | resource group | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | publicIPAddresses | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | publicIPPrefixes | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | routeFilters | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |

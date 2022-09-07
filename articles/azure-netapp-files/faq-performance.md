@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 02/07/2022
+ms.date: 08/18/2022
 ---
 # Performance FAQs for Azure NetApp Files
 
@@ -39,6 +39,10 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 ## What’s the performance impact of Kerberos on NFSv4.1?
 
 See [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
+
+## What's the performance impact of using `nconnect` with Kerberos?
+
+[!INCLUDE [nconnect krb5 performance warning](includes/kerberos-nconnect-performance.md)]
 
 ## Does Azure NetApp Files support SMB Direct?
 

@@ -56,8 +56,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* There are no specific prerequisites required to deploy this app.
-* You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create connected waste management application
 
@@ -94,10 +93,6 @@ The dashboard consists of different tiles:
 
 * **Waste monitoring area map**: This tile uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays device [location](../core/howto-use-location-data.md). Try to hover over the map and try the controls over the map, like zoom-in, zoom-out, or expand.
 
-    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-dashboard-map.png" alt-text="Screenshot of Connected Waste Management Template Dashboard map.":::
-
-
-
 * **Fill, odor, weight level bar chart**: You can visualize one or multiple kinds of device telemetry data in a bar chart. You can also expand the bar chart.  
 
     :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-dashboard-bar-chart.png" alt-text="Screenshot of Connected Waste Management Template Dashboard bar chart..":::
@@ -123,9 +118,6 @@ The Connected waste management application comes with a sample template for a co
 To view the device template:
 
 1. In Azure IoT Central, from the left pane of your app, select **Device templates**. 
-
-    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-device-template.png" alt-text="Screenshot showing the list of device templates in the application.":::
-
 
 1. In the **Device templates** list, select **Connected Waste Bin**.
 
@@ -175,15 +167,11 @@ The Connected waste management application has two simulated devices associated 
 
 ### View the devices
 
-1. From the left pane of Azure IoT Central, select **Device**. 
-
-    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-devices.png" alt-text="Screenshot of Connected Waste Management Template devices.":::
-
+1. From the left pane of Azure IoT Central, select **Device**.
 
 1. Select **Connected Waste Bin** device.  
 
     :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-devices-bin-1.png" alt-text="Screenshot of Connected Waste Management Template Device Properties.":::
-
 
 Explore the **Device Properties** and **Device Dashboard** tabs. 
 
@@ -203,9 +191,6 @@ The Connected waste management application has four sample rules.
 ### View rules
 
 1. From the left pane of Azure IoT Central, select **Rules**.
-
-    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-rules.png" alt-text="Screenshot of Connected Waste Management Template Rules.":::
-
 
 1. Select **Bin full alert**.
 

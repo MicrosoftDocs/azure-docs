@@ -37,7 +37,7 @@ Anyone monitoring Azure Monitor for Azure Virtual Desktop for your environment w
 
 You can open Azure Monitor for Azure Virtual Desktop with one of the following methods:
 
-- Go to [aka.ms/azmonwvdi](https://aka.ms/azmonwvdi).
+- Go to [aka.ms/avdi](https://aka.ms/avdi).
 - Search for and select **Azure Virtual Desktop** from the Azure portal, then select **Insights**.
 - Search for and select **Azure Monitor** from the Azure portal. Select **Insights Hub** under **Insights**, then select **Azure Virtual Desktop**.
 Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
@@ -56,7 +56,7 @@ To start using Azure Monitor for Azure Virtual Desktop, you'll need at least one
 
 If it's your first time opening Azure Monitor for Azure Virtual Desktop, you'll need set up Azure Monitor for your Azure Virtual Desktop environment. To configure your resources:
 
-1. Open Azure Monitor for Azure Virtual Desktop in the Azure portal at [aka.ms/azmonwvdi](https://aka.ms/azmonwvdi), then select **configuration workbook**.
+1. Open Azure Monitor for Azure Virtual Desktop in the Azure portal at [aka.ms/avdi](https://aka.ms/avdi), then select **configuration workbook**.
 2. Select an environment to configure under **Subscription**, **Resource Group**, and **Host Pool**.
 
 The configuration workbook sets up your monitoring environment and lets you check the configuration after you've finished the setup process. It's important to check your configuration if items in the dashboard aren't displaying correctly, or when the product group publishes updates that require new settings.
@@ -154,7 +154,7 @@ To set up performance counters using the configuration workbook:
 
 You'll also need to enable specific Windows Event Logs to collect errors, warnings, and information from the session hosts and send them to the Log Analytics workspace.
 
-If you've already enabled Windows Event Logs and want to remove them, follow the instructions in [Configuring Windows Event Logs](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).  You can add and remove Windows Event Logs in the same location.
+If you've already enabled Windows Event Logs and want to remove them, follow the instructions in [Configuring Windows Event Logs](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs).  You can add and remove Windows Event Logs in the same location.
 
 To set up Windows Event Logs using the configuration workbook:
 

@@ -23,6 +23,8 @@ You may need to download software for your on-premises management console if you
 
     :::image type="content" source="media/update-ot-software/on-premises-download.png" alt-text="Screenshot of the Download option for the on-premises management console." lightbox="media/update-ot-software/on-premises-download.png":::
 
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 ## Upload an activation file
 
 When you first sign in, an activation file for the on-premises management console is downloaded. This file contains the aggregate committed devices that are defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
@@ -36,9 +38,12 @@ After initial activation, the number of monitored devices might exceed the numbe
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download the activation file.":::
 
+   [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 1. Select **System Settings** from the management console.
 1. Select **Activation**.
 1. Select **Choose a File** and select the file that you saved.
+
 
 ## Manage certificates
 

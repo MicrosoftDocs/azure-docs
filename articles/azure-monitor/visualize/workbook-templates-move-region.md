@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Workbook Templates - Move Regions
+title: Move and Azure Workbook template to another region
 description: How to move a workbook template to a different region
 services: azure-monitor
 author: gardnerjr

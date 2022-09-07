@@ -3,12 +3,12 @@ title: Data redundancy
 titleSuffix: Azure Storage
 description: Understand data redundancy in Azure Storage. Data in your Microsoft Azure Storage account is replicated for durability and high availability.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/24/2022
-ms.author: tamram
+ms.date: 08/18/2022
+ms.author: jammart
 ms.subservice: common
 ms.custom: references_regions
 ---
@@ -76,7 +76,7 @@ The following diagram shows how your data is replicated across availability zone
 
 ZRS provides excellent performance, low latency, and resiliency for your data if it becomes temporarily unavailable. However, ZRS by itself may not protect your data against a regional disaster where multiple zones are permanently affected. For protection against regional disasters, Microsoft recommends using [geo-zone-redundant storage](#geo-zone-redundant-storage) (GZRS), which uses ZRS in the primary region and also geo-replicates your data to a secondary region.
 
-The Archive tier for Blob Storage isn't currently supported for ZRS accounts. Unmanaged disks don't support ZRS or GZRS.
+The Archive tier for Blob Storage isn't currently supported for ZRS, GZRS, or RA-GZRS accounts. Unmanaged disks don't support ZRS or GZRS.
 
 For more information about which regions support ZRS, see [Azure regions with availability zones](../../availability-zones/az-overview.md#azure-regions-with-availability-zones).
 
@@ -84,7 +84,7 @@ For more information about which regions support ZRS, see [Azure regions with av
 
 ZRS is supported for all Azure Storage services through standard general-purpose v2 storage accounts, including:
 
-- Azure Blob storage (hot and cool block blobs, non-disk page blobs)
+- Azure Blob storage (hot and cool block blobs and append blobs, non-disk page blobs)
 - Azure Files (all standard tiers: transaction optimized, hot, and cool)
 - Azure Table storage
 - Azure Queue storage
@@ -248,9 +248,11 @@ The following table shows which redundancy options are supported for each type o
 
 <sup>1</sup> Accounts of this type with a hierarchical namespace enabled also support the specified redundancy option.
 
-All data for all storage accounts is copied according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied.
+All data for all storage accounts is copied from the primary to the secondary according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied.
 
-Data in all tiers, including the Archive tier, is copied. For more information about blob tiers, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md).
+Data in all tiers, including the Archive tier, is always copied from the primary to the secondary during geo-replication. The Archive tier for Blob Storage is currently supported for LRS, GRS, and RA-GRS accounts, but not for ZRS, GZRS, or RA-GZRS accounts. For more information about blob tiers, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md).
+
+Unmanaged disks don't support ZRS or GZRS.
 
 For pricing information for each redundancy option, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 

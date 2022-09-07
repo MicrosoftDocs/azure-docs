@@ -1,14 +1,17 @@
 ---
-title: Authenticate with managed identities for Azure Relay resources (preview)
+title: Authenticate with managed identities for Azure Relay resources 
 description: This article describes how to use managed identities to access with Azure Relay resources.
 ms.topic: article
-ms.date: 06/21/2022
+ms.date: 07/22/2022
 ---
 
-# Authenticate a managed identity with Azure Active Directory to access Azure Relay resources (preview)
+# Authenticate a managed identity with Azure Active Directory to access Azure Relay resources 
 [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) is a cross-Azure feature that enables you to create a secure identity associated with the deployment under which your application code runs. You can then associate that identity with access-control roles that grant custom permissions for accessing specific Azure resources that your application needs.
 
 With managed identities, the Azure platform manages this runtime identity. You don't need to store and protect access keys in your application code or configuration, either for the identity itself, or for the resources you need to access. A Relay client app running inside an Azure App Service application or in a virtual machine with enabled managed entities for Azure resources support doesn't need to handle SAS rules and keys, or any other access tokens. The client app only needs the endpoint address of the Relay namespace. When the app connects, Relay binds the managed entity's context to the client in an operation that is shown in an example later in this article. Once it's associated with a managed identity, your Relay client can do all authorized operations. Authorization is granted by associating a managed entity with Relay roles.
+
+> [!NOTE]
+> This feature is generally available in all regions except Microsoft Azure operated by 21Vianet (Azure China). 
 
 [!INCLUDE [relay-roles](./includes/relay-roles.md)]
 
@@ -60,6 +63,11 @@ Here's the code from the sample that shows how to use Azure AD authentication to
     ```csharp
     var sender = new HybridConnectionClient(hybridConnectionUri, tokenProvider);    
     ```
+
+## Samples
+
+- Hybrid Connections: [.NET](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/dotnet/rolebasedaccesscontrol), [Java](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/java/role-based-access-control), [JavaScript](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/node/rolebasedaccesscontrol)
+- WCF Relay: [.NET](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay/RoleBasedAccessControl)
 
 ## Next steps
 To learn more about Azure Relay, see the following topics.

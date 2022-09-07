@@ -136,7 +136,7 @@ The created identity is required later for issuing access tokens. Store the rece
 
 ## Issue access tokens
 
-Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md). 
+Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). 
 
 In the following code, use the user variable that you created in the preceding step to get a token.
 
@@ -214,3 +214,25 @@ Run the following `mvn` command to execute the app:
 ```console
 mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
+
+The app's output describes each completed action:
+
+<!---cSpell:disable --->
+```console
+Azure Communication Services - Access Tokens Quickstart
+
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+<token signature here>
+
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
+
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+<token signature here>
+
+Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+```
+<!---cSpell:enable --->

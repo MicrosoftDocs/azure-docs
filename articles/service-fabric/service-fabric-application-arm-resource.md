@@ -1,10 +1,14 @@
 ---
 title: Deploy and upgrade with Azure Resource Manager
 description: Learn how to deploy applications and services to a Service Fabric cluster using an Azure Resource Manager template.
-
-ms.topic: conceptual
-ms.date: 12/06/2017
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Manage applications and services as Azure Resource Manager resources
 
 You can deploy applications and services onto your Service Fabric cluster via Azure Resource Manager. This means that instead of deploying and managing applications via PowerShell or CLI after having to wait for the cluster to be ready, you can now express applications and services in JSON and deploy them in the same Resource Manager template as your cluster. The process of application registration, provisioning, and deployment all happens in one step.

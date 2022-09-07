@@ -10,7 +10,7 @@ ms.date: 06/17/2022
 
 ms.author: justinha
 author: calui
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calui
 
 ---
@@ -40,6 +40,7 @@ Here's what you need to know about email as an alternate login ID:
 * The feature is available in Azure AD Free edition and higher.
 * The feature enables sign-in with *ProxyAddresses*, in addition to UPN, for cloud-authenticated Azure AD users. More on how this applies to Azure AD business-to-business (B2B) collaboration in the [B2B](#b2b-guest-user-sign-in-with-an-email-address) section.
 * When a user signs in with a non-UPN email, the `unique_name` and `preferred_username` claims (if present) in the [ID token](../develop/id-tokens.md) will return the non-UPN email.
+    * If the non-UPN email in use becomes stale (no longer belongs to the user), these claims will return the UPN instead.
 * The feature supports managed authentication with Password Hash Sync (PHS) or Pass-Through Authentication (PTA).
 * There are two options for configuring the feature:
     * [Home Realm Discovery (HRD) policy](#enable-user-sign-in-with-an-email-address) - Use this option to enable the feature for the entire tenant. Global administrator privileges required.
@@ -55,7 +56,7 @@ In the current preview state, the following limitations apply to email as an alt
     * On some Microsoft sites and apps, such as Microsoft Office, the *Account Manager* control typically displayed in the upper right may display the user's UPN instead of the non-UPN email used to sign in.
 
 * **Unsupported flows** - Some flows are currently not compatible with non-UPN emails, such as the following:
-    * Identity Protection doesn't match non-UPN emails with *Leaked Credentials* risk detection. This risk detection uses the UPN to match credentials that have been leaked. For more information, see [Azure AD Identity Protection risk detection and remediation][identity-protection].
+    * Identity Protection doesn't match non-UPN emails with *Leaked Credentials* risk detection. This risk detection uses the UPN to match credentials that have been leaked. For more information, see [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md).
     * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity using a non-UPN email.
 
 * **Unsupported scenarios** - The following scenarios are not supported. Sign-in with non-UPN email for:
@@ -112,7 +113,7 @@ To support this hybrid authentication approach, you synchronize your on-premises
 
 In both configuration options, the user submits their username and password to Azure AD, which validates the credentials and issues a ticket. When users sign in to Azure AD, it removes the need for your organization to host and manage an AD FS infrastructure.
 
-One of the user attributes that's automatically synchronized by Azure AD Connect is *ProxyAddresses*. If users have an email address defined in the on-prem AD DS environment as part of the *ProxyAddresses* attribute, it's automatically synchronized to Azure AD. This email address can then be used directly in the Azure AD sign-in process as an alternate login ID.
+One of the user attributes that's automatically synchronized by Azure AD Connect is *ProxyAddresses*. If users have an email address defined in the on-premesis AD DS environment as part of the *ProxyAddresses* attribute, it's automatically synchronized to Azure AD. This email address can then be used directly in the Azure AD sign-in process as an alternate login ID.
 
 > [!IMPORTANT]
 > Only emails in verified domains for the tenant are synchronized to Azure AD. Each Azure AD tenant has one or more verified domains, for which you have proven ownership, and are uniquely bound to your tenant.
@@ -447,7 +448,6 @@ For more information on hybrid identity operations, see [how password hash sync]
 [hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
-[identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
 [sign-in-logs]: ../reports-monitoring/concept-sign-ins.md
 
 <!-- EXTERNAL LINKS -->

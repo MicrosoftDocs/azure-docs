@@ -48,13 +48,13 @@ With Azure Container Apps, you can:
 
 - [**Run containers from any registry**](containers.md), public or private, including Docker Hub and Azure Container Registry (ACR).
 
-- [**Use the Azure CLI extension or ARM templates**](get-started.md) to manage your applications.
+- [**Use the Azure CLI extension, Azure portal or ARM templates**](get-started.md) to manage your applications.
 
 - [**Provide an existing virtual network**](vnet-custom.md) when creating an environment for your container apps.
 
 - [**Securely manage secrets**](manage-secrets.md) directly in your application.
 
-- [**View application logs**](monitor.md) using Azure Log Analytics.
+- [**Monitor your apps**](monitor.md) using Azure Log Analytics.
 
 <sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.
 

@@ -4,7 +4,7 @@ description: Learn how to use the Subscription APIs, which are part of the  the 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 07/06/2022
+ms.date: 08/10/2022
 author: arifgani
 ms.author: argani
 ---
@@ -82,7 +82,7 @@ Response body example:
       "autoRenew": true/false,
     "isTest": true/false,
     "isFreeTrial": false,
-    "allowedCustomerOperations": ["Delete", "Update", "Read"],
+    "allowedCustomerOperations": <CSP purchases>["Read"] <All Others> ["Delete", "Update", "Read"],
       "sandboxType": "None",
       "lastModified": "0001-01-01T00:00:00",
       "quantity": 5,
@@ -414,7 +414,7 @@ Response body example:
 ```
 
 Code: 404 Not Found.
-SubscriptionId is not found.
+`subscriptionId` is not found.
 
 Code: 403
 Forbidden. The authorization token is invalid, expired, or was not provided.  The request may be attempting to access a SaaS subscription for an offer that's unsubscribed or published with a different Azure AD app ID from the one used to create the authorization token.
