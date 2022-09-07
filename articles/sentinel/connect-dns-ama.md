@@ -57,7 +57,7 @@ With the connector, you can:
 
 ### Normalization using ASIM
 
-This connector fully normalized using [Advanced Security Information Model (ASIM) parsers](normalization.md). The connector streams events originated from the analytical logs into the normalized table named `ASimDnsActivityLogs`. This table acts as a translator, using one unified language, shared across all DNS connectors to come. 
+This connector is fully normalized using [Advanced Security Information Model (ASIM) parsers](normalization.md). The connector streams events originated from the analytical logs into the normalized table named `ASimDnsActivityLogs`. This table acts as a translator, using one unified language, shared across all DNS connectors to come. 
 
 For a source-agnostic parser that unifies all DNS data and ensures that your analysis runs across all configured sources, use the [ASIM DNS unifying parser](dns-normalization-schema.md#unifying-parsers) `_Im_Dns`.   
 
@@ -70,7 +70,7 @@ See the [list of Windows DNS server fields](dns-ama-fields.md#asim-normalized-dn
 ## Set up the Windows DNS over AMA connector
 
 You can set up the connector in two ways:  
-- [Microsoft Sentinel portal](#set-up-the-connector-in-the-microsoft-sentinel-portal-ui). With this setup, you can create, manage, and delete a single DCR per workspace. Even if you define multiple DCRs via the API, the portal shows only a single DCR. 
+- [Microsoft Sentinel portal](#set-up-the-connector-in-the-microsoft-sentinel-portal-ui). With this setup, you can create, manage, and delete a single Data Collection Rule (DCR) per workspace. Even if you define multiple DCRs via the API, the portal shows only a single DCR. 
 - [API](#set-up-the-connector-with-the-api). With this setup, you can create, manage, and delete multiple DCRs. 
 
 ### Prerequisites
@@ -98,14 +98,14 @@ Before you begin, verify that you have:
 
 The DCR name, subscription, and resource group are automatically set based on the workspace name, the current subscription, and the resource group the connector was selected from.
 
-:::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-create-DCR.png" alt-text="Screenshot of creating a new D C R for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-create-DCR.png":::
+:::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-create-DCR.png" alt-text="Screenshot of creating a new D C R for the Windows D N S over A M A connector.":::
 
 #### Define resources (VMs)
 
 1. Select the **Resources** tab and select **Add Resource(s)**. 
 1. Select the VMs on which you want to install the connector to collect logs.
 
-    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-select-resource.png" alt-text="Screenshot of selecting resources for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-select-resource.png":::
+    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-select-resource.png" alt-text="Screenshot of selecting resources for the Windows D N S over A M A connector.":::
 
 1. Review your changes and select **Save** > **Apply**.  
 
@@ -118,11 +118,11 @@ To create filters:
 1. On the connector page, in the **Configuration** area, select **Add data collection filters**. 
 1. Type a name for the filter and select the filter type. The filter type is a parameter that reduces the number of collected events. The parameters are normalized according to the DNS normalized schema. See the list of [available fields for filtering](dns-ama-fields.md#available-fields-for-filtering).
 
-    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-create-filter.png" alt-text="Screenshot of creating a filter for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-create-filter.png":::
+    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-create-filter.png" alt-text="Screenshot of creating a filter for the Windows D N S over A M A connector.":::
 
 1. To add complex filters, select **Add field to filter** and add the relevant field.
 
-    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png" alt-text="Screenshot of adding fields to a filter for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png":::
+    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png" alt-text="Screenshot of adding fields to a filter for the Windows D N S over A M A connector.":::
 
 1. To add new filters, select **Add new filters**.  
 1. To edit, or delete existing filters or fields, select the edit or delete icons in the table under the **Configuration** area. To add fields or filters, select **Add data collection filters** again.
@@ -132,7 +132,7 @@ To create filters:
 
 You can create [DCRs](/rest/api/monitor/data-collection-rules) using the API. Use this option if you need to create multiple DCRs. 
 
-Use this example used as a template to create or update a DCR: 
+Use this example as a template to create or update a DCR: 
 
 #### Request URL and header  
 
@@ -236,11 +236,11 @@ This filter instructs the connector not to collect EventID 256 or EventID 257 or
 
 1. Create a filter with the **EventOriginalType** field, using the **Equals** operator, with the values **256**, **257**, and **260**. 
 
-    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-filter.png" alt-text="Screenshot of filtering out event IDs for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png":::
+    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-filter.png" alt-text="Screenshot of filtering out event IDs for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/windows-dns-ama-connector-eventid-filter.png":::
 
 1. Create a filter with the **EventOriginalType** field defined above, and using the **And** operator, also including the **DnsQueryTypeName** field set to **AAAA**.
 
-    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-dnsquery-filter.png" alt-text="Screenshot of filtering out event IDs and IPv6 addresses for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png":::
+    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-eventid-dnsquery-filter.png" alt-text="Screenshot of filtering out event IDs and IPv6 addresses for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/windows-dns-ama-connector-eventid-dnsquery-filter.png":::
 
 **Using the API**:
 
@@ -287,15 +287,13 @@ This filter instructs the connector not to collect EventID 256 or EventID 257 or
  
 This filter instructs the connector not to collect events from any subdomains of microsoft.com, google.com, amazon.com, or events from facebook.com or center.local.
 
-You can also use wildcards in your filter. Learn [how to use wildcards](#use-wildcards). 
-
 **Using the Microsoft Sentinel portal**:
 
 Set the **DnsQuery** field using the **Equals** operator, with the list *\*.microsoft.com,\*.google.com,facebook.com,\*.amazon.com,center.local*. 
 
 Review these considerations for [using wildcards](#use-wildcards). 
 
-:::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-domain-filter.png" alt-text="Screenshot of filtering out domains for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png"::: 
+:::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-domain-filter.png" alt-text="Screenshot of filtering out domains for the Windows D N S over A M A connector." lightbox="media/connect-dns-ama/windows-dns-ama-connector-domain-filter.png"::: 
 
 To define different values in a single field, use the **OR** operator.
 

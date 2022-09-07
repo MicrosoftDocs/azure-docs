@@ -9,7 +9,7 @@ ms.date: 09/01/2022
 
 # DNS over AMA connector reference - available fields and normalization schema
 
-This article lists available fields for filtering DNS data using the Windows DNS Events via AMA connector, and the normalization schema for Windows DNS server fields. 
+This article lists available fields for filtering DNS data using the [Windows DNS Events via AMA connector](dns-ama-fields.md), and the normalization schema for Windows DNS server fields. 
 
 ## Available fields for filtering
 
