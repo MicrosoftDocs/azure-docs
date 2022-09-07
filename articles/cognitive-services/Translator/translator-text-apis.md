@@ -611,6 +611,8 @@ After a successful call, you should see the following response:
 ]
 ```
 
+You can check the consumption (the number of characters for which you'll be charged) for each request through in the [**response headers: x-metered-usage**](reference/v3-0-translate.md#response-headers)  field .
+
 ## Detect language
 
 If you need translation, but don't know the language of the text, you can use the language detection operation. There's more than one way to identify the source text language. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `detect` endpoint.
