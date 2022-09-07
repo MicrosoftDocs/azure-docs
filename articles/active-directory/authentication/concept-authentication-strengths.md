@@ -107,6 +107,13 @@ Deleting a custom authentication strength is not allowed if the authentication s
 Custom authentication strengths allow customers to further restrict the usage of some FIDO2 security keys based on their Authenticator Attestation GUIDs (AAGUIDs). The capability allows administrators to require a FIDO2 key from a specific manufacture in order to access the resource.
 <!-- Steps to configure FIDO2 AA GUID -- Justin can you help with this? -->
 
+#### Update and delete custom authentication strengths policies
+
+Deletion of a custom authentication strengths policy is not allowed if it is being referenced by a Conditional Access policy. Click on the Conditional Access policies column to find which policies are referencing the authentication strengths policy you would like to delete.
+ 
+Editing of a custom authentication strength policy is allowed. If the policy is referenced by a Conditional Access policy, the administrator is required to confirm this step. 
+
+
 ## Using authentication strength policies in Conditional Access
 After you review and choose built-in authentication strength policies, or create your own custom strengths, you can use them in Conditional Access policies. BY referencing an authentication strength in a Conditional Access policy, you can restrict which authentication methods are allowed when the Conditional Access policy applies to sign-in.
 <!-- ### Place holder:How to create conditional access policy that uses authentication strength
