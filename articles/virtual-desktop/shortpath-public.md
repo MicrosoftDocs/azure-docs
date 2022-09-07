@@ -73,7 +73,7 @@ After RDP establishes the Shortpath, all Dynamic Virtual Channels (DVCs), includ
 
 The diagram below gives a high-level overview of the network connections used by Azure Virtual Desktop with RDP Shortpath for public networks and Azure AD-joined virtual machines. 
 
-:::image type="content" source="media/azure-virtual-desktop-rdpshortpath-public-connection" alt-text="Diagram of Azure Virtual Desktop Network Connections" lightbox="media/azure-virtual-desktop-rdpshortpath-public-connection":::
+:::image type="content" source="media/azure-virtual-desktop-rdpshortpath-public-connection" alt-text="Diagram of Azure Virtual Desktop RDP Shortpath for Public Network Connections" lightbox="media/azure-virtual-desktop-rdpshortpath-public-connection":::
 
 ## Enabling the preview of RDP Shortpath for public networks
 
