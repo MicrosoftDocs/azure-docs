@@ -151,6 +151,8 @@
         href: azure-stack-hci-faq.yml
   - name: Tag Azure Virtual Desktop resources
     href: tag-virtual-desktop-resources.md
+  - name: Azure Private Link (preview)
+    href: private-link-overview.md
   - name: Fair Share technologies
     href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: How-to guides
@@ -323,6 +325,8 @@
     href: azure-stack-hci.md
   - name: Set up Windows Sandbox
     href: sandbox.md
+  - name: Set up Azure Private Link (preview)
+    href: private-link-setup.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
