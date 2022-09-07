@@ -235,6 +235,8 @@
     href: /graph/api/resources/accessreviewsv2-overview
   - name: Entitlement management - Microsoft Graph API
     href: /graph/api/resources/entitlementmanagement-overview
+  - name: Lifecycle Workflows - Microsoft Graph API
+    href: /graph/api/resources/identitygovernance-lifecycleworkflows-overview?view=graph-rest-beta
   - name: Lifecycle Workflows - FAQs (Preview)
     href: workflows-faqs.md  
   - name: Developer API reference Lifecycle Workflows- Azure Active Directory
@@ -243,4 +245,6 @@
     href: tutorial-prepare-azure-ad-user-accounts.md 
   - name: Configure a Logic App for Lifecycle Workflow use (Preview)
     href: configure-logic-app-lifecycle-workflows.md
+  - name: Set employeeLeaveDateTime for leaver workflows
+    href: set-employee-leave-date-time.md  
       

@@ -166,6 +166,7 @@ The default specific parameters for the **Post-Offboarding of an employee** temp
 
 ## Next steps
 
+- [workflowTemplate resource type](/graph/api/resources/identitygovernance-workflowtemplate?view=graph-rest-beta)
 - [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)
 
