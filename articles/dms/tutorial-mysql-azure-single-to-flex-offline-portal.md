@@ -67,19 +67,19 @@ DMS supports cross-region, cross-resource group, and cross-subscription migratio
 
 * Select the compute size and compute tier for the target flexible server based on the source single server’s pricing tier and VCores as in the following table:
 
-| Single Server Pricing Tier | Single Server VCores | Flexible Server Compute Size | Flexible Server Compute Tier |
-| ------------- | ------------- |:-------------:|:-------------:|
-| Basic\* | 1 | General Purpose | Standard_D16ds_v4 |
-| Basic\* | 2 | General Purpose | Standard_D16ds_v4 |
-| General Purpose\* | 4 | General Purpose | Standard_D16ds_v4 |
-| General Purpose\* | 8 | General Purpose | Standard_D16ds_v4 |
-| General Purpose | 16 | General Purpose | Standard_D16ds_v4 |
-| General Purpose | 32 | General Purpose | Standard_D32ds_v4 |
-| General Purpose | 64 | General Purpose | Standard_D64ds_v4 |
-| Memory Optimized | 4 | Business Critical | Standard_E4ds_v4 |
-| Memory Optimized | 8 | Business Critical | Standard_E8ds_v4 |
-| Memory Optimized | 16 | Business Critical | Standard_E16ds_v4 |
-| Memory Optimized | 32 | Business Critical | Standard_E32ds_v4 |
+    | Single Server Pricing Tier | Single Server VCores | Flexible Server Compute Size | Flexible Server Compute Tier |
+    | ------------- | ------------- |:-------------:|:-------------:|
+    | Basic\* | 1 | General Purpose | Standard_D16ds_v4 |
+    | Basic\* | 2 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose\* | 4 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose\* | 8 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose | 16 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose | 32 | General Purpose | Standard_D32ds_v4 |
+    | General Purpose | 64 | General Purpose | Standard_D64ds_v4 |
+    | Memory Optimized | 4 | Business Critical | Standard_E4ds_v4 |
+    | Memory Optimized | 8 | Business Critical | Standard_E8ds_v4 |
+    | Memory Optimized | 16 | Business Critical | Standard_E16ds_v4 |
+    | Memory Optimized | 32 | Business Critical | Standard_E32ds_v4 |
 
 \* For the migration, select General Purpose 16 VCores compute for the target flexible server for faster migrations. Scale back to the desired compute size for the target server after migration is complete by following the compute size recommendation in the Performing post-migration activities section later in this article.
 
