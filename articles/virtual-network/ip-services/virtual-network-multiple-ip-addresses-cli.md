@@ -40,10 +40,6 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- An existing Azure virtual machine for the sections that refer to adding IP addresses. For more information about creating a virtual machine, see [Create a Windows VM](../../virtual-machines/windows/quick-create-cli.md) or [Create a Linux VM](../../virtual-machines/linux/quick-create-cli.md). 
-    
-    - The example used in this article is named **myVM**. Replace this value with your virtual machine name.
-
 > [!NOTE]
 > Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](../../virtual-machines/windows/multiple-nics.md).
 
