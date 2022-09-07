@@ -32,7 +32,7 @@ The management plane can be accessed via an Azure AD login (or token) through th
 
 ## Gateway (data plane)
 
-API authentication and authorization in API Management involve the end-to-end communication of client apps to the API Management gateway, and then from the gateway to backend APIs.
+API authentication and authorization in API Management involve the end-to-end communication of client apps *through* the API Management gateway to backend APIs.
 
 In many customer environments, [OAuth 2.0](https://oauth.net/2/) is the preferred API authorization protocol. API Management supports OAuth 2.0 across the data plane.
 
@@ -40,13 +40,13 @@ In many customer environments, [OAuth 2.0](https://oauth.net/2/) is the preferre
 
 What happens when a client app calls an API with a request that is secured using TLS and OAuth? The following is an abbreviated example flow:
 
-* The client (the calling app, or generally the *bearer*) authenticates using credentials to an *identity provider*.
-* The client obtains a time-limited *access token* (a JSON web token, or JWT) from an identity provider's authorization server. 
+* The client (the calling app, or *bearer*) authenticates using credentials to an *identity provider*.
+* The client obtains a time-limited *access token* (a JSON web token, or JWT) from the identity provider's *authorization server*. 
     
     The identity provider (for example, Azure AD) is the *issuer* of the token, and the token includes one or more *audience claims* that authorize access to a *resource server* (for example, to a backend API, or to the API Management gateway itself).
 * The client calls the API and presents the access token - for example, in an Authorization header.
-* The resource server validates the access token by checking (at a minimum) that the issuer and audience claims contain expected values. 
-* Based on token validation criteria, access to resources on the server is then granted.
+* The *resource server* validates the access token by checking (at a minimum) that the *issuer* and *audience* claims contain expected values. 
+* Based on token validation criteria, access to resources of the [backend] API are then granted.
 
 Depending on the type of client app and scenarios, different *authentication flows* are needed to request and manage tokens. For example, the *authorization code* flow and grant type is commonly used in apps that call web APIs. Learn more about [OAuth flows and application scenarios in Azure AD](../active-directory/develop/authentication-flows-app-scenarios.md).
 
@@ -73,11 +73,7 @@ There are different reasons for wanting to do this. For example:
 
 * The backend is a legacy API that can't be updated to support OAuth. 
 
-    API Management should first be configured to validate the token (checking the issuer and audience claims at a minimum). After validation, use one of several options available to secure onward connections from API Management. For example:  
-
-    * Mutual TLS (mTLS), also known as [client certificate authentication](api-management-howto-mutual-certificates.md) 
-    * Basic authentication  
-    * API key 
+    API Management should first be configured to validate the token (checking the issuer and audience claims at a minimum). After validation, use one of several options available to secure onward connections from API Management. [For more information see here](#other-options)
 
 * The context required by the backend isn’t possible to establish from the caller.  
 
@@ -99,14 +95,14 @@ Although authorization is preferred and OAuth 2.0 has become the dominant method
 
 * Mutual TLS (mTLS), also known as client certificate authentication, between the client (app) and API Management. This authentication can be end-to-end, with the call between API Management and the backend API secured in the same way.  For more information, see [How to secure APIs using client certificate authentication in API Management](api-management-howto-mutual-certificates-for-clients.md)
 * Basic authentication, using the [authentication-basic](api-management-authentication-policies.md#Basic) policy.
-* Subscription key. For more information, see [Subscriptions in API Management](api-management-subscriptions.md). 
+* Subscription key, also known as an API key. For more information, see [Subscriptions in API Management](api-management-subscriptions.md). 
 
 > [!NOTE]
-> We recommend using a subscription key *in addition to* another method of authentication or authorization. On its own, a subscription key isn't a strong form of authentication, but use of the subscription key might be useful in certain scenarios, for example, tracking API usage which provides information that's otherwise publicly available.
+> We recommend using a subscription [api] key *in addition to* another method of authentication or authorization. On its own, a subscription key isn't a strong form of authentication, but use of the subscription key might be useful in certain scenarios, for example, tracking API usage which provides information that's otherwise publicly available.
 
 ## Developer portal (user plane)
 
-The managed developer portal is an optional API Management feature that allows external, internal, or both types of developers and other interested parties to discover and use APIs that are published through API Management.  
+The managed developer portal is an optional API Management feature that allows internal or external developers and other interested parties to discover and use APIs that are published through API Management.  
 
 If you elect to customize and publish the developer portal, API Management provides different options to secure it: 
 
@@ -128,7 +124,7 @@ If you elect to customize and publish the developer portal, API Management provi
 ### Developer portal test console
 In addition to providing configuration for developer users to sign up for access and sign in, the developer portal includes a test console where the developers can send test requests through API Management to the backend APIs. This test facility also exists for contributing users of API Management who manage the service using the Azure portal. 
 
-In either case, if the API exposed through Azure API Management is secured with OAuth 2.0 - that is, a calling application (bearer) needs to obtain and pass a valid access token - you can configure API Management to generate a valid token on behalf of an Azure portal or developer portal test console user. For more information, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md) . 
+In either both cases, if the API exposed through Azure API Management is secured with OAuth 2.0 - that is, a calling application (*bearer*) needs to obtain and pass a valid access token - you can configure API Management to generate a valid token on behalf of an Azure portal or developer portal test console user. For more information, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md) . 
 
 This OAuth configuration for API testing is independent of the configuration required for user access to the developer portal. However, the identity provider and user could be the same. For example, an intranet application could require user access to the developer portal using SSO with their corporate identity, and that same corporate identity could obtain a token, through the test console, for the backend service being called with the same user context. 
 
