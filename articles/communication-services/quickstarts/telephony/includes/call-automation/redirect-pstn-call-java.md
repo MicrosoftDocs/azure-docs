@@ -15,9 +15,7 @@ ms.author: askaur
 
 - Azure account with an active subscription.
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp).
-- A [web service application](https://docs.microsoft.com/aspnet/core/web-api) to handle web hook callback events.
-- Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
-- The [ARMClient application](https://github.com/projectkudu/ARMClient), used to configure the Event Grid subscription.
+- [NGROK](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
 - [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
@@ -143,7 +141,7 @@ To run your Java application, run maven compile, package, and execute commands. 
 
 ## Subscribe to EventGrid IncomingCall event using a webhook
 
-Azure COmmunication Services use Event Grid to deliver the `IncomingCall` event. In this guide, we will configure a webhook to receive events from the Event Grid. Ngrok utility will help make our localhost endpoint reachable to the internet through a public URI.
+Azure Communication Services use Event Grid to deliver the `IncomingCall` event. In this guide, we will configure a webhook to receive events from the Event Grid. Ngrok utility will help make our localhost endpoint reachable to the internet through a public URI.
 
 1. Find the following identifiers used in the next steps: Azure subscription ID, resource group name, Communication Services resource name.
 2. Determine the URI of the local incomingCall endpoint. By default, it should be `http://localhost:4567/api/incomingCall` where the port is 4567.
