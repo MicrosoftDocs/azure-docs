@@ -228,6 +228,8 @@
         href: manage/manage-billing-access.md
       - name: Microsoft Customer Agreements roles in Azure
         href: manage/understand-mca-roles.md
+      - name: Manage billing across tenants
+        href: manage/manage-billing-across-tenants.md
       - name: Link partner ID
         displayName: partner admin link, azure pal, microsoft pal, azure partner admin link, pal azure
         href: manage/link-partner-id.md
@@ -245,6 +247,8 @@
         href: manage/mca-setup-account.md
       - name: Pay using strong customer authentication
         href: manage/open-banking-strong-customer-authentication.md
+      - name: Find tenant ID and primary domain name
+        href: manage/find-tenant-id-domain.md
     - name: Administer subscriptions
       items:
       - name: Assign access to cost management data
@@ -430,11 +434,11 @@
       - name: SAP HANA Large Instances
         href: reservations/prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - name: SQL Database
-        href: /azure/azure-sql/database/reserved-capacity-overview?toc=%2fazure%2fcost-management-billing%2ftoc.json
+        href: /azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/toc.json
       - name: Azure Synapse Analytics
         href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Virtual machines
-        href: ../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2ftoc.json
+        href: ../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/toc.json
     - name: View, Manage and Optimize after purchase
       items:
       - name: View reservations and utilization

@@ -4,7 +4,7 @@ description: Use PostgreSQL extensions
 titleSuffix: Azure Arc-enabled data services
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

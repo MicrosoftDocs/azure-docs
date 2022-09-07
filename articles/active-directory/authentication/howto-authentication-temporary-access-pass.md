@@ -10,7 +10,7 @@ ms.date: 08/08/2022
 
 ms.author: justinha
 author: tilarso 
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
@@ -113,7 +113,7 @@ c5dbd20a-8b8f-4791-a23f-488fcbde3b38 5/22/2022 11:19:17 PM False    True        
 
 ```
 
-For more information, see [New-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/new-mguserauthenticationtemporaryaccesspassmethod&preserve-view=true) and [Get-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/get-mguserauthenticationtemporaryaccesspassmethod?view=graph-powershell-beta&preserve-view=true).
+For more information, see [New-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/new-mguserauthenticationtemporaryaccesspassmethod) and [Get-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/get-mguserauthenticationtemporaryaccesspassmethod?view=graph-powershell-beta&preserve-view=true).
 
 ## Use a Temporary Access Pass
 

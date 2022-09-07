@@ -57,8 +57,8 @@
       href: tutorial-alias-tm.md
   - name: Private Resolver
     items:
-    - name: Set up DNS failover using two private resolvers
-      href: dns-private-resolver-failover.md
+    - name: Set up DNS failover using private resolvers
+      href: tutorial-dns-private-resolver-failover.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -103,10 +103,8 @@
       href: dns-faq-private.yml
   - name: Private Resolver
     items:
-    - name: outbound endpoints
-      href: private-resolver-outbound.md
-    - name: Outbound endpoints
-      href: private-resolver-outbound.md
+    - name: Endpoints and rulesets
+      href: private-resolver-endpoints-rulesets.md
 - name: How-to guides
   items:
   - name: Public DNS
@@ -157,6 +155,10 @@
       href: dns-protect-private-zones-recordsets.md
     - name: Import and export a DNS zone file
       href: private-dns-import-export.md
+  - name: Private Resolver
+    items:
+    - name: Resolve Azure and on-premises domains
+      href: private-resolver-hybrid-dns.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
@@ -217,6 +219,8 @@
       href: https://www.npmjs.com/package/@azure/arm-dnsresolver
     - name: Go
       href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/dnsresolver/armdnsresolver
+    - name: Resource Manager template
+      href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azure-dns-private-resolver   
 - name: Resources
   items:
   - name: Azure Roadmap

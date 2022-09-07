@@ -87,7 +87,6 @@ alertmanager-config  1     20s
 NOTES:
 To verify that openfaas has started, run:
 
-```console
 kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 

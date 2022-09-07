@@ -32,7 +32,7 @@ You won't write any code in this tutorial, you'll use the studio interface to pe
 Also try automated machine learning for these other model types:
 
 * For a no-code example of forecasting, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
-* For a code first example of a regression model, see the [Tutorial: Regression model with AutoML](tutorial-auto-train-models.md).
+* For a code first example of an object detection model, see the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md),
 
 ## Prerequisites
 
@@ -280,7 +280,7 @@ In this automated machine learning tutorial, you used Azure Machine Learning's a
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
 + Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](how-to-connect-data-ui.md#profile).
++ Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

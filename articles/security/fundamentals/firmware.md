@@ -2,8 +2,8 @@
 title: Firmware security - Azure Security
 description: Learn how Microsoft secures Azure hardware and firmware.
 author: yosharm
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
