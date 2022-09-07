@@ -43,6 +43,10 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ## August 2022  release updates
 
+### ARM-based accounts are now generally available (GA)
+
+[!INCLUDE [ARM accounts](./includes/arm-accounts.md)]
+
 ### Update topic inferencing model 
 
 Azure Video Indexer topic inferencing model was updated and now we extract more than 6.5 million topics (for example, covering topics such as Covid virus). To benefit from recent model updates you need to re-index your video files. 
