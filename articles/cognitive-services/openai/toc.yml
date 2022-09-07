@@ -28,12 +28,8 @@ items:
       href: ./how-to/embeddings.md
     - name: Prepare dataset
       href: ./how-to/prepare-dataset.md
-    - name: Fine-tuning your model (Studio)
-      href: ./how-to/fine-tuning-studio.md
-    - name: Fine-tuning your model (Python)
-      href: ./how-to/fine-tuning-python.md
-    - name: Fine-tuning your model (REST)
-      href: ./how-to/fine-tuning-rest.md
+    - name: Fine-tuning your model
+      href: ./how-to/fine-tuning.md
     - name: Manage identity
       href: ./how-to/managed-identity.md
     - name: Use with large datasets

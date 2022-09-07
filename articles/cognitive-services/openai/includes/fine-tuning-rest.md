@@ -1,7 +1,7 @@
 ---
-title: 'How to customize a model with Azure OpenAI (Python)'
+title: 'How to customize a model with Azure OpenAI (REST)'
 titleSuffix: Azure OpenAI
-description: Learn how to create your own customized model with Azure OpenAI by using the Python SDK
+description: Learn how to create your own customized model with Azure OpenAI by using the REST API
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -13,12 +13,6 @@ ms.author: chrhoder
 keywords: 
 
 ---
-# Learn how to customize a model for your application
-
-The Azure OpenAI Service lets you tailor our models to your personal datasets using a process known as fine-tuning. This customization step will let you get more out of the service by providing:
-
-1. Higher quality results than just prompt design.
-1. Lower latency requests. a customized model improves on the few-shot learning approach by training the model weights on your specific prompts and structure. This lets you achieve better results on a wider number of tasks without needing to provide examples in the prompt. The result is less text sent and fewer tokens processed on every API call.
 
 ## Prerequisites
 
@@ -26,7 +20,6 @@ The Azure OpenAI Service lets you tailor our models to your personal datasets us
 - Access granted to the Azure OpenAI service in the desired Azure subscription
 
     Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- The following Python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed
     
     If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
