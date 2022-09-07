@@ -34,25 +34,22 @@ Azure Storage Mover allows you to do some cool stuff.
 
 This article provides the release notes for the supported versions of the hybrid Azure Storage Mover service.
 
-## Supported versions
+## Supported agent versions
 
-The following Azure Storage Mover versions are supported:
+The following Azure Storage Mover agent versions are supported:
 
-| Milestone | Version number | Release date | Status |
-|----|----------------------|--------------|------------------|
-| V1 Release | 1.0.0.0 | August 1, 2022 | Supported |
-
-## Unsupported versions
-
-The following Azure Storage Mover versions have expired and are no longer supported:
-
-| Milestone | Version number | Release date | Status |
-|----|----------------------|--------------|------------------|
-| V0.5 Release | 0.0.1 - 0.5 | N/A | Not Supported - Resource versions expired on July 1, 2022 |
+| Milestone              | Version number | Release date       | Status    |
+|------------------------|----------------|--------------------|-----------|
+| Public preview release | 0.1.115        | September 15, 2022 | Supported |
 
 ### Azure Storage Mover update policy
 
-The Azure Storage Mover is updated on a regular basis to add new functionality and to address issues. We recommend updating the Azure Storage Mover as new versions are available.
+The Azure Storage Mover agents are not automatically updated to new versions at this time. New functionality and fixes to any issues will require the [download](https://aka.ms/StorageMover/agent), [deployment](agent-deploy.md) and [registration](agent-register.md) of a new Storage Mover agent.
+
+> [!TIP]
+> Switching to the latest agent version can be done safely. Follow the section Upgrading to a newer agent version in the agent deployment article.
+
+New agent versions will be released on Microsoft Download Center. [https://aka.ms/StorageMover/agent](https://aka.ms/StorageMover/agent) We recommend retiring old agents and deploying agents of the current version, when they become available.
 
 #### Major vs. minor versions
 
