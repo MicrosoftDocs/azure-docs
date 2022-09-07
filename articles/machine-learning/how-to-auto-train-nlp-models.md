@@ -182,7 +182,6 @@ However, there are key differences:
 * The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks.
 * If the majority of the samples in your dataset contain more than 128 words, it's considered long range. By default, automated ML considers all samples long range text. 
    * If your dataset contains long range text, then a GPU with higher memory is required such as, [NCv3](../virtual-machines/ncv3-series.md) series  or  [ND](../virtual-machines/nd-series.md)  series.
-   * The `enable_long_range_text` parameter is only available for multi-class classification tasks.
 
 # [CLI v2](#tab/CLI-v2)
 
