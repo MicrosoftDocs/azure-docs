@@ -70,25 +70,25 @@ To find the Operational Delta Queue(s) corresponding to your copy activities or 
 
 Selecting the checkbox “Calculate Data Volume” provides details about the number of rows and data volume (in bytes) contained in the ODQs.
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshooting-1.png" alt-text="Screenshot of the SAP ODQMON tool with delta queues displayed.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshooting-1.png" alt-text="Screenshot of the SAP ODQMON tool with delta queues shown.":::
 
-Double clicking on the queue will bring you to the subscriptions of this ODQ. Because there can be multiple subscribers to the same ODQ, check for the subscriber name (which you entered in the Data Factory linked service) and pick the subscription whose timestamp best fits your copy activity run. For delta subscriptions, the first run of the copy activity will be recorded on SAP side for the subscription.
+To view the ODQ subscriptions, double-click the queue. An ODQ can have multiple subscribers, so check for the subscriber name that you entered in the Data Factory linked service. Choose the subscription that has a timestamp that most closely matches the time your copy activity ran. For delta subscriptions, the first run of the copy activity for the subscription is recorded on the SAP side.
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshooting-2.png" alt-text="Screenshot of the SAP ODQMON tool with delta queue subscriptions displayed.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshooting-2.png" alt-text="Screenshot of the SAP ODQMON tool with delta queue subscriptions shown.":::
 
-Drilling down into the subscription, you find a list of “requests”, corresponding to copy activity runs in Data Factory. In the screenshot below, you see the result of four copy activity runs.
+In the subscription, a list of requests correspond to copy activity runs in Data Factory. In the following figure, you see the result of four copy activity runs:
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshooting-3.png" alt-text="Screenshot of the SAP ODQMON tool with delta queue requests displayed.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshooting-3.png" alt-text="Screenshot of the SAP ODQMON tool with delta queue requests shown.":::
 
-Based on the timestamp in the first row, find the line corresponding to the copy activity run you want to analyze. If the number of rows shown in this screen equals the number of rows read by the copy activity, you've verified that Data Factory has read and transferred the data as provided by the SAP system.
-
-In this case, we recommend consulting with the team responsible for your SAP system.
+Based on the timestamp in the first row, find the line corresponding to the copy activity run you want to analyze. If the number of rows shown in this screen equals the number of rows read by the copy activity, you've verified that Data Factory has read and transferred the data as provided by the SAP system. In this scenario, we recommend that you consult with the team that's responsible for your SAP system.
 
 ## Current limitations
 
-The following are the current limitations of SAP CDC solution in Data Factory:
+Here are current limitations of the SAP CDC solution in Data Factory:
 
-- Resetting and deleting ODQ subscriptions from Data Factory aren't supported for now.
-- SAP hierarchies aren't supported for now.
+- Resetting and deleting ODQ subscriptions from Data Factory currently aren't supported.
+- SAP hierarchies currently aren't supported.
 
 ## Next steps
+
+Learn more about [SAP connectors](industry-sap-connectors.md).
