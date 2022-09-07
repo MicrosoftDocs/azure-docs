@@ -20,6 +20,9 @@ Immutable storage for Azure Blob Storage enables users to store business-critica
 
 An immutability policy may be scoped either to an individual blob version or to a container. This article describes how to configure a container-level immutability policy. To learn how to configure version-level immutability policies, see [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md).
 
+> [!NOTE]
+> Immutability policies are not supported in accounts that have the Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
+
 ## Configure a retention policy on a container
 
 To configure a time-based retention policy on a container, use the Azure portal, PowerShell, or Azure CLI. You can configure a container-level retention policy for between 1 and 146000 days.

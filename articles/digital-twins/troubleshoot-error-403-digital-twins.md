@@ -1,17 +1,17 @@
 ---
-title: "Troubleshoot failed service request: Error 403 (Forbidden)"
+title: "Troubleshoot Azure Digital Twins: Error 403 (Forbidden)"
 titleSuffix: Azure Digital Twins
-description: Learn how to diagnose and resolve error 403 (Forbidden) status responses from Azure Digital Twins.
+description: Learn how to diagnose and resolve error 403 (Forbidden) failed service requests from Azure Digital Twins.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 02/24/2022
+ms.date: 09/06/2022
 ---
 
-# Troubleshoot failed service request: Error 403 (Forbidden)
+# Troubleshoot Azure Digital Twins failed service request: Error 403 (Forbidden)
 
-This article describes causes and resolution steps for receiving a 403 error from service requests to Azure Digital Twins. 
+This article describes causes and resolution steps for receiving a 403 error from service requests to Azure Digital Twins. This information is specific to the Azure Digital Twins service.
 
 ## Symptoms
 
@@ -70,15 +70,15 @@ Switch to the **All applications** tab to see all the app registrations that hav
 
 You should see the app registration you created in the list. Select it to open up its details.
 
-:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Screenshot of the app registrations page in the Azure portal.":::
+:::image type="content" source="media/troubleshoot-error-403-digital-twins/app-registrations.png" alt-text="Screenshot of the app registrations page in the Azure portal.":::
 
 First, verify that the Azure Digital Twins permissions settings were properly set on the registration: Select **Manifest** from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match the ones in the screenshot below:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Screenshot of the manifest for the Azure AD app registration in the Azure portal.":::
+:::image type="content" source="media/troubleshoot-error-403-digital-twins/verify-manifest.png" alt-text="Screenshot of the manifest for the Azure AD app registration in the Azure portal.":::
 
 Next, select **API permissions** from the menu bar to verify that this app registration contains Read/Write permissions for Azure Digital Twins. You should see an entry like this:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Screenshot of the API permissions for the Azure AD app registration in the Azure portal, showing 'Read/Write Access' for Azure Digital Twins.":::
+:::image type="content" source="media/troubleshoot-error-403-digital-twins/verify-api-permissions.png" alt-text="Screenshot of the API permissions for the Azure AD app registration in the Azure portal, showing 'Read/Write Access' for Azure Digital Twins.":::
 
 #### Fix issues
 
