@@ -137,7 +137,7 @@ controller:
 
 This example assigns *10.224.0.42* to the *loadBalancerIP* resource. Provide your own internal IP address for use with the ingress controller. Make sure that this IP address isn't already in use within your virtual network. Also, if you're using an existing virtual network and subnet, you must configure your AKS cluster with the correct permissions to manage the virtual network and subnet. For more information, see [Use kubenet networking with your own IP address ranges in Azure Kubernetes Service (AKS)][aks-configure-kubenet-networking] or [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][aks-configure-advanced-networking].
 
-When you deploy the *nginx-ingress* chart with Helm, add the `-f internal-ingress.yaml` parameter.
+When you deploy the *ingress-nginx* chart with Helm, add the `-f internal-ingress.yaml` parameter.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -183,7 +183,7 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 $AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
 
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx `
+helm install ingress-nginx ingress-nginx/ingress-nginx `
     --namespace ingress-basic `
     --create-namespace `
     --set controller.replicaCount=2 `
@@ -211,7 +211,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx `
 
 ### Create an ingress controller
 
-To create the ingress controller, use Helm to install *nginx-ingress*. The ingress controller needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
+To create the ingress controller, use Helm to install *ingress-nginx*. The ingress controller needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
 
 For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
@@ -230,7 +230,7 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx \
+helm install ingress-nginx ingress-nginx/ingress-nginx \
     --version 4.1.3 \
     --namespace ingress-basic \
     --create-namespace \
@@ -263,7 +263,7 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 $AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
 
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx `
+helm install ingress-nginx ingress-nginx/ingress-nginx `
     --namespace ingress-basic `
     --create-namespace `
     --set controller.replicaCount=2 `
@@ -533,21 +533,21 @@ kubectl delete namespace ingress-basic
 
 ### Delete resources individually
 
-Alternatively, a more granular approach is to delete the individual resources created. List the Helm releases with the `helm list` command. Look for charts named *nginx-ingress* and *aks-helloworld*, as shown in the following example output:
+Alternatively, a more granular approach is to delete the individual resources created. List the Helm releases with the `helm list` command. Look for charts named *ingress-nginx* and *aks-helloworld*, as shown in the following example output:
 
 ```
 $ helm list --namespace ingress-basic
 
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1  
+ingress-nginx           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1  
 ```
 
 Uninstall the releases with the `helm uninstall` command. The following example uninstalls the NGINX ingress deployment.
 
 ```
-$ helm uninstall nginx-ingress --namespace ingress-basic
+$ helm uninstall ingress-nginx --namespace ingress-basic
 
-release "nginx-ingress" uninstalled
+release "ingress-nginx" uninstalled
 ```
 
 Next, remove the two sample applications:
@@ -583,7 +583,7 @@ This article included some external components to AKS. To learn more about these
 <!-- LINKS - external -->
 [helm]: https://helm.sh/
 [helm-cli]: ./kubernetes-helm.md
-[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[ingress-nginx]: https://github.com/kubernetes/ingress-nginx
 [ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 [nginxinc/kubernetes-ingress]: https://github.com/nginxinc/kubernetes-ingress
 
