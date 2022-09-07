@@ -250,6 +250,26 @@ The following claims transformation outputs a JSON string claim that will be the
        }
     }
     ```
+> [!NOTE]
+> The GenerateJson claims transformation accepts plain strings. If an input claim contains a JSON string, that string will be escaped. The
+> backspace to be replaced with `\b`, and double quote to be replaced with `\"`. In the following example, if you use email output from CreateJsonArray above i.e ["someone@contoso.com"] and used it as input parameter in the GenerateJson example, the email will look like the following JSON:
+- Output claim:
+  - **requestBody**:
+
+    ```json
+    {
+       "customerEntity":{
+          "email":"[\"someone@contoso.com\"]",
+          "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+          "firstName":"John",
+          "lastName":"Smith",
+          "role":{
+             "name":"Administrator",
+             "id": 1
+          }
+       }
+    }
+    ```
 
 ## GetClaimFromJson
 
