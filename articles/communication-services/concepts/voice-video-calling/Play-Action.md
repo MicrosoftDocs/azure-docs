@@ -17,7 +17,7 @@ ms.custom: private_preview
 
 The play action provided through the call automation SDK allows you to play audio prompts to participants in the call. This action can be accessed through the server-side implementation of your application. The play action allows you to provide ACS access to your pre-recorded audio files with support for authentication. 
 
-**Note:** ACS currently only supports files of WAV, mono, 16KHz format.
+``Note: ACS currently only supports files of WAV, mono, 16KHz format.``
 
 The Play action allows you to provide access to a pre-recorded audio file of WAV format that ACS can access with support for authentication.
 
