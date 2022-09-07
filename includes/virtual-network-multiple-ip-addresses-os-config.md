@@ -142,7 +142,7 @@ We recommend looking at the latest documentation for your Linux distribution.
      You should see a .cfg file.
 
 4. Open the file. You should see the following lines at the end of the file:
-a
+
    ```bash
    auto eth0
    iface eth0 inet dhcp
