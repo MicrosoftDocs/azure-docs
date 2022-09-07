@@ -39,34 +39,40 @@ Before you change any of your replication settings, be sure to review all of the
 
 ## Options for changing replication types
 
-There are three properties related to Azure storage redundancy that determine how your storage account is replicated and accessible:
+There are three properties related to Azure storage redundancy that determine how your storage account is replicated and accessible. The following table summarizes the options for changing them:
 
-- Geo-redundancy
-- Zone-redundancy
-- Read access to the secondary region (when geo-redundancy is configured)
-
-> [!NOTE]
-> Read access (RA) isn't a replication setting like geo-redundancy or zone-redundancy. It simply enables read access to the secondary region in the event of a geo-redundant failover.
-
-You can convert a storage account from any combination of these replication settings to any other combination. There are three basic ways to change the settings:
-
-- Using the Azure portal, Azure PowerShell, or the Azure CLI
-- Perform a live migration
-- Perform a manual migration
-
-If you just want to add or remove geo-replication and/or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
-
-However, to add or remove zone-redundancy requires migration of the storage account data within the primary region. Migration can take a significant length of time and might require a manual process, depending the current and desired replication types. There are two supported migration methods: live migration and manual migration. Generally, live migration eliminates downtime, but you have less control over the timing of the migration, whereas manual migration gives you more control over the timing, but involves downtime.
-
-If you want to change both zone-redundancy and either geo-redundancy, read-access or both, a two-step process will be required. A geo-redundancy and a read-access change can be made at the same time; The zone-redundancy must be made separately. It does not matter which is done first.
-
-The following table summarizes the options for changing the three properties:
-
-| Redundancy factor                                                                       | Option for changing |
+| Redundancy property                                                                     | Option for changing |
 |-----------------------------------------------------------------------------------------|---------------------|
 | Geo-redundancy <br /><sub>(single "local" region vs. geo-redundant)</sub>               | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) |
 | Read access (RA) to the secondary region <br /><sub>(when geo-redundancy is used)</sub> | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) |
 | Zone redundancy                                                                         | [Migrate the storage account](#storage-account-migration) <br /><sub>(live migration or manual migration)</sub> |
+
+> [!NOTE]
+> Read access (RA) isn't a replication setting like geo-redundancy or zone-redundancy. It simply enables read access to the secondary region in the event of a geo-redundant failover. But it is considered one aspect of the complete replication configuration for a storage account.
+
+You can convert a storage account from any combination of these replication settings to any other. There are three basic ways to change the settings:
+
+- [Using the Azure portal, Azure PowerShell, or the Azure CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)
+- [Perform a live migration](#perform-a-live-migration)
+- [Perform a manual migration](#perform-a-manual-migration)
+
+If you just want to add or remove geo-replication and/or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
+
+However, to add or remove zone-redundancy requires [migration of the storage account data within the primary region](#storage-account-migration).
+
+If you want to change zone-redundancy and either geo-redundancy or read-access, or both, a two-step process will be required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first. 
+
+For a complete matrix of replication conversion paths, see 
+
+## Examples of changing the replication settings
+
+The following examples demonstrate
+For example, if you want to change a storage account from LRS to RA-GZRS, the required steps are:
+
+1. Convert the account from LRS to RA-GRS using the Azure portal, Azure PowerShell, or the Azure CLI
+1. Perform a live migration from RA-GRS to RA-GZRS
+
+Alternatively, 
 
 The following table shows the options for converting from each replication setting to every other setting:
 
