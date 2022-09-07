@@ -73,8 +73,48 @@ From the Azure portal, locate your Communication Service resource and click on t
 ## Configure Program.cs to redirect the call
 
 Using the minimal API feature in .NET 6, we can easily add an HTTP POST map and redirect the call.
+```csharp
+using Azure.Communication;
+using Azure.Communication.CallingServer;
+using Azure.Messaging.EventGrid;
+using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
-[Pastebin code reference](https://paste.microsoft.com/81e506bf-c197-40ec-9c0c-449da369b51e)
+var builder = WebApplication.CreateBuilder(args);
+
+var client = new CallAutomationClient(builder.Configuration["ACS:ConnectionString"]);
+
+var app = builder.Build();
+
+app.MapPost("/api/incomingCall", async (
+    [FromBody] EventGridEvent[] eventGridEvents) =>
+    {
+        foreach (var eventGridEvent in eventGridEvents)
+        {
+            // Handle system events
+            if (eventGridEvent.TryGetSystemEventData(out object eventData))
+            {
+                // Handle the subscription validation event
+                if (eventData is SubscriptionValidationEventData subscriptionValidationEventData)
+                {
+                    var responseData = new SubscriptionValidationResponse
+                    {
+                        ValidationResponse = subscriptionValidationEventData.ValidationCode
+                    };
+                    return Results.Ok(responseData);
+                }
+            }
+
+            var jsonObject = JsonNode.Parse(eventGridEvent.Data).AsObject();
+            var incomingCallContext = (string)jsonObject["incomingCallContext"];
+            await client.RedirectCallAsync(incomingCallContext, new CommunicationUserIdentifier("<INSERT_ACS_ID>"));
+        }
+
+        return Results.Ok();
+    });
+
+app.Run();
+```
 
 ## Testing the application
 

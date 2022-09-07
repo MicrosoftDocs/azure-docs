@@ -23,16 +23,22 @@ ms.author: askaur
 ## Create a new Java application
 
 Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
-
-[Pastebin code reference](https://paste.microsoft.com/a89caeb8-bd42-49ad-a501-729dcdd04a0a)  
+```console
+mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```
 
 The command above creates a directory with the same name as `artifactId` argument. Under this directory, `src/main/java` directory contains the project source code, `src/test/java` directory contains the test source
 
 You'll notice that the 'generate' goal created a directory with the same name as the artifactId. Under this directory, `src/main/java` directory contains source code, `src/test/java` directory contains tests, and `pom.xml` file is the project's Project Object Model, or POM.
 
 Update your application's POM file to use Java 8 or higher:
-
-[Pastebin code reference](https://paste.microsoft.com/326bfdf8-3a96-480c-af47-afe59d018508)  
+```xml
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+```
 
 ## Configure Azure SDK Dev Feed
 
@@ -51,25 +57,46 @@ Azure Communication Services Call Automation SDK package is retrieved from the A
 Please look for a version that is published after 2022-08-17 from [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callingserver/versions/1.0.0-alpha.20220817.1)
 
 And then add it to your POM file like this (using version 1.0.0-alpha.20220817.1 as example)
-
-[Pastebin code reference](https://paste.microsoft.com/0584c63b-6a9a-49af-ae66-9de2f6b08e18 )
+```xml
+<dependency>
+<groupId>com.azure</groupId>
+<artifactId>azure-communication-callingserver</artifactId>
+<version>1.0.0-alpha.20220817.1</version>
+</dependency>
+```
 
 **azure-messaging-eventgrid**
 
 Azure Event Grid SDK package: [com.azure : azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid). Data types from this package are used to handle Call Automation IncomingCall event received from the Event Grid.
-
-[Pastebin code reference](https://paste.microsoft.com/9df51366-7ffc-4c79-9821-8881ab0b1333)
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventgrid</artifactId>
+    <version>4.11.2</version>
+</dependency>
+```
 
 **spark-core**
 
 Spark framework: [com.sparkjava : spark-core](https://search.maven.org/artifact/com.sparkjava/spark-core). We’ll use this micro-framework to create a webhook (web api endpoint) to handle Event Grid events. Please note that you can use any framework to create a web api.
-
-[Pastebin code reference](https://paste.microsoft.com/c29c5178-9c4a-406c-9a05-155730e7092a)
+```xml
+<dependency>
+  <groupId>com.sparkjava</groupId>
+  <artifactId>spark-core</artifactId>
+  <version>2.9.4</version>
+</dependency>
+```
 
 **gson**
 
 Google Gson package: [com.google.code.gson : gson](https://search.maven.org/artifact/com.google.code.gson/gson) is a serialization/deserialization library to handle conversion between Java Objects and JSON.
-[Pastebin code reference](https://paste.microsoft.com/0fb449bb-a3ba-4311-aa14-4bf77a349900)
+```xml
+<dependency>
+  <groupId>com.google.code.gson</groupId>
+  <artifactId>gson</artifactId>
+  <version>2.9.0</version>
+</dependency>
+```
 
 ## Create a Communication Services User
 
@@ -78,8 +105,104 @@ You will need a Communication Services user to try out the functionality of addi
 ## Update App.java with code
 
 In your editor of choice, open App.java file and update it with the following code. Please see comments in the code for more details.
+```Java
+package com.communication.quickstart;
 
-[Pastebin code reference](https://paste.microsoft.com/357de189-b0c0-4a2b-81c2-a2ee25fe4f20)
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import java.util.logging.Logger;
+import java.time.Duration;
+
+import com.azure.communication.callingserver.*;
+import com.azure.communication.callingserver.models.*;
+import com.azure.communication.callingserver.models.events.*;
+import com.azure.communication.common.CommunicationIdentifier;
+import com.azure.communication.common.CommunicationUserIdentifier;
+import com.azure.communication.common.PhoneNumberIdentifier;
+import com.azure.messaging.eventgrid.*;
+import com.google.gson.*;
+import static spark.Spark.*;
+
+public class App 
+{
+    public static void main( String[] args ) throws URISyntaxException
+    {
+        // args[0] - the Ngrok base URI
+        // callbackUri - location where CallingServer platform's events will be delivered
+        // The endpoint must be reachable from the internet, therefore, the base address is Ngrok URI
+        URI callbackUri = new URI(args[0] + "/api/callback");
+        String connectionString = "<connectionString>";
+        CallAutomationClient client = new CallAutomationClientBuilder()
+            .connectionString(connectionString)
+            .buildClient();
+
+        // Endpoint to receive EventGrid IncomingCall event
+        post("/api/incomingCall", (request, response) -> {
+            Logger.getAnonymousLogger().info(request.body());
+            List<EventGridEvent> eventGridEvents = EventGridEvent.fromString(request.body());
+            for (EventGridEvent eventGridEvent : eventGridEvents) {
+                JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class);
+
+                // When registering an EventGrid subscription, EventGrid sends a specific request to validate the ownership of the endpoint
+                if (eventGridEvent.getEventType().equals("Microsoft.EventGrid.SubscriptionValidationEvent")) {
+                    String validationCode = data.get("validationCode").getAsString();
+                    return "{\"validationResponse\": \"" + validationCode + "\"}";
+                }
+
+                // Answer the incoming call and pass the callbackUri where ServerCalling events will be delivered
+                String incomingCallContext = data.get("incomingCallContext").getAsString();
+                client.answerCall(incomingCallContext, callbackUri);
+            }
+            return "";
+        });
+
+        // Endpoint to receive CallingServer events
+        post("/api/callback", (request, response) -> {
+            Logger.getAnonymousLogger().info(request.body());
+            List<CallAutomationEventBase> acsEvents = EventHandler.parseEventList(request.body());
+            if (acsEvents.isEmpty()) {
+                return "";
+            }
+            for (CallAutomationEventBase acsEvent : acsEvents) {
+                if (acsEvent.getClass() == CallConnectedEvent.class) {
+                    CallConnectedEvent event = (CallConnectedEvent) acsEvent;
+
+                    // Call was answered and is now established
+                    String callConnectionId = event.getCallConnectionId();
+                    CallConnection callConnection = client.getCallConnection(callConnectionId);
+                    
+                    // Invite other participants to the call
+                    List<CommunicationIdentifier> participants = new ArrayList<>(
+                        Arrays.asList(new CommunicationUserIdentifier("<acsUserId>")));
+                    AddParticipantsOptions options = new AddParticipantsOptions(participants)
+                        .setInvitationTimeout(Duration.ofSeconds(30))
+                        .setOperationContext(UUID.randomUUID().toString())
+                        .setSourceCallerId(new PhoneNumberIdentifier("<phoneNumber>"));
+                    callConnection.addParticipants(options);
+
+                } else if (event.getClass() == CallDisconnectedEvent.class) {
+                    // Call disconnected, perform some custom logic
+
+                } else if (event.getClass() == AddParticipantsSucceededEvent.class) {
+                    // CommunicationUser was added to the call
+
+                } else if (event.getClass() == AddParticipantsFailedEvent.class) {
+                    // CommunicationUser failed to be added to the call
+
+                } else if (event.getClass() == ParticipantsUpdatedEvent.class) {
+                    // Participant list of the call is updated
+
+                }
+            }
+            return "";
+        });
+    }
+}
+```
 
 ## Start Ngrok
 
@@ -87,15 +210,18 @@ In this quickstart, we will use [Ngrok tool](https://ngrok.com/) to make our loc
 
 Determine the root URI of the java application. By default, it should be `http://localhost:4567/` where the port is 4567.
 
-Install and run Ngrok with the following command: `ngrok http [port]`. This will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, we’ll need this URI in the next sections. Keep Ngrok running while following the rest of this quickstart.
+Install and run Ngrok with the following command: `ngrok http <port>`. This will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, we’ll need this URI in the next sections. Keep Ngrok running while following the rest of this quickstart.
 
 ## Run the code
 
 To run your Java application, run maven compile, package, and execute commands. By default, SparkJava runs on port 4567, so the endpoints will be available at `http://localhost:4567/api/incomingCall` and `http://localhost:4567/api/callback`.
 
-Note that the application expects Ngrok base address URI to be passed as the first argument to the main method. This URI is used to register the webhook for receiving Call Automation events. Remember to replace [ngrokBaseUri] with your Ngrok URI, e.g. `https://ff2f-75-155-253-232.ngrok.io`  
-
-[Pastebin code reference](https://paste.microsoft.com/c312991e-75a0-411a-9a82-2754037484ef)
+Note that the application expects Ngrok base address URI to be passed as the first argument to the main method. This URI is used to register the webhook for receiving Call Automation events. Remember to replace <ngrokBaseUri> with your Ngrok URI, e.g. `https://ff2f-75-155-253-232.ngrok.io`  
+```console
+mvn compile
+mvn package
+mvn exec:java -Dexec.mainClass=com.communication.quickstart.App -Dexec.cleanupDaemonThreads=false -Dexec.args=<ngrokBaseUri>
+```
 
 ## Subscribe to EventGrid IncomingCall event using a webhook
 
@@ -103,8 +229,13 @@ Call Automation uses Event Grid to deliver the `IncomingCall` event. In this sec
 
 1. Find the following identifiers used in the next step: Azure subscription ID, resource group name, Communication Services resource name.
 2. Since the `IncomingCall` event is not yet published in the Azure portal, you need run the following Azure CLI command to configure an event subscription (please replace with your identifiers and Ngrok URI).
-
-[Pastebin code reference](https://paste.microsoft.com/5747e80e-50ff-4b9a-9969-5303704b7daf)
+```console
+az eventgrid event-subscription create --name <eventSubscriptionName> \
+    --endpoint-type webhook \
+    --endpoint <ngrokUri> \
+    --included-event-types Microsoft.Communication.IncomingCall \
+    --source-resource-id "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>"
+```
 
 ## Test the scenario
 

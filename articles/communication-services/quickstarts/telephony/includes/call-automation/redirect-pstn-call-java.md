@@ -24,16 +24,22 @@ ms.author: askaur
 ## Create a new Java application
 
 Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
-
-[Pastebin code reference](https://paste.microsoft.com/a89caeb8-bd42-49ad-a501-729dcdd04a0a)
+```console
+mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```
 
 The command above creates a directory with the same name as `artifactId` argument. Under this directory, `src/main/java` directory contains the project source code, `src/test/java` directory contains the test source.
 
 You'll notice that the 'generate' step created a directory with the same name as the artifactId. Under this directory, `src/main/java` directory contains source code, `src/test/java` directory contains tests, and `pom.xml` file is the project's Project Object Model, or POM.
 
 Update your application's POM file to use Java 8 or higher.
-
-[Pastebin code reference](https://paste.microsoft.com/326bfdf8-3a96-480c-af47-afe59d018508)  
+```xml
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+```
 
 ## Configure Azure SDK Dev Feed
 
@@ -48,38 +54,92 @@ In your POM file, add the following dependencies for the project.
 **azure-communication-callingserver**
 
 Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed configured above.
-
-[Pastebin code reference](https://paste.microsoft.com/76a2d324-af9a-4b5c-ad68-33aaa22f06a9)  
+```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-callingserver</artifactId>
+  <version>1.0.0-beta.7</version>
+</dependency>
+```
 
 **azure-messaging-eventgrid**
 
 Azure Event Grid SDK package: [com.azure : azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid). Data types from this package are used to handle Call Automation IncomingCall event received from the Event Grid.
-
-[Pastebin code reference](https://paste.microsoft.com/9df51366-7ffc-4c79-9821-8881ab0b1333)
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventgrid</artifactId>
+    <version>4.11.2</version>
+</dependency>
+```
 
 **spark-core**
 
 Spark framework: com.sparkjava : spark-core. We’ll use this micro-framework to create a webhook (web api endpoint) to handle Event Grid events. Please note that you can use any framework to create a web api.
-
-[Pastebin code reference](https://paste.microsoft.com/c29c5178-9c4a-406c-9a05-155730e7092a)  
+```xml
+<dependency>
+  <groupId>com.sparkjava</groupId>
+  <artifactId>spark-core</artifactId>
+  <version>2.9.4</version>
+</dependency>
+```
 
 **gson**
 
 Google Gson package: [com.google.code.gson : gson](https://search.maven.org/artifact/com.sparkjava/spark-core). A serialization/deserialization library to handle conversion between Java Objects and JSON.
-
-[Pastebin code reference](https://paste.microsoft.com/0fb449bb-a3ba-4311-aa14-4bf77a349900)  
+```xml
+<dependency>
+  <groupId>com.google.code.gson</groupId>
+  <artifactId>gson</artifactId>
+  <version>2.9.0</version>
+</dependency>
+```
 
 ## Redirect incoming call
 
 In your editor of choice, open App.java file and update it with the following code to create an endpoint to receive IncomingCall events and redirect calls to another user.
+```java
+package com.communication.quickstart;
 
-[Pastebin code reference](https://paste.microsoft.com/0ae328ee-5662-4418-a9e2-c94790c7a2f1)
+import java.util.List;
+import com.azure.communication.callingserver.*;
+import com.azure.communication.common.CommunicationUserIdentifier;
+import com.azure.messaging.eventgrid.*;
+import com.google.gson.*;
+import static spark.Spark.*;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        String connectionString = "<acsConnectionString>";
+        CallAutomationClient client = new CallAutomationClientBuilder().connectionString(connectionString).buildClient(false);
+
+        post("/api/incomingCall", (request, response) -> {
+            List<EventGridEvent> eventGridEvents = EventGridEvent.fromString(request.body());
+
+            for (EventGridEvent eventGridEvent : eventGridEvents) {
+
+                JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class);
+                
+                if (eventGridEvent.getEventType().equals("Microsoft.EventGrid.SubscriptionValidationEvent")) {
+                    String validationCode = data.get("validationCode").getAsString();
+                    return "{\"validationResponse\": \"" + validationCode + "\"}";
+                }
+                
+                String incomingCallContext = data.get("incomingCallContext").getAsString();
+                client.redirectCall(incomingCallContext, new CommunicationUserIdentifier("<userId>"));
+            }
+
+            return "";
+        });
+    }
+}
+```
 
 ## Run the code
 
 To run your Java application, run maven compile, package, and execute commands. By default, SparkJava runs on port 4567, so the endpoint will be available at `http://localhost:4567/api/incomingCall`.
-
-[Pastebin code reference](https://paste.microsoft.com/1a94a067-907f-4fc2-9df7-a429fc2a723d)
 
 ## Subscribe to EventGrid IncomingCall event using a webhook
 
@@ -95,5 +155,10 @@ Azure COmmunication Services use Event Grid to deliver the `IncomingCall` event.
 
     This will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`.
 4. Since the IncomingCall event is not yet published in the Azure portal, you need run the following Azure CLI command to configure an event subscription (please replace with your identifiers and ngrok URI).
-
-    [Pastebin code reference](https://paste.microsoft.com/5747e80e-50ff-4b9a-9969-5303704b7daf)  
+    ```console
+    az eventgrid event-subscription create --name <eventSubscriptionName> \
+    --endpoint-type webhook \
+    --endpoint <ngrokUri> \
+    --included-event-types Microsoft.Communication.IncomingCall \
+    --source-resource-id "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>"
+    ```
