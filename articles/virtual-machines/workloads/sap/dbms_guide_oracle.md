@@ -437,6 +437,7 @@ Recommended mount options are:
 
 Each Azure VM type has specified limits for CPU, Disk, Network and RAM. The limits are documented in the links below
 
+
 The following recommendations should be followed when selecting a VM type:
 
 1.  Ensure the **Disk Throughput and IOPS** is sufficient for the workload and at least equal to the aggregate throughput of the disks
