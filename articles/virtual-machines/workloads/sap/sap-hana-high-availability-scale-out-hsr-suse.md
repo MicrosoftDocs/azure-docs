@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/06/2022
+ms.date: 09/07/2022
 ms.author: radeltch
 
 ---
@@ -45,14 +45,14 @@ ms.author: radeltch
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 
-This article describes how to deploy a highly available SAP HANA system in a scale-out configuration with HANA system replication (HSR) and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs). The shared file systems in the presented architecture are NFS mounted and are provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../files/files-nfs-protocol).  
+This article describes how to deploy a highly available SAP HANA system in a scale-out configuration with HANA system replication (HSR) and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs). The shared file systems in the presented architecture are NFS mounted and are provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../files/files-nfs-protocol.md).  
 
 In the example configurations, installation commands, and so on, the HANA instance is **03** and the HANA system ID is **HN1**. The examples are based on HANA 2.0 SP5 and SUSE Linux Enterprise Server 12 SP5. 
 
 Before you begin, refer to the following SAP notes and papers:
 
 * [Azure NetApp Files documentation][anf-azure-doc]
-* [Azure Files documentation](../../../files/storage-files-introduction)  
+* [Azure Files documentation](../../../files/storage-files-introduction.md)  
 * SAP Note [1928533] includes:  
   * A list of Azure VM sizes that are supported for the deployment of SAP software
   * Important capacity information for Azure VM sizes
@@ -81,7 +81,7 @@ Before you begin, refer to the following SAP notes and papers:
 One method to achieve HANA high availability for HANA scale-out installations, is to configure HANA system replication and protect the solution with Pacemaker cluster to allow automatic failover. When an active node fails, the cluster fails over the HANA resources to the other site.  
 The presented configuration shows three HANA nodes on each site, plus majority maker node to prevent split-brain scenario. The instructions can be adapted, to include more VMs as HANA DB nodes.  
 
-The HANA shared file system `/hana/shared` in the presented architecture can be provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../files/files-nfs-protocol). The HANA shared file system is NFS mounted on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and are not shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
+The HANA shared file system `/hana/shared` in the presented architecture can be provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../files/files-nfs-protocol.md). The HANA shared file system is NFS mounted on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and are not shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
 
 > [!WARNING]
 > Placing `/hana/data` and `/hana/log` on NFS on Azure Files is not supported.  
@@ -1056,9 +1056,14 @@ Create a dummy file system cluster resource, which will monitor and report failu
      #     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hana-s2-db1     
       ```
 
-   To simulate failure for `/hana/shared`, first confirm the IP address for the `/hana/shared` ANF volume on the primary site. You can do that by running `df -kh|grep /hana/shared`. 
-   Then, set up a temporary firewall rule to block access to the IP address of the `/hana/shared` ANF volume by executing the following command on one of the primary HANA system replication site VMs.
-   In this example the command was executed on hana-s1-db1.
+   To simulate failure for `/hana/shared`:
+
+-  If using NFS on ANF, first confirm the IP address for the `/hana/shared` ANF volume on the primary site. You can do that by running `df -kh|grep /hana/shared`. 
+-  If using NFS on Azure Files, first determine the IP address of the private end point for your storage account. 
+
+   Then, set up a temporary firewall rule to block access to the IP address of the `/hana/shared` NFS service by executing the following command on one of the primary HANA system replication site VMs.
+
+   In this example the command was executed on hana-s1-db1 for ANF volume `/hana/shared`.
 
      ```bash
      iptables -A INPUT -s 10.23.1.7 -j DROP; iptables -A OUTPUT -d 10.23.1.7 -j DROP
