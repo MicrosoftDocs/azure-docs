@@ -115,8 +115,8 @@ az acr manifest restore -r MyRegistry -n hello-world:latest -d sha256:abc123 -f
 ```
 
 > [!IMPORTANT]
->Restoring a [manifest list](push-multi-architecture-images.md#manifest-list) won't recursively restore any underlying soft deleted manifests.
->If you're restoring soft deleted [ORAS artifacts](container-registry-oras-artifacts.md), then restoring a subject doesn't recursively restore the referrer chain. Also, the subject has to be restored first, only then a referrer manifest is allowed to restore. Otherwise it throws an error.
+>* Restoring a [manifest list](push-multi-architecture-images.md#manifest-list) won't recursively restore any underlying soft deleted manifests.
+>* If you're restoring soft deleted [ORAS artifacts](container-registry-oras-artifacts.md), then restoring a subject doesn't recursively restore the referrer chain. Also, the subject has to be restored first, only then a referrer manifest is allowed to restore. Otherwise it throws an error.
 
 ## Enable soft delete policy for registry - Portal
 
@@ -171,9 +171,9 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 > [!IMPORTANT]
-> Importing a soft deleted image at both source and target resources is blocked.
-> Pushing an image to the soft deleted repository will restore the soft deleted repository.
-> Pushing an image that shares a same manifest digest with the soft deleted image is not allowed. Instead restore the soft deleted image.
+>*  Importing a soft deleted image at both source and target resources is blocked.
+>*  Pushing an image to the soft deleted repository will restore the soft deleted repository.
+>*  Pushing an image that shares a same manifest digest with the soft deleted image is not allowed. Instead restore the soft deleted image.
 
 ## Preview limitations
 
