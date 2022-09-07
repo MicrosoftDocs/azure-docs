@@ -70,9 +70,9 @@ landingContent:
             url: storage-files-migration-overview.md#migration-guides
 
   # Card
-  - title: Self-paced learning
+  - title: Self-paced training
     linkLists:
-      - linkListType: training
+      - linkListType: learn
         links:
           - text: Introduction to Azure Files
             url: /training/modules/introduction-to-azure-files/
