@@ -16,10 +16,10 @@ With these rules, you can monitor all audit log events, or get alerts only when 
 
 You use two analytics rules to monitor and analyze your SAP audit log data:
 
-- **SAP - Dynamic Deterministic Audit Log Monitor**. Alerts on SAP audit log events only when anomalies are detected, using machine learning capabilities and with no coding required. [Learn how to configure the rule](#set-up-the-sap---dynamic-deterministic-audit-log-monitor-for-anomaly-detection).
-- **SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)**. Alerts on any SAP audit log events with minimal configuration. You can configure the rule for an even lower false-positive rate. [Learn how to configure the rule](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-for-sap-news-dynamic-sap-security-audit-log/ba-p/3326842).
+- **SAP - Dynamic Deterministic Audit Log Monitor (PREVIEW)**. Alerts on any SAP audit log events with minimal configuration. You can configure the rule for an even lower false-positive rate. [Learn how to configure the rule](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-for-sap-news-dynamic-sap-security-audit-log/ba-p/3326842). 
+- **SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)**. Alerts on SAP audit log events when anomalies are detected, using machine learning capabilities and with no coding required. [Learn how to configure the rule](#set-up-the-sap---dynamic-deterministic-audit-log-monitor-for-anomaly-detection).
 
-The two [SAP Audit log monitor rules](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) are delivered as ready to run out of the box, and allow for further fine tuning using the [SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](sap-solution-security-content.md#available-watchlists).
+The two [SAP Audit log monitor rules](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) are delivered as ready to run out of the box, and allow for further fine tuning using the [SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlist](sap-solution-security-content.md#available-watchlists).
 
 ## Anomaly detection
  
@@ -35,7 +35,7 @@ Microsoft Sentinel checks an event or group of events for anomalies. It tries to
 
 With this ability, you can look for anomalies in previously quieted event types, such as user sign-in events. For example, if the user JohnDoe signs in hundreds of times an hour, you can now let Microsoft Sentinel decide if behavior is suspicious. Is this John from accounting, repeatedly refreshing a financial dashboard with multiple data source, or a DDoS attack forming up?
 
-## Set up the SAP - Dynamic Deterministic Audit Log Monitor rule for anomaly detection
+## Set up the SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW) rule for anomaly detection
 
 If your SAP audit log data isn't already streaming data into the Microsoft Sentinel workspace, learn how to [deploy the solution](deployment-overview.md).
 

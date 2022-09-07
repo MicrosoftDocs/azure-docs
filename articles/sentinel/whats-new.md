@@ -25,6 +25,16 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## September 2022
+
+### Out of the box anomaly detection on the SAP audit log (Preview)
+
+The SAP audit log records audit and security actions on SAP systems, like failed sign-in attempts or other suspicious actions. You can monitor the SAP audit log using Microsoft Sentinel built-in analytics rules. 
+
+Previously, the existing **SAP - Dynamic Deterministic Audit Log Monitor (PREVIEW)** rule alerts on any SAP audit log events with [minimal configuration](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-for-sap-news-dynamic-sap-security-audit-log/ba-p/3326842).
+
+The latest version of the Microsoft Sentinel for SAP solution includes the **SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)** rule, providing [anomaly detection](configure-audit-log-rules.md#anomaly-detection) for SAP audit log events. With this feature, you can instruct Microsoft Sentinel to check specific event types deterministically (based on predefined patterns), or to check the event type for anomalies, using the [SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](sap-solution-security-content.md#available-watchlists) and with no coding required.   
+
 ## August 2022
 
 - [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
