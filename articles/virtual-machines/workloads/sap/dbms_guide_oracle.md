@@ -1,19 +1,15 @@
 ---
 title: Oracle Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
 description: Oracle Azure Virtual Machines DBMS deployment for SAP workload
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
-author: ralfklahrMS
-manager: msjuergent
-editor: ''
+author: msjuergent
+manager: bburns
 tags: azure-resource-manager
 keywords: 'SAP, Azure, Oracle, Data Guard'
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/24/2022
-ms.author: ralfklahrMS
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
