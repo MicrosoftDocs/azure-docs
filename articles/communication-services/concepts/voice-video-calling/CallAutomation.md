@@ -128,6 +128,7 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | RemoveParticipantFailed |Your application was unable to remove a participant |
 | ParticipantUpdated    | The status of a participant changed while your application’s call leg was connected to a call  |
 | PlayCompleted| Your application successfully played the audio file provided |
+| PlayFailed| Your application failed to play audio |
 
 ## Known Issues
 
