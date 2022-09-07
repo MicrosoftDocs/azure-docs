@@ -108,7 +108,7 @@ If you elect to customize and publish the developer portal, API Management provi
 
 * **External users** - The preferred option when the developer portal is consumed externally is to enable business-to-consumer access control through Azure Active Directory B2C (Azure AD B2C). 
     * Azure AD B2C provides the option of using Azure AD B2C native accounts: users sign up to Azure AD B2C and use that identity to access the developer portal) 
-    * Azure AD B2C is also useful if you want users to access the developer portal using existing social media accounts.  
+    * Azure AD B2C is also useful if you want users to access the developer portal using existing social media or federated organizational accounts.  
     * Azure AD B2C provides many features to improve the end user sign-up and sign-in experience, including conditional access and MFA. 
     
     For steps to enable Azure AD B2C authentication in the developer portal, see [How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management](api-management-howto-aad-b2c.md).
