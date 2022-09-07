@@ -4,8 +4,9 @@ description: Learn how to create a logic app action to process Azure Monitor ale
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
-ms.date: 2/23/2022
-ms.reviewer: dukek
+ms.date: 09/07/2022
+ms.author: jagummersall
+ms.reviewer: jagummersall
 ---
 # How to trigger complex actions with Azure Monitor alerts
 
