@@ -1,21 +1,18 @@
 ---
-title: Azure Storage Mover scale and performance targets #Required; page title is displayed in search results. Include the brand.
-description: Azure Storage Mover scale and performance targets #Required; article description that is displayed in search results. 
+title: Azure Storage Mover scale and performance targets.
+description: Baseline migration performance test results for Azure Storage Mover.
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 06/13/2022
-ms.custom: template-concept
+ms.date: 09/07/2022
 ---
 
 <!-- 
 !########################################################
-STATUS: DRAFT
+STATUS: IN REVIEW
 
-CONTENT: incomplete
-        - NEEDS NETWORK CONFIG STATEMENT
-        - NEEDS SOURCE DEVICE CONFIG STATEMENT
+CONTENT: final
 
 REVIEW Stephen/Fabian: not reviewed
 REVIEW Engineering: not reviewed
@@ -27,13 +24,36 @@ REVIEW Engineering: not reviewed
 
 The performance of a storage migration service is a key aspect for any migration. Azure Storage Mover is a new service, in public preview. In this article, we share performance test results - your experience will vary.
 
+## Scale targets
+
+Azure Storage Mover is tested with 100 million namespace items (files and folders), migrated from a [supported source to a supported target](service-overview.md#supported-sources-and-targets) in Azure.
+
+## How we test
+
+Azure Storage Mover is a hybrid cloud service. Hybrid services have a cloud service component and an infrastructure component the administrator of the service runs in their corporate environment. For Storage Mover, that hybrid component is a migration agent. Agents are virtual machines, ran on a host near the source storage. 
+
+Only the agent is a relevant part of the service for performance testing. To omit privacy and performance concerns, data travels directly from the Storage Mover agent to the target storage in Azure. Only control and telemetry messages are sent to the cloud service.
+
+:::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="Illustrating the previous paragraph by showing two arrows. The first arrow for data traveling to a storage account from the source/agent and a second arrow for only the management/control info to the storage mover resource/service." lightbox="media/across-articles/data-vs-management-path-large.png":::
+
+The following table describes the characteristics of the test environment that produced the performance test results shared later in this article.
+
+|         |         |
+|---------|---------|
+|Test namespace     | 19% files 0 KiB - 1 KiB <br />57% files 1 KiB - 16 KiB <br />16% files 16 KiB - 1 MiB <br />6% folders |
+|Test source device | Linux server VM <br />16 virtual CPU cores<br />64 GiB RAM  |
+|Test source share  | NFS v3.0 share <br /> Warm cache: Data set in memory (baseline test). In real-world scenarios add disk recall times.|
+|Network            | Dedicated, over-provisioned configuration, negligible latency. No bottle neck between source - agent - target Azure storage.)
+
 ## Performance baselines
 
-The Azure Storage Mover service is tested with different agent resources. Networking is configured to **!!!!NEEDS NETWORK CONFIG STATEMENT!!!!**. In this test scenario the source is an NFS 4.0 share share on a **!!!!NEEDS DEVICE INFO!!!!!!**
+These test results are created under ideal conditions. They are meant as a baseline of the components the Storage Mover service and agent can directly influence. Differences in source devices, disks, and network connections are not considered in this test. Real-world performance will vary. 
+
+Different agent resource configurations are tested:
 
 ### [4 CPU / 8 GiB RAM](#tab/minspec)
 
-4 virtual CPU cores at 4000 MHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent. 
+4 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent. 
 
 |                          |Single file, 1 TiB |&tilde;3.3M files, &tilde;200K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
 |--------------------------|-------------------|------------------------------------------------------|--------------------------------------------------|
@@ -46,7 +66,7 @@ The Azure Storage Mover service is tested with different agent resources. Networ
 
 ### [8 CPU / 16 GiB RAM](#tab/boostspec)
 
-8 virtual CPU cores at 4000 MHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent. 
+8 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent. 
 
 |                          |Single file, 1 TiB |&tilde;3.3M files, &tilde;200K folders, &tilde;45 GiB |
 |--------------------------|-------------------|------------------------------------------------------|
@@ -67,9 +87,9 @@ Fundamentally, network quality and the ability to process files, folders and the
 
 Across the two core areas of network and compute, several aspects have an impact:
 
-- **Migration scenario** <br />Copy into an empty target is generally faster as compared to a scenario in which the target has content and the migration engine must evaluate not only the source but also the target to make a copy decision.
-- **Namespace item count** <br />Migrating 1 GiB of small files will take more time than migrating 1 GiB of larger but fewer files.
-- **Namespace shape** <br />A wide folder hierarchy lends itself to more parallel processing than a narrow, but deep directory structure. The file to folder ratio also plays a roll.
+- **Migration scenario** <br />Copy into an empty target is generally faster as compared to a target with content. This is because the migration engine must evaluate not only the source but also the target to make copy decisions.
+- **Namespace item count** <br />Migrating 1 GiB of small files will take more time than migrating 1 GiB of larger files.
+- **Namespace shape** <br />A wide folder hierarchy lends itself to more parallel processing than a narrow or deep directory structure. The file to folder ratio also plays a roll.
 - **Namespace churn**  <br />How many files, folders, and metadata has changed between two copy runs from the same source to the same target. 
 - **Network**
     - bandwidth and latency between source and migration agent

@@ -40,7 +40,7 @@ In most cases, deploying a single storage mover resource is best for even the la
 - When you deploy this resource, your subscription is registered with the resource providers *Microsoft.StorageMover* and *Microsoft.HybridCompute*.
 - A storage mover resource has a region you'll assign at the time of it's deployment. The region you select is only determining where control messages and metadata about your migration is stored. The data that is migrated, is sent directly from the agent to the target in Azure Storage. Your files never travel through the Storage Mover service. That means the proximity between source, agent, and target storage is more important for migration performance than the location of your storage mover resource.
 
-:::image type="content" source="media/resource-hierarchy/data-vs-management-path.png" alt-text="Illustrating the previous bullet point by showing two arrows. The first arrow for data traveling to a storage account from the source/agent and a second arrow for only the management/control info to the storage mover resource/service." lightbox="media/resource-hierarchy/data-vs-management-path-large.png"::: 
+:::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="Illustrating the previous bullet point by showing two arrows. The first arrow for data traveling to a storage account from the source/agent and a second arrow for only the management/control info to the storage mover resource/service." lightbox="media/across-articles/data-vs-management-path-large.png"::: 
 
 ## Migration agent
 
