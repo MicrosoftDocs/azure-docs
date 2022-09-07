@@ -104,7 +104,7 @@ For IoT Hubs not configured for TLS 1.2 enforcement, TLS 1.2 still works with th
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
 * `TLS_RSA_WITH_AES_256_CBC_SHA`
 * `TLS_RSA_WITH_AES_128_CBC_SHA`
-* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA` **(This cipher will be deprecated on 10/01/2022 and will no longer be used for TLS handshakes)**
 
 A client can suggest a list of higher cipher suites to use during `ClientHello`. However, some of them might not be supported by IoT Hub (for example, `ECDHE-ECDSA-AES256-GCM-SHA384`). In this case, IoT Hub will try to follow the preference of the client, but eventually negotiate down the cipher suite with `ServerHello`.
 
