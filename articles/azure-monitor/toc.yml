@@ -22,8 +22,6 @@ items:
       href: faq.yml
 - name: Concepts
   items:
-  - name: Continuous monitoring
-    href: continuous-monitoring.md
   - name: Observability
     href: observability-data.md
 - name: Quickstarts
@@ -86,7 +84,6 @@ items:
     href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Self-monitoring
     href: monitor-azure-monitor.md 
-
 - name: Data collection
   items:
   - name: Overview
@@ -1042,14 +1039,14 @@ items:
        href: app/tutorial-app-dashboards.md
      - name: Upgrading Log Analytics Dashboards
        href: logs/dashboard-upgrade.md
-     - name: Power BI
-       items:
-       - name: Export log data
-         href: logs/log-powerbi.md
-       - name: Export application data
-         href: app/export-power-bi.md
-     - name: Grafana
-       href: visualize/grafana-plugin.md
+  - name: Power BI
+    items:
+      - name: Export log data
+        href: logs/log-powerbi.md
+      - name: Export application data
+        href: app/export-power-bi.md
+  - name: Grafana
+    href: visualize/grafana-plugin.md
 - name: Analyze
   items:
   - name: Metrics explorer
