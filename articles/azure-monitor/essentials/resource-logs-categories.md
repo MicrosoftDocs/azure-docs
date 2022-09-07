@@ -988,6 +988,13 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |HybridConnectionsEvent|HybridConnections Events|No|
 
 
+## Microsoft.Search/searchServices
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|OperationLogs|Operation Logs|No|
+
+
 ## Microsoft.Security/antiMalwareSettings
 
 |Category|Category Display Name|Costs To Export|
@@ -1000,13 +1007,6 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |DataConnectors|Data Collection - Connectors|Yes|
-
-
-## Microsoft.Search/searchServices
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|OperationLogs|Operation Logs|No|
 
 
 ## Microsoft.ServiceBus/namespaces
