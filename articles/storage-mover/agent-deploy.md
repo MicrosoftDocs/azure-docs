@@ -18,7 +18,7 @@ CONTENT: critical content missing
 
 REVIEW Stephen/Fabian: COMPLETE
 REVIEW Engineering: not reviewed
-EDIT PASS: not started
+EDIT PASS: started
 
 !########################################################
 -->
@@ -50,20 +50,20 @@ Like every VM, the agent requires available compute, memory and storage space re
 
 ### Recommended compute and memory resources
 
-|Migration scale*        |Memory (RAM)                |Virtual processor count     |
-|------------------------|----------------------------|----------------------------|
-|&lt;  1 million items   | &lt;min-spec RAM&gt; GiB   | &lt;min-spec core count&gt;|
-|&lt; 10 million items   | &lt;RAM&gt; GiB            | &lt;core count&gt;         |
-|&lt; 30 million items   | &lt;RAM&gt; GiB            | &lt;core count&gt;         |
-|&lt; 50 million items   | &lt;RAM&gt; GiB            | &lt;core count&gt;         |
-|&lt;100 million items   | &lt;RAM&gt; GiB            | &lt;core count&gt;         |
+|Migration scale*        |Memory (RAM)  |Virtual processor count cores (at 2 GHz min.) |
+|------------------------|--------------|----------------------------------------------|
+|  1 million items       | 8 GiB        | 4 virtual cores                              |
+| 10 million items       | 8 GiB        | 4 virtual cores                              |
+| 30 million items       | 12 GiB       | 6 virtual cores                              |
+| 50 million items       | 16 GiB       | 8 virtual cores                              |
+|100 million items       | 16 GiB       | 8 virtual cores                              |
 
-**Number of items refers to the total number of files and folders in the source share.*
+**Number of items refers to the total number of files and folders in the source.*
 
 > [!IMPORTANT]
-> While agent VMs below minimal specs may work for your migration, they do not qualify for support from Microsoft.
+> While agent VMs below minimal specs may work for your migration, they may not perform optimally.
 
-The [Performance targets](performance-targets.md) article contains test results from different source share sizes and VM resources.
+The [Performance targets](performance-targets.md) article contains test results from different source namespaces and VM resources.
 
 ### Local storage capacity
 
@@ -104,6 +104,15 @@ At a minimum, the agent image needs 20GiB of local storage. The amount required 
 The agent is delivered with a default user account and password. Immediately after deploying and starting the agent VM, connect to it and change the default password!
 
 [!INCLUDE [agent-shell-connect](includes/agent-shell-connect.md)]
+
+## Bandwidth throttling
+
+A general consideration when deploying new machines in a network is the amount of bandwidth they will use. Any Azure Storage Mover agent will use all available network bandwidth on the local network (source share to agent) and the WAN link (agent to Azure Storage).
+
+> [!IMPORTANT]
+> The current Azure Storage Mover agent does not support bandwidth throttling schedules.
+
+If bandwidth throttling is important to you, consider creating a local VNET with network QoS settings and an internet connection. Then expose the agent to the internet through this VNET. A network proxy server (unauthenticated) can also be configured locally on the agent.
 
 ## Decommissioning an agent
 

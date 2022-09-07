@@ -64,7 +64,7 @@ Deploying a Storage Mover agent as an Azure VM has not been tested and is curren
 
 ## Getting your subscription ready
 
-When you've decided on an Azure subscription and resource group for your storage mover resource, you'll need to prepare a few things depending on how you deploy and which actions you or another admin will perform.
+Your subscription must be in the same Azure Active Directory tenant as the target Azure storage accounts you want to migrate into. When you've decided on an Azure subscription and resource group for your storage mover resource, you'll need to prepare a few things depending on how you deploy and which actions you or another admin will perform.
 
 ### Resource provider namespaces
 
@@ -104,7 +104,7 @@ Azure Storage Mover requires special care for the permissions an admin needs for
 
 
 
-If you want to learn more about how the agent gets access to migrate the data, review the [agent authentication and authorization](agent-register.md#authentication-and-authorization) section.
+If you want to learn more about how the agent gets access to migrate the data, review the [agent authentication and authorization](agent-register.md#authentication-and-authorization) section in the [agent registration article](agent-register.md).
 
 <!-- 
 4. Next steps
