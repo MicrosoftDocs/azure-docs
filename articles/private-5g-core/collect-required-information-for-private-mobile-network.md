@@ -36,7 +36,7 @@ Collect all of the following values for the mobile network resource that will re
 
 ## Collect SIM and SIM Group values
 
-Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network. Each SIM group represents a collection of these SIMS.
+Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network. Each SIM group represents a collection of these SIMs.
 
 As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provision SIMs](provision-sims-azure-portal.md). Likewise, if you need more than one SIM group, you can create additional SIM groups after you've deployed your private mobile network using the instructions in [Manage SIM groups](manage-sim-groups.md).
 
