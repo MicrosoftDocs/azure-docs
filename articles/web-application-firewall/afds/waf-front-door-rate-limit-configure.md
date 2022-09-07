@@ -12,7 +12,7 @@ zone_pivot_groups: web-application-firewall-configuration
 ---
 
 # Configure a Web Application Firewall rate limit rule
-[](vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.html)
+
 The Azure Web Application Firewall (WAF) rate limit rule for Azure Front Door controls the number of requests allowed from a particular client IP address to the application during a rate limit duration. For more information about rate limiting, see [What is rate limiting for Azure Front Door Service?](waf-front-door-rate-limit.md).
 
 This article shows how to configure a WAF rate limit rule on Azure Front Door Standard and Premium tiers.
