@@ -180,38 +180,6 @@ First, sign in to Azure from the CLI or PowerShell. Run the following command, a
 az login
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Connect-AzAccount
-```
-
----
-
-# [Bash](#tab/bash)
-
-Next, install the Azure Container Apps extension for the CLI.
-
-```azurecli
-az extension add --name containerapp --upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-You must have the latest Az PowerShell module installed.  Ignore any warnings about modules currently in use.
-
-```azurepowershell
-Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
-```
-
-Now install the Az.App module.
-
-```azurepowershell
-Install-Module -Name Az.App
-```
-
----
-
 Now that the current extension or module is installed, register the `Microsoft.App` namespace and the `Microsoft.OperationalInsights` provider if you haven't register them before.
 
 
@@ -231,7 +199,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.OperationalInsights
 
 ---
 
-Next, set the following environment variables.   (Replace the *\<placeholders\>* with your own values.):
+Next, set the following environment variables. Replace the *\<placeholders\>* with your own values.
 
 # [Bash](#tab/bash)
 
@@ -324,15 +292,15 @@ New-AzContainerAppManagedEnv @EnvArgs
 
 ---
 
-Continue to the next section to configure user-assigned managed identity or skip to [System-assigned managed identity](#system-assigned-managed-identity).
+Continue to the next section to configure user-assigned managed identity or skip to the [System-assigned managed identity](#system-assigned-managed-identity) section.
 
 ## User-assigned managed identity
 
-To configure user-assigned managed identity, you will follow this procedure:
+Follow this procedure to configure user-assigned managed identity:
 
 1. Create a user-assigned managed identity.
-1. If you are using PowerShell, assign a acrpull role for your registry to the managed identity.  The Azure CLI will do this automatically.
-1. Create a container app with the image from the private registry authenticated with the identity.
+1. If you are using PowerShell, assign a acrpull role for your registry to the managed identity.  If you are using the Azure CLI, it will do this automatically.
+1. Create a container app with the image from the private registry that is authenticated with the user-assigned managed identity.
 
 ### Create a user-assigned managed identity
 
