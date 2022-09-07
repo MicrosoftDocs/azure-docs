@@ -283,6 +283,8 @@
     displayName: single server
   - name: Overview
     items:
+    - name: What's happening to Single Server?
+      href: single-server/whats-happening-to-mysql-single-server.md
     - name: What is Single Server?
       href: single-server/single-server-overview.md
     - name: Pricing Tiers
