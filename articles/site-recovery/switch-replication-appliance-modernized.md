@@ -15,7 +15,7 @@ You need to [create and deploy an on-premises Azure Site Recovery replication ap
 
 This article provides information about how you can switch between replication appliances.
 
-## Application resilience
+## Appliance resiliency
 
 Typically, in the classic architecture, if you need to maintain the resiliency of your configuration server then the recommended action is to take regular manual backups of the machine. This is a highly cumbersome process, also prone to errors and misses.  
 
