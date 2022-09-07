@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 09/07/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
@@ -39,23 +39,27 @@ Before you change any of your replication settings, be sure to review all of the
 
 ## Options for changing replication types
 
-You can convert a storage account from any type of replication to any other type, although some conversion scenarios are more straightforward than others. Consider the scenarios noted under [Restrictions](#restrictions) to determine the right path for you.
+There are three properties related to Azure storage redundancy that determine how your storage account is replicated and accessible:
 
-The following table shows the three factors that determine the options available for converting from one to another:
+- Geo-redundancy
+- Zone-redundancy
+- Read access to the secondary region (when geo-redundancy is configured)
+
+You can convert a storage account from any combination of these replication settings to any other combination. Generally, if you just want to add or remove geo-replication or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
+
+However, to add or remove zone-redundancy requires migration of the storage account data within the primary region. Migration can take a significant length of time and might require a manual process, depending the current and desired replication types. There are two supported migration methods: live migration and manual migration. These two methods are discussed in more detail later under [storage account migration](#storage-account-migration). But generally, live migration eliminates downtime, but you have less control over the timing of the migration, whereas manual migration gives you more control over the timing, but involves downtime.
+
+If you want to change both zone-redundancy and either geo-redundancy, read-access or both, a two-step process will be required. The geo-redundancy and read-access change can be made at the same time; The zone-redundancy must be made separately.
+
+The following table summarizes the options for changing the three replication properties:
 
 | Redundancy factor                                                                       | Option for changing |
 |-----------------------------------------------------------------------------------------|---------------------|
-| Geo-redundancy <br /><sub>(single "local" region vs. geo-redundant)</sub>                       | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) |
+| Geo-redundancy <br /><sub>(single "local" region vs. geo-redundant)</sub>               | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) |
 | Read access (RA) to the secondary region <br /><sub>(when geo-redundancy is used)</sub> | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) |
-| Zone redundancy                                                                         | [Storage account migration](#storage-account-migration) <br /><sub>(live migration or manual migration)</sub> |
+| Zone redundancy                                                                         | [Migration the storage account](#storage-account-migration) <br /><sub>(live migration or manual migration)</sub> |
 
-If you just want to add or remove geo-replication or read access to the secondary region, you can [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
-
-To add or remove zone-redundancy requires migration of the data in the storage account within the primary region, and can take considerably longer. There are two supported migration methods: live migration and manual migration. Live migration is recommended, but you can use manual migration if you want more control over the process, or if another method is not supported, such as live migration. The two migration methods are explained in more detail later in [Storage account migration](#storage-account-migration).
-
-If you want to change both the zone-redundancy factor and either geo-redundancy, read-access or both, a two-step process will be required. You will first need to make the geo-redundancy and read-access change(s), then perform a migration to change the zone-redundancy.
-
-The following table shows the options for converting from each replication setting to every other:
+The following table shows the options for converting from each replication setting to every other setting:
 
 | Convert         | ...to: | LRS| GRS <sup>1,2</sup> | RA-GRS <sup>1,2</sup> | ZRS <sup>5</sup> | GZRS <sup>1,2,5</sup> | RA-GZRS <sup>1,2,5</sup> |
 |-----------------|--------|----|-----|--------|-----|------|---------|
@@ -73,100 +77,11 @@ The following table shows the options for converting from each replication setti
 <sup>4</sup> After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, See [the failover and failback section](#failover-and-failback) and [use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary).<br />
 <sup>5</sup> Migrating from LRS to ZRS is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares. See [Protocol support](#protocol-support).<br />
 
-## Restrictions
-
-Restrictions apply to some replication change scenarios depending on:
-
-- [Storage account type](#storage-account-type)
-- [Region](#region)
-- [Access tier](#access-tier)
-- [Protocol support](#protocol-support)
-- [Failover and failback](#failover-and-failback)
-
-### Storage account type
-
-When planning to change your replication settings, consider the following restrictions related to the storage account type.
-
-Some storage account types only support certain redundancy configurations, which affects whether they can be converted and, if so, how. For more details on Azure storage account types and the supported redundancy options, see [the storage account overview](storage-account-overview.md#types-of-storage-accounts).
-
-The following table provides an overview of redundancy options available for storage account types and whether live or manual migration are supported:
-
-| Storage account type        | Supports LRS | Supports ZRS | Supports live migration | Supports manual migration |
-|:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|
-| Standard general purpose v2 | Yes          | Yes          | Yes                     | Yes                       |
-| Premium file shares         | Yes          | Yes          | Yes <sup>1</sup>        | Yes                       |
-| Premium block block blob    | Yes          | Yes          | No                      | Yes                       |
-| Premium page blob           | Yes          | No           | No                      | No                        |
-| Managed disks<sup>2</sup>   | Yes          | No           | No                      | No                        |
-| Standard general purpose v1 | Yes          | No           | No <sup>3</sup>         | Yes                       |
-| ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub>     | Yes          | No           | No                      | No                        |
-
-<sup>1</sup> Live migration for Premium file shares is only available by opening a support request; customer-initiated live migration is not currently supported.<br />
-<sup>2</sup> Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
-<sup>3</sup> If your storage account is v1, you'll need to upgrade it to v2 before performing a live migration. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
-<sup>4</sup> ZRS Classic storage accounts have been deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
-
-Note that live migration is supported for standard general-purpose v2 and premium file share storage accounts. It is not supported for premium block blob or page blob storage accounts.
-
-#### Converting ZRS Classic accounts
-
-> [!IMPORTANT]
-> ZRS Classic accounts were deprecated on March 31, 2021. Customers can no longer create ZRS Classic accounts. If you still have some, you should migrate them to general purpose v2 accounts.
-
-ZRS Classic was available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
-
-ZRS Classic accounts asynchronously replicated data across data centers within one to two regions. Replicated data was not available unless Microsoft initiated a failover to the secondary. A ZRS Classic account can't be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also don't support metrics or logging.
-
-To convert a ZRS Classic account to a general-purpose v2 account that supports ZRS, [Perform a manual migration](#perform-a-manual-migration).
-
-### Region
-
-Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
-
-Also, customer-initiated migration to ZRS is not currently available in the following regions:
-
-- (Europe) West Europe
-- (North America) East US
-- (North America) East US 2
-
-If you want to migrate your data into a zone-redundant storage account located in a region different than the source account, you must perform a manual migration. For more details, see [Move an Azure Storage account to another region](storage-account-move.md).
-
-### Access tier
-
-Ensure the desired replication option supports the access tier currently used in the storage account. For example, GZRS storage accounts do not currently support the archive tier. See [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details.
-
-To change the redundancy configuration for a storage account that contains blobs in the Archive tier, you must first rehydrate all archived blobs to the Hot or Cool tier. Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming. Another option that avoids the rehydration expense is a [manual migration](#perform-a-manual-migration).
-
-### Protocol support
-
-Converting your storage account to zone-redundancy is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage, or if the storage account contains Azure Files NFSv4.1 shares.
-
-### Failover and failback
-
-If you performed an [account failover](storage-disaster-recovery-guidance.md) for your (RA-)GRS or (RA-)GZRS account, the account is locally redundant (LRS) in the new primary region after the failover. Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of so-called failback operations. For example, if you perform an account failover from RA-GZRS to the LRS in the secondary region, and then configure it again to RA-GRS and perform another account failover to the original primary region, you can't perform a live migration to RA-GZRS in the primary region. Instead, you'll need to perform a manual migration to ZRS or GZRS.
-
-If you want to change an account from ZRS to GZRS or RA-GZRS, you can perform a migration unless you are performing a failback operation after failover.
-
-## Downtime requirements
-
-With live migration, no downtime is required but the migration process could take up to 72 hours to begin once requested. If you choose manual migration, downtime is required but you have more control over the timing of the migration process.
-
-## Costs associated with changing how data is replicated
-
-The costs associated with changing how data is replicated depend on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS.
-
-For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge at the time of migration because your entire storage account is being replicated to the secondary region. All subsequent writes to the primary region also incur egress bandwidth charges to replicate the write to the secondary region. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
-
-> [!IMPORTANT]
-> If you migrate your storage account from RA-GRS to GRS or LRS, that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
-
 ## Change the replication setting using the portal, PowerShell, or the CLI
 
 You can use the Azure portal, PowerShell, or Azure CLI to change the replication setting for a storage account, as long as you are not changing how data is replicated in the primary region. If you are migrating from LRS in the primary region to ZRS in the primary region or vice versa, then you must perform either a manual migration or a live migration.
 
-Changing how your storage account is replicated does not result in down time for your applications.
+Changing how your storage account is replicated in the portaldoes not result in down time for your applications.
 
 # [Portal](#tab/portal)
 
@@ -317,6 +232,96 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 ```
 
 ---
+
+## Restrictions
+
+Restrictions apply to some replication change scenarios depending on:
+
+- [Storage account type](#storage-account-type)
+- [Region](#region)
+- [Access tier](#access-tier)
+- [Protocol support](#protocol-support)
+- [Failover and failback](#failover-and-failback)
+
+### Storage account type
+
+When planning to change your replication settings, consider the following restrictions related to the storage account type.
+
+Some storage account types only support certain redundancy configurations, which affects whether they can be converted and, if so, how. For more details on Azure storage account types and the supported redundancy options, see [the storage account overview](storage-account-overview.md#types-of-storage-accounts).
+
+The following table provides an overview of redundancy options available for storage account types and whether live or manual migration are supported:
+
+| Storage account type        | Supports LRS | Supports ZRS | Supports live migration | Supports manual migration |
+|:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|
+| Standard general purpose v2 | Yes          | Yes          | Yes                     | Yes                       |
+| Premium file shares         | Yes          | Yes          | Yes <sup>1</sup>        | Yes                       |
+| Premium block block blob    | Yes          | Yes          | No                      | Yes                       |
+| Premium page blob           | Yes          | No           | No                      | No                        |
+| Managed disks<sup>2</sup>   | Yes          | No           | No                      | No                        |
+| Standard general purpose v1 | Yes          | No           | No <sup>3</sup>         | Yes                       |
+| ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub>     | Yes          | No           | No                      | No                        |
+
+<sup>1</sup> Live migration for Premium file shares is only available by opening a support request; customer-initiated live migration is not currently supported.<br />
+<sup>2</sup> Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
+<sup>3</sup> If your storage account is v1, you'll need to upgrade it to v2 before performing a live migration. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
+<sup>4</sup> ZRS Classic storage accounts have been deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
+
+Note that live migration is supported for standard general-purpose v2 and premium file share storage accounts. It is not supported for premium block blob or page blob storage accounts.
+
+#### Converting ZRS Classic accounts
+
+> [!IMPORTANT]
+> ZRS Classic accounts were deprecated on March 31, 2021. Customers can no longer create ZRS Classic accounts. If you still have some, you should migrate them to general purpose v2 accounts.
+
+ZRS Classic was available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
+
+ZRS Classic accounts asynchronously replicated data across data centers within one to two regions. Replicated data was not available unless Microsoft initiated a failover to the secondary. A ZRS Classic account can't be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also don't support metrics or logging.
+
+To convert a ZRS Classic account to a general-purpose v2 account that supports ZRS, [Perform a manual migration](#perform-a-manual-migration).
+
+### Region
+
+Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
+
+Also, customer-initiated migration to ZRS is not currently available in the following regions:
+
+- (Europe) West Europe
+- (North America) Canada Central
+- (North America) East US
+- (North America) East US 2
+
+If you want to migrate your data into a zone-redundant storage account located in a region different than the source account, you must perform a manual migration. For more details, see [Move an Azure Storage account to another region](storage-account-move.md).
+
+### Access tier
+
+Ensure the desired replication option supports the access tier currently used in the storage account. For example, GZRS storage accounts do not currently support the archive tier. See [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details.
+
+To change the redundancy configuration for a storage account that contains blobs in the Archive tier, you must first rehydrate all archived blobs to the Hot or Cool tier. Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming. Another option that avoids the rehydration expense is a [manual migration](#perform-a-manual-migration).
+
+### Protocol support
+
+Converting your storage account to zone-redundancy is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage, or if the storage account contains Azure Files NFSv4.1 shares.
+
+### Failover and failback
+
+If you performed an [account failover](storage-disaster-recovery-guidance.md) for your (RA-)GRS or (RA-)GZRS account, the account is locally redundant (LRS) in the new primary region after the failover. Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of so-called failback operations. For example, if you perform an account failover from RA-GZRS to the LRS in the secondary region, and then configure it again to RA-GRS and perform another account failover to the original primary region, you can't perform a live migration to RA-GZRS in the primary region. Instead, you'll need to perform a manual migration to ZRS or GZRS.
+
+If you want to change an account from ZRS to GZRS or RA-GZRS, you can perform a migration unless you are performing a failback operation after failover.
+
+## Downtime requirements
+
+With live migration, no downtime is required but the migration process could take up to 72 hours to begin once requested. If you choose manual migration, downtime is required but you have more control over the timing of the migration process.
+
+## Costs associated with changing how data is replicated
+
+The costs associated with changing how data is replicated depend on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS.
+
+For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge at the time of migration because your entire storage account is being replicated to the secondary region. All subsequent writes to the primary region also incur egress bandwidth charges to replicate the write to the secondary region. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
+
+> [!IMPORTANT]
+> If you migrate your storage account from RA-GRS to GRS or LRS, that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
 
 ## See also
 
