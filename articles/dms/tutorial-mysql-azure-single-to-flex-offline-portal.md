@@ -245,15 +245,12 @@ Selecting this check box prevents Write/Delete operations on the source server d
 
 10. Select **Start migration**.
     The migration activity window appears, and the Status of the activity is Initializing. The Status changes to Running when the table migrations start.
-   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/19-running-project-offline.png" alt-text="Screenshot of a Running status.":::
 
 ### Monitor the migration
 
 1. On the migration activity screen, select **Refresh** to update the display and view the progress and the number of tables completed.
 
 2. To see the status of each table during the migration, select the database name and then select Refresh to update the display.
-
-     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/20-monitor-migration-offline.png" alt-text="Screenshot of a Monitoring migration.":::
 
 3. Select **Refresh** to update the display until the **Status** of the migration shows as **Completed**.
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/21-status-complete-offline.png" alt-text="Screenshot of a Status of Migration.":::
