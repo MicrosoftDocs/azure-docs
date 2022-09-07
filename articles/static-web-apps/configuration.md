@@ -496,6 +496,7 @@ By default, when the `trailingSlash` configuration is omitted, Static Web Apps a
 
 ```json
 {
+  "trailingSlash": "auto",
   "routes": [
     {
       "route": "/profile*",
