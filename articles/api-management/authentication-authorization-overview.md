@@ -45,7 +45,7 @@ What happens when a client app calls an API with a request that is secured using
     
     The identity provider (for example, Azure AD) is the *issuer* of the token, and the token includes an *audience claim* that authorize access to a *resource server* (for example, to a backend API, or to the API Management gateway itself).
 * The client calls the API and presents the access token - for example, in an Authorization header.
-* The *resource server* validates the access token by checking (at a minimum) that the *issuer* and *audience* claims contain expected values. 
+* The *resource server* validates the access token, this is a complex process which would include a check that the *issuer* and *audience* claims contain expected values. 
 * Based on token validation criteria, access to resources of the [backend] API are then granted.
 
 Depending on the type of client app and scenarios, different *authentication flows* are needed to request and manage tokens. For example, the *authorization code* flow and grant type is commonly used in apps that call web APIs. Learn more about [OAuth flows and application scenarios in Azure AD](../active-directory/develop/authentication-flows-app-scenarios.md).
