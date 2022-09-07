@@ -27,8 +27,8 @@ In your POM file, reference the **azure-communication-callingserver** package:
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-callingserver</artifactId>
-  <version>1.0.0-beta.7</version>
-</dependency> 
+  <version>1.0.0-alpha.20220829.1</version>
+</dependency>
 ```
 
 ## Prepare your audio file
@@ -53,9 +53,9 @@ In this scenario audio will be played to a specific participant that is specifie
 
 ``` console 
 var targetUser = new PhoneNumberIdentifier(<target>);
-var callMedia = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
+var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 var fileSource = new FileSource().setUri(<audioUrl>);
-var playResponse = new callMedia.playWithResponse(
+var playResponse = callConnection.getCallMediaAsync().playWithResponse(
     fileSource,
     Collections.singletonList(targetUser),
     new PlayOptions()
@@ -68,9 +68,9 @@ assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 In this scenario audio will be played to all participants on the call. 
 
 ``` console 
-var callMedia = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
+var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 var fileSource = new FileSource().setUri(<audioUrl>);
-var playResponse = new callMedia.playToAllWithResponse(
+var playResponse = callConnection.getCallMediaAsync().playToAllWithResponse(
     fileSource,
     new PlayOptions()
 ).block();
@@ -82,10 +82,10 @@ assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 You can use the loop option to play hold music that loops until your application is ready to accept the caller or progress the caller to the next logical step based on your applications business logic. 
 
 ``` console
-var callMedia = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
+var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 var fileSource = new FileSource().setUri(<audioUrl>);
 var playOptions = new PlayOptions().setLoop(true);
-var playResponse = new callMedia.playToAllWithResponse(
+var playResponse = callConnection.getCallMediaAsync().playToAllWithResponse(
     fileSource,
     playOptions
 ).block();
@@ -98,9 +98,9 @@ If you will be playing the same audio file multiple times, your application can 
 
 ``` console
 var targetUser = new PhoneNumberIdentifier(<target>);
-var callMedia = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
+var callConnection= callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 var fileSource = new FileSource().setUri(<audioUrl>).setPlaySourceId(<sourceId>);
-var playResponse = new callMedia.playWithResponse(
+var playResponse = callConnection.getCallMediaAsync().playWithResponse(
     fileSource,
     Collections.singletonList(targetUser),
     new PlayOptions()
@@ -140,7 +140,7 @@ ACS will provide your application with update events using the callback URL prov
 Cancel all media operations, all pending media operations will be cancelled. This will also cancel other queued up play actions. 
 
 ```console
-var callMedia = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
-var cancelResponse = new callMedia.cancelAllMediaOperationsWithResponse().block();
+var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
+var cancelResponse = callConnection.getCallMediaAsync().cancelAllMediaOperationsWithResponse().block();
 assertEquals(202, cancelResponse.getStatusCode()); // The request was accepted
 ```
