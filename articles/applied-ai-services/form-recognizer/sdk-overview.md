@@ -38,6 +38,55 @@ Form Recognizer SDK supports the following languages and platforms:
 
 ## Changelog and release history
 
+#### Form Recognizer SDK beta September 2022 preview release
+
+>[!NOTE]
+> The 4.0.0-beta.6 (C#), 4.0.0-beta.7 (Java), 4.0.0-beta.7 (JavaScript) and 3.2.0b7 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages. TODO
+
+This release includes the following updates:
+
+### [**C#**](#tab/csharp)
+
+**Version 4.0.0-beta.6 (TODO)**
+
+[**Changelog/Release History**](TODO)
+
+[**Package (NuGet)**](TODO)
+
+[**SDK reference documentation**](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet-preview&preserve-view=true)
+
+### [**Java**](#tab/java)
+
+**Version 4.0.0-beta.7 (TODO)**
+
+[**Changelog/Release History**](TODO)
+
+[**Package (Maven)**](TODO)
+
+[**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
+
+### [**JavaScript**](#tab/javascript)
+
+**Version 4.0.0-beta.6 (TODO)**
+
+[**Changelog/Release History**](TODO)
+
+[**Package (npm)**](TODO)
+
+[**SDK reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview&preserve-view=true)
+
+### [Python](#tab/python)
+
+**Version 3.2.0b6 (TODO)**
+
+[**Changelog/Release History**](TODO)
+
+[**Package (PyPi)**](TODO)
+
+[**SDK reference documentation**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)
+
+---
+
 #### Form Recognizer SDK beta August 2022 preview release
 
 >[!NOTE]
@@ -76,6 +125,9 @@ This release includes the following updates:
  [**SDK reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview&preserve-view=true)
 
 ### [Python](#tab/python)
+
+> [!IMPORTANT]
+> Python 3.6 is no longer supported in this release. Use Python 3.7 or later.
 
 **Version 3.2.0b6 (2022-08-09)**
 
