@@ -36,7 +36,7 @@ highlightedContent:
     - title: Azure AD B2C technical and feature overview
       url: technical-overview.md
       itemType: overview
-    - title: Customer success stories
+    - title: Customer success scenarios
       url: https://customers.microsoft.com/
       itemType: overview
     - title: Pricing
@@ -49,7 +49,7 @@ highlightedContent:
 productDirectory:
   sections:
     - title: Authenticate and authorize your customers and apps for any application type.
-      summary: Select the app type that you're building to access documentation focusing on it.
+      summary: Select the app type that you want to build to access documentation focusing on it.
       items:
         ## ROW 1 ######################
         - title: Single-page app (SPA)
@@ -89,7 +89,7 @@ productDirectory:
 ## BAND 3 - CONCEPTUAL CONTENT #############################################################################################################################
 conceptualContent:
   title: Learn about Azure AD B2C
-  summary: Quickly access documentation for adding authentication and authorization to your applications and customizing your applications to match your processes and branding. 
+  summary: Quickly access documentation for adding authentication and authorization to your applications. Use the documentation to also customize your applications to match your organization branding and your unique authentication flows. 
   items:
     ## CARD 1 ######################
     ##- title: Overview of Azure AD B2C
@@ -335,10 +335,9 @@ conceptualContent:
 
 ## BAND 4 - TOOLS ###########################################################################################################################################
 tools:
-  title: Authenticate and authorize your customers and apps using Microsoft authentication libraries (MSAL) with code samples
+  title: Authenticate and authorize your customers and apps by using Microsoft authentication libraries (MSAL) with code samples
   summary: >
-    The open-source Microsoft Authentication Library (MSAL) is hosted on GitHub. Built and supported by Microsoft,
-    we recommend MSAL for any app type that uses Azure AD B2C service for authentication and authorization.
+    GitHub hosts the open-source Microsoft Authentication Library (MSAL). Microsoft builds and supports MSAL, so, we recommend it for any app type that uses Azure AD B2C service for authentication and authorization.
   items:
   ## ROW 1 ######################
   - title: MSAL.NET
