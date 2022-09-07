@@ -152,8 +152,8 @@ These are the currently support regions for regional processing of metric alert 
 
 To enable regional data processing in one of these regions, select the specified region in the **Details** section of the [create a new alert rule wizard](./alerts-create-new-alert-rule.md).   
   
-    > [!NOTE]
-    > We are continually adding more regions for regional data processing.
+> [!NOTE]
+> We are continually adding more regions for regional data processing.
 
 
 ## Export the Azure Resource Manager template of a metric alert rule via the Azure portal
