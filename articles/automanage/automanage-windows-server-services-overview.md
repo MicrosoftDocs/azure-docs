@@ -73,10 +73,10 @@ It's important to consider up front, which Automanage for Windows Server capabil
 
 ### Deciding which image to use 
 
-|Image|Capabilities|
-|--|--|
-|Windows Server 2022  Datacenter: Azure Edition (Desktop experience) | SMB over QUIC, Extended network for Azure | 
-| Windows Server 2022 Datacenter: Azure Edition (Core) | Hotpatch, SMB over QUIC, Extended network for Azure | 
+| Image                                                               | Capabilities                                        |
+| ------------------------------------------------------------------- | --------------------------------------------------- |
+| Windows Server 2022  Datacenter: Azure Edition (Desktop experience) | SMB over QUIC, Extended network for Azure           |
+| Windows Server 2022 Datacenter: Azure Edition (Core)                | Hotpatch, SMB over QUIC, Extended network for Azure |
 
 ### Creating a VM
 
@@ -90,4 +90,4 @@ To start using Automanage for Windows Server capabilities on a new VM, use your 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure Automanage](automanage-virtual-machines.md)
+> [Learn more about Azure Automanage](overview.md)
