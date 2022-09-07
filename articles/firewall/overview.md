@@ -18,7 +18,8 @@ ms.date: 06/17/2022
 
 Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful, firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
-Azure Firewall is offered in two SKUs: Standard and Premium.
+Azure Firewall is offered in three SKUs: Standard, Premium, and Basic.
+
 
 ## Azure Firewall Standard
 
@@ -38,6 +39,26 @@ To learn about Firewall Standard features, see [Azure Firewall Standard features
 
 To learn about Firewall Premium features, see [Azure Firewall Premium features](premium-features.md).
 
+## Azure Firewall Basic (preview)
+
+> [!IMPORTANT]
+> Azure Firewall Basic is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Azure Firewall Basic is a managed, stateful, highly available, fixed-scale with limited throughput cloud-native network 
+security service. It supports 99.99% SLA, Threat intelligence (Alert mode), Availability Zones, application rules 
+filtering (HTTP/s), FQDN tags, 5-tuple network rule filtering, service tags, central logging, and analytics.
+
+Azure Firewall Basic is intended mainly for small and medium size companies who need to secure their cloud 
+environment. It provides the essential protection they need at an affordable price point.
+
+Firewall Basic is similar to Firewall Standard, but has the following limitations:
+
+- Supports *alert mode* only.
+- Fixed support to run the service on two virtual machines.
+- Support for approximately 250-500 Mbps throughput for public preview. This may increase for feature general availability (GA).
+
+To deploy a Basic Firewall, see [Deploy and configure Azure Firewall Basic (preview) and policy using the Azure portal](deploy-firewall-basic-portal-policy.md).
 
 ## Azure Firewall Manager
 
