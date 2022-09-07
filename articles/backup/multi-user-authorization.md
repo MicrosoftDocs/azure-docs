@@ -404,7 +404,7 @@ There are scenarios where you may need to perform critical operations on your ba
 The Backup admin must have a Contributor role on the Resource Guard to perform critical operations in the Resource Guard scope. One of the ways to allow just-in-time (JIT)operations is through the use of [Azure Active Directory (Azure AD) Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 
 >[!NOTE]
->We recommend to use the Azure AD PIM. However, you can also use manual or custom methods to manage access for the Backup admin on the Resource Guard. To manually manage access to the Resource Guard,, use the *Access control (IAM)* setting on the left pane of the Resource Guard and grant the **Contributor** role to the Backup admin.
+>We recommend to use the Azure AD PIM. However, you can also use manual or custom methods to manage access for the Backup admin on the Resource Guard. To manually manage access to the Resource Guard, use the *Access control (IAM)* setting on the left pane of the Resource Guard and grant the **Contributor** role to the Backup admin.
 
 ### Create an eligible assignment for the Backup admin using Azure AD Privileged Identity Management
 
@@ -489,7 +489,7 @@ After the approval, the Backup admin receives a notification, via email or other
 
 ## Perform a protected operation after approval
 
-Once the Security admin approves the Backup admin's request for the Contributor role on the Resource Guard, they can perform protected operations on the associated vault. If the Resource Guard is in another directory, the Backup admin must0 authenticate themselves.
+Once the Security admin approves the Backup admin's request for the Contributor role on the Resource Guard, they can perform protected operations on the associated vault. If the Resource Guard is in another directory, the Backup admin must authenticate themselves.
 
 >[!NOTE]
 >If the access was assigned using a JIT mechanism, the Contributor role is retracted at the end of the approved period. Otherwise, the Security admin manually removes the **Contributor** role assigned to the Backup admin to perform the critical operation.
