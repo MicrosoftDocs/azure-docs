@@ -17,6 +17,7 @@ ms.author: kpunjabi
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
 - Create a new web service application using the [Call Automation SDK](../../Callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
 
 ## Create a new C# application
 
@@ -26,13 +27,15 @@ In the console window of your operating system, use the `dotnet` command to crea
 dotnet new web -n MyApplication
 ```
 
-## Install the ACS call automation package
+## Install the NuGet package
 
-In your application install the **azure-communication-callingserver** package:
+During the preview phase the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
 
-``` console 
-Install-Package Azure.Communication.CallingServer -version 1.0.0-alpha.20220829.1
-```
+## Obtain your connection string
+
+From the Azure portal, locate your Communication Service resource and click on the Keys section to obtain your connection string.
+
+:::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
 
 ## Prepare your audio file
 
