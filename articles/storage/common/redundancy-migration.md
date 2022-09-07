@@ -70,11 +70,11 @@ The following table summarizes the options for changing the three properties:
 
 The following table shows the options for converting from each replication setting to every other setting:
 
-| Convert         | ...to: | LRS| GRS/RA-GRS <sup>1,2</sup> | ZRS <sup>5</sup> | GZRS/RA-GZRS <sup>1,2,5</sup> |
-|-----------------|--------|----|---------------------------|------------------|-------------------------------|
-| <b>…from:       |        |    |                           |                  |                               |
-| <b> LRS</b>     |        | ***N/A*** | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | Perform a live migration<br><br> <b>-OR-</b><br><br>Perform a manual migration | Convert to GRS/RA-GRS first, then migrate to GZRS/RA-GZRS |
-| <b> GRS</b>     |        | Use Azure portal, PowerShell, or CLI | ***N/A*** | Convert to LRS first, then migrate to ZRS | Migrate |Convert to RA-GRS first, then migrate to RA-GZRS |
+| Convert         | ...to: | LRS| GRS/RA-GRS <sup>1,2</sup> | ZRS <sup>5</sup> | GZRS/RA-GZRS <sup>1,2,5</sup> |---|---|
+|-----------------|--------|----|---------------------------|------------------|-------------------------------|---|---|
+| <b>…from:       |        |    |                           |                  |                               |---|---|
+| <b> LRS</b>     |        | ***N/A*** | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | Perform a live migration<br><br> <b>-OR-</b><br><br>Perform a manual migration | Convert to GRS/RA-GRS first, then migrate to GZRS/RA-GZRS |---|
+| <b> GRS</b>     |        | Use Azure portal, PowerShell, or CLI | ***N/A*** | Convert to LRS first, then migrate to ZRS | Migrate |Convert to RA-GRS first, then migrate to RA-GZRS |---|
 | <b> RA-GRS</b>  |        | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | ***N/A*** | Convert to LRS first, then migrate to ZRS | Convert to GRS first, then migrate to GZRS | Migrate |
 | <b> ZRS</b>     |        | Migrate | Convert to GZRS first, then migrate to GRS | Convert to RA-GZRS first, then migrate to RA-GRS |***N/A*** | Migrate<br><br> <b>-OR-</b><br><br>Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> | Migrate<br><br> <b>-OR-</b><br><br>Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
 | <b> GZRS</b>    |        | Convert to ZRS first, then migrate to LRS | Migrate | Convert to RA-GZRS first, then migrate to RA-GRS | Use Azure portal, PowerShell, or CLI | ***N/A*** | Use Azure portal, PowerShell, or CLI |
