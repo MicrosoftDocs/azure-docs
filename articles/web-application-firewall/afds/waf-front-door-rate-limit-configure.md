@@ -128,7 +128,7 @@ Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager]
 
 You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Here you sign in with your Azure credentials and install the Azure PowerShell module for Front Door Standard/Premium.
 
-#### Connect to Azure with an interactive dialog for sign in
+#### Connect to Azure with an interactive dialog for sign-in
 
 Sign in to Azure by running the following command:
 
@@ -212,7 +212,7 @@ $promoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 
 ## Create a custom rate limit rule
 
-Use the [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) cmdlet to create the rate limit rule, wh ich includes the match condition you defined in the previous step as well as the rate limit request threshold.
+Use the [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) cmdlet to create the rate limit rule, which includes the match condition you defined in the previous step as well as the rate limit request threshold.
 
 The following example sets the limit to 1000:
 

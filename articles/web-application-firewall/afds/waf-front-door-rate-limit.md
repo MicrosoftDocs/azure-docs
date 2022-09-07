@@ -23,9 +23,9 @@ When you configure a rate limit rule, you specify the *threshold*: the number of
 
 You also must specify at least one *match condition*, which tells Front Door when to activate the rate limit. You can configure multiple rate limits that apply to different paths within your application.
 
-For example, if you need to apply a rate limit rule to all of your requests, consider using a match condition like the following:
+If you need to apply a rate limit rule to all of your requests, consider using a match condition like the following example:
 
-:::image type="content" source="../media/waf-front-door-rate-limit/match-condition-match-all.png" alt-text="Screenshot of the Azure portal showing the a match condition that applies to all requests. The match condition looks for requests where the Host header size is 0 or greater." :::
+:::image type="content" source="../media/waf-front-door-rate-limit/match-condition-match-all.png" alt-text="Screenshot of the Azure portal showing a match condition that applies to all requests. The match condition looks for requests where the Host header size is 0 or greater." :::
 
 The match condition above identifies all requests with a `Host` header of length greater than 0. Because all valid HTTP requests for Front Door contain a `Host` header, this match condition has the effect of matching all HTTP requests.
 
