@@ -23,7 +23,7 @@ EDIT PASS: started
 
 # Understanding Azure Storage Mover billing
 
-Azure Storage Mover facilitates the migration of unstructured data (files and folders) into Azure. This article provides insight into the categories of costs that may apply to your migration scenarios.
+Azure Storage Mover facilitates the migration of unstructured data into Azure. This article provides insight into the categories of costs that may apply to your migration scenarios.
 
 ## Billing components
 
