@@ -89,7 +89,7 @@ When using [session consistency](../consistency-levels.md#guarantees-associated-
 
 In scenarios where the Azure Cosmos SDK client is configured to use the TCP protocol, for a given request, there might be situations where the network conditions are temporarily affecting the communication with a particular endpoint. These temporary network conditions can surface as TCP timeouts and Service Unavailable (HTTP 503) errors. The client will, if possible, [retry the request locally](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503) on the same endpoint for some seconds.
 
-If the user has configured a **preferred region list with more than one region** and the client exhausted all local retries, it can attempt to retry that single operation in the next region from the preference list. Write operations can only be retried in other region if the Azure Cosmos DB account has multiple write regions enabled, while read operations can be retried in any available region.
+If the user has configured a preferred region list with more than one region and the client exhausted all local retries, it can attempt to retry that single operation in the next region from the preference list. Write operations can only be retried in other region if the Azure Cosmos DB account has multiple write regions enabled, while read operations can be retried in any available region.
 
 ## Next steps
 
