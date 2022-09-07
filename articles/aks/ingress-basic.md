@@ -144,6 +144,7 @@ When you deploy the *nginx-ingress* chart with Helm, add the `-f internal-ingres
 ```console
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 ACR_URL=<REGISTRY_URL>
@@ -178,6 +179,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
 ```azurepowershell-interactive
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 $AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
@@ -225,6 +227,7 @@ The following example creates a Kubernetes namespace for the ingress resources n
 ```console
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 ACR_URL=<REGISTRY_URL>
@@ -258,6 +261,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
 ```azurepowershell-interactive
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 $AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
