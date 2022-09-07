@@ -117,6 +117,7 @@ ACS will provide your application with update events using the callback URL prov
     "subject": "calling/callConnections/<callConnectionId>/PlayCompleted"
 }]
 ```
+For more information about other supported events see our [Call Automation](../../../../concepts/voice-video-calling/CallAutomation.md#call-automation-webhook-events) document.
 
 ## Cancel play action
 
