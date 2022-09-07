@@ -274,7 +274,7 @@ max_concurrent_iterations = number_of_vms
 enable_distributed_dnn_training = True
 ```
 
-A validation dataset is required because in AutoML NLP only hold-out validation is supported. 
+In AutoML NLP only hold-out validation is supported and it requires a validation dataset.
 
 ---
 
