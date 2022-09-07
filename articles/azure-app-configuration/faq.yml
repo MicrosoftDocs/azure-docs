@@ -38,7 +38,7 @@ sections:
           You can create App Configuration values that reference secrets stored in Key Vault. For more information, see [Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md).
           
       - question: Does App Configuration encrypt my data?
-        answer: Yes. App Configuration supports encryption in transit. All network communication is over TLS 1.2 or TLS 1.3. App Configuration also supports encryption at rest with either [Microsoft-managed keys or customer-managed keys](./concept-customer-managed-keys.md). Key-value names and labels are used as indexes for retrieving configuration data and aren't encrypted at rest.
+        answer: Yes. App Configuration always encrypts all data in transit and at rest. All network communication is over TLS 1.2 or TLS 1.3. App Configuration supports encryption at rest with either [Microsoft-managed keys or customer-managed keys](./concept-customer-managed-keys.md).
 
       - question: How is App Configuration different from Azure App Service settings?
         answer: |
@@ -104,7 +104,9 @@ sections:
 
       - question: How does App Configuration ensure high data availability? 
         answer: |
-          Azure App Configuration supports Azure Availability Zones to protect your application and data from single datacenter failures. All Availability Zone-enabled regions consist of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all configuration stores in free and standard tiers at no extra cost. Following are regions where App Configuration has enabled Availability Zone support. For more information, see [Regions and Availability Zones in Azure.](../availability-zones/az-overview.md)
+          Azure App Configuration supports [geo-replication](./concept-geo-replication.md) for enhanced resiliency to regional outages. 
+          
+          Azure App Configuration supports Azure Availability Zones to protect your application and data from single datacenter failures. All Availability Zone-enabled regions consist of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all configuration stores in Free and Standard tiers at no extra cost. Following are regions where App Configuration has enabled Availability Zone support. For more information, see [Regions and Availability Zones in Azure.](../availability-zones/az-overview.md)
 
           | Americas | Europe | Africa | Asia Pacific |
           |--------------------|----------------------|---------------------|----------------|
