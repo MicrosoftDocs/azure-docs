@@ -34,7 +34,7 @@ Security DevOps uses the following Open Source tools:
 
 1. Sign in to [GitHub](https://www.github.com).
 
-1. Select a repository to configure the GitHub action to.
+1. Select a repository on which you want to configure the GitHub action.
 
 1. Select **Actions**.
 
