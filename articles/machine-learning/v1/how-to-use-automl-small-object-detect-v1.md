@@ -14,6 +14,13 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](how-to-use-automl-small-object-detect-v1.md)
+> * [v2 (current version)](../how-to-use-automl-small-object-detect.md)
+
+[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+
+
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -106,4 +113,4 @@ See the [object detection sample notebook](https://github.com/Azure/azureml-exam
 * For definitions and examples of the performance charts and metrics provided for each job, see [Evaluate automated machine learning experiment results](../how-to-understand-automated-ml.md).
 * [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models-v1.md).
 * See [what hyperparameters are available for computer vision tasks](../reference-automl-images-hyperparameters.md).
-*[Make predictions with ONNX on computer vision models from AutoML](how-to-inference-onnx-automl-image-models-v1.md)
+* [Make predictions with ONNX on computer vision models from AutoML](how-to-inference-onnx-automl-image-models-v1.md)

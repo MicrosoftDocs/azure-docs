@@ -24,7 +24,7 @@ In this article, you'll learn how to train an object detection model to detect s
 
 Typically, computer vision models for object detection work well for datasets with relatively large objects. However, due to memory and computational constraints, these models tend to under-perform when tasked to detect small objects in high-resolution images. Because high-resolution images are typically large, they are resized before input into the model, which limits their capability to detect smaller objects--relative to the initial image size.
 
-To help with this problem, automated ML supports tiling as part of the public preview computer vision capabilities. The tiling capability in automated ML is based on the concepts in [The Power of Tiling for Small Object Detection](https://openaccess.thecvf.com/content_CVPRW_2019/papers/UAVision/Unel_The_Power_of_Tiling_for_Small_Object_Detection_CVPRW_2019_paper.pdf).
+To help with this problem, automated ML supports tiling as part of the computer vision capabilities. The tiling capability in automated ML is based on the concepts in [The Power of Tiling for Small Object Detection](https://openaccess.thecvf.com/content_CVPRW_2019/papers/UAVision/Unel_The_Power_of_Tiling_for_Small_Object_Detection_CVPRW_2019_paper.pdf).
 
 When tiling, each image is divided into a grid of tiles. Adjacent tiles overlap with each other in width and height dimensions. The tiles are cropped from the original as shown in the following image.
 
@@ -42,32 +42,28 @@ Small object detection using tiling is supported for all models supported by Aut
 
 ## Enable tiling during training
 
-To enable tiling, you can set the `tile_grid_size` parameter to a value like `'3x2'`; where 3 is the number of tiles along the width dimension and 2 is the number of tiles along the height dimension. When this parameter is set to `'3x2'`, each image is split into a grid of 3 x 2 tiles. Each tile overlaps with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles. This overlap can be controlled by the `tile_overlap_ratio` parameter, which defaults to 25%.
+To enable tiling, you can set the `tile_grid_size` parameter to a value like '3x2'; where 3 is the number of tiles along the width dimension and 2 is the number of tiles along the height dimension. When this parameter is set to '3x2', each image is split into a grid of 3 x 2 tiles. Each tile overlaps with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles. This overlap can be controlled by the `tile_overlap_ratio` parameter, which defaults to 25%.
 
 When tiling is enabled, the entire image and the tiles generated from it are passed through the model. These images and tiles are resized according to the `min_size` and `max_size` parameters before feeding to the model. The computation time increases proportionally because of processing this extra data.
 
-For example, when the `tile_grid_size` parameter is `'3x2'`, the computation time would be approximately seven times when compared to no tiling.
+For example, when the `tile_grid_size` parameter is '3x2', the computation time would be approximately seven times when compared to no tiling.
 
-You can specify the value for `tile_grid_size` in your hyperparameter space as a string.
+You can specify the value for `tile_grid_size` in your training parameters as a string.
 
 # [CLI v2](#tab/CLI-v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
-search_space:
-  - model_name: "fasterrcnn_resnet50_fpn"
-    tile_grid_size: "choice('3x2')"
+training_parameters:
+  tile_grid_size: '3x2'
 ```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 ```python
-image_object_detection_job.extend_search_space(
-	ImageObjectDetectionSearchSpace(
-		model_name=Choice(['fasterrcnn_resnet50_fpn']),
-		tile_grid_size=Choice(['3x2'])
-	)
+image_object_detection_job.set_training_parameters(
+	tile_grid_size='3x2'
 )
 ```
 ---
@@ -82,15 +78,19 @@ To choose the optimal value for this parameter for your dataset, you can use hyp
 
 ```yaml
 search_space:
-  - model_name: "fasterrcnn_resnet50_fpn"
-    tile_grid_size: "choice('2x1', '3x2', '5x3')"
+  - model_name:
+  	  type: choice
+	  values: ['fasterrcnn_resnet50_fpn']
+    tile_grid_size:
+	  type: choice
+	  values: ['2x1', '3x2', '5x3']
 ```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 ```python
 image_object_detection_job.extend_search_space(
-	ImageObjectDetectionSearchSpace(
+	SearchSpace(
 		model_name=Choice(['fasterrcnn_resnet50_fpn']),
 		tile_grid_size=Choice(['2x1', '3x2', '5x3'])
 	)
@@ -138,4 +138,4 @@ See the [object detection sample notebook](https://github.com/Azure/azureml-exam
 * For definitions and examples of the performance charts and metrics provided for each job, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md).
 * [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
 * See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters.md).
-*[Make predictions with ONNX on computer vision models from AutoML](how-to-inference-onnx-automl-image-models.md)
+* [Make predictions with ONNX on computer vision models from AutoML](how-to-inference-onnx-automl-image-models.md)
