@@ -11,7 +11,7 @@ ms.author: gahllevy
 # Improve performance and optimize costs when upgrading to 4.0+
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB API for MongoDB introduced a new data compression algorithm in versions 4.0+ that improve query/storage performance and save up to 90% on RU and storage costs. Upgrading your database account to versions 4.0+ and following this guide will help you realize the maximum performance and cost improvements. 
+Azure Cosmos DB API for MongoDB introduced a new data compression algorithm in versions 4.0+ that saves up to 90% on RU and storage costs. Upgrading your database account to versions 4.0+ and following this guide will help you realize the maximum performance and cost improvements. 
 
 ## How it works
 The API for MongoDB charges users based on how many [request units](../request-units.md) (RUs) are consumed for each operation. With the new compression format, a reduction in storage size and query size directly results in a reduction in RU usage, saving you money. Performance and costs are coupled in Cosmos DB.
