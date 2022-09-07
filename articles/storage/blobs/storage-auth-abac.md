@@ -7,10 +7,10 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 09/01/2022
 ms.author: jammart
-ms.reviewer: jiacfan
-ms.subservice: common
+ms.reviewer: nachakra
+ms.subservice: blobs
 ---
 
 # Authorize access to blobs using Azure role assignment conditions (preview)
@@ -26,7 +26,7 @@ Azure ABAC builds on Azure role-based access control (Azure RBAC) by adding [con
 
 ## Overview of conditions in Azure Storage
 
-Azure Storage enables the [use of Azure Active Directory](authorize-data-access.md) (Azure AD) to authorize requests to blob, queue, and table resources using Azure RBAC. Azure RBAC helps you manage access to resources by defining who has access to resources and what they can do with those resources, using role definitions and role assignments. Azure Storage defines a set of Azure [built-in roles](../../role-based-access-control/built-in-roles.md#storage) that encompass common sets of permissions used to access blob, queue and table data. You can also define custom roles with select set of permissions. Azure Storage supports role assignments for storage accounts or blob containers.
+Azure Storage enables the [use of Azure Active Directory](../common/authorize-data-access.md) (Azure AD) to authorize requests to blob, queue, and table resources using Azure RBAC. Azure RBAC helps you manage access to resources by defining who has access to resources and what they can do with those resources, using role definitions and role assignments. Azure Storage defines a set of Azure [built-in roles](../../role-based-access-control/built-in-roles.md#storage) that encompass common sets of permissions used to access blob, queue and table data. You can also define custom roles with select set of permissions. Azure Storage supports role assignments for storage accounts or blob containers.
 
 Azure ABAC builds on Azure RBAC by adding role assignment conditions in the context of specific actions. A *role assignment condition* is an additional check that is evaluated when the action on the storage resource is being authorized. This condition is expressed as a predicate using attributes associated with any of the following:
 - Security principal that is requesting authorization

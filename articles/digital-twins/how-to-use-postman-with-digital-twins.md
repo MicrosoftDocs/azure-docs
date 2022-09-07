@@ -1,5 +1,5 @@
 ---
-title: Make API requests with Postman
+title: Call the Azure Digital Twins APIs with Postman
 titleSuffix: Azure Digital Twins
 description: Learn how to authorize, configure, and use Postman to call the Azure Digital Twins APIs.
 ms.author: baanders
@@ -7,15 +7,15 @@ author: baanders
 ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 09/06/2022
 ms.custom: contperf-fy21q4
 ---
 
-# How to use Postman to send requests to the Azure Digital Twins APIs
+# How to send requests to the Azure Digital Twins APIs using Postman
 
-[Postman](https://www.getpostman.com/) is a REST testing tool that provides key HTTP request functionalities in a desktop and plugin-based GUI. You can use it to craft HTTP requests and submit them to the [Azure Digital Twins REST APIs](concepts-apis-sdks.md).
+[Postman](https://www.getpostman.com/) is a REST testing tool that provides key HTTP request functionalities in a desktop and plugin-based GUI. You can use it to craft HTTP requests and submit them to the [Azure Digital Twins REST APIs](concepts-apis-sdks.md). This article describes how to configure the [Postman REST client](https://www.getpostman.com/) to interact with the Azure Digital Twins APIs. This information is specific to the Azure Digital Twins service.
 
-This article describes how to configure the [Postman REST client](https://www.getpostman.com/) to interact with the Azure Digital Twins APIs, through the following steps:
+This article contains information about the following steps:
 
 1. Use the Azure CLI to [get a bearer token](#get-bearer-token) that you will use to make API requests in Postman.
 1. Set up a [Postman collection](#about-postman-collections) and configure the Postman REST client to use your bearer token to authenticate. When setting up the collection, you can choose either of these options:
@@ -78,7 +78,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
 
 3. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authorize your requests.
 
-    :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="Screenshot of the console showing the result of the az account get-access-token command. The accessToken field and its sample value is highlighted.":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/console-access-token.png" alt-text="Screenshot of the console showing the result of the az account get-access-token command. The accessToken field and its sample value is highlighted.":::
 
 >[!TIP]
 >This token is valid for at least five minutes and a maximum of 60 minutes. If you run out of time allotted for the current token, you can repeat the steps in this section to get a new one.
@@ -122,7 +122,7 @@ To find the collection, navigate to the repo link and choose the folder for your
 Here's how to download your chosen collection to your machine so that you can import it into Postman.
 1. Use the links above to open the collection file in GitHub in your browser.
 1. Select the **Raw** button to open the raw text of the file.
-    :::image type="content" source="media/how-to-use-postman/swagger-raw.png" alt-text="Screenshot of the data plane digitaltwins.json file in GitHub. There is a highlight around the Raw button." lightbox="media/how-to-use-postman/swagger-raw.png":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/swagger-raw.png" alt-text="Screenshot of the data plane digitaltwins.json file in GitHub. There is a highlight around the Raw button." lightbox="media/how-to-use-postman-with-digital-twins/swagger-raw.png":::
 1. Copy the text from the window, and paste it into a new file on your machine.
 1. Save the file with a .json extension (the file name can be whatever you want, as long as you can remember it to find the file later).
 
@@ -131,16 +131,16 @@ Here's how to download your chosen collection to your machine so that you can im
 Next, import the collection into Postman.
 
 1. From the main Postman window, select the **Import** button.
-    :::image type="content" source="media/how-to-use-postman/postman-import-collection.png" alt-text="Screenshot of a newly opened Postman window. The 'Import' button is highlighted." lightbox="media/how-to-use-postman/postman-import-collection.png":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-import-collection.png" alt-text="Screenshot of a newly opened Postman window. The 'Import' button is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-import-collection.png":::
 
 1. In the **Import** window that follows, select **Upload Files** and navigate to the collection file on your machine that you created earlier. Select Open.
 1. Select the **Import** button to confirm.
 
-    :::image type="content" source="media/how-to-use-postman/postman-import-collection-2.png" alt-text="Screenshot of Postman's 'Import' window, showing the file to import as a collection and the Import button.":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-import-collection-2.png" alt-text="Screenshot of Postman's 'Import' window, showing the file to import as a collection and the Import button.":::
 
 The newly imported collection can now be seen from your main Postman view, in the Collections tab.
 
-:::image type="content" source="media/how-to-use-postman/postman-post-collection-imported.png" alt-text="Screenshot of the main Postman window. The newly imported collection is highlighted in the 'Collections' tab." lightbox="media/how-to-use-postman/postman-post-collection-imported.png":::
+:::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-post-collection-imported.png" alt-text="Screenshot of the main Postman window. The newly imported collection is highlighted in the 'Collections' tab." lightbox="media/how-to-use-postman-with-digital-twins/postman-post-collection-imported.png":::
 
 Next, continue on to the next section to add a bearer token to the collection for authorization and connect it to your Azure Digital twins instance.
 
@@ -148,17 +148,17 @@ Next, continue on to the next section to add a bearer token to the collection fo
 
 Next, edit the collection you've created to configure some access details. Highlight the collection you've created and select the **View more actions** icon to pull up a menu. Select **Edit**.
 
-:::image type="content" source="media/how-to-use-postman/postman-edit-collection.png" alt-text="Screenshot of Postman. The 'View more actions' icon for the imported collection is highlighted, and 'Edit' is highlighted in the options." lightbox="media/how-to-use-postman/postman-edit-collection.png":::
+:::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-edit-collection.png" alt-text="Screenshot of Postman. The 'View more actions' icon for the imported collection is highlighted, and 'Edit' is highlighted in the options." lightbox="media/how-to-use-postman-with-digital-twins/postman-edit-collection.png":::
 
 Follow these steps to add a bearer token to the collection for authorization. This is where you'll use the token value you gathered in the [Get bearer token](#get-bearer-token) section in order to use it for all API requests in your collection.
 
 1. In the edit dialog for your collection, make sure you're on the **Authorization** tab. 
 
-    :::image type="content" source="media/how-to-use-postman/postman-authorization-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Authorization' tab." lightbox="media/how-to-use-postman/postman-authorization-imported.png":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-authorization-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Authorization' tab." lightbox="media/how-to-use-postman-with-digital-twins/postman-authorization-imported.png":::
 
 1. Set the Type to **OAuth 2.0**, paste your access token into the Access Token box, and select **Save**.
 
-    :::image type="content" source="media/how-to-use-postman/postman-paste-token-imported.png" alt-text="Screenshot of Postman edit dialog for the imported collection, on the 'Authorization' tab. Type is 'OAuth 2.0', and Access Token box is highlighted." lightbox="media/how-to-use-postman/postman-paste-token-imported.png":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-paste-token-imported.png" alt-text="Screenshot of Postman edit dialog for the imported collection, on the 'Authorization' tab. Type is 'OAuth 2.0', and Access Token box is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-paste-token-imported.png":::
 
 ### Additional configuration
 
@@ -170,7 +170,7 @@ If you're making a [data plane](concepts-apis-sdks.md#overview-data-plane-apis) 
 
 1. Use your instance's **host name** from the [Prerequisites section](#prerequisites) to set the CURRENT VALUE field of the relevant variable. Select **Save**.
 
-    :::image type="content" source="media/how-to-use-postman/postman-variables-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Variables' tab. The 'CURRENT VALUE' field is highlighted." lightbox="media/how-to-use-postman/postman-variables-imported.png":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-variables-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Variables' tab. The 'CURRENT VALUE' field is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-variables-imported.png":::
 
 1. If your collection has additional variables, fill and save those values as well.
 
@@ -194,7 +194,7 @@ You can edit the details of a request in the Postman collection using these step
 
 1. Fill in values for the variables listed in the **Params** tab under **Path Variables**.
 
-    :::image type="content" source="media/how-to-use-postman/postman-request-details-imported.png" alt-text="Screenshot of Postman. The collection is expanded to show a request. The 'Path Variables' section is highlighted in the request details." lightbox="media/how-to-use-postman/postman-request-details-imported.png":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-request-details-imported.png" alt-text="Screenshot of Postman. The collection is expanded to show a request. The 'Path Variables' section is highlighted in the request details." lightbox="media/how-to-use-postman-with-digital-twins/postman-request-details-imported.png":::
 
 1. Provide any necessary **Headers** or **Body** details in the respective tabs.
 
@@ -210,15 +210,15 @@ Instead of importing the existing collection of all Azure Digital Twins APIs, yo
 
 1. To create a collection, select the **New** button in the main postman window.
 
-    :::image type="content" source="media/how-to-use-postman/postman-new.png" alt-text="Screenshot of the main Postman window. The 'New' button is highlighted." lightbox="media/how-to-use-postman/postman-new.png":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-new.png" alt-text="Screenshot of the main Postman window. The 'New' button is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-new.png":::
 
     Choose a type of **Collection**.
 
-    :::image type="content" source="media/how-to-use-postman/postman-new-collection-2.png" alt-text="Screenshot of the 'Create New' dialog in Postman. The 'Collection' option is highlighted.":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-new-collection-2.png" alt-text="Screenshot of the 'Create New' dialog in Postman. The 'Collection' option is highlighted.":::
 
 1. This will open a tab for filling the details of the new collection. Select the Edit icon next to the collection's default name (**New Collection**) to replace it with your own choice of name. 
 
-    :::image type="content" source="media/how-to-use-postman/postman-new-collection-3.png" alt-text="Screenshot of the new collection's edit dialog in Postman. The Edit icon next to the name 'New Collection' is highlighted." lightbox="media/how-to-use-postman/postman-new-collection-3.png":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-new-collection-3.png" alt-text="Screenshot of the new collection's edit dialog in Postman. The Edit icon next to the name 'New Collection' is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-new-collection-3.png":::
 
 Next, continue on to the next section to add a bearer token to the collection for authorization.
 
@@ -228,17 +228,17 @@ Follow these steps to add a bearer token to the collection for authorization. Th
 
 1. Still in the edit dialog for your new collection, move to the **Authorization** tab.
 
-    :::image type="content" source="media/how-to-use-postman/postman-authorization-custom.png" alt-text="Screenshot of the new collection's edit dialog in Postman, showing the 'Authorization' tab." lightbox="media/how-to-use-postman/postman-authorization-custom.png":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-authorization-custom.png" alt-text="Screenshot of the new collection's edit dialog in Postman, showing the 'Authorization' tab." lightbox="media/how-to-use-postman-with-digital-twins/postman-authorization-custom.png":::
 
 1. Set the Type to **OAuth 2.0**, paste your access token into the Access Token box, and select **Save**.
 
-    :::image type="content" source="media/how-to-use-postman/postman-paste-token-custom.png" alt-text="Screenshot of the Postman edit dialog for the new collection, on the 'Authorization' tab. Type is 'OAuth 2.0', and Access Token box is highlighted." lightbox="media/how-to-use-postman/postman-paste-token-custom.png":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-paste-token-custom.png" alt-text="Screenshot of the Postman edit dialog for the new collection, on the 'Authorization' tab. Type is 'OAuth 2.0', and Access Token box is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-paste-token-custom.png":::
 
 When you're finished with the above steps, you're done configuring the collection. You can close the edit tab for the new collection if you want.
 
 The new collection can be seen from your main Postman view, in the Collections tab.
 
-:::image type="content" source="media/how-to-use-postman/postman-post-collection-custom.png" alt-text="Screenshot of the main Postman window. The newly created custom collection is highlighted in the 'Collections' tab." lightbox="media/how-to-use-postman/postman-post-collection-custom.png":::
+:::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-post-collection-custom.png" alt-text="Screenshot of the main Postman window. The newly created custom collection is highlighted in the 'Collections' tab." lightbox="media/how-to-use-postman-with-digital-twins/postman-post-collection-custom.png":::
 
 ## Add an individual request
 
@@ -246,17 +246,17 @@ Now that your collection is set up, you can add your own requests to the Azure D
 
 1. To create a request, use the **New** button again.
 
-    :::image type="content" source="media/how-to-use-postman/postman-new.png" alt-text="Screenshot of the main Postman window. The 'New' button is highlighted." lightbox="media/how-to-use-postman/postman-new.png":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-new.png" alt-text="Screenshot of the main Postman window. The 'New' button is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-new.png":::
 
     Choose a type of **Request**.
 
-    :::image type="content" source="media/how-to-use-postman/postman-new-request-2.png" alt-text="Screenshot of the 'Create New' dialog in Postman. The 'Request' option is highlighted.":::
+    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-new-request-2.png" alt-text="Screenshot of the 'Create New' dialog in Postman. The 'Request' option is highlighted.":::
 
 1. This action opens the SAVE REQUEST window, where you can enter a name for your request, give it an optional description, and choose the collection that it's a part of. Fill in the details and save the request to the collection you created earlier.
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-use-postman/postman-save-request.png" alt-text="Screenshot of 'Save request' window in Postman showing the fields described. The 'Save to Azure Digital Twins collection' button is highlighted.":::
+            :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-save-request.png" alt-text="Screenshot of 'Save request' window in Postman showing the fields described. The 'Save to Azure Digital Twins collection' button is highlighted.":::
         :::column-end:::
         :::column:::
         :::column-end:::
@@ -264,7 +264,7 @@ Now that your collection is set up, you can add your own requests to the Azure D
 
 You can now view your request under the collection, and select it to pull up its editable details.
 
-:::image type="content" source="media/how-to-use-postman/postman-request-details-custom.png" alt-text="Screenshot of Postman. The Azure Digital Twins collection is expanded to show the request's details." lightbox="media/how-to-use-postman/postman-request-details-custom.png":::
+:::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-request-details-custom.png" alt-text="Screenshot of Postman. The Azure Digital Twins collection is expanded to show the request's details." lightbox="media/how-to-use-postman-with-digital-twins/postman-request-details-custom.png":::
 
 ### Set request details
 
@@ -275,24 +275,24 @@ To proceed with an example query, this article will use the Query API (and its [
 1. Get the request URL and type from the reference documentation. For the Query API, this is currently *POST* `https://digitaltwins-host-name/query?api-version=2020-10-31`.
 1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's host name from the [Prerequisites section](#prerequisites).
     
-   :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Screenshot of the new request's details in Postman. The query URL from the reference documentation has been filled into the request URL box." lightbox="media/how-to-use-postman/postman-request-url.png":::
+   :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-request-url.png" alt-text="Screenshot of the new request's details in Postman. The query URL from the reference documentation has been filled into the request URL box." lightbox="media/how-to-use-postman-with-digital-twins/postman-request-url.png":::
     
 1. Check that the parameters shown for the request in the **Params** tab match those described in the reference documentation. For this request in Postman, the `api-version` parameter was automatically filled when the request URL was entered in the previous step. For the Query API, this is the only required parameter, so this step is done.
 1. In the **Authorization** tab, set the Type to **Inherit auth from parent**. This indicates that this request will use the authorization you set up earlier for the entire collection.
 1. Check that the headers shown for the request in the **Headers** tab match those described in the reference documentation. For this request, several headers have been automatically filled. For the Query API, none of the header options are required, so this step is done.
 1. Check that the body shown for the request in the **Body** tab matches the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example body for this request that queries for all the digital twins in the instance:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Screenshot of the new request's details in Postman, on the Body tab. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'." lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-request-body.png" alt-text="Screenshot of the new request's details in Postman, on the Body tab. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'." lightbox="media/how-to-use-postman-with-digital-twins/postman-request-body.png":::
 
    For more information about crafting Azure Digital Twins queries, see [Query the twin graph](how-to-query-graph.md).
 
 1. Check the reference documentation for any other fields that may be required for your type of request. For the Query API, all requirements have now been met in the Postman request, so this step is done.
 1. Use the **Send** button to send your completed request.
-   :::image type="content" source="media/how-to-use-postman/postman-request-send.png" alt-text="Screenshot of Postman showing the details of the new request. The Send button is highlighted." lightbox="media/how-to-use-postman/postman-request-send.png":::
+   :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-request-send.png" alt-text="Screenshot of Postman showing the details of the new request. The Send button is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-request-send.png":::
 
 After sending the request, the response details will appear in the Postman window below the request. You can view the response's status code and any body text.
 
-:::image type="content" source="media/how-to-use-postman/postman-request-response.png" alt-text="Screenshot of the sent request in Postman. Below the request details, the response is shown. Status is 200 OK and body shows query results." lightbox="media/how-to-use-postman/postman-request-response.png":::
+:::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-request-response.png" alt-text="Screenshot of the sent request in Postman. Below the request details, the response is shown. Status is 200 OK and body shows query results." lightbox="media/how-to-use-postman-with-digital-twins/postman-request-response.png":::
 
 You can also compare the response to the expected response data given in the reference documentation, to verify the result or learn more about any errors that arise.
 

@@ -1,17 +1,17 @@
 ---
-title: "Troubleshoot failed service request: Error 404 (Sub-Domain not found)"
+title: "Troubleshoot Azure Digital Twins: Error 404 (Sub-Domain not found)"
 titleSuffix: Azure Digital Twins
-description: Learn how to diagnose and resolve error 404 (Sub-Domain not found) status responses from Azure Digital Twins.
+description: Learn how to diagnose and resolve error 404 (Sub-Domain not found) failed service requests from Azure Digital Twins.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 02/22/2022
+ms.date: 09/06/2022
 ---
 
-# Troubleshoot failed service request: Error 404 (Sub-Domain not found)
+# Troubleshoot Azure Digital Twins failed service request: Error 404 (Sub-Domain not found)
 
-This article describes causes and resolution steps for receiving a 404 error from service requests to Azure Digital Twins. 
+This article describes causes and resolution steps for receiving a 404 error from service requests to Azure Digital Twins. This information is specific to the Azure Digital Twins service.
 
 ## Symptoms
 
