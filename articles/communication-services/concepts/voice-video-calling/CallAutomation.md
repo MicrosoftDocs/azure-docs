@@ -22,8 +22,8 @@ Azure Communication Services Call Automation provides developers the ability to 
 
 Some of the common use cases that can be build using Call Automation include:
 
-- Program calls for transactional workflows such as click2call and appointment reminders to improve customer service.
-- Build IVR workflows to self-serve customers for use cases like order bookings and updates, using Play (Audio URL) and Recognize (DTMF) actions.
+- Program VoIP or PSTN calls for transactional workflows such as click-to-call and appointment reminders to improve customer service.
+- Build interactive interaction workflows to self-serve customers for use cases like order bookings and updates, using Play (Audio URL) and Recognize (DTMF) actions.
 - Integrate your communication applications with Contact Centers and your private telephony networks using Direct Routing.
 - Protect your customer's identity by building number masking services to connect buyers to sellers or users to partner vendors on your platform.
 - Increase engagement by building automated customer outreach programs for marketing and customer service.
@@ -55,13 +55,13 @@ The following list presents the set of features which are currently available in
 |                       | Get a participant in a call                       | ✔️    | ✔️    |
 |                       | List all participants in a call                   | ✔️    | ✔️    |
 
-*Redirecting a call to a phone number is not supported.
+* Redirecting a call to a phone number is currently not supported.
 
-** Transfer of VoIP call to a phone number is not supported.
+** Transfer of VoIP call to a phone number is currently not supported.
 
 ## Architecture
 
-Calling Automation uses a REST API interface to receive requests and provide responses to all actions performed within the service. Due to the asynchronous nature of calling, most actions will have corresponding events which are triggered when the action completes successfully or fails.
+Call Automation uses a REST API interface to receive requests and provide responses to all actions performed within the service. Due to the asynchronous nature of calling, most actions will have corresponding events which are triggered when the action completes successfully or fails.
 
 Event Grid – Azure Communication Services uses Event Grid to deliver the IncomingCall event which can be triggered by an inbound PSTN call to a number you have acquired in the portal or by connecting your telephony infrastructure using an SBC. The IncomingCall event is also sent for any call between Azure Communication Services users (one-to-one), when a user is added to an existing call (group call) or an existing 1:1 call is transferred to a communication user.
 
@@ -133,7 +133,7 @@ The Call Automation events are sent to the web hook callback URI specified when 
 
 ## Known Issues
 
-1. If a call is transferred to an invalid CommunicationUserIdentifier that doesnt exist, the call action returns a 500 error instead of a 400 error code.
+1. Using the incorrect IdentifierType for endpoints for `Transfer` requests (like using CommunicationUserIdentifier to specify a phone number) returns a 500 error instead of a 400 error code. Solution: Use the correct type, CommunicationUserIdentifier for Communication Users and PhoneNumberIdentifier for phone numbers. 
 2. Taking a pre-call action like Answer/Reject on the original call after redirected it gives a 200 success instead of failing on 'call not found'.
 
 ## Next Steps
