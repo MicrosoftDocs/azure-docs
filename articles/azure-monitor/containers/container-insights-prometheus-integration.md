@@ -15,7 +15,7 @@ Typically, to use Prometheus, you need to set up and manage a Prometheus server 
 :::image type="content" source="./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png" alt-text="Diagram that shows container monitoring architecture for Prometheus." border="false" lightbox="media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png":::
 
 >[!NOTE]
->The minimum agent version supported for scraping Prometheus metrics is ciprod07092019. The agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019.
+>The minimum agent version supported for scraping Prometheus metrics is ciprod07092019. The agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019. For Red Hat OpenShift v4, the agent version is ciprod04162020 or later.
 >
 >For more information about the agent versions and what's included in each release, see [Agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
 >To verify your agent version, select the **Insights** tab of the resource. From the **Nodes** tab, select a node. In the properties pane, note the value of the **Agent Image Tag** property.
@@ -25,6 +25,7 @@ Scraping of Prometheus metrics is supported with Kubernetes clusters hosted on:
 - Azure Kubernetes Service (AKS).
 - Azure Stack or on-premises.
 - Azure Arc enabled Kubernetes.
+- Red Hat OpenShift version 4.x through cluster connect to Azure Arc.
 
 ### Prometheus scraping settings
 
@@ -64,6 +65,7 @@ Perform the following steps to configure your ConfigMap configuration file for t
 
 * Azure Kubernetes Service (AKS)
 * Azure Stack or on-premises
+* Red Hat OpenShift version 4.x
 
 1. [Download](https://aka.ms/container-azm-ms-agentconfig) the template ConfigMap YAML file and save it as container-azm-ms-agentconfig.yaml.
 
@@ -145,6 +147,7 @@ For the following Kubernetes environments:
 
 - Azure Kubernetes Service (AKS)
 - Azure Stack or on-premises
+- Red Hat OpenShift version 4.x
 
 run the command `kubectl apply -f <config3. map_yaml_file.yaml>`.
 

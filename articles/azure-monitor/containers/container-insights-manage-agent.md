@@ -39,6 +39,7 @@ Perform the following steps to upgrade the agent on a Kubernetes cluster running
 
 * Self-managed Kubernetes clusters hosted on Azure using AKS Engine.
 * Self-managed Kubernetes clusters hosted on Azure Stack or on-premises using AKS Engine.
+* Red Hat OpenShift version 4.x.
 
 If the Log Analytics workspace is in commercial Azure, run the following command:
 
