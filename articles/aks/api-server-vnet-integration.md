@@ -200,25 +200,23 @@ az aks update -n <cluster-name> \
     --apiserver-subnet-id <apiserver-subnet-resource-id>
 ```
 
-## Enable or disable private cluster mode on an existing API Server VNet Integration cluster
+## Enable or disable private cluster mode on an existing cluster with API Server VNet Integration
 
 AKS clusters configured with API Server VNet Integration can have public network access/private cluster mode enabled or disabled without redeploying the cluster.
 
 ### Enable private cluster mode
 
 ```azurecli-interactive
-az aks create -n <cluster-name> \
+az aks update -n <cluster-name> \
     -g <resource-group> \
-    -l <location> \
     --enable-private-cluster
 ```
 
 ### Disable private cluster mode
 
 ```azurecli-interactive
-az aks create -n <cluster-name> \
+az aks update -n <cluster-name> \
     -g <resource-group> \
-    -l <location> \
     --disable-private-cluster
 ```
 
