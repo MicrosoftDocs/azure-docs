@@ -51,14 +51,6 @@ In this article, you learn how to secure inferencing environments (online endpoi
 
 + If using Azure Kubernetes Service (AKS), you must have an existing AKS cluster secured as described in the [Secure Azure Kubernetes Service inference environment](how-to-secure-kubernetes-inferencing-environment.md) article.
 
-## Limitations
-
-### Azure Kubernetes Service
-
-* If your AKS cluster is behind of a VNET, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please read tutorial [create a secure workspace](tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
-* If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
-* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](/azure/aks/private-clusters) is __not supported__ with Azure Machine learning.
-
 ## Secure managed online endpoints
 
 For information on securing managed online endpoints, see the [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md) article.
@@ -71,8 +63,6 @@ To configure and attach an Azure Kubernetes Service cluster for secure inference
 1. [Attach the Kubernetes cluster to the workspace](how-to-attach-kubernetes-anywhere.md).
 
 Afterwards, you can use the cluster for inference deployments to online endpoints. For more information, see [How to deploy an online endpoint](how-to-deploy-managed-online-endpoints.md).
-
-
 
 ## Limit outbound connectivity from the virtual network
 
