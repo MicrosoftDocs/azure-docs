@@ -38,7 +38,7 @@ For a list of data stores that are supported as sources/sinks, see [Supported da
 Specifically, this generic REST connector supports:
 
 - Copying data from a REST endpoint by using the **GET** or **POST** methods and copying data to a REST endpoint by using the **POST**, **PUT** or **PATCH** methods.
-- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Service principal**, and **user-assigned managed identity**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Service Principal**, and **user-assigned managed identity**.
 - **[Pagination](#pagination-support)** in the REST APIs.
 - For REST as source, copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
@@ -94,7 +94,7 @@ The following properties are supported for the REST linked service:
 
 For different authentication types, see the corresponding sections for details.
 - [Basic authentication](#use-basic-authentication)
-- [Service principal authentication](#use-aad-service-principal-authentication)
+- [Service Principal authentication](#use-aad-service-principal-authentication)
 - [OAuth2 Client Credential authentication](#use-oauth2-client-credential-authentication)
 - [User-assigned managed identity authentication](#use-user-assigned-managed-identity-authentication)
 - [Anonymous authentication](#using-authentication-headers)
@@ -132,7 +132,7 @@ Set the **authenticationType** property to **Basic**. In addition to the generic
 }
 ```
 
-### Use service principal authentication
+### Use Service Principal authentication
 
 Set the **authenticationType** property to **AadServicePrincipal**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
@@ -142,7 +142,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 | servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
 | aadResourceId | Specify the Microsoft Azure Active Directory (Azure AD) resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| azureCloudType | For Service Principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 
 **Example**                                                                          
 
