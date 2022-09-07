@@ -221,8 +221,7 @@ az aks update -n <cluster-name> \
 ```
 
 ## Limitations 
-* Existing AKS clusters cannot be converted to API Server VNet Integration clusters at this time.
-* Only [private clusters](private-clusters.md) are supported at this time.
+* Existing AKS private clusters cannot be converted to API Server VNet Integration clusters at this time.
 * [Private Link Service][private-link-service] will not work if deployed against the API Server injected addresses at this time, so the API server cannot be exposed to other virtual networks via private link. To access the API server from outside the cluster network, utilize either [VNet peering][virtual-network-peering] or [AKS run command][command-invoke].
 
 <!-- LINKS - internal -->
