@@ -292,7 +292,7 @@ When performing a migration, be sure to keep the following best practices in min
   * Test migrations are important for ensuring that you cover all aspects of the database migration, including application testing. The best practice is to begin by running a migration entirely for testing purposes. After a newly started migration enters the Replicate Data Changes phase with minimal lag, make your Flexible Server target the primary database server. Use that target for testing the application to ensure expected performance and results. If you're migrating to a higher MySQL version, test for application compatibility.
   * After testing is completed, you can migrate the production databases. At this point, you need to finalize the day and time of production migration. Ideally, there's low application use at this time. All stakeholders who need to be involved should be available and ready. The production migration requires close monitoring. For an online migration, the replication must be completed before you perform the cutover, to prevent data loss.
 * Redirect all dependent applications to access the new primary database and open the applications for production usage.
-* After the application starts running on the target flexible server target, monitor the database performance closely to see if performance tuning is required.
+* After the application starts running on the target flexible server, monitor the database performance closely to see if performance tuning is required.
 
 ## Next steps
 
