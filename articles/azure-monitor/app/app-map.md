@@ -273,7 +273,7 @@ Enable the **Intelligent view** toggle. Optionally, to change the sensitivity of
 
 After you enable **Intelligent view**, select one of the highlighted edges to see the "actionable insights." The insights appear in the pane on the right and explain why the edge was highlighted.
 
-:::image type="content" source="media/app-map/intelligent-view-highlight-explanation.png" alt-text="Screenshot that shows the Application Map user interface Why is this highlighted? section." lightbox="media/app-map/intelligent-view-highlight-explanation.png":::
+:::image type="content" source="media/app-map/intelligent-view-highlight-explanation.png" alt-text="Screenshot that shows the Application Map user interface section about actionable insights." lightbox="media/app-map/intelligent-view-highlight-explanation.png":::
 
 To begin troubleshooting, select **Investigate failures**. In the **Failures** pane that opens, investigate if the detected issue is the root cause. If no edges are red, the machine learning model didn't find potential incidents in the dependencies of your application.
 
