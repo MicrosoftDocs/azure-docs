@@ -43,7 +43,7 @@ As part of creating your private mobile network, you can provision one or more S
 If you want to provision SIMs as part of deploying your private mobile network, take the following steps.
 
 1. Choose the configuration values for a new SIM group to which all of the SIMs you provision will be added.
-    - An encryption type. Microsoft-managed keys (MMK) by default, or Customer-managed keys (CMK).
+    - An encryption type. Microsoft-managed keys (MMK) by default, or customer-managed keys (CMK).
     - If you select CMK encryption, a new set of fields will appear.  
     You must create a Key URI in your [Azure Key Vault](../key-vault/). CMK encryption requires a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview) with read, wrap, and unwrap access to the key. The SIM group will access the key via the user-assigned identity.  
     Additionally, the key must be configured to have an activation and expiration date. We recommend that you enable automatic rotation for the key.  
@@ -55,9 +55,9 @@ If you want to provision SIMs as part of deploying your private mobile network, 
    |The name for the SIM group resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM group name**|`simGroupName`|
    |The region that the SIM group belongs to.|**Region**|`simGroupRegion`|
    |The mobile network that the SIM group belongs to.|**Mobile network**|`simGroupMobileNetwork`|
-   |The chosen encryption type for the SIM group. Microsoft-managed keys (MMK) by default, or Customer-managed keys (CMK).|**Encryption Type**|`simGroupEncryption`|
-   |The Azure Key Vault URI containing the Customer-managed Key for the SIM group.|**Key URI**|`simGroupKeyURI`|
-   |The User-assigned identity for accessing the SIM group's Customer-managed Key within the Azure Key Vault.|**User-assigned identity**|`simGroupUserAssignedIdentity`|
+   |The chosen encryption type for the SIM group. Microsoft-managed keys (MMK) by default, or customer-managed keys (CMK).|**Encryption Type**|`simGroupEncryption`|
+   |The Azure Key Vault URI containing the customer-managed Key for the SIM group.|**Key URI**|`simGroupKeyURI`|
+   |The User-assigned identity for accessing the SIM group's customer-managed Key within the Azure Key Vault.|**User-assigned identity**|`simGroupUserAssignedIdentity`|
   
 1. Choose one of the following methods for provisioning your SIMs:
 
