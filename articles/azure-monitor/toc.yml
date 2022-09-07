@@ -86,13 +86,14 @@ items:
     href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
   - name: Self-monitoring
     href: monitor-azure-monitor.md 
-- name: Data sources
-  href: data-sources.md
-- name: Data collection and processing
+
+- name: Data collection
   items:
   - name: Overview
     displayName: data collection, data collection rules
     href: essentials/data-collection.md
+  - name: Data sources
+    href: data-sources.md
   - name: Azure Monitor Agent
     items:
       - name: Overview
