@@ -1,4 +1,13 @@
-
+---
+title: Create more than one elastic SAN volume
+description: Azure PowerShell Script Sample - Create more than one elastic SAN volume
+author: roygara
+ms.service: storage
+ms.topic: sample
+ms.date: 08/01/2022
+ms.author: rogarana
+ms.subservice: elastic-san
+---
 
 ```azurepowershell
 $volumeCount = 5

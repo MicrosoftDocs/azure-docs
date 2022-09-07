@@ -101,7 +101,7 @@ New-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSANName $sanName 
 
 Now that you've configured the SAN itself, and created at least one volume group, you can create volumes.
 
-Volumes are usable partitions of the SAN's total capacity, you must provision this total capacity as a volume in order to access it. Only the actual volumes themselves can be mounted and used, not the volume group.
+Volumes are usable partitions of the SAN's total capacity, you must allocate a portion of that total capacity as a volume in order to use it. Only the actual volumes themselves can be mounted and used, not volume groups.
 
 # [Portal](#tab/azure-portal)
 
