@@ -18,7 +18,7 @@ An Azure Kubernetes Service (AKS) cluster with API Server VNet Integration confi
 
 The control plane or API server is in an Azure Kubernetes Service (AKS)-managed Azure subscription. A customer's cluster or node pool is in the customer's subscription. The server and the virtual machines that make up the cluster nodes can communicate with each other through the API server VIP and pod IPs that are projected into the delegated subnet.
 
-API Server VNet integration is supported for public or private clusters, and public access can be added or removed after cluster provisioning. Unlike non-VNet integrated clusters, the agent nodes always communicate directly with the private IP address of the API Server Internal Load Balancer (ILB) IP without using DNS. All node to API server traffic is kept on private networking and no tunnel is required for API server to node connectivity. Out-of-cluster clients needing to communicate with the API server can do so normally if public network access is enabled. If public network access is disabled, they should follow the same private DNS setup methodology as standard [private clusters](private-clusters.md).
+API Server VNet Integration is supported for public or private clusters, and public access can be added or removed after cluster provisioning. Unlike non-VNet integrated clusters, the agent nodes always communicate directly with the private IP address of the API Server Internal Load Balancer (ILB) IP without using DNS. All node to API server traffic is kept on private networking and no tunnel is required for API server to node connectivity. Out-of-cluster clients needing to communicate with the API server can do so normally if public network access is enabled. If public network access is disabled, they should follow the same private DNS setup methodology as standard [private clusters](private-clusters.md).
 
 ## Region availability
 
@@ -68,7 +68,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Create an AKS cluster with API Server VNet Integration using Managed VNet
 
-AKS clusters with API Server VNet Integration can be configured in either managed VNet or bring-your-own VNet mode. 
+AKS clusters with API Server VNet Integration can be configured in either managed VNet or bring-your-own VNet mode. They can be created as either public clusters (with API server access available via a public IP) or private clusters (where the API server is only accessible via private VNet connectivity), and can be toggled between these two states without redeploying.
 
 ### Create a resource group
 
@@ -186,7 +186,7 @@ az aks create -n <cluster-name> \
 
 ## Convert an existing AKS cluster to API Server VNet Integration
 
-Existing AKS public clusters can be converted to API Server VNet Integration clusters by supplying an API server subnet per the requirements above. This is a one-way migration; clusters cannot have API Server VNet Integration disabled after it has been enabled.
+Existing AKS public clusters can be converted to API Server VNet Integration clusters by supplying an API server subnet that meets the requirements above (in the same VNet as the cluster nodes, permissions granted for the AKS cluster identity, and size of at least /28). This is a one-way migration; clusters cannot have API Server VNet Integration disabled after it has been enabled.
 
 This upgrade will perform a node-image version upgrade on all node pools - all workloads will be restarted as all nodes will undergo a rolling image upgrade.
 
@@ -202,7 +202,7 @@ az aks update -n <cluster-name> \
 
 ## Enable or disable private cluster mode on an existing cluster with API Server VNet Integration
 
-AKS clusters configured with API Server VNet Integration can have public network access/private cluster mode enabled or disabled without redeploying the cluster.
+AKS clusters configured with API Server VNet Integration can have public network access/private cluster mode enabled or disabled without redeploying the cluster. The API server hostname will not change, but public DNS entries will be modified or removed as appropriate.
 
 ### Enable private cluster mode
 
@@ -220,7 +220,8 @@ az aks update -n <cluster-name> \
     --disable-private-cluster
 ```
 
-## Limitations 
+## Limitations
+
 * Existing AKS private clusters cannot be converted to API Server VNet Integration clusters at this time.
 * [Private Link Service][private-link-service] will not work if deployed against the API Server injected addresses at this time, so the API server cannot be exposed to other virtual networks via private link. To access the API server from outside the cluster network, utilize either [VNet peering][virtual-network-peering] or [AKS run command][command-invoke].
 
