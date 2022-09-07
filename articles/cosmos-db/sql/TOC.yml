@@ -418,6 +418,8 @@
           href: ../how-to-define-unique-keys.md
         - name: Perform transactional batch operations
           href: transactional-batch.md
+        - name: Delete items by partition key (preview)
+          href: how-to-delete-by-partition-key.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge.md

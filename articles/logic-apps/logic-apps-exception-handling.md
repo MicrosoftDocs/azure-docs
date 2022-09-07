@@ -7,7 +7,7 @@ author: dereklee
 ms.author: deli
 ms.reviewer: estfan, laveeshb, azla
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 09/07/2022
 ---
 
 # Handle errors and exceptions in Azure Logic Apps
@@ -82,7 +82,6 @@ Connector operations that support retry policies use the **Default** policy unle
    | `type` | <*retry-policy-type*> | String | The retry policy type to use: `default`, `none`, `fixed`, or `exponential` |
    | `count` | <*retry-attempts*> | Integer | For `fixed` and `exponential` policy types, the number of retry attempts, which is a value from 1 - 90. For more information, review [Fixed Interval](#fixed-interval) and [Exponential Interval](#exponential-interval). |
    | `interval`| <*retry-interval*> | String | For `fixed` and `exponential` policy types, the retry interval value in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). For the `exponential` policy, you can also specify [optional maximum and minimum intervals](#optional-max-min-intervals). For more information, review [Fixed Interval](#fixed-interval) and [Exponential Interval](#exponential-interval). <br><br>**Consumption**: 5 seconds (`PT5S`) to 1 day (`P1D`). <br>**Standard**: For stateful workflows, 5 seconds (`PT5S`) to 1 day (`P1D`). For stateless workflows, 1 second (`PT1S`) to 1 minute (`PT1M`). |
-   |||||
 
    <a name="optional-max-min-intervals"></a>
 
@@ -92,7 +91,6 @@ Connector operations that support retry policies use the **Default** policy unle
    |----------|-------|------|-------------|
    | `maximumInterval` | <*maximum-interval*> | String | For the `exponential` policy, the largest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default value is 1 day (`P1D`). For more information, review [Exponential Interval](#exponential-interval). |
    | `minimumInterval` | <*minimum-interval*> | String | For the `exponential` policy, the smallest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default value is 5 seconds (`PT5S`). For more information, review [Exponential Interval](#exponential-interval). |
-   |||||
 
 <a name="default"></a>
 
@@ -161,7 +159,6 @@ The exponential interval retry policy specifies that the trigger or action waits
 |------|-------------------|----------------|-------|
 | Maximum delay | Default: 1 day | Default: 1 hour | To change the default limit in a Consumption logic app workflow, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in a Standard logic app workflow, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 | Minimum delay | Default: 5 sec | Default: 5 sec | To change the default limit in a Consumption logic app workflow, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in a Standard logic app workflow, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-|||||
 
 **Random variable ranges**
 

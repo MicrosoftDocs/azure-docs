@@ -113,10 +113,9 @@ With these best practices in mind, create your target flexible server and then c
     * To ensure faster data loads when using DMS, configure the following server parameters as described.
       * max_allowed_packet – set to 1073741824 (i.e., 1GB) to prevent any connection issues due to large rows.
       * slow_query_log – set to OFF to turn off the slow query log. This will eliminate the overhead caused by slow query logging during data loads.
-      * query_store_capture_mode – set to NONE to turn off the Query Store. This will eliminate the overhead caused by sampling activities by Query Store.
-      * innodb_buffer_pool_size – Innodb_buffer_pool_size can only be increased by scaling up compute for Azure Database for MySQL server. Scale up the server to 64 vCore General Purpose SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size.
-      * innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.to-flex-offlinealt-text="Screenshot of a 
-      * innodb_write_io_threads & innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
+      * innodb_buffer_pool_size – can only be increased by scaling up compute for Azure Database for MySQL server. Scale up the server to 64 vCore General Purpose SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size.
+      * innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.
+      * innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
   * Configure the firewall rules and replicas on the target server to match those on the source server.
   * Replicate the following server management features from the source single server to the target flexible server:
     * Role assignments, Roles, Deny Assignments, classic administrators, Access Control (IAM)
@@ -134,10 +133,10 @@ With your target flexible server deployed and configured, you next need to set u
 To register the Microsoft.DataMigration resource provider, perform the following steps.
 
 1. Before creating your first DMS instance, sign in to the Azure portal, and then search for and select **Subscriptions**.
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/1-subscriptions.png" alt-text="Screenshot of a Azure Marketplace.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/1-subscriptions.png" alt-text="Screenshot of an Azure Marketplace.":::
 
 2. Select the subscription that you want to use to create the DMS instance, and then select **Resource providers**.
-    :::image type="content" source="media/tutorial-Azure-mysql-single-to-flex-offline/2-resource-provider.png" alt-text="Screenshot of a Screenshot of a Select resource provider.":::
+    :::image type="content" source="media/tutorial-Azure-mysql-single-to-flex-offline/2-resource-provider.png" alt-text="Screenshot of a Select resource provider.":::
 
 3. Search for the term “Migration”, and then, for **Microsoft.DataMigration**, select **Register**.
     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/3-register.png" alt-text="Screenshot of a Select Register.":::
@@ -211,7 +210,7 @@ To create a migration project, perform the following steps.
 To configure your DMS migration project, perform the following steps.
 
 1. On the **Select source** screen, specify the connection details for the source MySQL instance.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/13-select-source-offline.png" alt-text="Screenshot of a Add source details screen.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/13-select-source-offline.png" alt-text="Screenshot of an Add source details screen.":::
     When performing an offline migration, it’s important to stop incoming traffic on the source when configuring the migration project.
 
 2. To proceed with the offline migration, select the **Make Source Server Read Only** check box.
@@ -223,7 +222,7 @@ Selecting this check box prevents Write/Delete operations on the source server d
        :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/15-select-target.png" alt-text="Screenshot of a Select target.":::
 
 4. Select **Next : Select databases>>**, and then, on the Select databases tab, under [Preview] Select server objects, select the server objects that you want to migrate.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/16-select-db.png" alt-text="Screenshot of a Select databases.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/16-select-db.png" alt-text="Screenshot of a Select database.":::
 
 5. In the **Select databases** section, under **Source Database**, select the database(s) to migrate.
     The non-table objects in the database(s) you specified will be migrated, while the items you didn’t select will be skipped.
