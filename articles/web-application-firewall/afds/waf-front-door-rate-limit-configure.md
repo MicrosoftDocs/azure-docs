@@ -68,6 +68,10 @@ You decide to create a rate limiting rule that restricts each client IP address 
 
 1. Select **Review + create**, then select **Create**.
 
+   :::image type="content" source="../media/waf-front-door-rate-limit-configure/front-door-create.png" alt-text="Screenshot of the Azure portal showing the completed Front Door profile configuration." :::
+
+1. After the deployment is finished, select **Go to resource**.
+
 ## Create a rate limit rule
 
 1. Select **Custom rules** > **Add custom rule**.
