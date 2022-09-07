@@ -100,7 +100,7 @@ Google Gson package: [com.google.code.gson : gson](https://search.maven.org/arti
 
 ## Create a Communication Services User
 
-You will need a Communication Services user to try out the functionality of adding participants to a call. If you don’t have a Communication Services user yet, you can read [here](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/identity/quick-create-identity) how to create one.
+You will need a Communication Services user to try out the functionality of adding participants to a call. If you don’t have a Communication Services user yet, you can read [here](../../../identity/quick-create-identity.md) how to create one.
 
 ## Update App.java with code
 
@@ -212,7 +212,7 @@ Install and run Ngrok with the following command: `ngrok http <port>`. This will
 
 To run your Java application, run maven compile, package, and execute commands. By default, SparkJava runs on port 4567, so the endpoints will be available at `http://localhost:4567/api/incomingCall` and `http://localhost:4567/api/callback`.
 
-Note that the application expects Ngrok base address URI to be passed as the first argument to the main method. This URI is used to register the webhook for receiving Call Automation events. Remember to replace <ngrokBaseUri> with your Ngrok URI, e.g. `https://ff2f-75-155-253-232.ngrok.io`  
+Note that the application expects Ngrok base address URI to be passed as the first argument to the main method. This URI is used to register the webhook for receiving Call Automation events. Remember to replace `ngrokBaseUri` with your Ngrok URI, e.g. `https://ff2f-75-155-253-232.ngrok.io`  
 ```console
 mvn compile
 mvn package
