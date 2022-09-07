@@ -84,3 +84,13 @@ landingContent:
             url: /azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers
           - text: Azure files accessed on-premises and secured by AD DS
             url: /azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication
+
+  # Card
+  - title: Self-paced training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Files
+            url: /training/modules/introduction-to-azure-files/
+          - text: Configure Azure Files and Azure File Sync
+            url: /training/modules/configure-azure-files-file-sync/
