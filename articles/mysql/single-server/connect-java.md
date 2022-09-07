@@ -43,9 +43,10 @@ First, set up some environment variables. In [Azure Cloud Shell](https://shell.a
 export AZ_RESOURCE_GROUP=database-workshop
 export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 export AZ_LOCATION=<YOUR_AZURE_REGION>
-export AZ_MYSQL_AD_ADMIN_USERNAME=demo
 export AZ_MYSQL_AD_NON_ADMIN_USERNAME=demo-non-admin
 export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+export CURRENT_USERNAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
+export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id -o tsv)
 ```
 
 Replace the placeholders with the following values, which are used throughout this article:
@@ -120,8 +121,8 @@ Then to set the Azure AD admin user:
 az mysql server ad-admin create \
     --resource-group $AZ_RESOURCE_GROUP \
     --server-name $AZ_DATABASE_NAME \
-    --display-name $AZ_MYSQL_AD_ADMIN_USERNAME \
-    --object-id `(az ad signed-in-user show --query id -o tsv)`
+    --display-name $CURRENT_USERNAME \
+    --object-id $CURRENT_USER_OBJECTID
 ```
 
 > [!IMPORTANT]
@@ -215,7 +216,7 @@ We've already enabled the Azure AD authentication, and this step will create an 
 Save an sql script of creating non-admin user to local:
 
 ```bash
-export AZ_MYSQL_AD_NON_ADMIN_USERID=`az ad signed-in-user show --query id -o tsv`
+export AZ_MYSQL_AD_NON_ADMIN_USERID=$CURRENT_USER_OBJECTID
 
 cat << EOF > create_ad_user.sql
 SET aad_auth_validate_oids_in_tenant = OFF;
@@ -232,7 +233,7 @@ EOF
 Run the sql script to create the Azure AD non-admin user:
 
 ```bash
-mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $AZ_MYSQL_AD_ADMIN_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` < create_ad_user.sql
+mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` < create_ad_user.sql
 ```
 
 Remove the temporary sql script file:
