@@ -2,7 +2,7 @@
 title: Build your own client-side disaster recovery for Azure Event Grid topics
 description: This article describes how you can build your own client-side disaster recovery for Azure Event Grid topics. 
 ms.topic: tutorial
-ms.date: 06/14/2022
+ms.date: 09/07/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
