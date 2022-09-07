@@ -4,11 +4,11 @@ description: This topic describes how to run scripts within an Azure Windows vir
 services: automation
 ms.service: virtual-machines
 ms.collection: windows
-author: cynthn
-ms.author: cynthn
-ms.date: 10/28/2021
+author: nikhilpatel909
+ms.author: erd
+ms.date: 09/07/2022
 ms.topic: how-to  
-ms.reviewer: jushiman
+ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Preview: Run scripts in your Windows VM by using managed Run Commands
