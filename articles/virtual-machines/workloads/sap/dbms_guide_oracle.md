@@ -11,7 +11,6 @@ ms.workload: infrastructure
 ms.date: 08/24/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Azure Virtual Machines Oracle DBMS deployment for SAP workload
