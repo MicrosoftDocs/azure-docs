@@ -71,6 +71,10 @@ Many of the NAT gateways are configured to allow the incoming traffic to the soc
 After the initial packet exchange, the client and session host may establish one or many data flows. After that, Remote Desktop Protocol chooses the fastest network path. Client then establishes a secure TLS connection with the session host and initiates the RDP Shortpath transport.
 After RDP establishes the Shortpath, all Dynamic Virtual Channels (DVCs), including remote graphics, input, and device redirection move to the new transport.
 
+The diagram below gives a high-level overview of the network connections used by Azure Virtual Desktop with RDP Shortpath for public networks and Azure AD-joined virtual machines. 
+
+:::image type="content" source="media/azure-virtual-desktop-rdpshortpath-public-connection" alt-text="Diagram of Azure Virtual Desktop Network Connections" lightbox="media/azure-virtual-desktop-rdpshortpath-public-connection":::
+
 ## Enabling the preview of RDP Shortpath for public networks
 
 To participate in the preview of RDP Shortpath, you need to enable the Shortpath functionality. You can configure RDP Shortpath on any number of session hosts used in your environment. There's no requirement to enable RDP Shortpath on all hosts in the pool.
