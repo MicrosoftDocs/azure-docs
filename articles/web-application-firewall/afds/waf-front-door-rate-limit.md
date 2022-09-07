@@ -5,7 +5,7 @@ author: johndowns
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 09/06/2022
+ms.date: 09/07/2022
 ms.author: jodowns
 ---
 
@@ -25,11 +25,11 @@ You also must specify at least one *match condition*, which tells Front Door whe
 
 For example, if you need to apply a rate limit rule to all of your requests, consider using a match condition like the following:
 
-![Screenshot of the Azure portal showing the a match condition that applies to all requests. The match condition looks for requests where the Host header size is 0 or greater.](../media/waf-front-door-rate-limit/match-condition-match-all.png)
+:::image type="content" source="../media/waf-front-door-rate-limit/match-condition-match-all.png" alt-text="Screenshot of the Azure portal showing the a match condition that applies to all requests. The match condition looks for requests where the Host header size is 0 or greater." :::
 
 The match condition above identifies all requests with a `Host` header of length greater than 0. Because all valid HTTP requests for Front Door contain a `Host` header, this match condition has the effect of matching all HTTP requests.
 
-## Rate limiting and Front Door servers
+## Rate limits and Front Door servers
 
 Requests from the same client often arrive at the same Front Door server. In that case, you'll see requests are blocked as soon as the rate limit is reached for each client IP address.
 
