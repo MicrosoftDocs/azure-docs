@@ -4,7 +4,7 @@ description: This article describes how you update Container insights to enable 
 ms.topic: conceptual
 ms.date: 08/29/2022 
 ms.custom: devx-track-azurecli
-ms.reviewer: aul
+ms.reviewer: viviandiec
 
 ---
 

@@ -3,7 +3,7 @@ title: Log alerts from Container insights | Microsoft Docs
 description: This article describes how to create custom log alerts for memory and CPU utilization from Container insights.
 ms.topic: conceptual
 ms.date: 08/29/2022
-ms.reviewer: aul
+ms.reviewer: viviandiec
 
 ---
 
