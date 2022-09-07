@@ -20,6 +20,10 @@ ms.author: radubulboaca
 - Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/RoomsQuickstart).
+
 ## Setting up
 
 ### Create a new C# application
@@ -78,7 +82,7 @@ RoomModel getCommunicationRoom = getRoomResponse.Value;
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
+The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months. 
 
 ```csharp
 var validFrom = new DateTime(2022, 05, 01, 00, 00, 00, DateTimeKind.Utc);
@@ -112,6 +116,15 @@ ParticipantsCollection addedParticipantsRoom = addParticipantResponse.Value;
 
 Participants that have been added to a `room` become eligible to join calls.
 
+### Get list of participants
+
+Retrieve the list of participants for an existing `room` by referencing the `roomId`:
+
+```csharp
+Response<ParticipantsCollection> getParticipantsResponse = await roomsClient.GetParticipantsAsync(roomId);
+ParticipantsCollection roomParticipants = getParticipantsResponse.Value;
+```
+
 ### Remove participants
 
 To remove a participant from a `room` and revoke their access, use the `RemoveParticipantsAsync` method.
@@ -132,3 +145,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 ```csharp
 Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(createdRoomId);
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [.NET SDK reference](/dotnet/api/azure.communication.rooms) or [REST API reference](/rest/api/communication/rooms).

@@ -227,6 +227,12 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 * The NetworkManager package no longer conflicts with the Azure Linux agent. This package is installed by default and we recommend that it is not removed.
 * GRUB2 is now used as the default bootloader, so the procedure for editing kernel parameters has changed (see below).
 * XFS is now the default file system. The ext4 file system can still be used if desired.
+* Since CentOS 8 Stream and newer no longer include `network.service` by default, you will need to install it manually:
+
+	```console
+	sudo yum install network-scripts
+	sudo systemctl enable network.service
+	```
 
 **Configuration Steps**
 

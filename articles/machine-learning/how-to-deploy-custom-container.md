@@ -5,8 +5,8 @@ description: Learn how to use a custom container to use open-source servers in A
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: ssambare
-author: shivanissambare
+ms.author: sehan
+author: dem108
 ms.reviewer: larryfr
 ms.date: 05/11/2022
 ms.topic: how-to

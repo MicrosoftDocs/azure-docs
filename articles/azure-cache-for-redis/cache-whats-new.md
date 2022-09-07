@@ -2,20 +2,39 @@
 title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
 author: flang-msft
+
 ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
-ms.date: 07/27/2022
+ms.date: 09/01/2022
 
 ---
 
 # What's New in Azure Cache for Redis
 
+## September 2022
+
+### Support for managed identity in Azure Cache for Redis
+
+Authenticating storage account connections using managed identity has now reached General Availability (GA).
+
+For more information, see [Managed identity for storage](cache-managed-identity.md).
+
+## August 2022
+
+### RedisJSON module available in Azure Cache for Redis Enterprise  
+
+The Enterprise and Enterprise Flash tiers of Azure Cache for Redis now support the **RedisJSON** module. This module adds native functionality to store, query, and search JSON-formatted data that allows you to store data more easily in a document-style format in Redis. By using this module, you simplify common use cases like storing product catalog or user profile data.  
+
+The **RedisJSON** module implements the community version of the module so you can use your existing knowledge and workstreams. **RedisJSON** is  designed for use with the search functionality of **RediSearch**. Using both modules provides integrated indexing and querying of data. For more information, see [RedisJSON](https://aka.ms/redisJSON).
+
+The **RediSearch** module is also now available for Azure Cache for Redis. For more information on using Redis modules in Azure Cache for Redis, see [Use Redis modules with Azure Cache for Redis](cache-redis-modules.md).
+
 ## July 2022
 
 ### Redis 6 becomes default for new cache instances
 
-On November 1, 2022, all the versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using the latest stable version of Redis offered by Azure Cache for Redis by default. Previously, Redis version 4.0 was the default version used. However, as of October 2021, the latest stable Redis version offered in Azure Cache for Redis is 6.0.
+Beginning November 1, 2022, all versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using the latest stable version of Redis offered by Azure Cache for Redis by default. Previously, Redis version 4.0 was the default version used. However, as of October 2021, the latest stable Redis version offered in Azure Cache for Redis is 6.0.
 
 >[!NOTE]
 > This change does not affect any existing instances. It is only applicable to new instances created from November 1, 2022, and onward.
@@ -76,7 +95,7 @@ Active geo-replication is a powerful tool that enables Azure Cache for Redis clu
 
 Azure Cache for Redis now supports authenticating storage account connections using managed identity. Identity is established through Azure Active Directory, and both system-assigned and user-assigned identities are supported. Support for managed identity further allows the service to establish trusted access to storage for uses including data persistence and importing/exporting cache data.
 
-For more information, see [Managed identity with Azure Cache for Redis (Preview)](cache-managed-identity.md).
+For more information, see [Managed identity with Azure Cache for Redis](cache-managed-identity.md).
 
 ## October 2021
 

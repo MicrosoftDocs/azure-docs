@@ -30,7 +30,7 @@ When designing isolated environments, it's important to consider the following p
 
 * **Use only modern authentication** - Applications deployed in isolated environments must use claims-based modern authentication (for example, SAML, * Auth, OAuth2, and OpenID Connect) to use capabilities such as federation, Azure AD B2B collaboration, delegation, and the consent framework. This way, legacy applications that have dependency on legacy authentication methods such as NT LAN Manager (NTLM) won't carry forward in isolated environments.
 
-* **Enforce strong authentication** - Strong authentication must always be used when accessing the isolated environment services and infrastructure. Whenever possible, [passwordless authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) such as [Windows for Business Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-overview) or a [FIDO2 security keys](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)) should be used.
+* **Enforce strong authentication** - Strong authentication must always be used when accessing the isolated environment services and infrastructure. Whenever possible, [passwordless authentication](../authentication/concept-authentication-passwordless.md) such as [Windows for Business Hello](/windows/security/identity-protection/hello-for-business/hello-overview) or a [FIDO2 security keys](../authentication/howto-authentication-passwordless-security-key.md)) should be used.
 
 * **Deploy secure workstations** - [Secure workstations](/security/compass/privileged-access-devices) provide the mechanism to ensure that the platform and the identity that platform represents is properly attested and secured against exploitation. Two other approaches to consider are:
 
@@ -50,7 +50,7 @@ In addition to the guidance in the [Azure Active Directory general operations gu
 
 ### Privileged Accounts
 
-Provision accounts in the isolated environment for administrative personnel and IT teams who will be operating the environment. This will enable you to add stronger security policies such as device-based access control for [secure workstations](https://docs.microsoft.com/security/compass/privileged-access-deployment). As discussed in previous sections, non-production environments can potentially utilize Azure AD B2B collaboration to onboard privileged accounts to the non-production tenants using the same posture and security controls designed for privileged access in their production environment.
+Provision accounts in the isolated environment for administrative personnel and IT teams who will be operating the environment. This will enable you to add stronger security policies such as device-based access control for [secure workstations](/security/compass/privileged-access-deployment). As discussed in previous sections, non-production environments can potentially utilize Azure AD B2B collaboration to onboard privileged accounts to the non-production tenants using the same posture and security controls designed for privileged access in their production environment.
 
 Cloud-only accounts are the simplest way to provision human identities in an Azure AD tenant and it's a good fit for greenfield environments. However, if there's an existing on-premises infrastructure that corresponds to the isolated environment (for example, pre-production or management Active Directory forest), you could consider synchronizing identities from there. This holds especially true if the on-premises infrastructure described above is also used for IaaS solutions that require server access to manage the solution data plane. For more information on this scenario, see [Protecting Microsoft 365 from on-premises attacks](../fundamentals/protect-m365-from-on-premises-attacks.md). Synchronizing from isolated on-premises environments might also be needed if there are specific regulatory compliance requirements such as smart-card only authentication.
 
@@ -73,7 +73,7 @@ Provision [emergency access accounts](../roles/security-emergency-access.md) for
 
 Use [Azure managed identities](../managed-identities-azure-resources/overview.md) for Azure resources that require a service identity. Check the [list of services that support managed identities](../managed-identities-azure-resources/managed-identities-status.md) when designing your Azure solutions.
 
-If managed identities aren't supported or not possible, consider [provisioning service principal objects](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+If managed identities aren't supported or not possible, consider [provisioning service principal objects](../develop/app-objects-and-service-principals.md).
 
 ### Hybrid service accounts
 
@@ -107,7 +107,7 @@ All human identities (local accounts and external identities provisioned through
 
 #### Passwordless credentials
 
-A [passwordless solution](../authentication/concept-authentication-passwordless.md) is the best solution for ensuring the most convenient and secure method of authentication. Passwordless credentials such as [FIDO security keys](../authentication/howto-authentication-passwordless-security-key.md) and [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-overview) are recommended for human identities with privileged roles.
+A [passwordless solution](../authentication/concept-authentication-passwordless.md) is the best solution for ensuring the most convenient and secure method of authentication. Passwordless credentials such as [FIDO security keys](../authentication/howto-authentication-passwordless-security-key.md) and [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) are recommended for human identities with privileged roles.
 
 #### Password protection
 
@@ -134,7 +134,7 @@ Check this example to [create service principals with self-signed certificate](.
 
 ### Access policies
 
-Below are some specific recommendations for Azure solutions. For general guidance on Conditional Access policies for individual environments, check the [CA Best practices](../conditional-access/overview.md), [Azure AD Operations Guide](../fundamentals/active-directory-ops-guide-auth.md), and [Conditional Access for Zero Trust](https://docs.microsoft.com/azure/architecture/guide/security/conditional-access-zero-trust):
+Below are some specific recommendations for Azure solutions. For general guidance on Conditional Access policies for individual environments, check the [CA Best practices](../conditional-access/overview.md), [Azure AD Operations Guide](../fundamentals/active-directory-ops-guide-auth.md), and [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-zero-trust):
 
 * Define [Conditional Access policies](../conditional-access/workload-identity.md) for the [Microsoft Azure Management](../authentication/howto-password-smart-lockout.md) cloud app to enforce identity security posture when accessing Azure Resource Manager. This should include controls on MFA and device-based controls to enable access only through secure workstations (more on this in the Privileged Roles section under Identity Governance). Additionally, use [Conditional Access to filter for devices](../conditional-access/concept-condition-filters-for-devices.md).
 
@@ -142,7 +142,7 @@ Below are some specific recommendations for Azure solutions. For general guidanc
 
 * Define Conditional Access policies for [security information registration](../conditional-access/howto-conditional-access-policy-registration.md) that reflects a secure root of trust process on-premises (for example, for workstations in physical locations, identifiable by IP addresses, that employees must visit in person for verification).
 
-* Consider managing Conditional Access policies at scale with automation using [MS Graph CA API](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis)). For example, you can use the API to configure, manage, and monitor CA policies consistently across tenants.
+* Consider managing Conditional Access policies at scale with automation using [MS Graph CA API](../conditional-access/howto-conditional-access-apis.md)). For example, you can use the API to configure, manage, and monitor CA policies consistently across tenants.
 
 * Consider using Conditional Access to restrict workload identities. Create a policy to limit or better control access based on location or other relevant circumstances.
 
@@ -276,7 +276,7 @@ Below are some considerations when designing a governed subscription lifecycle p
 
 ## Operations
 
-The following are additional operational considerations for Azure AD, specific to multiple isolated environments. Check the [Azure Cloud Adoption Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/), [Azure Security Benchmark](/security/benchmark/azure/) and [Azure AD Operations guide](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-ops-guide-ops) for detailed guidance to operate individual environments.
+The following are additional operational considerations for Azure AD, specific to multiple isolated environments. Check the [Azure Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/), [Azure Security Benchmark](/security/benchmark/azure/) and [Azure AD Operations guide](./active-directory-ops-guide-ops.md) for detailed guidance to operate individual environments.
 
 ### Cross-environment roles and responsibilities
 
@@ -417,7 +417,7 @@ The following scenarios must be explicitly monitored and investigated:
 
   * Assignment to Azure resources using dedicated accounts for MCA billing tasks.
 
-* **Privileged role activity** - Configure and review security [alerts generated by Azure AD PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts). If locking down direct RBAC assignments isn't fully enforceable with technical controls (for example, Owner role has to be granted to product teams to do their job), then monitor direct assignment of privileged roles outside PIM by generating alerts whenever a user is assigned directly to access the subscription with Azure RBAC.
+* **Privileged role activity** - Configure and review security [alerts generated by Azure AD PIM](../privileged-identity-management/pim-how-to-configure-security-alerts.md). If locking down direct RBAC assignments isn't fully enforceable with technical controls (for example, Owner role has to be granted to product teams to do their job), then monitor direct assignment of privileged roles outside PIM by generating alerts whenever a user is assigned directly to access the subscription with Azure RBAC.
 
 * **Classic role assignments** - Organizations should use the modern Azure RBAC role infrastructure instead of the classic roles. As a result, the following events should be monitored:
 

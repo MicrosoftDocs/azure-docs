@@ -30,7 +30,7 @@ The following document includes links to examples showing how to connect and que
 |[Go](connect-go.md)|This quickstart demonstrates how to use Go to connect to a database. Transact-SQL statements to query and modify data are also demonstrated.|
 |[Python](connect-python.md)|This quickstart demonstrates how to use Python to connect to a database and use MySQL statements to query data. |
 |[Ruby](connect-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to a database and use MySQL statements to query data.|
-|[C++](connect-cpp.md)|This quickstart demonstrates how to use C+++ to create a program to connect to a database and use  query data.|
+|[C++](connect-cpp.md)|This quickstart demonstrates how to use C++ to create a program to connect to a database and use  query data.|
 
 ## TLS considerations for database connectivity
 

@@ -2,8 +2,8 @@
 title: Azure Communication Services User Facing Diagnostics
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the User Facing Diagnostics feature.
-author: probableprime
-ms.author: rifox
+author: tophpalmer
+ms.author: chpalm
 manager: chpalm
 
 services: azure-communication-services

@@ -7,10 +7,12 @@ author: dereklee
 ms.author: deli
 ms.reviewer: estfan, laveeshb, azla
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 08/23/2022
 ---
 
 # Handle errors and exceptions in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 The way that any integration architecture appropriately handles downtime or issues caused by dependent systems can pose a challenge. To help you create robust and resilient integrations that gracefully handle problems and failures, Azure Logic Apps provides a first-class experience for handling errors and exceptions.
 

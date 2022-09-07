@@ -47,8 +47,8 @@ The Translator service can be accessed through two different resource types:
 1. **Pricing tier**. Select a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/translator) that meets your needs:
 
    * Each subscription has a free tier.
-   * The free tier has the same features and functionalities as paid plans and doesn't expire.
-   * Only have one free subscription per account is allowed.
+   * The free tier has the same features and functionality as the paid plans and doesn't expire.
+   * Only one free tier is available per subscription.
    * Document Translation isn't supported in the free tier. Select Standard S1 to try that feature.
 
 1. If you've created a multi-service resource, you'll need to confirm additional usage details via the check boxes.

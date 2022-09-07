@@ -3,7 +3,7 @@ title:  "Azure Spring Apps access app in virtual network"
 description: Access app in Azure Spring Apps in a virtual network.
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/30/2021
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
@@ -31,7 +31,7 @@ When **Assign Endpoint** on applications in an Azure Spring Apps service instanc
 
 3. In the filtered result, find the **Device** connected to the service runtime **Subnet** of the service instance, and copy its **IP Address**. In this sample, the IP Address is *10.1.0.7*.
 
-    [ ![Create DNS record](media/spring-cloud-access-app-vnet/create-dns-record.png) ](media/spring-cloud-access-app-vnet/create-dns-record.png)
+    [ ![Create DNS record](media/spring-cloud-access-app-vnet/create-dns-record.png) ](media/spring-cloud-access-app-vnet/create-dns-record.png#lightbox)
 
 #### [CLI](#tab/azure-CLI)
 

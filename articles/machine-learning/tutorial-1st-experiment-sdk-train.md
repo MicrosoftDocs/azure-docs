@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Train a first Python machine learning model "
+title: "Tutorial: Train a first Python machine learning model (SDK v2)"
 titleSuffix: Azure Machine Learning
 description: How to train a machine learning model in Azure Machine Learning. This is part 2 of a three-part getting-started series.
 services: machine-learning
@@ -10,12 +10,16 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 07/10/2022
-ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv1, event-tier1-build-2022
+ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv2
 ---
 
 # Tutorial: Train your first machine learning model (part 2 of 3)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
+> * [v1](v1/tutorial-1st-experiment-sdk-train.md)
+> * [v2 (preview)](tutorial-1st-experiment-sdk-train.md)
 
 This tutorial shows you how to train a machine learning model in Azure Machine Learning. This tutorial is _part 2 of a three-part tutorial series_.
 
@@ -251,7 +255,7 @@ if __name__ == "__main__":
 
 ### View the output
 
-1. In the page that opens, you'll see the job status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole job might around 10 minutes to complete. This image will be reused in future jobs to make them job much quicker.
+1. In the page that opens, you'll see the job status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole job might take around 10 minutes to complete. This image will be reused in future jobs to make them job much quicker.
 1. You can see view Docker build logs in the Azure Machine Learning studio. Select the **Outputs + logs** tab, and then select **20_image_build_log.txt**.
 1. When the status of the job is **Completed**, select **Output + logs**.
 1. Select **std_log.txt** to view the output of your job.

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Upload data and train a model"
+title: "Tutorial: Upload data and train a model (SDK v2)"
 titleSuffix: Azure Machine Learning
 description: How to upload and use your own data in a remote training job. This is part 3 of a three-part getting-started series.
 services: machine-learning
@@ -10,12 +10,16 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 07/10/2022
-ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
+ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2
 ---
 
 # Tutorial: Upload data and train a model (part 3 of 3)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
+> * [v1](v1/tutorial-1st-experiment-bring-data.md)
+> * [v2 (preview)](tutorial-1st-experiment-bring-data.md)
 
 This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning. This tutorial is *part 3 of a three-part tutorial series*.
 
@@ -166,7 +170,8 @@ To run this script in Azure Machine Learning, you need to make your training dat
 > [!NOTE]
 > Azure Machine Learning allows you to connect other cloud-based storages that store your data. For more details, see the [data documentation](./concept-data.md).
 
-There is no additional step needed for uploading data, the control script will define and upload the CIFAR10 training data.
+> [!TIP]
+> There is no additional step needed for uploading data, the control script will define and upload the CIFAR10 training data.
 
 ## <a name="control-script"></a> Create a control script
 
@@ -321,4 +326,4 @@ You saw how to modify your training script to accept a data path via the command
 Now that you have a model, learn:
 
 > [!div class="nextstepaction"]
-> [How to deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+> [How to deploy models with Azure Machine Learning](how-to-deploy-managed-online-endpoints.md).

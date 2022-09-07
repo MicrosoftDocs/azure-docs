@@ -3,7 +3,7 @@ title: How to use Application Insights Java In-Process Agent in Azure Spring App
 description: How to monitor apps using Application Insights Java In-Process Agent in Azure Spring Apps.
 author: karlerickson
 ms.author: karler
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/20/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022

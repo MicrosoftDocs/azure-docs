@@ -21,7 +21,7 @@ The default pricing for Log Analytics is a Pay-As-You-Go model that's based on i
 Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). The data size of a single record is calculated from a string representation of the columns that are stored in the Log Analytics workspace for that record, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [logs ingestion API](logs-ingestion-api-overview.md), [transformations](../essentials/data-collection-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
 
 >[!NOTE]
->The billable data volume calculation is substantially smaller than the size of the entire incoming JSON-packaged event. On average across all event types, the billed size is about 25% less than the incoming data size. This can be up to 50% for small events. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. 
+>The billable data volume calculation is generally substantially smaller than the size of the entire incoming JSON-packaged event. Including the effect of the standard columns excluded from billing, on average across all event types the billed size is around 25% less than the incoming data size. This can be up to 50% for small events. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. 
 
 ### Excluded columns
 The following [standard columns](log-standard-columns.md) that are common to all tables, are excluded in the calculation of the record size. All other columns stored in Log Analytics are included in the calculation of the record size. 
@@ -51,6 +51,8 @@ In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers**, 
 - At the end of the commitment period, the workspace retains the selected commitment tier, and the workspace can be moved to Pay-As-You-Go or to a different commitment tier at any time. 
  
 Billing for the commitment tiers is done per workspace on a daily basis. If the workspace is part of a [dedicated cluster](#dedicated-clusters), the billing is done for the cluster (see below). See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for a detailed listing of the commitment tiers and their prices. 
+
+Azure Commitment Discounts such as those received from [Microsoft Enterprise Agreements](https://www.microsoft.com/licensing/licensing-programs/enterprise) are applied to Azure Monitor Logs Commitment Tier pricing just as they are to Pay-As-You-Go pricing (whether the usage is being billed per workspace or per dedicated cluster). 
 
 > [!TIP]
 > The **Usage and estimated costs** menu item for each Log Analytics workspace hows an estimate of your monthly charges at each commitment level. You should periodically review this information to determine if you can reduce your charges by moving to another tier. See [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs) for information on this view.

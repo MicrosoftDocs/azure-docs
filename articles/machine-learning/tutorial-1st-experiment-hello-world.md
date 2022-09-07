@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Get started with a Python script"
+title: "Tutorial: Get started with a Python script (SDK v2)"
 titleSuffix: Azure Machine Learning
 description: Get started with your first Python script in Azure Machine Learning. This is part 1 of a three-part getting-started series.
 services: machine-learning
@@ -10,12 +10,16 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 07/10/2022
-ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
+ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2
 ---
 
 # Tutorial: Get started with a Python script in Azure Machine Learning (part 1 of 3)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
+> * [v1](v1/tutorial-1st-experiment-hello-world.md)
+> * [v2 (preview)](tutorial-1st-experiment-hello-world.md)
 
 In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
@@ -144,7 +148,7 @@ Here's a description of how the control script works:
       `ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)`
    :::column-end:::
    :::column span="2":::
-      [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) manages your Azure Machine Learning workspace and it's assets and resources.
+      [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) manages your Azure Machine Learning workspace and its assets and resources.
    :::column-end:::
 :::row-end:::
 :::row:::
