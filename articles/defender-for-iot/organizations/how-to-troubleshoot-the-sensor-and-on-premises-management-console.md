@@ -152,7 +152,19 @@ Verify that you can access the console web GUI:
 
 1. Use the **Support** user credentials to sign in.
 
-1. Use the `system sanity` command and check that all processes are running.
+1. Use the `system sanity` command and check that all processes are running. For example:
+
+    ```cli
+    support@xsense: system sanity
+    [+] Cache Layer | Running for 8:16:49
+    [+] Core API | Running for 8:16:49
+    [+] Persistence API | Running for 8:16:49
+    [+] Watch Dog API | Running for 8:16:49
+    [+] Web Apps API | Running for 8:16:49
+
+    System is UP! (thin)
+    support@xsense:    
+
 
     :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="Screenshot that shows the system sanity command.":::
 
