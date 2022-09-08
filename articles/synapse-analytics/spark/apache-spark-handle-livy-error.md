@@ -37,7 +37,7 @@ Each error code falls under one of the following four buckets:
 3. **Ambiguous** - Could be either user or system error
 4. **Unknown** - No classification yet, most probably because the error type isn't included in the model
 
-### Different error code examples for each classification type
+## Error code examples for each classification type
 
 1. **Spark_User_TypeError_TypeNotIterable**
     
