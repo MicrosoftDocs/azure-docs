@@ -2,7 +2,7 @@
 title: include file
 description: C# play audio quickstart
 services: azure-communication-services
-author: Kunaal
+author: Kunaal Punjabi
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 09/06/2022
@@ -29,7 +29,7 @@ dotnet new web -n MyApplication
 
 ## Install the NuGet package
 
-During the preview phase the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
+During the preview phase, the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
 
 ## Obtain your connection string
 
@@ -39,15 +39,15 @@ From the Azure portal, locate your Communication Service resource and click on t
 
 ## Prepare your audio file
 
-Create an audio file, if you do not already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file ACS supports needs to be wav, mono and 16KHz sample rate. 
+Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file ACS supports needs to be wav, mono and 16 KHz sample rate.
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about how to start call please view our [quickstart](../../Callflows-for-customer-interactions.md). In this instance we will answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../Callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
 
 ## Play audio
 
-Once the call has been established, there are multiple options for how you may wish to play the audio. The first scenario is if you want to play it to the participant that has just joined the call, while the second scenario is when you wish to play audio to all the participants in the call. 
+Once the call has been established, there are multiple options for how you may wish to play the audio. The first scenario is if you want to play it to the participant that has joined the call, while the second scenario is when you wish to play audio to all the participants in the call. 
 
 ## Play audio - Specific participant
 
@@ -74,7 +74,7 @@ Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 
 ## Play audio on loop
 
-You can use the loop option to play hold music that loops until your application is ready to accept the caller or progress the caller to the next logical step based on your applications business logic. 
+You can use the loop option to play hold music that loops until your application is ready to accept the caller. Or progress the caller to the next logical step based on your applications business logic.
 
 ``` csharp
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
@@ -89,7 +89,7 @@ Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 
 ## Enhance play with audio file caching
 
-If you will be playing the same audio file multiple times, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
+If you'll be playing the same audio file multiple times, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
 
 ``` csharp
 var targetUser = new PhoneNumberIdentifier(<target>);
@@ -132,7 +132,7 @@ To learn more about other supported events, visit the [Call Automation overview 
 
 ## Cancel play action
 
-Cancel all media operations, all pending media operations will be cancelled. This will also cancel other queued up play actions. 
+Cancel all media operations, all pending media operations will be canceled. This will also cancel other queued up play actions.
 
 ```csharp
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
