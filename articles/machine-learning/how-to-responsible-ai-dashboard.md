@@ -306,7 +306,7 @@ Counterfactual analysis provides a diverse set of *what-if* examples generated b
 
     Select the **Create what-if counterfactual** button to open a full window panel.
 
-    ::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals-examples.png" alt-text="Screenshot of the dashboard, showing what-if counterfactuals." lightbox="./media/how-to-responsible-ai-dashboard/counterfactuals-examples.png":::
+    :::image type="content" source="./media/how-to-responsible-ai-dashboard/counterfactuals-examples.png" alt-text="Screenshot of the dashboard, showing what-if counterfactuals." lightbox="./media/how-to-responsible-ai-dashboard/counterfactuals-examples.png":::
 
 5. **Search features**: Finds features to observe and change values.
 6. **Sort counterfactual by ranked features**: Sorts counterfactual examples in order of perturbation effect. (Also see **Top ranked features plot**, discussed earlier.)
@@ -332,7 +332,7 @@ Select the **Aggregate causal effects** tab of the causal analysis component to 
     * **Continuous treatments**: On average in this sample, increasing this feature by one unit will cause the probability of class to increase by X units, where X is the causal effect.
     * **Binary treatments**: On average in this sample, turning on this feature will cause the probability of class to increase by X units, where X is the causal effect.
 
-1. **Direct aggregate causal effect whisker plot**: Visualizes the causal effects and confidence intervals of the points in the table
+1. **Direct aggregate causal effect whisker plot**: Visualizes the causal effects and confidence intervals of the points in the table.
 
 #### Individual causal effects and causal what-if
 
@@ -353,7 +353,7 @@ Select the **Treatment policy** tab to switch to a view to help determine real-w
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy.png" alt-text="Screenshot of the dashboard, showing causal analysis on the 'Treatment policy' pane." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy.png":::
 
-1. **Set treatment feature**: Selects a feature to change as a real-world intervention,
+1. **Set treatment feature**: Selects a feature to change as a real-world intervention.
 
 2. **Recommended global treatment policy**: Displays recommended interventions for data cohorts to improve the target feature value. The table can be read from left to right, where the segmentation of the dataset is first in rows and then in columns. For example, for 658 individuals whose employer isn't Snapchat and whose programming language isn't JavaScript, the recommended treatment policy is to increase the number of GitHub repos contributed to.
 
