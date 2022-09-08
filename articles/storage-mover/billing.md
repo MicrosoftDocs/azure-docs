@@ -1,11 +1,11 @@
 ---
-title: Stephen - Understanding Azure Storage Mover billing
-description: Stephen - Understanding Azure Storage Mover billing 
+title: Understanding Azure Storage Mover billing
+description: Understanding Azure Storage Mover billing 
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 09/07/2022
 ---
 
 <!-- 
