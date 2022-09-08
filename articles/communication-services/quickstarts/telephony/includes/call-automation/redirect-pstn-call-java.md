@@ -41,7 +41,7 @@ Update your application's POM file to use Java 8 or higher.
 
 ## Configure Azure SDK Dev Feed
 
-Since the Call Automation SDK version used in this quick start is not yet available in Maven Central Repository, we need to add an Azure Artifacts development feed, which contains the latest version of the Call Automation SDK.  
+Since the Call Automation SDK version used in this quick start isn't yet available in Maven Central Repository, we need to add an Azure Artifacts development feed, which contains the latest version of the Call Automation SDK.  
 
 Add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the “Connect to Feed” button.
 

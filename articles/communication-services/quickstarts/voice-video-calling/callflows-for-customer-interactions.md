@@ -21,7 +21,7 @@ zone_pivot_groups: acs-csharp-java
 
 In this tutorial, you'll learn how to build applications that use Azure Communication Services Call Automation to handle common customer support scenarios, such as:
 - receiving notifications for incoming calls to a phone number using Event Grid
-- answering the call and play audio file using Call Automation SDK
+- answering the call and playing an audio file using Call Automation SDK
 - adding a communication user to the call using Call Automation SDK. This user can be a customer service agent who uses a web application built using Calling SDKs to connect to Azure Communication Services
 
 
