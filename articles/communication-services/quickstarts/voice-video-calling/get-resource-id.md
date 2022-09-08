@@ -2,7 +2,7 @@
 ms.date: 09/07/2022 
 ms.topic: quickstart
 author: dbasantes
-title: how-to-find-azure-resource-id
+title: how-to-find-immutable-azure-resource-id
 ms.author: dbasantes
 ms.service: azure-communication-services
 description: how to find the Azure Resource ID.
