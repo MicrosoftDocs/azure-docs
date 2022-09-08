@@ -362,7 +362,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 - If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) instead.
 - Readiness or liveness probes are not set up correctly.
 - There's an error in the environment setup of the container, such as a missing dependency.
-- When you face `TypeError: register() takes 3 positional arguments but 4 were given` error, the errors may cause due to the dependency between flask v2 and `azureml-inference-server-http`. See [FAQs for inference HTTP server](how-to-inference-server-http.md#1-i-encountered-the-following-error-during-server-startup) for more details.
+- When you face `TypeError: register() takes 3 positional arguments but 4 were given` error, the error may be caused by the dependency between flask v2 and `azureml-inference-server-http`. See [FAQs for inference HTTP server](how-to-inference-server-http.md#1-i-encountered-the-following-error-during-server-startup) for more details.
 
 ### ERROR: ResourceNotFound
 
