@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server offline"
+title: "Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with open-source tools"
 description: This article describes how to perform a minimal-downtime migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server.
 author: SudheeshGH
 ms.author: sunaray
@@ -10,7 +10,7 @@ ms.subservice: single-server
 ms.topic: how-to
 ---
 
-# Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server using tools
+# Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with open-source tools
 
 You can migrate an instance of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with minimum downtime to your applications by using a combination of open-source tools such as mydumper/myloader and Data-in replication.
 
