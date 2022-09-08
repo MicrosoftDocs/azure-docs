@@ -24,7 +24,7 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
-|**state**     | Get only handled or unhandled alerts. Supported values: <br>- `handled`<br>- `unhandled`  <br>All other values return an error message.   <!--hadar to check this all other values"-->  |  `/api/v1/alerts?state=handled`       |Optional |
+|**state**     | Get only handled or unhandled alerts. Supported values: <br>- `handled`<br>- `unhandled` |  `/api/v1/alerts?state=handled`       |Optional |
 |**fromTime**     |   Get alerts created starting at a given time, in milliseconds from Epoch time and in UTC timezone.      |    `/api/v1/alerts?fromTime=<epoch>`     | Optional |
 |**toTime**     |  Get alerts created only before at a given time, in milliseconds from Epoch time and in UTC timezone.        | `/api/v1/alerts?toTime=<epoch>`        |  Optional |
 |**type**     |  Get alerts of a specific type only. Supported values: <br>- `unexpected new devices` <br>- `disconnections`  <br>All other values are ignored.     |  `/api/v1/alerts?type=disconnections`       |Optional |
