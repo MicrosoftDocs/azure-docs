@@ -42,7 +42,7 @@ Azure Cosmos DB Explorer is a standalone web-based interface that allows you to 
 
 ## Known issues
 
-Currently the **Open Full Screen** experience that allows you to share temporary read-write or read access is not yet supported for Azure Cosmos DB Gremlin and Table API accounts. You can still view your Gremlin and Table API accounts by passing the connection string to Azure Cosmos DB Explorer. 
+Currently the **Open Full Screen** experience that allows you to share temporary read-write or read access is not yet supported for Azure Cosmos DB API for Gremlin and Table accounts. You can still view your Gremlin and API for Table accounts by passing the connection string to Azure Cosmos DB Explorer. 
 
 Currently, viewing documents that contain a UUID is not supported in Data Explorer. This does not affect loading collections, only viewing individual documents or queries that include these documents. To view and manage these documents, users should continue to use the tool that was originally used to create these documents.
 
