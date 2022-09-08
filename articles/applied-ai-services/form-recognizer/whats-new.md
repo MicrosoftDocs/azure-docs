@@ -33,44 +33,44 @@ This release includes the following updates:
 * **Version 4.0.0 GA**
 * **Supports REST API v3.0 and v2.0 clients**
 
-[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#400-2022-09-08)
-
-> [!NOTE]
->**The `DocumentAnalysisClient` and `DocumentModelAdministrationClient` now target service version 2022-08-31, and are no longer supported by the 2020-06-30-preview.**
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
 
 [**Package (NuGet)**](TODO)
 
-[**SDK reference documentation**](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet-preview&preserve-view=true)
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)
 
 ### [**Java**](#tab/java)
 
-**Version 4.0.0-beta.7 (TODO)**
+* **Version 4.0.0 GA**
+* **Supports REST API v3.0 and v2.0 clients**
 
-[**Changelog/Release History**](TODO)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 
 [**Package (Maven)**](TODO)
 
-[**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)
 
 ### [**JavaScript**](#tab/javascript)
 
-**Version 4.0.0-beta.6 (TODO)**
+* **Version 4.0.0 GA**
+* **Supports REST API v3.0 and v2.0 clients**
 
-[**Changelog/Release History**](TODO)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 [**Package (npm)**](TODO)
 
-[**SDK reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview&preserve-view=true)
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)
 
 ### [Python](#tab/python)
 
-**Version 3.2.0b6 (TODO)**
+* **Version 3.2.0 GA**
+* **Supports REST API v3.0 and v2.0 clients**
 
-[**Changelog/Release History**](TODO)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 
-[**Package (PyPi)**](TODO)
+[**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)
 
-[**SDK reference documentation**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)
 
 ---
 
