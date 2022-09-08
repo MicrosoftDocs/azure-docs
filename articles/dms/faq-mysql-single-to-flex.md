@@ -20,15 +20,15 @@ ms.date: 09/08/2022
 Azure Database Migration Service supports both offline and online migrations. With an offline migration, application downtime starts when the migration starts. With an online migration, downtime is limited to the time required to cut over at the end of migration. We suggest that you test an offline migration to determine whether the downtime is acceptable; if not, then perform an online migration. 
 Online and Offline migrations are compared in the following table:  
     | Area | Online Migration | Offline migration |
-    | ------------- |:-------------:|:-------------:|
-    | Database availability for reads during migration | Available | Available |
-    | Database availability for writes during migration | Available | Generally, not recommended. Any ‘writes’ initiated after the migration is not captured or migrated |
-    | Application Suitability | Applications that need maximum uptime | Applications that can afford a planned downtime window |
-    | Environment Suitability | Production environment | Usually Development, Testing environment and some production that can afford downtime |
-    | Suitability for Write-heavy workloads | Suitable but expected to reduce the workload during migration | Not Applicable. Writes at source after migration begins are not replicated to target |
-    | Manual Cutover | Required | Not required |
-    | Downtime required | Less | More |
-    | Migration time | Depends on Database size and the write activity until cutover | Depends on Database size |
+    |:-------------:|:-------------:|:-------------:|
+    | **Database availability for reads during migration** | Available | Available |
+    | **Database availability for writes during migration** | Available | Generally, not recommended. Any ‘writes’ initiated after the migration is not captured or migrated |
+    | **Application Suitability** | Applications that need maximum uptime | Applications that can afford a planned downtime window |
+    | **Environment Suitability** | Production environment | Usually Development, Testing environment and some production that can afford downtime |
+    | **Suitability for Write-heavy workloads** | Suitable but expected to reduce the workload during migration | Not Applicable. Writes at source after migration begins are not replicated to target |
+    | **Manual Cutover** | Required | Not required |
+    | **Downtime required** | Less | More |
+    | **Migration time** | Depends on Database size and the write activity until cutover | Depends on Database size |
 
 - **I’m setting up a migration project in DMS and I’m having difficulty connecting to my source database. What should I do?**
 If you have trouble connecting to your source database system while working on migration, create a virtual machine in the same subnet of the virtual network with which you set up your DMS instance. In the virtual machine, you should be able to run a connect test. If the connection test succeeds, you shouldn't have an issue with connecting to your source database. If the connection test doesn't succeed, contact your network administrator.
