@@ -45,14 +45,14 @@ ms.author: radeltch
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 
-This article describes how to deploy a highly available SAP HANA system in a scale-out configuration with HANA system replication (HSR) and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs). The shared file systems in the presented architecture are NFS mounted and are provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../files/files-nfs-protocol.md).  
+This article describes how to deploy a highly available SAP HANA system in a scale-out configuration with HANA system replication (HSR) and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs). The shared file systems in the presented architecture are NFS mounted and are provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../storage/files/files-nfs-protocol.md).  
 
 In the example configurations, installation commands, and so on, the HANA instance is **03** and the HANA system ID is **HN1**. The examples are based on HANA 2.0 SP5 and SUSE Linux Enterprise Server 12 SP5. 
 
 Before you begin, refer to the following SAP notes and papers:
 
 * [Azure NetApp Files documentation][anf-azure-doc]
-* [Azure Files documentation](../../../files/storage-files-introduction.md)  
+* [Azure Files documentation](../../../storage/files/storage-files-introduction.md)  
 * SAP Note [1928533] includes:  
   * A list of Azure VM sizes that are supported for the deployment of SAP software
   * Important capacity information for Azure VM sizes
@@ -81,10 +81,10 @@ Before you begin, refer to the following SAP notes and papers:
 One method to achieve HANA high availability for HANA scale-out installations, is to configure HANA system replication and protect the solution with Pacemaker cluster to allow automatic failover. When an active node fails, the cluster fails over the HANA resources to the other site.  
 The presented configuration shows three HANA nodes on each site, plus majority maker node to prevent split-brain scenario. The instructions can be adapted, to include more VMs as HANA DB nodes.  
 
-The HANA shared file system `/hana/shared` in the presented architecture can be provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../files/files-nfs-protocol.md). The HANA shared file system is NFS mounted on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and are not shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
+The HANA shared file system `/hana/shared` in the presented architecture can be provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../../storage/files/files-nfs-protocol.md). The HANA shared file system is NFS mounted on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and are not shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
 
 > [!WARNING]
-> Placing `/hana/data` and `/hana/log` on NFS on Azure Files is not supported.  
+> Deploying `/hana/data` and `/hana/log` on NFS on Azure Files is not supported.  
 > For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md).   
 
 [![SAP HANA scale-out with HSR and Pacemaker cluster on SLES](./media/sap-hana-high-availability/sap-hana-high-availability-scale-out-hsr-suse.png)](./media/sap-hana-high-availability/sap-hana-high-availability-scale-out-hsr-suse-detail.png#lightbox)
@@ -321,7 +321,7 @@ Configure and prepare your OS by doing the following steps:
 
 You chose to deploy the SAP shared directories on [NFS share on Azure Files](../../../storage/files/files-nfs-protocol.md) or [NFS volume on Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).
 
-### Prepare and mount the shared file systems (Azure NetApp Files NFS)
+### Mount the shared file systems (Azure NetApp Files NFS)
 
 In this example, the shared HANA file systems are deployed on Azure NetApp Files and mounted over NFSv4.1. Follow the steps in this section, only if you are using NFS on Azure NetApp Files.     
 
@@ -785,7 +785,7 @@ Create a dummy file system cluster resource, which will monitor and report failu
     crm configure property maintenance-mode=true
     ```
 
-2. **[1,2]** Create the directory on the ANF /hana/shared volume, which will be used in the special file system monitoring resource. The directories need to be created on both sites.  
+2. **[1,2]** Create the directory on the NFS mounted file system /hana/shared, which will be used in the special file system monitoring resource. The directories need to be created on both sites.  
     ```bash
     mkdir -p /hana/shared/HN1/check
     ```
@@ -1029,9 +1029,9 @@ Create a dummy file system cluster resource, which will monitor and report failu
 
 3. Verify the cluster configuration for a failure scenario, when a node loses access to the NFS share (`/hana/shared`).  
 
-   The SAP HANA resource agents depend on binaries, stored on `/hana/shared` to perform operations during failover. File system `/hana/shared` is mounted over NFS in the presented configuration. A test that can be performed, is to create a temporary firewall rule to block access to the `/hana/shared` ANF volume on one of the primary site VMs. This approach validates that the cluster will fail over, if access to `/hana/shared` is lost on the active system replication site.  
+   The SAP HANA resource agents depend on binaries, stored on `/hana/shared` to perform operations during failover. File system `/hana/shared` is mounted over NFS in the presented configuration. A test that can be performed, is to create a temporary firewall rule to block access to the `/hana/shared` NFS mounted file system on one of the primary site VMs. This approach validates that the cluster will fail over, if access to `/hana/shared` is lost on the active system replication site.  
 
-   **Expected result**: When you block the access to the `/hana/shared` ANF volume  on one of the primary site VMs, the monitoring operation that performs read/write operation on file system, will fail, as it is not able to access the file system and will trigger HANA resource failover. The same result is expected when your HANA node loses access to the NFS share.  
+   **Expected result**: When you block the access to the `/hana/shared` NFS mounted file system on one of the primary site VMs, the monitoring operation that performs read/write operation on file system, will fail, as it is not able to access the file system and will trigger HANA resource failover. The same result is expected when your HANA node loses access to the NFS share.  
      
    You can check the state of the cluster resources by executing `crm_mon` or `crm status`. Resource state before starting the test:
      ```bash
