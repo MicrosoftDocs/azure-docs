@@ -88,16 +88,16 @@ The SQS didn't successfully read the S3 data.
 
 1. If at least one of the widgets is empty, check the health logs by running this query:
 
-```kusto
-SentinelHealth 
-| where TimeGenerated > ago(1d)
-| where SentinelResourceKind in ('AmazonWebServicesCloudTrail', 'AmazonWebServicesS3')
-| where OperationName == 'Data fetch failure summary'
-| mv-expand TypeOfFailureDuringHour = ExtendedProperties["FailureSummary"]
-| extend StatusCode = TypeOfFailureDuringHour["StatusCode"]
-| extend StatusMessage = TypeOfFailureDuringHour["StatusMessage"]
-| project SentinelResourceKind, SentinelResourceName, StatusCode, StatusMessage, SentinelResourceId, TypeOfFailureDuringHour, ExtendedProperties
-```
+    ```kusto
+    SentinelHealth 
+    | where TimeGenerated > ago(1d)
+    | where SentinelResourceKind in ('AmazonWebServicesCloudTrail', 'AmazonWebServicesS3')
+    | where OperationName == 'Data fetch failure summary'
+    | mv-expand TypeOfFailureDuringHour = ExtendedProperties["FailureSummary"]
+    | extend StatusCode = TypeOfFailureDuringHour["StatusCode"]
+    | extend StatusMessage = TypeOfFailureDuringHour["StatusMessage"]
+    | project SentinelResourceKind, SentinelResourceName, StatusCode, StatusMessage, SentinelResourceId, TypeOfFailureDuringHour, ExtendedProperties
+    ```
 1. Make sure that the health feature is enabled:
     ```kusto
     SentinelHealth 
