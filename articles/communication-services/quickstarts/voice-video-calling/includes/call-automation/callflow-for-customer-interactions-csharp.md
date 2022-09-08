@@ -33,7 +33,7 @@ The Call Automation platform uses Event Grid to deliver the IncomingCall event t
 
     On the picture below you can see the required fields:
 
-    :::image type="content" source="./../../media/call-automation/portal.png" alt-text="Screenshot of Communication Services resource page on Azure portal":::
+    :::image type="content" source="./../../media/call-automation/portal.png" alt-text="Screenshot of Communication Services resource page on Azure portal.":::
 
 2. Communication Service resource name
 3. Determine your local development HTTP port used by your web service application.
