@@ -296,7 +296,7 @@ This topology supports two nodes for the HANA system replication configuration. 
 
 ### Architecture diagram  
 
-![HSR with STONITH for high availability](media/hana-supported-scenario/HSR-with-STONITH.png)
+![HSR with fencing for high availability](media/hana-supported-scenario/hsr-with-fencing.png)
 
 
 
