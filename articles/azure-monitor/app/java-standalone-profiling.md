@@ -100,8 +100,8 @@ configuring resource limits that will trigger a profile if breached.
 
 1. Configure the resource thresholds that will cause a profile to be collected:
     1. Browse to the Performance -> Profiler section of the Application Insights instance.
-       :::image type="content" source="./media/java-standalone-profiling/performance-blade-inline.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/profiler-settings/performance-blade.png":::
-       :::image type="content" source="./media/java-standalone-profiling/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/profiler-settings/profiler-button.png":::
+       :::image type="content" source="./media/java-standalone-profiling/performance-blade-inline.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/java-standalone-profiling/performance-blade.png":::
+       :::image type="content" source="./media/java-standalone-profiling/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/java-standalone-profiling/profiler-button.png":::
     2. Select "Triggers"
     3. Configure the required CPU and Memory thresholds. And select Apply.
        :::image type="content" source="./media/java-standalone-profiling/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for C P U and Memory triggers.":::
@@ -131,7 +131,7 @@ Application Insights instance within the Performance -> Profiler section. From t
 profile can be downloaded, once download the JFR recording file can be opened and analyzed within a
 tool of your choosing, for example JDK Mission Control (JMC).
 
-:::image type="content" source="./media/java-standalone-profiling/configure-blade-inline.png" alt-text="Screenshot of profiler page features and settings." lightbox="media/profiler-settings/configure-blade.png":::
+:::image type="content" source="./media/java-standalone-profiling/configure-blade-inline.png" alt-text="Screenshot of profiler page features and settings." lightbox="media/java-standalone-profiling/configure-blade.png":::
 
 
 ### Configuration
