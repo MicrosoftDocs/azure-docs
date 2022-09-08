@@ -178,7 +178,7 @@ If you haven't installed Python SDK v2 yet, please install with this command:
 pip install --pre azure-ai-ml
 ```
 
-For more informatin, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
+For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 
 ## Put the scoring file in its own directory
 
