@@ -50,7 +50,7 @@ This section outlines variations and considerations when using Media services in
 
 ### Networking
 
-This section outlines variations and considerations when using Networking services in the Azure Government environment. 
+This section outlines variations and considerations when using Networking services in the Azure China environment. 
 
 | Product | CH-East |  CH-East-2 | CH-North | CH-North-2  |CH-North-3|
 |---------|--------|------------|------------|------------|------------|
@@ -58,7 +58,7 @@ This section outlines variations and considerations when using Networking servic
 
 ### China REST endpoints
 
-| REST endpoint | Global Azure | China-Government |
+| REST endpoint | Global Azure | Azure China |
 |---------------|--------------|------------------|
 | Management plane |	`https://management.azure.com/` |	`https://management.chinacloudapi.cn/` |
 | Data plane |	`https://{location}.experiments.azureml.net`	| `https://{location}.experiments.ml.azure`.cn |
