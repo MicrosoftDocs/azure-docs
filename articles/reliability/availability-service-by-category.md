@@ -2,7 +2,7 @@
 title: Available services by region types and categories
 description: Learn about Azure region types and service categories.
 author: anaharris-ms
-ms.service: azure
+ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/18/2022
 ms.author: anaharris

@@ -1,4 +1,14 @@
 {
     "redirections": [
+        {
+            "source_path": "disaster-recovery.md",
+            "redirect_url": "/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "how-to-enable-availability-zone.md",
+            "redirect_url": "/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery",
+            "redirect_document_id": false
+        }
     ]
 }

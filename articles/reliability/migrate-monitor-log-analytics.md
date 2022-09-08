@@ -2,7 +2,7 @@
 title: Migrate Log Analytics workspaces to availability zone support 
 description: Learn how to migrate Log Analytics workspaces to availability zone support.
 author: anaharris-ms
-ms.service: azure
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/21/2022
 ms.author: anaharris

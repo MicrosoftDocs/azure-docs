@@ -2,7 +2,7 @@
 title: Availability zone service and regional support
 description: Azure availability zone service and regional support
 author: anaharris-ms
-ms.service: azure
+ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/18/2022
 ms.author: rarco

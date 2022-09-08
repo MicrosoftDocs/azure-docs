@@ -204,6 +204,8 @@
         href: asccontracts-tutorial.md
       - name: Ascentis
         href: ascentis-tutorial.md
+      - name: AsignetSSOIntegration
+        href: asignet-sso-tutorial.md
       - name: askSpoke
         href: askspoke-tutorial.md
       - name: AskYourTeam
@@ -662,6 +664,8 @@
         href: docusign-tutorial.md
       - name: Domo
         href: domo-tutorial.md
+      - name: dominKnow|ONE
+        href: dominknowone-tutorial.md
       - name: Dossier
         href: dossier-tutorial.md
       - name: Dotcom-Monitor
@@ -911,6 +915,8 @@
         href: fortiweb-web-application-firewall-tutorial.md 
       - name: foundU
         href: foundu-tutorial.md
+      - name: FourKites SAML2.0 SSO for Tracking
+        href: fourkites-tutorial.md
       - name: Framer
         href: framer-tutorial.md
       - name: Freedcamp
@@ -1581,6 +1587,8 @@
         href: nexonia-tutorial.md
       - name: Nexsure
         href: nexsure-tutorial.md
+      - name: NICE CXone
+        href: nice-cxone-tutorial.md
       - name: Nimblex
         href: nimblex-tutorial.md
       - name: Nimbus
@@ -2241,6 +2249,8 @@
         href: synergi-tutorial.md
       - name: Synerise AI Growth Operating System
         href: synerise-ai-growth-ecosystem-tutorial.md
+      - name: Syniverse Customer Portal
+        href: syniverse-customer-portal-tutorial.md
       - name: Sentry
         href: sentry-tutorial.md  
       - name: Syxsense
