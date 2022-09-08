@@ -61,7 +61,12 @@ The following list presents the set of features that are currently available in 
 
 Call Automation uses a REST API interface to receive requests and provide responses to all actions performed within the service. Due to the asynchronous nature of calling, most actions will have corresponding events that are triggered when the action completes successfully or fails.
 
-Event Grid – Azure Communication Services uses Event Grid to deliver the IncomingCall event that can be triggered by an inbound PSTN call to a number you've acquired in the portal or by connecting your telephony infrastructure using an SBC. The IncomingCall event is also sent for any call between Azure Communication Services users (one-to-one), when a user is added to an existing call (group call) or an existing 1:1 call is transferred to a communication user.
+Event Grid – Azure Communication Services uses Event Grid to deliver the IncomingCall event. This event can be triggered:
+- by an inbound PSTN call to a number you've acquired in the portal,
+- by connecting your telephony infrastructure using an SBC,
+- for one-on-one calls between Communication Service users,
+- when a Communication Services user is added to an existing call (group call),
+- an existing 1:1 call is transferred to a Communication Service user.
 
 Web hooks – Calling Automation SDKs use standard web hook HTTP/S callbacks for call state change events and responses to mid-call actions.
 
@@ -74,21 +79,21 @@ Web hooks – Calling Automation SDKs use standard web hook HTTP/S callbacks for
 
 These actions are performed before the destination endpoint listed in the IncomingCall event notification is connected. Web hook callback events only communicate the “answer” pre-call action, not for reject or redirect actions.  
 
-**Answer** – Using the IncomingCall event from Event Grid and Call Automation SDK, a call can be answered by your application. This action allows for IVR scenarios where an inbound PSTN call can be answered programmatically by your application. Other scenarios include answering a call on behalf of a user or answering an outbound call sent to a PSTN number in the same Azure Communication Services resource.
+**Answer** – Using the IncomingCall event from Event Grid and Call Automation SDK, a call can be answered by your application. This action allows for IVR scenarios where an inbound PSTN call can be answered programmatically by your application. Other scenarios include answering a call on behalf of a user, or answering an outbound call to a phone number in the same Azure Communication Services resource.
 
 **Reject** – To reject a call means your application can receive the IncomingCall event and prevent the call from being connected to the destination endpoint.
 
-**Redirect** – Using the IncomingCall event from Event Grid, a call can be redirected to one or more endpoints creating a single or simultaneous ringing (sim-ring) scenario. This means the call is not answered by your application, it is simply ‘redirected’ to another destination endpoint to be answered.
+**Redirect** – Using the IncomingCall event from Event Grid, a call can be redirected to one or more endpoints creating a single or simultaneous ringing (sim-ring) scenario. Redirect means it isn't answered by your application, it's simply ‘redirected’ to another destination endpoint to be answered.
 
 **Make Call** - Make Call action can be used to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
 
 ### Mid-call actions
 
-These actions can be performed if Calling Automation SDKs were used to answer an inbound call or place an outbound call. Each mid-call action has a corresponding success or failure web hook callback event.
+These actions can be performed on the calls that are answered or placed using Call Automation SDKs. Each mid-call action has a corresponding success or failure web hook callback event.
 
 **Add/Remove participant(s)** – One or more participants can be added in a single request with each participant being a variation of supported destination endpoints. A web hook callback is sent for every participant successfully added to the call.
 
-**Play** - When your application answers a call or places an outbound call it can, you can play an audio prompt for the caller, this can be looped if needed in scenarios like playing hold music. To learn more, view our [quickstart](../../quickstarts/voice-video-calling/Play-Action.md)
+**Play** - When your application answers a call or places an outbound call, you can play an audio prompt for the caller. The audio prompt can be looped for scenarios like playing hold music. To learn more, view our [quickstart](../../quickstarts/voice-video-calling/Play-Action.md).
 
 **Transfer** – When your application answers a call or places an outbound call to an endpoint, that endpoint can be transferred to another destination endpoint. Transferring a 1:1 call will remove your application's ability to control the call using the Call Automation SDKs.
 
