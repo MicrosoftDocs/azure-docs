@@ -908,6 +908,8 @@ items:
           href: app/java-in-process-agent.md
         - name: Spring Boot
           href: app/java-spring-boot.md
+        - name: Java Profiler
+          href: app/java-standalone-profiling.md
         - name: Configuration options
           href: app/java-standalone-config.md
         - name: Advanced configurations
@@ -926,8 +928,6 @@ items:
           href: app/java-standalone-arguments.md
         - name: Upgrade from 2.x SDK
           href: app/java-standalone-upgrade-from-2x.md
-        - name: Java Profiler
-          href: app/java-standalone-profiling.md
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
