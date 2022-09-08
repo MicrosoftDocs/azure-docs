@@ -16,7 +16,7 @@ ms.author: askaur
 - Azure account with an active subscription.
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp).
 - [NGROK](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
-- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
+- [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## Create a new Java application

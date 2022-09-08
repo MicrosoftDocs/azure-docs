@@ -34,6 +34,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-- Learn more about [Call Automation](../../concepts/voice-video-calling/CallAutomation.md) and its features. 
-- Learn more about [Play action](../../concepts/voice-video-calling/Play-Action.md).
-- Learn how to build a [call workflow](../voice-video-calling/Callflows-for-customer-interactions.md) for a customer support scenario. 
+- Learn more about [Call Automation](../../concepts/voice-video-calling/call-automation.md) and its features. 
+- Learn more about [Play action](../../concepts/voice-video-calling/play-Action.md).
+- Learn how to build a [call workflow](../voice-video-calling/callflows-for-customer-interactions.md) for a customer support scenario. 

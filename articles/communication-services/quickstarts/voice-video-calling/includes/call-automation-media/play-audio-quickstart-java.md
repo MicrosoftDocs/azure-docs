@@ -16,7 +16,7 @@ ms.author: kpunjabi
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
 - Create a new web service application using the [Call Automation SDK](../../Callflows-for-customer-interactions.md).
-- [Java Development Kit](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
+- [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## Create a new Java application
