@@ -1,8 +1,8 @@
 ---
 title: Enable credential scanning in code
-description: 
-ms.topic: quickstart
-ms.date: 09/07/2022
+description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's credential scanner for Defender for DevOps.
+ms.topic: how-to
+ms.date: 09/08/2022
 ---
 
 # Detect credential leaks in code
