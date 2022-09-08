@@ -30,11 +30,9 @@ Defender for DevOps strengthens the development lifecycle by protecting code man
 
 Defender for DevOps gives Security Operators the ability to see how their organizations' code and development management systems work, without interfering with their developers. Security Operators can implement security operations and controls at every stage of the development lifecycle to make DevSecOps easier to achieve.
 
-Developers often need examples of code to fix security issues at the time of development and on pull requests. These examples are needed so that the developers can use the tools with which they're most familiar. With the ability to scan code, infrastructure as code, credentials, and containers, Defender for DevOps makes the overall process easier for Developers to find and remediate security issues.
+Defender for DevOps grants developers the ability to scan code, infrastructure as code, credentials, and containers, to make the process easier for developers to find and remediate security issues.
 
 Defender for DevOps gives security teams the ability to set, evaluate, and enforce security policies and address risks before they are deployed to the cloud. Security teams gain visibility into their organizations' engineering systems, including security risks and pre-production security debt across multiple development environments and cloud applications.
-
-Security teams often operate from a position of Assume Breach and respond to security incidents across the entire cloud application lifecycle. Security teams must detect and respond to suspicious or unexpected activities by developer identities and attacks on CI/CD pipeline infrastructure, usually without prior knowledge of all the code and cloud connections, and they must remediate risks to cloud applications.
 
 ## Manage your DevOps environments in Defender for Cloud
 
