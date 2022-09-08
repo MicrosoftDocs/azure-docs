@@ -20,13 +20,13 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 Instead of manually configuring your Spring Boot applications, you can automatically bind select Azure services to your applications by using Azure Spring Apps. This article demonstrates how to bind your application to an Azure Cosmos DB database.
 
-## Prerequisites:
+## Prerequisites
 
-* A deployed Azure Spring Apps instance
-* An Azure Cache for Redis service instance
-* The Azure Spring Apps extension for the Azure CLI
+* A deployed Azure Spring Apps instance.
+* An Azure Cache for Redis service instance.
+* The Azure Spring Apps extension for the Azure CLI.
 
-If you don't have a deployed Azure Spring Apps instance, follow the steps in the [quickstart on deploying an Azure Spring Apps app](./quickstart.md).
+If you don't have a deployed Azure Spring Apps instance, follow the steps in the [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
 ## Prepare your Java project
 
@@ -74,7 +74,8 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 ## Bind your app to the Azure Cosmos DB
 
-#### [Service Binding](#tab/Service-Binding)
+### [Service Binding](#tab/Service-Binding)
+
 Azure Cosmos DB has five different API types that support binding. The following procedure shows how to use them:
 
 1. Create an Azure Cosmos DB database. Refer to the quickstart on [creating a database](../cosmos-db/create-cosmosdb-resources-portal.md) for help.
@@ -102,7 +103,8 @@ Azure Cosmos DB has five different API types that support binding. The following
     spring.cloud.azure.cosmos.database=testdb
     ```
 
-#### [Terraform](#tab/Terraform)
+### [Terraform](#tab/Terraform)
+
 The following Terraform script shows how to set up an Azure Spring Apps app with Azure Cosmos DB account.
 
 ```terraform
