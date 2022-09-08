@@ -22,7 +22,9 @@ We have introduced a more precise list of error codes that replaces the previous
 
 ## Enable error classification in Synapse
 
-This error classification feature can be enabled or disabled by setting the following Spark config to `true` or `false` at the job or pool level - `livy.rsc.synapse.error-classification.enabled` .
+The error classification feature can be enabled or disabled by setting the following Spark configuration to `true` or `false` at the job or pool level:
+
+`livy.rsc.synapse.error-classification.enabled`
 
 Please find below the list of a few error types we support today. Please note, we are continuously refining and adding to these error codes by improving our model.
 
