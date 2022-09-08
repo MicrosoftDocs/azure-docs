@@ -20,7 +20,7 @@ The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It
 > [!NOTE]
 > Before you install version 1, we recommend you to learn about the [version 2](../azure-functions/start-stop-vms/overview.md), which is now generally available. The newer version offers all existing capabilities along with the support to use it with Azure. This also provides new capabilities, such as multi-subscription support from a single Start/Stop instance.
 
-> Start/Stop VMs during off-hours (v1) will be deprecated soon. 
+
 
 This feature uses [Start-AzVm](/powershell/module/az.compute/start-azvm) cmdlet to start VMs. It uses [Stop-AzVM](/powershell/module/az.compute/stop-azvm) for stopping VMs.
 
