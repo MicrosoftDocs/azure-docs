@@ -16,7 +16,7 @@ ms.reviewer: viviandiec
 This article describes how to set up and use the Container Monitoring solution in Azure Monitor, which helps you view and manage your Docker and Windows container hosts in a single location. Docker is a software virtualization system used to create containers that automate software deployment to their IT infrastructure.
 
 > [!IMPORTANT]
-> The Container Monitoring solution is being phased out, to monitor your Kubernetes environments, we recommend transitioning to [Azure Monitor Container insights](container-insights-transition-solution.md)
+> The Container Monitoring solution is being phased out. To monitor your Kubernetes environments, we recommend transitioning to [Azure Monitor Container insights](container-insights-transition-solution.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
