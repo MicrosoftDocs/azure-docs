@@ -43,7 +43,7 @@ One of the biggest benefits of using the Azure Machine Learning ecosystem is rel
 
 The configuration stage requires you to use your domain expertise around the problem to set your desired target values on model performance and fairness metrics.
 
-Like other Responsible AI dashboard components [configured in the YAML pipeline](how-to-responsible-ai-dashboard-sdk-cli.md?tabs=yaml#responsible-ai-components), you can add a component to generate the scorecard in the YAML pipeline.
+As with other Responsible AI dashboard components [configured in the YAML pipeline](how-to-responsible-ai-dashboard-sdk-cli.md?tabs=yaml#responsible-ai-components), you can add a component to generate the scorecard in the YAML pipeline.
 
 In the following code, the *pdf_gen.json* file is the JSON configuration file for scorecard generation, and *cohorts.json* is the JSON definition file for pre-built cohorts.
 
