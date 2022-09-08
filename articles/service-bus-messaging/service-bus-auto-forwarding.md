@@ -33,7 +33,7 @@ If Alice goes on vacation, her personal queue, rather than the ERP topic, fills 
 > When autoforwarding is setup, the value for `AutoDeleteOnIdle` on the source entity is automatically set to the maximum value of the data type.
 > 
 >  - On the source side, autoforwarding acts as a receive operation, so the source that has autoforwarding enabled is never really "idle" and hence it won't be automatically deleted. 
->  - Autoforwarding doesn't make any changes to the destination entity. If `AutoDeleteOnIdle` is enabled on destination entity, the entity is automatically deleted if it's inactive for the specified idle interval. 
+>  - Autoforwarding doesn't make any changes to the destination entity. If `AutoDeleteOnIdle` is enabled on destination entity, the entity is automatically deleted if it's inactive for the specified idle interval. We recommend that you don't enable `AutoDeleteOnIdle` on the destination entity because if the destination entity is deleted, the souce entity will continually see exceptions when trying to forward messages that destination. 
 
 ## Autoforwarding considerations
 

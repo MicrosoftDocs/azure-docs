@@ -21,6 +21,10 @@ ms.author: radubulboaca
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/rooms-quickstart-java).
+
 ## Setting up
 
 ### Create a new Java application
@@ -114,7 +118,7 @@ CommunicationRoom roomResult = roomsClient.getRoom(roomId);
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
+The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months. 
 
 ```java
 OffsetDateTime validFrom = OffsetDateTime.of(2022, 2, 1, 5, 30, 20, 10, ZoneOffset.UTC);
@@ -149,6 +153,19 @@ try {
 
 Participants that have been added to a `room` become eligible to join calls.
 
+### Get list of participants
+
+Retrieve the list of participants for an existing `room` by referencing the `roomId`:
+
+```java
+try {
+    ParticipantsCollection participants = roomsClient.listParticipants(roomId);
+    System.out.println("Participants: \n" + participants.getParticipants());
+} catch (Exception ex) {
+    System.out.println(ex);
+}
+```
+
 ### Remove participants
 
 To remove a participant from a `room` and revoke their access, use the `removeParticipants` method.
@@ -174,3 +191,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 ```java
 roomsClient.deleteRoomWithResponse(roomId, Context.NONE);
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [Java SDK reference](/java/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).

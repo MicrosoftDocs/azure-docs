@@ -24,7 +24,7 @@ If a region supports availability zones, the event data is replicated across ava
 
 ## Disaster recovery
 
-Event Grid supports automatic geo-disaster recovery of event subscription configuration data (metadata) for topics, system topics, domains, and partner topics. Event Grid automatically syncs your event-related infrastructure to a paired region. If an entire Azure region goes down, the events will begin to flow to the geo-paired region with no intervention from you. 
+Event Grid supports automatic geo-disaster recovery of event subscription configuration data (metadata) for topics, system topics and domains. Event Grid automatically syncs your event-related infrastructure to a paired region. If an entire Azure region goes down, the events will begin to flow to the geo-paired region with no intervention from you.
 
 > [!NOTE]
 > Event data is not replicated to the paired region, only the metadata is replicated.

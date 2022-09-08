@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 05/25/2022
+ms.date: 08/11/2022
 ---
 
 # Connect to a server group
@@ -89,4 +89,4 @@ interactively, issue them to PostgreSQL, and see the query results.
 * [Verify TLS](howto-ssl-connection-security.md) certificates in your
   connections.
 * Now that you can connect to the database, learn how to [build scalable
-  apps](howto-build-scalable-apps-overview.md).
+  apps](quickstart-build-scalable-apps-overview.md).

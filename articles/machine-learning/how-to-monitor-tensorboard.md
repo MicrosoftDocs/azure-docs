@@ -5,8 +5,8 @@ description: Launch TensorBoard to visualize experiment job histories and identi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: blackmist
-ms.author: larryfr
+ms.author: amipatel
+author: amibp
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
@@ -294,5 +294,5 @@ tb.stop()
 
 In this how-to you, created two experiments and learned how to launch TensorBoard against their job histories to identify areas for potential tuning and retraining. 
 
-* If you are satisfied with your model, head over to our [How to deploy a model](how-to-deploy-and-where.md) article. 
+* If you are satisfied with your model, head over to our [How to deploy a model](./v1/how-to-deploy-and-where.md) article. 
 * Learn more about [hyperparameter tuning](how-to-tune-hyperparameters.md).

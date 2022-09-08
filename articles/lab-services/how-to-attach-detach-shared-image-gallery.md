@@ -2,7 +2,7 @@
 title: Attach or detach an Azure Compute Gallery in Azure Lab Services | Microsoft Docs
 description: This article describes how to attach an Azure Compute Gallery to a lab in Azure Lab Services. 
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.date: 07/04/2022
 ms.custom: devdivchpfy22
 ---
 
@@ -11,7 +11,7 @@ ms.custom: devdivchpfy22
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [Attach or detach a shared image gallery to a lab account in Azure Lab Services](how-to-attach-detach-shared-image-gallery-1.md).
+> If using a version of Azure Lab Services prior to the [August 2022 Update](lab-services-whats-new.md), see [Attach or detach a shared image gallery to a lab account in Azure Lab Services](how-to-attach-detach-shared-image-gallery-1.md).
 
 This article shows you how to attach or detach an Azure Compute Gallery to a lab plan.
 

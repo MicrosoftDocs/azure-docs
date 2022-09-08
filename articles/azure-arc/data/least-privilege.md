@@ -64,7 +64,7 @@ Permissions required to perform this action:
   - Create
 - All the permissions being granted to the service account (see the arcdata-deployer.yaml below for details)
 
-Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace created in the previous step, for example: `arc`. Run the following command to create the deployer service account with the edited file.
+Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace created in the previous step, for example: `arc`. Run the following command to create the deployer service account with the edited file.
 
 ```console
 kubectl apply --namespace arc -f arcdata-deployer.yaml

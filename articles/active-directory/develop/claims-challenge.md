@@ -94,6 +94,8 @@ The following example claims parameter shows how a client application communicat
 Claims: {"access_token":{"xms_cc":{"values":["cp1"]}}}
 ```
 
+#### [.NET](#tab/dotnet)
+
 Those using MSAL library will use the following code:
 
 ```c#
@@ -115,6 +117,24 @@ Those using Microsoft.Identity.Web can add the following code to the configurati
     "ClientCapabilities": [ "cp1" ]
 },
 ```
+#### [JavaScript](#tab/JavaScript)
+
+Those using MSAL.js can add `clientCapabilities` property to the configuration object.
+
+```javascript
+const msalConfig = {
+    auth: {
+        clientId: 'Enter_the_Application_Id_Here', 
+        clientCapabilities: ["CP1"]
+        // the remaining settings
+        // ... 
+    }
+}
+
+const msalInstance = new msal.PublicClientApplication(msalConfig);
+```
+
+---
 
 An example of how the request to Azure AD will look like:
 
@@ -152,7 +172,7 @@ The **xms_cc** claim with a value of "cp1" in the access token is the authoritat
 
 The values are not case-sensitive and unordered. If more than one value is specified in the **xms_cc** claim request, those values will be a multi-valued collection as the value of the **xms_cc** claim.
 
-A request of :
+A request of:
 
 ```json
 { "access_token": { "xms_cc":{"values":["cp1","foo", "bar"] } }}
@@ -185,7 +205,7 @@ This is how the app's manifest looks like after the **xms_cc** [optional claim](
 
 The API can then customize their responses based on whether the client is capable of handling claims challenge or not.
 
-An example in C#
+### [.NET](#tab/dotnet)
 
 ```c#
 Claim ccClaim = context.User.FindAll(clientCapabilitiesClaim).FirstOrDefault(x => x.Type == "xms_cc");
@@ -200,8 +220,27 @@ else
 }
 ```
 
+### [JavaScript](#tab/JavaScript)
+
+```javascript
+const checkIsClientCapableOfClaimsChallenge = (req, res, next) => {
+    // req.authInfo contains the decoded access token payload
+    if (req.authInfo['xms_cc'] && req.authInfo['xms_cc'].includes('CP1')) {
+          // Return formatted claims challenge as this client understands this
+          
+    } else {
+            return res.status(403).json({ error: 'Client is not capable' });
+    }
+}
+
+```
+
+---
+
 ## Next steps
 
 - [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md#request-an-authorization-code)
 - [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
 - [Granular Conditional Access for sensitive data and actions](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775)
+- [React single-page application using MSAL React to sign-in users against Azure Active Directory](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph with the Microsoft identity platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)

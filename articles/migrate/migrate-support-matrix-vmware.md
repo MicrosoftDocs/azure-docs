@@ -31,7 +31,7 @@ Learn more about [assessments](concepts-assessment-calculation.md).
 VMware | Details
 --- | ---
 **vCenter Server** | Servers that you want to discover and assess must be managed by vCenter Server version 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses are not supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
-**Permissions** | The Azure Migrate: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory and agentless dependency analysis, the account must have privileges for guest operations on VMware VMs.
+**Permissions** | The Azure Migrate: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory, agentless dependency analysis, web apps and SQL discovery, the account must have privileges for guest operations on VMware VMs.
 
 ## Server requirements
 
@@ -65,7 +65,7 @@ Support | Details
 --- | ---
 **Supported servers** | You can perform software inventory on up to 10,000 servers running across vCenter Server(s) added to each Azure Migrate appliance.
 **Operating systems** | Servers running all Windows and Linux versions are supported.
-**Server requirements** | For software inventory, VMware Tools must be installed and running on your servers.The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.<br/><br/>WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.
+**Server requirements** | For software inventory, VMware Tools must be installed and running on your servers. The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.<br/><br/>WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.
 **vCenter Server account** | To interact with the servers for software inventory, the vCenter Server read-only account that's used for assessment must have privileges for guest operations on VMware VMs.
 **Server access** | You can add multiple domain and non-domain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
 **Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory.
@@ -79,7 +79,7 @@ After the appliance is connected, it gathers configuration and performance data 
 
 Support | Details
 --- | ---
-**Supported servers** | Currently supported only for servers running SQL Server in your VMware environment. You can discover up to 300 SQL Server instances or 6,000 SQL databases, whichever is less.
+**Supported servers** | supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/ Baremetal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. You can discover up to 300 SQL Server instances or 6,000 SQL databases, whichever is less.
 **Windows servers** | Windows Server 2008 and later are supported.
 **Linux servers** | Currently not supported.
 **Authentication mechanism** | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.
@@ -94,26 +94,26 @@ Support | Details
 >
 > However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
-## ASP.NET web apps discovery requirements
+## Web apps discovery requirements
 
-[Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server.
-User can add both domain and non-domain credentials on appliance. Please make sure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
-After the appliance is connected, it gathers configuration data for IIS web server and ASP.NET web apps. Web apps configuration data is updated once every 24 hours.
+[Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have a web server installed, Azure Migrate discovers web apps on the server.
+The user can add both domain and non-domain credentials on the appliance. Ensure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
+After the appliance is connected, it gathers configuration data for ASP.NET web apps(IIS web server) and Java web apps(Tomcat servers). Web apps configuration data is updated once every 24 hours.
 
-Support | Details
---- | ---
-**Supported servers** | Currently supported only for windows servers running IIS in your VMware environment.
-**Windows servers** | Windows Server 2008 R2 and later are supported.
-**Linux servers** | Currently not supported.
-**IIS access** | Web apps discovery requires a local admin user account.
-**IIS versions** | IIS 7.5 and later are supported.
+Support | ASP.NET web apps | Java web apps
+--- | --- | ---
+**Stack** | VMware only. | VMware only.
+**Windows servers** | Windows Server 2008 R2 and later are supported. | Not supported.
+**Linux servers** | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. 
+**Web server versions** | IIS 7.5 and later. | Tomcat 8 or later.
+**Required privileges** | local admin | root or sudo user 
 
 > [!NOTE]
 > Data is always encrypted at rest and during transit.
 
 ## Dependency analysis requirements (agentless)
 
-[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers which can be easily visualized with a map view in Azure Migrate project and can be used to group related servers for migration to Azure.The following table summarizes the requirements for setting up agentless dependency analysis:
+[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers which can be easily visualized with a map view in Azure Migrate project and can be used to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis:
 
 Support | Details
 --- | ---

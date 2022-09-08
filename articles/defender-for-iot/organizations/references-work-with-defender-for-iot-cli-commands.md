@@ -9,7 +9,6 @@ ms.topic: article
 
 This article describes CLI commands for sensors and on-premises management consoles. The commands are accessible to the following users:
 
-- Administrator
 - CyberX 
 - Support
 - cyberx_host

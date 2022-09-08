@@ -17,8 +17,7 @@ The commercial marketplace is available in more than 100 countries and regions, 
 
 The following video provides more information about transacting in the commercial marketplace.
 
-<br />
-<iframe src=https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=ae2b72e2-6591-407f-8740-50cc4860e8ee width="1080" height="529"></iframe>
+> [!VIDEO ae2b72e2-6591-407f-8740-50cc4860e8ee]
 
 ## Why sell with Microsoft?
 
@@ -89,7 +88,7 @@ When you create a commercial marketplace offer in Partner Center, it may be list
 
 ## Next steps
 
-- Get an [Introduction to the Microsoft commercial marketplace](/learn/modules/intro-commercial-marketplace/) on Microsoft Learn.
-- Find videos and hands on labs at [Mastering the marketplace](https://go.microsoft.com/fwlink/?linkid=2195692)
+- Get an [Introduction to the Microsoft commercial marketplace](/learn/modules/intro-commercial-marketplace/).
+- Find videos and hands-on labs at [Mastering the marketplace](https://go.microsoft.com/fwlink/?linkid=2195692)
 - For new Microsoft partners who are interested in publishing to the commercial marketplace, see [Create a commercial marketplace account in Partner Center](create-account.md).
 - To learn more about recent and future releases, join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).
