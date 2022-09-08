@@ -42,5 +42,5 @@ This is an example of a user who will leave on September 30, 2022 at 23:59.
 
 ## Next steps
 
-- [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attribute.md)
+- [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
 - [Lifecycle Workflows templates](lifecycle-workflow-templates.md)
