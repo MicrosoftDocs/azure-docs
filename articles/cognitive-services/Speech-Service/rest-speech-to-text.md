@@ -19,7 +19,7 @@ ms.custom: devx-track-csharp
 Speech-to-text REST API v3.1 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
 
 > [!IMPORTANT]
-> Version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired. Please [migrate your applications](migrate-v3-0-to-v3-1.md) to the Speech-to-text REST API v3.1. If you're still using version 2.0, see [Migrate code from v2.0 to v3.0 of the REST API](migrate-v2-to-v3.md) for additional requirements.
+> Version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired. Please [migrate your applications](migrate-v3-0-to-v3-1.md) to the Speech-to-text REST API v3.1. 
 
 > [!div class="nextstepaction"]
 > [See the Speech to Text API v3.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)
@@ -31,8 +31,6 @@ Use Speech-to-text REST API to:
 - Get logs for each endpoint if logs have been requested for that endpoint.
 - Request the manifest of the models that you create, to set up on-premises containers.
 
-## Features
-
 Speech-to-text REST API includes such features as:
 - **Webhook notifications**: All running processes of the service support webhook notifications. You can register your webhooks where notifications are sent.
 - **Updating models behind endpoints** 
@@ -41,9 +39,12 @@ Speech-to-text REST API includes such features as:
 
 For examples of using the Speech-to-text REST API for batch transcription, see [How to use batch transcription](batch-transcription.md).
 
-
 ## Datasets
 
+Datasets are applicable for [Custom Speech](custom-speech-overview.md). You can use datasets to train and test the performance of different models. For example, you can compare the performance of a model trained with a specific dataset to the performance of a model trained with a different dataset.
+
+|Path|Method|Operation ID|
+|---|---|---|
 |`/datasets/{id}/blocks:commit`|POST|[Datasets_CommitBlocks](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_CommitBlocks)|
 |`/datasets`|POST|[Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Create)|
 |`/datasets/{id}`|DELETE|[Datasets_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Delete)|
@@ -59,6 +60,10 @@ For examples of using the Speech-to-text REST API for batch transcription, see [
 
 ## Endpoints
 
+Endpoints are applicable for [Custom Speech](custom-speech-overview.md). You must deploy a custom endpoint to use a Custom Speech model.  
+
+|Path|Method|Operation ID|
+|---|---|---|
 |`/endpoints`|POST|[Endpoints_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Create)|
 |`/endpoints/{id}`|DELETE|[Endpoints_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Delete)|
 |`/endpoints/base/{locale}/files/logs/{logId}`|DELETE|[Endpoints_DeleteBaseModelLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteBaseModelLog)|
@@ -75,6 +80,11 @@ For examples of using the Speech-to-text REST API for batch transcription, see [
 |`/endpoints/{id}`|PATCH|[Endpoints_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Update)|
 
 ## Evaluations
+
+Evaluations are applicable for [Custom Speech](custom-speech-overview.md). You can use evaluations to compare the performance of different models. For example, you can compare the performance of a model trained with a specific dataset to the performance of a model trained with a different dataset.
+
+|Path|Method|Operation ID|
+|---|---|---|
 |`/evaluations`|POST|[Evaluations_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Create)|
 |`/evaluations/{id}`|DELETE|[Evaluations_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Delete)|
 |`/evaluations/{id}`|GET|[Evaluations_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Get)|
@@ -86,10 +96,18 @@ For examples of using the Speech-to-text REST API for batch transcription, see [
 
 ## Health status
 
+Health status provides insights about the overall health of the service and sub-components.
+
+|Path|Method|Operation ID|
+|---|---|---|
 |`/healthstatus`|GET|[HealthStatus_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/HealthStatus_Get)|
 
 ## Models
 
+Models are applicable for [Custom Speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). You can use models to transcribe audio files. For example, you can use a model trained with a specific dataset to transcribe audio files. 
+
+|Path|Method|Operation ID|
+|---|---|---|
 |`/models/{id}:copyto`|POST|[Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo)|
 |`/models`|POST|[Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create)|
 |`/models/{id}`|DELETE|[Models_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Delete)|
@@ -106,6 +124,10 @@ For examples of using the Speech-to-text REST API for batch transcription, see [
 
 ## Projects
 
+Projects are applicable for [Custom Speech](custom-speech-overview.md). Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt-tts). For example, you might create a project for English in the United States.
+
+|Path|Method|Operation ID|
+|---|---|---|
 |`/projects`|POST|[Projects_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Create)|
 |`/projects/{id}`|DELETE|[Projects_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Delete)|
 |`/projects/{id}`|GET|[Projects_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Get)|
@@ -121,6 +143,10 @@ For examples of using the Speech-to-text REST API for batch transcription, see [
 
 ## Transcriptions
 
+Transcriptions are applicable for [Batch Transcription](batch-transcription.md). Transcriptions are the result of a batch transcription job. 
+
+|Path|Method|Operation ID|
+|---|---|---|
 |`/transcriptions`|POST|[Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create)|
 |`/transcriptions/{id}`|DELETE|[Transcriptions_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)|
 |`/transcriptions/{id}`|GET|[Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get)|
@@ -133,6 +159,10 @@ For examples of using the Speech-to-text REST API for batch transcription, see [
 
 ## Web hooks
 
+Web hooks are applicable for [Custom Speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). Web hooks are commonly used to receive notifications when a batch transcription job is completed.
+
+|Path|Method|Operation ID|
+|---|---|---|
 |`/webhooks`|POST|[WebHooks_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/WebHooks_Create)|
 |`/webhooks/{id}`|DELETE|[WebHooks_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/WebHooks_Delete)|
 |`/webhooks/{id}`|GET|[WebHooks_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/WebHooks_Get)|

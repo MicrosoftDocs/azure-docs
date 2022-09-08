@@ -19,7 +19,7 @@ ms.custom: devx-track-csharp
 The Speech-to-text REST API v3.1 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). Changes from version 3.0 to 3.1 are described in the sections below.
 
 > [!IMPORTANT]
-> Version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired. Please migrate your applications to the Speech-to-text REST API v3.1. If you're still using version 2.0, see [Migrate code from v2.0 to v3.0 of the REST API](migrate-v2-to-v3.md) for additional requirements.
+> Version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired. Please migrate your applications to the Speech-to-text REST API v3.1.
 
 ## Path and operation IDs
 
@@ -130,9 +130,6 @@ The [Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/serv
 
 ```json 
 "features": {
-
-    // some properties are omitted for brevity
-
     "supportsAdaptationsWith": [
         "Acoustic",
         "Language",
