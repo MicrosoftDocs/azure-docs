@@ -10,7 +10,7 @@ ms.date: 06/17/2022
 
 ms.author: justinha
 author: calui
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calui
 
 ---
