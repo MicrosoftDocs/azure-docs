@@ -4,7 +4,7 @@ description: Step-by-step guidance to move from Azure MFA Server on-premises to 
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/21/2022
+ms.date: 09/08/2022
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
@@ -291,12 +291,14 @@ We recommend that you [secure the security registration process with Conditional
 > [!NOTE]
 > Users who MUST register their combined security information from a non-trusted location or device, the user can be issued a Temporary Access Pass or temporarily excluded from the policy.
 
+### Migrate MFA settings from MFA Server
+
+You can use the [MFA Server Migration utility](how-to-mfa-server-migration-utility.md) to synchronize registered MFA settings for users from MFA Server to Azure AD. 
+You can synchronize phone numbers, hardware tokens, and device registrations such as Microsoft Authenticator app settings. 
+
 ### Migrate phone numbers from MFA Server
 
-Migrating phone numbers can lead to stale numbers being migrated, and make users more likely to stay on phone-based MFA instead of setting up more secure methods like [passwordless sign-in with the Microsoft Authenticator](howto-authentication-passwordless-phone.md) app. You can't migrate device registrations such as their Microsoft Authenticator app settings. We recommend that you have all users register for [combined security information](howto-registration-mfa-sspr-combined.md). Combined security information also registers users for self-service password reset.
-
-If having users register their combined security information is absolutely not an option, it's possible to export the users and their phone numbers from MFA Server and import the phone numbers into Azure AD.
- 
+If you only want to migrate registered MFA phone numbers, you can export the users along with their phone numbers from MFA Server and import the phone numbers into Azure AD. 
 
 #### Export user phone numbers from MFA Server 
 
