@@ -105,7 +105,7 @@ A filled-out sample of the `.test.env` file, generated based on `.test.env.tmpl`
 > [!NOTE]
 > The `export VAR="value"` syntax below is not meant to be run locally to source environment variables - but is there for the launcher. The launcher mounts this `.test.env` file as-is as a Kubernetes `secret` using `kustomize` [`secretGenerator`](https://github.com/kubernetes-sigs/kustomize/blob/master/examples/secretGeneratorPlugin.md#secret-values-from-local-files), and during initialization, run [`source`](https://ss64.com/bash/source.html), which will import the environment variables into the launcher upon start.
 
-In other words, after filling out `.test.env.tmpl` to create `.test.env`, the generated file should look similar to the sample below. The `.test.env` file fill out process is identical across operating systems and terminals.
+In other words, after filling out `.test.env.tmpl` to create `.test.env`, the generated file should look similar to the sample below. The process to fill out the `.test.env` file is identical across operating systems and terminals.
 
 Finished sample of `.test.env`:
 ```bash
