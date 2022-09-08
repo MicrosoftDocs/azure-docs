@@ -94,9 +94,9 @@ Determining the reward score, in this quickstart is trivial. In a production sys
 
 These code snippets show you how to do the following tasks with the Personalizer client library for .NET:
 
-* [Create a Personalizer client](#authenticate-the-client)
-* [Multi-Slot Rank API](#request-the-best-action)
-* [Multi-Slot Reward API](#send-a-reward)
+* Create a Personalizer client
+* Multi-Slot Rank API
+* Multi-Slot Reward API
 
 
 ## Authenticate the client
