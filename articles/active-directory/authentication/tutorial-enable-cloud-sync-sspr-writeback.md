@@ -127,7 +127,7 @@ Try the following operations to validate scenarios using password writeback. All
   - Write permissions on pwdLastSet
   - Extended rights for "Unexpire Password" on the root object of each domain in that forest, if not already set. 
  
-  If these permissions are not set, you can set the PasswordWriteBack permission on the service account by using the Set-AADCloudSyncPermissions cmdlet and on- premises enterprise administrator credentials: 
+  If these permissions are not set, you can set the PasswordWriteBack permission on the service account by using the Set-AADCloudSyncPermissions cmdlet and on-premises enterprise administrator credentials: 
 
   ```powershell
   Import-Module ‘C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll’ 
@@ -136,7 +136,7 @@ Try the following operations to validate scenarios using password writeback. All
 
   After you have updated the permissions, it may take up to an hour or more for these permissions to replicate to all the objects in your directory. 
   
-- If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-prem AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly. 
+- If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-premises AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly. 
 
 - Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. If you are testing this feature and want to reset password for users more than once per day, the group policy for Minimum password age must be set to 0. This setting can be found under Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies within gpmc.msc. 
 
