@@ -40,7 +40,7 @@ Permissions for cloud sync are configured by default. If permissions need to be 
 ### Enable password writeback in SSPR
 You can enable Azure AD connect cloud sync provisioning directly in Azure portal or through PowerShell. 
 
-#### Enable password writeback in Azure Portal
+#### Enable password writeback in Azure portal
 
 With password writeback enabled in Azure AD Connect cloud sync, now verify, and configure Azure AD self-service password reset (SSPR) for password writeback. When you enable SSPR to use password writeback, users who change or reset their password have that updated password synchronized back to the on-premises AD DS environment as well. 
 
