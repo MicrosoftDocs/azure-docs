@@ -6,7 +6,7 @@ ms.author: shriramm
 ms.reviewer: maghan
 ms.date: 09/06/2022
 ms.service: mysql
-ms.subservice: migration
+ms.subservice: single-server
 ms.topic: how-to
 ---
 
