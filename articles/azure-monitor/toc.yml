@@ -1237,6 +1237,8 @@ items:
       href: alerts/alerts-manage-alert-instances.md
     - name: Metric alert rules
       items:
+      - name: T:Create a metric alert
+        href: alerts/tutorial-metric-alert.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
@@ -1249,6 +1251,8 @@ items:
         href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:
+      - name: T:Create a log query alert
+        href: alerts/tutorial-log-alert.md
       - name: Edit log alerts created in previous versions
         href: alerts/alerts-manage-alerts-previous-version.md
       - name: Optimizing alert queries
@@ -1352,12 +1356,6 @@ items:
         href: alerts/alerts-enable-template.md
       - name: Classic metric alert calling a webhook
         href: alerts/alerts-webhooks.md
-    - name: Tutorials
-      items:
-      - name: Create a metric alert
-        href: alerts/tutorial-metric-alert.md
-      - name: Create a log query alert
-        href: alerts/tutorial-log-alert.md
   - name: AutoScale
     items:
       - name: Overview
