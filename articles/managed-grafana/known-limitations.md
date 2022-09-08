@@ -14,7 +14,7 @@ Azure Managed Grafana delivers the native Grafana functionality in the highest p
 
 ## Current limitations
 
-Managed Grafana has the following known limitations at present:
+Managed Grafana has the following known limitations:
 
 1. All users must accounts in an Azure Active Directory (AAD). Microsoft (MSA) or 3rd-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
 
