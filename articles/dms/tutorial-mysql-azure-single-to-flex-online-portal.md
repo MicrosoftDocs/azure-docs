@@ -122,7 +122,7 @@ With these best practices in mind, create your target flexible server and then c
       * innodb_buffer_pool_size – can only be increased by scaling up compute for Azure Database for MySQL server. Scale up the server to 64 vCore General Purpose SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size.
       * innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.
       * innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
-  * Configure the firewall rules and replicas on the target server to match those on the source server.
+  * Configure the replicas on the target server to match those on the source server.
   * Replicate the following server management features from the source single server to the target flexible server:
     * Role assignments, Roles, Deny Assignments, classic administrators, Access Control (IAM)
     * Locks (read-only and delete)
@@ -216,10 +216,10 @@ To create a migration project, perform the following steps.
 To configure your DMS migration project, perform the following steps.
 
 1. On the **Select source** screen, specify the connection details for the source MySQL instance.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/13-select-source-online.png" alt-text="Screenshot of an Add source details screen.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/select-source-online.png" alt-text="Screenshot of an Add source details screen.":::
 
 2. Select **Next : Select target>>**, and then, on the **Select target** screen, specify the connection details for the target flexible server.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/15-select-target.png" alt-text="Screenshot of a Select target.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/select-target-online.png" alt-text="Screenshot of a Select target.":::
 
 3. Select **Next : Select databases>>**, and then, on the Select databases tab, under [Preview] Select server objects, select the server objects that you want to migrate.
        :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/16-select-db.png" alt-text="Screenshot of a Select database.":::
@@ -232,13 +232,12 @@ To configure your DMS migration project, perform the following steps.
     Before the tab populates, DMS fetches the tables from the selected database(s) on the source and target and then determines whether the table exists and contains data.
 
 6. Select the tables that you want to migrate.
-    You can only select the source and target tables whose names match that on the source and target server.
-    If you select a table in the source database that doesn’t exist on the target database, you will see a warning message ‘Not available at Target’ and you won’t be able to select the table for migration.
+    If the selected source table doesn't exist on the target server, the online migration process will ensure that the table schema and data is migrated to the target server.
    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/17-select-tables.png" alt-text="Screenshot of a Select Tables.":::
 
     DMS validates your inputs, and if the validation passes, you will be able to start the migration.
 
-7. After configuring for schema migration, select **Next : Summary>>**.
+7. After configuring for schema migration, select **Review and start migration**.
     > [!NOTE]
     > You only need to navigate to the Configure migration settings tab if you are trying to troubleshoot failing migrations.
 
@@ -251,13 +250,13 @@ To configure your DMS migration project, perform the following steps.
 
 ### Monitor the migration
 
-1. On the migration activity screen navigate to **Initial Load**, select **Refresh** to update the display and view the progress and the number of tables completed.
+1. On the migration activity screen navigate to **Initial Load**, monitor the migration progress as the screen is auto-refreshed every 30 seconds. Select **Refresh** to update the display and view the progress and the number of tables completed as and when needed.
 
-2. On the migration activity screen navigate to **Replicate Data Changes** tab, select **Refresh** to update the display and view the seconds behind source.
+2. Once the **Initial Load** activity is completed, you are navigated to the **Replicate Data Changes** tab automatically. You can monitor the migration progress as the screen is auto-refreshed every 30 seconds. Select **Refresh** to update the display and view the seconds behind source as and when needed.
 
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/20-monitor-migration-online.png" alt-text="Screenshot of a Monitoring migration.":::
 
-3. After the **Seconds behind source**  hits 0, proceed to start cutover by clicking on the **Start Cutover** menu tab at the top of the migration activity screen. Follow the steps in the cutover window before you are ready to perform a cutover. Once all steps are completed, click on **Confirm** and next click on **Apply**.
+3. Monitor the **Seconds behind source** and as soon as it nears 0, proceed to start cutover by clicking on the **Start Cutover** menu tab at the top of the migration activity screen. Follow the steps in the cutover window before you are ready to perform a cutover. Once all steps are completed, click on **Confirm** and next click on **Apply**.
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/21-complete-cutover-online.png" alt-text="Screenshot of a Perform cutover.":::
 
 ## Perform post-migration activities
