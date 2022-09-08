@@ -588,7 +588,7 @@ param eventHubAuthorizationRuleId string
 @description('The name of the event hub.')
 param eventHubName string
 
-resource vault 'Microsoft.KeyVault/managedHSMs@2021-11-01-preview' existing = {
+resource vault 'Microsoft.KeyVault/vaults@2021-11-01-preview' existing = {
   name: vaultName
 }
 
@@ -664,7 +664,7 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
     {
       "type": "Microsoft.Insights/diagnosticSettings",
       "apiVersion": "2021-05-01-preview",
-      "scope": "[format('Microsoft.KeyVault/managedHSMs/{0}', parameters('vaultName'))]",
+      "scope": "[format('Microsoft.KeyVault/vaults/{0}', parameters('vaultName'))]",
       "name": "[parameters('settingName')]",
       "properties": {
         "workspaceId": "[parameters('workspaceId')]",

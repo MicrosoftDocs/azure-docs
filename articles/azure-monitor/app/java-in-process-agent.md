@@ -22,7 +22,7 @@ Java auto-instrumentation is enabled through configuration changes; no code chan
 
 - Java application using Java 8+
 - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
-- Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
+- Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
 
 ### Enable Azure Monitor Application Insights
 
