@@ -319,7 +319,7 @@ The following recommended playbooks, and other similar playbooks are available t
 - **Blocking playbooks** are triggered when an alert or incident is created, gather entity information like the account, IP address, and host, and blocks them from further actions:
 
     - [Prompt to block an IP address](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-IPs-on-MDATP-Using-GraphSecurity).
-    - [Block an Azure AD user](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-AADUser)
+    - [Block an Azure AD user](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-AADUserOrAdmin)
     - [Reset an Azure AD user password](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Reset-AADUserPassword/)
     - [Prompt to isolate a machine](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Isolate-AzureVMtoNSG)
 
