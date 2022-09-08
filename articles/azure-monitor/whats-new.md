@@ -41,7 +41,7 @@ This article lists significant changes to Azure Monitor documentation.
 |[Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)|Updated connection string overrides example.|
 |[Application Insights SDK for ASP.NET Core applications](app/tutorial-asp-net-core.md)|A new tutorial with step-by-step instructions to use the Application Insights SDK with .NET Core applications.|
 |[Application Insights SDK support guidance](app/sdk-support-guidance.md)|Our SDK support guidance has been updated and clarified.|
-|[Azure Application Insights - Dependency Auto-Collection](app/auto-collect-dependencies.md)|The latest currently-supported node.js modules have been updated.|
+|[Azure Application Insights - Dependency Auto-Collection](app/auto-collect-dependencies.md)|The latest currently supported node.js modules have been updated.|
 |[Application Insights custom metrics with .NET and .NET Core](app/tutorial-asp-net-custom-metrics.md)|A new tutorial with step-by-step instructions on how to enable custom metrics with .NET applications.|
 |[Migrate an Application Insights classic resource to a workspace-based resource](app/convert-classic-resource.md)|A comprehensive FAQ section has been added to assist with migration to workspace-based resources.|
 |[Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)|This article has been fully updated for 3.4.0-BETA.|
