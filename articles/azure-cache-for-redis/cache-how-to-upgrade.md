@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to
-ms.date: 09/04/2022
+ms.date: 09/08/2022
 ms.custom: template-how-to 
 ---
 
@@ -24,8 +24,8 @@ For more information, see [here](cache-how-to-import-export-data.md) for details
 ### Limitations
 
 - Upgrading a Basic tier cache results in brief unavailability and data loss.
-- Upgrading on geo-replicated cache is not supported. You must manually unlink the cache instances before upgrading.
-- Upgrading a cache with a dependency on Cloud Services is not supported. You should migrate your cache instance to virtual machine scale set before upgrading.For more information, see [Caches with a dependency on Cloud Services (classic)](/azure/azure-cache-for-redis/cache-faq) for details on cloud services hosted caches.
+- Upgrading on geo-replicated cache isn't supported. You must manually unlink the cache instances before upgrading.
+- Upgrading a cache with a dependency on Cloud Services isn't supported. You should migrate your cache instance to virtual machine scale set before upgrading. For more information, see [Caches with a dependency on Cloud Services (classic)](/azure/azure-cache-for-redis/cache-faq) for details on cloud services hosted caches.
 
 ### Check the version of a cache
 
