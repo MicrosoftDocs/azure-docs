@@ -274,7 +274,7 @@ Creates a new maintenance window.
 |**ticketId**     | String. Defines the maintenance ticket ID in the user's systems.  Make sure that the ticket ID is not linked to an existing open window.      | `2987345p98234` | Required |
 |**ttl**     |  Positive integer. Defines the TTL (time to live), which is the duration of the maintenance window, in minutes. After the defined time period is completed, the maintenance window is over and the system behaves normally again.     | `180`| Required|
 |**engines**     | JSON array of strings. Defines which engine to suppress alerts from during the maintenance window. Possible values: <br><br>    - `ANOMALY`<br>    - `MALWARE`<br>    - `OPERATIONAL`<br>    - `POLICY_VIOLATION`<br>    - `PROTOCOL_VIOLATION`       | `ANOMALY,OPERATIONAL`| Optional|
-|**sensorIds**     | JSON array of strings. Defines which sensors to suppress alerts from during the maintenance window. You can get these sensor IDs from the <!--missing APIs--> [/api/v1/appliances (GET)]() API.        | `1,35,63`| Optional |
+|**sensorIds**     | JSON array of strings. Defines which sensors to suppress alerts from during the maintenance window. You can get these sensor IDs from the [appliances (Manage OT sensor appliances)](management-appliances-apis.md#appliances-manage-ot-sensor-appliances) API.        | `1,35,63`| Optional |
 |**subnets**     |  JSON array of strings. Defines the subnets to suppress alerts from during the maintenance window. Define each subnet in a CIDR notation.      | `192.168.0.0/16,138.136.80.0/14,112.138.10.0/8`  | Optional|
 
 # [Response](#tab/maintenanceWindow-response-post)

@@ -247,7 +247,7 @@ This API returns data about a specific device per a given device ID.
 
 ## deleteddevices (Get deleted devices)
 
-This API returns data about deleted devices. <!-- needs more info-->
+This API returns a list of IDs of recently deleted devices, from the supplied timestamp.
 
 **URI**: `/external/v3/integration/deleteddevices/`
 
@@ -255,8 +255,6 @@ This API returns data about deleted devices. <!-- needs more info-->
 
 # [Request](#tab/deleteddevices-request)
 
-
-**URI**: `/deleteddevices/{timestamp}`
 
 **URI parameters**:
 
@@ -290,7 +288,7 @@ This API returns data about deleted devices. <!-- needs more info-->
 ---
 ## sensors (Get sensors)
 
-This API returns data about connected network sensors. <!-- needs more info-->
+This API returns a list of sensor objects for connected OT network sensors.
 
 **URI**: `/external/v3/integration/sensors/`
 
@@ -344,7 +342,7 @@ An array of the following fields:
 ---
 ## devicecves (Get device CVEs)
 
-This API returns data about CVEs for a specific device. <!-- needs more info-->
+This API returns a list of active CVEs for all devices that were updated since the supplied timestamp.
 
 **URI**: `/external/v3/integration/devicecves/`
 
