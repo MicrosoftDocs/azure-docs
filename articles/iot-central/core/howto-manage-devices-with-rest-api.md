@@ -550,6 +550,263 @@ The response to this request looks like the following example:
 }
 ```
 
+## Enrollment groups
+
+Enrollment groups are used to manage the device authentication options in your IoT Central application.
+
+### Add a enrollment group
+
+Use the following request to create a new enrollment group.
+
+```http
+PUT https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}?api-version=2022-07-31
+```
+
+The following example shows a request body that adds a new enrollment group:
+
+```json
+{
+  "displayName": "My group",
+  "enabled": true,
+  "type": "iot",
+  "attestation": {
+    "type": "symmetricKey"
+  }
+}
+
+```
+
+The request body has some required fields:
+
+* `@displayName`: Display name of the enrollment group.
+* `@enabled`: Whether the devices using the group are allowed to connect to IoT Central.
+* `@type`: Type of devices that connect through the group, either `iot` or `iotEdge`.
+* `attestation`: The attestation mechanism for the enrollment group, either `symmetricKey` or `x509`.
+
+The response to this request looks like the following example:
+
+```json
+{
+  "id": "myEnrollmentGroupId",
+  "displayName": "My group",
+  "enabled": true,
+  "type": "iot",
+  "attestation": {
+    "type": "symmetricKey",
+    "symmetricKey": {
+      "primaryKey": "<primary-symmetric-key>",
+      "secondaryKey": "<secondary-symmetric-key>"
+    }
+  },
+  "etag": "IjA4MDUwMTJiLTAwMDAtMDcwMC0wMDAwLTYyODJhOWVjMDAwMCI="
+}
+```
+
+### Add a X509 certificate to a enrollment group
+
+Use the following request to set the primary or secondary x509 certificate of an enrollment group.
+
+```http
+PUT https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}/certificates/{entry}?api-version=2022-07-31
+```
+
+* entry - Entry of certificate, either `primary` or `secondary`
+
+The following example shows a request body that adds a X509 certificate to a enrollment group:
+
+```json
+{
+  "verified": true,
+  "certificate": "<base64-certificate>"
+}
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "verified": true,
+  "info": {
+    "sha1Thumbprint": "644543467786B60C14DFE6B7C968A1990CF63EAC"
+  },
+  "etag": "IjE3MDAwODNhLTAwMDAtMDcwMC0wMDAwLTYyNjFmNzk0MDAwMCI="
+}
+```
+
+### Generate Verification Code for X509 certificate of an enrollment group
+
+Use the following request to generate a verification code for the primary or secondary X509 certificate of an enrollment group.
+
+```http
+POST https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}/certificates/{entry}/generateVerificationCode?api-version=2022-07-31
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "verificationCode": "<certificate-verification-code>"
+}
+```
+
+### Verify X509 certificate of an enrollment group
+
+Use the following request to verify the primary or secondary x509 certificate of an enrollment group by providing a certificate with the signed verification code.
+
+```http
+POST https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}/certificates/{entry}/verify?api-version=2022-07-31
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "certificate": "<base64-certificate>"
+}
+```
+
+### Get a enrollment group
+
+Use the following request to retrieve details of a enrollment group from your application:
+
+```http
+GET https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}?api-version=2022-07-31
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "id": "enrollmentGroupId",
+  "displayName": "My group",
+  "enabled": true,
+  "type": "iot",
+  "attestation": {
+    "type": "symmetricKey",
+    "symmetricKey": {
+      "primaryKey": "<primary-symmetric-key>",
+      "secondaryKey": "<secondary-symmetric-key>"
+    }
+  },
+  "etag": "IjA4MDUwMTJiLTAwMDAtMDcwMC0wMDAwLTYyODJhOWVjMDAwMCI="
+}
+```
+
+### Get X509 certificate of an enrollment group
+
+Use the following request to retrieve details of X509 certificate of an enrollment group from your application:
+
+```http
+GET https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}/certificates/{entry}?api-version=2022-07-31
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "verified": true,
+  "info": {
+    "sha1Thumbprint": "644543467786B60C14DFE6B7C968A1990CF63EAC"
+  },
+  "etag": "IjE3MDAwODNhLTAwMDAtMDcwMC0wMDAwLTYyNjFmNzk0MDAwMCI="
+}
+```
+
+### Update a enrollment group
+
+Use the following request to update a enrollment group.
+
+```http
+PATCH https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}?api-version=2022-07-31
+```
+
+The following example shows a request body that updates the display name of a  enrollment group:
+
+```json
+{
+  "displayName": "My new group name",
+}
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "id": "myEnrollmentGroupId",
+  "displayName": "My new group name",
+  "enabled": true,
+  "type": "iot",
+  "attestation": {
+    "type": "symmetricKey",
+    "symmetricKey": {
+      "primaryKey": "<primary-symmetric-key>",
+      "secondaryKey": "<secondary-symmetric-key>"
+    }
+  },
+  "etag": "IjA4MDUwMTJiLTAwMDAtMDcwMC0wMDAwLTYyODJhOWVjMDAwMCI="
+}
+```
+
+### Delete a enrollment group
+
+Use the following request to delete a enrollment group:
+
+```http
+DELETE  https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}?api-version=2022-07-31
+```
+
+### Delete a X509 certificate from an enrollment group
+
+Use the following request to delete a X509 certificate from an enrollment group:
+
+```http
+DELETE  https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}/certificates/{entry}?api-version=2022-07-31
+```
+
+### List enrollment groups
+
+Use the following request to retrive a list of enrollment groups from your application:
+
+```http
+GET https://{subdomain}.{baseDomain}/api/enrollmentGroups?api-version=2022-07-31
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+    "value": [
+        {
+            "id": "myEnrollmentGroupId",
+            "displayName": "My group",
+            "enabled": true,
+            "type": "iot",
+            "attestation": {
+                "type": "symmetricKey",
+                "symmetricKey": {
+                    "primaryKey": "primaryKey",
+                    "secondaryKey": "secondarykey"
+                }
+            },
+            "etag": "IjZkMDc1YTgzLTAwMDAtMDcwMC0wMDAwLTYzMTc5ZjA4MDAwMCI="
+        },
+        {
+            "id": "enrollmentGroupId2",
+            "displayName": "My group",
+            "enabled": true,
+            "type": "iot",
+            "attestation": {
+                "type": "x509",
+                "x509": {
+                    "signingCertificates": {}
+                }
+            },
+            "etag": "IjZkMDdjNjkyLTAwMDAtMDcwMC0wMDAwLTYzMTdhMDY1MDAwMCI="
+        }
+    ]
+}
+```
+
 ## Next steps
 
 Now that you've learned how to manage devices with the REST API, a suggested next step is to [How to control devices with rest api.](howto-control-devices-with-rest-api.md)
