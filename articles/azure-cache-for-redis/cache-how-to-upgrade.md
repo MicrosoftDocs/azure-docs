@@ -41,7 +41,7 @@ Before you upgrade, check the Redis version of a cache by selecting **Properties
 
 1. If your cache instance is eligible to be upgraded, you should see the following blue banner. If you want to proceed, select the text in the banner.
 
-    :::image type="content" source="media/cache-how-to-upgrade/blue-banner-upgrade-cache.png" alt-text="Screenshot showing a Blue banner that says you can upgrade your Redis 6 cache with additional features and commands that enhance developer productivity and ease of use. Upgrading your cache instance cannot be reversed.":::
+    :::image type="content" source="media/cache-how-to-upgrade/blue-banner-upgrade-cache.png" alt-text="Screenshot informing that you to an upgrade your Redis 6 cache with additional features. Upgrading your cache instance cannot be reversed.":::
 
 1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes** if you would like to upgrade your cache instance.
 
@@ -49,7 +49,7 @@ Before you upgrade, check the Redis version of a cache by selecting **Properties
 
 1. To check on the status of the upgrade, navigate to **Overview**.
 
-    :::image type="content" source="media/cache-how-to-upgrade/upgrade-status.png" alt-text="Overview shows status of cache being upgraded.":::
+    :::image type="content" source="media/cache-how-to-upgrade/upgrade-status.png" alt-text="Screenshot showing Overview in the Resource menu. Status shows cache is being upgraded.":::
 
 ## Upgrade using Azure CLI
 
