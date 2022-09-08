@@ -76,7 +76,6 @@ The following limits apply only for networking resources managed through Azure R
 | Backend pool size                       | 5,000                         |
 | Load Balancers per VM <sup>2<sup>       | 2 (1 Public and 1 internal)   |
 | Backend IP configurations per frontend  | 10,000                        |
-| Backend IP configurations per LB        | 500,000                       |
 
 <sup>1</sup> The limit is up to 1,200 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set placement groups.
 
