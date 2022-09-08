@@ -314,7 +314,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     > [!NOTE]
     > Azure CLI support is only available for the scheduledQueryRules API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
 
-    ### [Activity log alert](#tab/activity-log
+    ### [Activity log alert](#tab/activity-log)
 
     To create a new activity log alert rule, use the following commands:
      - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
