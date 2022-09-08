@@ -99,10 +99,10 @@ SentinelHealth
 | project SentinelResourceKind, SentinelResourceName, StatusCode, StatusMessage, SentinelResourceId, TypeOfFailureDuringHour, ExtendedProperties
 ```
 1. Make sure that the health feature is enabled:
-```kusto
-SentinelHealth 
-| take 20
-```
+    ```kusto
+    SentinelHealth 
+    | take 20
+    ```
 1. If the health feature isn’t enabled, [enable it](monitor-sentinel-health.md).
 
 ## Data from the AWS S3 connector (or one of its data types) is seen in Microsoft Sentinel with a delay of more than 30 minutes  
@@ -143,18 +143,20 @@ There might be errors in the health logs, or the health feature might not be ena
 
 1. Verify that there are no errors in the health logs by running this query:
 
-```kusto
-SentinelHealth
-| where TimeGenerated between (ago(startTime)..ago(endTime))
-| where SentinelResourceKind  == "AmazonWebServicesS3"
-| where Status != "Success"
-| distinct TimeGenerated, OperationName, SentinelResourceName, Status, Description
-```
+    ```kusto
+    SentinelHealth
+    | where TimeGenerated between (ago(startTime)..ago(endTime))
+    | where SentinelResourceKind  == "AmazonWebServicesS3"
+    | where Status != "Success"
+    | distinct TimeGenerated, OperationName, SentinelResourceName, Status, Description
+    ```
 1. Make sure that the health feature is enabled:
-```kusto
-SentinelHealth 
-| take 20
-```
+
+    ```kusto
+    SentinelHealth 
+    | take 20
+    ```
+
 1. If the health feature isn’t enabled, [enable it](monitor-sentinel-health.md).
 
 ## Next steps
