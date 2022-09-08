@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal
-ms.date: 10/14/2020
+ms.date: 06/24/2022
 ms.custom: references_regions
 ---
 
@@ -70,7 +70,7 @@ Servers with less than equal to 100 GB provisioned storage are marked read-only 
 
 For example, if you have provisioned 110 GB of storage, and the actual utilization goes over 105 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 512 MB.
 
-When the server is set to read-only, all existing sessions are disconnected and uncommitted transactions are rolled back. Any subsequent write operations and transaction commits fail. All subsequent read queries will work uninterrupted.  
+When the server is set to read-only, all existing sessions are disconnected and uncommitted transactions are rolled back. Any subsequent write operations and transaction commits fail. All subsequent read queries will work uninterrupted.
 
 You can either increase the amount of provisioned storage to your server or start a new session in read-write mode and drop data to reclaim free storage. Running `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` sets the current session to read write mode. In order to avoid data corruption, do not perform any write operations when the server is still in read-only status.
 

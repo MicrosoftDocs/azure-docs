@@ -34,8 +34,6 @@ When you use customer-managed keys, you need to set two properties in the key va
 
 To learn how to enable these properties on an existing key vault, see [Azure Key Vault recovery management with soft delete and purge protection](../../key-vault/general/key-vault-recovery.md).
 
-Only RSA keys of size 2048 are supported with Azure Storage encryption. For more information about keys, see [Azure Key Vault keys, secrets and certificates overview](../../key-vault/general/about-keys-secrets-certificates.md).
-
 ## Enable customer-managed keys for your resource
 
 To enable customer-managed keys in the Azure portal, follow these steps:
@@ -59,13 +57,13 @@ To specify a key as a URI, follow these steps:
 1. Select the desired key, and then select the key to view its versions. Select a key version to view the settings for that version.
 1. Copy the **Key Identifier** value, which provides the URI.
 
-   :::image type="content" source="../media/cognitive-services-encryption/key-uri-portal.png" alt-text="Screenshot of the Azure portal page for a key version. The Key Identifier box contains a placeholder for a key U R I.":::
+   :::image type="content" source="../media/cognitive-services-encryption/key-uri-portal.png" alt-text="Screenshot of the Azure portal page for a key version. The Key Identifier box contains a placeholder for a key URI.":::
 
 1. Go back to your Cognitive Services resource, and then select **Encryption**.
 1. Under **Encryption key**, select **Enter key URI**.
 1. Paste the URI that you copied into the **Key URI** box.
 
-   :::image type="content" source="../media/cognitive-services-encryption/ssecmk2.png" alt-text="Screenshot of the Encryption page for a Cognitive Services resource. The Enter key U R I option is selected, and the Key U R I box contains a value.":::
+   :::image type="content" source="../media/cognitive-services-encryption/ssecmk2.png" alt-text="Screenshot of the Encryption page for a Cognitive Services resource. The Enter key URI option is selected, and the Key URI box contains a value.":::
 
 1. Under **Subscription**, select the subscription that contains the key vault.
 1. Save your changes.

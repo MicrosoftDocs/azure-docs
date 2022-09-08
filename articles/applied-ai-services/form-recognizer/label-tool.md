@@ -18,6 +18,13 @@ keywords: document processing
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the Sample Labeling tool
 
+>[!TIP]
+>
+> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
+> * The v3.0 Studio supports any model trained with v2.1 labeled data.
+> * You can refer to the [API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
+> * *See* our [**REST API**](quickstarts/get-started-v3-sdk-rest-api.md) or [**C#**](quickstarts/get-started-v3-sdk-rest-api.md), [**Java**](quickstarts/get-started-v3-sdk-rest-api.md), [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md), or [Python](quickstarts/get-started-v3-sdk-rest-api.md) SDK quickstarts to get started with the V3.0.
+
 In this article, you'll use the Form Recognizer REST API with the Sample Labeling tool to train a custom model with manually labeled data.
 
 > [!VIDEO https://docs.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
@@ -140,7 +147,7 @@ In the Sample Labeling tool, projects store your configurations and settings. Cr
 
 When you create or open a project, the main tag editor window opens. The tag editor consists of three parts:
 
-* A resizable preview pane that contains a scrollable list of forms from the source connection.
+* A resizable v3.0 pane that contains a scrollable list of forms from the source connection.
 * The main editor pane that allows you to apply tags.
 * The tags editor pane that allows users to modify, lock, reorder, and delete tags.
 

@@ -34,8 +34,8 @@ The Defender for IoT micro agent enables you to quickly improve your organizatio
 The Defender for IoT micro agent provides deep security protection, and visibility into device behavior.
 
 - The micro agent collects, aggregates, and analyzes raw security events from your devices. Events can include IP connections, process creation, user logons, and other security-relevant information.
-- Defender for IoT device agents handles event aggregation, to help avoid high network throughput.
-- The micro agent has flexible deployment options. The micro agent includes source code, so you can incorporate it into firmware, or customize it to include only what you need. It's also available as a binary package, or integrated directly into other Azure IoT solutions. The micro agent is available for standard IoT operating systems, such as Linux and Azure RTOS.  
+- Defender for IoT device agents handle event aggregation, to help avoid high network throughput.
+- The micro agent has flexible deployment options. The micro agent includes source code, so you can incorporate it into firmware, or customize it to include only what you need. It's also available as a binary package, or integrated directly into other Azure IoT solutions. The micro agent is available for standard IoT operating systems, such as Linux and Azure RTOS.
 - The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
 
 

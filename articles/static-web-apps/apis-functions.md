@@ -56,8 +56,7 @@ Logs are only available if you add [Application Insights](monitor.md).
 
 ## Constraints
 
-- The API route prefix must be `/api`.
-- Route rules for API functions only support [redirects](configuration.md#defining-routes) and [securing routes with roles](configuration.md#securing-routes-with-roles).
+In addition to the Static Web Apps API [constraints](apis-overview.md#constraints), the following restrictions are also applicable to Azure Functions APIs:
 
 | Managed functions | Bring your own functions |
 |---|---|

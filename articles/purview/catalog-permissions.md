@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 06/17/2022
 ---
 
 # Access control in the Microsoft Purview governance portal
@@ -25,10 +25,13 @@ A collection is a tool that the Microsoft Purview Data Map uses to group assets,
 The Microsoft Purview governance portal uses a set of predefined roles to control who can access what within the account. These roles are currently:
 
 - **Collection administrator** - a role for users that will need to assign roles to other users in the Microsoft Purview governance portal or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
+    A collection administrator on the [root collection](reference-azure-purview-glossary.md#root-collection) also automatically has permission to the Microsoft Purview governance portal. If your **root collection administrator** ever needs to be changed, you can [follow the steps in the section below](#administrator-change).
 - **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view data estate insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
-- **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.- **Insights reader** - a role that provides read-only access to insights reports for collections where the insights reader also has at least the **Data reader** role. For more information, see [insights permissions.](insights-permissions.md)
-- **Policy author (Preview)** - a role that allows a user to view, update, and delete Microsoft Purview policies through the policy management app within the Microsoft Purview governance portal.
+- **Data share contributor** - A role that can share data within an organization and with other organizations using data sharing capabilities in Microsoft Purview. Data share contributors can view, create, update, and delete sent and received shares.
+- **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+- **Insights reader** - a role that provides read-only access to insights reports for collections where the insights reader also has at least the **Data reader** role. For more information, see [insights permissions.](insights-permissions.md)
+- **Policy author (Preview)** - a role that allows a user to view, update, and delete Microsoft Purview policies through the policy management app within Microsoft Purview.
 - **Workflow administrator** - a role that allows a user to access the workflow authoring page in the Microsoft Purview governance portal, and publish workflows on collections where they have access permissions. Workflow administrator only has access to authoring, and so will need at least Data reader permission on a collection to be able to access the Purview governance portal.
 
 > [!NOTE] 
@@ -48,11 +51,13 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
 |I need to put users into roles in the Microsoft Purview governance portal| Collection administrator |
 |I need to create and publish access policies | Data source administrator and policy author |
 |I need to create workflows for my Microsoft Purview account in the governance portal| Workflow administrator |
+|I need to share data from sources registered in Microsoft Purview | Data share contributor|
 |I need to view insights for collections I'm a part of | Insights reader **or** data curator |
 
 :::image type="content" source="media/catalog-permissions/catalog-permission-role.svg" alt-text="Chart showing Microsoft Purview governance portal roles" lightbox="media/catalog-permissions/catalog-permission-role.svg":::
 >[!NOTE]
-> **\*Data source administrator permissions on Policies** - Data source administrators are also able to publish data policies.
+> **\*Data curator** - Data curators can read insights only if they are assigned data curator at the root collection level.
+> **\*\*Data source administrator permissions on Policies** - Data source administrators are also able to publish data policies.
 
 ## Understand how to use the Microsoft Purview governance portal's roles and collections
 
@@ -79,6 +84,7 @@ After creating a Microsoft Purview (formerly Azure Purview) account, the first t
 >   ```azurecli
 >   az purview account add-root-collection-admin --account-name [Microsoft Purview Account Name] --resource-group [Resource Group Name] --object-id [User Object Id]
 >   ```
+>
 > The object-id is optional. For more information and an example, see the [CLI command reference page](/cli/azure/purview/account#az-purview-account-add-root-collection-admin).
 
 ### Create collections
@@ -102,7 +108,7 @@ This is one way an organization might structure their data: Starting with their 
 The [data reader role](#roles) can access information within the catalog, but not manage or edit it. So for our example above, adding the Data Reader permission to a group on the root collection and allowing inheritance will give all users in that group reader permissions on sources and assets in the Microsoft Purview Data Map. This makes these resources discoverable, but not editable, by everyone in that group. [Restricting inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on the Revenue group will control access to those assets. Users who need access to revenue information can be added separately to the Revenue collection.
 Similarly with the Data Curator and Data Source Admin roles, permissions for those groups will start at the collection where they're assigned and trickle down to subcollections that haven't restricted inheritance. Below we have assigned permissions for several groups at collections levels in the Americas sub collection.
 
-:::image type="content" source="./media/catalog-permissions/collection-permissions-example.png" alt-text="Chart showing a sample collections hierarchy broken up by region and department showing permissions distribution." border="true":::
+:::image type="content" source="./media/catalog-permissions/collection-permissions-example.png" alt-text="Chart showing a sample collections hierarchy broken up by region and department, showing permissions distribution." border="true":::
 
 ### Add users to roles
 
@@ -112,9 +118,16 @@ For full instructions, see our [how-to guide for adding role assignments](how-to
 
 ## Administrator change
 
-There may be a time when your [root collection admin](#roles) needs to change. By default, the user who creates the account is automatically assigned collection admin to the root collection. To update the root collection admin, there are three options:
+There may be a time when your [root collection admin](#roles) needs to change. By default, the user who creates the account is automatically assigned collection admin to the root collection. To update the root collection admin, there are four options:
 
-- You can [assign permissions through the portal](how-to-create-and-manage-collections.md#add-role-assignments) as you have for any other role.
+- You can manage root collection administrators in the [Azure portal](https://portal.azure.com/):
+    1. Sign in to the Azure portal and search for your Microsoft Purview account.
+    1. Select **Root collection permission** from the left-side menu on your Microsoft Purview account page.
+    1. Select **Add root collection admin** to add an administrator.
+        :::image type="content" source="./media/catalog-permissions/root-collection-admin.png" alt-text="Screenshot of a Microsoft Purview account page in the Azure portal with the Root collection permission page selected and the Add root collection admin option highlighted." border="true":::
+    1. You can also select **View all root collection admins** to be taken to the root collection in the Microsoft Purview governance portal.
+
+- You can [assign permissions through the Microsoft Purview governance portal](how-to-create-and-manage-collections.md#add-role-assignments) as you have for any other role.
 
 - You can use the REST API to add a collection administrator. Instructions to use the REST API to add a collection admin can be found in our [REST API for collections documentation.](tutorial-metadata-policy-collections-apis.md#add-the-root-collection-administrator-role) For additional information, you can see our [REST API reference](/rest/api/purview/accounts/add-root-collection-admin).
 

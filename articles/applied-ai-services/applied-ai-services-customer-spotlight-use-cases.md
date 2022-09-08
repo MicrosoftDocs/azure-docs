@@ -19,6 +19,8 @@ Customers are using Azure Applied AI Services to add AI horsepower to their busi
 - AI-driven search offers strong data security and delivers smart results that add value.
 - Azure Form Recognizer increases ROI by using automation to streamline data extraction.
 
+## Use cases
+
 | Partner | Description | Customer story |
 |---------|-------------|----------------------|
 | <center>![Logo of Progressive Insurance, which consists of the word progressive in a slanted font in blue, capital letters.](./media/logo-progressive-02.png) | **Progressive uses Azure Bot Service and Azure Cognitive Search to help customers make smarter insurance decisions.** <br>"One of the great things about Bot Service is that, out of the box, we could use it to quickly put together the basic framework for our bot." *-Matt White, Marketing Manager, Personal Lines Acquisition Experience, Progressive Insurance*  | [Insurance shoppers gain new service channel with artificial intelligence chatbot](https://customers.microsoft.com/story/789698-progressive-insurance-cognitive-services-insurance) |

@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: srranga
 author: sr-msft
-ms.date: 06/08/2020 
+ms.date: 06/24/2022
 ms.custom: devx-track-azurepowershell
 ---
 

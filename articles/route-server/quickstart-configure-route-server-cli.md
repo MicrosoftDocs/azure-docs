@@ -19,13 +19,13 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 
 [!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
-##  Prerequisites 
+##  Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-* Make sure you have the latest Azure CLI, or you can use Azure Cloud Shell in the portal. 
-* Review the [service limits for Azure Route Server](route-server-faq.md#limitations). 
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Install the latest Azure CLI](/cli/azure/install-azure-cli), or make sure you can use [Azure Cloud Shell](../cloud-shell/quickstart.md) in the portal. 
+* Review the [service limits for Azure Route Server](route-server-faq.md#limitations).
 
-##  Sign in to your Azure account and select your subscription. 
+##  Sign in to your Azure account and select your subscription.
 
 To begin your configuration, sign in to your Azure account. If you use the Cloud Shell "Try It", you're signed in automatically. Use the following examples to help you connect:
 
@@ -205,7 +205,9 @@ az network routeserver peering list-learned-routes \
     --name myNVA \
     --routeserver myRouteServer
     --resource-group myRouteServerRG \
-``` 
+```
+
+[!INCLUDE [azure-cli-troubleshooting.md](../../includes/azure-cli-troubleshooting.md)]
 
 ## Clean up resources
 
@@ -234,4 +236,3 @@ After you've created the Azure Route Server, continue on to learn more about how
 
 > [!div class="nextstepaction"]
 > [Azure ExpressRoute and Azure VPN support](expressroute-vpn-support.md)
- 

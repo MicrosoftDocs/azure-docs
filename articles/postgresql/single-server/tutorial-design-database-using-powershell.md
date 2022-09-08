@@ -8,7 +8,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.devlang: azurepowershell
 ms.custom: mvc, devx-track-azurepowershell
-ms.date: 06/08/2020
+ms.date: 06/24/2022
 ---
 
 # Tutorial: Design an Azure Database for PostgreSQL - Single Server using PowerShell
@@ -272,7 +272,7 @@ original server are restored.
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and select the final *Delete* button.
 
 ## Next steps
 

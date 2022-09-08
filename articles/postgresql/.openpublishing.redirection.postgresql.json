@@ -361,6 +361,71 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/postgresql/hyperscale/index.yml",
+        "redirect_url": "/azure/postgresql/hyperscale/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-csharp.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-csharp",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-java.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-java",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-nodejs.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-nodejs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-overview.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-python.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-python",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-app-stacks-ruby.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-app-stacks-ruby",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-classify.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-classify",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-concepts.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-concepts",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-model-high-throughput.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-model-high-throughput",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-model-multi-tenant.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-model-multi-tenant",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-model-real-time.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-model-real-time",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/hyperscale/howto-build-scalable-apps-overview.md",
+        "redirect_url": "/azure/postgresql/hyperscale/quickstart-build-scalable-apps-overview",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/postgresql/policy-samples.md",
         "redirect_url": "/azure/postgresql/policy-reference",
         "redirect_document_id": false
@@ -788,7 +853,7 @@
     {
         "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-single-to-flex-portal.md",
         "redirect_url": "/azure/postgresql/migrate/how-to-migrate-single-to-flexible-portal",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/postgresql/how-to-migrate-single-to-flex-cli.md",
@@ -798,12 +863,12 @@
     {
         "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-single-to-flex-cli.md",
         "redirect_url": "/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/postgresql/single-server/concepts-single-to-flexible.md",
         "redirect_url": "/azure/postgresql/migrate/concepts-single-to-flexible",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/postgresql/howto-move-regions-portal.md",

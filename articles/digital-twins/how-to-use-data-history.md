@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Use data history with Azure Data Explorer (preview)
+title: Use data history with Azure Data Explorer
 titleSuffix: Azure Digital Twins
 description: See how to set up and use data history for Azure Digital Twins, using the CLI or Azure portal.
 author: baanders
@@ -16,9 +16,9 @@ ms.custom: event-tier1-build-2022
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use Azure Digital Twins data history (preview)
+# Use Azure Digital Twins data history
 
-[Data history (preview)](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing twin property updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
+[Data history](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing twin property updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
 
 This article shows how to set up a working data history connection between Azure Digital Twins and Azure Data Explorer. It uses the [Azure CLI](/cli/azure/what-is-azure-cli) and the [Azure portal](https://portal.azure.com) to set up and connect the required data history resources, including:
 * an Azure Digital Twins instance
@@ -28,7 +28,7 @@ This article shows how to set up a working data history connection between Azure
 It also contains a sample twin graph that you can use to see the historized twin property updates in Azure Data Explorer. 
 
 >[!TIP]
->Although this article uses the Azure portal, you can also work with data history using the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the rest APIs.
+>Although this article uses the Azure portal, you can also work with data history using the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version of the rest APIs.
 
 ## Prerequisites
 

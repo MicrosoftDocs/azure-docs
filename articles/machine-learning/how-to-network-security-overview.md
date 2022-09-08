@@ -8,13 +8,20 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 02/02/2022
+ms.date: 08/19/2022
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022
 ---
 
 <!-- # Virtual network isolation and privacy overview -->
 # Secure Azure Machine Learning workspace resources using virtual networks (VNets)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
+> * [SDK/CLI v1](v1/how-to-network-security-overview.md)
+> * [SDK/CLI v2 (current version)](how-to-network-security-overview.md)
 
 Secure Azure Machine Learning workspace resources and compute environments using virtual networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
 
@@ -23,9 +30,7 @@ Secure Azure Machine Learning workspace resources and compute environments using
 >
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
-> * For securing inference, see the following documents:
->     * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
->     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
@@ -50,7 +55,7 @@ The following table compares how services access different parts of an Azure Mac
 | Scenario | Workspace | Associated resources | Training compute environment | Inferencing compute environment |
 |-|-|-|-|-|-|
 |**No virtual network**| Public IP | Public IP | Public IP | Public IP |
-|**Public workspace, all other resources in a virtual network** | Public IP | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Private IP | Private IP  |
+|**Public workspace, all other resources in a virtual network** | Public IP | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Public IP | Private IP  |
 |**Secure resources in a virtual network**| Private IP (private endpoint) | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Private IP | Private IP  | 
 
 * **Workspace** - Create a private endpoint for your workspace. The private endpoint connects the workspace to the vnet through several private IP addresses.
@@ -66,7 +71,7 @@ The next sections show you how to secure the network scenario described above. T
 
 1. Secure the [**workspace and associated resources**](#secure-the-workspace-and-associated-resources).
 1. Secure the [**training environment**](#secure-the-training-environment).
-1. Secure the **inferencing environment** [v1](#secure-the-inferencing-environment-v1) or [v2](#secure-the-inferencing-environment-v1).
+1. Secure the [**inferencing environment**](#secure-the-inferencing-environment).
 1. Optionally: [**enable studio functionality**](#optional-enable-studio-functionality).
 1. Configure [**firewall settings**](#configure-firewall-settings).
 1. Configure [**DNS name resolution**](#custom-dns).
@@ -121,7 +126,7 @@ In this section, you learn how to secure the training environment in Azure Machi
 To secure the training environment, use the following steps:
 
 1. Create an Azure Machine Learning [compute instance and computer cluster in the virtual network](how-to-secure-training-vnet.md#compute-cluster) to run the training job.
-1. If your compute cluster or compute instance does not use a public IP address, you must [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources. 
+1. If your compute cluster or compute instance uses a public IP address, you must [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources. 
 
     > [!TIP]
     > Compute cluster and compute instance can be created with or without a public IP address. If created with a public IP address, you get a load balancer with a public IP to accept the inbound access from Azure batch service and Azure Machine Learning service. You need to configure User Defined Routing (UDR) if you use a firewall. If created without a public IP, you get a private link service to accept the inbound access from Azure batch service and Azure Machine Learning service without a public IP.
@@ -147,10 +152,7 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 
 - Azure Compute Instance and Azure Compute Clusters must be in the same VNet, region, and subscription as the workspace and its associated resources. 
 
-## Secure the inferencing environment (v2)
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+## Secure the inferencing environment
 
 You can enable network isolation for managed online endpoints to secure the following network traffic:
 
@@ -161,31 +163,6 @@ You can enable network isolation for managed online endpoints to secure the foll
 > Using network isolation for managed online endpoints is a __preview__ feature, and isn't fully supported.
 
 For more information, see [Enable network isolation for managed online endpoints](how-to-secure-online-endpoint.md).
-
-## Secure the inferencing environment (v1)
-
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-
-In this section, you learn the options available for securing an inferencing environment. When doing a v1 deployment, we recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
-
-You have two options for AKS clusters in a virtual network:
-
-- Deploy or attach a default AKS cluster to your VNet.
-- Attach a private AKS cluster to your VNet.
-
-**Default AKS clusters** have a control plane with public IP addresses. You can add a default AKS cluster to your VNet during the deployment or attach a cluster after it's created.
-
-**Private AKS clusters** have a control plane, which can only be accessed through private IPs. Private AKS clusters must be attached after the cluster is created. 
-
-For detailed instructions on how to add default and private clusters, see [Secure an inferencing environment](how-to-secure-inferencing-vnet.md). 
-
-Regardless default AKS cluster or private AKS cluster used, if your AKS cluster is behind of VNET, your workspace and its associate resources (storage, key vault, and ACR) must have private endpoints or service endpoints in the same VNET as the AKS cluster.
-
-The following network diagram shows a secured Azure Machine Learning workspace with a private AKS cluster attached to the virtual network.
-
-:::image type="content" source="./media/how-to-network-security-overview/secure-inferencing-environment.svg" alt-text="Diagram showing an attached private AKS cluster.":::
-
 
 ## Optional: Enable public access
 
@@ -253,9 +230,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
-* For securing inference, see the following documents:
-    * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
-    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)

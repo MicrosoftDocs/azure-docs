@@ -3,12 +3,12 @@ title: Prevent object replication across Azure Active Directory tenants (preview
 titleSuffix: Azure Storage
 description: Prevent cross-tenant object replication
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/02/2021
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---

@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # View information about activity triggers
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This article describes how to use the **Activity triggers** dashboard in Permissions Management to view information about activity alerts and triggers.
 
 ## Display the Activity triggers dashboard

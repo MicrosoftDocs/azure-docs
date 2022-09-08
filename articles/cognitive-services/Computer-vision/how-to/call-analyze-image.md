@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 06/28/2022
 ms.custom: "seodec18"
 ---
 
@@ -24,7 +24,9 @@ The code in this guide uses remote images referenced by URL. You may want to try
 
 #### [REST](#tab/rest)
 
-When analyzing a local image, you put the binary image data in the HTTP request body. For a remote image, you specify the image's URL by formatting the request body like this: `{"url":"http://example.com/images/test.jpg"}`.
+When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"http://example.com/images/test.jpg"}`.
+
+To analyze a local image, you'd put the binary image data in the HTTP request body.
 
 #### [C#](#tab/csharp)
 
@@ -32,11 +34,18 @@ In your main class, save a reference to the URL of the image you want to analyze
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart.cs?name=snippet_analyze_url)]
 
+> [!TIP]
+> You can also analyze a local image. See the [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ImageAnalysisQuickstart.cs) for scenarios involving local images.
+
+
 #### [Java](#tab/java)
 
 In your main class, save a reference to the URL of the image you want to analyze.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_urlimage)]
+
+> [!TIP]
+> You can also analyze a local image. See the [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) methods, such as **AnalyzeImage**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java) for scenarios involving local images.
 
 #### [JavaScript](#tab/javascript)
 
@@ -44,11 +53,17 @@ In your main function, save a reference to the URL of the image you want to anal
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ImageAnalysisQuickstart.js?name=snippet_describe_image)]
 
+> [!TIP]
+> You can also analyze a local image. See the [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) methods, such as **describeImageInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ImageAnalysisQuickstart.js) for scenarios involving local images.
+
 #### [Python](#tab/python)
 
 Save a reference to the URL of the image you want to analyze.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart.py?name=snippet_remoteimage)]
+
+> [!TIP]
+> You can also analyze a local image. See the [ComputerVisionClientOperationsMixin](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin) methods, such as **analyze_image_in_stream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ImageAnalysisQuickstart.py) for scenarios involving local images.
 
 ---
 

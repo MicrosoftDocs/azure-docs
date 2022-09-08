@@ -17,8 +17,15 @@ Each workspace has a default retention policy that's applied to all tables. You 
 
 :::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Overview of data retention and archive periods":::
 
-During the interactive retention period, data is available for monitoring, troubleshooting and analytics. When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs. You can access archived data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md). 
+During the interactive retention period, data is available for monitoring, troubleshooting and analytics. When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs. 
 
+Archived data stays in the same table, alongside the data that's available for interactive queries. 
+When you set a total retention period that's longer than the interactive retention period, Log Analytics automatically archives the relevant data immediately at the end of the retention period. 
+
+If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, if you have an existing table with 30 days of interactive retention and no archive period and you change the retention policy to eight days of interactive retention and one year total retention, Log Analytics immediately archives any data that's older than eight days. 
+
+You can access archived data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md). 
+ 
 > [!NOTE]
 > The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
 
@@ -39,7 +46,7 @@ To set the default workspace retention policy:
 
 By default, all tables in your workspace inherit the workspace's interactive retention setting and have no archive policy. You can modify the retention and archive policies of individual tables, except for workspaces in the legacy Free Trial pricing tier.
 
-You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,555 days (seven years). 
+You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,556 days (seven years). 
 
 # [Portal](#tab/portal-1)
 
@@ -80,12 +87,12 @@ The request body includes the values in the following table.
 
 |Name | Type | Description |
 | --- | --- | --- |
-|properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value is always 8. | 
-|properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Set this property to null if you don't want to archive data.  | 
+|properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value is always 8. | 
+|properties.totalRetentionInDays | integer  | The table's total data retention including archive period. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. Set this property to null if you don't want to archive data.  | 
 
 **Example**
 
-This example sets the table's interactive retention to the workspace default of 30 days, and the total retention to two years. This means the archive duration is 23 months.
+This example sets the table's interactive retention to the workspace default of 30 days, and the total retention to two years, which means that the archive duration is 23 months.
 
 **Request**
 
@@ -123,7 +130,7 @@ Status code: 200
 
 To set the retention and archive duration for a table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and pass the `--retention-time` and `--total-retention-time` parameters.
 
-This example sets table's interactive retention to 30 days, and the total retention to two years. This means the archive duration is 23 months:
+This example sets table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
 
 ```azurecli
 az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name AzureMetrics --retention-time 30 --total-retention-time 730
@@ -183,7 +190,7 @@ If you set the data retention policy to 30 days, you can purge older data immedi
  
 Note that workspaces with a 30-day retention policy might actually keep data for 31 days if you don't set the `immediatePurgeDataOn30Days` parameter.
 
-You can also purge data from a workspace using the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data), which removes personal data. You can’t purge data from archived logs. 
+You can also purge data from a workspace using the [purge feature](personal-data-mgmt.md#exporting-and-deleting-personal-data), which removes personal data. You can’t purge data from archived logs. 
 
 The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing. **To lower retention costs, decrease the retention period for the workspace or for specific tables.** 
 
@@ -206,14 +213,14 @@ Tables related to Application Insights resources also keep data for 90 days at n
 
 ## Pricing model
 
-You'll be charged for each day you retain data. The cost of retaining data for part of a day is the same as for a full day.
+The charge for maintaining archived logs is calculated based on the volume of data you archive, in GB, and the number or days for which you archive the data.
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Classic Application Insights resources
-Data workspace-based Application Insights resources is stored in a Log Analytics workspace, so it's included in the data retention and archive settings for the workspace. Classic Application Insights resources though, have separate retention settings.
+## Set data retention for Classic Application Insights resources
+Workspace-based Application Insights resources store data in a Log Analytics workspace, so it's included in the data retention and archive settings for the workspace. However, classic Application Insights resources have separate retention settings.
 
-The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. 
+The default retention for Application Insights resources is 90 days. You can select different retention periods for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. 
 
 To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
 

@@ -1,15 +1,15 @@
 ---
 title: Service Fabric Cluster Resource Manager - Affinity 
 description: Overview of service affinity for Azure Service Fabric services and guidance on service affinity configuration.
-services: service-fabric
 documentationcenter: .net
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Configuring and using service affinity in Service Fabric
 Affinity is a control that is provided mainly to help ease the transition of larger monolithic applications into the cloud and microservices world. It is also used as an optimization for improving the performance of services, although doing so can have side effects.
 

@@ -82,5 +82,5 @@ The deployment.json files are a representation of all default modules necessary 
 -->
 
 ## Next steps
-Navigate to the [Azure Percept Studio](https://ms.portal.azure.com/#blade/AzureEdgeDevices/Main/overview) for more AI models. 
+Navigate to the [Azure Percept Studio](https://portal.azure.com/#blade/AzureEdgeDevices/Main/overview) for more AI models. 
 

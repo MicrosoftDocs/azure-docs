@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/22/2022
+ms.date: 07/20/2022
 ---
 
 # Copy and transform data to and from SQL Server by using Azure Data Factory or Azure Synapse Analytics
@@ -22,14 +22,20 @@ This article outlines how to use the copy activity in Azure Data Factory and Azu
 
 ## Supported capabilities
 
-This SQL Server connector is supported for the following activities:
+This SQL Server connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|
+|[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|
 
-You can copy data from a SQL Server database to any supported sink data store. Or, you can copy data from any supported source data store to a SQL Server database. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this SQL Server connector supports:
 
@@ -77,24 +83,27 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for the SQL Server linked service:
+This SQL server connector supports the following authentication types. See the corresponding sections for details.
 
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The type property must be set to **SqlServer**. | Yes |
-| connectionString |Specify **connectionString** information that's needed to connect to the SQL Server database by using either SQL authentication or Windows authentication. Refer to the following samples.<br/>You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| userName |Specify a user name if you use Windows authentication. An example is **domainname\\username**. |No |
-| password |Specify a password for the user account you specified for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
-| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
-| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
-
-> [!NOTE]
-> Windows authentication is not supported in data flow.
+- [SQL authentication](#sql-authentication)
+- [Windows authentication](#windows-authentication)
 
 >[!TIP]
 >If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again.
 
-**Example 1: Use SQL authentication**
+### SQL authentication
+
+To use SQL authentication, the following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **SqlServer**. | Yes |
+| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. Specify a login name as your user name, and ensure the database that you want to connect is mapped to this login. Refer to the following samples. | Yes |
+| password | If you want to put a password in Azure Key Vault, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
+
+**Example: Use SQL authentication**
 
 ```json
 {
@@ -111,8 +120,7 @@ The following properties are supported for the SQL Server linked service:
     }
 }
 ```
-
-**Example 2: Use SQL authentication with a password in Azure Key Vault**
+**Example: Use SQL authentication with a password in Azure Key Vault**
 
 ```json
 {
@@ -121,13 +129,38 @@ The following properties are supported for the SQL Server linked service:
         "type": "SqlServer",
         "typeProperties": {
             "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+**Example: Use Always Encrypted**
+
+```json
+{
+    "name": "SqlServerLinkedService",
+    "properties": {
+        "type": "SqlServer",
+        "typeProperties": {
+            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+        },
+        "alwaysEncryptedSettings": {
+            "alwaysEncryptedAkvAuthType": "ServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
             }
         },
         "connectVia": {
@@ -138,7 +171,23 @@ The following properties are supported for the SQL Server linked service:
 }
 ```
 
-**Example 3: Use Windows authentication**
+### Windows authentication
+
+To use Windows authentication, the following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **SqlServer**. | Yes |
+| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. Refer to the following samples.
+| userName | Specify a user name. An example is **domainname\\username**. |Yes |
+| password | Specify a password for the user account you specified for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
+
+> [!NOTE]
+> Windows authentication is not supported in data flow.
+
+**Example: Use Windows authentication**
 
 ```json
 {
@@ -161,22 +210,24 @@ The following properties are supported for the SQL Server linked service:
 }
 ```
 
-**Example 4: Use Always Encrypted**
+**Example: Use Windows authentication with a password in Azure Key Vault**
 
 ```json
 {
     "name": "SqlServerLinkedService",
     "properties": {
+        "annotations": [],
         "type": "SqlServer",
         "typeProperties": {
-            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
-        },
-        "alwaysEncryptedSettings": {
-            "alwaysEncryptedAkvAuthType": "ServicePrincipal",
-            "servicePrincipalId": "<service principal id>",
-            "servicePrincipalKey": {
-                "type": "SecureString",
-                "value": "<service principal key>"
+            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;",
+            "userName": "<domain\\username>",
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "<secretName>"
             }
         },
         "connectVia": {

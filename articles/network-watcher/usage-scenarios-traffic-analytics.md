@@ -3,14 +3,14 @@ title: Usage scenarios of Azure Traffic Analytics | Microsoft Docs
 description: This article describes the usage scenarios of Traffic Analytics.
 services: network-watcher
 documentationcenter: na
-author: v-ssenthilna
+author: jyothisuri
 
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 05/11/2022
-ms.author: v-ssenthilna
+ms.author: jsuri
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 # Usage scenarios

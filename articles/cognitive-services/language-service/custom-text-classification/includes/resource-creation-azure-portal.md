@@ -21,18 +21,22 @@ ms.custom: language-service-custom-classification, event-tier1-build-2022
 
 1. Create a Language resource with following details.
 
-    |Instance detail  |Required value  |
+    |Name  |Required value  |
     |---------|---------|
-    |Region | One of the [supported regions](../service-limits.md#regional-availability). You can use "West US 2" for this quickstart.      |
-    |Pricing tier     | One of the [supported pricing tiers](../service-limits.md#pricing-tiers). You can use the Free (F0) tier for this quickstart.       |
+    | Subscription | Your Azure subscription. |
+    | Resource group | A resource group that will contain your resource. You can use an existing one, or create a new one. |
+    |Region | One of the [supported regions](../service-limits.md#regional-availability). For example "West US 2".      |
+    | Name | A name for your resource. |
+    |Pricing tier     | One of the [supported pricing tiers](../service-limits.md#pricing-tiers). You can use the Free (F0) tier to try the service.       |
+
+    > [!NOTE]
+    > If you get a message saying "*your login account is not an owner of the selected storage account's resource group*", your account needs to have an owner role assigned on the resource group before you can create a Language resource. Contact your Azure subscription owner for assistance.
 
 1. In the **Custom text classification & custom named entity recognition** section, select an existing storage account or select **New storage account**. Note that these values are to help you get started, and not necessarily the [storage account values](../../../../storage/common/storage-account-overview.md) you’ll want to use in production environments. To avoid latency during building your project connect to storage accounts in the same region as your Language resource.
 
     |Storage account value  |Recommended value  |
     |---------|---------|
-    | Name | Any name |
-    | Account kind| Storage (general purpose v1) |
-    | Performance | Standard |
-    | Replication | Locally redundant storage (LRS) |
+    | Storage account name | Any name |
+    | Storage account type | Standard LRS |
 
 1. Make sure the **Responsible AI Notice** is checked. Select **Review + create** at the bottom of the page, then select.

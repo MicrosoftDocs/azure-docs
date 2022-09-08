@@ -85,7 +85,7 @@ If you want to use Windows Admin Center, use the following steps to download and
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 Prepare your target device for the installation of Azure IoT Edge for Linux on Windows and the deployment of the Linux virtual machine:
@@ -105,4 +105,4 @@ Prepare your target device for the installation of Azure IoT Edge for Linux on W
 For more information on the Azure IoT Edge for Linux on Windows PowerShell module, see the [PowerShell functions reference](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md).
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->

@@ -5,13 +5,13 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 05/25/2022
+ms.date: 07/12/2022
 ms.custom: template-how-to
 ---
 
 # Disable public access in Azure App Configuration
 
-In this article, you'll learn how to disable public access for your Azure App Configuration store. Setting up private access can offer a better security for your configuration store.
+In this article, you'll learn how to disable public access for your Azure App Configuration store. Setting up private access can offer better security for your configuration store.
 
 ## Prerequisites
 
@@ -76,4 +76,7 @@ az appconfig update --name <name-of-the-appconfig-store> --enable-public-network
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Using private endpoints for Azure App Configuration](./concept-private-endpoint.md)
+> [Use private endpoints for Azure App Configuration](./concept-private-endpoint.md)
+
+> [!div class="nextstepaction"]
+> [Set up private access to an Azure App Configuration store](howto-set-up-private-access.md)

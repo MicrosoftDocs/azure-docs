@@ -269,7 +269,7 @@ The `BlobInventoryPolicyCompleted` event is generated when the inventory run com
     "policyRunStatus": "Succeeded",
     "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
     "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1-manifest.json"
   },
   "dataVersion": "1.0",
   "metadataVersion": "1",
@@ -378,16 +378,7 @@ For more information about pricing for Azure Storage blob inventory, see [Azure 
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png) <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
-| Premium block blobs | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
-
-<sup>2</sup> Feature is supported at the preview level.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Known issues
 

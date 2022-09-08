@@ -3,7 +3,7 @@ title: Microsoft Sentinel content hub catalog  | Microsoft Docs
 description: This article displays and details the currently available Microsoft Sentinel content hub packages.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 04/20/2022
+ms.date: 07/22/2022
 ms.author: cwatson
 ms.custom: ignite-fall-2021
 ---
@@ -26,10 +26,13 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Apache Log4j Vulnerability Detection** | Analytics rules, hunting queries, workbooks, playbooks | Application, Security - Threat Protection, Security - Vulnerability Management | Microsoft|
 |**Cybersecurity Maturity Model Certification (CMMC)** | [Analytics rules, workbook, playbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-cybersecurity-maturity-model-certification-cmmc/ba-p/2111184) | Compliance | Microsoft|
+|**Dev-0537 Detection and Hunting**|Workbook|Security - Threat Protection|Microsoft|
 | **IoT/OT Threat Monitoring with Defender for IoT** | [Analytics rules, playbooks, workbook](iot-solution.md) | Internet of Things (IoT), Security - Threat Protection | Microsoft |
 |**Maturity Model for Event Log Management M2131** | [Analytics rules, hunting queries, playbooks, workbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/modernize-log-management-with-the-maturity-model-for-event-log/ba-p/3072842) | Compliance | Microsoft|
 |**Microsoft Insider Risk Management** (IRM) |[Data connector](data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview), [workbook, analytics rules, hunting queries, playbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/announcing-the-microsoft-sentinel-microsoft-insider-risk/ba-p/2955786) |Security - Insider threat | Microsoft|
 | **Microsoft Sentinel Deception** | [Workbooks, analytics rules, watchlists](monitor-key-vault-honeytokens.md)  | Security - Threat Protection  |Microsoft |
+|**NIST SP 800-53**|[Workbooks, analytic rules, playbooks](https://techcommunity.microsoft.com/t5/public-sector-blog/microsoft-sentinel-nist-sp-800-53-solution/ba-p/3401307)|Compliance|Microsoft|
+|**Security Threat Essentials**|Analytic rules, Hunting queries|Security - Others|Microsoft|
 |**Zero Trust** (TIC3.0) |[Analytics rules, playbook,  workbooks](/security/zero-trust/integrate/sentinel-solution) |Identity, Security - Others |Microsoft  |
 
 ## Akamai
@@ -49,6 +52,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
+|**Apache HTTP Server** |Data connector, analytics rules, hunting queries, parser | IT Operations |Microsoft |
 |**Tomcat** |Data connector, parser | DevOps, application |Microsoft |
 
 ## Arista Networks
@@ -260,6 +264,18 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**HYAS Insight for Microsoft Sentinel Solutions Gallery**| Playbooks| Security - Threat Intelligence, Security - Automation (SOAR) |Microsoft |
 
+## iboss
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**iboss App**|Data connector, parser,Workbook |Security - Network| [iboss inc](https://www.iboss.com/contact-us/)|
+
+## Illumio
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Illumio Core**|Data connector, parser |Security - Threat Protection| Microsoft|
+
 ## Imperva
 
 |Name    |Includes  |Categories |Supported by  |
@@ -271,6 +287,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
+|**Infoblox NIOS** |Data Connector, parsers, workbooks, analytic rules, watchlists|Security - Network|Microsoft|
 |**InfoBlox Threat Defense / InfoBlox Cloud Data Connector**| [Data connector](data-connectors-reference.md#infoblox-network-identity-operating-system-nios-preview), workbook, analytics rules| Security - Threat protection | Microsoft|
 
 ## IronNet
@@ -343,6 +360,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 | **Windows Security Events** | [Data connector](data-connectors-reference.md#windows-security-events-via-ama), analytics rules, hunting queries, workbooks | Security - Threat Protection| Microsoft |
 |**Syslog**|Data connector, analytics rules, hunting queries, workbook|IT Operations|Microsoft|
 
+## MongoDB
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|MongoDB Audit|Data connector, parser|Application|Microsoft|
+
 ## NetSkope
 
 |Name    |Includes  |Categories |Supported by  |
@@ -363,6 +386,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**NXLog BSM macOS**     |  [Data connector](data-connectors-reference.md#nxlog-basic-security-module-bsm-macos-preview) | IT Operations, Security - Others  |[NXLog](https://nxlog.co/user?destination=node/add/support-ticket)      |
 |**NXLog DNS Logs**     |  [Data connector](data-connectors-reference.md#nxlog-dns-logs-preview), parser |  IT Operations, Security - Network  |[NXLog](https://nxlog.co/user?destination=node/add/support-ticket)       |
 |**NXLog LinuxAudit**     |  [Data connector](data-connectors-reference.md#nxlog-linuxaudit-preview) |  IT Operations, Security - Network  |[NXLog](https://nxlog.co/user?destination=node/add/support-ticket)       |
+
+## Okta
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Okta Single SignOn** | Data connectors, workbooks, analytic rules, playbooks, custom azure logic apps connectors, hunting queries| Identity| Microsoft|
 
 ## Oracle
 
@@ -455,6 +484,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Continuous Threat Monitoring for SAP**|[Data connector](sap/deployment-overview.md), [workbooks, analytics rules, watchlists](sap/sap-solution-security-content.md) | Application  |Community |
 
+## SecurityBridge
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**SecurityBridge App**|Data connector, analytics rule, parser, workbook | Finance, Security - Network  |[SecurityBridge](https://securitybridge.com/contact) |
 
 ## Semperis
 

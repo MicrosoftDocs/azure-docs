@@ -24,14 +24,23 @@ In general, usage of this feature is recommended for scenarios when both the fol
 - You're consistently seeing greater than 1-5% overall rate of 429 responses
 - You've a consistent, predictable hot partition
 
-If you aren't seeing 429 responses and your end to end latency is acceptable, then no action to reconfigure RU/s per partition is required. If you have a workload that has consistent traffic with occasional unpredictable spikes across *all your partitions*, it's recommended to use [autoscale](../provision-throughput-autoscale.md) and [burst capacity (preview)](../burst-capacity.md). Autoscale and burst capacity will ensure you can meet your throughput requirements. 
+If you aren't seeing 429 responses and your end to end latency is acceptable, then no action to reconfigure RU/s per partition is required. If you have a workload that has consistent traffic with occasional unpredictable spikes across *all your partitions*, it's recommended to use [autoscale](../provision-throughput-autoscale.md) and [burst capacity (preview)](../burst-capacity.md). Autoscale and burst capacity will ensure you can meet your throughput requirements. If you have a small amount of RU/s per partition, you can also use the [partition merge (preview)](../merge.md) to reduce the number of partitions and ensure more RU/s per partition for the same total provisioned throughput.
 
 ## Getting started
 
-To get started using distributed throughput across partitions, enroll in the preview by submitting a request for the **Azure Cosmos DB Throughput Redistribution Across Partitions** feature via the [**Preview Features** page](../../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page.
-- Before submitting your request, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria).
-- The Azure Cosmos DB team will review your request and contact you via email to confirm which account(s) in the subscription you want to enroll in the preview.
+To get started using distributed throughput across partitions, enroll in the preview by submitting a request for the **Azure Cosmos DB Throughput Redistribution Across Partitions** feature via the [**Preview Features** page](../../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. You can also select the **Register for preview** button in the eligibility check page to open the **Preview Features** page. 
 
+Before submitting your request:
+- Ensure that you have at least 1 Azure Cosmos DB account in the subscription. This may be an existing account or a new one you've created to try out the preview feature. If you have no accounts in the subscription when the Azure Cosmos DB team receives your request, it will be declined, as there are no accounts to apply the feature to.
+- Verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria).
+
+The Azure Cosmos DB team will review your request and contact you via email to confirm which account(s) in the subscription you want to enroll in the preview.
+
+To check whether an Azure Cosmos DB account is eligible for the preview, you can use the built-in eligibility checker in the Azure portal. From your Azure Cosmos DB account overview page in the Azure portal, navigate to **Diagnose and solve problems** -> **Throughput and Scaling** ->  **Throughput redistribution across partition**. Run the **Check eligibility for throughput redistribution across partitions preview** diagnostic.
+
+:::image type="content" source="../media/distribute-throughput-across-partitions/throughput-and-scaling-category.png" alt-text="Throughput and Scaling topic in Diagnose and solve issues page":::
+
+:::image type="content" source="../media/distribute-throughput-across-partitions/throughput-redistribution-across-partitions-eligibility-check.png" alt-text="Throughput redistribution across partitions eligibility check with table of all preview eligibility criteria":::
 
 ## Example scenario
 
@@ -229,7 +238,10 @@ To enroll in the preview, your Cosmos account must meet all the following criter
     - Logic Apps
     - Azure Functions
     - Azure Search
-
+    - Azure Cosmos DB Spark connector
+    - Azure Cosmos DB data migration tool
+    - Any 3rd party library or tool that has a dependency on an Azure Cosmos DB SDK that is not .NET V3 SDK v3.27.0 or higher
+    
 ### SDK requirements (SQL API only)
 
 Throughput redistribution across partitions is supported only with the latest version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. There are no driver or SDK requirements to use this feature for API for MongoDB accounts.
@@ -249,13 +261,16 @@ Support for other SDKs is planned for the future.
 
 If you enroll in the preview, the following connectors will fail.
 
-* Azure Data Factory
-* Azure Stream Analytics
-* Logic Apps
-* Azure Functions
-* Azure Search
+* Azure Data Factory<sup>1</sup>
+* Azure Stream Analytics<sup>1</sup>
+* Logic Apps<sup>1</sup>
+* Azure Functions<sup>1</sup>
+* Azure Search<sup>1</sup>
+* Azure Cosmos DB Spark connector<sup>1</sup>
+* Azure Cosmos DB data migration tool
+* Any 3rd party library or tool that has a dependency on an Azure Cosmos DB SDK that is not .NET V3 SDK v3.27.0 or higher
 
-Support for these connectors is planned for the future.
+<sup>1</sup>Support for these connectors is planned for the future.
 
 ## Next steps
 

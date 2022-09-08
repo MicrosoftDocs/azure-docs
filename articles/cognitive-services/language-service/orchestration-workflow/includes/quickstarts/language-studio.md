@@ -5,17 +5,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/06/2022
+ms.date: 06/29/2022
 ms.author: aahi
 ---
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
-* Create one of the following projects to use orchestration:
-  * [Conversation Language Understanding](../../../conversational-language-understanding/overview.md)
-  * [Question Answering](../../../question-answering/overview.md)
-  * [LUIS](../../../../LUIS/what-is-luis.md)
+* A [conversational language understanding](../../../conversational-language-understanding/quickstart.md) project.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
@@ -31,7 +28,7 @@ ms.author: aahi
 
 Once you have a Language resource created, create an orchestration workflow project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
-For this quickstart, complete the [CLU](../../../conversational-language-understanding/quickstart.md) quickstart to create a CLU project to be used in orchestration workflow.
+For this quickstart, complete the [conversational language understanding](../../../conversational-language-understanding/quickstart.md) quickstart to create a conversational language understanding project that will be used later.
 
 [!INCLUDE [Sign in to Language studio](../language-studio/create-project.md)]
 
@@ -40,15 +37,15 @@ For this quickstart, complete the [CLU](../../../conversational-language-underst
 
 ## Build schema
 
-After you complete the CLU quickstart and create an orchestration project, the next step is to add intents.
+After you complete the conversational language understanding quickstart and create an orchestration project, the next step is to add intents.
 
-To connect to the previously created CLU project:
+To connect to the previously created conversational language understanding project:
 
 * In the **build schema** page in your orchestration project, click on **Add**, to add an intent.
 * In the window that appears, give your intent a name.
 * Select **Yes, I want to connect it to an existing project**.
 * From the connected services dropdown, select **Conversational Language Understanding**.
-* From the project name dropdown, select your created CLU project.
+* From the project name dropdown, select your conversational language understanding project.
 * Click on **Add intent** to create your intent.
 
 > [!div class="nextstepaction"]

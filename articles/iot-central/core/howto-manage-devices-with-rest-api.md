@@ -20,6 +20,8 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
+To learn how to manage devices by using the IoT Central UI, see [Manage individual devices in your Azure IoT Central application.](../core/howto-manage-devices-individually.md)
+
 ## Devices REST API
 
 The IoT Central REST API lets you:

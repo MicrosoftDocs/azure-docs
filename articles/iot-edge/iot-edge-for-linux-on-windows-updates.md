@@ -8,17 +8,17 @@ ms.reviewer: fcabrera
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/14/2022
+ms.date: 07/05/2022
 ms.author: fcabrera
 ---
 
 # Update IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 As the IoT Edge for Linux on Windows (EFLOW) application releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge for Linux on Windows devices when a new version is available.
 
-With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and has no package manager, so you can’t manually update or change any of the VM components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically.
+With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and has no package manager, so you can't manually update or change any of the VM components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically.
 
 The EFLOW virtual machine is designed to be reliably updated via Microsoft Update. The virtual machine operating system has an A/B update partition scheme to utilize a subset of those to make each update safe and enable a roll-back to a previous version if anything goes wrong during the update process.
 
@@ -30,14 +30,14 @@ EFLOW updates are sequential and you'll require to update to every version in or
 
 To find the latest version of Azure IoT Edge for Linux on Windows, see [EFLOW releases](https://aka.ms/AzEFLOW-Releases).
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 >[!IMPORTANT]
 >This is a Public Preview version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), not intended for production use. A clean install may be required for production use once the final General Availability (GA) release is available.
 >
 >To find out if you're currently using the continuous release version, navigate to **Settings** > **Apps** on your Windows device. Find **Azure IoT Edge** in the list of apps and features. If your listed version is 1.2.x.y, you are running the continuous release version.
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 :::moniker-end
 
 ## Update using Microsoft Update
@@ -74,7 +74,7 @@ In some scenarios with restricted or limited internet connectivity, you may want
 <!-- end 1.1 -->
 :::moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 1. Check the current EFLOW installed version. Open **Settings**, select **Apps** -> **Apps & features**  search for *Azure IoT Edge*. 
 
@@ -83,7 +83,7 @@ In some scenarios with restricted or limited internet connectivity, you may want
 1. Extract *AzureIoTEdge.msi* from the downloaded *.cab* file.
 
 1. Install the extracted *AzureIoTEdge.msi*.
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 :::moniker-end
 
 

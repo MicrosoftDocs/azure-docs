@@ -81,7 +81,7 @@ This procedure expects a public container. To change that configuration, make th
 
 ### [Azure portal](#tab/storage-resource-azure-portal)
 
-Sign in to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount).
+Sign in to the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount).
 
 1) In the search bar at the top of the portal, search for *Storage* and select the result labeled **Storage accounts**.
 

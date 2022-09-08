@@ -5,18 +5,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 07/21/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-To use Language Studio, you will need an Azure resource for language for authentication. You can also use this resource to call the feature REST APIs and client libraries. Follow these steps to get started. 
+To use Language Studio, you will need an Azure Language resource for authentication. You can also use this resource to call the feature REST APIs and client libraries. Follow these steps to get started. 
 
 > [!IMPORTANT] 
-> The setup process and requirements for the custom features are different. If you're using one of the custom features, we recommend following one of the quickstart articles linked below to get started more easily.  
+> The setup process and requirements for custom features are different. If you're using one of the following custom features, we recommend using the quickstart articles linked below to get started more easily.  
 > * [Conversational Language Understanding](../conversational-language-understanding/quickstart.md)
 > * [Custom Text Classification](../custom-classification/quickstart.md)
 > * [Custom Named Entity Recognition (NER)](../custom-named-entity-recognition/quickstart.md) 
+> * [Orchestration workflow](../orchestration-workflow/quickstart.md)
 
 1. Create an Azure Subscription. You can [create one for free](https://azure.microsoft.com/free/ai/). 
 

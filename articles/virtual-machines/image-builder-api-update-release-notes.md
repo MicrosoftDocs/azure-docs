@@ -1,6 +1,6 @@
 ---
-title: What's new in Azure Image Builder 
-description: Learn what is new with Azure Image Builder; such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
+title: What's new in Azure VM Image Builder 
+description: This article offers the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: kof-f
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -13,31 +13,31 @@ ms.custom: references_regions
 
 ---
 
-# What's new in Azure Image Builder
+# What's new in Azure VM Image Builder
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-This document contains all major API changes and feature updates for the Azure Image Builder service.
+This article contains all major API changes and feature updates for the Azure VM Image Builder service.
 
-## API Releases
+## API releases
 
 
-### 2022-02-14
+### Version 2022-02-14
 
-**Improvements**:
-- [Validation Support](./linux/image-builder-json.md#properties-validate)
-    - Shell (Linux) - Script or Inline
-    - PowerShell (Windows) - Script or Inline, run elevated, run as system
+**Improvements**
+- [Validation support](./linux/image-builder-json.md#properties-validate)
+    - Shell (Linux): Script or inline
+    - PowerShell (Windows): Script or inline, run elevated, run as system
     - Source-Validation-Only mode
 - [Customized staging resource group support](./linux/image-builder-json.md#properties-stagingresourcegroup)
 
-### 2021-10-01
+### Version 2021-10-01
 
-**Breaking Change**:
+**Breaking change**
  
-Our 2021-10-01 API introduces a change to the error schema that will be part of every future API release. Any Azure Image Builder automations you may have need to take account the new error output when switching to 2021-10-01 or newer API versions (new schema shown below). We recommend that once customers switch to the new API version (2021-10-01 and beyond), they don't revert to older versions as they'll have to change their automation again to expect the older error schema. We don't anticipate changing the error schema again in future releases.
+API version 2021-10-01 introduces a change to the error schema that will be part of every future API release. If you have any Azure VM Image Builder automations, be aware of the [new error output](#error-output-for-version-2021-10-01-and-later) when you switch to API version 2021-10-01 or later. We recommend, after you've switched to the latest API version, that you don't revert to an earlier version, because you'll have to change your automation again to produce the earlier error schema. We don't anticipate that we'll change the error schema again in future releases.
 
-For API versions 2020-02-14 and older, the error output will look like the following messages:
+##### **Error output for version 2020-02-14 and earlier**
 
 ```
 { 
@@ -46,8 +46,7 @@ For API versions 2020-02-14 and older, the error output will look like the follo
 } 
 ```
 
-
-For API versions 2021-10-01 and newer, the error output will look like the following messages:
+##### **Error output for version 2021-10-01 and later**
 
 ```
 { 
@@ -58,42 +57,40 @@ For API versions 2021-10-01 and newer, the error output will look like the follo
 }
 ```
 
-**Improvements**:
+**Improvements**
 
 - Added support for [Build VM MSIs](linux/image-builder-json.md#user-assigned-identity-for-the-image-builder-build-vm).
 - Added support for Proxy VM size customization.
 
-### 2020-02-14
+### Version 2020-02-14
 
-
-
-**Improvements:**
+**Improvements**
 
 - Added support for creating images from the following sources:
-    - Managed Image
+    - Managed image
     - Azure Compute Gallery
     - Platform Image Repository (including Platform Image Purchase Plan)
 - Added support for the following customizations:
-    - Shell (Linux) - Script or Inline
-    - PowerShell (Windows) - Script or Inline, run elevated, run as system
+    - Shell (Linux): Script or inline
+    - PowerShell (Windows): Script or inline, run elevated, run as system
     - File (Linux and Windows)
     - Windows Restart (Windows)
-    - Windows Update (Windows) (with search criteria, filters, and update limit)
+    - Windows Update (Windows): Search criteria, filters, and update limit
 - Added support for the following distribution types:
-    - VHD
-    - Managed Image
+    - VHD (virtual hard disk)
+    - Managed image
     - Azure Compute Gallery
-- **Other Features**
-    - Added support for customers to use their own VNet.
-    - Added support for customers to customize the build VM (VM size, OS disk size).
-    - Added support for user assigned MSI (for customize/distribute steps).
-    - Added support for [Gen2 images.](image-builder-overview.md#hyper-v-generation)
+- Other features:
+    - Added support for customers to use their own virtual network
+    - Added support for customers to customize the build VM (VM size, operating system disk size)
+    - Added support for user-assigned Microsoft Windows Installer (MSI) (for customize/distribute steps)
+    - Added support for [Gen2 images](image-builder-overview.md#hyper-v-generation)
 
 ### Preview APIs
 
  The following APIs are deprecated, but still supported:
-- 2019-05-01-preview
+- Version 2019-05-01-preview
 
 
 ## Next steps
-Learn more about [Image Builder](image-builder-overview.md).
+Learn more about [VM Image Builder](image-builder-overview.md).

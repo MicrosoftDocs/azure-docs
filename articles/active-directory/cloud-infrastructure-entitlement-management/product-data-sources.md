@@ -13,11 +13,6 @@ ms.author: kenwith
 
 # View and configure settings for data collection
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
-
 You can use the **Data Collectors** dashboard in Permissions Management to view and configure settings for collecting data from your authorization systems. It also provides information about the status of the data collection.
 
 ## Access and view data sources

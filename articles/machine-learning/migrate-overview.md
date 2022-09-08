@@ -54,7 +54,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 3. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer component-mapping](#studio-classic-and-designer-component-mapping) table below.
 
-4. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md?tabs=azure-portal).
+4. [Create an Azure Machine Learning workspace](quickstart-create-resources.md).
 
 ## Step 2: Define a strategy and plan
 

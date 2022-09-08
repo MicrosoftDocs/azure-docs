@@ -17,7 +17,7 @@ ms.custom: include file
 | Maximum node pools per cluster                                                                                     | 100                                                                                  |
 | Maximum pods per node: [Basic networking][basic-networking] with Kubenet                                           | Maximum: 250 <br /> Azure CLI default: 110 <br /> Azure Resource Manager template default: 110 <br /> Azure portal deployment default: 30          |
 | Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface        | Maximum: 250 <br /> Default: 30                                                      |
-| Open Service Mesh (OSM) AKS addon                                                                          | Kubernetes Cluster Version: 1.19+<br />OSM controllers per cluster: 1<br />Pods per OSM controller: 500<br />Kubernetes service accounts managed by OSM: 50 |
+| Open Service Mesh (OSM) AKS addon                                                                          | Kubernetes Cluster Version: AKS Supported Versions<br />OSM controllers per cluster: 1<br />Pods per OSM controller: 1600<br />Kubernetes service accounts managed by OSM: 160 |
 
 
 | Kubernetes Control Plane tier | Limit |  

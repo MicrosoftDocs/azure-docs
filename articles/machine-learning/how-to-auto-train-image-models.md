@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 07/13/2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
@@ -31,11 +31,11 @@ Automated ML supports model training for computer vision tasks like image classi
 
 # [CLI v2](#tab/CLI-v2)
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the `ml` extension.
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
 * The Azure Machine Learning Python SDK v2 (preview) installed.
 
@@ -522,7 +522,7 @@ When you've configured your AutoML Job to the desired settings, you can submit t
 The automated ML training runs generates output model files, evaluation metrics, logs and deployment artifacts like the scoring file and the environment file which can be viewed from the outputs and logs and metrics tab of the child runs.
 
 > [!TIP]
-> Check how to navigate to the run results from the  [View run results](how-to-understand-automated-ml.md#view-run-results) section.
+> Check how to navigate to the run results from the  [View run results](how-to-understand-automated-ml.md#view-job-results) section.
 
 For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md#metrics-for-image-models-preview)
 

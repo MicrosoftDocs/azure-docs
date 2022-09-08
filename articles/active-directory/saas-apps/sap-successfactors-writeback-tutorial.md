@@ -223,7 +223,7 @@ This section provides steps for
 
 **To configure SuccessFactors Writeback:**
 
-1. Go to <https://portal.azure.com>
+1. Go to the [Azure portal](https://portal.azure.com).
 
 2. In the left navigation bar, select **Azure Active Directory**
 

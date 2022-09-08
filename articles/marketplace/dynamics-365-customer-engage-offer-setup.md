@@ -4,16 +4,18 @@ description: Create a Dynamics 365 apps on Dataverse and Power Apps offer on Mic
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
-ms.date: 05/25/2022
+author: trkeya
+ms.author: trkeya
+ms.date: 07/18/2022
 ---
 
 # Create a Dynamics 365 apps on Dataverse and Power Apps offer
 
-This article describes how to create a _Dynamics 365 apps on Dataverse and Power Apps_ offer. Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
+This article describes how to create a _Dynamics 365 apps on Dataverse and Power Apps_ offer. 
 
 ## Before you begin
+
+Before you can publish a Dynamics 365 apps on Dataverse and Power Apps offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 Review [Plan a Microsoft Dynamics 365 offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
@@ -63,9 +65,6 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
     
         If you choose this option, the Enable app license management through Microsoft check box is enabled and cannot be changed.
 
-        > [!NOTE]
-        > This capability is currently in Public Preview.
-
     - Select **No**, if you prefer to only list your offer through the marketplace and process transactions independently.
 
         If you choose this option, you can use the **Enable app license management through Microsoft** check box to choose whether or not to enable app license management through Microsoft. For more information, see [ISV app license management](isv-app-license.md).
@@ -80,7 +79,9 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
         > [!NOTE]
         > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
 
-    - **Contact me** – Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
+    - **Contact me** – Collect customer contact information in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. You can also connect your customer relationship management (CRM) system to manage leads there.
+        > [!NOTE]
+        > Connecting to a CRM system is optional. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
 ## Test drive
 
@@ -89,15 +90,35 @@ A test drive is a great way to showcase your offer to potential customers by giv
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. With test drive, you must also configure your offer to a CRM system for customer leads (see next section). To remove test drive from your offer, clear this check box.
+To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. To remove test drive from your offer, clear this check box.
 
 ## Customer leads
 
-[!INCLUDE [Connect lead management](includes/customer-leads.md)]
+When a customer expresses interest or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center.
 
-For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+You can also connect the product to your customer relationship management (CRM) system to handle leads there.
 
-Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
+> [!NOTE]
+> Connecting to a CRM system is optional.
+
+To configure the lead management in Partner Center:
+
+1. Under **Customer leads**, select the **Connect** link.
+1. In the **Connection details** dialog box, select a lead destination.
+1. Complete the fields that appear. For detailed steps, see the following articles:
+
+   - [Configure your offer to send leads to the Azure table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
+   - [Configure your offer to send leads to Dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (formerly Dynamics CRM Online)
+   - [Configure your offer to send leads to HTTPS endpoint](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
+   - [Configure your offer to send leads to Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
+   - [Configure your offer to send leads to Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
+
+1. To validate the configuration you provided, select the **Validate** link.
+1. Select **Connect**.
+
+    For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+
+1. Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
 
 ## Next steps
 

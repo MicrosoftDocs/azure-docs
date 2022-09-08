@@ -4,12 +4,12 @@ description: Use administrative units to restrict the scope of role assignments 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 06/01/2022
+ms.date: 07/15/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -36,7 +36,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Roles that can be assigned with administrative unit scope
 
-The following Azure AD roles can be assigned with administrative unit scope:
+The following Azure AD roles can be assigned with administrative unit scope. Additionally, any [custom role](custom-create.md) can be assigned with administrative unit scope as long as the custom role's permissions include at least one permission relevant to users, groups, or devices.
 
 | Role | Description |
 | -----| ----------- |
@@ -50,6 +50,7 @@ The following Azure AD roles can be assigned with administrative unit scope:
 | [Teams Administrator](permissions-reference.md#teams-administrator) | Can manage Microsoft 365 groups in the assigned administrative unit only.  Can manage team members in the Microsoft 365 admin center for teams associated with groups in the assigned administrative unit only.  Cannot use the Teams admin center. |
 | [Teams Devices Administrator](permissions-reference.md#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. |
 | [User Administrator](permissions-reference.md#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only. |
+| [&lt;Custom role&gt;](custom-create.md) | Can perform actions that apply to users, groups, or devices, according to the definition of the custom role. |
 
 Certain role permissions apply only to non-administrator users when assigned with the scope of an administrative unit. In other words, administrative unit scoped [Helpdesk Administrators](permissions-reference.md#helpdesk-administrator) can reset passwords for users in the administrative unit only if those users do not have administrator roles. The following list of permissions are restricted when the target of an action is another administrator:
 
@@ -64,6 +65,12 @@ The following security principals can be assigned to a role with an administrati
 * Users
 * Azure AD role-assignable groups
 * Service principals
+
+## Service principals and guest users
+
+Service principals and guest users will not be able to use a role assignment scoped to an administrative unit unless they are also assigned corresponding permissions to read the objects. This is because service principals and guest users do not receive directory read permissions by default, which are required to perform administrative actions. To enable a service principal or guest user to use a role assignment scoped to an administrative unit, you must assign the [Directory Readers](permissions-reference.md#directory-readers) role (or another role that includes read permissions) at a tenant scope.
+
+It is not currently possible to assign directory read permissions scoped to an administrative unit. For more information about default permissions for users, see [default user permissions](../fundamentals/users-default-permissions.md). 
 
 ## Assign a role with an administrative unit scope
 

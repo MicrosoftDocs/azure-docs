@@ -9,7 +9,7 @@ ms.reviewer: ""
 ms.custom: mvc, devcenter, devx-track-python, mode-api
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/28/2020
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Single Server
@@ -20,7 +20,6 @@ In this quickstart, you will learn how to connect to the database on Azure Datab
 
 > [!TIP]
 > If you are looking to build a Django Application with PostgreSQL then checkout the tutorial, [Deploy a Django web app with PostgreSQL](../../app-service/tutorial-python-postgresql-app.md) tutorial.
-
 
 ## Prerequisites
 
@@ -111,7 +110,6 @@ When the code runs successfully, it produces the following output:
 
 :::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Command-line output":::
 
-
 ## Step 2: Read data
 
 The following code example connects to your Azure Database for PostgreSQL database and uses
@@ -172,4 +170,3 @@ az group delete \
 
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-server-cli.md)<br/>
-

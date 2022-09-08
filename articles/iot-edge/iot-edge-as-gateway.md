@@ -4,7 +4,7 @@ description: Use Azure IoT Edge to create a transparent, opaque, or proxy gatewa
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/23/2021
+ms.date: 06/27/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # How an IoT Edge device can be used as a gateway
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 IoT Edge devices can operate as gateways, providing a connection between other devices on the network and IoT Hub.
 
@@ -49,7 +49,7 @@ For more information about how the IoT Edge hub manages communication between do
 
 ::: moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 
 ::: moniker range=">=iotedge-2020-11"
 
@@ -76,7 +76,7 @@ All devices in a transparent gateway scenario need cloud identities so they can 
 
 Child devices can only have one parent. By default, a parent can have up to 100 children. You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
 
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 
 ::: moniker range=">=iotedge-2020-11"
 IoT Edge devices can be both parents and children in transparent gateway relationships. A hierarchy of multiple IoT Edge devices reporting to each other can be created. The top node of a gateway hierarchy can have up to five generations of children. For example, an IoT Edge device can have five layers of IoT Edge devices linked as children below it. But the IoT Edge device in the fifth generation cannot have any children, IoT Edge or otherwise.
@@ -88,7 +88,7 @@ A child device needs to be able to find its parent device on the local network. 
 
 On downstream IoT devices, use the **gatewayHostname** parameter in the connection string to point to the parent device.
 
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 
 ::: moniker range=">=iotedge-2020-11"
 On downstream IoT Edge devices, use the **parent_hostname** parameter in the config file to point to the parent device.
@@ -98,7 +98,7 @@ On downstream IoT Edge devices, use the **parent_hostname** parameter in the con
 
 Parent and child devices also need to authenticate their connections to each other. Each device needs a copy of a shared root CA certificate which the child devices use to verify that they are connecting to the proper gateway.
 
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 
 ::: moniker range=">=iotedge-2020-11"
 When multiple IoT Edge gateways connect to each other in a gateway hierarchy, all the devices in the hierarchy should use a single certificate chain.
@@ -124,7 +124,7 @@ Use the following table to see how different IoT Hub capabilities are supported 
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 
 ::: moniker range=">=iotedge-2020-11"
 
@@ -162,7 +162,7 @@ Protocol translation supports devices that are resource constrained. Many existi
 
 ### Identity translation
 
-The identity translation gateway pattern builds on protocol translation, but the IoT Edge gateway also provides an IoT Hub device identity on behalf of the downstream devices. The translation module is responsible for understanding the protocol used by the downstream devices, providing them identity, and translate their messages into IoT Hub primitives. Downstream devices appear in IoT Hub as first-class devices with twins and methods. A user can interact with the devices in IoT Hub and is unaware of the intermediate gateway device.
+The identity translation gateway pattern builds on protocol translation, but the IoT Edge gateway also provides an IoT Hub device identity on behalf of the downstream devices. The translation module is responsible for understanding the protocol used by the downstream devices, providing them identity, and translating their messages into IoT Hub primitives. Downstream devices appear in IoT Hub as first-class devices with twins and methods. A user can interact with the devices in IoT Hub and is unaware of the intermediate gateway device.
 
 Identity translation provides the benefits of protocol translation and additionally allows for full manageability of downstream devices from the cloud. All devices in your IoT solution show up in IoT Hub regardless of the protocol they use.
 
@@ -179,7 +179,7 @@ The following table explains how IoT Hub features are extended to downstream dev
 
 When using the protocol translation pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. Only use this pattern when few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
 
-The IoT Edge runtime does not include protocol or identity translation capabilities. These patterns requires custom or third-party modules that are often specific to the hardware and protocol used. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) contains several protocol translation modules to choose from. For a sample that uses the identity translation pattern, see [Azure IoT Edge LoRaWAN Starter Kit](https://github.com/Azure/iotedge-lorawan-starterkit).
+The IoT Edge runtime does not include protocol or identity translation capabilities. These patterns require custom or third-party modules that are often specific to the hardware and protocol used. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) contains several protocol translation modules to choose from. For a sample that uses the identity translation pattern, see [Azure IoT Edge LoRaWAN Starter Kit](https://github.com/Azure/iotedge-lorawan-starterkit).
 
 ## Next steps
 

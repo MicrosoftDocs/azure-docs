@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 >
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ARR supports rendering of point clouds as an alternative to triangular meshes. Point cloud rendering enables additional use cases where converting point clouds to triangular meshes as a preprocessing step is either impractical (turnaround times, complexity) or if the conversion process drops important detail.
+ARR supports rendering of point clouds as an alternative to triangular meshes. Point cloud rendering enables new use cases where converting point clouds to triangular meshes as a preprocessing step is either impractical (turnaround times, complexity) or if the conversion process drops important detail.
 
 Similar to triangular mesh conversion, point cloud conversion doesn't decimate the input data.
 
@@ -31,7 +31,8 @@ Conversion settings specifically for point cloud files are explained in the [con
 
 ## Size limitations
 
-For the maximum number of allowed points, the same kind of distinctions between a `standard` and `premium` rendering session applies, as described in paragraph about [server size limits](../../reference/limits.md#overall-number-of-primitives).
+Point cloud asset conversion has a hard limit of 2.5 billion points per converted asset.
+For the overall maximum number of allowed points loaded and rendered by ARR, the same kind of distinctions between a `standard` and `premium` rendering session applies, as described in paragraph about [server size limits](../../reference/limits.md#overall-number-of-primitives).
 
 ## Global rendering properties
 

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 08/25/2022
 ms.author: dobett
 ---
 
@@ -35,7 +35,7 @@ To build an IoT solution from scratch, or extend one created using IoT Central, 
 
 ### Devices
 
-Develop your IoT devices using a starter kit such as the [Azure MXChip IoT DevKit](/samples/azure-samples/mxchip-iot-devkit-get-started/sample/) or choose a device from the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/). Implement your embedded code using the open-source [device SDKs](../iot-hub/iot-hub-devguide-sdks.md). The device SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems. There are SDKs for multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
+Develop your IoT devices using a starter kit such as the [Azure MXChip IoT DevKit](/samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/) or choose a device from the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/). Implement your embedded code using the open-source [device SDKs](../iot-hub/iot-hub-devguide-sdks.md). The device SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems. There are SDKs for multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 To further simplify how you create the embedded code for your devices, follow the [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) conventions. At the core of IoT Plug and Play, is a *device capability model* schema that describes device capabilities. Use the device capability model to configure a cloud-based solution such as an IoT Central application.
 

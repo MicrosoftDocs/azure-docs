@@ -34,7 +34,7 @@
     href: external-identities-pricing.md
   - name: Best practices
     href: b2b-fundamentals.md
-  - name: Cross-tenant access overview (Preview)
+  - name: Cross-tenant access overview
     href: cross-tenant-access-overview.md
   - name: B2B collaboration
     expanded: false
@@ -53,7 +53,7 @@
       href: user-token.md
     - name: B2B collaboration for hybrid organizations
       href: hybrid-organizations.md
-  - name: B2B direct connect (Preview)
+  - name: B2B direct connect
     href: b2b-direct-connect-overview.md
   - name: Self-service sign-up
     expanded: false
@@ -75,7 +75,7 @@
   items:
   - name: Configure B2B collaboration
     items:
-    - name: Cross-tenant access settings (Preview)
+    - name: Cross-tenant access settings
       displayName: XTAS, XTAP, inbound, outbound, organizational settings, trust settings
       href: cross-tenant-access-settings-b2b-collaboration.md
     - name: Microsoft cloud settings (Preview)

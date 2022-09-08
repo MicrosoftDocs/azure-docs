@@ -10,7 +10,7 @@ metadata:
   ms.date: 02/15/2022
   ms.author: joflore
   author: MicrosoftGuyJFlo
-  manager: karenhoran
+  manager: amycolannino
   ms.reviewer: ravenn
   ms.collection: M365-identity-device-management
 title: Azure Active Directory device management FAQ
@@ -219,7 +219,7 @@ sections:
           
       - question: What are the MS-Organization-P2P-Access certificates present on our Windows 10/11 devices?
         answer: |
-          The MS-Organization-P2P-Access certificates are issued by Azure AD to both, Azure AD joined and hybrid Azure AD joined devices. These certificates are used to enable trust between devices in the same tenant for remote desktop scenarios. One certificate is issued to the device and another is issued to the user. The device certificate is present in `Local Computer\Personal\Certificates` and is valid for one day. This certificate is renewed (by issuing a new certificate) if the device is still active in Azure AD. The user certificate is present in `Current User\Personal\Certificates` and this certificate is also valid for one day, but it is issued on-demand when a user attempts a remote desktop session to another Azure AD joined device. It is not renewed on expiry. Both these certificates are issued using the MS-Organization-P2P-Access certificate present in the `Local Computer\AAD Token Issuer\Certificates`. This certificate is issued by Azure AD during device registration. 
+          The MS-Organization-P2P-Access certificates are issued by Azure AD to both, Azure AD joined and hybrid Azure AD joined devices. These certificates are used to enable trust between devices in the same tenant for remote desktop scenarios. One certificate is issued to the device and another is issued to the user. The device certificate is present in `Local Computer\Personal\Certificates` and is valid for one day. This certificate is renewed (by issuing a new certificate) if the device is still active in Azure AD. The user certificate is not persistent and is valid for one hour, but it is issued on-demand when a user attempts a remote desktop session to another Azure AD joined device. It is not renewed on expiry. Both these certificates are issued using the MS-Organization-P2P-Access certificate present in the `Local Computer\AAD Token Issuer\Certificates`. This certificate is issued by Azure AD during device registration. 
           
           
           
@@ -270,7 +270,7 @@ sections:
           - For iOS and Android, you can use the Microsoft Authenticator application **Settings** > **Device Registration** and select **Unregister device**.
           - For macOS, you can use the Microsoft Intune Company Portal application to unenroll the device from management and remove any registration. 
           
-          For Windows 10/11 devices, this process can be automated with the [Workplace Join (WPJ) removal tool](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip)
+          For Windows 10 version 2004 and older, this process can be automated with the [Workplace Join (WPJ) removal tool](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip)
           
           > [!NOTE]
           > This tool removes all SSO accounts on the device. After this operation, all applications will lose SSO state, and the device will be unenrolled from management tools (MDM) and unregistered from the cloud. The next time an application tries to sign in, users will be asked to add the account again.

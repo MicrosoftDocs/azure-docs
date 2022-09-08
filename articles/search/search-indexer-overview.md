@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 07/27/2022
 ---
 
 # Indexers in Azure Cognitive Search
@@ -18,6 +18,7 @@ An *indexer* in Azure Cognitive Search is a crawler that extracts searchable con
 Indexers are cloud-only, with individual indexers for [supported data sources](#supported-data-sources). When configuring an indexer, you'll specify a data source (origin) and a search index (destination). Several sources, such as Azure Blob Storage, have more configuration properties specific to that content type.
 
 You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a ['push model'](search-what-is-data-import.md) that simultaneously updates data in both Azure Cognitive Search and your external data source.
+
 
 ## Indexer scenarios and use cases
 
@@ -36,22 +37,18 @@ You can use an indexer as the sole means for data ingestion, or in combination w
 
 Indexers crawl data stores on Azure and outside of Azure.
 
-+ [Amazon Redshift](search-how-to-index-power-query-data-sources.md) (in preview)
 + [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
-+ [Azure MySQL](search-howto-index-mysql.md) (in preview)
 + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Azure Table Storage](search-howto-indexing-azure-tables.md)
-+ [Elasticsearch](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [PostgreSQL](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Salesforce Objects](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Salesforce Reports](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Smartsheet](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Snowflake](search-how-to-index-power-query-data-sources.md) (in preview)
 + [Azure SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 + [Azure Files](search-file-storage-integration.md) (in preview)
++ [Azure MySQL](search-howto-index-mysql.md) (in preview)
++ [SharePoint in Microsoft 365](search-howto-index-sharepoint-online.md) (in preview)
++ [Azure Cosmos DB (MongoDB API)](search-howto-index-cosmosdb-mongodb.md) (in preview)
++ [Azure Cosmos DB (Gremlin API)](search-howto-index-cosmosdb-gremlin.md) (in preview)
 
 Indexers accept flattened row sets, such as a table or view, or items in a container or folder. In most cases, it creates one search document per row, record, or item.
 
@@ -129,6 +126,8 @@ Any errors or warnings about data access or skillset validation will occur durin
 After the first indexer run, you can rerun it on demand using [Run Indexer](/rest/api/searchservice/run-indexer), or you can [define a recurring schedule](search-howto-schedule-indexers.md). 
 
 You can monitor [indexer status in the portal](search-howto-monitor-indexers.md) or through [Get Indexer Status API](/rest/api/searchservice/get-indexer-status). You should also [run queries on the index](search-query-create.md) to verify the result is what you expected.
+
+Indexers don't have dedicated processing resources. Based on this, indexers' status may show as idle before running (depending on other jobs in the queue) and run times may not be predictable. Other factors define indexer performance as well, such as document size, document complexity, image analysis, among others.
 
 ## Next steps
 

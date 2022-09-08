@@ -103,7 +103,7 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
                         ]
    ```
    > [!NOTE]
-   > If bandwidth is unavailable in the target location, open a [support request in the Azure Portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and select the ExpressRoute Direct Support Topic. 
+   > If bandwidth is unavailable in the target location, open a [support request in the Azure Portal](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and select the ExpressRoute Direct Support Topic. 
    >
 5. Create an ExpressRoute Direct resource based on the location chosen above
 
@@ -335,24 +335,65 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
 
 1. To enroll in the preview, send an e-mail to ExpressRouteDirect@microsoft.com with the ExpressRoute Direct and target ExpressRoute circuit Azure subscription IDs. You'll receive an e-mail once the feature get enabled for your subscriptions.
 
+
+1. Sign in to Azure and select the ExpressRoute Direct subscription. 
+
+   ```powershell
+   Connect-AzAccount 
+
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+   ```
+
+
+1. . Get ExpressRoute Direct details 
+
+   ```powershell
+   Get-AzExpressRoutePort 
+
+   $ERPort = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+   ```
+
 1. Create the ExpressRoute Direct authorization by running the following commands in PowerShell:
 
     ```powershell
-    Add-AzExpressRoutePortAuthorization -Name $Name -ExpressRoutePort $ERPort
-    Set-AzExpressRoutePort -ExpressRoutePort $ERPort
+    Add-AzExpressRoutePortAuthorization -Name $AuthName -ExpressRoutePort $ERPort
+    ```
+   
+   Sample output:
+    ```powershell
+        Name                   : ERDirectAuthorization_1
+        Id                     : /subscriptions/72882272-d67e-4aec-af0b-4ab6e110ee46/resourceGroups/erdirect-   rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
+        Etag                   : W/"24cac874-dfb4-4931-9447-28e67edd5155"
+        AuthorizationKey       : 6e1fc16a-0777-4cdc-a206-108f2f0f67e8
+        AuthorizationUseStatus : Available
+        ProvisioningState      : Succeeded
+        CircuitResourceUri     :
     ```
 
 1. Verify the authorization was created successfully and store ExpressRoute Direct authorization into a variable:
 
     ```powershell
-    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-    $ERDirect    
+    $ERDirectAuthorization = Get-AzExpressRoutePortAuthorization -ExpressRoutePortObject $ERPort -Name $AuthName
+    $ERDirectAuthorization  
+    ```
+    
+    Sample output:
+      ```powershell
+        Name                   : ERDirectAuthorization_1
+        Id                     : /subscriptions/72882272-d67e-4aec-af0b-4ab6e110ee46/resourceGroups/erdirect-                       rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
+        Etag                   : W/"24cac874-dfb4-4931-9447-28e67edd5155"
+        AuthorizationKey       : 6e1fc16a-0777-4cdc-a206-108f2f0f67e8
+        AuthorizationUseStatus : Available
+        ProvisioningState      : Succeeded
+        CircuitResourceUri     :on  
     ```
 
-1. Redeem the authorization to create the ExpressRoute Direct circuit with the following command:
+1. Redeem the authorization to create the ExpressRoute Direct circuit in different subscription or Azure Active Directory tenant with the following command:
 
     ```powershell
-    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -ExpressRoutePort $ERDirect -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -Authorization $ERDirect.Authorization
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    
+    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
     ```
 ## Next steps
 
