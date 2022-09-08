@@ -74,7 +74,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 ## Bind your app to the Azure Cosmos DB
 
-### [Service Binding](#tab/Service-Binding)
+#### [Service Binding](#tab/Service-Binding)
 
 Azure Cosmos DB has five different API types that support binding. The following procedure shows how to use them:
 
@@ -103,9 +103,9 @@ Azure Cosmos DB has five different API types that support binding. The following
     spring.cloud.azure.cosmos.database=testdb
     ```
 
-### [Terraform](#tab/Terraform)
+#### [Terraform](#tab/Terraform)
 
-The following Terraform script shows how to set up an Azure Spring Apps app with Azure Cosmos DB account.
+The following Terraform script shows how to set up an Azure Spring Apps app with an Azure Cosmos DB account.
 
 ```terraform
 provider "azurerm" {
