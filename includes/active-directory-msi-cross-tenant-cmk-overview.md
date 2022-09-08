@@ -16,9 +16,13 @@ Many service providers building Software as a Service (SaaS) offerings on Azure 
 
 Azure platform services and resources that are owned by the service provider and that reside in the service provider's tenant require access to the key from the customer's tenant to perform the encryption/decryption operations.
 
-For the purposes of this how-to article, assume there are two Azure AD tenants: an independent service provider's tenant (*Tenant1*), and a customer's tenant (*Tenant2*). *Tenant1* hosts Azure platform services and *Tenant2* hosts the customer's key vault.
+The image below shows a data encryption at rest with federated identity in a cross-tenant CMK workflow spanning a service provider and its customer.
 
-The service provider first creates a multi-tenant application registration in *Tenant1*. The service provider configures a [federated identity credential](../articles/active-directory/develop/workload-identity-federation-create-trust.md) on this application using a user-assigned managed identity. The service provider then shares the name and application ID of the app with the customer.
+:::image type="content" source="media/active-directory-msi-cross-tenant-cmk-overview/cross-tenant-cmk.png" alt-text="Screenshot showing a cross-tenant CMK with a federated identity." lightbox="media/active-directory-msi-cross-tenant-cmk-overview/cross-tenant-cmk.png" border="true":::
+
+In the example above, there are two Azure AD tenants: an independent service provider's tenant (*Tenant1*), and a customer's tenant (*Tenant2*). *Tenant1* hosts Azure platform services and *Tenant2* hosts the customer's key vault.
+
+A multi-tenant application registration is created by the service provider in *Tenant1*. A [federated identity credential](/azure/active-directory/develop/workload-identity-federation-create-trust-managed-identity-as-credential) is created on this application using a user-assigned managed identity. Then, the name and application ID of the app is shared with the customer.
 
 A user with the appropriate permissions installs the service provider's application in the customer tenant, *Tenant2*. A user then grants the service principal associated with the installed application access to the customer's key vault. The customer also stores the encryption key, or customer-managed key, in the key vault. The customer shares the key location (the URL of the key) with the service provider.
 
