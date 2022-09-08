@@ -91,7 +91,7 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Copying the key's key identifier":::
 
-## Create a new Azure Cosmos DB account
+## <a id="create-a-new-azure-cosmos-account"></a>Create a new Azure Cosmos DB account
 
 ### Using the Azure portal
 

@@ -20,7 +20,7 @@ To get started, download and install the latest version of Azure Cosmos DB Emula
 
 :::image type="icon" source="media/local-emulator/download-icon.png" border="false":::**[Download the Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator)**
 
-You can develop applications using Azure Cosmos DB Emulator with the [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api), and [Table](local-emulator.md#table-api) API accounts. Currently the data explorer in the emulator fully supports viewing SQL data only; the data created using MongoDB, Gremlin/Graph and Cassandra client applications it is not viewable at this time. To learn more, see [how to connect to the emulator endpoint](#connect-with-emulator-apis) from different APIs.
+You can develop applications using Azure Cosmos DB Emulator with the account using the APIs for [NoSQL](local-emulator.md#api-for-nosql), [Apache Cassandra](local-emulator.md#api-for-cassandra), [MongoDB](local-emulator.md#api-for-mongodb), [Apache Gremlin](local-emulator.md#api-for-gremlin), and [Table](local-emulator.md#api-for-table). Currently the data explorer in the emulator fully supports viewing SQL data only; the data created using MongoDB, Gremlin/Graph and Cassandra client applications it is not viewable at this time. To learn more, see [how to connect to the emulator endpoint](#connect-with-emulator-apis) from different APIs.
 
 ## How does the emulator work?
 
@@ -252,7 +252,7 @@ table.CreateIfNotExists();
 table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowKey")));
 ```
 
-### API for Cassandra
+### <a id="cassandra-api"></a>API for Cassandra
 
 Start emulator from an administrator [command prompt](emulator-command-line-parameters.md) with "/EnableCassandraEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
 
