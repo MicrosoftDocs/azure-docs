@@ -180,7 +180,6 @@ Customer has a huge database where backup and/or restore + recovery of a single 
 
 Usually customers will use RMAN, Azure Backup for Oracle and/or disk snap techniques in combination. In this variant, each relevant database file type is separated to different Oracle ASM disk groups.
 
-[!div class="mx-tdCol3BreakAll"]
 |ASM Disk Group Name   |Stores                        |Azure Storage       |
 |-----------------------|------------------------------|--------------------|
 |**+\<DBNAME\>\_DATA[#]**                  |All data files                |5-30 or more x P30 (1 TB) or P40 (2 TB)   |
