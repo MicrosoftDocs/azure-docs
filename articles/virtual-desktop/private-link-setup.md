@@ -3,7 +3,7 @@ title: Set up Private Link for Azure Virtual Desktop preview - Azure
 description: How to set up Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/06/2022
+ms.date: 09/08/2022
 ms.author: helohr
 manager: femila
 ---
@@ -16,28 +16,35 @@ manager: femila
 
 This article will show you how to set up Private Link for Azure Virtual Desktop (preview) in your Azure Virtual Desktop deployment. For more information about what Private Link can do for your deployment, as well as the limitations of the public preview version, see [Private Link for Azure Virtual Desktop (preview)](private-link-overview.md).
 
+## Prerequisites
+
+In order to use Private Link in your Azure Virtual Desktop deployment, you'll need the following things:
+
+- An Azure account with an active subscription.
+- An Azure Virtual Desktop deployment with service objects, such as host pools, app groups, and workspaces.
+
 ## Set up Private Link in the Azure portal
 
 To configure Private Link in the Azure portal:
 
 1. Open the Azure portal and sign in.
 
-2. Create a private endpoint to connect the host pool to the customer VNET by going to **Home** > **Azure Virtual Desktop** > **Host pools**. Select the name of the host pool you want to connect to, then go to **Networking** > **Private Endpoints** > **Add**.
+2. Create a private endpoint to connect the host pool to the customer Virtual Network (VNet) by going to **Home** > **Azure Virtual Desktop** > **Host pools**. Select the name of the host pool you want to connect to, then go to **Networking** > **Private Endpoints** > **Add**.
 
-3. Create a private endpoint that will connect the host pool to a customer VNET by going to **Azure Virtual Desktop** > **Host pools**. Select the name of the host pool you want to connect to, then go to **Networking** > **Private endpoints** and select **Add**. <!--Do we need to create processes for in-Azure Virtual Desktop and outside of Azure Virtual Desktop at the same time like this, or can we create one and then go back to do the other?-->
+3. Create a private endpoint that will connect the host pool to a customer VNet by going to **Azure Virtual Desktop** > **Host pools**. Select the name of the host pool you want to connect to, then go to **Networking** > **Private endpoints** and select **Add**. <!--Do we need to create processes for in-Azure Virtual Desktop and outside of Azure Virtual Desktop at the same time like this, or can we create one and then go back to do the other?-->
 
-4. Enter the name of your new private endpoint, then select the location you want to put the endpoint in. The endpoint's location must be the same location as the VNET you're connecting the endpoint to. It must also be in the same VNET as your session host VM.
+4. Enter the name of your new private endpoint, then select the location you want to put the endpoint in. The endpoint's location must be the same location as the VNet you're connecting the endpoint to. It must also be in the same VNet as your session host VM.
 
 5. Select the Azure Virtual Desktop resource you're creating this private endpoint for. The Private Link feature supports the Microsoft.DesktopVirtualization resource type.
 
    >[!NOTE]
    >You'll need to repeat this process to create a private endpoint for every resource you want to put into Private Link.
 
-6. Select the VNET and subnet you want to use. You can use your own DNS service, but we recommend you select **Integrate with private DNS zone** to use Azure private DNS zones.
+6. Select the VNet and subnet you want to use. You can use your own DNS service, but we recommend you select **Integrate with private DNS zone** to use Azure private DNS zones.
 
 7. On the **Review and create** page, select **Create** to finish making the private endpoint.
 
-8. Repeat this process to create an endpoint to connect in the opposite direction between the VNET and the host pool for every resource you connected to.
+8. Repeat this process to create an endpoint to connect in the opposite direction between the VNet and the host pool for every resource you connected to.
 
 ## Closing public routes
 
@@ -71,7 +78,7 @@ When you set up your NSG, you must configure it to allow the URLs in the [requir
 
 To validate your Private Link for Azure Virtual Desktop and make sure it's working:
 
-1. Check to see if your session hosts are registered and functional on the VNET. You can check their health status with Azure Monitor.
+1. Check to see if your session hosts are registered and functional on the VNet. You can check their health status with Azure Monitor.
 
 2. Next, test your feed connections to make sure they perform as expected. If you've disabled public network access, make sure the workspace doesn't show up in feeds from public routes. Feeds from private routes should always work.
 
