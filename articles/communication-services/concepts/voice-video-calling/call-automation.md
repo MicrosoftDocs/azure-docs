@@ -28,11 +28,9 @@ Some of the common use cases that can be build using Call Automation include:
 - Protect your customer's identity by building number masking services to connect buyers to sellers or users to partner vendors on your platform.
 - Increase engagement by building automated customer outreach programs for marketing and customer service.
 
-ACS Call Automation can be used to build calling workflows for a customer service scenarios, as depicted in the high-level architecture below. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an ACS Calling SDK client app to answer the incoming call request. With support for ACS PSTN or Direct Routing, you can then connect this workflow back to your contact center.  
-<br/>
-<br/>
+ACS Call Automation can be used to build calling workflows for customer service scenarios, as depicted in the high-level architecture below. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an ACS Calling SDK client app to answer the incoming call request. With support for ACS PSTN or Direct Routing, you can then connect this workflow back to your contact center.  
+
 ![Diagram of calling flow for a customer service scenario.](./call-automation-architecture.png)
-<br/>
 
 ## Capabilities
 
@@ -61,13 +59,13 @@ The following list presents the set of features that are currently available in 
 
 ## Architecture
 
-Call Automation uses a REST API interface to receive requests and provide responses to all actions performed within the service. Due to the asynchronous nature of calling, most actions will have corresponding events which are triggered when the action completes successfully or fails.
+Call Automation uses a REST API interface to receive requests and provide responses to all actions performed within the service. Due to the asynchronous nature of calling, most actions will have corresponding events that are triggered when the action completes successfully or fails.
 
-Event Grid – Azure Communication Services uses Event Grid to deliver the IncomingCall event tjat can be triggered by an inbound PSTN call to a number you've acquired in the portal or by connecting your telephony infrastructure using an SBC. The IncomingCall event is also sent for any call between Azure Communication Services users (one-to-one), when a user is added to an existing call (group call) or an existing 1:1 call is transferred to a communication user.
+Event Grid – Azure Communication Services uses Event Grid to deliver the IncomingCall event that can be triggered by an inbound PSTN call to a number you've acquired in the portal or by connecting your telephony infrastructure using an SBC. The IncomingCall event is also sent for any call between Azure Communication Services users (one-to-one), when a user is added to an existing call (group call) or an existing 1:1 call is transferred to a communication user.
 
 Web hooks – Calling Automation SDKs use standard web hook HTTP/S callbacks for call state change events and responses to mid-call actions.
 
-![Action arch](./action%20architecture.png)
+![Screenshot of flow for incoming call and actions.](./action%20architecture.png)
 
 
 ## Call Actions
@@ -76,7 +74,7 @@ Web hooks – Calling Automation SDKs use standard web hook HTTP/S callbacks for
 
 These actions are performed before the destination endpoint listed in the IncomingCall event notification is connected. Web hook callback events only communicate the “answer” pre-call action, not for reject or redirect actions.  
 
-**Answer** – Using the IncomingCall event from Event Grid and Call Automation SDK, a call can be answered by your application. This allows for IVR scenarios where an inbound PSTN call can be answered programmatically by your application. Other scenarios include answering a call on behalf of a user or answering an outbound call sent to a PSTN number in the same Azure Communication Services resource.
+**Answer** – Using the IncomingCall event from Event Grid and Call Automation SDK, a call can be answered by your application. This action allows for IVR scenarios where an inbound PSTN call can be answered programmatically by your application. Other scenarios include answering a call on behalf of a user or answering an outbound call sent to a PSTN number in the same Azure Communication Services resource.
 
 **Reject** – To reject a call means your application can receive the IncomingCall event and prevent the call from being connected to the destination endpoint.
 
