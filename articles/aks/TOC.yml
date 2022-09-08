@@ -260,6 +260,8 @@
             - name: Scan images in your CI/CD Workflow
               href: ../defender-for-cloud/defender-for-container-registries-cicd.md
               maintainContext: True
+        - name: Remove vulnerable images with ImageCleaner (preview)
+          href: image-cleaner.md
         - name: Registry security
           items:
             - name: Scanning images in ACR registries
@@ -434,6 +436,8 @@
           href: use-windows-hpc.md
         - name: Windows Server containers FAQ
           href: windows-faq.md
+        - name: Upgrade from Windows Server 2019 to 2022
+          href: upgrade-windows-2019-2022.md          
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers
