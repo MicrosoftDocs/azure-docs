@@ -149,7 +149,7 @@ Use [az network nic ip-config create](/cli/azure/network/nic/ip-config#az-networ
     --resource-group myResourceGroup \
     --name ipconfig2 \
     --nic-name myNIC1 \
-    --private-ip-address 10.1.0.5
+    --private-ip-address 10.1.0.5 \
     --private-ip-address-version IPv4 \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
@@ -165,7 +165,7 @@ Use [az network nic ip-config create](/cli/azure/network/nic/ip-config#az-networ
     --resource-group myResourceGroup \
     --name ipconfig3 \
     --nic-name myNIC1 \
-    --private-ip-address 10.1.0.6
+    --private-ip-address 10.1.0.6 \
     --private-ip-address-version IPv4 \
     --vnet-name myVNet \
     --subnet myBackendSubnet
