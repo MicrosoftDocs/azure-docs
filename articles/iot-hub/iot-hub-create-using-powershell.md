@@ -21,11 +21,13 @@ You can use Azure PowerShell cmdlets to create and manage Azure IoT hubs. This t
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+Alternatively, you can use Azure Cloud Shell, if you'd rather not install additional modules onto your machine. The following section gets you started with Azure Cloud Shell.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Connect to your Azure subscription
 
-If you're using the Cloud Shell, you're already logged in to your subscription. If you're running PowerShell locally instead, enter the following command to sign in to your Azure subscription:
+If you're using Cloud Shell, you're already logged in to your subscription, so you can skip this step. If you're running PowerShell locally instead, enter the following command to sign in to your Azure subscription:
 
 ```powershell
 # Log into Azure account.
