@@ -55,6 +55,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
           array:
             - |
               objectName: secret1
+              objectAlias: SECRET_1          # [OPTIONAL] object alias - defaults to objectName if not provided
               objectType: secret             # object types: secret, key, or cert
               objectVersion: ""              # [OPTIONAL] object versions, default to latest if empty
             - |
@@ -153,6 +154,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
           array:
             - |
               objectName: secret1
+              objectAlias: SECRET_1           # [OPTIONAL] object alias - defaults to objectName if not provided
               objectType: secret              # object types: secret, key, or cert
               objectVersion: ""               # [OPTIONAL] object versions, default to latest if empty
             - |
@@ -255,6 +257,7 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
           array:
             - |
               objectName: secret1
+              objectAlias: SECRET_1     # [OPTIONAL] object alias - defaults to objectName if not provided
               objectType: secret        # object types: secret, key, or cert
               objectVersion: ""         # [OPTIONAL] object versions, default to latest if empty
             - |
