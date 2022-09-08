@@ -18,67 +18,67 @@ This article lists significant changes to Azure Monitor documentation.
 
 | Article | Description |
 |---|---|
-|[Log Analytics agent overview](azure-monitor/agents/log-analytics-agent)|Restructured the Agents section and rewrote the Agents Overview article to reflect that Azure Monitor Agent is the primary agent for collecting monitoring data.|
-|[Dependency analysis in Azure Migrate Discovery and assessment - Azure Migrate](migrate/concepts-dependency-visualization)|Revamped the guidance for migrating from Log Analytics Agent to Azure Monitor Agent.|
+|[Log Analytics agent overview](agents/log-analytics-agent)|Restructured the Agents section and rewrote the Agents Overview article to reflect that Azure Monitor Agent is the primary agent for collecting monitoring data.|
+|[Dependency analysis in Azure Migrate Discovery and assessment - Azure Migrate](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization)|Revamped the guidance for migrating from Log Analytics Agent to Azure Monitor Agent.|
 
 
 ### Alerts
 
 | Article | Description |
 |:---|:---|
-|[Create Azure Monitor alert rules](azure-monitor/alerts/alerts-create-new-alert-rule)|Added support for data processing in a specified region, for action groups and for metric alert rules that monitors a custom metric.|
+|[Create Azure Monitor alert rules](alerts/alerts-create-new-alert-rule)|Added support for data processing in a specified region, for action groups and for metric alert rules that monitors a custom metric.|
 
 ### Application-insights
 
 | Article | Description |
 |---|---|
-|[Azure Application Insights Overview Dashboard](azure-monitor/app/overview-dashboard)|Important information has been added clarifying that moving or renaming resources will break dashboards, with additional instructions on how to resolve this scenario.|
-|[Azure Application Insights override default SDK endpoints](azure-monitor/app/custom-endpoints)|We've clarified that endpoint modification is not recommended and to use connection strings instead.|
-|[Continuous export of telemetry from Application Insights](azure-monitor/app/export-telemetry)|Important information has been added about avoiding duplicates when saving diagnostic logs in a Log Analytics workspaces.|
-|[Dependency Tracking in Azure Application Insights with OpenCensus Python](azure-monitor/app/opencensus-python-dependency)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
-|[Incoming Request Tracking in Azure Application Insights with OpenCensus Python](azure-monitor/app/opencensus-python-request)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
-|[Monitor Python applications with Azure Monitor](azure-monitor/app/opencensus-python)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
-|[Configuration options - Azure Monitor Application Insights for Java](azure-monitor/app/java-standalone-config)|Updated connection string overrides example.|
-|[Application Insights SDK for ASP.NET Core applications](azure-monitor/app/tutorial-asp-net-core)|This is a new tutorial with step-by-step instructions to use the Application Insights SDK with .NET Core applications.|
-|[Application Insights SDK support guidance](azure-monitor/app/sdk-support-guidance)|Our SDK support guidance has been updated and clarified.|
-|[Azure Application Insights - Dependency Auto-Collection](azure-monitor/app/auto-collect-dependencies)|The latest currently-supported node.js modules have been updated.|
-|[Application Insights custom metrics with .NET and .NET Core](azure-monitor/app/tutorial-asp-net-custom-metrics)|This is a new tutorial with step-by-step instructions on how to enable custom metrics with .NET applications.|
-|[Migrate an Application Insights classic resource to a workspace-based resource](azure-monitor/app/convert-classic-resource)|A comprehensive FAQ section has been added to assist with migration to workspace-based resources.|
-|[Configuration options - Azure Monitor Application Insights for Java](azure-monitor/app/java-standalone-config)|This article has been fully updated for 3.4.0-BETA.|
+|[Azure Application Insights Overview Dashboard](app/overview-dashboard)|Important information has been added clarifying that moving or renaming resources will break dashboards, with additional instructions on how to resolve this scenario.|
+|[Azure Application Insights override default SDK endpoints](app/custom-endpoints)|We've clarified that endpoint modification is not recommended and to use connection strings instead.|
+|[Continuous export of telemetry from Application Insights](app/export-telemetry)|Important information has been added about avoiding duplicates when saving diagnostic logs in a Log Analytics workspaces.|
+|[Dependency Tracking in Azure Application Insights with OpenCensus Python](app/opencensus-python-dependency)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
+|[Incoming Request Tracking in Azure Application Insights with OpenCensus Python](app/opencensus-python-request)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
+|[Monitor Python applications with Azure Monitor](app/opencensus-python)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
+|[Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config)|Updated connection string overrides example.|
+|[Application Insights SDK for ASP.NET Core applications](app/tutorial-asp-net-core)|This is a new tutorial with step-by-step instructions to use the Application Insights SDK with .NET Core applications.|
+|[Application Insights SDK support guidance](app/sdk-support-guidance)|Our SDK support guidance has been updated and clarified.|
+|[Azure Application Insights - Dependency Auto-Collection](app/auto-collect-dependencies)|The latest currently-supported node.js modules have been updated.|
+|[Application Insights custom metrics with .NET and .NET Core](app/tutorial-asp-net-custom-metrics)|This is a new tutorial with step-by-step instructions on how to enable custom metrics with .NET applications.|
+|[Migrate an Application Insights classic resource to a workspace-based resource](app/convert-classic-resource)|A comprehensive FAQ section has been added to assist with migration to workspace-based resources.|
+|[Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config)|This article has been fully updated for 3.4.0-BETA.|
 
 ### Autoscale
 
 | Article | Description |
 |---|---|
-|[Autoscale in Microsoft Azure](azure-monitor/autoscale/autoscale-overview)|Updtaed conceptual diagrams|
-|[Use predictive autoscale to scale out before load demands in virtual machine scale sets (preview)](azure-monitor/autoscale/autoscale-predictive)|Predictive autoscale (preview) is now avaliable in all regions|
+|[Autoscale in Microsoft Azure](autoscale/autoscale-overview)|Updtaed conceptual diagrams|
+|[Use predictive autoscale to scale out before load demands in virtual machine scale sets (preview)](autoscale/autoscale-predictive)|Predictive autoscale (preview) is now avaliable in all regions|
 
 ### Change-analysis
 
 | Article | Description |
 |---|---|
-|[Enable Change Analysis](azure-monitor/change/change-analysis-enable)| Added note for slot-level enablement|
-|[Tutorial - Track a web app outage using Change Analysis](azure-monitor/change/tutorial-outages)| Added set up steps to tutorial|
-|[Use Change Analysis in Azure Monitor to find web-app issues](azure-monitor/change/change-analysis)|Updated limitations|
-|[Observability data in Azure Monitor](azure-monitor/observability-data)| Added "Changes" section|
+|[Enable Change Analysis](change/change-analysis-enable)| Added note for slot-level enablement|
+|[Tutorial - Track a web app outage using Change Analysis](change/tutorial-outages)| Add set up steps to tutorial|
+|[Use Change Analysis in Azure Monitor to find web-app issues](change/change-analysis)|Updated limitations|
+|[Observability data in Azure Monitor](observability-data)| Added "Changes" section|
 ### Containers
 
 | Article | Description |
 |---|---|
-|[Monitor an Azure Kubernetes Service (AKS) cluster deployed](azure-monitor/containers/container-insights-enable-existing-clusters)|Added section on using private link with Container insights.|
+|[Monitor an Azure Kubernetes Service (AKS) cluster deployed](containers/container-insights-enable-existing-clusters)|Added section on using private link with Container insights.|
 
 ### Essentials
 
 | Article | Description |
 |---|---|
-|[Azure activity log](azure-monitor/essentials/activity-log)|Added instructions for how to stop collecting activity logs using the legacy collection method.|
-|[Azure activity log insights](azure-monitor/essentials/activity-log-insights)|Created a separate Activitly Log Insights article in the Insights section.|
+|[Azure activity log](essentials/activity-log)|Added instructions for how to stop collecting activity logs using the legacy collection method.|
+|[Azure activity log insights](essentials/activity-log-insights)|Created a separate Activitly Log Insights article in the Insights section.|
 
 ### Logs
 
 | Article | Description |
 |---|---|
-|[Configure data retention and archive in Azure Monitor Logs (Preview)](azure-monitor/logs/data-retention-archive)|Clarified how data retention and archiving work in Azure Monitor Logs to address repeated customer inquiries.|
+|[Configure data retention and archive in Azure Monitor Logs (Preview)](logs/data-retention-archive)|Clarified how data retention and archiving work in Azure Monitor Logs to address repeated customer inquiries.|
 
 
 ## July, 2022
