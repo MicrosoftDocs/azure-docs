@@ -193,8 +193,8 @@ If a user is not registered for these methods, they'll be redirected to the inli
 - **Require multifactor authentication and Require authentication strength can't be used together in the same Conditional Access policy** - These two Conditional Access grant controls can't be used together because the built-in authentication strength **Multifactor authentication** is equivalent to the **Require multifactor authentication** grant control.
 
 
-<!---place holder: Auth Strength with CCS -->
-<!---Place holder: what-if tool -->
+<!---place holder: Auth Strength with CCS - will be documented in resilience-defaults doc-->
+
 
 
 ## Prerequisites
