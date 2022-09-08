@@ -1,17 +1,21 @@
 ---
-title: 'Quickstart: Connect your Azure DevOps to Microsoft Defender for Cloud'
-description: Learn how to connect your Azure DevOps to Defender for Cloud.
+title: 'Quickstart: Connect your Azure DevOps repositories to Microsoft Defender for Cloud'
+description: Learn how to connect your Azure DevOps repositories to Defender for Cloud.
 ms.date: 09/06/2022
 ms.topic: quickstart
 ---
 
-# Quickstart: Connect your Azure DevOps to Microsoft Defender for Cloud
+# Quickstart: Connect your Azure DevOps repositories to Microsoft Defender for Cloud
 
-With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), GitHub and Azure DevOps (ADO).
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), GitHub, and Azure DevOps (ADO).
 
 To protect your ADO-based resources, you can connect your ADO organizations on the environment settings page. This page provides a simple onboarding experience (including auto discovery). 
 
-When you connect your ADO to Defender for Cloud, you're extending Defender for Cloud's enhanced security features and CSPM features to your Azure DevOps resources. This feature assesses your ADO resources with ADO-specific security recommendations that are included in your secure score. Your resources will also be assessed for compliance with built-in standards specific to DevOps. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature helping you manage your Azure DevOps resources alongside your Azure resources. 
+By connecting your Azure DevOps repositories to Defender for Cloud, you'll extend Defender for Cloud's enhanced security features to your ADO resources. These features include:
+
+- **Defender for Cloud's CSPM features** - Assesses your Azure DevOps resources according to ADO-specific security recommendations. These recommendations are also included in your secure score. Resources will be assessed for compliance with built-in standards that are specific to DevOps. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature that helps you manage your Azure DevOps resources alongside your Azure resources.
+
+- **Microsoft Defender for DevOps** - Extends Defender for Cloud's threat detection capabilities and advanced defenses to your Azure DevOps resources.
 
 
 You can view all of the [recommendations for DevOps](recommendations-reference.md) resources.

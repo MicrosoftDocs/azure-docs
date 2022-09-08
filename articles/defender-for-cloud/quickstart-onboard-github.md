@@ -9,7 +9,7 @@ ms.topic: quickstart
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), GitHub, and Azure DevOps (ADO).
 
-To protect your GitHub-based resources, you can connect your GitHub organizations on the environment settings page. This page provides a simple onboarding experience (including auto provisioning). 
+To protect your GitHub-based resources, you can connect your GitHub organizations on the environment settings page. This page provides a simple onboarding experience (including auto discovery). 
 
 By connecting your GitHub repositories to Defender for Cloud, you'll extend Defender for Cloud's enhanced security features to your GitHub resources. These features include:
 
