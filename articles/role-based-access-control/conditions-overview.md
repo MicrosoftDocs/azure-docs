@@ -51,13 +51,13 @@ There are several scenarios where you might want to add a condition to your role
 - Read access to blobs with the tag Program=Alpine and a path of logs
 - Read access to blobs with the tag Project=Baker and the user has a matching attribute Project=Baker
 
-For more information about how to create these examples, see [Examples of Azure role assignment conditions](../storage/common/storage-auth-abac-examples.md).
+For more information about how to create these examples, see [Examples of Azure role assignment conditions](../storage/blobs/storage-auth-abac-examples.md).
 
 ## Where can conditions be added?
 
 Currently, conditions can be added to built-in or custom role assignments that have [blob storage or queue storage data actions](conditions-format.md#actions). Conditions are added at the same scope as the role assignment. Just like role assignments, you must have `Microsoft.Authorization/roleAssignments/write` permissions to add a condition.
 
-Here are some of the [blob storage attributes](../storage/common/storage-auth-abac-attributes.md#azure-blob-storage-attributes) you can use in your conditions.
+Here are some of the [blob storage attributes](../storage/blobs/storage-auth-abac-attributes.md#azure-blob-storage-attributes) you can use in your conditions.
 
 - Account name
 - Blob index tags
@@ -108,7 +108,7 @@ Here's a list of the primary features of conditions:
 
 | Feature | Status | Date |
 | --- | --- | --- |
-| Use the following [attributes](../storage/common/storage-auth-abac-attributes.md#azure-blob-storage-attributes) in a condition: Account name, Blob prefix, Encryption scope name, Is Current Version, Is hierarchical namespace enabled, Snapshot, Version ID | Preview | May 2022 |
+| Use the following [attributes](../storage/blobs/storage-auth-abac-attributes.md#azure-blob-storage-attributes) in a condition: Account name, Blob prefix, Encryption scope name, Is Current Version, Is hierarchical namespace enabled, Snapshot, Version ID | Preview | May 2022 |
 | Use [custom security attributes on a principal in a condition](conditions-format.md#principal-attributes) | Preview | November 2021 |
 | Add conditions to blob storage data role assignments | Preview | May 2021 |
 | Use attributes on a resource in a condition | Preview | May 2021 |
@@ -147,5 +147,5 @@ Here are the known issues with conditions:
 ## Next steps
 
 - [FAQ for Azure role assignment conditions (preview)](conditions-faq.md)
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/common/storage-auth-abac-portal.md)
+- [Example Azure role assignment conditions (preview)](../storage/blobs/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/blobs/storage-auth-abac-portal.md)

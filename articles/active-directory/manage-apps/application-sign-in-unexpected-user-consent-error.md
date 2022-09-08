@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/11/2017
+ms.date: 09/06/2022
 ms.author: ergreenl
 ms.reviewer: phsignor, yuhko
 ms.collection: M365-identity-device-management
@@ -31,13 +31,13 @@ This error occurs when a user who is not a Global Administrator attempts to use 
 
 This error can also occur when a user is prevented from consenting to an application due to Microsoft detecting that the permissions request is risky. In this case, an audit event will also be logged with a Category of "ApplicationManagement", Activity Type of "Consent to application" and Status Reason of "Risky application detected".
 
-Another scenario in which this error might occur is when the user assignment is required for the application, but no administrator consent was provided. In this case, the administrator must first provide administrator consent.
+Another scenario in which this error might occur is when the user assignment is required for the application, but no administrator consent was provided. In this case, the administrator must first provide tenant-wide admin consent for the application.
 
 ## Policy prevents granting permissions error
 
 * **AADSTS90093:** An administrator of &lt;tenantDisplayName&gt; has set a policy that prevents you from granting &lt;name of app&gt; the permissions it is requesting. Contact an administrator of &lt;tenantDisplayName&gt;, who can grant permissions to this app on your behalf.
 
-This error occurs when a Global Administrator turns off the ability for users to consent to applications, then a non-administrator user attempts to use an application that requires consent. This error can be resolved by an administrator granting access to the application on behalf of their organization.
+This error can occur when a Global Administrator turns off the ability for users to consent to applications, then a non-administrator user attempts to use an application that requires consent. This error can be resolved by an administrator granting access to the application on behalf of their organization.
 
 ## Intermittent problem error
 
@@ -45,17 +45,13 @@ This error occurs when a Global Administrator turns off the ability for users to
 
 This error indicates that an intermittent service side issue has occurred. It can be resolved by attempting to consent to the application again.
 
-## Resource not available error
 
-* **AADSTS65005:** The app &lt;clientAppDisplayName&gt; requested permissions to access a resource &lt;resourceAppDisplayName&gt; that is not available.
-
-Contact the application developer.
 
 ## Resource not available in tenant error
 
 * **AADSTS65005:** &lt;clientAppDisplayName&gt; is requesting access to a resource &lt;resourceAppDisplayName&gt; that is not available in your organization &lt;tenantDisplayName&gt;.
 
-Ensure that this resource is available or contact an administrator of &lt;tenantDisplayName&gt;.
+Ensure that these resources that provide the permissions requested are available in your tenant or contact an administrator of &lt;tenantDisplayName&gt;. Otherwise, there is a misconfiguration in how the application requests resources, and you should contact the application developer.
 
 ## Permissions mismatch error
 
@@ -91,3 +87,5 @@ End-users will not be able to grant consent to apps that have been detected as r
 [Apps, permissions, and consent in Azure Active Directory (v1 endpoint)](../develop/quickstart-register-app.md)<br>
 
 [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](../develop/v2-permissions-and-consent.md)
+
+[Unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt.md)
