@@ -84,7 +84,7 @@ The SQS didn't successfully read the S3 data.
 
 1. One spike of data isn't enough, as shown in the screenshot below. Wait until there's enough data, as shown in the screenshot above, and then check for issues.
 
-       :::image type="content" source="media/aws-sw-troubleshoot/aws-sqs-number-of-messages-deleted-received-one-spike.png" alt-text="Screenshot of one spike of deleted and received messages in the A W S S Q S Monitoring tab."::: 
+    :::image type="content" source="media/aws-sw-troubleshoot/aws-sqs-number-of-messages-deleted-received-one-spike.png" alt-text="Screenshot of one spike of deleted and received messages in the A W S S Q S Monitoring tab."::: 
 
 1. If at least one of the widgets is empty, check the health logs by running this query:
 
@@ -103,7 +103,7 @@ SentinelHealth
 SentinelHealth 
 | take 20
 ```
-1. If the health feature isn’t enabled, [enable it](monitor-data-connector-health.md#turn-on-microsoft-sentinel-health-for-your-workspace).
+1. If the health feature isn’t enabled, [enable it](monitor-sentinel-health.md).
 
 ## Data from the AWS S3 connector (or one of its data types) is seen in Microsoft Sentinel with a delay of more than 30 minutes  
 
@@ -155,7 +155,7 @@ SentinelHealth
 SentinelHealth 
 | take 20
 ```
-1. If the health feature isn’t enabled, [enable it](monitor-data-connector-health.md#turn-on-microsoft-sentinel-health-for-your-workspace).
+1. If the health feature isn’t enabled, [enable it](monitor-sentinel-health.md).
 
 ## Next steps/More information/Reference
 
