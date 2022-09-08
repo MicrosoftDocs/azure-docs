@@ -30,5 +30,4 @@ landingContent:
           - text: Resource owner password credentials custom policy
             url: add-ropc-policy.md?pivots=b2c-custom-policy   
           - text: Create client credentials custom policy  
-            url: client-credentials-grant-flow.md?pivots=b2c-custom-policy  
-                   
+            url: client-credentials-grant-flow.md?pivots=b2c-custom-policy                 

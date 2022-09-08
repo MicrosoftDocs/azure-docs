@@ -30,8 +30,8 @@ landingContent:
             url: add-web-api-application.md
           - text: Register daemon apps
             url: client-credentials-grant-flow.md
-          - text: Register apps using Microsoft Graph API
-            url: microsoft-graph-operations.md#applications
+          - text: Register a Microsoft Graph application
+            url: microsoft-graph-get-started.md
           - text: Publish app in Azure AD app gallery
             url: publish-app-to-azure-ad-app-gallery.md  
           - text: Register a SAML application
