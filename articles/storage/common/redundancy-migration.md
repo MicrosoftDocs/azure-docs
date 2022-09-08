@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/07/2022
+ms.date: 09/08/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
@@ -48,11 +48,11 @@ There are three properties related to Azure storage redundancy that determine ho
 > [!NOTE]
 > Read access (RA) isn't a replication setting like geo-redundancy or zone-redundancy. It simply enables read access to the secondary region in the event of a geo-redundant failover. But it is considered one aspect of the complete replication configuration for a storage account.
 
-You can convert a storage account from any combination of these replication settings to any other. There are four basic ways to change the settings:
+You can change how your storage account is replicated from any type to any other. There are four basic ways to change the settings:
 
 - [Using the Azure portal, Azure PowerShell, or the Azure CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)
 - [Perform a live migration](#perform-a-live-migration)
-  - [Customer-initiated (preview)](#customer-initiated-live-migration)
+  - [Customer-initiated from the Azure portal (preview)](#customer-initiated-live-migration)
   - [Request by creating a support request with Microsoft](#support-requested-live-migration)
 - [Perform a manual migration](#perform-a-manual-migration)
 
@@ -60,85 +60,17 @@ If you just want to add or remove geo-replication and/or read access to the seco
 
 However, to add or remove zone-redundancy requires [migration of the storage account data within the primary region](#storage-account-migration).
 
-If you want to change zone-redundancy and either geo-redundancy or read-access, or both, a two-step process will be required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
+If you want to change zone-redundancy in combination with geo-redundancy or read-access, a two-step process will be required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
 
- The following table summarizes the options for changing them:
+ The following table summarizes the options for changing the replication settings:
 
-| Redundancy property                                                                     | Options for changing | Option detail |
-|-----------------------------------------------------------------------------------------|----------------------|---------------|
-| Geo-redundancy <br /><sub>(single "local" region vs. geo-redundant)</sub>               | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | |
-| Read access (RA) to the secondary region <br /><sub>(when geo-redundancy is used)</sub> | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | |
-| Zone redundancy                                                                         | Live migrate the storage account | [Initiate from the Azure portal](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) (preview) |
-| Zone redundancy                                                                         | Live migrate the storage account | [Request by creating a support request with Microsoft](#support-requested-live-migration) |
-| Zone redundancy                                                                         | [Manually migrate the storage account](#storage-account-migration) | |
-
-## Examples of changing the replication settings
-
-The following examples demonstrate
-For example, if you want to change a storage account from LRS to RA-GZRS, the required steps are:
-
-1. Convert the account from LRS to RA-GRS using the Azure portal, Azure PowerShell, or the Azure CLI
-1. Perform a live migration from RA-GRS to RA-GZRS
-
-Alternatively, 
-
-The following table shows the options for converting from each replication setting to every other setting:
-
-| Convert         | ...to: | LRS| GRS/RA-GRS <sup>1,2</sup> | ZRS <sup>5</sup> | GZRS/RA-GZRS <sup>1,2,5</sup> |---|---|
-|-----------------|--------|----|---------------------------|------------------|-------------------------------|---|---|
-| <b>…from:       |        |    |                           |                  |                               |---|---|
-| <b> LRS</b>     |        | ***N/A*** | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | Perform a live migration<br><br> <b>-OR-</b><br><br>Perform a manual migration | Convert to GRS/RA-GRS first, then migrate to GZRS/RA-GZRS |---|
-| <b> GRS</b>     |        | Use Azure portal, PowerShell, or CLI | ***N/A*** | Convert to LRS first, then migrate to ZRS | Migrate |Convert to RA-GRS first, then migrate to RA-GZRS |---|
-| <b> RA-GRS</b>  |        | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | ***N/A*** | Convert to LRS first, then migrate to ZRS | Convert to GRS first, then migrate to GZRS | Migrate |
-| <b> ZRS</b>     |        | Migrate | Convert to GZRS first, then migrate to GRS | Convert to RA-GZRS first, then migrate to RA-GRS |***N/A*** | Migrate<br><br> <b>-OR-</b><br><br>Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> | Migrate<br><br> <b>-OR-</b><br><br>Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
-| <b> GZRS</b>    |        | Convert to ZRS first, then migrate to LRS | Migrate | Convert to RA-GZRS first, then migrate to RA-GRS | Use Azure portal, PowerShell, or CLI | ***N/A*** | Use Azure portal, PowerShell, or CLI |
-| <b> RA-GZRS</b> |        | Convert to ZRS first, then migrate to LRS | Convert to GZRS first, then migrate to GRS | Migrate | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | ***N/A*** |
-
-<sup>1</sup> Converting from local to geo-redundancy incurs a one-time egress charge. See [Costs associated with changing how data is replicated](#costs-associated-with-changing-how-data-is-replicated). <br />
-<sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier. See [the section about Access tiers](#access-tier).<br />
-<sup>3</sup> Live migration is supported for standard general-purpose v2 and premium file share storage accounts. Live migration is not supported for premium block blob or page blob storage accounts. While live migration is supported for premium file share storage accounts, it must be initiated by opening a support request with Microsoft. Customer-initiated live migration is not currently supported for Premium file share accounts. See [the storage account type section](#storage-account-type).<br />
-<sup>4</sup> After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, See [the failover and failback section](#failover-and-failback) and [use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary).<br />
-<sup>5</sup> Migrating from LRS to ZRS is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares. See [Protocol support](#protocol-support).<br />
-
-## Change the replication setting using the portal, PowerShell, or the CLI
-
-You can use the Azure portal, PowerShell, or Azure CLI to change the replication setting for a storage account, as long as you are not changing how data is replicated in the primary region. If you are migrating from LRS in the primary region to ZRS in the primary region or vice versa, then you must perform either a manual migration or a live migration.
-
-Changing how your storage account is replicated in the portaldoes not result in down time for your applications.
-
-# [Portal](#tab/portal)
-
-To change the redundancy option for your storage account in the Azure portal, follow these steps:
-
-1. Navigate to your storage account in the Azure portal.
-1. Under **Data management** select **Redundancy**.
-1. Update the **Redundancy** setting.
-1. **Save**.
-
-    :::image type="content" source="media/redundancy-migration/change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/redundancy-migration/change-replication-option.png":::
-
-# [PowerShell](#tab/powershell)
-
-To change the redundancy option for your storage account with PowerShell, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and specify the `-SkuName` parameter:
-
-```powershell
-Set-AzStorageAccount -ResourceGroupName <resource_group> `
-    -Name <storage_account> `
-    -SkuName <sku>
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To change the redundancy option for your storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and specify the `--sku` parameter:
-
-```azurecli-interactive
-az storage account update \
-    --name <storage-account>
-    --resource-group <resource_group> \
-    --sku <sku>
-```
-
----
+| Redundancy property | Options for changing             | Option detail |
+|---------------------|----------------------------------|---------------|
+| Geo-redundancy      | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | |
+| Read access (RA)    | [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | |
+| Zone redundancy     | Live migrate the storage account | [Initiate from the Azure portal](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) (preview) |
+| Zone redundancy     | Live migrate the storage account | [Request by creating a support request with Microsoft](#support-requested-live-migration) |
+| Zone redundancy     | [Manually migrate the storage account](#storage-account-migration) | |
 
 ## Storage account migration
 
@@ -231,6 +163,46 @@ With a manual migration, you copy the data from your existing storage account to
 - If you're familiar with Hadoop or HDInsight, you can attach both the source storage account and destination storage account account to your cluster. Then, parallelize the data copy process with a tool like DistCp.
 
 For more details, see [Move an Azure Storage account to another region](storage-account-move.md).
+
+## Change the replication setting using the portal, PowerShell, or the CLI
+
+You can use the Azure portal, PowerShell, or Azure CLI to change the replication setting for a storage account, as long as you are not changing how data is replicated in the primary region. If you are migrating from LRS in the primary region to ZRS in the primary region or vice versa, then you must perform either a manual migration or a live migration.
+
+Changing how your storage account is replicated in the portaldoes not result in down time for your applications.
+
+# [Portal](#tab/portal)
+
+To change the redundancy option for your storage account in the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. Under **Data management** select **Redundancy**.
+1. Update the **Redundancy** setting.
+1. **Save**.
+
+    :::image type="content" source="media/redundancy-migration/change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/redundancy-migration/change-replication-option.png":::
+
+# [PowerShell](#tab/powershell)
+
+To change the redundancy option for your storage account with PowerShell, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and specify the `-SkuName` parameter:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource_group> `
+    -Name <storage_account> `
+    -SkuName <sku>
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To change the redundancy option for your storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and specify the `--sku` parameter:
+
+```azurecli-interactive
+az storage account update \
+    --name <storage-account>
+    --resource-group <resource_group> \
+    --sku <sku>
+```
+
+---
 
 # [Portal](#tab/portal)
 
@@ -342,6 +314,34 @@ The costs associated with changing how data is replicated depend on your convers
 For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge at the time of migration because your entire storage account is being replicated to the secondary region. All subsequent writes to the primary region also incur egress bandwidth charges to replicate the write to the secondary region. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
+
+## Examples of changing the replication settings
+
+The following examples demonstrate
+For example, if you want to change a storage account from LRS to RA-GZRS, the required steps are:
+
+1. Convert the account from LRS to RA-GRS using the Azure portal, Azure PowerShell, or the Azure CLI
+1. Perform a live migration from RA-GRS to RA-GZRS
+
+Alternatively, 
+
+The following table shows the options for converting from each replication setting to every other setting:
+
+| Convert         | ...to: | LRS| GRS/RA-GRS <sup>1,2</sup> | ZRS <sup>5</sup> | GZRS/RA-GZRS <sup>1,2,5</sup> |---|---|
+|-----------------|--------|----|---------------------------|------------------|-------------------------------|---|---|
+| <b>…from:       |        |    |                           |                  |                               |---|---|
+| <b> LRS</b>     |        | ***N/A*** | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | Perform a live migration<br><br> <b>-OR-</b><br><br>Perform a manual migration | Convert to GRS/RA-GRS first, then migrate to GZRS/RA-GZRS |---|
+| <b> GRS</b>     |        | Use Azure portal, PowerShell, or CLI | ***N/A*** | Convert to LRS first, then migrate to ZRS | Migrate |Convert to RA-GRS first, then migrate to RA-GZRS |---|
+| <b> RA-GRS</b>  |        | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | ***N/A*** | Convert to LRS first, then migrate to ZRS | Convert to GRS first, then migrate to GZRS | Migrate |
+| <b> ZRS</b>     |        | Migrate | Convert to GZRS first, then migrate to GRS | Convert to RA-GZRS first, then migrate to RA-GRS |***N/A*** | Migrate<br><br> <b>-OR-</b><br><br>Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> | Migrate<br><br> <b>-OR-</b><br><br>Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
+| <b> GZRS</b>    |        | Convert to ZRS first, then migrate to LRS | Migrate | Convert to RA-GZRS first, then migrate to RA-GRS | Use Azure portal, PowerShell, or CLI | ***N/A*** | Use Azure portal, PowerShell, or CLI |
+| <b> RA-GZRS</b> |        | Convert to ZRS first, then migrate to LRS | Convert to GZRS first, then migrate to GRS | Migrate | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | ***N/A*** |
+
+<sup>1</sup> Converting from local to geo-redundancy incurs a one-time egress charge. See [Costs associated with changing how data is replicated](#costs-associated-with-changing-how-data-is-replicated). <br />
+<sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier. See [the section about Access tiers](#access-tier).<br />
+<sup>3</sup> Live migration is supported for standard general-purpose v2 and premium file share storage accounts. Live migration is not supported for premium block blob or page blob storage accounts. While live migration is supported for premium file share storage accounts, it must be initiated by opening a support request with Microsoft. Customer-initiated live migration is not currently supported for Premium file share accounts. See [the storage account type section](#storage-account-type).<br />
+<sup>4</sup> After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, See [the failover and failback section](#failover-and-failback) and [use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary).<br />
+<sup>5</sup> Migrating from LRS to ZRS is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares. See [Protocol support](#protocol-support).<br />
 
 > [!IMPORTANT]
 > If you migrate your storage account from RA-GRS to GRS or LRS, that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
