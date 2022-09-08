@@ -2720,13 +2720,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|AllocatedSnatPorts|No|Allocated SNAT Ports|Count|Average|Total number of SNAT ports allocated within time period|FrontendIPAddress, BackendIPAddress, ProtocolType, IsAwaitingRemoval|
-|ByteCount|Yes|Byte Count|Bytes|Total|Total number of Bytes transmitted within time period|FrontendIPAddress, FrontendPort, Direction|
+|AllocatedSnatPorts|No|Allocated SNAT Ports|Count|Average|Average number of SNAT ports allocated within time period|FrontendIPAddress, BackendIPAddress, ProtocolType, IsAwaitingRemoval|
+|ByteCount|Yes|Byte Count|Bytes|Sum|Total number of Bytes transmitted within time period|FrontendIPAddress, FrontendPort, Direction|
 |DipAvailability|Yes|Health Probe Status|Count|Average|Average Load Balancer health probe status per time duration|ProtocolType, BackendPort, FrontendIPAddress, FrontendPort, BackendIPAddress|
-|PacketCount|Yes|Packet Count|Count|Total|Total number of Packets transmitted within time period|FrontendIPAddress, FrontendPort, Direction|
-|SnatConnectionCount|Yes|SNAT Connection Count|Count|Total|Total number of new SNAT connections created within time period|FrontendIPAddress, BackendIPAddress, ConnectionState|
-|SYNCount|Yes|SYN Count|Count|Total|Total number of SYN Packets transmitted within time period|FrontendIPAddress, FrontendPort, Direction|
-|UsedSnatPorts|No|Used SNAT Ports|Count|Max|Max number of SNAT ports used within time period|FrontendIPAddress, BackendIPAddress, ProtocolType, IsAwaitingRemoval|
+|PacketCount|Yes|Packet Count|Count|Sum|Total number of Packets transmitted within time period|FrontendIPAddress, FrontendPort, Direction|
+|SnatConnectionCount|Yes|SNAT Connection Count|Count|Sum|Total number of new SNAT connections created within time period|FrontendIPAddress, BackendIPAddress, ConnectionState|
+|SYNCount|Yes|SYN Count|Count|Sum|Total number of SYN Packets transmitted within time period|FrontendIPAddress, FrontendPort, Direction|
+|UsedSnatPorts|No|Used SNAT Ports|Count|Average|Average number of SNAT ports used within time period|FrontendIPAddress, BackendIPAddress, ProtocolType, IsAwaitingRemoval|
 |VipAvailability|Yes|Data Path Availability|Count|Average|Average Load Balancer data path availability per time duration|FrontendIPAddress, FrontendPort|
 
 
