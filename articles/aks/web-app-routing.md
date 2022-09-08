@@ -128,7 +128,7 @@ To enable Web Application  Routing on an existing cluster, add the `--addons` pa
 
 ```azurecli-interactive
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons azure-keyvault-secrets-provider,web_application_routing --enable-secret-rotation
-
+```
 ---
 
 > [!TIP]
@@ -447,7 +447,6 @@ deployment.apps/aks-helloworld created
 service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
 ```
-
 ---
 
 
