@@ -31,7 +31,7 @@ Some of the common use cases that can be build using Call Automation include:
 ACS Call Automation can be used to build calling workflows for a customer service scenarios, as depicted in the high-level architecture below. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an ACS Calling SDK client app to answer the incoming call request. With support for ACS PSTN or Direct Routing, you can then connect this workflow back to your contact center.  
 <br/>
 <br/>
-![Call flow](./call-automation-architecture.png)
+![Diagram of calling flow for a customer service scenario.](./call-automation-architecture.png)
 <br/>
 
 ## Capabilities
