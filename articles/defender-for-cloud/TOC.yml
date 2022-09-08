@@ -389,6 +389,9 @@
       href: msdo-azure-devops-extension.md
     - name: Discover misconfigurations in Infrastructure as Code
       href: iac-vulnerabilities.md
+    - name: Detect credential leaks in code
+      displayName: DevOps, CredScan, Credentials, leaks, 
+      href: detect-credential-leaks.md
 
 - name: Reference
   items:

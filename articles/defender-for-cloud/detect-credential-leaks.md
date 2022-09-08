@@ -7,7 +7,7 @@ ms.date: 09/08/2022
 
 # Detect credential leaks in code
 
-When passwords and other secrets are stored in source code, it poses a significant problem. Defender for Cloud offers a solution by using Credential Scanner (CredScan). Credential Scanner detects credentials, secrets, certificates, and other sensitive content in your source code and your build output. Credential Scanner can be run as part of the Microsoft Security DevOps for Azure DevOps extension.
+When passwords and other secrets are stored in source code, it poses a significant risk, and could compromise the security of your environments. Defender for Cloud offers a solution by using Credential Scanner (CredScan). Credential Scanner detects credentials, secrets, certificates, and other sensitive content in your source code and your build output. Credential Scanner can be run as part of the Microsoft Security DevOps for Azure DevOps extension.
 
 CredScan supports the following file types:
 
