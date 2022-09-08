@@ -8,7 +8,7 @@ ms.date: 05/09/2022
 ms.author: anaharris
 ms.reviewer: 
 ms.custom: references_regions
-CustomerIntent: As a cloud architect/engineer, I need general guidance on migrating load balancers to using Availability Zones.
+CustomerIntent: As a cloud architect/engineer, I need general guidance on migrating load balancers to using availability zones.
 ---
 <!-- CHANGE AUTHOR BEFORE PUBLISH -->
 
@@ -16,25 +16,25 @@ CustomerIntent: As a cloud architect/engineer, I need general guidance on migrat
  
 This guide describes how to migrate Load Balancer from non-availability zone support to availability support. We'll take you through the different options for migration.
 
-A standard load balancer supports extra abilities in regions where Availability Zones are available. Availability Zones configurations are available for both types of Standard load balancer; public and internal. A zone-redundant frontend survives zone failure by using dedicated infrastructure in all the zones simultaneously. Additionally, you can pin a frontend to a specific zone. A zonal frontend is served by dedicated infrastructure in a single zone. Regardless of the zonal configuration the backend pool can contain VMs from any zone.
+A standard load balancer supports extra abilities in regions where availability zones are available. availability zones configurations are available for both types of Standard load balancer; public and internal. A zone-redundant frontend survives zone failure by using dedicated infrastructure in all the zones simultaneously. Additionally, you can pin a frontend to a specific zone. A zonal frontend is served by dedicated infrastructure in a single zone. Regardless of the zonal configuration the backend pool can contain VMs from any zone.
 
 For a Standard Zone redundant Load Balancer, the traffic is served by a single IP address. A single frontend IP address will survive zone failure. The frontend IP may be used to reach all (non-impacted) backend pool members no matter the zone. One or more availability zones can fail, and the data path survives as long as one zone in the region remains healthy.
 
 You can choose to have a frontend guaranteed to a single zone, which is known as a zonal. This scenario means any inbound or outbound flow is served by a single zone in a region. Your frontend shares fate with the health of the zone. The data path is unaffected by failures in other zones. You can use zonal frontends to expose an IP address per Availability Zone.
 
 ## Prerequisites
-- AZs are supported with Standard SKU for both load balancer and Public IP. 
+- Availability zones are supported with Standard SKU for both load balancer and Public IP. 
 - Basic SKU type isn't supported. 
 - To create or move this resource, one should have the Network Contributor role or higher.
 
 ## Downtime requirements
 
 Downtime is required. All migration scenarios require some level of downtime down to the changing of resources used by the load balancer configurations.
-## Migration option 1: Enable existing Load Balancer to use Availability Zones (same region)
+## Migration option 1: Enable existing Load Balancer to use availability zones (same region)
 
-Let's say you need to enable an existing load balancer to use Availability Zones within the same Azure region. You can't just switch an existing Azure load balancer from non-AZ to be AZ aware. However, you won't have to redeploy a load balancer to take advantage of this migration. In order to make your load balancer AZ aware, you'll have to recreate your load balancer's frontend IP configuration using a new zonal/zone-redundant IP and reassociate any existing load balancing rules to the new frontend. Not that this migration will incur downtime as rules are reassociated.
+Let's say you need to enable an existing load balancer to use availability zones within the same Azure region. You can't just switch an existing Azure load balancer from non-AZ to be AZ aware. However, you won't have to redeploy a load balancer to take advantage of this migration. In order to make your load balancer AZ aware, you'll have to recreate your load balancer's frontend IP configuration using a new zonal/zone-redundant IP and re-associate any existing load balancing rules to the new frontend. Not that this migration will incur downtime as rules are re-associated.
 
-> [NOTE!]
+> [!NOTE]
 > It isn't required to have a load balancer for each zone, rather having a single load balancer with multiple frontends (zonal or zone redundant) associated to their respective backend pools will serve the purpose. 
 
 As Frontend IP can be either zonal or zone redundant, users need to decide which option to choose based on the requirements. The following are recommendations for each:
@@ -68,4 +68,4 @@ To migrate an internal load balancer to availability zones across regions, see [
 
 ## Next steps
 
- To learn more about load balancers and availability zones, check out [Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md).
+ To learn more about load balancers and availability zones, check out [Load Balancer and availability zones](../load-balancer/load-balancer-standard-availability-zones.md).
