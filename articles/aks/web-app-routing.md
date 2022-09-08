@@ -30,7 +30,7 @@ The add-on deploys the following components:
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
 - An Azure Key Vault to store certificates.
-- A DNS solution, such as [Azure DNS](azure/dns/dns-getstarted-portal).
+- A DNS solution, such as [Azure DNS](/azure/dns/dns-getstarted-portal).
 
 ### Install the `aks-preview` Azure CLI extension
 
@@ -78,7 +78,7 @@ az keyvault certificate show --vault-name <KEYVAULT NAME> --name <KEYVAULT CERTI
 
 ### Create an Azure DNS zone (optional)
 
-If you want the add-on to automatically managed creating hostnames, you need to configure the Azure DNS integration by [creating an Azure DNS zone](https://docs.microsoft.com/en-us/azure/dns/dns-getstarted-cli).
+If you want the add-on to automatically managed creating hostnames, you need to configure the Azure DNS integration by [creating an Azure DNS zone](/azure/dns/dns-getstarted-cli).
 
 ```azurecli-interactive
 # Create a DNS zone
@@ -96,7 +96,7 @@ The following additional add-ons are required:
 * **open-service-mesh**:  If you require encrypted intra cluster traffic (recommended) between the nginx ingress and your services, the Open Service Mesh add-on is required which provides mutual TLS (mTLS).
 
 > [!IMPORTANT]
-> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is 2 minutes.
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](/azure/aks/csi-secrets-store-driver#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is 2 minutes.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons azure-keyvault-secrets-provider,open-service-mesh,web_application_routing --generate-ssh-keys --enable-secret-rotation
@@ -118,7 +118,7 @@ The following additional add-on is required:
 * **azure-keyvault-secrets-provider**: The Secret Store CSI provider for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
 
 > [!IMPORTANT]
-> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is 2 minutes.
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](/azure/aks/csi-secrets-store-driver#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is 2 minutes.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons azure-keyvault-secrets-provider,web_application_routing --generate-ssh-keys --enable-secret-rotation
@@ -129,6 +129,7 @@ To enable Web Application  Routing on an existing cluster, add the `--addons` pa
 ```azurecli-interactive
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons azure-keyvault-secrets-provider,web_application_routing --enable-secret-rotation
 ```
+
 ---
 
 > [!TIP]
@@ -447,6 +448,7 @@ deployment.apps/aks-helloworld created
 service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
 ```
+
 ---
 
 
