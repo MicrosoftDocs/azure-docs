@@ -3654,6 +3654,16 @@
       "source_path_from_root":"/articles/cosmos-db/mongodb/create-mongodb-nodejs.md",
       "redirect_url": "/azure/cosmos-db/mongodb/quickstart-dotnet",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/common-cli-samples.md",
+      "redirect_url": "/azure/azure-cli-reference-for-cosmos-db",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/common-powershell-samples.md",
+      "redirect_url": "/powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true",
+      "redirect_document_id": false
     }
   ]
 }

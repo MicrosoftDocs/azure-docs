@@ -62,58 +62,54 @@
   items:
     - name: Azure CLI
       items:
-        - name: API for MongoDB
-          items:
-            - name: Create database and collection
-              href: ../scripts/cli/mongodb/create.md
-            - name: Create serverless
-              href: ../scripts/cli/mongodb/serverless.md
-            - name: Create with autoscale
-              href: ../scripts/cli/mongodb/autoscale.md
-            - name: Perform throughput operations
-              href: ../scripts/cli/mongodb/throughput.md
-            - name: Lock resources from deletion
-              href: ../scripts/cli/mongodb/lock.md
-        - name: Common
-          items:
-            - name: Add or fail over regions
-              href: ../scripts/cli/common/regions.md
-            - name: Perform account key operations
-              href: ../scripts/cli/common/keys.md
-            - name: Secure with IP firewall
-              href: ../scripts/cli/common/ipfirewall.md
-            - name: Secure new account with service endpoints
-              href: ../scripts/cli/common/service-endpoints.md
-            - name: Secure existing account with service endpoints
-              href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
-            - name: Find existing free-tier accounts
-              href: ../scripts/cli/common/free-tier.md
+        - name: Overview
+          href: cli-samples.md
+        - name: Create database and collection
+          href: ../scripts/cli/mongodb/create.md
+        - name: Create serverless
+          href: ../scripts/cli/mongodb/serverless.md
+        - name: Create with autoscale
+          href: ../scripts/cli/mongodb/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/cli/mongodb/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/cli/mongodb/lock.md
+        - name: Add or fail over regions
+          href: ../scripts/cli/common/regions.md
+        - name: Perform account key operations
+          href: ../scripts/cli/common/keys.md
+        - name: Secure with IP firewall
+          href: ../scripts/cli/common/ipfirewall.md
+        - name: Secure new account with service endpoints
+          href: ../scripts/cli/common/service-endpoints.md
+        - name: Secure existing account with service endpoints
+          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+        - name: Find existing free-tier accounts
+          href: ../scripts/cli/common/free-tier.md
     - name: Azure PowerShell
       items:
-        - name: API for MongoDB
-          items:
-            - name: Create database and collection
-              href: ../scripts/powershell/mongodb/create.md
-            - name: Create with autoscale
-              href: ../scripts/powershell/mongodb/autoscale.md
-            - name: Perform throughput operations
-              href: ../scripts/powershell/mongodb/throughput.md
-            - name: Lock resources from deletion
-              href: ../scripts/powershell/mongodb/lock.md
-            - name: List and get databases and collections
-              href: ../scripts/powershell/mongodb/list-get.md
-        - name: Common
-          items:
-            - name: Account keys or connection strings
-              href: ../scripts/powershell/common/keys-connection-strings.md
-            - name: Change failover priority or trigger failover
-              href: ../scripts/powershell/common/failover-priority-update.md
-            - name: Create an account with IP Firewall
-              href: ../scripts/powershell/common/firewall-create.md
-            - name: Update account
-              href: ../scripts/powershell/common/account-update.md
-            - name: Update an account's regions
-              href: ../scripts/powershell/common/update-region.md
+        - name: Overview
+          href: powershell-samples.md
+        - name: Create database and collection
+          href: ../scripts/powershell/mongodb/create.md
+        - name: Create with autoscale
+          href: ../scripts/powershell/mongodb/autoscale.md
+        - name: Perform throughput operations
+          href: ../scripts/powershell/mongodb/throughput.md
+        - name: Lock resources from deletion
+          href: ../scripts/powershell/mongodb/lock.md
+        - name: List and get databases and collections
+          href: ../scripts/powershell/mongodb/list-get.md
+        - name: Account keys or connection strings
+          href: ../scripts/powershell/common/keys-connection-strings.md
+        - name: Change failover priority or trigger failover
+          href: ../scripts/powershell/common/failover-priority-update.md
+        - name: Create an account with IP Firewall
+          href: ../scripts/powershell/common/firewall-create.md
+        - name: Update account
+          href: ../scripts/powershell/common/account-update.md
+        - name: Update an account's regions
+          href: ../scripts/powershell/common/update-region.md
     - name: Templates
       items:
         - name: JSON syntax templates
