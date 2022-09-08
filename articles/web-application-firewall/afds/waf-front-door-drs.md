@@ -61,6 +61,8 @@ The version of the DRS that you use also determines which content types are supp
 
 ### DRS 2.0
 
+DRS 2.0 rules offer better protection than earlier versions of the DRS. It also supports transformations, beyond URL decoding.
+
 DRS 2.0 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can disable individual rules as well as entire rule groups.
 
 > [!NOTE]
