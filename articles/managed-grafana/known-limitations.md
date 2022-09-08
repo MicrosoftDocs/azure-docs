@@ -1,6 +1,6 @@
 ---
 title: Azure Managed Grafana limitations
-description: Overview of limitations of Azure Managed Grafana
+description: List of known limitations in Azure Managed Grafana
 ms.service: managed-grafana
 ms.topic: troubleshooting
 ms.date: 08/31/2022
@@ -10,19 +10,21 @@ author: maud-lv
 
 # Limitations of Azure Managed Grafana
 
-Azure Managed Grafana has the following known limitations:
+Azure Managed Grafana delivers the native Grafana functionality in the highest possible fidelity. There are some differences between what it provides and what you can get by self-hosting Grafana. As a general rule, Azure Managed Grafana disables features and settings that may affect the security or reliability of the service and individual Grafana instances it manages.
 
-## Known limitations
+## Current limitations
 
-1. Azure Managed Grafana doesn't support connecting with personal Microsoft accounts currently. To work around it, each Azure subscription has a default tenant that you can use to connect with Azure Active Directory. You can also invite guest users from other tenants.
+At present, Managed Grafana has the following known limitations:
 
-1. Installing, uninstalling and upgrading plugins isn't supported.
+1. All users must accounts in an Azure Active Directory (AAD). Microsoft (MSA) or 3rd-party accounts are not supported. To work around this, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
 
-1. Large data source queries are capped at 80 MB. To mitigate this limitation, reduce the size of the query, for example, by shortening the time duration.
+1. Installing, uninstalling and upgrading plugins from the Grafana Catalog are not allowed.
 
-1. Query Azure Data Explorer data source might take a long time or return 50x errors. To mitigate this limitation, you can use a table format instead of a time series, shorten the time duration, or avoid having many panels querying the same data cluster to avoid throttling.
+1. Data source query results are capped at 80 MB. To mitigate this constraint, reduce the size of the query, for example, by shortening the time duration.
 
-1. API key usage isn't in the audit log. This will come in a future release.
+1. Querying Azure Data Explorer (ADX) may take a long time or return 50x errors. To resolve these issues, use a table format instead of a time series, shorten the time duration, or avoid having many panels querying the same data cluster which can trigger throttling.
+
+1. API key usage is not included in the audit log.
 
 ## Next steps
 

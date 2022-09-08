@@ -33,7 +33,18 @@ In a zone-wide outage, no user action is required. An impacted Managed Grafana i
 
 ### With zone redundancy disabled
 
-Zone redundancy is disabled in the Managed Grafana Standard tier by default. In this scenario, virtual machines are created as regional resources and should not be expected to survive zone-downs scenarios as they can go down at same time.
+Zone redundancy is disabled in the Managed Grafana Standard tier by default. In this scenario, virtual machines are created as single-region resources and should not be expected to survive zone-downs scenarios as they can go down at same time.
+
+## Supported regions
+
+Zone redundancy support is enabled in the following regions:
+
+    | Americas         | Europe            | Africa            | Asia Pacific      |
+    |------------------|-------------------|-------------------|-------------------|
+    | East US          | West Europe       |                   | Australia East    |
+    | South Central US |                   |                   |                   |
+
+For a complete list of regions where Managed Grafana is available, see [Products available by region - Azure Managed Grafana](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=managed-grafana&regions=all)
 
 ## Next steps
 
