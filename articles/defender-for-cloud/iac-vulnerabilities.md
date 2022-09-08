@@ -1,7 +1,7 @@
 ---
 title: Discover misconfigurations in Infrastructure as Code
 description: Learn how to use Defender for DevOps to discover misconfigurations in Infrastructure as Code (IAC)
-ms.date: 09/04/2022
+ms.date: 09/08/2022
 ms.topic: how-to
 ---
 
@@ -18,7 +18,7 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, extra
 
 1. Sign in to [GitHub](https://www.github.com). 
 
-1. Navigate to **`your repository's home page`** > **.github/workflows** > **msdevopssec.yml** that was created in the [prerequisites](msdo-github-action.md#setup-github-action).
+1. Navigate to **`your repository's home page`** > **.github/workflows** > **msdevopssec.yml** that was created in the [prerequisites](msdo-github-action.md#configure-the-microsoft-security-devops-github-action-1).    
 
 1. Select **Edit file**.
 
