@@ -95,7 +95,7 @@ This method allows you to provision in VS Code without leaving your development 
    :::image type="content" source="media/iot-hub-create-use-iot-toolkit/provision-done.png" alt-text="A screenshot that shows IoT Hub details in the output window in VS Code." lightbox="media/iot-hub-create-use-iot-toolkit/provision-done.png":::
 
 > [!TIP]
-> To delete a device from your IoT hub, use the `Azure IoT Hub: Delete Device` option from the Command Palette. There is no option to delete your IoT hub in Visual Studio Code, however you can [delete your hub in the Azure portal](iot-hub-create-through-portal#delete-the-iot-hub.md).
+> To delete a device from your IoT hub, use the `Azure IoT Hub: Delete Device` option from the Command Palette. There is no option to delete your IoT hub in Visual Studio Code, however you can [delete your hub in the Azure portal](iot-hub-create-through-portal#delete-the-iot-hub).
 
 ## Next steps
 

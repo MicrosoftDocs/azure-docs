@@ -47,11 +47,25 @@ Use the Azure CLI to create a resource group and then add an IoT hub.
 
 The previous command creates an IoT hub in the S1 pricing tier for which you're billed. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-For more information on Azure IoT Hub commands, see the [`az iot hub`](/cli/azure/iot/hub?view=azure-cli-latest) reference article.
+For more information on Azure IoT Hub commands, see the [`az iot hub`](/cli/azure/iot/hub?view=azure-cli-latest&preserve-view=true) reference article.
+
+## Register a new device in the IoT hub
+
+In this section, you create a device identity in the identity registry in your IoT hub. A device can't connect to a hub unless it has an entry in the identity registry. For more information, see the [IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md#identity-registry-operations). This device identity is [IoT Edge](/azure/iot-edge) enabled.
+
+Run the following command to create a device identity. Use your IoT hub name and create a new device ID name in place of `{iothub_name}` and `{device_id}`. This command creates a device identity with default authorization (shared private key).
+
+```azurecli-interactive
+az iot hub device-identity create -n {iothub_name} -d {device_id} --ee
+```
+
+The result is a JSON printout which includes your keys and other information.
+
+Alternatively, there are several options to register a device using different kinds of authorization. To explore the options, see [Examples](/device-identity?view=azure-cli-latest#az-iot-hub-device-identity-create-examples&preserve-view=true) on the **az iot hub device-identity** reference page.
 
 ## Remove an IoT Hub
 
-There are various commands to [delete an individual resource](/cli/azure/resource), such as an IoT hub, or delete a resource group and all its resources, including any IoT hubs.
+There are various commands to [delete an individual resource](/cli/azure/resource), such as an IoT hub.
 
 To [delete an IoT hub](/cli/azure/iot/hub#az-iot-hub-delete), run the following command:
 
