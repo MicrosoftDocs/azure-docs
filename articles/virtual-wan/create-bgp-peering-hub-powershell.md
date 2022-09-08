@@ -45,7 +45,7 @@ $virtualHub = New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testR
 
 ## Connect the VNet to the hub
 
-In this section, you create a connection between your hub and VNet:
+Create a connection between your hub and VNet.
 
 ```azurepowershell-interactive
 $remote = Get-AzVirtualNetwork -Name "[vnet name]" -ResourceGroupName "[resource group name]"
