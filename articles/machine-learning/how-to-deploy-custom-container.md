@@ -49,7 +49,7 @@ Custom container deployments can use web servers other than the default Python F
    ```azurecli
    az account set --subscription <subscription id>
    az configure --defaults workspace=<azureml workspace name> group=<resource group>
-
+   ```
 
 # [Python](#tab/python)
 
