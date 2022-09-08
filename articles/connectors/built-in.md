@@ -181,7 +181,7 @@ You can use the following built-in connectors to access specific services and sy
         [**Azure API Management**][azure-api-management-doc]<br>(*Consumption workflow only*)
         \
         \
-        Call your own triggers and actions in APIs that you define, manage, and publish using [Azure API Management](../api-management/api-management-key-concepts.md). <p><p>**Note**: Not supported when using [Consumption tier for API Management](../api-management/api-management-features.md).
+        Call your own triggers and actions in APIs that you define, manage, and publish using [Azure API Management](../api-management/api-management-key-concepts.md). <br><br>**Note**: Not supported when using [Consumption tier for API Management](../api-management/api-management-features.md).
     :::column-end:::
     :::column:::
         [![Azure App Services icon][azure-app-services-icon]][azure-app-services-doc]
@@ -575,7 +575,7 @@ For more information, review the following documentation:
         [**Liquid operations**][json-liquid-transform-doc]
         \
         \
-        Convert the following formats by using Liquid templates: <p><p>- JSON to JSON <br>- JSON to TEXT <br>- XML to JSON <br>- XML to TEXT
+        Convert the following formats by using Liquid templates: <br><br>- JSON to JSON <br>- JSON to TEXT <br>- XML to JSON <br>- XML to TEXT
     :::column-end:::
     :::column:::
         [![Transform XML icon][xml-transform-icon]][xml-transform-doc]
@@ -594,8 +594,6 @@ For more information, review the following documentation:
         \
         \
         Validate XML documents against the specified schema.
-    :::column-end:::
-    :::column:::
     :::column-end:::
 :::row-end:::
 
