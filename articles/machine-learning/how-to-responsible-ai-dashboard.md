@@ -254,9 +254,9 @@ By using the model explanation component, you can see which features were most i
 3. **Sort by**: Allows you to select which cohort's importances to sort the aggregate feature importance graph by.
 4. **Chart type**: Allows you to select between a bar plot view of average importances for each feature and a box plot of importances for all data.
 
-When you select one of the features in the bar plot, the dependence plot is populated, as shown in the following image. The dependence plot shows the relationship of the values of a feature to its corresponding feature importance values, which affect the model prediction.  
+    When you select one of the features in the bar plot, the dependence plot is populated, as shown in the following image. The dependence plot shows the relationship of the values of a feature to its corresponding feature importance values, which affect the model prediction.  
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png" alt-text="Screenshot of the dashboard, showing a populated dependence plot on the 'Aggregate feature importances' pane." lightbox="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png":::
+    :::image type="content" source="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png" alt-text="Screenshot of the dashboard, showing a populated dependence plot on the 'Aggregate feature importances' pane." lightbox="./media/how-to-responsible-ai-dashboard/aggregate-feature-importance-2.png":::
 
 5. **Feature importance of [feature] (regression) or Feature importance of [feature] on [predicted class] (classification)**: Plots the importance of a particular feature across the predictions. For regression scenarios, the importance values are in terms of the output, so positive feature importance means it contributed positively toward the output. The opposite applies to negative feature importance.  For classification scenarios, positive feature importances mean that feature value is contributing toward the predicted class denoted in the y-axis title. Negative feature importance means it's contributing against the predicted class.
 6. **View dependence plot for**: Selects the feature whose importances you want to plot.
@@ -357,13 +357,13 @@ Select the **Treatment policy** tab to switch to a view to help determine real-w
 
 2. **Recommended global treatment policy**: Displays recommended interventions for data cohorts to improve the target feature value. The table can be read from left to right, where the segmentation of the dataset is first in rows and then in columns. For example, for 658 individuals whose employer isn't Snapchat and whose programming language isn't JavaScript, the recommended treatment policy is to increase the number of GitHub repos contributed to.
 
-**Average gains of alternative policies over always applying treatment**: Plots the target feature value in a bar chart of the average gain in your outcome for the above recommended treatment policy versus always applying treatment.
+    **Average gains of alternative policies over always applying treatment**: Plots the target feature value in a bar chart of the average gain in your outcome for the above recommended treatment policy versus always applying treatment.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-2.png" alt-text="Screenshot of the dashboard showing a bar chart of the average gains of alternative policies over always applying treatment on the treatment policy tab." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy-2.png":::
+    :::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-2.png" alt-text="Screenshot of the dashboard showing a bar chart of the average gains of alternative policies over always applying treatment on the treatment policy tab." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy-2.png":::
 
-**Recommended individual treatment policy**:
+    **Recommended individual treatment policy**:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png" alt-text="Screenshot of the dashboard showing a recommended individual treatment policy table on the treatment policy tab." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png":::
+    :::image type="content" source="./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png" alt-text="Screenshot of the dashboard showing a recommended individual treatment policy table on the treatment policy tab." lightbox= "./media/how-to-responsible-ai-dashboard/causal-treatment-policy-3.png":::
 
 3. **Show top k data point samples ordered by causal effects for recommended treatment feature**: Selects the number of data points to show in the table.
 
