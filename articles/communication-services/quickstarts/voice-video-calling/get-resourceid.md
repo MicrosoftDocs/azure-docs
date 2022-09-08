@@ -4,7 +4,7 @@ ms.topic: quickstart
 author: dbasantes
 title: Quickstart-How-to-get-resource-ID-for-Unmixed-Audio-recording
 ms.author: dbasantes
-ms.service: Azure-Communication-Services
+ms.service: azure-communication-services
 description: how to find the Azure Resource ID.
 ---
 
