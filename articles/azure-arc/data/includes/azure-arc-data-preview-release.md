@@ -5,11 +5,11 @@ ms.service: azure-arc
 ms.topic: include
 ms.date: 08/02/2022
 ---
-<!--
+
 At this time, a test or preview build is not available for the next release.
--->
 
 
+<!--
 The current preview release published on September 6, 2022.
 
 |Component|Value|
@@ -47,4 +47,4 @@ New for this release:
   - The command group `az postgres arc-server` is renamed to `az postgres server-arc`. **BREAKING CHANGE**
   - Some of the `az postgres server-arc` commands have changed to remove things like `--workers`.  **BREAKING CHANGE**
 
-
+-->
