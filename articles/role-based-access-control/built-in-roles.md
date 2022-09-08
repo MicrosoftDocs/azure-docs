@@ -10726,12 +10726,52 @@ Management permissions from Azure for Microsoft Defender for IoT OT network moni
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/defenderSettings/read | Gets IoT Defender Settings |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/read | Gets device group |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/devices/read |Get devices  |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/alerts/read | Gets IoT Alerts |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/alerts/write| Updates IoT Alert properties |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/read |  Gets location |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/alerts/learn/action |Learn and close the alert |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/alerts/pcapAvailability/action | Get alert PCAP file aviability |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/alerts/pcapRequest/action | Request related PCAP file for alert |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/sites/read | Gets IoT site |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
-TBD
 
 ```json
 {
-TBD
+  "assignableScopes": [],
+  "description": "Defender for IoT security analyst role can conduct the following operations:\n- Edit alerts (change status, learn, download PCAP)\n- View Alert suppression rules\n- View Device inventory \n- View Sites & sensors",
+  "name": "D4IoT Security Analyst",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.IoTSecurity/defenderSettings/read",
+        "Microsoft.IoTSecurity/locations/deviceGroups/read",
+        "Microsoft.IoTSecurity/locations/deviceGroups/devices/read",
+        "Microsoft.IoTSecurity/locations/deviceGroups/alerts/read",
+        "Microsoft.IoTSecurity/locations/deviceGroups/alerts/write",
+        "Microsoft.IoTSecurity/locations/read",
+        "Microsoft.IoTSecurity/locations/deviceGroups/alerts/learn/action",
+        "Microsoft.IoTSecurity/locations/deviceGroups/alerts/pcapAvailability/action",
+        "Microsoft.IoTSecurity/locations/deviceGroups/alerts/pcapRequest/action",
+        "Microsoft.IoTSecurity/locations/sites/read"],
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Security Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
 ```
 
 ## DevOps

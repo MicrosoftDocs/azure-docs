@@ -76,7 +76,8 @@ Manage site access control by selecting the site in the **Sites and sensors** pa
 
 TBD screenshot
 
-For more information, see <xref>
+For more information, see [Manage OT monitoring users on the Azure portal](manage-users-portal.md) and [Defender for IoT users, roles, and permissions](roles.md).
+
 ## August 2022
 
 - **Sensor software version 22.2.5**: Minor version with stability improvements

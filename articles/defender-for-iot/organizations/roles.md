@@ -22,11 +22,11 @@ The following tables list functionality that is available to each user role by d
 |Sensor operator  |Security reader  |Security admin  |Contributor  |Owner  |
 |---------|---------|---------|---------|---------|
 |  **Download sensor and on-premises management console software and threat intelligence packages**<br>Resource scope: *Subscription*   |   Yes      |  Yes       |   Yes      | Yes | Yes |
-|  **Download activation files**<br>Resource scope: *Subscription*   |   Yes      |         |   Yes      | Yes | Yes |
-|  **Modify values on the Pricing page, update committed devices**<br>Resource scope: *Subscription*   |   Read-only      |         |   Read-write      | Read-write | Read-write |
-|  **Recover on-premises passwords**<br>Resource scope: *Subscription*   |   Yes      |         |   Yes     | Yes | Yes |
-|  **Push threat intelligence updates**<br>Resource scope: *Subscription*   |         |         |   Yes     | Yes | Yes |
-|  **Modify values on the Sites and sensors page**<br>Resource scope: *Subscription*   |   Read-write      |         |   Read-write     | Read-write | Read-write |
+|  **Download activation files**<br>Resource scope: *Subscription*   |   Yes      |    No     |   Yes      | Yes | Yes |
+|  **Modify values on the Pricing page, update committed devices**<br>Resource scope: *Subscription*   |   Read-only      |  No       |   Read-write      | Read-write | Read-write |
+|  **Recover on-premises passwords**<br>Resource scope: *Subscription*   |   Yes      |   No      |   Yes     | Yes | Yes |
+|  **Push threat intelligence updates**<br>Resource scope: *Subscription*   |    No     |    No     |   Yes     | Yes | Yes |
+|  **Modify values on the Sites and sensors page**<br>Resource scope: *Subscription*   |   Read-write      |     No    |   Read-write     | Read-write | Read-write |
 
 **Permissions for security monitoring functionalities**:
 
@@ -70,23 +70,23 @@ Permissions applied to each role differ between the sensor and the on-premises m
 | Permission | Read-only | Security Analyst | Administrator |
 |--|--|--|--|
 | View the dashboard | Yes | Yes |Yes |
-| Control map zoom views |  |  | Yes |
+| Control map zoom views | No | No | Yes |
 | View alerts | Yes | Yes | Yes |
-| Manage alerts: acknowledge, learn, and pin |  | Yes | Yes |
-| View events in a timeline |  | Yes | Yes |
+| Manage alerts: acknowledge, learn, and pin |No  | Yes | Yes |
+| View events in a timeline | No | Yes | Yes |
 | Authorize devices, known scanning devices, programming devices |  | Yes | Yes |
-| Merge and delete devices |  |  | Yes |
+| Merge and delete devices |No  |No  | Yes |
 | View investigation data | Yes | Yes | Yes |
-| Manage system settings |  |  | Yes |
-| Manage users |  |  | Yes |
-| Change passwords | | | Yes, for users with the **Security Analyst** and **Read-only** roles only. |
-| DNS servers for reverse lookup |  |  | Yes |
-| Send alert data to partners |  | Yes | Yes |
-| Create alert comments |  | Yes | Yes |
+| Manage system settings | No |  No| Yes |
+| Manage users |No  | No | Yes |
+| Change passwords |No | No| Yes, for users with the **Security Analyst** and **Read-only** roles only. |
+| DNS servers for reverse lookup |No  |  No| Yes |
+| Send alert data to partners | No | Yes | Yes |
+| Create alert comments |No  | Yes | Yes |
 | View programming change history | Yes | Yes | Yes |
-| Create customized alert rules |  | Yes | Yes |
-| Manage multiple notifications simultaneously |  | Yes | Yes |
-| Manage certificates |  |  | Yes |
+| Create customized alert rules | No | Yes | Yes |
+| Manage multiple notifications simultaneously | No | Yes | Yes |
+| Manage certificates | No | No | Yes |
 | Session timeout when users are not active | 30 minutes | 30 minutes | 30 minutes |
 
 **Role-based permissions for the on-premises management console**
@@ -94,21 +94,21 @@ Permissions applied to each role differ between the sensor and the on-premises m
 | Permission | Read-only | Security Analyst | Administrator |
 |--|--|--|--|
 | View and filter the enterprise map | Yes | Yes | Yes |
-| Build a site |  |  | Yes |
-| Manage a site (add and edit zones) |  |  | Yes |
+| Build a site | No | No | Yes |
+| Manage a site (add and edit zones) |No  |No  | Yes |
 | View and filter device inventory | Yes | Yes | Yes |
 | View and manage alerts: acknowledge, learn, and pin | Yes | Yes | Yes |
-| Generate reports |  | Yes | Yes |
-| View risk assessment reports |  | Yes | Yes |
-| Set alert exclusions |  | Yes | Yes |
-| View or define access groups |  |  | Yes |
-| Manage system settings |  |  | Yes |
-| Manage users |  |  | Yes |
-| Change passwords | | | Yes, for users with the **Security Analyst** and **Read-only** roles only. |
-| Send alert data to partners |  |  | Yes |
-| Manage certificates |  |  | Yes |
+| Generate reports |No  | Yes | Yes |
+| View risk assessment reports | No | Yes | Yes |
+| Set alert exclusions | No | Yes | Yes |
+| View or define access groups | No | No | Yes |
+| Manage system settings | No | No | Yes |
+| Manage users | No |No  | Yes |
+| Change passwords |No | No| Yes, for users with the **Security Analyst** and **Read-only** roles only. |
+| Send alert data to partners | No | No | Yes |
+| Manage certificates | No | No | Yes |
 | Session timeout when users aren't active | 30 minutes | 30 minutes  | 30 minutes  |
 
 ## Next steps
 
-For more information, see [Manage users for OT network security](manage-users-ot.md).
+For more information, see [Manage users for OT network security](manage-users-portal.md).
