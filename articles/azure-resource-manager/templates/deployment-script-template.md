@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/07/2022
+ms.date: 09/06/2022
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
 
@@ -35,6 +35,9 @@ The deployment script resource is only available in the regions where Azure Cont
 
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [Deployment script](../bicep/deployment-script-bicep.md).
 
 ### Training resources
 
