@@ -182,6 +182,8 @@ If a user is not registered for these methods, they'll be redirected to the inli
   - Email one-time pass (Guest)
   - Hardware-based OATH token
 
+- **Conditional Access What-if tool** – When running the what-if tool, it will return policies that require authentication strengths correctly. However, when clicking on the authentication strengths name a name page is open with additional information on the methods the user can use. This information may be incorrect.
+
 <!-- Namrata to update about B2B--->
 
 ## Limitations
