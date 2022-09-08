@@ -18,7 +18,7 @@ In this tutorial, you will learn how to:
 > [!div class="checklist"]
 > * Utilize seismic DDMS Api's to store and retrieve seismic data
 
-[!INCLUDE [preview features callout](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-preview-energy-data-services/articles/energy-data-services/includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 ## Prerequisites
 
 ### Microsoft Energy Data Services instance details
