@@ -60,6 +60,13 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## September 2022
+
+- Updates for Cloud connection firewall rules
+
+## Updates for cloud connection firewall rules
+
+
 ## August 2022
 
 - **Sensor software version 22.2.5**: Minor version with stability improvements

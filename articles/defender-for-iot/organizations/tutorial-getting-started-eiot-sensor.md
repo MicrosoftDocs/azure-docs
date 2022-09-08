@@ -99,15 +99,12 @@ This procedure describes how to prepare your physical appliance or VM to install
     | DNS | TCP/UDP | In/Out | 53  | Address resolution |
 
 
-1. Make sure that your physical appliance or VM can access the cloud using HTTP on port 443 to the following Microsoft domains:
+1. Make sure that your physical appliance or VM can access the cloud using HTTP on port 443 to to each of the required domains for Defender for IoT.
 
-    - **EventHub**: `*.servicebus.windows.net`
-    - **Storage**: `*.blob.core.windows.net`
-    - **Download Center**: `download.microsoft.com`
-    - **IoT Hub**: `*.azure-devices.net`
+    You can find the list of required domains from the **Sites and sensors** page on the Azure portal. Select **More actions** > **Download endpoint details**.
 
     > [!TIP]
-    > You can also download and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) so your firewall will allow the Azure domains that are specified above, along with their region.
+    > You can also download and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) so your firewall will allow the required Azure domains that are specified above.
     >
     > The Azure public IP ranges are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. To use this option, download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 

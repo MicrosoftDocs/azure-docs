@@ -194,12 +194,7 @@ This procedure describes how to configure a SPAN port using a workaround with VM
 
 This tutorial describes how to create a cloud-connected sensor, connecting directly to the Defender for IoT on the cloud.
 
-Before continuing, make sure that your sensor can access the cloud using HTTP on port 443 to the following Microsoft domains:
-
-- **IoT Hub**: `*.azure-devices.net`
-- **Blob Storage**: `*.blob.core.windows.net`
-- **Eventhub**: `*.servicebus.windows.net`
-- **Microsoft Download Center**: `download.microsoft.com`
+Before continuing, make sure that your sensor can access the cloud using HTTP on port 443 to to each of the required domains for Defender for IoT. You can find the list of required domains from the **Sites and sensors** page on the Azure portal. Select **More actions** > **Download endpoint details**.
 
 > [!TIP]
 > Defender for IoT supports other cloud-connection methods, including proxies or multi-cloud vendors. For more information, see [OT sensor cloud connection methods](architecture-connections.md), [Connect your OT sensors to the cloud](connect-sensors.md), [Cloud-connected vs local sensors](architecture.md#cloud-connected-vs-local-sensors).
