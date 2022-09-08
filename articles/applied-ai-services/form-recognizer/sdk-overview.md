@@ -29,61 +29,73 @@ Form Recognizer SDK supports the following languages and platforms:
 > * Form Recognizer SDKs are currently not supported by Form Recognizer REST API 2022-08-31.
 > * [REST API 2022-06-30](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) and earlier releases support the current SDKs. 
 
-| Programming language/SDK | Package| Azure SDK client-library |Supported API version| Platform support |
+| Language → SDK version | Package| Azure Form Recognizer SDK |Supported API version| Platform support |
 |:----------------------:|:----------|:----------| :----------------|-----------------|
-|[C#/4.0.0-beta.5](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)  | [Azure SDK for .NET](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.5/index.html)|[2022-06-30-preview, 2022-01-30-preview, 2021-09-30-preview, **v2.1-ga**, v2.0](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form+recognizer) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
-|[Java/4.0.0-beta.6](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-java#set-up) |[Maven](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Azure SDK for Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.6/index.html)|[2022-06-30-preview, 2022-01-30-preview, 2021-09-30-preview, **v2.1-ga**, v2.0](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form+recognizer)|[Windows, macOS, Linux](/java/openjdk/install)|
-|[JavaScript/4.0.0-beta.6](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)| [Azure SDK for JavaScript](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.6/index.html) | [2022-06-30-preview, 2022-01-30-preview, 2021-09-30-preview, **v2.1-ga**, v2.0](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form+recognizer) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
-|[Python/3.2.0b6](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-python#set-up) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)| [Azure SDK for Python](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b6/index.html)| [2022-06-30-preview, 2022-01-30-preview, 2021-09-30-preview, **v2.1-ga**, v2.0](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form+recognizer) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
+|[.NET/C# → 4.0.0](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-csharp#set-up)| [NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)  | [Azure SDK for .NET](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.5/index.html)|[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
+|[Java → 4.0.0](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-java#set-up) |[Maven](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Azure SDK for Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.6/index.html)|[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/java/openjdk/install)|
+|[JavaScript → 4.0.0](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-javascript#set-up)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)| [Azure SDK for JavaScript](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.6/index.html) | [**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
+|[Python → 3.2.0](quickstarts/get-started-v3-sdk-rest-api.md?pivots=programming-language-python#set-up) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)| [Azure SDK for Python](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b6/index.html)| [**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
+
+## Supported Clients
+
+| Language: SDK version | API version | Supported clients|
+| :------ | :----------- | :-----------------|
+|&bullet; .NET/C# → 4.0.0 </br> &bullet; Java → 4.0.0 </br> &bullet; JavaScript → 4.0.0 </br> &bullet; Python → 3.2.0| &check; 3.0 (default) | &bullet; **DocumentAnalysisClient** </br> &bullet; **DocumentModelAdministrationClient** |
+|&bullet; .NET/C# → 3.1.X </br> &bullet; Java → 3.1.X </br> &bullet; JavaScript → 3.1.X </br> &bullet; Python → 3.1.X| &check; 2.1 (default)</br> &check; 2.0 | &bullet; **FormRecognizerClient** </br> &bullet; **FormTrainingClient**|
+|&bullet; .NET/C# → 3.0.X </br> &bullet; Java → 3.0.X </br> &bullet; JavaScript → 3.0.X </br> &bullet; Python → 3.0.X| &check; 2.0 | &bullet; **FormRecognizerClient** </br> &bullet; **FormTrainingClient**
 
 ## Changelog and release history
 
-#### Form Recognizer SDK beta September 2022 preview release
+#### Form Recognizer SDK beta September 2022 GA release
 
 >[!NOTE]
-> The 4.0.0-beta.6 (C#), 4.0.0-beta.7 (Java), 4.0.0-beta.7 (JavaScript) and 3.2.0b7 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages. TODO
+> C#/.NET, Java, and JavaScript 4.0.0 and Python 3.2.0 SDKs support the same models, features and capabilities;  The versioning numbers aren't in sync across all programming languages.
 
 This release includes the following updates:
 
 ### [**C#**](#tab/csharp)
 
-**Version 4.0.0-beta.6 (TODO)**
+* **Version 4.0.0 GA**
+* **Supports REST API v3.0 and v2.0 clients**
 
-[**Changelog/Release History**](TODO)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
 
 [**Package (NuGet)**](TODO)
 
-[**SDK reference documentation**](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet-preview&preserve-view=true)
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)
 
 ### [**Java**](#tab/java)
 
-**Version 4.0.0-beta.7 (TODO)**
+* **Version 4.0.0 GA**
+* **Supports REST API v3.0 and v2.0 clients**
 
-[**Changelog/Release History**](TODO)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 
 [**Package (Maven)**](TODO)
 
-[**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)
 
 ### [**JavaScript**](#tab/javascript)
 
-**Version 4.0.0-beta.6 (TODO)**
+* **Version 4.0.0 GA**
+* **Supports REST API v3.0 and v2.0 clients**
 
-[**Changelog/Release History**](TODO)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 [**Package (npm)**](TODO)
 
-[**SDK reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview&preserve-view=true)
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)
 
 ### [Python](#tab/python)
 
-**Version 3.2.0b6 (TODO)**
+* **Version 3.2.0 GA**
+* **Supports REST API v3.0 and v2.0 clients**
 
-[**Changelog/Release History**](TODO)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 
 [**Package (PyPi)**](TODO)
 
-[**SDK reference documentation**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)
+[**Migration guide**](TODO)
 
 ---
 

@@ -19,18 +19,24 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## September 2022
 
-#### Form Recognizer SDK beta September 2022 preview release
+#### Form Recognizer SDK version 4.0.0 GA release
+
+**Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!** Update your applications using your programming language's migration guide (see below).
 
 >[!NOTE]
-> The 4.0.0-beta.6 (C#), 4.0.0-beta.7 (Java), 4.0.0-beta.7 (JavaScript) and 3.2.0b7 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages. TODO
+> Starting with version 4.0.0, a new set of clients has been introduced to leverage the newest features of the Form Recognizer service.
 
 This release includes the following updates:
 
 ### [**C#**](#tab/csharp)
 
-**Version 4.0.0-beta.6 (TODO)**
+* **Version 4.0.0 GA**
+* **Supports REST API v3.0 and v2.0 clients**
 
-[**Changelog/Release History**](TODO)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#400-2022-09-08)
+
+> [!NOTE]
+>**The `DocumentAnalysisClient` and `DocumentModelAdministrationClient` now target service version 2022-08-31, and are no longer supported by the 2020-06-30-preview.**
 
 [**Package (NuGet)**](TODO)
 
