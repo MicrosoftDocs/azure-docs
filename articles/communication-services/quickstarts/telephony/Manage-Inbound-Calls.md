@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services Call Automation quickstart for PSTN calls
 titleSuffix: An Azure Communication Services quickstart document
-description: Provides a quickstart for managing PSTN calls with Call Automation.
+description: Provides a quickstart for managing inbound telephony calls with Call Automation.
 author: ashwinder
 
 ms.service: azure-communication-services
@@ -13,7 +13,7 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
-# Quickstart: Manage inbound telephony calls to your resource
+# Quickstart: Manage inbound telephony calls with Call Automation
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
@@ -35,4 +35,5 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 
 - Learn more about [Call Automation](../../concepts/voice-video-calling/CallAutomation.md) and its features. 
-- Learn more about [Play action](../../concepts/voice-video-calling/Play-Action.md)
+- Learn more about [Play action](../../concepts/voice-video-calling/Play-Action.md).
+- Learn how to build a [call workflow](../voice-video-calling/Callflows-for-customer-interactions.md) for a customer support scenario. 
