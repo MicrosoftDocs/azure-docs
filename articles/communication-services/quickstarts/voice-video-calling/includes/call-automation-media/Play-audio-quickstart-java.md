@@ -69,7 +69,7 @@ Create an audio file, if you do not already have one, to use for playing prompts
 
 ## Update App.java with code
 
-In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../call-automation/Callflow-for-customer-interactions-java.md) section. 
+In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../../Callflows-for-customer-interactions.md) section. 
 
 ## Establish a call
 
