@@ -67,19 +67,19 @@ DMS supports cross-region, cross-resource group, and cross-subscription migratio
 
 * Select the compute size and compute tier for the target flexible server based on the source single server’s pricing tier and VCores as in the following table:
 
-| Single Server Pricing Tier | Single Server VCores | Flexible Server Compute Size | Flexible Server Compute Tier |
-| ------------- | ------------- |:-------------:|:-------------:|
-| Basic\* | 1 | General Purpose | Standard_D16ds_v4 |
-| Basic\* | 2 | General Purpose | Standard_D16ds_v4 |
-| General Purpose\* | 4 | General Purpose | Standard_D16ds_v4 |
-| General Purpose\* | 8 | General Purpose | Standard_D16ds_v4 |
-| General Purpose | 16 | General Purpose | Standard_D16ds_v4 |
-| General Purpose | 32 | General Purpose | Standard_D32ds_v4 |
-| General Purpose | 64 | General Purpose | Standard_D64ds_v4 |
-| Memory Optimized | 4 | Business Critical | Standard_E4ds_v4 |
-| Memory Optimized | 8 | Business Critical | Standard_E8ds_v4 |
-| Memory Optimized | 16 | Business Critical | Standard_E16ds_v4 |
-| Memory Optimized | 32 | Business Critical | Standard_E32ds_v4 |
+    | Single Server Pricing Tier | Single Server VCores | Flexible Server Compute Size | Flexible Server Compute Tier |
+    | ------------- | ------------- |:-------------:|:-------------:|
+    | Basic\* | 1 | General Purpose | Standard_D16ds_v4 |
+    | Basic\* | 2 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose\* | 4 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose\* | 8 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose | 16 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose | 32 | General Purpose | Standard_D32ds_v4 |
+    | General Purpose | 64 | General Purpose | Standard_D64ds_v4 |
+    | Memory Optimized | 4 | Business Critical | Standard_E4ds_v4 |
+    | Memory Optimized | 8 | Business Critical | Standard_E8ds_v4 |
+    | Memory Optimized | 16 | Business Critical | Standard_E16ds_v4 |
+    | Memory Optimized | 32 | Business Critical | Standard_E32ds_v4 |
 
 \* For the migration, select General Purpose 16 VCores compute for the target flexible server for faster migrations. Scale back to the desired compute size for the target server after migration is complete by following the compute size recommendation in the Performing post-migration activities section later in this article.
 
@@ -113,10 +113,9 @@ With these best practices in mind, create your target flexible server and then c
     * To ensure faster data loads when using DMS, configure the following server parameters as described.
       * max_allowed_packet – set to 1073741824 (i.e., 1GB) to prevent any connection issues due to large rows.
       * slow_query_log – set to OFF to turn off the slow query log. This will eliminate the overhead caused by slow query logging during data loads.
-      * query_store_capture_mode – set to NONE to turn off the Query Store. This will eliminate the overhead caused by sampling activities by Query Store.
-      * innodb_buffer_pool_size – Innodb_buffer_pool_size can only be increased by scaling up compute for Azure Database for MySQL server. Scale up the server to 64 vCore General Purpose SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size.
-      * innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.to-flex-offlinealt-text="Screenshot of a 
-      * innodb_write_io_threads & innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
+      * innodb_buffer_pool_size – can only be increased by scaling up compute for Azure Database for MySQL server. Scale up the server to 64 vCore General Purpose SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size.
+      * innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.
+      * innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
   * Configure the firewall rules and replicas on the target server to match those on the source server.
   * Replicate the following server management features from the source single server to the target flexible server:
     * Role assignments, Roles, Deny Assignments, classic administrators, Access Control (IAM)
@@ -134,10 +133,10 @@ With your target flexible server deployed and configured, you next need to set u
 To register the Microsoft.DataMigration resource provider, perform the following steps.
 
 1. Before creating your first DMS instance, sign in to the Azure portal, and then search for and select **Subscriptions**.
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/1-subscriptions.png" alt-text="Screenshot of a Azure Marketplace.":::
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/1-subscriptions.png" alt-text="Screenshot of an Azure Marketplace.":::
 
 2. Select the subscription that you want to use to create the DMS instance, and then select **Resource providers**.
-    :::image type="content" source="media/tutorial-Azure-mysql-single-to-flex-offline/2-resource-provider.png" alt-text="Screenshot of a Screenshot of a Select resource provider.":::
+    :::image type="content" source="media/tutorial-Azure-mysql-single-to-flex-offline/2-resource-provider.png" alt-text="Screenshot of a Select resource provider.":::
 
 3. Search for the term “Migration”, and then, for **Microsoft.DataMigration**, select **Register**.
     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/3-register.png" alt-text="Screenshot of a Select Register.":::
@@ -211,8 +210,7 @@ To create a migration project, perform the following steps.
 To configure your DMS migration project, perform the following steps.
 
 1. On the **Select source** screen, specify the connection details for the source MySQL instance.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/13-select-source-offline.png" alt-text="Screenshot of a Add source details screen.":::
-    When performing an offline migration, it’s important to stop incoming traffic on the source when configuring the migration project.
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/13-select-source-offline.png" alt-text="Screenshot of an Add source details screen.":::
 
 2. To proceed with the offline migration, select the **Make Source Server Read Only** check box.
 Selecting this check box prevents Write/Delete operations on the source server during migration, which ensures the data integrity of the target database as the source is migrated. When you make your source server read only as part of the migration process, all the databases on the source server, regardless of whether they are selected for migration, will be read-only.
@@ -223,7 +221,7 @@ Selecting this check box prevents Write/Delete operations on the source server d
        :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/15-select-target.png" alt-text="Screenshot of a Select target.":::
 
 4. Select **Next : Select databases>>**, and then, on the Select databases tab, under [Preview] Select server objects, select the server objects that you want to migrate.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/16-select-db.png" alt-text="Screenshot of a Select databases.":::
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/16-select-db.png" alt-text="Screenshot of a Select database.":::
 
 5. In the **Select databases** section, under **Source Database**, select the database(s) to migrate.
     The non-table objects in the database(s) you specified will be migrated, while the items you didn’t select will be skipped.
@@ -246,15 +244,12 @@ Selecting this check box prevents Write/Delete operations on the source server d
 
 10. Select **Start migration**.
     The migration activity window appears, and the Status of the activity is Initializing. The Status changes to Running when the table migrations start.
-   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/19-running-project-offline.png" alt-text="Screenshot of a Running status.":::
 
 ### Monitor the migration
 
 1. On the migration activity screen, select **Refresh** to update the display and view the progress and the number of tables completed.
 
 2. To see the status of each table during the migration, select the database name and then select Refresh to update the display.
-
-     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/20-monitor-migration-offline.png" alt-text="Screenshot of a Monitoring migration.":::
 
 3. Select **Refresh** to update the display until the **Status** of the migration shows as **Completed**.
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/21-status-complete-offline.png" alt-text="Screenshot of a Status of Migration.":::

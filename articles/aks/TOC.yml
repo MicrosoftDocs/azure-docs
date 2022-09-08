@@ -44,7 +44,7 @@
           href: quickstart-helm.md
         - name: Develop with Dapr
           href: quickstart-dapr.md
-    - name: Subscribe to AKS events with Event Grid (Preview)
+    - name: Subscribe to AKS events with Event Grid
       href: quickstart-event-grid.md
 - name: Tutorials
   items:
