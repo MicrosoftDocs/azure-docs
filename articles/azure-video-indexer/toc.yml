@@ -101,6 +101,8 @@
         href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: How to guides
   items:
+  - name: Create a classic account
+    href: connect-to-azure.md
   - name: Connect an existing account to ARM
     href: connect-classic-account-to-arm.md
   - name: Add contributor role to Media Services
