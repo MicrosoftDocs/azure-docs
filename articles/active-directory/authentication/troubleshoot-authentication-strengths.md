@@ -32,7 +32,7 @@ b.	Legacy authentication methods policy (Under Security > Multifactor Authentica
 
 If the user is registered and enabled for the method, it is possible they need to use an authentication method that is not available post primary authentication, such as Windows Hello for Business or Certificate-based authentication. Please refer to [How each authentication method works](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-methods#how-each-authentication-method-works). The user will need to restart the session and choose “Sign-in options” and select the method that will satisfy the authentication requirements.
 
-### I want to know which authentication strengths was enforced during sign-in
+### I want to know which authentication strength was enforced during sign-in
 
 Use the sign-in logs to find additional information about the sign-in: 
 -	Under the “Authentication details” tab, requirement column will indicate the name of the authentication strengths policy.
