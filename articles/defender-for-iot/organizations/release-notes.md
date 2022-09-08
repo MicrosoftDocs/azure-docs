@@ -64,8 +64,21 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 - Updates for Cloud connection firewall rules
 
-## Updates for cloud connection firewall rules
+### Updates for cloud connection firewall rules
 
+Defender for IoT now supports networking sensor connections to Azure using domains *with* or *without* wildcards. The full list of required domains is also now available from the Azure portal in the following locations:
+
+- **Successful sensor registration page**: After onboarding a new OT or Enterprise IoT sensor to Defender for IoT, the successful registration page now lists the domains you'll need to add as secure, outbound allow rules on your network. Select the **Download endpoint details** link to download the the list, or **Copy** to simply copy the list to your clipboard.
+
+- **Sites and sensors page**: Select **More actions** > **Download endpoint details**. A file is downloaded with the list of required domains.
+In order to communicate with Azure, your sensor must have outbound HTTP traffic enabled to each of the listed domains on port 443.
+
+For more information, see:
+
+- [Tutorial: Get started with Microsoft Defender for IoT for OT security](tutorial-onboarding.md)
+- [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md)
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Networking requirements](how-to-set-up-your-network.md#networking-requirements).
 
 ## August 2022
 

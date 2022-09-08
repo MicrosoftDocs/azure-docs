@@ -190,16 +190,6 @@ This procedure describes how to configure a SPAN port using a workaround with VM
 
 1. Connect to the sensor, and verify that mirroring works.
 
-## Verify cloud connections
-
-This tutorial describes how to create a cloud-connected sensor, connecting directly to the Defender for IoT on the cloud.
-
-Before continuing, make sure that your sensor can access the cloud using HTTP on port 443 to to each of the required domains for Defender for IoT. You can find the list of required domains from the **Sites and sensors** page on the Azure portal. Select **More actions** > **Download endpoint details**.
-
-> [!TIP]
-> Defender for IoT supports other cloud-connection methods, including proxies or multi-cloud vendors. For more information, see [OT sensor cloud connection methods](architecture-connections.md), [Connect your OT sensors to the cloud](connect-sensors.md), [Cloud-connected vs local sensors](architecture.md#cloud-connected-vs-local-sensors).
->
-
 ## Onboard and activate the virtual sensor
 
 Before you can start using your Defender for IoT sensor, you'll need to onboard your new virtual sensor to your Azure subscription, and download the virtual sensor's activation file to activate the sensor.
@@ -232,8 +222,13 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-
 1. Save the downloaded activation file in a location that will be accessible to the user signing into the console for the first time.
+
+    You can also download the file manually by selecting the relevant link in the **Activate your sensor** box. You'll use this file to activate your sensor, as described [below](#activate-your-sensor).
+
+1. Make sure that your new sensor will be able to successfully connect to Azure. The **Add outbound allow rules** box lists the domains that are required to be configured as secure endpoints from your sensor. Make sure the listed domains are allowed as outbound HTTP traffic over port 443.
+
+    You can also access the list of required domains from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
 1. At the bottom left of the page, select **Finish**. You can now see your new sensor listed on the Defender for IoT **Sites and sensors** page.
 

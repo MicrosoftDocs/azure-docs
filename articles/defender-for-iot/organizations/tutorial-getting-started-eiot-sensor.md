@@ -129,13 +129,19 @@ This procedure describes how to register your Enterprise IoT sensor with Defende
     - In the **Sensor name** field, enter a meaningful name for your sensor.
     - From the **Subscription** drop-down menu, select the subscription where you want to add your sensor.
 
-    A **Sensor registration successful** screen shows your next steps and the command you'll need to start the sensor installation.
+    A **Sensor registration successful** screen shows your next steps. <!--new screenshot-->
 
     For example:
 
     :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise IoT sensor.":::
 
-1. Copy the command to a safe location, where you'll be able to copy it to your physical appliance or VM in order to [install the sensor](#install-the-sensor-software).
+    1. In the **Activate your sensor** box, a command is listed, which you'll need to start the sensor installation. Copy the command to a safe location, where you'll be able to copy it to your physical appliance or VM in order to [install the sensor](#install-the-sensor-software).
+
+    1. Make sure that your new sensor will be able to successfully connect to Azure. The **Add outbound allow rules** box lists the domains that are required to be configured as secure endpoints from your sensor. Make sure the listed domains are allowed as outbound HTTP traffic over port 443.
+
+        You can also access the list of required domains from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
+
+1. At the bottom left of the page, select **Finish**. You can now see your new sensor listed on the Defender for IoT **Sites and sensors** page.
 
 
 ## Install the sensor software
