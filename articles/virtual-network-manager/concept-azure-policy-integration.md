@@ -69,7 +69,7 @@ To use Azure Policy with network groups, users need the following permissions:
 
 To set the needed permissions, uses can be assigned built-in roles with [role-based access control](../role-based-access-control/quickstart-assign-role-user-portal.md):
 - **Network Contributor** role to the target network group. 
-- **API Management Service Contributor** role at the target scope level.
+- **Resource Policy Contributor** role at the target scope level.
 
 For more granular role assignment, you can create [custom roles](../role-based-access-control/custom-roles-portal.md) using the `networkGroups/join/action` permission and `policy/write` permission.
 ## Helpful tips
