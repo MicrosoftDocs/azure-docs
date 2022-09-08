@@ -47,7 +47,7 @@ Or, you can configure the local storage directly in the deployment manifest. For
         "type": "docker",
         "env": {
             "storageFolder": {
-                "value": "<ModuleStoragePath>/edgeAgent"
+                "value": "<ModuleStoragePath>"
             }
         }
     },
