@@ -59,7 +59,7 @@ Custom container deployments can use web servers other than the default Python F
   pip install --pre azure-ai-ml
   ```
 
-  For more informatin, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
+  For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 
 ---
 
