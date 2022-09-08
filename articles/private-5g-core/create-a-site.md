@@ -49,7 +49,7 @@ In this step, you'll create the mobile network site resource representing the ph
 
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note:
 
-    - **N2 interface name** and **N3 interface name** (if this site will support 5G user equipment (UEs)) or **S1-MME interface name** and **S1-U interface name** (if this site will support 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
+    - **N2 interface name** and **N3 interface name** (if this site will support 5G UEs) or **S1-MME interface name** and **S1-U interface name** (if this site will support 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
 
 1. In the **Attached data networks** section, select **Add data network**. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note:
     - **N6 interface name** (if this site will support 5G UEs) or **SGi interface name** (if this site will support 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
