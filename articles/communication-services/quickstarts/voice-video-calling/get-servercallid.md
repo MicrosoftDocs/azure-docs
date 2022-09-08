@@ -1,12 +1,13 @@
 ---
 ms.date: 09/07/2022 
-ms.topic: Azure Communication Services
+ms.topic: quickstart
 author: dbasantes
-title: Resource ID
+title: Quickstart-How-to-get-serverCallId-for-Unmixed-Audio-recording
 ms.author: dbasantes
-ms.service: Call Recording
-description: how to get serverCallId
+ms.service: Azure-Communication-Services
+description: This section describe how to get the serverCallid from a JavaScript server app
 ---
+
 
 # Getting serverCallId as a requirement for call recording server APIs from JavaScript application
 
