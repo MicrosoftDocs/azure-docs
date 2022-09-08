@@ -611,7 +611,7 @@ After a successful call, you should see the following response:
 ]
 ```
 
-You can check the consumption (the number of characters for which you'll be charged) for each request through in the [**response headers: x-metered-usage**](reference/v3-0-translate.md#response-headers)  field.
+You can check the consumption (the number of characters for which you'll be charged) for each request in the [**response headers: x-metered-usage**](reference/v3-0-translate.md#response-headers) field.
 
 ## Detect language
 
