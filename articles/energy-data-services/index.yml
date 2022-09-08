@@ -54,10 +54,12 @@ landingContent:
             url: concepts-ddms.md
       - linkListType: tutorial
         links:
-          - text: Well delivery ddms tutorial
-            url: tutorial-well-delivery-ddms.md
           - text: Seismic ddms sdutil tutorial
             url: tutorial-seismic-ddms-sdutil.md
+          - text: Wellbore ddms tutorial
+            url: tutorial-wellbore-ddms.md
+          - text: Well delivery ddms tutorial
+            url: tutorial-well-delivery-ddms.md
       - linkListType: how-to-guide
         links:
           - text: How to convert SEG-Y to oVDS
