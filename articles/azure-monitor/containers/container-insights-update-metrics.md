@@ -83,7 +83,8 @@ To update a specific cluster in your subscription by using Azure CLI, run the fo
 ```azurecli
 az login
 az account set --subscription "<subscriptionName>"
-az aks show -g <resourceGroupName> -n <clusterName> 
+az aks show -g <resourceGroupName> -n <clusterName> --query "servicePrincipalProfile"
+az aks show -g <resourceGroupName> -n <clusterName> --query "addonProfiles.omsagent.identity"
 az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
 ```
 
@@ -93,7 +94,8 @@ To get the value for `clientIdOfSPNOrMsi`, you can run the command `az aks show`
 ```azurecli
 az login
 az account set --subscription "<subscriptionName>"
-az aks show -g <resourceGroupName> -n <clusterName> 
+az aks show -g <resourceGroupName> -n <clusterName> --query "servicePrincipalProfile"
+az aks show -g <resourceGroupName> -n <clusterName> --query "addonProfiles.omsagent.identity" 
 az role assignment create --assignee <clientIdOfSPNOrMsi> --scope <clusterResourceId> --role "Monitoring Metrics Publisher"
 ```
 
