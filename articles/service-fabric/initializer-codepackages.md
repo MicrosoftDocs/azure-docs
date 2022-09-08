@@ -1,12 +1,14 @@
 ---
 title: Initializer CodePackages in Service Fabric
 description: Describes Initializer CodePackages in Service Fabric.
-author: shsha-msft
-
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: shsha
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Initializer CodePackages
 
 Starting with version 7.1, Service Fabric supports **Initializer CodePackages** for [containers][containers-introduction-link] and [guest executable][guest-executables-introduction-link] applications. Initializer CodePackages provide the opportunity to perform initializations at the ServicePackage scope before other CodePackages begin execution. Their relationship to a ServicePackage is analogous to what a [SetupEntryPoint][setup-entry-point-link] is for a CodePackage.
@@ -15,7 +17,7 @@ Before proceeding with this article, we recommend getting familiar with the [Ser
 
 > [!NOTE]
 > Initializer CodePackages are currently not supported for services written using the [Reliable Services][reliable-services-link] programming model.
- 
+
 ## Semantics
 
 An Initializer CodePackage is expected to run to **successful completion (exit code 0)**. A failed Initializer CodePackage is restarted until it successfully completes. Multiple Initializer CodePackages are allowed and are executed to **successful completion**, **sequentially**, **in a specified order** before other CodePackages in the ServicePackage begin execution.

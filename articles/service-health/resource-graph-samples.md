@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Graph sample queries for Azure Service Health
 description: Sample Azure Resource Graph queries for Azure Service Health showing use of resource types and tables to access Azure Service Health related resources and properties.
-ms.date: 06/16/2022
+ms.date: 07/07/2022
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
 ---

@@ -18,6 +18,10 @@ The following example shows how to get a change feed on all the rows in a Cassan
 
 In each iteration, the query resumes at the last point changes were read, using paging state. We can see a continuous stream of new changes to the table in the Keyspace. We will see changes to rows that are inserted, or updated. Watching for delete operations using change feed in Cassandra API is currently not supported.
 
+> [!NOTE]
+> Reusing a token after dropping a collection and then recreating it with the same name results in an error.
+> We advise you to set the pageState to null when creating a new collection and reusing collection name. 
+
 # [Java](#tab/java)
 
 ```java

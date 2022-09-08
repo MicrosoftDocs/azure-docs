@@ -100,7 +100,7 @@ By default, Guest (classic) metrics are stored in Azure Storage account, which y
 
 1. Confirm that [Azure Diagnostic Extension](../agents/diagnostics-extension-overview.md) is enabled and configured to collect metrics.
     > [!WARNING]
-    > You cannot use [Log Analytics agent](../agents/agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest (classic)** into a storage account.
+    > You cannot use [Log Analytics agent](../agents/log-analytics-agent.md) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest (classic)** into a storage account.
 
 1. Ensure that **Microsoft.Insights** resource provider is [registered for your subscription](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 

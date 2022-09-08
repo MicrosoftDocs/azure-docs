@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 07/13/2022
 ms.author: cherylmc 
 
 ---
@@ -59,8 +59,9 @@ A User VPN configuration defines the parameters for connecting remote clients. I
 
    :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/basics.png" alt-text="Screenshot of the Basics page.":::
 
-   * **Configuration name** - Enter the name you want to call your User VPN Configuration.
+    * **Configuration name** - Enter the name you want to call your User VPN Configuration.
     * **Tunnel type** - Select OpenVPN from the dropdown menu.
+
 1. Click **Azure Active Directory** to open the page.
 
    :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/values.png" alt-text="Screenshot of the Azure Active Directory page.":::
@@ -69,7 +70,13 @@ A User VPN configuration defines the parameters for connecting remote clients. I
    * **Authentication method** - Select Azure Active Directory.
    * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Azure AD tenant.
    * **Issuer** - `https://sts.windows.net/<your Directory ID>/`
-   * **AAD Tenant** - `https://login.microsoftonline.com/<your Directory ID>`
+   * **AAD Tenant:** TenantID for the Azure AD tenant
+
+     * Enter `https://login.microsoftonline.com/{AzureAD TenantID}/` for Azure Public AD
+     * Enter `https://login.microsoftonline.us/{AzureAD TenantID/` for Azure Government AD
+     * Enter `https://login-us.microsoftonline.de/{AzureAD TenantID/` for Azure Germany AD
+     * Enter `https://login.chinacloudapi.cn/{AzureAD TenantID/` for China 21Vianet AD
+
 1. Click **Create** to create the User VPN configuration. You'll select this configuration later in the exercise.
 
 ## <a name="site"></a>Create an empty hub
@@ -93,7 +100,7 @@ This section shows you how to add a gateway to an already existing virtual hub. 
 
    * **Gateway scale units**: Select the Gateway scale units. Scale units represent the aggregate capacity of the User VPN gateway. If you select 40 or more gateway scale units, plan your client address pool accordingly. For information about how this setting impacts the client address pool, see [About client address pools](about-client-address-pools.md). For information about gateway scale units, see the [FAQ](virtual-wan-faq.md#for-user-vpn-point-to-site--how-many-clients-are-supported).
    * **User VPN configuration**: Select the configuration that you created earlier.
-   * **Client address pool**: Specify the client address pool from which the VPN clients will be assigned IP addresses. This setting corresponds to the gateway scale units that you 
+   * **Client address pool**: Specify the client address pool from which the VPN clients will be assigned IP addresses. This setting corresponds to the gateway scale units that you set.
 1. Click **Confirm**. It can take up to 30 minutes to update the hub.
 
 ## <a name="connect-vnet"></a>Connect VNet to hub

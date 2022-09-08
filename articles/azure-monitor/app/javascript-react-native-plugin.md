@@ -38,6 +38,8 @@ react-native link react-native-device-info
 
 To use this plugin, you need to construct the plugin and add it as an `extension` to your existing Application Insights instance.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
@@ -45,7 +47,7 @@ import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
 var RNPlugin = new ReactNativePlugin();
 var appInsights = new ApplicationInsights({
     config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         extensions: [RNPlugin]
     }
 });

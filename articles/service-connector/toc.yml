@@ -13,7 +13,7 @@ items:
       href: quickstart-portal-app-service-connection.md 
     - name: Azure CLI
       href: quickstart-cli-app-service-connection.md
-  - name: Service Connector in Azure Spring Cloud
+  - name: Service Connector in Azure Spring Apps
     expanded: true
     items:
     - name: Azure portal
@@ -64,7 +64,7 @@ items:
       href: how-to-integrate-postgres.md
     - name: Azure Database for MySQL
       href: how-to-integrate-mysql.md
-    - name: Azure Cosmos DB
+    - name: Azure Cosmos DB Mongo API
       href: how-to-integrate-cosmos-db.md
     - name: Azure Blob Storage
       href: how-to-integrate-storage-blob.md

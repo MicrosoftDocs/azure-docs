@@ -6,7 +6,7 @@ ms.reviewer: tpalmer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/13/2021
+ms.date: 07/11/2021
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -106,7 +106,6 @@ The following table shows the tooling compatibility to change the owner or co-ow
 | Power App Model Driven | ✘ | ✘ | ✔  | ✔  |
 | Power Automate | ✔  | ✔  | ✔  | ✔  |
 | Power BI (Publishing) | ✘ | ✔  | ✘ | ✘ |
-| Power Virtual Agent | ✘ | ✘ | ✔  | ✔  |
 
 The following table shows the tooling compatibility to change a previously assigned user account to an **Application Registration known as a Service Principal**.
 
@@ -116,7 +115,6 @@ The following table shows the tooling compatibility to change a previously assig
 | Power App Model Driven | ✘ | ✘ | ✔  | ✔  |
 | Power Automate | ✔  | ✔  | ✔  | ✔  |
 | Power BI (Publishing) | ✘ | ✔  | ✘ | ✘ |
-| Power Virtual Agent | ✘ | ✘ | ✔  | ✔  |
 
 ### Use PowerShell to link to a new partner ID
 

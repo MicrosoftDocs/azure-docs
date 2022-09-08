@@ -99,6 +99,32 @@ For example, you can query Azure Resource Health to help you view any service pr
 1. When you're sure you have the query you want in your workbook, select **Done editing**.
 
 
+### Best practices for querying logs 
+ - **Use the smallest possible time ranges.** The longer the time ranges, the slower the queries, and the more data returned. For longer time ranges, the query might have to go to slower "cold" storage, making the query even slower. Default to the shortest useful time range, but allow the user to pick a larger time range that may be slower.
+ - **Use the "All" special value in dropdowns.** You can add an **All** special item in the dropdown parameter settings. You can use a special value. Using an **All** special item correctly can dramatically simplify queries.
+ - **Protect against missing columns.** If you're using a custom table or custom columns, design your template so that it will work if the column is missing in a workspace. See the [column_ifexists](/azure/kusto/query/columnifexists) function.
+ - **Protect against a missing table.** If your template is installed as part of a solution, or in other cases where the tables are guaranteed to exist, checking for missing columns is unnecessary. If you're creating generic templates that could be visible on any resource or workspace, it's a good idea to protect for tables that don't exist. 
+   The log analytics query language doesn't have a **table_ifexists** function like the function for testing for columns. However, there are some ways to check if a table exists. For example, you can use a [fuzzy union](/azure/kusto/query/unionoperator?pivots=azuredataexplorer).  When doing a union, you can use the **isfuzzy=true** setting to let the union continue if some of the tables don't exist.  You can add a parameter query in your workbook that checks for existence of the table, and hides some content if it doesn't.  Items that aren't visible aren't run, so you can design your template so that other queries in the workbook that would fail if the table doesn't exist, don't run until after the test verifies that the table exists.
+
+   For example:
+
+    ```
+    let MissingTable = view () { print isMissing=1 };
+    union isfuzzy=true MissingTable, (AzureDiagnostics | getschema | summarize c=count() | project isMissing=iff(c > 0, 0, 1)) 
+    | top 1 by isMissing asc
+    ```
+
+   This query returns a **1** if the **AzureDiagnostics** table doesn't exist in the workspace. If the real table doesn't exist, the fake row of the **MissingTable** will be returned. If any columns exist in the schema for the **AzureDiagnostics** table, a **0** is returned.  You could use this as a parameter value, and conditionally hide your query steps unless the parameter value is 0. You could also use conditional visibility to show text that says that the current workspace does not have the missing table, and send the user to documentation on how to onboard.
+
+   Instead of hiding steps, you may just want to have no rows as a result.  You can change the **MissingTable** to be an empty data table with the appropriate matching schema:
+        
+      ```
+      let MissingTable = datatable(ResourceId: string) [];
+      union isfuzzy=true MissingTable, (AzureDiagnostics
+      | extend ResourceId = column_ifexists('ResourceId', '')
+      ```
+
+   In this case, the query returns no rows if the **AzureDiagnostics** table is missing, or if the **ResourceId** column is missing from the table.
 ## Adding parameters
 
 You can collect input from consumers and reference it in other parts of the workbook using parameters. Often, you would use parameters to scope the result set or to set the right visual. Parameters help you build interactive reports and experiences. 
@@ -227,13 +253,13 @@ The first tab is selected by default, initially setting **selectedTab** to 1, an
   :::image type="content" source="media/workbooks-create-workbook/workbooks-selected-tab2.png" alt-text="Screenshot of workbooks with content displayed when selected tab is 2.":::
 
 A sample workbook with the above tabs is available in [sample Azure Workbooks with links](workbooks-sample-links.md#sample-workbook-with-links).
-
+g
 ### Tabs limitations
 
  - URL links aren't supported in tabs. A URL link in a tab appears as a disabled tab.
  - No item styling is supported in tabs. Items are displayed as tabs, and only the tab name (link text) field is displayed. Fields that aren't used in tab style are hidden while in edit mode.
  - The first tab is selected by default, invoking whatever action that tab has specified. If the first tab's action opens another view, as soon as the tabs are created, a view appears.
- - You can use tabs to open another views, but this functionality should be used sparingly, since most users won't expect to navigate by selecting a tab. Keep in mind that if other tabs are setting parameter to a specific value, a tab that opens a view wouldn't change that value, so the rest of the workbook content will continue to show the view/data for the previous tab.
+ - You can use tabs to open another views, but this functionality should be used sparingly, since most users won't expect to navigate by selecting a tab. If other tabs are setting a parameter to a specific value, a tab that opens a view wouldn't change that value, so the rest of the workbook content will continue to show the view or data for the previous tab.
 
 ### Using toolbars
 

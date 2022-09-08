@@ -9,7 +9,7 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
-ms.custom: applied-ai-non-critical-form
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator, I want to understand how data is filtered before training a model.
 ---
 

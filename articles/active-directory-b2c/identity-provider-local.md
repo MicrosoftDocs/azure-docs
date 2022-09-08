@@ -57,7 +57,7 @@ To set your local account sign-in options at the tenant level:
 ## Configure your user flow
 
 1. In the left menu of the Azure portal, select **Azure AD B2C**.
-1. Under **Policies**, select **User flows (policies)**.
+1. Under **Policies**, select **User flows**.
 1. Select the user flow for which you'd like to configure the sign-up and sign-in experience.
 1. Select **Identity providers**
 1. Under the **Local accounts**, select one of the following: **Email signup**,  **User ID signup**, **Phone signup**, **Phone/Email signup**, or **None**.

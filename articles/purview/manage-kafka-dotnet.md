@@ -12,7 +12,7 @@ ms.custom: mode-other
 ---
 
 # Use Event Hubs and .NET to send and receive Atlas Kafka topics messages
-This quickstart teaches you how to send and receive *Atlas Kafka* topics events.  We will make use of *Azure Event Hubs* and the **Azure.Messaging.EventHubs** .NET library.
+This quickstart teaches you how to send and receive *Atlas Kafka* topics events.  We'll make use of *Azure Event Hubs* and the **Azure.Messaging.EventHubs** .NET library.
 
 > [!IMPORTANT]
 > A managed event hub is created automatically when your *Microsoft Purview* account is created. See, [Purview account creation](create-catalog-portal.md). You can publish messages to Event Hubs Kafka topic, ATLAS_HOOK. Purview will receive it, process it and notify Kafka topic ATLAS_ENTITIES of entity changes. This quickstart uses the new **Azure.Messaging.EventHubs** library.
@@ -24,10 +24,15 @@ If you're new to Event Hubs, see [Event Hubs overview](../event-hubs/event-hubs-
 To follow this quickstart, you need certain prerequisites in place:
 
 - **A Microsoft Azure subscription**. To use Azure services, including Event Hubs, you need an Azure subscription.  If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2022**. The Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# versions, but the new syntax won't be available. To make use of the full syntax, it is recommended that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using a Visual Studio version prior to Visual Studio 2019 it doesn't have the tools needed to build C# 8.0 projects. Visual Studio 2022, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
+- **Microsoft Visual Studio 2022**. The Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# versions, but the new syntax won't be available. To make use of the full syntax, it's recommended that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using a Visual Studio version prior to Visual Studio 2019, it doesn't have the tools needed to build C# 8.0 projects. Visual Studio 2022, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
+- An active [Microsoft Purview account](create-catalog-portal.md) with an Event Hubs namespace enabled. This option can be enabled during account creation or in **Managed Resources** under settings on your Microsoft Purview account page in the [Azure portal](https://portal.azure.com). Select the toggle to enable, then save. It can take a few minutes for the namespace to be available after it's enabled.
+    :::image type="content" source="media/manage-eventhub-kafka-dotnet/enable-disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure portal.":::
+
+    >[!NOTE]
+    >Enabling this Event Hubs namespace does incur a cost for the namespace. For specific details, see [the pricing page](https://azure.microsoft.com/pricing/details/purview/).
 
 ## Publish messages to Purview 
-Let's create a .NET Core console application that sends events to Purview via Event Hub Kafka topic, **ATLAS_HOOK**.
+Let's create a .NET Core console application that sends events to Purview via Event Hubs Kafka topic, **ATLAS_HOOK**.
 
 ## Create a Visual Studio project
 
@@ -74,14 +79,14 @@ Next create a C# .NET console application in Visual Studio:
     using Azure.Messaging.EventHubs.Producer;
     ```
 
-2. Add constants to the `Program` class for the Event Hubs connection string and Event Hub name.
+2. Add constants to the `Program` class for the Event Hubs connection string and Event Hubs name.
 
     ```csharp
     private const string connectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
     private const string eventHubName = "<EVENT HUB NAME>";
     ```
 
-    You can get the Event Hub namespace associated with the Purview account by looking at the Atlas kafka endpoint primary/secondary connection strings. These can be found in **Properties** tab of your Purview account.
+    You can get the Event Hubs namespace associated with the Purview account by looking at the Atlas kafka endpoint primary/secondary connection strings. These can be found in **Properties** tab of your Purview account.
 
     :::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="A screenshot that shows an Event Hubs Namespace.":::
 
@@ -298,7 +303,7 @@ We'll use Azure Storage as the checkpoint store. Use the following steps to crea
 
     You can get event hub namespace associated with your Purview account by looking at your Atlas kafka endpoint primary/secondary connection strings. This can be found in the **Properties** tab of your Purview account.
 
-    :::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="A screenshot that show an Event Hubs Namespace.":::
+    :::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="A screenshot that shows an Event Hubs Namespace.":::
 
     Use **ATLAS_ENTITIES** as the event hub name when sending messages to Purview.
 

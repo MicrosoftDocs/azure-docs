@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 02/21/2022
+ms.date: 08/19/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown 
 ms.custom: devx-track-azurecli
@@ -41,6 +41,7 @@ These samples apply to all Azure Cosmos DB APIs. These samples use a SQL (Core) 
 | [Secure with IP firewall](../scripts/cli/common/ipfirewall.md)| Create a Cosmos account with IP firewall configured.|
 | [Secure new account with service endpoints](../scripts/cli/common/service-endpoints.md)| Create a Cosmos account and secure with service-endpoints.|
 | [Secure existing account with service endpoints](../scripts/cli/common/service-endpoints-ignore-missing-vnet.md)| Update a Cosmos account to secure with service-endpoints when the subnet is eventually configured.|
+| [Find existing free-tier account](../scripts/cli/common/free-tier.md)| Find whether there is an existing free-tier account in your subscription.|
 |||
 
 ## Next steps

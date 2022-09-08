@@ -1,8 +1,8 @@
 ---
 title: About Azure Migrate 
 description: Learn about the Azure Migrate service.
-author: ms-psharma
-ms.author: panshar
+author: v-ksreedevan
+ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
@@ -13,14 +13,14 @@ ms.custom: mvc
 
 This article provides a quick overview of the Azure Migrate service.
 
-Azure Migrate provides a centralized hub to assess and migrate on-premises servers, infrastructure, applications, and data to Azure. It provides the following:
+Azure Migrate provides a simplified migration, modernization, and optimization service for Azure. All pre-migration steps such as discovery, assessments, and right-sizing of on-premises resources are included for infrastructure, data, and applications. Azure Migrate’s extensible framework allows for integration of third-party tools, thus expanding the scope of supported use-cases. It provides the following:
 
 - **Unified migration platform**: A single portal to start, run, and track your migration to Azure.
 - **Range of tools**: A range of tools for assessment and migration. Azure Migrate tools include Azure Migrate: Discovery and assessment and Azure Migrate: Server Migration. Azure Migrate also integrates with other Azure services and tools, and with independent software vendor (ISV) offerings.
-- **Assessment and migration**: In the Azure Migrate hub, you can assess and migrate:
+- **Assessment, migration and modernization**: In the Azure Migrate hub, you can assess, migrate, and modernize:
     - **Servers, databases and web apps**: Assess on-premises servers including web apps and SQL Server instances and migrate them to Azure virtual machines or Azure VMware Solution (AVS) (Preview).
     - **Databases**: Assess on-premises SQL Server instances and databases to migrate them to an SQL Server on an Azure VM or an Azure SQL Managed Instance or to an Azure SQL Database.
-    - **Web applications**: Assess on-premises web applications and migrate them to Azure App Service.
+    - **Web applications**: Assess on-premises web applications and migrate them to Azure App Service and Azure Kubernetes Service.
     - **Virtual desktops**: Assess your on-premises virtual desktop infrastructure (VDI) and migrate it to Azure Virtual Desktop.
     - **Data**: Migrate large amounts of data to Azure quickly and cost-effectively using Azure Data Box products.
 

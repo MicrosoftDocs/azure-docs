@@ -15,6 +15,9 @@ ms.author: mbaldwin
 
 # Azure TLS certificate changes  
 
+> [!IMPORTANT]
+> This article was published concurrent with the TLS certificate change, and is not being updated. For up-to-date information about CAs, see [Azure Certificate Authority details](azure-ca-details.md).
+
 Microsoft uses TLS certificates from the set of Root Certificate Authorities (CAs) that adhere to the CA/Browser Forum Baseline Requirements. All Azure TLS/SSL endpoints contain certificates chaining up to the Root CAs provided in this article. Changes to Azure endpoints began transitioning in August 2020, with some services completing their updates in 2022. All newly created Azure TLS/SSL endpoints contain updated certificates chaining up to the new Root CAs.
 
 All Azure services are impacted by this change. Details for some services are listed below:

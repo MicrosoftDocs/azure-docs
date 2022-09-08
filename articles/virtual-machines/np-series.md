@@ -13,7 +13,7 @@ ms.author: luismc
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The NP-series virtual machines are powered by [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGAs for accelerating workloads including machine learning inference, video transcoding, and database search & analytics. NP-series VMs are also powered by Intel Xeon 8171M (Skylake) CPUs with all core turbo clock speed of 3.2 GHz.
+The NP-series virtual machines are powered by [Xilinx U250](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGAs for accelerating workloads including machine learning inference, video transcoding, and database search & analytics. NP-series VMs are also powered by Intel Xeon 8171M (Skylake) CPUs with all core turbo clock speed of 3.2 GHz.
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
@@ -48,7 +48,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** Do I need to use NP VMs to develop my solution? 
 
-**A:** No, you can develop on-premise and deploy to the cloud. Please make sure to follow the [attestation documentation](./field-programmable-gate-arrays-attestation.md) to deploy on NP VMs. 
+**A:** No, you can develop on-premises and deploy to the cloud. Please make sure to follow the [attestation documentation](./field-programmable-gate-arrays-attestation.md) to deploy on NP VMs. 
 
 **Q:** Which file returned from attestation should I use when programming my FPGA in an NP VM?
 
@@ -78,11 +78,11 @@ VM Generation Support: Generation 1<br>
 
  Xilinx has created the following marketplace images to simplify the deployment of these VMs. 
 
-[Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu18.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_ubuntu1804_deployment_image)
+Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu18.04
 
-[Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu20.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_ubuntu2004_deployment_image)
+Xilinx Alveo U250 2021.1 Deployment VM – Ubuntu20.04
 
-[Xilinx Alveo U250 2021.1 Deployment VM – CentOS7.8](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xilinx.xilinx_xrt2021_1_centos78_deployment_image)
+Xilinx Alveo U250 2021.1 Deployment VM – CentOS7.8
 
 **Q:** Can I deploy my Own Ubuntu / CentOS VMs and install XRT / Deployment Target Platform? 
 

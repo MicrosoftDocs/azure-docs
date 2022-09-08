@@ -51,7 +51,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure SAP Analytics Cloud to support provisioning with Azure AD
 
-1. Sign into [SAP Identity Provisioning admin console](https://ips-xlnk9v890j.dispatcher.us1.hana.ondemand.com/) with your administrator account and then select **Proxy Systems**.
+1. Sign into the SAP Identity Provisioning admin console with your administrator account and then select **Proxy Systems**.
 
    ![SAP Proxy Systems](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png)
 

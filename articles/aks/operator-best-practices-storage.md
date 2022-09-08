@@ -84,7 +84,12 @@ In this example, the *Standard_DS2_v2* offers twice as many attached disks, and 
 
 Work with your application development team to understand their storage capacity and performance needs. Choose the appropriate VM size for the AKS nodes to meet or exceed their performance needs. Regularly baseline applications to adjust VM size as needed.
 
+> [!NOTE]
+> By default, disk size and performance for managed disks is assigned according to the selected VM SKU and vCPU count. Default OS disk sizing is only used on new clusters or node pools when Ephemeral OS disks are not supported and a default OS disk size is not specified. For more information, see [Default OS disk sizing](cluster-configuration.md#default-os-disk-sizing).
+
 For more information about available VM sizes, see [Sizes for Linux virtual machines in Azure][vm-sizes].
+
+
 
 ## Dynamically provision volumes
 

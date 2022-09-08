@@ -1,6 +1,6 @@
 ---
 title: Push and pull supply chain artifacts
-description: Push and pull supply chain artifacts, using a private container registry in Azure 
+description: Push and pull supply chain artifacts using Azure Registry (Preview)
 author: SteveLasker
 manager: gwallace
 ms.topic: article
@@ -9,7 +9,7 @@ ms.author: stevelas
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Push and pull supply chain artifacts, using a private container registry in Azure (Preview)
+# Push and pull supply chain artifacts using Azure Registry (Preview)
 
 Use an Azure container registry to store and manage a graph of artifacts, including signatures, software bill of materials (SBoM), security scan results or other types. 
 
@@ -27,15 +27,13 @@ ORAS Artifacts support is a preview feature and subject to [limitations](#previe
 
 ## Preview limitations
 
-ORAS Artifacts support is limited to the South Central US region, with Availability Zone support.
-
-* Geo-replicated registries will not replicate referenced artifacts to other regions. As additional regions support ORAS Artifacts, the referenced artifacts will be replicated.
+ORAS Artifacts support is not available in the government or China clouds, but available in all other regions.
 
 ## ORAS installation
 
 Download and install a preview ORAS release for your operating system. See [ORAS Install instructions][oras-install-docs] for how to extract and install the file for your operating system, referencing an Alpha.1 preview build from the [ORAS GitHub repo][oras-preview-install]
 
-## Configure a private registry
+## Configure a registry
 
 Configure environment variables to easily copy/paste commands into your shell. The commands can be run in the [Azure Cloud Shell](https://shell.azure.com/)
 
@@ -140,7 +138,7 @@ To read the password from Stdin, use `--password-stdin`.
 
 ## Push a container image
 
-This example associates a graph of artifacts to a container image. Build and push a container image, or reference an existing image in the private registry.
+This example associates a graph of artifacts to a container image. Build and push a container image, or reference an existing image in the registry.
 
 ```bash
 docker build -t $IMAGE https://github.com/wabbit-networks/net-monitor.git#main
@@ -313,10 +311,10 @@ az acr repository show-tags \
 A repository can have a list of manifests that are both tagged and untagged
 
 ```azurecli
-az acr repository show-manifests \
-  -n $ACR_NAME \
-  --repository $REPO \
-  --detail -o jsonc
+az acr manifest list-metadata \
+  --name $REPO \
+  --repository $ACR_NAME \
+  --output jsonc
 ```
 
 Note the container image manifests have `"tags":`
@@ -373,9 +371,9 @@ az acr repository delete \
 ### View the remaining manifests
 
 ```azurecli
-az acr repository show-manifests \
-  -n $ACR_NAME \
-  --repository $REPO \
+az acr manifest list-metadata \
+  --name $REPO \
+  --registry $ACR_NAME \
   --detail -o jsonc
 ```
 

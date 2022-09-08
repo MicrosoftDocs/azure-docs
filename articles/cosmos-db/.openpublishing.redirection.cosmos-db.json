@@ -3626,16 +3626,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/how-to-container-copy.md",
-      "redirect_url": "/azure/cosmos-db/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/intra-account-container-copy.md",
-      "redirect_url": "/azure/cosmos-db/",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cosmos-db/sql/create-sql-api-dotnet-v4.md",
       "redirect_url": "/azure/cosmos-db/sql/quickstart-dotnet",
       "redirect_document_id": false
@@ -3653,6 +3643,16 @@
     {
       "source_path_from_root":"/articles/cosmos-db/sql/sql-api-dotnet-v3sdk-samples.md",
       "redirect_url": "/azure/cosmos-db/sql/samples-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root":"/articles/cosmos-db/mongodb/create-mongodb-dotnet.md",
+      "redirect_url": "/azure/cosmos-db/mongodb/quickstart-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root":"/articles/cosmos-db/mongodb/create-mongodb-nodejs.md",
+      "redirect_url": "/azure/cosmos-db/mongodb/quickstart-dotnet",
       "redirect_document_id": false
     }
   ]

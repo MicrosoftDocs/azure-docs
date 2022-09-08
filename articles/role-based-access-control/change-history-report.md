@@ -3,7 +3,7 @@ title: View activity logs for Azure RBAC changes
 description: View activity logs for Azure role-based access control (Azure RBAC) changes for the past 90 days.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
@@ -230,5 +230,7 @@ AzureActivity
 ![Activity logs using the Advanced Analytics portal - screenshot](./media/change-history-report/azure-log-analytics.png)
 
 ## Next steps
+
+* [Alert on privileged Azure role assignments](role-assignments-alert.md)
 * [View activity logs to monitor actions on resources](../azure-monitor/essentials/activity-log.md)
 * [Monitor subscription activity with the Azure Activity log](../azure-monitor/essentials/platform-logs-overview.md)

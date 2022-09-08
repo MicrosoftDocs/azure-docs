@@ -24,6 +24,9 @@ Get started with facial recognition using the Face client library for .NET. The 
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=Face&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Identify faces
 
 1. Create a new C# application
@@ -80,7 +83,7 @@ Get started with facial recognition using the Face client library for .NET. The 
     > Go to the Azure portal. If the Face resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 1. Run the application
 
@@ -97,6 +100,9 @@ Get started with facial recognition using the Face client library for .NET. The 
     ```
 
     ---
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=Face&Page=quickstart&Section=Identify-faces" target="_target">I ran into an issue</a>
 
 ## Output
 
@@ -132,6 +138,9 @@ Person 'Family1-Son' is identified for face in: identification1.jpg - 53772235-8
 
 End of quickstart.
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=Face&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
 
 > [!TIP]
 > The Face API runs on a set of pre-built models that are static by nature (the model's performance will not regress or improve as the service is run). The results that the model produces might change if Microsoft updates the model's backend without migrating to an entirely new model version. To take advantage of a newer version of a model, you can retrain your **PersonGroup**, specifying the newer model as a parameter with the same enrollment images.

@@ -5,12 +5,15 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 08/05/2021
+ms.date: 05/23/2022
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
 # Orchestration modes API comparison 
+
+> [!NOTE]
+> We recommend using Flexible virtual machine scale sets for new workloads. Learn more about this new orchestration mode in our [Flexible virtual machine scale sets overview](flexible-virtual-machine-scale-sets.md).
 
 This article compares the API differences between Uniform and [Flexible orchestration](..\virtual-machines\flexible-virtual-machine-scale-sets.md) modes for virtual machine scale sets. To learn more about Uniform and Flexible virtual machine scale sets, see [orchestration modes](virtual-machine-scale-sets-orchestration-modes.md).
 

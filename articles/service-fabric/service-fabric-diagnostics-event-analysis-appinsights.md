@@ -1,8 +1,12 @@
 ---
 title: Azure Service Fabric Event Analysis with Application Insights 
 description: Learn about visualizing and analyzing events using Application Insights for monitoring and diagnostics of Azure Service Fabric clusters.
-ms.topic: conceptual
-ms.date: 11/21/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Event analysis and visualization with Application Insights
@@ -67,4 +71,4 @@ Clicking **Analytics** will take you to the Application Insights Analytics porta
 ## Next steps
 
 * [Set up Alerts in AI](../azure-monitor/alerts/alerts-log.md) to be notified about changes in performance or usage
-* [Smart Detection in Application Insights](../azure-monitor/app/proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to Application Insights to warn you of potential performance problems
+* [Smart Detection in Application Insights](../azure-monitor/alerts/proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to Application Insights to warn you of potential performance problems

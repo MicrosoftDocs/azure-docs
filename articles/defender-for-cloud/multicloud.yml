@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Defender for Cloud for your multicloud environment # < 60 chars
-summary: Microsoft Defender for Cloud provides unified security management and advanced threat protection for multicloud environments. # < 160 chars
+summary: Microsoft Defender for Cloud connects to your multicloud environments with agentless, API-based methods for CSPM insight. You can leverage Azure Arc to use Defender plans for CWP. # < 160 chars
 
 metadata:
   title: The Defender for Cloud multicloud solution # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -12,7 +12,7 @@ metadata:
   manager: raynew
   ms.topic: landing-page # Required
   ms.collection: collection
-  ms.date: 05/22/2022
+  ms.date: 06/29/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -34,7 +34,11 @@ landingContent:
             url: quickstart-onboard-machines.md?pivots=azure-arc
           - text: Enable enhanced security for your multicloud resources
             url: enable-enhanced-security.md
-
+      - linkListType: reference
+        links:
+          - text: Troubleshooting multicloud connectors
+            url: troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector
+            
   # Card
   - title: Defend Amazon AWS resources
     linkLists:
@@ -54,6 +58,8 @@ landingContent:
             url: quickstart-onboard-aws.md?pivots=env-settings
           - text: Enable Defender for Containers for your AWS EKS containers
             url: defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks
+          - text: Enable Defender for SQL servers for your AWS SQL databases
+            url: defender-for-sql-usage.md
       - linkListType: how-to-guide
         links:
           - text: Secure your AWS management ports with just-in-time access
@@ -96,6 +102,8 @@ landingContent:
             url: quickstart-onboard-gcp.md?pivots=env-settings
           - text: Enable Defender for Containers for your GCP GKE containers
             url: defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke
+          - text: Enable Defender for SQL servers for your GCP SQL databases
+            url: defender-for-sql-usage.md
       - linkListType: how-to-guide
         links:
           - text: Create custom assessments and standards for GCP workloads

@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Detect color schemes in images
+# Color schemes detection
 
 Computer Vision analyzes the colors in an image to provide three different attributes: the dominant foreground color, the dominant background color, and the larger set of dominant colors in the image. The set of possible returned colors is: black, blue, brown, gray, green, orange, pink, purple, red, teal, white, and yellow.
 

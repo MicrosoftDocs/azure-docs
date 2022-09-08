@@ -13,7 +13,7 @@ ms.author: kenwith
 
 # Onboard a Microsoft Azure subscription
 
-This article describes how to onboard a Microsoft Azure subscription or subscriptions on Permissions Management (Permissions Management). Onboarding a subscription creates a new authorization system to represent the Azure subscription in Permissions Management.
+This article describes how to onboard a Microsoft Azure subscription or subscriptions on Permissions Management. Onboarding a subscription creates a new authorization system to represent the Azure subscription in Permissions Management.
 
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
@@ -24,16 +24,11 @@ To add Permissions Management to your Azure AD tenant:
 - You must have an Azure AD user account and an Azure command-line interface (Azure CLI) on your system, or an Azure subscription. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
 - You must have **Microsoft.Authorization/roleAssignments/write** permission at the subscription or management group scope to perform these tasks. If you don't have this permission, you can ask someone who has this permission to perform these tasks for you.
 
-
-## View a training video on enabling Permissions Management in your Azure AD tenant
-
-To view a video on how to enable Permissions Management in your Azure AD tenant, select [Enable Permissions Management in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
-
 ## How to onboard an Azure subscription
 
 1. If the **Data Collectors** dashboard isn't displayed when Permissions Management launches:
 
-    - In the Permissions Management home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
+    - In the Permissions Management home page, select **Settings** (the gear icon, top right), and then select the **Data Collectors** subtab.
 
 1. On the **Data Collectors** dashboard, select **Azure**, and then select **Create Configuration**.
 
@@ -43,19 +38,22 @@ Choose from 3 options to manage Azure subscriptions.
 
 #### Option 1: Automatically manage 
 
-This option allows subscriptions to be automatically detected and monitored without additional configuration. Steps to detect list of subscriptions and onboard for collection:  
+This option allows subscriptions to be automatically detected and monitored without extra configuration.A key benefit of automatic management is that any current or future subscriptions found get onboarded automatically. Steps to detect list of subscriptions and onboard for collection:  
 
-- Grant Reader role to Cloud Infrastructure Entitlement Management application at management group or subscription scope.  
+- Firstly, grant Reader role to Cloud Infrastructure Entitlement Management application at management group or subscription scope.  
 
-Any current or future subscriptions found get onboarded automatically. 
-
- To view status of onboarding after saving the configuration: 
-
-1. In the MEPM portal, click the cog on the top right-hand side.  
-1. Navigate to data collectors tab.  
+1. In the EPM portal, left-click the cog on the top right-hand side.  
+1. Navigate to data collectors tab  
+1. Ensure 'Azure' is selected
 1. Click ‘Create Configuration’ 
 1. For onboarding mode, select ‘Automatically Manage’ 
-1. Click ‘Verify Now & Save’ 
+
+The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. This can be performed manually in the Entra console, or programatically with PowerShell or the Azure CLI.
+
+Lastly, Click ‘Verify Now & Save’ 
+
+To view status of onboarding after saving the configuration: 
+
 1. Collectors will now be listed and change through status types. For each collector listed with a status of “Collected Inventory”, click on that status to view further information. 
 1. You can then view subscriptions on the In Progress page 
 
@@ -64,8 +62,9 @@ Any current or future subscriptions found get onboarded automatically.
 You have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 10 per collector). Follow the steps below to configure these subscriptions to be monitored: 
 
 1. For each subscription you wish to manage, ensure that the ‘Reader’ role has been granted to Cloud Infrastructure Entitlement Management application for this subscription. 
-1. In the MEPM portal, click the cog on the top right-hand side. 
+1. In the EPM portal, click the cog on the top right-hand side. 
 1. Navigate to data collectors tab 
+1. Ensure 'Azure' is selected
 1. Click ‘Create Configuration’ 
 1. Select ‘Enter Authorization Systems’ 
 1. Under the Subscription IDs section, enter a desired subscription ID into the input box. Click the “+” up to 9 additional times, putting a single subscription ID into each respective input box. 
@@ -83,8 +82,20 @@ To view status of onboarding after saving the configuration:
 
 This option detects all subscriptions that are accessible by the Cloud Infrastructure Entitlement Management application.  
 
-1. Grant Reader role to Cloud Infrastructure Entitlement Management application at management group or subscription(s) scope. 
-1. Click Verify and Save. 
+- Firstly, grant Reader role to Cloud Infrastructure Entitlement Management application at management group or subscription scope.  
+
+1. In the EPM portal, click the cog on the top right-hand side.  
+1. Navigate to data collectors tab
+1. Ensure 'Azure' is selected
+1. Click ‘Create Configuration’ 
+1. For onboarding mode, select ‘Automatically Manage’ 
+
+The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. You can do this manually in the Entra console, or programatically with PowerShell or the Azure CLI.
+
+Lastly, Click ‘Verify Now & Save’ 
+
+To view status of onboarding after saving the configuration: 
+
 1. Navigate to newly create Data Collector row under Azure data collectors. 
 1. Click on Status column when the row has “Pending” status 
 1. To onboard and start collection, choose specific ones subscriptions from the detected list and consent for collection.

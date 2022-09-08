@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 07/11/2022
 ms.author: lajanuar
 ms.custom: devx-track-js, ignite-fall-2021
 ---
@@ -27,8 +27,10 @@ ms.custom: devx-track-js, ignite-fall-2021
 * The current version of [Node.js](https://nodejs.org/)
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You will paste your key and endpoint into the code below later in the project
+  * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the project
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+> [!TIP]
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 ## Setting up
 
@@ -48,7 +50,7 @@ npm init
 
 ### Install the client library
 
-Install the `ai-form-recognizer` NPM package:
+Install the `ai-form-recognizer` npm package:
 
 ```console
 npm install @azure/ai-form-recognizer
@@ -75,11 +77,11 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 ### FormRecognizerClient
 
-`FormRecognizerClient` provides operations for:
+`FormRecognizerClient` provides the following operations:
 
-* Recognizing form fields and content using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects.
-* Recognizing form content, including tables, lines and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects.
-* Recognizing common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
+* Recognize form fields and content using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects.
+* Recognize form content, including tables, lines and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects.
+* Recognize common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
 
 ### FormTrainingClient
 
@@ -107,7 +109,7 @@ You'll also need to add references to the URLs for your training and testing dat
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
-* Use the sample from and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)) or you can use the above steps to get the SAS URL of an individual document in blob storage.
+* Use the sample from and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)). You can use the above steps to get the SAS URL of an individual document in blob storage.
 
 ## Analyze layout
 
@@ -192,7 +194,7 @@ To analyze ID documents from a URL, use the `beginRecognizeIdDocumentsFromUrl` m
 
 ## Train a custom model
 
-This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
 > You can also train models with a graphical user interface (GUI) such as the [Form Recognizer Sample Labeling tool](../../label-tool.md).
@@ -243,7 +245,7 @@ Document errors:
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the `beginTraining` method with the `uselabels` parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the `beginTraining` method with the `uselabels` parameter set to `true`.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 

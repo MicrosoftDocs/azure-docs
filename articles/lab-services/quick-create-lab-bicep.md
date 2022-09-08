@@ -3,7 +3,7 @@ title: Azure Lab Services Quickstart - Create a lab using Bicep
 description: In this quickstart, you learn how to create an Azure Lab Services lab using Bicep
 ms.topic: quickstart
 ms.date: 05/23/2022
-ms.custom: template-quickstart
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a lab using a Bicep file

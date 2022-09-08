@@ -59,6 +59,8 @@ ms.custom: devx-track-js
 
     Assigned keys and resources are visible in the LUIS portal in the Manage section, on the **Azure resources** page. The app ID is available in the same Manage section, on the **Application Settings** page.
 
+    [!INCLUDE [Remember to remove credentials when you're done](app-secrets.md)]
+
 1. At the command prompt, enter the following command to run the project:
 
     ```console

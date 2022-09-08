@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 05/05/2022
+ms.date: 08/11/2022
 ---
 
 # Run queries
@@ -113,11 +113,10 @@ ALTER TABLE github_users ADD COLUMN dummy_column integer;
 
 ## Next steps
 
-The quickstart is now complete. You've successfully created a scalable
-Hyperscale (Citus) server group, created tables, distributed them, loaded data,
-and run distributed queries.
+You've successfully created a scalable Hyperscale (Citus) server group, created
+tables, distributed them, loaded data, and run distributed queries.
 
 Now you're ready to learn to build applications with Hyperscale (Citus).
 
 > [!div class="nextstepaction"]
-> [Build a scalable application >](howto-build-scalable-apps-overview.md)
+> [Build scalable applications >](quickstart-build-scalable-apps-overview.md)

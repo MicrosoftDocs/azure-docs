@@ -7,12 +7,12 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 07/12/2022
 ---
 
 # Index data from Azure Cosmos DB using the SQL API
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Cosmos DB and makes it searchable in Azure Cognitive Search. 
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content using the SQL API from Azure Cosmos DB. 
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB [SQL API](../cosmos-db/choose-api.md#coresql-api). It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
@@ -155,7 +155,7 @@ SELECT DISTINCT VALUE c.name FROM c ORDER BY c.name
 
 ## Add search fields to an index
 
-In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with source data. For content in Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/account-databases-containers-items.md#azure-cosmos-items) in your data source.
+In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with source data. For content in Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/account-databases-containers-items.md#azure-cosmos-db-items) in your data source.
 
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store data:
 

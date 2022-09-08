@@ -3,7 +3,7 @@ title: "Tutorial: Migrate MongoDB offline to Azure Cosmos DB API for MongoDB"
 titleSuffix: Azure Database Migration Service
 description: Migrate from MongoDB on-premises to Azure Cosmos DB API for MongoDB offline, by using Azure Database Migration Service.
 services: dms
-author: dbamaster
+author: croblesm
 ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg

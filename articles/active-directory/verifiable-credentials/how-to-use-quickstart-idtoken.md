@@ -3,11 +3,11 @@ title: Create verifiable credentials for ID tokens
 description: Learn how to use a quickstart to create custom credentials for ID tokens
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/22/2022
+ms.date: 07/06/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am looking for information to help me create verifiable credentials for ID tokens. 
@@ -16,10 +16,6 @@ ms.author: barclayn
 # Create verifiable credentials for ID tokens
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
-
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) that uses the [idTokens attestation](rules-and-display-definitions-model.md#idtokenattestation-type) produces an issuance flow where you're required to do an interactive sign-in to an OpenID Connect (OIDC) identity provider in Microsoft Authenticator. Claims in the ID token that the identity provider returns can be used to populate the issued verifiable credential. The claims mapping section in the rules definition specifies which claims are used. 
 
@@ -82,9 +78,10 @@ The JSON display definition is nearly the same, regardless of attestation type. 
 
 ## Sample JSON rules definitions
 
-The JSON attestation definition should contain the **idTokens** name, the [OIDC configuration details](rules-and-display-definitions-model.md#idtokenattestation-type) and the claims mapping section. The expected JSON for the rules definitions is the inner content of the rules attribute, which starts with the attestation attribute. 
+The JSON attestation definition should contain the **idTokens** name, the [OIDC configuration details](rules-and-display-definitions-model.md#idtokenattestation-type) (clientId, configuration, redirectUri and scope) and the claims mapping section. The expected JSON for the rules definitions is the inner content of the rules attribute, which starts with the attestation attribute. 
 
 The claims mapping in the following example requires that you configure the token as explained in the [Claims in the ID token from the identity provider](#claims-in-the-id-token-from-the-identity-provider) section.
+
 
 ```json
 {
@@ -124,9 +121,16 @@ The claims mapping in the following example requires that you configure the toke
         "required": false
       }
     ]
+  },
+  "validityInterval": 2592000,
+  "vc": {
+    "type": [
+      "VerifiedCredentialExpert"
+    ]
   }
 }
 ```
+
 
 ## Application registration
 
@@ -140,7 +144,7 @@ The clientId attribute is the application ID of a registered application in the 
 
 1. In **Redirect URI (optional)**, select **Public client/native (mobile & desktop)**, and then enter **vcclient://openid**.
  
-If you want to be able to test what claims are in the token, do the following:
+If you want to be able to test what claims are in the Azure Active Directory ID token, do the following:
 
 1. On the left pane, select **Authentication**> **Add platform** > **Web**.
 
@@ -215,11 +219,7 @@ To configure your sample code to issue and verify your custom credentials, you n
 - The credential type
 - The manifest URL to your credential 
 
-The easiest way to find this information for a custom credential is to go to your credential in the Azure portal. Select **Issue credential**, and then switch to the custom issue.
-
-![Screenshot of the quickstart "Issue credential" page.](media/how-to-use-quickstart/quickstart-config-sample-1.png)
-
-After you've switched to the custom issue, you have access to a text box with a JSON payload for the Request Service API. Replace the placeholder values with your environment's information. The issuer’s DID is the authority value.
+The easiest way to find this information for a custom credential is to go to your credential in the Azure portal. Select **Issue credential**. Then you have access to a text box with a JSON payload for the Request Service API. Replace the placeholder values with your environment's information. The issuer’s DID is the authority value.
 
 ![Screenshot of the quickstart custom credential issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
 
