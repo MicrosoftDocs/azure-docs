@@ -290,3 +290,5 @@ items:
       href: https://azurearcjumpstart.io
     - name: Pre-release testing
       href: preview-testing.md
+    - name: Automated integration testing
+      href: automated-integration-testing.md
