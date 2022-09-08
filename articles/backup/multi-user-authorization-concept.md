@@ -23,7 +23,10 @@ Azure Backup uses the Resource Guard as an additional authorization mechanism fo
 
 ## Critical operations
 
-The following table lists the operations defined as critical operations and can be protected by a Resource Guard. You can choose to exclude certain operations from being protected using the Resource Guard when associating vaults with it. Note that operations denoted as Mandatory can't be excluded from being protected using the Resource Guard for vaults associated with it. Also, the excluded critical operations would apply to all vaults associated with a Resource Guard.
+The following table lists the operations defined as critical operations and can be protected by a Resource Guard. You can choose to exclude certain operations from being protected using the Resource Guard when associating vaults with it.
+
+>[!Note]
+>You can't excluded the operations denoted as Mandatory  from being protected using the Resource Guard for vaults associated with it. Also, the excluded critical operations would apply to all vaults associated with a Resource Guard.
 
 **Choose a vault**
 

@@ -73,9 +73,12 @@ For the following example, create the Resource Guard in a tenant different from 
 Choose the operations you want to protect using the Resource Guard out of all supported critical operations. By default, all supported critical operations are enabled. However, you can exempt certain operations from falling under the purview of MUA using Resource Guard. The security admin can perform the following  steps:
 
 1. In the Resource Guard created above, go to **Properties**.
-2. Select **Disable** for operations that you want to exclude from being authorized using the Resource Guard. Note that the operations **Disable soft delete** and **Remove MUA protection** can't be disabled.
-3. Optionally, you can also update the description for the Resource Guard using this blade. 
-4. Select **Save**.
+2. Select **Disable** for operations that you want to exclude from being authorized using the Resource Guard.
+
+   >[!Note]
+   > You can't disable the protected operations - **Disable soft delete** and **Remove MUA protection**.
+1. Optionally, you can also update the description for the Resource Guard using this blade. 
+1. Select **Save**.
 
    :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-properties.png" alt-text="Screenshot showing demo resource guard properties.":::
 
@@ -177,7 +180,9 @@ The Security admin can use PIM to create an eligible assignment for the Backup a
 ### Set up approvers for activating Contributor role
 
 By default, the setup above may not have an approver (and an approval flow requirement) configured in PIM. To ensure that approvers are required for allowing only authorized requests to go through, the security admin must perform the following steps.
-Note if this isn't configured, any requests will be automatically approved without going through the security admins or a designated approver’s review. More details on this can be found [here](../active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings.md)
+
+> [!Note]
+> If this isn't configured, any requests will be automatically approved without going through the security admins or a designated approver’s review. More details on this can be found [here](../active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings.md)
 
 1. In Azure AD PIM, select **Azure Resources** on the left navigation bar and select your Resource Guard.
 
