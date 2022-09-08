@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps GitHub action
 description: Learn how to configure the Microsoft Security DevOps GitHub action.
-ms.date: 09/06/2022
+ms.date: 09/08/2022
 ms.topic: how-to
 ---
 
@@ -40,7 +40,8 @@ Security DevOps uses the following Open Source tools:
 
     :::image type="content" source="media/msdo-github-action/actions.png" alt-text="Screenshot that shows you where the Actions button is located.":::
 
-1. Select **New workflow**. 
+1. Select **New workflow**.
+
 1. On the Get started with GitHub Actions page, select **set up a workflow yourself**
 
     :::image type="content" source="media/msdo-github-action/new-workflow.png" alt-text="Screenshot showing where to select the new workflow button.":::
