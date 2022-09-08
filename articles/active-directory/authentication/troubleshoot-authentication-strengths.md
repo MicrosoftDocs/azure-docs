@@ -31,24 +31,24 @@ To verify if a method can be used:
    1. If you use the legacy Authentication methods policy, check if the tenant is enabled for any method required for the authentication strength. Click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**. 
 1. Check which authentication methods are registered for the user in the Authentication methods policy. Click **Users and groups** > _username_ > **Authentication methods**. 
 
-If the user is registered for the method and the method is enabled, they might need to use an authentication method that isn't available post primary authentication, such as Windows Hello for Business or certificate-based authentication. For more information, see [How each authentication method works](concept-authentication-methods.md#how-each-authentication-method-works). The user will need to restart the session and choose **Sign-in options** and select a method required by the authentication strength.
+If the user is registered for an enabled method that meets the authentication strength, they might need to use another method that isn't available after primary authentication, such as Windows Hello for Business or certificate-based authentication. For more information, see [How each authentication method works](concept-authentication-methods.md#how-each-authentication-method-works). The user will need to restart the session and choose **Sign-in options** and select a method required by the authentication strength.
 
 ## How to check which authentication strength was enforced during sign-in
 
-Use the sign-in logs to find additional information about the sign-in: 
--	Under the “Authentication details” tab, requirement column will indicate the name of the authentication strengths policy.
-:::image type="content" source="media/concept-authentication-strengths/Sign-in%20Logs%20-%20authentication%20details.png" alt-text="Screenshot showing the phishing-resistant MFA strength policy definition.":::
--	Under the “Conditional Access” tab you can see which Conditional Access policy applied. Clicking on the name of the policy, under grant control you will find the name of the authentication strengths policy that was enforced. 
+Use the **Sign-ins** log to find additional information about the sign-in: 
 
+- Under the **Authentication details** tab, check the **Requirement** column will indicate the name of the authentication strengths policy.
 
- 
+  :::image type="content" source="media/concept-authentication-strengths/sign-in-logs-authentication-details.png" alt-text="Screenshot showing the authentication strength in the Sign-ins log.":::
+
+- Under the **Conditional Access** tab, you can see which Conditional Access policy was applied. Click the name of the policy, and look under grant control for the authentication strength that was enforced. 
+
 ## User sign in error when using a restricted FIDO2 security key
 An admin can restrict access to specific security keys. When a user tries to sign in by using a key they are not allowed to use, a **You can't get there from here** error appears:
 
 :::image type="content" border="true" source="./media/troubleshoot-authentication-strengths/restricted-security-key.png" alt-text="Screenshot of a sign-in error when using a restricted FIDO2 security key.":::
 
-In this case, the user need to restart the session and sign-in with a different FIDO2 secuirty key.
-
+In this case, the user need to restart the session and sign-in with a different FIDO2 security key.
 
 ## Next steps
 
