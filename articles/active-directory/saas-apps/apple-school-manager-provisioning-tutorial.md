@@ -29,6 +29,7 @@ This tutorial describes the steps you need to perform in both Apple School Manag
 > * Create users in Apple School Manager
 > * Remove users in Apple School Manager when they do not require access anymore
 > * Keep specific user attributes synchronized between Azure AD and Apple School Manager
+> * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to Apple School Manager (recommended).
 
 ## Prerequisites
 
@@ -52,17 +53,21 @@ The scenario outlined in this tutorial assumes that you already have the followi
 2. Click Settings at the bottom of the sidebar click Data Source below Organization Settings, then click Connect to Data Source.
 3. Click Connect next to SCIM, carefully read the warning, click Copy, then click Close.
 [The Connect to SCIM window, which provides a token and a Copy button under it.]
-Leave this window open to copy the Tenant URL from Apple Business Manager to Azure AD, which is: 'https://federation.apple.com/feeds/school/scim'
+Leave this window open to copy the Tenant URL from Apple School Manager to Azure AD, which is: 'https://federation.apple.com/feeds/school/scim'
 
-    ![Apple School Manager](media/appleschoolmanager-provisioning-tutorial/scim-token.png)
+    ![Apple School Manager](media/apple-school-manager-provisioning-tutorial/scim-token.png)
 
-> [!NOTE]
-> The secret token shouldn’t be shared with anyone other than the Azure AD administrator.
+    > [!NOTE]
+    > The secret token shouldn’t be shared with anyone other than the Azure AD administrator.
 
 ## Step 3. Add Apple School Manager from the Azure AD application gallery
 
-Add Apple School Manager from the Azure AD application gallery to start managing provisioning to Apple School Manager. If you have previously setup Apple School Manager for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
+* Add Apple School Manager from the Azure AD application gallery to start managing provisioning to Apple School Manager. If you have previously setup Apple School Manager for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially.
 
+* To add the Apple School Manager Azure AD app with Microsoft tenants, the administrator of the tenants must go through the federated authentication setup process, including testing authentication. When authentication has succeeded, the Apple School Manager Azure AD app is populated in the tenant and the administrator can federate domains and configure Apple School Manager to use SCIM (System for Cross-domain Identity Management) for directory sync.
+
+   [Use federated authentication with MS Azure AD in Apple School Manager](https://support.apple.com/en-ke/guide/apple-school-manager/axmb02f73f18/web)
+   
 ## Step 4. Define who will be in scope for provisioning 
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
