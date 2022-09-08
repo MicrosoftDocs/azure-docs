@@ -118,7 +118,7 @@ Anomaly detected at index:      44
 
 In our script we call the Anomaly Detector API twice. The first call checks for trend change points across our sample data series with the `detect_change_point` method. This call returns a `ChangePointDetectResponse` that we stored in a variable we named `change_point_request`. We then iterate through the response's `is_change_point` list, and print the index of any values with a boolean of `true`.
 
-The second call checks the entire sample data series for anomalies using the [`detect_entire_series`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-entire-series) method. This call returns a [`EntireDetectResponse`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.models.entiredetectresponse?view=azure-python-preview) that we stored in a variable we named `anomaly_response` We iterate through the response's `is_anomaly` list, and print the index of any values with a boolean of `true`. Alternatively, we could have used the [`detect_last_point`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-last-point) method which is more appropriate for detecting anomalies in real-time data.
+The second call checks the entire sample data series for anomalies using the [`detect_entire_series`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-entire-series&preserve-view=true) method. This call returns a [`EntireDetectResponse`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.models.entiredetectresponse?view=azure-python-preview&preserve-view=true) that we stored in a variable we named `anomaly_response` We iterate through the response's `is_anomaly` list, and print the index of any values with a boolean of `true`. Alternatively, we could have used the [`detect_last_point`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-last-point&preserve-view=true) method which is more appropriate for detecting anomalies in real-time data.
 
 ## Visualize results
 
@@ -187,5 +187,5 @@ pip install matplotlib
 
 If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-- [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+- [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+- [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
