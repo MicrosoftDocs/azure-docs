@@ -39,9 +39,7 @@ The following video uses an earlier version of the preceding diagram, but its ex
 ## Observability and the Azure Monitor data platform
 Metrics, logs, and distributed traces are commonly referred to as the three pillars of observability. Observability can be achieved by aggregating and correlating these different types of data across the entire system being monitored. 
 
-Azure Monitor aggregates and correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services. In addition, Azure Monitor can track changes in the underlying deployments to the system. Because Azure Monitor also stores this data together, it can be correlated and analyzed using a common set of tools. 
-
-Natively, Azure Monitor consolidates data into storage as Metrics, Logs, or Changes. Traces are stored in the Logs store. Each storage platform is optimized for particular monitoring scenarios, and each supports different features in Azure Monitor. Features such as data analysis, visualizations, or alerting require you to understand the differences so that you can implement your required scenario in the most efficient and cost effective manner.  
+Natively, Azure Monitor stores data as metrics, logs, or changes. Traces are stored in the Logs store. Each storage platform is optimized for particular monitoring scenarios, and each supports different features in Azure Monitor. Features such as data analysis, visualizations, or alerting require you to understand the differences so that you can implement your required scenario in the most efficient and cost effective manner.  
 
 | Pillar | Description |
 |:---|:---|
@@ -50,12 +48,11 @@ Natively, Azure Monitor consolidates data into storage as Metrics, Logs, or Chan
 | Distributed traces | Traces are series of related events that follow a user request through a distributed system. They can be used to determine behavior of application code and the performance of different transactions. While logs will often be created by individual components of a distributed system, a trace measures the operation and performance of your application across the entire set of components.<br><br>Distributed tracing in Azure Monitor is enabled with the [Application Insights SDK](app/distributed-tracing.md). Trace data is stored with other application log data collected by Application Insights and stored in Azure Monitor Logs. For more information, see [What is Distributed Tracing?](app/distributed-tracing.md). |
 | Changes | Changes are tracked using [Change Analysis](change/change-analysis.md). Changes are a series of events that occur in your Azure application and resources. Change Analysis is a subscription-level observability tool that's built on the power of Azure Resource Graph. <br><br> Once Change Analysis is enabled, the `Microsoft.ChangeAnalysis` resource provider is registered with an Azure Resource Manager subscription. Change Analysis' integrations with Monitoring and Diagnostics tools provide data to help users understand what changes might have caused the issues. Read more about Change Analysis in [Use Change Analysis in Azure Monitor](./change/change-analysis.md). |
 
+Azure Monitor aggregates and correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services.  Because this data is stored together, it can be correlated and analyzed using a common set of tools. 
+
 
 > [!NOTE]
 > It's important to distinguish between Azure Monitor Logs and sources of log data in Azure. For example, subscription level events in Azure are written to an [activity log](essentials/platform-logs-overview.md) that you can view from the Azure Monitor menu. Most resources will write operational information to a [resource log](essentials/platform-logs-overview.md) that you can forward to different locations. Azure Monitor Logs is a log data platform that collects activity logs and resource logs along with other monitoring data to provide deep analysis across your entire set of resources.
-
-# Insights
-Some resources in Azure Monitor also contains analysis tools that allow you to focus on the particular monitoring scenario without having to understand the differences between the types of data. These tools are called "Insights". Examples include [Application Insights](app/app-insights-overview.md) and [Container insights](containers/container-insights-overview.md).
 
 For many Azure resources, you'll see data collected by Azure Monitor right in their overview page in the Azure portal. Look at any virtual machine (VM), for example, and you'll see several charts that display performance metrics. Select any of the graphs to open the data in [Metrics Explorer](essentials/metrics-charts.md) in the Azure portal. With Metrics Explorer, you can chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
 
@@ -93,6 +90,8 @@ Enable monitoring for your application with [Application Insights](app/app-insig
 Azure Monitor can collect log data from any REST client by using the [Data Collector API](logs/data-collector-api.md). You can create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
 ## Insights and curated visualizations
+
+Some resources in Azure Monitor also contains analysis tools that allow you to focus on the particular monitoring scenario without having to understand the differences between the types of data. 
 
 Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Some Azure resource providers have a "curated visualization," which gives you a customized monitoring experience for that particular service or set of services. They generally require minimal configuration. Larger, scalable, curated visualizations are known as "insights" and marked with that name in the documentation and the Azure portal.  
 
