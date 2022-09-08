@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 09/02/2022
+ms.date: 09/08/2022
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -50,7 +50,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: August 2022*
+*Last updated: September 2022*
 
 ### Terminology used
 
@@ -87,6 +87,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Kubernetes Service (AKS)](../../aks/index.yml) | &#x2705; | &#x2705; |
 | [Azure Marketplace portal](https://azuremarketplace.microsoft.com/) | &#x2705; | &#x2705; |
 | [Azure Maps](../../azure-maps/index.yml) | &#x2705; | &#x2705; |
+| [Azure Metrics Advisor](https://azure.microsoft.com/services/metrics-advisor/) | &#x2705; | &#x2705; |
 | [Azure Monitor](../../azure-monitor/index.yml) (incl. [Application Insights](../../azure-monitor/app/app-insights-overview.md), [Log Analytics](../../azure-monitor/logs/data-platform-logs.md), and [Application Change Analysis](../../azure-monitor/app/change-analysis.md)) | &#x2705; | &#x2705; |
 | [Azure NetApp Files](../../azure-netapp-files/index.yml) | &#x2705; | &#x2705; |
 | [Azure Policy](../../governance/policy/index.yml) | &#x2705; | &#x2705; |
@@ -111,6 +112,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cloud Services](../../cloud-services/index.yml) | &#x2705; | &#x2705; |
 | [Cloud Shell](../../cloud-shell/overview.md) | &#x2705; | &#x2705; |
 | [Cognitive Search](../../search/index.yml) (formerly Azure Search) | &#x2705; | &#x2705; |
+| [Cognitive Services: Anomaly Detector](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) | &#x2705; | &#x2705; |
 | [Cognitive Services: Computer Vision](../../cognitive-services/computer-vision/index.yml) | &#x2705; | &#x2705; |
 | [Cognitive Services: Content Moderator](../../cognitive-services/content-moderator/index.yml) | &#x2705; | &#x2705; |
 | [Cognitive Services Containers](../../cognitive-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; |
