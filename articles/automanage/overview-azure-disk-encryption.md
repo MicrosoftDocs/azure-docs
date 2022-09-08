@@ -11,7 +11,10 @@ ms.custom: references_regions
 ---
 
 # Automanage and Azure Disk Encryption
+
 Automanage is compatible with VMs that have Azure Disk Encryption (ADE) enabled.
+
+## Azure Backup
 
 If you are using the Production environment, you will also be onboarded to Azure Backup. There is one prerequisite to successfully using ADE and Azure Backup:
 * Before you onboard your ADE-enabled VM to Automanage's Production environment, ensure that you have followed the steps located in the **Before you start** section of [this document](../backup/backup-azure-vms-encryption.md#before-you-start).
