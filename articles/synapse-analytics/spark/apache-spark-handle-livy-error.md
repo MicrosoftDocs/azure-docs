@@ -71,7 +71,7 @@ Each error code falls under one of the following four buckets:
 
 4. **Spark_Unknown_Unknown_java.lang.Exception**
 
-    An unknown failure the model wasn't able to classify.
+    An unknown failure, the model wasn't able to classify.
 
 
 The error codes (including and beyond the list shown above) along with the TSGs on how to resolve the issue will show up on the Synapse Studio application error pane if this feature is enabled.
