@@ -3,6 +3,7 @@ title: Concept of Immutable vault for Azure Backup (preview)
 description: This article explains about the concept of Immutable vault for Azure Backup, and how it helps in protecting data from malicious actors.
 ms.topic: conceptual
 ms.service: backup
+ms.custom: references_regions
 ms.date: 09/15/2022
 author: v-amallick
 ms.author: v-amallick
@@ -33,7 +34,7 @@ The immutability of a vault is a reversible setting that allows you to disable t
 | --- | --- |
 | **Disabled** | The vault doesn't have immutability enabled and no operations are blocked. |
 | **Enabled**  | The vault has immutability enabled and doesn't allow operations that could result in loss of backups. <br><br> However, the setting can be disabled. |
-| **Enabled and locked** | The vault has immutability enabled and doesn't allow operations that could result in loss of backups. <br><br> As the Immutable vault setting is now locked, it can't be disabled. <br><br> **Note**: As locking immutability is irreversible, ensure you take a well-informed decision when opting to lock. |
+| **Enabled and locked** | The vault has immutability enabled and doesn't allow operations that could result in loss of backups. <br><br> As the Immutable vault setting is now locked, it can't be disabled. <br><br> Note that immutability locking is irreversible, so ensure that you take a well-informed decision when opting to lock. |
 
 ## Restricted operations
 

@@ -28,7 +28,7 @@ You can enable immutability for a vault through its properties, follow these ste
 
 1. In the vault, go to **Properties** -> **Immutable vault**, and then select **Settings**.
 
-   :::image type="content" source="./media/backup-azure-immutable-vault/enable-immutable-vault-settings.png" alt-text="Screenshot showing to open the Immutable vault settings.":::
+   :::image type="content" source="./media/backup-azure-immutable-vault/enable-immutable-vault-settings.png" alt-text="Screenshot showing how to open the Immutable vault settings.":::
 
 1. On **Immutable vault**, select the checkbox for **Enable vault immutability** to enable immutability for the vault.
 
@@ -40,7 +40,7 @@ You can enable immutability for a vault through its properties, follow these ste
 
 1. Select **Apply** to save the changes.
 
-   :::image type="content" source="./media/backup-azure-immutable-vault/backup-azure-enable-immutability.png" alt-text="Screenshot showing to enable the Immutable vault settings.":::
+   :::image type="content" source="./media/backup-azure-immutable-vault/backup-azure-enable-immutability.png" alt-text="Screenshot showing how to enable the Immutable vault settings.":::
 
 ## Perform operations on Immutable vault
 
@@ -52,19 +52,19 @@ As per the [Restricted operations](backup-azure-immutable-vault-concept.md#restr
 
 Consider a policy with a daily backup point retention of *35 days* and weekly backup point retention of *two weeks*, as shown in the following screenshot.
 
-:::image type="content" source="./media/backup-azure-immutable-vault/view-backup-policy.png" alt-text="Screenshot showing to view a backup policy for modification.":::
+:::image type="content" source="./media/backup-azure-immutable-vault/view-backup-policy.png" alt-text="Screenshot showing how to view a backup policy for modification.":::
 
 Now, let's try to reduce the retention of daily backup points to *30 days*, reducing by *5 days*, and save the policy.
 
 You'll see that the operation fails with the information that the vault has immutability enabled, and therefore, any changes that could reduce retention of recovery points are disallowed.
 
-:::image type="content" source="./media/backup-azure-immutable-vault/modify-policy-to-reduce-retention.png" alt-text="Screenshot showing to modify backup policy to reduce backup retention.":::
+:::image type="content" source="./media/backup-azure-immutable-vault/modify-policy-to-reduce-retention.png" alt-text="Screenshot showing how to modify backup policy to reduce backup retention.":::
 
 Now, let's try to increase the retention of daily backup points to *40 days*, increasing by *5 days*, and save the policy.
 
 This time, the operation successfully passes as no recovery points can be deleted as part of this update.
 
-:::image type="content" source="./media/backup-azure-immutable-vault/modify-policy-to-increase-retention.png" alt-text="Screenshot showing to modify backup policy to increase backup retention.":::
+:::image type="content" source="./media/backup-azure-immutable-vault/modify-policy-to-increase-retention.png" alt-text="Screenshot showing how to modify backup policy to increase backup retention.":::
 
 ## Disable immutability
 
@@ -74,13 +74,13 @@ You can disable immutability only for vaults that have immutability enabled, but
 
 1. In the vault, go to **Properties** -> **Immutable vault**, and then select **Settings**.
 
-   :::image type="content" source="./media/backup-azure-immutable-vault/disable-immutable-vault-settings.png" alt-text="Screenshot showing to open the Immutable vault settings to disable.":::
+   :::image type="content" source="./media/backup-azure-immutable-vault/disable-immutable-vault-settings.png" alt-text="Screenshot showing how to open the Immutable vault settings to disable.":::
 
 1. In the **Immutable vault** blade, clear the checkbox for **Enable vault Immutability**.
 
 1. Select **Apply** to save the changes.
 
-   :::image type="content" source="./media/backup-azure-immutable-vault/backup-azure-disable-immutability.png" alt-text="Screenshot showing to disable the Immutable vault settings.":::
+   :::image type="content" source="./media/backup-azure-immutable-vault/backup-azure-disable-immutability.png" alt-text="Screenshot showing how to disable the Immutable vault settings.":::
 
 ## Next steps
 
