@@ -75,7 +75,7 @@ sections:
 
           No. Currently, continuous backup mode and Azure Synapse Link can't coexist in the same database account.
       - question: |
-          Is continuous backup mode supported for Table API and Gremlin API?
+          Is continuous backup mode supported for API for Table or Gremlin?
         answer: |
 
           Yes, currently it is in preview and restore is supported from PowerShell and the Azure CLI.
