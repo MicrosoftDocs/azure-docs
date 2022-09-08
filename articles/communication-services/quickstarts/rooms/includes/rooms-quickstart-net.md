@@ -7,10 +7,10 @@ manager: mariusu
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 01/26/2022
+ms.date: 09/08/2022
 ms.topic: include
 ms.custom: include file
-ms.author: radubulboaca
+ms.author: antonsamson-msft
 ---
 
 ## Prerequisites
