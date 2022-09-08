@@ -43,7 +43,7 @@ As part of compliance requirements in various industries, vendors are expected t
 
 ## How the play action workflow looks
 
-![Play action](./PlayActionFlow.png)
+![Screenshot of flow for play action.](./play-action-flow.png)
 
 ## Known Issues/Limitations
 1. Play action is not enabled to work with Teams Interoperability.
