@@ -13,14 +13,14 @@ ms.author: bharat
 
 ## Prerequisites
 
-Before you start testing Unmixed Audio recording, please make sure you complete the following steps:
+Before you start testing Unmixed Audio recording, make sure you complete the following steps:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 - Subscribe to events via an [Azure Event Grid](../../../../../event-grid/overview.md) Web hook.
 - Download the [Java SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callingserver/overview/1.0.0-alpha.20220829.1 )
 - This quickstart assumes you have some experience using the [Calling Client SDK](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling). **Important**: To fetch `serverCallId` from Calling SDK, refer to the [JavaScript](../../get-servercallid.md) example.
-- Make sure to provide the Azure Communication Services Call Recording team with your [immutable azure resource ID](../../get-resourceid.md) to be allowlisted during the private preview tests.
+- Make sure to provide the Azure Communication Services Call Recording team with your [immutable Azure resource ID](../../get-resourceid.md) to be allowlisted during the **private preview** tests.
 
 
 ## 1. Create a Call Automation client
@@ -159,4 +159,4 @@ Use `deleteRecordingWithResponse` method of `CallRecording` class for deleting t
 ```
 Response<Void> deleteResponse = callAutomationClient.getCallRecording().deleteRecordingWithResponse(deleteLocation, context);
 ```
-The delete location for the recording can be fetched from the `deleteLocation` field of the EventGrid event.
+The delete location for the recording can be fetched from the `deleteLocation` field of the Event Grid event.
