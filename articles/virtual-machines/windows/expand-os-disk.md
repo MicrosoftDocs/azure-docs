@@ -35,7 +35,7 @@ This feature has the following limitations:
 ## Resize a managed disk in the Azure portal
 
 > [!IMPORTANT]
-> If you've enabled **LiveResize** and your disk meets the requirements in [Expand without downtime](#expand-without-downtime), you can skip step 1.
+> If your disk meets the requirements in [Expand without downtime](#expand-without-downtime), you can skip step 1.
 
 1. In the [Azure portal](https://portal.azure.com/), go to the virtual machine in which you want to expand the disk. Select **Stop** to deallocate the VM.
 1. In the left menu under **Settings**, select **Disks**.
@@ -90,7 +90,7 @@ $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
 > [!IMPORTANT]
-> If you've enabled **LiveResize** and your disk meets the requirements in [expand without downtime](#expand-without-downtime), you can skip step 4 and 6.
+> If your disk meets the requirements in [expand without downtime](#expand-without-downtime), you can skip step 4 and 6.
 
 Stop the VM before resizing the disk:
    
