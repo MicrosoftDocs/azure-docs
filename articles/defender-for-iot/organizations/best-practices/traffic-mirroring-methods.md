@@ -157,8 +157,6 @@ The following TAP models have been tested for compatibility with Defender for Io
 
 - **Garland P1GCCAS**
 
-    :::image type="content" source="../media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot of Garland P1GCCAS." border="false":::
-
     When using a Garland TAP, make sure jumpers are set as follows:
 
     :::image type="content" source="../media/how-to-set-up-your-network/jumper-setup-v2.jpg" alt-text="Screenshot of US Robotics switch.":::
@@ -168,8 +166,6 @@ The following TAP models have been tested for compatibility with Defender for Io
     :::image type="content" source="../media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3." border="false":::
 
 - **US Robotics USR 4503**
-
-    :::image type="content" source="../media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot of US Robotics USR 4503.":::
 
     When using a US Robotics TAP, make sure **Aggregation mode** is active.
 
