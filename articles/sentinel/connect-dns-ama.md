@@ -10,9 +10,9 @@ ms.author: lwainstein
 
 # Stream and filter data from Windows DNS servers with the AMA connector
 
-This article describes how to use the AMA connector to stream and filter events from your Windows Domain Name System (DNS) server logs. You can then deeply analyze your data to protect your DNS servers from threats and attacks.
+This article describes how to use the Azure Monitor Agent (AMA) connector to stream and filter events from your Windows Domain Name System (DNS) server logs. You can then deeply analyze your data to protect your DNS servers from threats and attacks.
 
-The Azure Monitor Agent (AMA) and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace. [Learn about the connector](#windows-dns-events-via-ama-connector).
+The AMA and its DNS extension are installed on your Windows Server to upload data from your DNS analytical logs to your Microsoft Sentinel workspace. [Learn about the connector](#windows-dns-events-via-ama-connector).
 
 > [!IMPORTANT]
 > The Windows DNS Events via AMA connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.   
@@ -35,7 +35,7 @@ Some well-known threats that target DNS servers include:
 
 ### Windows DNS Events via AMA connector
 
-While some mechanisms were introduced to improve the overall security of this protocol, DNS servers are still a highly targeted service. Organizations can monitor DNS logs to better understand network activity, and to identify suspicious behavior or attacks targeting resources within the network. The Windows DNS Events via AMA connector provides this type of visibility. 
+While some mechanisms were introduced to improve the overall security of this protocol, DNS servers are still a highly targeted service. Organizations can monitor DNS logs to better understand network activity, and to identify suspicious behavior or attacks targeting resources within the network. The **Windows DNS Events via AMA** connector provides this type of visibility. 
 
 With the connector, you can:  
 - Identify clients that try to resolve malicious domain names.
@@ -53,7 +53,7 @@ With the connector, you can:
     > The Windows DNS Events via AMA connector currently supports analytic event activities only.
  
 1. The connector streams the events to the Microsoft Sentinel workspace to be further analyzed. 
-1. You can now use advanced filters to filter out specific events or information. This allows you to upload only the valuable data you want to monitor, reducing costs and bandwidth usage. 
+1. You can now use advanced filters to filter out specific events or information. With advanced filters, you upload only the valuable data you want to monitor, reducing costs and bandwidth usage. 
 
 ### Normalization using ASIM
 
@@ -81,7 +81,7 @@ Before you begin, verify that you have:
 - A defined Microsoft Sentinel workspace.
 - Windows Server 2012 R2 with auditing hotfix and later.
 - A Windows DNS Server with analytical logs enabled. 
-- To collect events from any system that is not an Azure virtual machine, the system must have [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) installed and enabled before you enable the Azure Monitor Agent-based connector. This includes:
+- To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed. Install and enable Azure Arc before you enable the Azure Monitor Agent-based connector. This requirement includes:
     - Windows servers installed on physical machines
     - Windows servers installed on on-premises virtual machines
     - Windows servers installed on virtual machines in non-Azure clouds 
@@ -98,31 +98,31 @@ Before you begin, verify that you have:
 
 The DCR name, subscription, and resource group are automatically set based on the workspace name, the current subscription, and the resource group the connector was selected from.
 
-:::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-create-DCR.png" alt-text="Screenshot of creating a new D C R for the Windows D N S over A M A connector.":::
+:::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-create-dcr.png" alt-text="Screenshot of creating a new D C R for the Windows D N S over A M A connector.":::
 
 #### Define resources (VMs)
 
 1. Select the **Resources** tab and select **Add Resource(s)**. 
 1. Select the VMs on which you want to install the connector to collect logs.
 
-    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-select-resource.png" alt-text="Screenshot of selecting resources for the Windows D N S over A M A connector.":::
+    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-select-resource.png" alt-text="Screenshot of selecting resources for the Windows D N S over A M A connector.":::
 
 1. Review your changes and select **Save** > **Apply**.  
 
 #### Filter out undesired events
 
-When you use filters, you exclude the event that the filter specifies. In other words, Microsoft Sentinel doesn't collect data for the specified event. While this step is not required, it can help reduce costs and simplify event triage. 
+When you use filters, you exclude the event that the filter specifies. In other words, Microsoft Sentinel doesn't collect data for the specified event. While this step isn't required, it can help reduce costs and simplify event triage. 
 
 To create filters:
 
 1. On the connector page, in the **Configuration** area, select **Add data collection filters**. 
 1. Type a name for the filter and select the filter type. The filter type is a parameter that reduces the number of collected events. The parameters are normalized according to the DNS normalized schema. See the list of [available fields for filtering](dns-ama-fields.md#available-fields-for-filtering).
 
-    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-create-filter.png" alt-text="Screenshot of creating a filter for the Windows D N S over A M A connector.":::
+    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-create-filter.png" alt-text="Screenshot of creating a filter for the Windows D N S over A M A connector.":::
 
 1. To add complex filters, select **Add field to filter** and add the relevant field.
 
-    :::image type="content" source="media/connect-dns-ama/Windows-DNS-AMA-connector-filter-fields.png" alt-text="Screenshot of adding fields to a filter for the Windows D N S over A M A connector.":::
+    :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-filter-fields.png" alt-text="Screenshot of adding fields to a filter for the Windows D N S over A M A connector.":::
 
 1. To add new filters, select **Add new filters**.  
 1. To edit, or delete existing filters or fields, select the edit or delete icons in the table under the **Configuration** area. To add fields or filters, select **Add data collection filters** again.
@@ -221,14 +221,14 @@ Review the [available fields for filtering](dns-ama-fields.md#available-fields-f
 You can use wildcards in advanced filters. Review these considerations when using wildcards: 
 
 - Add a dot after each asterisk (`*.`).
-- Do not use spaces between the list of domains.
+- Don't use spaces between the list of domains.
 - Wildcards apply to the domain's subdomains only, including `www.domain.com`, regardless of the protocol. For example, if you use `*.domain.com` in an advanced filter: 
-    - The filter applies to `www.domain.com` and `subdomain.domain.com`, regardless of whether the protocols is HTTPS, FTP, and so on. 
+    - The filter applies to `www.domain.com` and `subdomain.domain.com`, regardless of whether the protocol is HTTPS, FTP, and so on. 
     - The filter doesn't apply to `domain.com`. To apply a filter to `domain.com`, specify the domain directly, without using a wildcard.  
 
 ### Advanced filter examples
 
-#### Do not collect specific event IDs
+#### Don't collect specific event IDs
 
 This filter instructs the connector not to collect EventID 256 or EventID 257 or EventID 260 with IPv6 addresses.
 
@@ -283,7 +283,7 @@ This filter instructs the connector not to collect EventID 256 or EventID 257 or
 ]
 ```
 
-#### Do not collect events with specific domains
+#### Don't collect events with specific domains
  
 This filter instructs the connector not to collect events from any subdomains of microsoft.com, google.com, amazon.com, or events from facebook.com or center.local.
 
