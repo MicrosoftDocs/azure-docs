@@ -28,7 +28,7 @@ The [sample solution](https://github.com/Azure-Samples/container-apps-store-api-
 :::image type="content" source="media/dapr-github-actions/arch.png" alt-text="Diagram demonstrating microservices app.":::
 
 > [!NOTE]
-> This tutorial focuses on the solution deployment outlined below. If you're interested in building and running the solution on your own, [follow the README instructions within the repo](https://github.com/azure-samples/container-apps-store-api-microservice/build-and-run.md).
+> This tutorial focuses on the solution deployment outlined below. If you're interested in building and running the solution on your own, [follow the README instructions within the repo](https://github.com/Azure-Samples/container-apps-store-api-microservice/blob/main/build-and-run.md).
 
 ## Prerequisites
 
