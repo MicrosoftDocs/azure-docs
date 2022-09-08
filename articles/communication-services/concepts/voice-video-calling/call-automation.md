@@ -70,7 +70,7 @@ Event Grid – Azure Communication Services uses Event Grid to deliver the Incom
 
 Web hooks – Calling Automation SDKs use standard web hook HTTP/S callbacks for call state change events and responses to mid-call actions.
 
-![Screenshot of flow for incoming call and actions.](./action%20architecture.png)
+![Screenshot of flow for incoming call and actions.](./action-architecture.png)
 
 
 ## Call Actions
