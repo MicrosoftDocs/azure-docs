@@ -16,7 +16,7 @@ Synapse Analytics were surfaced with a generic error code displaying *LIVY_JOB_S
 
 ![Screenshot of old error codes.](./media/apache-spark-error-classification/apache-spark-old-error-view.png)
 
-To make this process easier, we have introduced a more precise list of error codes, to replace the previous generic one, that describes the cause of failure. Now whenever a job fails on Azure Synapse Analytics, the error handling feature parses and checks the logs on the backend to identify the root cause and display it to the user on the monitoring pane along with the steps to take to resolve the issue.
+We have introduced a more precise list of error codes that replaces the previous generic message. The new message describes the cause of failure. Whenever a job fails on Azure Synapse Analytics, the error handling feature parses and checks the logs on the backend to identify the root cause and displays it to the user on the monitoring pane along with the steps to resolve the issue.
 
 ![Screenshot of New error codes.](./media/apache-spark-error-classification/apache-spark-new-error-view.png)
 
