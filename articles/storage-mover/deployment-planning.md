@@ -11,9 +11,9 @@ ms.date: 08/29/2022
 
 <!-- 
 !########################################################
-STATUS: DRAFT
+STATUS: IN REVIEW
 
-CONTENT: Finish minimal RBAC permissions table
+CONTENT: final
 
 REVIEW Stephen/Fabian: not reviewed
 REVIEW Engineering: not reviewed
@@ -24,18 +24,8 @@ EDIT PASS: not started
 
 
 # Plan a successful Azure Storage Mover deployment
-<!-- Lead with a light intro that describes what the article covers. Answer the fundamental "why would I want to know this information?" question. Keep it short. -->
 
 Deploying Azure Storage Mover in one of your Azure subscriptions is the first step in realizing your migration goals. Azure Storage Mover can help you with the migration of your files and folders into Azure Storage. This article discusses the important decisions and best practices for a Storage Mover deployment.
-
-<!-- 
-3. H2s
-
-##Docs Required## 
-
-Give each H2 a heading that sets expectations for the content that follows. Follow the H2 headings with a sentence about how the section contributes to the whole. 
-
-Prescriptively direct the customer through the procedure end-to-end. Don't link to other content (until 'next steps'), but include whatever the customer needs to complete the scenario in the article. -->
 
 ## Make sure the service works for your scenario
 
@@ -88,29 +78,15 @@ Once a subscription is enabled for both of these resource provider namespaces, i
 
 Azure Storage Mover requires special care for the permissions an admin needs for various management scenarios. The service exclusively uses [Role Based Access Control (RBAC)](../role-based-access-control/overview.md) for management actions (control plane) and for target storage access (data plane).
 
-
-
-
-<!-- FINISH TABLE: Permissions not yet tested - UNCONFIRMED -->
-
 |Scenario |Minimal RBAC role assignments needed                                             |
 |:--------|--------------------------------------------------------------------------------:|
 |Register a resource provider namespace with a subscription|	Subscription: `Contributor`	|
 |Deploy a storage mover resource <br />*([Both RP namespaces already registered](#resource-provider-namespaces))*|	Subscription: `Reader` <br />Resource group: `Contributor` |
-|Register an agent <br />*([Both RP namespaces already registered](#resource-provider-namespaces))*| Subscription: `Reader` <br />Resource group: `Contributor` <br />Storage mover: `Owner`	|
+|Register an agent <br />*([Both RP namespaces already registered](#resource-provider-namespaces))*| Subscription: `Reader` <br />Resource group: `Contributor` <br />Storage mover: `Contributor`	|
 |Start a migration <br />*(first time this agent is used for this target)* | Subscription: `Reader` <br />Resource group: `Contributor` <br />Storage mover: `Contributor` <br />Target storage account: `Owner`	|
-|Re-run a migration <br /> *(second + n time this agent is used for this target)*| Subscription: `Reader` <br />Resource group: `Contributor` <br />Target storage mover: `Contributor` <br />Storage account: *none*	|
-
-
-
+|Re-run a migration <br /> *(second + n time this agent is used for this target)*| Subscription: `Reader` <br />Resource group: `Contributor` <br />Target storage mover: `Contributor` <br />Target storage account: *none*	|
 
 If you want to learn more about how the agent gets access to migrate the data, review the [agent authentication and authorization](agent-register.md#authentication-and-authorization) section in the [agent registration article](agent-register.md).
-
-<!-- 
-4. Next steps
-##Docs Required##
-
-We must provide at least one next step, but should provide no more than three. This should be relevant to the learning path and provide context so the customer can determine why they would click the link.-->
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

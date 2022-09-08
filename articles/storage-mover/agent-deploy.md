@@ -12,8 +12,7 @@ ms.date: 08/25/2022
 !########################################################
 STATUS: IN REVIEW
 
-CONTENT: critical content missing
-        - agent resources for a certain volume of namespace items        
+CONTENT: final       
 
 REVIEW Stephen/Fabian: COMPLETE
 REVIEW Engineering: not reviewed
