@@ -3,11 +3,14 @@ title: Azure Virtual Desktop user connection latency - Azure
 description: Connection latency for Azure Virtual Desktop users.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/25/2022
+ms.date: 09/15/2022
 ms.author: helohr
 manager: femila
 ---
 # Connection quality in Azure Virtual Desktop
+
+>[IMPORTANT]
+>The Connection Graphics Data Logs are currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Virtual Desktop helps users host client sessions on their session hosts running on Azure. When a user starts a session, they connect from their end-user device, also known as a "client," over a network to access the session host. It's important that the user experience feels as much like a local session on a physical device as possible. In this article, we'll talk about how you can measure and improve the connection quality of your end-users.
 
@@ -21,7 +24,7 @@ If you're already using [Azure Log Analytics](diagnostics-log-analytics.md), you
 
 - The round trip time measured in this table is protocol-agnostic and will record the measured latency for Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) connections.
 
-To start collecting this data, you’ll need to make sure you have diagnostics and the **Network Data Logs** and **Connection Graphics Data Logs** tables enabled in your Azure Virtual Desktop host pools.
+To start collecting this data, you’ll need to make sure you have diagnostics and the **Network Data Logs** and **Connection Graphics Data Logs Preview** tables enabled in your Azure Virtual Desktop host pools.
 
 >[!NOTE]
 >Normal storage charges for Log Analytics will apply. Learn more at [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md).
@@ -34,7 +37,7 @@ To check and modify your diagnostics settings in the Azure portal:
 
 3. Select **Diagnostic settings**, then create a new setting if you haven't configured your diagnostic settings yet. If you've already configured your diagnostic settings, select **Edit setting**.
 
-4. Select **allLogs** or select the names of the diagnostics tables you want to collect data for, including **Network Data Logs** and **Connection Graphics Data Logs**. The *allLogs* parameter will automatically add new tables to your data table in the future.
+4. Select **allLogs** or select the names of the diagnostics tables you want to collect data for, including **Network Data Logs** and **Connection Graphics Data Logs Preview**. The *allLogs* parameter will automatically add new tables to your data table in the future.
 
 5. Select where you want to send the collected data. Azure Virtual Desktop Insights users should select a Log Analytics workspace. 
 
@@ -64,12 +67,12 @@ The network data you collect for your data tables includes the following informa
 - The **source system**, **Subscription ID**, **Tenant ID**, and **type** (table name).
 
 #### Frequency
+
 The service generates these network data points every two minutes during an active session.
 
-### Connection graphics data
+### Connection graphics data (preview)
 
-You should consult the Graphics data table when users report slow or choppy experiences in their Azure Virtual Desktop session. The table provides information when graphical indicators, end to end delay and dropped frames percentage, fall below the healthy threshold set by Azure Virtual Desktop. This table will help your admins track and understand a few common causes across the server, client, and network that could be contributing to the user's slow or choppy experience. However, while the Graphics data table is a useful tool for troubleshooting poor user experience, since it's not regularly populated throughout a session, it is not a reliable environment baseline.
-
+You should consult the Graphics data table (preview) when users report slow or choppy experiences in their Azure Virtual Desktop sessions. The Graphics data table will give you useful information whenever graphical indicators, end-to-end delay, and dropped frames percentage fall below the "healthy" threshold for Azure Virtual Desktop. This table will help your admins track and understand factors across the server, client, and network that could be contributing to the user's slow or choppy experience. However, while the Graphics data table is a useful tool for troubleshooting poor user experience, since it's not regularly populated throughout a session, it isn't a reliable environment baseline.
 
 The Graphics table only captures performance data from the Azure Virtual Desktop graphics stream. This table doesn't capture performance degradation or "slowness" caused by application-specific factors or the virtual machine (CPU or storage constraints). You should use this table with other VM performance metrics to determine if the delay is caused by the remote desktop service (graphics and network) or something inherent in the VM or app itself.
 
