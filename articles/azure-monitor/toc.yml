@@ -593,7 +593,7 @@ items:
         href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
       - name: Windows Arc-enabled server
         href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
-      - name: Troubleshooting legacy agents
+      - name: Troubleshoot legacy agents
         displayName: Troubleshooting guidance
         items:
         - name: Log Analytics VM Extension
