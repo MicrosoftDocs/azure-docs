@@ -651,7 +651,7 @@ items:
         href: alerts/alerts-metric-logs.md
       - name: Using Resource Manager template
         href: alerts/alerts-metric-create-templates.md
-      - name: Troubleshoot metric alerts
+      - name: FAQ
         href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:
