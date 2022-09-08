@@ -66,14 +66,10 @@ az keyvault create -g <RESOURCE GROUP NAME> -l <LOCATION> -n <KEYVAULT NAME>
 
 ### Import certificate to Azure Key Vault
 
-Import the SSL certificate into Azure Key Vault then retrieve the certificate URI which you will use later to configure the Ingress.
+Import the SSL certificate into Azure Key Vault.
 
-```azurecli
-# Import the certificate into Azure Key Vault
+```azurecli-interactive
 az keyvault certificate import --vault-name <KEYVAULT NAME> -n <KEYVAULT CERTIFICATE NAME> -f aks-ingress-tls.pfx
-
-# Retrieve the certificate URI
-az keyvault certificate show --vault-name <KEYVAULT NAME> --name <KEYVAULT CERTIFICATE NAME> -o jsonc | jq .id
 ```
 
 ### Create an Azure DNS zone (optional)
@@ -182,7 +178,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 ## Deploying an application that uses Web Application Routing
 
-Web Application Routing uses annotations on Kubernetes Ingress objects to create the appropriate resources, create records Azure DNS (when configured), and retrieve the SSL certificates from Azure Key Vault.
+Web Application Routing uses annotations on Kubernetes Ingress objects to create the appropriate resources, create records on Azure DNS (when configured), and retrieve the SSL certificates from Azure Key Vault.
 
 # [With Open Service Mesh (OSM)](#tab/with-osm)
 
