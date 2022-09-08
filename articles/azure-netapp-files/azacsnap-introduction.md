@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/29/2022
+ms.date: 09/07/2022
 ms.author: phjensen
 ---
 
@@ -60,6 +60,15 @@ AzAcSnap is a single binary.  It does not need additional agents or plug-ins to 
 AzAcSnap can be installed on the same host as the database (SAP HANA), or it can be installed on a centralized system.  But, there must be network connectivity to the database servers and the storage back-end (Azure Resource Manager for Azure NetApp Files or SSH for Azure Large Instance).
 
 AzAcSnap is a lightweight application that is typically executed from an external scheduler.  On most Linux systems, this operation is `cron`, which is what the documentation will focus on.  But the scheduler could be an alternative tool as long as it can import the `azacsnap` user's shell profile.  Importing the user's environment settings ensures file paths and permissions are initialized correctly.
+
+## Technical articles
+
+This is a list of technical articles where AzAcSnap has been used as part of a data protection strategy.
+
+* [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
+* [Manual Recovery Guide for SAP Oracle 19c on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-oracle-19c-on-azure-vms-from-azure/ba-p/3242408)
+* [Manual Recovery Guide for SAP HANA on Azure Large Instance from storage snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-large-instance-from/ba-p/3242347)
+* [Automating SAP system copy operations with Libelle SystemCopy](https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/libelle-sc-overview.html)
 
 ## Command synopsis
 
