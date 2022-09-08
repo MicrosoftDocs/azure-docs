@@ -5,7 +5,7 @@ ms.author: esarroyo
 author: StefArroyo 
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 11/08/2021
 ms.custom: devx-track-csharp
@@ -29,7 +29,7 @@ This article walks through common use cases and how Azure Cosmos DB insights can
 
 1. Open the **Insights** pane. By default, the Insights pane shows the throughput, requests, storage, availability, latency, system, and account management metrics for ever container in your account. You can select the **Time Range**, **Database**, and **Container** for which you want to view insights. The **Overview** tab shows RU/s usage, data usage, index usage, throttled requests, and normalized RU/s consumption for the selected database and container.
 
-   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB performance metrics in Azure portal" lightbox="./media/use-metrics/performance-metrics.png" :::
+   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Azure Cosmos DB performance metrics in Azure portal" lightbox="./media/use-metrics/performance-metrics.png" :::
 
 1. The following metrics are available from the **Insights** pane:
 
@@ -85,7 +85,7 @@ If you would like to conserve index space, you can adjust the [indexing policy](
 
 ## Debug why queries are running slow
 
-In the SQL API SDKs, Azure Cosmos DB provides query execution statistics.
+In the API for NoSQL SDKs, Azure Cosmos DB provides query execution statistics.
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
