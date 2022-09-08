@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 06/17/2022
+ms.date: 09/07/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.author: timwarner
@@ -25,16 +25,12 @@ Azure Policy for Kubernetes supports the following cluster environments:
 
 - [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md)
 - [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md)
-- [AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> The add-ons for AKS Engine and Arc enabled Kubernetes are in **preview**. Azure Policy for
-> Kubernetes only supports Linux node pools and built-in policy definitions (custom policy
-> definitions is a _public preview_ feature). Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceOPAConstraint** and
-> **EnforceRegoPolicy** effect and the related **Kubernetes Service** category are _deprecated_.
-> Instead, use the effects _audit_ and _deny_ with Resource Provider mode
-> `Microsoft.Kubernetes.Data`.
+> The add-on for Arc-enabled Kubernetes is in **preview**. The add-on for AKS Engine
+> is now **deprecated**. Azure Policy for Kubernetes supports only Linux node pools and built-in policy
+> definitions (custom policy definitions is also a **preview** feature). Built-in policy definitions
+> are in the **Kubernetes** category.
 
 ## Overview
 
@@ -392,8 +388,7 @@ you created it with.
 
    > [!NOTE]
    > When assigning the Azure Policy for Kubernetes definition, the **Scope** must include the
-   > cluster resource. For an AKS Engine cluster, the **Scope** must be the resource group of the
-   > cluster.
+   > cluster resource.
 
 1. Give the policy assignment a **Name** and **Description** that you can use to identify it easily.
 
