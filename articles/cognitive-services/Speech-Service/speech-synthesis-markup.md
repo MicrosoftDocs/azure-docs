@@ -651,10 +651,7 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 
 ### Change speaking rate
 
-Speaking rate can be applied at the word or sentence level.
-
-> [!NOTE]
-> The rate changes should be within 0.5 to 2 times the original audio.
+Speaking rate can be applied at the word or sentence level. The rate changes should be within 0.5 to 2 times the original audio.
 
 **Example**
 
@@ -670,10 +667,7 @@ Speaking rate can be applied at the word or sentence level.
 
 ### Change volume
 
-Volume changes can be applied at the sentence level.
-
-> [!NOTE]
-> The volume changes should be within 0 to 1.5 times the original audio.
+Volume changes can be applied at the sentence level. The volume changes should be within 0 (silence) to 1.5 times the original audio.
 
 **Example**
 
@@ -689,10 +683,7 @@ Volume changes can be applied at the sentence level.
 
 ### Change pitch
 
-Pitch changes can be applied at the sentence level.
-
-> [!NOTE]
-> The pitch changes should be within 0.5 to 1.5 times the original audio.
+Pitch changes can be applied at the sentence level. The pitch changes should be within 0.5 to 1.5 times the original audio.
 
 **Example**
 
