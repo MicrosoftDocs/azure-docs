@@ -771,7 +771,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     <pre><code>sudo service corosync restart
     </code></pre>
 
-### Create a STONITH device on the Pacemaker cluster
+### Create a fencing device on the Pacemaker cluster
 
 1. **[1]** If you're using an SDB device (iSCSI target server or Azure shared disk) as STONITH, run the following commands. Enable the use of a STONITH device, and set the fence delay.
 
