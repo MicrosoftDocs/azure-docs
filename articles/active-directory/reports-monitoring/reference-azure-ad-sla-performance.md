@@ -3,7 +3,7 @@ title: Azure Active Directory SLA performance | Microsoft Docs
 description: Learn about the Azure AD SLA performance
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
 editor: ''
 
@@ -13,8 +13,8 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 09/08/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
