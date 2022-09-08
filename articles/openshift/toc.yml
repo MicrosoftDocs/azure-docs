@@ -28,6 +28,8 @@
           href: howto-upgrade.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
+        - name: Use GPU workloads
+          href: howto-gpu-workloads.md
     - name: Networking 
       items:
         - name: Create a private Azure Red Hat OpenShift cluster
@@ -64,6 +66,8 @@
           href: howto-service-principal-credential-rotation.md
         - name: Enable FIPS on a cluster
           href: howto-enable-fips-openshift.md
+        - name: Enable Network Security Group flow logs
+          href: howto-enable-nsg-flowlogs.md
     - name: Back up and restore
       items:
         - name: Create a backup of a cluster application with Velero

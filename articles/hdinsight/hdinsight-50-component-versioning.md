@@ -10,7 +10,7 @@ ms.date: 08/25/2022
 
 In this article, you learn about the open-source components and their versions in Azure HDInsight 5.0.
 
-Starting June 1, 2022, we have started rolling out a new  version of HDInsight 5.0, this version is backward compatible with HDInsight 4.0. All new open-source releases will be added as incremental releases on HDInsight 5.0.
+Starting June 1, 2022, we have started rolling out a new version of HDInsight 5.0, this version is backward compatible with HDInsight 4.0. All new open-source releases will be added as incremental releases on HDInsight 5.0.
 
 ## Open-source components available with HDInsight version 5.0
 
@@ -18,12 +18,12 @@ The Open-source component versions associated with HDInsight 5.0 are listed in t
 
 | Component              | HDInsight 5.0 | HDInsight 4.0 |
 |------------------------|---------------| --------------|
-|Apache Spark | 3.1.2 | 2.4.4, 3.1 |
+|Apache Spark | 3.1.2 | 2.4.4|
 |Apache Hive | 3.1.2 | 3.1.2 |
-|Apache Kafka | 2.4.1 | 2.1.1, 2.4.1(Preview) |
+|Apache Kafka | 2.4.1 | 2.1.1|
 |Apache Hadoop |3.1.1 | 3.1.1 |
-|Apache Tez | 0.9.1 |  0.9.1 |
-|Apache Pig	| 0.16.0 | 0.16.1 |
+|Apache Tez |0.9.1 | 0.9.1 |
+|Apache Pig	| 0.16.1 | 0.16.1 |
 |Apache Ranger | 1.1.0 | 1.1.0 |
 |Apache Sqoop | 1.5.0 | 1.5.0 |
 |Apache Oozie | 4.3.1 | 4.3.1 |
@@ -59,20 +59,22 @@ you need to select this version Interactive Query 3.1 (HDI 5.0).
 
 ## Kafka 
 
-**Known Issue**  – Current ARM template supports only 4.0 even though it shows 5.0 image in portal Cluster creation may fail with the following error message if you select version 5.0 in the UI.
+**Known Issue –** Current ARM template supports only 4.0 even though it shows 5.0 image in portal Cluster creation may fail with the following error message if you select version 5.0 in the UI.
 
 `HDI Version'5.0" is not supported for clusterType ''Kafka" and component Version ‘2.4'.,Cluster component version is not applicable for HDI version: 5.0 cluster type: KAFKA (Code: BadRequest)`
 
 We're working on this issue, and a fix will be rolled out shortly.
 
 ### Upcoming version upgrades. 
-HDInsight  team is working on upgrading other open-source components.
+HDInsight team is working on upgrading other open-source components.
+
 1. Spark 3.2.0
 1. Kafka 3.2.1
-1. HBase 2.4.9
+1. HBase 2.4.11
 
 ## Next steps
 
 - [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Enterprise Security Package](./enterprise-security-package.md)
 - [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
+

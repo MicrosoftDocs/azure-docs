@@ -185,7 +185,7 @@ This is usually caused when trying to run commands from remote PowerShell, which
 
 To install Azure Arc resource bridge on an Azure Stack HCI cluster, `az arcappliance` commands must be run locally on a node in the cluster. Sign in to the node through Remote Desktop Protocol (RDP) or use a console session to run these commands.
 
-## Azure Arc-enabled VMWare VCenter issues
+## Azure Arc-enabled VMware VCenter issues
 
 ### `az arcappliance prepare` failure
 
@@ -229,7 +229,7 @@ When deploying the resource bridge on VMware vCenter, you specify the folder in 
 
 ### Insufficient permissions
 
-When deploying the resource bridge on VMWare Vcenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that your user account has all of the following privileges in VMware vCenter and then try again.
+When deploying the resource bridge on VMware Vcenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that your user account has all of the following privileges in VMware vCenter and then try again.
 
 ```
 "Datastore.AllocateSpace"
@@ -345,6 +345,8 @@ When deploying the resource bridge on VMWare Vcenter, you may get an error sayin
 ```
 
 ## Next steps
+
+[Understand recovery operations for resource bridge in Azure Arc-enabled VMware vSphere disaster scenarios](../vmware-vsphere/disaster-recovery.md)
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for support:
 
