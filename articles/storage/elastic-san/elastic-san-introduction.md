@@ -62,6 +62,62 @@ You partition the appliance's storage capacity into individual volumes. These in
 
 The name of your volume is part of their iSCSI IQN. Follow these rules when naming a volume: The name must be 1 to 80 characters long, must be lowercase, and can only contain alphanumeric characters, underscores, and hyphens.
 
+## Support for Azure Storage features
+
+The following table indicates support for Azure Storage features with Azure Elastic SAN.
+
+The status of items in this table may change over time.
+
+| Storage feature | Supported for NFS shares |
+|-----------------|---------|
+| Encryption at rest|	✔️ |
+| Encryption in transit| ⛔ |
+| [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
+| [LRS to ZRS conversion](../common/redundancy-migration.md?tabs=portal#switch-between-types-of-replication)|	⛔ |
+| [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ⛔  |
+| [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
+| [Grant network access to specific IP addresses](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#grant-access-from-an-internet-ip-range)| ⛔ |
+| [Premium tier](storage-files-planning.md#storage-tiers) |  ✔️  |
+| Access same data from Windows and Linux client|  ✔️   |
+| [Soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
+| [Backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
+| [Snapshots](storage-snapshots-files.md)| ⛔ |
+| [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
+| [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)| ⛔ |
+
+### iSCSI support
+
+Elastic SAN has the following limitations with iSCSI:
+
+Currently doesn't support:
+- CHAP authorization
+- Initiator registration
+- iSCSI recovery level
+- EXSi iSCSI flow control
+
+Only the following iSCSI commands are currently supported:
+- TEST UNIT READY
+- REQUEST SENSE
+- INQUIRY
+- REPORT LUNS
+- RESERVE UNIT
+- RELEASE UNIT
+- MODE SENSE
+- READ CAPACITY (10)
+- READ CAPACITY (16)
+- READ (6)
+- READ (10)
+- READ (16)
+- WRITE (6)
+- WRITE (10)
+- WRITE (16)
+- WRITE VERIFY (10)
+- WRITE VERIFY (16)
+- VERIFY (10)
+- VERIFY (16)
+- SYNCHRONIZE CACHE (10)
+- SYNCHRONIZE CACHE (16)
+
 ## Next steps
 
 [Deploy an Elastic SAN](elastic-san-create.md)
