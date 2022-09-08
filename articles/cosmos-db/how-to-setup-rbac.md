@@ -470,13 +470,13 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 
 ### Which Azure Cosmos DB APIs are supported by RBAC?
 
-Only the SQL API is currently supported.
+Only the API for NoSQL is currently supported.
 
 ### Is it possible to manage role definitions and role assignments from the Azure portal?
 
 Azure portal support for role management is not available yet.
 
-### Which SDKs in Azure Cosmos DB SQL API support RBAC?
+### Which SDKs in Azure Cosmos DB API for NoSQL support RBAC?
 
 The [.NET V3](sql-api-sdk-dotnet-standard.md), [Java V4](sql-api-sdk-java-v4.md), [JavaScript V3](sql-api-sdk-node.md) and [Python V4.3+](sql-api-sdk-python.md) SDKs are currently supported.
 
@@ -490,5 +490,5 @@ Yes, see [Enforcing RBAC as the only authentication method](#disable-local-auth)
 
 ## Next steps
 
-- Get an overview of [secure access to data in Cosmos DB](secure-access-to-data.md).
+- Get an overview of [secure access to data in Azure Cosmos DB](secure-access-to-data.md).
 - Learn more about [RBAC for Azure Cosmos DB management](role-based-access-control.md).

@@ -60,7 +60,7 @@ Next, determine how the normalized utilization varies over time. Find the highes
 Let's take a look at two different example workloads and analyze if they are suitable for manual or autoscale throughput. To illustrate the general approach, we'll analyze three hours of history to determine the cost difference between using manual and autoscale. For production workloads, it's recommended to use 7 to 30 days of history (or longer if available) to establish a pattern of RU/s usage.
 
 > [!NOTE]
-> All the examples shown in this doc are based on the price for an Azure Cosmos account deployed in a non-government region in the US. The pricing and calculation vary depending on the region you are using, see the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
+> All the examples shown in this doc are based on the price for an Azure Cosmos DB account deployed in a non-government region in the US. The pricing and calculation vary depending on the region you are using, see the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
 
 Assumptions:
 - Suppose we currently have manual throughput of 30,000 RU/s. 
@@ -134,7 +134,7 @@ When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/
 ## Next steps
 * Use [RU calculator](https://cosmos.azure.com/capacitycalculator/) to estimate throughput for new workloads.
 * Use [Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to monitor your existing workloads.
-* Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
+* Learn how to [provision autoscale throughput on an Azure Cosmos DB database or container](how-to-provision-autoscale-throughput.md).
 * Review the [autoscale FAQ](autoscale-faq.yml).
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
