@@ -6,7 +6,7 @@ services: azure-communication-services
 author: radubulboaca
 manager: mariusu
 
-ms.author: antonsamson-msft
+ms.author: antonsamson
 ms.date: 09/01/2022
 ms.topic: quickstart
 ms.service: azure-communication-services

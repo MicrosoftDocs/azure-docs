@@ -10,7 +10,7 @@ ms.subservice: azure-communication-services
 ms.date: 09/08/2022
 ms.topic: include
 ms.custom: include file
-ms.author: antonsamson-msft
+ms.author: antonsamson
 ---
 
 ## Prerequisites
