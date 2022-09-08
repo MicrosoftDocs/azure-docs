@@ -45,7 +45,7 @@ Update your applications POM file to use Java 8 or higher.
 
 Since the Call Automation SDK version used in this quickstart is not yet available in Maven Central Repository, we need to add an Azure Artifacts development feed which contains the latest version of Call Automation SDK. 
 
-Please add the [azure-sdk-for-java feed]() to your `pom.xml`. Follow the instructions after clicking the "Connect to Feed" button.
+Please add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the "Connect to Feed" button.
 
 ## Add package references
 
@@ -69,7 +69,7 @@ Create an audio file, if you do not already have one, to use for playing prompts
 
 ## Update App.java with code
 
-In your editor of choice, open App.java file and update it with the [following code](../call-automation/Callflow-for-customer-interactions-java.md#update-appjava-with-code). 
+In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../call-automation/Callflow-for-customer-interactions-java.md) section. 
 
 ## Establish a call
 
