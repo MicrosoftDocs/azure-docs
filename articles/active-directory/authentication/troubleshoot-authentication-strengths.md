@@ -19,20 +19,21 @@ ms.collection: M365-identity-device-management
 
 This topic covers errors you might see when you use Azure Active Directory (Azure AD) authentication strength and how to resolve them.  
 
-### My user is getting prompted to use a different authentication method, but they don’t see the method I expect
+## A user is prompted to use a different authentication method, but they don’t see how to register the method
 
-When evaluating which method a user can use, we consider the authentication methods users are enabled and registered for. Please refer to [How Conditional Access Authentication strengths policies are used in combination with Authentication methods policy](/articles/active-directory/authentication/concept-authentication-strengths.md#how-conditional-access-authentication-strengths-policies-are-used-in-combination-with-authentication-methods-policy) for more information.
+To evaluate if a method can be used, we consider which authentication methods the user has registered and enabled. For more information, see [How Conditional Access Authentication strengths policies are used in combination with Authentication methods policy](concept-authentication-strengths.md#how-conditional-access-authentication-strengths-policies-are-used-in-combination-with-authentication-methods-policy).
 
-To verify what methods the user is registered and enabled please do the following:
-1.	Check which authentication methods are enabled by the Authentication strengths policy (Security > Authentication methods > Authentication strengths).
-2.	Check which methods are enabled for the user:
-a.	New authentication method policy (Security > Authentication methods > Policies): for each method in the Authentication strengths policy, check if the user is enabled as part of configured users.
-b.	Legacy authentication methods policy (Under Security > Multifactor Authentication > Additional cloud-based multifactor authentication settings): Check if the method is enabled in the tenant.
-3.	Check which methods the user has registered (Users and groups > Locate the user > authentication methods).
+To verify if a method can be used:
 
-If the user is registered and enabled for the method, it is possible they need to use an authentication method that is not available post primary authentication, such as Windows Hello for Business or Certificate-based authentication. Please refer to [How each authentication method works](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-methods#how-each-authentication-method-works). The user will need to restart the session and choose “Sign-in options” and select the method that will satisfy the authentication requirements.
+1. Check which authentication strength is required. Click **Security** > **Authentication methods** > **Authentication strengths**. 
+1. Check if the user is enabled for a required method:
+   1. If you use the new Authentication methods policy, check if the user is enabled for any method required for the authentication strength. Click **Security** > **Authentication methods** > **Policies**.
+   1. If you use the legacy Authentication methods policy, check if the tenant is enabled for any method required for the authentication strength. Click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**. 
+1. Check which authentication methods are registered for the user in the Authentication methods policy. Click **Users and groups** > _username_ > **Authentication methods**. 
 
-### I want to know which authentication strength was enforced during sign-in
+If the user is registered for the method and the method is enabled, they might need to use an authentication method that isn't available post primary authentication, such as Windows Hello for Business or certificate-based authentication. For more information, see [How each authentication method works](concept-authentication-methods.md#how-each-authentication-method-works). The user will need to restart the session and choose **Sign-in options** and select a method required by the authentication strength.
+
+## How to check which authentication strength was enforced during sign-in
 
 Use the sign-in logs to find additional information about the sign-in: 
 -	Under the “Authentication details” tab, requirement column will indicate the name of the authentication strengths policy.
@@ -41,7 +42,7 @@ Use the sign-in logs to find additional information about the sign-in:
 
 
  
-### User sign in error when using a restricted FIDO2 security key
+## User sign in error when using a restricted FIDO2 security key
 An admin can restrict access to specific security keys. When a user tries to sign in by using a key they are not allowed to use, a **You can't get there from here** error appears:
 
 :::image type="content" border="true" source="./media/troubleshoot-authentication-strengths/restricted-security-key.png" alt-text="Screenshot of a sign-in error when using a restricted FIDO2 security key.":::
