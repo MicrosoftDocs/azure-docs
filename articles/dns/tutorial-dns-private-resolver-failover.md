@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: tutorial
-ms.date: 10/12/2022
+ms.date: 09/08/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to avoid having a single point of failure for DNS resolution.
 ---

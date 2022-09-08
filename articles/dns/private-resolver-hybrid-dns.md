@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 09/08/2022
 ms.author: greglin
 # Customer intent: As an administrator, I want to resolve on-premises domains in Azure and resolve Azure private zones on-premises.
 ---
