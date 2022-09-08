@@ -28,7 +28,7 @@ The error classification feature can be enabled or disabled by setting the follo
 
 The following is a list of some error types that are currently supported. Note that, we are continuously refining and adding more to these error codes by improving our model.
 
-## Few supported error codes and what they mean
+## Error code categories
 
 Each error code falls under one of the following four buckets:
 
