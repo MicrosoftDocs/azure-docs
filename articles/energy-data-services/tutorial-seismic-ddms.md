@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Sample steps to interact with Seismic DDMS in Microsoft Energy Data Services  #Required; page title is displayed in search results. Include the brand.
 description: This tutorial shows you how to interact with Seismic DDMS Microsoft Energy Data Services  #Required; article description that is displayed in search results. 
-author: elizabethhalpe #Required; your GitHub user alias, with correct capitalization.
+author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
 ms.author: elhalper #Required; microsoft alias of author; optional team alias.
 ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: tutorial #Required; leave this attribute/value as-is.
