@@ -204,7 +204,7 @@ In terms of infrastructure management, on-premises environments often use a comb
 
 Active Directory is for on-premises IT environments, and Azure AD is for cloud-based IT environments. One-to-one parity of features isn't present here, so application servers can be managed in several ways. 
 
-For example, Azure Arc helps bring many of the features that exist in Active Directory together into a single view when Azure AD is used for identity and access management (IAM). You can also use Azure AD Domain Services (Azure AD DS) to domain-join servers in Azure AD, especially when you want those servers to use GPOs for specific business or technical reasons.
+For example, Azure Arc helps bring many of the features that exist in Active Directory together into a single view when Azure AD is used for identity and access management (IAM). You can also use Azure Active Directory Domain Services (Azure AD DS) to domain-join servers in Azure AD, especially when you want those servers to use GPOs for specific business or technical reasons.
 
 Use the following table to determine what Azure-based tools you can use to replace the on-premises environment:
 
@@ -317,7 +317,7 @@ To simplify your environment, you can use [Azure AD Application Proxy](../app-pr
 
 It's important to mention that enabling remote access to an application by using the preceding technologies is an interim step. You'll need to do more work to completely decouple the application from Active Directory. 
 
-Azure AD DS allows you to migrate application servers to the cloud IaaS and decouple from Active Directory, while using Azure AD Application Proxy to enable remote access. To learn more about this scenario, check [Deploy Azure AD Application Proxy for Azure AD Domain Services](../../active-directory-domain-services/deploy-azure-app-proxy.md).
+Azure AD DS allows you to migrate application servers to the cloud IaaS and decouple from Active Directory, while using Azure AD Application Proxy to enable remote access. To learn more about this scenario, check [Deploy Azure AD Application Proxy for Azure Active Directory Domain Services](../../active-directory-domain-services/deploy-azure-app-proxy.md).
 
 ## Next steps
 
