@@ -1,19 +1,20 @@
 ---
- title: FAQ about using Azure Database Migration Service for Azure Database MySQL Single Server to Flexible Server migrations
-  description: Frequently asked questions about using Azure Database Migration Service to perform database migrations from Azure Database MySQL Single Server to Flexible Server.
-  services: database-migration
-  author: adig
-  ms.author: adig
-  manager: pariks
-  ms.reviewer: pariks
-  ms.service: dms
-  ms.workload: data-services
-  ms.custom: mvc
-  ms.topic: faq
-  ms.date: 09/08/2022
+title: FAQ about using Azure Database Migration Service for Azure Database MySQL Single Server to Flexible Server migrations
+titleSuffix: "Azure Database Migration Service"
+description: Frequently asked questions about using Azure Database Migration Service to perform database migrations from Azure Database MySQL Single Server to Flexible Server.
+services: database-migration
+author: adig
+ms.author: adig
+manager: pariks
+ms.reviewer: pariks
+ms.service: dms
+ms.workload: data-services
+ms.custom: seo-lt-2019
+ms.topic: faq
+ms.date: 09/08/2022
 ---
 
-## Frequently Asked Questions (FAQs)
+# Frequently Asked Questions (FAQs)
 
 - **When using Azure Database Migration Service, what’s the difference between an offline and an online migration??**
 Azure Database Migration Service supports both offline and online migrations. With an offline migration, application downtime starts when the migration starts. With an online migration, downtime is limited to the time required to cut over at the end of migration. We suggest that you test an offline migration to determine whether the downtime is acceptable; if not, then perform an online migration. 
