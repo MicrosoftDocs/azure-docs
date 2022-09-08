@@ -466,7 +466,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
 
 This section applies only if you want to use a STONITH device with an Azure fence agent.
 
-### Create an Azure fence agent STONITH device
+### Create an Azure fence agent device
 
 This section applies only if you're using a STONITH device that's based on an Azure fence agent. The STONITH device uses either a managed identity or a service principal to authorize against Microsoft Azure. 
 
