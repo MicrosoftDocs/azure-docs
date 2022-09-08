@@ -11,13 +11,13 @@
       href: choose-api.md
     - name: NoSQL vs. relational databases
       href: relational-nosql.md
-- name: SQL/Core API
+- name: NoSQL
   href: sql/toc.yml
-- name: MongoDB API
+- name: MongoDB
   href: mongodb/toc.yml
-- name: Cassandra API
+- name: Apache Cassandra
   href: cassandra/toc.yml
-- name: Gremlin API
+- name: Apache Gremlin
   href: graph/toc.yml
-- name: Table API
+- name: Table
   href: table/toc.yml

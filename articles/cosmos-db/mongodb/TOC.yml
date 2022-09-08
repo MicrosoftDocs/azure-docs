@@ -1,8 +1,8 @@
-- name: MongoDB API documentation
+- name: MongoDB documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is the API for MongoDB in Azure Cosmos DB?
+    - name: What is Azure Cosmos DB for MongoDB?
       href: mongodb-introduction.md
     - name: API versions
       items:
@@ -218,7 +218,7 @@
         - name: Azure role-based access control
           displayName: rbac
           href: ../role-based-access-control.md
-        - name: Configure role-based access control for MongoDB API
+        - name: Configure role-based access control for API for MongoDB
           href: how-to-setup-rbac.md
         - name: Data encryption
           href: ../database-encryption-at-rest.md
@@ -364,7 +364,7 @@
         - name: Estimate RU/s with capacity planner
           displayName: request units, RUs, RU, capacity
           href: estimate-ru-capacity-planner.md
-        - name: Migrate to MongoDB API
+        - name: Migrate to API for MongoDB
           items:
             - name: Free tier
               displayName: free tier
@@ -381,7 +381,7 @@
               href: migrate-databricks.md
             - name: Post-migration guide
               href: post-migration-optimization.md
-    - name: Manage MongoDB API resources
+    - name: Manage API for MongoDB resources
       items:
         - name: Create a collection
           href: how-to-create-container-mongodb.md
@@ -405,7 +405,7 @@
           href: error-codes-solutions.md
         - name: Troubleshoot query performance
           href: troubleshoot-query-performance.md
-        - name: Troubleshoot MongoDB API queries with diagnostics
+        - name: Troubleshoot API for MongoDB queries with diagnostics
           href: diagnostic-queries-mongodb.md
         - name: Prevent rate-limiting errors
           href: prevent-rate-limiting-errors.md
@@ -445,7 +445,7 @@
               href: ../migrate-continuous-backup.md
     - name: Security
       items:
-        - name: Configure role-based access control for MongoDB API
+        - name: Configure role-based access control for API for MongoDB
           href: how-to-setup-rbac.md
         - name: Configure IP firewall
           href: ../how-to-configure-firewall.md

@@ -1,8 +1,8 @@
-- name: Gremlin API documentation
+- name: Apache Gremlin documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is Gremlin API in Azure Cosmos DB?
+    - name: What is Azure Cosmos DB for Apache Gremlin?
       href: graph-introduction.md
     - name: Wire protocol support
       href: gremlin-support.md
@@ -220,9 +220,9 @@
           href: graph-modeling.md
         - name: Designing for partitioned graph data
           href: graph-partitioning.md
-        - name: Create a container - Gremlin API
+        - name: Create a container - API for Apache Gremlin
           href: how-to-create-container-gremlin.md
-        - name: Allocate throughput - Gremlin API
+        - name: Allocate throughput - API for Apache Gremlin
           displayName: request units, RUs, RU, collection level
           href: how-to-provision-throughput-gremlin.md
         - name: Find request unit charge
@@ -358,7 +358,7 @@
           href: ../monitor-cosmos-db-reference.md
         - name: Third-party monitoring solutions
           href: ../monitoring-solutions.md
-    - name: Migrate data to Gremlin API
+    - name: Migrate data to API for Apache Gremlin
       items:
         - name: Import using graph bulk executor
           href: bulk-executor-graph-dotnet.md

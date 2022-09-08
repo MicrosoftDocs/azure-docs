@@ -1,8 +1,8 @@
-- name: Table API documentation
+- name: Table documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is Table API in Azure Cosmos DB?
+    - name: What is Azure Cosmos DB for Table?
       href: introduction.md
     - name: FAQ
       href: table-api-faq.yml
@@ -251,9 +251,9 @@
                   href: how-to-dotnet-create-item.md
                 - name: Read an item
                   href: how-to-dotnet-read-item.md
-        - name: Build apps with Table API
+        - name: Build apps with API for Table
           href: table-support.md
-        - name: Create a table - Table API
+        - name: Create a table - API for Table
           href: how-to-create-container.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption

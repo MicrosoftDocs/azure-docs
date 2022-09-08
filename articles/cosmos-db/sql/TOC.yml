@@ -1,4 +1,4 @@
-- name: SQL API documentation
+- name: NoSQL documentation
   href: index.yml
 - name: Quickstarts
   items:
@@ -199,7 +199,7 @@
               href: distribute-throughput-across-partitions-faq.yml
     - name: Containers and items
       items:
-        - name: SQL query getting started
+        - name: Getting started with SQL query
           displayName: sql query, query basics
           href: sql-query-getting-started.md
         - name: Indexing overview
@@ -391,7 +391,7 @@
           href: sql-sdk-connection-modes.md
     - name: Operations on containers and items
       items:
-        - name: Create a container with the SQL API
+        - name: Create a container
           href: how-to-create-container.md
         - name: Create a container with large partition key
           href: ../large-partition-keys.md
@@ -1153,15 +1153,15 @@
           href: ../import-data.md
         - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
           href: ../migrate-cosmosdb-data.md
-        - name: Migrate to SQL API using Striim
+        - name: Migrate to API for NoSQL using Striim
           href: migrate-data-striim.md
         - name: Migrate one-to-few relational data
           href: migrate-relational-to-cosmos-db-sql-api.md
-        - name: Migrate - Couchbase to SQL API
+        - name: Migrate - Couchbase to API for NoSQL
           href: couchbase-cosmos-migration.md
-        - name: Migrate - DynamoDB to SQL API
+        - name: Migrate - DynamoDB to API for NoSQL
           href: dynamo-to-cosmos.md
-        - name: Migrate - HBase to SQL API
+        - name: Migrate - HBase to API for NoSQL
           href: migrate-hbase-to-cosmos-db.md
     - name: Integrate with other Azure services
       items:
