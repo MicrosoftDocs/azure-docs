@@ -33,13 +33,13 @@ For an overview of each of these options, see [Azure Storage redundancy](storage
 Before you change any of your replication settings, be sure to review all of these topics in preparation:
 
 - [Options for changing the replication type](#options-for-changing-the-replication-type)
-- [Restrictions](#restrictions)
+- [Restrictions for changing replication types](#restrictions-for-changing-replication-types)
 - [Downtime requirements](#downtime-requirements)
 - [Costs associated with changing how data is replicated](#costs-associated-with-changing-how-data-is-replicated)
 
 ## Options for changing the replication type
 
-There are three properties related to Azure storage redundancy that determine how your storage account is replicated and accessible:
+Three things determine how your storage account is replicated and accessible:
 
 - **Geo-redundancy** - replication within a single "local" region or between different regions
 - **Read access (RA)** - read access to the secondary region in the event of a failover when geo-redundancy is used
@@ -50,15 +50,14 @@ There are three properties related to Azure storage redundancy that determine ho
 
 You can change how your storage account is replicated from any type to any other. There are four basic ways to change the settings:
 
-- [Using the Azure portal, Azure PowerShell, or the Azure CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)
-- [Perform a live migration](#perform-a-live-migration)
-  - [Customer-initiated from the Azure portal (preview)](#customer-initiated-live-migration)
-  - [Request by creating a support request with Microsoft](#support-requested-live-migration)
-- [Perform a manual migration](#perform-a-manual-migration)
+- [Use the Azure portal, Azure PowerShell, or the Azure CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)
+- [Initiate a live migration from the Azure portal (preview)](#customer-initiated-live-migration)
+- [Request a live migration by creating a support request with Microsoft](#support-requested-live-migration)
+- [Perform a manual migration](#manual-migration)
 
 If you just want to add or remove geo-replication and/or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-However, to add or remove zone-redundancy requires [migration of the storage account data within the primary region](#storage-account-migration).
+However, to add or remove zone-redundancy requires [migration of the storage account data within the primary region](#storage-account-migration), either using [live migration](#live-migration) or [manual migration](#manual-migration).
 
 If you want to change zone-redundancy in combination with geo-redundancy or read-access, a two-step process will be required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
 
@@ -74,32 +73,28 @@ If you want to change zone-redundancy in combination with geo-redundancy or read
 
 ## Storage account migration
 
-There are two supported methods for migrating your storage account:
+There are three supported methods for migrating your storage account:
 
-- [Live migration](#perform-a-live-migration)
-- [Manual migration](#perform-a-manual-migration)
+- [Initiate a live migration from the Azure portal (preview)](#customer-initiated-live-migration)
+- [Request a live migration by creating a support request with Microsoft](#support-requested-live-migration)
+- [Perform a manual migration](#manual-migration)
 
-Live migration is the preferred method if:
-
-- Data availability must be maintained during the migration process
-- The exact timing of the migration is not critical
-- You want to minimize the amount of effort required to complete the migration
-
-Manual migration might be the best option if you want the most control over the process, including the timing. It might be the only option in scenarios where live migration is not supported.
-
-You must perform a manual migration if:
-
-- You want to migrate your data into a ZRS storage account that is located in a region different than the source account.
-- Your storage account is a premium page blob or block blob account.
-- Your storage account includes data in the archive tier and rehydrating the data is not desired.
-
-### Perform a live migration
-
-The live migration option is available in most scenarios where you want to change zone-redundancy. The only exceptions are those previously noted under [Restrictions](#restrictions).
+### Live migration
 
 During a live migration, you can access data in your storage account with no loss of durability or availability. The Azure Storage SLA is maintained during the migration process and there is no data loss associated with a live migration. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
-While Microsoft handles your request for live migration promptly, there's no guarantee as to when a live migration will complete. If you need your data migrated to ZRS by a certain date, then Microsoft recommends that you perform a manual migration instead. Generally, the more data you have in your account, the longer it takes to migrate that data.
+Live migration is typically the best method of migrating your storage account if:
+
+- Data availability must be maintained during the migration process
+- The precise timing of the migration is not critical
+- You want to minimize the amount of manual effort required to complete the migration
+
+The live migration option is available in most scenarios where you want to change zone-redundancy. The only exceptions are those noted under [restrictions for changing replication types](#restrictions-for-changing-replication-types). The [migration support table](#migration-support-table) summarizes the supported and unsupported scenarios.
+
+> [!NOTE]
+> While Microsoft handles your request for live migration promptly, there's no guarantee as to when a live migration will complete. If you need your data migrated by a certain date, Microsoft recommends that you perform a manual migration instead.
+>
+> Generally, the more data you have in your account, the longer it takes to migrate that data.
 
 #### Customer-initiated live migration
 
@@ -114,7 +109,7 @@ Customer-initiated live migration is only available from the Azure portal, not f
 
 #### Support-requested live migration
 
-Customer-initiated live migration is preferred over requesting it by opening a support request. However, if you do not want to use the preview feature, you can request live migration through the [Azure Support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Customers can still request a live migration by opening a support request with Microsoft.
 
 > [!IMPORTANT]
 > If you need to migrate more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Details** tab.
@@ -139,12 +134,37 @@ Follow these steps to request a live migration:
 
 1. Fill out the additional required information on the **Details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
 
-### Perform a manual migration
+Manual migration might be the best option if you want the most control over the migration process, including the timing. Also, it might be the only option in scenarios where live migration is not supported.
+
+You must perform a manual migration if:
+
+- You want to migrate your data into a ZRS storage account that is located in a region different than the source account.
+- Your storage account is a premium page blob or block blob account.
+- Your storage account includes data in the archive tier and rehydrating the data is not desired.
+
+#### Migration support table
+
+The following table summarizes the benefits of each method:
+
+| Feature benefit | Live migration (from the portal) | Live migration (by support request) | Manual migration |
+|---|:---:|:---:|:---:|
+| Azure Storage SLA is maintained <sup>1</sup> | &#x2705; | &#x2705; |  |
+| Minimal manual effort | &#x2705; | &#x2705; |  |
+| No need to open a support request | &#x2705; |  | &#x2705; |
+| Supports migrating general purpose v2 accounts | &#x2705; | &#x2705; | &#x2705; |
+| Supports migrating premium file share accounts |  | &#x2705; | &#x2705; |
+| Supports migrating premium block blob accounts |  |  | &#x2705; |
+| Supports migrating premium page blob accounts |  |  | &#x2705; |
+| Maximum control over the timing |  |  | &#x2705; |
+| Supports migrating to a different region |  |  | &#x2705; |
+| Supports migrating data in the archive tier without rehydrating |  |  | &#x2705; |
+
+### Manual migration
 
 A manual migration provides more flexibility and control than a live migration, so you can use this option if you need the migration to complete by a certain date.
 
 > [!IMPORTANT]
-> A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a [live migration](#perform-a-live-migration) option. A live migration is an in-place migration with no downtime.
+> A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a [live migration](#live-migration) option. A live migration is an in-place migration with no downtime.
 
 You must perform a manual migration if:
 
@@ -155,7 +175,7 @@ You must perform a manual migration if:
 
 You cannot perform a manual migration if:
 
-- You want to  migrate from ZRS to GZRS or RA-GZRS. You must request a live migration.
+- You want to migrate from ZRS to GZRS or RA-GZRS. You must request a live migration.
 
 With a manual migration, you copy the data from your existing storage account to a new storage account, such as one that uses ZRS in the primary region. To perform a manual migration, you can use one of the following options:
 
@@ -228,7 +248,7 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 
 ---
 
-## Restrictions
+## Restrictions for changing replication types
 
 Restrictions apply to some replication change scenarios depending on:
 
@@ -250,7 +270,7 @@ The following table provides an overview of redundancy options available for sto
 |:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|
 | Standard general purpose v2 | Yes          | Yes          | Yes                     | Yes                       |
 | Premium file shares         | Yes          | Yes          | Yes <sup>1</sup>        | Yes                       |
-| Premium block block blob    | Yes          | Yes          | No                      | Yes                       |
+| Premium block blob          | Yes          | Yes          | No                      | Yes                       |
 | Premium page blob           | Yes          | No           | No                      | No                        |
 | Managed disks<sup>2</sup>   | Yes          | No           | No                      | No                        |
 | Standard general purpose v1 | Yes          | No           | No <sup>3</sup>         | Yes                       |
@@ -303,7 +323,7 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 
 ---
 
-To manually migrate your ZRS Classic account data to another type of replication, follow the steps for [Perform a manual migration](#perform-a-manual-migration).
+To manually migrate your ZRS Classic account data to another type of replication, follow the steps for [Perform a manual migration](#manual-migration).
 
 ### Region
 
@@ -322,7 +342,7 @@ If you want to migrate your data into a zone-redundant storage account located i
 
 Ensure the desired replication option supports the access tier currently used in the storage account. For example, GZRS storage accounts do not currently support the archive tier. See [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details.
 
-To change the redundancy configuration for a storage account that contains blobs in the Archive tier, you must first rehydrate all archived blobs to the Hot or Cool tier. Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming. Another option that avoids the rehydration expense is a [manual migration](#perform-a-manual-migration).
+To change the redundancy configuration for a storage account that contains blobs in the Archive tier, you must first rehydrate all archived blobs to the Hot or Cool tier. Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming. Another option that avoids the rehydration expense is a [manual migration](#manual-migration).
 
 ### Protocol support
 
@@ -336,7 +356,11 @@ If you want to change an account from ZRS to GZRS or RA-GZRS, you can perform a 
 
 ## Downtime requirements
 
-With live migration, no downtime is required but the migration process could take up to 72 hours to begin once requested. If you choose manual migration, downtime is required but you have more control over the timing of the migration process.
+During a live migration, you can access data in your storage account with no loss of durability or availability. The Azure Storage SLA is maintained during the migration process and there is no data loss associated with a live migration. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
+
+ If you initiate a live migration from the Azure portal, the migration process could take up to 72 hours to begin, and possibly longer if requested by opening a support request.
+
+If you choose to perform a manual migration, downtime is required but you have more control over the timing of the migration process.
 
 ## Costs associated with changing how data is replicated
 
