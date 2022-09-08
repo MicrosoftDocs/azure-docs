@@ -27,7 +27,7 @@ Alternatively, you can use Azure Cloud Shell, if you'd rather not install additi
 
 ## Connect to your Azure subscription
 
-If you're using Cloud Shell, you're already logged in to your subscription, so you can skip this step. If you're running PowerShell locally instead, enter the following command to sign in to your Azure subscription:
+If you're using Cloud Shell, you're already logged in to your subscription, so you can skip this section. If you're running PowerShell locally instead, enter the following command to sign in to your Azure subscription:
 
 ```powershell
 # Log into Azure account.
@@ -74,12 +74,6 @@ To delete the IoT hub, use the [Remove-AzIotHub](/powershell/module/az.iothub/re
 Remove-AzIotHub `
     -ResourceGroupName MyIoTRG1 `
     -Name MyTestIoTHub
-```
-
-Alternatively, to remove a resource group and all the resources it contains, use the [Remove-AzResourceGroup](/powershell/module/az.Resources/Remove-azResourceGroup) command:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name MyIoTRG1
 ```
 
 ## Next steps

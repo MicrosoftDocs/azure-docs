@@ -107,7 +107,9 @@ Here are two ways to find a specific IoT hub in your subscription:
 
 ## Delete the IoT hub
 
-To delete an IoT hub, find the IoT hub you want to delete, then choose **Delete**.
+To delete an IoT hub, open your IoT hub in the Azure portal, then choose **Delete**.
+
+:::image type="content" source="./media/iot-hub-create-through-portal/delete-iot-hub.png" alt-text="Screenshot showing where to find the delete button for an IoT hub in the Azure portal." lightbox="./media/iot-hub-create-through-portal/delete-iot-hub.png":::
 
 ## Next steps
 
