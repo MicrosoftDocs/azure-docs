@@ -39,7 +39,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.BotService/botServices | Yes | No | [Azure Bot Service](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
 |Microsoft.Cache/redis | Yes | Yes | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
 |Microsoft.Cache/redisEnterprise | Yes | No | [Azure Cache for Redis Enterprise](../essentials/metrics-supported.md#microsoftcacheredisenterprise) |
-|microsoft.Cdn/profiles | Yes | No | [CDN Profiles](../essentials/metrics-supported.md#microsoftcdnprofiles) |
+|microsoft.Cdn/profiles | Yes | No | [Azure Content Delivery Network profiles](../essentials/metrics-supported.md#microsoftcdnprofiles) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Azure Cloud Services (classic)](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | No | No | [Azure Virtual Machines (classic)](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Yes | No | [Azure Storage accounts (classic)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccounts) |
@@ -54,7 +54,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Compute/virtualMachineScaleSets | Yes | No |[Azure Virtual Machine Scale Sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft.ConnectedVehicle/platformAccounts | Yes | No |[Connected Vehicle Platform accounts](../essentials/metrics-supported.md#microsoftconnectedvehicleplatformaccounts) |
 |Microsoft.ContainerInstance/containerGroups | Yes| No | [Container groups](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
-|Microsoft.ContainerRegistry/registries | No | No | [Container registries](../essentials/metrics-supported.md#microsoftcontainerregistryregistries) |
+|Microsoft.ContainerRegistry/registries | No | No | [Azure Container Registry](../essentials/metrics-supported.md#microsoftcontainerregistryregistries) |
 |Microsoft.ContainerService/managedClusters | Yes | No | [Managed clusters](../essentials/metrics-supported.md#microsoftcontainerservicemanagedclusters) |
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | Yes | Yes | [Azure Data Box](../essentials/metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
 |Microsoft.DataFactory/datafactories| Yes| No | [Azure Data Factory V1](../essentials/metrics-supported.md#microsoftdatafactorydatafactories) |
@@ -64,10 +64,10 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.DBforMariaDB/servers | No | No | [Azure Database for MariaDB](../essentials/metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | No | No |[Azure Database for MySQL](../essentials/metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/flexibleServers | Yes | No | [Azure Database for PostgreSQL (flexible servers)](../essentials/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
-|Microsoft.DBforPostgreSQL/serverGroupsv2 | Yes | No | DB for PostgreSQL (hyperscale) |
+|Microsoft.DBforPostgreSQL/serverGroupsv2 | Yes | No | Azure Database for PostgreSQL (hyperscale) |
 |Microsoft.DBforPostgreSQL/servers | No | No | [Azure Database for PostgreSQL](../essentials/metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | No | No | [Azure Database for PostgreSQL V2](../essentials/metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|Microsoft.Devices/IotHubs | Yes | No |[IoT Hub](../essentials/metrics-supported.md#microsoftdevicesiothubs) |
+|Microsoft.Devices/IotHubs | Yes | No |[Azure IoT Hub](../essentials/metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| Yes | No | [Device Provisioning Service](../essentials/metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft.DigitalTwins/digitalTwinsInstances | Yes | No | [Azure Digital Twins](../essentials/metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
 |Microsoft.DocumentDB/databaseAccounts | Yes | No | [Azure Cosmos DB](../essentials/metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
@@ -83,8 +83,8 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Logic/integrationServiceEnvironments | Yes | No |[Azure Integration Services environments](../essentials/metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
 |Microsoft.Logic/workflows | No | No |[Azure Logic Apps](../essentials/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.MachineLearningServices/workspaces | Yes | No | [Azure Machine Learning](../essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
-|Microsoft.MachineLearningServices/workspaces/onlineEndpoints | Yes | No | Machine Learning - Endpoints |
-|Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments | Yes | No | Machine Learning - Endpoint Deployments |
+|Microsoft.MachineLearningServices/workspaces/onlineEndpoints | Yes | No | Azure Machine Learning endpoints |
+|Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments | Yes | No | Azure Machine Learning endpoint deployments |
 |Microsoft.Maps/accounts | Yes | No | [Azure Maps accounts](../essentials/metrics-supported.md#microsoftmapsaccounts) |
 |Microsoft.Media/mediaservices | No | No | [Azure Media Services](../essentials/metrics-supported.md#microsoftmediamediaservices) |
 |Microsoft.Media/mediaservices/streamingEndpoints | Yes | No | [Azure Media Services streaming endpoints](../essentials/metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |
@@ -95,7 +95,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Network/dnsZones | No | No | [Azure DNS zones](../essentials/metrics-supported.md#microsoftnetworkdnszones) |
 |Microsoft.Network/expressRouteCircuits | Yes | No |[Azure ExpressRoute circuits](../essentials/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/expressRouteGateways | Yes | No |[Azure ExpressRoute gateways](../essentials/metrics-supported.md#microsoftnetworkexpressroutegateways) |
-|Microsoft.Network/expressRoutePorts | Yes | No |[Azure ExpressRoute Direct](../essentials/metrics-supported.md#microsoftnetworkexpressrouteports) |
+|Microsoft.Network/expressRoutePorts | Yes | No |[Azure ExpressRoute direct](../essentials/metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (only for Standard SKUs)| Yes| No | [Azure Load Balancer](../essentials/metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/natGateways| No | No | [NAT Gateway](../essentials/metrics-supported.md#microsoftnetworknatgateways) |
 |Microsoft.Network/privateEndpoints| No | No | [Private endpoints](../essentials/metrics-supported.md#microsoftnetworkprivateendpoints) |
@@ -103,9 +103,9 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Network/publicipaddresses | No | No | [Public IP addresses](../essentials/metrics-supported.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.Network/trafficManagerProfiles | Yes | No | [Azure Traffic Manager profiles](../essentials/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.OperationalInsights/workspaces| Yes | No | [Log Analytics workspaces](../essentials/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
-|Microsoft.Peering/peerings | Yes | No | [Peerings](../essentials/metrics-supported.md#microsoftpeeringpeerings) |
+|Microsoft.Peering/peerings | Yes | No | [Azure Peering Service](../essentials/metrics-supported.md#microsoftpeeringpeerings) |
 |Microsoft.Peering/peeringServices | Yes | No | [Azure Peering Service](../essentials/metrics-supported.md#microsoftpeeringpeeringservices) |
-|Microsoft.PowerBIDedicated/capacities | No | No | [Capacities](../essentials/metrics-supported.md#microsoftpowerbidedicatedcapacities) |
+|Microsoft.PowerBIDedicated/capacities | No | No | [Power BI dedicated capacities](../essentials/metrics-supported.md#microsoftpowerbidedicatedcapacities) |
 |Microsoft.Purview/accounts | Yes | No | [Azure Purview accounts](../essentials/metrics-supported.md#microsoftpurviewaccounts) |
 |Microsoft.RecoveryServices/vaults | Yes | Yes | [Recovery Services vaults](../essentials/metrics-supported.md#microsoftrecoveryservicesvaults) |
 |Microsoft.Relay/namespaces | Yes | No | [Relays](../essentials/metrics-supported.md#microsoftrelaynamespaces) |
@@ -117,17 +117,17 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Sql/servers/elasticPools | No | Yes | [Azure SQL Database elastic pools](../essentials/metrics-supported.md#microsoftsqlserverselasticpools) |
 |Microsoft.Storage/storageAccounts |Yes | No | [Azure Storage accounts](../essentials/metrics-supported.md#microsoftstoragestorageaccounts)|
 |Microsoft.Storage/storageAccounts/blobServices | Yes| No | [Azure Blob Storage accounts](../essentials/metrics-supported.md#microsoftstoragestorageaccountsblobservices) |
-|Microsoft.Storage/storageAccounts/fileServices | Yes| No | [Azure File storage accounts](../essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
+|Microsoft.Storage/storageAccounts/fileServices | Yes| No | [Azure Files storage accounts](../essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
 |Microsoft.Storage/storageAccounts/queueServices | Yes| No | [Azure Queue Storage accounts](../essentials/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
 |Microsoft.Storage/storageAccounts/tableServices | Yes| No | [Azure Table Storage accounts](../essentials/metrics-supported.md#microsoftstoragestorageaccountstableservices) |
 |Microsoft.StorageCache/caches | Yes | No | [Azure HPC Cache](../essentials/metrics-supported.md#microsoftstoragecachecaches) |
-|Microsoft.StorageSync/storageSyncServices | Yes | No | [Storage Sync Services](../essentials/metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
+|Microsoft.StorageSync/storageSyncServices | Yes | No | [Storage sync services](../essentials/metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Yes | No | [Azure Stream Analytics](../essentials/metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
 |Microsoft.Synapse/workspaces | Yes | No | [Azure Synapse Analytics](../essentials/metrics-supported.md#microsoftsynapseworkspaces) |
 |Microsoft.Synapse/workspaces/bigDataPools | Yes | No | [Azure Synapse Analytics Apache Spark pools](../essentials/metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
 |Microsoft.Synapse/workspaces/sqlPools | Yes | No | [Azure Synapse Analytics SQL pools](../essentials/metrics-supported.md#microsoftsynapseworkspacessqlpools) |
 |Microsoft.VMWareCloudSimple/virtualMachines | Yes | No | [CloudSimple virtual machines](../essentials/metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
-|Microsoft.Web/containerApps | Yes | No | Container Apps |
+|Microsoft.Web/containerApps | Yes | No | Azure Container Apps |
 |Microsoft.Web/hostingEnvironments/multiRolePools | Yes | No | [Azure App Service environment multi-role pools](../essentials/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Yes | No | [Azure App Service environment worker pools](../essentials/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Yes | No | [Azure App Service plans](../essentials/metrics-supported.md#microsoftwebserverfarms)|
