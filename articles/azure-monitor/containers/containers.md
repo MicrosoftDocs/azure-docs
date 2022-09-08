@@ -551,7 +551,7 @@ Labels appended to *PodLabel* data types are your own custom labels. The appende
 ## Monitor containers
 After you have the solution enabled in the Azure portal, the **Containers** tile shows summary information about your container hosts and the containers running in hosts.
 
-:::image type="content" source="./media/containers/containers-title.png" alt-text="Containers tile" border="false" lightbox="media/containers/containers-title.png:::
+:::image type="content" source="./media/containers/containers-title.png" alt-text="Containers tile" border="false" lightbox="media/containers/containers-title.png":::
 
 The tile shows an overview of how many containers you have in the environment and whether they're failed, running, or stopped.
 
