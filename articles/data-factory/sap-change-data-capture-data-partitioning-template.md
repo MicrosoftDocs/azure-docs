@@ -14,7 +14,7 @@ ms.author: ulrichchrist
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn how to use the SAP ODP (preview) data partitioning template to auto-generate a pipeline. Then, use the pipeline in Azure Data Factory to partition SAP change data capture (CDC) in your datasets.
+Learn how to use the SAP ODP (preview) data partitioning template to auto-generate a pipeline. Then, use the pipeline in Azure Data Factory to partition SAP change data capture (CDC) extracted data.
 
 ## Use the SAP ODP data partitioning template
 
@@ -56,4 +56,4 @@ Now, you can run the SAP data partitioning pipeline.
 
 ## Next steps
 
-[Auto-generate a pipeline from the SAP ODP data replication template](sap-change-data-capture-data-replication-template.md).
+[Auto-generate a pipeline from the SAP ODP data replication template](sap-change-data-capture-data-replication-template.md)
