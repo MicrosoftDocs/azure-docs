@@ -80,8 +80,7 @@ New-AzElasticSAN -ResourceGroupName $rgName -Name $sanName -AvailabilityZone $zo
 sanName="yourSANNameHere"
 resourceGroupName="yourResourceGroupNameHere"
 sanLocation="desiredRegion"
-baseSizeTiB
-extendedSizeTiB
+volumeGroupName="desiredVolumeGroupName"
 
 az elastic-san create -n $sanName -g $resourceGroupName -l $sanLocation –base-size-tib 100 –extended-capacity-size-tib 20 –sku “{name:Premium_LRS,tier:Premium}” 
 ```
@@ -110,7 +109,7 @@ New-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSANName $sanName 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-New-AzElasticSanVolumeGroup -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -Name $volumeGroupName
+az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroupName -n volumeGroupName 
 ```
 
 ---
@@ -133,7 +132,13 @@ Volumes are usable partitions of the SAN's total capacity, you must allocate a p
 
 ```azurepowershell
 ## Create the volume, this command only creates one.
-New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -GroupName $volGroupName -Name "volumeName" -sizeGiB 50
+New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -GroupName $volGroupName -Name "volumeName" -sizeGiB 2000
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroupName -v volumeGroupName -n $volumeName –size-gib 2000
 ```
 
 ---
@@ -159,6 +164,12 @@ $rule1 = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId <res
 Update-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanName -Name $volGroupName -NetworkAclsVirtualNetworkRule $rule1
 
 ```
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+
+```
+
 
 ---
 
