@@ -15,8 +15,6 @@
   href: sql/toc.yml
 - name: MongoDB
   href: mongodb/toc.yml
-- name: PostgreSQL
-  href: postgresql/toc.yml
 - name: Apache Cassandra
   href: cassandra/toc.yml
 - name: Apache Gremlin
