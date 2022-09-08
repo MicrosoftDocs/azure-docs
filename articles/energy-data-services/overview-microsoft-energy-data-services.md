@@ -35,10 +35,10 @@ Microsoft Energy Data Services platform provides encryption for data-in-transit 
 ## Azure enterprise promise
 
 As an Azure-based service, Microsoft Energy Data Services is Highly Available with support for multiple Availability Zones. It also provides reliability with Auto-Scaling to handle dynamically varying workloads. 
-Microsoft and Schlumberger will jointly provide support and monitoring for the platform to support Microsoft’s Terms of Use (TOU) and Service Level Agreements (SLAs).
+Microsoft and Schlumberger will jointly provide support and monitoring for the platform to support Microsoft’s Terms of Use (TOU).
 
 ## Next steps
 
-Follow the quickstart guide to quickly deploy Microsoft Energy Data Service in your azure subscription
+Follow the quickstart guide to quickly deploy Microsoft Energy Data Service in your Azure subscription
 > [!div class="nextstepaction"]
 > [Quickstart: Create Microsoft Energy Data Services instance](quickstart-create-microsoft-energy-data-services-instance.md)
