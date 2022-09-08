@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-    - name: What is Azure Cosmos DB for Cassandra?
+    - name: What is Azure Cosmos DB for Apache Cassandra?
       href: cassandra-introduction.md
     - name: Wire protocol support
       href: cassandra-support.md
