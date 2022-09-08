@@ -1,7 +1,7 @@
 ---
 title: Migrate applications to use passwordless authentication with Azure Storage
 titleSuffix: Azure Storage
-description: Learn to migrate existing applications away from authentication patterns such as connection strings to more secure approaches like Managed Identity.
+description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security.
 services: storage
 author: alexwolfmsft
 
@@ -45,9 +45,7 @@ The order and locations in which `DefaultAzureCredential` searches for credentia
 > [!NOTE]
 > A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. You can read more about managed identities in the [overview](/azure/active-directory/managed-identities-azure-resources/overview) documentation.
 
-The following code examples demonstrates how to connect to an Azure Storage account using passwordless connections. The next section describes how to migrate to this setup in more detail.
-
-### [.NET](#tab/dotnet)
+The following code example demonstrates how to connect to an Azure Storage account using passwordless connections. The next section describes how to migrate to this setup in more detail.
 
 A .NET Core application can pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
@@ -56,22 +54,6 @@ var blobServiceClient = new BlobServiceClient(
     new Uri("https://<your-storage-account>.blob.core.windows.net"),
     new DefaultAzureCredential());
 ```
-
-### [Java](#tab/java)
-
-```Java
-
-// Java code here
-
-```
-
-### [Python](#tab/python)
-
-```python
-## Python code here
-```
-
----
 
 ## Steps to migrate an app to use passwordless authentication
 
@@ -87,9 +69,7 @@ For local development, make sure you're authenticated with the same Azure AD acc
 
 [!INCLUDE [defaultazurecredential-sign-in](../../../includes/defaultazurecredential-sign-in.md)]
 
-Next you will need to update your code to use passwordless connections. Although conceptually similar, each language uses different implementation details.
-
-### [.NET](#tab/dotnet)
+Next you will need to update your code to use passwordless connections.
 
 1. To use `DefaultAzureCredential` in a .NET application, add the **Azure.Identity** NuGet package to your application.
 
@@ -103,7 +83,7 @@ Next you will need to update your code to use passwordless connections. Although
     using Azure.Identity;
     ```
 
-1. Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to matching the following example:
+1. Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to match the following example:
 
     ```csharp
     // TODO: Update <storage-account-name> placeholder to your account name
@@ -115,24 +95,6 @@ Next you will need to update your code to use passwordless connections. Although
 1. Make sure to update the storage account name in the URI of your `BlobServiceClient`. The storage account name can be found on the overview page of the Azure portal.
 
     :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
-
-### [Java](#tab/java)
-
-```Java
-
-// Java code here
-
-```
-
-### [Python](#tab/python)
-
-```Python
-
-## Python code here
-
-```
-
----
 
 #### Run the app locally
 

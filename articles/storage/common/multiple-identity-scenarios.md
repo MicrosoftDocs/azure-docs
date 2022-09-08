@@ -86,8 +86,6 @@ You can also enable access to Azure resources for local development by assigning
 
 ### 3) Implement the application code
 
-## [.NET](#tab/dotnet)
-
 Inside of your project, add a reference to the `Azure.Identity` NuGet package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added in order to connect to Blob Storage and Key Vault.
 
 ```dotnetcli
@@ -121,29 +119,12 @@ When the application is deployed to Azure, `DefaultAzureCredential` will automat
 
 This overall process ensures that your app can run securely locally and in Azure without the need for any code changes.
 
-## [Java](#tab/java)
-
-```java
-// Todo
-```
-
-## [Python](#tab/python)
-
-```python
-// Todo
-```
-
----
-
 ## Connect multiple apps using multiple managed identities
 
 Although the apps in the previous example all shared the same service access requirements, real environments are often more nuanced. Consider a scenario where multiple apps all connect to the same storage accounts, but two of the apps also access different services or databases.
 
 :::image type="content" source="media/multiple-managed-identities-small.png" lightbox="media/multiple-managed-identities.png" alt-text="A diagram showing multiple user-assigned managed identities.":::
 
-
-
-## [.NET](#tab/dotnet)
 To configure this setup in your code, make sure your application registers separate services to connect to each storage account or database. Make sure to pull in the correct managed identity client ids for each service when configuring `DefaultAzureCredential`. The following code example configures the following service connections:
 * Two connections to separate storage accounts using a shared user-assigned managed identity
 * A connection to Azure Cosmos DB and Azure SQL services using a second shared user-assigned managed identity
@@ -189,20 +170,6 @@ using (SqlConnection conn = new SqlConnection(ConnectionString1))
 }
 
 ```
-
-## [Java](#tab/java)
-
-```java
-// todo
-```
-
-## [Python](#tab/python)
-
-```python
-# todo
-```
-
----
 
 You can also associate a user-assigned managed identity as well as a system-assigned managed identity to a resource simultaneously. This can be useful in scenarios where all of the apps require access to the same shared services, but one of the apps also has a very specific dependency on an additional service. Using a system-assigned identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
 
