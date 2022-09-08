@@ -1423,6 +1423,8 @@ items:
         href: visualize/workbooks-view-designer-conversion-overview.md
       - name: Sample JSON to covert View Designer views
         href: visualize/workbooks-view-designer-conversions.md 
+    - name: Access Troubleshooting guides
+      href: visualize/workbooks-access-troubleshooting-guide.md
     - name: Workbook Samples
       href: visualize/workbooks-samples.md          
   - name: Other visualizations
