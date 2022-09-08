@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Image Builder Bicep file or ARM template
-description: Learn how to create a Bicep file or ARM template to use with Azure Image Builder.
+title: Create an Azure Image Builder Bicep file or ARM JSON template
+description: Learn how to create a Bicep file or ARM JSON template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -11,11 +11,11 @@ ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
 ---
 
-# Create an Azure Image Builder Bicep or ARM template
+# Create an Azure Image Builder Bicep or ARM JSON template
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-Azure Image Builder uses a Bicep file or an ARM template file to pass information into the Image Builder service. In this article we'll go over the sections of the files, so you can build your own. For latest API versions, see [template reference](/azure/templates/microsoft.virtualmachineimages/imagetemplates?tabs=bicep&pivots=deployment-language-bicep). To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
+Azure Image Builder uses a Bicep file or an ARM JSON template file to pass information into the Image Builder service. In this article we'll go over the sections of the files, so you can build your own. For latest API versions, see [template reference](/azure/templates/microsoft.virtualmachineimages/imagetemplates?tabs=bicep&pivots=deployment-language-bicep). To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 The basic format is:
 
@@ -96,7 +96,7 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
 
 ## Type and API version
 
-The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. The `apiVersion` will change over time as the API changes. The latest API version is `2022-02-14` when this article is written.
+The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. The `apiVersion` will change over time as the API changes. See [What's new in Azure VM Image Builder](./image-builder-api-update-release-notes.md) for all major API changes and feature updates for the Azure VM Image Builder service.
 
 # [JSON](#tab/json)
 
