@@ -1,7 +1,7 @@
 ---
-title: Set up authentication
+title: Set up service authentication
 titleSuffix: Azure Machine Learning
-description: Learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning.
+description: Learn how to set up and configure authentication between Azure ML and other Azure services.
 services: machine-learning
 author: rastala
 ms.author: roastala
