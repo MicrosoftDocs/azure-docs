@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Java play audio quickstart
+description: play audio quickstart java
 services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
@@ -21,7 +21,7 @@ ms.author: kpunjabi
 
 ## Create a new Java application
 
-In your terminal or command window navigate to the directory where you would like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template. 
+In your terminal or command window, navigate to the directory where you would like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template. 
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
@@ -43,9 +43,9 @@ Update your applications POM file to use Java 8 or higher.
 
 ## Configure Azure SDK Dev Feed
 
-Since the Call Automation SDK version used in this quickstart is not yet available in Maven Central Repository, we need to add an Azure Artifacts development feed which contains the latest version of Call Automation SDK. 
+Since the Call Automation SDK version used in this quickstart isn't yet available in Maven Central Repository, we need to add an Azure Artifacts development feed, which contains the latest version of Call Automation SDK.
 
-Please add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the "Connect to Feed" button.
+Add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the "Connect to Feed" button.
 
 ## Add package references
 
@@ -65,19 +65,19 @@ Azure Communication Services Call Automation SDK package is retrieved from the A
 
 ## Prepare your audio file
 
-Create an audio file, if you do not already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file ACS supports needs to be wav, mono and 16KHz sample rate. 
+Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file ACS supports needs to be wav, mono and 16 KHz sample rate.
 
 ## Update App.java with code
 
-In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../../Callflows-for-customer-interactions.md) section. 
+In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../../Callflows-for-customer-interactions.md) section.
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about how to start call please view our [quickstart](../../Callflows-for-customer-interactions.md). In this instance we will answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../Callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
 
 ## Play audio
 
-Once the call has been established, there are multiple options for how you may wish to play the audio. The first scenario is if you want to play it to the participant that has just joined the call, while the second scenario is when you wish to play audio to all the participants in the call. 
+Once the call has been established, there are multiple options for how you may wish to play the audio. The first scenario is if you want to play it to the participant that has joined the call, while the second scenario is when you wish to play audio to all the participants in the call.
 
 ## Play audio - Specific participant
 
@@ -126,7 +126,7 @@ assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 
 ## Enhance play with audio file caching
 
-If you will be playing the same audio file multiple times, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
+If you'll be playing the same audio file multiple times, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
 
 ``` java
 var targetUser = new PhoneNumberIdentifier(<target>);
