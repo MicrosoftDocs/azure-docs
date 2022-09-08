@@ -28,7 +28,7 @@ New instances created in service tiers other than the Consumption tier are mostl
 
 ## Is my service affected by this?
 
-If the value of the `platformVersion` property of your service is `stv1`, it is hosted on the `stv1` platform. See [How do I know which platform hosts my API Management instance?](../compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
+If the value of the `platformVersion` property of your service is `stv1`, it is hosted on the `stv1` platform. See [How do I know which platform hosts my API Management instance?](../compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance)
 
 ## What is the deadline for the change?
 
