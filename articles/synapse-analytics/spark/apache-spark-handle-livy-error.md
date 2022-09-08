@@ -26,7 +26,7 @@ The error classification feature can be enabled or disabled by setting the follo
 
 `livy.rsc.synapse.error-classification.enabled`
 
-Please find below the list of a few error types we support today. Please note, we are continuously refining and adding to these error codes by improving our model.
+The following is a list of some error types that are currently supported. Note that, we are continuously refining and adding more to these error codes by improving our model.
 
 ## Few supported error codes and what they mean
 
