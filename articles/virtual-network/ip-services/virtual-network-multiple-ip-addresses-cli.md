@@ -45,7 +45,7 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 
   :::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/multiple-ipconfigs.png" alt-text="Diagram of network configuration resources created in How-to article.":::
 
-  *Figure: Diagram of network configuration resources cerated in How-to article.*
+  *Figure: Diagram of network configuration resources created in How-to article.*
 
 ## Create a resource group
 
