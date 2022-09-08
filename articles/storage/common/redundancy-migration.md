@@ -32,7 +32,7 @@ For an overview of each of these options, see [Azure Storage redundancy](storage
 
 Before you change any of your replication settings, be sure to review all of these topics in preparation:
 
-- [Options for changing replication types](#options-for-changing-replication-types)
+- [Options for changing the replication type](#options-for-changing-the-replication-type)
 - [Restrictions](#restrictions)
 - [Downtime requirements](#downtime-requirements)
 - [Costs associated with changing how data is replicated](#costs-associated-with-changing-how-data-is-replicated)
