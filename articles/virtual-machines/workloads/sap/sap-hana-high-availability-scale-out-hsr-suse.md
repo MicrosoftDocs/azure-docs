@@ -415,7 +415,7 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     # Verify that flag vers is set to 4.1 
     # Example from SITE 1, hana-s1-db1
     /hana/shared from 10.23.1.7:/HN1-shared-s1
-     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.11,local_lock=none,addr=10.23.1.7
+     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.19,local_lock=none,addr=10.23.1.7
     # Example from SITE 2, hana-s2-db1
     /hana/shared from 10.23.1.7:/HN1-shared-s2
      Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.22,local_lock=none,addr=10.23.1.7
@@ -457,10 +457,10 @@ In this example, the shared HANA file systems are deployed on NFS on Azure Files
     sudo nfsstat -m
     # Example from SITE 1, hana-s1-db1
     sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1
-     Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.19,local_lock=none,addr=10.23.0.19
+     Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.19,local_lock=none,addr=10.23.0.35
     # Example from SITE 2, hana-s2-db1
     sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2
-     Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.22,local_lock=none,addr=10.23.0.22
+     Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.22,local_lock=none,addr=10.23.0.35
     ```
 
 ### Prepare the data and log local file systems
@@ -750,7 +750,7 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
 	# site name: HANA_S1
     ```
 
-4. **[1,2]** Change the HANA configuration so that communication for HANA system replication if directed though the HANA system replication virtual network interfaces.   
+4. **[1,2]** Change the HANA configuration so that communication for HANA system replication is directed through the HANA system replication virtual network interfaces.   
    - Stop HANA on both sites
     ```bash
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StopSystem HDB
