@@ -986,9 +986,6 @@ The response to this request looks like the following example:
 
 You can use ODATA filters to filter the results returned by the list device templates API.
 
-> [!NOTE]
-> Currently, ODATA support is only available for `api-version=2022-07-31`.
-
 ### $top
 
 Use the **$top** filter to set the result size. The maximum returned result size is 100, and the default size is 25.

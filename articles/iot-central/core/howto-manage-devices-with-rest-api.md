@@ -201,9 +201,6 @@ The response to this request looks like the following example:
 
 You can use ODATA filters to filter the results returned by the list devices API.
 
-> [!NOTE]
-> Currently, ODATA support is only available for `api-version=2022-07-31`
-
 ### $top
 
 Use the **$top** to set the result size, the maximum returned result size is 100, the default size is 25.
@@ -286,10 +283,10 @@ Currently, the only supported filter function for device lists is the `contains`
 $filter=contains(displayName, 'device1') ge 0
 ```
 
-The following example shows how to retrieve all the devices where the display name has index the string `thermostat`:
+The following example shows how to retrieve all the devices where the display name contains the string `thermostat`:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=index(displayName, 'thermostat')
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')
 ```
 
 The response to this request looks like the following example:
