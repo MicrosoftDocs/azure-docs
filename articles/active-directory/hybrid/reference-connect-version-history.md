@@ -345,7 +345,7 @@ There are no functional changes in this release.
 
 This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability, see the CVE.
 
-To download the latest version of Azure AD Connect 1.6, see the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=103336).
+To download the latest version of Azure AD Connect 1.6, see the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594).
 
 ### Release status
 
