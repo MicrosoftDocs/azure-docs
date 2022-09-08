@@ -77,15 +77,15 @@ You'll need:
 
 The core components for constructing the Responsible AI dashboard in Azure Machine Learning are:
 
-- Responsible AI Insights dashboard constructor
+- RAI Insights dashboard constructor
 - The tool components:
-    - Add Explanation to Responsible AI Insights dashboard
-    - Add Causal to Responsible AI Insights dashboard
-    - Add Counterfactuals to Responsible AI Insights dashboard
-    - Add Error Analysis to Responsible AI Insights dashboard
-    - Gather Responsible AI Insights dashboard
+    - Add Explanation to RAI Insights dashboard
+    - Add Causal to RAI Insights dashboard
+    - Add Counterfactuals to RAI Insights dashboard
+    - Add Error Analysis to RAI Insights dashboard
+    - Gather RAI Insights dashboard
 
-The Responsible AI Insights dashboard constructor and Gather Responsible AI Insights dashboard components are always required, plus at least one of the tool components. However, it isn't necessary to use all the tools in every Responsible AI dashboard.  
+The RAI Insights dashboard constructor and Gather RAI Insights dashboard components are always required, plus at least one of the tool components. However, it isn't necessary to use all the tools in every Responsible AI dashboard.  
 
 In the following sections are specifications of the Responsible AI components and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebook](https://aka.ms/RAIsamplesProgrammer).
 
@@ -100,22 +100,22 @@ The current set of components have a number of limitations on their use:
 - The dataset inputs must be in pandas.DataFrame.to_parquet format. 
 - A model must be supplied even if only a causal analysis of the data is performed. You can use the DummyClassifier and DummyRegressor estimators from scikit-learn for this purpose.
 
-### Responsible AI Insights dashboard constructor
+### RAI Insights dashboard constructor
 
 This component has three input ports:
 
 - The machine learning model  
-- The train dataset  
+- The training dataset  
 - The test dataset  
 
-To generate model-debugging insights with components such as error analysis and Model explanations, use the train and test dataset that you used when you trained your model. For components like causal analysis, which doesn't require a model, you use the train dataset to train the causal model to generate the causal insights. You use the test dataset to populate your Responsible AI dashboard visualizations.
+To generate model-debugging insights with components such as error analysis and Model explanations, use the training and test dataset that you used when you trained your model. For components like causal analysis, which doesn't require a model, you use the training dataset to train the causal model to generate the causal insights. You use the test dataset to populate your Responsible AI dashboard visualizations.
 
 The easiest way to supply the model is to use the fetch registered model component, which we discuss later in this article.
 
 > [!NOTE]
 > Currently, only models in MLflow format and with a sklearn flavor are supported.
 
-The two datasets should be file datasets (of type `uri_file`) in Parquet format. Tabular datasets aren't supported, but we provide a TabularDataset to Parquet file component to help with conversions. The train and test datasets provided don't have to be the same datasets that are used in training the model, but they can be the same. By default, for performance reasons, the test dataset is restricted to 5,000 rows of the visualization UI.
+The two datasets should be file datasets (of type `uri_file`) in Parquet format. Tabular datasets aren't supported, but we provide a TabularDataset to Parquet file component to help with conversions. The training and test datasets provided don't have to be the same datasets that are used in training the model, but they can be the same. By default, for performance reasons, the test dataset is restricted to 5,000 rows of the visualization UI.
 
 The constructor component also accepts the following parameters:
 
@@ -130,7 +130,7 @@ The constructor component also accepts the following parameters:
 
 <sup>1</sup> The lists should be supplied as a single JSON-encoded string for `categorical_column_names` and `classes` inputs.
 
-The constructor component has a single output named `rai_insights_dashboard`. This is an empty dashboard, which the individual tool components operate on. All the results are assembled by the Gather Responsible AI Insights dashboard component at the end.
+The constructor component has a single output named `rai_insights_dashboard`. This is an empty dashboard, which the individual tool components operate on. All the results are assembled by the Gather RAI Insights dashboard component at the end.
 
 # [YAML](#tab/yaml)
 
@@ -216,9 +216,9 @@ A sample generated JSON string is shown here:
 ] 
 ```
 
-### Add Causal to Responsible AI Insights dashboard
+### Add Causal to RAI Insights dashboard
 
-This component performs a causal analysis on the supplied datasets. It has a single input port, which accepts the output of the Responsible AI Insights dashboard constructor. It also accepts the following parameters:
+This component performs a causal analysis on the supplied datasets. It has a single input port, which accepts the output of the RAI Insights dashboard constructor. It also accepts the following parameters:
 
 | Parameter name | Description | Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |---|---|---|
@@ -239,7 +239,7 @@ This component performs a causal analysis on the supplied datasets. It has a sin
 
 <sup>2</sup> For the `list` parameters: Several of the parameters accept lists of other types (strings, numbers, even other lists). To pass these into the component, they must first be JSON-encoded into a single string.
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather Responsible AI Insights dashboard component.
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component.
 
 # [YAML](#tab/yaml)
 
@@ -268,9 +268,9 @@ This component has a single output port, which can be connected to one of the `i
 
 ---
 
-### Add Counterfactuals to Responsible AI Insights dashboard
+### Add Counterfactuals to RAI Insights dashboard
 
-This component generates counterfactual points for the supplied test dataset. It has a single input port, which accepts the output of the Responsible AI Insights dashboard constructor. It also accepts the following parameters: 
+This component generates counterfactual points for the supplied test dataset. It has a single input port, which accepts the output of the RAI Insights dashboard constructor. It also accepts the following parameters: 
 
 | Parameter name | Description | Type |
 |---|---|---|
@@ -284,7 +284,7 @@ This component generates counterfactual points for the supplied test dataset. It
 
 <sup>3</sup> For the non-scalar parameters: Parameters that are lists or dictionaries should be passed as single JSON-encoded strings.
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather Responsible AI Insights dashboard component. 
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component. 
 
 # [YAML](#tab/yaml)
 
@@ -316,9 +316,9 @@ This component has a single output port, which can be connected to one of the `i
 
 ---
 
-### Add Error Analysis to Responsible AI Insights dashboard 
+### Add Error Analysis to RAI Insights dashboard 
 
-This component generates an error analysis for the model. It has a single input port, which accepts the output of the Responsible AI Insights dashboard constructor. It also accepts the following parameters:
+This component generates an error analysis for the model. It has a single input port, which accepts the output of the RAI Insights dashboard constructor. It also accepts the following parameters:
 
 | Parameter name | Description | Type |
 |---|---|---|
@@ -327,7 +327,7 @@ This component generates an error analysis for the model. It has a single input 
 | `min_child_samples` | The minimum number of datapoints required to produce a leaf. | Optional integer. Defaults to 20. |
 | `filter_features` | A list of one or two features to use for the matrix filter. | Optional list, to be passed as a single JSON-encoded string. |
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather Responsible AI Insights dashboard component.
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component.
 
 # [YAML](#tab/yaml)
 
@@ -356,11 +356,11 @@ This component has a single output port, which can be connected to one of the `i
 
 ---
 
-### Add Explanation to Responsible AI Insights dashboard
+### Add Explanation to RAI Insights dashboard
 
-This component generates an explanation for the model. It has a single input port, which accepts the output of the Responsible AI Insights dashboard constructor. It accepts a single, optional comment string as a parameter.
+This component generates an explanation for the model. It has a single input port, which accepts the output of the RAI Insights dashboard constructor. It accepts a single, optional comment string as a parameter.
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather Responsible AI Insights dashboard component. 
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component. 
 
 
 # [YAML](#tab/yaml)
@@ -390,11 +390,11 @@ This component has a single output port, which can be connected to one of the `i
 ```
 ---
 
-### Gather Responsible AI Insights dashboard
+### Gather RAI Insights dashboard
 
 This component assembles the generated insights into a single Responsible AI dashboard. It has five input ports: 
 
-- The `constructor` port that must be connected to the Responsible AI Insights dashboard constructor component.
+- The `constructor` port that must be connected to the RAI Insights dashboard constructor component.
 - Four `insight_[n]` ports that can be connected to the output of the tool components. At least one of these ports must be connected.
 
 There are two output ports: 
@@ -442,7 +442,7 @@ We provide two helper components to aid in connecting the Responsible AI compone
 
 ### Fetch registered model
 
-This component produces information about a registered model, which can be consumed by the `model_info_path` input port of the Responsible AI Insights dashboard constructor component. It has a single input parameter: the Azure Machine Learning ID (`<NAME>:<VERSION>`) of the desired model.
+This component produces information about a registered model, which can be consumed by the `model_info_path` input port of the RAI Insights dashboard constructor component. It has a single input parameter: the Azure Machine Learning ID (`<NAME>:<VERSION>`) of the desired model.
 
 # [YAML](#tab/yaml)
 
@@ -469,7 +469,7 @@ This component produces information about a registered model, which can be consu
 
 ### Tabular dataset to parquet file
 
-This component converts the tabular dataset named in its sole input parameter into a Parquet file, which can be consumed by the `train_dataset` and `test_dataset` input ports of the Responsible AI Insights dashboard constructor component. Its single input parameter is the name of the desired dataset.
+This component converts the tabular dataset named in its sole input parameter into a Parquet file, which can be consumed by the `train_dataset` and `test_dataset` input ports of the RAI Insights dashboard constructor component. Its single input parameter is the name of the desired dataset.
 
 # [YAML](#tab/yaml)
 
