@@ -37,9 +37,9 @@ If you don't have a deployed Azure Spring Apps instance, follow the instructions
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
     <dependency>
-			  <groupId>com.azure.spring</groupId>
-			  <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
-		</dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
+    </dependency>
     ```
 
 1. In the *application.properties* file, remove any `spring.datasource.*` properties.
