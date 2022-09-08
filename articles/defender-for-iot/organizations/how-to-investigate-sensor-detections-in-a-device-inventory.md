@@ -1,7 +1,7 @@
 ---
 title: Manage your OT device inventory from a sensor console
 description: Learn how to view and manage OT devices (assets) from the Device inventory page on a sensor console.
-ms.date: 07/12/2022
+ms.date: 07/21/2022
 ms.topic: how-to
 ---
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Use the **Device inventory** page from a sensor console to manage all OT and IT devices detected by that console. Identify new devices detected, devices that might need troubleshooting, and more.
 
-For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
 
 > [!TIP]
 > Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
@@ -72,32 +72,76 @@ To export device inventory data, on the **Device inventory** page, select **Expo
 
 The device inventory is exported with any filters currently applied, and you can save the file locally.
 
-## Delete a device
+## Merge devices
 
-If you have devices no longer in use, delete them from the device inventory so that they're no longer connected to Defender for IoT.
+You may need to merge duplicate devices if the sensor has discovered separate network entities that are associated with a single, unique device.
 
-Devices might be inactive because of misconfigured SPAN ports, changes in network coverage, or because the device was unplugged from the network.
-
-Delete inactive devices to maintain a correct representation of current network activity, better understand your committed devices when managing your Defender for IoT plans, and to reduce clutter on your screen.
-
-Devices you delete from the Inventory are removed from the map and won't be calculated when generating Defender for IoT reports, for example Data Mining, Risk Assessment, and Attack Vector reports.
+Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
 
 > [!NOTE]
-> Devices must be inactive for 7 days or more in order for you to be able to delete them.
->
+> - You can only merge authorized devices.
+> - Device merges are irreversible. If you merge devices incorrectly, you'll have to delete the merged device and wait for the sensor to rediscover both devices.
+> - Alternately, merge devices from the [Device map](how-to-work-with-the-sensor-device-map.md) page.
+When merging, you instruct the sensor to combine the device properties of two devices into one. When you do this, the Device Properties window and sensor reports will be updated with the new device property details.
 
-**To delete inactive devices**:
+For example, if you merge two devices, each with an IP address, both IP addresses will appear as separate interfaces in the Device Properties window. 
 
-1. On the **Device inventory** page, filter the grid by the **Last Activity** field. In the **Filter** field, select one of the following time periods:
+**To merge devices from the device inventory:**
 
-    - for seven days or more
-    - for 14 days or more
-    - 30 days or more
-    - 90 days or more
+1. Use the SHIFT key to select two devices from the inventory, and then right-click one of them.
 
-1. Select **Delete Inactive Devices**. In the prompt displayed, enter the reason you're deleting the devices, and then select **Delete**. 
+1. Select **Merge** to merge the devices. This can take up to 2 minutes to complete.
 
-    All devices detected within the range of the selected filter are deleted. If there are a large number of devices to delete, the process may take a few minutes.
+1. When the **Set merge device attributes** dialog appears, enter a meaningful name for your merged device, and then select **Save**.
+
+## View inactive devices
+
+You may want to view devices in your network that have been inactive and delete them. 
+
+For example, devices may become inactive because of misconfigured SPAN ports, changes in network coverage, or by unplugging them from the network
+
+**To view inactive devices**, filter the device inventory to display devices that have been inactive.
+
+On the **Device inventory** page:
+
+1. Select **Add filter**.
+1. Select **Last Activity** in the column field.
+1. Choose the time period in the **Filter** field. Filtering options include seven days or more, 14 days or more, 30 days or more, or 90 days or more.
+
+> [!TIP]
+> We recommend that you [delete](#delete-devices) inactive devices to display a more accurate representation of current network activity, better evaluate [committed devices](architecture.md#what-is-a-defender-for-iot-committed-device), and reduce clutter on your screen.
+
+## Delete devices
+
+You may want to delete devices from your device inventory, such as if they've been [merged incorrectly](#merge-devices), or are [inactive](#view-inactive-devices).
+
+Deleted devices are removed from the **Device map** and the device inventories on the Azure portal and on-premises management console, and aren't calculated when generating reports, such as Data Mining, Risk Assessment, or Attack Vector reports.
+
+**To delete a single device**:
+
+You can delete a single device when they’ve been inactive for more than 10 minutes.
+
+1. In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
+1. At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
+
+**To delete all inactive devices**
+
+This procedure is supported for the *cyberx* and admin users only.
+
+1. Select the **Last Seen** filter icon in the Inventory.
+1. Select a filter option.
+1. Select **Apply**.
+1. Select **Delete Inactive Devices**. In the prompt displayed, enter the reason you're deleting the devices, and then select **Delete**.
+
+All devices detected within the range of the filter will be deleted. If you delete a large number of devices, the delete process may take a few minutes.
+
+## Export device inventory information
+
+You can export device inventory information to a .csv file.
+
+**To export:**
+
+- Select **Export file** from the Device Inventory page. The report is generated and downloaded.
 
 ## Device inventory column reference
 

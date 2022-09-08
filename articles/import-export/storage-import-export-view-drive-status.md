@@ -36,7 +36,7 @@ If you created your import or export job in Azure Data Box (the Preview experien
 
     A list of Import/Export jobs appears on the page.
 
-    [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-drive-status/preview-jobs-list.png) ](./media/storage-import-export-view-drive-status/preview-jobs-list.png)
+    [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-drive-status/preview-jobs-list.png) ](./media/storage-import-export-view-drive-status/preview-jobs-list.png#lightbox)
 
 4. Select a job name to view job details.
 

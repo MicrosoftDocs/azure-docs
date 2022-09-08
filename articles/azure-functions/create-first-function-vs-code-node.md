@@ -8,7 +8,7 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-node_uiex
 ms.devlang: javascript
-ms.custom: mode-api
+ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a JavaScript function in Azure using Visual Studio Code
@@ -25,15 +25,7 @@ There's also a [CLI-based version](create-first-function-cli-node.md) of this ar
 
 Before you get started, make sure you have the following requirements in place:
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-+ [Node.js 14.x](https://nodejs.org/en/download/releases/) or [Node.js 16.x](https://nodejs.org/en/download/releases/). Use the `node --version` command to check your version.  
-
-+ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
-
-+ [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
+[!INCLUDE [functions-requirements-visual-studio-code-node](../../includes/functions-requirements-visual-studio-code-node.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
