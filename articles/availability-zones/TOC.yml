@@ -26,6 +26,8 @@
       href: migrate-app-gateway-v2.md
     - name: Cache for Redis
       href: migrate-cache-redis.md
+    - name: Cognitive Search
+      href: migrate-search-service.md
     - name: Container instances
       href: migrate-container-instances.md
     - name: Load Balancer
