@@ -24,8 +24,8 @@ Product support is represented by the following symbols:
 |---------|--------|----------|
 | &#10060; | Unsupported | Unsupported means that the product is not available in that particular region. |
 | &#x2705; | Supported | Supported means that the product is available in that particular region and in no way differs from the public cloud offering. |
-| [Limited]()| Limited | Limited indicates that some features may not be available or may have limitations within those features themselves. |
-| [Variations]() | Variations | Variations indicates that all features are supported, but with some variations.|
+| Limited| Limited | Limited indicates that some features may not be available or may have limitations within those features themselves. |
+| Variations | Variations | Variations indicates that all features are supported, but with some variations.|
 
 
 
@@ -37,8 +37,8 @@ This section outlines variations and considerations when using Azure Bot Service
 
 | Product | CH-East |  CH-East-2 | CH-North | CH-North-2  |CH-North-3|
 |---------|--------|------------|----------|-------------|-----------|
-| [Machine learning](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet)|&#10060; | [Limited]()| &#10060;|&#10060;| &#10060; |
-| [Cognitive Services: Speech](../cognitive-services/speech-service/sovereign-clouds?tabs=c-sharp#azure-china)| &#10060;|  [Limited]() | &#10060;|  [Limited]() | &#10060;
+| [Machine learning](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet)|&#10060; | Limited| &#10060;|&#10060;| &#10060; |
+| [Cognitive Services: Speech](../cognitive-services/speech-service/sovereign-clouds?tabs=c-sharp#azure-china)| &#10060;|  Limited | &#10060;|  Limited | &#10060;
 
 ### Media
 
@@ -46,7 +46,7 @@ This section outlines variations and considerations when using Media services in
 
 | Product | CH-East |  CH-East-2 | CH-North | CH-North-2  |CH-North-3|
 |---------|--------|------------|------------|------------|------------|
-| [Azure Media Services](../media-services/latest/azure-clouds-regions.md#china)  | [Limited]()  |  [Limited]()   | [Limited]()  |[Limited]()   | [Limited]()  | 
+| [Azure Media Services](../media-services/latest/azure-clouds-regions.md#china)  | Limited  |  Limited   | Limited  |Limited   | Limited  | 
 
 ### Networking
 
@@ -54,7 +54,7 @@ This section outlines variations and considerations when using Networking servic
 
 | Product | CH-East |  CH-East-2 | CH-North | CH-North-2  |CH-North-3|
 |---------|--------|------------|------------|------------|------------|
-| [Private Link](../private-link/availability.md) | [Limited]() |  [Limited]() | [Limited]()| [Limited]()| [Limited]()
+| [Private Link](../private-link/availability.md) | Limited |  Limited | Limited| Limited| Limited
 
 ### China REST endpoints
 
@@ -78,12 +78,12 @@ This section outlines variations and considerations when using Azure Bot Service
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [Azure Bot Service](../azure-government/compare-azure-government-global-azure.md#azure-bot-service) | [Limited]() | [Limited]() |
-| [Azure Machine learning](../machine-learning/reference-machine-learning-cloud-parity.md#azure-government)|  [Limited]() |  [Limited]() |
-| [Cognitive Services: Content Moderator](../azure-government/compare-azure-government-global-azure.md#cognitive-services-content-moderator)|  [Limited]() |  [Limited]() |
-| [Cognitive Services: Language Understanding (LUIS)](../azure-government/compare-azure-government-global-azure.md#cognitive-services-language-understanding-luis)|  [Limited]() |  [Limited]() |
-| [Cognitive Services: Speech](../cognitive-services/speech-service/sovereign-clouds?tabs=c-sharp#azure-government-united-states)|  [Limited]() |  [Limited]() |
-| [Cognitive Services: Translator](../azure-government/compare-azure-government-global-azure.md#cognitive-services-translator)|  [Limited]() |  [Limited]() |
+| [Azure Bot Service](../azure-government/compare-azure-government-global-azure.md#azure-bot-service) | Limited | Limited |
+| [Azure Machine learning](../machine-learning/reference-machine-learning-cloud-parity.md#azure-government)|  Limited |  Limited |
+| [Cognitive Services: Content Moderator](../azure-government/compare-azure-government-global-azure.md#cognitive-services-content-moderator)|  Limited |  Limited |
+| [Cognitive Services: Language Understanding (LUIS)](../azure-government/compare-azure-government-global-azure.md#cognitive-services-language-understanding-luis)|  Limited |  Limited |
+| [Cognitive Services: Speech](../cognitive-services/speech-service/sovereign-clouds?tabs=c-sharp#azure-government-united-states)|  Limited |  Limited |
+| [Cognitive Services: Translator](../azure-government/compare-azure-government-global-azure.md#cognitive-services-translator)|  Limited |  Limited |
 
 ### Analytics
 
@@ -101,9 +101,9 @@ This section outlines variations and considerations when using Databases service
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [Azure Database for MySQL](../azure-government/compare-azure-government-global-azure.md#azure-database-for-mysql) | [Limited]() |  [Limited]() 
-| [Azure Database for PostgreSQL](../azure-government/compare-azure-government-global-azure.md#azure-database-for-postgresql)|[Limited]() | [Limited]() |
-| [Azure SQL Managed Instance](../azure-government/compare-azure-government-global-azure.md#azure-sql-managed-instance)| [Limited]() | [Limited]() 
+| [Azure Database for MySQL](../azure-government/compare-azure-government-global-azure.md#azure-database-for-mysql) | Limited |  Limited 
+| [Azure Database for PostgreSQL](../azure-government/compare-azure-government-global-azure.md#azure-database-for-postgresql)|Limited | Limited |
+| [Azure SQL Managed Instance](../azure-government/compare-azure-government-global-azure.md#azure-sql-managed-instance)| Limited | Limited 
 
 
 ### Developer Tools
@@ -112,7 +112,7 @@ This section outlines variations and considerations when using Developer tools i
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [Enterprise Dev/Test subscription offer](../azure-government/compare-azure-government-global-azure.md#enterprise-devtest-subscription-offer) |   [Limited]() |  [Limited]()
+| [Enterprise Dev/Test subscription offer](../azure-government/compare-azure-government-global-azure.md#enterprise-devtest-subscription-offer) |   Limited |  Limited
 
 ### Identity
 
@@ -120,7 +120,7 @@ This section outlines variations and considerations when using Identity services
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [Azure Active Directory Premium P1 and P2](../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2) |   [Limited]() |  [Limited]()
+| [Azure Active Directory Premium P1 and P2](../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2) |   Limited |  Limited
 
 ### Management and Governance
 
@@ -128,17 +128,17 @@ This section outlines variations and considerations when using Management and Go
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [Automation](../azure-government/compare-azure-government-global-azure.md#automation) | [Limited]() |  [Limited]() 
-| [Azure Advisor](../azure-government/compare-azure-government-global-azure.md#azure-advisor)|[Limited]() | [Limited]() |
-| [Azure Lighthouse](../azure-government/compare-azure-government-global-azure.md#azure-lighthouse)| [Limited]() | [Limited]() 
-| [Azure Monitor](../azure-government/compare-azure-government-global-azure.md#azure-monitor)| [Limited]() | [Limited]() 
-| [Application Insights](../azure-government/compare-azure-government-global-azure.md#application-insights)| [Limited]() | [Limited]() 
+| [Automation](../azure-government/compare-azure-government-global-azure.md#automation) | Limited |  Limited 
+| [Azure Advisor](../azure-government/compare-azure-government-global-azure.md#azure-advisor)|Limited | Limited |
+| [Azure Lighthouse](../azure-government/compare-azure-government-global-azure.md#azure-lighthouse)| Limited | Limited 
+| [Azure Monitor](../azure-government/compare-azure-government-global-azure.md#azure-monitor)| Limited | Limited 
+| [Application Insights](../azure-government/compare-azure-government-global-azure.md#application-insights)| Limited | Limited 
 
 ### Cost Management and Billing
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [Azure Cost Management + Billing](../azure-government/compare-azure-government-global-azure.md#cost-management-and-billing) | [Limited]() |  [Limited]() 
+| [Azure Cost Management + Billing](../azure-government/compare-azure-government-global-azure.md#cost-management-and-billing) | Limited |  Limited 
 
 
 ### Media
@@ -147,7 +147,7 @@ This section outlines variations and considerations when using Media services in
 
 | Product | US-Virginia | US-Texas | US-Arizona |
 |---------|--------|------------|------------|
-| [Azure Media Services](../media-services/latest/azure-clouds-regions.md#us-government-cloud) |[Limited]()  |  [Limited]() 
+| [Azure Media Services](../media-services/latest/azure-clouds-regions.md#us-government-cloud) |Limited  |  Limited 
 
 ### Migration
 
@@ -155,7 +155,7 @@ This section outlines variations and considerations when using Migration service
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [Azure Migrate](../azure-government/compare-azure-government-global-azure.md#azure-migrate) | [Limited]() |  [Limited]() 
+| [Azure Migrate](../azure-government/compare-azure-government-global-azure.md#azure-migrate) | Limited |  Limited 
 
 ### Networking
 
@@ -163,9 +163,9 @@ This section outlines variations and considerations when using Networking servic
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [Azure ExpressRoute](../azure-government/compare-azure-government-global-azure.md#azure-expressroute) | [Limited]() |  [Limited]() 
-| [Private Link](../private-link/availability.md) | [Limited]() |  [Limited]() 
-| [Traffic Manager](../azure-government/compare-azure-government-global-azure.md#traffic-manager) | [Limited]() |  [Limited]() 
+| [Azure ExpressRoute](../azure-government/compare-azure-government-global-azure.md#azure-expressroute) | Limited |  Limited 
+| [Private Link](../private-link/availability.md) | Limited |  Limited 
+| [Traffic Manager](../azure-government/compare-azure-government-global-azure.md#traffic-manager) | Limited |  Limited 
 
 
 ### Security
@@ -174,10 +174,10 @@ This section outlines variations and considerations when using Security services
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [Microsoft Defender for IoT](../azure-government/compare-azure-government-global-azure.md#automation) | [Limited]() |  [Limited]() 
+| [Microsoft Defender for IoT](../azure-government/compare-azure-government-global-azure.md#automation) | Limited |  Limited 
 | [Azure Information Protection](../azure-government/compare-azure-government-global-azure.md#azure-information-protection)|&#x2705;  | &#x2705;  |
-| [Microsoft Defender for Cloud](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud)| [Limited]() | [Limited]() 
-| [Microsoft Sentinel](../security/fundamentals/feature-availability.md#microsoft-sentinel)| [Limited]() | [Limited]() 
+| [Microsoft Defender for Cloud](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud)| Limited | Limited 
+| [Microsoft Sentinel](../security/fundamentals/feature-availability.md#microsoft-sentinel)| Limited | Limited 
 
 ### Storage
 
@@ -186,8 +186,8 @@ This section outlines variations and considerations when using Storage services 
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [Azure Managed Disks](../azure-government/compare-azure-government-global-azure.md#azure-managed-disks) | [Limited]() |  [Limited]() 
-| [Azure NetApp Files](../azure-netapp-files/azure-government.md) | [Limited]() |  [Limited]() 
+| [Azure Managed Disks](../azure-government/compare-azure-government-global-azure.md#azure-managed-disks) | Limited |  Limited 
+| [Azure NetApp Files](../azure-netapp-files/azure-government.md) | Limited |  Limited 
 | [Azure Import/Export](../azure-government/compare-azure-government-global-azure.md#azure-importexport) |&#x2705; |  &#x2705;; 
 
 
@@ -197,8 +197,8 @@ This section outlines variations and considerations when using Web services in t
 
 | Product | US-Virginia |  US-Arizona |
 |---------|--------|------------|
-| [API Management](../azure-government/compare-azure-government-global-azure.md#api-management) | [Limited]() |  [Limited]() 
-| [App Service](../azure-government/compare-azure-government-global-azure.md#app-service)|[Limited]()  |  [Limited]() |
+| [API Management](../azure-government/compare-azure-government-global-azure.md#api-management) | Limited |  Limited 
+| [App Service](../azure-government/compare-azure-government-global-azure.md#app-service)|Limited  |  Limited |
 | [Azure Functions](../azure-government/compare-azure-government-global-azure.md#app-service)|&#x2705;  | &#x2705;  |
 
 ### US Government REST endpoints
