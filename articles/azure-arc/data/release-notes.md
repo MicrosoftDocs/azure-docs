@@ -30,7 +30,7 @@ New for this release:
   - New extensions to monitoring stack to enable Kafka as a data cache and expose an OpenTelemetry endpoint for integration.  See documentation for more details.
   - Deleting an AD connector that is in use is now blocked.  First remove all database instances that are using it and then remove the AD connector.
   - New OpenTelemetry Router preview to make collected logs available for export to other SEIM systems.  See documentation for details.
-  - AD connectors can now be created in Kubernetes via the Kubernetes API and syncronized to Azure via Resource Sync.
+  - AD connectors can now be created in Kubernetes via the Kubernetes API and synchronized to Azure via Resource Sync.
   - Added short name `arcdc` to the data controllers custom resource definition. You can now use `kubectl get arcdc` as short form for `kubectl get datacontrollers`.
   - The controller-external-svc is now only created when deploying using the indirect connectivity mode since it is only used for exporting logs/metrics/usage data in the indirect mode.
   - "Downgrades" - i.e. going from a higher major or minor version to a lower - is now blocked.  Examples of a blocked downgrade:  v1.10 -> v1.9 or v2.0 -> v1.20.
@@ -88,7 +88,7 @@ For complete release version information, see [Version log](version-log.md#july-
 - Added process level CPU  and memory metrics to the monitoring dashboards for the SQL managed instance process.
 - `syncSecondaryToCommit` property is now available to be viewed and edited in Azure portal and Azure Data Studio.
 - Added ability to set the DNS name for the readableSecondaries service in Azure CLI and Azure portal.
-- Now collecting the `agent.log`, `security.log` and `sqlagentstartup.log` for Arc-enabled SQL Managed instance to ElasticSearch so they're searchable via Kibana and optionally uploading them to Azure Log Analytics.
+- The service now collects the `agent.log`, `security.log` and `sqlagentstartup.log` for Arc-enabled SQL Managed instance to ElasticSearch so they're searchable via Kibana. If you choose, you can upload them to Azure Log Analytics.
 - There are more additional notifications when provisioning new SQL managed instances is blocked due to not exporting/uploading billing data to Azure.
 
 ### Data controller
@@ -696,7 +696,7 @@ This release introduces `az` CLI extensions for Azure Arc-enabled data services.
 #### Azure Arc-enabled PostgreSQL server
 
 - Azure Arc PostgreSQL server now supports NFS storage.
-- Azure Arc PostgreSQL server deployments now supports Kubernetes pods to nodes assignments strategies with nodeSelector, nodeAffinity and anti-affinity.
+- Azure Arc PostgreSQL server now supports Kubernetes pods to nodes assignments strategies with nodeSelector, nodeAffinity and anti-affinity.
 - You can now configure compute parameters (vCore & memory) per role (Coordinator or Worker) when you deploy a PostgreSQL server or after deployment from Azure Data Studio and from the Azure portal.
 - From the Azure portal, you can now view the list of PostgreSQL extensions created on your PostgreSQL server.
 - From the Azure portal, you can delete Azure Arc-enabled PostgreSQL server groups on a data controller that is directly connected to Azure.
