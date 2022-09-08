@@ -687,7 +687,7 @@ Response 2：
     ```json
     {}
     ```
-    Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response dose not exist.
+    Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response does not exist.
         
     :::image type="content" source="media/connector-rest/pagination-rule-example-4-2.png" alt-text="Screenshot showing the End Condition setting for Example 4.2."::: 
 
