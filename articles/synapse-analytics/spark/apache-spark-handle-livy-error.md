@@ -74,7 +74,7 @@ Each error code falls under one of the following four buckets:
     An unknown failure, the model wasn't able to classify.
 
 
-The error codes (including and beyond the list shown above) along with the TSGs on how to resolve the issue will show up on the Synapse Studio application error pane if this feature is enabled.
+The error codes (including and beyond the list shown above) along with the troubleshooting instructions on how to resolve the issue will show up on the Synapse Studio application error pane if this feature is enabled.
 
 > [!NOTE]
 > If you have built any tooling around Synapse job monitoring that checks for a failing job by checking against the error code `LIVY_JOB_STATE_DEAD`, that would no longer work as the returned error codes would be different as mentioned above. Please modify any scripts accordingly in order to utilize this feature, or disable the feature if not needed.
