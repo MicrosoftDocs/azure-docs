@@ -1931,6 +1931,8 @@
         href: roadmunk-tutorial.md
       - name: Robin
         href: robin-tutorial.md
+      - name: RocketReach SSO
+        href: rocketreach-sso-tutorial.md
       - name: RSA Archer Suite
         href: rsa-archer-suite-tutorial.md  
       - name: RStudio Connect SAML Authentication
