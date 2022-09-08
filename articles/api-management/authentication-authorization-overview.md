@@ -171,7 +171,7 @@ Go a step further with this scenario by using the [developer portal with Azure A
 * An API Management contributor and backend API developer is writing several new APIs that will be available to community developers.
 * The APIs will be publicly available, but the full functionality will be protected behind a paywall and secured using OAuth 2.0. After purchasing a license, the developer will be provided with their own client credentials and subscription key that is valid for production use. 
 * External community developers will discover the APIs using the developer portal. Developers will sign up and sign in to the developer portal using their social media accounts. 
-* Interested developer portal users with a test subscription key can explore the API functionality in a test context, without needing to purchase a license. The developer portal test console will represent the calling application and generate a default access token to the backend API. 
+* Interested developer portal users with a test subscription key can explore the API functionality in a test context, without needing to purchase a license. The developer portal test console will represent the calling application and generate a default access token to the backend API. [Please note that extra care is required when using a Client Credentials flow with the API Management test console.](api-management-howto-oauth2.md#security-considerations)
 
 Key configurations:
 
@@ -179,7 +179,7 @@ Key configurations:
 |---------|---------|
 | Set up products in Azure API Management to represent the combinations of APIs that are exposed to community developers.<br/><br/> Set up subscriptions to enable developers to consume the APIs.  | [Tutorial: Create and publish a product](api-management-howto-add-products.md)<br/><br/>[Subscriptions in Azure API Management](api-management-subscriptions.md)  |
 |  Configure community developer access to the developer portal using Azure AD B2C. Azure AD B2C can then be configured to work with one or more downstream social media identity providers. |  [How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management](api-management-howto-aad-b2c.md) |
-| Set up the test console in the developer portal to obtain a valid OAuth 2.0 token to the backend API using the Client Credentials flow.  |  [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md) |
+| Set up the test console in the developer portal to obtain a valid OAuth 2.0 token to the backend API using the Client Credentials flow.  |  [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md) Please note the linked tutorial covers setting up an Auth-Code grant flow, not Client Credentials. However, the [Client Credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) is discussed and amending the steps is straight forwards. |
 
 Go a step further by delegating [user registration or product subscription](api-management-howto-setup-delegation.md) and extend the process with your own logic. 
 
