@@ -29,8 +29,7 @@ HDInsight is available in many Azure regions. To find the closest region, see [P
 
 ### Location of default storage
 
-The default storage, either an Azure Storage account or Azure Data Lake Storage, must be in the same location as your cluster. Azure Storage is available at all locations. Data Lake Storage Gen1 is available in some regions - see the current [Data Lake Storage availability](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
-
+The default storage, either an Azure Storage account or Azure Data Lake Storage, must be in the same location as your cluster. Azure Storage is available at all locations. Data Lake Storage is available in some regions - see the current [Data Lake Storage availability](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 ### Location of existing data
 
 If you want to use an existing storage account or Data Lake Storage as your cluster's default storage, then you must deploy your cluster at that same location.
@@ -39,8 +38,7 @@ If you want to use an existing storage account or Data Lake Storage as your clus
 
 On a deployed cluster, you can attach additional Azure Storage accounts or access other Data Lake Storage. All your storage accounts must live in the same location as your cluster. A Data Lake Storage can be in a different location, though great distances may introduce some latency.
 
-Azure Storage has some [capacity limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), while  Data Lake Storage Gen1 is almost unlimited.
-
+Azure Storage has some [capacity limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), while Data Lake Storage is almost unlimited.
 A cluster can access a combination of different storage accounts. Typical examples include:
 
 * When the amount of data is likely to exceed the storage capacity of a single blob storage
@@ -92,3 +90,4 @@ For more information on managing subscription quotas, see [Requesting quota incr
 
 * [Set up clusters in HDInsight with Apache Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md): Learn how to set up and configure clusters in HDInsight.
 * [Monitor cluster performance](hdinsight-key-scenarios-to-monitor.md): Learn about key scenarios to monitor for your HDInsight cluster that might affect your cluster's capacity.
+
