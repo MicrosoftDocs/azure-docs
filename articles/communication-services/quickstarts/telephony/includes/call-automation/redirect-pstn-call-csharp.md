@@ -69,7 +69,7 @@ Obtain your connection string and configure your application
 
 From the Azure portal, locate your Communication Service resource and click on the Keys section to obtain your connection string.
 
-:::image type="content" source="./../../../voice-video-calling/media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
+:::image type="content" source="./../../../voice-video-calling/media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys.":::
 
 ## Configure Program.cs to redirect the call
 
