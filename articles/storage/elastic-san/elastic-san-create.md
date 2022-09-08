@@ -71,7 +71,19 @@ $sanName = "desiredSANName"
 $volGroupName = "desiredVolumeGroupName"
 
 ## Create the SAN, itself
-New-AzElasticSAN -ResourceGroupName $rgName -Name $sanName -AvailabilityZone $zone -Location $region -BaseSizeTb 50 -ExtendedSizeTb 1 -SkuName Premium_LRS
+New-AzElasticSAN -ResourceGroupName $rgName -Name $sanName -AvailabilityZone $zone -Location $region -BaseSizeTb 100 -ExtendedSizeTb 20 -SkuName Premium_LRS
+```
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+## Variables
+sanName="yourSANNameHere"
+resourceGroupName="yourResourceGroupNameHere"
+sanLocation="desiredRegion"
+baseSizeTiB
+extendedSizeTiB
+
+az elastic-san create -n $sanName -g $resourceGroupName -l $sanLocation –base-size-tib 100 –extended-capacity-size-tib 20 –sku “{name:Premium_LRS,tier:Premium}” 
 ```
 ---
 
@@ -93,6 +105,12 @@ Now that you've configured the basic settings and provisioned your storage, you 
 ```azurepowershell
 ## Create the volume group, this script only creates one.
 New-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSANName $sanName -Name $volGroupName
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+New-AzElasticSanVolumeGroup -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -Name $volumeGroupName
 ```
 
 ---
