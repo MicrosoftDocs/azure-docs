@@ -141,36 +141,34 @@ Connect to Azure Machine Learning Workspace, configure workspace details, and ge
 
 1. Import the required libraries:
 
-  ```python
-  # import required libraries
-  from azure.ai.ml import MLClient
-  from azure.ai.ml.entities import (
-      ManagedOnlineEndpoint,
-      ManagedOnlineDeployment,
-      Model,
-      Environment,
-      CodeConfiguration,
-  )
-  from azure.identity import DefaultAzureCredential
-  ```
+```python
+# import required libraries
+from azure.ai.ml import MLClient
+from azure.ai.ml.entities import (
+   ManagedOnlineEndpoint,
+   ManagedOnlineDeployment,
+   Model,
+   Environment,
+   CodeConfiguration,
+)
+from azure.identity import DefaultAzureCredential
+```
 
-1. Configure workspace details and get a handle to the workspace:
+2. Configure workspace details and get a handle to the workspace:
 
-  ```python
-  # enter details of your AzureML workspace
-  subscription_id = "<SUBSCRIPTION_ID>"
-  resource_group = "<RESOURCE_GROUP>"
-  workspace = "<AZUREML_WORKSPACE_NAME>"
-  ```
+```python
+# enter details of your AzureML workspace
+subscription_id = "<SUBSCRIPTION_ID>"
+resource_group = "<RESOURCE_GROUP>"
+workspace = "<AZUREML_WORKSPACE_NAME>"
 
-  ```python
-  # get a handle to the workspace
-  ml_client = MLClient(
-      DefaultAzureCredential(), subscription_id, resource_group, workspace
-  )
-  ```
+# get a handle to the workspace
+ml_client = MLClient(
+   DefaultAzureCredential(), subscription_id, resource_group, workspace
+)
+```
 
-  For more information, see [Deploy machine learning models to managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
+For more information, see [Deploy machine learning models to managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
 
 ### Configure online endpoint
 
