@@ -54,16 +54,13 @@ Subnet Size /24 = 255 IP addresses - 5 reserved from the platform = 250 availabl
 > [!TIP]
 > It is possible to change the subnet of an existing Application Gateway within the same virtual network. You can do this using Azure PowerShell or Azure CLI. For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway)
 
-### VNet permissions to create and deploy an Application Gateway
+### Virtual network permission 
 
-To enhance the security posture, permission checks are enforced to create and deploy an Application Gateway inside a VNET.Please follow the below steps to check if you have the permissions and add the required permissions. 
+Since application gateway resources are deployed within a virtual network resource, Application Gateway performs a check to verify the permission on the provided virtual network resource. This is verified during both create and manage operations. 
 
-- [Check your RBAC policy](../role-based-access-control/role-assignments-list-portal.md) to verify that the users and service principals who operate application gateways have permissions that include the action **Microsoft.Network/virtualNetworks/subnets/join/action** (Join Virtual Network)
-  - For more details on available permissions, visit [permissions](../virtual-network/virtual-network-manage-subnet.md)
+You should check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify that users or Service Principals who operate application gateways have at least **Microsoft.Network/virtualNetworks/subnets/join/action** or some higher permission such as the built-in [Network contributor](../role-based-access-control/built-in-roles.md) role on the virtual network. Visit [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md) to know more on subnet permissions. 
 
-- Update any assigned roles that don’t have the appropriate permissions.
-
-- If a [built-in](../role-based-access-control/built-in-roles.md) role doesn't provide the right permission, [create and assign a custom role](../role-based-access-control/custom-roles-portal.md) to achieve this.
+If a [built-in](../role-based-access-control/built-in-roles.md) role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md) for this purpose. 
 
 ## Network security groups
 
