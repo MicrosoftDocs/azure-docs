@@ -18,7 +18,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 - This article requires version 2.xx.x or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
