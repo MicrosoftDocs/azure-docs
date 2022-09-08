@@ -96,6 +96,9 @@ DMS supports cross-region, cross-resource group, and cross-subscription migratio
 
 With these best practices in mind, create your target flexible server and then configure it.
 
+> [!NOTE] 
+> This article contains references to the term "slave," a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 * Create the target flexible server. For guided steps, see the quickstart [Create an Azure Database for MySQL flexible server](./../mysql/flexible-server/quickstart-create-server-portal.md).
 * Next to configure the newly created target flexible server, proceed as follows: 
   * The user performing the migration requires the following permissions:
