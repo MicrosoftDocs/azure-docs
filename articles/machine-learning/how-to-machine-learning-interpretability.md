@@ -59,12 +59,9 @@ By using the classes and methods in the SDK v1, you can:
 * Achieve model interpretability on real-world datasets at scale during training and inference.
 * Use an interactive visualization dashboard to discover patterns in your data and its explanations at training time.
 
-Model interpretability classes are made available through the SDK&nbsp;v1 package. For more information, see [Install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install).
+Model interpretability classes are made available through the SDK&nbsp;v1 package. For more information, see [Install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install) and [azureml.interpret](python/api/azureml-interpret/azureml.interpret).
 
 ## Supported model interpretability techniques
-
-> [!NOTE]
-> `azureml.interpret` contains functionalities that are supported by Microsoft. For general use, use `pip install azureml-interpret`.
 
 The Responsible AI dashboard and `azureml-interpret` use the interpretability techniques that were developed in [Interpret-Community](https://github.com/interpretml/interpret-community/), an open-source Python package for training interpretable models and helping to explain opaque-box AI systems. Opaque-box models are those for which we have no information about their internal workings. 
 
