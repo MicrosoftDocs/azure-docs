@@ -12,7 +12,7 @@ ms.date: 09/08/2022
 
 The Amazon Web Services (AWS) S3 connector allows you to ingest AWS service logs, collected in AWS S3 buckets, to Microsoft Sentinel. The types of logs we currently support are AWS CloudTrail, VPC Flow Logs, and AWS GuardDuty. 
 
-This article describes to quickly identify the cause of issues occurring with the AWS S3 connector so you can find the steps needed to resolve the issues.
+This article describes how to quickly identify the cause of issues occurring with the AWS S3 connector so you can find the steps needed to resolve the issues.
 
 Learn how to [connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md?tabs=s3). 
 
