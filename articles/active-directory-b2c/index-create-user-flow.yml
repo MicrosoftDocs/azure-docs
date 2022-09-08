@@ -30,4 +30,4 @@ landingContent:
           - text: Resource owner password credentials user flow
             url: add-ropc-policy.md?pivots=b2c-user-flow   
           - text: Create client credentials flow  
-            url: client-credentials-grant-flow?pivots=b2c-user-flow     
+            url: client-credentials-grant-flow.md?pivots=b2c-user-flow     
