@@ -1,18 +1,18 @@
 ---
-title: Get connection endpoints and create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+title: Get connection endpoints and create connection strings for your Azure Arc-enabled PostgreSQL server
 titleSuffix: Azure Arc-enabled data services
-description: Get connection endpoints & create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+description: Get connection endpoints & create connection strings for your Azure Arc-enabled PostgreSQL server
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
-author: grrlgeek
-ms.author: jeschult
+author: dhanmm
+ms.author: dhmahaja
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Get connection endpoints & create the connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+# Get connection endpoints & create the connection strings for your Azure Arc-enabled PostgreSQL server
 
 This article explains how you can retrieve the connection endpoints for your server group and how you can form the connection strings, which can be used with your applications and/or tools.
 
@@ -23,11 +23,11 @@ This article explains how you can retrieve the connection endpoints for your ser
 
 Run the following command:
 ```azurecli
-az postgres arc-server endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc endpoint list -n <server name> --k8s-namespace <namespace> --use-k8s
 ```
 For example:
 ```azurecli
-az postgres arc-server endpoint list -n postgres01 --k8s-namespace arc --use-k8s
+az postgres server-arc endpoint list -n postgres01 --k8s-namespace arc --use-k8s
 ```
 
 It returns the list of endpoints: the PostgreSQL endpoint, the log search dashboard (Kibana), and the metrics dashboard (Grafana). For example: 
@@ -81,7 +81,7 @@ postgres=#
 
 ## From CLI with kubectl
 ```console
-kubectl get postgresqls/<server group name> -n <namespace name>
+kubectl get postgresqls/<server name> -n <namespace name>
 ```
 
 For example:
@@ -149,5 +149,4 @@ host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} 
 ```
 
 ## Next steps
-- Read about [scaling out (adding worker nodes)](scale-out-in-postgresql-hyperscale-server-group.md) your server group
-- Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group
+- Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-server-using-cli.md) your server group

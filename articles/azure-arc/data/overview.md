@@ -20,7 +20,7 @@ Azure Arc makes it possible to run Azure data services on-premises, at the edge,
 Currently, the following Azure Arc-enabled data services are available: 
 
 - SQL Managed Instance
-- PostgreSQL Hyperscale (preview)
+- Azure Arc-enabled PostgreSQL (preview)
 
 For an introduction to how Azure Arc-enabled data services supports your hybrid work environment, see this introductory video:
 
@@ -28,11 +28,11 @@ For an introduction to how Azure Arc-enabled data services supports your hybrid 
 
 ## Always current
 
-Azure Arc-enabled data services such as Azure Arc-enabled SQL managed instance and Azure Arc-enabled PostgreSQL Hyperscale receive updates on a frequent basis including servicing patches and new features similar to the experience in Azure. Updates from the Microsoft Container Registry are provided to you and deployment cadences are set by you in accordance with your policies. This way, on-premises databases can stay up to date while ensuring you maintain control. Because Azure Arc-enabled data services are a subscription service, you will no longer face end-of-support situations for your databases.
+Azure Arc-enabled data services such as Azure Arc-enabled SQL managed instance and Azure Arc-enabled PostgreSQL server receive updates on a frequent basis including servicing patches and new features similar to the experience in Azure. Updates from the Microsoft Container Registry are provided to you and deployment cadences are set by you in accordance with your policies. This way, on-premises databases can stay up to date while ensuring you maintain control. Because Azure Arc-enabled data services are a subscription service, you will no longer face end-of-support situations for your databases.
 
 ## Elastic scale
 
-Cloud-like elasticity on-premises enables you to scale databases up or down dynamically in much the same way as they do in Azure, based on the available capacity of your infrastructure. This capability can satisfy burst scenarios that have volatile needs, including scenarios that require ingesting and querying data in real time, at any scale, with sub-second response time. In addition, you can also scale out database instances using the unique hyper scale deployment option of Azure Database for PostgreSQL Hyperscale. This capability gives data workloads an additional boost on capacity optimization, using unique scale-*out* reads and writes.
+Cloud-like elasticity on-premises enables you to scale databases up or down dynamically in much the same way as they do in Azure, based on the available capacity of your infrastructure. This capability can satisfy burst scenarios that have volatile needs, including scenarios that require ingesting and querying data in real time, at any scale, with sub-second response time.
 
 ## Self-service provisioning
 
@@ -65,4 +65,4 @@ To see the regions that currently support Azure Arc-enabled data services, go to
 
 [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
 
-[Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (requires creation of an Azure Arc data controller first)
+[Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-server.md) (requires creation of an Azure Arc data controller first)

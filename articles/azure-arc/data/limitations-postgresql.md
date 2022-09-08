@@ -1,34 +1,34 @@
 ---
-title: Limitations of Azure Arc-enabled PostgreSQL Hyperscale
-description: Limitations of Azure Arc-enabled PostgreSQL Hyperscale
+title: Limitations of Azure Arc-enabled PostgreSQL
+description: Limitations of Azure Arc-enabled PostgreSQL
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
-author: grrlgeek
-ms.author: jeschult
+author: dhanmm
+ms.author: dhmahaja
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Limitations of Azure Arc-enabled PostgreSQL Hyperscale
+# Limitations of Azure Arc-enabled PostgreSQL
 
-This article describes limitations of Azure Arc-enabled PostgreSQL Hyperscale. 
+This article describes limitations of Azure Arc-enabled PostgreSQL. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Backup and restore
-Backup/restore capabilities have been temporarily removed as we finalize designs and experiences.
+## Back up and restore 
+
+Back up and restore have been temporarily removed as we finalize designs and experiences.
 
 ## High availability
-Configuring high availability and ensuring failover in case of failures of the infrastructure is not yet available.
 
-## Databases
-Hosting more than one database in a server group is not supported if you scaled out the deployment on several worker nodes.
+Configuring high availability to recover from infrastructure failures isn't yet available.
+
 
 ## Roles and responsibilities
 
-The roles and responsibilities between Microsoft and its customers differ between Azure managed services (Platform As A Service or PaaS) and Azure hybrid (like Azure Arc-enabled PostgreSQL Hyperscale). 
+The roles and responsibilities between Microsoft and its customers differ between Azure managed services (Platform As A Service or PaaS) and Azure hybrid (like Azure Arc-enabled PostgreSQL). 
 
 ### Frequently asked questions
 The table below summarizes answers to frequently asked questions regarding support roles and responsibilities.
@@ -43,7 +43,7 @@ The table below summarizes answers to frequently asked questions regarding suppo
 
 \* Azure services
 
-__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Microsoft does not own the infrastructure and does not operate it. Customers do.
+__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because with a hybrid service, you or your provider owns the infrastructure.
 
 ## Next steps
 
@@ -52,7 +52,7 @@ __Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Mic
 - **Create your own.** Follow these steps to create on your own Kubernetes cluster: 
    1. [Install the client tools](install-client-tools.md)
    2. [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
-   3. [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) 
+   3. [Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-server.md) 
 
 - **Learn**
    - [Read more about Azure Arc-enabled data services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
