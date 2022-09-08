@@ -16,7 +16,7 @@ ms.date: 04/27/2022
 
 Autoscale automatically runs the right amount of resources to handle the load on your application. [Online endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
 
-Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >71%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
+Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
 
 :::image type="content" source="media/how-to-autoscale-endpoints/concept-autoscale.png" alt-text="Diagram for autoscale adding/removing instance as needed":::
 
@@ -472,6 +472,14 @@ mon_client.autoscale_settings.delete(
 
 ml_client.online_endpoints.begin_delete(endpoint_name)
 ```
+
+# [Portal](#tab/azure-portal)
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Endpoints** page.
+1. Select an endpoint by checking the circle next to the model name.
+1. Select **Delete**.
+
+Alternatively, you can delete a managed online endpoint directly in the [endpoint details page](how-to-use-managed-online-endpoint-studio.md#view-managed-online-endpoints). 
 
 --- 
 
