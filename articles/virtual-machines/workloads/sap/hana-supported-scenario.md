@@ -286,7 +286,7 @@ The following mount points are preconfigured:
 - At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
 - The boot volume for *SKU Type I class* is replicated to the DR node.
 
-## HSR with STONITH for high availability
+## HSR with fencing for high availability
  
 This topology supports two nodes for the HANA system replication configuration. This configuration is supported only for single HANA instances on a node. MCOS scenarios *aren't* supported.
 
