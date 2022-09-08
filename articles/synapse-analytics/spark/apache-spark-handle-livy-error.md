@@ -1,6 +1,6 @@
 ---
 title: Handle Livy errors on Apache Spark in Synapse
-description: Guide on how to handle and interpret job failures on Apache Spark in Synapse Analytics.
+description: Learn how to handle and interpret job failures on Apache Spark in Synapse Analytics.
 author: Niharikadutta
 ms.service: synapse-analytics
 ms.topic: overview
