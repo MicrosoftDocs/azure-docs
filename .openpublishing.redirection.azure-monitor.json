@@ -512,6 +512,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/continuous-monitoring.md" ,
+            "redirect_url": "/azure/cloud-adoption-framework/manage/monitor",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-transition-hybrid.md" ,
             "redirect_url": "/azure/azure-monitor/containers/container-insights-onboard",
             "redirect_document_id": false
