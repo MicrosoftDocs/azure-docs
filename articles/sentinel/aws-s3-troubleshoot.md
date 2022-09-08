@@ -23,20 +23,20 @@ The logs for the AWS S3 connector (or one of its data types) aren’t visible in
 Before you search for a cause and solution, review these considerations:
 
 - It can take around 20-30 minutes from the moment the connector is connected until data is ingested into the workspace. 
-- The connector's connection status indicates that a collection rule exists; it doesn't indicate that data was ingested. If the status of the Amazon Web Services S3 connector is green, this means that there is a collection rule for one of the data types, but there is still no data. 
+- The connector's connection status indicates that a collection rule exists; it doesn't indicate that data was ingested. If the status of the Amazon Web Services S3 connector is green, there's a collection rule for one of the data types, but still no data. 
 
 ### Determine the cause of your problem
 
 In this section, we cover these causes: 
 
-1. The AWS S3 connector permissions policies are not set properly. 
-1. The data is not ingested to the S3 bucket in AWS. 
-1. The Amazon Simple Queue Service (SQS) in the AWS cloud does not receive notifications from the S3 bucket. 
-1. The data cannot be read from the SQS/S3 in the AWS cloud. With GuardDuty logs, the issue is usually caused by wrong KMS permissions. 
+1. The AWS S3 connector permissions policies aren't set properly. 
+1. The data isn't ingested to the S3 bucket in AWS. 
+1. The Amazon Simple Queue Service (SQS) in the AWS cloud doesn't receive notifications from the S3 bucket. 
+1. The data cannot be read from the SQS/S3 in the AWS cloud. With GuardDuty logs, the issue is caused by wrong KMS permissions. 
 
 ### Cause 1: The AWS S3 connector permissions policies aren't set properly
 
-This issue is mainly caused by incorrect permissions in the AWS environment. 
+This issue is caused by incorrect permissions in the AWS environment. 
 
 ### Create permissions policies
 
@@ -52,7 +52,7 @@ The relevant logs don't exist in the S3 bucket.
 
     :::image type="content" source="media/aws-sw-troubleshoot/aws-s3-bucket-check-logs.png" alt-text="Screenshot of searching for logs in the A W S S 3 bucket."::: 
 
-2. If the data does not exist, there’s an issue with the AWS configuration. In this case, you need to [configure an AWS service to export logs to an S3 bucket](connect-aws.md?tabs=s3#configure-an-aws-service-to-export-logs-to-an-s3-bucket).
+2. If the data doesn't exist, there’s an issue with the AWS configuration. In this case, you need to [configure an AWS service to export logs to an S3 bucket](connect-aws.md?tabs=s3#configure-an-aws-service-to-export-logs-to-an-s3-bucket).
 
 ### Cause 3: The S3 data didn't arrive at the SQS 
 
@@ -63,9 +63,9 @@ The data wasn't successfully transferred from S3 to the SQS.
 1. In AWS, open the relevant SQS. 
 1. In the **Monitoring** tab, you should see traffic in the **Number Of Messages Sent** widget. 
 
-    :::image type="content" source="media/aws-sw-troubleshoot/aws-sqs-number-of-messages-sent.png" alt-text="Screenshot of Number of Messages Sent widget in the A W S S Q S Monitoring tab."::: 
+    :::image type="content" source="media/aws-sw-troubleshoot/aws-sqs-number-of-messages-sent.png" alt-text="Screenshot of widget showing number of messages in the A W S S Q S Monitoring tab."::: 
 
-    If there is no traffic in the SQS, there is an AWS configuration problem. 
+    If there's no traffic in the SQS, there's an AWS configuration problem. 
 1. Make sure that the event notifications definition for the SQS includes the correct data filters (prefix and suffix). 
     1. To see the event notifications, in the S3 bucket, select the **Properties** tab, and locate the **Event notifications** section. 
     1. If you can’t see this section, create it. 
@@ -82,7 +82,7 @@ The SQS didn't successfully read the S3 data.
 
     :::image type="content" source="media/aws-sw-troubleshoot/aws-sqs-number-of-messages-deleted-received.png" alt-text="Screenshot of deleted and received messages widgets in the A W S S Q S Monitoring tab."::: 
 
-1. One spike of data is not enough, as shown in the screenshot below. Wait until there is enough data, as shown in the screenshot above, and then check for issues.
+1. One spike of data isn't enough, as shown in the screenshot below. Wait until there's enough data, as shown in the screenshot above, and then check for issues.
 
        :::image type="content" source="media/aws-sw-troubleshoot/aws-sqs-number-of-messages-deleted-received-one-spike.png" alt-text="Screenshot of one spike of deleted and received messages in the A W S S Q S Monitoring tab."::: 
 
@@ -159,6 +159,6 @@ SentinelHealth
 
 ## Next steps/More information/Reference
 
-In this article, you learnt how to quickly identify causes and resolve common issues with the AWS S3 connector.
+In this article, you learned how to quickly identify causes and resolve common issues with the AWS S3 connector.
 
 We welcome feedback, suggestions, requests for features, bug reports or improvements and additions. Go to the [Microsoft Sentinel  GitHub repository](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
