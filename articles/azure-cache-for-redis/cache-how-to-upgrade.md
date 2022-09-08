@@ -41,11 +41,11 @@ Before you upgrade, check the Redis version of a cache by selecting **Properties
 
 1. If your cache instance is eligible to be upgraded, you should see the following blue banner. If you want to proceed, select the text in the banner.
 
-    :::image type="content" source="media/cache-how-to-upgrade/blue-banner-upgrade-cache.png" alt-text="Screenshot informing that you to an upgrade your Redis 6 cache with additional features. Upgrading your cache instance cannot be reversed.":::
+    :::image type="content" source="media/cache-how-to-upgrade/blue-banner-upgrade-cache.png" alt-text="Screenshot informing you that you can upgrade your cache to Redis 6 with additional features. Upgrading your cache instance cannot be reversed.":::
 
 1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes** if you would like to upgrade your cache instance.
 
-    :::image type="content" source="media/cache-how-to-upgrade/dialog-version-upgrade.png" alt-text="Screenshot showing a dialog with more information about upgrading your cache wit Yes selected.":::
+    :::image type="content" source="media/cache-how-to-upgrade/dialog-version-upgrade.png" alt-text="Screenshot showing a dialog with more information about upgrading your cache with Yes selected.":::
 
 1. To check on the status of the upgrade, navigate to **Overview**.
 
