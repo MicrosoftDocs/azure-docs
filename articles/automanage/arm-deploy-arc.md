@@ -15,7 +15,7 @@ Follow the steps to onboard an Azure Arc-enabled server to Automanage Best Pract
 ## Prerequisites
 * You must have an Azure Arc-enabled server already registered in your subscription
 * You must have necessary [Role-based access control permissions](./overview-about.md#required-rbac-permissions)
-* You must use one of the [supported operating systems](./overview-about.md#supported-operating-systems)
+* You must use one of the [supported operating systems](./overview-about.md#Prerequisites)
 
 ## ARM template overview
 The following ARM template will onboard your specified Azure Arc-enabled server onto Azure Automanage Best Practices. Details on the ARM template and steps on how to deploy are located in the ARM template deployment [section](#arm-template-deployment).

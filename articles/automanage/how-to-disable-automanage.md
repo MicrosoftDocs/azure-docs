@@ -9,7 +9,7 @@ ms.date: 09/07/2022
 ms.author: memccror
 ---
 
-## Disabling Automanage for VMs
+# Disabling Automanage for VMs
 
 You may decide one day to disable Automanage on certain VMs. For instance, your machine is running some super sensitive secure workload and you need to lock it down even further than Azure would have done naturally, so you need to configure the machine outside of Azure best practices.
 

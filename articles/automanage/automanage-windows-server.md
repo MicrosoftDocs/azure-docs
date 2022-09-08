@@ -43,7 +43,7 @@ Automanage supports the following Windows versions:
 | [Log Analytics Workspace](../azure-monitor/logs/log-analytics-overview.md)               | Azure Monitor stores log data in a Log Analytics workspace, which is an Azure resource and a container where data is collected, aggregated, and serves as an administrative boundary.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Production, Dev/Test              |
 
 
-<sup>1</sup> The [configuration profile](overview-configuration-profiles.md#configuration-profile) selection is available when you are enabling Automanage. You can also create your own custom profile with the set of Azure services and settings that you need.
+<sup>1</sup> The [configuration profile](overview-configuration-profiles.md) selection is available when you are enabling Automanage. You can also create your own custom profile with the set of Azure services and settings that you need.
 
 
 ## Next steps

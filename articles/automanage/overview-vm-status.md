@@ -10,7 +10,7 @@ ms.author: memccror
 ms.custom: references_regions
 ---
 
-## Status of VMs
+# Automanage virtual machine statuses
 
 In the Azure portal, go to the **Automanage – Azure machine best practices** page which lists all of your automanage machines. Here you will see the overall status of each machine.
 

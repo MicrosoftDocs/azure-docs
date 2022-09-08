@@ -90,4 +90,4 @@ To start using Automanage for Windows Server capabilities on a new VM, use your 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure Automanage](overview.md)
+> [Learn more about Azure Automanage](overview-about.md)

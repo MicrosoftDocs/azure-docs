@@ -43,7 +43,7 @@ Automanage supports the following Linux distributions and versions:
 | [Log Analytics Workspace](../azure-monitor/logs/log-analytics-workspace-overview.md) | Azure Monitor stores log data in a Log Analytics workspace, which is an Azure resource and a container where data is collected, aggregated, and serves as an administrative boundary. Learn [more](../azure-monitor/logs/workspace-design.md).                                                                                                                                                                                                                                                                                                                                | Production, Dev/Test                        |
 
 
-<sup>1</sup> The configuration profile selection is available when you are enabling Automanage. Learn [more](overview-configuration-profiles.md#configuration-profile). You can also create your own custom profile with the set of Azure services and settings that you need.
+<sup>1</sup> The configuration profile selection is available when you are enabling Automanage. Learn [more](overview-configuration-profiles.md). You can also create your own custom profile with the set of Azure services and settings that you need.
 
 
 ## Next steps

@@ -10,11 +10,11 @@ ms.author: memccror
 ms.custom: references_regions
 ---
 
-## Configuration Profiles
+# Configuration Profiles
 
 When you are enabling Automanage for your machine, a configuration profile is required. Configuration profiles are the foundation of this service. They define which services we onboard your machines to and to some extent what the configuration of those services would be.
 
-### Best Practice Configuration Profiles
+## Best Practice Configuration Profiles
 
 There are two best practice configuration profiles currently available.
 
@@ -23,7 +23,7 @@ There are two best practice configuration profiles currently available.
 
 The reason for this differentiator is because certain services are recommended based on the workload running. For instance, in a Production machine we will automatically onboard you to Azure Backup. However, for a Dev/Test machine, a backup service would be an unnecessary cost, since Dev/Test machines are typically lower business impact.
 
-### Custom Profiles
+## Custom Profiles
 
 Custom profiles allow you to customize the services and settings that you want to apply to your machines. This is a great option if your IT requirements differ from the best practices. For instance, if you do not want to use the Microsoft Antimalware solution because your IT organization requires you to use a different antimalware solution, then you can simply toggle off Microsoft Antimalware when creating a custom profile.
 

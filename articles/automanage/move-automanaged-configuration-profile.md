@@ -99,7 +99,7 @@ $profile = Invoke-RestMethod `
 ## Enable Automanage on your VMs
 For details on how to move your VMs, see this [article](../resource-mover/tutorial-move-region-virtual-machines.md).
 
-Once you've moved your profile to a new region, you may use it as a custom profile for any VM.  Details are available [here](./quick-create-virtual-machines-portal.md#enabling-automanage-for-vms-in-azure-portal).
+Once you've moved your profile to a new region, you may use it as a custom profile for any VM.  Details are available [here](./quick-create-virtual-machines-portal.md).
 
 ## Next steps
 * [Learn more about Azure Automanage](./overview-about.md)
