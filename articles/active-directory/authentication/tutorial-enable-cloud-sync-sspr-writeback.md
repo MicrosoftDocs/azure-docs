@@ -30,8 +30,8 @@ Azure Active Directory Connect cloud sync can synchronize Azure AD password chan
 ## Deployment steps
 
 1. [Configure Azure AD Connect cloud sync service account permissions](#configure-azure-ad-connect-cloud-sync-service-account-permissions)
-1. [Enable password writeback in Azure AD Connect cloud sync](#enable-password-writeback-in-azure-ad-connect-cloud-sync)
-1. [Enable password writeback for SSPR](#enable-password-writeback-for-sspr)
+1. [Enable password writeback in Azure AD Connect cloud sync](#enable-password-writeback-in-sspr)
+1. [Enable password writeback for SSPR](#enable-password-writeback-in-sspr)
  
 ### Configure Azure AD Connect cloud sync service account permissions 
 
