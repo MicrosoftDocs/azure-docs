@@ -54,7 +54,7 @@ Each error code falls under one of the following four buckets:
 
     This is typically due to a permissions issue.
 
-    Please ensure that for all ADLS Gen2 resources referenced in the Spark job, that the user running the code has RBAC roles "Storage Blob Data Contributor" on storage accounts the job is expected to read and write from.
+    Ensure that for all ADLS Gen2 resources referenced in the Spark job, has "Storage Blob Data Contributor" RBAC role on the storage accounts the job is expected to read and write from.
     Check the logs for this Spark application by clicking the Monitor tab in left side of the Synapse Studio UI, select "Apache Spark Applications" from the "Activities" section, and find your Spark job from this list. Inspect the logs available in the "Logs" tab in the bottom part of this page for the ADLS Gen2 storage account name that is experiencing this issue.
 
 3. **Spark_Ambiguous_ClassLoader_NoClassDefFound**
