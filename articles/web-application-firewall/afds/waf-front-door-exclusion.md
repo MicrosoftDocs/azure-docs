@@ -35,7 +35,7 @@ The following attributes can be added to exclusion lists by name. The values of 
 * Request cookie name
 * Query string args name
 * Request body post args name
-* RequestBodyJSONArgNames
+* Request body JSON args name
 
 You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The following operators are the supported match criteria:
 
@@ -49,7 +49,6 @@ Header and cookie names are case insensitive.
 
 If a header value, cookie value, post argument value, or query argument value produces false positives for some rules, you can exclude that part of the request from consideration by the rule:
 
-
 |matchVariableName from WAF logs  |Rule exclusion in Portal  |
 |---------|---------|
 |CookieValue:SOME_NAME        |Request cookie name Equals SOME_NAME|
@@ -57,16 +56,15 @@ If a header value, cookie value, post argument value, or query argument value pr
 |PostParamValue:SOME_NAME     |Request body post args name Equals SOME_NAME|
 |QueryParamValue:SOME_NAME    |Query string args name Equals SOME_NAME|
 
-
 We currently only support rule exclusions for the above matchVariableNames in their WAF logs. For any other matchVariableNames, you must either disable rules that give false positives, or create a custom rule that explicitly allows those requests. In particular, when the matchVariableName is CookieName, HeaderName, PostParamName, or QueryParamName, it means the name itself is triggering the rule. Rule exclusion has no support for these matchVariableNames at this time.
-
 
 If you exclude a Request body post args named *FOO*, no rule should show PostParamValue:FOO as the matchVariableName in your WAF logs. However, you may still see a rule with matchVariableName InitialBodyContents which matches on the value of the post param FOO since post param values are part of the InitialBodyContents.
 
 You can apply exclusion lists to all rules within the managed rule set, to rules for a specific rule group, or to a single rule as shown in the previous example.
 
 ## Define exclusion based on Web Application Firewall Logs
- [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md) shows matched details of a blocked request. If a header value, cookie value, post argument value, or query argument value produces false positives for some rules, you can exclude that part of the request from being considered by the rule. The following table shows example values from WAF logs and the corresponding exclusion conditions.
+
+[Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md) shows matched details of a blocked request. If a header value, cookie value, post argument value, or query argument value produces false positives for some rules, you can exclude that part of the request from being considered by the rule. The following table shows example values from WAF logs and the corresponding exclusion conditions.
 
 |matchVariableName from WAF logs	|Rule exclusion in Portal|
 |--------|------|
@@ -74,7 +72,6 @@ You can apply exclusion lists to all rules within the managed rule set, to rules
 |HeaderValue:SOME_NAME	|Request header name Equals SOME_NAME|
 |PostParamValue:SOME_NAME|	Request body post args name Equals SOME_NAME|
 |QueryParamValue:SOME_NAME|	Query string args name Equals SOME_NAME|
-
 
 ## Next steps
 
