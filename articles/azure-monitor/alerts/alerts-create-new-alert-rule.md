@@ -179,8 +179,8 @@ And then defining these elements for the resulting alert actions using:
 
         |Field |Description |
         |---------|---------|
-        |Event level| Select the level of the events that this alert rule monitors. Values are: **Critical**, **Error**, **Warning**, **Informational**, **Verbose** and **All**.|
-        |Status|Select the status levels for which the alert is evaluated.|
+        |Event level| Select the level of the events for this alert rule. Values are: **Critical**, **Error**, **Warning**, **Informational**, **Verbose** and **All**.|
+        |Status|Select the status levels for the alert.|
         |Event initiated by|Select the user or service principal that initiated the event.|
 
     ### [Resource Health alert](#tab/resource-health)
@@ -189,19 +189,19 @@ And then defining these elements for the resulting alert actions using:
 
         |Field |Description |
         |---------|---------|
-        |Event status| Select the type(s) of Resource Health events this alert will monitor. Values are: **Active**, **In Progress**, **Resolved**, and **Updated**.|
-        |Current resource status|Select the current resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, and **Unavailable**.|
-        |Previous resource status|Select the previous resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
-        |Reason type|Select the the cause(s) of the Resource Health events this alert will monitor. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.|  
+        |Event status| Select the statuses of Resource Health events. Values are: **Active**, **In Progress**, **Resolved**, and **Updated**.|
+        |Current resource status|Select the current resource status. Values are: **Available**, **Degraded**, and **Unavailable**.|
+        |Previous resource status|Select the previous resource status. Values are: **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
+        |Reason type|Select the the cause(s) of the Resource Health events. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.|  
     ### [Service Health alert](#tab/service-health)
 
      1. In the **Conditions** pane, select values for each of these fields:
 
       |Field |Description |
       |---------|---------|
-      |Services| Select the services (Azure resource types) of service health events this alert rule will monitor.|
-      |Regions|Select the regions (Azure locations) of service health events this alert will monitor.|
-      |Event types|Select the type(s) of Service Health events this alert will monitor. Values are: **Service issue**, **Planned maintenance**, **Health advisories**, and **Security advisories**.| 
+      |Services| Select the Azure services.|
+      |Regions|Select the Azure regions.|
+      |Event types|Select the type(s) of Service Health events. Values are: **Service issue**, **Planned maintenance**, **Health advisories**, and **Security advisories**.| 
 
     ---
 
@@ -324,7 +324,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     You can find detailed documentation on the activity log alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
     ### [Resource Health alert](#tab/resource-health)
  
-    To create a new activity log alert rule, use the following commands:
+    To create a new activity log alert rule, use the following commands using the `Resource Health` category:
      - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
      - [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
      - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
