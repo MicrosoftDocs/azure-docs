@@ -59,7 +59,7 @@ Each error code falls under one of the following four buckets:
 
 3. **Spark_Ambiguous_ClassLoader_NoClassDefFound**
 
-    A class required by the code could not be found during runtime of the script.
+    A class required by the code could not be found when the script was run.
 
     Please refer to the following pages for package management documentation:
 
