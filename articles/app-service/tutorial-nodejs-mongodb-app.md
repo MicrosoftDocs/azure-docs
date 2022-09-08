@@ -250,7 +250,7 @@ Azure App Service captures all messages logged to the console to assist you in d
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
+        **Step 2.** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-stream-diagnostic-logs-2.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-stream-diagnostic-logs-2.png":::
