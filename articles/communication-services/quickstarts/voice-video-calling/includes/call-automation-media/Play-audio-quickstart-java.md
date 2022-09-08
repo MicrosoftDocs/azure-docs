@@ -19,11 +19,43 @@ ms.author: kpunjabi
 - [Java Development Kit](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
+## Create a new Java application
+
+In your terminal or command window navigate to the directory where you would like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template. 
+
+```console
+mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```
+
+The command above creates a directory with the same name as `artifactId` argument. Under this directory, `src/main/java` directory contains the project source code, `src/test/java` directory contains the test source. 
+
+You'll notice that the 'generate' step created a directory with the same name as the artifactId. Under this directory, `src/main/java` directory contains source code, `src/test/java` directory contains tests, and `pom.xml` file is the project's Project Object Model, or POM.
+
+Update your applications POM file to use Java 8 or higher.
+
+```xml
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+```
+
+## Configure Azure SDK Dev Feed
+
+Since the Call Automation SDK version used in this quickstart is not yet available in Maven Central Repository, we need to add an Azure Artifacts development feed which contains the latest version of Call Automation SDK. 
+
+Please add the [azure-sdk-for-java feed]() to your `pom.xml`. Follow the instructions after clicking the "Connect to Feed" button.
+
 ## Add package references
 
-In your POM file, reference the **azure-communication-callingserver** package:
+In your POM file, add the following reference for the project. 
 
-``` console 
+**azure-communication-callingserver**
+
+Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed configured above.
+
+``` xml 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-callingserver</artifactId>
@@ -33,7 +65,7 @@ In your POM file, reference the **azure-communication-callingserver** package:
 
 ## Prepare your audio file
 
-Create an audio file, if you do not already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file ACS supports needs to be wav, mono and 16KHz. 
+Create an audio file, if you do not already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file ACS supports needs to be wav, mono and 16KHz sample rate. 
 
 ## Update App.java with code
 
@@ -51,7 +83,7 @@ Once the call has been established, there are multiple options for how you may w
 
 In this scenario audio will be played to a specific participant that is specified in the request.
 
-``` console 
+``` java 
 var targetUser = new PhoneNumberIdentifier(<target>);
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 var fileSource = new FileSource().setUri(<audioUrl>);
@@ -67,7 +99,7 @@ assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 
 In this scenario audio will be played to all participants on the call. 
 
-``` console 
+``` java 
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 var fileSource = new FileSource().setUri(<audioUrl>);
 var playResponse = callConnection.getCallMediaAsync().playToAllWithResponse(
@@ -81,7 +113,7 @@ assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 
 You can use the loop option to play hold music that loops until your application is ready to accept the caller or progress the caller to the next logical step based on your applications business logic. 
 
-``` console
+``` java
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 var fileSource = new FileSource().setUri(<audioUrl>);
 var playOptions = new PlayOptions().setLoop(true);
@@ -96,7 +128,7 @@ assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 
 If you will be playing the same audio file multiple times, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
 
-``` console
+``` java
 var targetUser = new PhoneNumberIdentifier(<target>);
 var callConnection= callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
 var fileSource = new FileSource().setUri(<audioUrl>).setPlaySourceId(<sourceId>);
@@ -108,11 +140,11 @@ var playResponse = callConnection.getCallMediaAsync().playWithResponse(
 assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 ```
 
-## Receiving play updates from ACS 
+## Handle play action event updates 
 
-ACS will provide your application with update events using the callback URL provided at the time of answering the call. Below is an example of what a successful play event update would look like.
+Your application will receive action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. Below is an example of a successful play event update.
 
-```console 
+```json 
 [{
     "id": "704a7a96-4d74-4ebe-9cd0-b7cc39c3d7b1",
     "source": "calling/callConnections/<callConnectionId>/PlayCompleted",
@@ -134,6 +166,8 @@ ACS will provide your application with update events using the callback URL prov
     "subject": "calling/callConnections/<callConnectionId>/PlayCompleted"
 }]
 ```
+
+To learn more about other supported events, visit the [Call Automation overview document](../../../../concepts/voice-video-calling/CallAutomation.md#call-automation-webhook-events).
 
 ## Cancel play action
 

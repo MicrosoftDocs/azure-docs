@@ -17,18 +17,29 @@ ms.author: kpunjabi
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
 - Create a new web service application using the [Call Automation SDK](../../Callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
 
-## Install ACS call automation package
+## Create a new C# application
 
-Install the **azure-communication-callingserver** package:
+In the console window of your operating system, use the `dotnet` command to create a new web application.
 
-``` console 
-Install-Package Azure.Communication.CallingServer -version 1.0.0-alpha.20220829.1
+```console
+dotnet new web -n MyApplication
 ```
+
+## Install the NuGet package
+
+During the preview phase the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
+
+## Obtain your connection string
+
+From the Azure portal, locate your Communication Service resource and click on the Keys section to obtain your connection string.
+
+:::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
 
 ## Prepare your audio file
 
-Create an audio file, if you do not already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file ACS supports needs to be wav, mono and 16KHz. 
+Create an audio file, if you do not already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file ACS supports needs to be wav, mono and 16KHz sample rate. 
 
 ## Establish a call
 
@@ -42,7 +53,7 @@ Once the call has been established, there are multiple options for how you may w
 
 In this scenario audio will be played to a specific participant that is specified in the request.
 
-``` console 
+``` csharp 
 var targetUser = new PhoneNumberIdentifier(<target>);
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
 var fileSource = new FileSource(new Uri(<audioUri>));
@@ -54,7 +65,7 @@ Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 
 In this scenario audio will be played to all participants on the call. 
 
-``` console 
+``` csharp 
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
 var fileSource = new FileSource(new Uri(<audioUri>));
 var playResponse = await callMedia.PlayToAllAsync(fileSource);
@@ -65,7 +76,7 @@ Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 
 You can use the loop option to play hold music that loops until your application is ready to accept the caller or progress the caller to the next logical step based on your applications business logic. 
 
-``` console
+``` csharp
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
 var fileSource = new FileSource(new Uri(<audioUri>));
 var playOptions = new PlayOptions()
@@ -80,7 +91,7 @@ Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 
 If you will be playing the same audio file multiple times, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
 
-``` console
+``` csharp
 var targetUser = new PhoneNumberIdentifier(<target>);
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
 var fileSource = new FileSource(new Uri(<audioUri>)) {
@@ -90,11 +101,11 @@ var playResponse = await callMedia.PlayAsync(fileSource, new PhoneNumberIdentifi
 Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 ```
 
-## Receiving play updates from ACS 
+## Handle play action event updates 
 
-ACS will provide your application with update events using the callback URL provided at the time of answering the call. Below is an example of what a successful play event update would look like.
+Your application will receive action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. Below is an example of a successful play event update.
 
-```console 
+```json 
 [{
     "id": "704a7a96-4d74-4ebe-9cd0-b7cc39c3d7b1",
     "source": "calling/callConnections/<callConnectionId>/PlayCompleted",
@@ -116,13 +127,14 @@ ACS will provide your application with update events using the callback URL prov
     "subject": "calling/callConnections/<callConnectionId>/PlayCompleted"
 }]
 ```
-For more information about other supported events see our [Call Automation](../../../../concepts/voice-video-calling/CallAutomation.md#call-automation-webhook-events) document.
+
+To learn more about other supported events, visit the [Call Automation overview document](../../../../concepts/voice-video-calling/CallAutomation.md#call-automation-webhook-events).
 
 ## Cancel play action
 
 Cancel all media operations, all pending media operations will be cancelled. This will also cancel other queued up play actions. 
 
-```console
+```csharp
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
 var cancelResponse = await callMedia.CancelAllMediaOperations();
 Assert.AreEqual(202, cancelResponse.Status) // The request was accepted.
