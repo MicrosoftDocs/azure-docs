@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Azure AD Authentication Strengths
-description: Learn how to resolve errors when using Azure AD Authentication Strengths.
+title: Troubleshooting Azure AD authentication strength
+description: Learn how to resolve errors when using Azure AD authentication strength.
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,13 +11,13 @@ ms.date: 08/26/2022
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla
+ms.reviewer: michmcla, inbarckms
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshooting Azure AD Authentication Strengths
+# Troubleshooting Azure AD authentication strength
 
-This topic covers errors you might see when you use Azure Active Directory (Azure AD) Authentication Strengths and how to resolve them.  
+This topic covers errors you might see when you use Azure Active Directory (Azure AD) authentication strength and how to resolve them.  
 
 ### My user is getting prompted to use a different authentication method, but they don’t see the method I expect
 
