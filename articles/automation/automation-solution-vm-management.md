@@ -10,6 +10,11 @@ ms.custom: devx-track-azurepowershell
 
 # Start/Stop VMs during off-hours overview
 
+> [!NOTE]
+> Start/Stop VM during off-hours, version 1 is currently being deprecated and will be unavailable from the marketplace soon. We recommend that you start using version 2, which is now generally available.
+The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until further announcement.
+
+
 The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios.
 
 > [!NOTE]

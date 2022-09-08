@@ -54,7 +54,7 @@ AzureML inference router handles autoscaling for all model deployments on the Ku
 > [!IMPORTANT]
 > * **Do not enable Kubernetes Horizontal Pod Autoscaler (HPA) for model deployments**. Doing so would cause the two auto-scaling components to compete with each other. Azureml-fe is designed to auto-scale models deployed by AzureML, where HPA would have to guess or approximate model utilization from a generic metric like CPU usage or a custom metric configuration.
 > 
-> * **Azureml-fe does not scale the nuzmber of nodes in an AKS cluster**, because this could lead to unexpected cost increases. Instead, **it scales the number of replicas for the model** within the physical cluster boundaries. If you need to scale the number of nodes within the cluster, you can manually scale the cluster or [configure the AKS cluster autoscaler](../aks/cluster-autoscaler.md).
+> * **Azureml-fe does not scale the number of nodes in an AKS cluster**, because this could lead to unexpected cost increases. Instead, **it scales the number of replicas for the model** within the physical cluster boundaries. If you need to scale the number of nodes within the cluster, you can manually scale the cluster or [configure the AKS cluster autoscaler](../aks/cluster-autoscaler.md).
 
 Autoscaling can be controlled by `scale_settings` property in deployment YAML. The following example demonstrates how to enable autoscaling:
 
