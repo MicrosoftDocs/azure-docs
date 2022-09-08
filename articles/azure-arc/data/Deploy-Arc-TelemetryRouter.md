@@ -9,7 +9,7 @@ ms.date: 09/07/2022
 ms.custom: template-how-to
 ---
 
-# Deploy the Arc TelemetryRouter
+# Deploy the Azure Arc TelemetryRouter
 
 > [!NOTE]
 >
