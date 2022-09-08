@@ -77,4 +77,4 @@ Each error code falls under one of the following four buckets:
 The error codes (including and beyond the list shown above) along with the troubleshooting instructions on how to resolve the issue will show up on the Synapse Studio application error pane if this feature is enabled.
 
 > [!NOTE]
-> If you have built any tooling around Synapse job monitoring that checks for a failing job by checking against the error code `LIVY_JOB_STATE_DEAD`, that would no longer work as the returned error codes would be different as mentioned above. Please modify any scripts accordingly in order to utilize this feature, or disable the feature if not needed.
+> If you built any tooling around the Synapse monitoring job that checks for a failing job by filtering the `LIVY_JOB_STATE_DEAD` error code, your app would no longer work. Because the returned error codes would be different as mentioned above. Modify any scripts accordingly in order to utilize this feature or disable the feature if it's not needed.
