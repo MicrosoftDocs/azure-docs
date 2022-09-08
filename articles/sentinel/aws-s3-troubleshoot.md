@@ -50,7 +50,7 @@ The relevant logs don't exist in the S3 bucket.
 
 1. In AWS, open the S3 bucket, search for the relevant folder according to the required logs, and check if there are any logs inside the folder:
 
-    :::image type="content" source="media/aws-sw-troubleshoot/aws-s3-bucket-check-logs.png" alt-text="Screenshot of searching for logs in the A W S S 3 bucket."::: 
+    :::image type="content" source="media/aws-s3-troubleshoot/aws-s3-bucket-check-logs.png" alt-text="Screenshot of searching for logs in the A W S S 3 bucket."::: 
 
 2. If the data doesn't exist, there’s an issue with the AWS configuration. In this case, you need to [configure an AWS service to export logs to an S3 bucket](connect-aws.md?tabs=s3#configure-an-aws-service-to-export-logs-to-an-s3-bucket).
 
@@ -63,7 +63,7 @@ The data wasn't successfully transferred from S3 to the SQS.
 1. In AWS, open the relevant SQS. 
 1. In the **Monitoring** tab, you should see traffic in the **Number Of Messages Sent** widget. 
 
-    :::image type="content" source="media/aws-sw-troubleshoot/aws-sqs-number-of-messages-sent.png" alt-text="Screenshot of widget showing number of messages in the A W S S Q S Monitoring tab."::: 
+    :::image type="content" source="media/aws-s3-troubleshoot/aws-sqs-number-of-messages-sent.png" alt-text="Screenshot of widget showing number of messages in the A W S S Q S Monitoring tab."::: 
 
     If there's no traffic in the SQS, there's an AWS configuration problem. 
 1. Make sure that the event notifications definition for the SQS includes the correct data filters (prefix and suffix). 
@@ -80,11 +80,11 @@ The SQS didn't successfully read the S3 data.
 1. In AWS, open the relevant SQS. 
 1. In the **Monitoring** tab, you should see traffic in the **Number Of Messages Deleted** and **Number Of Messages Received** widgets. 
 
-    :::image type="content" source="media/aws-sw-troubleshoot/aws-sqs-number-of-messages-deleted-received.png" alt-text="Screenshot of deleted and received messages widgets in the A W S S Q S Monitoring tab."::: 
+    :::image type="content" source="media/aws-s3-troubleshoot/aws-sqs-number-of-messages-deleted-received.png" alt-text="Screenshot of deleted and received messages widgets in the A W S S Q S Monitoring tab."::: 
 
 1. One spike of data isn't enough, as shown in the screenshot below. Wait until there's enough data, as shown in the screenshot above, and then check for issues.
 
-    :::image type="content" source="media/aws-sw-troubleshoot/aws-sqs-number-of-messages-deleted-received-one-spike.png" alt-text="Screenshot of one spike of deleted and received messages in the A W S S Q S Monitoring tab."::: 
+    :::image type="content" source="media/aws-s3-troubleshoot/aws-sqs-number-of-messages-deleted-received-one-spike.png" alt-text="Screenshot of one spike of deleted and received messages in the A W S S Q S Monitoring tab."::: 
 
 1. If at least one of the widgets is empty, check the health logs by running this query:
 
@@ -133,7 +133,7 @@ To verify that the event notifications from S3 to the SQS are defined properly, 
 - The notification is defined from the specific folder that includes the logs, and not from the main folder that contains the bucket.
 - The notification is defined with the *.gz* suffix. For example:  
 
-    :::image type="content" source="media/aws-sw-troubleshoot/aws-s3-issues-event-notifications.png" alt-text="Screenshot of event notifications in the A W S S Q S."::: 
+    :::image type="content" source="media/aws-s3-troubleshoot/aws-s3-issues-event-notifications.png" alt-text="Screenshot of event notifications in the A W S S Q S."::: 
 
 ### Cause 3: Health errors or health disabled
 
@@ -157,7 +157,7 @@ SentinelHealth
 ```
 1. If the health feature isn’t enabled, [enable it](monitor-sentinel-health.md).
 
-## Next steps/More information/Reference
+## Next steps
 
 In this article, you learned how to quickly identify causes and resolve common issues with the AWS S3 connector.
 
