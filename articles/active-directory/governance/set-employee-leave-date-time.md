@@ -37,9 +37,10 @@ This is an example of a user who will leave on September 30, 2022 at 23:59.
     $URI = "https://graph.microsoft.com/beta/users/528492ea-779a-4b59-b9a3-b3773ef6da6d"
     $Body = '{"employeeHireDate": "<Hire date>","employeeLeaveDateTime": "2022-09-30T23:59:59Z"}'
     Invoke-MgGraphRequest -Method PATCH -Uri $URI -Body $Body
-    ``` 
+``` 
+
 
 ## Next steps
 
 - [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attribute.md)
-- [Links](links-how-to.md)
+- [Lifecycle Workflows templates](lifecycle-workflow-templates.md)
