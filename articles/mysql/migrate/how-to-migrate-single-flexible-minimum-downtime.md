@@ -47,7 +47,7 @@ To complete this tutorial, you need:
     > 4. Post cutover remove the Data-in replication configuration
     > 5. Enable HA
     >
-    > *Make sure that **[GTID_Mode](./concepts-read-replicas.md#global-transaction-identifier-gtid)** has the same setting on the source and target servers.*
+    > *Make sure that **[GTID_Mode](../flexible-server/concepts-read-replicas.md#global-transaction-identifier-gtid)** has the same setting on the source and target servers.*
 
 * To connect and create a database using MySQL Workbench. For more information, see the article [Use MySQL Workbench to connect and query data](../flexible-server/connect-workbench.md).
 * To ensure that you have an Azure VM running Linux in same region (or on the same VNet, with private access) that hosts your source and target databases.
