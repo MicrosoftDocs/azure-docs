@@ -82,7 +82,7 @@ The following table shows how Cost Management features are used by each role. Th
 
 | **Feature/Role** | **Owner** | **Contributor** | **Reader** | **Cost Management Reader** | **Cost Management Contributor** |
 | --- | --- | --- | --- | --- | --- | 
-| **Cost Analysis / Forecast / Query API/ Cost Details** | Read only | Read only | Read only | Read only | Read only |
+| **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only | Read only | Read only | Read only |
 | **Shared views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only |  Create, Read, Update, Delete|
 | **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update | Read only | Read only | Read, Update |
@@ -150,7 +150,7 @@ The following tables show how Cost Management features can be utilized by each r
 
 | **Feature/Role** | **Enterprise Admin** | **Enterprise Read Only** | **Department Admin (only if "DA view charges" is on)** | **Department Read Only (only if "DA view charges" setting is on)** | **Account Owner (only if "AO view charges" setting is on)** |
 | --- | --- | --- | --- | --- | --- |
-| **Cost Analysis / Forecast / Query / Cost Details API ** | Read only | Read only | Read only | Read only | Read only |
+| **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only | Read only | Read only | Read only |
 | **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update | Read, Update | Read, Update | Read, Update |
