@@ -5,7 +5,7 @@ author: dbasantes
 title: how-to-find-immutable-azure-resource-id
 ms.author: dbasantes
 ms.service: azure-communication-services
-description: how to find the Azure Resource ID.
+description: how to find the immutable Azure Resource ID.
 ---
 
 
