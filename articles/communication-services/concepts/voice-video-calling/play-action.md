@@ -35,7 +35,7 @@ In scenarios with IVRs and virtual assistants, you can use your application or b
 
 ### Hold music
 
-The play action can also be used to play hold music for callers. This can also be setup in a loop so that the music keeps playing till an agent is available to assist the caller. 
+The play action can also be used to play hold music for callers. This can also be set up in a loop so that the music keeps playing till an agent is available to assist the caller. 
 
 ### Playing compliance messages
 
@@ -46,8 +46,8 @@ As part of compliance requirements in various industries, vendors are expected t
 ![Screenshot of flow for play action.](./play-action-flow.png)
 
 ## Known Issues/Limitations
-1. Play action is not enabled to work with Teams Interoperability.
-2. Play will not support loop for targeted playing. 
+- Play action is not enabled to work with Teams Interoperability.
+- Play will not support loop for targeted playing. 
 
 ## What's coming up next for Play action
 
