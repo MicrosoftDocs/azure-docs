@@ -43,7 +43,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 
 ### Supported regions
 
-Please visit [this page](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?regions=all&products=all) to view which regions Automanage supports.
+Please visit [this page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?regions=all&products=all) to view which regions Automanage supports.
 
 > [!NOTE]
 > If the machine is connected to a log analytics workspace, the log analytics workspace must be located in one of the supported regions listed above.
