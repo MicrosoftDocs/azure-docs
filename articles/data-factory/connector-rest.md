@@ -94,7 +94,7 @@ The following properties are supported for the REST linked service:
 
 For different authentication types, see the corresponding sections for details.
 - [Basic authentication](#use-basic-authentication)
-- [Service Principal authentication](#use-aad-service-principal-authentication)
+- [Service Principal authentication](#use-service-principal-authentication)
 - [OAuth2 Client Credential authentication](#use-oauth2-client-credential-authentication)
 - [User-assigned managed identity authentication](#use-user-assigned-managed-identity-authentication)
 - [Anonymous authentication](#using-authentication-headers)
