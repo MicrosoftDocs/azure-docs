@@ -36,7 +36,7 @@ Required permissions | For permissions required to apply an update, see [Azure A
 ## Retiring Azure AD Connect 1.x versions
 > [!IMPORTANT]
 > *As of August 31, 2022, all 1.x versions of Azure AD Connect are retired because they include SQL Server 2012 components that will no longer be supported.* Upgrade to the most recent version of Azure AD Connect (2.x version) by that date or [evaluate and switch to Azure AD cloud sync](../cloud-sync/what-is-cloud-sync.md).
-> AADConnect V1.x will stop working on December 31st, due to the decommisioning of the ADAL library service on that date.
+> AADConnect V1.x may stop working on December 31st, due to the retirement of the ADAL library service on that date.
 
 ## Retiring Azure AD Connect 2.x versions
 > [!IMPORTANT]

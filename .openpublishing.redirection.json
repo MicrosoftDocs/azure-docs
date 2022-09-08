@@ -6929,6 +6929,11 @@
     "redirect_document_id":  false
 },
 {
+    "source_path_from_root":  "/articles/azure-government/documentation-government-overview.md",
+    "redirect_url":  "/azure/azure-government/documentation-government-plan-security",
+    "redirect_document_id":  false
+},
+{
     "source_path_from_root":  "/articles/security/compliance/azure-services-in-fedramp-auditscope.md",
     "redirect_url":  "/azure/azure-government/compliance/azure-services-in-fedramp-auditscope",
     "redirect_document_id":  false
@@ -23119,6 +23124,11 @@
     "redirect_document_id":  false
 },
 {
+    "source_path_from_root":  "/articles/virtual-machines/virtual-machines-windows-sizes.md",
+    "redirect_url":  "/azure/virtual-machines/acu",
+    "redirect_document_id":  true
+},
+{
     "source_path_from_root":  "/articles/storage/storage-file-how-to-create-file-share.md",
     "redirect_url":  "/azure/storage/files/storage-how-to-create-file-share",
     "redirect_document_id":  true
@@ -34244,9 +34254,19 @@
     "redirect_document_id":  false
 },
 {
+    "source_path_from_root":  "/articles/azure-arc/servers/data-residency.md",
+    "redirect_url":  "/azure/azure-arc/servers/overview",
+    "redirect_document_id":  false
+},
+{
   "source_path_from_root": "/articles/virtual-machines/linux/copy-files-to-linux-vm-using-scp.md",
   "redirect_url": "/azure/virtual-machines/copy-files-to-vm-using-scp",
   "redirect_document_id": false
+},
+{
+  "source_path_from_root": "/articles/web-application-firewall/afds/waf-front-door-rate-limit-powershell.md",
+  "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-rate-limit-configure",
+  "redirect_document_id": true
 }
 	]
 }

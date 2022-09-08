@@ -1,11 +1,11 @@
 ---
 title: Get started with the MedTech service in Azure Health Data Services
-description: This document describes how to get started with the MedTech service in Azure Health Data Services.
+description: This document describes how to get you started with the MedTech service in Azure Health Data Services.
 author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/02/2022
+ms.date: 08/30/2022
 ms.author: v-smcevoy
 ms.custom: mode-api
 ---
