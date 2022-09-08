@@ -97,7 +97,7 @@ This section can't be completed through the command line. Follow this [guide](/a
 
 ## Access your blob container from Azure Databricks workspace
 
-This section can't be completed through the command line. Follow this [guide](/azure/databricks/scenarios/store-secrets-azure-key-vault#access-your-blob-container-from-azure-databricks). You'll need to use the Azure Databricks workspace to:
+This section can't be completed through the command line. Follow this [guide](/azure/key-vault/general/integrate-databricks-blob-storage#access-your-blob-container-from-azure-databricks). You'll need to use the Azure Databricks workspace to:
 
 1. Create a **New Cluster**
 1. Create a **New Notebook**
