@@ -3456,6 +3456,9 @@ Following on Example 3, this example finds the value in the
 `xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
 
 And returns this result: `"Paris"`
+  
+> [!NOTE]
+> One can add comments to data flow expressions, but not in pipeline expressions.
 
 ## Next steps
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).
