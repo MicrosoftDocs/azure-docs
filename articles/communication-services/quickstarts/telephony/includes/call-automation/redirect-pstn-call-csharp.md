@@ -24,7 +24,7 @@ ms.author: askaur
 
 ## Configure an Event Grid subscription
 
-Call Automation uses Event Grid to deliver the `IncomingCall` event to a subscription of your choice. For this guide, we will use a web hook subscription pointing to your NGROK application proxy address.
+Call Automation uses Event Grid to deliver the `IncomingCall` event to a subscription of your choice. For this guide, we'll use a web hook subscription pointing to your NGROK application proxy address.
 
 1. Locate and copy the following to be used in the `armclient` command-line statement below:
     - Azure subscription ID
@@ -41,10 +41,10 @@ Call Automation uses Event Grid to deliver the `IncomingCall` event to a subscri
     ```console
     ngrok http https://localhost:<your_web_service_port>
     ```
-    This will produce a public URI you can use to receive the events from the Event Grid subscription.
-5. Optional: Determine an API route path for the incoming call event together with your NGROK URI which will be used in the armclient command-line statement below, for example: `https://ff2f-75-155-253-232.ngrok.io/api/incomingcall`.
+    This command will produce a public URI you can use to receive the events from the Event Grid subscription.
+5. Optional: Determine an API route path for the incoming call event together with your NGROK URI, which will be used in the armclient command-line statement below, for example: `https://ff2f-75-155-253-232.ngrok.io/api/incomingcall`.
 6. Event Grid web hooks require a valid reachable endpoint before they can be created. As such, start your web service application and run the commands below.
-7. Since the `IncomingCall` event is not yet published in the portal, you must run the following command-line statements to configure your subscription:
+7. Since the `IncomingCall` event isn't yet published in the portal, you must run the following command-line statements to configure your subscription:
 
     ```console
     armclient login 
@@ -62,7 +62,7 @@ In the console window of your operating system, use the `dotnet` command to crea
 
 ## Install the NuGet package
 
-During the preview phase the NuGet package can be obtained by configuring your package manager to use the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
+During the preview phase, the NuGet package can be obtained by configuring your package manager to use the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
 
 Obtain your connection string and configure your application
 
@@ -122,4 +122,4 @@ app.Run();
 2. Your Event Grid subscription to the IncomingCall should execute and call your web server.
 3. The call will be redirected to the endpoint(s) you specified in your application.
 
-Since this call flow involves a redirected call instead of answering it, pre-call web hook callbacks to notify your application the other endpoint accepted the call are not published.
+Since this call flow involves a redirected call instead of answering it, pre-call web hook callbacks to notify your application the other endpoint accepted the call aren't published.
