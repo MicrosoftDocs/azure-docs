@@ -113,7 +113,7 @@ Based on your configuration, ImageCleaner will generate an `ImageList` containin
 
 ## Manually remove images
 
-To manually remove images from your cluster using ImageCleaner, first create an `ImageList`. For example:
+To manually remove images from your cluster using ImageCleaner, first create an `ImageList`. For example, save the following as `image-list.yml`:
 
 ```yml
 apiVersion: eraser.sh/v1alpha1
@@ -123,6 +123,12 @@ metadata:
 spec:
   images:
     - docker.io/library/alpine:3.7.3   # You can also use "*" to specify all non-running images
+```
+
+And apply it to the cluster:
+
+```bash
+kubectl apply -f image-list.yml
 ```
 
 ## Disable ImageCleaner
