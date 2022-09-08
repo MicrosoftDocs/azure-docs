@@ -122,4 +122,4 @@ app.Run();
 2. Your Event Grid subscription to the IncomingCall should execute and call your web server.
 3. The call will be redirected to the endpoint(s) you specified in your application.
 
-NOTE: Since this call flow involves a redirected call instead of answering it, pre-call web hook callbacks to notify your application the other endpoint accepted the call are not published.
+Since this call flow involves a redirected call instead of answering it, pre-call web hook callbacks to notify your application the other endpoint accepted the call are not published.
