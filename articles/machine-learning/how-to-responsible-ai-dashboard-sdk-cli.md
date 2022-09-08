@@ -16,7 +16,7 @@ ms.custom: responsible-ml, event-tier1-build-2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-You can generate a Responsible AI dashboard via a pipeline job by using Responsible AI components. There are six core components for creating Responsible AI dashboards, along with a couple of helper components. A sample experiment graph:
+You can generate a Responsible AI dashboard via a pipeline job by using Responsible AI components. There are six core components for creating Responsible AI dashboards, along with a couple of helper components. Here's a sample experiment graph:
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-sdk-cli/sample-experiment-graph.png" alt-text="Screenshot of a sample experiment graph." lightbox= "./media/how-to-responsible-ai-dashboard-sdk-cli/sample-experiment-graph.png":::
 
@@ -29,7 +29,7 @@ To use the Responsible AI components, you must first register them in your Azure
 You'll need:
 
 - An Azure Machine Learning workspace
-- A git installation
+- A Git installation
 - A MiniConda installation
 - An Azure CLI installation
 
