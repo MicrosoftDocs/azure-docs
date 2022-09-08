@@ -124,8 +124,6 @@ Verify that you can access the console web GUI:
 
    1. Use the command `network list` to see the current IP address.
 
-      :::image type="content" source="media/tutorial-install-components/network-list.png" alt-text="Screenshot that shows the network list.":::
-
 1. If the network parameters are misconfigured, use the following procedure to change them:
 
    1. Use the command `network edit-settings`.
