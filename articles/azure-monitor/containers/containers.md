@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/29/2022
-ms.reviewer: aul
+ms.reviewer: viviandiec
 
 ---
 
@@ -26,8 +26,9 @@ The solution shows which containers are running, what container image they’re 
 - DC/OS
 - Service Fabric
 
-We recommend using Azure Monitor Container insights for monitoring your Kubernetes:
+We recommend using Azure Monitor Container insights for monitoring your Kubernetes and Red Hat OpenShift:
 - AKS ([Configure Container insights for AKS](container-insights-enable-existing-clusters.md))
+- Red Hat OpenShift ([Configure Container insights using Azure Arc](container-insights-enable-arc-enabled-clusters.md))
 
 If you have containers deployed in [Azure Service Fabric](../../service-fabric/service-fabric-overview.md), we recommend enabling both the [Service Fabric solution](../../service-fabric/service-fabric-diagnostics-oms-setup.md) and this solution to include monitoring of cluster events. Before enabling the Service Fabric solution, review [Using the Service Fabric solution](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) to understand what it provides and how to use it.
 
@@ -70,6 +71,7 @@ The following table outlines the Docker orchestration and operating system monit
 - CentOS 7.2 and 7.3
 - SLES 12
 - RHEL 7.2 and 7.3
+- Red Hat OpenShift Container Platform (OCP) 3.4 and 3.5
 - ACS Mesosphere DC/OS 1.7.3 to 1.8.8
 - ACS Kubernetes 1.4.5 to 1.6
     - Kubernetes events, Kubernetes inventory, and container processes are only supported with version 1.4.1-45 and later of the Log Analytics agent for Linux
@@ -99,6 +101,7 @@ Use the following information to install and configure the solution.
      - On CoreOS, you cannot run the Log Analytics agent for Linux. Instead, you run a containerized version of the Log Analytics agent for Linux. Review Linux container hosts including CoreOS or Azure Government Linux container hosts including CoreOS if you are working with containers in Azure Government Cloud.
      - On Windows Server 2016 and Windows 10, install the Docker Engine and client then connect an agent to gather information and send it to Azure Monitor. Review [Install and configure Windows container hosts](#install-and-configure-windows-container-hosts) if you have a Windows environment.
    - For Docker multi-host orchestration:
+     - If you have a Red Hat OpenShift environment, review Configure a Log Analytics agent for Red Hat OpenShift.
      - If you have a Kubernetes cluster using the Azure Container Service:
        - Review [Configure a Log Analytics Linux agent for Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Review [Configure an Log Analytics Windows agent for Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
@@ -177,6 +180,115 @@ For Docker Swarm, once the secret for Workspace ID and Primary Key is created, u
 
     ```
     sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
+    ```
+
+#### Configure a Log Analytics agent for Red Hat OpenShift
+
+There are three ways to add the Log Analytics agent to Red Hat OpenShift to start collecting container monitoring data.
+
+* [Install the Log Analytics agent for Linux](../vm/monitor-virtual-machine.md) directly on each OpenShift node  
+* [Enable Log Analytics VM Extension](../vm/monitor-virtual-machine.md) on each OpenShift node residing in Azure  
+* Install the Log Analytics agent as an OpenShift daemon-set  
+
+In this section we cover the steps required to install the Log Analytics agent as an OpenShift daemon-set.  
+
+1. Sign on to the OpenShift master node and copy the yaml file [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) from GitHub to your master node and modify the value with your Log Analytics Workspace ID and with your Primary Key.
+2. Run the following commands to create a project for Azure Monitor and set the user account.
+
+    ```
+    oc adm new-project omslogging --node-selector='zone=default'
+    oc project omslogging  
+    oc create serviceaccount omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    ```
+
+3. To deploy the daemon-set, run the following:
+
+    `oc create -f ocp-omsagent.yaml`
+
+4. To verify it is configured and working correctly, type the following:
+
+    `oc describe daemonset omsagent`  
+
+    and the output should resemble:
+
+    ```
+    [ocpadmin@khm-0 ~]$ oc describe ds oms  
+    Name:           oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
+    Selector:       name=omsagent  
+    Node-Selector:  zone=default  
+    Labels:         agentVersion=1.4.0-12  
+                    dockerProviderVersion=10.0.0-25  
+                    name=omsagent  
+    Desired Number of Nodes Scheduled: 3  
+    Current Number of Nodes Scheduled: 3  
+    Number of Nodes Misscheduled: 0  
+    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
+    No events.  
+    ```
+
+If you want to use secrets to secure your Log Analytics Workspace ID and Primary Key when using the Log Analytics agent daemon-set yaml file, perform the following steps.
+
+1. Sign on to the OpenShift master node and copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for Log Analytics Workspace ID and Primary Key to secure your secrete information.  
+2. Run the following commands to create a project for Azure Monitor and set the user account. The secret generating script asks for your Log Analytics Workspace ID `<WSID>` and Primary Key `<KEY>` and upon completion, it creates the ocp-secret.yaml file.  
+
+    ```
+    oc adm new-project omslogging --node-selector='zone=default'  
+    oc project omslogging  
+    oc create serviceaccount omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    ```
+
+3. Deploy the secret file by running the following:
+
+    `oc create -f ocp-secret.yaml`
+
+4. Verify deployment by running the following:
+
+    `oc describe secret omsagent-secret`  
+
+    and the output should resemble:  
+
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
+    Name:           omsagent-secret  
+    Namespace:      omslogging  
+    Labels:         <none>  
+    Annotations:    <none>  
+    Type:   Opaque  
+    Data  
+    ====  
+    KEY:    89 bytes  
+    WSID:   37 bytes  
+    ```
+
+5. Deploy the Log Analytics agent daemon-set yaml file by running the following:
+
+    `oc create -f ocp-ds-omsagent.yaml`  
+
+6. Verify deployment by running the following:
+
+    `oc describe ds oms`
+
+    and the output should resemble:
+
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
+    Name:           oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
+    Selector:       name=omsagent  
+    Node-Selector:  zone=default  
+    Labels:         agentVersion=1.4.0-12  
+                    dockerProviderVersion=10.0.0-25  
+                    name=omsagent  
+    Desired Number of Nodes Scheduled: 3  
+    Current Number of Nodes Scheduled: 3  
+    Number of Nodes Misscheduled: 0  
+    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
+    No events.  
     ```
 
 #### Configure a Log Analytics Linux agent for Kubernetes

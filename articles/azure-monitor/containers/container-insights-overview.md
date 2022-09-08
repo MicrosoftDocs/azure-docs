@@ -4,7 +4,7 @@ description: This article describes Container insights, which monitors the AKS C
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 08/29/2022
-ms.reviewer: aul
+ms.reviewer: viviandiec
 ---
 
 # Container insights overview

@@ -4,7 +4,7 @@ title: Enable Container insights
 description: This article describes how to enable and configure Container insights so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
 ms.date: 08/29/2022
-ms.reviewer: aul
+ms.reviewer: viviandiec
 ---
 
 # Enable Container insights
@@ -16,7 +16,8 @@ Container insights supports the following environments:
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
 - [Azure Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
    - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
-   - [AKS engine](https://github.com/Azure/aks-engine) 
+   - [AKS engine](https://github.com/Azure/aks-engine)
+   - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x
 
 ## Supported Kubernetes versions
 The versions of Kubernetes and support policy are the same as those [supported in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md).

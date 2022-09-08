@@ -3,7 +3,7 @@ title: Monitoring cost for Container insights | Microsoft Docs
 description: This article describes the monitoring cost for metrics & inventory data collected by Container insights to help customers manage their usage and associated costs. 
 ms.topic: conceptual
 ms.date: 08/29/2022
-ms.reviewer: aul
+ms.reviewer: viviandiec
 
 ---
 # Understand monitoring costs for Container insights
@@ -190,9 +190,9 @@ If you are utilizing [Prometheus metric scraping](container-insights-prometheus-
  
 ### Configure Basic Logs
 
-Because Basic Logs is primarily used for debugging, troubleshooting, and auditing, it offers a low-cost alternative to standard analytics logs due to reduced cost for ingestion. For more information, see [Configure Basic Logs (preview)](../best-practices-cost.md#configure-basic-logs-preview). ContainerLogV2 is the configured version of Basic Logs that Container Insights uses and which include verbose text-based log records.
+You can save on data ingestion costs by configuring certain tables in your Log Analytics workspace that you primarily use for debugging, troubleshooting, and auditing as Basic Logs. For more information, see [Configure Basic Logs (preview)](../best-practices-cost.md#configure-basic-logs-preview). ContainerLogV2 is the configured version of Basic Logs that Container Insights uses. ContainerLogV2 includes verbose text-based log records.
 
-You must be on the ContainerLogV2 schema to configure Basic Logs. For more information, see [Enable the ContainerLogV2 schema (preview)](container-insights-logging-v2.md). To configure Basic Logs for ContainerLogv2, see [Configure Basic Logs in Azure Monitor (Preview)](../logs/basic-logs-configure.md).
+You must be on the ContainerLogV2 schema to configure Basic Logs. For more information, see [Enable the ContainerLogV2 schema (preview)](container-insights-logging-v2.md).
 
 #### Limitations
 
