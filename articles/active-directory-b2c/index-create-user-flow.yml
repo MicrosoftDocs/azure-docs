@@ -20,12 +20,14 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Sign-up and sign-in flow
-            url: add-sign-up-and-sign-in-policy.md
+            url: add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow
           - text: Sign-in flow
-            url: add-sign-in-policy.md
+            url: add-sign-in-policy.md?pivots=b2c-user-flow
           - text: Profile editing flow
-            url: add-profile-editing-policy.md
+            url: add-profile-editing-policy.md?pivots=b2c-user-flow
           - text: Phone sign-up and sign-in user flows
-            url: phone-authentication-user-flows.md   
+            url: phone-authentication-user-flows.md?pivots=b2c-user-flow   
           - text: Resource owner password credentials user flow
-            url: add-ropc-policy.md          
+            url: add-ropc-policy.md?pivots=b2c-user-flow   
+          - text: Create client credentials flow  
+            url: client-credentials-grant-flow?pivots=b2c-user-flow     

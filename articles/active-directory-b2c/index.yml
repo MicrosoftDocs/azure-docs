@@ -120,19 +120,19 @@ conceptualContent:
           - text: Authentication and authorization
 
             url: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-            itemType: learn
+            itemType: concept
           - text: Tokens
             url: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-            itemType: learn
+            itemType: concept
           - text: Protocols
             url: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-            itemType: learn
+            itemType: concept
           - text: Authentication library
             url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-            itemType: learn
+            itemType: concept
           - text: Identity providers
             url: add-identity-provider.md
-            itemType: learn
+            itemType: concept
           - text: Authenticate users in a Node.js web app(Quick course)
             url: /learn/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
             itemType: learn
@@ -142,15 +142,14 @@ conceptualContent:
           - text: Register your applications
             url: index-register-apps.yml
             itemType: tutorial
-          - text: Create sign-in/sign-up user flows
+          - text: Create user flows
             url: index-create-user-flow.yml
             itemType: how-to-guide
           - text: Sign-in options
             url: sign-in-options.md
             itemType: how-to-guide
-
           - text: Enable self-service sign-in
-            url: user-flow-overview.md
+            url: add-password-reset-policy.md
             itemType: how-to-guide
           - text: 'Add social and work identities: OIDC/OAuth2/SAML'
             url: add-identity-provider.md
@@ -193,7 +192,7 @@ conceptualContent:
       links:
           - text: Request an access token
             url: access-tokens.md
-            itemType: how-to-guide
+            itemType: concept 
           - text: Register and secure your API 
             url: enable-authentication-web-api.md
             itemType: how-to-guide
@@ -207,7 +206,7 @@ conceptualContent:
     - title: Customize
       links:
           - text: Create a custom policy
-            url: tutorial-create-user-flows.md?pivots=b2c-custom-policy
+            url: index-create-custom-policy.yml
             itemType: how-to-guide
           - text: Define custom user attributes
             url: user-flow-custom-attributes.md
@@ -221,7 +220,7 @@ conceptualContent:
           - text: Use custom domains 
             url: custom-domain.md
             itemType: how-to-guide   
-          - text: API connectors 
+          - text: Use API connectors 
             url: add-api-connector.md?pivots=b2c-user-flow
             itemType: how-to-guide                     
           - text: Customize email verification 
