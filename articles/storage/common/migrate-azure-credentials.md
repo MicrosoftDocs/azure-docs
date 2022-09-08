@@ -306,7 +306,7 @@ If you connected your services using the Service Connector you do not need to co
 
 1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
-    :::image type="content" source="media/migration-select-identity-small.png" alt-text="A screenshot showing how to select the assigned managed identity."  lightbox="media/migration-select-identity-role.png":::
+    :::image type="content" source="media/migration-select-identity-small.png" alt-text="A screenshot showing how to select the assigned managed identity."  lightbox="media/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment. 
 
