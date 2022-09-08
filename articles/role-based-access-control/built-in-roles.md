@@ -10721,7 +10721,7 @@ View permissions for Microsoft Defender for Cloud. Can view recommendations, ale
 
 ### Sensor Operator
 
-Management permissions from Azure for Microsoft Defender for IoT OT network monitoring sensors and on-premises management consoles. [Learn more](../defender-for-iot/roles.md)
+Management permissions from Azure for Microsoft Defender for IoT OT network monitoring sensors and on-premises management consoles. [Learn more](../defender-for-iot/organizations/roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
