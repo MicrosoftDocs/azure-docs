@@ -19,7 +19,7 @@ Before you start testing Unmixed Audio recording, make sure you complete the fol
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 - Subscribe to events via an [Azure Event Grid](../../../../../event-grid/overview.md) Web hook.
 - Download the [Java SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callingserver/overview/1.0.0-alpha.20220829.1 )
-- This quickstart assumes you have some experience using the [Calling Client SDK](../../get-started-with-video-calling.md). **Important**: To fetch `serverCallId` from Calling SDK, refer to the [JavaScript](../../get-servercallid.md) example.
+- This quickstart assumes you have some experience using the [Calling Client SDK](../../get-started-with-video-calling.md). **Important**: To fetch `serverCallId` from Calling SDK, refer to the [JavaScript](../../get-server-call-id.md) example.
 - Make sure to provide the Azure Communication Services Call Recording team with your [immutable Azure resource ID](../../get-resource-id.md) to be allowlisted during the **private preview** tests.
 
 
