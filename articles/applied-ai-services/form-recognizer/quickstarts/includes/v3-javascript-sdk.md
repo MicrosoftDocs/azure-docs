@@ -298,61 +298,60 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
 ```javascript
 
-  // using the PrebuiltModels object, rather than the raw model ID, adds strong typing to the model's output
-  const { PrebuiltModels } = require("@azure/ai-form-recognizer");
+ const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
       const key = "<your-key>";
       const endpoint = "<your-endpoint>";
 
-  // sample document
-  const invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
-  async function main() {
+async function main() {
+    // sample document
+    const invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
-      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-      const poller = await client.beginAnalyzeDocument(PrebuiltModels.Invoice, invoiceUrl);
+    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-invoice", invoiceUrl);
 
-      const {
-          documents: [result]
-      } = await poller.pollUntilDone();
+    const {
+        documents: [result]
+    } = await poller.pollUntilDone();
 
-      if (result) {
-          const invoice = result.fields;
+    if (result) {
+        const invoice = result.fields;
 
-          console.log("Vendor Name:", invoice.vendorName?.value);
-          console.log("Customer Name:", invoice.customerName?.value);
-          console.log("Invoice Date:", invoice.invoiceDate?.value);
-          console.log("Due Date:", invoice.dueDate?.value);
+        console.log("Vendor Name:", invoice.vendorName?.value);
+        console.log("Customer Name:", invoice.customerName?.value);
+        console.log("Invoice Date:", invoice.invoiceDate?.value);
+        console.log("Due Date:", invoice.dueDate?.value);
 
-          console.log("Items:");
-          for (const {
-                  properties: item
-              } of invoice.items?.values ?? []) {
-              console.log("-", item.productCode?.value ?? "<no product code>");
-              console.log("  Description:", item.description?.value);
-              console.log("  Quantity:", item.quantity?.value);
-              console.log("  Date:", item.date?.value);
-              console.log("  Unit:", item.unit?.value);
-              console.log("  Unit Price:", item.unitPrice?.value);
-              console.log("  Tax:", item.tax?.value);
-              console.log("  Amount:", item.amount?.value);
-          }
+        console.log("Items:");
+        for (const {
+                properties: item
+            } of invoice.items?.values ?? []) {
+            console.log("-", item.productCode?.value ?? "<no product code>");
+            console.log("  Description:", item.description?.value);
+            console.log("  Quantity:", item.quantity?.value);
+            console.log("  Date:", item.date?.value);
+            console.log("  Unit:", item.unit?.value);
+            console.log("  Unit Price:", item.unitPrice?.value);
+            console.log("  Tax:", item.tax?.value);
+            console.log("  Amount:", item.amount?.value);
+        }
 
-          console.log("Subtotal:", invoice.subTotal?.value);
-          console.log("Previous Unpaid Balance:", invoice.previousUnpaidBalance?.value);
-          console.log("Tax:", invoice.totalTax?.value);
-          console.log("Amount Due:", invoice.amountDue?.value);
-      } else {
-          throw new Error("Expected at least one receipt in the result.");
-      }
-  }
+        console.log("Subtotal:", invoice.subTotal?.value);
+        console.log("Previous Unpaid Balance:", invoice.previousUnpaidBalance?.value);
+        console.log("Tax:", invoice.totalTax?.value);
+        console.log("Amount Due:", invoice.amountDue?.value);
+    } else {
+        throw new Error("Expected at least one receipt in the result.");
+    }
+}
 
-  main().catch((error) => {
-      console.error("An error occurred:", error);
-      process.exit(1);
-  });
+main().catch((error) => {
+    console.error("An error occurred:", error);
+    process.exit(1);
+});
 ```
 
 **Run your application**
