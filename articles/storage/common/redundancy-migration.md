@@ -266,13 +266,44 @@ Note that live migration is supported for standard general-purpose v2 and premiu
 #### Converting ZRS Classic accounts
 
 > [!IMPORTANT]
-> ZRS Classic accounts were deprecated on March 31, 2021. Customers can no longer create ZRS Classic accounts. If you still have some, you should migrate them to general purpose v2 accounts.
+> ZRS Classic accounts were deprecated on March 31, 2021. Customers can no longer create ZRS Classic accounts. If you still have some, you should uograde them to general purpose v2 accounts.
 
 ZRS Classic was available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
 
 ZRS Classic accounts asynchronously replicated data across data centers within one to two regions. Replicated data was not available unless Microsoft initiated a failover to the secondary. A ZRS Classic account can't be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also don't support metrics or logging.
 
-To convert a ZRS Classic account to a general-purpose v2 account that supports ZRS, [Perform a manual migration](#perform-a-manual-migration).
+To change ZRS Classic to another replication type, use one of the following methods:
+
+- Upgrade it to ZRS first
+- Manually migrate the data directly to another replication type
+
+To upgrade your ZRS Classic storage account to ZRS, use the Azure portal, PowerShell, or Azure CLI in regions where ZRS is available:
+
+# [Portal](#tab/portal)
+
+To upgrade to ZRS in the Azure portal, navigate to the **Configuration** settings of the account and choose **Upgrade**:
+
+![Upgrade ZRS Classic to ZRS in the Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
+
+# [PowerShell](#tab/powershell)
+
+To upgrade to ZRS using PowerShell, call the following command:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To upgrade to ZRS using Azure CLI, call the following command:
+
+```cli
+az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
+```
+
+---
+
+To manually migrate your ZRS Classic account data to another type of replication, follow the steps for [Perform a manual migration](#perform-a-manual-migration).
 
 ### Region
 
