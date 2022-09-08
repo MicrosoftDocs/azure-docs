@@ -356,15 +356,25 @@ To avoid excessive module upgrades on frequent Worker restarts, checking for mod
 
 To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
 
+## PIP\_INDEX\_URL
+
+This setting lets you override the base URL of the Python Package Index, which by default is `https://pypi.org/simple`. Use this setting when you need to run a remote build using custom dependencies that are found in a package index repository compliant with PEP 503 (the simple repository API) or in a local directory that follows the same format.
+
+|Key|Sample value|
+|---|------------|
+|PIP\_INDEX\_URL|`http://my.custom.package.repo/simple` |
+
+To learn more, see [`pip` documentation for `--index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-i) and using [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+
 ## PIP\_EXTRA\_INDEX\_URL
 
-The value for this setting indicates a custom package index URL for Python apps. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index.
+The value for this setting indicates a extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as --index-url.
 
 |Key|Sample value|
 |---|------------|
 |PIP\_EXTRA\_INDEX\_URL|`http://my.custom.package.repo/simple` |
 
-To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+To learn more, see [`pip` documentation for `--extra-index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-extra-index-url) and [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
 ## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES (Preview)
 

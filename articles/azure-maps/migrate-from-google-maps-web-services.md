@@ -51,7 +51,7 @@ The following service APIs aren't currently available in Azure Maps:
 - Geolocation - Azure Maps does have a service called Geolocation, but it provides IP Address to location information, but does not currently support cell tower or WiFi triangulation.
 - Places details and photos - Phone numbers and website URL are available in the Azure Maps search API.
 - Map URLs
-- Nearest Roads - This is achievable using the Web SDK as shown [here](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic), but not available as a service currently.
+- Nearest Roads - This is achievable using the Web SDK as shown [here](https://samples.azuremaps.com/?sample=basic-snap-to-road-logic), but not available as a service currently.
 - Static street view
 
 Azure Maps has several other REST web services that may be of interest:

@@ -5,7 +5,7 @@ description: Learn how to configure Bastion to use Kerberos authentication via t
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/08/2022
+ms.date: 08/03/2022
 ms.author: cherylmc
 
 ---
@@ -18,13 +18,13 @@ This article shows you how to configure Azure Bastion to use Kerberos authentica
 > During Preview, the Kerberos setting for Azure Bastion can be configured in the Azure portal only.
 >
 
-## <a name="prereq"></a>Prerequisites
+## Prerequisites
 
 * An Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). To be able to connect to a VM through your browser using Bastion, you must be able to sign in to the Azure portal.
 
 * An Azure virtual network. For steps to create a VNet, see [Quickstart: Create a virtual network](../virtual-network/quick-create-portal.md).
 
-## <a name="vnet"></a>Update VNet DNS servers
+## Update VNet DNS servers
 
 In this section, the following steps help you update your virtual network to specify custom DNS settings.
 
@@ -32,30 +32,28 @@ In this section, the following steps help you update your virtual network to spe
 1. Go to the virtual network for which you want to deploy the Bastion resources.
 1. Go to the **DNS servers** page for your VNet and select **Custom**. Add the IP address of your Azure-hosted domain controller and **Save**.
 
-   :::image type="content" source="./media/kerberos-authentication-portal/dns-servers.png" alt-text="Screenshot of DNS servers page." lightbox="./media/kerberos-authentication-portal/dns-servers.png":::
+## Deploy Bastion
 
-## <a name="deploy"></a>Deploy Bastion
+1. Begin configuring your bastion deployment using the steps in [Tutorial: Deploy Bastion using manual configuration settings](tutorial-create-host-portal.md). Configure the settings on the **Basics** tab. Then, at the top of the page, click **Advanced** to go to the Advanced tab.
 
-In this section, the following steps help you deploy Bastion to your virtual network.
+1. On the **Advanced** tab, select **Kerberos**.
 
-1. Deploy Bastion to your VNet using the steps in [Tutorial: Deploy Bastion using manual configuration settings](tutorial-create-host-portal.md). Configure the settings on the **Basics** tab. Then, select the **Advanced** tab.
+   :::image type="content" source="./media/kerberos-authentication-portal/select-kerberos.png" alt-text="Screenshot of select bastion features." lightbox="./media/kerberos-authentication-portal/select-kerberos.png":::
 
-1. On the **Advanced** tab, select **Kerberos**. Then select the **Review + create** and **Create** to deploy Bastion to your virtual network.
-
-   :::image type="content" source="./media/kerberos-authentication-portal/select-kerberos.png" alt-text="Screenshot of Advanced tab." lightbox="./media/kerberos-authentication-portal/select-kerberos.png":::
+1. At the bottom of the page, select **Review + create**, then **Create** to deploy Bastion to your virtual network.
 
 1. Once the deployment completes, you can use it to sign in to any reachable Windows VMs joined to the custom DNS you specified in the earlier steps.
 
-## <a name="modify"></a>To modify an existing Bastion deployment
+## To modify an existing Bastion deployment
 
 In this section, the following steps help you modify your virtual network and existing Bastion deployment for Kerberos authentication.
 
-1. [Update the DNS settings](#vnet) for your virtual network.
+1. [Update the DNS settings](#update-vnet-dns-servers) for your virtual network.
 1. Go to the portal page for your Bastion deployment and select **Configuration**.
 1. On the Configuration page, select **Kerberos authentication**, then select **Apply**.
 1. Bastion will update with the new configuration settings.
 
-## <a name="verify"></a>To verify Bastion is using Kerberos
+## To verify Bastion is using Kerberos
 
 Once you have enabled Kerberos on your Bastion resource, you can verify that it's actually using Kerberos for authentication to the target domain-joined VM.
 

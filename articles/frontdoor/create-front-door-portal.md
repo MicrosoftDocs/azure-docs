@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2022
+ms.date: 08/15/2022
 ms.author: duau
 ms.custom: mode-ui
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.

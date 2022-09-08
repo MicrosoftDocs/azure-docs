@@ -3,7 +3,7 @@ title: "Azure RBAC for Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 04/05/2021
-ms.topic: article
+ms.topic: how-to
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 

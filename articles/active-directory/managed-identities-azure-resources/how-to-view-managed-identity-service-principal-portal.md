@@ -4,7 +4,7 @@ description: Step-by-step instructions for viewing the service principal of a ma
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
