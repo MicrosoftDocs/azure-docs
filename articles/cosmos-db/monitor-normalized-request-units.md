@@ -1,5 +1,5 @@
 ---
-title: Monitor normalized RU/s for an Azure Cosmos container or an account
+title: Monitor normalized RU/s for an Azure Cosmos DB container or an account
 description: Learn how to monitor the normalized request unit usage of an operation in Azure Cosmos DB. Owners of an Azure Cosmos DB account can understand which operations are consuming more request units.
 ms.service: cosmos-db
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.date: 03/03/2022
 
 ---
 
-# How to monitor normalized RU/s for an Azure Cosmos container or an account
+# How to monitor normalized RU/s for an Azure Cosmos DB container or an account
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature doesn't require you to enable or configure anything explicitly.
@@ -19,7 +19,7 @@ The **Normalized RU Consumption** metric is a metric between 0% to 100% that is 
 
 For example, suppose you have a container where you set [autoscale max throughput](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and you have two partition key ranges (physical partitions) *P1* and *P2*. Because Azure Cosmos DB distributes the provisioned throughput equally across all the partition key ranges, *P1* and *P2* each can scale between 1000 - 10,000 RU/s. Suppose in a 1 minute interval, in a given second, *P1* consumed 6000 request units and *P2* consumed 8000 request units. The normalized RU consumption of P1 is 60% and 80% for *P2*. The overall normalized RU consumption of the entire container is MAX(60%, 80%) = 80%.
 
-If you're interested in seeing the request unit consumption at a per second interval, along with operation type, you can use the opt-in feature [Diagnostic Logs](cosmosdb-monitor-resource-logs.md) and query the **PartitionKeyRUConsumption** table. To get a high-level overview of the operations and status code your application is performing on the Azure Cosmos DB resource, you can use the built-in Azure Monitor **Total Requests** (SQL API), **Mongo Requests**, **Gremlin Requests**, or **Cassandra Requests** metric. Later you can filter on these requests by the 429 status code and split them by **Operation Type**.
+If you're interested in seeing the request unit consumption at a per second interval, along with operation type, you can use the opt-in feature [Diagnostic Logs](cosmosdb-monitor-resource-logs.md) and query the **PartitionKeyRUConsumption** table. To get a high-level overview of the operations and status code your application is performing on the Azure Cosmos DB resource, you can use the built-in Azure Monitor **Total Requests** (API for NoSQL), **Mongo Requests**, **Gremlin Requests**, or **Cassandra Requests** metric. Later you can filter on these requests by the 429 status code and split them by **Operation Type**.
 
 ## What to expect and do when normalized RU/s is higher
 
@@ -29,7 +29,7 @@ This doesn't necessarily mean there's a problem with your resource. By default,
 
 In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. In this case, the normalized RU consumption metric reaching 100% only means that in a given second, at least one partition key range used all its provisioned throughput. This is acceptable because the overall rate of 429s is still low. No further action is required.
 
-To determine what percent of your requests to your database or container resulted in 429s, from your Azure Cosmos DB account blade, navigate to **Insights** > **Requests** > **Total Requests by Status Code**. Filter to a specific database and container. For Gremlin API, use the **Gremlin Requests** metric.
+To determine what percent of your requests to your database or container resulted in 429s, from your Azure Cosmos DB account blade, navigate to **Insights** > **Requests** > **Total Requests by Status Code**. Filter to a specific database and container. For API for Gremlin, use the **Gremlin Requests** metric.
 :::image type="content" source="sql/media/troubleshoot-request-rate-too-large/insights-429-requests.png" alt-text="Total Requests by Status Code chart that shows number of 429 and 2xx requests.":::
 
 If the normalized RU consumption metric is consistently 100% across multiple partition key ranges and the rate of 429s is greater than 5%, it's recommended to increase the throughput. You can find out which operations are heavy and what their peak usage is by using the [Azure monitor metrics and Azure monitor diagnostic logs](sql/troubleshoot-request-rate-too-large.md#step-3-determine-what-requests-are-returning-429s). Follow the [best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md).
@@ -84,7 +84,7 @@ In general, for a production workload using autoscale, if you see between 1-5% o
 
    :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Metrics pane in Azure Monitor" border="true":::
 
-3. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
+3. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos DB accounts, and select **Apply**.
 
    :::image type="content" source="./media/monitor-account-key-updates/select-account-scope.png" alt-text="Select the account scope to view metrics" border="true":::
 

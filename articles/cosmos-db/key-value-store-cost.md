@@ -4,7 +4,7 @@ description: Learn about the request unit charges of Azure Cosmos DB for simple 
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/23/2019
 ms.custom: seodec18
@@ -21,7 +21,7 @@ This article describes the cost of Azure Cosmos DB for simple write and read ope
 
 Azure Cosmos DB performance is based on the amount of provisioned throughput expressed in [Request Units](request-units.md) (RU/s). The provisioning is at a second granularity and is purchased in RU/s ([not to be confused with the hourly billing](https://azure.microsoft.com/pricing/details/cosmos-db/)). RUs should be considered as a logical abstraction (a currency) that simplifies the provisioning of required throughput for the application. Users do not have to think of differentiating between read and write throughput. The single currency model of RUs creates efficiencies to share the provisioned capacity between reads and writes. This provisioned capacity model enables the service to provide a **predictable and consistent throughput, guaranteed low latency, and high availability**. Finally, while RU model is used to depict throughput, each provisioned RU also has a defined amount of resources (e.g., memory, cores/CPU and IOPS).
 
-As a globally distributed database system, Cosmos DB is the only Azure service that provides comprehensive SLAs covering latency, throughput, consistency and high availability. The throughput you provision is applied to each of the regions associated with your Cosmos account. For reads, Cosmos DB offers multiple, well-defined [consistency levels](consistency-levels.md) for you to choose from. 
+As a globally distributed database system, Azure Cosmos DB is the only Azure service that provides comprehensive SLAs covering latency, throughput, consistency and high availability. The throughput you provision is applied to each of the regions associated with your Azure Cosmos DB account. For reads, Azure Cosmos DB offers multiple, well-defined [consistency levels](consistency-levels.md) for you to choose from. 
 
 The following table shows the number of RUs required to perform read and write operations based on a data item of size 1 KB and 100 KBs with default automatic indexing turned off. 
 
@@ -40,7 +40,7 @@ If you provision 1,000 RU/s, this amounts to 3.6 million RU/hour and will cost $
 |100 KB|$0.222|$1.111|
 
 
-Most of the basic blob or object stores services charge $0.40 per million read transaction and $5 per million write transaction. If used optimally, Cosmos DB can be up to 98% cheaper than these other solutions (for 1 KB transactions).
+Most of the basic blob or object stores services charge $0.40 per million read transaction and $5 per million write transaction. If used optimally, Azure Cosmos DB can be up to 98% cheaper than these other solutions (for 1 KB transactions).
 
 ## Next steps
 
