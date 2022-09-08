@@ -136,6 +136,33 @@ private string getGoogleIdToken()
     }
 }
 ```
+
+# [Java](#tab/java)
+Here’s an example in Java of how to request an ID token from the Google metadata server:
+```java
+private String getGoogleIdToken() throws IOException {
+    final String endpoint = "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=api://AzureADTokenExchange";
+
+    URL url = new URL(endpoint);
+    HttpURLConnection httpUrlConnection = (HttpURLConnection) url.openConnection();
+    
+    httpUrlConnection.setRequestMethod("GET");
+    httpUrlConnection.setRequestProperty("Metadata-Flavor", "Google ");
+
+    InputStream inputStream = httpUrlConnection.getInputStream();
+    InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+    StringBuffer content = new StringBuffer();
+    String inputLine;
+
+    while ((inputLine = bufferedReader.readLine()) != null)
+        content.append(inputLine);
+
+    bufferedReader.close();
+
+    return content.toString();
+}
+```
 ---
 
 > [!IMPORTANT]
@@ -272,6 +299,73 @@ public class ClientAssertionCredential:TokenCredential
 }
 ```
 
+# [Java](#tab/java)
+
+The following Java sample code snippet implements the `TokenCredential` interface, gets an ID token from Google (using the `getGoogleIDToken` method previously defined), and exchanges the ID token for an access token.
+
+```java
+import java.io.Exception;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.azure.core.credential.AccessToken;
+import com.azure.core.credential.TokenCredential;
+import com.azure.core.credential.TokenRequestContext;
+import com.microsoft.aad.msal4j.ClientCredentialFactory;
+import com.microsoft.aad.msal4j.ClientCredentialParameters;
+import com.microsoft.aad.msal4j.ConfidentialClientApplication;
+import com.microsoft.aad.msal4j.IClientCredential;
+import com.microsoft.aad.msal4j.IAuthenticationResult;
+import reactor.core.publisher.Mono;
+
+public class ClientAssertionCredential implements TokenCredential {
+    private String clientID;
+	private String tenantID;
+    private String aadAuthority;
+
+    public ClientAssertionCredential(String clientID, String tenantID, String aadAuthority)
+    {
+        this.clientID = clientID;
+        this.tenantID = tenantID;
+        this.aadAuthority = aadAuthority;  // https://login.microsoftonline.com/                
+    }
+
+    @Override
+	public Mono<AccessToken> getToken(TokenRequestContext requestContext) {
+        try {
+			// Get the ID token from Google
+            String idToken = getGoogleIdToken(); // calling this directly just for clarity, this should be a callback
+            
+			IClientCredential clientCredential = ClientCredentialFactory.createFromClientAssertion(idToken);
+            String authority = String.format("%s%s", aadAuthority, tenantID);
+
+            ConfidentialClientApplication app = ConfidentialClientApplication
+                .builder(clientID, clientCredential)
+                .authority(aadAuthority)
+                .build();
+
+            Set<String> scopes = new HashSet<String>(requestContext.getScopes());
+		    ClientCredentialParameters clientCredentialParam = ClientCredentialParameters
+				.builder(scopes)
+				.build();
+
+            IAuthenticationResult authResult = app.acquireToken(clientCredentialParam).get();
+            Instant expiresOnInstant = authResult.expiresOnDate().toInstant();
+            OffsetDateTime expiresOn = OffsetDateTime.ofInstant(expiresOnInstant, ZoneOffset.UTC);
+
+            AccessToken accessToken = new AccessToken(authResult.accessToken(), expiresOn);
+
+            return Mono.just(accessToken);
+        } catch (Exception ex) {
+			return Mono.error(ex);
+		}
+	}
+}
+```
+
 ---
 
 ## Access Azure AD protected resources
@@ -311,6 +405,24 @@ var credential = new ClientAssertionCredential(clientID,
                             authority);
 
 BlobServiceClient blobServiceClient = new BlobServiceClient(new Uri(storageUrl), credential);
+
+// write code to access Blob storage
+```
+
+# [Java](#tab/java)
+
+```java
+String clientID = "<client-id>";
+String tenantID = "<tenant-id>";
+String authority = "https://login.microsoftonline.com/";
+String storageUrl = "https://<storageaccount>.blob.core.windows.net";
+
+ClientAssertionCredential credential = new ClientAssertionCredential(clientID, tenantID, authority);
+
+BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+    .endpoint(storageUrl)
+    .credential(credential)
+    .buildClient();
 
 // write code to access Blob storage
 ```
