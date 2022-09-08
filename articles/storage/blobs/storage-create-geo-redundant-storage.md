@@ -51,7 +51,7 @@ To complete this tutorial:
 
 # [Python v12 SDK](#tab/python)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Python v2.1](#tab/python2)
 
@@ -60,7 +60,7 @@ We are currently working to create code snippets reflecting version 12.x of the 
 
 # [Node.js v12 SDK](#tab/nodejs)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Node.js v11 SDK](#tab/nodejs11)
 
@@ -119,7 +119,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 
 # [Python v12 SDK](#tab/python)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Python v2.1](#tab/python2)
 
@@ -131,7 +131,7 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 
 # [Node.js v12 SDK](#tab/nodejs)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Node.js v11 SDK](#tab/nodejs11)
 
@@ -171,7 +171,7 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 # [Python v12 SDK](#tab/python)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Python v2.1](#tab/python2)
 
@@ -195,7 +195,7 @@ setx accountkey "<youraccountkey>"
 
 # [Node.js v12 SDK](#tab/nodejs)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Node.js v11 SDK](#tab/nodejs11)
 
@@ -216,7 +216,7 @@ Install the required dependencies by opening a command prompt, navigating to the
 
 # [.NET v12 SDK](#tab/dotnet)
 
-In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual Studio automatically restores missing NuGet packages if configured. See [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
+In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual Studio automatically restores missing NuGet packages if package restore is configured. See [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
 When the console window launches, the app will get the status of the secondary region and write that information to the console. Then the app will create a container in the storage account and upload a blob to the container. Once the blob is uploaded, the app will continuously check to see if the blob has replicated to the secondary region. This check continues until the blob is replicated, or we reach the maximum number of iterations as defined by the loop conditions.
 
@@ -224,23 +224,21 @@ Next, the application enters a loop with a prompt to download the blob, initiall
 
 ![Console output secondary request](media/storage-create-geo-redundant-storage/request-secondary-region.png)
 
-The application will also track retry requests through an event listener. If the number of retries exceeds the threshold set in the code, the app will switch to send read requests to secondary storage. This behavior will continue until a secondary read threshold is met, at which point the requests will go back to the primary region. 
-
-To exit the loop and clean up resources, make sure requests are being sent to primary storage and press the `Esc` key at the blob download prompt.
+To exit the loop and clean up resources, press the `Esc` key at the blob download prompt.
 
 # [.NET v11 SDK](#tab/dotnet11)
 
-In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual Studio automatically restores missing NuGet packages if configured, visit [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
+In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual Studio automatically restores missing NuGet packages if package restore is configured, visit [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
 A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GZRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
 
 ![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
 
-In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) is defined. The operation context defines event handlers, that fire when a download completes successfully or if a download fails and is retrying.
+In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) is defined. The operation context defines event handlers that fire when a download completes successfully, or if a download fails and is retrying.
 
 # [Python v12 SDK](#tab/python)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Python v2.1](#tab/python2)
 
@@ -256,7 +254,7 @@ Before the download, the Service object [retry_callback](/python/api/azure-stora
 
 # [Node.js v12 SDK](#tab/nodejs)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Node.js v11 SDK](#tab/nodejs11)
 
@@ -291,7 +289,7 @@ Deleted container newcontainer1550799840726
 
 # [.NET v12 SDK](#tab/dotnet)
 
-The sample creates a `BlobServiceClient` object configured with retry options and a secondary region endpoint. This allows the application to automatically switch to the secondary region if the request fails on the primary region endpoint.
+The sample creates a `BlobServiceClient` object configured with retry options and a secondary region endpoint. This configuration allows the application to automatically switch to the secondary region if the request fails on the primary region endpoint.
 
 ```csharp
 string accountName = "<YOURSTORAGEACCOUNTNAME>";
@@ -316,44 +314,15 @@ BlobClientOptions blobClientOptions = new BlobClientOptions()
         MaxDelay = TimeSpan.FromSeconds(10)
     },
 
-    // If the GeoRedundantSecondaryUri property is set, the secondary Uri will be used for 
-    // GET or HEAD requests during retries.
-    // If the status of the response from the secondary Uri is a 404, then subsequent retries
-    // for the request will not use the secondary Uri again, as this indicates that the resource 
-    // may not have propagated there yet.
-    // Otherwise, subsequent retries will alternate back and forth between primary and secondary Uri.
+    // Secondary region endpoint
     GeoRedundantSecondaryUri = secondaryAccountUri
 };
 
 // Create a BlobServiceClient object using the configuration options above
 BlobServiceClient blobServiceClient = new BlobServiceClient(primaryAccountUri, new DefaultAzureCredential(), blobClientOptions);
 ```
-Additionally, the app tracks retry requests through an event listener, which listens to events produced by the Azure SDK client libraries. This is a basic sample of how you could set up an `AzureEventSourceListener` to keep track of request retries.
 
-```csharp
-using AzureEventSourceListener listener = new AzureEventSourceListener((args, message) =>
-{
-     if (args.EventSource.Name.StartsWith("Azure-Core") && args.EventName == "RequestRetrying")
-     {
-         retryCount++;
-     }
-}, EventLevel.LogAlways);
-```
-If the number of retries exceeds the threshold set in the code, the app will switch to send read requests to secondary storage. This is done by calling `DownloadAsync()` from a `BlobServiceClient` object which is configured to point at the secondary region endpoint.
- ```csharp
-// Create a client object for the blob service which points to the secondary region endpoint
-BlobServiceClient blobServiceClientSecondary = new BlobServiceClient(secondaryAccountUri, new DefaultAzureCredential(), optionsSecondary);
-
-BlobClient blobSecondary = blobServiceClientSecondary.GetBlobContainerClient(containerName).GetBlobClient(blobName);
-
-// Code omitted for brevity
-
-if (retryCount > retryThreshold)
-{
-     response = await blobSecondary.DownloadAsync();
-}
-```
-It will continue to perform secondary reads until a threshold is reached, at which point the requests will go back to the primary region.
+When the `GeoRedundantSecondaryUri` property is set in `BlobClientOptions`, retries for GET or HEAD requests will switch to use the secondary endpoint. Subsequent retries will alternate between the primary and secondary endpoint. However, if the status of the response from the secondary Uri is 404, then subsequent retries for the request will no longer use the secondary Uri, as this error code indicates the resource hasn't replicated to the secondary region.
 
 # [.NET v11 SDK](#tab/dotnet11)
 
@@ -408,7 +377,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 # [Python v12 SDK](#tab/python)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Python v2.1](#tab/python2)
 
@@ -455,11 +424,11 @@ def response_callback(response):
 
 # [Node.js v12 SDK](#tab/nodejs)
 
-We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+We're currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # [Node.js v11 SDK](#tab/nodejs11)
 
-With the Node.js V10 SDK, callback handlers are unnecessary. Instead, the sample creates a pipeline configured with retry options and a secondary endpoint. This allows the application to automatically switch to the secondary pipeline if it fails to reach your data through the primary pipeline.
+With the Node.js V10 SDK, callback handlers are unnecessary. Instead, the sample creates a pipeline configured with retry options and a secondary endpoint. This configuration allows the application to automatically switch to the secondary pipeline if it fails to reach your data through the primary pipeline.
 
 ```javascript
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
