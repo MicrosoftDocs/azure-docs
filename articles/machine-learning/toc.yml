@@ -40,7 +40,7 @@
           href: tutorial-pipeline-python-sdk.md
         - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
-          name: Automated ML
+        - name: Automated ML
           items:
             - name: Object detection with AutoML (SDK)
               displayName: automl, automated, auto ml, computer vision, images, image model
