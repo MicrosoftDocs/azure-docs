@@ -406,7 +406,7 @@ To perform a protected operation (disabling MUA), follow these steps:
 
 There are scenarios where you may need to perform critical operations on your backups and you can perform them with the right approvals or permissions with MUA. The following sections explain on how to authorize the critical operation requests using Privileged Identity Management (PIM).
 
-The Backup admin must have a Contributor role on the Resource Guard to perform critical operations in the Resource Guard scope. One of the ways to allow just-in-time (JIT)operations is through the use of [Azure Active Directory (Azure AD) Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
+The Backup admin must have a Contributor role on the Resource Guard to perform critical operations in the Resource Guard scope. One of the ways to allow just-in-time (JIT) operations is through the use of [Azure Active Directory (Azure AD) Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 
 >[!NOTE]
 >We recommend to use the Azure AD PIM. However, you can also use manual or custom methods to manage access for the Backup admin on the Resource Guard. To manually manage access to the Resource Guard, use the *Access control (IAM)* setting on the left pane of the Resource Guard and grant the **Contributor** role to the Backup admin.
@@ -474,11 +474,11 @@ To activate the role assignment, follow the steps:
 1. Go to **My roles** > **Azure resources** in the left pane.
 1. Select **Activate**  to activate the eligible assignment for *Contributor* role.
 
-   A notification appears that the request is sent for approval.
+   A notification appears notifying that the request is sent for approval.
 
    :::image type="content" source="./media/multi-user-authorization/identity-management-myroles-inline.png" alt-text="Screenshot showing how to activate eligible assignments." lightbox="./media/multi-user-authorization/identity-management-myroles-expanded.png":::
 
-### Approve activation of requests to perform critical operations
+### Approve activation requests to perform critical operations
 
 Once the Backup admin raises a request for activating the Contributor role, the **Security admin** must review and approve the request.
 
@@ -505,9 +505,11 @@ The following screenshot shows an example of [disabling soft delete](backup-azur
 
 ## Disable MUA on a Backup vault
 
-Disabling the MUA is a protected operation that must be done by the Backup admin only. To do this, the Backup admin, must have the required *Contributor* role in the Resource Guard. To obtain this permission, the Backup admin must first request the Security admin for the Contributor role on the Resource Guard. They can request this to use the methods approved by the organization, such as JIT procedures, like Azure AD Privileged Identity Management, or other internal tools and procedures. Following this, the Security admin approves the request if it's genuine and updates the Backup admin. Now the Backup admin has the Contributor role on the Resource guard. Learn more on how to get this role. Learn more on [how to get this role](?pivots=vaults-backup-vault#assign-permissions-to-the-backup-admin-on-the-resource-guard-to-enable-mua).
+Disabling the MUA is a protected operation that must be done by the Backup admin only. To do this, the Backup admin must have the required *Contributor* role in the Resource Guard. To obtain this permission, the Backup admin must first request the Security admin for the Contributor role on the Resource Guard using the just-in-time (JIT) procedure, such as [Azure Active Directory (Azure AD) Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) or internal tools.
 
-To disable the MUA, the backup admins must follow these steps:
+Then the Security admin approves the request if it's genuine and updates the Backup admin who now has Contributor role on the Resource guard. Learn more on [how to get this role](?pivots=vaults-backup-vault#assign-permissions-to-the-backup-admin-on-the-resource-guard-to-enable-mua).
+
+To disable the MUA, the Backup admins must follow these steps:
 
 1. Go to vault > **Properties** > **Multi-user Authorization**.
 1. Select **Update** and clear the **Protect with Resource Guard** checkbox.
