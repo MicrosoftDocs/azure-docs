@@ -120,6 +120,7 @@ Most of the events sent by Event Grid are platform agnostic meaning they're emit
 ### Call Automation webhook events
 
 The Call Automation events are sent to the web hook callback URI specified when you answer or place a new outbound call.
+
 | Event             | Description |
 | ----------------- | ------------ |
 | CallConnected      | Your application’s call leg is connected (inbound or outbound)  |
