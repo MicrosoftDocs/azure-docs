@@ -51,7 +51,7 @@ If you'd like to follow along with the guidance in this article, certain pre-req
 
 ## Deploy Azure resources
 
-Please follow the guidance to deploy the sample application from its [GitHub repository.](https://github.com/solliancenet/appinsights-azurecafe).
+Please follow the guidance to deploy the sample application from its [GitHub repository.](https://github.com/gitopsbook/sample-app-deployment).
 
 In order to provide globally unique names to some resources, a 5 character suffix has been assigned. Please make note of this suffix for use later on in this article.
 
