@@ -1,19 +1,19 @@
 ---
-title: Using Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager template - Azure Health Data Services
+title: Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates - Azure Health Data Services
 description: In this article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager template.
 author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/27/2022
+ms.date: 09/07/2022
 ms.author: v-smcevoy
 ---
 
-# Using Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager template
+# Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates
 
 In this quickstart, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md).
 
 The ARM template in this quickstart deploys and configures the following Azure and Azure Health Data Services resources:
 
@@ -37,41 +37,44 @@ You can also review the **location** section of the **azuredeploy.json** file on
 
 ## Prerequisites
 
-# [PowerShell](#tab/PowerShell)
+Before you can deploy with an ARM template, you must satisfy specific prerequisites.
+
+### Prerequisites for Azure PowerShell
+
+Satisfy these prerequisites for Azure PowerShell:
 
 * An Azure account with an active subscription: [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally: [Azure PowerShell](/powershell/azure/install-az-ps).
 
-# [CLI](#tab/CLI)
+* If you want to run the code locally, use [Azure PowerShell](/powershell/azure/install-az-ps).
+
+### Prerequisites for Azure CLI
+
+Satisfy these prerequisites for Azure CLI:
 
 * An Azure account with an active subscription: [Create one for free](https://azure.microsoft.com/free/).
+
 * If you want to run the code locally:
-    * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org).
-    * [Azure CLI](/cli/azure/install-azure-cli).
+
+  * Use a Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org).
+
+  * Use [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Deploy the MedTech service ARM template quickstart template
 
 > [!NOTE]
-> If you want to run the Azure PowerShell commands locally, first enter `Connect-AzAccount` into your PowerShell command-line shell to set up your Azure credentials.
+> If you want to run the Azure PowerShell commands locally, first enter `Connect-AzAccount` into your PowerShell command-line shell and enter your Azure credentials.
 >
-> If you want to run the Azure CLI scripts commands locally, first enter `az login` into your PowerShell command-line shell to set up your Azure credentials.
+> If you want to run the Azure CLI scripts commands locally, first enter `az login` into your PowerShell command-line shell and enter your Azure credentials.
 
-# [PowerShell](#tab/PowerShell)
+### Deploy the ARM template with Azure PowerShell
+
+Confirm the region you are deploying from and then deploy in that region. Follow these instructions for Azure PowerShell:
 
 1. If you need a list of the Azure regions location names, you can use this code to display a list.
 
    ```azurepowershell
    Get-AzLocation | Format-Table -Property DisplayName,Location
    ```
-
-# [CLI](#tab/CLI)
-
-1. If you need a list of the Azure regions location names, you can use this code to display a list.
-
-   ```azurecli
-   az account list-locations -o table
-   ```
-# [PowerShell](#tab/PowerShell)
 
 2. If the `Microsoft.EventHub` resource provider isn't already registered with your subscription, you can use this code to register it.
 
@@ -102,9 +105,18 @@ You can also review the **location** section of the **azuredeploy.json** file on
    ```azurepowershell
    New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json -basename <BaseName> -location <AzureRegion> | Out-File medtech_service_ARM_template_deployment_results.txt
    ```
+
    For example: `New-AzResourceGroupDeployment -ResourceGroupName ArmTestDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json -basename abc123 -location southcentralus | Out-File medtech_service_ARM_template_deployment_results.txt`
 
-# [CLI](#tab/CLI)
+### Deploy the ARM template with Azure CLI
+
+Confirm the region you are deploying from and then deploy in that region. Follow these instructions for Azure CLI:
+
+1. If you need a list of the Azure regions location names, you can use this code to display a list.
+
+   ```azurecli
+   az account list-locations -o table
+   ```
 
 2. If the `Microsoft.EventHub` resource provider isn't already registered with your subscription, you can use this code to register it.
 
@@ -123,6 +135,7 @@ You can also review the **location** section of the **azuredeploy.json** file on
    ```azurecli
    az group create --resource-group <ResourceGroupName> --location <AzureRegion>
    ```
+
    For example: `az group create --resource-group ArmTestDeployment --location southcentralus`
 
    > [!IMPORTANT]
@@ -134,6 +147,7 @@ You can also review the **location** section of the **azuredeploy.json** file on
    ```azurecli
    az deployment group create --resource-group <ResourceGroupName> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json --parameters basename=<YourBaseName> location=<AzureRegion | Out-File medtech_service_ARM_template_deployment_results.txt
    ```
+
    For example: `az deployment group create --resource-group ArmTestDeployment --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json --parameters basename=abc123 location=southcentralus | Out-File medtech_service_ARM_template_deployment_results.txt`
 
 ---
@@ -148,32 +162,33 @@ deployment.
 >
 > After a successful deployment of the MedTech service, you'll still have to provide a valid device and FHIR destination mapping.
 >
-> To learn more about the device mapping, see [How to use device mappings](how-to-use-device-mappings.md)
+> To learn more about the device mapping, see [How to use device mappings](how-to-use-device-mappings.md).
 >
-> To learn more about the FHIR destination mapping, see [How to use the FHIR destination mappings](how-to-use-fhir-mappings.md)
+> To learn more about the FHIR destination mapping, see [How to use the FHIR destination mappings](how-to-use-fhir-mappings.md).
 
 ## Clean up ARM template deployed resources
 
-----
+When you are finished with your ARM template resources, you will want to clean up your resources so you aren't paying for them any longer than you need.
 
-# [PowerShell](#tab/PowerShell)
+### Clean up ARM template resources with Azure PowerShell
 
-5. When your resource group and deployed ARM template resources are no longer needed, delete the resource group, which deletes the resources in the resource group.
+* When your resource group and deployed ARM template resources are no longer needed, delete the resource group, which deletes the resources in the resource group.
 
    ```azurepowershell
    Remove-AzResourceGroup -Name <ResourceGroupName>
    ```
+
    For example: `Remove-AzResourceGroup -Name ArmTestDeployment`
 
-# [CLI](#tab/CLI)
+### Clean up ARM template resources with Azure CLI
 
-5. When your resource group and deployed ARM template resources are no longer needed, delete the resource group, which deletes the resources in the resource group.
+* When your resource group and deployed ARM template resources are no longer needed, delete the resource group, which deletes the resources in the resource group.
 
    ```azurecli
    az group delete --name <ResourceGroupName>
    ```
+
    For example: `az group delete --resource-group ArmTestDeployment`
----
 
 > [!TIP]
 >
@@ -181,7 +196,7 @@ deployment.
 
 ## Next steps
 
-In this article, you learned how perform post-deployment steps needed to make sure MedTech service performs properly. To learn more about other methods of deployment, see
+In this article, you learned how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. To learn more about other methods of deployment, see
 
 >[!div class="nextstepaction"]
 >[Choosing a method of deployment for MedTech service in Azure](deploy-iot-connector-in-azure.md)
