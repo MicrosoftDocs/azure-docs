@@ -42,22 +42,8 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - Automanage does not support [Trusted Launch VMs](../virtual-machines/trusted-launch.md)
 
 ### Supported regions
-Automanage only supports VMs located in the following regions:
-* West Europe
-* North Europe
-* Central US
-* East US
-* East US 2
-* West US
-* West US 2
-* Canada Central
-* West Central US
-* South Central US
-* Japan East
-* UK South
-* AU East
-* AU Southeast
-* Southeast Asia
+
+Please visit [this page](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?regions=all&products=all) to view which regions Automanage supports.
 
 > [!NOTE]
 > If the machine is connected to a log analytics workspace, the log analytics workspace must be located in one of the supported regions listed above.
