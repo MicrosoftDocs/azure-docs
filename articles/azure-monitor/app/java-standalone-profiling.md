@@ -26,11 +26,11 @@ profile is then visible within the performance blade of the associated Applicati
 UI.
 
 > [!WARNING]
-> The JFR profiler by default executes the "profile-without-env-data" profile. This configuration is
-> similar to the "profile" configuration that ships with the JVM, however has had some events disabled
-> that have the potential to contain sensitive deployment information such as environment variables,
-> arguments provided to the JVM and processes running on the system. The flags that have been disabled
-> are:
+> The JFR profiler by default executes the "profile-without-env-data" profile. A JFR file is a series of
+> events emitted by the JVM. The "profile-without-env-data" configuration, is similar to the "profile" 
+> configuration that ships with the JVM, however has had some events disabled that have the potential to 
+> contain sensitive deployment information such as environment variables, arguments provided to the JVM 
+> and processes running on the system. The flags that have been disabled are:
 >
 > - jdk.JVMInformation
 > - jdk.InitialSystemProperty
