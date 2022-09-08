@@ -18,13 +18,13 @@ When creating leaver workflows, it's required to set the date and time for when 
 To set the employeeLeaveDateTime for a user using PowerShell enter the following information:
 
  ```powershell
- Connect-MgGraph -Scopes "User.ReadWrite.All","User-LifeCycleInfo.ReadWrite.All"
+    Connect-MgGraph -Scopes "User.ReadWrite.All","User-LifeCycleInfo.ReadWrite.All"
 
- Select-MgProfile -Name "beta"
+    Select-MgProfile -Name "beta"
 
- $URI = "https://graph.microsoft.com/beta/users/528492ea-779a-4b59-b9a3-b3773ef6da6d"
- $Body = '{"employeeLeaveDateTime": "<Leave date>"}'
- Invoke-MgGraphRequest -Method PATCH -Uri $URI -Body $Body
+    $URI = "https://graph.microsoft.com/beta/users/528492ea-779a-4b59-b9a3-b3773ef6da6d"
+    $Body = '{"employeeLeaveDateTime": "<Leave date>"}'
+    Invoke-MgGraphRequest -Method PATCH -Uri $URI -Body $Body
  ```
 
 This is an example of a user who will leave on September 30, 2022 at 23:59.
