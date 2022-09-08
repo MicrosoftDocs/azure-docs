@@ -246,15 +246,16 @@ To configure your DMS migration project, perform the following steps.
 
 9. Select **Start migration**.
     The migration activity window appears, and the Status of the activity is Initializing. The Status changes to Running when the table migrations start.
-   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/19-running-project-online.png" alt-text="Screenshot of a Running status.":::
+   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/running-online-migration.png" alt-text="Screenshot of a Running status.":::
 
 ### Monitor the migration
 
-1. On the migration activity screen navigate to **Initial Load**, monitor the migration progress as the screen is auto-refreshed every 30 seconds. Select **Refresh** to update the display and view the progress and the number of tables completed as and when needed.
+1. Once the **Initial Load** activity is completed, navigate to the **Initial Load** tab to view the completion status and the number of tables completed.
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/completed-initial-load-online.png" alt-text="Screenshot of a completed initial load migration.":::
 
 2. Once the **Initial Load** activity is completed, you are navigated to the **Replicate Data Changes** tab automatically. You can monitor the migration progress as the screen is auto-refreshed every 30 seconds. Select **Refresh** to update the display and view the seconds behind source as and when needed.
 
-     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/20-monitor-migration-online.png" alt-text="Screenshot of a Monitoring migration.":::
+     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/running-replicate-data-changes.png" alt-text="Screenshot of a Monitoring migration.":::
 
 3. Monitor the **Seconds behind source** and as soon as it nears 0, proceed to start cutover by clicking on the **Start Cutover** menu tab at the top of the migration activity screen. Follow the steps in the cutover window before you are ready to perform a cutover. Once all steps are completed, click on **Confirm** and next click on **Apply**.
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/21-complete-cutover-online.png" alt-text="Screenshot of a Perform cutover.":::
