@@ -14,7 +14,7 @@ ms.custom: device-developer
 
 # Telemetry, property, and command payloads
 
-A device template in Azure IoT Central is a blueprint that defines the:
+A [device template](concepts-device-templates.md) in Azure IoT Central is a blueprint that defines the:
 
 * Telemetry a device sends to IoT Central.
 * Properties a device synchronizes with IoT Central.

@@ -367,10 +367,10 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    10.3.0.5   hanadb2
    ```
 
-2.**[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+2.**[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the NetApp configuration settings.  
 
    ```
-   vi /etc/sysctl.d/netapp-hana.conf
+   vi /etc/sysctl.d/91-NetApp-HANA.conf
    # Add the following entries in the configuration file
    net.core.rmem_max = 16777216
    net.core.wmem_max = 16777216
@@ -479,7 +479,7 @@ Follow the steps in, [Setting up Pacemaker on SUSE Enterprise Linux](./high-avai
 
 ### Implement the Python system replication hook SAPHanaSR
 
-This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.  Follow the steps mentioned in, [Implement the Python System Replication hook SAPHanaSR](./sap-hana-high-availability.md#implement-the-python-system-replication-hook-saphanasr)
+This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.  Follow the steps mentioned in, [Implement the Python System Replication hook SAPHanaSR](./sap-hana-high-availability.md#implement-the-python-system-replication-hook-saphanasr)
 
 
 ## Configure SAP HANA cluster resources

@@ -69,7 +69,7 @@ The data collected for each event is:
 | **Transport_protocol** | Can be TCP, UDP, or ICMP. |
 | **Application protocol** | The application protocol associated with the connection. |
 | **Extended properties** | The Additional details of the connection. For example, `host name`. |
-| **DNS hit count** | Total hit count of DNS requests |
+| **Hit count** | The count of packets observed |
 
 ## Login collector (event-based collector)
 
@@ -90,7 +90,6 @@ The following data is collected:
 | **user_name** | The Linux user. |
 | **executable** | The terminal device. For example, `tty1..6` or `pts/n`. |
 | **remote_address** | The source of connection, either a remote IP address in IPv6 or IPv4 format, or `127.0.0.1/0.0.0.0` to indicate local connection. |
-| **Login_UsePAM** | Boolean: <br>- **True**: Only the PAM Login collector is used <br>- **False**: The UTMP Login collector is used, with SYSLOG if SYSLOG is enabled |
 
 ## System Information (trigger-based collector)
 
