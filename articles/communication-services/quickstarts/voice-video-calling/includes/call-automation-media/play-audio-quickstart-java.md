@@ -69,11 +69,11 @@ Create an audio file, if you don't already have one, to use for playing prompts 
 
 ## Update App.java with code
 
-In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../../Callflows-for-customer-interactions.md) section.
+In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../../callflows-for-customer-interactions.md) section.
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../Callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
 
 ## Play audio
 
@@ -167,7 +167,7 @@ Your application will receive action lifecycle event updates on the callback URL
 }]
 ```
 
-To learn more about other supported events, visit the [Call Automation overview document](../../../../concepts/voice-video-calling/CallAutomation.md#call-automation-webhook-events).
+To learn more about other supported events, visit the [Call Automation overview document](../../../../concepts/voice-video-calling/call-automation.md#call-automation-webhook-events).
 
 ## Cancel play action
 

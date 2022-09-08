@@ -17,7 +17,7 @@ ms.author: askaur
 - A deployed Communication Service resource.
 - [Acquire a PSTN phone number from the Communication Service resource](../../get-phone-number.md?pivots=programming-language-csharp).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- A [web service application](https://docs.microsoft.com/aspnet/core/web-api) to handle web hook callback events.
+- A [web service application](/aspnet/core/web-api) to handle web hook callback events.
 - Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
 - The [ARMClient application](https://github.com/projectkudu/ARMClient), used to configure the Event Grid subscription.
 - Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
