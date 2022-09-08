@@ -4,7 +4,7 @@ description: Identify key questions for capacity and performance planning of an 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/27/2022
+ms.date: 09/08/2022
 ---
 
 # Capacity planning for HDInsight clusters
@@ -36,7 +36,7 @@ If you want to use an existing storage account or Data Lake Storage as your clus
 
 ### Storage size
 
-On a deployed cluster, you can attach additional Azure Storage accounts or access other Data Lake Storage. All your storage accounts must live in the same location as your cluster. A Data Lake Storage can be in a different location, though great distances may introduce some latency.
+On a deployed cluster, you can attach another Azure Storage accounts or access other Data Lake Storage. All your storage accounts must live in the same location as your cluster. A Data Lake Storage can be in a different location, though great distances may introduce some latency.
 
 Azure Storage has some [capacity limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), while Data Lake Storage is almost unlimited.
 A cluster can access a combination of different storage accounts. Typical examples include:
@@ -65,9 +65,9 @@ For more information on how to choose the right VM family for your workload, see
 
 ## Choose the cluster scale
 
-A cluster's scale is determined by the quantity of its VM nodes. For all cluster types, there are node types that have a specific scale, and node types that support scale-out. For example, a cluster may  require exactly three [Apache ZooKeeper](https://zookeeper.apache.org/) nodes or two Head nodes. Worker nodes that do data processing in a distributed fashion benefit from the additional worker nodes.
+A cluster's scale is determined by the quantity of its VM nodes. For all cluster types, there are node types that have a specific scale, and node types that support scale-out. For example, a cluster may  require exactly three [Apache ZooKeeper](https://zookeeper.apache.org/) nodes or two Head nodes. Worker nodes that do data processing in a distributed fashion benefit from the another worker nodes.
 
-Depending on your cluster type, increasing the number of worker nodes adds additional computational capacity (such as more cores). More nodes will increase the total memory required for the entire cluster to support in-memory storage of data being processed. As with the choice of VM size and type, selecting the right cluster scale is typically reached empirically. Use simulated workloads or canary queries.
+Depending on your cluster type, increasing the number of worker nodes adds more computational capacity (such as more cores). More nodes will increase the total memory required for the entire cluster to support in-memory storage of data being processed. As with the choice of VM size and type, selecting the right cluster scale is typically reached empirically. Use simulated workloads or canary queries.
 
 You can scale out your cluster to meet peak load demands. Then scale it back down when those extra nodes are no longer needed. The [Autoscale feature](hdinsight-autoscale-clusters.md) allows you to automatically scale your cluster based upon predetermined metrics and timings. For more information on scaling your clusters manually, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md).
 
