@@ -2,61 +2,43 @@
 title: What is Microsoft Energy Data Services Preview? #Required; page title is displayed in search results. Include the brand.
 description: This article provides an overview of Microsoft Energy Data Services Preview #Required; article description that is displayed in search results. 
 author: bharathim #Required; your GitHub user alias, with correct capitalization.
-ms.service: azure
+ms.service: energy-data-services
 ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
 ms.topic: overview #Required; leave this attribute/value as-is.
-ms.date: 12/11/2021 #Required; mm/dd/yyyy format.
+ms.date: 09/08/2022 #Required; mm/dd/yyyy format.
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 # What is Microsoft Energy Data Services Preview?
 
-Microsoft Energy Data Services Preview is an enterprise grade, OSDU&trade;-ready data platform developed in collaboration with Schlumberger that includes the OSDU&trade; Data Foundation on Microsoft Azure. The Microsoft Energy Data Services Preview platform will be delivered as a first party managed PaaS offering from Microsoft, incorporating significant extra features and capabilities over the OSDU&trade; community code. Microsoft Energy Data Services Preview will be an open platform with the capability to connect to multiple internal and external data sources (in addition to other OSDU&trade;-ready third party applications and tools). Microsoft Energy Data Services Preview will incorporate innovative scalable data ingestion capabilities, unified AI templates, domain services, etc. The platform will be extensible, and its rich tooling can automate the subsurface data pipelines and accelerate delivery of curated datasets. Since the platform is being built using leading cloud capabilities of Microsoft Azure, based on Microsoft's standards, it will also differentiate itself with following strengths: 
-- Seamless upgrades 
-- Updates, hotfix and security fixes 
-- Manageability and Monitoring 
-- SLAs, SLIs, SLOs 
-- Security, Data governance and Extensibility 
-- Auto scaling 
-- Disaster recovery and resiliency 
+Cloud Computing has not only made data assimilation, ingestion, storage, and processing significantly better than before but also provided new set of capabilities, cost effective and at scale. Capabilities like data storage and compute are now an elastic medium that can be grown or shrunk based on the organization’s needs, quickly and affordably, increasing business agility and strategic alignment. The cloud therefore is proving to be a critical element in the transformation of industries at large.
+
+This is especially true of the Energy Industry. There is a need to collapse data silos, provide strong data management, storage and federation strategy while ensuring compatibility with evolving community standards from organizations like Open Group, specifying the Open Subsurface Data Universe (OSDU&trade;) Technical Standard and enabling value addition through interoperability with both first party and third-party solutions. This is also an imperative for new strategic initiatives in AI (artificial intelligence) that are dependent on the availability of substantial number of high quality and complete data sets.
+
+Microsoft Energy Data Services is a cloud product line that Microsoft is developing in collaboration with Schlumberger, to help in data storage, management, standardization, liberation, search, and consumption in the upstream energy space. It is a best-in-class hyperscale data ecosystem that leverages the capabilities of the OSDU&trade; Data Platform, Microsoft's secure and trustworthy Azure services and Schlumberger's extensive domain expertise.
+
+It provides an enterprise-ready, commercial-grade, Microsoft-managed first party PaaS (platform as a service) offering an efficient, standardized, easy to deploy, scalable environment for data management. Microsoft manages the deployment, monitoring, management, scale, security, updates, and upgrades of the service, so that the customers can focus on the value from the platform. Microsoft continues to update the service with a recent OSDU&trade; Standard milestone release after testing and validation, so that the customers receive a recent, tested and validated, stable version of OSDU Data Platform&trade;.
+
+It includes DDMS (Domain Data Management Services) to provide out-of-the-box compatibility with some most common applications used in the industry, like Petrel, to allow the customers quick time to value by being able to run their domain workflows with ease, with data contained in the platform, with little or no effort.
+
+Multiple Data Partitions are supported per instance of Microsoft Energy Data Services platform. In addition, additional data partitions can also be created after the creation of an instance of the platform.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## Advantages of Microsoft Energy Data Services Preview
+## Openness
+Microsoft Energy Data Services are compatible with the OSDU&trade; Technical Standard that enables seamless integration of existing applications that have been developed in alignment with the emerging requirements of the OSDU&trade; Standard.
+The openness of the platform and integration with Microsoft Azure Marketplace will bring industry-leading applications, solutions, and integration services that are developed and offered by our extensive partner ecosystem, to our customers.
 
-Microsoft Energy Data Services Preview is a commercial-grade, Microsoft-managed first party PaaS that will provide customers an OSDU&trade; solution that is efficient, standardized, easy-to-deploy, scalable environment for data management – ingesting, aggregating, storing, searching, and retrieving data. The platform will provide scale, security, privacy, and compliance that are expected by Enterprise customers. It will provide improved Developer Experiences, like SDK, sample apps, reference architecture and extensive documentation, to enable partners to evaluate and develop their own applications faster and easier. Microsoft Energy Data Services Preview will provide Petrel compatibility out of the box and allow customers to be able to run their domain workflows with ease, with data contained in Microsoft Energy Data Services Preview.
+## Security
 
-Microsoft Energy Data Services Preview will grow into an ecosystem that will offer Microsoft Azure Marketplace integration with applications developed and offered by third parties. It will also offer extra value-added capabilities and applications, like AI/KM capabilities via APIs and SDK.
+Microsoft Energy Data Services platform provides encryption for data-in-transit and encryption for data-at-rest. In addition, the platform provides support for Customer Managed Encryption Keys (CMEK). The authentication and authorization are provided by Azure Active Directory. To ensure optimum security, Microsoft assumes the responsibility of providing regular security patches and updates.
 
-Microsoft Energy Data Services Preview will also support other platforms for the energy vertical including for Carbon (Project Cedar) and for Power and Utilities (Project Pine).
+## Azure enterprise promise
 
-## Tiers
-
-Microsoft Energy Data Services Preview will have two distinct tiers:
-
-* Foundation Tier
-* Enterprise Tier
-
-### Foundation Tier
-
-The Foundation Tier is a Microsoft-branded core data platform offered as a Microsoft-managed first party PaaS that provides
-
-* An enterprise-ready, commercial grade, standards compliant, managed-OSDU&trade; offering as a platform service that provides the scale, security, privacy, compliance, and availability for Enterprise Customers and is faster and easier to deploy.
-* Microsoft's and Schlumberger's joint Support and Monitoring to support Microsoft's Terms of Use (TOU) and Service Level Agreements (SLAs).
-* DDMS for specific SLB apps to provide out-of-the-box compatibility for ubiquitous domain apps like Petrel
-* Out of the box compatibility with Petrel for basic seismic workflows.
-* Basic Developer Experiences that include SDK and sample code to help with ease and speed of app development with Microsoft Energy Data Services Preview.
-
-The Microsoft Energy Data Services Preview doesn't preclude other ISVs from the ecosystem. Therefore, it includes a developer ecosystem (SDK, Developer Portal, and sample code) for our other ecosystem partners (ISV's and SIs) to build new apps and port existing apps.
-  
-### Enterprise Tier
-
-The current product provides the Foundation Tier functionality. The Enterprise Tier is under development.
-
-The Enterprise Tier provides a rich toolkit for managing data across the customer's organization. Customers can curate data products into the OSDU&trade; Data Platform, with full lifecycle data management support including ingestion, QC, data governance and projects. Using commercial applications in the Enterprise Tier allows the customers to get value from their OSDU&trade; investments much quicker and at a lower cost than building customized applications from scratch on the Foundation Tier. The Schlumberger apps are based on years of investment in specialist domain data processing tools, and that know-how is delivered into the OSDU&trade; data platform to enable greater insight and faster decisions. The solution contains all the components they need to run your data management and data engineering teams. Based on the industry standard data foundation, the enterprise data management solution supports all their content needs from their entire ecosystem of data and application suppliers.
-To summarize, the Enterprise Tier is offered as a SaaS environment and includes
-
-* The Foundation Tier
-* Extra MSFT integrations (Power Platform, Dynamics, and Office 365)  
-* Extra SLB apps and integrations (for loading, migrating, data access, data enrichment and workflow enablement, among others)
+As an Azure-based service, Microsoft Energy Data Services is Highly Available with support for multiple Availability Zones. It also provides reliability with Auto-Scaling to handle dynamically varying workloads. 
+Microsoft and Schlumberger will jointly provide support and monitoring for the platform to support Microsoft’s Terms of Use (TOU).
 
 ## Next steps
+
+Follow the quickstart guide to quickly deploy Microsoft Energy Data Service in your Azure subscription
+> [!div class="nextstepaction"]
+> [Quickstart: Create Microsoft Energy Data Services instance](quickstart-create-microsoft-energy-data-services-instance.md)
