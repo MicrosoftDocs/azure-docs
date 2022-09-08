@@ -179,7 +179,7 @@ Below is a list of common deployment errors that are reported as part of the dep
 * [BadArgument](#error-badargument)
 * [ResourceNotReady](#error-resourcenotready)
 * [ResourceNotFound](#error-resourcenotfound)
-* [OperationCancelled](#error-operationcancelled)
+* [OperationCanceled](#error-operationcanceled)
 * [InternalServerError](#error-internalservererror)
 
 ### ERROR: ImageBuildFailure
@@ -274,9 +274,9 @@ Requests for resources must be less than or equal to limits. If you don't set li
 
 #### Authorization error
 
-After provisioning the compute resource, during deployment creation, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
+After you provisioned the compute resource, during deployment creation, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
 
-First, check if there is a permissions issue accessing ACR.
+First, check if there's a permissions issue accessing ACR.
 
 To pull blobs, Azure uses [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to access the storage account.
 
@@ -286,7 +286,7 @@ To pull blobs, Azure uses [managed identities](../active-directory/managed-ident
 
 #### Unable to download user container image
 
-It is possible that the user container could not be found. Check [container logs](#get-container-logs) to get more details.
+It's possible that the user container couldn't be found. Check [container logs](#get-container-logs) to get more details.
 
 Make sure container image is available in workspace ACR.
 
@@ -346,9 +346,9 @@ You can also check if the blobs are present in the workspace storage account.
 #### azureml-fe not ready
 The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
 
-This component should be healthy on cluster, at least one healthy replica. You will get this error message if it's not avaliable when you trigger kubernetes online endpoint and deployment creation/update request.
+This component should be healthy on cluster, at least one healthy replica. You will get this error message if it's not available when you trigger kubernetes online endpoint and deployment creation/update request.
 
-Please check the pod status and logs to fix this issue, you can also try to update the k8s-extension intalled on the cluster.
+Please check the pod status and logs to fix this issue, you can also try to update the k8s-extension installed on the cluster.
 
 
 ### ERROR: ResourceNotReady
@@ -356,36 +356,36 @@ Please check the pod status and logs to fix this issue, you can also try to upda
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container. The error in this scenario is that this container is crashing when running, which means scoring can't happen. This error happens when:
 
 - There's an error in `score.py`. Use `get-logs` to help diagnose common problems:
-    - A package that was  imported but is not in the conda environment.
+    - A package that was imported but isn't in the conda environment.
     - A syntax error.
     - A failure in the `init()` method.
 - If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) instead.
-- Readiness or liveness probes are not set up correctly.
+- Readiness or liveness probes aren't set up correctly.
 - There's an error in the environment setup of the container, such as a missing dependency.
 - When you face `TypeError: register() takes 3 positional arguments but 4 were given` error, the error may be caused by the dependency between flask v2 and `azureml-inference-server-http`. See [FAQs for inference HTTP server](how-to-inference-server-http.md#1-i-encountered-the-following-error-during-server-startup) for more details.
 
 ### ERROR: ResourceNotFound
 
-This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources that might have been supplied by exact path or the spelling of their names.
+This error occurs when Azure Resource Manager can't find a required resource. For example, you'll receive this error if a storage account was referred to but can't be found at the path on which it was specified. Be sure to double check resources that might have been supplied by exact path or the spelling of their names.
 
 For more information, see [Resolve resource not found errors](../azure-resource-manager/troubleshooting/error-not-found.md). 
 
-### ERROR: OperationCancelled
+### ERROR: OperationCanceled
 
 Below is a list of reasons you might run into this error:
 
-* [Operation was cancelled by another operation which has a higher priority](#operation-cancelled-by-another-higher-priority-operation)
-* [Operation was cancelled due to a previous operation waiting for lock confirmation](#operation-cancelled-waiting-for-lock-confirmation)
+* [Operation was canceled by another operation that has a higher priority](#operation-canceled-by-another-higher-priority-operation)
+* [Operation was canceled due to a previous operation waiting for lock confirmation](#operation-canceled-waiting-for-lock-confirmation)
 
-#### Operation cancelled by another higher priority operation
+#### Operation canceled by another higher priority operation
 
 Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation that has a higher priority.
 
 Retrying the operation might allow it to be performed without cancellation.
 
-#### Operation cancelled waiting for lock confirmation
+#### Operation canceled waiting for lock confirmation
 
-Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we do not run into race conditions. This error happens when the operation you submitted is the same as another operation that is currently still waiting for confirmation that it has received the lock to proceed. It may indicate that you have submitted a very similar request too soon after the initial request.
+Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we don't run into race conditions. This error happens when the operation you submitted is the same as another operation that is currently still waiting for confirmation that it has received the lock to proceed. It may indicate that you've submitted a very similar request too soon after the initial request.
 
 Retrying the operation after waiting a few seconds up to a minute may allow it to be performed without cancellation.
 
@@ -395,7 +395,7 @@ Although we do our best to provide a stable and reliable service, sometimes thin
 
 ## Autoscaling issues
 
-If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale](../azure-monitor/autoscale/autoscale-troubleshoot.md).
+If you're having trouble with autoscaling, see [Troubleshooting Azure autoscale](../azure-monitor/autoscale/autoscale-troubleshoot.md).
 
 ## Bandwidth limit issues
 
@@ -418,7 +418,7 @@ When you access online endpoints with REST requests, the returned status codes a
 | 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
 | 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
 | 429 | Rate-limiting | You attempted to send more than 100 requests per second to your endpoint. |
-| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you are using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
+| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
 
 ## Common network isolation issues
