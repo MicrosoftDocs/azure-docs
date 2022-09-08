@@ -6,7 +6,7 @@ manager: roshar
 ms.service: storage
 ms.collection: windows
 ms.topic: article
-ms.date: 08/23/2022
+ms.date: 09/08/2022
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
@@ -31,18 +31,6 @@ You can now expand your data disks without deallocating your VM.
 This feature has the following limitations:
 
 [!INCLUDE [virtual-machines-disks-expand-without-downtime-restrictions](../../../includes/virtual-machines-disks-expand-without-downtime-restrictions.md)]
-
-To register for the feature, use the following command:
-
-```azurepowershell
-Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
-```
-
-It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:
-
-```azurepowershell
-Get-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
-```
 
 ## Resize a managed disk in the Azure portal
 

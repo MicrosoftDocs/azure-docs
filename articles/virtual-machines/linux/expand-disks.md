@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 09/08/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli 
@@ -30,18 +30,6 @@ You can now expand your managed disks without deallocating your VM.
 This feature has the following limitations:
 
 [!INCLUDE [virtual-machines-disks-expand-without-downtime-restrictions](../../../includes/virtual-machines-disks-expand-without-downtime-restrictions.md)]
-
-To register for the feature, use the following command:
-
-```azurecli
-az feature register --namespace Microsoft.Compute --name LiveResize
-```
-
-It may take a few minutes for registration to take complete. To confirm that you've registered, use the following command:
-
-```azurecli
-az feature show --namespace Microsoft.Compute --name LiveResize
-```
 
 ### Get started
 
