@@ -20,7 +20,7 @@ Before you start testing Unmixed Audio recording, please make sure you complete 
 - Create an Azure storage account and container, for details, see [Create a storage account](../../../../../storage/common/storage-account-create.md?tabs=azure-portal). You'll need to record your storage **connection string** and **container name** for this quickstart.
 - Subscribe to events via an [Azure Event Grid](../../../../../event-grid/overview.md) Web hook.
 - Download the [.NET SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallingServer/overview/1.0.0-alpha.20220829.1)
-- This Quickstart assumes you have some experience using the [Calling CLient SDK](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling?pivots=platform-web). **Important**: To fetch serverCallId from Calling SDK, refer to the JavaScript example in the **Appendix** at the end of this document.
+- This Quickstart assumes you have some experience using the [Calling Client SDK](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling?pivots=platform-web). **Important**: To fetch serverCallId from Calling SDK, refer to the JavaScript example in the **Appendix** at the end of this document.
 - Make sure to provide the Azure Communication Services Call Recording team with your **immutable azure resource ID** to be whitelisted during the private preview tests.
 
 
@@ -216,7 +216,7 @@ callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
 
 In order to get your Resource ID whitelisted, please send your Immutable Azure Resource ID to the Call Recording Team. For reference see the image below.
 
-![Call recording how to get resource ID](../../media/call-recording/immutable resource id.md)
+![Call recording how to get resource ID](../../media/call-recording/immutable-resource-id.png)
 
 
 

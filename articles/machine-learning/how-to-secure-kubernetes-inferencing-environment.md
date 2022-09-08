@@ -19,6 +19,12 @@ If you have an Azure Kubernetes (AKS) cluster behind of VNet, you would need to 
   * What is a secure AKS inferencing environment
   * How to configure a secure AKS inferencing environment
 
+## Limitations
+
+* If your AKS cluster is behind of a VNet, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNet as AKS cluster's VNet. For more information on securing the workspace and associated resources, see [create a secure workspace](tutorial-create-secure-workspace.md).
+* If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
+* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](/azure/aks/private-clusters) is __not supported__ with Azure Machine learning.
+
 ## What is a secure AKS inferencing environment
 
 Azure Machine Learning AKS inferencing environment consists of workspace, your AKS cluster, and workspace associated resources - Azure Storage, Azure Key Vault, and Azure Container Services(ARC). The following table compares how services access different part of Azure Machine Learning network with or without a VNet.
