@@ -18,7 +18,7 @@ zone_pivot_groups: acs-csharp-java
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-Get started with Azure Communication Services by using the Call Automation SDKs to build an automated workflows that listen for and manage inbound calls placed to a phone number or received via Direct Routing.
+Get started with Azure Communication Services by using the Call Automation SDKs to build automated calling workflows that listen for and manage inbound calls placed to a phone number or received via Direct Routing.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Manage PSTN call with .NET](./includes/call-automation/redirect-pstn-call-csharp.md)]
