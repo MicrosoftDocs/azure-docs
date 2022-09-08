@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 09/07/2022
 ---
 
 # Managed connectors in Azure Logic Apps

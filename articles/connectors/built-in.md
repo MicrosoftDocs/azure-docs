@@ -505,9 +505,13 @@ Integration account operations support business-to-business (B2B) communication 
 
 * Standard logic app workflows
 
-  Integration account operations don't require that you link your logic app resource to your integration account, although linking lets you share artifacts across multiple logic apps. Instead, based on the operation, you complete one of the following steps before you use the operation:
+  While most integration account operations don't require that you link your logic app resource to your integration account, linking lets you share artifacts across multiple Standard logic apps and their child workflows. Based on the integration account operation that you want to use, complete one of the following steps before you use the operation:
 
-  * Upload [maps](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard) or [schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md?tabs=standard) to your logic app resource using the Azure portal or Visual Studio Code. Or, [link your logic app resource to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+  * For operations that require maps or schemas, you can either:
+
+    * Upload these artifacts to your logic app resource using the Azure portal or Visual Studio Code. You can then use these artifacts across all child workflows in the *same* logic app resource. For more information, review [Add schemas to use with workflows in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard) and [Add schemas to use with workflows in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-schemas.md?tabs=standard).
+
+    * [link your logic app resource to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
   * Connect to your integration account when you add the operation to your workflow.
 
@@ -522,12 +526,15 @@ For more information, review the following documentation:
         \
         \
         [**AS2 Decode (v2)**][as2-doc]<br>(*Standard logic app only*)
+        \
+        Decode messages received using the AS2 protocol.
     :::column-end:::
     :::column:::
         [![AS2 Encode (v2) icon][as2-v2-icon]][as2-doc]
         \
         \
         [**AS2 Encode (v2)**][as2-doc]<br>(*Standard logic app only*)
+        Encode messages sent using the AS2 protocol.
     :::column-end:::
     :::column:::
         [![Flat file decoding icon][flat-file-decode-icon]][flat-file-decode-doc]
