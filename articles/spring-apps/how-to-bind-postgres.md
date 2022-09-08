@@ -1,6 +1,6 @@
 ---
 title: How to bind an Azure Database for Postgres instance to your application in Azure Spring Apps
-description: Learn how to bind an Azure Database for MySQL instance to your application in Azure Spring Apps
+description: Learn how to bind an Azure Database for Postgres instance to your application in Azure Spring Apps
 author: shizn
 ms.service: spring-apps
 ms.topic: how-to
