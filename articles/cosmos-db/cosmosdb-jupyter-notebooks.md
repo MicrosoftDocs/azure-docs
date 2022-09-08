@@ -17,7 +17,7 @@ Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into the Azur
 
 :::image type="content" source="./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png" alt-text="Jupyter Notebooks visualizations in Azure Cosmos DB":::
 
-Azure Cosmos DB supports both C# and Python notebooks for all APIs, including Core (SQL), Cassandra, Gremlin, Table, and API for MongoDB. Inside the notebook, you can take advantage of built-in commands and features that make it easy to create Azure Cosmos DB resources, upload data, and query and visualize your data in Azure Cosmos DB. 
+Azure Cosmos DB supports both C# and Python notebooks for all APIs, including NoSQL, Cassandra, Gremlin, Table, and API for MongoDB. Inside the notebook, you can take advantage of built-in commands and features that make it easy to create Azure Cosmos DB resources, upload data, and query and visualize your data in Azure Cosmos DB. 
 
 :::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Jupyter Notebooks support in Azure Cosmos DB":::
 
@@ -33,7 +33,7 @@ Jupyter Notebooks were originally developed for data science applications writte
 
 **Documentation of code samples and outcomes of data exploration:** If you have a piece of code and you want to explain line-by-line how it works, you can embed it in a Jupyter Notebook. You can add interactivity along with the documentation at the same time.
 
-**Built-in commands for Azure Cosmos DB:** Azure Cosmos DB's built-in magic commands make it easy to interact with your account. You can use commands like %%upload and %%sql to upload data into a container and query it using [SQL API syntax](sql-query-getting-started.md). You don't need to write additional custom code.
+**Built-in commands for Azure Cosmos DB:** Azure Cosmos DB's built-in magic commands make it easy to interact with your account. You can use commands like %%upload and %%sql to upload data into a container and query it using [API for NoSQL syntax](sql-query-getting-started.md). You don't need to write additional custom code.
 
 **All in one place environment:** Jupyter Notebooks combine code, rich text, images, videos, animations, mathematical equations, plots, maps, interactive figures, widgets, and graphical user interfaces into a single document.
 
@@ -49,13 +49,13 @@ Jupyter Notebooks can include several types of components, each organized into d
 
 **Multimedia:** Because Jupyter Notebooks are built on web technology, they can display all the types of multimedia supported by a web page. You can include them in a notebook as HTML elements, or you can generate them programmatically by using the `IPython.display` module.
 
-**Data:** You can import the data from Azure Cosmos containers or the results of queries into a Jupyter Notebook programmatically. Use built-in magic commands to upload or query data in Azure Cosmos DB. 
+**Data:** You can import the data from Azure Cosmos DB containers or the results of queries into a Jupyter Notebook programmatically. Use built-in magic commands to upload or query data in Azure Cosmos DB. 
 
 ## Next steps
 
 To get started with built-in Jupyter Notebooks in Azure Cosmos DB, see the following articles:
 
-* [Enable notebooks in an Azure Cosmos account](enable-notebooks.md)
+* [Enable notebooks in an Azure Cosmos DB account](enable-notebooks.md)
 * [Explore notebook samples gallery](https://cosmos.azure.com/gallery.html)
 * [Use Python notebook features and commands](use-python-notebook-features-and-commands.md)
 * [Use C# notebook features and commands](use-csharp-notebook-features-and-commands.md)
