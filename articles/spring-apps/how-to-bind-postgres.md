@@ -56,12 +56,12 @@ If you don't have a deployed Azure Spring Apps instance, follow the instructions
 1. Run the following command to connect to the database with admin username and password.
 
 ```azurecli-interactive
-az spring connection create postgres -g $SPRING_APP_RESOURCE_GROUP --service $Spring_APP_SERVICE_NAME --app $APP_NAME --deployment $DEPLOYMENT_NAME --tg $POSTGRES_RESOURCE_GROUP --server $POSTGRES_SERVER_NAME --database testdb --secret name=$USERNAME secret=$PASSWORD
+az spring connection create postgres -g $SPRING_APP_RESOURCE_GROUP --service $SPRING_APP_SERVICE_NAME --app $APP_NAME --deployment $DEPLOYMENT_NAME --tg $POSTGRES_RESOURCE_GROUP --server $POSTGRES_SERVER_NAME --database testdb --secret name=$USERNAME secret=$PASSWORD
 ```
 
 #### [Passwordless Connection using Managed Identity](#tab/Passwordless)
 
-You configure your Spring app to connect to Postgres Database with a system-assigned managed identity using  the [az webapp connection create](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
+You configure your Spring app to connect to Postgres Database with a system-assigned managed identity using the [az spring connection create](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
 
 ```azurecli-interactive
 az spring connection create postgres -g $SPRING_APP_RESOURCE_GROUP --service $Spring_APP_SERVICE_NAME --app $APP_NAME --deployment $DEPLOYMENT_NAME --tg $POSTGRES_RESOURCE_GROUP --server $POSTGRES_SERVER_NAME --database $DATABASE_NAME --system-assigned-identity

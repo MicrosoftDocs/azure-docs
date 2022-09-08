@@ -27,7 +27,14 @@ This article shows you how to create a managed identity for an Azure Spring Apps
 * Follow the [Spring Data JPA tutorial](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server) to provision an Azure SQL Database and get it work with a Java app locally
 * Follow the [Azure Spring Apps system-assigned managed identity tutorial](./how-to-enable-system-assigned-managed-identity.md) to provision an Azure Spring Apps app with MI enabled
 
-## Grant permission to the Managed Identity
+
+## Connect Azure SQL Database with Managed Identity
+
+You can connect your Spring Apps app to Azure SQL Database with Managed Identity by following the manual steps or using [Service Connector](../service-connector/overview.md)
+
+#### [Manual Configuration](#tab/manual)
+
+### Grant permission to the Managed Identity
 
 Connect to your SQL server and run the following SQL query:
 
@@ -45,13 +52,23 @@ This `<MIName>` follows the rule: `<service instance name>/apps/<app name>`, for
 az ad sp show --id <identity object ID> --query displayName
 ```
 
-## Configure your Java app to use Managed Identity
+### Configure your Java app to use Managed Identity
 
 Open the *src/main/resources/application.properties* file, and add `Authentication=ActiveDirectoryMSI;` at the end of the following line. Be sure to use the correct value for $AZ_DATABASE_NAME variable.
 
 ```properties
 spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
 ```
+
+#### [Service Connector](#tab/service-connector)
+
+You configure your Spring app to connect to SQL Database with a system-assigned managed identity using the [az spring connection create](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
+
+```azurecli-interactive
+az spring connection create sql -g $SPRING_APP_RESOURCE_GROUP --service $SPRING_APP_SERVICE_NAME --app $APP_NAME --deployment $DEPLOYMENT_NAME --tg $SQL_RESOURCE_GROUP --server $SQL_SERVER_NAME --database $DATABASE_NAME --system-assigned-identity
+```
+
+---
 
 ## Build and deploy the app to Azure Spring Apps
 
