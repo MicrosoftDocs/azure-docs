@@ -44,7 +44,7 @@ The following limits apply on a per-region, per-subscription basis.
 
 ### Data retention
 
-Azure Load Testing captures metrics, test results, logs for each test run. The following data retention limits apply:
+Azure Load Testing captures metrics, test results, and logs for each test run. The following data retention limits apply:
 
 | Resource | Limit | Notes |
 |----------|-------|-------|
