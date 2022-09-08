@@ -49,6 +49,7 @@ The unsupported client list above is not exhaustive and may change over time.
 | Extensions | Unsupported extensions include but aren't limited to: fsync@openssh.com, limits@openssh.com, lsetstat@openssh.com, statvfs@openssh.com |
 | SSH Commands | SFTP is the only supported subsystem. Shell requests after the completion of key exchange will fail. |
 | Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  aren't allowed from other protocols (NFS, Blob REST, Data Lake Storage Gen2 REST) on blobs that are created by using SFTP. Full overwrites are allowed.|
+| Rename Operations | Rename operations where the target file name already exists is a protocol violation. Attempting such an operation will return an error. See [Removing and Renaming Files](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-02#section-6.5) for more information.
 
 ## Authentication and authorization
   

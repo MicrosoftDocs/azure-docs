@@ -25,17 +25,7 @@ There's also a [CLI-based version](create-first-function-cli-python.md) of this 
 
 Before you begin, make sure that you have the following requirements in place:
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.x.
-
-+ Python versions that are [supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
-
-+ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-
-+ The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
-
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
+[!INCLUDE [functions-requirements-visual-studio-code-python](../../includes/functions-requirements-visual-studio-code-python.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 

@@ -165,7 +165,7 @@ Use the following bash script to install the required Nvidia graphics drivers, a
 ```bash
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
 sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
 sudo apt-get update
 sudo apt-get -y install cuda
@@ -299,7 +299,7 @@ sudo apt-get update
 Install the 1.0.9 release:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
+sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
 ```
 
 Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
@@ -461,7 +461,7 @@ sudo apt-get update
 Install the 1.0.9 release:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
+sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
 ```
 
 Next, register the VM as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).

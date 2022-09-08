@@ -334,4 +334,4 @@ Azure Service Management (ASM) REST APIs for Azure Automation will be retired an
 
 ## Next steps
 
-If you'd like to contribute to Azure Automation documentation, see the [Docs Contributor Guide](/contribute/).
+If you'd like to contribute to Azure Automation documentation, see our [contributor guide](/contribute/).
