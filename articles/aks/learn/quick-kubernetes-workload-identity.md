@@ -61,7 +61,7 @@ The following output example resembles successful creation of the resource group
 
 ## Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](../../includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
@@ -131,7 +131,7 @@ az keyvault create --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}"
 The output of this command shows properties of the newly created key vault. Take note of the two properties listed below:
 
 * **Vault Name**: The name you provided to the --name parameter above.
-* **Vault URI**: In the example, this is https://<your-unique-keyvault-name>.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+* **Vault URI**: In the example, this is `https://<your-unique-keyvault-name>.vault.azure.net/`. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 

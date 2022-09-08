@@ -1,6 +1,6 @@
 ---
-title: Migrate your application to use an Azure AD workload identity on Azure Kubernetes Service (AKS)
-description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
+title: Migrate your application to use an Azure AD Workload Identity on Azure Kubernetes Service (AKS)
+description: Learn how migrate your application to use an Azure Active Directory Workload Identity in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
 ms.date: 09/07/2022
@@ -77,8 +77,6 @@ spec:
     ports:
     - containerPort: 8000
 ```
-
-
 
 ## How setup a new AKS cluster with Workload Identity
 
