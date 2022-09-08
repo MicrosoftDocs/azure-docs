@@ -57,7 +57,6 @@ If you don't have a deployed Azure Spring Apps instance, follow the instructions
 
 ```azurecli-interactive
 az spring connection create postgres -g $SPRING_APP_RESOURCE_GROUP --service $Spring_APP_SERVICE_NAME --app $APP_NAME --deployment $DEPLOYMENT_NAME --tg $POSTGRES_RESOURCE_GROUP --server $POSTGRES_SERVER_NAME --database testdb --secret name=$USERNAME secret=$PASSWORD
-
 ```
 
 #### [Passwordless Connection using Managed Identity](#tab/Passwordless)

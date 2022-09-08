@@ -37,6 +37,10 @@ If you don't have a deployed Azure Spring Apps instance, follow the instructions
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-starter-jdbc-mysql</artifactId>
+    </dependency>
     ```
 
 1. In the *application.properties* file, remove any `spring.datasource.*` properties.
@@ -66,6 +70,15 @@ If you don't have a deployed Azure Spring Apps instance, follow the instructions
     spring.datasource.password=abc******
     spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
     ```
+
+#### [Passwordless Connection using Managed Identity](#tab/Passwordless)
+
+You configure your Spring app to connect to MySQL Database with a system-assigned managed identity using  the [az webapp connection create](/cli/azure/webapp/identity#az-webapp-identity-assign) command.
+
+```azurecli-interactive
+az spring connection create mysql -g $SPRING_APP_RESOURCE_GROUP --service $Spring_APP_SERVICE_NAME --app $APP_NAME --deployment $DEPLOYMENT_NAME --tg $MYSQL_RESOURCE_GROUP --server $MYSQL_SERVER_NAME --database $DATABASE_NAME --system-assigned-identity
+```
+
 
 #### [Terraform](#tab/Terraform)
 
