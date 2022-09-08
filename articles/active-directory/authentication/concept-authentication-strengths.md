@@ -183,6 +183,8 @@ If a user is not registered for these methods, they'll be redirected to the inli
   - Email one-time pass (Guest)
   - Hardware-based OATH token
 
+- **Conditional Access What-if tool** – When running the what-if tool, it will return policies that require authentication strengths correctly. However, when clicking on the authentication strengths name a name page is open with additional information on the methods the user can use. This information may be incorrect.
+
 <!-- Namrata to update about B2B--->
 
 ## Limitations
@@ -192,8 +194,8 @@ If a user is not registered for these methods, they'll be redirected to the inli
 - **Require multifactor authentication and Require authentication strength can't be used together in the same Conditional Access policy** - These two Conditional Access grant controls can't be used together because the built-in authentication strength **Multifactor authentication** is equivalent to the **Require multifactor authentication** grant control.
 
 
-<!---place holder: Auth Strength with CCS -->
-<!---Place holder: what-if tool -->
+<!---place holder: Auth Strength with CCS - will be documented in resilience-defaults doc-->
+
 
 
 ## Prerequisites
