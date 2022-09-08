@@ -11,7 +11,7 @@ ms.author: greglin
 
 # Migrating legacy Azure DNS private zones to new resource model
 
-During public preview, private DNS zones were created using "dnszones" resource with "zoneType" property set to "Private". Such zones will not be supported after December 31, 2019 and must be migrated to GA resource model which makes use of "privateDnsZones" resource type instead of "dnszones". The migration process is  simple, and we've provided a PowerShell script to automate this process. This guide provides step by step instruction to migrate your Azure DNS private zones to the new resource model.
+During public preview, private DNS zones were created using "dnszones" resource with "zoneType" property set to "Private". Such zones won't be supported after December 31, 2019 and must be migrated to GA resource model, which makes use of `privateDnsZones` resource type instead of `dnszones`. The migration process is  simple, and we've provided a PowerShell script to automate this process. This guide provides step by step instruction to migrate your Azure DNS private zones to the new resource model.
 
 To find out the dnszones resources that require migration; execute the below command in Azure CLI.
 
@@ -68,7 +68,7 @@ You'll be prompted to enter subscription ID containing the private DNS zones tha
 
 ### Select the DNS zones you want to migrate
 
-The script with get the list of all private DNS zones in the subscription and prompt you to confirm which ones you want to migrate. Enter "A" to migrate all private DNS zones. Once you execute this step, the script will create new private DNS zones using new resource model and copy the data into the new DSN zone. This step will not alter your existing private DNS zones in anyway.
+The script with get the list of all private DNS zones in the subscription and prompt you to confirm which ones you want to migrate. Enter "A" to migrate all private DNS zones. Once you execute this step, the script will create new private DNS zones using new resource model and copy the data into the new DSN zone. This step won't alter your existing private DNS zones in anyway.
 
 ![Select DNS zones](./media/private-dns-migration-guide/migratezone-migration-script.png)
 
@@ -82,7 +82,7 @@ Select 'A' to switch the DNS resolution for all virtual networks.
 
 ### Verify the DNS resolution
 
-Before proceeding further, verify that DNS resolution on your DNS zones is working as expected. You can sign-in to your azure VMs and issue nslookup query against the migrated zones to verify that DNS resolution is working.
+Before proceeding further, verify that DNS resolution on your DNS zones is working as expected. You can sign-in to your Azure VMs and issue nslookup query against the migrated zones to verify that DNS resolution is working.
 
 ![Verify Name Resolution](./media/private-dns-migration-guide/verifyresolution-migration-script.png)
 
