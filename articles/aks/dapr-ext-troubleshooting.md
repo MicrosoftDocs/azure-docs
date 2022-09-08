@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Dapr extension installation errors 
-description: Troubleshoot errors you may encounter while installing the Dapr extension for AKS
+description: Troubleshoot errors you may encounter while installing the Dapr extension for AKS or Arc for Kubernetes
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: nigreenf
