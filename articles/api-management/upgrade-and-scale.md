@@ -12,11 +12,11 @@ ms.author: danlep
 
 # Upgrade and scale an Azure API Management instance  
 
-Customers can scale an Azure API Management instance by adding and removing units. A **unit** is composed of dedicated Azure resources and has a certain load-bearing capacity expressed as a number of API calls per second. This number does not represent a call limit, but rather an estimated maximum throughput value to allow for rough capacity planning. Actual throughput and latency vary broadly depending on factors such as number and rate of concurrent connections, the kind and number of configured policies, request and response sizes, and backend latency.
+Customers can scale an Azure API Management instance by adding and removing units. A **unit** is composed of dedicated Azure resources and has a certain load-bearing capacity expressed as a number of API calls per second. This number doesn't represent a call limit, but rather an estimated maximum throughput value to allow for rough capacity planning. Actual throughput and latency vary broadly depending on factors such as number and rate of concurrent connections, the kind and number of configured policies, request and response sizes, and backend latency.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-The throughput and price of each unit depend on the [service tier](api-management-features.md) in which the unit exists. You can choose between four dedicated tiers: **Developer**, **Basic**, **Standard**, **Premium**. If you need to increase capacity for a service within a tier, you should add a unit. If the tier that is currently selected in your API Management instance does not allow adding more units, you need to upgrade to a higher-level tier.
+The throughput and price of each unit depend on the [service tier](api-management-features.md) in which the unit exists. You can choose between four dedicated tiers: **Developer**, **Basic**, **Standard**, **Premium**. If you need to increase capacity for a service within a tier, you should add a unit. If the tier that is currently selected in your API Management instance doesn't allow adding more units, you need to upgrade to a higher-level tier.
 
 >[!NOTE]
 >See [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) for features, scale limits, and estimated throughput in each tier. To get more accurate throughput numbers, you need to look at a realistic scenario for your APIs. See [Capacity of an Azure API Management instance](api-management-capacity.md).
@@ -33,7 +33,7 @@ To follow the steps from this article, you must:
 
 You can choose between four dedicated tiers: **Developer**, **Basic**,  **Standard**, and **Premium**. 
 
-* The **Developer** tier should be used to evaluate the service; it should not be used for production. The **Developer** tier does not have SLA and you cannot scale this tier (add/remove units). 
+* The **Developer** tier should be used to evaluate the service; it shouldn't be used for production. The **Developer** tier doesn't have SLA and you can't scale this tier (add/remove units). 
 
 * **Basic**, **Standard**, and **Premium** are production tiers that have SLA and can be scaled. For pricing details and scale limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/#pricing).
 
@@ -55,7 +55,7 @@ You can choose between four dedicated tiers: **Developer**, **Basic**,  **Standa
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
 1. Select **Locations** from the menu.
 1. Select the row with the location you want to scale.
-1. Specify the new number of **units** - either use the slider or type the number.
+1. Specify the new number of **Units** - use the slider if available, or type the number.
 1. Select **Apply**.
 
 > [!NOTE]
@@ -69,7 +69,7 @@ You can choose between four dedicated tiers: **Developer**, **Basic**,  **Standa
 1. Select **Save**.
 
 ## Downtime during scaling up and down
-If you are scaling from or to the Developer tier, there will be downtime. Otherwise, there is no downtime. 
+If you're scaling from or to the Developer tier, there will be downtime. Otherwise, there is no downtime. 
 
 ## Compute isolation
 If your security requirements include [compute isolation](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), you can use the **Isolated** pricing tier. This tier ensures the compute resources of an API Management service instance consume the entire physical host and provide the necessary level of isolation required to support, for example, US Department of Defense Impact Level 5 (IL5) workloads. To get access to the Isolated tier, please [create a support request](../azure-portal/supportability/how-to-create-azure-support-request.md). 
