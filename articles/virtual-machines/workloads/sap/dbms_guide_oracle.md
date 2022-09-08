@@ -127,7 +127,6 @@ Customer has small or medium sized databases where backup and/or restore + recov
 
 Oracle ASM disk group recommendation:
 
-[!div class="mx-tdColBreakAll"]
 |ASM Disk Group Name   |Stores                        |Azure Storage       |
 |----------------------|------------------------------|--------------------|
 |**+DATA**                 |All data files                |3-6 x P 30 (1 TB)   |
@@ -158,7 +157,6 @@ Major differences to Variant 1 are:
 3.  The number of the DATA disk group is appended if the database spans over more than one DATA disk group
 4.  No online redo logs are located in the “data” disk groups. Instead an extra disk group is used for the first member of each online redo log group.
 
-[!div class="mx-tdColBreakAll"]
 |ASM Disk Group Name   |Stores                        |Azure Storage       |
 |----------------------|------------------------------|--------------------|
 |**+\<DBNAME\>\_DATA[#]**                 |All data files                |3-12 x P 30 (1 TB)   |
@@ -182,7 +180,6 @@ Customer has a huge database where backup and/or restore + recovery of a single 
 
 Usually customers will use RMAN, Azure Backup for Oracle and/or disk snap techniques in combination. In this variant, each relevant database file type is separated to different Oracle ASM disk groups.
 
-[!div class="mx-tdColBreakAll"]
 |ASM Disk Group Name   |Stores                        |Azure Storage       |
 |-----------------------|------------------------------|--------------------|
 |**+\<DBNAME\>\_DATA[#]**                  |All data files                |5-30 or more x P30 (1 TB) or P40 (2 TB)   |
