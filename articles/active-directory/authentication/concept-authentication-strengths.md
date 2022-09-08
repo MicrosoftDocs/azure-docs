@@ -47,7 +47,7 @@ An authentication strength policy may contain a combination of authentication me
 
   OR
 
-- Azure AD Certificate-Based Authentication (multifactor)
+- Azure AD Certificate-Based Authentication (Multi-Factor)
 
 :::image type="content" source="media/concept-authentication-strengths/authentication-strength-definitions.png" alt-text="Screenshot showing the phishing-resistant MFA strength policy definition.":::
 
@@ -56,7 +56,7 @@ An authentication strength policy may contain a combination of authentication me
 Built-in authentication strengths are combinations of authentication methods that are predefined by Microsoft. Built-in authentication strengths are always available and can't be modified.
 
 The following table lists the combinations of authentication methods for each built-in authentication strength policy. Depending on which methods are available in the authentication methods policy and registered for users, they can use any one of the combinations to sign-in.
-<!---Can we refer to each strength without policy? Policy gets too repetitive in the context of this topic. Also, can we revise some value names? Should be Federated single-value for example (lower case single-value), and multifactor shouldn't be hyphenated. --->
+
 -	**MFA strength policy** - the same set of combinations that could be used to satisfy the **Require multifactor authentication setting**.
 -	**Passwordless MFA strength policy** - includes authentication methods that satisfy MFA but don't require a password.
 -	**Phishing-resistant MFA strength policy** - includes methods that require an interaction between the authentication method and the sign-in surface.
@@ -64,7 +64,7 @@ The following table lists the combinations of authentication methods for each bu
 |Authentication method combination |MFA strength | Passwordless MFA strength| Phishing-resistant MFA strength|
 |----------------------------------|-------------|-------------------------------------|-------------------------------------------|
 |FIDO2 security key| &#x2705; | &#x2705; | &#x2705; |
-|Certificate-based authentication (multifactor) | &#x2705; | &#x2705; | &#x2705; |
+|Certificate-based authentication (Multi-Factor) | &#x2705; | &#x2705; | &#x2705; |
 |Password + something you have*| &#x2705; | | |
 |Federated single-factor + something you have*| &#x2705; | | |
 |Certificate-based authentication (single-factor)| | | |
@@ -101,10 +101,11 @@ Deleting a custom authentication strength is not allowed if the authentication s
 1. Select any of the available methods you want to allow.
 1. Choose **Next** and review the policy configuration.
 
-:::image type="content" source="media/concept-authentication-strengths/authentication-strength-custom.png" alt-text="Screenshot showing the creation of a custom authentication strength policy.":::
+   :::image type="content" source="media/concept-authentication-strengths/authentication-strength-custom.png" alt-text="Screenshot showing the creation of a custom authentication strength policy.":::
 
 #### FIDO2 security key advanced options
 Custom authentication strengths allow customers to further restrict the usage of some FIDO2 security keys based on their Authenticator Attestation GUIDs (AAGUIDs). The capability allows administrators to require a FIDO2 key from a specific manufacture in order to access the resource.
+
 <!-- Steps to configure FIDO2 AA GUID -- Justin can you help with this? -->
 
 #### Update and delete custom authentication strengths policies
