@@ -383,7 +383,7 @@ This error occurs when an image belonging to a private or otherwise inaccessible
 At this time, our APIs cannot accept private registry credentials. 
 
 To mitigate this error, either ensure that the container registry is **not private** or follow the following steps:
-1. Grant your private registry's `acrPull` role to the system identity of your online enpdoint.
+1. Grant your private registry's `acrPull` role to the system identity of your online endpoint.
 1. In your environment definition, specify the address of your private image as well as the additional instruction to not modify (build) the image.
 
 If the mitigation is successful, the image will not require any building and the final image address will simply be the given image address.
