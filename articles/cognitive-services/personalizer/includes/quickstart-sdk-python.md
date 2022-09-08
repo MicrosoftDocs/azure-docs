@@ -43,7 +43,7 @@ pip install azure-cognitiveservices-personalizer
 
 ### Create a new Python application
 
-Create a new Python application file named "Personalizer_quickstart.py". This application will handle both the example scenario logic and calls the Personalizer APIs. 
+Create a new Python application file named "personalizer_quickstart.py". This application will handle both the example scenario logic and calls the Personalizer APIs. 
 
 In the file, create variables for your resource's endpoint and subscription key.
 
@@ -101,11 +101,96 @@ Recall for our grocery website scenario, actions are the possible food items to 
 
 ```python
 actions_and_features = {
-    'pasta_1': {'brand_info':{'company':'pasta_inc'}, 'attributes':{'qty':1, 'cuisine':'italian', 'price':12}, 'dietary_attributes':{'vegan': False, 'low_carb': False, 'high_protein': False, 'vegetarian': False, 'low_fat': True, 'low_sodium': True}},
-    'bbq_1': {'brand_info':{'company':'ambisco'}, 'attributes':{'qty':2, 'category':'bbq', 'price':20}, 'dietary_attributes':{'vegan': False, 'low_carb': True, 'high_protein': True, 'vegetarian': False, 'low_fat': False, 'low_sodium': False}},
-    'bao_1':{'brand_info':{'company':'bao_and_co'}, 'attributes':{'qty':4, 'category':'chinese', 'price':8}, 'dietary_attributes':{'vegan': False, 'low_carb': True, 'high_protein': True, 'vegetarian': False, 'low_fat': True, 'low_sodium': False}},
-    'hummus_1': {'brand_info':{'company':'garbanzo_inc'}, 'attributes':{'qty':1, 'category':'breakfast', 'price':5 }, 'dietary_attributes':{'vegan': True, 'low_carb': False, 'high_protein': True, 'vegetarian': True, 'low_fat': False, 'low_sodium': False}}
+    'pasta': {
+        'brand_info': {
+            'company':'pasta_inc'
+        }, 
+        'attributes': {
+            'qty':1, 'cuisine':'italian',
+            'price':12
+        },
+        'dietary_attributes': {
+            'vegan': False,
+            'low_carb': False,
+            'high_protein': False,
+            'vegetarian': False,
+            'low_fat': True,
+            'low_sodium': True
+        }
+    },
+    'bbq': {
+        'brand_info' : {
+            'company': 'ambisco'
+        },
+        'attributes': {
+            'qty': 2,
+            'category': 'bbq',
+            'price': 20
+        }, 
+        'dietary_attributes': {
+            'vegan': False,
+            'low_carb': True,
+            'high_protein': True,
+            'vegetarian': False,
+            'low_fat': False,
+            'low_sodium': False
+        }
+    },
+    'bao': {
+        'brand_info': {
+            'company': 'bao_and_co'
+        },
+        'attributes': {
+            'qty': 4,
+            'category': 'chinese',
+            'price': 8
+        }, 
+        'dietary_attributes': {
+            'vegan': False,
+            'low_carb': True,
+            'high_protein': True,
+            'vegetarian': False,
+            'low_fat': True,
+            'low_sodium': False
+        }
+    },
+    'hummus': {
+        'brand_info' : { 
+            'company': 'garbanzo_inc'
+        },
+        'attributes' : {
+            'qty': 1,
+            'category': 'breakfast',
+            'price': 5
+        }, 
+        'dietary_attributes': {
+            'vegan': True, 
+            'low_carb': False,
+            'high_protein': True,
+            'vegetarian': True,
+            'low_fat': False, 
+            'low_sodium': False
+        }
+    },
+    'veg_platter': {
+        'brand_info': {
+            'company': 'farm_fresh'
+        }, 
+        'attributes': {
+            'qty': 1,
+            'category': 'produce', 
+            'price': 7
+        },
+        'dietary_attributes': {
+            'vegan': True,
+            'low_carb': True,
+            'high_protein': False,
+            'vegetarian': True,
+            'low_fat': True,
+            'low_sodium': True
+        }
     }
+}
 
 def get_actions():
     res = []
@@ -117,29 +202,47 @@ def get_actions():
 
 ## Define users and their context features
 
-Context can represent the current state of your application, system, environment, or user. The following code creates a dictionary with user preferences, and the `get_context()` function assembles the features into a list for one particular user, which will be used later when calling the Rank API. In our grocery website scenario, the context consists of dietary preferences, a historical average of the order price, and the web browser type. Let's assume our users are always on the move and include a location context feature, which we choose randomly to simulate their travels every time `get_context()` is called.
+Context can represent the current state of your application, system, environment, or user. The following code creates a dictionary with user preferences, and the `get_context()` function assembles the features into a list for one particular user, which will be used later when calling the Rank API. In our grocery website scenario, the context consists of dietary preferences, a historical average of the order price. Let's assume our users are always on the move and include a location, time of day, and application type, which we choose randomly to simulate changing contexts every time `get_context()` is called. Finally, `get_random_users()` creates a random set of 5 user names from the user profiles, which will be used to simulate Rank/Reward calls later on.
 
 ```python
-context_features = {
-    'Bill': {'dietary_preferences': 'low_carb', 'avg_order_price':  '0-20', 'browser_type': 'edge'},
-    'Satya': {'dietary_preferences': 'low_sodium', 'avg_order_price':  '201+', 'browser_type': 'safari'},
-    'Amy': {'dietary_preferences': {'vegan', 'vegetarian'}, 'avg_order_price':  '21-50', 'browser_type': 'edge'},
+user_profiles = {
+    'Bill': {
+        'dietary_preferences': 'low_carb', 
+        'avg_order_price': '0-20',
+        'browser_type': 'edge'
+    },
+    'Satya': {
+        'dietary_preferences': 'low_sodium',
+        'avg_order_price': '201+',
+        'browser_type': 'safari'
+    },
+    'Amy': {
+        'dietary_preferences': {
+            'vegan', 'vegetarian'
+        },
+        'avg_order_price': '21-50',
+        'browser_type': 'edge'},
     }
 
 def get_context(user):
-    day_context = {'location': random.choice(['west', 'east', 'midwest'])}
-    res = [context_features[user], day_context]
+    location_context = {'location': random.choice(['west', 'east', 'midwest'])}
+    time_of_day = {'time_of_day': random.choice(['morning', 'afternoon', 'evening'])}
+    app_type = {'application_type': random.choice(['edge', 'safari', 'edge_mobile', 'mobile_app'])}
+    res = [user_profiles[user], location_context, time_of_day, app_type]
     return res
+
+def get_random_users(k = 5):
+    return random.choices(list(user_profiles.keys()), k=k)
 ```
 
-The context features in this quick-start are simplistic, however, in a real production system, designing your [features] (../concepts-features.md) and [evaluating their effectiveness](../concept-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance
+The context features in this quick-start are simplistic, however, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../concept-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance
 
 
 ## Define a reward score based on user behavior
 
 The reward score can be considered an indication how "good" the personalized action is. In a real production system, the reward score should be designed to align with your business objectives and KPIs. For example, your application code can be instrumented to detect a desired user behavior (for example, a purchase) that aligns with your business objective (for example, increased revenue).
 
-In our grocery website scenario, we have three users: Bill, Satya, and Amy each with their own preferences. If a user purchases the product chosen by Personalizer, a reward score of 1.0 will be sent to the Reward API. Otherwise, the default reward of 0.0 will be used. In a real production system, determining how to design the [reward](../concept-rewards.md) can be non-trivial and may require some experimentation.
+In our grocery website scenario, we have three users: Bill, Satya, and Amy each with their own preferences. If a user purchases the product chosen by Personalizer, a reward score of 1.0 will be sent to the Reward API. Otherwise, the default reward of 0.0 will be used. In a real production system, determining how to design the [reward](../concept-rewards.md) may require some experimentation.
 
 In the code below, the users' preferences and responses to the actions is hard-coded as a series of conditional statements, and explanatory text is included in the code for demonstrative purposes. In a real scenario, Personalizer will learn user preferences from the data sent in Rank and Reward API calls. You won't define these explicitly as in the example code.
 
@@ -163,7 +266,7 @@ def get_reward_score(user, actionid, context):
             reward_score = 1.0
             print("Bill is visiting his friend Warren in the midwest. There he's willing to spend more on food as long as it's low carb, so Bill bought" + actionid + ".")
             
-        elif (action['attributes']['price'] > 10) and (context[1]['location'] != "midwest"):
+        elif (action['attributes']['price'] >= 10) and (context[1]['location'] != "midwest"):
             print("Bill didn't buy", actionid, "because the price was too high when not visting his friend Warren in the midwest.")
             
         elif (action['dietary_attributes']['low_carb'] == False) and (context[1]['location'] ==  "midwest"):
@@ -172,7 +275,7 @@ def get_reward_score(user, actionid, context):
     elif user == 'Satya':
         if action['dietary_attributes']['low_sodium'] == True:
             reward_score = 1.0
-            print("Satya is health conscious, so he bought", actionid, "since it's low in sodium.")
+            print("Satya is health conscious, so he bought", actionid,"since it's low in sodium.")
         else:
             print("Satya did not buy", actionid, "because it's not low sodium.")   
             
@@ -193,7 +296,7 @@ A Personalizer event cycle consists of [Rank](#request-the-best-action) and [Rew
 
 ### Request the best action
 
-In a Rank call, you need to provide at least two arguments: a list of `RankActions` (_actions and their features_), and a list of (_context_) features. The response will include the `reward_action_id`, which is the ID of the action Personalizer has determined is best for the given context. The response also includes the `event_id`, which is needed in the Reward API so Personalize knows how to link the data from the Reward and Rank calls. For more information, refer to the [Rank API docs](/rest/api/personalizer/1.0/rank/rank).
+In a Rank call, you need to provide at least two arguments: a list of `RankableActions` (_actions and their features_), and a list of (_context_) features. The response will include the `reward_action_id`, which is the ID of the action Personalizer has determined is best for the given context. The response also includes the `event_id`, which is needed in the Reward API so Personalize knows how to link the data from the Reward and Rank calls. For more information, refer to the [Rank API docs](/rest/api/personalizer/1.0/rank/rank).
 
 
 ### Send a reward
@@ -203,13 +306,13 @@ In a Reward call, you need to provide two arguments: the `event_id`, which links
 
 ### Run a Rank and Reward cycle
 
-The following code loops through a single cycle of Rank and Reward calls for each of the three example users, then prints relevant information to the console at each step.
+The following code loops through five cycles of Rank and Reward calls for a randomly selected set of example users, then prints relevant information to the console at each step.
 
 ```python
 def run_personalizer_cycle():
     actions = get_actions()
-    
-    for user in context_features.keys():
+    user_list = get_random_users()
+    for user in user_list:
         print("------------")
         print("User:", user, "\n")
         context = get_context(user)
@@ -227,7 +330,16 @@ def run_personalizer_cycle():
         client.events.reward(event_id=eventid, value=reward_score)     
         print("\nA reward score of", reward_score , "was sent to Personalizer.")
         print("------------\n")
+
+continue_loop = True
+while continue_loop:
+    run_personalizer_cycle()
+    
+    br = input("Press Q to exit, or any other key to run another loop: ")
+    if(br.lower()=='q'):
+        continue_loop = False
 ```
+
 
 
 ## Run the program
