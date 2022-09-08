@@ -82,7 +82,6 @@ The status of items in this table may change over time.
 | Backups| ⛔ |
 | Snapshots | ⛔ |
 | GRS or GZRS redundancy types| ⛔ |
-| AzCopy| ⛔ |
 
 ### iSCSI support
 
