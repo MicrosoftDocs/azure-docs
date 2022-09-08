@@ -51,7 +51,7 @@ In order to profile a Java application, it's required that:
     - Java 8 update 262+
     - Java 11+
 - You're using an Application Insights Agent that has the profiling capability
-    - Application Insights Java Agent version 3.0.3+
+    - Application Insights Java Agent version 3.3.1+
 > [!WARNING]
 > OpenJ9 JVM is not supported
 ### Triggers
