@@ -11,7 +11,7 @@ ms.reviewer: bwren
 
 This article lists significant changes to Azure Monitor documentation.
 
-## August, 2022
+## August  2022
 
 
 ### Agents
@@ -26,23 +26,23 @@ This article lists significant changes to Azure Monitor documentation.
 
 | Article | Description |
 |:---|:---|
-|[Create Azure Monitor alert rules](alerts/alerts-create-new-alert-rule.md)|Added support for data processing in a specified region, for action groups and for metric alert rules that monitors a custom metric.|
+|[Create Azure Monitor alert rules](alerts/alerts-create-new-alert-rule.md)|Added support for data processing in a specified region, for action groups and for metric alert rules that monitor a custom metric.|
 
 ### Application-insights
 
 | Article | Description |
 |---|---|
 |[Azure Application Insights Overview Dashboard](app/overview-dashboard.md)|Important information has been added clarifying that moving or renaming resources will break dashboards, with additional instructions on how to resolve this scenario.|
-|[Azure Application Insights override default SDK endpoints](app/custom-endpoints.md)|We've clarified that endpoint modification is not recommended and to use connection strings instead.|
-|[Continuous export of telemetry from Application Insights](app/export-telemetry.md)|Important information has been added about avoiding duplicates when saving diagnostic logs in a Log Analytics workspaces.|
+|[Azure Application Insights override default SDK endpoints](app/custom-endpoints.md)|We've clarified that endpoint modification isn't recommended and to use connection strings instead.|
+|[Continuous export of telemetry from Application Insights](app/export-telemetry.md)|Important information has been added about avoiding duplicates when saving diagnostic logs in a Log Analytics workspace.|
 |[Dependency Tracking in Azure Application Insights with OpenCensus Python](app/opencensus-python-dependency.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
 |[Incoming Request Tracking in Azure Application Insights with OpenCensus Python](app/opencensus-python-request.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
 |[Monitor Python applications with Azure Monitor](app/opencensus-python.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
 |[Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)|Updated connection string overrides example.|
-|[Application Insights SDK for ASP.NET Core applications](app/tutorial-asp-net-core.md)|This is a new tutorial with step-by-step instructions to use the Application Insights SDK with .NET Core applications.|
+|[Application Insights SDK for ASP.NET Core applications](app/tutorial-asp-net-core.md)|A new tutorial with step-by-step instructions to use the Application Insights SDK with .NET Core applications.|
 |[Application Insights SDK support guidance](app/sdk-support-guidance.md)|Our SDK support guidance has been updated and clarified.|
 |[Azure Application Insights - Dependency Auto-Collection](app/auto-collect-dependencies.md)|The latest currently-supported node.js modules have been updated.|
-|[Application Insights custom metrics with .NET and .NET Core](app/tutorial-asp-net-custom-metrics.md)|This is a new tutorial with step-by-step instructions on how to enable custom metrics with .NET applications.|
+|[Application Insights custom metrics with .NET and .NET Core](app/tutorial-asp-net-custom-metrics.md)|A new tutorial with step-by-step instructions on how to enable custom metrics with .NET applications.|
 |[Migrate an Application Insights classic resource to a workspace-based resource](app/convert-classic-resource.md)|A comprehensive FAQ section has been added to assist with migration to workspace-based resources.|
 |[Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)|This article has been fully updated for 3.4.0-BETA.|
 
@@ -50,8 +50,8 @@ This article lists significant changes to Azure Monitor documentation.
 
 | Article | Description |
 |---|---|
-|[Autoscale in Microsoft Azure](autoscale/autoscale-overview.md)|Updtaed conceptual diagrams|
-|[Use predictive autoscale to scale out before load demands in virtual machine scale sets (preview)](autoscale/autoscale-predictive.md)|Predictive autoscale (preview) is now avaliable in all regions|
+|[Autoscale in Microsoft Azure](autoscale/autoscale-overview.md)|Updated conceptual diagrams|
+|[Use predictive autoscale to scale out before load demands in virtual machine scale sets (preview)](autoscale/autoscale-predictive.md)|Predictive autoscale (preview) is now available in all regions|
 
 ### Change-analysis
 
@@ -72,7 +72,7 @@ This article lists significant changes to Azure Monitor documentation.
 | Article | Description |
 |---|---|
 |[Azure activity log](essentials/activity-log.md)|Added instructions for how to stop collecting activity logs using the legacy collection method.|
-|[Azure activity log insights](essentials/activity-log-insights.md)|Created a separate Activitly Log Insights article in the Insights section.|
+|[Azure activity log insights](essentials/activity-log-insights.md)|Created a separate Activity Log Insights article in the Insights section.|
 
 ### Logs
 
@@ -81,7 +81,7 @@ This article lists significant changes to Azure Monitor documentation.
 |[Configure data retention and archive in Azure Monitor Logs (Preview)](logs/data-retention-archive.md)|Clarified how data retention and archiving work in Azure Monitor Logs to address repeated customer inquiries.|
 
 
-## July, 2022
+## July  2022
 ### General
 
 | Article | Description |
@@ -156,7 +156,7 @@ This article lists significant changes to Azure Monitor documentation.
 |[What is VM insights?](vm/vminsights-overview.md)|All VM insights content updated for new support of Azure Monitor agent.
 
 
-## June, 2022
+## June  2022
 
 ### General
 
@@ -187,11 +187,11 @@ This article lists significant changes to Azure Monitor documentation.
 | [Tools for migrating to Azure Monitor Agent from legacy agents](agents/azure-monitor-agent-migration-tools.md) | New article that explains how to install and use tools for migrating from legacy agents to the new Azure Monitor agent (AMA).|
 
 ### Visualizations
-Azure Monitor Workbooks documentation previously resided on an external GitHub repository. We have migrated all Azure Workbooks content to the same repo as all other Azure Monitor content. 
+Azure Monitor Workbooks documentation previously resided on an external GitHub repository. We've migrated all Azure Workbooks content to the same repo as all other Azure Monitor content. 
 
 
 
-## May, 2022
+## May  2022
 
 ### General
 
