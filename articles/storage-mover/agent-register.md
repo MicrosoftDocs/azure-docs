@@ -12,8 +12,7 @@ ms.date: 08/16/2022
 !########################################################
 STATUS: IN REVIEW
 
-CONTENT: critical content missing
-        - links need review and update
+CONTENT: final
 
 REVIEW Stephen/Fabian: not reviewed
 REVIEW Engineering: not reviewed
@@ -30,7 +29,7 @@ In this article you'll learn how to successfully register a previously deployed 
 ## Prerequisites
 
 There are two prerequisites before you can register an Azure Storage Mover agent:
-1. You need to have an Azure Storage Mover resource deployed. <br />Follow the steps in the <!!!!! ARTICLE AND LINK NEEDED !!!!!> article to deploy this resource in an Azure subscription and region of your choice.
+1. You need to have an Azure Storage Mover resource deployed. <br />Follow the steps in the *[Create a storage mover resource](storage-mover-create.md)* article to deploy this resource in an Azure subscription and region of your choice. <!-- In the Azure portal, open the portal menu (tope left corner) and select *Create a resource*. Search for *Azure Storage Mover* and select *Create*. The article *Create a storage mover resource* has more details. -->
 1. You need to deploy the Azure Storage Mover agent VM. <br /> Follow the steps in the [Azure Storage Mover agent VM deployment](agent-deploy.md) article to run the agent VM and to get it connected to the internet.
 
 ## Registration overview
@@ -53,7 +52,7 @@ However, the agent VM is a Linux based appliance and copy/paste doesn't work ver
 
 ## Step 2: Test network connectivity
 
-Your agent needs to be connected to the internet. The article **<!!!!! ARTICLE AND LINK NEEDED !!!!!>** showcases connectivity requirements and options.
+Your agent needs to be connected to the internet. <!-- The article **<!!!!! ARTICLE AND LINK NEEDED !!!!!>** showcases connectivity requirements and options. -->
 
 When logged into the administrative shell, you can test the agents connectivity state:
 
@@ -81,7 +80,7 @@ Choice: 3
 ```
 Select menu item 3) *Test network connectivity*.
 
-The **<!!!!! ARTICLE AND LINK NEEDED !!!!!>** article can help troubleshoot in case you've encountered any issues.
+<!-- The **<!!!!! ARTICLE AND LINK NEEDED !!!!!>** article can help troubleshoot in case you've encountered any issues. -->
 
 > [!IMPORTANT]
 > Only proceed to the registration step when your network connectivity test returns no issues.

@@ -1,11 +1,11 @@
 ---
-title: Stephen - Understanding Azure Storage Mover billing
-description: Stephen - Understanding Azure Storage Mover billing 
+title: Understanding Azure Storage Mover billing
+description: Understanding Azure Storage Mover billing 
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 09/07/2022
 ---
 
 <!-- 
@@ -59,7 +59,7 @@ The billing model for each Azure Storage target will determine how these charges
 * Capacity of your Azure target storage is pre-provisioned and is billed for regardless of utilization. Progress of your cloud migration has no impact on your bill. 
 
 > [!CAUTION]
-> Always ensure there is enough provisioned capacity in the target to hold all the source content. Otherwise copy jobs might fail.
+> Always ensure there is enough provisioned capacity in the target to hold all the source content. Otherwise copy jobs will fail.
 
 ---
 > [!NOTE]
