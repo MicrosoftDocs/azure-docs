@@ -11,8 +11,6 @@ ms.date: 08/03/2022
 
 This IoT device selection list aims to give partners a starting point with IoT hardware to build prototypes and proof-of-concepts quickly and easily.[^1]
 
-
-
 All boards listed support users of all experience levels.
 
 >[!NOTE]
