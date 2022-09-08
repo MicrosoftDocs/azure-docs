@@ -4,8 +4,7 @@ titleSuffix: "Azure Database Migration Service"
 description: "Learn to perform an online migration from Azure Database for MySQL - Single Server to Flexible Server by using Azure Database Migration Service."
 author: "adig"
 ms.author: "adig"
-manager: "pariks"
-ms.reviewer: ""
+ms.reviewer: "maghan"
 ms.date: 09/07/2022
 ms.service: dms
 ms.topic: tutorial
