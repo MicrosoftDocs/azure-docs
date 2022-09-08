@@ -76,6 +76,9 @@ When enabled, an `eraser-controller-manager` pod is deployed on each agent node,
 
 Once an `ImageList` is generated, ImageCleaner will remove all the images in the list from node VMs.
 
+
+:::image type="content" source="./media/image-cleaner/image-cleaner.jpg" alt-text="A diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
+
 ## Configuration options
 
 In addition to choosing between manual and automatic mode, there are several options for ImageCleaner:
@@ -130,6 +133,8 @@ And apply it to the cluster:
 ```bash
 kubectl apply -f image-list.yml
 ```
+
+A job will trigger which causes ImageCleaner to remove the desired images from all nodes.
 
 ## Disable ImageCleaner
 
