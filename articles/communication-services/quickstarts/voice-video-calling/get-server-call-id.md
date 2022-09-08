@@ -73,7 +73,7 @@ callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
 });
 ```
 
-## Se also
+## See also
 
 For more information, see the following articles:
 
