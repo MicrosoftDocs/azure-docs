@@ -260,6 +260,8 @@
             - name: Scan images in your CI/CD Workflow
               href: ../defender-for-cloud/defender-for-container-registries-cicd.md
               maintainContext: True
+        - name: Remove vulnerable images with ImageCleaner (preview)
+          href: image-cleaner.md
         - name: Registry security
           items:
             - name: Scanning images in ACR registries
