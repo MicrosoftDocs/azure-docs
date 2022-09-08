@@ -1061,7 +1061,7 @@ Create a dummy file system cluster resource, which will monitor and report failu
 -  If using NFS on ANF, first confirm the IP address for the `/hana/shared` ANF volume on the primary site. You can do that by running `df -kh|grep /hana/shared`. 
 -  If using NFS on Azure Files, first determine the IP address of the private end point for your storage account. 
 
-   Then, set up a temporary firewall rule to block access to the IP address of the `/hana/shared` NFS service by executing the following command on one of the primary HANA system replication site VMs.
+   Then, set up a temporary firewall rule to block access to the IP address of the `/hana/shared` NFS file system by executing the following command on one of the primary HANA system replication site VMs.
 
    In this example the command was executed on hana-s1-db1 for ANF volume `/hana/shared`.
 
