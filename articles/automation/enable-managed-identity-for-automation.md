@@ -16,7 +16,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-account-portal.md).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal).
 
 - The latest version of Az PowerShell modules Az.Accounts, Az.Resources, Az.Automation, Az.KeyVault.
 

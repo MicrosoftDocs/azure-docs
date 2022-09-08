@@ -251,7 +251,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -290,7 +290,6 @@ The following rule groups and rules are available when using Web Application Fir
 |942100|SQL Injection Attack Detected via libinjection|
 |942110|SQL Injection Attack: Common Injection Testing Detected|
 |942120|SQL Injection Attack: SQL Operator Detected|
-|942130|SQL Injection Attack: SQL Tautology Detected.|
 |942140|SQL Injection Attack: Common DB Names Detected|
 |942150|SQL Injection Attack|
 |942160|Detects blind sqli tests using sleep() or benchmark().|
@@ -448,7 +447,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -631,7 +630,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
