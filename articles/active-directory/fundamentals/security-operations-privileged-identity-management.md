@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory security operations for Privileged Identity Management (PIM)
 
-The security of business assets depends on the integrity of the privileged accounts that administer your IT systems. Cyber-attackers use credential theft attacks to target admin accounts and other privileged access accounts to try gaining access to sensitive data.
+The security of business assets depends on the integrity of the privileged accounts that administer your IT systems. Cyber-attackers use credential theft attacks to target admin accounts and other privileged access accounts to try gaining access to sensitive data. 
 
 For cloud services, prevention and response are the joint responsibilities of the cloud service provider and the customer.
 
