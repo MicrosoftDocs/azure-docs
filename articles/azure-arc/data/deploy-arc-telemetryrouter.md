@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Arc TelemetryRouter
-description: Learn how to deploy the Azure Arc TelemetryRouter
+title: Deploy Azure Arc Telemetry Router
+description: Learn how to deploy the Azure Arc Telemetry Router
 author: lcwright
 ms.author: lancewright
 ms.service: #Required; service per approved list. slug assigned by ACOM.
@@ -9,26 +9,24 @@ ms.date: 09/07/2022
 ms.custom: template-how-to
 ---
 
-# Deploy the Azure Arc TelemetryRouter
+# Deploy the Azure Arc Telemetry Router
 
 > [!NOTE]
 >
-> - The Arc TelemetryRouter is currently in Public Preview and you should only deploy it for **testing purposes only**.
-> - In-place upgrades are not currently available in the current Preview. In order to install a future release, you will need to uninstall this Preview release and then install the next release.
+> - The telemetry router is currently in Public Preview and you should only deploy it for **testing purposes only**.
+> - In-place upgrades of a data controller deployed with the Arc telemetry router enabled are not currently available in the current preview. In order to install a data controller in a future release, you will need to uninstall the data controller and then re-install.
 
-**What is the Arc TelemetryRouter?**
+**What is the Arc Telemetry Router?**
 
-The Arc TelemetryRouter's primary goal is to provide a means for customers to declare telemetry pipelines and the exporters which correspond to those pipelines in order to export to their own monitoring solutions.  For this Public Preview we only support logs pipelines and Kafka or Elasticsearch exporters.
+The Arc telemetry router enables exporting the collected monitoring telemetry data to other monitoring solutions. For this Public Preview we only support exporting log data to either Kafka or Elasticsearch.
 
-The TelemetryRouter manages a hierarchy of resources in order to provide this telemetry pipeline functionality.  One of its child resources is an OpenTelemetry collector.  The OpenTelemetry collector is a vendor-agnostic proxy that can receive, process, and export telemetry data.  It supports receiving telemetry data in multiple formats and sending data to one or more backends.  It also supports processing and filtering telemetry data before it gets exported.  
-
-This document specifies initial details regarding the architecture of the underlying resources and configuration design of the Arc TelemetryRouter.
+This document specifies how to deploy the telemetry router and configure it to work with the supported exporters.
 
 ## **Configuration**
 
-When deployed, the Arc TelemetryRouter custom resource manages a hierarchy of resources. All configurationS are specified through the TelemetryRouter's custom resource specification. For the Public Preview, it initially targets the configuration of exporters and pipelines.
+When deployed, the Arc telemetry router custom resource manages a hierarchy of resources. All configurations are specified through the telemetry router's custom resource specification. For the Public Preview, it initially targets the configuration of exporters and pipelines.
 
-### **Exporters**
+### Exporters
 
 For the Public Preview, Exporters are partially configurable and support the following Primary Exporters:
 
@@ -36,6 +34,20 @@ For the Public Preview, Exporters are partially configurable and support the fol
 - Elasticsearch
 
 The following properties are currently configurable during the Public Preview:
+
+Kafka Exporter Settings
+
+|  Setting     | Description |
+|--------------|-----------|
+| Topic       | Name of the topic to export to |
+| Brokers      | Broker service endpoint  | 
+| Encoding      | Encoding for the telemetry: otlp_json or otlp_proto  |
+
+Elasticsearch Exporter Settings
+
+|  Setting     | Description |
+|--------------|-----------|
+| Index       | This can be the name of an index or datastream name to publish events to      |
 
 - Credentials
   - User-provided client and CA certificates through Kubernetes secrets.
@@ -48,11 +60,31 @@ The following properties are currently configurable during the Public Preview:
 - ElasticSearchExporter Settings:
   - index
 
-### **Pipelines**
+### Pipelines
 
-During the Public Preview, only logs pipelines are supported. These are exposed in the custom resource specification of the Arc TelemetryRouter and available for modification.  Currently, we do not allow configuration of receivers and processors in these pipelines - only exporters are mutable.  All pipelines must be prefixed with "logs" in order to be injected with the necessary receivers and processors. e.g., `logs/internal`
+During the Public Preview, only logs pipelines are supported. These are exposed in the custom resource specification of the Arc telemetry router and available for modification.  Currently, we do not allow configuration of receivers and processors in these pipelines - only exporters are changeable.  All pipelines must be prefixed with "logs" in order to be injected with the necessary receivers and processors. e.g., `logs/internal`
 
-### **Example TelemetryRouter Specification:**
+Pipeline Settings
+
+|  Setting     | Description |
+|--------------|-----------|
+| Credentials       | User-provided       |
+| Endpoint       | kafka or elasticsearch      |
+| CA Certificate Name       | asdf      |
+| Certificate Name       | asdf      |
+
+
+### Credentials 
+
+**Credentials Settings**
+
+|  Setting     | Description |
+|--------------|-----------|
+| Credentials       | User-provided through a Kubernetes secret       |
+| CA Certificate Name       | User-provided through a Kubernetes secret      |
+| Certificate Name       | User-provided through a Kubernetes secret      |
+
+### Example TelemetryRouter Specification:
 
 ```yaml
 apiVersion: arcdata.microsoft.com/v1beta1
@@ -116,12 +148,14 @@ spec:
 
 ## **Deployment**
 
-Once you have your cluster and Azure CLI setup correctly **(LW Comment: ADD LINK)**, to deploy the TelemetryRouter, you must create the *DataController* custom resource. Then, set the `enableOpenTelemetry` flag on its spec to `true`.  This is a temporary feature flag that must be enabled.
+> [!NOTE]
+> The telemetry router currently supports indirect mode only.
 
-To do this, follow the normal configuration profile instructions **(LW Comment: ADD LINK)**. After you have created your configuration profile, add the monitoring property with the `enableOpenTelemetry` flag set to `true`. You can do this by running the following commends in the az CLI:
+Once you have your cluster and Azure CLI setup correctly, to deploy the telemetry router, you must create the *DataController* custom resource. Then, set the `enableOpenTelemetry` flag on its spec to `true`.  This is a temporary feature flag that must be enabled.
+
+To do this, follow the [normal configuration profile instructions](https://docs.microsoft.com/en-us/azure/azure-arc/data/create-custom-configuration-template). After you have created your configuration profile, add the monitoring property with the `enableOpenTelemetry` flag set to `true`. You can do this by running the following commends in the az CLI:
 
 ```bash
-az arcdata dc config init --source azure-arc-kubeadm --path ./output/custom --force
 az arcdata dc config add --path ./output/control.json --json-values ".spec.monitoring={}"
 az arcdata dc config add --path ./output/control.json --json-values ".spec.monitoring.enableOpenTelemetry=true"
 ```
@@ -134,36 +168,135 @@ spec:
         enableOpenTelemetry: true
 ```
 
-Then deploy the data controller as normal in the [Custom Deployment Instructions] **(LW Comment: Replace Link)**
+Then deploy the data controller as normal in the [Deployment Instructions](https://docs.microsoft.com/en-us/azure/azure-arc/data/create-data-controller-indirect-cli?tabs=linux)
 
-When the data controller is deployed, it also deploys a default TelemetryRouter custom resource at the end of the data controller creation. Use the following command to verify  that it exists:
+When the data controller is deployed, it also deploys a default TelemetryRouter custom resource at the end of the data controller creation. Use the following command to verify that it exists:
 
 ```bash
-kubectl -n <namespace> describe telemetryrouter arc-telemetry-router
+kubectl describe telemetryrouter arc-telemetry-router -n <namespace>
 ```
 
 ```yaml
-<brakoc to add example, customer-facing .yaml file>
+apiVersion: arcdata.microsoft.com/v1beta1
+  kind: TelemetryRouter
+  metadata:
+    creationTimestamp: "2022-09-08T16:54:04Z"
+    generation: 1
+    name: arc-telemetry-router
+    namespace: <namespace>
+    ownerReferences:
+    - apiVersion: arcdata.microsoft.com/v5
+      controller: true
+      kind: DataController
+      name: datacontroller-arc
+      uid: 9c0443d8-1cc3-4c40-b600-3552272b3d3e
+    resourceVersion: "15000547"
+    uid: 3349f73a-0904-4063-a501-d92bd6d3e66e
+  spec:
+    collector:
+      customerPipelines:
+        logs:
+          exporters:
+          - elasticsearch/arcdata/msft/internal
+      exporters:
+        elasticsearch/arcdata/msft/internal:
+          caCertificateName: cluster-ca-certificate
+          certificateName: arcdata-msft-elasticsearch-exporter-internal
+          endpoint: https://logsdb-svc:9200
+          settings:
+            index: logstash-otel
+    credentials:
+      certificates:
+      - certificateName: arcdata-msft-elasticsearch-exporter-internal
+      - certificateName: cluster-ca-certificate
+  status:
+    lastUpdateTime: "2022-09-08T16:54:05.042806Z"
+    observedGeneration: 1
+    runningVersion: v1.11.0_2022-09-13
+    state: Ready
+
 ```
 
-In the above example, we have an initial logs pipeline deployed, exporting Fluentbit logs to our deployment of Elasticsearch in the Arc cluster.  You can see the index, service endpoint, and certificates it is using to do so.
+We are exporting logs to our deployment of Elasticsearch in the Arc cluster.  You can see the index, service endpoint, and certificates it is using to do so.  This is provided as an example in the deployment, so you can see how to export to your own monitoring solutions.
 
-You can run the following command to see the detailed deployment of the child collector that is receiving Fluentbit logs and exporting to Elasticsearch:
+You can run the following command to see the detailed deployment of the child collector that is receiving logs and exporting to Elasticsearch:
 
 ```bash
-kubectl -n <namespace> describe otelcollector collector
+kubectl describe otelcollector collector -n <namespace>
 ```
 
 ```yaml
-<brakoc to add example, customer-facing .yaml file>
+apiVersion: arcdata.microsoft.com/v1beta1
+  kind: OtelCollector
+  metadata:
+    creationTimestamp: "2022-09-08T16:54:04Z"
+    generation: 1
+    name: collector
+    namespace: <namespace>
+    ownerReferences:
+    - apiVersion: arcdata.microsoft.com/v1beta1
+      controller: true
+      kind: TelemetryRouter
+      name: arc-telemetry-router
+      uid: 3349f73a-0904-4063-a501-d92bd6d3e66e
+    resourceVersion: "15000654"
+    uid: 09257d83-feab-49f6-a3fd-8109db5ca27c
+  spec:
+    collector:
+      exporters:
+        elasticsearch/arcdata/msft/internal:
+          endpoints:
+          - https://logsdb-svc:9200
+          index: logstash-otel
+          tls:
+            ca_file: cluster-ca-certificate
+            cert_file: arcdata-msft-elasticsearch-exporter-internal
+            key_file: arcdata-msft-elasticsearch-exporter-internal
+      extensions:
+        memory_ballast:
+          size_mib: 683
+      processors:
+        batch:
+          send_batch_max_size: 500
+          send_batch_size: 100
+          timeout: 10s
+        memory_limiter:
+          check_interval: 5s
+          limit_mib: 1500
+          spike_limit_mib: 512
+      receivers:
+        fluentforward:
+          endpoint: 0.0.0.0:8006
+      service:
+        extensions:
+        - memory_ballast
+        pipelines:
+          logs:
+            exporters:
+            - elasticsearch/arcdata/msft/internal
+            processors:
+            - memory_limiter
+            - batch
+            receivers:
+            - fluentforward
+    credentials:
+      certificates:
+      - certificateName: arcdata-msft-elasticsearch-exporter-internal
+      - certificateName: cluster-ca-certificate
+  status:
+    lastUpdateTime: "2022-09-08T16:54:56.923140Z"
+    observedGeneration: 1
+    runningVersion: v1.11.0_2022-09-13
+    state: Ready
+
 ```
 
-The purpose of this child resource is to provide a visual representation of the inner configuration of the collector.  For modification, all updates should go through its parent resource, the TelemetryRouter custom resource. 
+The purpose of this child resource is to provide a visual representation of the inner configuration of the collector, and you should see it in a *Ready* state.  For modification, all updates should go through its parent resource, the TelemetryRouter custom resource. 
 
-After running the following `get pods` command, you should see it in a *Ready* state. If you look at the pods, you should see an otel-collector-0 pod there as well:
+If you look at the pods, you should see an otel-collector-0 pod there as well:
 
 ```bash
-kubectl -n <namespace> get pods
+kubectl get pods -n <namespace>
 
 NAME                           READY   STATUS      RESTARTS   AGE
 arc-bootstrapper-job-r4m45     0/1     Completed   0          9m5s
@@ -181,15 +314,17 @@ otel-collector-0               2/2     Running     0          5m4s
 
 To verify that the exporting of the logs is happening correctly, you can inspect the logs of the collector or look at Elasticsearch and verify.
 
-To look at the logs of the collector, run the following command:
+To look at the logs of the collector, you will need to exec into the container run the following command:
 
 ```bash
- kubectl -n <namespace> exec -it otel-collector-0 -c otel-collector -- /bin/bash
+ kubectl exec -it otel-collector-0 -c otel-collector -- /bin/bash -n <namespace>
 
 cd /var/log/opentelemetry-collector/
 ```
 
-If you look at the logs files, you should see successful POSTs to Elasticsearch with response code 200. Example Output:
+If you look at the logs files, you should see successful POSTs to Elasticsearch with response code 200. 
+
+Example Output:
 
 ```bash
 2022-08-30T16:08:33.455Z        debug   elasticsearchexporter@v0.53.0/exporter.go:182   Request roundtrip completed.    {"kind": "exporter", "name": "elasticsearch/arcdata/internal", "path": "/_bulk", "method": "POST", "duration": 0.006774934, "status": "200 OK"}
@@ -197,114 +332,197 @@ If you look at the logs files, you should see successful POSTs to Elasticsearch 
 
 If there are successful POSTs, everything should be running correctly.
 
-## **Modification**
+## **Exporting to Your Monitoring Solutions**
 
-This next section will guide you through a series of modifications you can make on the TelemetryRouter to test various functionality.
+This next section will guide you through a series of modifications you can make on the Arc telemetry router to export to your own Elasticsearch or Kafka instances.
 
-### **1. Modify the index of the Elasticsearch Exporter**
+### **1. Add an Elasticsearch Exporter**
 
-You can test exporting to a different index by updating the Elasticsearch exporter on the TelemetryRouter custom resource as seen below:
+You can test adding your own Elasticsearch exporter to send logs to your deployment of Elasticsearch by doing the following:
 
-**router.yaml**
+1. Add your Elasticsearch exporter to the exporters list beneath customer pipelines
+2. Declare your Elasticsearch exporter with the needed settings - certificates, endpoint, and index
+3. Provide your client and CA certificates in the credentials section through Kubernetes secrets
 
-```yaml
-<brakoc to add example, customer-facing .yaml file>
-```
-
-```bash
-kubectl -n <namespace> apply -f router.yaml
-```
-
-This will change your exporter from exporting to logstash-otel to logstash-otel2.  The OtelCollector custom resource should go into an updating state and the collector service will restart.  Once it is in a ready state, you can inspect the collector logs as shown above again to ensure it's successfully posting to the new index.
-
-### **2. Add a new Elasticsearch exporter**
-
-You can test adding a new Elasticsearch exporter by updating the TelemetryRouter custom resource as seen below:
+For example:
 
 **router.yaml**
 
 ```yaml
-<brakoc to add example, customer-facing .yaml file>
+apiVersion: arcdata.microsoft.com/v1beta1
+kind: TelemetryRouter
+metadata:
+  name: arc-telemetry-router
+  namespace: <namespace>
+spec:
+    collector:
+      customerPipelines:
+        logs:
+          exporters:
+          - elasticsearch/arcdata/msft/internal
+          # 1. Add your Elasticsearch exporter to the exporters list.
+          - elasticsearch/example
+      exporters:
+        # 2. Declare your Elasticsearch exporter with the needed settings (certificates, endpoint, and index to export to)
+        elasticsearch/example:
+          # Provide your client and CA certificate names
+          # for the exporter as well as any additional settings needed
+          caCertificateName: <ca-certificate-name>
+          certificateName: <elasticsearch-client-certificate-name>
+          endpoint: <elasticsearch_endpoint>
+          settings:
+            # Currently supported properties include: index
+            # This can be the name of an index or datastream name to publish events to
+            index: <elasticsearch_index>
+        elasticsearch/arcdata/msft/internal:
+          caCertificateName: cluster-ca-certificate
+          certificateName: arcdata-msft-elasticsearch-exporter-internal
+          endpoint: https://logsdb-svc:9200
+          settings:
+            index: logstash-otel
+    credentials:
+      certificates:
+      - certificateName: arcdata-msft-elasticsearch-exporter-internal
+      - certificateName: cluster-ca-certificate
+      # 3. Provide your client and ca certificates through Kubernetes secrets
+      # where the name of the secret and its namespace are specified.
+      - certificateName: <elasticsearch-client-certificate-name>
+        secretName: <name_of_secret>
+        secretNamespace: <namespace_with_secret>
+      - certificateName: <ca-certificate-name>
+        secretName: <name_of_secret>
+        secretNamespace: <namespace_with_secret>
 ```
 
 ```bash
-kubectl -n <namespace> apply -f router.yaml
+kubectl apply -f router.yaml -n <namespace>
 ```
 
-This will add a second Elasticsearch exporter that exports to a different index on the *same* logs pipeline.  The OtelCollector custom resource should go into an updating state and the collector service will restart.  Once it is in a ready state, you can inspect the collector logs as shown above again to ensure it's successfully posting to both indices.
+This will add a second Elasticsearch exporter that exports to your instance of Elasticsearch on the logs pipeline.  The TelemetryRouter custom resource should go into an updating state and the collector service will restart.  Once it is in a ready state, you can inspect the collector logs as shown above again to ensure it's successfully posting to your instance of Elasticsearch.
 
-### **3. Add a new logs pipeline**
+### **2. Add a new logs pipeline with your Elasticsearch exporter**
 
 You can test adding a new logs pipeline by updating the TelemetryRouter custom resource as seen below:
 
 **router.yaml**
 
 ```yaml
-<brakoc to add example, customer-facing .yaml file>
+apiVersion: arcdata.microsoft.com/v1beta1
+kind: TelemetryRouter
+metadata:
+  name: arc-telemetry-router
+  namespace: <namespace>
+spec:
+    collector:
+      customerPipelines:
+        logs:
+          exporters:
+          - elasticsearch/arcdata/msft/internal
+        logs/example:
+          exporters:
+          - elasticsearch/example
+      exporters:
+        elasticsearch/example:
+          # Provide your client and CA certificate names
+          # for the exporter as well as any additional settings needed
+          caCertificateName: <ca-certificate-name>
+          certificateName: <elasticsearch-client-certificate-name>
+          endpoint: <elasticsearch_endpoint>
+          settings:
+            # Currently supported properties include: index
+            # This can be the name of an index or datastream name to publish events to
+            index: <elasticsearch_index>
+        elasticsearch/arcdata/msft/internal:
+          caCertificateName: cluster-ca-certificate
+          certificateName: arcdata-msft-elasticsearch-exporter-internal
+          endpoint: https://logsdb-svc:9200
+          settings:
+            index: logstash-otel
+    credentials:
+      certificates:
+      - certificateName: arcdata-msft-elasticsearch-exporter-internal
+      - certificateName: cluster-ca-certificate
+      # Provide your client and ca certificates through Kubernetes secrets
+      # where the name of the secret and its namespace are specified.
+      - certificateName: <elasticsearch-client-certificate-name>
+        secretName: <name_of_secret>
+        secretNamespace: <namespace_with_secret>
+      - certificateName: <ca-certificate-name>
+        secretName: <name_of_secret>
+        secretNamespace: <namespace_with_secret>
 ```
 
 ```bash
-kubectl -n <namespace> apply -f router.yaml
+kubectl apply -f router.yaml -n <namespace>
 ```
 
-This will add a second Elasticsearch exporter that exports to a different index on a *different* logs pipeline.  The OtelCollector custom resource should go into an updating state and the collector service will restart.  Once it is in a ready state, you can inspect the collector logs as shown above again to ensure it's successfully posting to both indices.
+This will add your Elasticsearch exporter to a *different* logs pipeline called 'logs/example'.  The TelemetryRouter custom resource should go into an updating state and the collector service will restart.  Once it is in a ready state, you can inspect the collector logs as shown above again to ensure it's successfully posting to your instance of Elasticsearch.
 
-### **4. Add a Kafka Exporter**
+### **3. Add a Kafka Exporter**
 
-To test the Kafka exporter, you will first need to deploy Kafka to the Arc cluster.  To do so, apply a Kafka custom resource similar to below:
+You can test adding your own Kafka exporter to send logs to your deployment of Kafka by doing the following:
 
-**kafka.yaml**
+1. Add your Kafka exporter to the exporters list beneath customer pipelines
+2. Declare your Kafka exporter with the needed settings - topic, broker, and encoding
+3. Provide your client and CA certificates in the credentials section through Kubernetes secrets
 
-```yaml
-<brakoc to add example, customer-facing .yaml file>
-```
-
-```bash
-kubectl -n <namespace> apply -f kafka.yaml
-```
-
-Once the Kafka CR is in a ready state,
-
-```bash
-$ kubectl -n <namespace> get kafkas
-NAME        STATUS    AGE
-arc-kafka   Ready     19h
-```
-
-apply the change to the TelemetryRouter with the Kafka exporter:
+For example:
 
 **router.yaml**
 
 ```yaml
-<brakoc to add example, customer-facing .yaml file>
+apiVersion: arcdata.microsoft.com/v1beta1
+kind: TelemetryRouter
+metadata:
+  name: arc-telemetry-router
+  namespace: <namespace>
+spec:
+    collector:
+      customerPipelines:
+        logs:
+          exporters:
+          - elasticsearch/arcdata/msft/internal
+          # 1. Add your Kafka exporter to the exporters list of a logs pipeline.
+          - kafka/example
+      exporters:
+        # 2. Declare your Kafka exporter with the needed settings (certificates, endpoint, topic, brokers, and encoding)
+        kafka/example:
+          # Provide your client and CA certificate names
+          # for the exporter as well as any additional settings needed
+          certificateName: <kafka-client-certificate-name>
+          caCertificateName: <ca-certificate-name>
+          settings:
+              # Name of the topic to export to
+              topic: <topic-name>
+              # Broker service endpoint
+              brokers: <broker-service-endpoint>
+              # Encoding for the telemetry, otlp_json or otlp_proto
+              encoding: otlp_json
+        elasticsearch/arcdata/msft/internal:
+          caCertificateName: cluster-ca-certificate
+          certificateName: arcdata-msft-elasticsearch-exporter-internal
+          endpoint: https://logsdb-svc:9200
+          settings:
+            index: logstash-otel
+    credentials:
+      certificates:
+      - certificateName: arcdata-msft-elasticsearch-exporter-internal
+      - certificateName: cluster-ca-certificate
+      # 3. Provide your client and ca certificates through Kubernetes secrets
+      # where the name of the secret and its namespace are specified.
+      - certificateName: <kafka-client-certificate-name>
+        secretName: <name_of_secret>
+        secretNamespace: <namespace_with_secret>
+      - certificateName: <ca-certificate-name>
+        secretName: <name_of_secret>
+        secretNamespace: <namespace_with_secret>
 ```
 
 ```bash
-kubectl -n <namespace> apply -f router.yaml
+kubectl apply -f router.yaml -n <namespace>
 ```
 
-This will add a Kafka exporter that exports to the kafka_logs_topic on the logs pipeline.  The OtelCollector custom resource should go into an updating state and the collector service will restart.  Once it is in a ready state, you can inspect the collector logs as shown above again to ensure there are no errors.  
-
-Currently, the Kafka exporter doesn't log its POST requests on the collector.  So, to ensure that Kafka is receiving the logs, you'll need to run a `kubectl exec` command into the Kafka broker to see the fluentbit logs.  You can do so as follows:
-
-```bash
-# 1. Exec into the broker pod
-$ kubectl exec -it kafka-broker-0 -n <namespace> -c kafka-broker -- bash
-
-# 2. Go to the kafka run directory and generate a connection properties file
-$ cd /var/run/kafka
-$ echo $'bootstrap.servers=kafka-broker-svc:9092\nsecurity.protocol=SSL\nssl.truststore.location=/var/run/secrets/managed/truststores/kafka/truststore.p12\nssl.truststore.password=password\nssl.keystore.location= /var/run/secrets/managed/keystores/kafka/kafka-keystore.p12\nssl.keystore.password=password\nssl.key.password=password\n' > client-ssl.properties
-
-# 3. List the available topics to ensure the kafka_logs_topic exists
-$ /opt/kafka/bin/kafka-topics.sh --list --bootstrap-server kafka-broker-svc:9092 --command-config client-ssl.properties
-
-# 4. Begin reading from the kafka_logs_topic
-$ /opt/kafka/bin/kafka-console-consumer.sh --topic kafka_logs_topic --bootstrap-server kafka-broker-svc:9092 --consumer.config client-ssl.properties
-```
-
-> **LW Comment:** are these outputs okay?
-
-If the kafka_logs_topic exists and you are able to read from it and see the logs, then the exporter should be working correctly if there are no error messages from either the collector or Kafka.
+This will add a Kafka exporter that exports to to the topic name at the broker service endpoint you provided on the logs pipeline.  The TelemetryRouter custom resource should go into an updating state and the collector service will restart.  Once it is in a ready state, you can inspect the collector logs as shown above again to ensure there are no errors and verify on your Kafka cluster that it is receiving the logs.  
 
 ## Next steps
 
