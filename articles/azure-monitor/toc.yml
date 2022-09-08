@@ -326,6 +326,69 @@ items:
           href: logs/personal-data-mgmt.md
         - name: Application data collection, retention, and storage
           href: app/data-retention-privacy.md
+  - name: Workspaces
+    items:
+      - name: Overview
+        displayName: Log Analytics workspace
+        href: logs/log-analytics-workspace-overview.md
+      - name: Create workspaces
+        href: logs/quick-create-workspace.md
+      - name: Configure
+        items:
+        - name: Manage access
+          displayName: Log Analytics workspace
+          href: logs/manage-access.md
+        - name: Change pricing tier
+          href: logs/change-pricing-tier.md
+        - name: Set a daily cap
+          href: logs/daily-cap.md
+        - name: Configure Basic Logs
+          href: logs/basic-logs-configure.md
+        - name: Use Azure AD authentication
+          href: logs/azure-ad-authentication-logs.md
+      - name: Archive and restore
+        items:
+        - name: Set retention and archive policy
+          href: logs/data-retention-archive.md
+        - name: Run a search job
+          href: logs/search-jobs.md
+        - name: Restore logs
+          href: logs/restore.md
+      - name: Design
+        items:
+        - name: Design a workspace architecture
+          href: logs/workspace-design.md
+        - name: Dedicated clusters
+          href: logs/logs-dedicated-clusters.md
+        - name: Availability zones
+          href: logs/availability-zones.md
+      - name: Monitor
+        items:
+        - name: Monitor a workspace
+          href: logs/monitor-workspace.md
+        - name: Analyze usage and cost
+          href: logs/analyze-usage.md
+        - name: Log data ingestion time
+          displayName: latency
+          href: logs/data-ingestion-time.md
+      - name: Move and delete
+        items:
+        - name: Move a workspace
+          href: logs/move-workspace.md
+        - name: Move a workspace across regions
+          href: logs/move-workspace-region.md
+        - name: Delete and recover a workspace
+          href: logs/delete-workspace.md  
+  - name: Data export
+    items:
+      - name: Workspace data export
+        href: logs/logs-data-export.md
+      - name: Export with Logic Apps
+        href: logs/logs-export-logic-app.md
+      - name: Query data with Azure Data Explorer
+        href: logs/azure-data-explorer-query-storage.md
+      - name: Send to Excel
+        href: logs/log-excel.md
 - name: Insights
   items:
   - name: Application Insights
@@ -1081,61 +1144,31 @@ items:
       href: logs/queries.md
     - name: Query packs
       href: logs/query-packs.md
-    - name: Workspaces
+    - name: Logic Apps
       items:
-      - name: Overview
-        displayName: Log Analytics workspace
-        href: logs/log-analytics-workspace-overview.md
-      - name: Create workspaces
-        href: logs/quick-create-workspace.md
-      - name: Configure
-        items:
-        - name: Manage access
-          displayName: Log Analytics workspace
-          href: logs/manage-access.md
-        - name: Change pricing tier
-          href: logs/change-pricing-tier.md
-        - name: Set a daily cap
-          href: logs/daily-cap.md
-        - name: Configure Basic Logs
-          href: logs/basic-logs-configure.md
-        - name: Use Azure AD authentication
-          href: logs/azure-ad-authentication-logs.md
-      - name: Archive and restore
-        items:
-        - name: Set retention and archive policy
-          href: logs/data-retention-archive.md
-        - name: Run a search job
-          href: logs/search-jobs.md
-        - name: Restore logs
-          href: logs/restore.md
-      - name: Design
-        items:
-        - name: Design a workspace architecture
-          href: logs/workspace-design.md
-        - name: Dedicated clusters
-          href: logs/logs-dedicated-clusters.md
-        - name: Availability zones
-          href: logs/availability-zones.md
-      - name: Monitor
-        items:
-        - name: Monitor a workspace
-          href: logs/monitor-workspace.md
-        - name: Analyze usage and cost
-          href: logs/analyze-usage.md
-        - name: Log data ingestion time
-          displayName: latency
-          href: logs/data-ingestion-time.md
-      - name: Move and delete
-        items:
-        - name: Move a workspace
-          href: logs/move-workspace.md
-        - name: Move a workspace across regions
-          href: logs/move-workspace-region.md
-        - name: Delete and recover a workspace
-          href: logs/delete-workspace.md  
-    - name: Log queries
+        - name: Azure Monitor Logs connector
+          href: logs/logicapp-flow-connector.md
+        - name: Application Insights connector
+          href: app/automate-with-logic-apps.md
+    - name: Tutorials
       items:
+        - name: Workspace transformations
+          items:
+          - name: Azure portal
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-portal.md
+          - name: Resource Manager templates
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-api.md
+        - name: Custom logs
+          items:
+          - name: Custom logs in the Azure portal
+            href: logs/tutorial-logs-ingestion-portal.md
+          - name: Resource Manager templates
+            displayName: Custom logs
+            href: logs/tutorial-logs-ingestion-api.md
+  - name: Log queries
+    items:
       - name: Overview
         displayName: log query, log queries, query, queries
         href: logs/log-query-overview.md
@@ -1207,39 +1240,6 @@ items:
               href: logs/api/prefer-options.md
           - name: Errors
             href: logs/api/errors.md
-    - name: Data export
-      items:
-      - name: Workspace data export
-        href: logs/logs-data-export.md
-      - name: Export with Logic Apps
-        href: logs/logs-export-logic-app.md
-      - name: Query data with Azure Data Explorer
-        href: logs/azure-data-explorer-query-storage.md
-      - name: Send to Excel
-        href: logs/log-excel.md
-    - name: Logic Apps
-      items:
-      - name: Azure Monitor Logs connector
-        href: logs/logicapp-flow-connector.md
-      - name: Application Insights connector
-        href: app/automate-with-logic-apps.md
-    - name: Tutorials
-      items:
-        - name: Workspace transformations
-          items:
-          - name: Azure portal
-            displayName: Workspace transformations
-            href: logs/tutorial-workspace-transformations-portal.md
-          - name: Resource Manager templates
-            displayName: Workspace transformations
-            href: logs/tutorial-workspace-transformations-api.md
-        - name: Custom logs
-          items:
-          - name: Custom logs in the Azure portal
-            href: logs/tutorial-logs-ingestion-portal.md
-          - name: Resource Manager templates
-            displayName: Custom logs
-            href: logs/tutorial-logs-ingestion-api.md
   - name: Change Analysis
     items:
     - name: Overview
