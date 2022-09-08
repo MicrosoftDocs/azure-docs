@@ -4,7 +4,7 @@ ms.topic: quickstart
 author: dbasantes
 title: Quickstart-How-to-get-serverCallId-for-Unmixed-Audio-recording
 ms.author: dbasantes
-ms.service: Azure-Communication-Services
+ms.service: azure-communication-services
 description: This section describe how to get the serverCallid from a JavaScript server app
 ---
 
