@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path": "automanage-virtual-machines.md",
+            "redirect_url": "index.yml",
+            "redirect_document_id": true
+        }
+    ]
+}
