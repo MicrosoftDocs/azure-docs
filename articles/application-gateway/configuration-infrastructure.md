@@ -54,6 +54,17 @@ Subnet Size /24 = 255 IP addresses - 5 reserved from the platform = 250 availabl
 > [!TIP]
 > It is possible to change the subnet of an existing Application Gateway within the same virtual network. You can do this using Azure PowerShell or Azure CLI. For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway)
 
+### VNet permissions to create and deploy an Application Gateway
+
+To enhance the security posture, permission checks are enforced to create and deploy an Application Gateway inside a VNET.Please follow the below steps to check if you have the permissions and add the required permissions. 
+
+- [Check your RBAC policy](../role-based-access-control/role-assignments-list-portal.md) to verify that the users and service principals who operate application gateways have permissions that include the action **Microsoft.Network/virtualNetworks/subnets/join/action** (Join Virtual Network)
+  - For more details on available permissions, visit [permissions](../virtual-network/virtual-network-manage-subnet.md)
+
+- Update any assigned roles that don’t have the appropriate permissions.
+
+- If a [built-in](../role-based-access-control/built-in-roles.md) role doesn't provide the right permission, [create and assign a custom role](../role-based-access-control/custom-roles-portal.md) to achieve this.
+
 ## Network security groups
 
 Network security groups (NSGs) are supported on Application Gateway. But there are some restrictions:
