@@ -239,7 +239,7 @@ blue_deployment = ManagedOnlineDeployment(
 
 ---
 
-There are a few important concepts to notice in this YAML/Python parameters:
+There are a few important concepts to notice in this YAML/Python parameter:
 
 #### Readiness route vs. liveness route
 
