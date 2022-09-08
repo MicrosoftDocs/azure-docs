@@ -8,6 +8,7 @@ ms.date: 05/09/2022
 ms.author: anaharris
 ms.reviewer: 
 ms.custom: references_regions
+CustomerIntent: As a cloud architect/engineer, I need general guidance on migrating load balancers to using Availability Zones.
 ---
 <!-- CHANGE AUTHOR BEFORE PUBLISH -->
 
