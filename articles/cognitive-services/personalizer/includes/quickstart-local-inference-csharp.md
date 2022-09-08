@@ -94,7 +94,7 @@ Determining the reward score, in this quickstart is trivial. In a production sys
 
 These code snippets show you how to do the following tasks with the Personalizer client library for .NET:
 
-* Create a Personalizer client
+* [Create a Personalizer client](#authenticate-the-client)
 * Multi-Slot Rank API
 * Multi-Slot Reward API
 
@@ -217,7 +217,7 @@ private static IList<object> GetContext(string time, string taste)
 
 ## Create the learning loop
 
-The Personalizer learning loop is a cycle of [Rank](#request-the-best-action) and [Reward](#send-a-reward) calls. In this quickstart, each Rank call, to personalize the content, is followed by a Reward call to tell Personalizer how well the service performed.
+The Personalizer learning loop is a cycle of Rank and Reward calls. In this quickstart, each Rank call, to personalize the content, is followed by a Reward call to tell Personalizer how well the service performed.
 
 The following code loops through a cycle of asking the user their preferences through the command line, sending that information to Personalizer to select the best action for each slot, presenting the selection to the customer to choose from among the list, then sending a reward score to Personalizer signaling how well the service did in its selection.
 
