@@ -27,7 +27,7 @@ To use the Cost Details API, you need read only permissions for supported featur
 
 - [Azure RBAC scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role)
 - [Enterprise Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role-1)
-- [Microsoft Customer Agreement scopes - role permissions for feature behavior](costs/understand-work-scope.md#feature-behavior-for-each-role-2)
+- [Microsoft Customer Agreement scopes - role permissions for feature behavior](../costs/understand-work-scope.md#feature-behavior-for-each-role-2)
 
 ## Cost Details API best practices
 
