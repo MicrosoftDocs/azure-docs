@@ -250,7 +250,7 @@ conceptualContent:
           - text: Regulations
             url: https://docs.microsoft.com/azure/compliance/
             itemType: concept 
-          - text: 'Manage uses access: Minors and parental consent'
+          - text: 'Manage user access: Minors and parental consent'
             url: manage-user-access.md
             itemType: how-to-guide 
           - text: 'Manage user data: delete or export'
