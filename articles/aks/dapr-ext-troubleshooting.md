@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Troubleshoot Dapr extension installation errors
 
-When you installing the Dapr extension for Azure Kubernetes Service (AKS) or Arc for Kubernetes, you might occasionally come across problems. This article details some common problems and troubleshooting steps.
+When installing the Dapr extension for Azure Kubernetes Service (AKS) or Arc for Kubernetes, you might occasionally come across problems. This article details some common problems and troubleshooting steps.
 
 ## Dapr version doesn't exist
 
@@ -20,11 +20,11 @@ You're installing the Dapr extension and [targeting a specific version](./dapr.m
 
 ## Dapr version exists, but not in the mentioned region
 
-Some versions of Dapr are not available in all regions. If you receive this error message, try installing in an [available region](./dapr.md#cloudsregions) where your Dapr version is supported.
+Some versions of Dapr aren't available in all regions. If you receive this error message, try installing in an [available region](./dapr.md#cloudsregions) where your Dapr version is supported.
 
 ## Dapr OSS already exists
 
-You've used Dapr before and would like to install the Dapr extension for AKS or Arc for Kubernetes, but you receive an error message indicating that Dapr already exists. You need to uninstall Dapr OSS before installing the Dapr extension for AKS and Azure Arc for Kubernetes. For more information, read [Migrate from Dapr OSS](./dapr-migration.md).
+You're install the Dapr extension for AKS or Arc for Kubernetes, but receive an error message indicating that Dapr already exists. You need to uninstall Dapr OSS before installing the Dapr extension. For more information, read [Migrate from Dapr OSS](./dapr-migration.md).
 
 ## General extension install or update failure
 
@@ -55,6 +55,6 @@ Some errors while installing Dapr need a simple nudge in the right direction. If
 - [Restart your AKS or Arc for Kubernetes cluster](./start-stop-cluster.md).
 - Make sure you've [registered the `KubernetesConfiguration` service provider](./dapr.md#register-the-kubernetesconfiguration-service-provider).
 
-# Next steps
+## Next steps
 
 If you're still running into issues, explore the [AKS troubleshooting guide](./troubleshooting.md) and the [Dapr OSS troubleshooting guide](https://docs.dapr.io/operations/troubleshooting/common_issues/).
