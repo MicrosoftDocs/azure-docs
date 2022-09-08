@@ -1,5 +1,5 @@
 ---
-title: Configuration profiles
+title: Automanage Configuration profiles
 description: Learn about Azure Automanage configuration profiles for virtual machines.
 author: mmccrory
 ms.service: automanage

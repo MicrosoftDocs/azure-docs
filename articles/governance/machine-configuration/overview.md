@@ -244,7 +244,7 @@ is available, then guest assignment reports are available. If the Azure region i
 it becomes unavailable, then it isn't possible to access reports for a guest assignment until
 the region is restored.
 
-When considering an architecture for highly available applications,
+When you considering an architecture for highly available applications,
 especially where virtual machines are provisioned in
 [Availability Sets](../../virtual-machines/availability.md#availability-sets)
 behind a load balancer solution to provide high availability,
@@ -297,7 +297,7 @@ Linux
 
 ### Collecting logs remotely
 
-The first step in troubleshooting machine configuration configurations or modules
+The first step in troubleshooting machine configurations or modules
 should be to use the cmdlets following the steps in
 [How to test machine configuration package artifacts](./machine-configuration-create-test.md).
 If that isn't successful, collecting client logs can help diagnose issues.
@@ -350,7 +350,7 @@ locations:
 
 ## Next steps
 
-- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- Set up a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
 - [Create a package artifact](./machine-configuration-create.md)
   for machine configuration.
 - [Test the package artifact](./machine-configuration-create-test.md)

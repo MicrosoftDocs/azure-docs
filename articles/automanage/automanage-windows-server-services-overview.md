@@ -38,7 +38,7 @@ Hotpatch is available on the following images:
 
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
-Hotpatch gives you the ability to apply security updates on your VM without rebooting.  Additionally, Automanage for Windows Server automates the onboarding, configuration, and orchestration of Hotpatching.  To learn more, see [Hotpatch](automanage-hotpatch.md).  
+Hotpatch gives you the ability to apply security updates on your VM without rebooting.  Additionally, Automanage for Windows Server automates the onboarding, configuration, and orchestration of hot patching.  To learn more, see [Hotpatch](automanage-hotpatch.md).  
 
 ### SMB over QUIC
 

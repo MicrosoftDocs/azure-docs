@@ -1,5 +1,5 @@
 ---
-title: Check VM status
+title: Check an Automanaged VM status
 description: Learn about Azure Automanage configuration profile statuses for virtual machines.
 author: mmccrory
 ms.service: automanage
@@ -14,9 +14,11 @@ ms.custom: references_regions
 
 In the Azure portal, go to the **Automanage – Azure machine best practices** page which lists all of your automanage machines. Here you will see the overall status of each machine.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="List of configured virtual machines.":::
+[ ![Screenshot of a list of automanaged enabled virtual machines.](./media/automanage-virtual-machines/configured-status.png) ](./media/automanage-virtual-machines/configured-status.png)
 
 For each listed machine, the following details are displayed: Name, Configuration profile, Status, Resource type, Resource group, Subscription.
+
+## States of an Automanaged virtual machine
 
 The **Status** column can display the following states:
 - *In progress* - the VM is being configured

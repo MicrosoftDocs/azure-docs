@@ -13,7 +13,7 @@ Automanage may fail to onboard a machine onto the service. This document explain
 ## Troubleshooting deployment failures
 Onboarding a machine to Automanage will result in an Azure Resource Manager deployment being created. For more information, see the deployment for further details as to why it failed. There are links to the deployments in the failure detail flyout, pictured below.
 
-:::image type="content" source="media\common-errors\failure-flyout.png" alt-text="Automanage failure detail flyout.":::
+:::image type="content" source="media\common-errors\failure-flyout.png" alt-text="Screenshot of Automanage failure detail flyout.":::
 
 ### Check the deployments for the resource group containing the failed machine
 The failure flyout will contain a link to the deployments in the resource group containing the machine that failed onboarding. Clicking the deployment link will take you to the deployments blade where you can see the Automanage deployments to your machine. If you're deploying across multiple regions, ensure that you click on the deployment in the correct region.
