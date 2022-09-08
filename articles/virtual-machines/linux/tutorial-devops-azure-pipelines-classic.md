@@ -69,7 +69,7 @@ Using **Continuous-delivery**, you can configure rolling updates to your virtual
 ## Resources
 
 - [Deploy to Azure virtual machines with Azure DevOps](../../devops-project/azure-devops-project-vms.md)
-- [Deploy to Azure virtual machine scale set](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset.md)
+- [Deploy to Azure virtual machine scale set](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
 
 ## Related articles
 
