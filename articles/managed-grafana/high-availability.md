@@ -39,10 +39,10 @@ Zone redundancy is disabled in the Managed Grafana Standard tier by default. In 
 
 Zone redundancy support is enabled in the following regions:
 
-| Americas         | Europe            | Africa            | Asia Pacific      |
-|------------------|-------------------|-------------------|-------------------|
-| East US          | West Europe       |                   | Australia East    |
-| South Central US |                   |                   |                   |
+  | Americas         | Europe            | Africa            | Asia Pacific      |
+  |------------------|-------------------|-------------------|-------------------|
+  | East US          | West Europe       |                   | Australia East    |
+  | South Central US |                   |                   |                   |
 
 For a complete list of regions where Managed Grafana is available, see [Products available by region - Azure Managed Grafana](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=managed-grafana&regions=all)
 
