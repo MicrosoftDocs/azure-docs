@@ -41,7 +41,7 @@ Azure Front Door supports Azure managed certificate and customer-managed certifi
 
 1. On the **Add a domain** page, enter or select the following information, then select **Add** to onboard the custom domain.
 
-    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-domain-azure-managed.png" alt-text="Screen shot of add a domain page with Azure managed DNS selected.":::
+    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-domain-azure-managed.png" alt-text="Screenshot of add a domain page with Azure managed DNS selected.":::
 
     | Setting | Value |
     |--|--|
@@ -63,7 +63,7 @@ Azure Front Door supports Azure managed certificate and customer-managed certifi
 
 1. On the **Add a domain** page, enter or select the following information, then select **Add** to onboard the custom domain.
 
-    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-pre-validated-domain.png" alt-text="Screen shot of add a domain page with pre-validated domain.":::
+    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-pre-validated-domain.png" alt-text="Screenshot of add a domain page with pre-validated domain.":::
 
     | Setting | Value |
     |--|--|
