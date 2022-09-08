@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 09/08/2022
 ms.author: kgremban
 ms.custom: devx-track-csharp
 ---
@@ -16,7 +16,8 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 
 * An introduction to the major features of the IoT Hub query language, and
 * The detailed description of the language. For details on query language for message routing, see [queries in message routing](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
-* Example queries for gathering data about device and module twins or jobs.
+
+For specific examples, see [Queries for device and module twins](query-twins.md) or [Queries for jobs](query-jobs.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -54,9 +55,29 @@ SELECT <select_list>
 The **SELECT <select_list>** clause is required in every IoT Hub query. It specifies what values are retrieved from the query. It specifies the JSON values to be used to generate new JSON objects.
 For each element of the filtered (and optionally grouped) subset of the FROM collection, the projection phase generates a new JSON object. This object is constructed with the values specified in the SELECT clause.
 
+For example:
+
+* Return all values
+
+  ```sql
+  SELECT *
+  ```
+
+* Return specific properties
+
+  ```sql
+  SELECT DeviceID, LastActivityTime
+  ```
+
+* Aggregate the results of a query to return a count
+
+  ```sql
+  SELECT COUNT() as TotalNumber
+  ```
+
 Currently, selection clauses different than **SELECT** are only supported in aggregate queries on device twins.
 
-The following is the grammar of the SELECT clause:
+The following syntax is the grammar of the SELECT clause:
 
 ```query syntax
 SELECT [TOP <max number>] <projection list>
@@ -84,13 +105,30 @@ SELECT [TOP <max number>] <projection list>
 
 The **FROM <from_specification>** clause is required in every ioT Hub query. It must be one of three values:
 
-* **FROM devices** to query device twins
-* **FROM devices.modules** to query module twins
-* **FROM devices.jobs** to query job per-device details
+* **devices** to query device twins
+* **devices.modules** to query module twins
+* **devices.jobs** to query job per-device details
+
+For example:
+
+* Retrieve all device twins
+
+  ```sql
+  SELECT * FROM devices
+  ```
 
 ### WHERE clause
 
 The **WHERE <filter_condition>** clause is optional. It specifies one or more conditions that the JSON documents in the FROM collection must satisfy to be included as part of the result. Any JSON document must evaluate the specified conditions to "true" to be included in the result.
+
+For example:
+
+* Retrieve all jobs that target a specific device
+
+  ```sql
+  SELECT * FROM devices.jobs
+    WHERE devices.jobs.deviceId = 'myDeviceId'
+  ```
 
 The allowed conditions are described in the [expressions and conditions](#expressions-and-conditions) section.
 
@@ -98,20 +136,21 @@ The allowed conditions are described in the [expressions and conditions](#expres
 
 The **GROUP BY <group_specification>** clause is optional. This clause executes after the filter specified in the WHERE clause, and before the projection specified in the SELECT. It groups documents based on the value of an attribute. These groups are used to generate aggregated values as specified in the SELECT clause.
 
-An example of a query using GROUP BY is:
+For example:
 
-```sql
-SELECT properties.reported.telemetryConfig.status AS status,
+* Return the count of devices that are reporting each telemetry configuration status
+
+  ```sql
+  SELECT properties.reported.telemetryConfig.status AS status,
     COUNT() AS numberOfDevices
-FROM devices
-GROUP BY properties.reported.telemetryConfig.status
-```
+  FROM devices
+  GROUP BY properties.reported.telemetryConfig.status
+  ```
 
 Currently, the GROUP BY clause is only supported when querying device twins.
 
 > [!IMPORTANT]
 > The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
->
 
 The formal syntax for GROUP BY is:
 
@@ -170,7 +209,7 @@ To understand what each symbol in the expressions syntax stands for, refer to th
 | function_name| Any function listed in the [Functions](#functions) section. |
 | decimal_literal |A float expressed in decimal notation. |
 | hexadecimal_literal |A number expressed by the string '0x' followed by a string of hexadecimal digits. |
-| string_literal | Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes or double quotes. Allowed escapes: `\'`, `\"`, `\\`, `\uXXXX` for Unicode characters defined by 4 hexadecimal digits. |
+| string_literal | Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes or double quotes. Allowed escapes: `\'`, `\"`, `\\`, `\uXXXX` for Unicode characters defined by four hexadecimal digits. |
 
 ### Operators
 
@@ -207,10 +246,10 @@ In routes conditions, the following type checking and casting functions are supp
 
 | Function | Description |
 | -------- | ----------- |
-| AS_NUMBER | Converts the input string to a number. `noop` if input is a number; `Undefined` if string does not represent a number.|
+| AS_NUMBER | Converts the input string to a number. `noop` if input is a number; `Undefined` if string doesn't represent a number.|
 | IS_ARRAY | Returns a Boolean value indicating if the type of the specified expression is an array. |
 | IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
-| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
+| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This function is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays aren't supported. |
 | IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
 | IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
 | IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
@@ -226,7 +265,7 @@ In routes conditions, the following string functions are supported:
 | LOWER(x) | Returns a string expression after converting uppercase character data to lowercase. |
 | UPPER(x) | Returns a string expression after converting lowercase character data to uppercase. |
 | SUBSTRING(string, start [, length]) | Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string. |
-| INDEX_OF(string, fragment) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.|
+| INDEX_OF(string, fragment) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string isn't found.|
 | STARTS_WITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
 | ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 | CONTAINS(x,y) | Returns a Boolean indicating whether the first string expression contains the second. |
@@ -237,7 +276,7 @@ In routes conditions, the following string functions are supported:
 
 The query functionality is exposed by the [C# service SDK](iot-hub-devguide-sdks.md) in the **RegistryManager** class.
 
-Here is an example of a simple query:
+Here's an example of a simple query:
 
 ```csharp
 var query = registryManager.CreateQuery("SELECT * FROM devices", 100);
@@ -259,7 +298,7 @@ The query object exposes multiple **Next** values, depending on the deserializat
 
 The query functionality is exposed by the [Azure IoT service SDK for Node.js](iot-hub-devguide-sdks.md) in the **Registry** object.
 
-Here is an example of a simple query:
+Here's an example of a simple query:
 
 ```javascript
 var query = registry.createQuery('SELECT * FROM devices', 100);
@@ -286,4 +325,5 @@ The query object exposes multiple **Next** values, depending on the deserializat
 
 ## Next steps
 
-Learn about routing messages based on message properties or message body with the [IoT Hub message routing query syntax](iot-hub-devguide-routing-query-syntax.md).
+* Learn about routing messages based on message properties or message body with the [IoT Hub message routing query syntax](iot-hub-devguide-routing-query-syntax.md).
+* Get specific examples of [Queries for device and module twins](query-twins.md) or [Queries for jobs](query-jobs.md).

@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 09/08/2022
 ms.author: kgremban
 ---
 
@@ -13,7 +13,7 @@ ms.author: kgremban
 
 [Device twins](iot-hub-devguide-device-twins.md) and [module twins](iot-hub-devguide-module-twins.md) can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins and module twins as a single JSON document containing all twin information.
 
-Here is a sample IoT hub device twin (module twin would be similar just with an additional parameter for moduleId):
+Here's a sample IoT hub device twin (module twin would be similar just with a parameter for moduleId):
 
 ```json
 {
@@ -97,14 +97,14 @@ SELECT * FROM devices
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
-You can also use array constants with the **IN** and **NIN** (not in) operators. For example, thw following query retrieves device twins that report either WiFi or wired connectivity:
+You can also use array constants with the **IN** and **NIN** (not in) operators. For example, the following query retrieves device twins that report either WiFi or wired connectivity:
 
 ```sql
 SELECT * FROM devices
   WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-It is often necessary to identify all device twins that contain a specific property. IoT Hub supports the function `is_defined()` for this purpose. For example,  the following query retrieves device twins that define the `connectivity` property:
+It's often necessary to identify all device twins that contain a specific property. IoT Hub supports the function `is_defined()` for this purpose. For example,  the following query retrieves device twins that define the `connectivity` property:
 
 ```SQL
 SELECT * FROM devices
@@ -190,3 +190,7 @@ SELECT * FROM devices.modules
 Query expressions can have a maximum length of 8192 characters.
 
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
+
+## Next steps
+
+* Understand the basics of the [IoT Hub query language](iot-hub-devguide-query-language.md)

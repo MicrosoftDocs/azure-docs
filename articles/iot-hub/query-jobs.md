@@ -5,13 +5,15 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 09/08/2022
 ms.author: kgremban
 ---
 
 # Queries for IoT Hub jobs
 
-[Jobs](iot-hub-devguide-jobs.md) provide a way to execute operations on sets of devices. Each device twin contains the information of the jobs of which it is part in a collection called **jobs**.
+[Jobs](iot-hub-devguide-jobs.md) provide a way to execute operations on sets of devices. Each device twin contains the information of the jobs that target it in a collection called **jobs**.  IoT Hub enables you to query jobs as a single JSON document containing all twin information.
+
+Here's a sample IoT hub device twin that is part of a job called **myJobId**:
 
 ```json
 {
@@ -56,7 +58,7 @@ SELECT * FROM devices.jobs
 
 Note how this query provides the device-specific status (and possibly the direct method response) of each job returned.
 
-It is also possible to filter with arbitrary Boolean conditions on all object properties in the **devices.jobs** collection.
+It's also possible to filter with arbitrary Boolean conditions on all object properties in the **devices.jobs** collection.
 
 For example, the following query retrieves all completed device twin update jobs that were created after September 2016 for a specific device:
 
@@ -75,12 +77,16 @@ SELECT * FROM devices.jobs
   WHERE devices.jobs.jobId = 'myJobId'
 ```
 
-### Jobs query limitations
+## Jobs query limitations
 
 Query expressions can have a maximum length of 8192 characters.
 
-Currently, queries on **devices.jobs** do not support:
+Currently, queries on **devices.jobs** don't support:
 
 * Projections, therefore only `SELECT *` is possible.
 * Conditions that refer to the device twin in addition to job properties (see the preceding section).
-* Performing aggregations, such as count, avg, group by.
+* Aggregations, such as count, avg, and group by.
+
+## Next steps
+
+* Understand the basics of the [IoT Hub query language](iot-hub-devguide-query-language.md)
