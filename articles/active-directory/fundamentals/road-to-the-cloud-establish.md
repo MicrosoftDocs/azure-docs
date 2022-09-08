@@ -22,7 +22,7 @@ If you're using Microsoft Office 365, Exchange Online, or Teams, then you're alr
 
 * Establish hybrid identity synchronization between Active Directory and Azure AD by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
 
-* [Select authentication methods](../hybrid/choose-ad-authn.md). We strongly recommend password hash synchronization (PHS).
+* [Select authentication methods](../hybrid/choose-ad-authn.md). We strongly recommend password hash synchronization.
 
 * Secure your hybrid identity infrastructure by following [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md).
 

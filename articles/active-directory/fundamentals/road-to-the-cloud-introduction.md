@@ -18,7 +18,7 @@ Some organizations set goals to remove Active Directory and their on-premises IT
 
 This content provides guidance to move:
 
-* *From* Active Directory and other non-cloud-based services, either hosted on-premises or infrastructure-as-a-service (IaaS), that provide identity management (IDM), identity and access management (IAM), and device management.
+* *From* Active Directory and other non-cloud-based services, either on-premises or infrastructure as a service (IaaS), that provide identity management (IDM), identity and access management (IAM), and device management.
 
 * *To* Azure Active Directory (Azure AD) and other Microsoft cloud-native solutions for IDM, IAM, and device management.
 

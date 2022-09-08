@@ -18,7 +18,7 @@ Active Directory, Azure Active Directory (Azure AD), and other Microsoft tools a
 
 As part of most modernization, migration, or Zero Trust initiatives, organizations shift IAM activities from using on-premises or infrastructure-as-a-service (IaaS) solutions to using built-for-the-cloud solutions. For an IT environment that uses Microsoft products and services, Active Directory and Azure AD play a role.
 
-Many companies that migrate from Active Directory to Azure AD start with an environment similar to the following diagram. The diagram overlays three pillars:
+Many companies that migrate from Active Directory to Azure AD start with an environment that's similar to the following diagram. The diagram overlays three pillars:
 
 * **Applications**: Includes applications, resources, and their underlying domain-joined servers.
 
@@ -32,7 +32,7 @@ Microsoft has modeled five states of transformation that commonly align with the
 
 The five states have exit criteria to help you determine where your environment resides today. Some projects, such as application migration, span all five states. Other projects span a single state.
 
-The content then provides more detailed guidance organized to help with intentional changes to people, process, and technology. The guidance can help you:
+The content then provides more detailed guidance that's organized to help with intentional changes to people, process, and technology. The guidance can help you:
 
 * Establish an Azure AD footprint.
 
@@ -138,7 +138,7 @@ The transformation between the states is similar to moving locations:
 
 1. **Establish a new location**: You purchase your destination and establish connectivity between the current location and the new location. These activities enable you to maintain your productivity and ability to operate. For more information, see [Establish an Azure AD footprint](road-to-the-cloud-establish.md). The results transition you to state 2.
 
-1. **Limit new items in the old location**: You stop investing in the old location and set a policy to stage new items in the new location. For more information, see [Implement a cloud-first approach](road-to-the-cloud-implement.md). The activities set the foundation to migrate at scale and reach state 3.
+1. **Limit new items in the old location**: You stop investing in the old location and set a policy to stage new items in the new location. For more information, see [Implement a cloud-first approach](road-to-the-cloud-implement.md). These activities set the foundation to migrate at scale and reach state 3.
 
 1. **Move existing items to the new location**: You move items from the old location to the new location. You assess the business value of the items to determine if you'll move them as is, upgrade them, replace them, or deprecate them. For more information, see [Transition to the cloud](road-to-the-cloud-migrate.md). 
 

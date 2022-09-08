@@ -37,7 +37,7 @@ To enable self-service capabilities, choose the appropriate [authentication meth
 Additional considerations include:
 
 * Deploy [Azure AD Password Protection](../authentication/howto-password-ban-bad-on-premises-operations.md) in a subset of domain contollers with **Audit** mode to gather information about the impact of modern policies. 
-* Gradually register and enable [combined registration for SSPR and Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md). This enables both SSPR and Multi-Factor Authentication. For example, roll out by region, subsidiary, or department for all users. 
+* Gradually enable [combined registration for SSPR and Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md). For example, roll out by region, subsidiary, or department for all users. 
 * Go through a cycle of password change for all users to flush out weak passwords. After the cycle is complete, implement the policy expiration time.
 * Switch the Password Protection configuration in the domain controllers that have the mode set to **Enforced**. For more information, see [Enable on-premises Azure AD Password Protection](../authentication/howto-password-ban-bad-on-premises-operations.md).
 
@@ -71,7 +71,7 @@ For more information, check [Plan an automatic user-provisioning deployment for 
 
 ### Move to cloud HR provisioning
 
-You can reduce your on-premises footprint by moving the HR provisioning workflows from on-premises IDM systems such as Microsoft Identity Manager to Azure AD. Two account types are available for Azure AD cloud HR provisioning:
+You can reduce your on-premises footprint by moving the HR provisioning workflows from on-premises IDM systems, such as Microsoft Identity Manager, to Azure AD. Two account types are available for Azure AD cloud HR provisioning:
 
 * For new employees who are exclusively using applications that use Azure AD, you can choose to provision *cloud-only accounts*. This provisioning helps you contain the footprint of Active Directory.
 
@@ -85,7 +85,7 @@ If your organization provisions accounts in Active Directory or other on-premise
 
 * For new external users, use [Azure AD External Identities](../external-identities/external-identities-overview.md), which will stop the Active Directory footprint of users.
 
-* For existing Active Directory accounts that you provision for external identities, you can remove the overhead of managing local credentials (for example, passwords) by configuring them for B2B collaboration. Follow the steps in [Invite internal users to B2B collaboration](../external-identities/invite-internal-users.md).
+* For existing Active Directory accounts that you provision for external identities, you can remove the overhead of managing local credentials (for example, passwords) by configuring them for business-to-business (B2B) collaboration. Follow the steps in [Invite internal users to B2B collaboration](../external-identities/invite-internal-users.md).
 
 * Use [Azure AD entitlement management](../governance/entitlement-management-overview.md) to grant access to applications and resources. Most companies have dedicated systems and workflows for this purpose that you can now move out of on-premises tools.
 
@@ -93,9 +93,9 @@ If your organization provisions accounts in Active Directory or other on-premise
 
 ## Devices
 
-### Move non-Windows OS workstations
+### Move non-Windows workstations
 
-Non-Windows workstations can be integrated with Azure AD to enhance the user experience and benefit from cloud-based security features such as conditional access:
+You can integrate non-Windows workstations with Azure AD to enhance the user experience and to benefit from cloud-based security features such as conditional access.
 
 * For macOS:
 
@@ -105,15 +105,15 @@ Non-Windows workstations can be integrated with Azure AD to enhance the user exp
 
     * Plan to deploy [Platform SSO for macOS 13](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-simplifies-endpoint-manager-enrollment-for-apple/ba-p/3570319).
 
-* For Linux, you can [sign in to a Linux VM by using Azure Active Directory credentials](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
+* For Linux, you can [sign in to a Linux virtual machine (VM) by using Azure Active Directory credentials](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
 
 ### Replace other Windows versions for workstations
 
-If you have the following versions of Windows for workstations, consider upgrading to the latest versions to benefit from cloud-native management (Azure AD join and unified endpoint management):
+If you have the following operating systems on workstations, consider upgrading to the latest versions to benefit from cloud-native management (Azure AD join and unified endpoint management):
 
 * Windows 7 or 8.x
 
-* Windows Server OS
+* Windows Server
 
 ### VDI solution
 
@@ -202,9 +202,9 @@ This project focuses on migrating SSO capability from WAM systems to Azure AD. T
 
 In terms of infrastructure management, on-premises environments often use a combination of Group Policy objects (GPOs) and Microsoft Endpoint Configuration Manager features to segment management duties. For example, duties can be segmented into security policy management, update management, configuration management, and monitoring.
 
-Active Directory is for on-premises IT environments, and Azure AD is for cloud-based IT environments. One-to-one parity of features isn't present here, so application servers can be managed in several ways. 
+Active Directory is for on-premises IT environments, and Azure AD is for cloud-based IT environments. One-to-one parity of features isn't present here, so you can manage application servers in several ways. 
 
-For example, Azure Arc helps bring many of the features that exist in Active Directory together into a single view when Azure AD is used for identity and access management (IAM). You can also use Azure Active Directory Domain Services (Azure AD DS) to domain-join servers in Azure AD, especially when you want those servers to use GPOs for specific business or technical reasons.
+For example, Azure Arc helps bring many of the features that exist in Active Directory together into a single view when you use Azure AD for identity and access management (IAM). You can also use Azure Active Directory Domain Services (Azure AD DS) to domain-join servers in Azure AD, especially when you want those servers to use GPOs for specific business or technical reasons.
 
 Use the following table to determine what Azure-based tools you can use to replace the on-premises environment:
 
@@ -217,11 +217,11 @@ Use the following table to determine what Azure-based tools you can use to repla
 
 Here's more information that you can use for application server management:
 
-* [Azure Arc](https://azure.microsoft.com/services/azure-arc/) enables Azure features for non-Azure VMs. For example, you can use it to get Azure features for Windows Server when it's used on-premises or on AWS.
+* [Azure Arc](https://azure.microsoft.com/services/azure-arc/) enables Azure features for non-Azure VMs. For example, you can use it to get Azure features for Windows Server when it's used on-premises or on Amazon Web Services.
 
 * [Manage and secure your Azure VM environment](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/).
 
-* If you must wait to migrate or perform a partial migration, you can use GPO with [Azure AD DS](https://azure.microsoft.com/services/active-directory-ds/).
+* If you must wait to migrate or perform a partial migration, you can use GPOs with [Azure AD DS](https://azure.microsoft.com/services/active-directory-ds/).
 
 If you require management of application servers with Microsoft Endpoint Configuration Manager, you can't achieve this by using Azure AD DS. Microsoft Endpoint Configuration Manager isn't supported to run in an Azure AD DS environment. Instead, you'll need to extend your on-premises Active Directory instance to a domain controller running on an Azure VM. Or, you'll need to deploy a new Active Directory instance to an Azure IaaS virtual network.
 
@@ -233,7 +233,7 @@ Legacy applications have dependencies like these to Active Directory:
 
 * Access to directory data: LDAP queries, schema extensions, read/write of directory objects.
 
-* Server management: As determined by the [server management strategy](#define-application-server-management-strategy).
+* Server management: As determined by the [server management strategy](#define-an-application-server-management-strategy).
 
 To reduce or eliminate those dependencies, you have three main approaches.
 
@@ -303,9 +303,9 @@ Here are key points about usage of Azure AD for VPN authentication:
 
 * Check if your VPN providers support modern authentication. For example:
 
-  * [Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
+  * [Tutorial: Azure Active Directory SSO integration with Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 
-  * [Tutorial: Azure Active Directory single sign-on (SSO) integration with Palo Alto Networks GlobalProtect](../saas-apps/palo-alto-networks-globalprotect-tutorial.md) 
+  * [Tutorial: Azure Active Directory SSO integration with Palo Alto Networks GlobalProtect](../saas-apps/palo-alto-networks-globalprotect-tutorial.md) 
 
 * For Windows 10 devices, consider integrating [Azure AD support into the built-in VPN client](/windows-server/remote/remote-access/vpn/ad-ca-vpn-connectivity-windows10).
 

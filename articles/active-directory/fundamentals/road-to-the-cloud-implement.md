@@ -77,12 +77,12 @@ For more information, see [Learn more about cloud-native endpoints](/mem/cloud-n
 
 Traditionally, application servers are often joined to an on-premises Active Directory domain so that they can use Windows Integrated Authentication (Kerberos or NTLM), directory queries through LDAP, and server management through GPO or Microsoft Endpoint Configuration Manager.
 
-The organization has a process to evaluate Azure AD alternatives when considering new services, apps, or infrastructure. Directives for a cloud-first approach to applications should be as follows. (New on-premises applications or legacy applications should be a rare exception when no modern alternative exists.)
+The organization has a process to evaluate Azure AD alternatives when it's considering new services, apps, or infrastructure. Directives for a cloud-first approach to applications should be as follows. (New on-premises applications or legacy applications should be a rare exception when no modern alternative exists.)
 
 * Provide a recommendation to change the procurement policy and application development policy to require modern protocols (OIDC/OAuth2 and SAML) and authenticate by using Azure AD. New apps should also support [Azure AD app provisioning](../app-provisioning/what-is-hr-driven-provisioning.md) and have no dependency on LDAP queries. Exceptions require explicit review and approval.
 
   > [!IMPORTANT]
-  > Depending on the anticipated demands of applications that require legacy protocols, you can choose to deploy [Azure AD Domain Services](../../active-directory-domain-services/overview.md) when more current alternatives won't work.
+  > Depending on the anticipated demands of applications that require legacy protocols, you can choose to deploy [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) when more current alternatives won't work.
 
 * Provide a recommendation to create a policy to prioritize use of cloud-native alternatives. The policy should limit deployment of new application servers to the domain. Common cloud-native scenarios to replace Active Directory-joined servers include:
 
@@ -98,7 +98,7 @@ The organization has a process to evaluate Azure AD alternatives when considerin
 
      * If your organization has a mandate to procure [Universal Print](/universal-print/)-compatible printers, see [Partner integrations](/universal-print/fundamentals/universal-print-partner-integrations).
 
-     * Bridge with the [Universal Print connector](/universal-print/fundamentals/universal-print-connector-overview) for non-compatible printers.
+     * Bridge with the [Universal Print connector](/universal-print/fundamentals/universal-print-connector-overview) for incompatible printers.
 
 ## Next steps
 
