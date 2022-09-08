@@ -37,7 +37,7 @@ The [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.co
 
 ## My connection data isn't going to Azure Log Analytics
 
-If your network and graphics connection data isn't going to Azure Log Analytics every two minutes, you'll need to check the following things:
+If your **Connection Network Data Logs**  aren't going to Azure Log Analytics every two minutes, you'll need to check the following things:
 
 - Make sure you've [configured the diagnostic settings correctly](diagnostics-log-analytics.md).
 - Make sure you've configured the VM and [monitoring agents](azure-monitor.md) correctly.

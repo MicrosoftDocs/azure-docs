@@ -68,11 +68,10 @@ The service generates these network data points every two minutes during an acti
 
 ### Connection graphics data
 
-You should consult the Graphics data table when common graphical experience indicators fall below the healthy threshold set by Azure Virtual Desktop. This table will help your admins track and understand the issue's symptoms, and can also show them the round trip time (RTT) and bandwidth usage when the symptom occurred. However, while the Graphics data table is a useful tool for troubleshooting poor user experience, since it's continuously populated throughout your session, it's not helpful for setting an environment baseline.
+You should consult the Graphics data table when users report slow or choppy experiences in their Azure Virtual Desktop session. The table provides information when graphical indicators, end to end delay and dropped frames percentage, fall below the healthy threshold set by Azure Virtual Desktop. This table will help your admins track and understand a few common causes across the server, client, and network that could be contributing to the user's slow or choppy experience. However, while the Graphics data table is a useful tool for troubleshooting poor user experience, since it's not regularly populated throughout a session, it is not a reliable environment baseline.
 
-In contrast, the GraphicsData table records values only at times when the quality of the graphics in a session is poor. This distinction between the Graphics data table and the GraphicsData table means that they have different collection windows, which results in them collecting different values for shared captured data like RTT. If network constraints aren't what's causing the issue, then you can split dropped frames and end-to-end delay into client, network, and server components to help evaluate the source of the network's performance concerns.
 
-The Graphics table only captures performance data from the Azure Virtual Desktop graphics stream. This table doesn't capture performance degradation or "slowness" caused by application-specific factors or the virtual machine (CPU or storage constraints). You should use this table ith other VM performance metrics to determine if the delay is caused by the remote desktop service (graphics and network) or something inherent in the VM or app itself.
+The Graphics table only captures performance data from the Azure Virtual Desktop graphics stream. This table doesn't capture performance degradation or "slowness" caused by application-specific factors or the virtual machine (CPU or storage constraints). You should use this table with other VM performance metrics to determine if the delay is caused by the remote desktop service (graphics and network) or something inherent in the VM or app itself.
 
 The graphics data you collect for your data tables includes the following information:
 
@@ -112,7 +111,7 @@ The graphics data you collect for your data tables includes the following inform
 
 #### Frequency
 
-The frequency of data collection varies depending on the graphical health of a connection. The table won't record data for "Good" scenarios, but will recording if any of the following metrics are recorded as "Poor" or "Okay," and the resulting data will be sent to your storage account. Data only records once every two minutes. The metrics involved in data collection are listed in the following table:
+In contrast to other diagnostics tables that report data at regular intervals throughout a session, the graphics data table records values only at times when the quality of the graphics in a session is poor. This distinction between the Network data table and the Graphics data table means that they have different collection windows, which results in them collecting different values for shared captured data like RTT. The frequency of data collection varies depending on the graphical health of a connection. The table won't record data for "Good" scenarios, but will recording if any of the following metrics are recorded as "Poor" or "Okay," and the resulting data will be sent to your storage account. Data only records once every two minutes. The metrics involved in data collection are listed in the following table:
 
 | Metric | Bad | Okay | Good |
 |--------|-----|------|------|
@@ -123,7 +122,7 @@ The frequency of data collection varies depending on the graphical health of a c
 >[!NOTE]
 >For end-to-end delay per frame, if any frame in a single second is delayed by over 300 ms, the service registers it as "Bad." If all frames in a single second take between 150 ms and 300 ms, the service marks it as "Okay."
 
-### Sample queries for Azure Log Analytics
+## Sample queries for Azure Log Analytics
 
 In this section, we have a list of queries that will help you review connection quality information. You can run queries in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query).
 
@@ -213,16 +212,8 @@ WVDConnectionNetworkData
 | top 10 by AvgBW asc
 ```
 
-### Suggestions for querying data
 
-Sample queries should show the natural path of an admin investigating issues with user experience. If you're not sure where to start, try these queries out:
 
-- Data for a specific time range.
-- Data for a specific user.
-- Top 10 connections with the highest end-to-end latency.
-- Top 10 connections with the highest percentage of frames skipped.
-- Data during periods of high round trip time.
-- Data during periods of low bandwitdh.
 
 ## Azure Front Door
 
