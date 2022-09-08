@@ -31,6 +31,31 @@ To check whether an Azure Cosmos DB account is eligible for the preview, you can
 
 :::image type="content" source="media/merge/merge-eligibility-check.png" alt-text="Merge eligibility check with table of all preview eligibility criteria":::
 
+### How to identify containers to merge
+Containers that meet both of these criteria are likely to benefit from merging partitions:
+- Criteria 1: The current RU/s per physical partition is <3000 RU/s
+- Criteria 2: The current average storage in GB per physical partition is <35 GB
+
+#### Criteria 1
+To determine the current RU/s per physical partition, from your Cosmos account, navigate to **Metrics**. Select the metric **Physical Partition Throughput** and filter to your database and container. Apply splitting by **PhysicalPartitionId**. For containers using autoscale, this will show the max RU/s currently provisioned on each physical partition. For containers using manual throughput, this will show the manual RU/s on each physical partition.
+
+In the below example, we have an autoscale container provisioned with 5000 RU/s (scales between 500 - 5000 RU/s). It has 5 physical partitions and each physical partition has 1000 RU/s.
+
+:::image type="content" source="media/merge/RU-per-physical-partition-metric.png" alt-text="Azure Monitor metric Physical Partition Throughput":::
+
+#### Criteria 2
+To determine the current average storage per physical partition, first find the overall storage (data + index) of the container.
+
+Navigate to **Insights** > **Storage** > **Data & Index Usage**. The total storage is the sum of the data and index usage. In the below example, the container has a total of 74 GB of storage.
+
+:::image type="content" source="media/merge/storage-per-container.png" alt-text="Azure Monitor storage (data + index) metric for container":::
+
+Next, find the total number of physical partitions. This is the distinct number of **PhysicalPartitionIds** in the **PhysicalPartitionThroughput** chart we saw in Criteria 1. In our example, we have 5 physical partitions.
+
+Finally, calculate: Total storage in GB / number of physical partitions. In our example, we have an average of (74 GB / 5 physical partitions) = 14.8 GB per physical partition. 
+
+Based on criteria 1 and 2, our container is a candidate for merging partitions.
+
 ### Merging physical partitions
 
 In PowerShell, when the flag `-WhatIf` is passed in, Azure Cosmos DB will run a simulation and return the expected result of the merge, but won't run the merge itself. When the flag isn't passed in, the merge will execute against the resource. When finished, the command will output the current amount of storage in KB per physical partition post-merge.
