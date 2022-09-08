@@ -28,7 +28,7 @@ Some of the common use cases that can be build using Call Automation include:
 - Protect your customer's identity by building number masking services to connect buyers to sellers or users to partner vendors on your platform.
 - Increase engagement by building automated customer outreach programs for marketing and customer service.
 
-The below diagram shows a high level architecture of how your application can use Call Automation SDKs to build call flow to take actions like answer inbound calls from a customer, play welcome or compliance messages and connect the customer to live agents, where the live agent can be using Calling SDK to answer the incoming call request or can be part of your contact center.  
+The below diagram shows a high level architecture of how your application can use Call Automation SDKs to build call flow for a customer service scenario: listen for inbound calls, take actions like answer call, play a welcome messages and connect the customer to a live agent, where the live agent can be using Calling SDK to answer the incoming call request or can be part of your contact center.  
 <br/>
 <br/>
 ![Call flow](./call-automation-architecture.png)
