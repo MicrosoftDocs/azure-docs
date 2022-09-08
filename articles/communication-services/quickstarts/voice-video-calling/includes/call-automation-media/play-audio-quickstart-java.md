@@ -171,7 +171,7 @@ To learn more about other supported events, visit the [Call Automation overview 
 
 ## Cancel play action
 
-Cancel all media operations, all pending media operations will be cancelled. This will also cancel other queued up play actions. 
+Cancel all media operations, all pending media operations will be canceled. This will also cancel other queued up play actions. 
 
 ```console
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
