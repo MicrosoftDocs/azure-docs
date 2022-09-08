@@ -675,7 +675,7 @@
     href: single-server/how-to-migrate-rds-mysql-data-in-replication.md
     displayName: migrate, rds, data-in replication
   - name: Migrate Azure DB for MySQL – Single Server to Azure DB for MySQL – Flexible Server
-    href: single-server/how-to-migrate-single-flexible-minimum-downtime.md
+    href: migrate/how-to-migrate-single-flexible-minimum-downtime.md
     displayName: migrate, Single to Flexible
   - name: Minimal downtime migration with DMS
     href: single-server/how-to-migrate-online.md
