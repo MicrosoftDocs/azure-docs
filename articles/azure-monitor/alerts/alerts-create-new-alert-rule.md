@@ -185,7 +185,7 @@ And then defining these elements for the resulting alert actions using:
 
     ### [Resource Health alert](#tab/resource-health)
 
-     1. In the **Conditions** pane, select Select values for each of these fields:
+     1. In the **Conditions** pane, select values for each of these fields:
 
         |Field |Description |
         |---------|---------|
@@ -195,14 +195,13 @@ And then defining these elements for the resulting alert actions using:
         |Reason type|Select the the cause(s) of the Resource Health events this alert will monitor. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.|  
     ### [Service Health alert](#tab/service-health)
 
-     1. In the **Conditions** pane, select Select values for each of these fields:
+     1. In the **Conditions** pane, select values for each of these fields:
 
       |Field |Description |
       |---------|---------|
-      |Event status| Select the type(s) of Resource Health events this alert will monitor. Values are: **Active**, **In Progress**, **Resolved**, and **Updated**.|
-      |Current resource status|Select the current resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, and **Unavailable**.|
-      |Previous resource status|Select the previous resource status of the Resource Health events this alert will monitor. Values are: **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
-      |Reason type|Select the the cause(s) of the Resource Health events this alert will monitor. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.| 
+      |Services| Select the services (Azure resource types) of service health events this alert rule will monitor.|
+      |Regions|Select the regions (Azure locations) of service health events this alert will monitor.|
+      |Event types|Select the type(s) of Service Health events this alert will monitor. Values are: **Service issue**, **Planned maintenance**, **Health advisories**, and **Security advisories**.| 
 
     ---
 
@@ -315,31 +314,32 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     > [!NOTE]
     > Azure CLI support is only available for the scheduledQueryRules API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
 
-    ### [Activity log alert](#tab/activity-log)
-
-    To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the activity log alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
+    ### [Activity log alert](#tab/activity-log
 
     To create a new activity log alert rule, use the following commands:
      - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
      - [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
      - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
 
+    You can find detailed documentation on the activity log alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
     ### [Resource Health alert](#tab/resource-health)
  
-    To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
-
     To create a new activity log alert rule, use the following commands:
      - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
      - [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
      - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
-    ### [Service Health alert](#tab/service-health)
+    
+    You can find detailed documentation on the alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert). 
 
-    To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
+   ### [Service Health alert](#tab/service-health)
 
-    To create a new activity log alert rule, use the following commands:
-     - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource using the Service Health category.
+    To create a new activity log alert rule, use the following commands using the `Service Health` category:
+     - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource .
      - [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
      - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
+
+    You can find detailed documentation on the alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
+
    ---
 
 ## Create a new alert rule using PowerShell
