@@ -73,7 +73,7 @@ Azure Event Grid SDK package: [com.azure : azure-messaging-eventgrid](https://se
 
 **spark-core**
 
-Spark framework: com.sparkjava : spark-core. We’ll use this micro-framework to create a webhook (web api endpoint) to handle Event Grid events. Note that you can use any framework to create a web api.
+Spark framework: com.sparkjava : spark-core. We’ll use this micro-framework to create a webhook (web api endpoint) to handle Event Grid events. You can use any framework to create a web api.
 ```xml
 <dependency>
   <groupId>com.sparkjava</groupId>
@@ -152,7 +152,7 @@ Azure Communication Services use Event Grid to deliver the `IncomingCall` event.
     ```
 
     This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`.
-4. Since the IncomingCall event isn't yet published in the Azure portal, you need run the following Azure CLI command to configure an event subscription (please replace with your identifiers and ngrok URI).
+4. Since the IncomingCall event isn't yet published in the Azure portal, you need run the following Azure CLI command to configure an event subscription (replace with your identifiers and ngrok URI).
     ```console
     az eventgrid event-subscription create --name <eventSubscriptionName> \
     --endpoint-type webhook \

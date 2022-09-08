@@ -42,7 +42,8 @@ Call Automation uses Event Grid to deliver the `IncomingCall` event to a subscri
     ngrok http https://localhost:<your_web_service_port>
     ```
     This command will produce a public URI you can use to receive the events from the Event Grid subscription.
-5. Optional: Determine an API route path for the incoming call event together with your NGROK URI, which will be used in the armclient command-line statement below, for example: `https://ff2f-75-155-253-232.ngrok.io/api/incomingcall`.
+5. Optional: Determine an API route path for the incoming call event together with your NGROK URI that will be used in the armclient command-line statement below, for example: `https://ff2f-75-155-253-232.ngrok.io/api/incomingcall`.
+
 6. Event Grid web hooks require a valid reachable endpoint before they can be created. As such, start your web service application and run the commands below.
 7. Since the `IncomingCall` event isn't yet published in the portal, you must run the following command-line statements to configure your subscription:
 

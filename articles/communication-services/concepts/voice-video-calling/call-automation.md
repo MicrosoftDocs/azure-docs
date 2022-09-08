@@ -79,11 +79,11 @@ Web hooks – Calling Automation SDKs use standard web hook HTTP/S callbacks for
 
 These actions are performed before the destination endpoint listed in the IncomingCall event notification is connected. Web hook callback events only communicate the “answer” pre-call action, not for reject or redirect actions.  
 
-**Answer** – Using the IncomingCall event from Event Grid and Call Automation SDK, a call can be answered by your application. This action allows for IVR scenarios where an inbound PSTN call can be answered programmatically by your application. Other scenarios include answering a call on behalf of a user, or answering an outbound call to a phone number in the same Azure Communication Services resource.
+**Answer** – Using the IncomingCall event from Event Grid and Call Automation SDK, a call can be answered by your application. This action allows for IVR scenarios where an inbound PSTN call can be answered programmatically by your application. Other scenarios include answering a call on behalf of a user.
 
 **Reject** – To reject a call means your application can receive the IncomingCall event and prevent the call from being connected to the destination endpoint.
 
-**Redirect** – Using the IncomingCall event from Event Grid, a call can be redirected to one or more endpoints creating a single or simultaneous ringing (sim-ring) scenario. Redirect means it isn't answered by your application, it's simply ‘redirected’ to another destination endpoint to be answered.
+**Redirect** – Using the IncomingCall event from Event Grid, a call can be redirected to one or more endpoints creating a single or simultaneous ringing (sim-ring) scenario. This means the call isn't answered by your application, it's simply ‘redirected’ to another destination endpoint to be answered.
 
 **Make Call** - Make Call action can be used to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
 
@@ -93,7 +93,7 @@ These actions can be performed on the calls that are answered or placed using Ca
 
 **Add/Remove participant(s)** – One or more participants can be added in a single request with each participant being a variation of supported destination endpoints. A web hook callback is sent for every participant successfully added to the call.
 
-**Play** - When your application answers a call or places an outbound call, you can play an audio prompt for the caller. The audio prompt can be looped for scenarios like playing hold music. To learn more, view our [quickstart](../../quickstarts/voice-video-calling/Play-Action.md).
+**Play** - When your application answers a call or places an outbound call, you can play an audio prompt for the caller. This audio can be looped if needed in scenarios like playing hold music. To learn more, view our [quickstart](../../quickstarts/voice-video-calling/play-action.md)
 
 **Transfer** – When your application answers a call or places an outbound call to an endpoint, that endpoint can be transferred to another destination endpoint. Transferring a 1:1 call will remove your application's ability to control the call using the Call Automation SDKs.
 

@@ -25,7 +25,7 @@ ms.author: askaur
 
 ## Configure an Event Grid subscription
 
-The Call Automation platform uses Event Grid to deliver the IncomingCall event to a subscription of your choice. For this guide, we will use a web hook subscription pointing to your NGROK application proxy address.
+The Call Automation platform uses Event Grid to deliver the IncomingCall event to a subscription of your choice. For this guide, we'll use a web hook subscription pointing to your NGROK application proxy address.
 
 1. Locate and copy the following to be used in the armclient command-line statement below:
     - Azure subscription ID
@@ -43,11 +43,11 @@ The Call Automation platform uses Event Grid to deliver the IncomingCall event t
     ngrok http <https://localhost:<your_web_service_port>>
     ```
 
-    This will produce a public URI you can use to receive the events from the Event Grid subscription.
+    This command will produce a public URI you can use to receive the events from the Event Grid subscription.
 
-5. Optional: Determine an API route path for the incoming call event together with your NGROK URI which will be used in the armclient command-line statement below, for example: `https://ff2f-75-155-253-232.ngrok.io/api/incomingcall`.
+5. Optional: Determine an API route path for the incoming call event together with your NGROK URI that will be used in the armclient command-line statement below, for example: `https://ff2f-75-155-253-232.ngrok.io/api/incomingcall`.
 6. Event Grid web hooks require a valid reachable endpoint before they can be created. As such, start your web service application and run the commands below.
-7. Since the `IncomingCall` event is not yet published in the portal, you must run the following command-line statements to configure your subscription:
+7. Since the `IncomingCall` event isn't yet published in the portal, you must run the following command-line statements to configure your subscription:
 
     ``` console
     armclient login
@@ -65,7 +65,7 @@ dotnet new web -n MyApplication
 
 ## Install the NuGet package
 
-During the preview phase the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
+During the preview phase, the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
 
 ## Obtain your connection string
 
@@ -155,5 +155,5 @@ app.Run();
 1. Place a call to the number you acquired in the Azure portal (see prerequisites above).
 2. Your Event Grid subscription to the `IncomingCall` should execute and call your web server.
 3. The call will be answered, and an asynchronous web hook callback will be sent to the NGROK callback URI.
-4. When the call is connected, a `CallConnected` event will be sent to your web server, wrapped in a `CloudEvent` schema and can be easily deserialized using the Call Automation SDK parser. At this point the application will request audio to be played in a loop to all participants on the call.
-5. When the audio file has played, a `PlayCompleted` event is received and the web server will make a request to add a participant to the call.
+4. When the call is connected, a `CallConnected` event will be sent to your web server, wrapped in a `CloudEvent` schema and can be easily deserialized using the Call Automation SDK parser. At this point, the application will request audio to be played in a loop to all participants on the call.
+5. When the audio file has played, a `PlayCompleted` event is received, and the web server will make a request to add a participant to the call.

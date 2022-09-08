@@ -19,10 +19,11 @@ zone_pivot_groups: acs-csharp-java
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-In this tutorial, you'll learn how to build applications that use Azure Communication Services Call Automation SDKs to handle common customer support scenarios. You'll learn how your application can build a call flow, which involves: 
-- receiving notifications for incoming calls to a phone number using Event Grid,
-- answer the call and play audio file using Call Automation SDK, 
-- add a Communication User to the call using Call Automation SDK. This user can be a customer service agent who uses a web application built using Calling SDKs to connect to Azure Communication Services.  
+In this tutorial, you'll learn how to build applications that use Azure Communication Services Call Automation to handle common customer support scenarios, such as:
+- receiving notifications for incoming calls to a phone number using Event Grid
+- answering the call and play audio file using Call Automation SDK
+- adding a communication user to the call using Call Automation SDK. This user can be a customer service agent who uses a web application built using Calling SDKs to connect to Azure Communication Services
+
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Call flows for customer interactions with .NET](./includes/call-automation/Callflow-for-customer-interactions-csharp.md)]

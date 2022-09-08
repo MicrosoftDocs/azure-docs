@@ -77,7 +77,7 @@ By this point you should be familiar with starting calls, if you need to learn m
 
 ## Play audio
 
-Once the call has been established, there are multiple options for how you may wish to play the audio. The first scenario is if you want to play it to the participant that has joined the call, while the second scenario is when you wish to play audio to all the participants in the call.
+Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has just joined the call or play audio to all the participants in the call.
 
 ## Play audio - Specific participant
 
@@ -171,7 +171,7 @@ To learn more about other supported events, visit the [Call Automation overview 
 
 ## Cancel play action
 
-Cancel all media operations, all pending media operations will be canceled. This will also cancel other queued up play actions. 
+Cancel all media operations, all pending media operations will be canceled. This action will also cancel other queued play actions.
 
 ```console
 var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);

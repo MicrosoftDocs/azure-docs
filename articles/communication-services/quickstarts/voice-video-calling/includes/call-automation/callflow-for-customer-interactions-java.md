@@ -42,9 +42,9 @@ Update your application's POM file to use Java 8 or higher:
 
 ## Configure Azure SDK Dev Feed
 
-Since the Call Automation SDK version used in this QuickStart is not yet available in Maven Central Repository, we need to add an Azure Artifacts development feed, which contains the latest version of the Call Automation SDK.  
+Since the Call Automation SDK version used in this QuickStart isn't yet available in Maven Central Repository, we need to add an Azure Artifacts development feed, which contains the latest version of the Call Automation SDK.  
 
-Add the [azure-sdk-for-java](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) feed to your `pom.xml`, for this, follow the instructions after clicking the “Connect to Feed” button.
+Add the [azure-sdk-for-java](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) feed to your `pom.xml` and follow the instructions after clicking the “Connect to Feed” button.
 
 ## Add package references
 
@@ -67,7 +67,7 @@ And then add it to your POM file like this (using version 1.0.0-alpha.20220829.1
 
 **azure-messaging-eventgrid**
 
-Azure EventGrid SDK package: [com.azure : azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid). Data types from this package are used to handle Call Automation IncomingCall event received from the EventGrid.
+Azure Event Grid SDK package: [com.azure : azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid). Data types from this package are used to handle Call Automation IncomingCall event received from the Event Grid.
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
@@ -78,7 +78,7 @@ Azure EventGrid SDK package: [com.azure : azure-messaging-eventgrid](https://sea
 
 **spark-core**
 
-Spark framework: [com.sparkjava : spark-core](https://search.maven.org/artifact/com.sparkjava/spark-core). We’ll use this micro-framework to create a webhook (web api endpoint) to handle EventGrid events. Note that you can use any framework to create a web api.
+Spark framework: [com.sparkjava : spark-core](https://search.maven.org/artifact/com.sparkjava/spark-core). We’ll use this micro-framework to create a webhook (web api endpoint) to handle Event Grid events. You can use any framework to create a web api.
 ```xml
 <dependency>
   <groupId>com.sparkjava</groupId>
@@ -136,13 +136,13 @@ public class App
         CallAutomationClient client = new CallAutomationClientBuilder()
             .connectionString(connectionString)
             .buildClient();
-        // Endpoint to receive EventGrid IncomingCall event
+        // Endpoint to receive Event Grid IncomingCall event
         post("/api/incomingCall", (request, response) -> {
             Logger.getAnonymousLogger().info(request.body());
             List<EventGridEvent> eventGridEvents = EventGridEvent.fromString(request.body());
             for (EventGridEvent eventGridEvent : eventGridEvents) {
                 JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class);
-                // When registering an EventGrid subscription, EventGrid sends a specific request to validate the ownership of the endpoint
+                // When registering an Event Grid subscription, Event Grid sends a specific request to validate the ownership of the endpoint
                 if (eventGridEvent.getEventType().equals("Microsoft.EventGrid.SubscriptionValidationEvent")) {
                     String validationCode = data.get("validationCode").getAsString();
                     return "{\"validationResponse\": \"" + validationCode + "\"}";
@@ -202,7 +202,7 @@ public class App
 
 ## Start Ngrok
 
-In this quickstart, we'll use [Ngrok tool](https://ngrok.com/) to make our localhost java application reachable from the internet. This tool will be needed to receive the EventGrid `IncomingCall` event and the Call Automation events using webhooks.
+In this quickstart, we'll use [Ngrok tool](https://ngrok.com/) to make our localhost java application reachable from the internet. This tool will be needed to receive the Event Grid `IncomingCall` event and the Call Automation events using webhooks.
 
 Determine the root URI of the java application. By default, it should be `http://localhost:4567/` where the port is 4567.
 
@@ -212,19 +212,19 @@ Install and run Ngrok with the following command: `ngrok http <port>`. This comm
 
 To run your Java application, run maven compile, package, and execute commands. By default, SparkJava runs on port 4567, so the endpoints will be available at `http://localhost:4567/api/incomingCall` and `http://localhost:4567/api/callback`.
 
-Note that the application expects Ngrok base address URI to be passed as the first argument to the main method. This URI is used to register the webhook for receiving Call Automation events. Remember to replace `ngrokBaseUri` with your Ngrok URI, for example, `https://ff2f-75-155-253-232.ngrok.io`  
+The application expects Ngrok base address URI to be passed as the first argument to the main method. This URI is used to register the webhook for receiving Call Automation events. Remember to replace `ngrokBaseUri` with your Ngrok URI, for example, `https://ff2f-75-155-253-232.ngrok.io`  
 ```console
 mvn compile
 mvn package
 mvn exec:java -Dexec.mainClass=com.communication.quickstart.App -Dexec.cleanupDaemonThreads=false -Dexec.args=<ngrokBaseUri>
 ```
 
-## Subscribe to EventGrid IncomingCall event using a webhook
+## Subscribe to Event Grid IncomingCall event using a webhook
 
-Call Automation uses EventGrid to deliver the `IncomingCall` event. In this section, we configure a webhook to receive events from the EventGrid.
+Call Automation uses Event Grid to deliver the `IncomingCall` event. In this section, we configure a webhook to receive events from the Event Grid.
 
 1. Find the following identifiers used in the next step: Azure subscription ID, resource group name, Communication Services resource name.
-2. Since the `IncomingCall` event is not yet published in the Azure portal, you need run the following Azure CLI command to configure an event subscription (replace with your identifiers and Ngrok URI).
+2. Since the `IncomingCall` event isn't yet published in the Azure portal, you need run the following Azure CLI command to configure an event subscription (replace with your identifiers and Ngrok URI).
 ```console
 az eventgrid event-subscription create --name <eventSubscriptionName> \
     --endpoint-type webhook \
