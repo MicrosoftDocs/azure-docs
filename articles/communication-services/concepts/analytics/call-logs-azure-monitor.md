@@ -31,39 +31,7 @@ An *Endpoint* is the most unique entity, represented by `endpointId`. `EndpointT
 
 A *Stream* is the most granular entity, as there is one Stream per direction (inbound/outbound) and `mediaType` (e.g. audio, video).  
 
-### P2P vs. Group Calls
 
-There are two types of Calls (represented by `callType`): P2P and Group. 
-
-**P2P** calls are a connection between only two Endpoints, with no server Endpoint. P2P calls are initiated as a Call between those Endpoints and are not created as a group Call event prior to the connection.
-
-  :::image type="content" source="media\call-logs-azure-monitor\p2p-diagram.png" alt-text="p2p call":::
-
-
-**Group** Calls include any Call that has more than 2 Endpoints connected. Group Calls will include a server Endpoint, and the connection between each Endpoint and the server. P2P Calls that add an additional Endpoint during the Call cease to be P2P, and they become a Group Call. By viewing the `participantStartTime` and `participantDuration`, the timeline of when each Endpoint joined the Call can be determined.
-
-
-  :::image type="content" source="media\call-logs-azure-monitor\group-call-version-a.png" alt-text="Group Call":::
-
-## Log Structure
-Two types of logs are created: **Call Summary** logs and **Call Diagnostic** logs. 
-
-Call Summary Logs contain basic information about the Call, including all the relevant IDs, timestamps, Endpoint and SDK information. For each participant within a call, a distinct call summary log is created (if someone rejoins a call, they will have the same EndpointId, but a different ParticipantId, so there will be two Call Summary logs for that endpoint).
-
-Call Diagnostic Logs contain information about the Stream as well as a set of metrics that indicate quality of experience measurements. For each Endpoint within a Call (including the server), a distinct Call Diagnostic Log is created for each media stream (audio, video, etc.) between Endpoints. In a P2P Call, each log contains data relating to each of the outbound stream(s) associated with each Endpoint. In a Group Call, each stream associated with `endpointType`= `"Server"` will create a log containing data for the inbound streams, and all other streams will create logs containing data for the outbound streams for all non-sever endpoints. In Group Calls, use the `participantId` as the key to join the related inbound/outbound logs into a distinct Participant connection.
-
-### Example 1: P2P Call
-
-The below diagram represents two endpoints connected directly in a P2P Call. In this example, 2 Call Summary Logs would be created (1 per `endpointId`) and 4 Call Diagnostic Logs would be created (1 per media stream). Each log will contain data relating to the outbound stream of the `endpointId`.
-
-:::image type="content" source="media\call-logs-azure-monitor\example-1-p2p-call.png" alt-text="p2p Call streams":::
-
-
-### Example 2: Group Call
-
-The below diagram represents a Group Call example with three `particpantIds`, which means three `endpointIds` (`endpointIds` can potentially appear in multiple Participants, e.g. when rejoining a Call from the same device) and a Server Endpoint. For `participantId` 1, two Call Summary Logs would be created: one for for `endpointId`, and another for the server. Four Call Diagnostic Logs would be created relating to `participantId` 1, one for each media stream. The three logs with `endpointId` 1 would contain data relating to the outbound media streams, and the one log with `endpointId = null, endpointType = "Server"` would contain data relating to the inbound stream.
-
-:::image type="content" source="media\call-logs-azure-monitor\example-2-group-call-version-a.png" alt-text="group Call detail":::
 
 ## Data Definitions
 
@@ -120,15 +88,28 @@ In a P2P Call, each log contains data relating to each of the outbound stream(s)
 |     jitterAvg             |     This is the average change in delay between successive packets. Azure Communication Services can adapt to some levels of jitter through buffering. It's only when the jitter exceeds the buffering, which is approximately at `jitterAvg` >30 ms, that a negative quality impact is likely occurring. The packets arriving at different speeds cause a speaker's voice to sound robotic. This is measured per media stream over the `participantDuration` in a group Call or `callDuration` in a P2P Call.                                                                                                                                              |
 |     jitterMax             |     The is the maximum jitter value measured between packets per media stream. Bursts in network conditions can cause issues in the audio/video traffic flow.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |     packetLossRateAvg     |     This is the average percentage of packets that are lost. Packet loss directly affects audio quality—from small, individual lost packets that have almost no impact to back-to-back burst losses that cause audio to cut out completely. The packets being dropped and not arriving at their intended destination cause gaps in the media, resulting in missed  syllables and words, and choppy video and sharing. A packet loss rate of greater than 10% (0.1) should be considered a rate that's likely having a negative quality impact. This is measured per media stream  over the `participantDuration` in a group Call or `callDuration` in a P2P Call.    |
-|     packetLossRateMax     |     This value represents the maximum packet loss rate (%) per media stream over the `participantDuration` in a group Call or `callDuration` in a P2P Call. Bursts in network conditions can cause issues in the audio/video traffic flow.                                                                                                                                                
+|     packetLossRateMax     |     This value represents the maximum packet loss rate (%) per media stream over the `participantDuration` in a group Call or `callDuration` in a P2P Call. Bursts in network conditions can cause issues in the audio/video traffic flow.                                                                                                                                
+### P2P vs. Group Calls
+
+There are two types of Calls (represented by `callType`): P2P and Group. 
+
+**P2P** calls are a connection between only two Endpoints, with no server Endpoint. P2P calls are initiated as a Call between those Endpoints and are not created as a group Call event prior to the connection.
+
+  :::image type="content" source="media\call-logs-azure-monitor\p2p-diagram.png" alt-text="p2p call":::
+
+
+**Group** Calls include any Call that has more than 2 Endpoints connected. Group Calls will include a server Endpoint, and the connection between each Endpoint and the server. P2P Calls that add an additional Endpoint during the Call cease to be P2P, and they become a Group Call. By viewing the `participantStartTime` and `participantDuration`, the timeline of when each Endpoint joined the Call can be determined.
+
+
+  :::image type="content" source="media\call-logs-azure-monitor\group-call-version-a.png" alt-text="Group Call":::
 
 ## Log Structure
+
 Two types of logs are created: **Call Summary** logs and **Call Diagnostic** logs. 
 
-**Call Summary logs** contain basic information about the Call, including all the relevant IDs, timestamps, Endpoint and SDK information. 
+Call Summary Logs contain basic information about the Call, including all the relevant IDs, timestamps, Endpoint and SDK information. For each participant within a call, a distinct call summary log is created (if someone rejoins a call, they will have the same EndpointId, but a different ParticipantId, so there will be two Call Summary logs for that endpoint).
 
-**Call Diagnostic logs** contain information about the Stream as well as a set of metrics that indicate quality of experience measurements. 
-
+Call Diagnostic Logs contain information about the Stream as well as a set of metrics that indicate quality of experience measurements. For each Endpoint within a Call (including the server), a distinct Call Diagnostic Log is created for each media stream (audio, video, etc.) between Endpoints. In a P2P Call, each log contains data relating to each of the outbound stream(s) associated with each Endpoint. In a Group Call, each stream associated with `endpointType`= `"Server"` will create a log containing data for the inbound streams, and all other streams will create logs containing data for the outbound streams for all non-sever endpoints. In Group Calls, use the `participantId` as the key to join the related inbound/outbound logs into a distinct Participant connection.
 
 ### Example 1: P2P Call
 
@@ -147,14 +128,14 @@ The below diagram represents a Group Call example with three `participantIDs`, w
 ### Example 3: P2P Call cross-tenant
 The below diagram represents two participants across multiple tenants that are connected directly in a P2P Call. In this example, one Call Summary Logs would be created (one per participant) with redacted OS and SDK versioning and four Call Diagnostic Logs would be created (one per media stream). Each log will contain data relating to the outbound stream of the `participantID`.
  
-:::image type="content" source="media\call-logs-azure-monitor\example-3-p2p-call-cross-tenant.png" alt-text="group Call detail":::
+:::image type="content" source="media\call-logs-azure-monitor\example-3-p2p-call-cross-tenant.png" alt-text="p2p Call detail cross tenant":::
 
 
 
 ### Example 4: Group Call cross-tenant
 The below diagram represents a Group Call example with three `participantIds` across multiple tenants. One Call Summary Logs would be created per participant with redacted OS and SDK versioning, and four Call Diagnostic Logs would be created relating to each `participantId` , one for each media stream. 
 
-:::image type="content" source="media\call-logs-azure-monitor\example-4-group-call-cross-tenant.png" alt-text="group Call detail":::
+:::image type="content" source="media\call-logs-azure-monitor\example-4-group-call-cross-tenant.png" alt-text="group Call detail cross tenant":::
 
 
 > **Please note**: Only outbound diagnostic logs will be supported in this release. 
@@ -508,4 +489,4 @@ Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3:
     "packetLossRateAvg":    "0",
 ```
 ### Error Codes
-The `participantEndReason` will contain a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, per Endpoint. See [troubleshooting in Azure communication Calling SDK error codes](https://docs.microsoft.com/en-us/azure/communication-services/concepts/troubleshooting-info?tabs=csharp%2Cios%2Cdotnet#calling-sdk-error-codes)
+The `participantEndReason` will contain a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, per Endpoint. See [troubleshooting in Azure communication Calling SDK error codes](https://docs.microsoft.com/azure/communication-services/concepts/troubleshooting-info?tabs=csharp%2Cios%2Cdotnet#calling-sdk-error-codes)
