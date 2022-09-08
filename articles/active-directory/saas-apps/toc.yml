@@ -2697,9 +2697,9 @@
       - name: Appaegis Isolation Access Cloud
         href: appaegis-isolation-access-cloud-provisioning-tutorial.md
       - name: Apple School Manager
-        href: apple-school-manager-provisioning-tutorial.md
+        href: apple-school-manager-provision-tutorial.md
       - name: Apple Business Manager
-        href: apple-business-manager-provisioning-tutorial.md      
+        href: apple-business-manager-provision-tutorial.md      
       - name: Asana
         href: asana-provisioning-tutorial.md
       - name: askSpoke

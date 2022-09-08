@@ -53,9 +53,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 2. Click Settings at the bottom of the sidebar click Data Source below Organization Settings, then click Connect to Data Source.
 3. Click Connect next to SCIM, carefully read the warning, click Copy, then click Close.
 [The Connect to SCIM window, which provides a token and a Copy button under it.]
-Leave this window open to copy the Tenant URL from Apple School Manager to Azure AD, which is: 'https://federation.apple.com/feeds/school/scim'
+Leave this window open to copy the Tenant URL from Apple School Manager to Azure AD, which is: `https://federation.apple.com/feeds/school/scim`
 
-    ![Apple School Manager](media/apple-school-manager-provisioning-tutorial/scim-token.png)
+    ![Apple School Manager](media/apple-school-manager-provision-tutorial/scim-token.png)
 
     > [!NOTE]
     > The secret token shouldn’t be shared with anyone other than the Azure AD administrator.
