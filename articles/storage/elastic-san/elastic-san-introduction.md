@@ -72,18 +72,17 @@ The status of items in this table may change over time.
 |-----------------|---------|
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
-| [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
+| [LRS or ZRS redundancy types](elastic-san-planning.md#redundancy)|	✔️ |
 | [LRS to ZRS conversion](../common/redundancy-migration.md?tabs=portal#switch-between-types-of-replication)|	⛔ |
-| [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ⛔  |
-| [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
-| [Grant network access to specific IP addresses](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#grant-access-from-an-internet-ip-range)| ⛔ |
-| [Premium tier](storage-files-planning.md#storage-tiers) |  ✔️  |
+| Private endpoints | ⛔  |
+| Grant network access to specific Azure virtual networks|  ✔️  |
+| [Grant network access to specific IP addresses](../common/storage-network-security.md?toc=%2fazure%2fstorage%2felastic%2fsan%2ftoc.json#grant-access-from-an-internet-ip-range)| ⛔ |
 | Access same data from Windows and Linux client|  ✔️   |
-| [Soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
-| [Backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
-| [Snapshots](storage-snapshots-files.md)| ⛔ |
-| [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
-| [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)| ⛔ |
+| Soft delete | ⛔  |
+| Backups| ⛔ |
+| Snapshots | ⛔ |
+| GRS or GZRS redundancy types| ⛔ |
+| AzCopy| ⛔ |
 
 ### iSCSI support
 
@@ -94,6 +93,7 @@ Currently doesn't support:
 - Initiator registration
 - iSCSI recovery level
 - EXSi iSCSI flow control
+- More than one LUN per iSCSI target
 
 Only the following iSCSI commands are currently supported:
 - TEST UNIT READY
