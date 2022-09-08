@@ -18,7 +18,7 @@ API Management provides a rich, flexible set of features to support API authenti
 
 API Management also provides a fully customizable, standalone, managed [developer portal](api-management-howto-developer-portal.md), which can be used externally (or internally) to allow developer users to discover and interact with the APIs published through API Management. The developer portal has several options to facilitate secure user sign-up and sign-in. 
 
-The following diagram is a conceptual view of Azure API Management, showing the management plane, API gateway (data plane), and developer portal, each with at least one option to secure interaction. For an overview of API Management components, see [What is Azure API Management?](api-management-key-concepts.md)
+The following diagram is a conceptual view of Azure API Management, showing the management plane (Azure control plane), API gateway (data plane), and developer portal (user plane), each with at least one option to secure interaction. For an overview of API Management components, see [What is Azure API Management?](api-management-key-concepts.md)
 
 :::image type="content" source="media/authentication-authorization-overview/api-management-security-high-level.png" alt-text="Diagram showing security features at all points of interaction in API Management" border="false":::
 
