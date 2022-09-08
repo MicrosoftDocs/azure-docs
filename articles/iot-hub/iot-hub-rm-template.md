@@ -25,10 +25,9 @@ You can use Azure Resource Manager to create and manage Azure IoT hubs programma
 
 To complete this tutorial, you need the following:
 
-* Visual Studio.
-* An active Azure account. <br/>If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* An [Azure Storage account][lnk-storage-account] where you can store your Azure Resource Manager template files.
-* [Azure PowerShell 1.0][lnk-powershell-install] or later.
+* Visual Studio
+* An [Azure Storage account][lnk-storage-account] where you can store your Azure Resource Manager template files
+* [Azure PowerShell module][lnk-powershell-install]
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
