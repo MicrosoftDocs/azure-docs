@@ -320,7 +320,7 @@ The following recommended playbooks, and other similar playbooks are available t
 
     - [Prompt to block an IP address](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-IPs-on-MDATP-Using-GraphSecurity).
     - [Block an Azure AD user](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-AADUserOrAdmin)
-    - [Reset an Azure AD user password](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Reset-AADUserPassword/)
+    - [Reset an Azure AD user password](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Azure%20Active%20Directory/Playbooks/Reset-AADUserPassword)
     - [Prompt to isolate a machine](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Isolate-AzureVMtoNSG)
 
 - **Create, update, or close playbooks** can create, update, or close incidents in Microsoft Sentinel, Microsoft 365 security services, or other ticketing systems:
