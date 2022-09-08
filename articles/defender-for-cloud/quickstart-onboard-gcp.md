@@ -22,7 +22,7 @@ To protect your GCP-based resources, you can connect a GCP project with either:
 
 - **Classic cloud connector** - Requires configuration in your GCP project to create a user that Defender for Cloud can use to connect to your GCP environment. If you have classic cloud connectors, we recommend that you [delete these connectors](#remove-classic-connectors) and use the native connector to reconnect to the account. Using both the classic and native connectors can produce duplicate recommendations.
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" lightbox="media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ::: zone pivot="env-settings"
 
