@@ -4,12 +4,10 @@ description: Azure IoT Edge uses certificate to validate devices, modules, and l
 author: jlian
 
 ms.author: jlian
-ms.reviewer: kgremban
-ms.date: 07/11/2022
+ms.date: 09/08/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom:  mqtt
 ---
 
 # Understand how Azure IoT Edge uses certificates
@@ -19,30 +17,33 @@ ms.custom:  mqtt
 IoT Edge uses different types of certificates for different purposes. This article walks you through the different ways that IoT Edge uses certificates with different partners. At the end there's a recap.
 
 > [!IMPORTANT]
-> For brevity, this article is written using terminologies for 1.2 or later. Concepts are very similar, but compared to 1.1 there are some changes:
-> * The **Device CA certificate** was renamed as **Edge CA certificate**.
-> * The **workload CA certificate** was deprecated. Now the IoT Edge security manager generates the IoT Edge hub `edgeHub` server certificate directly from the Edge CA certificate, without the intermediate workload CA certificate between them.
+> For brevity, this article applies to IoT Edge version 1.2 or later. The certificate concepts for version 1.1 are similar, but there are some changes:
+> * The **device CA certificate** in version 1.1 was renamed to **Edge CA certificate**.
+> * The **workload CA certificate** in version 1.1 was retired. In version 1.2 or later, the IoT Edge security manager generates the IoT Edge hub `edgeHub` server certificate directly from the Edge CA certificate, without the intermediate workload CA certificate between them in the certificate chain.
 
 ## Prerequisites
 
-- You should have some idea how public key cryptography, key pairs, and how a public key and private key can encrypt/decrypt data done with its counterpart. If not, [this link is a good start](../iot-hub/tutorial-x509-introduction.md).
-- You should have some idea about what IoT Edge is in relation to IoT Hub 
+- You should have a basic understanding of public key cryptography, key pairs, and how a public key and private key can encrypt or decrypt data. For more information about how IoT Edge uses public key cryptography, see [Tutorial: Understanding Public Key Cryptography and X.509 Public Key Infrastructure](../iot-hub/tutorial-x509-introduction.md).
+- You should have a basic understanding about how IoT Edge relates to IoT Hub. For more information, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-## A representative example
+## Certificate scenario
 
-The best way to understand all of this is with an illustrative example. This is a very basic scenario where *EdgeGateway* (an IoT Edge device) connects to *ContosoIotHub* (an IoT Hub instance in Azure). In this example, all authentication is done with X.509 certificate authentication (as opposed to symmetric keys). Trust must be established, which essentially become questions like "is this message really from where it says it is" and "am I really talking to who I think I'm talking to". If deconstructed, it becomes:
+To help understand IoT Edge certificate concepts, imagine a simple scenario where an IoT Edge device named *EdgeGateway* connects to an Azure IoT Hub named *ContosoIotHub*. In this example, all authentication is done with X.509 certificate authentication rather than symmetric keys. To establish trust in this scenario, we need to guarantee the hub and message are authentic. Can we answer questions like "Is this message genuine?" and "Can I verify the service connection is genuine?". The scenario can be illustrated as follows:
 
+:::image type="content" source="./media/iot-edge-certs/trust-scenario.svg" alt-text="Trust scenario state diagram showing communication between IoT Edge device and IoT Hub.":::
+
+<!--
 ```mermaid
 stateDiagram-v2
-
-    EdgeGateway --> ContosoIotHub
-    note right of EdgeGateway: 1. Am I really talking to ContosoIotHub?
-    note left of ContosoIotHub: 2. Is this really from EdgeGateway?
+    EdgeGateway - -> ContosoIotHub
+    note right of EdgeGateway: 1. Are you ContosoIotHub?
+    note left of ContosoIotHub: 2. Is this message from EdgeGateway?
 ```
+-->
 
 We go through each one of these. And once we're good , we'll also expand the example later.
 
-## Part 1: *Am I really talking to ContosoIotHub?*
+### Are you ContosoIotHub?
 
 This first question is about when EdgeGateway wants to talk to the cloud. From the connection string it knows it should reach out to `ContosoIoTHub.azure-devices.net` but to be safe IoT Edge wants that endpoint to show some sort of ID, ideally issued by someone it trusts.
 
@@ -238,7 +239,7 @@ Yes! And this is where the other half of the confusion comes from. You see in th
 
 #### Isn't it dangerous to have an issuer cert on the device?
 
-Edge CA is **optional**! It's on by default for quickstarts, but you don't have to use it for production. Customers who don’t need it can bypass Edge CA and directly request the individual certificates via EST (a whole other topic!).  These are customers with strong connectivity availability e.g. Retail.
+Edge CA is **optional**! It's on by default for quickstarts, but you don't have to use it for production. Customers who don't need it can bypass Edge CA and directly request the individual certificates via EST (a whole other topic!).  These are customers with strong connectivity availability e.g. Retail.
 
 <!-- TODO: how does edgeHub get server cert today without Edge CA? Like with EST -->
 
@@ -251,7 +252,7 @@ If you do use Edge CA in production, you should put the private key in HSM - a w
 Like I said earlier, `edgeHub` - basically a random container running on a random device compared to say IoT Hub - has a certificate that isn't rooted in a widely known public root like Baltimore, but rather your own private CA (or randomly generated by IoT Edge if not configured). Because it's probably not widely trusted by OS vendors, the only way TempSensor would know to trust it is the root CA certificate is explicitly installed onto the device. This is also known as the *trust bundle* scenario, where you need to distribute the root to clients that need to trust the chain. This can be annoying because you need access to the device to put the `------BEGIN CERTIFICATE ------` stuff in a file and run the `update ca-trust` command on the device itself. We do show you roughly how using our scripts, but yeah, you need to be careful and plan around this. Maybe put the trust bundle in during manufacturing or in the OS image.
 
 > [!NOTE]
-> Some clients and SDKs don’t use the OS trusted root store and you need to pass the root ca file directly
+> Some clients and SDKs don't use the OS trusted root store and you need to pass the root ca file directly
 
 
 Putting it all together, TempSensor can say "yes, that is indeed EdgeGateway because 1) it showed me a certificate that matched the address I and 2) the certificate is signed by a root I trust"
