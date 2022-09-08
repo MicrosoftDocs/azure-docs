@@ -298,7 +298,7 @@ New-AzContainerAppManagedEnv @EnvArgs
 
 ---
 
-Continue to the next section to configure user-assigned managed identity or skip to the [System-assigned managed identity](#system-assigned-managed-identity) section.
+Continue to the next section to configure user-assigned managed identity or skip to the [System-assigned managed identity (1)](#system-assigned-managed-identity-1) section.
 
 ## User-assigned managed identity
 
