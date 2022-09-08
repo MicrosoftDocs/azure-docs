@@ -1,12 +1,12 @@
 ---
-title: Migrating legacy Azure DNS Private Zones to new resource model
+title: Migrating legacy Azure DNS Private Zones to the new resource model
 titleSuffix: Azure DNS
-description: This guide provides step by step instruction on how to migrate legacy private DNS zones to latest resource model
-author: rohinkoul
+description: This guide provides step by step instruction on how to migrate legacy private DNS zones to the latest resource model
+author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 06/18/2019
-ms.author: rohink
+ms.date: 09/08/2022
+ms.author: greglin
 ---
 
 # Migrating legacy Azure DNS private zones to new resource model
@@ -30,8 +30,8 @@ Make sure that you've Az.PrivateDns module for the Azure PowerShell installed. T
 Install-Module -Name Az.PrivateDns
 ```
 
->[!IMPORTANT]
->The migration process is fully automated and isn't expected to cause any downtime. However, if you're using Azure DNS private zones (preview) in a critical production environment you should execute the following migration process during a planned maintenance time window. Make sure that you don't modify the configuration or record-sets of a private DNS zones while you're running the migration script.
+> [!IMPORTANT]
+> The migration process is fully automated and isn't expected to cause any downtime. However, if you're using Azure DNS private zones in a critical production environment you should run the following migration process during a planned maintenance time window. Make sure that you don't modify the configuration or record-sets of a private DNS zones while you're running the migration script.
 
 ## Installing the script
 
@@ -47,8 +47,8 @@ Enter "A" when prompted to install the script
 
 You can also manually obtain the latest version of PowerShell script at https://www.powershellgallery.com/packages/PrivateDnsMigrationScript
 
->[!IMPORTANT]
->The migration script must not be run in Azure cloud shell and must be executed in a VM or local machine connected to internet.
+> [!IMPORTANT]
+> The migration script must not be run in Azure cloud shell and must be executed in a VM or local machine connected to internet.
 
 ## Running the script
 
@@ -90,8 +90,8 @@ If you find that DNS queries aren't resolving, wait for a few minutes and retry 
 
 ![Confirm Name Resolution](./media/private-dns-migration-guide/confirmresolution-migration-script.png)
 
->[!IMPORTANT]
->If because of any reason DNS resolution against the migrated zones isn't working as expected, enter 'N' in above step and script will switch the DNS resolution back to legacy zones. Create a support ticket and we can help you with migration of your DNS zones.
+> [!IMPORTANT]
+> If because of any reason DNS resolution against the migrated zones isn't working as expected, enter 'N' in above step and script will switch the DNS resolution back to legacy zones. Create a support ticket and we can help you with migration of your DNS zones.
 
 ## Cleanup
 
@@ -114,11 +114,7 @@ Create a support ticket if you need further help with the migration process or b
 ## Next steps
 
 * Learn how to create a private zone in Azure DNS using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
-
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
-
 * For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [Private DNS FAQ](./dns-faq-private.yml).
-
 * Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
-
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
