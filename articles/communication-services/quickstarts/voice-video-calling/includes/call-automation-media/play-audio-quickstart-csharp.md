@@ -35,7 +35,7 @@ During the preview phase, the NuGet package can be obtained by configuring your 
 
 From the Azure portal, locate your Communication Service resource and click on the Keys section to obtain your connection string.
 
-:::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
+:::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys.":::
 
 ## Prepare your audio file
 
