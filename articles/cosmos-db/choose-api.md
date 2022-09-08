@@ -49,7 +49,7 @@ This API stores data in document format. It offers the best end-to-end experienc
 
 If you are migrating from other databases such as Oracle, DynamoDB, HBase etc. and if you want to use the modernized technologies to build your apps, API for NoSQL is the recommended option. API for NoSQL supports analytics and offers performance isolation between operational and analytical workloads.
 
-## <a id="mongodb-api"></a> API for MongoDB
+## API for MongoDB
 
 This API stores data in a document structure, via BSON format. It is compatible with MongoDB wire protocol; however, it does not use any native MongoDB related code. This API is a great choice if you want to use the broader MongoDB ecosystem and skills, without compromising on using Azure Cosmos DB features such as scaling, high availability, geo-replication, multiple write locations, automatic and transparent shard management, transparent replication between operational and analytical stores, and more.
 
