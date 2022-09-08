@@ -188,7 +188,7 @@ This section lists and defines the parameters that are required to configure the
 |---|---|---|
 | `accuracy_score` | The fraction of data points that are classified correctly. | Classification |
 | `precision_score` | The fraction of data points that are classified correctly among those classified as 1. | Classification |
-| `recall_score` | The fraction of data points that are classified correctly among those whose true label is 1. Alternative names: true positive rate, sensitivity | Classification |
+| `recall_score` | The fraction of data points that are classified correctly among those whose true label is 1. Alternative names: true positive rate, sensitivity. | Classification |
 | `f1_score` | The F1 score is the harmonic mean of precision and recall. | Classification |
 | `error_rate` | The proportion of instances that are misclassified over the whole set of instances. | Classification |
 | `mean_absolute_error` | The average of absolute values of errors. More robust to outliers than `mean_squared_error`. | Regression |
