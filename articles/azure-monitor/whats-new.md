@@ -19,7 +19,7 @@ This article lists significant changes to Azure Monitor documentation.
 | Article | Description |
 |---|---|
 |[Log Analytics agent overview](agents/log-analytics-agent.md)|Restructured the Agents section and rewrote the Agents Overview article to reflect that Azure Monitor Agent is the primary agent for collecting monitoring data.|
-|[Dependency analysis in Azure Migrate Discovery and assessment - Azure Migrate](migrate/concepts-dependency-visualization.md)|Revamped the guidance for migrating from Log Analytics Agent to Azure Monitor Agent.|
+|[Dependency analysis in Azure Migrate Discovery and assessment - Azure Migrate](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization)|Revamped the guidance for migrating from Log Analytics Agent to Azure Monitor Agent.|
 
 
 ### Alerts
@@ -57,8 +57,8 @@ This article lists significant changes to Azure Monitor documentation.
 
 | Article | Description |
 |---|---|
-|[Enable Change Analysis](change/change-analysis-enable.md)| Add note for slot-level enablement|
-|[Tutorial - Track a web app outage using Change Analysis](change/tutorial-outages.md)| Add set up steps to tutorial|
+|[Enable Change Analysis](change/change-analysis-enable.md)| Added note for slot-level enablement|
+|[Tutorial - Track a web app outage using Change Analysis](change/tutorial-outages.md)| Added set up steps to tutorial|
 |[Use Change Analysis in Azure Monitor to find web-app issues](change/change-analysis.md)|Updated limitations|
 |[Observability data in Azure Monitor](observability-data.md)| Added "Changes" section|
 ### Containers
