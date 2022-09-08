@@ -1,0 +1,280 @@
+---
+title: Quickstart - Use a Workload Identity with an application on Azure Kubernetes Service (AKS)
+description: In this Azure Kubernetes Service (AKS) quickstart, you deploy an Azure Kubernetes Service cluster and configure an application to use the identity.
+services: container-service
+ms.topic: quickstart
+ms.date: 09/09/2022
+---
+
+# Quickstart: Use a Workload Identity with an application on Azure Kubernetes Service (AKS)
+
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this quickstart, you will:
+
+* Deploy an AKS cluster using the Azure CLI with OpenID Connect Issuer and Workload Identity.
+* Create an Azure Key Vault and secret.
+* Create an Azure Active Directory (Azure AD) application and Kubernetes service account
+* Configure the Azure AD app for token federation
+* Deploy the workload and verify authentication with the Workload Identity
+
+This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+- This article requires version 2.xx.x or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+- You have installed the latest version of the `aks-preview` extension, version 0.5.50 or later.
+
+- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
+
+- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
+[az account][az-account] command.
+
+## Create a resource group
+
+An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are prompted to specify a location. This location is:
+
+* The storage location of your resource group metadata.
+* Where your resources will run in Azure if you don't specify another region during resource creation.
+
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+
+Create a resource group using the [az group create][az-group-create] command.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
+```
+
+The following output example resembles successful creation of the resource group:
+
+```json
+{
+  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "myResourceGroup",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
+
+## Install the aks-preview Azure CLI extension
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+## Create AKS cluster
+
+Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
+
+```azurecli-interactive
+az aks create -g myResourceGroup -n myAKSCluster --node-count 1 --enable-oidc-issuer --enable-workload-identity
+```
+
+After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+
+> [!NOTE]
+> When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../faq.md#why-are-two-resource-groups-created-with-aks)
+
+To get the OIDC Issuer URL, run the following command:
+
+```azurecli
+    AKS_OIDC_ISSUER=$(az aks show -n aks -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)
+```
+
+## Export environmental variables
+
+To help simplify steps to configure creating Azure Key Vault and other identities required, the steps below define
+environmental variables for reference on the cluster.
+
+Run the following commands to create these variables. Replace the default values for `LOCATION`, `KEYVAULT_SECRET_NAME`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `UAID`, and `FICID`.  
+
+```bash
+# environment variables for the Azure Key Vault resource
+export KEYVAULT_NAME="azwi-kv-$(openssl rand -hex 2)"
+export KEYVAULT_SECRET_NAME="my-secret"
+export RESOURCE_GROUP="azwi-quickstart-$(openssl rand -hex 2)"
+export LOCATION="westcentralus"
+
+# environment variables for the Kubernetes Service account & federated identity credential
+export SERVICE_ACCOUNT_NAMESPACE="default"
+export SERVICE_ACCOUNT_NAME="workload-identity-sa"
+
+# environment variables for the Federated Identity
+export SUBSCRIPTION="{your subscription ID which is signed up for 'Microsoft.ManagedIdentity/FederatedIdentityCredentials' feature}"
+# user assigned identity name
+export UAID="fic-test-ua"
+# federated identity name
+export FICID="fic-test-fic-name" 
+```
+
+## Create an Azure Key Vault and secret
+
+Use the Azure CLI [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command to create a Key Vault in the resource group created earlier.
+
+```azurecli
+az keyvault create --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --name "${KEYVAULT_NAME}"
+```
+
+The output of this command shows properties of the newly created key vault. Take note of the two properties listed below:
+
+* **Vault Name**: The name you provided to the --name parameter above.
+* **Vault URI**: In the example, this is https://<your-unique-keyvault-name>.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+
+At this point, your Azure account is the only one authorized to perform any operations on this new vault.
+
+To add a secret to the vault, you need to run the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command to create it. The password is the value you specified for the environment variable `KEYVAULT_SECRET_NAME` and stores the value of **Hello\!** in it.
+
+```azurecli
+az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value "Hello\!" 
+```
+
+## Create a Managed Identity and grant permissions to access the secret
+
+Use the Azure CLI [az account set](/cli/azure/account#az-account-set) command to set a specific subscription to be the current active subscription, and then the [az identity create](/cli/azure/identity#az-identity-create) command to create a Managed Identity.
+
+```azurecli
+az account set --subscription "${SUBSCRIPTION}"
+```
+
+```azurecli
+az identity create --name "${UAID}" --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --subscription "${SUBSCRIPTION}"
+```
+
+Next, you need to set an access policy for the Managed Identity to access the keyvault secret by running the following commands:
+
+```bash
+export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${UAID}" --query 'clientId' -otsv)"
+```
+
+```azurecli
+az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
+```
+
+### Create Kubernetes service account
+
+Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command.
+
+```azurecli
+az aks get-credentials -n aks -g MyResourceGroup 
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+ kind: ServiceAccount
+ metadata:
+   annotations:
+     azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
+   labels:
+     azure.workload.identity/use: "true"
+   name: ${SERVICE_ACCOUNT_NAME}
+   namespace: ${SERVICE_ACCOUNT_NAMESPACE}
+ EOF
+```
+
+The following output resemble successful creation of the identity:
+
+```output
+Serviceaccount/workload-identity-sa created
+```
+
+## Establish federated identity credential
+
+Use the [az rest](/cli/azure/reference-index#az-rest) command to invoke a custom request to establish the federated identity credential between the Managed Identity, the service account issuer, and the subject.
+
+```azurecli
+az rest --method put --url "/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESOURCE_GROUP}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/${UAID}/federatedIdentityCredentials/${FICID}?api-version=2022-01-31-PREVIEW" --headers "Content-Type=application/json" --body "{'properties':{'issuer':'${AKS_OIDC_ISSUER}','subject':'system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}','audiences':['api://AzureADTokenExchange'] }}"
+```
+
+## Deploy the workload
+
+Run the following to deploy a pod that references the service account created in the previous step.
+
+```azurecli
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+ kind: Pod
+ metadata:
+   name: quick-start
+   namespace: ${SERVICE_ACCOUNT_NAMESPACE}
+ spec:
+   serviceAccountName: ${SERVICE_ACCOUNT_NAME}
+   containers:
+     - image: ghcr.io/azure/azure-workload-identity/msal-go
+       name: oidc
+       env:
+       - name: KEYVAULT_NAME
+         value: ${KEYVAULT_NAME}
+       - name: SECRET_NAME
+         value: ${KEYVAULT_SECRET_NAME}
+   nodeSelector:
+     kubernetes.io/os: linux
+ EOF
+```
+
+The following output resembles successful creation of the pod:
+
+```output
+Pod/quick-start created
+```
+
+To check whether all properties are injected properly by the webhook, use
+the [kubectl describe](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
+
+```bash
+kubectl describe pod quick-start
+```
+
+To verify that pod is able to get a token and access the secret from the Key Vault, use the
+[kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) command:
+
+```bash
+kubectl logs quick-start
+```
+
+The following output resembles successful access of the token:
+
+```outout
+I1013 22:49:29.872708       1 main.go:30] "successfully got secret" secret="Hello\!"
+```
+
+## Clean up resources
+
+Other tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent tutorials, you may wish to leave these resources in place.
+
+When no longer needed, you can run the following Kubectl and the Azure CLI commands to remove the resource group and all related resources.
+
+
+```bash
+kubectl delete pod quick-start
+```
+
+```bash
+kubectl delete sa "${SERVICE_ACCOUNT_NAME}" --namespace "${SERVICE_ACCOUNT_NAMESPACE}"
+```
+
+```azurecli
+az group delete --name "${RESOURCE_GROUP}"
+```
+
+## Next steps
+
+In this quickstart, you deployed a Kubernetes cluster and then deployed a simple container application to
+test working with a Managed Identity.
+
+To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
+
+> [!div class="nextstepaction"]
+> [AKS tutorial][aks-tutorial]
+
+This quickstart is for introductory purposes. For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
