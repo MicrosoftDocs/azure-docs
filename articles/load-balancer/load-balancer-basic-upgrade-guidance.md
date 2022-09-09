@@ -1,5 +1,5 @@
 ---
-title: Upgrading a basic Load Balancer guidance
+title: Upgrading from Basic Load Balancer - Guidance
 description: Upgrade guidance for migrating basic Load Balancer to standard Load Balancer
 author: mbender-ms
 ms.service: load-balancer
@@ -10,7 +10,7 @@ ms.date: 09/08/2022
 
 # Upgrading a basic Load Balancer guidance
 
-On September 30, 2025, Basic public IP addresses will be retired. For more information, see the official announcement. If you use Basic SKU public IP addresses, make sure to upgrade to Standard SKU public IP addresses prior to that date. This article will help guide you with the upgrade. 
+On September 30, 2025, Basic Load Balancer will be retired. For more information, see the official announcement. If you use Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to that date. This article will help guide you with the upgrade. 
 
 ## Steps to complete the upgrade 
 
