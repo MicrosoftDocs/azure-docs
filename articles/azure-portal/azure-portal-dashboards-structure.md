@@ -283,7 +283,7 @@ Let’s break down the relevant sections of the JSON.  The top-level properties,
 
 The Azure resource ID, subject to the [naming conventions of Azure resources](/azure/architecture/best-practices/resource-naming). When the portal creates a dashboard, it generally chooses an ID in the form of a guid, but you can use any valid name when you create them programmatically.
 
-When you export a dashboard from the Azure portal, the `id` property is not included. If you import this JSON file to create a new dashboard in the Azure portal, a new ID value will be assigned to each new dashboard.
+When you export a dashboard from the Azure portal, the `id` field is not included. If you import this JSON file to create a new dashboard in the Azure portal, a new ID value will be assigned to each new dashboard.
 
 ### Name
 
