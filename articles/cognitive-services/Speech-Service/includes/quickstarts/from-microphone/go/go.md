@@ -11,7 +11,7 @@ ms.author: trrwilson
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Set up your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
 > * Make sure that you have access to a microphone for audio capture
 
@@ -111,7 +111,7 @@ You're now set up to build your project and test speech recognition using the Sp
 
 
 > [!NOTE]
-> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+> The Speech SDK will default to recognizing using en-us for the language, see [How to recognize speech](../../../../how-to-recognize-speech.md) for information on choosing the source language.
 
 
 ## Next steps

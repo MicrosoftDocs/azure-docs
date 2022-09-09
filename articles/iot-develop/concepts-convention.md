@@ -3,7 +3,7 @@ title: IoT Plug and Play conventions | Microsoft Docs
 description: Description of the conventions IoT Plug and Play expects devices to use when they send telemetry and properties, and handle commands and property updates.
 author: rido-min
 ms.author: rmpablos
-ms.date: 04/06/2022
+ms.date: 05/11/2022
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
@@ -34,9 +34,13 @@ To identify the model that a device or module implements, a service can get the 
 
 ## Telemetry
 
-Telemetry sent from a no component device doesn't require any extra metadata. The system adds the `dt-dataschema` property.
+- Telemetry sent from a no component device doesn't require any extra metadata. The system adds the `dt-dataschema` property.
+- Telemetry sent from a device using components must add the component name to the telemetry message. 
+- When using MQTT add the `$.sub` property with the component name to the telemetry topic, the system adds the `dt-subject` property. 
+- When using AMQP add the `dt-subject` property with the component name as a message annotation.
 
-Telemetry sent from a multiple component device must add `$.sub` as a message property. The system adds the `dt-subject` and `dt-dataschema` properties.
+> [!Note] 
+> Telemetry from components requires one message per component.
 
 ## Read-only properties
 

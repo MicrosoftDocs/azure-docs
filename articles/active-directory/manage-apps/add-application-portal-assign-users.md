@@ -1,6 +1,5 @@
 ---
 title: 'Quickstart: Create and assign a user account'
-titleSuffix: Azure AD
 description: Create a user account in your Azure Active Directory tenant and assign it to an application.
 services: active-directory
 author: omondiatieno
@@ -67,4 +66,4 @@ If you are planning to complete the next quickstart, keep the application that y
 
 Learn how to set up single sign-on for an enterprise application.
 > [!div class="nextstepaction"]
-> [Enable single sign-on](add-application-portal-setup-sso.md)
+> [Enable single sign-on](what-is-single-sign-on.md)

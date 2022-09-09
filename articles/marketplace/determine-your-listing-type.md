@@ -29,7 +29,6 @@ This table shows which listing options are available for each offer type:
 | Managed Service |  |  |  | &#10004;<sup>1</sup> |
 | Power BI App |  |  |  | &#10004;<sup>1</sup> |
 | Software as a service | &#10004; | &#10004; | &#10004; | &#10004;<sup>1</sup> |
-||||||
 
 <sup>1</sup> The **Get It Now** listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For more information, see [Get It Now](#get-it-now).
 
@@ -81,7 +80,6 @@ This table shows which offer types support the pricing options that are included
 | Power BI App | &#10004; |   |   |   |
 | Azure Virtual Machine |   | &#10004; |   | &#10004;<sup>2</sup> |
 | Software as a service | &#10004; |   | &#10004; | &#10004; |
-||||||
 
 <sup>1</sup> The **Pricing model** column of the **Plan overview** tab shows **Free** or **BYOL**, but it's not selectable.
 
@@ -146,7 +144,6 @@ The following table shows the options that are available for different offer typ
 | Dynamics 365 apps on Dataverse and Power Apps | AppSource | AppSource |   |   | AppSource <sup>3</sup>  |
 | Dynamics 365 Operations Apps | AppSource | AppSource |   |   |   |
 | Power BI App |   |   | AppSource |   |   |
-|||||||
 
 <sup>1</sup> SaaS transactable offers in AppSource only accept credit cards at this time.
 

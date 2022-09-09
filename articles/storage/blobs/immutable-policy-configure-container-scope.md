@@ -3,12 +3,12 @@ title: Configure immutability policies for containers
 titleSuffix: Azure Storage
 description: Learn how to configure an immutability policy that is scoped to a container. Immutability policies provide WORM (Write Once, Read Many) support for Blob Storage by storing data in a non-erasable, non-modifiable state.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 12/01/2021
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -19,6 +19,9 @@ ms.devlang: azurecli
 Immutable storage for Azure Blob Storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. While in a WORM state, data cannot be modified or deleted for a user-specified interval. By configuring immutability policies for blob data, you can protect your data from overwrites and deletes. Immutability policies include time-based retention policies and legal holds. For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
 An immutability policy may be scoped either to an individual blob version or to a container. This article describes how to configure a container-level immutability policy. To learn how to configure version-level immutability policies, see [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md).
+
+> [!NOTE]
+> Immutability policies are not supported in accounts that have the Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
 
 ## Configure a retention policy on a container
 

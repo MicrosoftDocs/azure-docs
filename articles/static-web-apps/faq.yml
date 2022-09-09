@@ -33,9 +33,9 @@ sections:
       - question: |
           Can I customize the build process?
         answer: |
-          If you want complete control over how to build your app, you can configure your own build steps in your app's GitHub workflow or Azure DevOps pipeline. You can then use the Static Web Apps GitHub Action or Azure Pipelines task to deploy your app. Ensure that you set `skip_app_build` to `true`. To learn more, see [Build configuration](build-configuration.md?skip-building-front-end-app).
+          If you want complete control over how to build your app, you can configure your own build steps in your app's GitHub workflow or Azure DevOps pipeline. You can then use the Static Web Apps GitHub Actions or Azure Pipelines task to deploy your app. Ensure that you set `skip_app_build` to `true`. To learn more, see [Build configuration](build-configuration.md?skip-building-front-end-app).
 
-          The `skip_app_build` command is currently only supported for the frontend app. The API app must be built by the Azure Static Web Apps GitHub Action or Azure Pipelines task.
+          The `skip_app_build` command is currently only supported for the frontend app. The API app must be built by the Azure Static Web Apps GitHub Actions or Azure Pipelines task.
 
       - question: |
           Can I deploy my app without using GitHub Actions or Azure DevOps?

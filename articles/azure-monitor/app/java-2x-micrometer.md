@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.devlang: java
 ms.custom: devx-track-java
 ms.date: 11/01/2018
+ms.reviewer: mmcc
 ---
 
 # How to use Micrometer with Azure Application Insights Java SDK (not recommended)
@@ -250,7 +251,7 @@ Steps:
 
 To learn more about metrics, refer to the [Micrometer documentation](https://micrometer.io/docs/).
 
-Other sample code on how to create different types of metrics can be found in[the official Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Other sample code on how to create different types of metrics can be found in the [official Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 ## How to bind additional metrics collection
 

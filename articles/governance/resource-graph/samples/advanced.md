@@ -1,8 +1,10 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 10/01/2021
+ms.date: 06/15/2022
 ms.topic: sample
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Advanced Resource Graph query samples
 
@@ -435,7 +437,7 @@ az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines'
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend VMId = toupper(substring(id, 0, indexof(id, '/extensions'))), ExtensionName = name ) on $left.JoinID == $right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
+Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend VMId = toupper(substring(id, 0, indexof(id, '/extensions'))), ExtensionName = name ) on `$left.JoinID == `$right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
 ```
 
 # [Portal](#tab/azure-portal)

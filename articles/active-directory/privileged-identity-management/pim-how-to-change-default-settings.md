@@ -3,8 +3,8 @@ title: Configure Azure AD role settings in PIM - Azure AD | Microsoft Docs
 description: Learn how to configure Azure AD role settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 11/12/2021
-ms.author: curtand
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -90,7 +90,7 @@ You can require that users enter a business justification when they activate. To
 
 ## Require ticket information on activation
 
-If your organization uses a ticketing system to track help desk items or change requests for your enviornment, you can select the **Require ticket information on activation** box to require the elevation request to contain the name of the ticketing system (optional, if your organization uses multiple systems) and the ticket number that prompted the need for role activation.
+If your organization uses a ticketing system to track help desk items or change requests for your environment, you can select the **Require ticket information on activation** box to require the elevation request to contain the name of the ticketing system (optional, if your organization uses multiple systems) and the ticket number that prompted the need for role activation.
 
 ## Require approval to activate
 
@@ -103,8 +103,55 @@ If setting multiple approvers, approval completes as soon as one of them approve
     ![Select a user or group pane to select approvers](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Select at least one user and then click **Select**. Select at least one approver. If no specific approvers are selected, Privileged Role Administrators and Global Administrators become the default approvers.
+   > [!Note]
+   > An approver does not have to have an Azure AD administrative role themselves. They can be a regular user, such as an IT executive.
 
 1. Select **Update** to save your changes.
+
+## Manage role settings through Microsoft Graph
+
+To manage settings for Azure AD roles through Microsoft Graph, use the [unifiedRoleManagementPolicy resource type and related methods](/graph/api/resources/unifiedrolemanagementpolicy).
+
+In Microsoft Graph, role settings are referred to as rules and they're assigned to Azure AD roles through container policies. Each Azure AD role is assigned a specific policy object. You can retrieve all policies that are scoped to Azure AD roles and for each policy, retrieve the associated collection of rules through an `$expand` query parameter. The syntax for the request is as follows:
+
+```http
+GET https://graph.microsoft.com/v1.0/policies/roleManagementPolicies?$filter=scopeId eq '/' and scopeType eq 'DirectoryRole'&$expand=rules
+```
+
+Rules are grouped into containers. The containers are further broken down into rule definitions that are identified by unique IDs for easier management. For example, a **unifiedRoleManagementPolicyEnablementRule** container exposes three rule definitions identified by the following unique IDs.
+
++ `Enablement_Admin_Eligibility` - Rules that apply for admins to carry out operations on role eligibilities. For example, whether justification is required, and whether for all operations (for example, renewal, activation, or deactivation) or only for specific operations.
++ `Enablement_Admin_Assignment` - Rules that apply for admins to carry out operations on role assignments. For example, whether justification is required, and whether for all operations (for example, renewal, deactivation, or extension) or only for specific operations.
++ `Enablement_EndUser_Assignment` - Rules that apply for principals to enable their assignments. For example, whether multifactor authentication is required.
+
+
+To update these rule definitions, use the [update rules API](/graph/api/unifiedrolemanagementpolicyrule-update). For example, the following request specifies an empty **enabledRules** collection, therefore deactivating the enabled rules for a policy, such as multifactor authentication, ticketing information and justification.
+
+```http
+PATCH https://graph.microsoft.com/v1.0/policies/roleManagementPolicies/DirectoryRole_cab01047-8ad9-4792-8e42-569340767f1b_70c808b5-0d35-4863-a0ba-07888e99d448/rules/Enablement_EndUser_Assignment
+{
+    "@odata.type": "#microsoft.graph.unifiedRoleManagementPolicyEnablementRule",
+    "id": "Enablement_EndUser_Assignment",
+    "enabledRules": [],
+    "target": {
+        "caller": "EndUser",
+        "operations": [
+            "all"
+        ],
+        "level": "Assignment",
+        "inheritableSettings": [],
+        "enforcedSettings": []
+    }
+}
+```
+
+You can retrieve the collection of rules that are applied to all Azure AD roles or a specific Azure AD role through the [unifiedroleManagementPolicyAssignment resource type and related methods](/graph/api/resources/unifiedrolemanagementpolicyassignment). For example, the following request uses the `$expand` query parameter to retrieve the rules that are applied to an Azure AD role identified by **roleDefinitionId** or **templateId** `62e90394-69f5-4237-9190-012177145e10`.
+
+```http
+GET https://graph.microsoft.com/v1.0/policies/roleManagementPolicyAssignments?$filter=scopeId eq '/' and scopeType eq 'DirectoryRole' and roleDefinitionId eq '62e90394-69f5-4237-9190-012177145e10'&$expand=policy($expand=rules)
+```
+
+For more information about managing role settings through PIM, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim).
 
 ## Next steps
 

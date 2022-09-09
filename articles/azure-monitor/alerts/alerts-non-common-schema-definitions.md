@@ -4,6 +4,7 @@ description: Understanding the non-common alert schema definitions for Azure Mon
 author: issahn
 ms.topic: conceptual
 ms.date: 01/25/2022
+ms.reviewer: issahn
 ---
 
 # Non-common alert schema definitions for Test Action Group (Preview)

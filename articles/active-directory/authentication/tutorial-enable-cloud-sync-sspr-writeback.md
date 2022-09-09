@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 10/25/2021
+ms.date: 08/22/2022
 ms.author: justinha
 author: justinha
 ms.reviewer: tilarso
@@ -45,7 +45,7 @@ Permissions for cloud sync are configured by default. If permissions need to be 
 
 ### Enable password writeback in Azure AD Connect cloud sync
 
-For public preview, you need to enable password writeback in Azure AD Connect cloud sync by using the Set-AADCloudSyncPasswordWritebackConfiguration cmdlet on the servers with the provisioning agents. You will need global administrator credentials: 
+For public preview, you need to enable password writeback in Azure AD Connect cloud sync by running `Set-AADCloudSyncPasswordWritebackConfiguration` on any server with the provisioning agent. You will need global administrator credentials: 
 
 ```powershell
 Import-Module 'C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll' 
@@ -58,7 +58,7 @@ With password writeback enabled in Azure AD Connect cloud sync, now verify, and 
 
 To verify and enable password writeback in SSPR, complete the following steps: 
 
-1. Sign into the Azure portal using a global administrator account. 
+1. Sign into the Azure portal using a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) account. 
 1. Navigate to Azure Active Directory, select **Password reset**, then choose **On-premises integration**. 
 1. Verify the Azure AD Connect cloud sync agent set up is complete.
 1. Set **Write back passwords to your on-premises directory?** to **Yes**. 
@@ -72,12 +72,12 @@ To verify and enable password writeback in SSPR, complete the following steps:
 
 If you no longer want to use the SSPR password writeback functionality you have configured as part of this document, complete the following steps: 
 
-1. Sign into the Azure portal using a global administrator account. 
+1. Sign into the Azure portal using a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) account. 
 1. Search for and select Azure Active Directory, select **Password reset**, then choose **On-premises integration**. 
 1. Set **Write back passwords to your on-premises directory?** to **No**. 
 1. Set **Allow users to unlock accounts without resetting their password?** to **No**. 
 
-From your Azure AD Connect cloud sync server, run `Set-AADCloudSyncPasswordWritebackConfiguration` using global administrator credentials to disable password writeback with Azure AD Connect cloud sync. 
+From your Azure AD Connect cloud sync server, run `Set-AADCloudSyncPasswordWritebackConfiguration` using Hybrid Identity Administrator credentials to disable password writeback with Azure AD Connect cloud sync. 
 
 ```powershell
 Import-Module ‘C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll’ 

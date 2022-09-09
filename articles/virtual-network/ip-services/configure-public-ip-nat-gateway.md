@@ -65,7 +65,7 @@ In this section, you'll create a NAT gateway resource. You'll select the IP addr
 7. Select **Create**.
 
 > [!NOTE]
-> This is a simple deployment of a NAT gateway. For advanced configuration and setup, see [Tutorial: Create a NAT gateway using the Azure portal](../nat-gateway/tutorial-create-nat-gateway-portal.md)
+> This is a simple deployment of a NAT gateway. For advanced configuration and setup, see [Quickstart: Create a NAT gateway using the Azure portal](../nat-gateway/quickstart-create-nat-gateway-portal.md)
 >
 > For more information on Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../nat-gateway/nat-overview.md)
 

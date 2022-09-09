@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/22/2019
 ms.author: martinle
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
 # Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
-This document contains recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
+This document contains recommendations on choosing the ideal number of data warehouse units (DWUs) for dedicated SQL pool (formerly SQL DW) to optimize price and performance, and how to change the number of units.
 
 ## What are Data Warehouse Units
 
@@ -45,7 +45,7 @@ The Service Level Objective (SLO) is the scalability setting that determines the
 The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your dedicated SQL pool (formerly SQL DW). The service levels for Gen2 dedicated SQL pool (formerly SQL DW) are measured in data warehouse units (DWU), for example DW2000c.
 
 > [!NOTE]
-> Dedicated SQL pool (formerly SQL DW) Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing data warehouses currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
+> Dedicated SQL pool (formerly SQL DW) Gen2 recently added additional scale capabilities to support compute tiers as low as DW100c. Existing data warehouses currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 In T-SQL, the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your dedicated SQL pool (formerly SQL DW).
 

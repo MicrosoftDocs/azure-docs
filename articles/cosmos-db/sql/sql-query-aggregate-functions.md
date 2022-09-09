@@ -1,12 +1,13 @@
 ---
 title: Aggregate functions in Azure Cosmos DB
 description: Learn about SQL aggregate function syntax, types of aggregate functions supported by Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # Aggregate functions in Azure Cosmos DB

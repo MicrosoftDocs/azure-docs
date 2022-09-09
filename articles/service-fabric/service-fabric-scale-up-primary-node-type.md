@@ -1,11 +1,14 @@
 ---
 title: Scale up an Azure Service Fabric primary node type 
 description: Vertically scale your Service Fabric cluster by adding a new node type and removing the previous one.
-ms.date: 12/11/2020
-ms.author: pepogors
-ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Scale up a Service Fabric cluster primary node type
 
 This article describes how to scale up a Service Fabric cluster primary node type with minimal downtime. In-place SKU upgrades are not supported on Service Fabric cluster nodes, as such operations potentially involve data and availability loss. The safest, most reliable, and recommended method for scaling up a Service Fabric node type is to:

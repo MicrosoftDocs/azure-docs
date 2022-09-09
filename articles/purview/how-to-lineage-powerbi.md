@@ -6,11 +6,18 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 08/11/2022
 ---
 # How to get lineage from Power BI into Microsoft Purview
 
 This article elaborates on the data lineage aspects of Power BI source in Microsoft Purview. The prerequisite to see data lineage in Microsoft Purview for Power BI is to [scan your Power BI.](../purview/register-scan-power-bi-tenant.md) 
+
+>[!IMPORTANT]
+> Currently, supported sources for Power BI Lineage are:
+> * Azure SQL
+> * Azure Storage
+> * Azure Data Lake Store Gen1
+> * Azure Data Lake Store Gen2
 
 ## Common scenarios
 

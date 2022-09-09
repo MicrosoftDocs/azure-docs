@@ -167,4 +167,4 @@ Now that you've learned the basics of Queue Storage, follow these links to learn
 - Visit the [Azure Storage team blog](/archive/blogs/windowsazurestorage/)
 - Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
-For a comparison between Azure Queue Storage discussed in this article and Azure Service Bus queues discussed in [How to use Service Bus queues](/azure/service-bus-messaging/service-bus-quickstart-portal), see [Azure Queue Storage and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+For a comparison between Azure Queue Storage discussed in this article and Azure Service Bus queues discussed in [How to use Service Bus queues](../../service-bus-messaging/service-bus-quickstart-portal.md), see [Azure Queue Storage and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

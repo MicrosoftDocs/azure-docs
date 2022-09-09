@@ -4,7 +4,7 @@ description: Troubleshoot VM insights installation.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/15/2021
+ms.date: 06/08/2022
 ms.custom: references_regions
 
 ---

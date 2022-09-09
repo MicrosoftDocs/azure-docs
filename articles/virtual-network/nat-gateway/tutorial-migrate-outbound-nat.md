@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
-ms.date: 1/11/2022
+ms.date: 5/25/2022
 ms.custom: template-tutorial 
 ---
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
     * The load balancer name used in the examples is **myLoadBalancer**.
 
 > [!NOTE]
-> Virtual Network NAT provides outbound connectivity for standard internal load balancers. To configure create a NAT gateway resource and associate it to your subnet. For more information on integrating a NAT gateway with your internal load balancers, see [Tutorial: Integrate NAT gateway with an internal load balancer - Azure portal - Virtual Network NAT](tutorial-nat-gateway-load-balancer-internal-portal.md).
+> Virtual Network NAT provides outbound connectivity for standard internal load balancers. For more information on integrating a NAT gateway with your internal load balancers, see [Tutorial: Integrate a NAT gateway with an internal load balancer using Azure portal](tutorial-nat-gateway-load-balancer-internal-portal.md).
 
 ## Migrate default outbound access
 
@@ -45,7 +45,7 @@ In this section, you’ll learn how to change your outbound connectivity method 
 
 3. In **NAT gateways**, select **+ Create**.
 
-4. In **Create network address translation (NAT) gateway**, enter or select the following information.
+4. In **Create network address translation (NAT) gateway**, enter or select the following information in the **Basics** tab.
 
     | Setting | Value |
     | ------- | ----- |
@@ -113,7 +113,7 @@ In this section, you’ll create a NAT gateway with the IP address previously us
 
 2. In **NAT gateways**, select **+ Create**.
 
-3. In **Create network address translation (NAT) gateway**, enter or select the following information.
+3. In **Create network address translation (NAT) gateway**, enter or select the following information in the **Basics** tab.
 
     | Setting | Value |
     | ------- | ----- |

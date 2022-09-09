@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: sql-dw 
 ms.date: 02/04/2020
 ms.author: wiassaf
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: azure-synapse
 ---
 # Continuous integration and deployment for dedicated SQL pool in Azure Synapse Analytics

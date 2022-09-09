@@ -30,8 +30,8 @@ void EnableDebugRenderingEffects(RenderingSession session, bool highlight)
     // Enable frame counter text overlay on the server side rendering
     settings.RenderFrameCount = true;
 
-    // Enable polygon count text overlay on the server side rendering
-    settings.RenderPolygonCount = true;
+    // Enable triangle-/point count text overlay on the server side rendering
+    settings.RenderPrimitiveCount = true;
 
     // Enable wireframe rendering of object geometry on the server
     settings.RenderWireframe = true;
@@ -46,8 +46,8 @@ void EnableDebugRenderingEffects(ApiHandle<RenderingSession> session, bool highl
     // Enable frame counter text overlay on the server side rendering
     settings->SetRenderFrameCount(true);
 
-    // Enable polygon count text overlay on the server side rendering
-    settings->SetRenderPolygonCount(true);
+    // Enable triangle-/point count text overlay on the server side rendering
+    settings->SetRenderPrimitiveCount(true);
 
     // Enable wireframe rendering of object geometry on the server
     settings->SetRenderWireframe(true);

@@ -1,6 +1,5 @@
 ---
 title: JavaScript single-page app scenario
-titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (scenario overview) by using the Microsoft identity platform.
 services: active-directory
 author: mmacy

@@ -34,6 +34,10 @@ In this mode, the extension requires the following properties:
 | Fully Qualified Namespace | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Service Bus namespace. | <service_bus_namespace>.servicebus.windows.net  |
 
 Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
+> [!NOTE]
+> When using [Azure App Configuration](../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../articles/key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> 
+> For example, `<CONNECTION_NAME_PREFIX>:fullyQualifiedNamespace`.
 
 [!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
 

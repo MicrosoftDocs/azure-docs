@@ -106,6 +106,9 @@ To configure a policy:
         </on-error>
     </policies>
     ```
+    > [!NOTE]
+    > Set a policy's elements and child elements in the order provided in the policy statement.
+
 1. Select **Save** to propagate changes to the API Management gateway immediately.
     
     The **ip-filter** policy now appears in the **Inbound processing** section.
@@ -174,6 +177,12 @@ Operation scope is configured for a selected API operation.
 
 1. Select **Save** to propagate changes to the API Management gateway immediately.
 
+## Reuse policy configurations
+
+You can create reusable [policy fragments](policy-fragments.md) in your API Management instance. Policy fragments are XML elements containing your configurations of one or more policies. Policy fragments help you configure policies consistently and maintain policy definitions without needing to repeat or retype XML code. 
+
+Use the [`include-fragment`](api-management-advanced-policies.md#IncludeFragment) policy to insert a policy fragment in a policy definition.
+
 ## Use `base` element to set policy evaluation order
 
 If you configure policy definitions at more than one scope, multiple policies could apply to an API request or response. Depending on the order that the policies from the different scopes are applied, the transformation of the request or response could differ.
@@ -181,7 +190,7 @@ If you configure policy definitions at more than one scope, multiple policies co
 In API Management, determine the policy evaluation order by placement of the `base` element in each section in the policy definition at each scope. The `base` element inherits the policies configured in that section at the next broader (parent) scope. The `base` element is included by default in each policy section.
 
 > [!NOTE]
-> To view the effective policies at the current scope, select **Recalculate effective policy** in the policy editor.
+> To view the effective policies at the current scope, select **Calculate effective policy** in the policy editor.
 
 To modify the policy evaluation order using the policy editor:
 

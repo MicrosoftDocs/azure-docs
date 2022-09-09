@@ -1,6 +1,5 @@
 ---
-title: Learn about MSAL | Azure
-titleSuffix: Microsoft identity platform
+title: Learn about MSAL
 description: The Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be the Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
 services: active-directory
 author: mmacy
@@ -32,7 +31,7 @@ MSAL gives you many ways to get tokens, with a consistent API for a number of pl
 > [!VIDEO https://www.youtube.com/embed/zufQ0QRUHUk]
 
 ## Application types and scenarios
-Using MSAL, a token can be acquired from a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.
+Using MSAL, a token can be acquired for a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.
 
 MSAL can be used in many application scenarios, including the following:
 

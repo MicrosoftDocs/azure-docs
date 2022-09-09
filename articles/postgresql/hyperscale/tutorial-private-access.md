@@ -11,6 +11,8 @@ ms.date: 01/14/2022
 
 # Create server group with private access in Azure Database for PostgreSQL - Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 This tutorial creates a virtual machine and a Hyperscale (Citus) server group,
 and establishes [private access](concepts-private-access.md) between
 them.
@@ -49,6 +51,8 @@ For demonstration, we’ll use a virtual machine running Debian Linux, and the
 
 ```sh
 # provision the VM
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 az vm create \
 	--resource-group link-demo \
 	--name link-demo-vm \
@@ -61,6 +65,8 @@ az vm create \
 	--generate-ssh-keys
 
 # install psql database client
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 az vm run-command invoke \
 	--resource-group link-demo \
 	--name link-demo-vm \
@@ -124,13 +130,21 @@ coordinator node of the server group.
 
 ```sh
 # save db URI
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 #
 # obtained from Settings -> Connection Strings in the Azure portal
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 #
 # replace {your_password} in the string with your actual password
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 PG_URI='host=c.link-demo-sg.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require'
 
 # attempt to connect to server group with psql in the virtual machine
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 az vm run-command invoke \
 	--resource-group link-demo \
 	--name link-demo-vm \
@@ -154,6 +168,8 @@ Delete the resource group, and the resources inside will be deprovisioned:
 az group delete --resource-group link-demo
 
 # press y to confirm
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 ```
 
 ## Next steps

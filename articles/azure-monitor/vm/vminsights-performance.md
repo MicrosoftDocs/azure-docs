@@ -4,7 +4,7 @@ description: Performance is a feature of the VM insights that automatically disc
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/31/2020
+ms.date: 06/08/2022
 
 ---
 

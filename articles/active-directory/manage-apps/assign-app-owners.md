@@ -1,6 +1,5 @@
 ---
 title: Assign enterprise application owners
-titleSuffix: Azure AD
 description: Learn how to assign owners to applications in Azure Active Directory
 services: active-directory
 documentationcenter: ''

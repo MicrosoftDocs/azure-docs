@@ -1,11 +1,11 @@
 ---
 title: Azure file shares performance troubleshooting guide
 description: Troubleshoot known performance issues with Azure file shares. Discover potential causes and associated workarounds when these problems are encountered.
-author: jeffpatt24
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/06/2021
-ms.author: jeffpatt
+ms.author: kendownie
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -78,7 +78,8 @@ To determine whether most of your requests are metadata-centric, start by follow
 - Check to see whether the application can be modified to reduce the number of metadata operations.
 - Add a virtual hard disk (VHD) on the file share and mount the VHD from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of a local directly attached storage.
     -   To mount a VHD on a Windows client, use the [Mount-DiskImage](/powershell/module/storage/mount-diskimage) PowerShell cmdlet.
-    -   To mount a VHD on Linux, consult the documentation for your Linux distribution.     
+    -   To mount a VHD on Linux, consult the documentation for your Linux distribution.
+- If you're continuously hitting the metadata operations limit that a single Azure file share can accommodate (2,000 operations per file share), we suggest separating the file share into multiple file shares within the same storage account.
 
 ### Cause 3: Single-threaded application
 

@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 05/25/2022
 ms.author: jasteppe
 ---
 # Open-source projects
@@ -34,9 +34,9 @@ HealthKit
 
 * [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): Provides a simple way to create FHIR Resources from HKObjects
 
-Google Fit on FHIR
+Fit on FHIR
 
-* [microsoft/googlefit-on-fhir](https://github.com/microsoft/googlefit-on-fhir): Bring Google Fit&#174; data to a FHIR service.
+* [microsoft/fit-on-fhir](https://github.com/microsoft/fit-on-fhir): Bring Google Fit&#174; data to a FHIR service.
 
 Health Data Sync
 

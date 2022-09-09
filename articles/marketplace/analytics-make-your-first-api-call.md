@@ -262,7 +262,6 @@ _**Table 1: Description of parameters used in this request example**_
 | `RecurrenceInterval` | Recurrence interval provided during report creation. |
 | `RecurrenceCount` | Recurrence count provided during report creation. |
 | `Format` | CSV and TSV file formats are supported. |
-|||
 
 **Response example**:
 

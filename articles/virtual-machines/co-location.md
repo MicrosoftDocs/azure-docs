@@ -1,13 +1,13 @@
 ---
 title: Proximity placement groups 
 description: Learn about using proximity placement groups in Azure.
-author: cynthn
-ms.author: cynthn
+author: mattmcinnes
+ms.author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: conceptual
 ms.date: 3/07/2021
-ms.reviewer: zivr
+ms.reviewer: 
 ---
 
 # Proximity placement groups
@@ -43,7 +43,8 @@ Proximity placement groups offer colocation in the same data center. However, be
 
 - When you ask for the first virtual machine in the proximity placement group, the data center is automatically selected. In some cases, a second request for a different virtual machine SKU, may fail if it doesn't exist in that data center. In this case, an **OverconstrainedAllocationRequest** error is returned. To avoid this, try changing the order in which you deploy your SKUs or have both resources deployed using a single ARM template.
 - 	In the case of elastic workloads, where you add and remove VM instances, having a proximity placement group constraint on your deployment may result in a failure to satisfy the request resulting in **AllocationFailure** error. 
-- Stopping (deallocate) and starting your VMs as needed is another way to achieve elasticity. Since the capacity is not kept once you stop (deallocate) a VM, starting it again may result in an **AllocationFailure** error.
+- Stopping (deallocate) and starting your VMs as needed is another way to achieve elasticity. Since the capacity is not kept once you stop (deallocate) a VM, starting it again may result in an **AllocationFailure** error. 
+- VM start and redeploy operations will continue to respect the Proximity Placement Group once sucessfully configured.
 
 ## Planned maintenance and Proximity Placement Groups
 

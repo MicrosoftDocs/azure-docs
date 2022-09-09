@@ -2,7 +2,11 @@
 title: Tutorial - Deploy container application to container instance
 description: Azure Container Instances tutorial part 3 of 3 - Deploy container application to Azure Container Instances
 ms.topic: tutorial
-ms.date: 03/21/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: "seodec18, mvc, devx-track-azurecli"
 ---
 

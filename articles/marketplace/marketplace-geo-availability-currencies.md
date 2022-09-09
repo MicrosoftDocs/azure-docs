@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 12/03/2021
+ms.date: 07/27/2022
 ---
 
 # Geographic availability and currency support for the commercial marketplace
@@ -160,8 +160,7 @@ A CSP can purchase an offer in Partner Center in their end customer's currency s
 | Vietnam                             | VN        | USD          | EUR, USD, VND |
 | Yemen                               | YE        | USD          | EUR, USD, YER |
 | Zambia                              | ZM        | USD          | EUR, USD, ZMW |
-| Zimbabwe                            | ZW        | USD          | EUR, USD|
-|   |   |   |
+| Zimbabwe                            | ZW        | USD          | EUR, USD |
 
 \* For customers in Brazil, the commercial marketplace through Cloud Solution Providers (CSP) uses USD.
 
@@ -169,18 +168,23 @@ A CSP can purchase an offer in Partner Center in their end customer's currency s
 
 ## How we convert currency
 
-For all paid offer types, you have the option of entering prices in USD or uploading prices in local currency. Prices entered in USD are automatically converted to local currency when the page is saved. The rates Partner Center uses are updated daily. You can export the prices and review the converted equivalents.
+For all paid offer types, you have the option of entering prices in USD or uploading prices in local currency. Prices entered in USD are automatically converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center.
 
-To adjust any price before you publish, just export the pricing spreadsheet, modify it, and upload it with changes.
+You can export the prices and review the converted equivalents. To ensure prices are right for each locality before you publish them, or to adjust any price before you publish:
 
-> [!NOTE]
-> To ensure prices are right before you publish them, export the pricing spreadsheet and review the prices in each market. See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
+1. Export the pricing spreadsheet.
+1. Review the prices in each market.
+1. Upload the spreadsheet to Partner Center.
 
-The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center. The price shown to customers in the online stores doesn't change unless you republish your offer.
+To change the price of an offer that has already been published, see [Changing prices in active commercial marketplace offers](price-changes.md).
+
+> [!TIP]
+> The price shown to customers in the online stores doesn't change unless you update the price in Partner Center and then republish your offer. The rate will be updated when the scheduled price change is live according to [Changing prices in active commercial marketplace offers](price-changes.md).
 
 Microsoft receives payments from customers in their local currency, and pays you in the currency you selected in Partner Center. Microsoft converts the customer local currency using the exchange rate of the day of purchase.
 
-> [!NOTE]
-> Microsoft converts offer prices using the Microsoft Treasury exchange rates.
+Microsoft converts offer prices using the Microsoft Treasury exchange rates. The price of an offer is always shown to customers in their local currency.
+
+The following illustration shows the currency conversion flow:
 
 [![The currency conversion flow.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)

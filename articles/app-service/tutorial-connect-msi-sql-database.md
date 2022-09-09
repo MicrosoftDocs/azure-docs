@@ -144,10 +144,9 @@ The steps you follow for your project depends on whether you're using [Entity Fr
 1. In Visual Studio, open the Package Manager Console and add the NuGet package [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) and update Entity Framework:
 
     ```powershell
-    Install-Package Azure.Identity -Version 1.5.0
+    Install-Package Azure.Identity
     Update-Package EntityFramework
     ```
-
 1. In your DbContext object (in *Models/MyDbContext.cs*), add the following code to the default constructor.
 
     ```csharp
@@ -237,7 +236,7 @@ Here's an example of the output:
     sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
     ```
 
-1. In the SQL prompt for the database you want, run the following commands to grant the permissions your app needs. For example, 
+1. In the SQL prompt for the database you want, run the following commands to grant the minimum permissions your app needs. For example, 
 
     ```sql
     CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;

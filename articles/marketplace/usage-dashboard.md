@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 02/18/2022
+ms.date: 08/11/2022
 ---
 
 # Usage dashboard in commercial marketplace analytics
@@ -36,25 +36,79 @@ The [Usage dashboard](https://go.microsoft.com/fwlink/?linkid=2166106) displays 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
-    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+    ![The screenshot illustrates selecting the Usage option on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png)
 
 1. In the left menu, select **Usage**.
+
+    [![Screenshot that illustrates the Insights tile on the Partner Center Home page.](./media/usage-dashboard/usage-select.png)](./media/usage-dashboard/usage-select.png#lightbox)
 
 ## Elements of the Usage dashboard
 
 The following sections describe how to use the Usage dashboard and how to read the data.
 
+### Download
+
+You can download data for this dashboard by clicking on the Download option. To download snapshot of the dashboard, click on ‘Download as PDF’ option.
+
+Alternatively, you can also navigate to the [Downloads](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) dashboard and download the report.
+
+![The screenshot illustrates the download option of the Insights page.](./media/usage-dashboard/download-dashboard.png)
+
+### Share
+
+You share the dashboard widgets data via email. Provide recipient email address and message to the email body. Share report URLs by 'Copy link' and 'Share to teams' option and the snapshot of charts data by 'Copy as image' option.
+
+![The screenshot illustrates the share option of the Insights page.](./media/usage-dashboard/share-dashboard.png)
+![The screenshot illustrates the share via email option of the Insights page.](./media/usage-dashboard/share-as-email.png)
+
+### What's new
+
+You can view the recent updates and changes.
+
+![The screenshot illustrates the whats new option of the Insights page.](./media/usage-dashboard/dashboard-whats-new.png)
+
+### About data refresh
+
+Use this option to view the Data source and the Data refresh details like the frequency of data refresh.
+### Got feedback
+
+You can give instant feedback about the report/dashboard with a screenshot.
+
+![The screenshot illustrates the feedback option of the Insights page.](./media/usage-dashboard/dashboard-feedback.png)
+
 ### Month range
 
-You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
+You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range is six months.
 
-[ ![Illustrates the Month filters on the Usage dashboard.](./media/usage-dashboard/usage-dashboard-filters.png) ](./media/usage-dashboard/usage-dashboard-filters.png#lightbox)
+![The screenshot illustrates the Month filters on the Usage dashboard.](./media/usage-dashboard/dashboard-month-range.png)
+![The screenshot illustrates the selection of the time range.](./media/usage-dashboard/dashboard-month-range-select.png)
+
+### Usage page dashboard filters
+
+The Usage page filters are applied at the Usage page level. You can select one or multiple filters to render the chart for the criteria you choose to view, the data you want to see in the Usage orders data grid/export. Filters are applied on the data extracted for the month range that you selected in the upper right corner of the Usage page.
+
+- Sales Channel
+- Is Free Trial
+- Marketplace License Type
+- Marketplace Subscription Id
+- Customer Id
+- Customer Company Name
+- Country
+- Offer Name
+- VM subscription
+
+Each filter is expandable with multiple options that you can select. Filter options are dynamic and based on the selected range.
+
+The widgets and export report for VM Raw usage are like VM Normalized usage with the following distinctions:
+
+- Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores: [number of VM cores] X [hours of raw usage]. VMs designated as "SHAREDCORE" use 1/6th (or 0.1666) the [number of VM cores] multiplier.
+- Raw usage hours are defined as the amount of time VMs have been running in terms of usage units. 
 
 ### Selector for Usage type
 
 You can choose to analyze VM normalized usage, VM raw usage, Metered usage, and Metered usage anomalies from the dropdown picker at the top of the dashboard.
 
-[ ![Screenshot of the dropdown picker on the Usage dashboard.](./media/usage-dashboard/usage-type-picker.png) ](./media/usage-dashboard/usage-type-picker.png#lightbox)
+[![Screenshot of the dropdown picker on the Usage dashboard.](./media/usage-dashboard/usage-type-picker.png)](./media/usage-dashboard/usage-type-picker.png#lightbox)
 
 ### Public and private offer
 
@@ -72,6 +126,8 @@ There are two representations of usage hours: VM normalized usage and VM raw usa
 - Raw usage hours are defined as the amount of time VMs have been running in terms of hours.
 
 [![Illustrates the normalized usage and raw usage data on the Usage dashboard.](./media/usage-dashboard/normalized-usage.png)](./media/usage-dashboard/normalized-usage.png#lightbox)
+
+Click the ellipsis (three dots '...') to copy the widget image, download aggregated widget data as a .csv file, or download the image as a pdf file for sharing purposes.
 
 ### Normalized usage by offers
 
@@ -130,17 +186,18 @@ The widgets and export report for VM Raw usage are similar to VM Normalized usag
 - Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores: [number of VM cores] x [hours of raw usage]. VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) the [number of VM cores] multiplier.
 - Raw usage hours are defined as the amount of time VMs have been running in terms of usage units.
 
-> [!NOTE]
-> You can use the download icon in the upper-right corner of any widget to download the data. You can provide feedback on each of the widgets by selecting the thumbs up or thumbs down icon.
-
 ### Usage details table
 
 The **usage details** table displays a numbered list of the top 500 usage records sorted by usage. Note the following:
 
 - Each column in the grid is sortable.
-- The data can be extracted to a .TSV or .CSV file if the count of the records is less than 500.
-- If records count is over 500, export data will be asynchronously placed in a downloads page that will be available for the next 30 days.
+- The data can be extracted to a '.TSV' or '.CSV' file if the number of the records is less than 500.
+- If records count is over 500, export data will be asynchronously placed on a downloads page that will be available for the next 30 days.
 - Apply filters to **detailed usage data** to display only the data you are interested in. Filter data by country/region, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
+
+Click on the ellipsis (three dots '...') to copy the widget image, download the aggregated widget data as a .csv file, or download the image as a pdf for sharing purposes.
+
+[![Illustrates the Usage details page.](./media/usage-dashboard/usage-details.png)](./media/usage-dashboard/usage-details.png#lightbox)
 
 _**Table 1: Dictionary of data terms**_
 
@@ -190,36 +247,8 @@ _**Table 1: Dictionary of data terms**_
 | Action Taken By | Action Taken By | **Applicable for offers with custom meter dimensions**.<br>Specifies the person who acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | ActionTakenBy |
 | Estimated Financial Impact (USD) | Estimated Financial Impact in USD | **Applicable for offers with custom meter dimensions**.<br>When Partner Center flags an overage usage by the customer for the offer’s custom meter dimension as anomalous, the field specifies the estimated financial impact (in USD) of the anomalous overage usage.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic means, then the value will be null._ | EstimatedFinancialImpactUSD |
 | Asset Id | Asset Id | **Applicable for offers with custom meter dimensions**.<br>The unique identifier of the customer's order subscription for your commercial marketplace service. Virtual machine usage-based offers are not associated with an order. | Asset Id |
-| N/A | Resource Id | The fully qualified ID of the resource, including the resource name and resource type. Note that this is a data field available in download reports only.<br>Use the format:<br> /subscriptions/{guid}/resourceGroups/{resource-group-name}/{resource-provider-namespace}/{resource-type}/{resource-name}<br>**Note**: This field will be deprecated on 10/20/2021. | N/A |
-|||||
-
-### Usage page filters
-
-The **Usage** page filters are applied at the Orders page level. You can select one or multiple filters to render the chart for the criteria you choose to view and the data you want to see in the Usage orders data' grid / export. Filters are applied on the data extracted for the month range that you selected on the top-right corner of the Usage page.
-
-The widgets and export report for VM Raw usage are similar to VM Normalized usage with the following distinctions:
-
-- Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
-- Raw usage hours are defined as the amount of time VMs have been running in terms of usage units.
-
-### Metered billing usage
-
-The **Metered Usage** tab shows usage information for offer types where usage is measured by the per meter dimension. SaaS offer type overage is presented currently. The tab presents graphical representations of overage trends for SaaS metered billing usage:
-
-- **Overage trend by meter dimension**: Displays the monthly overage trend for the selected meter dimension of an offer. The X-Axis represents the month and the Y-Axis represents the overage usage quantity. The unit of measurement of the custom meter is also displayed on the Y-Axis.
-
-    :::image type="content" source="./media/usage-dashboard/metered-usage.png" alt-text="Illustrates the VM Normalized Usage chart on the Usage dashboard.":::
-
-- **Overage trend by SKU**: Represents the trend of usage quantity of the selected meter dimension by SKU/plans. The top five plans with the highest amount of usage for the selected offer are displayed.
-
-- **Overage trend by Customers**: The customer leader board represents a stacked listing of customers with the highest usage hours and are displayed on a _leader board_, ranked by the highest usage of the custom meter. Select a customer in the leader board to view the overage usage trend of a selected meter dimension.
-
-    :::image type="content" source="./media/usage-dashboard/metered-usage-by-customers.png" alt-text="Illustrates the Metered Usage by Customers chart on the Usage dashboard.":::
-
-If you have multiple offers that use custom meters, the metered billing usage report shows usage information for all your offers, according to their custom meter dimensions.
-
-> [!TIP]
-> You can use the download icon in the upper-right corner of any widget to download the data. You can provide feedback on each of the widgets by clicking on the “thumbs up” or “thumbs down” icon.
+| PlanId | PlanID | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a number. | PlanID |
+| Not available | Reference Id | A key to link transactions of usage-based offers with corresponding transactions in the orders report. For SaaS offers with custom meters, this key represents the AssetId. For VM software reservations, this key can be used for linking orders and usage reports. | ReferenceId |
 
 ## Next steps
 

@@ -1,12 +1,13 @@
 ---
 title: PowerShell script to list or get Azure Cosmos DB Gremlin API databases and graphs
 description: Run this Azure PowerShell script to list all or get specific Azure Cosmos DB Gremlin API databases and graphs.
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/02/2022
-ms.author: mjbrown 
+ms.author: sidandrews
+ms.reviewer: mjbrown 
 ms.custom: devx-track-azurepowershell
 ---
 

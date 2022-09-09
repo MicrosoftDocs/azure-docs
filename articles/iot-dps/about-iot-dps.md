@@ -189,5 +189,3 @@ You now have an overview of provisioning IoT devices in Azure. The next step is 
 [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md)
 
 [Create and provision a simulated device](quick-create-simulated-device-tpm.md)
-
-[Set up device for provisioning](tutorial-set-up-device.md)

@@ -11,4 +11,4 @@ The Speech resource subscription key and region are required to create a speech 
 The recognizer instance exposes multiple ways to recognize speech. In this example, speech is recognized once. This functionality lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech. Once the result is yielded, the code will write the recognition reason to the console.
 
 > [!TIP]
-> The Speech SDK will default to recognizing using `en-us` for the language, see [Specify source language for speech to text](../../../how-to-specify-source-language.md) for information on choosing the source language.
+> The Speech SDK will default to recognizing using `en-us` for the language, see [How to recognize speech](../../../how-to-recognize-speech.md) for information on choosing the source language.

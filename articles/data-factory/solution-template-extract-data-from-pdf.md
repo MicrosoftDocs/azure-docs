@@ -37,19 +37,19 @@ This template defines 4 parameters:
 
 ## How to use this solution template
 
-1. Go to template **Extract data from PDF**. Create a **New** connection to your source storage store or choose an existing connection. The source storage store is where you want to copy files from.
+1. Go to template **Extract data from PDF**. Create a **New** connection to your Form Recognizer resource or choose an existing connection.
 
-	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection from a drop down menu to the source in template set up.":::
-
-2. Create a **New** connection to your destination storage store or choose an existing connection.
-
-	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-2.png" alt-text="Screenshot of how to create a new connection or select existing connection from a drop down menu to Form Recognizer in template set up.":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection from a drop down menu to Form Recognizer in template set up.":::
 	
     In your connection to Form Recognizer, make sure to add a **Linked service Parameter**. You will need to use this parameter as your dynamic **Base URL**.
    
    :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-9.png" alt-text="Screenshot of where to add your Form Recognizer linked service parameter.":::
    
    :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-8.png" alt-text="Screenshot of the linked service base URL that references the linked service parameter.":::
+
+2. Create a **New** connection to your destination storage store or choose an existing connection.
+
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-2.png" alt-text="Screenshot of how to create a new connection or select existing connection from a drop down menu to your sink in template set up.":::
    
 3. Select **Use this template**. 
 

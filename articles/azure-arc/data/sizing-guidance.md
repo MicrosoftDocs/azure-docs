@@ -4,6 +4,7 @@ description: Plan for the size of a deployment of Azure Arc-enabled data service
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
@@ -78,7 +79,7 @@ See the [storage-configuration](storage-configuration.md) article for details on
 
 Each SQL managed instance must have the following minimum resource requests and limits:
 
-|Service tier|General purpose|Business critical (preview)|
+|Service tier|General Purpose|Business Critical|
 |---|---|---|
 |CPU request|Minimum: 1; Maximum: 24; Default: 2|Minimum: 1; Maximum: unlimited; Default: 4|
 |CPU limit|Minimum: 1; Maximum: 24; Default: 2|Minimum: 1; Maximum: unlimited; Default: 4|

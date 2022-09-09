@@ -2,10 +2,10 @@
 title: Azure Virtual Desktop RDP Shortpath for managed networks
 titleSuffix: Azure
 description: How to set up RDP Shortpath for managed networks for Azure Virtual Desktop.
-author: gundarev
+author: femila
 ms.topic: conceptual
 ms.date: 03/08/2022
-ms.author: denisgun
+ms.author: femila
 ---
 
 # Azure Virtual Desktop RDP Shortpath for managed networks

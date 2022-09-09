@@ -2,7 +2,7 @@
 title: Use certificates and securely access Azure Key Vault with Batch
 description: Learn how to programmatically access your credentials from Key Vault using Azure Batch.
 ms.topic: how-to
-ms.date: 08/25/2021 
+ms.date: 06/22/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -22,25 +22,7 @@ To authenticate to Azure Key Vault from a Batch node, you need:
 
 ## Obtain a certificate
 
-If you don't already have a certificate, the easiest way to get one is to generate a self-signed certificate using the `makecert` command-line tool.
-
-You can typically find `makecert` in this path: `C:\Program Files (x86)\Windows Kits\10\bin\<arch>`. Open a command prompt as an administrator and navigate to `makecert` using the following example.
-
-```console
-cd C:\Program Files (x86)\Windows Kits\10\bin\x64
-```
-
-Next, use the `makecert` tool to create self-signed certificate files called `batchcertificate.cer` and `batchcertificate.pvk`. The common name (CN) used isn't important for this application, but it's helpful to make it something that tells you what the certificate is used for.
-
-```console
-makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
-```
-
-Batch requires a `.pfx` file. Use the [pvk2pfx](/windows-hardware/drivers/devtest/pvk2pfx) tool to convert the `.cer` and `.pvk` files created by `makecert` to a single `.pfx` file.
-
-```console
-pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificate.pfx -po
-```
+If you don't already have a certificate, [use the PowerShell cmdlet `New-SelfSignedCertificate`](/powershell/module/pki/new-selfsignedcertificate) to make a new self-signed certificate.
 
 ## Create a service principal
 

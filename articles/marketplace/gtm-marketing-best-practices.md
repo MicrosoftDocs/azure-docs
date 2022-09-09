@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 06/23/2021
+ms.date: 05/10/2022
 ---
 
 # Marketing best practices

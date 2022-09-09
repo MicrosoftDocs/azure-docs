@@ -5,14 +5,14 @@ description: Learn how to use the sign-ins using legacy authentication workbook.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenho
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/16/2022
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: besiler 
 
@@ -95,9 +95,9 @@ This workbook supports multiple filters:
 
 - For guidance on blocking legacy authentication in your environment, see [Block legacy authentication to Azure AD with conditional access](../conditional-access/block-legacy-authentication.md).
 
-- Many email protocols that once relied on legacy authentication now support more secure modern authentication methods. If you see legacy email authentication protocols in this workbook, consider migrating to modern authentication for email instead. For more information, see [Deprecation of Basic authentication in Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online).
+- Many email protocols that once relied on legacy authentication now support more secure modern authentication methods. If you see legacy email authentication protocols in this workbook, consider migrating to modern authentication for email instead. For more information, see [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online).
 
-- Some clients can use both legacy authentication or modern authentication depending on client configuration. If you see “modern mobile/desktop client” or “browser” for a client in the Azure AD logs, it is using modern authentication. If it has a specific client or protocol name, such as “Exchange ActiveSync”, it is using legacy authentication to connect to Azure AD. The client types in conditional access, and the Azure AD reporting page in the Azure Portal demarcate modern authentication clients and legacy authentication clients for you, and only legacy authentication is captured in this workbook. 
+- Some clients can use both legacy authentication or modern authentication depending on client configuration. If you see “modern mobile/desktop client” or “browser” for a client in the Azure AD logs, it is using modern authentication. If it has a specific client or protocol name, such as “Exchange ActiveSync”, it is using legacy authentication to connect to Azure AD. The client types in conditional access, and the Azure AD reporting page in the Azure portal demarcate modern authentication clients and legacy authentication clients for you, and only legacy authentication is captured in this workbook. 
 
 
 ## Next steps
@@ -105,4 +105,3 @@ This workbook supports multiple filters:
 - To learn more about identity protection, see [What is identity protection](../identity-protection/overview-identity-protection.md). 
 
 - For more information about Azure AD workbooks, see [How to use Azure AD workbooks](howto-use-azure-monitor-workbooks.md).
-

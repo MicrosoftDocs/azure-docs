@@ -6,10 +6,10 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 
-author: jeff-shepherd
-ms.author: jeffshep
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: overview
-ms.date: 04/02/2020
+ms.date: 06/23/2022
 
 ---
 
@@ -58,7 +58,7 @@ The key differences between these two product offerings are detailed below:
 |Built-in<br>Hosted Notebooks     |   No<br>(requires additional configuration)      |      Yes   |
 |Built-in SSO     | No <br>(requires additional configuration)         |    Yes     |
 |Built-in Collaboration     | No         | Yes        |
-|Pre-installed Tools     |  Jupyter(lab), RStudio Server, VSCode,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab)<br> RStudio Server   |
+|Pre-installed Tools     |  Jupyter(lab), VSCode,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab) |
 
 ## Sample use cases
 

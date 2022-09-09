@@ -1,17 +1,17 @@
 ---
 title: Update or delete an existing load balancer used by virtual machine scale sets
-titleSuffix: Update or delete an existing load balancer used by virtual machine scale sets
+titleSuffix: Azure Load Balancer
 description: With this how-to article, get started with Azure Standard Load Balancer and virtual machine scale sets.
 services: load-balancer
 documentationcenter: na
-author: irenehua
+author: mbender-ms
 ms.custom: seodec18, devx-track-azurecli
 ms.service: load-balancer
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
-ms.author: irenehua
+ms.author: mbender
 ---
 # Update or delete a load balancer used by virtual machine scale sets
 

@@ -25,10 +25,10 @@ This tutorial describes the steps you need to perform in both Adobe Identity Man
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Adobe Identity Management
-> * Disable users in Adobe Identity Management when they do not require access anymore
+> * Remove users in Adobe Identity Management when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and Adobe Identity Management
 > * Provision groups and group memberships in Adobe Identity Management
-> * [Single sign-on](adobe-identity-management-tutorial.md) to Adobe Identity Management (recommended)
+> * Single sign-on to Adobe Identity Management (recommended)
 
 ## Prerequisites
 
@@ -44,22 +44,22 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-1. Determine what data to [map between Azure AD and Adobe Identity Management](../app-provisioning/customize-application-attributes.md). 
+2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine what data to [map between Azure AD and Adobe Identity Management](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Adobe Identity Management to support provisioning with Azure AD
 
 1. Login to [Adobe Admin Console](https://adminconsole.adobe.com/). Navigate to **Settings > Directory Details > Sync**. 
 
-1. Click **Add Sync**.
+2. Click **Add Sync**.
 
     ![Add](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
 
-1. Select **Sync users from Microsoft Azure** and click **Next**.
+3. Select **Sync users from Microsoft Azure** and click **Next**.
 
     ![Screenshot that shows 'Sync users from Microsoft Azure Active Directory' selected.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
-1. Copy and save the **Tenant URL** and the **Secret token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Adobe Identity Management application in the Azure portal.
+4. Copy and save the **Tenant URL** and the **Secret token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Adobe Identity Management application in the Azure portal.
 
     ![Sync](media/adobe-identity-management-provisioning-tutorial/token.png)
 
@@ -80,68 +80,71 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
+> [!VIDEO https://www.youtube.com/embed/k2_fk7BY8Ow]
+
+
 ### To configure automatic user provisioning for Adobe Identity Management in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
     ![Enterprise applications blade](common/enterprise-applications.png)
 
-1. In the applications list, select **Adobe Identity Management**.
+2. In the applications list, select **Adobe Identity Management**.
 
     ![The Adobe Identity Management link in the Applications list](common/all-applications.png)
 
-1. Select the **Provisioning** tab.
+3. Select the **Provisioning** tab.
 
     ![Provisioning tab](common/provisioning.png)
 
-1. Set the **Provisioning Mode** to **Automatic**.
+4. Set the **Provisioning Mode** to **Automatic**.
 
     ![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Adobe Identity Management Tenant URL and Secret Token retrieved earlier from Step 2. Click **Test Connection** to ensure Azure AD can connect to Adobe Identity Management. If the connection fails, ensure your Adobe Identity Management account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input your Adobe Identity Management Tenant URL and Secret Token retrieved earlier from Step 2. Click **Test Connection** to ensure Azure AD can connect to Adobe Identity Management. If the connection fails, ensure your Adobe Identity Management account has Admin permissions and try again.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
     ![Notification Email](common/provisioning-notification-email.png)
 
-1. Select **Save**.
+7. Select **Save**.
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Adobe Identity Management**.
+8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Adobe Identity Management**.
 
-1. Review the user attributes that are synchronized from Azure AD to Adobe Identity Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Adobe Identity Management for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Adobe Identity Management API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Adobe Identity Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Adobe Identity Management for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Adobe Identity Management API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|Required by Adobe Identity Management
-   |---|---|---|---|
-   |userName|String|&check;|&check;   
-   |active|Boolean||
-   |emails[type eq "work"].value|String||
-   |addresses[type eq "work"].country|String||
-   |name.givenName|String||
-   |name.familyName|String||
-   |urn:ietf:params:scim:schemas:extension:Adobe:2.0:User:emailAliases|String||
+   |Attribute|Type|
+   |---|---|
+   |userName|String|
+   |emails[type eq "work"].value|String|
+   |active|Boolean|
+   |addresses[type eq "work"].country|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |urn:ietf:params:scim:schemas:extension:Adobe:2.0:User:emailAliases|String|
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Adobe Identity Management**.
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Adobe Identity Management**.
 
-1. Review the group attributes that are synchronized from Azure AD to Adobe Identity Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Adobe Identity Management for update operations. Select the **Save** button to commit any changes.
+11. Review the group attributes that are synchronized from Azure AD to Adobe Identity Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Adobe Identity Management for update operations. Select the **Save** button to commit any changes.
 
-      |Attribute|Type|Supported for filtering|Required by Adobe Identity Management
-      |---|---|---|---|
-      |displayName|String|&check;|&check;
-      |members|Reference||
+      |Attribute|Type|
+      |---|---|
+      |displayName|String|
+      |members|Reference|
 
-1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. To enable the Azure AD provisioning service for Adobe Identity Management, change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Azure AD provisioning service for Adobe Identity Management, change the **Provisioning Status** to **On** in the **Settings** section.
 
     ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-1. Define the users and/or groups that you would like to provision to Adobe Identity Management by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and/or groups that you would like to provision to Adobe Identity Management by choosing the desired values in **Scope** in the **Settings** section.
 
     ![Provisioning Scope](common/provisioning-scope.png)
 
-1. When you are ready to provision, click **Save**.
+15. When you are ready to provision, click **Save**.
 
     ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -150,11 +153,11 @@ This operation starts the initial synchronization cycle of all users and groups 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
-* Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
-* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
-## More resources
+## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

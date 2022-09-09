@@ -1,8 +1,9 @@
 ---
 title: Pagination in Azure Cosmos DB
 description: Learn about paging concepts and continuation tokens
-author: timsander1
-ms.author: tisande
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual

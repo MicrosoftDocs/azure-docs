@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 05/31/2022
 ---
 
 # Lookup activity in Azure Data Factory and Azure Synapse Analytics

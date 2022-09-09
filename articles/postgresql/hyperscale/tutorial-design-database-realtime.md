@@ -7,11 +7,13 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 06/29/2022
 #Customer intent: As a developer, I want to parallelize queries so that I can make a real-time dashboard application.
 ---
 
 # Tutorial: Design a real-time analytics dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
 

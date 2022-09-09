@@ -1,6 +1,5 @@
 ---
-title: Write a web app that signs in/out users | Azure
-titleSuffix: Microsoft identity platform
+title: Write a web app that signs in/out users
 description: Learn how to build a web app that signs in/out users
 services: active-directory
 author: jmprieur
@@ -72,7 +71,7 @@ else
 
 # [Java](#tab/java)
 
-In our Java quickstart, the sign-in button is located in the [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html) file.
+In the Java quickstart, the sign-in button is located in the [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html) file.
 
 ```html
 <!DOCTYPE html>
@@ -94,13 +93,13 @@ In our Java quickstart, the sign-in button is located in the [main/resources/tem
 
 # [Node.js](#tab/nodejs)
 
-In the Node.js quickstart, there's no sign-in button. The code-behind automatically prompts the user for sign-in when it's reaching the root of the web app.
+In the Node.js quickstart, the code for the sign-in button is located in *index.hbs* template file.
 
-```javascript
-app.get('/', (req, res) => {
-    // authentication logic
-});
-```
+:::code language="hbs" source="~/ms-identity-node/App/views/index.hbs" range="10-11":::
+
+This template is served via the main (index) route of the app:
+
+:::code language="js" source="~/ms-identity-node/App/routes/index.js" range="6-15":::
 
 # [Python](#tab/python)
 
@@ -169,40 +168,9 @@ public class AuthPageController {
 
 # [Node.js](#tab/nodejs)
 
-Unlike other platforms, here the MSAL Node takes care of letting the user sign in from the login page.
+When the user selects the **Sign in** link, which triggers the `/auth/signin` route, the sign-in controller takes over to authenticate the user with Microsoft identity platform. 
 
-```javascript
-
-// 1st leg of auth code flow: acquire a code
-app.get('/', (req, res) => {
-    const authCodeUrlParameters = {
-        scopes: ["user.read"],
-        redirectUri: REDIRECT_URI,
-    };
-
-    // get url to sign user in and consent to scopes needed for application
-    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
-        res.redirect(response);
-    }).catch((error) => console.log(JSON.stringify(error)));
-});
-
-// 2nd leg of auth code flow: exchange code for token
-app.get('/redirect', (req, res) => {
-    const tokenRequest = {
-        code: req.query.code,
-        scopes: ["user.read"],
-        redirectUri: REDIRECT_URI,
-    };
-
-    pca.acquireTokenByCode(tokenRequest).then((response) => {
-        console.log("\nResponse: \n:", response);
-        res.sendStatus(200);
-    }).catch((error) => {
-        console.log(error);
-        res.status(500).send(error);
-    });
-});
-```
+:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="27-107, 135-161":::
 
 # [Python](#tab/python)
 
@@ -355,7 +323,7 @@ In our Java quickstart, the sign-out button is located in the main/resources/tem
 
 # [Node.js](#tab/nodejs)
 
-This sample application does not implement sign-out.
+:::code language="hbs" source="~/ms-identity-node/App/views/index.hbs" range="2, 8":::
 
 # [Python](#tab/python)
 
@@ -431,7 +399,9 @@ In Java, sign-out is handled by calling the Microsoft identity platform `logout`
 
 # [Node.js](#tab/nodejs)
 
-This sample application does not implement sign-out.
+When the user selects the **Sign out** button, the app triggers the `/signout` route, which destroys the session and redirects the browser to Microsoft identity platform sign-out endpoint.
+
+:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="163-174":::
 
 # [Python](#tab/python)
 
@@ -479,7 +449,7 @@ In the Java quickstart, the post-logout redirect URI just displays the index.htm
 
 # [Node.js](#tab/nodejs)
 
-This sample application does not implement sign-out.
+In the Node quickstart, the post-logout redirect URI is used to redirect the browser back to sample home page after the user completes the logout process with the Microsoft identity platform.
 
 # [Python](#tab/python)
 

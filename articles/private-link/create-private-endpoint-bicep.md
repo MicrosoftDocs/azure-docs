@@ -29,7 +29,7 @@ This Bicep file creates a private endpoint for an instance of Azure SQL Database
 
 The Bicep file that this quickstart uses is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/private-endpoint-sql/).
 
-:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.sql/private-endpoint-sql/azuredeploy.json":::
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.sql/private-endpoint-sql/main.bicep":::
 
 The Bicep file defines multiple Azure resources:
 

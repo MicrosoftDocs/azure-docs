@@ -105,7 +105,7 @@ This table lists the methods that you can use to create a virtual network and su
 
 ## Network security groups
 
-A [network security group (NSG)](../virtual-network/virtual-network-vnet-plan-design-arm.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. Traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
+A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. Traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
 
 NSGs contain two sets of rules, inbound and outbound. The priority for a rule must be unique within each set. 
 
@@ -204,9 +204,9 @@ This table lists the methods that you can use to create a NAT gateway resource.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](./nat-gateway/tutorial-create-nat-gateway-portal.md) | Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
-| [Azure PowerShell](./nat-gateway/tutorial-create-nat-gateway-powershell.md) | Includes the use of [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
-| [Azure CLI](./nat-gateway/tutorial-create-nat-gateway-cli.md) | Includes the use of [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure portal](./nat-gateway/quickstart-create-nat-gateway-portal.md) | Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure PowerShell](./nat-gateway/quickstart-create-nat-gateway-powershell.md) | Includes the use of [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure CLI](./nat-gateway/quickstart-create-nat-gateway-cli.md) | Includes the use of [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
 | [Template](./nat-gateway/quickstart-create-nat-gateway-template.md) | Creates a virtual network, subnet, public IP, and NAT gateway resource. |
 
 ## Azure Bastion 

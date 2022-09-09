@@ -2,7 +2,7 @@
 title: Overview of the Azure Relay Node APIs | Microsoft Docs
 description: This article provides an overview of the Node.js API for the Azure Relay service. It also shows how to use the hyco-ws Node package. 
 ms.topic: article
-ms.date: 06/23/2021
+ms.date: 06/21/2022
 ms.custom: devx-track-js
 ---
 
@@ -10,13 +10,13 @@ ms.custom: devx-track-js
 
 ## Overview
 
-The [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node package for Azure Relay Hybrid Connections is built on and extends the ['ws'](https://www.npmjs.com/package/ws) NPM package. This package re-exports all exports of that base package and adds new exports that enable integration with the Azure Relay service Hybrid Connections feature. 
+The [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node package for Azure Relay Hybrid Connections is built on and extends the [`ws`](https://www.npmjs.com/package/ws) NPM package. This package re-exports all exports of that base package and adds new exports that enable integration with the Azure Relay service Hybrid Connections feature. 
 
 Existing applications that `require('ws')` can use this package with `require('hyco-ws')` instead, which also enables hybrid scenarios in which an application can listen for WebSocket connections locally from "inside the firewall" and via Hybrid Connections, all at the same time.
   
 ## Documentation
 
-The APIs are [documented in the main 'ws' package](https://github.com/websockets/ws/blob/master/doc/ws.md). This article describes how this package differs from that baseline. 
+The APIs are [documented in the main `ws` package](https://github.com/websockets/ws/blob/master/doc/ws.md). This article describes how this package differs from that baseline. 
 
 The key differences between the base package and this 'hyco-ws' is that it adds a new server class, exported via `require('hyco-ws').RelayedServer`, and a few helper methods.
 
@@ -185,7 +185,7 @@ This method calls the constructor to create a new instance of the RelayedServer 
  
 ##### relayedConnect
 
-Simply mirroring the `createRelayedServer` helper in function, `relayedConnect` creates a client connection and subscribes to the 'open' event on the resulting socket.
+Mirror the `createRelayedServer` helper in function. The `relayedConnect` method creates a client connection and subscribes to the 'open' event on the resulting socket.
 
 ```JavaScript
 var uri = WebSocket.createRelaySendUri(ns, path);

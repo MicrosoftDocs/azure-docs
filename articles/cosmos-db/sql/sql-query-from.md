@@ -1,12 +1,13 @@
 ---
 title: FROM clause in Azure Cosmos DB
 description: Learn about the SQL syntax, and example for FROM clause for Azure Cosmos DB. This article also shows examples to scope results, and get sub items by using the FROM clause.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # FROM clause in Azure Cosmos DB
@@ -48,9 +49,9 @@ FROM <from_specification>
   
   Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<container_expression>` using following rules:  
   
--  If the expression is a container_name, then container_name will be used as an alias.  
+  -  If the expression is a container_name, then container_name will be used as an alias.  
   
--  If the expression is `<container_expression>`, then property_name, then property_name will be used as an alias. If the expression is a container_name, then container_name will be used as an alias.  
+  -  If the expression is `<container_expression>`, then property_name, then property_name will be used as an alias. If the expression is a container_name, then container_name will be used as an alias.  
   
 - AS `input_alias`  
   
@@ -86,7 +87,7 @@ FROM <from_specification>
   
 ## Remarks
   
-All aliases provided or inferred in the `<from_source>(`s) must be unique. The Syntax `<container_expression>.`property_name is the same as `<container_expression>' ['"property_name"']'`. However, the latter syntax can be used if a property name contains a non-identifier character.  
+All aliases provided or inferred in the `<from_source>`(s) must be unique. The Syntax `<container_expression> '.' property_name` is the same as `<container_expression> '[' "property_name" ']'`. However, the latter syntax can be used if a property name contains a non-identifier character.  
   
 ### Handling missing properties, missing array elements, and undefined values
   

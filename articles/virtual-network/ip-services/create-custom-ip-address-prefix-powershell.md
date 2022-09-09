@@ -57,6 +57,9 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
   
     * After the ROA is complete and submitted, allow at least 24 hours for it to become available to Microsoft, where it will be verified to determine its authenticity and correctness as part of the provisioning process.
 
+> [!NOTE]
+> It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.
+
 ### Certificate readiness
 
 To authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
@@ -84,7 +87,7 @@ The following steps show the steps required to prepare sample customer range (1.
     
     * [RIPE](https://www.ripe.net/manage-ips-and-asns/db/support/updating-the-ripe-database) - edit the "Remarks" of the inetnum record.
     
-    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - in order to edit the prefix record, contact helpdesk@apnic.net.
+    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - edit the “Remarks” of the inetnum record using MyAPNIC.
     
     * For ranges from either LACNIC or AFRINIC registries, create a support ticket with Microsoft.
      

@@ -2,9 +2,6 @@
 title: Auto-pause an Azure Stream Analytics with PowerShell
 description: This article describes how to auto-pause an Azure Stream Analytics job on a schedule with PowerShell
 services: stream-analytics
-author: fleid
-
-ms.author: fleide
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/03/2021
@@ -363,7 +360,7 @@ To check that the alert was set up properly, we can add `throw "Testing the aler
 
 First we'll need a new **Automation Account**. An Automation Account is similar to a solution that can host multiple runbooks.
 
-The procedure is [here](../automation/quickstarts/create-account-portal.md). Here we can select to use a system-assigned managed identity directly in the `advanced` tab.
+The procedure is [here](/azure/automation/quickstarts/create-azure-automation-account-portal). Here we can select to use a system-assigned managed identity directly in the `advanced` tab.
 
 For reference, the Automation team has a [good tutorial](../automation/learn/powershell-runbook-managed-identity.md) to get started on PowerShell runbooks.
 
@@ -425,7 +422,7 @@ We can check that everything is wired properly in the `Test Pane`.
 
 After that we need to `Publish` the job, which will allow us to link the runbook to a schedule. Creating and linking the schedule is a straightforward process that won't be discussed here. Now is a good time to remember that there are [workarounds](../automation/shared-resources/schedules.md#schedule-runbooks-to-run-more-frequently) to achieve schedule intervals under 1 hour.
 
-Finally, we can set up an alert. The first step is to enable logs via the [Diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD#create-in-azure-portal) of the Automation Account. The second step is to capture errors via a query like we did for Functions.
+Finally, we can set up an alert. The first step is to enable logs via the [Diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=cli#create-diagnostic-settings) of the Automation Account. The second step is to capture errors via a query like we did for Functions.
 
 ## Outcome
 

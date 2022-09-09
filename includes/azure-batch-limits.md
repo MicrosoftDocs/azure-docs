@@ -17,6 +17,7 @@
 | Low-priority cores per Batch account | 10-100 | Contact support |
 | **[Active](/rest/api/batchservice/job/get#jobstate)** jobs and job schedules per Batch account (**completed** jobs have no limit) | 100-300 | 1,000<sup>1</sup> |
 | Pools per Batch account | 20-100 | 500<sup>1</sup> |
+| Private endpoint connections per Batch account | 100 | 100 |
 
 <sup>1</sup>To request an increase beyond this limit, contact Azure Support.
 

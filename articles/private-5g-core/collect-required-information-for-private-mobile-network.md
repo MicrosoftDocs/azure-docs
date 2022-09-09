@@ -15,7 +15,7 @@ ms.custom: template-how-to
 This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview. 
 
 - You can use this information to deploy a private mobile network through the [Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
-- Alternatively, you can use the information to quickly deploy a private mobile network with a single site using an [Azure Resource Manager template (ARM template)](deploy-private-mobile-network-with-site-arm-template.md) In this case, you'll also need to [collect information for the site](collect-required-information-for-a-site.md).
+- Alternatively, you can use the information to quickly deploy a private mobile network with a single site using an [Azure Resource Manager template (ARM template)](deploy-private-mobile-network-with-site-arm-template.md). In this case, you'll also need to [collect information for the site](collect-required-information-for-a-site.md).
 
 ## Prerequisites
 
@@ -40,14 +40,18 @@ Each SIM resource represents a physical SIM or eSIM that will be served by the p
 
 As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provision SIMs](provision-sims-azure-portal.md).
 
-If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods:
+If you want to provision SIMs as part of deploying your private mobile network, take the following steps.
 
-- Manually entering values for each SIM into fields in the Azure portal. This option is best when provisioning a few SIMs.
-- Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [JSON file format for provisioning SIMs](#json-file-format-for-provisioning-sims). You'll need to use this option if you're deploying your private mobile network with an ARM template.
+1. Choose a name for a new SIM group to which all of the SIMs you provision will be added. If you need more than one SIM group, you can create additional SIM groups after you've deployed your private mobile network using the instructions in [Manage SIM groups](manage-sim-groups.md).
+  
+1. Choose one of the following methods for provisioning your SIMs:
 
-You must then collect each of the values given in the following table for each SIM resource you want to provision.
+   - Manually entering values for each SIM into fields in the Azure portal. This option is best when provisioning a few SIMs.
+   - Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [JSON file format for provisioning SIMs](#json-file-format-for-provisioning-sims). You'll need to use this option if you're deploying your private mobile network with an ARM template.
 
- |Value  |Field name in Azure portal  | JSON file parameter name |
+1. Collect each of the values given in the following table for each SIM resource you want to provision.
+
+   |Value  |Field name in Azure portal  | JSON file parameter name |
    |---------|---------|---------|
    |The name for the SIM resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM name**|`simName`|
    |The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. It's a unique numerical value between 19 and 20 digits in length, beginning with 89. |**ICCID**|`integratedCircuitCardIdentifier`|

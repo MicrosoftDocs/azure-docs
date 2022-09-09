@@ -15,7 +15,7 @@ ms.date: 11/23/2021
 The question answering Authoring API is used to automate common tasks like adding new question answer pairs, as well as creating, publishing, and maintaining projects/knowledge bases. 
 
 > [!NOTE]
-> Currently authoring functionality is only available via the REST API. This article provides examples of using the REST API with cURL. For full documentation of all parameters and functionality available consult the [REST API reference content](/rest/api/cognitiveservices/questionanswering/question-answering-projects).
+> Authoring functionality is available via the REST API and [Authoring SDK (preview)](/dotnet/api/overview/azure/ai.language.questionanswering-readme-pre). This article provides examples of using the REST API with cURL. For full documentation of all parameters and functionality available consult the [REST API reference content](/rest/api/cognitiveservices/questionanswering/question-answering-projects).
 
 ## Prerequisites
 
@@ -475,7 +475,7 @@ If you try to access the resultUrl directly, you will get a 404 error. You must 
 
 ```bash
 curl -X POST -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: application/json" -d '{
-      "ImportJobOptions": {"fileUri": "FILE-URI-PATH"}
+      "fileUri": "FILE-URI-PATH"
   }' -i 'https://{ENDPOINT}.api.cognitive.microsoft.com/language/query-knowledgebases/projects/{PROJECT-NAME}/:import?api-version=2021-10-01&format=tsv'
 ```
 

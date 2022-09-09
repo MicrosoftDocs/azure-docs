@@ -89,6 +89,10 @@ Modernize your internet first applications on Azure with Cloud Native experience
 
 For a comparison of supported features in Azure Front Door, see [Tier comparison](standard-premium/tier-comparison.md).
 
+## Where is the service available?
+
+Azure Front Door Classic/Standard/Premium SKUs are available in Microsoft Azure (Commercial) and Azure Front Door Classic SKU is available in Microsoft Azure Government (US).
+
 ## Pricing
 
 For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). For information about service-level agreements, See [SLA for Azure Front Door](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0/).

@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 07/30/2020
 ms.custom: include file
-author: anbene
+author: mingshen-ms
 ms.author: mingshen
 ---
 
@@ -33,4 +33,3 @@ ms.author: mingshen
 | Security<ul><li>Identity and Access Management<li>Threat Protection<li>Information Protection | |
 | Storage<ul><li>Backup and Recovery<li>Enterprise Hybrid Storage<li>File Sharing<li>Data Lifecycle Management | |
 | Web<ul><li>Blogs and CMSs<li>Starter Web Apps<li>E-commerce<li>Web App Frameworks<li>Web Apps |
-|
