@@ -157,3 +157,8 @@ Overall, when configuring maximum memory sizes, you should consider the usage of
 ## Java OOM
 
 OOM means the application is out of memory. There are two different concepts: container OOM and JVM OOM. For more information, see [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
+
+## See also
+
+- [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md)
+- [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md)

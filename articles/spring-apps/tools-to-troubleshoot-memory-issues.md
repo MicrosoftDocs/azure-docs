@@ -102,3 +102,8 @@ Some issues you might identify include [container OOM](how-to-fix-app-restart-is
 This feature is available on Azure CLI and on the Azure portal, as shown in the following screenshot:
 
 :::image type="content" source="media/tools-to-troubleshoot-memory-issues/maxdirectmemorysize-location.png" alt-text="Screenshot of Azure portal showing app configuration page with JVM options highlighted." lightbox="media/tools-to-troubleshoot-memory-issues/maxdirectmemorysize-location.png":::
+
+## See also
+
+- [Java memory management](concepts-for-java-memory-management.md)
+- [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md)

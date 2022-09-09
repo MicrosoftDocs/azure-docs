@@ -67,3 +67,8 @@ Normally, you can set `MaxDirectMemorySize` to a value less than the app memory 
 You can set the maximum metaspace size by setting the `-XX:MaxMetaspaceSize` JVM option. The `-XX:MetaspaceSize` option sets the threshold value to trigger full garbage collection.
 
 Metaspace memory is usually stable.
+
+## See also
+
+- [Java memory management](concepts-for-java-memory-management.md)
+- [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md)
