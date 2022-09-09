@@ -362,235 +362,235 @@
       - name: Set up direct sign-in
         href: direct-signin.md    
     # Manage users
-    - name: Manage users 
+  - name: Manage users 
+    items:
+    - name: Manage users via Azure portal
+      href: manage-users-portal.md
+      displayName: create users, add users, delete users
+    - name: Migrate users
+      href: user-migration.md
+      displayName: bulk import
+    - name: Partner integration
       items:
-      - name: Manage users via Azure portal
-        href: manage-users-portal.md
-        displayName: create users, add users, delete users
-      - name: Migrate users
-        href: user-migration.md
-        displayName: bulk import
-      - name: Partner integration
-        items:
-        - name: N8identity
-          href: partner-n8identity.md
-        - name: Saviynt 
-          href: partner-saviynt.md
-        - name: WhoIAM Rampart
-          href: partner-whoiam-rampart.md      
-      # Customize
-    - name: Customize
-      items: 
-      - name: Define custom attributes
-        href: user-flow-custom-attributes.md
-      - name: Customize the UI/UX 
-        items:
-        - name: Configure user input
-          href: configure-user-input.md
-        - name: Customize the UI 
-          displayName: company branding
-          href: customize-ui.md
-        - name: Customize the UI with HTML template
-          displayName: content definitions
-          href: customize-ui-with-html.md
-        - name: Enable JavaScript and page layouts
-          href: javascript-and-page-layout.md
-        - name: Embedded sign-in with iframe
-          displayName: iframe
-          href: embedded-login.md
-        - name: Password complexity
-          href: password-complexity.md
-        - name: Disable email verification
-          href: disable-email-verification.md
-      - name: Customize language
-        href: language-customization.md
-        displayName: localization
-      - name: Use API connectors
-        items:
-        - name: Modify sign-up experiences 
-          href: add-api-connector.md
-          displayName: rest claims validation, validate, third-party integration, outbound webhook, third-party integration
-        - name: Enrich tokens with external claims
-          href: add-api-connector-token-enrichment.md
-          displayName: rest claims exchange, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration
-        - name: Secure an API connector
-          href: secure-rest-api.md
-          displayName: API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration
-      - name: Use custom domains 
-        items:
-        - name: b2clogin.com overview
-          href: b2clogin.md
-        - name: Configure a custom domain
-          href: custom-domain.md
-        - name: Configure web API domains 
-          href: multiple-token-endpoints.md
-          displayName: migrate, b2clogin, owin
-      - name: Customize email verification
-        items:
-        - name: Mailjet
-          href: custom-email-mailjet.md
-          displayName: Custom email, Custom verification email, Verification email
-        - name: SendGrid
-          href: custom-email-sendgrid.md
-          displayName: Custom email, Custom verification email, Verification email
-        displayName: verification
-      - name: UserInfo endpoint
-        href: userinfo-endpoint.md
-      - name: Integrate with our technology partners
-        items:
-        - name: Azure AD B2C partner gallery
-          href: partner-gallery.md      
-      # Secure
-    - name: Secure
+      - name: N8identity
+        href: partner-n8identity.md
+      - name: Saviynt 
+        href: partner-saviynt.md
+      - name: WhoIAM Rampart
+        href: partner-whoiam-rampart.md      
+    # Customize
+  - name: Customize
+    items: 
+    - name: Define custom attributes
+      href: user-flow-custom-attributes.md
+    - name: Customize the UI/UX 
       items:
-        - name: Enable MFA
+      - name: Configure user input
+        href: configure-user-input.md
+      - name: Customize the UI 
+        displayName: company branding
+        href: customize-ui.md
+      - name: Customize the UI with HTML template
+        displayName: content definitions
+        href: customize-ui-with-html.md
+      - name: Enable JavaScript and page layouts
+        href: javascript-and-page-layout.md
+      - name: Embedded sign-in with iframe
+        displayName: iframe
+        href: embedded-login.md
+      - name: Password complexity
+        href: password-complexity.md
+      - name: Disable email verification
+        href: disable-email-verification.md
+    - name: Customize language
+      href: language-customization.md
+      displayName: localization
+    - name: Use API connectors
+      items:
+      - name: Modify sign-up experiences 
+        href: add-api-connector.md
+        displayName: rest claims validation, validate, third-party integration, outbound webhook, third-party integration
+      - name: Enrich tokens with external claims
+        href: add-api-connector-token-enrichment.md
+        displayName: rest claims exchange, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration
+      - name: Secure an API connector
+        href: secure-rest-api.md
+        displayName: API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration
+    - name: Use custom domains 
+      items:
+      - name: b2clogin.com overview
+        href: b2clogin.md
+      - name: Configure a custom domain
+        href: custom-domain.md
+      - name: Configure web API domains 
+        href: multiple-token-endpoints.md
+        displayName: migrate, b2clogin, owin
+    - name: Customize email verification
+      items:
+      - name: Mailjet
+        href: custom-email-mailjet.md
+        displayName: Custom email, Custom verification email, Verification email
+      - name: SendGrid
+        href: custom-email-sendgrid.md
+        displayName: Custom email, Custom verification email, Verification email
+      displayName: verification
+    - name: UserInfo endpoint
+      href: userinfo-endpoint.md
+    - name: Integrate with our technology partners
+      items:
+      - name: Azure AD B2C partner gallery
+        href: partner-gallery.md      
+    # Secure
+  - name: Secure
+    items:
+      - name: Enable MFA
+        items:
+        - name: Multi-factor authentication
+          href: multi-factor-authentication.md
+          displayName: TOTP, multi-factor, multifactor, time-based-one-time password, time-based one-time password, authenticator app, Microsoft authenticator app, mfa, 2fa
+        - name: Secure phone-based MFA
+          href: phone-based-mfa.md
+          displayName: multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard
+        - name: Partner integration
           items:
-          - name: Multi-factor authentication
-            href: multi-factor-authentication.md
-            displayName: TOTP, multi-factor, multifactor, time-based-one-time password, time-based one-time password, authenticator app, Microsoft authenticator app, mfa, 2fa
-          - name: Secure phone-based MFA
-            href: phone-based-mfa.md
-            displayName: multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard
-          - name: Partner integration
-            items:
-            - name: Asignio
-              href: partner-asignio.md
-            - name: BlokSec
-              href: partner-bloksec.md
-            - name: Haventec
-              href: partner-haventec.md
-            - name: HYPR
-              href: partner-hypr.md
-            - name: IDEMIA
-              href: partner-idemia.md
-            - name: itsme
-              href: partner-itsme.md
-            - name: Keyless
-              href: partner-keyless.md
-            - name: Nevis
-              href: partner-nevis.md
-            - name: Nok Nok
-              href: partner-nok-nok.md
-            - name: Transmit Security
-              href: partner-bindid.md
-            - name: Trusona
-              href: partner-trusona.md
-            - name: Twilio
-              href: partner-twilio.md
-            - name: TypingDNA
-              href: partner-typingdna.md
-            - name: WhoIAM
-              href: partner-whoiam.md
-            - name: xID
-              href: partner-xid.md
-        - name: Web Application Firewall partners
-          items:
-          - name: Akamai
-            href: partner-akamai.md
-          - name: Azure WAF
-            href: partner-azure-web-application-firewall.md
-          - name: Cloudflare
-            href: partner-cloudflare.md
-        - name: Fraud protection partners
-          items: 
-          - name: Arkose Labs
-            href: partner-arkose-labs.md
-            displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection
-          - name: BioCatch
-            href: partner-biocatch.md
-            displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection, user behavior
-          - name: Microsoft Dynamics 365 Fraud Protection
-            href: partner-dynamics-365-fraud-protection.md
-            displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
-        - name: Investigate risk with Identity Protection
-          href: identity-protection-investigate-risk.md
-        - name: Configure Conditional Access
-          href: conditional-access-user-flow.md
-        - name: Mitigate credential attacks
-          displayName: smart lockout, account lockout, password attack
-          href: threat-management.md
-        - name: Secure access to legacy and on-premises apps
-          items:
-          - name: Datawiza
-            href: partner-datawiza.md
-          - name: F5
-            href: partner-f5.md
-          - name: Ping Identity
-            href: partner-ping-identity.md
-          - name: Strata
-            href: partner-strata.md
-            displayName: AAD b2c access, legacy app, onpremises apps
-          - name: Zscaler
-            href: partner-zscaler.md
-            displayName: zscaler b2c, vpn, sdp b2c
-        - name: Identity verification and proofing
-          items: 
-          - name: Identity verification and proofing partners
-            href: identity-verification-proofing.md
-            displayName: id verify, id verification, azure ad b2c proofing, id proofing
-          - name: Deduce
-            href: partner-deduce.md
-          - name: eID-Me
-            href: partner-eid-me.md
-          - name: Experian
-            href: partner-experian.md
-          - name: IDology
-            href: partner-idology.md
-          - name: Jumio
-            href: partner-jumio.md
-          - name: LexisNexis
-            href: partner-lexisnexis.md
-          - name: Onfido
-            href: partner-onfido.md
-    # Automate
-    - name: Automate 
-      items:
-      - name: Manage operation with Microsoft Graph API
-        href: microsoft-graph-operations.md
-        displayName: account, accounts, msgraph, ms graph, graph
-      - name: Deploy with Azure Pipelines
-        href: deploy-custom-policies-devops.md
-      - name: Deploy with GitHub Actions
-        href: deploy-custom-policies-github-action.md
-        displayName: azure devops, ci/cd, cicd, custom policy, policies
-      - name: Manage policies with PowerShell
-        href: manage-custom-policies-powershell.md
-        displayName: scripting, scripts, psh, custom policy
-    - name: Monitor and troubleshoot
-      items:
-      - name: Monitoring and threat management
+          - name: Asignio
+            href: partner-asignio.md
+          - name: BlokSec
+            href: partner-bloksec.md
+          - name: Haventec
+            href: partner-haventec.md
+          - name: HYPR
+            href: partner-hypr.md
+          - name: IDEMIA
+            href: partner-idemia.md
+          - name: itsme
+            href: partner-itsme.md
+          - name: Keyless
+            href: partner-keyless.md
+          - name: Nevis
+            href: partner-nevis.md
+          - name: Nok Nok
+            href: partner-nok-nok.md
+          - name: Transmit Security
+            href: partner-bindid.md
+          - name: Trusona
+            href: partner-trusona.md
+          - name: Twilio
+            href: partner-twilio.md
+          - name: TypingDNA
+            href: partner-typingdna.md
+          - name: WhoIAM
+            href: partner-whoiam.md
+          - name: xID
+            href: partner-xid.md
+      - name: Web Application Firewall partners
         items:
-        - name: Azure Monitor
-          href: azure-monitor.md
-        - name: Microsoft Sentinel
-          href: azure-sentinel.md
-          displayName: log, logs, logging, events, Azure Monitor, Microsoft Sentinel, SIEM, threat hunting, Security, Security Orchestration
-      - name: Troubleshooting
+        - name: Akamai
+          href: partner-akamai.md
+        - name: Azure WAF
+          href: partner-azure-web-application-firewall.md
+        - name: Cloudflare
+          href: partner-cloudflare.md
+      - name: Fraud protection partners
+        items: 
+        - name: Arkose Labs
+          href: partner-arkose-labs.md
+          displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection
+        - name: BioCatch
+          href: partner-biocatch.md
+          displayName: fraud protection, fraud, Azure AD b2c, protection, B2Cprotection, user behavior
+        - name: Microsoft Dynamics 365 Fraud Protection
+          href: partner-dynamics-365-fraud-protection.md
+          displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
+      - name: Investigate risk with Identity Protection
+        href: identity-protection-investigate-risk.md
+      - name: Configure Conditional Access
+        href: conditional-access-user-flow.md
+      - name: Mitigate credential attacks
+        displayName: smart lockout, account lockout, password attack
+        href: threat-management.md
+      - name: Secure access to legacy and on-premises apps
         items:
-        - name: Collect logs using Application Insights
-          href: troubleshoot-with-application-insights.md
-          displayName: troubleshooting, app insights
-        - name: Troubleshooting and error handling
-          href: troubleshoot.md
-      - name: Logs 
-        items:
-        - name: Audit logs
-          href: view-audit-logs.md
-          displayName: log, logs, logging, usage, events, reports, reporting, dashboard
-        - name: Usage analytics
-          href: analytics-with-application-insights.md
-          displayName: application insights, app insights, reports, reporting    
-    # Compliance
-    - name: Compliance
+        - name: Datawiza
+          href: partner-datawiza.md
+        - name: F5
+          href: partner-f5.md
+        - name: Ping Identity
+          href: partner-ping-identity.md
+        - name: Strata
+          href: partner-strata.md
+          displayName: AAD b2c access, legacy app, onpremises apps
+        - name: Zscaler
+          href: partner-zscaler.md
+          displayName: zscaler b2c, vpn, sdp b2c
+      - name: Identity verification and proofing
+        items: 
+        - name: Identity verification and proofing partners
+          href: identity-verification-proofing.md
+          displayName: id verify, id verification, azure ad b2c proofing, id proofing
+        - name: Deduce
+          href: partner-deduce.md
+        - name: eID-Me
+          href: partner-eid-me.md
+        - name: Experian
+          href: partner-experian.md
+        - name: IDology
+          href: partner-idology.md
+        - name: Jumio
+          href: partner-jumio.md
+        - name: LexisNexis
+          href: partner-lexisnexis.md
+        - name: Onfido
+          href: partner-onfido.md
+  # Automate
+  - name: Automate 
+    items:
+    - name: Manage operation with Microsoft Graph API
+      href: microsoft-graph-operations.md
+      displayName: account, accounts, msgraph, ms graph, graph
+    - name: Deploy with Azure Pipelines
+      href: deploy-custom-policies-devops.md
+    - name: Deploy with GitHub Actions
+      href: deploy-custom-policies-github-action.md
+      displayName: azure devops, ci/cd, cicd, custom policy, policies
+    - name: Manage policies with PowerShell
+      href: manage-custom-policies-powershell.md
+      displayName: scripting, scripts, psh, custom policy
+  - name: Monitor and troubleshoot
+    items:
+    - name: Monitoring and threat management
       items:
-      - name: User access
-        href: manage-user-access.md
-        displayName: GDPR
-      - name: User data
-        href: manage-user-data.md
-        displayName: GDPR
-      - name: Configure age gating
-        href: age-gating.md
+      - name: Azure Monitor
+        href: azure-monitor.md
+      - name: Microsoft Sentinel
+        href: azure-sentinel.md
+        displayName: log, logs, logging, events, Azure Monitor, Microsoft Sentinel, SIEM, threat hunting, Security, Security Orchestration
+    - name: Troubleshooting
+      items:
+      - name: Collect logs using Application Insights
+        href: troubleshoot-with-application-insights.md
+        displayName: troubleshooting, app insights
+      - name: Troubleshooting and error handling
+        href: troubleshoot.md
+    - name: Logs 
+      items:
+      - name: Audit logs
+        href: view-audit-logs.md
+        displayName: log, logs, logging, usage, events, reports, reporting, dashboard
+      - name: Usage analytics
+        href: analytics-with-application-insights.md
+        displayName: application insights, app insights, reports, reporting    
+  # Compliance
+  - name: Compliance
+    items:
+    - name: User access
+      href: manage-user-access.md
+      displayName: GDPR
+    - name: User data
+      href: manage-user-data.md
+      displayName: GDPR
+    - name: Configure age gating
+      href: age-gating.md
 # Node Reference
 - name: Reference
   items:
