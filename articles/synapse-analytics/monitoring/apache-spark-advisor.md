@@ -46,7 +46,7 @@ This query contains the expression with the `double` type. We recommend that you
 "t.a/t.b/t.c" convert into "t.a/(t.b * t.c)"
 ```
 
-### Enable spark.advise.nonEqJoinConvertRule.enable to improve query performance
+### Improve query performance for non-equal join. 
 This query contains a time-consuming join because of an `Or` condition within the query. We recommend that you enable the configuration `spark.advise.nonEqJoinConvertRule.enable`. It can help convert the join triggered by the `Or` condition to shuffle sort merge join (SMJ) or broadcast hash join (BHJ) to accelerate this query.
 
 ## Other troubleshooting
