@@ -65,7 +65,7 @@ In this tutorial, you'll learn how to:
 
 1. **Get an SPN Token** - Generate the Service Principal Bearer token, which will be used to authenticate further API calls.
 2. **Create a Legal Tag** - Create a legal tag that will be added automatically to the environment for data compliance purpose.
-3. **Create Well** - Creates the wellbore record in Microsoft Energy Data Service instance.
+3. **Create Well** - Creates the wellbore record in Microsoft Energy Data Services instance.
    :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-create-well.png" alt-text="Screenshot of creating a Well." lightbox="media/tutorial-wellbore-ddms/tutorial-create-well.png":::
 4. **Get Wells** - Returns the well data created in the last step.
   :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-wells.png" alt-text="Screenshot of getting all wells." lightbox="media/tutorial-wellbore-ddms/tutorial-get-wells.png":::
