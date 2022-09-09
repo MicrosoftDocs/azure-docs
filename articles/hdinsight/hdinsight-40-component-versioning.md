@@ -28,10 +28,9 @@ The Open-source component versions associated with HDInsight 4.0 are listed in t
 | Apache Phoenix         | 5             |
 | Apache Spark           | 2.4.4, 3.1|
 | Apache Livy            | 0.5           |
-| Apache Kafka           | 2.1.1, 2.4.1(Preview)        |
+| Apache Kafka           | 2.1.1, 2.4.1|
 | Apache Ambari          | 2.7.0         |
 | Apache Zeppelin        | 0.8.0         |
-
 
 This table lists certain HDInsight 4.0 cluster types that have retired or will be retired soon.
 
@@ -48,3 +47,4 @@ This table lists certain HDInsight 4.0 cluster types that have retired or will b
 - [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Enterprise Security Package](./enterprise-security-package.md)
 - [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
+
