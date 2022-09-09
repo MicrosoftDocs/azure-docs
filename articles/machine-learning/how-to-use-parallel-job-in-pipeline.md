@@ -172,6 +172,7 @@ Entry script is a single python file where user needs to implement three predefi
 | Shutdown() | N | Optional function to do custom cleans up before returning the compute back to pool. | -- | -- |
 
 Once you have entry script ready, you can set following two attributes to use it in your parallel job:
+
 | Attribute name | Type | Description | Default value |
 |: ------------- | ---- |: ---------- | ------------- |
 | `code` | string | Local path to the source code directory to be uploaded and used for the job. | |
