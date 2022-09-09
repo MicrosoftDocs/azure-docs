@@ -2,8 +2,8 @@
 title: Configure Container insights Prometheus integration | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.reviewer: aul
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 ---
 
 # Configure scraping of Prometheus metrics with Container insights
@@ -12,10 +12,10 @@ ms.reviewer: aul
 
 Typically, to use Prometheus, you need to set up and manage a Prometheus server with a store. If you integrate with Azure Monitor, a Prometheus server isn't required. You only need to expose the Prometheus metrics endpoint through your exporters or pods (application). Then the containerized agent for Container insights can scrape the metrics for you.
 
-![Diagram that shows container monitoring architecture for Prometheus.](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
+:::image type="content" source="./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png" alt-text="Diagram that shows container monitoring architecture for Prometheus." border="false" lightbox="media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png":::
 
 >[!NOTE]
->The minimum agent version supported for scraping Prometheus metrics is ciprod07092019. The agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019. For Azure Red Hat OpenShift and Red Hat OpenShift v4, the agent version is ciprod04162020 or later.
+>The minimum agent version supported for scraping Prometheus metrics is ciprod07092019. The agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019. For Red Hat OpenShift v4, the agent version is ciprod04162020 or later.
 >
 >For more information about the agent versions and what's included in each release, see [Agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
 >To verify your agent version, select the **Insights** tab of the resource. From the **Nodes** tab, select a node. In the properties pane, note the value of the **Agent Image Tag** property.
@@ -25,7 +25,7 @@ Scraping of Prometheus metrics is supported with Kubernetes clusters hosted on:
 - Azure Kubernetes Service (AKS).
 - Azure Stack or on-premises.
 - Azure Arc enabled Kubernetes.
-- Azure Red Hat OpenShift and Red Hat OpenShift version 4.x through cluster connect to Azure Arc.
+- Red Hat OpenShift version 4.x through cluster connect to Azure Arc.
 
 ### Prometheus scraping settings
 
@@ -65,24 +65,11 @@ Perform the following steps to configure your ConfigMap configuration file for t
 
 * Azure Kubernetes Service (AKS)
 * Azure Stack or on-premises
-* Azure Red Hat OpenShift version 4.x and Red Hat OpenShift version 4.x
+* Red Hat OpenShift version 4.x
 
 1. [Download](https://aka.ms/container-azm-ms-agentconfig) the template ConfigMap YAML file and save it as container-azm-ms-agentconfig.yaml.
 
-   >[!NOTE]
-   >This step isn't required when you're working with Azure Red Hat OpenShift because the ConfigMap template already exists on the cluster.
-
 1. Edit the ConfigMap YAML file with your customizations to scrape Prometheus metrics.
-
-    If you're editing the ConfigMap YAML file for Azure Red Hat OpenShift, first run the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in a text editor.
-
-    >[!NOTE]
-    >The following annotation `openshift.io/reconcile-protect: "true"` must be added under the metadata of *container-azm-ms-agentconfig* ConfigMap to prevent reconciliation.
-    >```
-    >metadata:
-    >   annotations:
-    >       openshift.io/reconcile-protect: "true"
-    >```
 
     - To collect Kubernetes services cluster-wide, configure the ConfigMap file by using the following example:
 
@@ -152,123 +139,6 @@ Perform the following steps to configure your ConfigMap configuration file for t
 
 The configuration change can take a few minutes to finish before taking effect. You must restart all omsagent pods manually. When the restarts are finished, a message appears that's similar to the following and includes the result `configmap "container-azm-ms-agentconfig" created`.
 
-## Configure and deploy ConfigMaps for Azure Red Hat OpenShift v3
-
-This section includes the requirements and steps to successfully configure your ConfigMap configuration file for Azure Red Hat OpenShift v3.x cluster.
-
->[!NOTE]
->For Azure Red Hat OpenShift v3.x, a template ConfigMap file is created in the *openshift-azure-logging* namespace. It isn't configured to actively scrape metrics or data collection from the agent.
-
-### Prerequisites
-
-Before you start, confirm you're a member of the Customer Cluster Admin role of your Azure Red Hat OpenShift cluster to configure the containerized agent and Prometheus scraping settings. To verify you're a member of the *osa-customer-admins* group, run the following command:
-
-``` bash
-  oc get groups
-```
-
-The output will resemble the following example:
-
-``` bash
-NAME                  USERS
-osa-customer-admins   <your-user-account>@<your-tenant-name>.onmicrosoft.com
-```
-
-If you're a member of *osa-customer-admins* group, you should be able to list the `container-azm-ms-agentconfig` ConfigMap by using the following command:
-
-``` bash
-oc get configmaps container-azm-ms-agentconfig -n openshift-azure-logging
-```
-
-The output will resemble the following example:
-
-``` bash
-NAME                           DATA      AGE
-container-azm-ms-agentconfig   4         56m
-```
-
-### Enable monitoring
-
-To configure your ConfigMap configuration file for your Azure Red Hat OpenShift v3.x cluster:
-
-1. Edit the ConfigMap YAML file with your customizations to scrape Prometheus metrics. The ConfigMap template already exists on the Red Hat OpenShift v3 cluster. Run the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in a text editor.
-
-    >[!NOTE]
-    >The following annotation `openshift.io/reconcile-protect: "true"` must be added under the metadata of *container-azm-ms-agentconfig* ConfigMap to prevent reconciliation.
-    >```
-    >metadata:
-    >   annotations:
-    >       openshift.io/reconcile-protect: "true"
-    >```
-
-    - To collect Kubernetes services cluster-wide, configure the ConfigMap file by using the following example:
-
-        ```
-        prometheus-data-collection-settings: |- ​
-        # Custom Prometheus metrics data collection settings
-        [prometheus_data_collection_settings.cluster] ​
-        interval = "1m"  ## Valid time units are s, m, h.
-        fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
-        fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-        kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
-        ```
-
-    - To configure scraping of Prometheus metrics from a specific URL across the cluster, configure the ConfigMap file by using the following example:
-
-        ```
-        prometheus-data-collection-settings: |- ​
-        # Custom Prometheus metrics data collection settings
-        [prometheus_data_collection_settings.cluster] ​
-        interval = "1m"  ## Valid time units are s, m, h.
-        fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
-        fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-        urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
-        ```
-
-    - To configure scraping of Prometheus metrics from an agent's DaemonSet for every individual node in the cluster, configure the following example in the ConfigMap:
-    
-        ```
-        prometheus-data-collection-settings: |- ​
-        # Custom Prometheus metrics data collection settings ​
-        [prometheus_data_collection_settings.node] ​
-        interval = "1m"  ## Valid time units are s, m, h. 
-        urls = ["http://$NODE_IP:9103/metrics"] ​
-        fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
-        fielddrop = ["metric_to_drop"] ​
-        ```
-
-        >[!NOTE]
-        >$NODE_IP is a specific Container insights parameter and can be used instead of a node IP address. It must be all uppercase.
-
-    - To configure scraping of Prometheus metrics by specifying a pod annotation:
-
-       1. In the ConfigMap, specify the following configuration:
-
-            ```
-            prometheus-data-collection-settings: |- ​
-            # Custom Prometheus metrics data collection settings
-            [prometheus_data_collection_settings.cluster] ​
-            interval = "1m"  ## Valid time units are s, m, h
-            monitor_kubernetes_pods = true 
-            ```
-
-       1. Specify the following configuration for pod annotations:
-
-           ```
-           - prometheus.io/scrape:"true" #Enable scraping for this pod ​
-           - prometheus.io/scheme:"http" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
-           - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
-           - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
-           ```
-	
-          If you want to restrict monitoring to specific namespaces for pods that have annotations, for example, only include pods dedicated for production workloads, set `monitor_kubernetes_pod` to `true` in ConfigMap. Then add the namespace filter `monitor_kubernetes_pods_namespaces` to specify the namespaces to scrape from. An example is `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`.
-
-1. Save your changes in the editor.
-
-The configuration change can take a few minutes to finish before taking effect. Then all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods. Not all pods restart at the same time. When the restarts are finished, a message appears that's similar to the following and includes the result `configmap "container-azm-ms-agentconfig" created`.
-
-You can view the updated ConfigMap by running the command `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
-
 ## Apply updated ConfigMap
 
 If you've already deployed a ConfigMap to your cluster and you want to update it with a newer configuration, you can edit the ConfigMap file you've previously used. Then apply it by using the same commands as before.
@@ -277,7 +147,7 @@ For the following Kubernetes environments:
 
 - Azure Kubernetes Service (AKS)
 - Azure Stack or on-premises
-- Azure Red Hat OpenShift and Red Hat OpenShift version 4.x
+- Red Hat OpenShift version 4.x
 
 run the command `kubectl apply -f <config3. map_yaml_file.yaml>`.
 
@@ -289,10 +159,6 @@ The configuration change can take a few minutes to finish before taking effect. 
 
 To verify the configuration was successfully applied to a cluster, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`.
 
->[!NOTE]
->This command isn't applicable to Azure Red Hat OpenShift v3.x cluster.
->
-
 If there are configuration errors from the omsagent pods, the output will show errors similar to the following example:
 
 ``` 
@@ -303,9 +169,6 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 Errors related to applying configuration changes are also available for review. The following options are available to perform additional troubleshooting of configuration changes and scraping of Prometheus metrics:
 
 - From an agent pod logs using the same `kubectl logs` command.
-    >[!NOTE]
-    >This command isn't applicable to Azure Red Hat OpenShift cluster.
-    > 
 
 - From Live Data (preview). Live Data (preview) logs show errors similar to the following example:
 
@@ -314,11 +177,8 @@ Errors related to applying configuration changes are also available for review. 
     ```
 
 - From the **KubeMonAgentEvents** table in your Log Analytics workspace. Data is sent every hour with *Warning* severity for scrape errors and *Error* severity for configuration errors. If there are no errors, the entry in the table will have data with severity *Info*, which reports no errors. The **Tags** property contains more information about the pod and container ID on which the error occurred and also the first occurrence, last occurrence, and count in the last hour.
-- For Azure Red Hat OpenShift v3.x and v4.x, check the omsagent logs by searching the **ContainerLog** table to verify if log collection of openshift-azure-logging is enabled.
 
-Errors prevent omsagent from parsing the file, causing it to restart and use the default configuration. After you correct the errors in ConfigMap on clusters other than Azure Red Hat OpenShift v3.x, save the YAML file and apply the updated ConfigMaps by running the command `kubectl apply -f <configmap_yaml_file.yaml`.
-
-For Azure Red Hat OpenShift v3.x, edit and save the updated ConfigMaps by running the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
+Errors prevent omsagent from parsing the file, causing it to restart and use the default configuration. After you correct the errors in ConfigMap on clusters, save the YAML file and apply the updated ConfigMaps by running the command `kubectl apply -f <configmap_yaml_file.yaml`.
 
 ## Query Prometheus metrics data
 
@@ -343,7 +203,7 @@ InsightsMetrics
 
 The output will show results similar to the following example.
 
-![Screenshot that shows the log query results of data ingestion volume.](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
+:::image type="content" source="./media/container-insights-prometheus-integration/log-query-example-usage-03.png" alt-text="Screenshot that shows the log query results of data ingestion volume." border="false" lightbox="media/container-insights-prometheus-integration/log-query-example-usage-03.png":::
 
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
@@ -358,7 +218,7 @@ InsightsMetrics
 
 The output will show results similar to the following example.
 
-![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
+:::image type="content" source="./media/container-insights-prometheus-integration/log-query-example-usage-02.png" alt-text="Screenshot that shows log query results of data ingestion volume." border="false" lightbox="media/container-insights-prometheus-integration/log-query-example-usage-02.png":::
 
 For more information on how to analyze usage, see [Analyze usage in Log Analytics workspace](../logs/analyze-usage.md).
 
