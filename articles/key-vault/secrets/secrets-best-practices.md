@@ -69,7 +69,7 @@ For more information, see:
 
 ## Backup and purge protection
 Turn on [purge protection](../general/soft-delete-overview.md#purge-protection) to guard against malicious or accidental deletion of the secrets. 
-In scenarios when purge protection is not a possible option, we recommend [backup](backup.md) secrets, which can't be recreated from other sources.
+In scenarios when purge protection is not a possible option, we recommend [backup](../general/backup.md) secrets, which can't be recreated from other sources.
 
 ## Learn more
 - [About Azure Key Vault secrets](about-secrets.md)
