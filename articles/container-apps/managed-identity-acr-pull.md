@@ -10,7 +10,7 @@ ms.author: v-bcatherine
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Azure Container Apps image pull from Azure Container Registry with managed identity
+# Azure Container Apps image pull with managed identity
 
 You can pull images from private repositories in Azure Container Registry (ACR) using managed identities to avoid the use of administrative credentials.
 

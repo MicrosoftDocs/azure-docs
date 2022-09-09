@@ -193,72 +193,7 @@ The following example shows how to configure Azure Container Registry credential
 
 ### Managed identity with Azure Container Registry
 
-You can use an Azure managed identity to authenticate with Azure Container Registry instead of using a username and password. To use a managed identity:
-
-- Assign a system-assigned or user-assigned managed identity to your container app.
-- Specify the managed identity you want to use for each registry.
-
-> [!NOTE]
-> You will need to [enable an admin user account](../container-registry/container-registry-authentication.md) in your Azure
-> Container Registry even when you use an Azure managed identity.  You will not need to use the ACR admin credentials to pull images into Azure
-> Container Apps, however, it is a prequisite to have the ACR admin user account enabled in the registry Azure Container Apps is pulling from.
-
-When assigned a managed identity to a registry, use the managed identity resource ID for a user-assigned identity, or "system" for the system-assigned identity. For more information about using managed identities see, [Managed identities in Azure Container Apps Preview](managed-identity.md).
-
-```json
-{
-    "identity": {
-        "type": "SystemAssigned,UserAssigned",
-        "userAssignedIdentities": {
-            "<IDENTITY1_RESOURCE_ID>": {}
-        }
-    }
-    "properties": {
-        "configuration": {
-            "registries": [
-            {
-                "server": "myacr1.azurecr.io",
-                "identity": "<IDENTITY1_RESOURCE_ID>"
-            },
-            {
-                "server": "myacr2.azurecr.io",
-                "identity": "system"
-            }]
-        }
-        ...
-    }
-}
-```
-
-The managed identity must have `AcrPull` access for the Azure Container Registry. For more information about assigning Azure Container Registry permissions to managed identities, see [Authenticate with managed identity](../container-registry/container-registry-authentication-managed-identity.md).
-
-#### Configure a user-assigned managed identity
-
-To configure a user-assigned managed identity:
-
-1. Create the user-assigned identity if it doesn't exist.
-1. Give the user-assigned identity `AcrPull` permission to your private repository.
-1. Add the identity to your container app configuration as shown above.
-
-For more information about configuring user-assigned identities, see [Add a user-assigned identity](managed-identity.md#add-a-user-assigned-identity).
-
-
-#### Configure a system-assigned managed identity
-
-System-assigned identities are created at the time your container app is created, and therefore, won't have `AcrPull` access to your Azure Container Registry.  As a result, the image can't be pulled from your private registry when your app is first deployed.
-
-To configure a system-assigned identity, you must use one of the following methods.
-
-- **Option 1**: Use a public registry for the initial deployment:
-  1. Create your container app using a public image and a system-assigned identity.
-  1. Give the new system-assigned identity `AcrPull` access to your private Azure Container Registry.
-  1. Update your container app replacing the public image with the image from your private Azure Container Registry.
-- **Option 2**: Restart your app after assigning permissions:
-  1. Create your container app using a private image and a system-assigned identity. (The deployment will result in a failure to pull the image.)
-  1. Give the new system-assigned identity `AcrPull` access to your private Azure Container Registry.
-  1. Restart your container app revision.
-
-For more information about configuring system-assigned identities, see [Add a system-assigned identity](managed-identity.md#add-a-system-assigned-identity).
+You can use an Azure managed identity to authenticate with Azure Container Registry instead of using a username and password. For more information, see [Managed identities in Azure Container Apps](managed-identity.md)
 
 ## Limitations
 
