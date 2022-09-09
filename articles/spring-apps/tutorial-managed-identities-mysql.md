@@ -36,7 +36,7 @@ The following video describes how to manage secrets using Azure Key Vault.
 A resource group is a logical container where Azure resources are deployed and managed. Create a resource group to contain both the Key Vault and Spring Cloud using the command [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli
-az group create --location <myLocation> --name <myResourceGroup>
+az group create --location <location> --name <resource-group-name>
 ```
 
 ## Set up your Key Vault
@@ -44,21 +44,21 @@ az group create --location <myLocation> --name <myResourceGroup>
 To create a Key Vault, use the command [az keyvault create](/cli/azure/keyvault#az-keyvault-create):
 
 > [!IMPORTANT]
-> Each Key Vault must have a unique name. Replace *\<myKeyVaultName>* with the name of your Key Vault in the following examples.
+> Each Key Vault must have a unique name. Replace *\<key-vault-name>* with the name of your Key Vault in the following examples.
 
 ```azurecli
-az keyvault create --name <myKeyVaultName> -g <myResourceGroup>
+az keyvault create --resource-group <resource-group-name> --name <key-vault-name>
 ```
 
-Make a note of the returned `vaultUri`, which will be in the format `https://<your-keyvault-name>.vault.azure.net`. It will be used in the following step.
+Make a note of the returned `vaultUri`, which will be in the format `https://<key-vault-name>.vault.azure.net`. It will be used in the following step.
 
 You can now place a secret in your Key Vault with the command [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set):
 
 ```azurecli
 az keyvault secret set \
-    --vault-name <your-keyvault-name> \
-    --name <MYSQL-PASSWORD> \
-    --value <MySQL-PASSWORD>
+    --vault-name <key-vault-name> \
+    --name <mysql-password> \
+    --value <mysql-password>
 ```
 
 ## Set up your Azure Database for MySQL
@@ -69,9 +69,9 @@ Create a database named *demo* for later use.
 
 ```azurecli
 az mysql db create \
-    --resource-group <myResourceGroup> \
+    --resource-group <resource-group-name> \
     --name demo \
-    --server-name <mysqlName>
+    --server-name <mysql-instance-name>
 ```
 
 ## Create an app and service in Azure Spring Apps
@@ -80,22 +80,22 @@ After installing the corresponding extension, create an Azure Spring Apps instan
 
 ```azurecli
 az extension add --name spring
-az spring create --name <myService> --group <myResourceGroup>
+az spring create --name <Azure-Spring-Apps-instance-name> --resource-group <resource-group-name>
 ```
 
 The following example creates an app named `springapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
 az spring app create \
+   --resource-group <resource-group-name> \
+   --service <Azure-Spring-Apps-instance-name>
    --name springapp 
-   --service <myService>
-   --group <myResourceGroup> \
    --assign-endpoint true \
    --assign-identity
-export SERVICE_IDENTITY=$(az spring app show --name springapp -s <myService> -g <myResourceGroup> | jq -r '.identity.principalId')
+export SERVICE_IDENTITY=$(az spring app show --name springapp -s <Azure-Spring-Apps-instance-name> -g <resource-group-name> | jq -r '.identity.principalId')
 ```
 
-Make a note of the returned `url`, which will be in the format `https://<your-app-name>.azuremicroservices.io`. It will be used in the following step.
+Make a note of the returned `url`, which will be in the format `https://<app-name>.azuremicroservices.io`. It will be used in the following step.
 
 ## Grant your app access to Key Vault
 
@@ -103,13 +103,13 @@ Use [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) to gran
 
 ```azurecli
 az keyvault set-policy 
-   --name <myKeyVaultName> \
+   --name <key-vault-name> \
    --object-id ${SERVICE_IDENTITY} \
    --secret-permissions set get list
 ```
 
 > [!NOTE]
-> Use `az keyvault delete-policy --name <myKeyVaultName> --object-id ${SERVICE_IDENTITY}` to remove the access for your app after system-assigned managed identity is disabled.
+> Use `az keyvault delete-policy --name <key-vault-name> --object-id ${SERVICE_IDENTITY}` to remove the access for your app after system-assigned managed identity is disabled.
 
 ## Build a sample Spring Boot app with Spring Boot starter
 
@@ -117,47 +117,47 @@ This [sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/m
 
 1. Clone a sample project.
 
-    ```azurecli
-    git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
-    ```
+   ```azurecli
+   git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
+   ```
 
 2. Specify your Key Vault and Azure Database for MySQL information in your app's `application.properties`.
 
-    ```
-    spring.datasource.url=jdbc:mysql://<mysql-instance-name>.mysql.database.azure.com:3306/demo?serverTimezone=UTC
-    spring.datasource.username=<mysql-username>@<mysql-instance-name>
-    spring.cloud.azure.keyvault.secret.endpoint=https://<keyvault-instance-name>.vault.azure.net/
-    ```
+   ```properties
+   spring.datasource.url=jdbc:mysql://<mysql-instance-name>.mysql.database.azure.com:3306/demo?serverTimezone=UTC
+   spring.datasource.username=<mysql-username>@<mysql-instance-name>
+   spring.cloud.azure.keyvault.secret.endpoint=https://<keyvault-instance-name>.vault.azure.net/
+   ```
 
 3. Package your sample app.
 
-    ```azurecli
-    mvn clean package
-    ```
+   ```azurecli
+   mvn clean package
+   ```
 
 4. Now deploy the app to Azure with the Azure CLI command [az spring app deploy](/cli/azure/spring/app#az-spring-cloud-app-deploy).
 
-    ```azurecli
-    az spring app deploy \
+   ```azurecli
+   az spring app deploy \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
        --name springapp \
-       --service <myService> \
-       --group <myResourceGroup> \
        --jar-path target/asc-managed-identity-mysql-sample-0.1.0.jar
-    ```
+   ```
 
 5. Access the public endpoint or test endpoint to test your app.
 
-    ```
-    # Create an entry in table
-    curl --header "Content-Type: application/json" \
-         --request POST \
-         --data '{"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done": "true"}' \
-         https://myspringcloud-springapp.azuremicroservices.io
-        
-    # List entires in table
-    curl https://myspringcloud-springapp.azuremicroservices.io
-    ```
-    
+   ```bash
+   # Create an entry in table
+   curl --header "Content-Type: application/json" \
+        --request POST \
+        --data '{"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done": "true"}' \
+               https://myspringcloud-springapp.azuremicroservices.io
+
+   # List entires in table
+   curl https://myspringcloud-springapp.azuremicroservices.io
+   ```
+
 ## Next Steps
 
 * [Managed identity to connect Key Vault](tutorial-managed-identities-key-vault.md)
