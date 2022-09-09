@@ -75,7 +75,7 @@ For more information, see [Learn more about cloud-native endpoints](/mem/cloud-n
 
 ## Applications
 
-Traditionally, application servers are often joined to an on-premises Active Directory domain so that they can use Windows Integrated Authentication (Kerberos or NTLM), directory queries through Lightweight Directory Access Protocol (LDAP), and server management through GPO or Microsoft Endpoint Configuration Manager.
+Traditionally, application servers are often joined to an on-premises Active Directory domain so that they can use Windows Integrated Authentication (Kerberos or NTLM), directory queries through LDAP, and server management through GPO or Microsoft Endpoint Configuration Manager.
 
 The organization has a process to evaluate Azure AD alternatives when it's considering new services, apps, or infrastructure. Directives for a cloud-first approach to applications should be as follows. (New on-premises applications or legacy applications should be a rare exception when no modern alternative exists.)
 
