@@ -14,10 +14,6 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](azure-prerequisites.md)]
 
-## Set up the environment
-
-TBD
-
 ## Run post-call transcription analysis
 
 Follow these steps to run post-call transcription analysis:
