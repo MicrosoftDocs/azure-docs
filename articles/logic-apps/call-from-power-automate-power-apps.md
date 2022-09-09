@@ -32,7 +32,7 @@ If you want to migrate your flow from Power Automate or Power to Logic Apps inst
 
 * A Power Automate or Power Apps license.
 
-* A logic app with a request trigger to export.
+* A logic app with a request trigger to export. Note: the Export feature is only available in Consumption Logic App
 
 * A flow in Power Automate or Power Apps from which you want to call your logic app.
 
