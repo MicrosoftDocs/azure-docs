@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/31/2022
+ms.date: 09/09/2022
 ms.author: mbullwin
 ---
 
@@ -42,11 +42,59 @@ To successfully make a call against the Azure OpenAI service, you'll need the fo
 
 |Variable name | Value |
 |--------------------------|-------------|
-| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal.|
-| `KEY` | The API key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+| `ANOMALY_DETECTOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/|
+| `ANOMALY_DETECTOR_API_KEY` | The API key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
 |`TIME_SERIES_DATA_PATH` | This quickstart uses the `request-data.csv` file which can be downloaded from our [GitHub sample data](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv). |
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
+
+### Create environment variables
+
+Use the following command to create and assign a persisted environment variable, given the input value.
+
+# [Command Line](#tab/command-line)
+
+Use the following command to create and assign a persisted environment variable, given the input value.
+
+```CMD
+:: Assigns the env var to the value
+setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+```
+
+```CMD
+:: Assigns the env var to the value
+setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+```
+
+# [PowerShell](#tab/powershell)
+
+Use the following command to create and assign a persisted environment variable, given the input value.
+
+```powershell
+# Assigns the env var to the value
+[System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
+# Assigns the env var to the value
+[System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+```
+
+# [Bash](#tab/bash)
+
+Use the following command to create and assign a persisted environment variable, given the input value.
+
+```Bash
+# Assigns the env var to the value
+echo export ANOMALY_DETECTOR_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+# Assigns the env var to the value
+echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+
+---
 
 ## Create a new Python application
 
@@ -60,8 +108,8 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
     from azure.core.credentials import AzureKeyCredential
     import pandas as pd  
 
-    API_KEY = "REPLACE_WITH_YOUR_API_KEY_HERE"
-    ENDPOINT = "REPLACE_WITH_YOUR_ENDPOINT_HERE" # example endpoint: https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/
+    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY']
+    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
     TIME_SERIES_DATA_PATH = "REPLACE_WITH_YOUR_TIME_SERIES_DATA_PATH_HERE" #example path: c:\\test\\request-data.csv 
     # You can download the example data locally by running curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv
 
@@ -126,9 +174,9 @@ To visualize the anomalies and change points in relation to the sample data seri
 
 1. Install the library.
 
-```console
-pip install matplotlib
-```
+    ```console
+    pip install matplotlib
+    ```
 
 2. Modify your quickstart.py file with the following code:
 
@@ -140,8 +188,8 @@ pip install matplotlib
     import matplotlib.pyplot as plt
     import matplotlib.dates as mdates
 
-    API_KEY = "REPLACE_WITH_YOUR_API_KEY_HERE"
-    ENDPOINT = "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY']
+    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
     TIME_SERIES_DATA_PATH = "REPLACE_WITH_YOUR_TIME_SERIES_DATA_PATH_HERE"
 
     client = AnomalyDetectorClient(AzureKeyCredential(SUBSCRIPTION_KEY), ANOMALY_DETECTOR_ENDPOINT)
