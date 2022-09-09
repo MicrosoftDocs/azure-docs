@@ -60,7 +60,7 @@ For this deletion detection approach, Cognitive Search depends on the [native bl
 
    The following screenshot shows where you can find this feature in the portal. 
 
-   :::image type="content" source="media/search-indexing-changed-deleted-blobs/new-data-source.jpg" alt-text="portal data source" border="true":::
+   :::image type="content" source="media/search-indexing-changed-deleted-blobs/new-data-source.png" alt-text="portal data source" border="true":::
 
 1. On the **New Data Source** form, fill out the required fields, select the **Track deletions** checkbox and choose **Native blob soft delete**. Then hit **Save** to enable the feature on Data Source creation.
 
@@ -71,7 +71,7 @@ For this deletion detection approach, Cognitive Search depends on the [native bl
 
 An example of using REST API to set soft deletion detection policy on the data source is shown below. 
 
-    ```http
+```http
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
     Content-Type: application/json
     api-key: [admin key]
@@ -84,7 +84,7 @@ An example of using REST API to set soft deletion detection policy on the data s
             "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
         }
     }
-    ```
+```
 
 1. [Run the indexer](/rest/api/searchservice/run-indexer) or set the indexer to run [on a schedule](search-howto-schedule-indexers.md). When the indexer runs and processes a blob having a soft delete state, the corresponding search document will be removed from the index.
 
