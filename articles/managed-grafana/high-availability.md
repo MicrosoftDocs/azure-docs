@@ -10,7 +10,7 @@ ms.date: 7/27/2022
 
 # Azure Managed Grafana service reliability
 
-An Azure Managed Grafana instance in the Standard tier is hosted on a dedicated set of virtual machines (VMs). By default, two VMs are deployed to provide redundancy. Each VM runs a Grafana server. A network load balancer distributes browser requests amongst the Grafana servers. On the backend, the Grafana servers are connected to a shared database that stores the configuration and other persistent data for an entire Managed Grafana instance.
+An Azure Managed Grafana instance in the Standard tier is hosted on a dedicated set of virtual machines (VMs). By default, two VMs are deployed to provide redundancy. Each VM runs a Grafana server. A network load balancer distributes browser requests amongst the Grafana servers. On the backend, the Grafana servers are connected to a common database that stores the configuration and other persistent data for an entire Managed Grafana instance.
 
 :::image type="content" source="media/service-reliability/diagram.png" alt-text="Diagram of the Managed Grafana Standard tier instance setup.":::
 
@@ -20,11 +20,11 @@ Microsoft is not providing or setting up disaster recovery for this service. In 
 
 ## Zone redundancy
 
-Normally the network load balancer, VMs and database that underpin a Managed Grafana instance are located in a region based on system resource availability, and could end up being in a same Azure datacenter
+Normally the network load balancer, VMs and database that underpin a Managed Grafana instance are located in a region based on system resource availability, and could end up being in a same Azure datacenter.
 
 ### With zone redundancy enabled
 
-When the zone redundancy option is enabled, VMs are spread across [availability zones](../availability-zones/az-overview.md#availability-zones) and other resources with availability zone enabled.
+When the zone redundancy option is enabled, VMs are spread across [availability zones](../availability-zones/az-overview.md#availability-zones). Other resources such as network load balancer and database are also configured for availability zones.
 
 In a zone-wide outage, no user action is required. An impacted Managed Grafana instance will rebalance itself to take advantage of the healthy zone automatically. The Managed Grafana service will attempt to heal the affected instances during zone recovery.
 
