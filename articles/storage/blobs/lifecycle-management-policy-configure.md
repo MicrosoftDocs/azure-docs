@@ -222,6 +222,9 @@ A lifecycle management policy must be read or written in full. Partial updates a
 > [!NOTE]
 > A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
 
+> [!NOTE]
+> A lifecycle management policy will not work for some or any blobs if storage account contains immutable containers. If any Blob contains immutable policy then objects can be created and read, but not modified or deleted. can not be modified or deleted. Any delete action in your lifecycle management policy for these blobs is expected to fail. See https://docs.microsoft.com/en-gb/azure/storage/blobs/immutable-storage-overview
+
 ## See also
 
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
