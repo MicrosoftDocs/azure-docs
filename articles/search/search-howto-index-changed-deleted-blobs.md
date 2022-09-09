@@ -72,18 +72,18 @@ For this deletion detection approach, Cognitive Search depends on the [native bl
 An example of using REST API to set soft deletion detection policy on the data source is shown below. 
 
 ```http
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-    {
-        "name" : "blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : null },
-        "dataDeletionDetectionPolicy" : {
-            "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
-        }
-    }
+PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
+Content-Type: application/json
+api-key: [admin key]
+{
+   "name" : "blob-datasource",
+   "type" : "azureblob",
+   "credentials" : { "connectionString" : "<your storage connection string>" },
+   "container" : { "name" : "my-container", "query" : null },
+   "dataDeletionDetectionPolicy" : {
+   "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
+   }
+}
 ```
 
 1. [Run the indexer](/rest/api/searchservice/run-indexer) or set the indexer to run [on a schedule](search-howto-schedule-indexers.md). When the indexer runs and processes a blob having a soft delete state, the corresponding search document will be removed from the index.
