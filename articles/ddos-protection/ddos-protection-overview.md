@@ -44,6 +44,7 @@ The following table shows features and corresponding SKUs.
 | Active traffic monitoring & always on detection| Yes |  Yes|
 | Automatic attack mitigation | Yes | Yes |
 | Availability guarantee| Not available | Yes |
+| Cost protection | Not available | Yes |
 | Application based mitigation policies | Not available | Yes|
 | Metrics & alerts | Not available  | Yes |
 | Mitigation reports | Not available | Yes |
