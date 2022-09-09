@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-twenty-eight
 
 # Develop Azure Cognitive Services applications with Key Vault
 
-Use this article to learn how to develop Cognitive Services applications securely by using [Azure Key Vault](/azure/key-vault/general/overview). 
+Use this article to learn how to develop Cognitive Services applications securely by using [Azure Key Vault](/azure/key-vault/general//overview). 
 
 Key Vault reduces the chances that secrets may be accidentally leaked, because you won't store security information in your application. 
 
@@ -21,7 +21,7 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
-* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* An [Azure Key Vault](/azure/key-vault/general//quick-create-portal)
 * [A multi-service resource or a resource for a specific service](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
@@ -31,7 +31,7 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Python 3.7 or later](https://www.python.org/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
-* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* An [Azure Key Vault](/azure/key-vault/general//quick-create-portal)
 * [A multi-service resource or a resource for a specific service](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
@@ -41,7 +41,7 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Java Development Kit (JDK) version 8 or above](/azure/developer/java/fundamentals/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
-* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* An [Azure Key Vault](/azure/key-vault/general//quick-create-portal)
 * [A multi-service resource or a resource for a specific service](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
@@ -51,7 +51,7 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Current Node.js v14 LTS or later](https://nodejs.org/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
-* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* An [Azure Key Vault](/azure/key-vault/general//quick-create-portal)
 * [A multi-service resource or a resource for a specific service](./cognitive-services-apis-create-account.md)
 
 ::: zone-end
@@ -599,4 +599,3 @@ If you're using a multi-service resource or Language resource, you can update [y
     * [Best practices for using Azure Key Vault](/key-vault/general/best-practices)
     * [Cognitive Services security](cognitive-services-security.md)
     * [Azure security baseline for Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json)
-    
