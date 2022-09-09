@@ -12,26 +12,22 @@ ms.date: 09/08/2022
 
 On September 30, 2025, Basic public IP addresses will be retired. For more information, see the official announcement. If you use Basic SKU public IP addresses, make sure to upgrade to Standard SKU public IP addresses prior to that date. This article will help guide you with the upgrade. 
 
-Steps to complete the upgrade 
+## Steps to complete the upgrade 
 
-We recommend the following approach to upgrade to Standard LB. 
+We recommend the following approach to upgrade to Standard LB:
 
-Learn about some of the key differences between Basic LB and Standard LB. 
-
-Identify the Basic LB that you will need to upgrade. 
-
-Create a migration plan for planned downtime. 
-
-Create a new Standard LB with Basic LB configurations or use automated PowerShell scripts 
-
-Verify your application and workloads are receiving traffic through the Standard Load Balancer. Then delete your Basic LB resource. 
+1. Learn about some of the key differences between Basic LB and Standard LB. 
+1. Identify the Basic LB that you will need to upgrade. 
+1. Create a migration plan for planned downtime. 
+1. Create a new Standard LB with Basic LB configurations or use automated PowerShell scripts 
+1. Verify your application and workloads are receiving traffic through the Standard Load Balancer. Then delete your Basic LB resource. 
 
 ## Basic SKU vs. Standard SKU 
 
 This section lists out some key differences between these two Public IP addresses SKUs. 
 
  
-|---| Standard Load Balancer | Basic Load Balancer |
+|""| Standard Load Balancer SKU | Basic Load Balancer SKU |
 | ---- | ---- | ---- |
 | **Backend type** | IP based, NIC based | NIC based |
 | **Protocol** | TCP, UDP | TCP, UDP |
