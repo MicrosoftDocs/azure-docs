@@ -1,8 +1,8 @@
 {
     "redirections": [
         {
-            "source_path": "/articles/automanage/automanage-virtual-machines.md",
-            "redirect_url": "/articles/automanage/index",
+            "source_path": "articles/automanage/automanage-virtual-machines.md",
+            "redirect_url": "/azure/automanage/index",
             "redirect_document_id": false
         },
         {
