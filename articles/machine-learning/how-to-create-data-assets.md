@@ -66,7 +66,7 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 
 Below shows you how to create a *folder* as an asset:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 Create a `YAML` file (`<file-name>.yml`):
 
@@ -90,7 +90,7 @@ Next, create the data asset using the CLI:
 az ml data create -f <file-name>.yml
 ```
 
-# [Python-SDK](#tab/Python-SDK)
+# [Python SDK](#tab/Python-SDK)
 
 You can create a data asset in Azure Machine Learning using the following Python Code:
 
@@ -123,7 +123,7 @@ ml_client.data.create_or_update(my_data)
 
 Below shows you how to create a *specific file* as a data asset:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 Sample `YAML` file `<file-name>.yml` for data in local path is as below:
 
@@ -146,7 +146,7 @@ path: <uri>
 > az ml data create -f <file-name>.yml
 ```
 
-# [Python-SDK](#tab/Python-SDK)
+# [Python SDK](#tab/Python-SDK)
 ```python
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
@@ -223,7 +223,7 @@ The `uri` parameter in `mltable.load()` should be a valid path to a local or clo
 Below shows you how to create an `mltable` data asset. The `path` can be any of the supported path formats outlined above.
 
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 Create a `YAML` file (`<file-name>.yml`):
 
@@ -252,7 +252,7 @@ Next, create the data asset using the CLI:
 az ml data create -f <file-name>.yml
 ```
 
-# [Python-SDK](#tab/Python-SDK)
+# [Python SDK](#tab/Python-SDK)
 
 You can create a data asset in Azure Machine Learning using the following Python Code:
 

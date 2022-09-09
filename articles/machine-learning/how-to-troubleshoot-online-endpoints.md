@@ -51,7 +51,7 @@ Local deployment is deploying a model to a local Docker environment. Local deplo
 
 Local deployment supports creation, update, and deletion of a local endpoint. It also allows you to invoke and get logs from the endpoint. 
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 To use local deployment, add `--local` to the appropriate CLI command:
 
@@ -59,7 +59,7 @@ To use local deployment, add `--local` to the appropriate CLI command:
 az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 To use local deployment, add  `local=True` parameter in the command:
 
@@ -98,7 +98,7 @@ To debug conda installation problems, try the following:
 
 You can't get direct access to the VM where the model is deployed. However, you can get logs from some of the containers that are running on the VM. The amount of information depends on the provisioning status of the deployment. If the specified container is up and running you'll see its console output, otherwise you'll get a message to try again later.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 To see log output from container, use the following CLI command:
 
@@ -130,7 +130,7 @@ You can also get logs from the storage initializer container by passing `–-con
 
 Add `--help` and/or `--debug` to commands to see more information. 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 To see log output from container, use the `get_logs` method as follows:
 
@@ -237,13 +237,13 @@ If your container could not start, this means scoring could not happen. It might
 
 To get the exact reason for an error, run: 
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 ```azurecli
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 ml_client.online_deployments.get_logs(
@@ -301,13 +301,13 @@ Make sure the model is registered to the same workspace as the deployment. Use t
 
 - For example: 
   
-  # [CLI](#tab/CLI)
+  # [Azure CLI](#tab/cli)
 
   ```azurecli
   az ml model show --name <model-name> --version <version>
   ```
  
-  # [Python](#tab/python)
+  # [Python SDK](#tab/python)
 
   ```python
   ml_client.models.get(name="<model-name>", version=<version>)
@@ -327,13 +327,13 @@ You can also check if the blobs are present in the workspace storage account.
   
 - If the blob is present, you can use this command to obtain the logs from the storage initializer:
 
-  # [CLI](#tab/CLI)
+  # [Azure CLI](#tab/cli)
 
   ```azurecli
   az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
   ```
 
-  # [Python](#tab/python)
+  # [Python SDK](#tab/python)
 
   ```python
   ml_client.online_deployments.get_logs(
