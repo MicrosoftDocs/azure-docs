@@ -6,6 +6,11 @@
     "redirect_document_id":  false
 },
 {
+    "source_path":  "articles/api-management/breaking-changes/rp-source-ip-address-change-mar2023.md",
+    "redirect_url":  "/azure/api-management/breaking-changes/rp-source-ip-address-change-mar-2023",
+    "redirect_document_id":  false
+},
+{
     "source_path":  "articles/api-management/developer-portal-implement-widgets.md",
     "redirect_url":  "/azure/api-management/developer-portal-extend-custom-functionality",
     "redirect_document_id":  false
@@ -34262,6 +34267,11 @@
   "source_path_from_root": "/articles/virtual-machines/linux/copy-files-to-linux-vm-using-scp.md",
   "redirect_url": "/azure/virtual-machines/copy-files-to-vm-using-scp",
   "redirect_document_id": false
+},
+{
+  "source_path_from_root": "/articles/web-application-firewall/afds/waf-front-door-rate-limit-powershell.md",
+  "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-rate-limit-configure",
+  "redirect_document_id": true
 }
 	]
 }
