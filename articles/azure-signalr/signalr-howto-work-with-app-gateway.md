@@ -100,7 +100,7 @@ When **_AG1_** is created, go to **Health probes** tab under **Settings** sectio
 
 * Try with an invalid client request `https://asrs1.service.signalr.net/client` and it returns *400* with error message *'hub' query parameter is required.* It means the request arrived at the SignalR Service and did the request validation.
     ```bash
-    curl -v `https://asrs1.service.signalr.net/client`
+    curl -v https://asrs1.service.signalr.net/client
     ```
     returns
     ```
@@ -198,7 +198,7 @@ Go to the **Backend pools** tab for **_AG1_**, and select **signalr**:
 
 * Now let's visit `https://asrs1.service.signalr.net/client` again. With public access disabled, it returns *403* instead.
     ```bash
-    curl -v `https://asrs1.service.signalr.net/client`
+    curl -v https://asrs1.service.signalr.net/client
     ```
     returns
     ```
