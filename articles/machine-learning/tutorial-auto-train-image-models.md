@@ -411,7 +411,7 @@ Once the run completes, you can register the model that was created from the bes
 ### Get the best run
 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 ```yaml
@@ -419,7 +419,8 @@ Once the run completes, you can register the model that was created from the bes
 ```
 
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
 
@@ -432,14 +433,15 @@ Once the run completes, you can register the model that was created from the bes
 
 Register the model either using the azureml path or your locally downloaded path. 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```azurecli
  az ml model create --name od-fridge-items-mlflow-model --version 1 --path azureml://jobs/$best_run/outputs/artifacts/outputs/mlflow-model/ --type mlflow_model --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
 ---
@@ -448,7 +450,7 @@ After you register the model you want to use, you can deploy it using the manage
 
 ### Configure online endpoint
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -458,7 +460,8 @@ name: od-fridge-items-endpoint
 auth_mode: key
 ```
     
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=endpoint)]    
 ---
@@ -468,7 +471,7 @@ auth_mode: key
 Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -476,7 +479,8 @@ Using the `MLClient` created earlier, we'll now create the Endpoint in the works
 az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_endpoint)]
 ---
@@ -486,7 +490,7 @@ az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR
 A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class. You can use either GPU or CPU VM SKUs for your deployment cluster.
 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -510,7 +514,8 @@ readiness_probe:
     initial_delay: 2000 
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=deploy)]
 ---
@@ -520,7 +525,7 @@ readiness_probe:
 
 Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -528,7 +533,8 @@ Using the `MLClient` created earlier, we'll now create the deployment in the wor
 az ml online-deployment create --file .\create_deployment.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_deploy)]
 ---
@@ -536,7 +542,7 @@ az ml online-deployment create --file .\create_deployment.yml --workspace-name [
 ### Update traffic:
 By default the current deployment is set to receive 0% traffic. you can set the traffic percentage current deployment should receive. Sum of traffic percentages of all the deployments with one end point should not exceed 100%.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -544,20 +550,22 @@ By default the current deployment is set to receive 0% traffic. you can set the 
 az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fridge-items-mlflow-deploy=100' --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=update_traffic)]
 ---
 
 ## Test the deployment
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 ```yaml
      
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_inference_request)]
 
@@ -569,14 +577,15 @@ az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fri
 ## Visualize detections
 
 Now that you have scored a test image, you can visualize the bounding boxes for this image. To do so, be sure you have matplotlib installed.
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 ```yaml
      
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=visualize_detections)]
 ---
@@ -611,10 +620,12 @@ In this automated machine learning tutorial, you did the following tasks:
 * [Learn how to configure incremental training on computer vision models](how-to-auto-train-image-models.md#incremental-training-optional).
 * See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters.md).
 * Code examples:
+
   # [Azure CLI](#tab/cli)
  [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
   * Review detailed code examples and use cases in the [azureml-examples repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs). Please check the folders with 'cli-automl-image-' prefix for samples specific to building computer vision models.
+
   # [Python SDK](#tab/python)
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 

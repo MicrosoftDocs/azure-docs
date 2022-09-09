@@ -556,7 +556,7 @@ Once the run completes, you can register the model that was created from the bes
 ### Get the best run
 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 ```yaml
@@ -578,7 +578,7 @@ Once the run completes, you can register the model that was created from the bes
 
 Register the model either using the azureml path or your locally downloaded path. 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -596,7 +596,7 @@ After you register the model you want to use, you can deploy it using the manage
 
 ### Configure online endpoint
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -619,7 +619,7 @@ auth_mode: key
 Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 ```azurecli
@@ -638,7 +638,7 @@ az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR
 A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class. You can use either GPU or CPU VM SKUs for your deployment cluster.
 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -674,7 +674,7 @@ readiness_probe:
 
 Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -692,7 +692,7 @@ az ml online-deployment create --file .\create_deployment.yml --workspace-name [
 ### update traffic:
 By default the current deployment is set to receive 0% traffic. you can set the traffic percentage current deployment should receive. Sum of traffic percentages of all the deployments with one end point shouldn't exceed 100%.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
