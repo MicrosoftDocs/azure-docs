@@ -18,9 +18,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- This article requires version 2.xx.x or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This article requires version 2.32.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 - You have installed the latest version of the `aks-preview` extension, version 0.5.50 or later.
 
@@ -61,7 +61,7 @@ The following output example resembles successful creation of the resource group
 
 ## Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](../../includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
@@ -253,7 +253,6 @@ I1013 22:49:29.872708       1 main.go:30] "successfully got secret" secret="Hell
 Other tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent tutorials, you may wish to leave these resources in place.
 
 When no longer needed, you can run the following Kubectl and the Azure CLI commands to remove the resource group and all related resources.
-
 
 ```bash
 kubectl delete pod quick-start

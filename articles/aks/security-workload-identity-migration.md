@@ -26,7 +26,7 @@ This article reviews the different options available depending if you are planni
 
 - Azure AD Workload Identity supports Kubernetes version 1.24 and higher.
 
-- The Azure CLI version 2.xx.x or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- The Azure CLI version 2.32.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 - The `aks-preview` extension version 0.5.50 or later.
 
