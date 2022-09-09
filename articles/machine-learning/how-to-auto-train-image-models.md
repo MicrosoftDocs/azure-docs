@@ -87,6 +87,7 @@ task: image_object_detection
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
+
 Based on the task type, you can create AutoML image jobs using task specific `automl` functions.
 
 For example:
