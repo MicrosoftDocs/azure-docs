@@ -94,7 +94,7 @@ New-AzVirtualNetwork @net
 
 ## Create public IP addresses
 
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create two public IP addresses.
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a primary public IP address.
 
 ```azurepowershell-interactive
 $ip4-1 = @{
@@ -107,17 +107,6 @@ $ip4-1 = @{
     Zone = 1,2,3
 }
 New-AzPublicIpAddress @ip4-1
-
-$ip4-2 = @{
-    Name = 'myPublicIP-2'
-    ResourceGroupName = 'myResourceGroup'
-    Location = 'eastus2'
-    Sku = 'Standard'
-    AllocationMethod = 'Static'
-    IpAddressVersion = 'IPv4'
-    Zone = 1,2,3
-}
-New-AzPublicIpAddress @ip4-2
 ```
 
 ## Create a network security group
@@ -194,16 +183,6 @@ $IP1 = @{
 }
 $IP1Config = New-AzNetworkInterfaceIpConfig @IP1
 
-## Create secondary configuration for NIC. ##
-$IP2 = @{
-    Name = 'ipconfig2'
-    Subnet = $vnet.Subnets[0]
-    PrivateIpAddressVersion = 'IPv4'
-    PrivateIpAddress = '10.1.0.5'
-    PublicIPAddress = $pubIP-2
-}
-$IP2Config = New-AzNetworkInterfaceIpConfig @IP2
-
 ## Create tertiary configuration for NIC. ##
 $IP3 = @{
     Name = 'ipconfig3'
@@ -219,7 +198,7 @@ $nic = @{
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus2'
     NetworkSecurityGroup = $nsg
-    IpConfiguration = $IP1Config,$IP2Config,$IP3Config
+    IpConfiguration = $IP1Config,$IP3Config
 }
 New-AzNetworkInterface @nic
 ```
@@ -279,6 +258,71 @@ $vm = @{
     SshKeyName = 'mySSHKey'
     }
 New-AzVM @vm -GenerateSshKey
+```
+
+## Add secondary private and public IP address
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a secondary public IP address.
+
+```azurepowershell-interactive
+$ip4-2 = @{
+    Name = 'myPublicIP-2'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
+}
+New-AzPublicIpAddress @ip4-2
+```
+
+Use [New-AzNetworkInterfaceIpConfig](/powershell/module/az.network/new-aznetworkinterfaceipconfig) to create the secondary IP configuration for the virtual machine.
+
+```azurepowershell-interactive
+## Place the virtual network into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Place your virtual network subnet into a variable. ##
+$sub = @{
+    Name = 'myBackendSubnet'
+    VirtualNetwork = $vnet
+}
+$subnet = Get-AzVirtualNetworkSubnetConfig @sub
+
+## Place the secondary public IP address you created previously into a variable. ##
+$pip = @{
+    Name = 'myPublicIP-2'
+    ResourceGroupName = 'myResourceGroup'
+}
+$pubIP-2 = Get-AzPublicIPAddress @pip
+
+## Place the network interface into a variable. ##
+$net = @{
+    Name = 'myNIC1'
+    ResourceGroupName = 'myResourceGroup'
+}
+$nic = Get-AzNetworkInterface @net
+
+## Create secondary configuration for NIC. ##
+$IP2 = @{
+    Name = 'ipconfig2'
+    Subnet = $vnet.Subnets[0]
+    PrivateIpAddressVersion = 'IPv4'
+    PrivateIpAddress = '10.1.0.5'
+    PublicIPAddress = $pubIP-2
+}
+$IP2Config = New-AzNetworkInterfaceIpConfig @IP2
+
+## Add the IP configuration to the network interface. ##
+$nic.IpConfigurations.Add($IP2Config)
+
+## Save the configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
 ```
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
