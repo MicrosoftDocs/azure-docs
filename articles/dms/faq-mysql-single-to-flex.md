@@ -20,7 +20,7 @@ ms.date: 09/08/2022
 Azure Database Migration Service supports both offline and online migrations. With an offline migration, application downtime starts when the migration starts. With an online migration, downtime is limited to the time required to cut over at the end of migration. We suggest that you test an offline migration to determine whether the downtime is acceptable; if not, then perform an online migration.
 Online and Offline migrations are compared in the following table:
 
-    | Area | Online Migration | Offline migration |
+    | Area | Online migration | Offline migration |
     | ------------- |:-------------:|:-------------:|
     | **Database availability for reads during migration** | Available | Available |
     | **Database availability for writes during migration** | Available | Generally, not recommended. Any ‘writes’ initiated after the migration is not captured or migrated |
