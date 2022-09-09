@@ -391,12 +391,23 @@ Once the run completes, you can register the model that was created from the bes
 
 ### Get the best run
 
+
+# [CLI v2](#tab/CLI-v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
 
 ### create a local folder and download
 
+# [CLI v2](#tab/CLI-v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+# [Python SDK v2 (preview)](#tab/SDK-v2)
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_local_dir)]
 
@@ -417,7 +428,7 @@ Register the model either using the azureml path or your locally downloaded path
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
 
-After you register the model you want to use, you can deploy it using the managed online endpoint [deploy-managed-online-endpoint](how-to-deploy-managed-online-endpoint-sdk-v2)
+After you register the model you want to use, you can deploy it using the managed online endpoint [deploy-managed-online-endpoint](how-to-deploy-managed-online-endpoint-sdk-v2.md)
 
 ### Configure online endpoint
 
