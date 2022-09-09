@@ -55,7 +55,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 [The Connect to SCIM window, which provides a token and a Copy button under it.]
 Leave this window open to copy the Tenant URL from Apple School Manager to Azure AD, which is: `https://federation.apple.com/feeds/school/scim`
 
-    ![Apple School Manager](media/apple-school-manager-provision-tutorial/scim-token.png)
+    ![Screenshot of Apple School Manager token generation.](media/apple-school-manager-provision-tutorial/scim-token.png)
 
     > [!NOTE]
     > The secret token shouldn’t be shared with anyone other than the Azure AD administrator.
@@ -80,30 +80,30 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-    ![Enterprise applications blade](common/enterprise-applications.png)
+    ![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
 2. In the applications list, select **Apple School Manager**.
 
-    ![The Apple School Manager in the Applications list](common/all-applications.png)
+    ![Screenshot of Apple School Manager in the Applications list.](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
-    ![Provisioning tab](common/provisioning.png)
+    ![Screenshot of Provisioning tab.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-    ![Provisioning tab automatic](common/provisioning-automatic.png)
+    ![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the **SCIM 2.0 base URL and Access Token** values retrieved from Apple School Manager in **Tenant URL** and **Secret Token** respectively.. Click **Test Connection** to ensure Azure AD can connect to Apple School Manager. If the connection fails, ensure your Apple School Manager account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input the **SCIM 2.0 base URL and Access Token** values retrieved from Apple School Manager in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Apple School Manager. If the connection fails, ensure your Apple School Manager account has Admin permissions and try again.
 
-    ![Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
 > [!NOTE]
 >If the connection is successful, Apple School Manager shows the SCIM connection as active. This process can take up to 60 seconds for Apple School Manager to reflect the latest connection status.
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
-    ![Notification Email](common/provisioning-notification-email.png)
+    ![Screenshot of Notification Email.](common/provisioning-notification-email.png)
 
 7. Click **Save**.
 
@@ -130,15 +130,15 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 11. To enable the Azure AD provisioning service for Apple School Manager, change the **Provisioning Status** to **On** in the Settings section.
 
-    ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+    ![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
 12. Define the users and/or groups that you would like to provision to Apple School Manager by choosing the desired values in **Scope** in the **Settings** section.
 
-    ![Provisioning Scope](common/provisioning-scope.png)
+    ![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
 
 13. When you are ready to provision, click **Save**.
 
-    ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+    ![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
 
