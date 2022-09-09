@@ -621,17 +621,17 @@ In this automated machine learning tutorial, you did the following tasks:
 * See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters.md).
 * Code examples:
 
-  # [Azure CLI](#tab/cli)
- [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+    # [Azure CLI](#tab/cli)
+    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+    
+    * Review detailed code examples and use cases in the [azureml-examples repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs). Please check the folders with 'cli-automl-image-' prefix for samples specific to building computer vision models.
+    
+    # [Python SDK](#tab/python)
+    [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-  * Review detailed code examples and use cases in the [azureml-examples repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs). Please check the folders with 'cli-automl-image-' prefix for samples specific to building computer vision models.
-
-  # [Python SDK](#tab/python)
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-  * Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
-
----
+    * Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
+    
+    ---
 
 > [!NOTE]
 > Use of the fridge objects dataset is available through the license under the [MIT License](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE).
