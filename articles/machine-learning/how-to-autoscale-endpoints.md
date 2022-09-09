@@ -49,7 +49,7 @@ The following snippet creates the autoscale profile:
 > [!NOTE]
 > For more, see the [reference page for autoscale](/cli/azure/monitor/autoscale)
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
 In [Azure Machine Learning studio](https://ml.azure.com), select your workspace and then select __Endpoints__ from the left side of the page. Once the endpoints are listed, select the one you want to configure.
 
@@ -85,7 +85,7 @@ The rule is part of the `my-scale-settings` profile (`autoscale-name` matches th
 > [!NOTE]
 > For more information on the CLI syntax, see [`az monitor autoscale`](/cli/azure/monitor/autoscale).
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
 In the __Rules__ section, select __Add a rule__. The __Scale rule__ page is displayed. Use the following information to populate the fields on this page:
 
@@ -110,7 +110,7 @@ When load is light, a scaling in rule can reduce the number of VM instances. The
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_in_on_cpu_util" :::
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
 In the __Rules__ section, select __Add a rule__. The __Scale rule__ page is displayed. Use the following information to populate the fields on this page:
 
@@ -139,7 +139,7 @@ The previous rules applied to the deployment. Now, add a rule that applies to th
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_up_on_request_latency" :::
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
 From the bottom of the page, select __+ Add a scale condition__.
 
@@ -167,7 +167,7 @@ You can also create rules that apply only on certain days or at certain times. I
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="weekend_profile" :::
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
 From the bottom of the page, select __+ Add a scale condition__. On the new scale condition, use the following information to populate the fields:
  

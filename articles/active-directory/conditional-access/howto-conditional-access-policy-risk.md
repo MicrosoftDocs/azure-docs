@@ -21,9 +21,9 @@ Most users have a normal behavior that can be tracked, when they fall outside of
 
 A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](../identity-protection/concept-identity-protection-risks.md#sign-in-risk). 
 
-There are two locations where this policy may be configured, Conditional Access and Identity Protection. Configuration using a Conditional Access policy is the preferred method providing more context including enhanced diagnostic data, report-only mode integration, Graph API support, and the ability to utilize other Conditional Access attributes in the policy.
+There are two locations where this policy may be configured, Conditional Access and Identity Protection. Configuration using a Conditional Access policy is the preferred method providing more context including enhanced diagnostic data, report-only mode integration, Graph API support, and the ability to utilize other Conditional Access attributes like sign-in frequency in the policy.
 
-The Sign-in risk-based policy protects users from registering MFA in risky sessions. If users aren't registered for MFA, their risky sign-ins will get blocked, and they see an AADSTS53004 error.
+The Sign-in risk-based policy protects users from registering MFA in risky sessions. If users aren't registered for MFA, their risky sign-ins are blocked, and they see an AADSTS53004 error.
 
 ## Template deployment
 
@@ -31,7 +31,7 @@ Organizations can choose to deploy this policy using the steps outlined below or
 
 ## Enable with Conditional Access policy
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -45,21 +45,21 @@ Organizations can choose to deploy this policy using the steps outlined below or
 1. Under **Access controls** > **Grant**.
    1. Select **Grant access**, **Require multifactor authentication**.
    1. Select **Select**.
+1. Under **Session**.
+   1. Select **Sign-in frequency**.
+   1. Ensure **Every time** is selected.
+   1. Select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After administrators confirm the settings using [report-only mode](howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Next steps
 
-[Remediate risks and unblock users](../identity-protection/howto-identity-protection-remediate-unblock.md)
-
-[Conditional Access common policies](concept-conditional-access-policy-common.md)
-
-[User risk-based Conditional Access](howto-conditional-access-policy-risk-user.md)
-
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
-
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
-
-[What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
+- [Require reauthentication every time](../conditional-access/howto-conditional-access-session-lifetime.md#require-reauthentication-every-time)
+- [Remediate risks and unblock users](../identity-protection/howto-identity-protection-remediate-unblock.md)
+- [Conditional Access common policies](concept-conditional-access-policy-common.md)
+- [User risk-based Conditional Access](howto-conditional-access-policy-risk-user.md)
+- [Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
+- [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+- [What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
