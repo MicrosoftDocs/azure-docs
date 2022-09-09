@@ -3,7 +3,7 @@ title: Using custom allocation policies with Azure IoT Hub Device Provisioning S
 description: Understand custom allocation policies with the Azure IoT Hub Device Provisioning Service (DPS)
 author: kgremban
 ms.author: kgremban
-ms.date: 07/15/2022
+ms.date: 09/09/2022
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -55,7 +55,7 @@ The **DeviceRuntimeContext** object has the following properties:
 |----------|------|-------------|
 | registrationId | string | The registration ID provided by the device at runtime. Always present. |
 | currentIotHubHostName | string | The hostname of the IoT hub the device was previously assigned to (if any). Not present if this is an initial assignment. You can use this property to determine whether this is an initial assignment for the device or whether the device has been previously assigned. |
-| currentDeviceId | string | THe device ID from the device's previous assignment (if any). Not present if this is an initial assignment. |
+| currentDeviceId | string | The device ID from the device's previous assignment (if any). Not present if this is an initial assignment. |
 | x509 | X509DeviceAttestation | For X.509 attestation, contains certificate details. |
 | symmetricKey | SymmetricKeyAttestation | For symmetric key attestation, contains primary and secondary key details. |
 | tpm | TpmAttestation | For TPM attestation, contains endorsement key and storage root key details. |
@@ -222,16 +222,20 @@ The following JSON shows a successful registration response for a TPM device tha
 
 ```json
 {
-    "assignedHub":"myIotHub",
-    "createdDateTimeUtc" : "2022-08-01T22:57:47Z",	
-    "deviceId" : "myDeviceId",
-    "etag" : "xxxx-etag-value-xxxxx",
-    "lastUpdatedDateTimeUtc" : "2022-08-01T22:57:47Z",
-    "payload": { "property1": "value1" },
-    "registrationId": "mydevice", 
-    "status": assigned,
-    "substatus": initialAssignment,
-    "tpm": {"authenticationKey": "xxxx-encrypted-authentication-key-xxxxx"}
+   "operationId":"5.316aac5bdc130deb.b1e02da8-xxxx-xxxx-xxxx-7ea7a6b7f550",
+   "status":"assigned",
+   "registrationState":{
+      "assignedHub":"myIotHub",
+      "createdDateTimeUtc" : "2022-08-01T22:57:47Z",
+      "deviceId" : "myDeviceId",
+      "etag" : "xxxx-etag-value-xxxxx",
+      "lastUpdatedDateTimeUtc" : "2022-08-01T22:57:47Z",
+      "payload": { "property1": "value1" },
+      "registrationId": "mydevice", 
+      "status": assigned,
+      "substatus": initialAssignment,
+      "tpm": {"authenticationKey": "xxxx-encrypted-authentication-key-xxxxx"}
+   }
 }
 ```
 
@@ -259,6 +263,10 @@ The following points describe the requirements that your custom allocation webho
             "migrateDeviceData":true
          }
    ```
+
+## SDK support
+
+The DPS device SDKs provide APIs in C, C#, Java, and Node.js to help you register devices with DPS. Both the IoT Hub SDKs and the DPS SDKs provide classes that represent device and service artifacts like device twins and enrollment entries that might be helpful when developing custom allocation webhooks. To learn more about the Azure IoT SDKs available for IoT Hub and IoT Hub Device Provisioning service, see [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) and [Azure DPS SDKs](./libraries-sdks.md).
 
 ## Next Steps
 

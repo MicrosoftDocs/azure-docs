@@ -3,7 +3,7 @@ title: How to transfer a payload between device and Azure Device Provisioning Se
 description: This document describes how to transfer a payload between device and Device Provisioning Service (DPS)
 author: kgremban
 ms.author: kgremban
-ms.date: 12/03/2021
+ms.date: 09/09/2022
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -17,7 +17,7 @@ Devices that register with DPS are required to provide a registration ID and val
 
 Common scenarios for sending optional payloads are:
 
-* [Custom allocation policies](concepts-custom-allocation.md) can use the device payload to help select an IoT hub for a device or set its initial twin. For example, you may want to allocate your devices based on the device model. In this case, you can configure the device to report its model information when it registers. DPS will pass the device’s payload to the custom allocation webhook. Then your function can decide which IoT hub the device will be provisioned to based on the device model information. If needed, the webhook can also return data back to the device as a JSON object in the webhook response. To learn more, see [Use device payloads in custom allocation](concepts-custom-allocation.md#use-device-payloads-in-custom-allocation).
+* [Custom allocation policies](concepts-custom-allocation.md) can use the device payload to help select an IoT hub for a device or set its initial twin. For example, you may want to allocate your devices based on the device model. In this case, you can configure the device to report its model information when it registers. DPS will pass the device’s payload to the custom allocation webhook. Then your webhook can decide which IoT hub the device will be provisioned to based on the device model information. If needed, the webhook can also return data back to the device as a JSON object in the webhook response. To learn more, see [Use device payloads in custom allocation](concepts-custom-allocation.md#use-device-payloads-in-custom-allocation).
 
 * [IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) devices CAN use the payload to send their model ID when they register with DPS. You can find examples of this usage in the PnP samples in the SDK or sample repositories. For example, [C# PnP thermostat](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/main/iot-hub/Samples/device/PnpDeviceSamples/Thermostat/Program.cs) or [Node.js PnP temperature controller](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/pnp_temperature_controller.js).
 
@@ -42,7 +42,7 @@ The **payload** property must be a JSON object and can contain any data relevant
 
 ## DPS returns data to the device
 
-DPS can return data back to the device in the registration response. Currently, this feature is exclusively used in custom allocation scenarios. If the custom allocation policy webhook needs to return data to the device, it can pass the data back as a JSON object in the webhook response. DPS will then pass that data back in the **payload** property in the Register Device [response](). For example, the following JSON, shows the body of a successful response to register using TPM attestation.
+DPS can return data back to the device in the registration response. Currently, this feature is exclusively used in custom allocation scenarios. If the custom allocation policy webhook needs to return data to the device, it can pass the data back as a JSON object in the webhook response. DPS will then pass that data back in the **registrationState.payload** property in the [Register Device response](/rest/api/iot-dps/device/runtime-registration/register-device#registrationoperationstatus). For example, the following JSON, shows the body of a successful response to register using TPM attestation.
 
 ```json
 {
@@ -58,7 +58,7 @@ DPS can return data back to the device in the registration response. Currently, 
       "lastUpdatedDateTimeUtc":"2022-08-31T22:02:50.7370676Z",
       "etag":"xxxx-etag-value-xxxx",
       "tpm": {"authenticationKey": "xxxx-encrypted-authentication-key-xxxxx"},
-      "payload": {A JSON object that contains the data returned by the webhook }
+      "payload": { A JSON object that contains the data returned by the webhook }
    }
 }
 ```
