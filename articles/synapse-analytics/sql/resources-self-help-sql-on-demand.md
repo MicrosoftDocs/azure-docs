@@ -897,13 +897,23 @@ Tables that are created might not be immediately available in serverless SQL poo
 
 ### Operation isn't allowed for a replicated database
 
-If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation is not allowed for a replicated database." This error might be returned when you try to modify a Lake database that's [shared with Spark pool](../metadata/database.md). The Lake databases that are replicated from the Apache Spark pool are managed by Synapse and you cannot create objects like in SQL Databases by using T-SQL.  
+This error is returned if you are trying to create external tables, external data sources, database scoped credentials or other objects in your Lake databases. These objects can be created only on SQL databases.
+
+If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation is not allowed for a replicated database." This error might be returned when you try to modify a Lake database that's [shared with Spark pool](../metadata/database.md) and trying to create external tables, external data sources, database scoped credentials, or other objects in your Lake databases. These objects can be created only on SQL databases. The Lake databases are replicated from the Apache Spark pool and managed by Synapse. Therefore, you cannot create objects like in SQL Databases by using T-SQL.  
+
 Only the following operations are allowed in the Lake databases:
-- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the schemas other than `dbo`. If you are creating a SQL object in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
+- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the schemas other than `dbo`. 
 - Creating and dropping the database users from Azure Active Directory.
 - Adding or removing database users from `db_datareader` schema.
 
 Other operations are not allowed in Lake databases.
+
+> [!NOTE]
+> If you are creating a view, procedure, or function in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
+
+### Dataverse real-time snapshot tables are not available in serverless SQL pool
+
+If you are exporting your [Dataverse table to Azure Data Lake storage](/power-apps/maker/data-platform/azure-synapse-link-data-lake.md#manage-table-data-to-the-data-lake) to Data Lake, and you don't see the [snapshot data](/power-apps/maker/data-platform/azure-synapse-link-synapse.md#access-near-real-time-data-and-read-only-snapshot-data) (the tables with the `_partitioned` suffix) in your Lake database, make sure that your workspace Managed Identity has read-access on the ADLS storage that contains exported data. The serverless SQL pool reads the schema of the exported data using Managed Identity access to create the table schema.
 
 ### Delta tables in Lake databases are not available in serverless SQL pool
 
