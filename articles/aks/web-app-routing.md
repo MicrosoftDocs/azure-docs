@@ -153,19 +153,18 @@ If you are going to use Azure DNS, update the add-on to pass in the `--dns-zone-
 Retrieve the resource ID for the DNS zone.
 
 ```azurecli-interactive
-# Retrieve the resource ID
 ZONEID=$(az network dns zone show -g <ResourceGroupName> -n <ZoneName> --query "id" --output tsv)
 ```
 
 Grant **DNS Zone Contributor** permissions on the DNS zone to the add-on's managed identity.
 
-```azureclie-interactive
+```azurecli-interactive
 az role assignment create --role "DNS Zone Contributor" --assignee $MANAGEDIDENTITY_OBJECTID --scope $ZONEID
 ```
 
 Update the add-on to enable the integration with Azure DNS. This will create the **external-dns** controller.
 
-```azureclie-interactive
+```azurecli-interactive
 az aks addon update -g <ResourceGroupName> -n <ClusterName> --addon web_application_routing --dns-zone-resource-id=$ZONEID
 ```
 
