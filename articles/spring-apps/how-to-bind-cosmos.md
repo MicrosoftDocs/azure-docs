@@ -20,10 +20,13 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 Instead of manually configuring your Spring Boot applications, you can automatically bind select Azure services to your applications by using Azure Spring Apps. This article demonstrates how to bind your application to an Azure Cosmos DB database.
 
-Prerequisites:
+## Prerequisites
 
-* A deployed Azure Spring Apps instance. Follow our [quickstart on deploying via the Azure CLI](./quickstart.md) to get started.
-* An Azure Cosmos DB account with a minimum permission level of Contributor.
+* A deployed Azure Spring Apps instance.
+* An Azure Cache for Redis service instance.
+* The Azure Spring Apps extension for the Azure CLI.
+
+If you don't have a deployed Azure Spring Apps instance, follow the steps in the [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
 ## Prepare your Java project
 
@@ -34,8 +37,8 @@ Prerequisites:
       ```xml
       <dependency>
           <groupId>com.azure.spring</groupId>
-          <artifactId>azure-spring-boot-starter-cosmos</artifactId>
-          <version>3.6.0</version>
+          <artifactId>spring-cloud-azure-starter-data-cosmos</artifactId>
+          <version>4.3.0</version>
       </dependency>
       ```
 
@@ -61,9 +64,9 @@ Prerequisites:
 
       ```xml
       <dependency>
-          <groupId>com.microsoft.azure</groupId>
-          <artifactId>azure-storage-spring-boot-starter</artifactId>
-          <version>2.0.5</version>
+          <groupId>com.azure.spring</groupId>
+          <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
+          <version>4.3.0</version>
       </dependency>
       ```
 
@@ -72,6 +75,7 @@ Prerequisites:
 ## Bind your app to the Azure Cosmos DB
 
 #### [Service Binding](#tab/Service-Binding)
+
 Azure Cosmos DB has five different API types that support binding. The following procedure shows how to use them:
 
 1. Create an Azure Cosmos DB database. Refer to the quickstart on [creating a database](../cosmos-db/create-cosmosdb-resources-portal.md) for help.
@@ -94,13 +98,14 @@ Azure Cosmos DB has five different API types that support binding. The following
 1. To ensure the service is bound correctly, select the binding name and verify its details. The `property` field should be similar to this example:
 
     ```properties
-    azure.cosmosdb.uri=https://<some account>.documents.azure.com:443
-    azure.cosmosdb.key=abc******
-    azure.cosmosdb.database=testdb
+    spring.cloud.azure.cosmos.endpoint=https://<some account>.documents.azure.com:443
+    spring.cloud.azure.cosmos.key=abc******
+    spring.cloud.azure.cosmos.database=testdb
     ```
 
 #### [Terraform](#tab/Terraform)
-The following Terraform script shows how to set up an Azure Spring Apps app with Azure Cosmos DB MongoDB API.
+
+The following Terraform script shows how to set up an Azure Spring Apps app with an Azure Cosmos DB account.
 
 ```terraform
 provider "azurerm" {
@@ -123,7 +128,7 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
   offer_type          = "Standard"
-  kind                = "MongoDB"
+  kind                = "GlobalDocumentDB"
 
   consistency_policy {
     consistency_level = "Session"
@@ -135,7 +140,7 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
   }
 }
 
-resource "azurerm_cosmosdb_mongo_database" "cosmosdb" {
+resource "azurerm_cosmosdb_sql_database" "cosmosdb" {
   name                = "cosmos-${var.application_name}-001"
   resource_group_name = azurerm_cosmosdb_account.cosmosdb.resource_group_name
   account_name        = azurerm_cosmosdb_account.cosmosdb.name
@@ -158,15 +163,18 @@ resource "azurerm_spring_cloud_app" "example" {
 resource "azurerm_spring_cloud_java_deployment" "example" {
   name                = "default"
   spring_cloud_app_id = azurerm_spring_cloud_app.example.id
-  cpu                 = 2
-  memory_in_gb        = 4
+  quota {
+    cpu    = "2"
+    memory = "4Gi"
+  }
   instance_count      = 2
   jvm_options         = "-XX:+PrintGC"
   runtime_version     = "Java_11"
 
   environment_variables = {
-    "azure.cosmosdb.uri" : azurerm_cosmosdb_account.cosmosdb.connection_strings[0]
-    "azure.cosmosdb.database" : azurerm_cosmosdb_mongo_database.cosmosdb.name
+    "spring.cloud.azure.cosmos.endpoint" : azurerm_cosmosdb_account.cosmosdb.endpoint
+    "spring.cloud.azure.cosmos.key" : azurerm_cosmosdb_account.cosmosdb.primary_key
+    "spring.cloud.azure.cosmos.database" : azurerm_cosmosdb_sql_database.cosmosdb.name
   }
 }
 
