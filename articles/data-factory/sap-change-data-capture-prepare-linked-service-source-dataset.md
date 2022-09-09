@@ -64,6 +64,7 @@ To create a Data Factory copy activity that uses an SAP ODP (preview) data sourc
 1. Select your SAP ODP linked service for the new source dataset and set the rest of the properties for the linked service:
 
    1. In **Connect via integration runtime**, select your self-hosted integration runtime.
+
    1. In **Context**, select the context of the ODP data extraction. Here are some examples:
 
        - To extract ABAP CDS views from S/4HANA, select **ABAP_CDS**.
@@ -128,7 +129,7 @@ To create a Data Factory copy activity that uses an SAP ODP (preview) data sourc
 
 ### Set up the source sink
 
-1. In the Data Factory copy activity, select the **Sink** tab. Select an existing sink dataset or create a new one for a data store like Azure Blob Storage or Azure Data Lake Storage Gen2.
+- In the Data Factory copy activity, select the **Sink** tab. Select an existing sink dataset or create a new one for a data store like Azure Blob Storage or Azure Data Lake Storage Gen2.
 
     To increase throughput, you can enable the Data Factory copy activity to concurrently extract data packages that your SAP system produces in the ODQ. You can enforce all extraction processes to immediately write them to the sink in parallel. For example, if you use Data Lake Storage Gen2 as a sink, in **File path** for the sink dataset, leave **File name** empty. All extracted data packages will be written as separate files.
 
