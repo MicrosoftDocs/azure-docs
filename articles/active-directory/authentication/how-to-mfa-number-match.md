@@ -54,7 +54,7 @@ During self-service password reset, the Authenticator app notification will show
 
 ### Combined registration
 
-When a user is goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. 
+When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. 
 
 ### AD FS adapter
 
