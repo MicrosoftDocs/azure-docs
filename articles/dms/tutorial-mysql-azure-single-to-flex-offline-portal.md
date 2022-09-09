@@ -20,7 +20,7 @@ You can migrate an instance of Azure Database for MySQL – Single Server to Azu
 > DMS supports migrating from lower version MySQL servers (v5.6 and above) to higher versions. In addition, DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you can select a different region, resource group, and subscription for the target server than that specified for your source server.
 
 > [!IMPORTANT]
-For online migrations, you can use the Enable Transactional Consistency feature supported by DMS together with [Data-in replication](./../mysql/single-server/concepts-data-in-replication.md) or [replicate changes](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/azure-dms-mysql-replicate-changes-now-in-preview/ba-p/3601564). Additionally, you can use the online migration scenario to migrate by following the tutorial [here](./tutorial-mysql-azure-single-to-flex-offline-portal.md).
+> For online migrations, you can use the Enable Transactional Consistency feature supported by DMS together with [Data-in replication](./../mysql/single-server/concepts-data-in-replication.md) or [replicate changes](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/azure-dms-mysql-replicate-changes-now-in-preview/ba-p/3601564). Additionally, you can use the online migration scenario to migrate by following the tutorial [here](./tutorial-mysql-azure-single-to-flex-offline-portal.md).
 
 In this tutorial, you will learn how to:
 
