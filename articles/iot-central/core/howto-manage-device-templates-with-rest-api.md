@@ -986,9 +986,6 @@ The response to this request looks like the following example:
 
 You can use ODATA filters to filter the results returned by the list device templates API.
 
-> [!NOTE]
-> Currently, ODATA support is only available for `api-version=1.2-preview`.
-
 ### $top
 
 Use the **$top** filter to set the result size. The maximum returned result size is 100, and the default size is 25.
@@ -996,7 +993,7 @@ Use the **$top** filter to set the result size. The maximum returned result size
 Use the following request to retrieve the top 10 device templates from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$top=10
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$top=10
 ```
 
 The response to this request looks like the following example:
@@ -1050,7 +1047,7 @@ The response to this request looks like the following example:
         },
         ...
     ],
-    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/deviceTemplates?api-version=1.2-preview&%24top=1&%24skiptoken=%7B%22token%22%3A%22%2BRID%3A%7EJWYqAKZQKp20qCoAAAAACA%3D%3D%23RT%3A1%23TRC%3A1%23ISV%3A2%23IEO%3A65551%23QCF%3A4%22%2C%22range%22%3A%7B%22min%22%3A%2205C1DFFFFFFFFC%22%2C%22max%22%3A%22FF%22%7D%7D"
+    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/deviceTemplates?api-version=2022-07-31&%24top=1&%24skiptoken=%7B%22token%22%3A%22%2BRID%3A%7EJWYqAKZQKp20qCoAAAAACA%3D%3D%23RT%3A1%23TRC%3A1%23ISV%3A2%23IEO%3A65551%23QCF%3A4%22%2C%22range%22%3A%7B%22min%22%3A%2205C1DFFFFFFFFC%22%2C%22max%22%3A%22FF%22%7D%7D"
 }
 ```
 
@@ -1097,7 +1094,7 @@ $filter=contains(displayName, 'template1) eq false
 The following example shows how to retrieve all the device templates where the display name contains the string `thermostat`:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=contains(displayName, 'thermostat')
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')
 ```
 
 The response to this request looks like the following example:
@@ -1187,7 +1184,7 @@ $orderby=displayName desc
 The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$orderby=displayName
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$orderby=displayName
 ```
 
 The response to this request looks like the following example:
@@ -1270,7 +1267,7 @@ You can also combine two or more filters.
 The following example shows how to retrieve the top 2 device templates where the display name contains the string `thermostat`.
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=contains(displayName, 'thermostat')&$top=2
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
 ```
 
 The response to this request looks like the following example:

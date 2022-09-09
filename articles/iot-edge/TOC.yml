@@ -53,8 +53,14 @@
       href: how-to-access-dtpm.md
     - name: GPU acceleration
       href: gpu-acceleration.md
+    - name: Shared folders
+      href: how-to-share-windows-folder-to-vm.md
+    - name: Connect a USB device
+      href: how-to-connect-usb-devices.md
   - name: Develop and debugging
     href: tutorial-develop-for-linux-on-windows.md
+  - name: Create a hierarchy of IoT Edge devices
+    href: tutorial-nested-iot-edge-for-linux-on-windows.md
   - name: Troubleshoot
     items:
     - name: Diagnose virtual machine
