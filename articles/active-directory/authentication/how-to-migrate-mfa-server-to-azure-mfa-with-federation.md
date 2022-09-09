@@ -4,7 +4,7 @@ description: Step-by-step guidance to move from Azure MFA Server on-premises to 
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/08/2022
+ms.date: 09/09/2022
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
@@ -37,7 +37,7 @@ In AD FS 2019, you can specify additional authentication methods for a relying p
 
 ### Configure claims rules to invoke Azure AD MFA
 
-Now that Azure AD MFA is an additional authentication method, you can assign groups of users to use it. You do so by configuring claims rules, also known as relying party trusts. By using groups, you can control which authentication provider is called globally or by application. For example, you can call Azure AD MFA for users who have registered for combined security information or had their phone numbers migrated, while calling MFA Server for those who haven't.
+Now that Azure AD MFA is an additional authentication method, you can assign groups of users to use it. You do so by configuring claims rules, also known as relying party trusts. By using groups, you can control which authentication provider is called globally or by application. For example, you can call Azure AD MFA for users who have registered for combined security information, while calling MFA Server for those who haven't.
 
 > [!NOTE]
 > Claims rules require on-premises security group. Before making changes to claims rules, back them up.
@@ -170,10 +170,9 @@ Once you've configured the servers, you can add Azure AD MFA as an additional au
 
 ## Prepare Azure AD and implement migration
 
-This section covers final steps before migrating user phone numbers. 
+This section covers final steps before migrating user MFA settings. 
 
 ### Set federatedIdpMfaBehavior to enforceMfaByFederatedIdp
-
 
 For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain has a Microsoft Graph PowerShell security setting named **federatedIdpMfaBehavior**. You can set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` so Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD redirects the request to the federated identity provider to perform MFA. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true ).
 
@@ -266,82 +265,24 @@ For more information, see the following resources:
 
 ## Register users for Azure MFA
 
-There are two ways to register users for Azure MFA: 
-
-* Register for combined security (MFA and self-service-password reset) 
-
-* Migrate phone numbers from MFA Server
-
-The Microsoft Authenticator app can be used as in passwordless mode. It can also be used as a second factor for MFA with either registration method.
+This section covers how users can register for combined security (MFA and self-service-password reset) and how to migrate their MFA settings. Microsoft Authenticator can be used as in passwordless mode. It can also be used as a second factor for MFA with either registration method.
 
 ### Register for combined security registration (recommended)
 
-Have users register for combined security information, which is a single place to register their authentication methods and devices for both MFA and SSPR. While it is possible to migrate data from the MFA Server to Azure AD MFA, it presents the following challenges:
+We recommend having your users register for combined security information, which is a single place to register their authentication methods and devices for both MFA and SSPR. 
 
-* Only phone numbers can be migrated.
+Microsoft provides communication templates that you can provide to your users to guide them through the combined registration process. 
+These include templates for email, posters, table tents, and various other assets. Users register their information at `https://aka.ms/mysecurityinfo`, which takes them to the combined security registration screen. 
 
-* Authenticator apps will need to be reregistered.
-
-* Stale data can be migrated.
-
-Microsoft provides communication templates that you can provide to your users to guide them through the combined registration process. These include templates for email, posters, table tents, and other assets. Users register their information at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo), which takes them to the combined security registration screen. 
-
-We recommend that you [secure the security registration process with Conditional Access](../conditional-access/howto-conditional-access-policy-registration.md) that requires the registration to occur from a trusted device or location.
+We recommend that you [secure the security registration process with Conditional Access](../conditional-access/howto-conditional-access-policy-registration.md) that requires the registration to occur from a trusted device or location. For information on tracking registration statuses, see [Authentication method activity for Azure Active Directory](howto-authentication-methods-activity.md).
 
 > [!NOTE]
-> Users who MUST register their combined security information from a non-trusted location or device, the user can be issued a Temporary Access Pass or temporarily excluded from the policy.
+> Users who MUST register their combined security information from a non-trusted location or device can be issued a Temporary Access Pass or alternatively, temporarily excluded from the policy.
 
 ### Migrate MFA settings from MFA Server
 
 You can use the [MFA Server Migration utility](how-to-mfa-server-migration-utility.md) to synchronize registered MFA settings for users from MFA Server to Azure AD. 
-You can synchronize phone numbers, hardware tokens, and device registrations such as Microsoft Authenticator app settings. 
-
-### Migrate phone numbers from MFA Server
-
-If you only want to migrate registered MFA phone numbers, you can export the users along with their phone numbers from MFA Server and import the phone numbers into Azure AD. 
-
-#### Export user phone numbers from MFA Server 
-
-1. Open the Multi-Factor Authentication Server admin console on the MFA Server. 
-
-1. Select **File**, then **Export Users**.
-
-1. **Save** the CSV file. The default name is Multi-Factor Authentication Users.csv
-
-#### Interpret and format the .csv  file
-
-The .csv file contains many fields not necessary for migration. Edit and format it before importing the phone numbers into Azure AD. 
-
-When opening the .csv file, columns of interest include:
-
-* Username
-* Primary Phone
-* Primary Country Code
-* Backup Country Code
-* Backup Phone
-* Backup Extension
-
-You'll need to interpret, clean, and format the data.
-
-#### Tips to avoid errors during import
-
-* Modify the CSV file before using the Authentication Methods API to import the phone numbers into Azure AD. 
-
-* Simplify the .csv to three columns: UPN, PhoneType, and PhoneNumber. 
-
-* Make sure the exported MFA Server Username matches the Azure AD UserPrincipalName. If it doesn't, update the username in the CSV file to match what is in Azure AD, otherwise the user won't be found.
-
-Users may have already registered phone numbers in Azure AD. When you import the phone numbers using the Authentication Methods API, you must decide whether to overwrite the existing phone number or to add the imported number as an alternate phone number.
-
-The following PowerShell cmdlets takes the CSV file you supply and adds the exported phone numbers as a phone number for each UPN using the Authentication Methods API. Replace "myPhones" with the name of your CSV file.
-
-```powershell
-
-$csv = import-csv myPhones.csv
-
-$csv|% { New-MgUserAuthenticationPhoneMethod -UserId $_.UPN -phoneType $_.PhoneType -phoneNumber $_.PhoneNumber} 
-
-```
+You can synchronize phone numbers, hardware tokens, and device registrations such as Microsoft Authenticator settings. 
 
 ### Add users to the appropriate groups
 
@@ -361,9 +302,7 @@ Detailed Azure MFA registration information can be found on the Registration tab
 
 ![Image of Authentication methods activity screen showing user registrations to MFA](./media/how-to-migrate-mfa-server-to-azure-mfa-with-federation/authentication-methods.png)
 
-
-
-## Clean up steps
+## Cleanup steps
 
 Once you have completed migration to Azure MFA and are ready to decommission the MFA Server, do the following three things: 
 
