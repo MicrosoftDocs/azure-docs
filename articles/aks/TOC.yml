@@ -260,8 +260,6 @@
             - name: Scan images in your CI/CD Workflow
               href: ../defender-for-cloud/defender-for-container-registries-cicd.md
               maintainContext: True
-        - name: Remove vulnerable images with ImageCleaner (preview)
-          href: image-cleaner.md
         - name: Registry security
           items:
             - name: Scanning images in ACR registries
@@ -273,6 +271,8 @@
               href: kubernetes-service-principal.md
             - name: Use managed identities
               href: use-managed-identity.md
+            - name: Remove vulnerable images with ImageCleaner (preview)
+              href: image-cleaner.md
             - name: Limit access to cluster configuration file
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
