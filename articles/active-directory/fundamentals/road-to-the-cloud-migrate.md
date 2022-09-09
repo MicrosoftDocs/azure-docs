@@ -99,7 +99,7 @@ You can integrate non-Windows workstations with Azure AD to enhance the user exp
 
 * For macOS:
 
-    * Register macOS to Azure AD and [enroll/manage them by using a mobile device management solution](/mem/intune/enrollment/macos-enroll)
+    * Register macOS to Azure AD and [enroll/manage them by using a mobile device management solution](/mem/intune/enrollment/macos-enroll).
 
     * Deploy the [Microsoft Enterprise SSO (single sign-on) plug-in for Apple devices](../develop/apple-sso-plugin.md).
 
@@ -192,7 +192,7 @@ After you move SaaS applications that were federated to Azure AD, there are a fe
 * [Move remote access to internal applications](#move-remote-access-to-internal-applications), if you're using Azure AD Application Proxy
 
 >[!IMPORTANT]
->If you're using other features, verify that those services are relocated before you decommission Active Directory federated services. 
+>If you're using other features, verify that those services are relocated before you decommission Active Directory Federation Services. 
 
 ### Move WAM authentication apps
 
