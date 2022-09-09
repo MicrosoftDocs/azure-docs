@@ -26,7 +26,7 @@ For a list of metadata available for Power BI, see our [available metadata docum
 
 |**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
 |---------|---------|---------|---------|---------|---------|
-|Public access with Azure IR     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity   | [Review deployment checklist](#deployment-checklist) |
+|Public access with Azure IR     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity / Delegated Authentication / Service Principal  | [Review deployment checklist](#deployment-checklist) |
 |Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication / Service Principal| [Review deployment checklist](#deployment-checklist) |
 |Private access     |Allowed     |Denied         |Self-hosted runtime        |Delegated Authentication / Service Principal| [Review deployment checklist](#deployment-checklist) |
 |Private access     |Denied      |Allowed        |Self-hosted runtime        |Delegated Authentication / Service Principal| [Review deployment checklist](#deployment-checklist) |
@@ -35,7 +35,7 @@ For a list of metadata available for Power BI, see our [available metadata docum
 ### Known limitations
 
 -  If Microsoft Purview or Power BI tenant is protected behind a private endpoint, Self-hosted runtime is the only option to scan.
--  Either Delegated authentication or Service Principal are the only supported authentication options when self-hosted integration runtime is used during the scan.
+-  Delegated authentication and service principal are the only supported authentication options when self-hosted integration runtime is used during the scan.
 -  You can create only one scan for a Power BI data source that is registered in your Microsoft Purview account.
 -  If Power BI dataset schema isn't shown after scan, it's due to one of the current limitations with [Power BI Metadata scanner](/power-bi/admin/service-admin-metadata-scanning).
 -  Empty workspaces are skipped.
@@ -172,13 +172,7 @@ This section describes how to register a Power BI tenant in Microsoft Purview fo
 > 1. Confirm you have completed the [**deployment checklist for your scenario**](#deployment-checklist).
 > 1. Review our [**scan troubleshooting documentation**](register-scan-power-bi-tenant-troubleshoot.md).
 
-### Scan same-tenant Power BI using Azure IR and Managed Identity
-This is a suitable scenario, if both Microsoft Purview and Power BI tenant are configured to allow public access in the network settings. 
-
-#### Authenticate to Power BI tenant-managed identity only
-
-> [!Note]
-> Follow steps in this section, only if you are planning to use **Managed Identity** as authentication option.
+### Authenticate to Power BI tenant
 
 In Azure Active Directory Tenant, where Power BI tenant is located:
 
@@ -193,11 +187,14 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Screenshot of security group type.":::
 
-4. Add your Microsoft Purview managed identity to this security group. Select **Members**, then select **+ Add members**.
+4. Add relevant user to the security group:
 
-    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Screenshot of how to add the catalog's managed instance to group.":::
+   1. If you are using **Managed Identity** as authentication method, add your Microsoft Purview managed identity to this security group. Select **Members**, then select **+ Add members**.
+       :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Screenshot of how to add the catalog's managed instance to group.":::
 
-5. Search for your Microsoft Purview managed identity and select it.
+   2. If you are using **delegated authentication** or **service principal** as authentication method, add your **service princial** to this security group. Select **Members**, then select **+ Add members**.
+
+5. Search for your Microsoft Purview managed identity or service principal and select it.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Screenshot showing how to add catalog by searching for its name.":::
 
@@ -205,7 +202,7 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/success-add-catalog-msi.png" alt-text="Screenshot showing successful addition of  catalog managed identity.":::
 
-#### Associate the security group with Power BI tenant
+### Associate the security group with Power BI tenant
 
 1. Log into the [Power BI admin portal](https://app.powerbi.com/admin-portal/tenantSettings).
    
@@ -232,6 +229,10 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
   
     > [!Note]
     > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Microsoft Purview account. You can delete it separately, if you wish.
+
+
+### Scan same-tenant Power BI using Azure IR and Managed Identity
+This is a suitable scenario, if both Microsoft Purview and Power BI tenant are configured to allow public access in the network settings. 
 
 ### Create scan
 
