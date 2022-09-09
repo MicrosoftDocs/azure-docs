@@ -532,13 +532,9 @@ Once the run completes, you can register the model that was created from the bes
 
 ### Get the best run
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
-
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
 
 ### create a local folder and download
-
-# [Python SDK v2 (preview)](#tab/SDK-v2)
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_local_dir)]
 
@@ -559,7 +555,7 @@ Register the model either using the azureml path or your locally downloaded path
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
 
-After you register the model you want to use, you can deploy it using the managed online endpoint [deploy-managed-online-endpoint](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-managed-online-endpoint-sdk-v2)
+After you register the model you want to use, you can deploy it using the managed online endpoint [deploy-managed-online-endpoint](how-to-deploy-managed-online-endpoint-sdk-v2)
 
 ### Configure online endpoint
 
@@ -662,8 +658,8 @@ Navigate to the model you wish to deploy in the **Models** tab of the automated 
 
 this is how your review page looks like. we can select instance type, instance count and set traffic percentage for the current deployment.
 
-![Deploy configuration](./media/how-to-auto-train-image-models/review-deploy1.png)
-![Deploy configuration](./media/how-to-auto-train-image-models/review-deploy2.png)
+![Review Deploy1](./media/how-to-auto-train-image-models/review-deploy1.png)
+![Review Deploy2](./media/how-to-auto-train-image-models/review-deploy2.png)
 
 ### Update inference settings
 
