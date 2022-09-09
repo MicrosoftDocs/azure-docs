@@ -40,15 +40,15 @@ A proximity placement group is a colocation constraint rather than a pinning mec
 
 ## Proximity Placement Group Intent
 
-Intent is an optional parameter to provide the intended [VM Sizes](../virtual-machines/sizes.md) to be part of the proximity placement group. This parameter can be added or modified while updating the proximity placement group after deallocating all the VMs from the proximity placement group. 
+You can use the optional `intent` parameter to provide the intended [VM Sizes](../virtual-machines/sizes.md) to be part of the proximity placement group. This parameter can be added or modified while updating the proximity placement group after deallocating all of the VMs. 
 
 When specifying `intent`, you can also add the optional `zone` parameter to specify an availability zone. This indicates that the proximity placement group must be created within a specific availability zone. Note the following when providing the `zone` parameter:
 
-- The availability zone parameter can only be provided while creation of the proximity placement group and cannot be modified after that.
-- The availability zone can be specified only when intent is specified and not otherwise.
+- The availability zone parameter can only be provided during the creation of the proximity placement group and can't be modified later.
+- The `zone` parameter can only be use with `intent`, it can't be used alone.
 - Only one availability zone can be specified.
 
-Proximity Placement Group creation or update will succeed only when at least one data center supports all the VM Sizes speicified in the intent. Otherwise, the creation or update would fail with "OverconstrainedAllocationRequest", indicating that the combination of VM Sizes cannot be supported within a proximity placement group. The **intent does not provide any capacity reservation or guarantee**; it only uses the provided intent VM Sizes and zone to select an appropriate data center, reducing the chances of failure arising from non-existence of the intended VM Sizes in a single data center. Therefore, **allocation failures** can still occur if there is no capacity for a VM Size at the time of deployment. 
+Proximity Placement Group creation or update will succeed only when at least one data center supports all the VM Sizes specified in the intent. Otherwise, the creation or update will fail with "OverconstrainedAllocationRequest", indicating that the combination of VM Sizes cannot be supported within a proximity placement group. The **intent does not provide any capacity reservation or guarantee**. The VM Sizes and zone  given in `intent` are used to select an appropriate data center, reducing the chances of failure if the desired VM size isn't available in a data center. Allocation failures can still occur if there is no more capacity for a VM size at the time of deployment. 
 
 ## Best Practices while using Proximity Placement Group with Intent
 
