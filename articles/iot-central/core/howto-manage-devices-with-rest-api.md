@@ -558,9 +558,9 @@ Enrollment groups are used to manage the device authentication options in your I
 
 Run the following commands to clone the Azure iot sdk node repository and generate your demo certificates:
 
-    ```cmd/sh
+```cmd/sh
     git clone https://github.com/Azure/iotedge.git
-    ```
+```
 
 1. Navigate to the certificate generator script in the Microsoft Azure IoT SDK for Node.js you downloaded. Install the required packages:
 
