@@ -36,7 +36,7 @@ The following options are available to include when creating a Conditional Acces
    - All users that exist in the directory including B2B guests.
 - Select users and groups
    - Guest or external users (preview)
-      - This selection provides several choices that can be used to target Conditional Access policies to specific guest or external user types and specific tenants containing those types of users. There are [several different types of guest or external users that can be selected](../external-identities/authentication-conditional-access#conditional-access-for-external-users), and multiple selections can be made:
+      - This selection provides several choices that can be used to target Conditional Access policies to specific guest or external user types and specific tenants containing those types of users. There are [several different types of guest or external users that can be selected](../external-identities/authentication-conditional-access.md#conditional-access-for-external-users), and multiple selections can be made:
          - B2B collaboration guest users
          - B2B collaboration member users
          - B2B direct connect users
@@ -68,7 +68,7 @@ When organizations both include and exclude a user or group the user or group is
 The following options are available to exclude when creating a Conditional Access policy.
 
 - Guest or external users
-    - This selection provides several choices that can be used to target Conditional Access policies to specific guest or external user types and specific tenants containing those types of users. There are [several different types of guest or external users that can be selected](../external-identities/authentication-conditional-access#conditional-access-for-external-users), and multiple selections can be made:
+    - This selection provides several choices that can be used to target Conditional Access policies to specific guest or external user types and specific tenants containing those types of users. There are [several different types of guest or external users that can be selected](../external-identities/authentication-conditional-access.md#conditional-access-for-external-users), and multiple selections can be made:
        - B2B collaboration guest users
        - B2B collaboration member users
        - B2B direct connect users
