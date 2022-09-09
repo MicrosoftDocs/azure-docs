@@ -42,7 +42,7 @@ A proximity placement group is a colocation constraint rather than a pinning mec
 
 Intent is an optional parameter to provide the intended [VM Sizes](../virtual-machines/sizes.md) to be part of the proximity placement group. This parameter can be added or modified while updating the proximity placement group after deallocating all the VMs from the proximity placement group. 
 
-Additionally, an optional avaiability zone can be indicated through intent by providing the zone parameter, in case the proximity placement group must be created within a specific availability zone. Please note the following while providing zone parameter:
+When specifying `intent`, you can also add the optional `zone` parameter to specify an availability zone. This indicates that the proximity placement group must be created within a specific availability zone. Note the following when providing the `zone` parameter:
 
 - The availability zone parameter can only be provided while creation of the proximity placement group and cannot be modified after that.
 - The availability zone can be specified only when intent is specified and not otherwise.
