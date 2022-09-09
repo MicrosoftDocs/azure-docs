@@ -22,7 +22,7 @@ To protect your GCP-based resources, you can connect a GCP project with either:
 
 - **Classic cloud connector** - Requires configuration in your GCP project to create a user that Defender for Cloud can use to connect to your GCP environment. If you have classic cloud connectors, we recommend that you [delete these connectors](#remove-classic-connectors) and use the native connector to reconnect to the account. Using both the classic and native connectors can produce duplicate recommendations.
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ::: zone pivot="env-settings"
 
@@ -55,7 +55,7 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Select the **Google Cloud Platform**.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/google-cloud.png" border="false" alt-text="Screenshot of the location of the Google cloud environment button.":::
+    :::image type="content" source="media/quickstart-onboard-gcp/google-cloud.png" alt-text="Screenshot of the location of the Google cloud environment button."  lightbox="media/quickstart-onboard-gcp/google-cloud.png":::
 
 1. Enter all relevant information.
 
@@ -102,7 +102,7 @@ To locate the unique numeric ID in the GCP portal, Navigate to **IAM & Admin** >
 
 1. (**Servers/SQL only**) Select **Azure-Arc for servers onboarding**
 
-    :::image type="content" source="media/quickstart-onboard-gcp/unique-numeric-id.png" alt-text="Screenshot showing the Azure-Arc for servers onboarding section of the screen.":::
+    :::image type="content" source="media/quickstart-onboard-gcp/unique-numeric-id.png" alt-text="Screenshot showing the Azure-Arc for servers onboarding section of the screen." lightbox="media/quickstart-onboard-gcp/unique-numeric-id.png":::
 
     Enter the service account unique ID, which is generated automatically after running the GCP Cloud Shell. 
 
@@ -118,7 +118,7 @@ After creating a connector, a scan will start on your GCP environment. New recom
 
 By default, all plans are `On`. You can disable plans that you don't need.
 
-:::image type="content" source="media/quickstart-onboard-gcp/toggle-plans-to-on.png" alt-text="Screenshot showing that all plans are toggle to on.":::
+:::image type="content" source="media/quickstart-onboard-gcp/toggle-plans-to-on.png" alt-text="Screenshot showing that all plans are toggle to on." lightbox="media/quickstart-onboard-gcp/toggle-plans-to-on.png":::
 
 ### Configure the servers plan
 
@@ -372,13 +372,13 @@ As shown above, Microsoft Defender for Cloud's security recommendations page dis
 
 To view all the active recommendations for your resources by resource type, use Defender for Cloud's asset inventory page and filter to the GCP resource type in which you're interested:
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the GCP options"::: 
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the GCP options" lightbox="media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png":::
 
 
 ## FAQ - Connecting GCP projects to Microsoft Defender for Cloud
 
 ### Is there an API for connecting my GCP resources to Defender for Cloud?
-Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/securitycenter/security-connectors).
+Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/defenderforcloud/security-connectors).
 
 ## Next steps
 

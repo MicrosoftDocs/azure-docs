@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 03/14/2022
+ms.date: 08/25/2022
 ms.custom: 
 ---
 
@@ -40,15 +40,11 @@ Currently, Microsoft Purview access policies can only be enforced in the followi
 -   South Central US
 -   West US
 -   West US2
--   West US3
--   West Central US
 -   Canada Central
--   Brazil South
 -   North Europe
 -   West Europe
 -   France Central
 -   UK South
--   Central India
 -   East Asia
 -   Southeast Asia
 -   Japan East

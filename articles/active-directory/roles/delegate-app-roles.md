@@ -4,7 +4,7 @@ description: Grant permissions for application access management in Azure Active
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
