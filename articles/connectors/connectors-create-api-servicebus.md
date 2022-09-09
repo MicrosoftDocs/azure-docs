@@ -160,7 +160,7 @@ Confirm that your logic app resource has permissions to access your Service Bus 
 
    For example, you can add an action that sends email when a new message arrives. When your trigger checks your queue and finds a new message, your logic app workflow runs your selected actions for the found message.
 
-## Add Service Bus action
+## Add a Service Bus action
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -170,11 +170,11 @@ Confirm that your logic app resource has permissions to access your Service Bus 
 
    Or, to add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and select **Add an action**.
 
-1. Under **Choose an action**, in the search box, enter `azure service bus`. From the actions list that appears, select the action that you want. 
+1. Under **Choose an action**, in the search box, enter `azure service bus`. From the actions list that appears, select the action that you want.
 
    For this example, select the **Send message** action.
 
-   ![Screenshot that shows selecting the Service Bus action](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Screenshot that shows selecting the Service Bus action](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png)
 
 1. If your action is connecting to your Service Bus namespace for the first time, follow these steps when the workflow designer prompts you for connection information.
 
@@ -213,7 +213,6 @@ Confirm that your logic app resource has permissions to access your Service Bus 
 When you need to send related messages in a specific order, you can use the [*sequential convoy* pattern](/azure/architecture/patterns/sequential-convoy) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus.
 
 When you create a logic app, you can select the **Correlated in-order delivery using service bus sessions** template, which implements the sequential convoy pattern. For more information, see [Send related messages in order](../logic-apps/send-related-messages-sequential-convoy.md).
-
 
 ## Delays in updates to your logic app taking effect
 
