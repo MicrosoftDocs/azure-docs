@@ -76,6 +76,8 @@
               href: ./security-controls-policy.md
             - name: Security baseline
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
+            - name: Authentication and authorization
+              href: authentication-authorization-overview.md
       - name: Observability
         href: observability.md
       - name: DevOps and CI/CD
