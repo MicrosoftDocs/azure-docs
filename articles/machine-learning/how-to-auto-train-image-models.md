@@ -344,12 +344,33 @@ With support for computer vision tasks in automated ML, you can sweep hyperparam
 
 ```yaml
 search_space:
-  - model_name: "choice('vitb16r224', 'vits16r224')"
-    learning_rate: "uniform(0.001, 0.01)"
-    number_of_epochs: "choice(15, 30)"
-  - model_name: "choice('seresnext', 'resnet50')"
-    learning_rate: "uniform(0.001, 0.01)"
-    layers_to_freeze: "choice(0, 2)"
+  - model_name:
+      type: choice
+      values: [yolov5]
+    learning_rate:
+      type: uniform
+      min_value: 0.0001
+      max_value: 0.01
+    model_size:
+      type: choice
+      values: ['small', 'medium']
+
+  - model_name:
+      type: choice
+      values: [fasterrcnn_resnet50_fpn]
+    learning_rate:
+      type: uniform
+      min_value: 0.005
+      max_value: 0.05
+    warmup_cosine_lr_warmup_epochs:
+      type: choice
+      values: [0, 3]
+    optimizer:
+      type: choice
+      values: ['sgd', 'adam', 'adamw']
+    min_size:
+      type: choice
+      values: [600, 800]
 ```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
