@@ -150,12 +150,12 @@ You can specify the VNET configuration settings in the load test creation/update
 
     - Select **+ Create > Upload a JMeter script**, if you want to create a new test.
 
-    :::image type="content" source="media/how-to-test-private-endpoint/create-new-test.png" alt-text="Screenshot that shows the Tests page, highlighting the button for creating a new test.":::
-
+        :::image type="content" source="media/how-to-test-private-endpoint/create-new-test.png" alt-text="Screenshot that shows the Tests page, highlighting the button for creating a new test.":::
+    
     - Select an existing test from the list, and then select **Edit**.
 
-    :::image type="content" source="media/how-to-test-private-endpoint/edit-test.png" alt-text="Screenshot that shows the Tests page, highlighting the button for editing a test.":::
-
+        :::image type="content" source="media/how-to-test-private-endpoint/edit-test.png" alt-text="Screenshot that shows the Tests page, highlighting the button for editing a test.":::
+    
 1. Review or fill the load test information. Follow these steps to [create or manage a test](./how-to-create-manage-test.md).
 
 1. On the **Load** tab, select **Private** traffic mode, and then select your virtual network and subnet.
