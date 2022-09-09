@@ -317,7 +317,8 @@ The primary metric used for model optimization and hyperparameter tuning depends
     
 ### Job Limits
 
-You can control the resources spent on your Vision training by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings as described in the below example.[detailed description on Job Limits parameters](tutorial-auto-train-image-models#Job Limits).
+You can control the resources spent on your Vision training by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings as described in the below example. [detailed description on Job Limits parameters](./tutorial-auto-train-image-models.md#job-limits).
+
 # [CLI v2](#tab/CLI-v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
