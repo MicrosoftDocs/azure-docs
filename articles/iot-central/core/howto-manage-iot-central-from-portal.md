@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/22/2022
+ms.date: 08/04/2022
 ms.topic: how-to
 ---
 
@@ -19,7 +19,7 @@ You can use the [Azure portal](https://portal.azure.com) to create, manage, and 
 
 To create an application, navigate to the [IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal:
 
-![Create IoT Central form](media/howto-manage-iot-central-from-portal/create-form.png)
+:::image type="content" source="media/howto-manage-iot-central-from-portal/create-form.png" alt-text="Screenshot that shows the Azure portal form for creating an I o T Central application.":::
 
 * **Resource name** is a unique name you can choose for your IoT Central application in your Azure resource group.
 
@@ -27,20 +27,7 @@ To create an application, navigate to the [IoT Central Application](https://port
 
 * **Template** is the type of IoT Central application you want to create. You can create a new application either from the list of industry-relevant templates to help you get started quickly, or start from scratch using the **Custom application** template.
 
-* **Location** is the [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the following locations:
-
-  * Australia East
-  * Canada Central
-  * Central US
-  * East US
-  * East US 2
-  * Japan East
-  * North Europe
-  * South Central US
-  * Southeast Asia
-  * UK South
-  * West Europe
-  * West US
+* **Location** is the Azure region where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. For a list of the regions where Azure IoT Central is currently available, see [Availability by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=iot-central).
 
   Once you choose a location, you can't later move your application to a different location.
 
@@ -52,11 +39,11 @@ If you already have an Azure IoT Central application, you can delete it, or move
 
 To get started, search for your application in the search bar at the top of the Azure portal. You can also view all your applications by searching for _IoT Central Applications_ and selecting the service:
 
-![Screenshot that shows the search results for "IoT Central Applications" with the first service selected.](media/howto-manage-iot-central-from-portal/search-iot-central.png)
+:::image type="content" source="media/howto-manage-iot-central-from-portal/search-iot-central.png" alt-text="Screenshot that shows the search results for I o T Central Applications with the first service selected.":::
 
 When you select an application in the search results, the Azure portal shows you its overview. You can navigate to the application by selecting the **IoT Central Application URL**:
 
-![Screenshot that shows the "Overview" page with the "IoT Central Application URL" highlighted.](media/howto-manage-iot-central-from-portal/highlight-application.png)
+:::image type="content" source="media/howto-manage-iot-central-from-portal/highlight-application.png" alt-text="Screenshot that shows the Overview page with the I o T Central Application URL highlighted.":::
 
 > [!NOTE]
 > Use the **IoT Central Application URL** to access the application for the first time.
@@ -65,7 +52,7 @@ To move the application to a different resource group, select **move** beside **
 
 To move the application to a different subscription, select **move** beside **Subscription**. On the **Move resources** page, choose the subscription you'd like to move this application to:
 
-![Screenshot that shows the "Overview" page with the "Resource group (move)" highlighted.](media/howto-manage-iot-central-from-portal/highlight-resource-group-subscription.png)
+:::image type="content" source="media/howto-manage-iot-central-from-portal/highlight-resource-group-subscription.png" alt-text="Screenshot that shows the Overview page with the Resource group (move) highlighted.":::
 
 ## Manage networking
 
@@ -113,11 +100,11 @@ To view IoT Central metrics in the portal:
 1. Navigate to your IoT Central application resource in the portal. By default, IoT Central resources are located in a resource group called **IOTC**.
 1. To create a chart from your application's metrics, select **Metrics** in the **Monitoring** section.
 
-![Azure Metrics](media/howto-manage-iot-central-from-portal/metrics.png)
+:::image type="content" source="media/howto-manage-iot-central-from-portal/metrics.png" alt-text="Screenshot that shows example metrics in the Azure portal.":::
 
 ### Export logs and metrics
 
-Use the Azure portal to export metrics and logs to different destinations. To learn more, see Use the **Diagnostics settings** page to configure exporting metrics and logs to different destinations. To learn more, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md).
+Use the **Diagnostics settings** page to configure exporting metrics and logs to different destinations. To learn more, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md).
 
 ### Analyze logs and metrics
 

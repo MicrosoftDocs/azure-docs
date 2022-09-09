@@ -70,7 +70,7 @@ To quickly get started, select one of the Quickstart template that closely match
 
 ## Migration flow and architecture
 
-This section outlines free tools for migrating JBoss EAP applications from another application server to run on JBoss EAP and from traditional on-premise servers to Microsoft Azure cloud environment. 
+This section outlines free tools for migrating JBoss EAP applications from another application server to run on JBoss EAP and from traditional on-premises servers to Microsoft Azure cloud environment. 
 
 ### Red Hat migration toolkit for applications (MTA)
 

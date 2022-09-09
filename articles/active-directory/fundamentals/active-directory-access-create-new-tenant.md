@@ -3,12 +3,12 @@ title: Quickstart - Access & create new tenant - Azure AD
 description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization.
 services: active-directory
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 12/22/2021
+ms.date: 08/17/2022
 ms.author: barclayn
 ms.custom: it-pro, seodec18, fasttrack-edit, mode-other
 ms.collection: M365-identity-device-management
@@ -71,13 +71,13 @@ If you're not going to continue to use this application, you can delete the tena
 - Ensure that you're signed in to the directory that you want to delete through the **Directory + subscription** filter in the Azure portal. Switch to the target directory if needed.
 - Select **Azure Active Directory**, and then on the **Contoso - Overview** page, select **Delete directory**.
 
-    The tenant and its associated information is deleted.
+    The tenant and its associated information are deleted.
 
     ![Overview page, with highlighted Delete directory button](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## Next steps
 
-- Change or add additional domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md)
+- Change or add other domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md)
 
 - Add users, see [Add or delete a new user](add-users-azure-active-directory.md)
 

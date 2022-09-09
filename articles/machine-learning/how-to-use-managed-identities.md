@@ -122,9 +122,9 @@ When creating a compute cluster with the [AmlComputeProvisioningConfiguration](/
 az ml compute create --name cpucluster --type <cluster name>  --identity-type systemassigned
 ```
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
-For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](how-to-create-attach-compute-studio.md#managed-identity).
+For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
 ---
 

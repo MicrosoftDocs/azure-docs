@@ -1,11 +1,11 @@
 ---
 title: Configure customer-managed keys for your Azure Cosmos DB account
 description: Learn how to configure customer-managed keys for your Azure Cosmos DB account with Azure Key Vault
-author: ThomasWeiss
+author: seesharprun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/20/2022
-ms.author: thweiss
+ms.author: sidandrews
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -433,7 +433,7 @@ No, there's no charge to enable this feature.
 
 All the data stored in your Azure Cosmos account is encrypted with the customer-managed keys, except for the following metadata:
 
-- The names of your Azure Cosmos DB [accounts, databases, and containers](./account-databases-containers-items.md#elements-in-an-azure-cosmos-account)
+- The names of your Azure Cosmos DB [accounts, databases, and containers](./account-databases-containers-items.md#elements-in-an-azure-cosmos-db-account)
 
 - The names of your [stored procedures](./stored-procedures-triggers-udfs.md)
 

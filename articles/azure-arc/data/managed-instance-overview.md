@@ -3,7 +3,7 @@ title: Azure Arc-enabled SQL Managed Instance Overview
 description: Azure Arc-enabled SQL Managed Instance Overview
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray

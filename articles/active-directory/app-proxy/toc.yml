@@ -125,6 +125,8 @@
         href: application-proxy-integrate-with-tableau.md
       - name: Integrate with Qlik
         href: application-proxy-qlik.md
+      - name: Integrate with WAF on Azure Application Gateway
+        href: application-proxy-application-gateway-waf.md
     - name: Troubleshoot
       items:
       - name: Application Proxy troubleshooting

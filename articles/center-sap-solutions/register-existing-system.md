@@ -46,12 +46,11 @@ In this how-to guide, you'll learn how to register an existing SAP system with *
 You can register SAP systems with ACSS that run on the following configurations:
 
 - SAP NetWeaver or ABAP stacks
-- SUSE and RHEL Linux operating systems
+- Windows, SUSE and RHEL Linux operating systems
 - HANA, DB2, SQL Server, Oracle, Max DB, and SAP ASE databases
 
 The following SAP system configurations aren't supported in ACSS:
 
-- Windows operating system
 - HANA Large Instance (HLI)
 - Systems with HANA Scale-out configuration
 - Java stack

@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 ms.devlang: csharp
 ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 05/19/2022
+ms.date: 09/08/2022
 ---
 
 # Develop Azure Functions using Visual Studio  
@@ -21,7 +21,7 @@ Visual Studio provides the following benefits when you develop your functions:
 
 This article provides details about how to use Visual Studio to develop C# class library functions and publish them to Azure. Before you read this article, consider completing the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
-Unless otherwise noted, procedures and examples shown are for Visual Studio 2022. 
+Unless otherwise noted, procedures and examples shown are for Visual Studio 2022. For more information about Visual Studio 2022 releases, see [the release notes](/visualstudio/releases/2022/release-notes) or the [preview release notes](/visualstudio/releases/2022/release-notes-preview).
 
 ## Prerequisites
 
@@ -544,7 +544,7 @@ When you update your Visual Studio 2017 installation, make sure that you're usin
 
 1. If your version is older, update your tools in Visual Studio as shown in the following section.
 
-### Update your tools in Visual Studio 2017
+### Update your tools in Visual Studio
 
 1. In the **Extensions and Updates** dialog, expand **Updates** > **Visual Studio Marketplace**, choose **Azure Functions and Web Jobs Tools** and select **Update**.
 
