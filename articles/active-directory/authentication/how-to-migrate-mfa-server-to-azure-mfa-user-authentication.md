@@ -1,6 +1,6 @@
 ---
 title: Migrate to Azure AD MFA and Azure AD user authentication - Azure Active Directory
-description: Step-by-step guidance to move from Azure MFA Server on-premises to Azure AD MFA and Azure AD user authentication
+description: Step-by-step guidance to move from MFA Server on-premises to Azure AD MFA and Azure AD user authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -30,7 +30,7 @@ There are several options for migrating from MFA Server to Azure Active Director
 To select the appropriate MFA migration option for your organization, see the considerations in [Migrate from MFA Server to Azure Active Directory MFA](how-to-migrate-mfa-server-to-azure-mfa.md). 
 
 The following diagram shows the process for migrating to Azure AD MFA and cloud authentication while keeping some of your applications on AD FS. 
-This process enables the iterative migration of users from MFA Server to Azure MFA based on group membership.
+This process enables the iterative migration of users from MFA Server to Azure AD MFA based on group membership.
 
 Each step is explained in the subsequent sections of this article.
 
@@ -141,7 +141,7 @@ Get-ADGroup GroupName
 
 ![PowerShell command to get the group SID.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/find-the-sid.png)
 
-#### Setting the claims rules to call Azure MFA
+#### Setting the claims rules to call Azure AD MFA
 
 The following PowerShell cmdlets invoke Azure AD MFA for users in the group when they aren’t on the corporate network. 
 You must replace `"YourGroupSid"` with the SID found by running the preceding cmdlet.
@@ -229,14 +229,9 @@ Now you're ready to enable [Staged Rollout](../hybrid/how-to-connect-staged-roll
 * [Enable the Staged Rollout of cloud authentication](../hybrid/how-to-connect-staged-rollout.md#enable-a-staged-rollout-of-a-specific-feature-on-your-tenant) for your selected authentication method. 
 * Add the group(s) you created for Staged Rollout. Remember that you'll add users to groups iteratively, and that they can't be dynamic groups or nested groups. 
 
-## Register users for Azure MFA
+## Register users for Azure AD MFA
 
-There are two ways to register users for Azure MFA: 
-
-* Register for combined security (MFA and self-service-password reset) 
-* Migrate phone numbers from MFA Server
-
-Microsoft Authenticator can be used as a passwordless sign-in method and a second factor for MFA with either method.
+This section covers how users can register for combined security (MFA and self-service-password reset) and how to migrate their MFA settings. Microsoft Authenticator can be used as in passwordless mode. It can also be used as a second factor for MFA with either registration method.
 
 ### Register for combined security registration (recommended)
 
@@ -279,14 +274,14 @@ This workbook can be used to monitor the following activities:
 * Users and groups removed from Staged Rollout.
 * Sign-in failures for users in Staged Rollout, and the reasons for failures.
 
-### Monitoring Azure MFA registration
-Azure MFA registration can be monitored using the [Authentication methods usage & insights report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/AuthMethodsActivity/menuId/AuthMethodsActivity). This report can be found in Azure AD. Select **Monitoring**, then select **Usage & insights**. 
+### Monitoring Azure AD MFA registration
+Azure AD MFA registration can be monitored using the [Authentication methods usage & insights report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/AuthMethodsActivity/menuId/AuthMethodsActivity). This report can be found in Azure AD. Select **Monitoring**, then select **Usage & insights**. 
 
 ![Screenshot of how to find the Usage and Insights report.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/usage-report.png)
 
 In Usage & insights, select **Authentication methods**. 
 
-Detailed Azure MFA registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users registered for Azure multi-factor authentication** hyperlink.
+Detailed Azure AD MFA registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users registered for Azure multi-factor authentication** hyperlink.
 
 ![Screenshot of the Registration tab.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/registration-tab.png)
 
@@ -299,7 +294,7 @@ Monitor applications you moved to Azure AD with the App sign-in health workbook 
 
 ## Clean up tasks
 
-After you move all users to Azure AD cloud authentication and Azure MFA, you're ready to decommission your MFA Server. 
+After you move all users to Azure AD cloud authentication and Azure AD MFA, you're ready to decommission your MFA Server. 
 We recommend reviewing MFA Server logs to ensure no users or applications are using it before you remove the server.
 
 ### Convert your domains to managed authentication
@@ -325,7 +320,7 @@ Value=="YourGroupSid"]) => issue(Type =
 
 ### Disable MFA Server as an authentication provider in AD FS
 
-This change ensures only Azure MFA is used as an authentication provider.
+This change ensures only Azure AD MFA is used as an authentication provider.
 
 1. Open the **AD FS management console**.
 1. Under **Services**, right-click on **Authentication Methods**, and select **Edit Multi-factor Authentication Methods**. 
@@ -357,6 +352,6 @@ For more information about migrating applications to Azure, see [Resources for m
 
 ## Next steps
 
-- [Migrate from Microsoft MFA Server to Azure MFA (Overview)](how-to-migrate-mfa-server-to-azure-mfa.md)
+- [Migrate from Microsoft MFA Server to Azure AD MFA (Overview)](how-to-migrate-mfa-server-to-azure-mfa.md)
 - [Migrate applications from Windows Active Directory to Azure Active Directory](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
 - [Plan your cloud authentication strategy](../fundamentals/active-directory-deployment-plans.md)

@@ -1,6 +1,6 @@
 ---
 title: Migrate to Azure AD MFA with federations - Azure Active Directory
-description: Step-by-step guidance to move from Azure MFA Server on-premises to Azure AD MFA with federation
+description: Step-by-step guidance to move from MFA Server on-premises to Azure AD MFA with federation
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 Moving your multi-factor-authentication (MFA) solution to Azure Active Directory (Azure AD) is a great first step in your journey to the cloud. Consider also moving to Azure AD for user authentication in the future. For more information, see the process for migrating to Azure AD MFA with cloud authentication.
 
-To migrate to Azure AD MFA with federation, the Azure MFA authentication provider is installed on AD FS. The Azure AD relying party trust and other relying party trusts are configured to use Azure MFA for migrated users.
+To migrate to Azure AD MFA with federation, the Azure AD MFA authentication provider is installed on AD FS. The Azure AD relying party trust and other relying party trusts are configured to use Azure AD MFA for migrated users.
 
 The following diagram shows the process of this migration.
 
@@ -89,7 +89,7 @@ To find the group SID, use the following command, with your group name
 
 ![Image of screen shot showing the results of the Get-ADGroup script.](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/find-the-sid.png)
 
-#### Setting the claims rules to call Azure MFA
+#### Setting the claims rules to call Azure AD MFA
 
 The following PowerShell cmdlets invoke Azure AD MFA for users in the group when not on the corporate network. Replace "YourGroupSid" with the SID found by running the above cmdlet.
 
@@ -166,7 +166,7 @@ For step-by-step directions on this process, see [Configure the AD FS servers](/
 
 Once you've configured the servers, you can add Azure AD MFA as an additional authentication method. 
 
-![Screen shot showing the Edit authentication methods screen with Azure MFA and Azure Mutli-factor authentication Server selected](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/edit-authentication-methods.png)
+![Screen shot showing the Edit authentication methods screen with Azure AD MFA and Azure Mutli-factor authentication Server selected](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/edit-authentication-methods.png)
 
 ## Prepare Azure AD and implement migration
 
@@ -263,7 +263,7 @@ For more information, see the following resources:
 * [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md)
 
 
-## Register users for Azure MFA
+## Register users for Azure AD MFA
 
 This section covers how users can register for combined security (MFA and self-service-password reset) and how to migrate their MFA settings. Microsoft Authenticator can be used as in passwordless mode. It can also be used as a second factor for MFA with either registration method.
 
@@ -294,21 +294,21 @@ We don't recommend that you reuse groups that are used for security. If you're u
 
 ## Monitoring
 
-Azure MFA registration can be monitored using the [Authentication methods usage & insights report](https://portal.azure.com/). This report can be found in Azure AD. Select **Monitoring**, then select **Usage & insights**. 
+Azure AD MFA registration can be monitored using the [Authentication methods usage & insights report](https://portal.azure.com/). This report can be found in Azure AD. Select **Monitoring**, then select **Usage & insights**. 
 
 In Usage & insights, select **Authentication methods**. 
 
-Detailed Azure MFA registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users capable of Azure multi-factor authentication** hyperlink.
+Detailed Azure AD MFA registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users capable of Azure multi-factor authentication** hyperlink.
 
 ![Image of Authentication methods activity screen showing user registrations to MFA](./media/how-to-migrate-mfa-server-to-azure-mfa-with-federation/authentication-methods.png)
 
 ## Cleanup steps
 
-Once you have completed migration to Azure MFA and are ready to decommission the MFA Server, do the following three things: 
+Once you have completed migration to Azure AD MFA and are ready to decommission the MFA Server, do the following three things: 
 
 1. Revert your claim rules on AD FS to their pre-migration configuration and remove the MFA Server authentication provider.
 
-1. Remove MFA server as an authentication provider in AD FS. This will ensure all users use Azure MFA as it will be the only additional authentication method enabled. 
+1. Remove MFA server as an authentication provider in AD FS. This will ensure all users use Azure AD MFA as it will be the only additional authentication method enabled. 
 
 1. Decommission the MFA Server.
 
@@ -331,7 +331,7 @@ Value=="YourGroupSid"]) => issue(Type =
 
 ### Disable MFA Server as an authentication provider in AD FS
 
-This change ensures only Azure MFA is used as an authentication provider.
+This change ensures only Azure AD MFA is used as an authentication provider.
 
 1. Open the **AD FS management console**.
 
