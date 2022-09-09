@@ -58,30 +58,69 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 From a service bus, the Service Bus connector can save up to 1,500 unique sessions at a time to the connector cache, per [Service Bus messaging entity, such as a subscription or topic](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Message sessions](../service-bus-messaging/message-sessions.md).
 
+<a name="sequential-convoy"></a>
+
+### Send correlated messages in order
+
+When you need to send related messages in a specific order, you can create a workflow using Service Bus connector and the [*sequential convoy* pattern](/azure/architecture/patterns/sequential-convoy). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Azure Service Bus.
+
+When you create a Consumption logic app workflow, you can select the **Correlated in-order delivery using service bus sessions** template, which implements the sequential convoy pattern. For more information, see [Send related messages in order](../logic-apps/send-related-messages-sequential-convoy.md).
+
 ### Large messages
 
-Large message support is available only when you use the built-in Service Bus operations with [single-tenant Azure Logic Apps (Standard)](../logic-apps/single-tenant-overview-compare.md) workflows. You can send and receive large messages using the triggers or actions in the built-in version.
+Large message support is available only for Standard workflows when you use the Service Bus built-in connector operations. For example, you can receive and large messages using the built-in triggers and actions respectively.
 
-  For receiving a message, you can increase the timeout by [changing the following setting in the Azure Functions extension](../azure-functions/functions-bindings-service-bus.md#install-bundle):
+### Timeout for receiving and sending messages
 
-  ```json
-  {
-     "version": "2.0",
-     "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
-        "version": "[1.*, 2.0.0)"
-     },
-     "extensions": {
-        "serviceBus": {
-           "batchOptions": {
-              "operationTimeout": "00:15:00"
-           }
-        }  
-     }
-  }
-  ```
+In Standard workflows that use the Service Bus built-in operations, you can increase the timeout for receiving and sending messages. For example, to increase the timeout for receiving a message, [change the following setting in the Azure Functions extension](../azure-functions/functions-bindings-service-bus.md#install-bundle):
 
-  For sending a message, you can increase the timeout by [adding the `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` app setting](../logic-apps/edit-app-settings-host-settings.md).
+```json
+{
+   "version": "2.0",
+   "extensionBundle": {
+      "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+      "version": "[1.*, 2.0.0)"
+   },
+   "extensions": {
+      "serviceBus": {
+         "batchOptions": {
+            "operationTimeout": "00:15:00"
+         }
+      }  
+   }
+}
+```
+
+To increase the timeout for sending a message, [add the `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` app setting](../logic-apps/edit-app-settings-host-settings.md).
+
+### Service Bus triggers
+
+* All Service Bus triggers are *long-polling* triggers. This description means that when the trigger fires, the trigger processes all the messages and then waits 30 seconds for more messages to appear in the queue or topic subscription. If no messages appear in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty. The next trigger poll is based on the recurrence interval specified in the trigger's properties.
+
+* Some triggers, such as the **When one or more messages arrive in a queue (auto-complete)** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages that's specified by the trigger's **Maximum message count** property.
+
+  > [!NOTE]
+  >
+  > The auto-complete trigger automatically completes a message, but completion happens only at the next call 
+  > to Service Bus. This behavior can affect your workflow design. For example, avoid changing the concurrency 
+  > on the auto-complete trigger because this change might result in duplicate messages if your workflow enters 
+  > a throttled state. Changing the concurrency control creates the following conditions:
+  >
+  > * Throttled triggers are skipped with the `WorkflowRunInProgress` code.
+  >
+  > * The completion operation won't run.
+  >
+  > * The next trigger run occurs after the polling interval.
+  >
+  > You have to set the service bus lock duration to a value that's longer than the polling interval. 
+  > However, despite this setting, the message still might not complete if your workflow remains in a 
+  > throttled state at next polling interval.
+  >
+  > However, if you [turn on a Service Bus trigger's concurrency setting](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency), 
+  > the default value for the `maximumWaitingRuns`​ property is 10​. Based on the Service Bus entity's lock duration setting 
+  > and the run duration for your workflow, this default value might be too large and might cause a "lock lost" exception. 
+  > To find the optimal value for your scenario, start testing with a value of 1​ or 2​ for the `maximumWaitingRuns`​ property. 
+  > To change the maximum waiting runs value, review [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
 <a name="permissions-connection-string"></a>
 
@@ -122,23 +161,6 @@ Confirm that your logic app resource has permissions to access your Service Bus 
    For example, to trigger your workflow when a new item gets sent to a Service Bus queue, select the **When a message is received in a queue (auto-complete)** trigger.
 
    ![Select Service Bus trigger](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
-
-   Here are some considerations for when you use a Service Bus trigger:
-
-   * All Service Bus triggers are *long-polling* triggers. This description means that when the trigger fires, the trigger processes all the messages and then waits 30 seconds for more messages to appear in the queue or topic subscription. If no messages appear in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty. The next trigger poll is based on the recurrence interval specified in the trigger's properties.
-
-   * Some triggers, such as the **When one or more messages arrive in a queue (auto-complete)** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages that's specified by the trigger's **Maximum message count** property.
-
-     > [!NOTE]
-     > The auto-complete trigger automatically completes a message, but completion happens only at the next call to Service Bus. 
-     > This behavior can affect your workflow design. For example, avoid changing the concurrency on the auto-complete trigger 
-     > because this change might result in duplicate messages if your workflow enters a throttled state. Changing the concurrency 
-     > control creates these conditions: throttled triggers are skipped with the `WorkflowRunInProgress` code, the completion operation 
-     > won't happen, and next trigger run occurs after the polling interval. You have to set the service bus lock duration to a value 
-     > that's longer than the polling interval. However, despite this setting, the message still might not complete if your 
-     > workflow remains in a throttled state at next polling interval.
-
-   * If you [turn on the concurrency setting](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) for a Service Bus trigger, the default value for the `maximumWaitingRuns`​ property is 10​. Based on the Service Bus entity's lock duration setting and the run duration for your workflow, this default value might be too large and might cause a "lock lost" exception. To find the optimal value for your scenario, start testing with a value of 1​ or 2​ for the `maximumWaitingRuns`​ property. To change the maximum waiting runs value, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
 1. If your trigger is connecting to your Service Bus namespace for the first time, follow these steps when the workflow designer prompts you for connection information.
 
@@ -214,19 +236,13 @@ Confirm that your logic app resource has permissions to access your Service Bus 
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
-<a name="sequential-convoy"></a>
+## Troubleshooting
 
-## Send correlated messages in order
-
-When you need to send related messages in a specific order, you can use the [*sequential convoy* pattern](/azure/architecture/patterns/sequential-convoy) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus.
-
-When you create a Consumption logic app workflow, you can select the **Correlated in-order delivery using service bus sessions** template, which implements the sequential convoy pattern. For more information, see [Send related messages in order](../logic-apps/send-related-messages-sequential-convoy.md).
-
-## Delays in updates to your workflow taking effect
+### Delays in updates to your workflow taking effect
 
 If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your workflow might not take effect for up to 10 minutes. To work around this problem, you can disable the logic app resource, make the changes, and then enable the logic app resource again.
 
-## Troubleshooting
+### No session available
 
 Occasionally, operations such as completing a message or renewing a session produce the following error:
 
@@ -246,12 +262,6 @@ The chance exists that requests might not get routed to the same role instance, 
 
 As long as this error happens only occasionally, the error is expected. When the error happens, the message is still preserved in the service bus. The next trigger or workflow run tries to process the message again.
 
-<a name="built-in-connector-app-settings"></a>
-
-## Built-in connector app settings
-
-In a Standard logic app resource, the Service Bus built-in connector includes app settings that control various thresholds, such as timeout for sending messages and number of message senders per processor core in the message pool. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
-
 <a name="built-in-connector-operations"></a>
 
 ## Service Bus built-in connector operations
@@ -267,6 +277,12 @@ The Service Bus built-in connector is available only for Standard logic app work
 |--------|-------------|
 | Send message | Send a message to a queue or topic. |
 | Send multiple messages | Send more than one message to a queue or topic. |
+
+<a name="built-in-connector-app-settings"></a>
+
+## Service Bus built-in connector app settings
+
+In a Standard logic app resource, the Service Bus built-in connector includes app settings that control various thresholds, such as timeout for sending messages and number of message senders per processor core in the message pool. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
 
 ## Next steps
 
