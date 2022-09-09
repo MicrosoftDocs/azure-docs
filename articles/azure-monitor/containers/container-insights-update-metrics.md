@@ -53,7 +53,7 @@ To update an existing AKS cluster monitored by Container insights:
 
 2. In the banner that appears at the top of the pane, select **Enable** to start the update. 
 
-   :::image type="content" source="./media/container-insights-update-metrics/portal-banner-enable-01.png" alt-text="Screenshot of the Azure portal that shows the banner for upgrading an A K S cluster." lightbox="media/container-insights-update-metrics/portal-banner-enable-01.png":::
+   :::image type="content" source="./media/container-insights-update-metrics/portal-banner-enable-01.png" alt-text="Screenshot of the Azure portal that shows the banner for upgrading an AKS cluster." lightbox="media/container-insights-update-metrics/portal-banner-enable-01.png":::
 
    The process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
 
