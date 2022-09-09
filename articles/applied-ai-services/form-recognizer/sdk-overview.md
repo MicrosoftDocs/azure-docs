@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
 
@@ -23,11 +23,6 @@ Azure Cognitive Services Form Recognizer is a cloud service that uses machine le
 ## Supported languages
 
 Form Recognizer SDK supports the following languages and platforms:
-
-> [!NOTE]
->
-> * Form Recognizer SDKs are currently not supported by Form Recognizer REST API 2022-08-31.
-> * [REST API 2022-06-30](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) and earlier releases support the current SDKs. 
 
 | Language → SDK version | Package| Azure Form Recognizer SDK |Supported API version| Platform support |
 |:----------------------:|:----------|:----------| :----------------|-----------------|
@@ -53,49 +48,71 @@ Form Recognizer SDK supports the following languages and platforms:
 
 This release includes the following updates:
 
+> [!IMPORTANT]
+> The `DocumentAnalysisClient` and `DocumentModelAdministrationClient` now target API version v3.0 GA, released 2022-08-31. These clients are no longer supported by API versions 2020-06-30-preview or earlier.
+
 ### [**C#**](#tab/csharp)
 
-* **Version 4.0.0 GA**
+* **Version 4.0.0 GA (2022-09-08)**
 * **Supports REST API v3.0 and v2.0 clients**
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
 
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
 
-[**Package (NuGet)**](TODO)
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)
 
-[**Migration guide**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 ### [**Java**](#tab/java)
 
-* **Version 4.0.0 GA**
+* **Version 4.0.0 GA (2022-09-08)**
 * **Supports REST API v3.0 and v2.0 clients**
-
-[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 
 [**Package (Maven)**](TODO)
 
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
 [**Migration guide**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)
+
+[**ReadMe**]()
+
+[**Samples**]()
 
 ### [**JavaScript**](#tab/javascript)
 
-* **Version 4.0.0 GA**
+* **Version 4.0.0 GA (2022-09-08)**
 * **Supports REST API v3.0 and v2.0 clients**
 
-[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+[**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer)
 
-[**Package (npm)**](TODO)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
-[**Migration guide**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/README.md)
+
+[**Samples**](https://github.com/witemple-msft/azure-sdk-for-js/blob/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/README.md)
 
 ### [Python](#tab/python)
 
-* **Version 3.2.0 GA**
+> [!NOTE]
+> Python 3.7 or later is required to use this package.
+
+* **Version 3.2.0 GA (2022-09-08)**
 * **Supports REST API v3.0 and v2.0 clients**
 
-[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+[**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)
 
-[**Package (PyPi)**](TODO)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 
-[**Migration guide**](TODO)
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md)
 
 ---
 
