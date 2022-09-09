@@ -26,7 +26,7 @@ During an active call, you may want to send or receive states from other users. 
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-[!INCLUDE [Transfer calls Client-side JavaScript](./includes/raise-hand/raise-hand-web.md)]
+[!INCLUDE [Raise Hand Client-side JavaScript](./includes/raise-hand/raise-hand-web.md)]
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
