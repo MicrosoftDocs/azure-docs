@@ -41,9 +41,9 @@ This tutorial applies to the following architectures, though it can be adapted t
 
 The following steps demonstrate how to configure an app to use a system-assigned managed identity and your local development account to connect to multiple Azure Services. 
 
-### 1) Create a system-assigned managed identity
+### Create a system-assigned managed identity
 
-1) In the Azure Portal, navigate to the hosted application that you would like to connect to other services.
+1) In the Azure portal, navigate to the hosted application that you would like to connect to other services.
 
 2) On the service overview page, select **Identity**.
 
@@ -51,7 +51,7 @@ The following steps demonstrate how to configure an app to use a system-assigned
 
     :::image type="content" source="media/enable-system-assigned-identity.png" alt-text="A screenshot showing how to assign a system assigned managed identity."  :::
 
-### 2) Assign roles to the managed identity for each connected service
+### Assign roles to the managed identity for each connected service
     
 1) Navigate to the overview page of the storage account you would like to grant access your identity access to.
 
@@ -84,7 +84,7 @@ You can also enable access to Azure resources for local development by assigning
 > [!NOTE]
 > You can also assign these roles to an Azure Active Directory security group if you are working on a team with multiple developers. You can then place any developer inside that group who needs access to develop the app locally.
 
-### 3) Implement the application code
+### Implement the application code
 
 Inside of your project, add a reference to the `Azure.Identity` NuGet package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added in order to connect to Blob Storage and Key Vault.
 
@@ -125,7 +125,7 @@ Although the apps in the previous example all shared the same service access req
 
 :::image type="content" source="media/multiple-managed-identities-small.png" lightbox="media/multiple-managed-identities.png" alt-text="A diagram showing multiple user-assigned managed identities.":::
 
-To configure this setup in your code, make sure your application registers separate services to connect to each storage account or database. Make sure to pull in the correct managed identity client ids for each service when configuring `DefaultAzureCredential`. The following code example configures the following service connections:
+To configure this setup in your code, make sure your application registers separate services to connect to each storage account or database. Make sure to pull in the correct managed identity client IDs for each service when configuring `DefaultAzureCredential`. The following code example configures the following service connections:
 * Two connections to separate storage accounts using a shared user-assigned managed identity
 * A connection to Azure Cosmos DB and Azure SQL services using a second shared user-assigned managed identity
 

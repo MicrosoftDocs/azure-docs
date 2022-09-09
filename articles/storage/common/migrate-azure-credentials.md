@@ -59,15 +59,15 @@ var blobServiceClient = new BlobServiceClient(
 
 The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you are using access keys directly, or through connection strings.
 
-### 1) Configure roles and users for local development authentication
+### Configure roles and users for local development authentication
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
-### 2) Sign-in and migrate the app code to use passwordless connections
+### Sign-in and migrate the app code to use passwordless connections
 
 For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
-[!INCLUDE [defaultazurecredential-sign-in](../../../includes/defaultazurecredential-sign-in.md)]
+[!INCLUDE [default-azure-credential-sign-in](../../../includes/default-azure-credential-sign-in.md)]
 
 Next you will need to update your code to use passwordless connections.
 
@@ -94,17 +94,17 @@ Next you will need to update your code to use passwordless connections.
 
 1. Make sure to update the storage account name in the URI of your `BlobServiceClient`. The storage account name can be found on the overview page of the Azure portal.
 
-    :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
+    :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
 
 #### Run the app locally
 
 After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure will allow your app to connect to the Azure service locally.
 
-### 3) Configure the Azure hosting environment
+### Configure the Azure hosting environment
 
 Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage. 
 
-#### Create the managed identity using the Azure Portal
+#### Create the managed identity using the Azure portal
 
 The following steps demonstrate how to create a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you setup previously.
 
@@ -146,7 +146,7 @@ The Service Connector will automatically create a system-assigned managed identi
 
 1. On the main overview page of your App Service, select **Identity** from the left navigation. 
 
-1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and ids of the identity are never exposed in your code.
+1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
 
     :::image type="content" source="media/migration-create-identity-small.png" alt-text="A screenshot showing how to create a system assigned managed identity."  lightbox="media/migration-create-identity.png":::
 
@@ -154,7 +154,7 @@ The Service Connector will automatically create a system-assigned managed identi
 
 1. On the main overview page of your Azure Spring App, select **Identity** from the left navigation. 
 
-1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and ids of the identity are never exposed in your code.
+1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
 
     :::image type="content" source="media/storage-migrate-credentials/spring-apps-identity.png" alt-text="A screenshot showing how to enable managed identity for spring apps.":::    
 
@@ -162,7 +162,7 @@ The Service Connector will automatically create a system-assigned managed identi
 
 1. On the main overview page of your Azure Container App, select **Identity** from the left navigation. 
 
-1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and ids of the identity are never exposed in your code.
+1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
 
     :::image type="content" source="media/storage-migrate-credentials/container-apps-identity.png" alt-text="A screenshot showing how to enable managed identity for container apps.":::    
 
@@ -170,7 +170,7 @@ The Service Connector will automatically create a system-assigned managed identi
 
 1. On the main overview page of your Azure Spring App, select **Identity** from the left navigation. 
 
-1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and ids of the identity are never exposed in your code.
+1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
 
     :::image type="content" source="media/storage-migrate-credentials/virtual-machine-identity.png" alt-text="A screenshot showing how to enable managed identity for virtual machines.":::  
 
@@ -274,13 +274,13 @@ If you connected your services using the Service Connector you do not need to co
 
 ### [Azure CLI](#tab/assign-role-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource id using the az storage account show command. You can filter the output properties using the --query parameter.
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the az storage account show command. You can filter the output properties using the --query parameter.
 
 ```azurecli
 az storage account show --resource-group '<your-resource-group-name>' --name '<your-storage-account-name>' --query id
 ```
 
-Copy the output id from the preceding command. You can then assign roles using the az role command of the Azure CLI.
+Copy the output ID from the preceding command. You can then assign roles using the az role command of the Azure CLI.
 
 ```azurecli
 az role assignment create --assignee "<your-username>" \

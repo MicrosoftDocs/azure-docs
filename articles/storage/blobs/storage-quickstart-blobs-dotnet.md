@@ -18,13 +18,13 @@ Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob 
 
 The examples in this quickstart show you how to use the Azure Blob Storage client library v12 for .NET to:
 
-1. [Create the project and configure dependencies](#setting-up)
-1. [Authenticate to Azure](#authenticate-the-app-to-azure)
-1. [Create a container](#create-a-container)
-1. [Upload a blob to a container](#upload-a-blob-to-a-container)
-1. [List blobs in a container](#list-blobs-in-a-container)
-1. [Download a blob](#download-a-blob)
-1. [Delete a container](#delete-a-container)
+* [Create the project and configure dependencies](#setting-up)
+* [Authenticate to Azure](#authenticate-the-app-to-azure)
+* [Create a container](#create-a-container)
+* [Upload a blob to a container](#upload-a-blob-to-a-container)
+* [List blobs in a container](#list-blobs-in-a-container)
+* [Download a blob](#download-a-blob)
+* [Delete a container](#delete-a-container)
 
 Additional resources:
 
