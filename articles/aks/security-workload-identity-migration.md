@@ -28,13 +28,22 @@ This article reviews the different options available depending if you are planni
 
 - The Azure CLI version 2.32.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-- The `aks-preview` extension version 0.5.50 or later.
+- The `aks-preview` extension version 0.5.102 or later.
 
 ## How it works
 
 In this security model, the AKS cluster becomes a token issuer, issuing tokens to Kubernetes service accounts. These service account tokens can be configured to be trusted on Azure AD applications. The workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library or the Microsoft Authentication Library.
 
 :::image type="content" source="media/security-workload-identity-migration/aks-workload-identity-model.png" alt-text="Diagram of the AKS workload identity security model.":::
+
+The following table describes the required OIDC issuer endpoints for Azure AD Workload Identity:
+
+|Endpoint |Description |
+|---------|------------|
+|`{IssuerURL}/.well-known/openid-configuration` |Also known as the OIDC discovery document. This contains the metadata about the issuer's configurations. |
+|`{IssuerURL}/openid/v1/jwks` |This contains the public signing key(s) that AAD uses to verify the authenticity of the service account token. |
+
+:::image type="content" source="media/security-workload-identity-migration/aks-workload-identity-oidc-authentication-model.png" alt-text="Diagram of the AKS workload identity OIDC authentication sequence.":::
 
 ## How to migrate to Workload Identity
 

@@ -22,7 +22,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 - This article requires version 2.32.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- You have installed the latest version of the `aks-preview` extension, version 0.5.50 or later.
+- You have installed the latest version of the `aks-preview` extension, version 0.5.102 or later.
 
 - The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 
