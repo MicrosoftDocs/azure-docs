@@ -3,7 +3,7 @@ title: Cluster extensions for Azure Kubernetes Service (AKS)
 description: Learn how to deploy and manage the lifecycle of extensions on Azure Kubernetes Service (AKS)
 ms.service: container-service
 ms.custom: event-tier1-build-2022
-ms.date: 05/13/2022
+ms.date: 09/10/2022
 ms.topic: article
 author: nickomang
 ms.author: nickoman
@@ -36,17 +36,8 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 * [Azure CLI](/cli/azure/install-azure-cli) version >= 2.16.0 installed.
 
 > [!NOTE]
-> If you have enabled [AAD-based pod identity][use-azure-ad-pod-identity] on your AKS cluster, please add the following `AzurePodIdentityException` to the release namespace of your extension instance on the AKS cluster:
-> ```yml
-> apiVersion: aadpodidentity.k8s.io/v1
-> kind: AzurePodIdentityException
-> metadata:
->  name: k8s-extension-exception
->  namespace: <release-namespace-of-extension>
-> spec:
->  podLabels:
->    clusterconfig.azure.com/managedby: k8s-extension
-> ```
+> If you have enabled [AAD-based pod identity][use-azure-ad-pod-identity] on your AKS cluster, we recommend you review [Migrate to workload identity][migrate-workload-identity]
+> to review our recommendations and options to reconfigure your cluster to use an Azure AD workload identity.  
 
 ### Setup the Azure CLI extension for cluster extensions
 
@@ -155,7 +146,7 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 | Parameter name | Description |
 |----------------|------------|
 | `--name` | Name of the extension instance |
-| `--extension-type` | The type of extension you want to install on the cluster. For example: Microsoft.AzureML.Kubernetes | 
+| `--extension-type` | The type of extension you want to install on the cluster. For example: Microsoft.AzureML.Kubernetes |
 | `--cluster-name` | Name of the AKS cluster on which the extension instance has to be created |
 | `--resource-group` | The resource group containing the AKS cluster |
 | `--cluster-type` | The cluster type on which the extension instance has to be created. Specify `managedClusters` as it maps to AKS clusters|
@@ -194,8 +185,8 @@ az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-g
 [dapr-overview]: ./dapr.md
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
 [k8s-extension-reference]: /cli/azure/k8s-extension
-[use-azure-ad-pod-identity]: ./use-azure-ad-pod-identity.md
 [use-managed-identity]: ./use-managed-identity.md
+[migrate-workload-identity]: security-workload-identity-migration.md
 
 <!-- EXTERNAL -->
 [arc-k8s-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all

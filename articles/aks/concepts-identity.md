@@ -3,7 +3,7 @@ title: Concepts - Access and identity in Azure Kubernetes Services (AKS)
 description: Learn about access and identity in Azure Kubernetes Service (AKS), including Azure Active Directory integration, Kubernetes role-based access control (Kubernetes RBAC), and roles and bindings.
 services: container-service
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 09/10/2021
 author: palma21
 ms.author: jpalma
 
@@ -11,9 +11,10 @@ ms.author: jpalma
 
 # Access and identity options for Azure Kubernetes Service (AKS)
 
-You can authenticate, authorize, secure, and control access to Kubernetes clusters in a variety of ways. 
-* Using Kubernetes role-based access control (Kubernetes RBAC), you can grant users, groups, and service accounts access to only the resources they need. 
-* With Azure Kubernetes Service (AKS), you can further enhance the security and permissions structure via Azure Active Directory and Azure RBAC. 
+You can authenticate, authorize, secure, and control access to Kubernetes clusters in a variety of ways:
+
+* Using Kubernetes role-based access control (Kubernetes RBAC), you can grant users, groups, and service accounts access to only the resources they need.
+* With Azure Kubernetes Service (AKS), you can further enhance the security and permissions structure using Azure Active Directory and Azure RBAC.
 
 Kubernetes RBAC and AKS help you secure your cluster access and provide only the minimum required permissions to developers and operators.
 
@@ -85,9 +86,9 @@ By default Node Access is not required for AKS.  The following access is needed 
 
 | Access | Reason |
 |---|---|
-| `kubelet` | Required for customer to grant MSI access to ACR. |
+| `kubelet` | Required to grant MSI access to ACR. |
 | `http app routing` | Required for write permission to "random name".aksapp.io. |
-| `container insights` | Required for customer to grant permission to the Log Analytics workspace. |
+| `container insights` | Required to grant permission to the Log Analytics workspace. |
 
 ## Kubernetes RBAC
 
@@ -126,12 +127,10 @@ To bind roles across the entire cluster, or to cluster resources outside a given
 
 With a ClusterRoleBinding, you bind roles to users and apply to resources across the entire cluster, not a specific namespace. This approach lets you grant administrators or support engineers access to all resources in the AKS cluster.
 
-
 > [!NOTE]
-> Microsoft/AKS performs any cluster actions with user consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`. 
-> 
+> Microsoft/AKS performs any cluster actions with user consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`.
+>
 > This role enables AKS to troubleshoot and diagnose cluster issues, but can't modify permissions nor create roles or role bindings, or other high privilege actions. Role access is only enabled under active support tickets with just-in-time (JIT) access. Read more about [AKS support policies](support-policies.md).
-
 
 ### Kubernetes service accounts
 
@@ -147,10 +146,10 @@ Enhance your AKS cluster security with Azure AD integration. Built on decades of
 
 ![Azure Active Directory integration with AKS clusters](media/concepts-identity/aad-integration.png)
 
-With Azure AD-integrated AKS clusters, you can grant users or groups access to Kubernetes resources within a namespace or across the cluster. 
+With Azure AD-integrated AKS clusters, you can grant users or groups access to Kubernetes resources within a namespace or across the cluster.
 
-1. To obtain a `kubectl` configuration context, a user runs the [az aks get-credentials][az-aks-get-credentials] command. 
-1. When a user interacts with the AKS cluster with `kubectl`, they're prompted to sign in with their Azure AD credentials. 
+1. To obtain a `kubectl` configuration context, a user runs the [az aks get-credentials][az-aks-get-credentials] command.
+1. When a user interacts with the AKS cluster with `kubectl`, they're prompted to sign in with their Azure AD credentials.
 
 This approach provides a single source for user account management and password credentials. The user can only access the resources as defined by the cluster administrator.
 
@@ -173,7 +172,7 @@ As shown in the graphic above, the API server calls the AKS webhook server and p
 9. The API performs an authorization decision based on the Kubernetes Role/RoleBinding.
 10. Once authorized, the API server returns a response to `kubectl`.
 11. `kubectl` provides feedback to the user.
- 
+
 Learn how to integrate AKS with Azure AD with our [AKS-managed Azure AD integration how-to guide](managed-aad.md).
 
 ## Azure role-based access control
@@ -189,11 +188,15 @@ With Azure RBAC, you create a *role definition* that outlines the permissions to
 
 For more information, see [What is Azure role-based access control (Azure RBAC)?][azure-rbac]
 
-There are two levels of access needed to fully operate an AKS cluster: 
-* [Access the AKS resource in your Azure subscription](#azure-rbac-to-authorize-access-to-the-aks-resource). 
+There are two levels of access needed to fully operate an AKS cluster:
+
+* [Access the AKS resource in your Azure subscription](#azure-rbac-to-authorize-access-to-the-aks-resource).
+
   * Control scaling or upgrading your cluster using the AKS APIs.
   * Pull your `kubeconfig`.
+
 * Access to the Kubernetes API. This access is controlled by either:
+
   * [Kubernetes RBAC](#kubernetes-rbac) (traditionally).
   * [Integrating Azure RBAC with AKS for Kubernetes authorization](#azure-rbac-for-kubernetes-authorization).
 
@@ -211,7 +214,7 @@ With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook
 
 ![Azure RBAC for Kubernetes authorization flow](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
-As shown in the above diagram, when using the Azure RBAC integration, all requests to the Kubernetes API will follow the same authentication flow as explained on the [Azure Active Directory integration section](#azure-ad-integration). 
+As shown in the above diagram, when using the Azure RBAC integration, all requests to the Kubernetes API will follow the same authentication flow as explained on the [Azure Active Directory integration section](#azure-ad-integration).
 
 If the identity making the request exists in Azure AD, Azure will team with Kubernetes RBAC to authorize the request. If the identity exists outside of Azure AD (i.e., a Kubernetes service account), authorization will defer to the normal Kubernetes RBAC.
 
@@ -233,20 +236,21 @@ AKS provides the following four built-in roles. They are similar to the [Kuberne
 | Azure Kubernetes Service RBAC Admin  | Allows admin access, intended to be granted within a namespace. <br> Allows read/write access to most resources in a namespace (or cluster scope), including the ability to create roles and role bindings within the namespace. <br> Doesn't allow write access to resource quota or to the namespace itself. |
 | Azure Kubernetes Service RBAC Cluster Admin  | Allows super-user access to perform any action on any resource. <br> Gives full control over every resource in the cluster and in all namespaces. |
 
-
 ## Summary
 
 View the table for a quick summary of how users can authenticate to Kubernetes when Azure AD integration is enabled. In all cases, the user's sequence of commands is:
+
 1. Run `az login` to authenticate to Azure.
 1. Run `az aks get-credentials` to download credentials for the cluster into `.kube/config`.
-1. Run `kubectl` commands. 
+1. Run `kubectl` commands.
+
    * The first command may trigger browser-based authentication to authenticate to the cluster, as described in the following table.
 
 In the Azure portal, you can find:
+
 * The *Role Grant* (Azure RBAC role grant) referred to in the second column is shown on the **Access Control** tab. 
 * The Cluster Admin Azure AD Group is shown on the **Configuration** tab.
   * Also found with parameter name `--aad-admin-group-object-ids` in the Azure CLI.
-
 
 | Description        | Role grant required| Cluster admin Azure AD group(s) | When to use |
 | -------------------|------------|----------------------------|-------------|
