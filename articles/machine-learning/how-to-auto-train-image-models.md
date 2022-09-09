@@ -15,8 +15,8 @@ ms.date: 07/13/2022
 
 # Set up AutoML to train computer vision models
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
 > * [v1](v1/how-to-auto-train-image-models-v1.md)
 > * [v2 (current version)](how-to-auto-train-image-models.md)
 
@@ -29,12 +29,17 @@ Automated ML supports model training for computer vision tasks like image classi
 
 ## Prerequisites
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
+ [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the `ml` extension.
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
 * The Azure Machine Learning Python SDK v2 (preview) installed.
@@ -68,7 +73,7 @@ image classification multi-label | CLI v2: `image_classification_multilabel` <br
 image object detection | CLI v2: `image_object_detection` <br> SDK v2: `image_object_detection()`
 image instance segmentation| CLI v2: `image_instance_segmentation` <br> SDK v2: `image_instance_segmentation()`
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -80,7 +85,11 @@ For example:
 task: image_object_detection
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+
 Based on the task type, you can create AutoML image jobs using task specific `automl` functions.
 
 For example:
@@ -189,7 +198,7 @@ Once your data is in JSONL format, you can create training and validation `MLTab
 
 Automated ML doesn't impose any constraints on training or validation data size for computer vision tasks. Maximum dataset size is only limited by the storage layer behind the dataset (i.e. blob store). There's no minimum number of images or labels. However, we recommend starting with a minimum of 10-15 samples per label to ensure the output model is sufficiently trained. The higher the total number of labels/classes, the more samples you need per label.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -207,7 +216,9 @@ validation_data:
   type: mltable
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 You can create data inputs from training and validation MLTable from your local directory or cloud storage with the following code:
 
@@ -233,7 +244,7 @@ Provide a [compute target](concept-azure-machine-learning-architecture.md#comput
 
 The compute target is passed in using the `compute` parameter. For example:
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -241,7 +252,9 @@ The compute target is passed in using the `compute` parameter. For example:
 compute: azureml:gpu-cluster
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
 from azure.ai.ml import automl
@@ -270,7 +283,7 @@ It is generally hard to predict the best model architecture and hyperparameters 
 
 You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits`, as shown in the example below. The time budget for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time. Note that a search space, sampling method and termination policy must not be specified.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -309,7 +322,7 @@ Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `m
 
 In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -319,7 +332,9 @@ If you wish to use the default hyperparameter values for a given algorithm (say 
 image_model:
     model_name: "yolov5"
 ```
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using the model_name parameter in the set_image_model method of the task specific `automl` job. For example,
 
@@ -350,7 +365,7 @@ The primary metric used for model optimization and hyperparameter tuning depends
 ### Experiment budget
 
 You can optionally specify the maximum time budget for your AutoML Vision training job using the `timeout` parameter in the `limits` - the amount of time in minutes before the experiment terminates. If none specified, default experiment timeout is seven days (maximum 60 days). For example,
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -359,7 +374,9 @@ limits:
   timeout: 60
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
 
@@ -416,7 +433,7 @@ Parameter | Detail
 
 You can configure all the sweep related parameters as shown in the example below.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -433,7 +450,9 @@ sweep:
     delay_evaluation: 6
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=sweep-settings)]
 
@@ -444,7 +463,7 @@ sweep:
 
 You can pass fixed settings or parameters that don't change during the parameter space sweep as shown below.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -455,7 +474,9 @@ image_model:
 ```
 
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
  
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=pass-arguments)]
 
@@ -471,7 +492,7 @@ Once the training run is done, you have the option to further train the model by
 
 You can pass the run ID that you want to load the checkpoint from.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -481,7 +502,9 @@ image_model:
 ```
 
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 To find the run ID from the desired model, you can use the following code. 
 
@@ -531,7 +554,7 @@ automl_image_job_incremental = ml_client.jobs.create_or_update(
 
 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -541,7 +564,9 @@ To submit your AutoML job, you run the following CLI v2 command with the path to
 az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 When you've configured your AutoML Job to the desired settings, you can submit the job.
 
@@ -563,15 +588,17 @@ Once the run completes, you can register the model that was created from the bes
 
 ### Get the best run
 
-
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 ```yaml
       
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
 
@@ -584,14 +611,16 @@ Once the run completes, you can register the model that was created from the bes
 
 Register the model either using the azureml path or your locally downloaded path. 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```azurecli
  az ml model create --name od-fridge-items-mlflow-model --version 1 --path azureml://jobs/$best_run/outputs/artifacts/outputs/mlflow-model/ --type mlflow_model --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
 ---
@@ -600,7 +629,7 @@ After you register the model you want to use, you can deploy it using the manage
 
 ### Configure online endpoint
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -610,7 +639,9 @@ name: od-fridge-items-endpoint
 auth_mode: key
 ```
     
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=endpoint)]    
 
@@ -621,14 +652,16 @@ auth_mode: key
 Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 ```azurecli
 az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_endpoint)]
 ---
@@ -638,7 +671,7 @@ az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR
 A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class. You can use either GPU or CPU VM SKUs for your deployment cluster.
 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -662,7 +695,9 @@ readiness_probe:
     initial_delay: 2000 
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=deploy)]
 ---
@@ -672,7 +707,7 @@ readiness_probe:
 
 Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -680,7 +715,9 @@ Using the `MLClient` created earlier, we'll now create the deployment in the wor
 az ml online-deployment create --file .\create_deployment.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_deploy)]
 ---
@@ -688,7 +725,7 @@ az ml online-deployment create --file .\create_deployment.yml --workspace-name [
 ### update traffic:
 By default the current deployment is set to receive 0% traffic. you can set the traffic percentage current deployment should receive. Sum of traffic percentages of all the deployments with one end point shouldn't exceed 100%.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -696,7 +733,9 @@ By default the current deployment is set to receive 0% traffic. you can set the 
 az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fridge-items-mlflow-deploy=100' --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=update_traffic)]
 ---
@@ -738,12 +777,15 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 
 
 ## Code examples
-# [CLI v2](#tab/CLI-v2)
+
+# [Azure CLI](#tab/cli)
 
 Review detailed code examples and use cases in the [azureml-examples repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs). 
 
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs). 
 
