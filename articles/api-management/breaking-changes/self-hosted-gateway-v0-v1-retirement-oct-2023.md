@@ -1,6 +1,6 @@
 ---
 title: Azure API Management - Self-hosted gateway v0/v1 retirement (October 2023) | Microsoft Docs
-description: Azure API Management is retiring the v0 and v1 versions of the self-hosted gateway container image, effective 1 October 2023. If you have deployed one of these versions, you must migrate to the v2 version of the self-hosted gateway.
+description: Azure API Management is retiring the v0 and v1 versions of the self-hosted gateway container image, effective 1 October 2023. If you've deployed one of these versions, you must migrate to the v2 version of the self-hosted gateway.
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -35,7 +35,7 @@ If you are using version 0 or version 1 of the self-hosted gateway, you will nee
 
 ## What do I need to do?
 
-Migrate all your existing deployments of the self-hosted gateway using version 0 or verion 1 to the newest v2 container image and v2 configuration API by 1 October 2023.
+Migrate all your existing deployments of the self-hosted gateway using version 0 or version 1 to the newest v2 container image and v2 configuration API by 1 October 2023.
 
 Follow the [migration guide](../self-hosted-gateway-migration-guide.md) for a successful migration.
 

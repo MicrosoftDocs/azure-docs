@@ -22,7 +22,7 @@ The following table summarizes the compute platforms currently used for instance
 | `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium | 
 | `mtv1` | Multi-tenant v1 |  Shared infrastructure that supports native autoscaling and scaling down to zero in times of no traffic |  Consumption |
 
-To take advantage of upcoming features, we're recommending that customers migrate their Azure API Management instances from the `stv1` compute platform to the `stv2` compute platform. The `stv2` compute platform comes with additional features and improvements such as support for Azure Private Link and other networking features coming soon. 
+To take advantage of upcoming features, we're recommending that customers migrate their Azure API Management instances from the `stv1` compute platform to the `stv2` compute platform. The `stv2` compute platform comes with additional features and improvements such as support for Azure Private Link and other networking features. 
 
 New instances created in service tiers other than the Consumption tier are mostly hosted on the `stv2` platform already. Existing instances on the `stv1` compute platform will continue to work normally until the retirement date, but those instances won’t receive the latest features available to the `stv2` platform. Support for `stv1` instances will be retired by 31 August 2024.  
 
