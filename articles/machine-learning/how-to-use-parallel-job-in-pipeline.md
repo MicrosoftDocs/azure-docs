@@ -350,7 +350,10 @@ First, you need to import the required libraries, initiate your ml_client with p
 
 Then implement your parallel job by filling `parallel_run_function`:
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=define-components)]
+<!--- [!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=define-components)] --->
+
+Use `parallel` to create parallel node. Use `load_component` to load command components defined using YAML. "
+
 
 Finally use your parallel job as a step in your pipeline and bind its inputs/outputs with other steps:
 [!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=build-pipeline)]
