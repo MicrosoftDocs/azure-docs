@@ -2,12 +2,12 @@
 title: Raise Hand States
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to send Raise Hand state.
-author: ruslanzdor
-ms.author: -
+author: rzdor
+ms.author: ruslanzdor
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
-ms.date: 09/08/2022
+ms.date: 09/09/2022
 ms.custom: template-how-to
 
 #Customer intent: As a developer, I want to learn how to send and receive Raise Hand state using SDK.
