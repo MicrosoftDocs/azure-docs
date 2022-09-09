@@ -26,7 +26,7 @@ Before you can enable RDP Shortpath, you'll need to meet the prerequisites. Sele
 > [!TIP]
 > RDP Shortpath for public networks is currently rolling out now it is generally available. It will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.
 >
-> While it is rolling out, it may still be necessary to configure a registry value to enable RDP Shortpath for public networks. See 
+> While it is rolling out, it may still be necessary to configure a registry value to enable RDP Shortpath for public networks. For more information, see [Enable the preview of RDP Shortpath for public networks](#enable-the-preview-of-rdp-shortpath-for-public-networks).
 >
 > The steps to configure RDP Shortpath for public networks are provided for session hosts and clients in case these defaults have been changed. 
 
