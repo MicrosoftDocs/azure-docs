@@ -1,20 +1,20 @@
 ### YamlMime:Landing
-title: Azure Kubernetes Fleet Manager
+title: Azure Kubernetes Fleet Manager (preview)
 summary: Learn how to address multi-cluster and at-scale scenarios for Azure Kubernetes Service (AKS) clusters
 
 metadata:
-  title: Azure Kubernetes Fleet Manager (Preview)
+  title: Azure Kubernetes Fleet Manager (preview)
   description: Learn how to address multi-cluster and at-scale scenarios for Azure Kubernetes Service (AKS) clusters
   ms.service: kubernetes-fleet
   ms.topic: landing-page
   ms.date: 08/29/2022
 
 landingContent:
-  - title: About Azure Kubernetes Fleet Manager
+  - title: About Azure Kubernetes Fleet Manager (preview)
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Kubernetes Fleet Manager?
+          - text: What is Azure Kubernetes Fleet Manager (preview)?
             url: overview.md
 
   - title: API reference
@@ -24,7 +24,7 @@ landingContent:
          - text: Azure CLI
            url: /cli/azure/fleet
 
-   - title: Get started
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:

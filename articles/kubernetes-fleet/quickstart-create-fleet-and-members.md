@@ -10,7 +10,7 @@ ms.custom: template-quickstart, mode-other, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Quickstart: Create Azure Kubernetes Fleet Manager and join member clusters
+# Quickstart: Create Azure Kubernetes Fleet Manager and join member clusters (preview)
 
 Get started with Azure Kubernetes Fleet Manager by using Azure CLI to create a fleet resource and later connect Azure Kubernetes Service (AKS) clusters as member clusters to the fleet resource.
 
