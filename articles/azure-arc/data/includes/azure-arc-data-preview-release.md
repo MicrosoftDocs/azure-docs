@@ -25,7 +25,7 @@ The current preview release published on September 6, 2022.
 New for this release:
 
 - Arc data controller
-  - New extensions to monitoring stack to enable Kafka as a data cache and expose an OpenTelemetry endpoint for integration.  See documentation for more details.
+  - New extensions to monitoring stack to allow integration of Arc telemetry data feeds with external monitoring solutions.  See documentation for more details.
   - Deleting an AD connector that is in use is now blocked.  First remove all database instances that are using it and then remove the AD connector.
   - New OpenTelemetry Router preview to make collected logs available for export to other SEIM systems.  See documentation for details.
   - AD connectors can now be created in Kubernetes via the Kubernetes API and syncronized to Azure via Resource Sync.
