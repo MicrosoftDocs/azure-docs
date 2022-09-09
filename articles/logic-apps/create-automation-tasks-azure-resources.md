@@ -21,12 +21,10 @@ You can create an automation task from a specific automation task template. The 
 
 | Resource type | Automation task templates |
 |---------------|---------------------------|
-| Azure resource groups | **When resource is deleted** |
 | All Azure resources | **Send monthly cost for resource** |
-| Azure virtual machines | Additionally: <p>- **Power off Virtual Machine** <br>- **Start Virtual Machine** |
-| Azure Storage accounts | Additionally: <p>- **Delete old blobs** |
-| Azure Cosmos DB | Additionally, <p>- **Send query result via email** |
-|||
+| Azure virtual machines | Additionally: <br><br>- **Power off Virtual Machine** <br>- **Start Virtual Machine** <br>- **Deallocate Virtual Machine** |
+| Azure storage accounts | Additionally: <br><br>- **Delete old blobs** |
+| Azure Cosmos DB | Additionally, <br><br>- **Send query result via email** |
 
 This article shows you how to complete the following tasks:
 

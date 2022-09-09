@@ -163,7 +163,9 @@ For more information about regex replace and capture groups, see [The Regular Ex
 >[!NOTE]
 > As described in the Azure AD documentation, you can't modify a restricted claim by using a policy. The data source can't be changed, and no transformation is applied when you're generating these claims. The group claim is still a restricted claim, so you need to customize the groups by changing the name. If you select a restricted name for the name of your custom group claim, the claim will be ignored at runtime. 
 >
-> You can also use the regex transform feature as a filter, because any groups that don't match the regex pattern will not be emitted in the resulting claim. 
+> You can also use the regex transform feature as a filter, because any groups that don't match the regex pattern will not be emitted in the resulting claim.
+>
+>If the transform applied to the original groups claim results in a new custom claim, then the original groups claim will be omitted from the token. However, if the configured regex doesn't match any value in the original list, then the custom claim will not be present and the original groups claim will be included in the token.
 
 ### Edit the group claim configuration
 
