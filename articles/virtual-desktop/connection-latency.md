@@ -48,7 +48,6 @@ To check and modify your diagnostics settings in the Azure portal:
 8. Make sure the network data is going to your selected destination by returning to the host pool's resource page, selecting **Logs**, then running one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who have been connecting to sessions. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
    
    - To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](connection-latency.md#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
-   - To check graphics data <!--Note to Self: Ask Logan what to put here-->
 
 ### Connection network data
 
@@ -80,7 +79,6 @@ The graphics data you collect for your data tables includes the following inform
 
 - The **Last evaluated connection time interval** is the two minutes leading up to the time graphics indicators fell below the quality threshold.
 
-- The **GoodSecPercentage (percentage)** is the percentage of seconds in the last evaluated connection time interval where all graphics indicators registered as "Good" based on the thresholds in [Frequency](#frequency).
 
 - The **end-to-end delay (milliseconds)** is the delay in the time between when a frame is captured on the server until the time frame is rendered on the client, measured as the sum of the encoding delay on the server, network delay, the decoding delay on the client, and the rendering time on the client. The delay reflected is the highest (worst) delay recorded in the last evaluated connection time interval.
 
