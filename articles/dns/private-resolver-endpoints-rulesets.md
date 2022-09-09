@@ -17,7 +17,9 @@ In this article, you'll learn about components of the [Azure DNS Private Resolve
 > [!IMPORTANT]
 > Azure DNS Private Resolver is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-The architecture for Azure DNS Private Resolver is summarized in the following figure. In this example network, a DNS resolver is deployed in a hub vnet that peers with a spoke vnet. Ruleset links are provisioned in the DNS forwarding ruleset to both the hub and spoke vnets, enabling resources in both vnets to resolve custom DNS namespaces using DNS forwarding rules. A private DNS zone is also deployed and linked to the hub vnet, enabling resources in the hub vnet to resolve records in the zone. The spoke vnet resolves records in the private zone by using a [DNS forwarding rule](#rules) that forwards private zone queries to the inbound endpoint in the hub vnet. 
+The architecture for Azure DNS Private Resolver is summarized in the following figure. In this example network, a DNS resolver is deployed in a hub vnet that peers with a spoke vnet. [Ruleset links](#ruleset-links) are provisioned in the [DNS forwarding ruleset](#dns-forwarding-rulesets) to both the hub and spoke vnets, enabling resources in both vnets to resolve custom DNS namespaces using DNS forwarding rules. A private DNS zone is also deployed and linked to the hub vnet, enabling resources in the hub vnet to resolve records in the zone. The spoke vnet resolves records in the private zone by using a DNS forwarding [rule](#rules) that forwards private zone queries to the inbound endpoint VIP in the hub vnet. 
+
+An ExpressRoute-connected on-premises network is also shown, with DNS servers configured to forward queries for the Azure private zone to the inbound endpoint VIP. For more information about enabling hybrid DNS resolution using the Azure DNS Private Resolver, see [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md).
 
 [ ![Review private resolver architecture](./media/private-resolver-endpoints-rulesets/ruleset.png) ](./media/private-resolver-endpoints-rulesets/ruleset-highres.png#lightbox)
 
@@ -25,7 +27,7 @@ The architecture for Azure DNS Private Resolver is summarized in the following f
 
 As the name suggests, inbound endpoints will ingress to Azure. Inbound endpoints provide an IP address to forward DNS queries from on-premises and other locations outside your virtual network. DNS queries sent to the inbound endpoint are resolved using Azure DNS. Private DNS zones that are linked to the virtual network where the inbound endpoint is provisioned are resolved by the inbound endpoint. 
 
-The IP address associated with an inbound endpoint is always part of the private virtual network address space where the private resolver is deployed.  No other resources can exist in the same subnet with the inbound endpoint. The following screenshot shows an inbound endpoint with an IP address of 10.10.0.4 inside the subnet `snet-E-inbound` provisioned within a virtual network with address space of 10.10.0.0/16.
+The IP address associated with an inbound endpoint is always part of the private virtual network address space where the private resolver is deployed.  No other resources can exist in the same subnet with the inbound endpoint. The following screenshot shows an inbound endpoint with a virtual IP address (VIP) of **10.10.0.4** inside the subnet `snet-E-inbound` provisioned within a virtual network with address space of 10.10.0.0/16.
 
 ![View inbound endpoints](./media/private-resolver-endpoints-rulesets/east-inbound-endpoint.png)
 
