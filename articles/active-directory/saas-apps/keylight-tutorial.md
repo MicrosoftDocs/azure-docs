@@ -147,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e. Set **SAML User Id location** to **NameIdentifier element of the subject statement**.
 
-    f. Provide the **Keylight Service Provider** using the following pattern: `https://<CompanyName>.keylightgrc.com`.
+    f. Provide the **Navex IRM Service Provider** using the following pattern: `https://<CompanyName>.keylightgrc.com`.
 
     g. Set **Auto-provision users** to **Active**.
 
@@ -167,7 +167,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create NAVEX IRM (Lockpath/Keylight) test user
 
-In this section, a user called Britta Simon is created in NAVEX IRM (Lockpath/Keylight). NAVEX IRM (Lockpath/Keylight) supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in NAVEX IRM (Lockpath/Keylight), a new one is created after authentication. If you need to create a user manually, you need to contact the [NAVEX IRM (Lockpath/Keylight) Client support team](https://www.lockpath.com/contact/).
+In this section, a user called Britta Simon is created in NAVEX IRM (Lockpath/Keylight). NAVEX IRM (Lockpath/Keylight) supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in NAVEX IRM (Lockpath/Keylight), a new one is created after authentication. If you need to create a user manually, you need to contact the [NAVEX IRM (Lockpath/Keylight) Customer support team](https://www.lockpath.com/contact/).
 
 ## Test SSO
 
