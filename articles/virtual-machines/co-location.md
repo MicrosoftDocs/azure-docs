@@ -50,18 +50,18 @@ When specifying `intent`, you can also add the optional `zone` parameter to spec
 
 Proximity Placement Group creation or update will succeed only when at least one data center supports all the VM Sizes specified in the intent. Otherwise, the creation or update will fail with "OverconstrainedAllocationRequest", indicating that the combination of VM Sizes cannot be supported within a proximity placement group. The **intent does not provide any capacity reservation or guarantee**. The VM Sizes and zone  given in `intent` are used to select an appropriate data center, reducing the chances of failure if the desired VM size isn't available in a data center. Allocation failures can still occur if there is no more capacity for a VM size at the time of deployment. 
 
-## Best Practices while using Proximity Placement Group with Intent
+### Best Practices while using intent
 
-1.	Ensure that you provide an availability zone for your PPG only when you provide an intent. Providing an availability zone without intent will result in an error while creating the PPG.
-2.	If you have provided an availability zone in the intent, ensure that the availability zone of the VMs you deploy match with what you have provided in the intent to avoid errors while deploying VMs.
-3.	Creating or adding VMs of sizes different from those provided in the intent is allowed but not recommended as they may not exist in the selected datacenter and hence can result in failures at the time of VM deployment.
-4.	For existing PPG, it is recommended to include the sizes of the existing VMs on the PPG while updating intent, in order to avoid failure while re-deploying the VMs.
+- Provide an availability zone for your PPG only when you provide an intent. Providing an availability zone without an intent will result in an error when creating the PPG.
+- If you provide an availability zone in the intent, ensure that the availability zone of the VMs you deploy match with what you have given in the intent to avoid errors while deploying VMs.
+- Creating or adding VMs with sizes that are not included in the intent is allowed, but not recommended. The size may not exist in the selected datacenter and can result in failures at the time of VM deployment.
+For existing placement groups, we recommend you include the sizes of the existing VMs when updating the intent, in order to avoid failure when re-deploying the VMs.
 5.	If you have an existing PPG with deallocated VMs, and you want to update the PPG with an intent, ensure that you include the existing VM Sizes (in the PPG) in the intent so that they are considered while selecting an appropriate data center.
 
-## Errors due to decommissioning while using Proximity Placement Group with Intent
+### Errors when decommissioning while using intent
 
-1. It may be possible that after a PPG is created with intent and before the VMs are deployed to the PPG, planned maintenance events such as hardware decommissioning at an Azure datacenter could take place, resulting in unavailability of the combination of VM Sizes specified in the intent in a single datacenter. In such cases, an "OverconstrainedAllocationRequest" error occur even while deploying VMs of sizes specified in the intent. You can try deallocating all the resources in the PPG and start them back so that a different datacenter, which can accommodate the intent. In case there is no datacenter with the specified VM Sizes after the decommission, you may have to modify the intent as a combination of different VM Sizes, since the current selection is no longer supported.
-2. In rare scenarios, Azure may retire an entire VM family or a specific set of VM Sizes. In case, if you have such a VM Size in your PPG intent, you may have to modify the intent by replacing it with a different one that you want to migrate to before the retirement date for that specific VM Size. Otherwise, the intent may not be valid.
+- There can be a case where after a placement group is created with intent and before the VMs are deployed to it, planned maintenance events such as hardware decommissioning at an Azure datacenter could occur, resulting in the combination of VM Sizes specified in the intent not being available in the data center. In such cases, an "OverconstrainedAllocationRequest" error will occur, even while deploying VMs of sizes specified in the intent. You can try deallocating all the resources in the placement group and recreate them to get a data center that can accommodate the intent. If is no datacenter with the specified VM Sizes after the decommission, you may have to modify the intent to use a different combination of VM Sizes, since the current selection is no longer supported.
+- In rare cases, Azure may retire an entire VM family or a specific set of VM Sizes. If you have that VM Size in your PPG intent, you may have to modify the intent and replace it with a different size before the retirement date for that specific VM Size. Otherwise, the intent may not be valid.
 
 ## What to expect when using Proximity Placement Groups 
 Proximity placement groups offer colocation in the same data center. However, because proximity placement groups represent an additional deployment constraint, allocation failures can occur. There are few use cases where you may see allocation failures when using proximity placement groups:
@@ -70,7 +70,7 @@ Proximity placement groups offer colocation in the same data center. However, be
 - If a proximity placement group is created with intent, there is no necessity for deploying the exotic SKUs first followed by other SKUs, since the intent is used to select a datacenter that supports both SKUs while deploying, regardless of the order of deployment. 
 - In the case of elastic workloads, where you add and remove VM instances, having a proximity placement group constraint on your deployment may result in a failure to satisfy the request resulting in **AllocationFailure** error.
 - Stopping (deallocate) and starting your VMs as needed is another way to achieve elasticity. Since the capacity is not kept once you stop (deallocate) a VM, starting it again may result in an **AllocationFailure** error.
-- VM start and redeploy operations will continue to respect the Proximity Placement Group once sucessfully configured.
+- VM start and redeploy operations will continue to respect the Proximity Placement Group once successfully configured.
 
 ## Planned maintenance and Proximity Placement Groups
 
