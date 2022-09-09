@@ -6,6 +6,7 @@ ms.author: malev
 ms.service: managed-grafana 
 ms.topic: conceptual
 ms.date: 7/27/2022 
+ms.custom: references_regions
 ---
 
 # Azure Managed Grafana service reliability

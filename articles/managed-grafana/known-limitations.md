@@ -16,15 +16,15 @@ Azure Managed Grafana delivers the native Grafana functionality in the highest p
 
 Managed Grafana has the following known limitations:
 
-1. All users must have accounts in an Azure Active Directory. Microsoft (also known as MSA) and 3rd-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
+* All users must have accounts in an Azure Active Directory. Microsoft (also known as MSA) and 3rd-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
 
-1. Installing, uninstalling and upgrading plugins from the Grafana Catalog aren't allowed.
+* Installing, uninstalling and upgrading plugins from the Grafana Catalog aren't allowed.
 
-1. Data source query results are capped at 80 MB. To mitigate this constraint, reduce the size of the query, for example, by shortening the time duration.
+* Data source query results are capped at 80 MB. To mitigate this constraint, reduce the size of the query, for example, by shortening the time duration.
 
-1. Querying Azure Data Explorer may take a long time or return 50x errors. To resolve these issues, use a table format instead of a time series, shorten the time duration, or avoid having many panels querying the same data cluster that can trigger throttling.
+* Querying Azure Data Explorer may take a long time or return 50x errors. To resolve these issues, use a table format instead of a time series, shorten the time duration, or avoid having many panels querying the same data cluster that can trigger throttling.
 
-1. API key usage isn't included in the audit log.
+* API key usage isn't included in the audit log.
 
 ## Next steps
 
