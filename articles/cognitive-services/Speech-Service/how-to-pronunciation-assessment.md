@@ -506,7 +506,6 @@ Pronunciation assessment results for the spoken word "hello" are shown as a JSON
 	"Offset": 7500000,
 	"Duration": 13800000,
 	"DisplayText": "Hello.",
-	"SNR": 34.879055,
 	"NBest": [
 		{
 			"Confidence": 0.975003,

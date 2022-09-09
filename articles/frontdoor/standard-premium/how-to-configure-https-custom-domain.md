@@ -194,7 +194,7 @@ Azure managed certificates are automatically rotated by the Azure service that v
 
 ### <a name="rotate-own-certificate"></a>Use your own certificate
 
-In order for the certificate to automatically be rotated to the latest version when a newer version of the certificate is available in your key vault, set the secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be automatically deployed.
+In order for the certificate to automatically be rotated to the latest version when a newer version of the certificate is available in your key vault, set the secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be automatically deployed.
 
 If you want to change the secret version from ‘Latest’ to a specified version or vice versa, add a new certificate. 
 

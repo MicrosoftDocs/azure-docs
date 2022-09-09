@@ -113,12 +113,12 @@ Run the following PowerShell cmdlet:
 The command returns your current additional authentication rules for your relying party trust. Append the following rules to your current claim rules:
 
 ```console
-c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
+"YourGroupSID"] => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
-not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+not exists([Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
 Value=="YourGroupSid"]) => issue(Type = 
-"https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
+"http://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
 "AzureMfaServerAuthentication");'
 ```
 
@@ -126,15 +126,15 @@ The following example assumes your current claim rules are configured to prompt 
 
 ```PowerShell
 Set-AdfsAdditionalAuthenticationRule -AdditionalAuthenticationRules 'c:[type == 
-"https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = 
-"https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
-"https://schemas.microsoft.com/claims/multipleauthn" );
- c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = 
+"http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
+"http://schemas.microsoft.com/claims/multipleauthn" );
+ c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
+"YourGroupSID"] => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
-not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+not exists([Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
 Value=="YourGroupSid"]) => issue(Type = 
-"https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
+"http://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
 "AzureMfaServerAuthentication");'
 ```
 
@@ -145,15 +145,15 @@ This example modifies claim rules on a specific relying party trust (application
 
 ```PowerShell
 Set-AdfsRelyingPartyTrust -TargetName AppA -AdditionalAuthenticationRules 'c:[type == 
-"https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = 
-"https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
-"https://schemas.microsoft.com/claims/multipleauthn" );
-c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = 
+"http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
+"http://schemas.microsoft.com/claims/multipleauthn" );
+c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
+"YourGroupSID"] => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
-not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+not exists([Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
 Value=="YourGroupSid"]) => issue(Type = 
-"https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
+"http://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
 "AzureMfaServerAuthentication");'
 ```
 
@@ -379,12 +379,12 @@ For example, remove the following from the rule(s):
 
  
 ```console
-c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value ==
-"**YourGroupSID**"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders",
+c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value ==
+"**YourGroupSID**"] => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsproviders",
 Value = "AzureMfaAuthentication");
-not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid",
+not exists([Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid",
 Value=="YourGroupSid"]) => issue(Type =
-"https://schemas.microsoft.com/claims/authnmethodsproviders", Value =
+"http://schemas.microsoft.com/claims/authnmethodsproviders", Value =
 "AzureMfaServerAuthentication");'
 ```
 
