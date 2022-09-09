@@ -97,7 +97,7 @@ New-AzVirtualNetwork @net
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a primary public IP address.
 
 ```azurepowershell-interactive
-$ip4-1 = @{
+$ip1 = @{
     Name = 'myPublicIP-1'
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus2'
@@ -106,7 +106,7 @@ $ip4-1 = @{
     IpAddressVersion = 'IPv4'
     Zone = 1,2,3
 }
-New-AzPublicIpAddress @ip4-1
+New-AzPublicIpAddress @ip1
 ```
 
 ## Create a network security group
@@ -165,23 +165,16 @@ $pub1 = @{
     Name = 'myPublicIP-1'
     ResourceGroupName = 'myResourceGroup'
 }
-$pubIP-1 = Get-AzPublicIPAddress @pub1
-
-## Place the secondary public IP address into a variable. ##
-$pub2 = @{
-    Name = 'myPublicIP-2'
-    ResourceGroupName = 'myResourceGroup'
-}
-$pubIP-2 = Get-AzPublicIPAddress @pub2
+$pubIP1 = Get-AzPublicIPAddress @pub1
 
 ## Create primary configuration for NIC. ##
 $IP1 = @{
     Name = 'ipconfig1'
     Subnet = $vnet.Subnets[0]
     PrivateIpAddressVersion = 'IPv4'
-    PublicIPAddress = $pubIP-1
+    PublicIPAddress = $pubIP1
 }
-$IP1Config = New-AzNetworkInterfaceIpConfig @IP1
+$IP1Config = New-AzNetworkInterfaceIpConfig @IP1 -Primary
 
 ## Create tertiary configuration for NIC. ##
 $IP3 = @{
@@ -265,7 +258,7 @@ New-AzVM @vm -GenerateSshKey
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a secondary public IP address.
 
 ```azurepowershell-interactive
-$ip4-2 = @{
+$ip2 = @{
     Name = 'myPublicIP-2'
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus2'
@@ -274,7 +267,7 @@ $ip4-2 = @{
     IpAddressVersion = 'IPv4'
     Zone = 1,2,3
 }
-New-AzPublicIpAddress @ip4-2
+New-AzPublicIpAddress @ip2
 ```
 
 Use [New-AzNetworkInterfaceIpConfig](/powershell/module/az.network/new-aznetworkinterfaceipconfig) to create the secondary IP configuration for the virtual machine.
@@ -299,7 +292,7 @@ $pip = @{
     Name = 'myPublicIP-2'
     ResourceGroupName = 'myResourceGroup'
 }
-$pubIP-2 = Get-AzPublicIPAddress @pip
+$pubIP2 = Get-AzPublicIPAddress @pip
 
 ## Place the network interface into a variable. ##
 $net = @{
@@ -309,14 +302,14 @@ $net = @{
 $nic = Get-AzNetworkInterface @net
 
 ## Create secondary configuration for NIC. ##
-$IP2 = @{
+$IPc2 = @{
     Name = 'ipconfig2'
     Subnet = $vnet.Subnets[0]
     PrivateIpAddressVersion = 'IPv4'
     PrivateIpAddress = '10.1.0.5'
-    PublicIPAddress = $pubIP-2
+    PublicIPAddress = $pubIP2
 }
-$IP2Config = New-AzNetworkInterfaceIpConfig @IP2
+$IP2Config = New-AzNetworkInterfaceIpConfig @IPc2
 
 ## Add the IP configuration to the network interface. ##
 $nic.IpConfigurations.Add($IP2Config)
