@@ -306,6 +306,32 @@ In your AutoML job, you can specify the model algorithms by using `model_name` p
 
 In this example, we will train an object detection model with `yolov5` and `fasterrcnn_resnet50_fpn`, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over thousands of labeled images with over 80 label categories.
 
+### Job Limits
+
+You can control the resources spent on your Vision training by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings.
+
+Parameter | Detail
+-----|----
+`max_trials` |  Required parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1.
+`max_concurrent_trials`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
+`timeout_minutes`| The amount of time in minutes before the experiment terminates. If none specified, default experiment timeout_minutes is seven days (maximum 60 days)
+
+
+# [CLI v2](#tab/CLI-v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+limits:
+  timeout_minutes: 60
+  max_trials: 10
+  max_concurrent_trials: 2
+```
+
+# [Python SDK v2 (preview)](#tab/SDK-v2)
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
+
 ### Hyperparameter sweeping for image tasks
 
 You can perform a hyperparameter sweep over a defined search space to find the optimal model.
@@ -322,9 +348,6 @@ The Bandit early termination policy is also used. This policy terminates poor pe
 
 ```yaml
 sweep:
-  limits:
-    max_trials: 10
-    max_concurrent_trials: 2
   sampling_algorithm: random
   early_termination:
     type: bandit

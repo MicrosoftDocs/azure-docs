@@ -315,16 +315,18 @@ The primary metric used for model optimization and hyperparameter tuning depends
 * `mean_average_precision` for IMAGE_OBJECT_DETECTION
 * `mean_average_precision` for IMAGE_INSTANCE_SEGMENTATION
     
-### Experiment budget
+### Job Limits
 
-You can optionally specify the maximum time budget for your AutoML Vision training job using the `timeout` parameter in the `limits` - the amount of time in minutes before the experiment terminates. If none specified, default experiment timeout is seven days (maximum 60 days). For example,
+You can control the resources spent on your Vision training by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings as described in the below example.[detailed description on Job Limits parameters](tutorial-auto-train-image-models#Job Limits).
 # [CLI v2](#tab/CLI-v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
 limits:
-  timeout: 60
+  timeout_minutes: 60
+  max_trials: 10
+  max_concurrent_trials: 2
 ```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
@@ -374,14 +376,9 @@ Learn more about [how to configure the early termination policy for your hyperpa
 
 ### Resources for the sweep
 
-You can control the resources spent on your hyperparameter sweep by specifying the `max_trials` and the `max_concurrent_trials` for the sweep.
 > [!NOTE]
 > For a complete sweep configuration sample, please refer to this [tutorial](tutorial-auto-train-image-models.md#hyperparameter-sweeping-for-image-tasks).
 
-Parameter | Detail
------|----
-`max_trials` |  Required parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1.
-`max_concurrent_trials`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
 
 You can configure all the sweep related parameters as shown in the example below.
 
@@ -391,9 +388,6 @@ You can configure all the sweep related parameters as shown in the example below
 
 ```yaml
 sweep:
-  limits:
-    max_trials: 10
-    max_concurrent_trials: 2
   sampling_algorithm: random
   early_termination:
     type: bandit
