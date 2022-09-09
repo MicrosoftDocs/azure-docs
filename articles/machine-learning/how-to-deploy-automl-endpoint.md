@@ -16,9 +16,7 @@ ms.devlang: azurecli
 
 # How to deploy an AutoML model to an online endpoint
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!IMPORTANT]
 > SDK v2 is currently in public preview.
