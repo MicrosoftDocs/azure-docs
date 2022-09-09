@@ -132,7 +132,7 @@ This command will move the logic from your current Access Control Policy into Ad
 
 #### Set up the group, and find the SID
 
-You will need to have a specific group in which you place users for whom you want to invoke Azure AD MFA. You will need to find the security identifier (SID) for that group.
+You'll need to have a specific group in which you place users for whom you want to invoke Azure AD MFA. You'll need to find the security identifier (SID) for that group.
 To find the group SID, run the following command and replace `GroupName` with your group name:
 
 ```powershell
@@ -258,12 +258,12 @@ You can synchronize phone numbers, hardware tokens, and device registrations suc
 
 * If you created new conditional access policies, add the appropriate users to those groups. 
 * If you created on-premises security groups for claims rules, add the appropriate users to those groups. 
-* Only after you add users to the appropriate conditional access rules, add users to the group that you created for Staged Rollout. Once done, they'll begin to use the Azure authentication method that you selected (PHS or PTA) and Azure AD MFA when they are required to perform MFA.
+* Only after you add users to the appropriate conditional access rules, add users to the group that you created for Staged Rollout. Once done, they'll begin to use the Azure authentication method that you selected (PHS or PTA) and Azure AD MFA when they're required to perform MFA.
 
 > [!IMPORTANT] 
 > Nested and dynamic groups aren't supported for Staged Rollout. Do not use these types of groups. 
 
-We don't recommend that you reuse groups that are used for security. Therefore, if you're using a security group to secure a group of high-value apps via a Conditional Access policy, that should be the only use of that group.
+We don't recommend that you reuse groups that are used for security. If you're using a security group to secure a group of high-value apps with a Conditional Access policy, only use the group for that purpose.
 
 ## Monitoring
 
@@ -299,7 +299,7 @@ Monitor applications you moved to Azure AD with the App sign-in health workbook 
 
 ## Clean up tasks
 
-After you move all users to Azure AD cloud authentication and Azure MFA, you are ready to decommission your MFA Server. 
+After you move all users to Azure AD cloud authentication and Azure MFA, you're ready to decommission your MFA Server. 
 We recommend reviewing MFA Server logs to ensure no users or applications are using it before you remove the server.
 
 ### Convert your domains to managed authentication
