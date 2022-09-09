@@ -537,7 +537,7 @@ Once the run completes, you can register the model that was created from the bes
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 ```yaml
-    to be supported
+      
 ```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
@@ -547,7 +547,8 @@ Once the run completes, you can register the model that was created from the bes
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_local_dir)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=download_model)]
-    
+---
+
 ### register the model
 
 Register the model either using the azureml path or your locally downloaded path. 
@@ -562,6 +563,7 @@ Register the model either using the azureml path or your locally downloaded path
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
+---
 
 After you register the model you want to use, you can deploy it using the managed online endpoint [deploy-managed-online-endpoint](how-to-deploy-managed-online-endpoint-sdk-v2.md)
 
@@ -598,6 +600,7 @@ az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_endpoint)]
+---
 
 ### Configure online deployment
 
@@ -631,6 +634,7 @@ readiness_probe:
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=deploy)]
+---
 
 
 ### Create the deployment
@@ -648,6 +652,7 @@ az ml online-deployment create --file .\create_deployment.yml --workspace-name [
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_deploy)]
+---
 
 ### update traffic:
 By default the current deployment is set to receive 0% traffic. you can set the traffic percentage current deployment should receive. Sum of traffic percentages of all the deployments with one end point should not exceed 100%.
@@ -663,7 +668,8 @@ az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fri
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=update_traffic)]
-   
+---
+
 
 Alternatively You can deploy the model from the [Azure Machine Learning studio UI](https://ml.azure.com/). 
 Navigate to the model you wish to deploy in the **Models** tab of the automated ML run and click on **Deploy** and select **Deploy to real-time endpoint** .  
