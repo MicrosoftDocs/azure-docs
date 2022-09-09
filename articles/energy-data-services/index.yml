@@ -56,6 +56,8 @@ landingContent:
         links:
           - text: Seismic ddms sdutil tutorial
             url: tutorial-seismic-ddms-sdutil.md
+          - text: Seismic ddms tutorial
+            url: tutorial-seismic-ddms.md
           - text: Wellbore ddms tutorial
             url: tutorial-wellbore-ddms.md
           - text: Well delivery ddms tutorial
