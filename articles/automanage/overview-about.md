@@ -65,7 +65,7 @@ The Automanage service will grant **Contributor** permission to this first party
 
 ## Participating services
 
-:::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services-1.png" alt-text="Intelligently onboard services.":::
+:::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services-1.png" alt-text="Diagram of intelligently onboard services.":::
 
 For the complete list of participating Azure services, as well as their supported profile, see the following:
 - [Automanage for Linux](automanage-linux.md)
