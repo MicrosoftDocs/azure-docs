@@ -563,7 +563,9 @@ Once the run completes, you can register the model that was created from the bes
       
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
 
@@ -583,7 +585,9 @@ Register the model either using the azureml path or your locally downloaded path
 ```azurecli
  az ml model create --name od-fridge-items-mlflow-model --version 1 --path azureml://jobs/$best_run/outputs/artifacts/outputs/mlflow-model/ --type mlflow_model --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
 ---
@@ -602,7 +606,9 @@ name: od-fridge-items-endpoint
 auth_mode: key
 ```
     
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=endpoint)]    
 
@@ -620,7 +626,9 @@ Using the `MLClient` created earlier, we'll now create the Endpoint in the works
 az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_endpoint)]
 ---
@@ -654,7 +662,9 @@ readiness_probe:
     initial_delay: 2000 
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=deploy)]
 ---
@@ -672,7 +682,9 @@ Using the `MLClient` created earlier, we'll now create the deployment in the wor
 az ml online-deployment create --file .\create_deployment.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_deploy)]
 ---
@@ -688,7 +700,9 @@ By default the current deployment is set to receive 0% traffic. you can set the 
 az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fridge-items-mlflow-deploy=100' --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=update_traffic)]
 ---
@@ -730,6 +744,7 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 
 
 ## Code examples
+
 # [Azure CLI](#tab/cli)
 
 Review detailed code examples and use cases in the [azureml-examples repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs). 
