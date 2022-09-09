@@ -39,7 +39,7 @@ spark.sql("SELECT /*+ BROADCAST(t1), MERGE(t1, t2) */ * FROM t1 INNER JOIN t2 ON
 
 ## Advice related to queries
 
-### Enable spark.advise.divisionExprConvertRule.enable to reduce rounding error propagation 
+### Reduce rounding error propagation caused by division.
 This query contains the expression with the `double` type. We recommend that you enable the configuration `spark.advise.divisionExprConvertRule.enable`, which can help reduce the division expressions and the rounding error propagation.
 
 ```text
