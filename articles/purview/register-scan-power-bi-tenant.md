@@ -26,11 +26,11 @@ For a list of metadata available for Power BI, see our [available metadata docum
 
 |**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
 |---------|---------|---------|---------|---------|---------|
-|Public access with Azure IR     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity / Delegated Authentication / Service Principal  | [Review deployment checklist](#deployment-checklist) |
-|Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication / Service Principal| [Review deployment checklist](#deployment-checklist) |
-|Private access     |Allowed     |Denied         |Self-hosted runtime        |Delegated Authentication / Service Principal| [Review deployment checklist](#deployment-checklist) |
-|Private access     |Denied      |Allowed        |Self-hosted runtime        |Delegated Authentication / Service Principal| [Review deployment checklist](#deployment-checklist) |
-|Private access     |Denied      |Denied         |Self-hosted runtime        |Delegated Authentication / Service Principal| [Review deployment checklist](#deployment-checklist) |
+|Public access with Azure IR     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity | [Review deployment checklist](#deployment-checklist) |
+|Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
+|Private access     |Allowed     |Denied         |Self-hosted runtime        |Delegated Authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
+|Private access     |Denied      |Allowed        |Self-hosted runtime        |Delegated Authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
+|Private access     |Denied      |Denied         |Self-hosted runtime        |Delegated Authentication / Service principal| [Review deployment checklist](#deployment-checklist) |
 
 ### Known limitations
 
