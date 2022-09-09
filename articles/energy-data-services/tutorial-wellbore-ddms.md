@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Sample steps to interact with Wellbore DDMS  #Required; page title is displayed in search results. Include the brand.
-description: This tutorial shows you how to interact with Wellbore DDMS in Project Oak #Required; article description that is displayed in search results. 
+description: This tutorial shows you how to interact with Wellbore DDMS in Microsoft Energy Data Services #Required; article description that is displayed in search results. 
 author: vkamani21 #Required; your GitHub user alias, with correct capitalization.
 ms.author: vkamani #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: tutorial #Required; leave this attribute/value as-is.
 ms.date: 09/07/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
@@ -28,20 +28,20 @@ In this tutorial, you'll learn how to:
 ```Table
   | Parameter          | Value to use             | Example                               |
   | ------------------ | ------------------------ |-------------------------------------- |
-  | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
+  | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
   | CLIENT_SECRET      | Client secrets           |  _fl******************                |
-  | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-2d7cd011db47  |
-  | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
-  | base_uri           | URI                      | bseloak.energy.azure.com              |
-  | data-partition-id  | Data Partition(s)        | bseloak-bseldp1                       |
+  | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  |
+  | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
+  | base_uri           | URI                      | <instance>.energy.azure.com           |
+  | data-partition-id  | Data Partition(s)        | <instance>-<data-partition-name>      |
 ```
 
 ### Postman setup
 
 * Download and install [Postman](https://www.postman.com/) desktop app
 * Import the following files into Postman:
-  * [Wellbore ddms Postman collection](https://raw.githubusercontent.com/MicrosoftDocs/Project-Oak-Forest/main/postman/WellboreDDMS.postman_collection.json)
-  * [Wellbore ddms Postman Environment](https://raw.githubusercontent.com/MicrosoftDocs/Project-Oak-Forest/main/postman/WellboreDDMSEnvironment.postman_environment.json)
+  * [Wellbore ddms Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WellboreDDMS.postman_collection.json)
+  * [Wellbore ddms Postman Environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WellboreDDMSEnvironment.postman_environment.json)
   
 * Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services instance details](#microsoft-energy-data-services-instance-details)
 
@@ -65,7 +65,7 @@ In this tutorial, you'll learn how to:
 
 1. **Get an SPN Token** - Generate the Service Principal Bearer token, which will be used to authenticate further API calls.
 2. **Create a Legal Tag** - Create a legal tag that will be added automatically to the environment for data compliance purpose.
-3. **Create Well** - Creates the wellbore record in Project Oak.
+3. **Create Well** - Creates the wellbore record in Microsoft Energy Data Services instance.
    :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-create-well.png" alt-text="Screenshot of creating a Well." lightbox="media/tutorial-wellbore-ddms/tutorial-create-well.png":::
 4. **Get Wells** - Returns the well data created in the last step.
   :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-wells.png" alt-text="Screenshot of getting all wells." lightbox="media/tutorial-wellbore-ddms/tutorial-get-wells.png":::

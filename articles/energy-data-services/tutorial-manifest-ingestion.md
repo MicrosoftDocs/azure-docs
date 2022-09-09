@@ -30,13 +30,13 @@ Before beginning this tutorial, the following prerequisites must be completed:
   
   | Parameter          | Value to use             | Example                               |
   | ------------------ | ------------------------ |-------------------------------------- |
-  | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
+  | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
   | CLIENT_SECRET      | Client secrets           |  _fl******************                |
-  | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-2d7cd011db47  |
-  | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
+  | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  |
+  | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
   | refresh_token      | Refresh Token value      | 0.ATcA01-XWHdJ0ES-qDevC6r...........  |
-  | DNS                | URI                      | bseloak.energy.azure.com              |
-  | data-partition-id  | Data Partition(s)        | bseloak-bseldp1                       |
+  | DNS                | URI                      | `<instance>`.energy.azure.com         |
+  | data-partition-id  | Data Partition(s)        | `<instance>`-`<data-partition-name>`  |
 
 * To generate a refresh token follow the steps mentioned in [OAuth 2.0 authorization](how-to-generate-refresh-token.md).
 
@@ -44,8 +44,8 @@ Before beginning this tutorial, the following prerequisites must be completed:
 
 * Download and install [Postman](https://www.postman.com/) desktop app
 * Import the following files into Postman:
-  * [Manifest ingestion postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflows.postman_collection.json?token=GHSAT0AAAAAABRNZHEUZZSERHU4MWS6MBDGYYRSUTQ)
-  * [Manifest Ingestion postman environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json?token=GHSAT0AAAAAABRNZHEUCYUV6PO4RETLJEX4YYRST4Q)
+  * [Manifest ingestion postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflows.postman_collection.json)
+  * [Manifest Ingestion postman environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json)
     > [!NOTE]
     >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
 * Update the **CURRENT_VALUE** of the postman environment with the information obtained in [Get Microsoft Energy Data Services Preview instance details](#get-microsoft-energy-data-services-preview-instance-details)

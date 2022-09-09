@@ -31,13 +31,13 @@ In this tutorial, you'll learn how to:
 
   | Parameter          | Value to use             | Example                               |
   | ------------------ | ------------------------ |-------------------------------------- |
-  | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
+  | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx |
   | CLIENT_SECRET      | Client secrets           |  _fl******************                |
-  | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-2d7cd011db47  |
-  | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
+  | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  |
+  | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx |
   | refresh_token      | Refresh Token value      | 0.ATcA01-XWHdJ0ES-qDevC6r...........  |
-  | DNS                | URI                      | bseloak.energy.Azure.com              |
-  | data-partition-id  | Data Partition(s)        | bseloak-bseldp1                       |
+  | DNS                | URI                      | `<instance>`.energy.azure.com         |
+  | data-partition-id  | Data Partition(s)        | `<instance>`-`<data-partition-name>`  |
 
 * Follow the [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to create a user token and note it down for future use.
 * Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user running this tutorial
@@ -46,8 +46,8 @@ In this tutorial, you'll learn how to:
 
 * Download and install [Postman](https://www.postman.com/) desktop app
 * Import the following files into Postman:
-  * [CSV Workflow Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflows.postman_collection.json?token=GHSAT0AAAAAABRNZHEUZZSERHU4MWS6MBDGYYRSUTQ)
-  * [CSV Workflow Postman Environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json?token=GHSAT0AAAAAABRNZHEUCYUV6PO4RETLJEX4YYRST4Q)
+  * [CSV Workflow Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflows.postman_collection.json)
+  * [CSV Workflow Postman Environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json)
 
   > [!NOTE]
   >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
@@ -91,4 +91,4 @@ In this tutorial, you'll learn how to:
 ## Next steps
 Advance to the next tutorial to learn how to do Manifest ingestion
 > [!div class="nextstepaction"]
-> [Manifest Ingestion Tutorial](tutorial-manifest-ingestion.md)
+> [Tutorial: Sample steps to perform a manifest-based file ingestion](tutorial-manifest-ingestion.md)
