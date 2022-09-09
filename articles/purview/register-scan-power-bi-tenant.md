@@ -85,7 +85,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 1. Review your credential to validate: 
    1. Client ID matches _Application (Client) ID_ of the app registration.
    2. Username includes the user principal name such as `johndoe@contoso.com`.
-1. If Delegated Authentication is used, validate Power BI admin user settings to make sure:
+1. If delegated authentication is used, validate Power BI admin user settings to make sure:
       1. User is assigned to Power BI Administrator role.
       2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
       3. If user is recently created, sign in with the user at least once to make sure password is reset successfully and user can successfully initiate the session.
@@ -231,7 +231,6 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
     > [!Note]
     > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Microsoft Purview account. You can delete it separately, if you wish.
 
-
 ### Scan same-tenant Power BI using Azure IR and Managed Identity
 This is a suitable scenario, if both Microsoft Purview and Power BI tenant are configured to allow public access in the network settings. 
 
@@ -269,7 +268,7 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan-managed-identity.png" alt-text="Screenshot of Save and run Power BI source using Managed Identity.":::
 
-### Scan same tenant using Self-hosted IR with Service Principal
+### Scan same tenant using Self-hosted IR with service principal
 
 This scenario can be used when Microsoft Purview and Power BI tenant or both, are configured to use private endpoint and deny public access. Additionally, this option is also applicable if Microsoft Purview and Power BI tenant are configured to allow public access.
 
@@ -336,14 +335,7 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Screenshot of Save and run Power BI source.":::
 
-
-
-
-
-
-
-
-### Scan same tenant using Self-hosted IR with Delegated authentication
+### Scan same tenant using Self-hosted IR with delegated authentication
 
 This scenario can be used when Microsoft Purview and Power BI tenant or both, are configured to use private endpoint and deny public access. Additionally, this option is also applicable if Microsoft Purview and Power BI tenant are configured to allow public access.
 
