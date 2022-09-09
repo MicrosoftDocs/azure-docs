@@ -37,13 +37,13 @@ This article provides a high-level architecture of the SAP CDC solution in Azure
 - [Set up a linked service and source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md)
 - [Use the SAP data extraction template](sap-change-data-capture-data-replication-template.md)
 - [Use the SAP data partition template](sap-change-data-capture-data-partitioning-template.md)
-- [Manage the solution](sap-change-data-capture-management.md)
+- [Manage your solution](sap-change-data-capture-management.md)
 
 ## How to use the SAP CDC solution
 
-The SAP CDC solution is a connector that you access through an SAP ODP (preview) linked service, an SAP ODP source dataset, and the SAP data replication template or the SAP data partitioning template. Choose your template when you set up a new pipeline in Azure Data Factory Studio. To access preview templates, you must [enable the preview experience in Azure Data Factory Studio](how-to-manage-studio-preview-exp.md#how-to-enabledisable-preview-experience).
+The SAP CDC solution is a connector that you access through an SAP ODP (preview) linked service, an SAP ODP (preview) source dataset, and the SAP data replication template or the SAP data partitioning template. Choose your template when you set up a new pipeline in Azure Data Factory Studio. To access preview templates, you must [enable the preview experience in Azure Data Factory Studio](how-to-manage-studio-preview-exp.md#how-to-enabledisable-preview-experience).
 
-The SAP CDC solution connects to all SAP systems that support ODP, including SAP R/3, SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. The solution works either directly at the application layer or indirectly via an SAP Landscape Transformation Replication Server (SLT) as a proxy. Without relying on watermarking, it can extract SAP data either fully or incrementally. The data the SAP CDC solution extracts includes not only physical tables but also logical objects that are created by using the tables. An example of a table-based object is an SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) view.
+The SAP CDC solution connects to all SAP systems that support ODP, including SAP R/3, SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. The solution works either directly at the application layer or indirectly via an SAP Landscape Transformation Replication Server (SLT) as a proxy. The solution doesn't rely on watermarking to extract SAP data either fully or incrementally. The data the SAP CDC solution extracts includes not only physical tables but also logical objects that are created by using the tables. An example of a table-based object is an SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) view.
 
 Use the SAP CDC solution with Data Factory features like copy activities and data flow activities, pipeline templates, and tumbling window triggers for a low-latency SAP CDC replication solution in a self-managed pipeline.
 
@@ -53,7 +53,7 @@ The SAP CDC solution in Azure Data Factory is a connector between SAP and Azure.
 
 The Azure side includes the Data Factory copy activity that loads the raw SAP data into a storage destination like Azure Blob Storage or Azure Data Lake Storage Gen2. The data is saved in CSV or Parquet format, essentially archiving or preserving all historical changes.
 
-The Azure side also might include a Data Factory data flow activity that transforms the raw SAP data, merges all changes, and loads the results in a destination like Azure SQL Database or Azure Synapse Analytics, essentially replicating the SAP data. The Data Factory data flow activity also can load the results in Data Lake Storage Gen2 in delta format. You can use time travel capabilities to produce snapshots of SAP data at any specific period in the past.
+The Azure side also might include a Data Factory data flow activity that transforms the raw SAP data, merges all changes, and loads the results in a destination like Azure SQL Database or Azure Synapse Analytics, essentially replicating the SAP data. The Data Factory data flow activity also can load the results in Data Lake Storage Gen2 in delta format. You can use the open source Delta Lake Time Travel feature to produce snapshots of SAP data for a specific period.
 
 In Azure Data Factory Studio, the SAP template that you use to auto-generate a Data Factory pipeline connects SAP with Azure. You can run the pipeline frequently by using a Data Factory tumbling window trigger to replicate SAP data in Azure with low latency and without using watermarking.
 

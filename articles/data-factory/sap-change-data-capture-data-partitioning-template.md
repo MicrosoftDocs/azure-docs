@@ -1,7 +1,7 @@
 ---
 title: Auto-generate a pipeline by using the SAP data partitioning template
 titleSuffix: Azure Data Factory
-description: Learn how to use the SAP data partitioning template for SAP change data capture (CDC) extraction in Azure Data Factory.
+description: Learn how to use the SAP data partitioning template for SAP change data capture (CDC) (preview) extraction in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
@@ -54,4 +54,4 @@ To auto-generate an Azure Data Factory pipeline by using the SAP data partitioni
 
 ## Next steps
 
-[Auto-generate a pipeline from the SAP data replication template](sap-change-data-capture-data-replication-template.md)
+[Auto-generate a pipeline by using the SAP data replication template](sap-change-data-capture-data-replication-template.md)

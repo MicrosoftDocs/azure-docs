@@ -1,7 +1,7 @@
 ---
 title: Auto-generate a pipeline by using the SAP data replication template
 titleSuffix: Azure Data Factory
-description: Learn how to use the SAP  data replication template for SAP change data capture (CDC) extraction in Azure Data Factory.
+description: Learn how to use the SAP  data replication template for SAP change data capture (CDC) (preview) extraction in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
@@ -18,7 +18,7 @@ Learn how to use the SAP data replication template to auto-generate a pipeline a
 
 ## Create a data replication pipeline from a template
 
-To auto-generate an Azure Data Factory pipeline by using the SAP data partitioning template:
+To auto-generate an Azure Data Factory pipeline by using the SAP data replication template:
 
 1. In Azure Data Factory Studio, go to the Author hub of your data factory. In **Factory Resources**, under **Pipelines** > **Pipelines Actions**, select **Pipeline from template**.
 
@@ -58,7 +58,7 @@ To auto-generate an Azure Data Factory pipeline by using the SAP data partitioni
 
 If you want to replicate SAP data to Data Lake Storage Gen2 in delta format, complete the steps that are detailed in the preceding section, but instead use the **Replicate SAP data to Azure Data Lake Store Gen2 in Delta format and persist raw data in CSV format** template.
 
-Like in the data replication template, in a data delta pipeline, the Data Factory copy activity runs on the self-hosted integration runtime to extract raw data (full and deltas) from the SAP system. The copy activity loads the raw data into Data Lake Storage Gen2 as a persisted CSV file Historical changes are archived and preserved. The files are stored in the *sapcdc* container under the *deltachange/\<your pipeline name\>\<your pipeline run timestamp\>* folder path. The **Extraction mode** property of the copy activity is set to **Delta**. The **Subscriber process** property of copy activity is parameterized.
+Like in the data replication template, in a data delta pipeline, the Data Factory copy activity runs on the self-hosted integration runtime to extract raw data (full and deltas) from the SAP system. The copy activity loads the raw data into Data Lake Storage Gen2 as a persisted CSV file. Historical changes are archived and preserved. The files are stored in the *sapcdc* container in the *deltachange/\<your pipeline name\>\<your pipeline run timestamp\>* folder path. The **Extraction mode** property of the copy activity is set to **Delta**. The **Subscriber process** property of copy activity is parameterized.
 
 The Data Factory data flow activity runs on the Azure integration runtime to transform the raw data and merge all changes into Data Lake Storage Gen2 as an open source Delta Lake or Lakehouse table. The process replicates the SAP data.
 

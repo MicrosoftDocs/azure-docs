@@ -23,12 +23,12 @@ To preview the SAP CDC solution in Azure Data Factory, be able to complete these
 - In Azure Data Factory Studio, [enable the preview experience](how-to-manage-studio-preview-exp.md#how-to-enabledisable-preview-experience).
 - Set up SAP systems to use the [SAP Operational Data Provisioning (ODP) framework](https://help.sap.com/docs/SAP_LANDSCAPE_TRANSFORMATION_REPLICATION_SERVER/007c373fcacb4003b990c6fac29a26e4/b6e26f56fbdec259e10000000a441470.html?q=SAP%20Operational%20Data%20Provisioning%20%28ODP%29%20framework).
 - Be familiar with Data Factory concepts like integration runtimes, linked services, datasets, activities, data flows, pipelines, templates, and triggers.
-- Set up a self-hosted integration runtime to use for the SAP ODP connector.
+- Set up a self-hosted integration runtime to use for the connector.
 - Set up an SAP ODP (preview) linked service.
-- Set up the Data Factory copy activity with the SAP ODP source dataset.
-- Debug Data Factory copy activity issues by sending self-hosted integration runtime logs.
-- Auto-generate a Data Factory pipeline by using the SAP ODP data partitioning template.
-- Auto-generate a Data Factory pipeline by using the SAP ODP data replication template.
+- Set up the Data Factory copy activity with an SAP ODP (preview) source dataset.
+- Debug Data Factory copy activity issues by sending self-hosted integration runtime logs to Microsoft.
+- Auto-generate a Data Factory pipeline by using the SAP data partitioning template.
+- Auto-generate a Data Factory pipeline by using the SAP data replication template.
 - Be able to run an SAP data replication pipeline frequently.
 - Be able to recover a failed SAP data replication pipeline run.
 - Be familiar with monitoring data extractions on SAP systems.
@@ -43,9 +43,9 @@ The ODP framework is available by default in most recent software releases of mo
 
 - To support ODP, run your SAP systems on SAP NetWeaver 7.0 SPS 24 or later. For more information, see [Transferring Data from SAP Source Systems via ODP (Extractors)](https://help.sap.com/docs/SAP_BW4HANA/107a6e8a38b74ede94c833ca3b7b6f51/327833022dcf42159a5bec552663dc51.html).
 - To support SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) full extractions via ODP, run your SAP systems on NetWeaver 7.4 SPS 08 or later. To support SAP ABAP CDS delta extractions, run your SAP systems on NetWeaver 7.5 SPS 05 or later. For more information, see [Transferring Data from SAP Systems via ODP (ABAP CDS Views)](https://help.sap.com/docs/SAP_BW4HANA/107a6e8a38b74ede94c833ca3b7b6f51/af11a5cb6d2e4d4f90d344f58fa0fb1d.html).
-- [1521883 - To use ODP API 1.0](https://launchpad.support.sap.com/#/notes/1521883).
-- [1931427 - To use ODP API 2.0 that supports SAP hierarchies](https://launchpad.support.sap.com/#/notes/1931427).
-- [2481315 - To use ODP for data extractions from SAP source systems into BW or BW/4HANA](https://launchpad.support.sap.com/#/notes/2481315).
+- [1521883 - To use ODP API 1.0](https://launchpad.support.sap.com/#/notes/1521883)
+- [1931427 - To use ODP API 2.0 that supports SAP hierarchies](https://launchpad.support.sap.com/#/notes/1931427)
+- [2481315 - To use ODP for data extractions from SAP source systems into BW or BW/4HANA](https://launchpad.support.sap.com/#/notes/2481315)
 
 ### Set up the SAP user
 
@@ -56,13 +56,15 @@ Data extractions via ODP require a properly configured user on SAP systems. The 
 
 ### Set up SAP data sources
 
-ODP offers various data extraction contexts or *source object types*. Although most data source objects are ready to extract, some require more configuration. In an SAPI context, the objects to extract are called DataSources or extractors. To extract DataSources, be sure to meet the following requirements:
+ODP offers various data extraction contexts or *source object types*. Although most data source objects are ready to extract, some require more configuration. In an SAPI context, the objects to extract are called DataSources or *extractors*. To extract DataSources, be sure to meet the following requirements:
 
 - Ensure that DataSources are activated on your SAP source systems. This requirement applies only to DataSources that are delivered by SAP or its partners. DataSources that are created by customers are automatically activated. If DataSources have been or are being extracted by SAP BW or BW/4HANA, the DataSources have already been activated. For more information about DataSources and their activations, see [Installing BW Content DataSources](https://help.sap.com/saphelp_nw73/helpdata/en/4a/1be8b7aece044fe10000000a421937/frameset.htm).
 
 - Make sure that DataSources are released for extractions via ODP. This requirement applies only to DataSources that customers create. DataSources that are delivered by SAP or its partners are automatically released. For more information, see the following SAP support notes:
 
-  - [1560241 - To release DataSources for ODP API](https://launchpad.support.sap.com/#/notes/1560241). Combine this task with running the following programs:
+  - [1560241 - To release DataSources for ODP API](https://launchpad.support.sap.com/#/notes/1560241)
+  
+    Combine this task with running the following programs:
 
     - RODPS_OS_EXPOSE to release DataSources for external use
 
@@ -72,11 +74,11 @@ ODP offers various data extraction contexts or *source object types*. Although m
 
 ### Set up the SAP replication server
 
-SAP Landscape Transformation Replication Server (SLT) is a database trigger-enabled change data capture solution that can replicate SAP application tables and simple views in near real time. SLT replicates from SAP source systems to various targets, including the operational delta queue (ODQ). You can use SLT as a proxy in data extraction ODP. You can install SLT on an SAP source system as an SAP Data Migration Server (DMIS) add-on or use it on a standalone replication server. To use SLT as a proxy, complete the following steps:
+SAP Landscape Transformation Replication Server (SLT) is a database trigger-enabled CDC solution that can replicate SAP application tables and simple views in near real time. SLT replicates from SAP source systems to various targets, including the operational delta queue (ODQ). You can use SLT as a proxy in data extraction ODP. You can install SLT on an SAP source system as an SAP Data Migration Server (DMIS) add-on or use it on a standalone replication server. To use SLT as a proxy, complete the following steps:
 
 1. Install NetWeaver 7.4 SPS 04 or later and the DMIS 2011 SP 05 add-on on your replication server. For more information, see [Transferring Data from SLT Using Operational Data Provisioning](https://help.sap.com/docs/SAP_NETWEAVER_750/ccc9cdbdc6cd4eceaf1e5485b1bf8f4b/6ca2eb9870c049159de25831d3269f3f.html).
 
-1. Run the SAP Landscape Transformation Replication Server Cockpit (LTRC) transaction code on your replication server to configure the SLT:
+1. Run the SAP Landscape Transformation Replication Server Cockpit (LTRC) transaction code on your replication server to configure SLT:
 
    1. Under **Specify Source System**, enter the RFC destination that represents your SAP source system.
 
@@ -84,9 +86,9 @@ SAP Landscape Transformation Replication Server (SLT) is a database trigger-enab
 
       1. Select **RFC Connection**.
 
-      1. For **Scenario for RFC Communication**, select **Operational Data Provisioning (ODP)**.
+      1. In **Scenario for RFC Communication**, select **Operational Data Provisioning (ODP)**.
 
-      1. For **Queue Alias**, enter the queue alias to use to select the context of your data extractions via ODP in Data Factory. Use the format  `SLT-<your queue alias>`.
+      1. In **Queue Alias**, enter the queue alias to use to select the context of your data extractions via ODP in Data Factory. Use the format  `SLT-<your queue alias>`.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-slt-configurations.png" alt-text="Screenshot of the SAP SLT configuration dialog.":::
 

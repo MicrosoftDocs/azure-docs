@@ -76,19 +76,19 @@ In scenarios in which data movement works (copy activities finish without errors
 
 To analyze what data the SAP system has provided for your scenario, start transaction ODQMON in your SAP back-end system. If you're using SAP Landscape Transformation Replication Server (SLT) with a standalone server, start the transaction there.
 
-To find the ODQs that correspond to your copy activities or copy activity runs, use the filter options. In **Queue**, you can use wildcards to narrow the search. For example, you can search by the table name *EKKO*.
+To find the ODQs that correspond to your copy activities or copy activity runs, use the filter options. In **Queue**, you can use wildcards to narrow the search. For example, you can search by the table name **EKKO**.
 
 Select the **Calculate Data Volume** checkbox to see details about the number of rows and data volume (in bytes) contained in the ODQs.
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshooting-1.png" alt-text="Screenshot of the SAP ODQMON tool, with delta queues shown.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshoot-queues.png" alt-text="Screenshot of the SAP ODQMON tool, with delta queues shown.":::
 
 To view the ODQ subscriptions, double-click the queue. An ODQ can have multiple subscribers, so check for the subscriber name that you entered in the Data Factory linked service. Choose the subscription that has a timestamp that most closely matches the time your copy activity ran. For delta subscriptions, the first run of the copy activity for the subscription is recorded on the SAP side.
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshooting-2.png" alt-text="Screenshot of the SAP ODQMON tool, with delta queue subscriptions shown.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshoot-subscriptions.png" alt-text="Screenshot of the SAP ODQMON tool, with delta queue subscriptions shown.":::
 
-In the subscription, a list of requests correspond to copy activity runs in Data Factory. In the following figure, you see the result of four copy activity runs:
+In the subscription, a list of requests corresponds to copy activity runs in Data Factory. In the following figure, you see the result of four copy activity runs:
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshooting-3.png" alt-text="Screenshot of the SAP ODQMON tool with delta queue requests shown.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshoot-requests.png" alt-text="Screenshot of the SAP ODQMON tool with delta queue requests shown.":::
 
 Based on the timestamp in the first row, find the line that corresponds to the copy activity run you want to analyze. If the number of rows shown equals the number of rows read by the copy activity, you've verified that Data Factory has read and transferred the data as provided by the SAP system. In this scenario, we recommend that you consult with the team that's responsible for your SAP system.
 

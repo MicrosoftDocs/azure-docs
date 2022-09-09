@@ -22,7 +22,7 @@ To prepare a self-hosted integration runtime to use with the SAP ODP (preview) l
 
 In Azure Data Factory Studio, [create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md?tabs=data-factory). You can download the latest version of the private [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). The download version has improved performance and detailed error messages. Install the runtime on your on-premises computer or on a virtual machine (VM).
 
-The more CPU cores you have on the computer running the self-hosted integration runtime, the higher your data extraction throughput is. For example, an internal test achieved higher than 12 MB/s throughput when running parallel extractions on a self-hosted integration runtime computer that has 16 CPU cores.
+The more CPU cores you have on the computer running the self-hosted integration runtime, the higher your data extraction throughput is. For example, an internal test achieved a higher than 12-MB/s throughput when running parallel extractions on a self-hosted integration runtime computer that has 16 CPU cores.
 
 ## Download and install the SAP .NET connector
 

@@ -1,7 +1,7 @@
 ---
 title: Set up a linked service and dataset for the SAP CDC solution (preview) 
 titleSuffix: Azure Data Factory
-description: Learn how to set up a linked service and source dataset to use with the SAP CDC solution (preview) in Azure Data Factory.
+description: Learn how to set up a linked service and source dataset to use with the SAP change data capture (CDC) solution (preview) in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
@@ -18,7 +18,7 @@ Learn how to set up the linked service and source dataset for your SAP change da
 
 ## Set up a linked service
 
-To set up a linked service for your SAP CDC solution:
+To set up an SAP ODP (preview) linked service for your SAP CDC solution:
 
 1. In Azure Data Factory Studio, go to the Manage hub of your data factory. In the menu under **Connections**, select **Linked services**. Select **New** to create a new linked service.
 
@@ -43,7 +43,7 @@ To set up a linked service for your SAP CDC solution:
 
 ## Create a copy activity
 
-To create a Data Factory copy activity that uses an SAP ODP data source, complete the steps in the following sections.
+To create a Data Factory copy activity that uses an SAP ODP (preview) data source, complete the steps in the following sections.
 
 ### Set up the source dataset
 
@@ -57,7 +57,7 @@ To create a Data Factory copy activity that uses an SAP ODP data source, complet
 
 1. In **New dataset**, search for **SAP**. Select **SAP ODP (Preview)**, and then select **Continue**.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-selection.png" alt-text="Screenshot of the SAP ODP (Preview) dataset type on the New dataset dialog.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-selection.png" alt-text="Screenshot of the SAP ODP (Preview) dataset type in the New dataset dialog.":::
 
 1. In **Set properties**, enter a name for the SAP ODP linked service data source. In **Linked service**, select the dropdown and select **New**.
 
@@ -84,7 +84,7 @@ To create a Data Factory copy activity that uses an SAP ODP data source, complet
 1. In the Data Factory copy activity, in **Extraction mode**, select one of the following options:
 
     - **Full**: Always extracts the current snapshot of the selected data source object. This option doesn't register the Data Factory copy activity as its delta subscriber that consumes data changes produced in the ODQ by your SAP system.
-    - **Delta**: Initially extracts the current snapshot of the selected data source object. This option registers the Data Factory copy activity as its delta subscriber and subsequently extracts new data changes produced in the ODQ by your SAP system since the last extraction.
+    - **Delta**: Initially extracts the current snapshot of the selected data source object. This option registers the Data Factory copy activity as its delta subscriber and then extracts new data changes produced in the ODQ by your SAP system since the last extraction.
     - **Recovery**: Repeats the last extraction that was part of a failed pipeline run.
 
 1. In **Subscriber process**, enter a unique name to register and identify this Data Factory copy activity as a delta subscriber of the selected data source object. Your SAP system manages its subscription state to keep track of data changes that are produced in the ODQ and consumed in consecutive extractions. You don't need to manually watermark data changes. For example, you might name the subscriber process `<your pipeline name>_<your copy activity name>`.
