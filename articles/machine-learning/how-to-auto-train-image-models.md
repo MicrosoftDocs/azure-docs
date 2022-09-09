@@ -294,7 +294,7 @@ Automode is currently not supported in the UI.
 
 ## Individual runs
 
-In individual runs, you directly control the model algorithm and hyperparameters. The model algorithm is required and is passed via the `model_name` parameter.
+In individual runs, you directly control the model algorithm and hyperparameters. The model algorithm is passed via the `model_name` parameter.
 
 ### Supported model algorithms
 
@@ -313,7 +313,7 @@ In addition to controlling the model algorithm, you can also tune hyperparameter
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name key in image_model section. For example,
+If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using the model_name key in image_model section. For example,
 
 ```yaml
 image_model:
@@ -321,13 +321,12 @@ image_model:
 ```
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
-If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using model_name parameter in  set_image_model method of the task specific `automl` job. For example,
+If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using the model_name parameter in the set_image_model method of the task specific `automl` job. For example,
 
 ```python
 image_object_detection_job.set_image_model(model_name="yolov5")
 ```
 ---
-Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparameter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values aren't specified, then default values are used for the specified algorithm.
 
 ### Data augmentation 
 
@@ -368,14 +367,11 @@ limits:
 
 ## Manually sweeping model hyperparameters
 
-These model algorithms and hyperparameters are passed in as the parameter space for the sweep. You can either specify a single `model_name` or choose between multiple. 
-
-When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance.
-With support for computer vision tasks in automated ML, you can sweep hyperparameters to find the optimal settings for your model. This feature applies the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](how-to-tune-hyperparameters.md).
+When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance. With support for computer vision tasks in automated ML, you can sweep hyperparameters to find the optimal settings for your model. This feature applies the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](how-to-tune-hyperparameters.md).
 
 ### Define the parameter search space
 
-You can define the model algorithms and hyperparameters to sweep in the parameter space. 
+You can define the model algorithms and hyperparameters to sweep in the parameter space. You can either specify a single model algorithm or multiple ones. 
 
 * See [Configure model algorithms and hyperparameters](#configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms for each task type. 
 * See [Hyperparameters for computer vision tasks](reference-automl-images-hyperparameters.md)  hyperparameters for each computer vision task type. 
