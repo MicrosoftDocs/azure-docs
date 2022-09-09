@@ -16,7 +16,7 @@ ms.reviewer: harelbr
 This article shows how you can use an [Azure Resource Manager template (ARM template)](../../azure-resource-manager/templates/syntax.md) to configure [newer metric alerts](./alerts-metric-near-real-time.md) in Azure Monitor. You can use ARM templates to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available in [this set of resource types](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> The resource template for creating metric alerts for resource type Azure Log Analytics workspace, that is, `Microsoft.OperationalInsights/workspaces`, requires more steps. For more information, see [Metric Alerts for Logs - Resource template](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> The resource template for creating metric alerts for resource type Azure Log Analytics workspace (that is, `Microsoft.OperationalInsights/workspaces`) requires more steps. For more information, see [Metric Alerts for Logs - Resource template](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 The basic steps are:
 
@@ -198,7 +198,7 @@ Save the following JSON script as *simplestaticmetricalert.json* for this walkth
 }
 ```
 
-An explanation of the schema and properties for an alert rule [is available here](/rest/api/monitor/metricalerts/createorupdate).
+An explanation of the schema and properties for an alert rule is available [in this article](/rest/api/monitor/metricalerts/createorupdate).
 
 You can set the values for the parameters either on the command line or through a parameter file. A sample parameter file is provided.
 
@@ -245,7 +245,7 @@ Save the following JSON script as *simplestaticmetricalert.parameters.json* and 
 
 You can create the metric alert using the template and parameters file by using PowerShell or the Azure CLI.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -256,7 +256,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
   -TemplateFile simplestaticmetricalert.json -TemplateParameterFile simplestaticmetricalert.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -270,7 +270,7 @@ az deployment group create \
 
 > [!NOTE]
 >
-> While the metric alert could be created in a different resource group to the target resource, we recommend using the same resource group as your target resource.
+> Although you can create the metric alert in a resource group that's different from the target resource, we recommend using the same resource group as your target resource.
 
 ## Template for a simple Dynamic Thresholds metric alert
 
@@ -470,7 +470,7 @@ Save the following JSON script as *simpledynamicmetricalert.json* for this walkt
 }
 ```
 
-An explanation of the schema and properties for an alert rule [is available here](/rest/api/monitor/metricalerts/createorupdate).
+An explanation of the schema and properties for an alert rule is available [in this article](/rest/api/monitor/metricalerts/createorupdate).
 
 You can set the values for the parameters either on the command line or through a parameter file. A sample parameter file is provided.
 
@@ -526,7 +526,7 @@ Save the following JSON script as *simpledynamicmetricalert.parameters.json* and
 
 You can create the metric alert using the template and parameters file by using PowerShell or the Azure CLI.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -537,7 +537,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
   -TemplateFile simpledynamicmetricalert.json -TemplateParameterFile simpledynamicmetricalert.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -551,19 +551,19 @@ az deployment group create \
 
 > [!NOTE]
 >
-> While the metric alert could be created in a different resource group to the target resource, we recommend using the same resource group as your target resource.
+> Although you can create the metric alert in a resource group that's different from the target resource, we recommend using the same resource group as your target resource.
 
 ## Template for a static threshold metric alert that monitors multiple criteria
 
-Newer metric alerts support alerting on multi-dimensional metrics and support defining multiple criteria of up to five criterions per alert rule. You can use the following template to create a more advanced metric alert rule on dimensional metrics and specify multiple criteria.
+Newer metric alerts support alerting on multi-dimensional metrics and support defining multiple criteria (up to five per alert rule). You can use the following template to create a more advanced metric alert rule on dimensional metrics and specify multiple criteria.
 
 Note the following constraints when you use dimensions in an alert rule that contains multiple criteria:
 
 - You can only select one value per dimension within each criterion.
 - You can't use "\*" as a dimension value.
-- When metrics that are configured in different criterions support the same dimension, a configured dimension value must be explicitly set in the same way for all those metrics in the relevant criterions:
+- When metrics that are configured in different criteria support the same dimension, a configured dimension value must be explicitly set in the same way for all those metrics in the relevant criteria:
 
-    - In the following example, because both the **Transactions** and **SuccessE2ELatency** metrics have an **ApiName** dimension, and *criterion1* specifies the *"GetBlob"* value for the **ApiName** dimension, then *criterion2* must also set a *"GetBlob"* value for the **ApiName** dimension.
+  In the following example, because both the **Transactions** and **SuccessE2ELatency** metrics have an **ApiName** dimension, and *criterion1* specifies the *"GetBlob"* value for the **ApiName** dimension, then *criterion2* must also set a *"GetBlob"* value for the **ApiName** dimension.
 
 Save the following JSON script as *advancedstaticmetricalert.json* for this walkthrough.
 
@@ -768,7 +768,7 @@ Save and modify the following JSON script as *advancedstaticmetricalert.paramete
 
 You can create the metric alert using the template and parameters file by using PowerShell or the Azure CLI from your current working directory.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -779,7 +779,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
   -TemplateFile advancedstaticmetricalert.json -TemplateParameterFile advancedstaticmetricalert.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -988,7 +988,7 @@ Save and modify the following JSON script as *multidimensionalstaticmetricalert.
 
 You can create the metric alert using the template and parameters file by using PowerShell or the Azure CLI from your current working directory.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -999,7 +999,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
   -TemplateFile multidimensionalstaticmetricalert.json -TemplateParameterFile multidimensionalstaticmetricalert.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -1212,7 +1212,7 @@ Save and modify the following JSON script as *advanceddynamicmetricalert.paramet
 
 You can create the metric alert using the template and parameters file by using PowerShell or the Azure CLI from your current working directory.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -1223,7 +1223,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
   -TemplateFile advanceddynamicmetricalert.json -TemplateParameterFile advanceddynamicmetricalert.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -1472,7 +1472,7 @@ Save and modify the following JSON script as *customstaticmetricalert.parameters
 
 You can create the metric alert using the template and parameters file by using PowerShell or the Azure CLI from your current working directory.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -1483,7 +1483,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
   -TemplateFile customstaticmetricalert.json -TemplateParameterFile customstaticmetricalert.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -1807,7 +1807,7 @@ Save and modify the following JSON script as *all-vms-in-resource-group-static.p
 
 You can create the static metric alert using the template and parameters file by using PowerShell or the Azure CLI from your current working directory.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -1818,7 +1818,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
   -TemplateFile all-vms-in-resource-group-static.json -TemplateParameterFile all-vms-in-resource-group-static.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -2143,7 +2143,7 @@ Save and modify the following JSON script as *all-vms-in-resource-group-dynamic.
 
 You can create the metric alert using the template and parameters file by using PowerShell or the Azure CLI from your current working directory.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -2154,7 +2154,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
   -TemplateFile all-vms-in-resource-group-dynamic.json -TemplateParameterFile all-vms-in-resource-group-dynamic.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -2453,7 +2453,7 @@ Save and modify the following JSON script as *all-vms-in-subscription-static.par
 
 You can create the metric alert using the template and parameters file by using PowerShell or the Azure CLI from your current working directory.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -2464,7 +2464,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
   -TemplateFile all-vms-in-subscription-static.json -TemplateParameterFile all-vms-in-subscription-static.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -2786,7 +2786,7 @@ Save and modify the following JSON script as *all-vms-in-subscription-dynamic.pa
 
 You can create the metric alert using the template and parameters file by using PowerShell or the Azure CLI from your current working directory.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -2797,7 +2797,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
   -TemplateFile all-vms-in-subscription-dynamic.json -TemplateParameterFile all-vms-in-subscription-dynamic.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -3099,7 +3099,7 @@ Save and modify the following JSON script as *list-of-vms-static.parameters.json
 
 You can create the metric alert using the template and parameters file by using PowerShell or the Azure CLI from your current working directory.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -3110,7 +3110,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
   -TemplateFile list-of-vms-static.json -TemplateParameterFile list-of-vms-static.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -3435,7 +3435,7 @@ Save and modify the following JSON script as *list-of-vms-dynamic.parameters.jso
 
 You can create the metric alert using the template and parameters file by using PowerShell or the Azure CLI from your current working directory.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -3446,7 +3446,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
   -TemplateFile list-of-vms-dynamic.json -TemplateParameterFile list-of-vms-dynamic.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
@@ -3596,7 +3596,7 @@ Save the following JSON script as *availabilityalert.parameters.json* and modify
 
 You can create the availability test and associated alert using the template and parameters file by using PowerShell or the Azure CLI.
 
-Use Azure PowerShell
+Azure PowerShell:
 
 ```powershell
 Connect-AzAccount
@@ -3607,7 +3607,7 @@ New-AzResourceGroupDeployment -Name AvailabilityAlertDeployment -ResourceGroupNa
   -TemplateFile availabilityalert.json -TemplateParameterFile availabilityalert.parameters.json
 ```
 
-Use the Azure CLI
+Azure CLI:
 
 ```azurecli
 az login
