@@ -40,12 +40,10 @@ Tasks within workflows can be added, edited, reordered, and removed at will. To 
 
 1. You can enable and disable tasks as needed by using the **Enable** and **Disable** buttons.
 
-1. You can reorder the order in which tasks are executed in the workflow by selecting the **Reorder** button.
+1. You can reorder the order in which tasks are executed in the workflow by selecting the **Reorder** button. You can also remove a task from a workflow by using the **Remove** button. 
 
     :::image type="content" source="media/manage-workflow-tasks/manage-tasks-reorder.png" alt-text="Screenshot of reordering tasks in a workflow.":::
-
-1. You can remove a task from a workflow by using the **Remove** button.       
-
+      
 1. After making changes, select **save** to capture changes to the tasks.
 
 
