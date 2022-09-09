@@ -39,6 +39,28 @@ az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest --dis
 
 After you connect a cluster to Azure Arc, you can change the automatic upgrade selection by using the `az connectedk8s update` command and setting `--auto-upgrade` to either true or false.
 
+> [!IMPORTANT]
+> To change the automatic upgrade setting, you must use version 1.2.11 of the `connectedk8s` Azure CLI extension. We are working to enable this functionality in future releases.
+>
+> To ensure you are using this version, run the following commands:
+>
+> ```azurecli
+> # remove existing module
+> az extension remove --name connectedk8s 
+> 
+> # add specific module version
+> az extension add --name connectedk8s --version 1.2.11 
+> ```
+>
+> Once you've adjusted the automatic upgrading, use the following command to revert back to the latest version of the extension:
+>
+> ```azurecli
+> # remove existing module
+> az extension remove --name connectedk8s 
+> 
+> az extension add --name connectedk8s 
+> ```
+
 The following command turns automatic upgrade off for a connected cluster:
 
 ```azurecli
