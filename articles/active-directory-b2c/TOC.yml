@@ -133,7 +133,7 @@
         href: publish-app-to-azure-ad-app-gallery.md  
       - name: Register a SAML application
         href: saml-service-provider.md?tabs=windows&pivots=b2c-custom-policy 
-    - name: Create a flow
+    - name: Create a user flow or custom policy
       items:
       - name: Sign-up or sign-in policy
         href: add-sign-up-and-sign-in-policy.md
