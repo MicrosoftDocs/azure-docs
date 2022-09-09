@@ -7,11 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-
-author: s-polly
-ms.author: scottpolly
-ms.date: 03/31/2022
-ms.reviewer: nibaccam
+author: alainli
+ms.author: alainli
+ms.date: 09/08/2022
 ---
 
 # CLI (v2) parallel job YAML schema
