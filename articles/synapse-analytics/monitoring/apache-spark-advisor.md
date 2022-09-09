@@ -24,7 +24,7 @@ Verify that the hint is spelled correctly.
 spark.sql("SELECT /*+ unknownHint */ * FROM t1")
 ```
 
-### The system can't find the relations specified in a hint
+### Unable to find specified relation names
 Verify that the relations are spelled correctly and are accessible within the scope of the hint.
 
 ```scala
