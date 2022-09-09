@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases instance backup errors
 description: This article describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA database instances.
 ms.topic: troubleshooting
-ms.date: 06/30/2022
+ms.date: 10/05/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick

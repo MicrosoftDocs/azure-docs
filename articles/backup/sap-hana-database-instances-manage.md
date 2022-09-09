@@ -2,7 +2,7 @@
 title: Manage SAP HANA database instances on Azure VMs
 description: In this article, discover how to manage SAP HANA database instances that are running on Azure Virtual Machines.
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 10/05/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
