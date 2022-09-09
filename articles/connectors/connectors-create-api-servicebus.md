@@ -22,6 +22,8 @@ This article shows how to access Azure Service Bus from a workflow in Azure Logi
 
 You can use triggers that get responses from Azure Service Bus and make the output available to other actions in your workflows. You can also have other actions use the output from Service Bus actions.
 
+<a name="connector-reference"></a>
+
 ## Connector technical reference
 
 The Service Bus connector has different versions, based on [logic app workflow type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
@@ -44,7 +46,7 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
   Each managed identity that accesses a *different* messaging entity should have a separate connection to that entity. If you use different Service Bus actions to send and receive messages, and those actions require different permissions, make sure to use different connections.
 
-  For more information about managed identities, review [Authenticate access to Azure resources with managed identities in Azure Logic Apps](create-managed-service-identity.md).
+  For more information about managed identities, review [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
 ## Considerations for Azure Service Bus operations
 
