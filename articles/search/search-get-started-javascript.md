@@ -7,7 +7,7 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/08/2021
+ms.date: 09/09/2022
 ms.custom: devx-track-js, mode-api
 ---
 
@@ -19,7 +19,6 @@ ms.custom: devx-track-js, mode-api
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
-
 
 Use the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme) to create a Node.js application in JavaScript that creates, loads, and queries a search index.
 
@@ -36,7 +35,6 @@ Before you begin, have the following tools and services:
 + [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com)
 
 + [Visual Studio Code](https://code.visualstudio.com) or another IDE
-
 
 ## Set up your project
 
@@ -67,20 +65,20 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
     cd quickstart
     ```
 
-2. Initialize an empty project with NPM by running 
+2. Initialize an empty project with NPM by running the following command. To fully initialize the project, press Enter multiple times to accept the default values, except for the License, which you should set to "MIT". 
 
     ```cmd
     npm init
     ```
-     Accept the default values, except for the License, which you should set to "MIT". 
-
-3. Install `@azure/search-documents`, the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme).
+     
+3. Install `@azure/search-documents`, the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme). 
 
     ```cmd
     npm install @azure/search-documents
     ```
 
-4. Install `dotenv`, which is used to import the environment variables such as our service name and API key.
+4. Install `dotenv`, which is used to import the environment variables such as your search service name and API key.
+
     ```cmd
     npm install dotenv
     ```
@@ -103,8 +101,8 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
       "author": "Your Name",
       "license": "MIT",
       "dependencies": {
-        "@azure/search-documents": "^11.2.0",
-        "dotenv": "^8.2.0"
+        "@azure/search-documents": "^11.3.0",
+        "dotenv": "^16.0.2"
       }
     }
     ```
