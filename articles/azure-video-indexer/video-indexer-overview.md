@@ -66,8 +66,8 @@ Unless specified otherwise, a model is generally available.
 
 ### Audio models
 
-* **Audio transcription**: Converts speech to text over 50 languages and allows extensions. For a comprehensive list of language support by the service, see [language support](language-support.md).
-* **Automatic language detection**: Identifies the dominant spoken language. For a comprehensive list of language support by service, see [language support](language-support.md). If the language can't be identified with confidence, Azure Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
+* **Audio transcription**: Converts speech to text over 50 languages and allows extensions. For more information, see [Azure Video Indexer language support](language-support.md).
+* **Automatic language detection**: Identifies the dominant spoken language. For more information, see [Azure Video Indexer language support](language-support.md). If the language can't be identified with confidence, Azure Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
 * **Multi-language speech identification and transcription**: Identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
 * **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 * **Two channel processing**: Auto detects separate transcript and merges to single timeline.
@@ -77,7 +77,7 @@ Unless specified otherwise, a model is generally available.
 * **Speaker statistics**: Provides statistics for speakers' speech ratios.
 * **Textual content moderation**: Detects explicit text in the audio transcript.
 * **Emotion detection**: Identifies emotions based on speech (what's being said) and voice tonality (how it's being said). The emotion could be joy, sadness, anger, or fear.
-* **Translation**: Creates translations of the audio transcript to many different languages. For a comprehensive list of language support by the service, see [language support](language-support.md).
+* **Translation**: Creates translations of the audio transcript to many different languages. For more information, see [Azure Video Indexer language support](language-support.md).
 * **Audio effects detection** (preview): Detects the following audio effects in the non-speech segments of the content: alarm or siren, dog barking, crowd reactions (cheering, clapping, and booing), gunshot or explosion, laughter, breaking glass, and silence.
 
     The detected acoustic events are in the closed captions file. The file can be downloaded from the Azure Video Indexer portal. For more information, see [Audio effects detection](audio-effects-detection.md).
@@ -144,4 +144,4 @@ You're ready to get started with Azure Video Indexer. For more information, see 
 - [Process content with Azure Video Indexer REST API](video-indexer-use-apis.md).
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md).
 
-For the latest updates, see [release notes](release-notes.md).
+For the latest updates, see [Azure Video Indexer release notes](release-notes.md).
