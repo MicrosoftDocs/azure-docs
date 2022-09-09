@@ -184,9 +184,10 @@ The associated data flow script is:
 ```
 source(
     allowSchemaDrift: true,
-    validateSchema: false,
-    multiLineRow: true,
-    wildcardPaths:['*.csv']) ~> CSVSource
+	validateSchema: false,
+	ignoreNoFilesFound: false,
+	multiLineRow: true,
+	wildcardPaths:['*.csv']) ~> CSVSource
 ```
 
 > [!NOTE]
