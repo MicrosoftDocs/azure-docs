@@ -51,10 +51,6 @@ Usage: `call-center -- [...]`
 
 [!INCLUDE [Usage arguments](usage-arguments.md)]
 
-## Remarks
-
-[!INCLUDE [Remarks](remarks.md)]
-
 ## Clean up resources
 
 [!INCLUDE [Delete resource](delete-resource.md)]
