@@ -53,12 +53,12 @@ NOTE: This is listed as a stretch goal. Is this confirmed for October?
 -->
 
 
-# Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)
+# Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications (preview)
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. After you finish the instructions in this article, you'll be able to send OpenTelemetry traces to Azure Monitor Application Insights. To learn more about OpenTelemetry, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
 
 > [!IMPORTANT]
-> Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications is currently in preview.
+> The Azure Monitor OpenTelemetry-based Offerings for .NET, Node.js, and Python applications are currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Limitations of the preview release
@@ -67,12 +67,8 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 
 Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_:
 
- <!-- Metrics API (like custom metrics and [pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
  - [Live Metrics](live-stream.md)
-  @AaronMaxwell - I need to confirm that both Metrics and Live Metrics are no longer limitations.
-  -->
  - Logging API (like console logs and logging libraries)
- - Autocapture of unhandled exceptions
  - [Profiler](profiler-overview.md)
  - [Snapshot Debugger](snapshot-debugger.md)
  - [Offline disk storage and retry logic](telemetry-channels.md#built-in-telemetry-channels)
@@ -92,10 +88,8 @@ If you require a full-feature experience, use the existing Application Insights 
 
 Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_:
 
- - Metrics API (like custom metrics and [pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
  - [Live Metrics](live-stream.md)
  - Logging API (like console logs and logging libraries)
- - Autocapture of unhandled exceptions
  - [Azure Active Directory authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
@@ -114,10 +108,8 @@ If you require a full-feature experience, use the existing [Application Insights
 
 Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_:
 
- - Metrics API (like custom metrics and [pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
  - [Live Metrics](live-stream.md)
  - Logging API (like console logs and logging libraries)
- - Autocapture of unhandled exceptions
  - Offline disk storage and retry logic
  - [Azure Active Directory authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
@@ -441,10 +433,6 @@ trace.set_tracer_provider(
 
 For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
 
-## Metrics
-
-
-
 ## Sampling
 
 Sampling is supported in OpenTelemetry, but it isn't supported in the Azure Monitor OpenTelemetry Exporter at this time.
@@ -453,7 +441,7 @@ Sampling is supported in OpenTelemetry, but it isn't supported in the Azure Moni
 > Enabling sampling in OpenTelemetry makes standard and log-based metrics extremely inaccurate, which adversely affects all Application Insights experiences. Also, enabling sampling alongside the existing Application Insights SDKs results in broken traces.
 
 ## Instrumentation libraries
-<!-- Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release. -->
+
 The following libraries are validated to work with the preview release.
 
 > [!WARNING]
@@ -485,6 +473,7 @@ The following libraries are validated to work with the preview release.
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.24b0/)
 - [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) version:
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.24b0/)
+```
 
 ---
 
@@ -507,52 +496,6 @@ The following libraries are validated to work with the preview release.
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.24b0/)
 
 ---
-
-### Messaging
-
-#### [.NET](#tab/net)
-
-- 
-
-#### [Node.js](#tab/nodejs)
-
-- 
-
-#### [Python](#tab/python)
-
-- 
-
----
-
-### Azure SDK
-Telemetry emitted by these Azure SDKs is automatically collected by default:
-
-* [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
-* [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
-* [Azure Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
-* [Azure Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
-* [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
-* [Azure Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0+
-* [Azure Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
-* [Azure Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
-* [Azure Digital Twins - Core](/java/api/overview/azure/digitaltwins-core-readme) 1.1.0+
-* [Azure Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
-* [Azure Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
-* [Azure Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
-* [Azure Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
-* [Azure Identity](/java/api/overview/azure/identity-readme) 1.2.4+
-* [Azure Key Vault - Certificates](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
-* [Azure Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
-* [Azure Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
-* [Azure Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
-* [Azure Storage - Blobs](/java/api/overview/azure/storage-blob-readme) 12.11.0+
-* [Azure Storage - Blobs Batch](/java/api/overview/azure/storage-blob-batch-readme) 12.9.0+
-* [Azure Storage - Blobs Cryptography](/java/api/overview/azure/storage-blob-cryptography-readme) 12.11.0+
-* [Azure Storage - Common](/java/api/overview/azure/storage-common-readme) 12.11.0+
-* [Azure Storage - Files Data Lake](/java/api/overview/azure/storage-file-datalake-readme) 12.5.0+
-* [Azure Storage - Files Shares](/java/api/overview/azure/storage-file-share-readme) 12.9.0+
-* [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
-* [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
 
 > [!NOTE]
 > The *preview* offering only includes instrumentations that handle HTTP and database requests. To learn more, see [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions).
@@ -649,7 +592,6 @@ const provider = new NodeTracerProvider();
 const azureExporter = new AzureMonitorTraceExporter();
 provider.addSpanProcessor(new SpanEnrichingProcessor());
 provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
-
 ```
 
 ##### [Python](#tab/python)
@@ -683,7 +625,6 @@ class SpanEnrichingProcessor(SpanProcessor):
         span._name = "Updated-" + span.name
         span._attributes["CustomDimension1"] = "Value1"
         span._attributes["CustomDimension2"] = "Value2"
-
 ```
 ---
 
@@ -944,6 +885,60 @@ Use the add [custom property example](#add-a-custom-property), but replace the f
     
     For more information, see [GitHub Repo](link).
     --->
+
+---
+
+## Custom telemetry
+
+This section explains how to collect custom telemetry from your application.
+
+### Add Custom Metrics
+
+You may want to collect metrics beyond what is collected by [instrumentation libraries](#instrumentation-libraries).
+
+The OpenTelemetry API offers six metric "intruments" to cover a varity of metric scenarios.
+The [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#instrument)
+describes the instruments and provides examples of when you might use each one.
+
+> [!NOTE]
+> While histograms are supported in OpenTelemetry, they are not supported in Azure Monitor at this time.
+Additionally, UpDownCounters and Asynchronous UpDownCounters are not supported in .NET at this time.
+
+For example, you can use a counter to collect an important business event such as "add to shopping cart"
+and view it in [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started)
+for easy and accurate alerting.
+
+#### [.NET](#tab/net)
+
+Placeholder
+
+#### [Node.js](#tab/nodejs)
+
+Placeholder
+
+#### [Python](#tab/python)
+
+Placeholder
+
+---
+
+### Add Custom Exceptions
+
+You may want to send exceptions to Application Insights that ordinarily would not be sent
+because you catch them in your code. In this way, Application Insights will draw attention
+to them in relevant blades including the end-to-end transaction view.
+
+#### [.NET](#tab/net)
+
+Placeholder
+
+#### [Node.js](#tab/nodejs)
+
+Placeholder
+
+#### [Python](#tab/python)
+
+Placeholder
 
 ---
 
