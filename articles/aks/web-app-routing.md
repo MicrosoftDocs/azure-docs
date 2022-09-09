@@ -46,11 +46,11 @@ az extension update --name aks-preview
 
 ### Create and export a self-signed SSL certificate (if you don't already own one)
 
-If you already have an SSL certificate, you can skip this step, otherwise you can use these commands to create a self-signed SSL certificate to use with the Ingress. You will need to replace `<YOUR HOSTNAME>` with the DNS name that you will be using.
+If you already have an SSL certificate, you can skip this step, otherwise you can use these commands to create a self-signed SSL certificate to use with the Ingress. You will need to replace *`<Hostname>`* with the DNS name that you will be using.
 
 ```bash
 # Create a self-signed SSL certificate
-openssl req -new -x509 -nodes -out aks-ingress-tls.crt -keyout aks-ingress-tls.key -subj "/CN=<YOUR HOSTNAME>" -addext "subjectAltName=DNS:<YOUR HOSTNAME>"
+openssl req -new -x509 -nodes -out aks-ingress-tls.crt -keyout aks-ingress-tls.key -subj "/CN=<Hostname>" -addext "subjectAltName=DNS:<Hostname>"
 
 # Export the SSL certificate, skipping the password prompt
 openssl pkcs12 -export -in aks-ingress-tls.crt -inkey aks-ingress-tls.key -out aks-ingress-tls.pfx
@@ -61,7 +61,7 @@ openssl pkcs12 -export -in aks-ingress-tls.crt -inkey aks-ingress-tls.key -out a
 If you don't already have an Azure Key Vault, use this command to create one. Azure Key Vault is used to securely store the SSL certificates that will be loaded into the Ingress.
 
 ```azurecli-interactive
-az keyvault create -g <RESOURCE GROUP NAME> -l <LOCATION> -n <KEYVAULT NAME>
+az keyvault create -g <ResourceGroupName> -l <Location> -n <KeyVaultName>
 ```
 
 ### Import certificate to Azure Key Vault
@@ -69,7 +69,7 @@ az keyvault create -g <RESOURCE GROUP NAME> -l <LOCATION> -n <KEYVAULT NAME>
 Import the SSL certificate into Azure Key Vault.
 
 ```azurecli-interactive
-az keyvault certificate import --vault-name <KEYVAULT NAME> -n <KEYVAULT CERTIFICATE NAME> -f aks-ingress-tls.pfx
+az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx
 ```
 
 ### Create an Azure DNS zone (optional)
@@ -78,7 +78,7 @@ If you want the add-on to automatically managed creating hostnames, you need to 
 
 ```azurecli-interactive
 # Create a DNS zone
-az network dns zone create -g <RESOURCE GROUP NAME> -n <ZONE NAME ex: contoso.com>
+az network dns zone create -g <ResourceGroupName> -n <ZoneName>
 ```
  
 ## Enable Web Application Routing via the Azure CLI 
@@ -95,13 +95,13 @@ The following additional add-ons are required:
 > To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](/azure/aks/csi-secrets-store-driver#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is 2 minutes.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons azure-keyvault-secrets-provider,open-service-mesh,web_application_routing --generate-ssh-keys --enable-secret-rotation
+az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-addons azure-keyvault-secrets-provider,open-service-mesh,web_application_routing --generate-ssh-keys --enable-secret-rotation
 ```
 
 To enable Web Application  Routing on an existing cluster, add the `--addons` parameter and specify *web_application_routing* as shown in the following example:
 
 ```azurecli-interactive
-az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons azure-keyvault-secrets-provider,open-service-mesh,web_application_routing --enable-secret-rotation
+az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons azure-keyvault-secrets-provider,open-service-mesh,web_application_routing --enable-secret-rotation
 ```
 
 > [!NOTE]
@@ -117,36 +117,26 @@ The following additional add-on is required:
 > To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](/azure/aks/csi-secrets-store-driver#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is 2 minutes.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons azure-keyvault-secrets-provider,web_application_routing --generate-ssh-keys --enable-secret-rotation
+az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-addons azure-keyvault-secrets-provider,web_application_routing --generate-ssh-keys --enable-secret-rotation
 ```
 
 To enable Web Application  Routing on an existing cluster, add the `--addons` parameter and specify *web_application_routing* as shown in the following example:
 
 ```azurecli-interactive
-az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons azure-keyvault-secrets-provider,web_application_routing --enable-secret-rotation
+az aks enable-addons-g <ResourceGroupName> -n <ClusterName> --addons azure-keyvault-secrets-provider,web_application_routing --enable-secret-rotation
 ```
 
 ---
 
-> [!TIP]
-> If you are going to use Azure DNS, update the add-on to pass in the `--dns-zone-resource-id` 
+## Retrieve the add-on's managed identity object ID
 
-```azurecli-interactive
-# Retrieve the resource ID
-ZONEID=$(az network dns zone show --vault-name <KEYVAULT NAME> --name <ZONE NAME> -o jsonc | jq .id)
-
-# Update the add-on
-az aks addon update --resource-group myResourceGroup --name myAKSCluster --addon web_application_routing --dns-zone-resource-id=$ZONEID`
-```
-
-## Grant the add-on permissions to retrieve certficates from Azure Key Vault
-The Web Application Routing add-on creates a user created managed identity in the cluster resource group. This managed identity will need to be granted permissions to retrieve SSL certificates from the Azure Key Vault. Provide your `<RESOURCE GROUP NAME>`, `<CLUSTER NAME>`, and `<LOCATION>` in the script below which will retrieve the managed identity's object ID.
+Retrieve user managed identity object ID for the add-on. This will be used in the next steps to grant permissions against the Azure DNS zone and the Azure Key Vault. Provide your *`<ResourceGroupName>`*, *`<ClusterName>`*, and *`<Location>`* in the script below which will retrieve the managed identity's object ID.
 
 ```azurecli-interactive
 # Provide values for your environment
-RGNAME=<RESOURCE GROUP NAME>
-CLUSTERNAME=<CLUSTER NAME>
-LOCATION=<LOCATION>
+RGNAME=<ResourceGroupName>
+CLUSTERNAME=<ClusterName>
+LOCATION=<Location>
 
 # Retrieve user managed identity object ID for the add-on
 SUBSCRIPTION_ID=$(az account show --query id --output tsv)
@@ -156,9 +146,37 @@ USERMANAGEDIDENTITY_RESOURCEID="/subscriptions/${SUBSCRIPTION_ID}/resourceGroups
 MANAGEDIDENTITY_OBJECTID=$(az resource show --id $USERMANAGEDIDENTITY_RESOURCEID --query "properties.principalId" -o tsv | tr -d '[:space:]')
 ```
 
+## Configure the add-on to use Azure DNS to manage creating DNS zones
+
+If you are going to use Azure DNS, update the add-on to pass in the `--dns-zone-resource-id`.
+
+Retrieve the resource ID for the DNS zone.
+
+```azurecli-interactive
+# Retrieve the resource ID
+ZONEID=$(az network dns zone show -g <ResourceGroupName> -n <ZoneName> --query "id" --output tsv)
+```
+
+Grant **DNS Zone Contributor** permissions on the DNS zone to the add-on's managed identity.
+
+```azureclie-interactive
+az role assignment create --role "DNS Zone Contributor" --assignee $MANAGEDIDENTITY_OBJECTID --scope $ZONEID
+```
+
+Update the add-on to enable the integration with Azure DNS. This will create the **external-dns** controller.
+
+```azureclie-interactive
+az aks addon update -g <ResourceGroupName> -n <ClusterName> --addon web_application_routing --dns-zone-resource-id=$ZONEID
+```
+
+
+
+## Grant the add-on permissions to retrieve certficates from Azure Key Vault
+The Web Application Routing add-on creates a user created managed identity in the cluster resource group. This managed identity will need to be granted permissions to retrieve SSL certificates from the Azure Key Vault. 
+
 Grant `GET` permissions for the Web Application Routing add-on to retrieve certificates from Azure Key Vault:
 ```azurecli-interactive
-az keyvault set-policy --name $KEYVAULTNAME --object-id $MANAGEDIDENTITY_OBJECTID --secret-permissions get --certificate-permissions get
+az keyvault set-policy --name <KeyVaultName> --object-id $MANAGEDIDENTITY_OBJECTID --secret-permissions get --certificate-permissions get
 ```
 
 ## Connect to your AKS cluster
@@ -174,9 +192,9 @@ az aks install-cli
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. The following example gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*:
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
 ```
-## Deploying an application that uses Web Application Routing
+## Deploy an application
 
 Web Application Routing uses annotations on Kubernetes Ingress objects to create the appropriate resources, create records on Azure DNS (when configured), and retrieve the SSL certificates from Azure Key Vault.
 
@@ -247,17 +265,20 @@ spec:
 The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this will activate the add-on. To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
 
 ```azurecli-interactive
-az keyvault certificate show --vault-name <KEYVAULT NAME> --name <KEYVAULT-CERTIFICATE-NAME> -o jsonc | jq .id
+az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> ---query "id" --output tsv
 ```
 
-Create a file named **ingress.yaml** and copy in the following YAML. Update `<MY_HOSTNAME>` with your DNS host name and `<MY_KEYVAULT_CERTIFICATE_URI>` with the ID returned from Azure Key Vault.
+Create a file named **ingress.yaml** and copy in the following YAML.
+
+> [!NOTE]
+> Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault. `secretName` is the name of the secret that going to be generated to store the certificate. This is the certificate that's going to be presented in the browser.
 
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    kubernetes.azure.com/tls-cert-keyvault-uri: <MY_KEYVAULT_CERTIFICATE_URI>
+    kubernetes.azure.com/tls-cert-keyvault-uri: <KeyVaultCertificateUri>
     kubernetes.azure.com/use-osm-mtls: "true"
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     nginx.ingress.kubernetes.io/configuration-snippet: |2-
@@ -270,7 +291,7 @@ metadata:
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
   rules:
-  - host: <MY_HOSTNAME>
+  - host: <Hostname>
     http:
       paths:
       - backend:
@@ -282,7 +303,7 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - <MY_HOSTNAME>
+    - <Hostname>
     secretName: keyvault-aks-helloworld
 ```
 
@@ -395,23 +416,26 @@ spec:
 The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this will activate the add-on. To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
 
 ```azurecli-interactive
-az keyvault certificate show --vault-name <KEYVAULT NAME> --name <KEYVAULT-CERTIFICATE-NAME> -o jsonc | jq .id
+az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> ---query "id" --output tsv
 ```
 
-Create a file named **ingress.yaml** and copy in the following YAML. Update `<MY_HOSTNAME>` with your DNS host name and `<MY_KEYVAULT_CERTIFICATE_URI>` with the ID returned from Azure Key Vault.
+Create a file named **ingress.yaml** and copy in the following YAML. 
+
+> [!NOTE]
+> Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault. `secretName` is the name of the secret that going to be generated to store the certificate. This is the certificate that's going to be presented in the browser.
 
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    kubernetes.azure.com/tls-cert-keyvault-uri: <MY_KEYVAULT_CERTIFICATE_URI>
+    kubernetes.azure.com/tls-cert-keyvault-uri: <KeyVaultCertificateUri>
   name: aks-helloworld
   namespace: hello-web-app-routing
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
   rules:
-  - host: helloworld.aks.azure.sabbour.me
+  - host: <Hostname>
     http:
       paths:
       - backend:
@@ -423,7 +447,7 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - helloworld.aks.azure.sabbour.me
+    - <Hostname>
     secretName: keyvault-aks-helloworld
 ```
 
