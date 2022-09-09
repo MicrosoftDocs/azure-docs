@@ -536,6 +536,9 @@ Once the run completes, you can register the model that was created from the bes
 # [CLI v2](#tab/CLI-v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+```yaml
+    
+```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -547,6 +550,9 @@ Once the run completes, you can register the model that was created from the bes
 # [CLI v2](#tab/CLI-v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+```yaml
+    
+```
 
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
