@@ -49,17 +49,6 @@ Elasticsearch Exporter Settings
 |--------------|-----------|
 | Index       | This can be the name of an index or datastream name to publish events to      |
 
-- Credentials
-  - User-provided client and CA certificates through Kubernetes secrets.
-- Endpoints
-- Settings
-  - KafkaExporter Settings:
-    - topic
-    - brokers
-    - encoding
-- ElasticSearchExporter Settings:
-  - index
-
 ### Pipelines
 
 During the Public Preview, only logs pipelines are supported. These are exposed in the custom resource specification of the Arc telemetry router and available for modification.  Currently, we do not allow configuration of receivers and processors in these pipelines - only exporters are changeable.  All pipelines must be prefixed with "logs" in order to be injected with the necessary receivers and processors. e.g., `logs/internal`
