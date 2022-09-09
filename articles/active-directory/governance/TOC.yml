@@ -245,6 +245,4 @@
     href: tutorial-prepare-azure-ad-user-accounts.md 
   - name: Configure a Logic App for Lifecycle Workflow use (Preview)
     href: configure-logic-app-lifecycle-workflows.md
-  - name: Set employeeLeaveDateTime for leaver workflows
-    href: set-employee-leave-date-time.md  
       
