@@ -52,8 +52,8 @@ The following table illustrates the relation between input data and partition se
 
 | Data format | AML input type | AML input mode | Partition method |
 |: ---------- |: ------------- |: ------------- |: --------------- |
-| File list | mltable or<br>uri_folder | ro_mount or<br>download | By size (number of files) or<br> *By key-value (coming in later release)*
-| Tabular data | mltable | direct | By size (estimated physical size) or<br> *By line count (coming in later release) or<br> By key-value (coming in later release)*
+| File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files) or<br> *By key-value (coming in later release)*
+| Tabular data | `mltable` | direct | By size (estimated physical size) or<br> *By line count (coming in later release) or<br> By key-value (coming in later release)*
 
 You can declare your major input data with `input_data` attribute in parallel job yaml or python sdk. And if you partition your data **by size**, set numbers to `mini_batch_siz` attribute to define the size of mini-batch.
 
@@ -95,7 +95,7 @@ Once you have partition setting defined, you can configure parallel setting by u
 
 These two attributes work together with your specified compute cluster as diagram below:
 
-:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/how-distributed-data-works-in-parallel-job.png" alt-text="Diagram for how distributed data works in parallel job." lightbox ="./media/how-to-use-parallel-job-in-pipeline/how-distributed-data-works-in-parallel-job.png":::
+:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/how-distributed-data-works-in-parallel-job.png" alt-text="Diagram showing how distributed data works in parallel job." lightbox ="./media/how-to-use-parallel-job-in-pipeline/how-distributed-data-works-in-parallel-job.png":::
 
 Sample code to set two attributes:
 
@@ -157,13 +157,13 @@ file_batch_inference = parallel_run_function(
 ---
 
 > [!NOTE]
-> If you use tabular mltable as your major input data, you need have mltable specification file with `transformations - read_delimited` section filled under your specific path. See more example from this document: [Create data assets - create a mltable data](how-to-create-register-data-assets.md#create-a-mltable-data-asset)
+> If you use tabular `mltable` as your major input data, you need have MLTABLE specification file with `transformations - read_delimited` section filled under your specific path. For more examples, see [Create a mltable data asset](how-to-create-register-data-assets.md#create-a-mltable-data-asset)
 
 ### Implement predefined functions in entry script
 
 Entry script is a single python file where user needs to implement three predefined functions with custom code. Azure ML parallel job follows the diagram below to execute them in each processor.
 
-:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/how-entry-script-works-in-parallel-job.png" alt-text="Diagram for how entry script works in parallel job." lightbox ="./media/how-to-use-parallel-job-in-pipeline/how-entry-script-works-in-parallel-job.png":::
+:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/how-entry-script-works-in-parallel-job.png" alt-text="Diagram showing how entry script works in parallel job." lightbox ="./media/how-to-use-parallel-job-in-pipeline/how-entry-script-works-in-parallel-job.png":::
 
 | Function name | Required | Description | Input | Return |
 | :------------ | -------- | :---------- | :---- | :----- |
@@ -380,19 +380,19 @@ You can submit your pipeline job with parallel step by using `jobs.create_or_upd
 
 ---
 
-Once you submit your pipeline job, the SDK or CLI widget will give you a web URL link to Studio UI. The link will guide you to the pipeline graph view by default. Double select the parallel step to open the right panel of your parallel job. 
+Once you submit your pipeline job, the SDK or CLI widget will give you a web URL link to Studio UI. The link will guide you to the pipeline graph view by default. Double select the parallel step to open the right panel of your parallel job.
 
 To check the settings of your parallel job, navigate to **Parameters** tab, expand **Run settings**, and check **Parallel** section:
 
-:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png" alt-text="Screenshot for parallel job setting." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png":::
+:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png" alt-text="Screenshot of Azure ML studio on the jobs tab showing the parallel job settings." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png":::
 
 To debug the failure of your parallel job, navigate to **Outputs + Logs** tab, expand **logs** folder from output directories on the left, and check **job_result.txt** to understand why the parallel job is failed. For more detail about logging structure of parallel job, refer to **readme.txt** under the same folder.
 
-:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png" alt-text="Screenshot for parallel job result." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png":::
+:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png" alt-text="Screenshot of Azure ML studio on the jobs tab showing the parallel job results." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png":::
 
 ## Parallel job in pipeline examples
 
-- CLI + Yaml:
+- Azure CLI + YAML:
     - [Iris prediction using parallel](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines/iris-batch-prediction-using-parallel) (tabular input)
     - [mnist identification using parallel](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines/mnist-batch-identification-using-parallel) (file list input)
 - SDK:
@@ -400,6 +400,6 @@ To debug the failure of your parallel job, navigate to **Outputs + Logs** tab, e
 
 ## Next steps
 
-- For the detailed yaml schema of parallel job, see the [yaml reference for parallel job](reference-yaml-job-parallel.md).
-- For how to onboard your data into mltable, see [Create data assets - create a mltable data](how-to-create-register-data-assets.md#create-a-mltable-data-asset).
+- For the detailed yaml schema of parallel job, see the [YAML reference for parallel job](reference-yaml-job-parallel.md).
+- For how to onboard your data into MLTABLE, see [Create a mltable data asset](how-to-create-register-data-assets.md#create-a-mltable-data-asset).
 - For how to regularly trigger your pipeline, see [how to schedule pipeline](how-to-schedule-pipeline-job.md)
