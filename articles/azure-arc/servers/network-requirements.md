@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent network requirements
 description: Learn about the networking requirements for using the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 08/26/2022
+ms.date: 09/09/2022
 ms.topic: conceptual 
 ---
 
@@ -59,7 +59,7 @@ The table below lists the URLs that must be available in order to install and us
 |`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
 
 > [!NOTE]
-> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET /urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
 ### [Azure Government](#tab/azure-government)
 
