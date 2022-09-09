@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/09/2022
 ms.author: mbullwin
+recommendations: false
 ---
 
 Get started with the Anomaly Detector client library for Python. Follow these steps to install the package start using the algorithms provided by the service. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
@@ -44,7 +45,7 @@ To successfully make a call against the Azure OpenAI service, you'll need the fo
 |--------------------------|-------------|
 | `ANOMALY_DETECTOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/|
 | `ANOMALY_DETECTOR_API_KEY` | The API key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
-|`TIME_SERIES_DATA_PATH` | This quickstart uses the `request-data.csv` file which can be downloaded from our [GitHub sample data](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv). |
+|`TIME_SERIES_DATA_PATH` | This quickstart uses the `request-data.csv` file which can be downloaded from our [GitHub sample data](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv). You can also download the sample data by running: `curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv`. Example path: `c:\\test\\request-data.csv`  |
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
@@ -57,12 +58,10 @@ Use the following command to create and assign a persisted environment variable,
 Use the following command to create and assign a persisted environment variable, given the input value.
 
 ```CMD
-:: Assigns the env var to the value
 setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
 ```
 
 ```CMD
-:: Assigns the env var to the value
 setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
 ```
 
@@ -71,12 +70,10 @@ setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 Use the following command to create and assign a persisted environment variable, given the input value.
 
 ```powershell
-# Assigns the env var to the value
 [System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
 ```
 
 ```powershell
-# Assigns the env var to the value
 [System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
 ```
 
@@ -85,12 +82,10 @@ Use the following command to create and assign a persisted environment variable,
 Use the following command to create and assign a persisted environment variable, given the input value.
 
 ```Bash
-# Assigns the env var to the value
 echo export ANOMALY_DETECTOR_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
 ```
 
 ```Bash
-# Assigns the env var to the value
 echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
 
@@ -110,8 +105,7 @@ echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/
 
     API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY']
     ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
-    TIME_SERIES_DATA_PATH = "REPLACE_WITH_YOUR_TIME_SERIES_DATA_PATH_HERE" #example path: c:\\test\\request-data.csv 
-    # You can download the example data locally by running curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv
+    TIME_SERIES_DATA_PATH = "REPLACE_WITH_YOUR_TIME_SERIES_DATA_PATH_HERE" 
 
     client = AnomalyDetectorClient(AzureKeyCredential(API_KEY), ENDPOINT)
 
@@ -164,9 +158,9 @@ Anomaly detected at index:      44
 
 ### Understanding your results
 
-In our script we call the Anomaly Detector API twice. The first call checks for trend change points across our sample data series with the `detect_change_point` method. This call returns a `ChangePointDetectResponse` that we stored in a variable we named `change_point_request`. We then iterate through the response's `is_change_point` list, and print the index of any values with a boolean of `true`.
+In our script we call the Anomaly Detector API twice. The first call checks for trend change points across our sample data series with the [`detect_change_point`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-change-point) method. This call returns a [`ChangePointDetectResponse`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.models.changepointdetectresponse?view=azure-python-preview) that we stored in a variable we named `change_point_request`. We then iterate through the response's `is_change_point` list, and print the index of any values with a boolean of `true`.
 
-The second call checks the entire sample data series for anomalies using the [`detect_entire_series`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-entire-series&preserve-view=true) method. This call returns a [`EntireDetectResponse`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.models.entiredetectresponse?view=azure-python-preview&preserve-view=true) that we stored in a variable we named `anomaly_response` We iterate through the response's `is_anomaly` list, and print the index of any values with a boolean of `true`. Alternatively, we could have used the [`detect_last_point`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-last-point&preserve-view=true) method which is more appropriate for detecting anomalies in real-time data.
+The second call checks the entire sample data series for anomalies using the [`detect_entire_series`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-entire-series&preserve-view=true) method. This call returns a [`EntireDetectResponse`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.models.entiredetectresponse?view=azure-python-preview&preserve-view=true) that we stored in a variable we named `anomaly_response` We iterate through the response's `is_anomaly` list, and print the index of any values with a boolean of `true`. Alternatively, we could have used the [`detect_last_point`](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector.operations.anomalydetectorclientoperationsmixin?view=azure-python-preview#azure-ai-anomalydetector-operations-anomalydetectorclientoperationsmixin-detect-last-point&preserve-view=true) method which is more appropriate for detecting anomalies in real-time data. To learn more consult the [best practices guide](../../concepts/anomaly-detection-best-practices.md).
 
 ## Visualize results
 
@@ -229,11 +223,13 @@ To visualize the anomalies and change points in relation to the sample data seri
 
 ### Output
 
+In this code example we have added the `matplotlib` library to allow us to visualize and easily distinguish normal data points from change points and anomalies. Change points are represented by blue squares, anomalies are red triangles, and normal data points are green circles.
+
 :::image type="content" source="../../media/quickstart/output.png" alt-text="Screenshot of anomaly detection results with indexes of anomalies and change points on a scatter plot. Anomalies are represented as red triangles, change points are represented as blue squares, and normal data is represented as green circles." lightbox="../../media/quickstart/output.png":::
 
 ## Clean up resources
 
-If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.2#using-the-environment-provider-and-item-cmdlets) you created if you no longer intend to use them.
 
-- [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
-- [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
