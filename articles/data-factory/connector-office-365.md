@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 09/09/2022
 ms.author: jianleishen
 ---
 # Copy data from Microsoft 365 (Office 365) into Azure using Azure Data Factory or Synapse Analytics
@@ -24,6 +24,7 @@ This Microsoft 365 (Office 365) connector is supported for the following capabil
 | Supported capabilities|IR |
 |---------| --------|
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md) (source/-)|&#9312; &#9313;|
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
@@ -171,6 +172,10 @@ If you were setting `dateFilterColumn`, `startTime`, `endTime`, and `userScopeFi
 ## Copy activity properties
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Microsoft 365 (Office 365) source.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ### Microsoft 365 (Office 365) as source
 

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 09/09/2022
 ms.author: jianleishen
 ---
 
@@ -30,6 +30,7 @@ This HDFS connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|
+|[Get Metadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
@@ -494,6 +495,10 @@ Kadmin> addprinc <username>@<REALM.COM>
 ## Lookup activity properties
 
 For information about Lookup activity properties, see [Lookup activity](control-flow-lookup-activity.md).
+
+## Get Metadata activity properties
+
+For information about Get Metadata activity properties, see [Get Metadata activity](control-flow-get-metadata-activity.md).
 
 ## Delete activity properties
 
