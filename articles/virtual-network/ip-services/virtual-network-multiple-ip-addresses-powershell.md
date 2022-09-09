@@ -92,7 +92,7 @@ New-AzVirtualNetwork @net
 
 ```
 
-## Create public IP addresses
+## Create primary public IP address
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a primary public IP address.
 
