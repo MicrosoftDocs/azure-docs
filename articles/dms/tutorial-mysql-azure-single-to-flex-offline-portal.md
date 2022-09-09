@@ -20,7 +20,7 @@ You can migrate an instance of Azure Database for MySQL – Single Server to Azu
 > DMS supports migrating from lower version MySQL servers (v5.6 and above) to higher versions. In addition, DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you can select a different region, resource group, and subscription for the target server than that specified for your source server.
 
 > [!IMPORTANT]
-For online migrations, you can use the Enable Transactional Consistency feature supported by DMS together with [Data-in replication](./../mysql/single-server/concepts-data-in-replication.md) or [replicate changes](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/azure-dms-mysql-replicate-changes-now-in-preview/ba-p/3601564). Additionally, you can use the online migration scenario to migrate by following the tutorial [here](./tutorial-mysql-azure-single-to-flex-offline-portal.md).
+> For online migrations, you can use the Enable Transactional Consistency feature supported by DMS together with [Data-in replication](./../mysql/single-server/concepts-data-in-replication.md) or [replicate changes](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/azure-dms-mysql-replicate-changes-now-in-preview/ba-p/3601564). Additionally, you can use the online migration scenario to migrate by following the tutorial [here](./tutorial-mysql-azure-single-to-flex-offline-portal.md).
 
 In this tutorial, you will learn how to:
 
@@ -116,7 +116,7 @@ With these best practices in mind, create your target flexible server and then c
       * innodb_buffer_pool_size – can only be increased by scaling up compute for Azure Database for MySQL server. Scale up the server to 64 vCore General Purpose SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size.
       * innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.
       * innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
-  * Configure the firewall rules and replicas on the target server to match those on the source server.
+  * Configure the replicas on the target server to match those on the source server.
   * Replicate the following server management features from the source single server to the target flexible server:
     * Role assignments, Roles, Deny Assignments, classic administrators, Access Control (IAM)
     * Locks (read-only and delete)
@@ -235,7 +235,7 @@ Selecting this check box prevents Write/Delete operations on the source server d
 
     DMS validates your inputs, and if the validation passes, you will be able to start the migration.
 
-8. After configuring for schema migration, select **Next : Summary>>**.
+8. After configuring for schema migration, select **Review and start migration**.
     > [!NOTE]
     > You only need to navigate to the Configure migration settings tab if you are trying to troubleshoot failing migrations.
 
