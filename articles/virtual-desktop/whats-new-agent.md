@@ -27,7 +27,7 @@ This update was released in August 2022 and includes the following changes:
 - Modified app attach on-demand registration.
 - Enhanced the AgentUpdateTelemetry parameter to help with StackFlighting data.
 - Removed unnecessary WebRTC health check.
-- Fixed an issue with the RDAgentMetatdata parameter.
+- Fixed an issue with the RDAgentMetadata parameter.
 
 ## Version 1.0.5100.1100
 
