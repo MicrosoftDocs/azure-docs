@@ -164,7 +164,7 @@ To deploy a model to Azure Kubernetes Service, create a __deployment configurati
 
 <a id="using-the-cli"></a>
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
