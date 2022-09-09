@@ -16,10 +16,10 @@ ms.custom: references_regions
 
 It's mainly a process and policy-driven phase to stop, or limit as much as possible, adding new dependencies to Active Directory and implement a cloud-first approach for new demand of IT solutions.
 
-It's key at this point to identify the internal processes that would lead to adding new dependencies on Active Directory. For example, most organizations would have a change management process that has to be followed before the implementation of new scenarios, features, solutions. We strongly recommend making sure that these change approval processes are updated to:
+It's key at this point to identify the internal processes that would lead to adding new dependencies on Active Directory. For example, most organizations would have a change management process that has to be followed before the implementation of new scenarios, features, and solutions. We strongly recommend making sure that these change approval processes are updated to:
 
 - Include a step to evaluate whether the proposed change would add new dependencies on Active Directory.
-- Request the evaluation of Azure AD alternatives when possible.
+- Request the evaluation of Azure Active Directory (Azure AD) alternatives when possible.
 
 ## Users and groups
 
@@ -75,7 +75,7 @@ For more information, see [Learn more about cloud-native endpoints](/mem/cloud-n
 
 ## Applications
 
-Traditionally, application servers are often joined to an on-premises Active Directory domain so that they can use Windows Integrated Authentication (Kerberos or NTLM), directory queries through LDAP, and server management through GPO or Microsoft Endpoint Configuration Manager.
+Traditionally, application servers are often joined to an on-premises Active Directory domain so that they can use Windows Integrated Authentication (Kerberos or NTLM), directory queries through Lightweight Directory Access Protocol (LDAP), and server management through GPO or Microsoft Endpoint Configuration Manager.
 
 The organization has a process to evaluate Azure AD alternatives when it's considering new services, apps, or infrastructure. Directives for a cloud-first approach to applications should be as follows. (New on-premises applications or legacy applications should be a rare exception when no modern alternative exists.)
 
