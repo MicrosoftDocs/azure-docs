@@ -23,6 +23,9 @@ The scale-in policy feature provides users a way to configure the order in which
 2. NewestVM
 3. OldestVM
 
+> [!IMPORTANT]
+> Flexible orchestration for virtual machine scale sets does not currently support scale-in policy.
+
 ### Default scale-in policy
 
 By default, virtual machine scale set applies this policy to determine which instance(s) will be scaled in. With the *Default* policy, VMs are selected for scale-in in the following order:
