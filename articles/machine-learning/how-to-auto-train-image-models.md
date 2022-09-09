@@ -544,19 +544,6 @@ Once the run completes, you can register the model that was created from the bes
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
 
-### create a local folder and download
-
-
-# [CLI v2](#tab/CLI-v2)
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-```yaml
-    to be supported
-```
-
-
-# [Python SDK v2 (preview)](#tab/SDK-v2)
-
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_local_dir)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=download_model)]
@@ -599,6 +586,8 @@ auth_mode: key
 ### Create the endpoint
 
 Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+
+
 # [CLI v2](#tab/CLI-v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -613,6 +602,8 @@ az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR
 ### Configure online deployment
 
 A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class. You can use either GPU or CPU VM SKUs for your deployment cluster.
+
+
 # [CLI v2](#tab/CLI-v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
