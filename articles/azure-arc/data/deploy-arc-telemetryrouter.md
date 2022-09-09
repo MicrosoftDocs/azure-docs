@@ -35,19 +35,27 @@ For the Public Preview, Exporters are partially configurable and support the fol
 
 The following properties are currently configurable during the Public Preview:
 
+General Exporter Settings
+
+|  Setting     | Description |
+|--------------|-----------|
+| endpoint       | Kafka or Elasticsearch |
+| certificateName     | The certificateName of the Exporter  | 
+| caCertificateName      | The cluster's CACertificate for the Exporter  |
+
 Kafka Exporter Settings
 
 |  Setting     | Description |
 |--------------|-----------|
-| Topic       | Name of the topic to export to |
-| Brokers      | Broker service endpoint  | 
-| Encoding      | Encoding for the telemetry: otlp_json or otlp_proto  |
+| topic       | Name of the topic to export to |
+| brokers      | Broker service endpoint  | 
+| encoding      | Encoding for the telemetry: otlp_json or otlp_proto  |
 
 Elasticsearch Exporter Settings
 
 |  Setting     | Description |
 |--------------|-----------|
-| Index       | This can be the name of an index or datastream name to publish events to      |
+| index       | This can be the name of an index or datastream name to publish events to      |
 
 ### Pipelines
 
@@ -57,11 +65,8 @@ Pipeline Settings
 
 |  Setting     | Description |
 |--------------|-----------|
-| Credentials       | User-provided       |
-| Endpoint       | kafka or elasticsearch      |
-| CA Certificate Name       | asdf      |
-| Certificate Name       | asdf      |
-
+| logs       | Can only declare new logs pipelines. Must be prefixed with "logs"       |
+| exporters       | kafka or elasticsearch      |
 
 ### Credentials 
 
@@ -69,9 +74,9 @@ Pipeline Settings
 
 |  Setting     | Description |
 |--------------|-----------|
-| Credentials       | User-provided through a Kubernetes secret       |
-| CA Certificate Name       | User-provided through a Kubernetes secret      |
-| Certificate Name       | User-provided through a Kubernetes secret      |
+| certificateName       | Name of the certificate       |
+| secretName       | Name of the secret provide through Kubernetes      |
+| secretNamespace       | Namespace with secret provided through Kubernetes      |
 
 ### Example TelemetryRouter Specification:
 
