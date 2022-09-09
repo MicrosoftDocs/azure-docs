@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Spark application issues with Spark Advisor
-description: Learn how to troubleshoot Spark Advisor, which automatically analyzes your commands and queries and advises you about them. 
+description: Learn how to troubleshoot Spark application issues with Spark Advisor. The advisor automatically analyzes queries and commands, and offers advice.
 services: synapse-analytics 
 author: jejiang
 ms.author: jejiang
