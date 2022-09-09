@@ -13,7 +13,7 @@ ms.reviewer: harelbr
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article shows how you can use an [Azure Resource Manager template (ARM template)](../../azure-resource-manager/templates/syntax.md) to configure [newer metric alerts](./alerts-metric-near-real-time.md) in Azure Monitor. You can use ARM templates to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available on [this set of resource types](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+This article shows how you can use an [Azure Resource Manager template (ARM template)](../../azure-resource-manager/templates/syntax.md) to configure [newer metric alerts](./alerts-metric-near-real-time.md) in Azure Monitor. You can use ARM templates to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available in [this set of resource types](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > The resource template for creating metric alerts for resource type Azure Log Analytics workspace, that is, `Microsoft.OperationalInsights/workspaces`, requires more steps. For more information, see [Metric Alerts for Logs - Resource template](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
