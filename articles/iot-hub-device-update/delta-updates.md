@@ -166,7 +166,7 @@ The basic process of importing an update to the Device Update service is unchang
 
 [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md)
 
-The first step to import an update into the Device Update service is always to create an import manifest. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). Delta updates uses a new feature called [Related Files](related-files.md), which requires an import manifest that is version 5 or later.
+The first step to import an update into the Device Update service is always to create an import manifest. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). The delta update feature uses a new capability called [Related Files](related-files.md), which requires an import manifest that is version 5 or later.
 
 To create an import manifest for your delta update using the Related Files feature, you'll need to add [relatedFiles](import-schema.md#relatedfiles-object) and [downloadHandler](import-schema.md#downloadhandler-object) elements to your import manifest.
 
@@ -226,7 +226,7 @@ If the update was unsuccessful:
   - Errors from the Device Update Agent that are specific to the Download Handler functionality used for delta updates begin with 0x9:
 
     | Component | Decimal | Hex | Note |
-    |--|--|--|--|--|
+    |--|--|--|--|
     | EXTENSION_MANAGER | 0 | 0x00 | Indicates errors from extension manager download handler logic.  Example: 0x900XXXXX |
     | PLUGIN | 1 | 0x01 | Indicates errors with usage of download handler plugin shared libraries.  Example: 0x901XXXXX |
     | RESERVED | 2 - 7 | 0x02 - 0x07 | Reserved for Download handler.   Example: 0x902XXXXX |
