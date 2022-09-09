@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop with the Windows Desktop client - Azure
 description: How to connect to Azure Virtual Desktop using the Windows Desktop client.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/27/2022
+ms.date: 08/08/2022
 ms.author: helohr
 manager: femila
 ms.custom: template-how-to
@@ -20,6 +20,8 @@ You can access Azure Virtual Desktop resources on devices with Windows 11, Windo
 > This method only supports Azure Resource Manager objects. To support objects without Azure Resource Manager, see [Connect with Windows Desktop (classic) client](../virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 > 
 > This method also doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
+>
+> Extended support for using Windows 7 to connect to Azure Virtual Desktop ends on January 10, 2023.
 
 ## Install the Windows Desktop client
 

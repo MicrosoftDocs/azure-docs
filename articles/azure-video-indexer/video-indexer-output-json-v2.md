@@ -20,7 +20,7 @@ When indexing with an API and the response status is OK, you get a detailed JSON
 
 [!INCLUDE [insights](./includes/insights.md)]
 
-This article examines the Azure Video Indexer output (JSON content). For information about what features and insights are available to you, see [Azure Video Indexer insights](video-indexer-overview.md#video-insights).
+This article examines the Azure Video Indexer output (JSON content). For information about what features and insights are available to you, see [Azure Video Indexer insights](video-indexer-overview.md#video-models).
 
 > [!NOTE]
 > All the access tokens in Azure Video Indexer expire in one hour.

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 06/24/2022
+ms.date: 08/12/2022
 ---
 
 # Azure Data Factory managed virtual network
@@ -74,6 +74,8 @@ A private endpoint uses a private IP address in the managed virtual network to e
 
 Only a managed private endpoint in an approved state can send traffic to a specific private link resource.
 
+> [!NOTE]
+> Custom DNS is not supported in managed virtual network.
 
 ## Interactive authoring
 
@@ -113,7 +115,7 @@ Unlike copy activity, pipeline and external activity have a default time to live
 ### Comparison of different TTL
 The following table lists the differences between different types of TTL：
 
-| | Interactive authoring | Copy compute scale | Pipeline & External compute scale |
+| Feature | Interactive authoring | Copy compute scale | Pipeline & External compute scale |
 | ----------------- | ---------- | -------- | --------------- |
 | When to take effect |	Immediately after enablement | First activity execution | First activity execution |
 | Can be disabled | Y | Y | N |

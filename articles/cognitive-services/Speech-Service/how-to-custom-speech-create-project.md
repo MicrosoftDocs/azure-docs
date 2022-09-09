@@ -15,7 +15,7 @@ zone_pivot_groups: speech-studio-cli-rest
 
 # Create a Custom Speech project
 
-Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md). For example, you might create a project for English in the United States.
+Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt-tts). For example, you might create a project for English in the United States.
 
 ## Create a project
 
@@ -25,6 +25,10 @@ To create a Custom Speech project, follow these steps:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
 1. Select the subscription and Speech resource to work with. 
+
+    > [!IMPORTANT]
+    > If you will train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. See footnotes in the [regions](regions.md#speech-service) table for more information.
+
 1. Select **Custom speech** > **Create a new project**. 
 1. Follow the instructions provided by the wizard to create your project. 
 

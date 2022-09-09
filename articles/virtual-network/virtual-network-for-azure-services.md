@@ -45,7 +45,7 @@ Deploying services within a virtual network provides the following capabilities:
 | Web | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Web Apps](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Environment](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Yes <br/> Yes <br/> Yes <br/> Yes
 | Hosted | [Azure Dedicated HSM](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Yes <br/> Yes <br/>
 | Azure Spring Apps | [Deploy in Azure virtual network (VNet injection)](../spring-apps/how-to-deploy-in-azure-virtual-network.md)<br/>| Yes <br/>
-| | |
+| Virtual desktop infrastructure| [Azure Lab Services](../lab-services/how-to-connect-vnet-injection.md)<br/>| Yes <br/>
 
 <sup>1</sup> 'Dedicated' implies that only service specific resources can be deployed in this subnet and cannot be combined with customer VM/VMSSs <br/> 
 <sup>2</sup> It is recommended as a best practice to have these services in a dedicated subnet, but not a mandatory requirement imposed by the service.

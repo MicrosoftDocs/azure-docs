@@ -50,6 +50,7 @@ This ARM template will create a configuration profile assignment for your specif
 The `configurationProfile` value can be one of the following values:
 * "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction"
 * "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesDevTest"
+* "/subscriptions/[sub ID]/resourceGroups/resourceGroupName/providers/Microsoft.Automanage/configurationProfiles/customProfileName (for custom profiles)
 
 Follow these steps to deploy the ARM template:
 1. Save this ARM template as `azuredeploy.json`.

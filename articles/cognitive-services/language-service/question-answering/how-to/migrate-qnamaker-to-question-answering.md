@@ -3,8 +3,11 @@ title: Migrate from QnA Maker to Question Answering
 description: Details on features, requirements, and examples for migrating from QnA Maker to Question Answering
 ms.service: cognitive-services
 ms.subservice: language-service
+ms.author: jboback
+author: jboback
+ms.manager: nitinme
 ms.topic: how-to
-ms.date: 6/9/2022
+ms.date: 08/08/2022
 ms.custom: language-service-question-answering
 ---
 # Migrate from QnA Maker to Question Answering 
@@ -56,7 +59,7 @@ When you are looking at migrating to Question Answering, please consider the fol
 
 - Knowledge base/project content or size has no implications on pricing
 
-- “Text Records” in Question Answering features refer to the query submitted by the user to the runtime, and it is a concept common to all features within Language Service
+- “Text Records” in Question Answering features refer to the query submitted by the user to the runtime, and it is a concept common to all features within Language service
 
 Here you can find the pricing details for [Question Answering](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) and [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 

@@ -61,7 +61,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
     ```kusto
     securityresources
      | where type == "microsoft.security/assessments"
-     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on your subscription"
+     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on subscriptions"
      | where properties.status.code == "Unhealthy"
     ```
 
@@ -71,7 +71,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
     > The accounts are shown as object IDs rather than account names to protect the privacy of the account holders.
 
 > [!TIP]
-> Alternatively, you can use the Defender for Cloud REST API method [Assessments - Get](/rest/api/securitycenter/assessments/get).
+> Alternatively, you can use the Defender for Cloud REST API method [Assessments - Get](/rest/api/defenderforcloud/assessments/get).
 
 
 ## FAQ - MFA in Defender for Cloud

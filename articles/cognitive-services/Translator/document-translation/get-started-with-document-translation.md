@@ -118,7 +118,7 @@ A batch Document Translation request is submitted to your Translator service end
 
 ### HTTP headers
 
-The following headers are included with each Document Translator API request:
+The following headers are included with each Document Translation API request:
 
 |HTTP header|Description|
 |---|--|

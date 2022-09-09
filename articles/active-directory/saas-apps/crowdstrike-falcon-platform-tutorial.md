@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/28/2022
+ms.date: 07/29/2022
 ms.author: jeedes
 
 ---
@@ -105,10 +105,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | Sign-on URL |
     | -------------- |
-    | `https://falcon.crowdstrike.com/login` |
-    | `https://falcon.us-2.crowdstrike.com/login` |
-    | `https://falcon.eu-1.crowdstrike.com/login` |
-    | `https://falcon.laggar.gcw.crowdstrike.com/login` |
+    | `https://falcon.crowdstrike.com/login/sso` |
+    | `https://falcon.us-2.crowdstrike.com/login/sso` |
+    | `https://falcon.eu-1.crowdstrike.com/login/sso` |
+    | `https://falcon.laggar.gcw.crowdstrike.com/login/sso` |
     |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
