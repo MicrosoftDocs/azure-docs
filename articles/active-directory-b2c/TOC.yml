@@ -125,7 +125,7 @@
         href: add-native-application.md
       - name: Register a web API application
         href: add-web-api-application.md
-      - name: Register daemon apps
+      - name: Register daemon apps (client credentials)
         href: client-credentials-grant-flow.md
       - name: Register a Microsoft Graph application
         href: microsoft-graph-get-started.md
