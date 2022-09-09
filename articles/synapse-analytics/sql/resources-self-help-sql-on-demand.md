@@ -771,16 +771,6 @@ Here's the solution:
         WITH ( FORMAT_TYPE = PARQUET)
         ```
 
-### Operation isn't allowed for a replicated database
-
-If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation is not allowed for a replicated database." This error might be returned when you try to modify a Lake database that's [shared with Spark pool](../metadata/database.md). The Lake databases that are replicated from the Apache Spark pool are managed by Synapse and you cannot create objects like in SQL Databases by using T-SQL.  
-Only the following operations are allowed in the Lake databases:
-- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the schemas other than `dbo`. If you are creating a SQL object in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
-- Creating and dropping the database users from Azure Active Directory.
-- Adding or removing database users from `db_datareader` schema.
-
-Other operations are not allowed in Lake databases.
-
 ### Can't create Azure AD sign-in or user
 
 If you get an error while you're trying to create a new Azure AD sign-in or user in a database, check the sign-in you used to connect to your database. The sign-in that's trying to create a new Azure AD user must have permission to access the Azure AD domain and check if the user exists. Be aware that:
@@ -895,14 +885,25 @@ Our engineering team is currently working on a full support for Spark 3.3.
 
 ## Lake database
 
-The Lake database tables that are created using Spark or Synapse designer are automatically available in serverless SQL pool for querying.
+The Lake database tables that are created using Spark or Synapse designer are automatically available in serverless SQL pool for querying. You can use serverless SQL pool to query the Parquet, CSV, and Delta Lake tables that are created using Spark pool, and add additional schemas, views, procedures, table-value functions, and Azure AD users in `db_datareader` role to your Lake database. Possible issues are listed in this section.
 
 ### A table created in Spark is not available in serverless pool
 
 Tables that are created might not be immediately available in serverless SQL pool.
 - The tables will be available in serverless pools with some delay. You might need to wait 5-10 minutes after creation of a table in Spark to see it in serverless SQL pool.
 - Only the tables that reference Parquet, CSV, and Delta formats are available in serverless SQL pool. Other table types are not available.
+- A table that contains some [unsupported column types](../metadata/table.md#share-spark-tables) will not be available in serverless SQL pool.
 - Accessing Delta Lake tables in Lake databases is in **public preview**. Check other issues listed in this section or in the Delta Lake section.
+
+### Operation isn't allowed for a replicated database
+
+If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation is not allowed for a replicated database." This error might be returned when you try to modify a Lake database that's [shared with Spark pool](../metadata/database.md). The Lake databases that are replicated from the Apache Spark pool are managed by Synapse and you cannot create objects like in SQL Databases by using T-SQL.  
+Only the following operations are allowed in the Lake databases:
+- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the schemas other than `dbo`. If you are creating a SQL object in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
+- Creating and dropping the database users from Azure Active Directory.
+- Adding or removing database users from `db_datareader` schema.
+
+Other operations are not allowed in Lake databases.
 
 ### Delta tables in Lake databases are not available in serverless SQL pool
 
