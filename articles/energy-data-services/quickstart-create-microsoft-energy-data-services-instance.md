@@ -45,9 +45,9 @@ Application ID | You'll need an application ID (often referred to as "App ID" or
 1. Add a client secret with the steps laid out in [this documentation](/articles/active-directory/develop/quickstart-register-app.md)
 
 > [!NOTE]
-> It might be handy to note your application ID and secret in text editor. You will be using these values throughout this quick-start guide.
+> Note down your Application (client) ID and client secret for future use
 
-## Create a Microsoft energy data services instance
+## Create a Microsoft Energy Data Services instance
 
 > [!IMPORTANT]
 > Please use the link below as it contains a *hidden flag* which is needed to be able to find the 'Microsoft Energy Data Services' in the Azure Marketplace.
