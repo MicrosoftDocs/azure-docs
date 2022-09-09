@@ -45,19 +45,20 @@ After you connect a cluster to Azure Arc, you can change the automatic upgrade s
 > To ensure you are using this version, run the following commands:
 >
 > ```azurecli
-> # remove existing module
+> # remove existing extension
 > az extension remove --name connectedk8s 
 > 
-> # add specific module version
+> # add specific extension version
 > az extension add --name connectedk8s --version 1.2.11 
 > ```
 >
 > Once you've adjusted the automatic upgrading, use the following command to revert back to the latest version of the extension:
 >
 > ```azurecli
-> # remove existing module
+> # remove existing extension
 > az extension remove --name connectedk8s 
 > 
+> #add latest extension version
 > az extension add --name connectedk8s 
 > ```
 
