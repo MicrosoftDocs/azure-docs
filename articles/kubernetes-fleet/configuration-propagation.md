@@ -10,11 +10,11 @@ ms.service: kubernetes-fleet
 
 # Propagate Kubernetes configurations from fleet to the member clusters (preview)
 
-Platform admins or application developers often have a need to deploy the same workload across either all member clusters of a fleet or across just a specific subset of member clusters of the fleet. Fleet provides ClusterResourcePlacement as a mechanism to control how cluster scoped Kubernetes resources are propagated to member clusters.
+Platform admins and application developers need a way to deploy the same workload across all member clusters or just a subset of member clusters of the fleet. Fleet provides ClusterResourcePlacement as a mechanism to control how cluster scoped Kubernetes resources are propagated to member clusters.
 
 ## Prerequisites
 
-* You have a fleet resource with one or more member clusters. If not, checkout the [quickstart](quickstart-create-fleet-and-members.md) on creating a fleet resource and joining existing AKS clusters as member clusters to the fleet resource.
+* You have a fleet resource with one or more member clusters. If not,  out the [quickstart](quickstart-create-fleet-and-members.md) on creating a fleet resource and joining existing AKS clusters as member clusters to the fleet resource.
 
 
 ## Resource selection
@@ -24,7 +24,7 @@ Platform admins or application developers often have a need to deploy the same w
 1. Select resource by specifying just the <group, version, kind>. This propagates all resources with matching <group, version, kind>.
 1. Select resource by specifying the <group, version, kind> and name. This propagates only one resource that matches the <group, version, kind> and name)
 1. Select resource by specifying the <group, version, kind> and specify and set of labels using ClusterResourceSelector -> LabelSelector. This propagates all resources that match the <group, version, kind> and label specified. If multiple labels are specified, then they are evaluated in `OR` format.
-Select resource by specifying the <group, version, kind>, name and list of label selectors. This propagate only one resource with matching <group, version, kind>, name & labels.
+Select resource by specifying the <group, version, kind>, name and list of label selectors. This propagates only one resource with matching <group, version, kind>, name & labels.
 
 An example of selecting resource by label is given below. :
 
@@ -34,7 +34,7 @@ An example of selecting resource by label is given below. :
   kubectl apply -f crp.yaml
   ```
 
-  where contents of `crp.yaml`:
+  Contents of `crp.yaml`:
 
   ```yaml
   apiVersion: fleet.azure.com/v1alpha1
@@ -57,7 +57,7 @@ An example of selecting resource by label is given below. :
     kubectl apply -f clusterrole.yaml
   ```
 
-  where contents of `clusterrole.yaml`:
+  Contents of `clusterrole.yaml`:
 
   ```yaml
   apiVersion: rbac.authorization.k8s.io/v1
