@@ -48,7 +48,7 @@ What happens when a client app calls an API with a request that is secured using
 * The *resource server* validates the access token. Validation is a complex process that includes a check that the *issuer* and *audience* claims contain expected values. 
 * Based on token validation criteria, access to resources of the [backend] API is then granted.
 
-Depending on the type of client app and scenarios, different *authentication flows* are needed to request and manage tokens. For example, the *authorization code flow and grant type are commonly used in apps that call web APIs. Learn more about [OAuth flows and application scenarios in Azure AD](../active-directory/develop/authentication-flows-app-scenarios.md).
+Depending on the type of client app and scenarios, different *authentication flows* are needed to request and manage tokens. For example, the authorization code flow and grant type are commonly used in apps that call web APIs. Learn more about [OAuth flows and application scenarios in Azure AD](../active-directory/develop/authentication-flows-app-scenarios.md).
 
 
 ### OAuth 2.0 authorization scenarios
