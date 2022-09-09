@@ -919,6 +919,8 @@ If you are exporting your [Dataverse table to Azure Data Lake storage](/power-ap
 
 Make sure that your workspace Managed Identity has read access on the ADLS storage that contains Delta folder. The serverless SQL pool reads the Delta Lake table schema from the Delta log that are placed in ADLS and use the workspace Managed Identity to access the Delta transaction logs.
 
+Try to setup a data source in some SQL Database that references your Azure Data Lake storage using Managed Identity credential, and try to [create external table on top of data source with Managed Identity](/sql/develop-storage-files-storage-access-control.md?tabs=managed-identity#access-a-data-source-using-credentials) to confirm that a table with the Managed Identity can access your storage.
+
 ### Delta tables in Lake databases do not have identical schema in Spark and serverless pools
 
 Serverless SQL pools enable you to access Parquet, CSV, and Delta tables that are created in Lake database using Spark or Synapse designer. Accessing the Delta tables is still in public preview, and currently serverless will synchronize a Delta table with Spark at the time of creation but will not update the schema if the columns are added later using the `ALTER TABLE` statement in Spark.
