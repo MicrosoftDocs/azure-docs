@@ -22,6 +22,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 - The default login flow for Windows computers now loads the local web browser to authenticate with Azure Active Directory instead of providing a device code. You can use the `--use-device-code` flag to return to the old behavior or [provide service principal credentials](onboard-service-principal.md) for a non-interactive authentication experience.
 - If the resource group provided to `azcmagent connect` does not exist, the agent will try to create it and continue connecting the server to Azure.
+- Added support for Ubuntu 22.04
 
 ### Fixed
 
