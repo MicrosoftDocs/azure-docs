@@ -47,7 +47,3 @@ zone_pivot_groups: programming-languages-text-analytics
 [!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)]
 
 ::: zone-end
-
-## Next steps
-
-* [Entity Linking overview](overview.md)
