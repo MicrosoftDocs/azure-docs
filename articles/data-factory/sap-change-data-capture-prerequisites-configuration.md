@@ -108,4 +108,4 @@ The following SAP support notes resolve known issues on SAP systems:
 
 ## Next steps
 
-[Set up a self-hosted integration runtime for the solution](sap-change-data-capture-shir-preparation.md)
+[Set up a self-hosted integration runtime for your SAP CDC solution](sap-change-data-capture-shir-preparation.md)

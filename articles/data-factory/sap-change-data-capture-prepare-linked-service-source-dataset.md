@@ -14,7 +14,7 @@ ms.author: ulrichchrist
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn how to set up the linked service and source dataset for your SAP CDC solution (preview) in Azure Data Factory.
+Learn how to set up the linked service and source dataset for your SAP change data capture (CDC) solution (preview) in Azure Data Factory.
 
 ## Set up a linked service
 
@@ -176,4 +176,4 @@ The following example shows the delta extraction in CSV format in Data Lake Stor
 
 ## Next steps
 
-[Debug Data Factory copy activity](sap-change-data-capture-debug-shir-logs.md)
+[Debug copy activity by sending self-hosted integration runtime logs](sap-change-data-capture-debug-shir-logs.md)

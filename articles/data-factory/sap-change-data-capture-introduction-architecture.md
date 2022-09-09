@@ -18,9 +18,9 @@ This article introduces and describes the architecture of the SAP change data ca
 
 Azure Data Factory is a data integration (ETL and ELT) platform as a service (PaaS). For SAP data integration, Data Factory currently offers six connectors:
 
-:::image type="content" source="media/sap-change-data-capture-solution/sap-supported-cdc-connectors.png" alt-text="Screenshot of the six generally available connectors for SAP systems in Data Factory.":::
+:::image type="content" source="media/sap-change-data-capture-solution/sap-supported-cdc-connectors.png" alt-text="Screenshot of the six general availability connectors for SAP systems in Data Factory.":::
 
-The SAP connectors in Data Factory extract SAP source data only in batches. Each batch processes existing and new data the same. In batch mode, changes between existing and new datasets aren't identified. This type of extraction mode isn’t optimal when you have large datasets like tables that have millions or billions of records that change often.
+The SAP connectors in Data Factory extract SAP source data only in batches. Each batch processes existing and new data the same. In data extraction in batch mode, changes between existing and new datasets aren't identified. This type of extraction mode isn’t optimal when you have large datasets like tables that have millions or billions of records that change often.
 
 You can keep your copy of SAP data fresh and up-to-date by frequently extracting the full dataset, but this approach is expensive and inefficient. You also can use a manual, limited workaround to extract mostly new or updated records. In a process called *watermarking*, extraction requires using a timestamp column, monotonously increasing values, and continuously tracking the highest value since the last extraction. Some tables don't have a column that you can use for watermarking. This process also doesn't identify a deleted record as a change in the dataset.
 
@@ -39,7 +39,7 @@ This article provides a high-level architecture of the SAP CDC solution in Azure
 
 The SAP CDC solution consists of a connector that you access through the SAP ODP (preview) linked service, SAP source dataset, and the SAP ODP data replication template or SAP ODP data partitioning template. Choose the template to use when you set up a new pipeline in Azure Data Factory Studio. To access preview templates, you must [enable the preview experience in Azure Data Factory Studio](how-to-manage-studio-preview-exp.md#how-to-enabledisable-preview-experience).
 
-The SAP ODP connector connects to all SAP systems that support ODP, including SAP R/3, SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. The connector works either directly at the application layer or indirectly via an SAP Landscape Transformation (SLT) replication server as a proxy. Without relying on watermarking, it can extract SAP data either fully or incrementally. The data the connector extracts includes not only physical tables, but also logical objects that are created by using the tables. An example of a table-based object is an SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) view.
+The SAP ODP connector connects to all SAP systems that support ODP, including SAP R/3, SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. The connector works either directly at the application layer or indirectly via an SAP Landscape Transformation Replication Server (SLT) as a proxy. Without relying on watermarking, it can extract SAP data either fully or incrementally. The data the connector extracts includes not only physical tables, but also logical objects that are created by using the tables. An example of a table-based object is an SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) view.
 
 Use the SAP CDC preview solution with Data Factory features like copy and data flow activities, pipeline templates, and tumbling window triggers for a low-latency SAP CDC replication solution in a self-managed pipeline.
 
