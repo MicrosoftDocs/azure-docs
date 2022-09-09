@@ -336,7 +336,7 @@ This issue can be mitigated by simply rebooting the client OS, but you might run
 
 ### Solution
 
-Several fixes for the Linux SMB kernel client were recently submitted to the mainline Linux kernel; however, these fixes are yet to be backported by popular Linux distros into their stable kernels. For a permanent fix, upgrade your client OS to a Linux distro version with account migration support. Refer to the corresponding [distro version column on this OneNote page](onenote:https://microsoft.sharepoint.com/teams/AzureStorage/Shared Documents/XFiles/XFile Development/Feature Areas/Linux SMB3 to Azure.one#Account%20migration%20support%20on%20Linux&section-id={50487058-4B1B-4D89-A06A-D89A504F0D15}&page-id={73F66219-8D91-4929-B6FA-2FC55A82B3CD}&end).
+Several fixes for the Linux SMB kernel client were recently submitted to the mainline Linux kernel; however, these fixes are yet to be backported by popular Linux distros into their stable kernels. For a permanent fix, upgrade your client OS to a Linux distro version with account migration support. Refer to the corresponding [distro version column on this OneNote page](onenote:https://microsoft.sharepoint.com/teams/AzureStorage/Shared%20Documents/XFiles/XFile%20Development/Feature%20Areas/Linux%20SMB3%20to%20Azure.one#Account%20migration%20support%20on%20Linux&section-id={50487058-4B1B-4D89-A06A-D89A504F0D15}&page-id={73F66219-8D91-4929-B6FA-2FC55A82B3CD}&end).
 
 ## Need help? Contact support.
 
