@@ -70,5 +70,6 @@ For a guide on supplying this information to a custom task extension via Microso
 
 ## Next steps
 
+- [customTaskExtension resource type](/graph/api/resources/identitygovernance-customtaskextension?view=graph-rest-beta)
 - [Trigger Logic Apps based on custom task extensions (Preview)](trigger-custom-task.md)
 - [Configure a Logic App for Lifecycle Workflow use (Preview)](configure-logic-app-lifecycle-workflows.md)
