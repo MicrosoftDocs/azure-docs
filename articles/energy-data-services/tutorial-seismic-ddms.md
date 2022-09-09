@@ -9,13 +9,14 @@ ms.date: 3/16/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
-# Tutorial: Sample steps to interact with Seismic DDMS
+# Tutorial: Sample steps to interact with Seismic ddms
 
 Seismic DDMS provides the capability to operate on seismic data in the Microsoft Energy Data Services instance.
 
 In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
+> * Register data partition to seismic
 > * Utilize seismic DDMS Api's to store and retrieve seismic data
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
@@ -24,26 +25,27 @@ In this tutorial, you will learn how to:
 ### Microsoft Energy Data Services instance details
 
 * Once the [Microsoft Energy Data Services instance](./quickstart-create-microsoft-energy-data-services-instance.md) is created, note down the following details:
+  
   | Parameter          | Value to use             | Example                               |
   | ------------------ | ------------------------ |-------------------------------------- |
-  | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
+  | CLIENT_ID          | Application (client) ID  | 3dbbb.....  |
   | CLIENT_SECRET      | Client secrets           |  _fl******************                |
   | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-2d7cd011db47  |
-  | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
-  | base_uri           | URI                      | bselmeds.energy.azure.com              |
-  | data-partition-id  | Data Partition(s)        | bselmeds-bseldp1                       |
+  | SCOPE              | Application (client) ID  | 3dbbb.....  |
+  | base_uri           | URI                      | instancename.energy.azure.com              |
+  | data-partition-id  | Data Partition(s)        | instancename-datapartitionid                       |
 
 ### Postman setup
 
 * Download and install [Postman](https://www.postman.com/) desktop app
 * Import the following files into Postman:
   * To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
-  * [Smoke Test Postman collection](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/raw/master/source/ddms-smoke-tests/Azure%20DDMS%20OSDU%20Smoke%20Tests.postman_collection.json)
+  * [Smoke test Postman collection](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/raw/master/source/ddms-smoke-tests/Azure%20DDMS%20OSDU%20Smoke%20Tests.postman_collection.json)
   * [Smoke Test Environment](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/raw/master/source/ddms-smoke-tests/%5BShip%5D%20osdu-glab.msft-osdu-test.org.postman_environment.json)
   
 * Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services instance details](#microsoft-energy-data-services-instance-details)
 
-## Register Data Partition to Seismic
+## Register data partition to seismic
 
  * Script to register
    ```sh
@@ -56,7 +58,7 @@ In this tutorial, you will learn how to:
     "default_acl": "users.datalake.admins@{{datapartition}}.{{domain}}.com"
     }'
    ```
-## Seismic DDMS API
+## Utilize seismic ddms API's to store and retrieve seismic data
 
 In order to use the Seismic DMS, follow the steps in the Seismic DDMS SDUTIL tutorial.
 
