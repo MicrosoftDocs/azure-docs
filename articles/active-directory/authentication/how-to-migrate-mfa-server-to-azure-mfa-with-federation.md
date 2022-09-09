@@ -27,7 +27,7 @@ To create new conditional access policies, you'll need to assign those policies 
 
 You'll also need an Azure AD security group for iteratively migrating users to Azure AD MFA. These groups are used in your claims rules.
 
-Don't reuse groups that are used for security. If you are using a security group to secure a group of high-value apps via a Conditional Access policy, that should be the only use of that group.
+Don't reuse groups that are used for security. If you're using a security group to secure a group of high-value apps with a Conditional Access policy, only use the group for that purpose.
 
 ## Prepare AD FS
 
@@ -81,7 +81,7 @@ This command will move the logic from your current Access Control Policy into Ad
 
 #### Set up the group, and find the SID
 
-You'll need to have a specific group in which you place users for whom you want to invoke Azure AD MFA. You will need the security identifier (SID) for that group.
+You'll need to have a specific group in which you place users for whom you want to invoke Azure AD MFA. You'll need the security identifier (SID) for that group.
 
 To find the group SID, use the following command, with your group name
 
@@ -181,10 +181,10 @@ For federated domains, MFA may be enforced by Azure AD Conditional Access or by 
 
 For domains that have already set the **SupportsMfa** property, these rules determine how **federatedIdpMfaBehavior** and **SupportsMfa** work together:
 
-- Switching between **federatedIdpMfaBehavior** and **SupportsMfa** is not supported.
+- Switching between **federatedIdpMfaBehavior** and **SupportsMfa** isn't supported.
 - Once **federatedIdpMfaBehavior** property is set, Azure AD ignores the **SupportsMfa** setting.
 - If the **federatedIdpMfaBehavior** property is never set, Azure AD will continue to honor the **SupportsMfa** setting.
-- If neither **federatedIdpMfaBehavior** nor **SupportsMfa** is set, Azure AD will default to `acceptIfMfaDoneByFederatedIdp` behavior.
+- If **federatedIdpMfaBehavior** or **SupportsMfa** isn't set, Azure AD will default to `acceptIfMfaDoneByFederatedIdp` behavior.
 
 You can check the status of **federatedIdpMfaBehavior** by using [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true).
 
@@ -290,7 +290,7 @@ You can synchronize phone numbers, hardware tokens, and device registrations suc
 
 * If you created on-premises security groups for claims rules, add the appropriate users to those groups.
 
-We don't recommend that you reuse groups that are used for security. Therefore, if you are using a security group to secure a group of high-value apps via a Conditional Access policy, that should be the only use of that group.
+We don't recommend that you reuse groups that are used for security. If you're using a security group to secure a group of high-value apps with a Conditional Access policy, only use the group for that purpose.
 
 ## Monitoring
 
