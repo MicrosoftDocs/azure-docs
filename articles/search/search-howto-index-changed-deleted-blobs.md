@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/08/2022
+ms.date: 09/09/2022
 ---
 
 # Change and delete detection using indexers for Azure Storage in Azure Cognitive Search
@@ -60,11 +60,11 @@ For this deletion detection approach, Cognitive Search depends on the [native bl
 
    The following screenshot shows where you can find this feature in the portal. 
 
-   :::image type="content" source="media/search-indexing-changed-deleted-blobs/new-data-source.png" alt-text="portal data source" border="true":::
+   :::image type="content" source="media/search-indexing-changed-deleted-blobs/new-data-source.png" alt-text="Screenshot of portal data source." border="true":::
 
 1. On the **New Data Source** form, fill out the required fields, select the **Track deletions** checkbox and choose **Native blob soft delete**. Then hit **Save** to enable the feature on Data Source creation.
 
-   :::image type="content" source="media/search-indexing-changed-deleted-blobs/native-soft-delete.png" alt-text="portal data source native soft delete" border="true":::
+   :::image type="content" source="media/search-indexing-changed-deleted-blobs/native-soft-delete.png" alt-text="Screenshot of portal data source native soft delete." border="true":::
 
 
 ### [**REST**](#tab/rest-api)
