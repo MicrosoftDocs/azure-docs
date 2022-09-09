@@ -31,7 +31,7 @@ Verify that the relations are spelled correctly and are accessible within the sc
 spark.sql("SELECT /*+ BROADCAST(unknownTable) */ * FROM t1 INNER JOIN t2 ON t1.str = t2.str")
 ```
 
-### The selected query contains a hint that prevents another hint from being applied
+### A hint in the query prevents another hint from being applied
 
 ```scala
 spark.sql("SELECT /*+ BROADCAST(t1), MERGE(t1, t2) */ * FROM t1 INNER JOIN t2 ON t1.str = t2.str")
