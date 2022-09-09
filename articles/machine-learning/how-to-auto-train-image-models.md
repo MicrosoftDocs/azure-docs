@@ -294,7 +294,7 @@ limits:
   timeout_minutes: 60
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
