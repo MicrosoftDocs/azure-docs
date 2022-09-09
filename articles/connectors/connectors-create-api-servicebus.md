@@ -85,9 +85,9 @@ Large message support is available only when you use the built-in Service Bus op
 
 <a name="permissions-connection-string"></a>
 
-## Check permissions
+## Check permissions and get connection string
 
-Confirm that your logic app resource has permissions to access your Service Bus namespace.
+Confirm that your logic app resource has permissions to access your Service Bus namespace and get the service bus namespace connection string to use later.
 
 1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
 
@@ -105,7 +105,7 @@ Confirm that your logic app resource has permissions to access your Service Bus 
 
       > [!NOTE]
       >
-      > To check that the string is for the namespace, not a specific messaging entity. search the 
+      > To check that the string is for the namespace, not a specific messaging entity, search the 
       > connection string for the `EntityPath` parameter. If you find this parameter, the connection 
       > string is for a specific entity, and isn't the correct string to use with your workflow.
 
