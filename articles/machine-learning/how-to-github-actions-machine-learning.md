@@ -16,7 +16,7 @@ ms.custom: github-actions-azure
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) to train a model on Azure Machine Learning. 
 
-This article will teach you how to create an GitHub Actions workflow that builds and deploys a machine learning model to [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). You'll train a [scikit-learn](https://scikit-learn.org/) linear regression model on the NYC Taxi dataset. 
+This article will teach you how to create a GitHub Actions workflow that builds and deploys a machine learning model to [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). You'll train a [scikit-learn](https://scikit-learn.org/) linear regression model on the NYC Taxi dataset. 
 
 This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ml/installv2), which is in public preview, and [Azure CLI ML extension v2](/cli/azure/ml). 
 
@@ -31,7 +31,7 @@ GitHub Actions uses a workflow YAML (.yml) file in the `/.github/workflows/` pat
     - Create a cloud-based compute cluster to use for training your model. The cluster should have the name `cpu-cluster`
 - Have a GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 
-## 1. Get the code
+## Step 1. Get the code
 
 Fork the following repo at GitHub:
 
@@ -39,7 +39,7 @@ Fork the following repo at GitHub:
 https://github.com/azure/azureml-examples
 ```
 
-## 2. Authenticate with Azure
+## Step 2. Authenticate with Azure
 
 You'll need to first define how to authenticate with Azure. You can use a service principal or OpenID Connect. 
 
@@ -72,7 +72,7 @@ In the example above, replace the placeholders with your subscription ID, resour
 
 OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
 
-1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
+1.  If you don't have an existing application, register a [new Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
 
     ```azurecli-interactive
     az ad app create --display-name myApp
@@ -80,7 +80,7 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
 
     This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
 
-    You will use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
+    You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
 
 1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
 
@@ -121,7 +121,7 @@ To learn how to create a Create an active directory application, service princip
 
 1. In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Actions**. Select **New repository secret**.
 
-2. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
+2. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZ_CREDS`.
 
  # [OpenID Connect](#tab/openid)
 
@@ -144,7 +144,7 @@ ou need to provide your application's **Client ID**, **Tenant ID**, and **Subscr
 
 <!--TODO: Update compute-cluster in pipeline.yml OR give computer cluster name cpu-cluster -->
 
-## 3. Update `setup.sh` to connect to your Azure Machine Learning workspace
+## Step 3. Update `setup.sh` to connect to your Azure Machine Learning workspace
 
 You'll need to update the CLI setup file variables to match your workspace. 
 
@@ -157,148 +157,26 @@ You'll need to update the CLI setup file variables to match your workspace.
     |LOCATION     |    Location of your workspace (example: `eastus2`)    |
     |WORKSPACE     |     Name of Azure ML workspace     | 
 
-## 4. Update `pipeline.yml` with compute cluster name
+## Step 4. Update `pipeline.yml` with your compute cluster name
 
-You'll use a `pipeline.yml` file 
+You'll use a `pipeline.yml` file to deploy your Azure ML pipeline. This is a machine learning pipeline and not a DevOps pipeline. You only need to make this update if you're using a name other than `cpu-cluster` for your computer cluster name. 
 
-## more
-Use the **Azure Machine Learning Workspace action** to connect to your Azure Machine Learning workspace. 
+1. In your cloned repository, go to `azureml-examples/cli/jobs/pipelines/nyc-taxi/pipeline.yml`. 
+1. Each time you see `compute: azureml:cpu-cluster`, update the value of `cpu-cluster` with your compute cluster name. There are five updates.
 
-```yaml
-    - name: Connect/Create Azure Machine Learning Workspace
-      id: aml_workspace
-      uses: Azure/aml-workspace@v1
-      with:
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-```
+## Step 5: Run your GitHub Actions workflow
 
-By default, the action expects a `workspace.json` file. If your JSON file has a different name, you can specify it with the `parameters_file` input parameter. If there is not a file, a new one will be created with the repository name.
+1. In your cloned repository, open `.github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml`.
+1. Select **View runs**. 
+1. Enable workflows by selecting **I understand my workflows, go ahead and enable them**.
+1. Select the **cli-jobs-pipelines-nyc-taxi-pipeline workflow** and choose to **Enable workflow**. 
+1. Select **Run workflow** and choose the option to **Run workflow** now. 
 
 
-```yaml
-    - name: Connect/Create Azure Machine Learning Workspace
-      id: aml_workspace
-      uses: Azure/aml-workspace@v1
-      with:
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-          parameters_file: "alternate_workspace.json"
-```
-The action writes the workspace Azure Resource Manager (ARM) properties to a config file, which will be picked by all future Azure Machine Learning GitHub Actions. The file is saved to `GITHUB_WORKSPACE/aml_arm_config.json`. 
 
-## Connect to a Compute Target in Azure Machine Learning
+<!--TODO: Add workflow breakdown -->
 
-Use the [Azure Machine Learning Compute action](https://github.com/Azure/aml-compute) to connect to a compute target in Azure Machine Learning.  If the compute target exists, the action will connect to it. Otherwise the action will create a new compute target. The [AML Compute action](https://github.com/Azure/aml-compute) only supports the Azure ML compute cluster and Azure Kubernetes Service (AKS). 
-
-```yaml
-    - name: Connect/Create Azure Machine Learning Compute Target
-      id: aml_compute_training
-      uses: Azure/aml-compute@v1
-      with:
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-```
-## Submit training run
-
-Use the [Azure Machine Learning Training action](https://github.com/Azure/aml-run) to submit a ScriptRun, an Estimator or a Pipeline to Azure Machine Learning. 
-
-```yaml
-    - name: Submit training run
-      id: aml_run
-      uses: Azure/aml-run@v1
-      with:
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-```
-
-## Register model in registry
-
-Use the [Azure Machine Learning Register Model action](https://github.com/Azure/aml-registermodel) to register a model to Azure Machine Learning.
-
-```yaml
-    - name: Register model
-      id: aml_registermodel
-      uses: Azure/aml-registermodel@v1
-      with:
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-          run_id:  ${{ steps.aml_run.outputs.run_id }}
-          experiment_name: ${{ steps.aml_run.outputs.experiment_name }}
-```
-
-## Deploy model to Azure Machine Learning to ACI
-
-Use the [Azure Machine Learning Deploy action](https://github.com/Azure/aml-deploy) to deploys a model and create an endpoint for the model. You can also use the Azure Machine Learning Deploy to deploy to Azure Kubernetes Service. See [this sample workflow](https://github.com/Azure-Samples/mlops-enterprise-template) for a model that deploys to Azure Kubernetes Service.
-
-```yaml
-    - name: Deploy model
-      id: aml_deploy
-      uses: Azure/aml-deploy@v1
-      with:
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-          model_name:  ${{ steps.aml_registermodel.outputs.model_name }}
-          model_version: ${{ steps.aml_registermodel.outputs.model_version }}
-
-```
-
-## Complete example
-
-Train your model and deploy to Azure Machine Learning. 
-
-```yaml
-# Actions train a model on Azure Machine Learning
-name: Azure Machine Learning training and deployment
-on:
-  push:
-    branches:
-      - master
-    # paths:
-    #   - 'code/*'
-jobs:
-  train:
-    runs-on: ubuntu-latest
-    steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: Check Out Repository
-      id: checkout_repository
-      uses: actions/checkout@v2
-        
-    # Connect or Create the Azure Machine Learning Workspace
-    - name: Connect/Create Azure Machine Learning Workspace
-      id: aml_workspace
-      uses: Azure/aml-workspace@v1
-      with:
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-    
-    # Connect or Create a Compute Target in Azure Machine Learning
-    - name: Connect/Create Azure Machine Learning Compute Target
-      id: aml_compute_training
-      uses: Azure/aml-compute@v1
-      with:
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-    
-    # Submit a training run to the Azure Machine Learning
-    - name: Submit training run
-      id: aml_run
-      uses: Azure/aml-run@v1
-      with:
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-
-    # Register model in Azure Machine Learning model registry
-    - name: Register model
-      id: aml_registermodel
-      uses: Azure/aml-registermodel@v1
-      with:
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-          run_id:  ${{ steps.aml_run.outputs.run_id }}
-          experiment_name: ${{ steps.aml_run.outputs.experiment_name }}
-
-    # Deploy model in Azure Machine Learning to ACI
-    - name: Deploy model
-      id: aml_deploy
-      uses: Azure/aml-deploy@v1
-      with:
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-          model_name:  ${{ steps.aml_registermodel.outputs.model_name }}
-          model_version: ${{ steps.aml_registermodel.outputs.model_version }}
-
-```
+<!--TODO: Add OPENID Scenario -->
 
 ## Clean up resources
 
