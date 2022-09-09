@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/22/2022
+ms.date: 09/09/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -64,7 +64,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
 
     ```console
-    npm i @azure/ai-form-recognizer@4.0.0-beta.6 @azure/identity
+    npm i @azure/ai-form-recognizer @azure/identity
     ```
 
     * Your app's `package.json` file will be updated with the dependencies.
@@ -120,24 +120,17 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
   async function main() {
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocument("prebuilt-document", formUrl);
+    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-document", formUrl);
 
-    const {
-        keyValuePairs,
-        entities
-    } = await poller.pollUntilDone();
+    const {keyValuePairs} = await poller.pollUntilDone();
 
-    if (keyValuePairs.length <= 0) {
+    if (!keyValuePairs || keyValuePairs.length <= 0) {
         console.log("No key-value pairs were extracted from the document.");
     } else {
         console.log("Key-Value Pairs:");
-        for (const {
-                key,
-                value,
-                confidence
-            } of keyValuePairs) {
+        for (const {key, value, confidence} of keyValuePairs) {
             console.log("- Key  :", `"${key.content}"`);
-            console.log("  Value:", `"${value?.content ?? "<undefined>"}" (${confidence})`);
+            console.log("  Value:", `"${(value && value.content) || "<undefined>"}" (${confidence})`);
         }
     }
 
@@ -216,42 +209,42 @@ Extract text, selection marks, text styles, table structures, and bounding regio
   const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
   async function main() {
-      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-      const poller = await client.beginAnalyzeDocument("prebuilt-layout", formUrl);
+    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-layout", formUrlLayout);
 
-      const {
-          pages,
-          tables
-      } = await poller.pollUntilDone();
+    const {
+        pages,
+        tables
+    } = await poller.pollUntilDone();
 
-      if (pages.length <= 0) {
-          console.log("No pages were extracted from the document.");
-      } else {
-          console.log("Pages:");
-          for (const page of pages) {
-              console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
-              console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
-              console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
-          }
-      }
+    if (pages.length <= 0) {
+        console.log("No pages were extracted from the document.");
+    } else {
+        console.log("Pages:");
+        for (const page of pages) {
+            console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
+            console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
+            console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
+        }
+    }
 
-      if (tables.length <= 0) {
-          console.log("No tables were extracted from the document.");
-      } else {
-          console.log("Tables:");
-          for (const table of tables) {
-              console.log(
-                  `- Extracted table: ${table.columnCount} columns, ${table.rowCount} rows (${table.cells.length} cells)`
-              );
-          }
-      }
-  }
+    if (tables.length <= 0) {
+        console.log("No tables were extracted from the document.");
+    } else {
+        console.log("Tables:");
+        for (const table of tables) {
+            console.log(
+                `- Extracted table: ${table.columnCount} columns, ${table.rowCount} rows (${table.cells.length} cells)`
+            );
+        }
+    }
+}
 
-  main().catch((error) => {
-      console.error("An error occurred:", error);
-      process.exit(1);
-  });
+main().catch((error) => {
+    console.error("An error occurred:", error);
+    process.exit(1);
+});
 
 ```
 
@@ -306,45 +299,35 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
 
 async function main() {
-    // sample document
-    const invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
-
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-invoice", invoiceUrl);
+    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-layout", formUrlLayout);
 
     const {
-        documents: [result]
+        pages,
+        tables
     } = await poller.pollUntilDone();
 
-    if (result) {
-        const invoice = result.fields;
-
-        console.log("Vendor Name:", invoice.vendorName?.value);
-        console.log("Customer Name:", invoice.customerName?.value);
-        console.log("Invoice Date:", invoice.invoiceDate?.value);
-        console.log("Due Date:", invoice.dueDate?.value);
-
-        console.log("Items:");
-        for (const {
-                properties: item
-            } of invoice.items?.values ?? []) {
-            console.log("-", item.productCode?.value ?? "<no product code>");
-            console.log("  Description:", item.description?.value);
-            console.log("  Quantity:", item.quantity?.value);
-            console.log("  Date:", item.date?.value);
-            console.log("  Unit:", item.unit?.value);
-            console.log("  Unit Price:", item.unitPrice?.value);
-            console.log("  Tax:", item.tax?.value);
-            console.log("  Amount:", item.amount?.value);
-        }
-
-        console.log("Subtotal:", invoice.subTotal?.value);
-        console.log("Previous Unpaid Balance:", invoice.previousUnpaidBalance?.value);
-        console.log("Tax:", invoice.totalTax?.value);
-        console.log("Amount Due:", invoice.amountDue?.value);
+    if (pages.length <= 0) {
+        console.log("No pages were extracted from the document.");
     } else {
-        throw new Error("Expected at least one receipt in the result.");
+        console.log("Pages:");
+        for (const page of pages) {
+            console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
+            console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
+            console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
+        }
+    }
+
+    if (tables.length <= 0) {
+        console.log("No tables were extracted from the document.");
+    } else {
+        console.log("Tables:");
+        for (const table of tables) {
+            console.log(
+                `- Extracted table: ${table.columnCount} columns, ${table.rowCount} rows (${table.cells.length} cells)`
+            );
+        }
     }
 }
 

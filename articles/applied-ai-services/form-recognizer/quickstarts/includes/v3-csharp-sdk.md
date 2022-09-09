@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/22/2022
+ms.date: 09/09/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -73,7 +73,7 @@ In this quickstart, you'll use the following features to analyze and extract dat
 
      :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
- 1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.5** from the dropdown menu and install the package in your project.
+ 1. Select version **4.0.0** from the dropdown menu and install the package in your project.
 <!-- --- -->
 
 ## Build your application
@@ -197,7 +197,7 @@ foreach (DocumentStyle style in result.Styles)
 
         foreach (DocumentSpan span in style.Spans)
         {
-            Console.WriteLine($"  Content: {result.Content.Substring(span.Offset, span.Length)}");
+            Console.WriteLine($"  Content: {result.Content.Substring(span.Index, span.Length)}");
         }
     }
 }
@@ -313,7 +313,7 @@ foreach (DocumentStyle style in result.Styles)
 
         foreach (DocumentSpan span in style.Spans)
         {
-            Console.WriteLine($"  Content: {result.Content.Substring(span.Offset, span.Length)}");
+            Console.WriteLine($"  Content: {result.Content.Substring(span.Index, span.Length)}");
         }
     }
 }
@@ -403,53 +403,53 @@ for (int i = 0; i < result.Documents.Count; i++)
 
     AnalyzedDocument document = result.Documents[i];
 
-    if (document.Fields.TryGetValue("VendorName", out DocumentField? vendorNameField))
+    if (document.Fields.TryGetValue("VendorName", out DocumentField vendorNameField))
     {
-        if (vendorNameField.ValueType == DocumentFieldType.String)
+        if (vendorNameField.FieldType == DocumentFieldType.String)
         {
-            string vendorName = vendorNameField.AsString();
+            string vendorName = vendorNameField.Value.AsString();
             Console.WriteLine($"Vendor Name: '{vendorName}', with confidence {vendorNameField.Confidence}");
         }
     }
 
-    if (document.Fields.TryGetValue("CustomerName", out DocumentField? customerNameField))
+    if (document.Fields.TryGetValue("CustomerName", out DocumentField customerNameField))
     {
-        if (customerNameField.ValueType == DocumentFieldType.String)
+        if (customerNameField.FieldType == DocumentFieldType.String)
         {
-            string customerName = customerNameField.AsString();
+            string customerName = customerNameField.Value.AsString();
             Console.WriteLine($"Customer Name: '{customerName}', with confidence {customerNameField.Confidence}");
         }
     }
 
-    if (document.Fields.TryGetValue("Items", out DocumentField? itemsField))
+    if (document.Fields.TryGetValue("Items", out DocumentField itemsField))
     {
-        if (itemsField.ValueType == DocumentFieldType.List)
+        if (itemsField.FieldType == DocumentFieldType.List)
         {
-            foreach (DocumentField itemField in itemsField.AsList())
+            foreach (DocumentField itemField in itemsField.Value.AsList())
             {
                 Console.WriteLine("Item:");
 
-                if (itemField.ValueType == DocumentFieldType.Dictionary)
+                if (itemField.FieldType == DocumentFieldType.Dictionary)
                 {
-                    IReadOnlyDictionary<string, DocumentField> itemFields = itemField.AsDictionary();
+                    IReadOnlyDictionary<string, DocumentField> itemFields = itemField.Value.AsDictionary();
 
-                    if (itemFields.TryGetValue("Description", out DocumentField? itemDescriptionField))
+                    if (itemFields.TryGetValue("Description", out DocumentField itemDescriptionField))
                     {
-                        if (itemDescriptionField.ValueType == DocumentFieldType.String)
+                        if (itemDescriptionField.FieldType == DocumentFieldType.String)
                         {
-                            string itemDescription = itemDescriptionField.AsString();
+                            string itemDescription = itemDescriptionField.Value.AsString();
 
                             Console.WriteLine($"  Description: '{itemDescription}', with confidence {itemDescriptionField.Confidence}");
                         }
                     }
 
-                    if (itemFields.TryGetValue("Amount", out DocumentField? itemAmountField))
+                    if (itemFields.TryGetValue("Amount", out DocumentField itemAmountField))
                     {
-                        if (itemAmountField.ValueType == DocumentFieldType.Double)
+                        if (itemAmountField.FieldType == DocumentFieldType.Currency)
                         {
-                            double itemAmount = itemAmountField.AsDouble();
+                            CurrencyValue itemAmount = itemAmountField.Value.AsCurrency();
 
-                            Console.WriteLine($"  Amount: '{itemAmount}', with confidence {itemAmountField.Confidence}");
+                            Console.WriteLine($"  Amount: '{itemAmount.Symbol}{itemAmount.Amount}', with confidence {itemAmountField.Confidence}");
                         }
                     }
                 }
@@ -457,30 +457,30 @@ for (int i = 0; i < result.Documents.Count; i++)
         }
     }
 
-    if (document.Fields.TryGetValue("SubTotal", out DocumentField? subTotalField))
+    if (document.Fields.TryGetValue("SubTotal", out DocumentField subTotalField))
     {
-        if (subTotalField.ValueType == DocumentFieldType.Double)
+        if (subTotalField.FieldType == DocumentFieldType.Currency)
         {
-            double subTotal = subTotalField.AsDouble();
-            Console.WriteLine($"Sub Total: '{subTotal}', with confidence {subTotalField.Confidence}");
+            CurrencyValue subTotal = subTotalField.Value.AsCurrency();
+            Console.WriteLine($"Sub Total: '{subTotal.Symbol}{subTotal.Amount}', with confidence {subTotalField.Confidence}");
         }
     }
 
-    if (document.Fields.TryGetValue("TotalTax", out DocumentField? totalTaxField))
+    if (document.Fields.TryGetValue("TotalTax", out DocumentField totalTaxField))
     {
-        if (totalTaxField.ValueType == DocumentFieldType.Double)
+        if (totalTaxField.FieldType == DocumentFieldType.Currency)
         {
-            double totalTax = totalTaxField.AsDouble();
-            Console.WriteLine($"Total Tax: '{totalTax}', with confidence {totalTaxField.Confidence}");
+            CurrencyValue totalTax = totalTaxField.Value.AsCurrency();
+            Console.WriteLine($"Total Tax: '{totalTax.Symbol}{totalTax.Amount}', with confidence {totalTaxField.Confidence}");
         }
     }
 
-    if (document.Fields.TryGetValue("InvoiceTotal", out DocumentField? invoiceTotalField))
+    if (document.Fields.TryGetValue("InvoiceTotal", out DocumentField invoiceTotalField))
     {
-        if (invoiceTotalField.ValueType == DocumentFieldType.Double)
+        if (invoiceTotalField.FieldType == DocumentFieldType.Currency)
         {
-            double invoiceTotal = invoiceTotalField.AsDouble();
-            Console.WriteLine($"Invoice Total: '{invoiceTotal}', with confidence {invoiceTotalField.Confidence}");
+            CurrencyValue invoiceTotal = invoiceTotalField.Value.AsCurrency();
+            Console.WriteLine($"Invoice Total: '{invoiceTotal.Symbol}{invoiceTotal.Amount}', with confidence {invoiceTotalField.Confidence}");
         }
     }
 }
