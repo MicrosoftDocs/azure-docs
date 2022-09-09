@@ -75,8 +75,8 @@ Install required dependencies:
 
 2. Update three values in `config.yaml`:
   ```yaml
-    - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-oak-instance>/seistore-svc/api/v3", "appkey": ""}}}'
-    - url: '<base-url-for-oak-instance>/seistore-svc/api/v3'
+    - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3", "appkey": ""}}}'
+    - url: '<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3'
     - "refresh_token": "<refresh-token-for-your-env>"
   ```
   
@@ -287,10 +287,10 @@ run the changelog script (`./changelog-generator.sh`) to automatically generate 
   ./scripts/changelog-generator.sh
 ```
 
-## Setup and Usage for Azure Project Oak Forest
+## Setup and usage for Microsoft Energy Data Services
 
 Below steps are for windows subsystem linux - ubuntu 20.04
-Project Oak is using OSDU&trade; M8 Version of sdutil
+Microsoft Energy Data Services instance is using OSDU&trade; M8 Version of sdutil
 
 - Download the source code from community [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable/) Azure Stable branch.
 
@@ -318,8 +318,8 @@ Project Oak is using OSDU&trade; M8 Version of sdutil
 
 - You need to Update three values in `config.yaml`:
   ```yaml
-    - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-oak-instance>/seistore-svc/api/v3", "appkey": ""}}}'
-    - url: '<base-url-for-oak-instance>/seistore-svc/api/v3'
+    - service: '{"Azure": {"azureGlabEnv":{"url": "<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3", "appkey": ""}}}'
+    - url: '<base-url-for-microsoft-energy-data-services-instance>/seistore-svc/api/v3'
     - "refresh_token": "<refresh-token-for-your-env>"
   ```
 

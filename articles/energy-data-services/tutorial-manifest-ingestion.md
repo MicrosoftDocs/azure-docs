@@ -35,8 +35,8 @@ Before beginning this tutorial, the following prerequisites must be completed:
   | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-2d7cd011db47  |
   | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
   | refresh_token      | Refresh Token value      | 0.ATcA01-XWHdJ0ES-qDevC6r...........  |
-  | DNS                | URI                      | bseloak.energy.azure.com              |
-  | data-partition-id  | Data Partition(s)        | bseloak-bseldp1                       |
+  | DNS                | URI                      | <instance>.energy.azure.com              |
+  | data-partition-id  | Data Partition(s)        | <instance>-<data-partition-name>                       |
 
 * To generate a refresh token follow the steps mentioned in [OAuth 2.0 authorization](how-to-generate-refresh-token.md).
 

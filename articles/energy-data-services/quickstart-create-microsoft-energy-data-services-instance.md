@@ -26,8 +26,8 @@ Microsoft Energy Data Services (or MEDS, in short) is a managed Platform-as-a-se
 
 | Prerequisite | Details |
 | ------------ | ------- |
-Active Azure Subscription | You'll need the Azure subscription ID and the region where you want to install Project Oak Forest. Choose one of the regions listed in the Regions supported section.
-Application ID | You'll need an application ID (often referred to as "App ID" or a "client ID"). This application ID will be used for authentication to Azure Active Directory and will be associated with your Oak instance. Follow the steps below if you don't have one.
+Active Azure Subscription | You'll need the Azure subscription ID and the region where you want to install Microsoft Energy Data Services. Choose one of the regions listed in the Regions supported section.
+Application ID | You'll need an application ID (often referred to as "App ID" or a "client ID"). This application ID will be used for authentication to Azure Active Directory and will be associated with your Microsoft Energy Data Services instance. Follow the steps below if you don't have one.
 
 #### Creating an Application ID
 
@@ -50,7 +50,7 @@ Application ID | You'll need an application ID (often referred to as "App ID" or
 ## Create a Microsoft energy data services instance
 
 > [!IMPORTANT]
-> Please use the link below as it contains a *hidden flag* which is needed to be able to find the 'Project Oak Forest' in the Azure Marketplace.
+> Please use the link below as it contains a *hidden flag* which is needed to be able to find the 'Microsoft Energy Data Services' in the Azure Marketplace.
 
 1. Log in to [Microsoft Azure Marketplace (Hidden items enabled)](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden)
 
@@ -101,7 +101,7 @@ To uninstall a Microsoft Energy Data Services instance, complete the following s
 
 1. Sign in to the Azure portal and **delete the resource groups** in which these components are installed.
 
-2. Go to Azure Active Directory and **delete the Azure AD application** linked to the Project Oak Forest installation.
+2. Go to Azure Active Directory and **delete the Azure AD application** linked to the Microsoft Energy Data Services installation.
 
 ## Next steps
 

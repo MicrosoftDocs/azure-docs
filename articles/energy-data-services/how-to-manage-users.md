@@ -84,7 +84,7 @@ curl --location --request POST 'https://login.microsoftonline.com/{{tenant-id}}/
 Copy the `access token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements API of your Microsoft Energy Data Services Preview instance. 
 
 ## 3. User management activities
-Get all groups that are either built in groups or have been made for your Oak instance or data partitions. Find the following two fields first. 
+Get all groups that are either built in groups or have been made for your Microsoft Energy Data Services instance or data partitions. Find the following two fields first. 
 
 You'll need `object-id` (OID) for your users as parameters in the calls to the Entitlements API of your Microsoft Energy Data Services Preview Instance. `object-id`(OID) is the Azure Active Directory User Object ID.
 
@@ -94,7 +94,7 @@ You'll need `object-id` (OID) for your users as parameters in the calls to the E
 
 ### 1. Get the list of all available groups 
 
-Get all groups that are either built in groups or have been made for your Oak instance or data partitions.
+Get all groups that are either built in groups or have been made for your Microsoft Energy Data Services instance or data partitions.
 
 ```bash
     curl --location --request GET "<url>/api/entitlements/v2/groups/" \
@@ -122,8 +122,8 @@ Add user to the "Users" group using Entitlement service.
 **Sample request**
 
 ```bash
-    curl --location --request POST 'https://bseloak.energy.azure.com/api/entitlements/v2/groups/users@bseloak-bseldp1.contoso.com/members' \
-    --header 'data-partition-id: bseloak-bseldp1' \
+    curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/users@<instance>-bseldp1.contoso.com/members' \
+    --header 'data-partition-id: <instance>-bseldp1' \
     --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ9...' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -159,8 +159,8 @@ Add user to the "Users" group using Entitlement service.
 **Sample request**
 
 ```bash
-    curl --location --request POST 'https://bseloak.energy.azure.com/api/entitlements/v2/groups/users.datalake.editors@bseloak-bseldp1.contoso.com/members' \
-    --header 'data-partition-id: bseloak-bseldp1' \
+    curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/users.datalake.editors@<instance>-bseldp1.contoso.com/members' \
+    --header 'data-partition-id: <instance>-bseldp1' \
     --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ9...' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -189,8 +189,8 @@ Add user to the "Users" group using Entitlement service.
 **Sample request**
 
 ```bash
-    curl --location --request GET 'https://bseloak.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX/groups?type=none' \
-    --header 'data-partition-id: bseloak-bseldp1' \
+    curl --location --request GET 'https://<instance>.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX/groups?type=none' \
+    --header 'data-partition-id: <instance>-bseldp1' \
     --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ...'
 ```
 **Sample response**
@@ -203,17 +203,17 @@ Add user to the "Users" group using Entitlement service.
         {
         "name": "data.default.viewers",
         "description": "Default data viewers",
-        "email": "data.default.viewers@bseloak-bseldp1.contoso.com"
+        "email": "data.default.viewers@<instance>-bseldp1.contoso.com"
         },
         {
         "name": "data.default.owners",
         "description": "Default data owners",
-        "email": "data.default.owners@bseloak-bseldp1.contoso.com"
+        "email": "data.default.owners@<instance>-bseldp1.contoso.com"
         },
         {
         "name": "service.search.user",
         "description": "Datalake Search users",
-        "email": "service.search.user@bseloak-bseldp1.contoso.com"
+        "email": "service.search.user@<instance>-bseldp1.contoso.com"
         }
     ]
     }
@@ -233,8 +233,8 @@ Add user to the "Users" group using Entitlement service.
 **Sample request**
 
 ```bash
-    curl --location --request DELETE 'https://bseloak.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX' \
-    --header 'data-partition-id: bseloak-bseldp1' \
+    curl --location --request DELETE 'https://<instance>.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX' \
+    --header 'data-partition-id: <instance>-bseldp1' \
     --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ9...'
 ```
 

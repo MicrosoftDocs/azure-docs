@@ -41,12 +41,12 @@ A Legal tag is the entity that represents the legal status of data in the Micros
 ### Sample request
 
 ```bash
-    curl --location --request POST 'https://bseloak.energy.azure.com/api/legal/v1/legaltags' \
-    --header 'data-partition-id: bseloak-bseldp1' \
+    curl --location --request POST 'https://<instance>.energy.azure.com/api/legal/v1/legaltags' \
+    --header 'data-partition-id: <instance>-<data-partition-name>' \
     --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmV...' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "name": "bseloak-bseldp1-legal-tag",
+        "name": "<instance>-<data-partition-name>-legal-tag",
         "description": "Microsoft Energy Data Services Preview Legal Tag",
         "properties": {
             "contractId": "A1234",
@@ -66,7 +66,7 @@ A Legal tag is the entity that represents the legal status of data in the Micros
 
 ```JSON
     {
-        "name": "bseloak-bseldp1-legal-tag",
+        "name": "<instance>-<data-partition-name>-legal-tag",
         "description": "Microsoft Energy Data Services Preview Legal Tag",
         "properties": {
         "countryOfOrigin": [
@@ -89,8 +89,8 @@ The country of origin should follow [ISO Alpha2 format](https://www.nationsonlin
 > Create Legal Tag api, internally appends data-partition-id to legal tag name if it isn't already present. For instance, if request has name as: ```legal-tag```, then the create legal tag name would be ```<instancename>-<data-partition-id>-legal-tag``` 
 
 ```bash
-    curl --location --request POST 'https://bseloak.energy.azure.com/api/legal/v1/legaltags' \
-    --header 'data-partition-id: bseloak-bseldp1' \
+    curl --location --request POST 'https://<instance>.energy.azure.com/api/legal/v1/legaltags' \
+    --header 'data-partition-id: <instance>-<data-partition-name>' \
     --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmV...' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -114,7 +114,7 @@ The sample response will have data-partition-id appended to the legal tag name a
 
 ```JSON
     {
-        "name": "bseloak-bseldp1-legal-tag",
+        "name": "<instance>-<data-partition-name>-legal-tag",
         "description": "Microsoft Energy Data Services Preview Legal Tag",
         "properties": {
         "countryOfOrigin": [
@@ -142,8 +142,8 @@ The sample response will have data-partition-id appended to the legal tag name a
 ### Sample request
 
 ```bash
-    curl --location --request GET 'https://bseloak.energy.azure.com/api/legal/v1/legaltags/bseloak-bseldp1-legal-tag' \
-    --header 'data-partition-id: bseloak-bseldp1' \
+    curl --location --request GET 'https://<instance>.energy.azure.com/api/legal/v1/legaltags/<instance>-<data-partition-name>-legal-tag' \
+    --header 'data-partition-id: <instance>-<data-partition-name>' \
     --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXh...'
 ```
 
@@ -151,7 +151,7 @@ The sample response will have data-partition-id appended to the legal tag name a
 
 ```JSON
     {
-    "name": "bseloak-bseldp1-legal-tag",
+    "name": "<instance>-<data-partition-name>-legal-tag",
     "description": "Microsoft Energy Data Services Preview Legal Tag",
     "properties": {
         "countryOfOrigin": [
