@@ -50,6 +50,7 @@ If you want to provision SIMs as part of deploying your private mobile network, 
     For additional information on configuring CMK for a SIM group, see [Configure customer-managed keys](azure/cosmos-db/how-to-setup-cmk).
 
 1. Collect each of the values given in the following table for the SIM group you want to provision.
+
    |Value  |Field name in Azure portal  | JSON file parameter name |
    |---------|---------|---------|
    |The name for the SIM group resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM group name**|`simGroupName`|
