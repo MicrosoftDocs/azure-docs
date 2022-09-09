@@ -36,8 +36,8 @@ In this tutorial, you'll learn how to:
   | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-2d7cd011db47  |
   | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-a6a5cb7c7862  |
   | refresh_token      | Refresh Token value      | 0.ATcA01-XWHdJ0ES-qDevC6r...........  |
-  | DNS                | URI                      | <instance>.energy.Azure.com              |
-  | data-partition-id  | Data Partition(s)        | <instance>-<data-partition-name>                       |
+  | DNS                | URI                      | `<instance>`.energy.azure.com         |
+  | data-partition-id  | Data Partition(s)        | `<instance>`-`<data-partition-name>`  |
 
 * Follow the [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to create a user token and note it down for future use.
 * Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user running this tutorial
