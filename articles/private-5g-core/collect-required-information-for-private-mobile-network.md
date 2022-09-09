@@ -59,7 +59,7 @@ If you want to provision SIMs as part of deploying your private mobile network, 
    |The chosen encryption type for the SIM group. Microsoft-managed keys (MMK) by default, or customer-managed keys (CMK).|**Encryption Type**|`simGroupEncryption`|
    |The Azure Key Vault URI containing the customer-managed Key for the SIM group.|**Key URI**|`simGroupKeyURI`|
    |The User-assigned identity for accessing the SIM group's customer-managed Key within the Azure Key Vault.|**User-assigned identity**|`simGroupUserAssignedIdentity`|
-  
+
 1. Choose one of the following methods for provisioning your SIMs:
 
    - Manually entering values for each SIM into fields in the Azure portal. This option is best when provisioning a few SIMs.
