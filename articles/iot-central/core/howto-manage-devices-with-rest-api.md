@@ -554,6 +554,56 @@ The response to this request looks like the following example:
 
 Enrollment groups are used to manage the device authentication options in your IoT Central application.
 
+### Generate root certificates
+
+Run the following commands to clone the Azure iot sdk node repository and generate your demo certificates:
+
+    ```cmd/sh
+    git clone https://github.com/Azure/iotedge.git
+    ```
+
+1. Navigate to the certificate generator script in the Microsoft Azure IoT SDK for Node.js you downloaded. Install the required packages:
+
+    ```cmd/sh
+    cd azure-iot-sdk-node/provisioning/tools
+    npm install
+    ```
+
+1. Create a root certificate by running the script:
+
+    ```cmd/sh
+    node create_test_cert.js root mytestrootcert
+    ```
+
+These commands produce the following root certificate
+
+| filename | contents |
+| -------- | -------- |
+| mytestrootcert_cert.pem | The public portion of the root X509 certificate |
+| mytestrootcert_key.pem | The private key for the root X509 certificate |
+| mytestrootcert_fullchain.pem | The entire keychain for the root X509 certificate. |
+| mytestrootcert.pfx | The PFX file for the root X509 certificate. |
+
+Make a note of the location of these files. You need it later.
+
+### Generate the base-64 encoded version of the certifcate
+
+Create a javascript file with the below code.
+
+```javascript
+const fs = require('fs')
+const fileContents = fs.readFileSync('./mytestrootcert_cert.pem').toString('base64');
+console.log(fileContents);
+```
+
+Run the javascript file to generate the base-64 encoded version of the certifcate.
+
+```dotnetcli
+node yourJavascriptFileName.js
+```
+
+Make a note of the base-64 encoded version of the certifcate. You need it later.
+
 ### Add a enrollment group
 
 Use the following request to create a new enrollment group.
@@ -570,7 +620,7 @@ The following example shows a request body that adds a new enrollment group:
   "enabled": true,
   "type": "iot",
   "attestation": {
-    "type": "symmetricKey"
+    "type": "x509"
   }
 }
 
@@ -587,18 +637,17 @@ The response to this request looks like the following example:
 
 ```json
 {
-  "id": "myEnrollmentGroupId",
-  "displayName": "My group",
-  "enabled": true,
-  "type": "iot",
-  "attestation": {
-    "type": "symmetricKey",
-    "symmetricKey": {
-      "primaryKey": "<primary-symmetric-key>",
-      "secondaryKey": "<secondary-symmetric-key>"
-    }
-  },
-  "etag": "IjA4MDUwMTJiLTAwMDAtMDcwMC0wMDAwLTYyODJhOWVjMDAwMCI="
+    "id": "myEnrollmentGroupId",
+    "displayName": "My group",
+    "enabled": true,
+    "type": "iot",
+    "attestation": {
+        "type": "x509",
+        "x509": {
+            "signingCertificates": {}
+        }
+    },
+    "etag": "IjdiMDcxZWQ5LTAwMDAtMDcwMC0wMDAwLTYzMWI3MWQ4MDAwMCI="
 }
 ```
 
@@ -616,16 +665,18 @@ The following example shows a request body that adds a X509 certificate to a enr
 
 ```json
 {
-  "verified": true,
+  "verified": false,
   "certificate": "<base64-certificate>"
 }
 ```
+
+* certificate - The base-64 version of the certificate you made a note of previously.
 
 The response to this request looks like the following example:
 
 ```json
 {
-  "verified": true,
+  "verified": false,
   "info": {
     "sha1Thumbprint": "644543467786B60C14DFE6B7C968A1990CF63EAC"
   },
@@ -649,6 +700,14 @@ The response to this request looks like the following example:
 }
 ```
 
+### Generate the verification certificate using the node.js tool
+
+  ```cmd/sh
+  node create_test_cert.js verification --ca mytestrootcert_cert.pem --key mytestrootcert_key.pem --nonce  {verification-code}
+  ```
+
+Now generate the base-64 encode version of the verification certificate by updating the location of the certificate in the javascript code above.
+
 ### Verify X509 certificate of an enrollment group
 
 Use the following request to verify the primary or secondary x509 certificate of an enrollment group by providing a certificate with the signed verification code.
@@ -657,7 +716,7 @@ Use the following request to verify the primary or secondary x509 certificate of
 POST https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}/certificates/{entry}/verify?api-version=2022-07-31
 ```
 
-The response to this request looks like the following example:
+The following example shows a request body that verifys a X509 certificate:
 
 ```json
 {
