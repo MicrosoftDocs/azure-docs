@@ -81,7 +81,7 @@ task: image_object_detection
 ```
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
-Based on the task type, you can create automl image jobs using task specific `automl` functions.
+Based on the task type, you can create AutoML image jobs using task specific `automl` functions.
 
 For example:
 
@@ -274,7 +274,7 @@ In addition to controlling the model algorithm, you can also tune hyperparameter
 
 ### Data augmentation 
 
-In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there is no exposed hyperparameter to control data augmentations. 
+In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there's no exposed hyperparameter to control data augmentations. 
 
 |Task | Impacted dataset | Data augmentation technique(s) applied |
 |-------|----------|---------|
@@ -304,7 +304,7 @@ If you wish to use the default hyperparameter values for a given algorithm (say 
 image_object_detection_job.set_image_model(model_name="yolov5")
 ```
 ---
-Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparameter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for the specified algorithm.
+Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparameter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values aren't specified, then default values are used for the specified algorithm.
 
 ### Primary metric
 
@@ -655,7 +655,7 @@ az ml online-deployment create --file .\create_deployment.yml --workspace-name [
 ---
 
 ### update traffic:
-By default the current deployment is set to receive 0% traffic. you can set the traffic percentage current deployment should receive. Sum of traffic percentages of all the deployments with one end point should not exceed 100%.
+By default the current deployment is set to receive 0% traffic. you can set the traffic percentage current deployment should receive. Sum of traffic percentages of all the deployments with one end point shouldn't exceed 100%.
 
 # [CLI v2](#tab/CLI-v2)
 
@@ -672,20 +672,20 @@ az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fri
 
 
 Alternatively You can deploy the model from the [Azure Machine Learning studio UI](https://ml.azure.com/). 
-Navigate to the model you wish to deploy in the **Models** tab of the automated ML run and click on **Deploy** and select **Deploy to real-time endpoint** .  
+Navigate to the model you wish to deploy in the **Models** tab of the automated ML run and select on **Deploy** and select **Deploy to real-time endpoint** .  
 
-![Deploy configuration](./media/how-to-auto-train-image-models/deploy-endpoint.png)
+![Screenshot of how the Deployment page looks like after selecting the Deploy option.](./media/how-to-auto-train-image-models/deploy-end-point.png).
 
 this is how your review page looks like. we can select instance type, instance count and set traffic percentage for the current deployment.
 
-![Review Deploy1](./media/how-to-auto-train-image-models/review-deploy1.png)
-![Review Deploy2](./media/how-to-auto-train-image-models/review-deploy2.png)
+![Screenshot of how the top of review page looks like after selecting the options to deploy.](./media/how-to-auto-train-image-models/review-deploy-1.png).
+![Screenshot of how the bottom of review page looks like after selecting the options to deploy.](./media/how-to-auto-train-image-models/review-deploy-2.png).
 
 ### Update inference settings
 
 In the previous step, we downloaded a file `mlflow-model/artifacts/settings.json` from the best model. which can be used to update the inference settings before registering the model. Although its's recommended to use the same parameters as training for best performance.
 
-Each of the tasks (and some models) have a set of parameters. By default, we use the same values for the parameters that were used during the training and validation. Depending on the behavior that we need when using the model for inference, we can change these parameters. Below you can find a list of parameters for each task type and model.  
+Each of the tasks (and some models) has a set of parameters. By default, we use the same values for the parameters that were used during the training and validation. Depending on the behavior that we need when using the model for inference, we can change these parameters. Below you can find a list of parameters for each task type and model.  
 
 | Task | Parameter name | Default  |
 |--------- |------------- | --------- |

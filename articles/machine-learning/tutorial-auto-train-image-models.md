@@ -409,7 +409,7 @@ Once the run completes, you can register the model that was created from the bes
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=download_model)]
 ---
 
-### register the model
+### Register the model
 
 Register the model either using the azureml path or your locally downloaded path. 
 
@@ -514,7 +514,7 @@ az ml online-deployment create --file .\create_deployment.yml --workspace-name [
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_deploy)]
 ---
 
-### update traffic:
+### Update traffic:
 By default the current deployment is set to receive 0% traffic. you can set the traffic percentage current deployment should receive. Sum of traffic percentages of all the deployments with one end point should not exceed 100%.
 
 # [CLI v2](#tab/CLI-v2)
