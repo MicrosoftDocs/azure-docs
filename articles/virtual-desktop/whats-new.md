@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/05/2022
+ms.date: 09/06/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -20,27 +20,51 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 
 Make sure to check back here often to keep up with new updates.
 
+## August 2022
+
+Here's what changed in August 2022:
+
+### Updates to the preview version of FSLogix profiles for Azure AD-joined VMs
+
+We've updated the public preview version of the Azure Files integration with Azure Active Directory (Azure AD) Kerberos for hybrid identities so that it's now simpler to deploy and manage. The update should give users using FSLogix user profiles on Azure AD-joined session host an overall better experience. For more information, see [the Azure Files blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-leverage-azure-active-directory-kerberos-with/ba-p/3612111).  
+
+### Single sign-on and passwordless authentication now in Windows Insider preview
+
+In the Windows Insider build of Windows 11 22H2, you can now enable a preview version of the Azure Active Directory (AD)-based single sign-on experience. This Windows Insider build also supports passwordless authentication with Windows Hello and security devices like FIDO2 keys. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842). 
+
+### Universal Print for Azure Virtual Desktop now in Windows Insider preview
+
+The Windows Insider build of Windows 11 22H2 also includes a preview version of the Universal Print for Azure Virtual Desktop feature. We hope this feature will provide an improved printing experience that combines the benefits of Azure Virtual Desktop and Universal Print for Windows 11 multi-session users. Learn more at [Printing on Azure Virtual Desktop using Universal Print](/universal-print/fundamentals/universal-print-avd) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/a-better-printing-experience-for-azure-virtual-desktop-with/m-p/3598592). 
+
+### Autoscale for pooled host pools now generally available
+
+Autoscale on Azure Virtual Desktop for pooled host pools is now generally available. This feature is a native automated scaling solution that automatically turns session host virtual machines on and off according to the schedule and capacity thresholds that you define to fit your workload. Learn more at [How autoscale works](autoscale-scenarios.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462). 
+
+### Azure Virtual Desktop with Trusted Launch update
+
+Azure Virtual Desktop now supports provisioning Trusted Launch virtual machines with custom images stored in an Azure Compute Gallery. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/avd-now-supports-azure-compute-gallery-custom-images-with/m-p/3593955). 
+
 ## July 2022
 
 Here's what changed in July 2022: 
 
-## Scheduled agent updates now generally available
+### Scheduled agent updates now generally available
 
 Scheduled agent updates on Azure Virtual Desktop are now generally available. This feature gives IT admins control over when the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent get updated. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-scheduled-agent-updates-on/ba-p/3579236). 
 
-## FSLogix 2201 hotfix 2 
+### FSLogix 2201 hotfix 2 
 
 The FSLogix 2201 hotfix 2 update includes fixes to multi-session VHD mounting, Cloud Cache meta tracking files, and registry cleanup operations. This update doesn't include new fatures. Learn more at [What’s new in FSLogix](/fslogix/whats-new?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext#fslogix-2201-hotfix-2-29822850276) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-fslogix-2201-hotfix-2-2-9-8228-50276-has-been/m-p/3579409). 
 
-## Japan and Australia metadata service now generally available
+### Japan and Australia metadata service now generally available
 
 The Azure Virtual Desktop metadata database located in Japan and Australia is now generally available. This update allows customers to store their Azure Virtual Desktop objects and metadata within a database located within that geography. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-the-azure-virtual-desktop/ba-p/3570756). 
 
-## Azure Virtual Desktop moving away from Storage Blob image type
+### Azure Virtual Desktop moving away from Storage Blob image type
 
 Storage Blob images are created from unmanaged disks, which means they lack the availability, scalability, and frictionless user experience that managed images and Shared Image Gallery images offer. As a result, Azure Virtual Desktop will be deprecating support for Storage Blobs image types by August 22, 2022. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/azure-virtual-desktop-is-moving-away-from-storage-blob-image/ba-p/3568364). 
 
-## Azure Virtual Desktop Custom Configuration changing to PowerShell
+### Azure Virtual Desktop Custom Configuration changing to PowerShell
 
 Starting July 21, 2022, Azure Virtual Desktop will replace the Custom Configuration Azure Resource Manager template parameters for creating host pools, adding session hosts to host pools, and the Getting Started feature with a PowerShell script URL parameter stored in a publicly accessible location. This replacement includes the parameters' respective Azure Resource Manager templates. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-custom-configuration-breaking-change/m-p/3568069). 
 
