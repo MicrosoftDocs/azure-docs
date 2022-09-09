@@ -17,11 +17,7 @@ This article shows you how to create an IoT hub using Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Create an IoT Hub
-
-Use the Azure CLI to create a resource group and then add an IoT hub.
-
-1. When you create an IoT hub, you must create it in a resource group. Either use an existing resource group, or run the following [command to create a resource group](/cli/azure/resource):
+When you create an IoT hub, you must create it in a resource group. Either use an existing resource group, or run the following [command to create a resource group](/cli/azure/resource):
     
    ```azurecli-interactive
    az group create --name {your resource group name} --location westus
@@ -33,9 +29,12 @@ Use the Azure CLI to create a resource group and then add an IoT hub.
    > ```azurecli-interactive
    > az account list-locations -o table
    > ```
-   >
 
-2. Run the following [command to create an IoT hub](/cli/azure/iot/hub#az-iot-hub-create) in your resource group, using a globally unique name for your IoT hub:
+## Create an IoT Hub
+
+Use the Azure CLI to create a resource group and then add an IoT hub.
+
+Run the following [command to create an IoT hub](/cli/azure/iot/hub#az-iot-hub-create) in your resource group, using a globally unique name for your IoT hub:
     
    ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
@@ -47,7 +46,19 @@ Use the Azure CLI to create a resource group and then add an IoT hub.
 
 The previous command creates an IoT hub in the S1 pricing tier for which you're billed. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-For more information on Azure IoT Hub commands, see the [`az iot hub`](/cli/azure/iot/hub?view=azure-cli-latest&preserve-view=true) reference article.
+For more information on Azure IoT Hub commands, see the [`az iot hub`](/cli/azure/iot/hub) reference article.
+
+## Update the IoT hub
+
+You can change the settings of an existing IoT hub after it's created. Here are some properties you can set for an IoT hub:
+
+**Pricing and scale**: Migrate to a different tier or set the number of IoT Hub units.
+
+**IP Filter**: Specify a range of IP addresses that will be accepted or rejected by the IoT hub.
+
+**Properties**: A list of properties that you can copy and use elsewhere, such as the resource ID, resource group, location, and so on.
+
+For a complete list of options to update an IoT hub, see the [**az iot hub update** commands](/cli/azure/iot/hub#az-iot-hub-update) reference page.
 
 ## Register a new device in the IoT hub
 
