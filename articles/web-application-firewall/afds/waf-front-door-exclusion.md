@@ -55,7 +55,7 @@ Header and cookie names are case insensitive. <!-- TODO what about query string,
 
 If you create an exclusion with a match variable of *Request body POST args* and a selector to identify arguments named *FOO*, then you'll no longer see any log entries with a matchVariableName of `PostParamValue:FOO`. However, you might still see a log entry including the matchVariableName `InitialBodyContents`. This log entry indicates a rule matched on the value of the POST parameter FOO, because POST parameter values are part of the initial request body contents before they're parsed into individual POST arguments. <!-- TODO does this apply to JSON too? -->
 
-## Define exclusion rules based on Web Application Firewall logs
+## <a name="define-exclusion-based-on-web-application-firewall-logs"></a> Define exclusion rules based on Web Application Firewall logs
 
 [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md) describes how you can use logs to view the details of a blocked request, including the parts of the request that triggered the rule.
 
@@ -71,7 +71,28 @@ The following table shows example values from WAF logs and the corresponding exc
 | QueryParamValue:SOME_NAME | Query string args name Equals SOME_NAME |
 | SOME_NAME | Request body JSON args name Equals SOME_NAME |
 
-<!-- TODO explain JSON better -->
+### Exclusions for JSON request bodies
+
+From DRS version 2.0, JSON request bodies are inspected by the WAF. For example, consider this JSON request body:
+
+```json
+{
+  "posts": [
+    {
+      "id": 1,
+      "comment": ""
+    },
+    {
+      "id": 2,
+      "comment": "\"1=1\""
+    }
+  ]
+}
+```
+
+The request includes a SQL comment character sequence, which the WAF detects as a potential SQL injection attack.
+
+If you determine that the request is legitimate, you could create an exclusion with a match variable of *Request body JSON args name*, an operator of *Equals*, and a selector of *posts.comment*.
 
 ## Exclude other request attributes
 
