@@ -25,12 +25,12 @@ However, we know change can be disruptive to any environment, so we want to help
 
 ## Migrate from Single Server to Flexible Server
 
-Learn how to migrate to Azure Database for MySQL Flexible Server.
+Learn how to migrate to Azure Database for MySQL Flexible Server using DMS.
 
 | Migration Scenario | Offline or Online | Tool(s) | Details | 
 |--------------------|-------------------|-------|---------|------------------|
-| Single to Flexible Server | Offline | Data Migration Services (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (offline)](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) |
-| Single to Flexible Server | Online | Data Migration Services (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (online)](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) |
+| Single to Flexible Server | Offline | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (offline)](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) |
+| Single to Flexible Server | Online | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (online)](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) |
 
 For more information on migrating from a Single Server to a Flexible Server, visit [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md).
 
