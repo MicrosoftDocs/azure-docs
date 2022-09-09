@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 09/09/2022
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
@@ -77,7 +77,7 @@ You can ensure the user's identity by validating the ID token with a public sign
 
 To see this scenario in action, try the code samples in [Sign in users from a Web app](scenario-web-app-sign-user-overview.md).
 
-In addition to simple sign-in, a web server app might need to access another web service, such as a Representational State Transfer ([REST](https://docs.microsoft.com/en-us/rest/api/azure/)) API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). For more information about this scenario, read about [getting started with web apps and Web APIs](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet).
+In addition to simple sign-in, a web server app might need to access another web service, such as a Representational State Transfer ([REST](https://docs.microsoft.com/en-us/rest/api/azure/)) API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). For more information about this scenario, refer to our code [sample](https://github.com/AzureADQuickstarts/appmodelv2-webapp-webapi-openidconnect-dotnet/tree/complete) and [getting started with Web APIs](https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/).
 
 ## Web APIs
 
