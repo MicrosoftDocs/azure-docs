@@ -17,7 +17,7 @@ Access management is a critical function for any service or resource. Entitlemen
 
 ## Groups
 
-The entitlements service of Microsoft Energy Data Services allows you to create groups, and an entitlement group defines permissions on services/data sources for your Microsoft Energy Data Service instance. Users added by you to that group obtain the associated permissions.
+The entitlements service of Microsoft Energy Data Services allows you to create groups, and an entitlement group defines permissions on services/data sources for your Microsoft Energy Data Services instance. Users added by you to that group obtain the associated permissions.
 
 The main motivation for entitlements service is data authorization, but the functionality enables three use cases:
 
