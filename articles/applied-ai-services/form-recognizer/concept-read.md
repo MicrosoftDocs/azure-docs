@@ -26,7 +26,7 @@ Form Recognizer v3.0 includes the new Read Optical Character Recognition (OCR) m
 
 | **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Read  | ✓  | ✓  | ✓  | ✓ (preview)  | ✓ (preview)  | ✓ (preview) | ✓ (preview) |
+| Read  | ✓  | ✓  | ✓  | ✓ (2022-06-30-preview)  | ✓ (2022-06-30-preview)  | ✓ (2022-06-30-preview) | ✓ (2022-06-30-preview) |
 
 ### Data extraction
 
@@ -88,11 +88,11 @@ The Read model extracts all identified blocks of text in the `paragraphs` collec
 
 ```json
 "paragraphs": [
-	{
-	    "spans": [],
-	    "boundingRegions": [],
-	    "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
-	}
+    {
+        "spans": [],
+        "boundingRegions": [],
+        "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
+    }
 ]
 ```
 ### Language detection <sup>🆕</sup>
@@ -139,17 +139,17 @@ The page units in the model output are computed as shown:
 
 ```json
 "pages": [
-	{
-	    "pageNumber": 1,
-	    "angle": 0,
-	    "width": 915,
-	    "height": 1190,
-	    "unit": "pixel",
-	    "words": [],
-	    "lines": [],
-	    "spans": [],
-	    "kind": "document"
-	}
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": [],
+        "kind": "document"
+    }
 ]
 ```
 
