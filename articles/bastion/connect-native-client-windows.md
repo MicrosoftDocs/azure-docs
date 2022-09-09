@@ -63,7 +63,7 @@ If you've already deployed Bastion to your VNet, modify the following configurat
 1. Navigate to the **Configuration** page for your Bastion resource. Verify that the SKU Tier is **Standard**. If it isn't, select **Standard**.
 1. Select the box for **Native Client Support**, then apply your changes.
 
-    :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Settings for updating an existing host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/update-host.png":::
+    :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Screenshot that shows settings for updating an existing host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/update-host.png":::
 
 ### To deploy Bastion with the native client feature
 
@@ -74,7 +74,7 @@ If you haven't already deployed Bastion to your VNet, you can deploy with the na
    :::image type="content" source="./media/connect-native-client-windows/standard.png" alt-text="Settings for a new bastion host with Standard SKU selected." lightbox="./media/connect-native-client-windows/standard.png":::
 1. Before you create the bastion host, go to the **Advanced** tab and check the box for **Native Client Support**, along with the checkboxes for any other additional features that you want to deploy.
 
-   :::image type="content" source="./media/connect-native-client-windows/new-host.png" alt-text="Settings for a new bastion host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/new-host.png":::
+   :::image type="content" source="./media/connect-native-client-windows/new-host.png" alt-text="Screenshot that shows settings for a new bastion host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/new-host.png":::
 
 1. Click **Review + create** to validate, then click **Create** to deploy your Bastion host.
 
