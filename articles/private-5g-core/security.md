@@ -32,7 +32,7 @@ Azure Private 5G Core packet core instances are deployed on Azure Stack Edge dev
 
 In addition to Platform-Managed Keys, you have the option of using Microsoft Managed Keys (MMK) or Customer Managed Keys (CMK) when [creating a SIM group](manage-sim-groups.md#create-a-sim-group) or [when deploying a private mobile network](how-to-guide-deploy-a-private-mobile-network-azure-portal.md#deploy-your-private-mobile-network). 
 
-If you elect to use a CMK, you will need to provide a Key URI and [User-assigned identity](azure/active-directory/managed-identities-azure-resources/overview) with read, wrap, and unwrap access to the key within your [Azure Key Vault](azure/key-vault/). Additionally, you will need to configure the key to have an activation and expiration date, and we recommend that you enable automatic rotation.
+If you elect to use a CMK, you will need to provide a Key URI and [User-assigned identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) with read, wrap, and unwrap access to the key within your [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/). Additionally, you will need to configure the key to have an activation and expiration date, and we recommend that you enable automatic rotation.
 
 Once a SIM group is created, you cannot change the encryption type. However, if the SIM group uses CMK, you can update the key used for encryption.
 
