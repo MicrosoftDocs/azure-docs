@@ -1,8 +1,8 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "articles/automanage/automanage-virtual-machines.md",
-            "redirect_url": "articles/automanage/index.yml",
+            "source_path_from_root": "/articles/automanage/automanage-virtual-machines.md",
+            "redirect_url": "/articles/automanage/index",
             "redirect_document_id": false
         }
     ]
