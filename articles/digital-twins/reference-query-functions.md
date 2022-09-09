@@ -67,7 +67,7 @@ The following query returns all digital twins whose IDs end in `-small`. The str
 
 ## IS_BOOL
 
-A type checking and casting function for determining whether an expression has a Boolean value.
+A type checking function for determining whether an property has a Boolean value.
 
 This function is often combined with other predicates if the program processing the query results requires a boolean value, and you want to filter out cases where the property is not a boolean.
 
@@ -77,11 +77,11 @@ This function is often combined with other predicates if the program processing 
 
 ### Arguments
 
-`<expression>`, an expression to check whether it is a Boolean.
+`<property>`, an property to check whether it is a Boolean.
 
 ### Returns
 
-A Boolean value indicating if the type of the specified expression is a Boolean.
+A Boolean value indicating if the type of the specified property is a Boolean.
 
 ### Example
 
@@ -95,9 +95,7 @@ The following query builds on the above example to select the digital twins that
 
 ## IS_DEFINED
 
-A type checking and casting function to check whether a property is defined.
-
-This is only supported when the property value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. `DateTime`, object types, and arrays are not supported.
+A type checking function to determine whether a property is defined.
 
 ### Syntax
 
@@ -105,7 +103,7 @@ This is only supported when the property value is a primitive type. Primitive ty
 
 ### Arguments
 
-`<property>`, a property to determine whether it is defined. The property must be of a primitive type.
+`<property>`, a property to determine whether it is defined.
 
 ### Returns
 
@@ -119,7 +117,7 @@ The following query returns all digital twins who have a defined `Location` prop
 
 ## IS_NULL
 
-A type checking and casting function for determining whether an expression's value is `null`.
+A type checking function for determining whether an property's value is `null`.
 
 ### Syntax
 
@@ -127,11 +125,11 @@ A type checking and casting function for determining whether an expression's val
 
 ### Arguments
 
-`<expression>`, an expression to check whether it is null.
+`<property>`, a property to check whether it is null.
 
 ### Returns
 
-A Boolean value indicating if the type of the specified expression is `null`.
+A Boolean value indicating if the type of the specified property is `null`.
 
 ### Example
 
@@ -141,7 +139,7 @@ The following query returns twins who do not have a null value for Temperature. 
 
 ## IS_NUMBER
 
-A type checking and casting function for determining whether an expression has a number value.
+A type checking function for determining whether a property has a number value.
 
 This function is often combined with other predicates if the program processing the query results requires a number value, and you want to filter out cases where the property is not a number.
 
@@ -151,11 +149,11 @@ This function is often combined with other predicates if the program processing 
 
 ### Arguments
 
-`<expression>`, an expression to check whether it is a number.
+`<property>`, a property to check whether it is a number.
 
 ### Returns
 
-A Boolean value indicating if the type of the specified expression is a number.
+A Boolean value indicating if the type of the specified property is a number.
 
 ### Example
 
@@ -165,7 +163,7 @@ The following query selects the digital twins that have a numeric `Capacity` pro
 
 ## IS_OBJECT
 
-A type checking and casting function for determining whether an expression's value is of a JSON object type.
+A type checking function for determining whether a property's value is of a JSON object type.
 
 This function is often combined with other predicates if the program processing the query results requires a JSON object, and you want to filter out cases where the value is not a JSON object.
 
@@ -175,11 +173,11 @@ This function is often combined with other predicates if the program processing 
 
 ### Arguments
 
-`<expression>`, an expression to check whether it is of an object type.
+`<property>`, a property to check whether it is of an object type.
 
 ### Returns
 
-A Boolean value indicating if the type of the specified expression is a JSON object.
+A Boolean value indicating if the type of the specified property is a JSON object.
 
 ### Example
 
@@ -189,7 +187,7 @@ The following query selects all of the digital twins where this is an object cal
 
 ## IS_OF_MODEL
 
-A type checking and casting function to determine whether a twin is of a particular model type. Includes models that inherit from the specified model.
+A type checking and function to determine whether a twin is of a particular model type. Includes models that inherit from the specified model.
 
 ### Syntax
 
@@ -216,7 +214,7 @@ The following query returns twins from the DT collection that are exactly of the
 
 ## IS_PRIMITIVE
 
-A type checking and casting function for determining whether an expression's value is of a primitive type (string, Boolean, numeric, or `null`).
+A type checking function for determining whether a property's value is of a primitive type (string, Boolean, numeric, or `null`).
 
 This function is often combined with other predicates if the program processing the query results requires a primitive-typed value, and you want to filter out cases where the property is not primitive.
 
@@ -226,11 +224,11 @@ This function is often combined with other predicates if the program processing 
 
 ### Arguments
 
-`<expression>`, an expression to check whether it is of a primitive type.
+`<property>`, a property to check whether it is of a primitive type.
 
 ### Returns
 
-A Boolean value indicating if the type of the specified expression is one of the primitive types (string, Boolean, numeric, or `null`).
+A Boolean value indicating if the type of the specified property is one of the primitive types (string, Boolean, numeric, or `null`).
 
 ### Example
 
@@ -240,7 +238,7 @@ The following query returns the `area` property of the Factory with the ID of 'A
 
 ## IS_STRING
 
-A type checking and casting function for determining whether an expression has a string value. 
+A type checking function for determining whether a property has a string value. 
 
 This function is often combined with other predicates if the program processing the query results requires a string value, and you want to filter out cases where the property is not a string.
 
@@ -250,7 +248,7 @@ This function is often combined with other predicates if the program processing 
 
 ### Arguments
 
-`<expression>`, an expression to check whether it is a string.
+`<property>`, a property to check whether it is a string.
 
 ### Returns
 

@@ -16,6 +16,10 @@ ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022
 
 # Read and write data in a job
 
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](v1/how-to-train-with-datasets.md)
+> * [v2 (current version)](how-to-read-write-data-v2.md)
+
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
@@ -40,6 +44,7 @@ When you provide a data input/output to a Job, you'll need to specify a `path` p
 |A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
 |A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/path` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
 |A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
+|A path to a Data Asset  |  `azureml:<my_data>:<version>`  |
 
 ## Supported modes
 

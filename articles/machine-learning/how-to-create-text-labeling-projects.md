@@ -207,11 +207,11 @@ Use the **Export** button on the **Project details** page of your labeling proje
 
 For all project types other than **Text Named Entity Recognition**, you can export:
 * A CSV file. The CSV file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/csv*. 
-* An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
+* An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
 
 
 For **Text Named Entity Recognition** projects, you can export:
-* An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
+* An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
 * A CoNLL file.  For this export, you'll also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run.  When the file is ready to download, you'll see a notification on the top right.  Select this to open the notification, which includes the link to the file.
 
     :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::

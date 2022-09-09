@@ -183,6 +183,10 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
    ```python
    from operator import add
+   from pyspark.sql import SparkSession 
+   spark = SparkSession.builder \ 
+         .appName('hdisample') \ 
+         .getOrCreate() 
    lines = spark.read.text("/HdiSamples/HdiSamples/FoodInspectionData/README").rdd.map(lambda r: r[0])
    counters = lines.flatMap(lambda x: x.split(' ')) \
                 .map(lambda x: (x, 1)) \

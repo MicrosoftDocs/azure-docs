@@ -27,7 +27,7 @@ Before you start, confirm the following:
 
     To verify your cluster is running the newer version of the agent, you can either:
 
-    * Run the command: `kubectl describe <omsagent-pod-name> --namespace=kube-system`. In the status returned, note the value under **Image** for omsagent in the *Containers* section of the output. 
+    * Run the command: `kubectl describe pod <omsagent-pod-name> --namespace=kube-system`. In the status returned, note the value under **Image** for omsagent in the *Containers* section of the output. 
     * On the **Nodes** tab, select the cluster node and on the **Properties** pane to the right, note the value under **Agent Image Tag**.
 
     The value shown for AKS should be version **ciprod05262020** or later. The value shown for Azure Arc-enabled Kubernetes cluster should be version **ciprod09252020** or later. If your cluster has an older version, see [How to upgrade the Container insights agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) for steps to get the latest version.

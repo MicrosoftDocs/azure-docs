@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 08/12/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -59,6 +59,14 @@ This article provides suggestions to troubleshoot common problems with the Azure
 - **Message**: `Detected concurrent write to the same append blob file, it's possible because you have multiple concurrent copy activities runs or applications writing to the same file '%name;'. Please check your ADF configuration and retry.`
 
 - **Cause**: Multiple concurrent writing requests occur, which causes conflicts on file content.
+
+## Error code: AzureBlobFailedToCreateContainer
+
+- **Message**: `Unable to create Azure Blob container. Endpoint: '%endpoint;', Container Name: '%containerName;'.`
+
+- **Cause**: This error happens when copying data with Azure Blob Storage account public access.
+
+- **Recommendation**: For more information about connection errors in the public endpoint, see [Connection error in public endpoint](security-and-access-control-troubleshoot-guide.md#connection-error-in-public-endpoint).
 
 ## Next steps
 

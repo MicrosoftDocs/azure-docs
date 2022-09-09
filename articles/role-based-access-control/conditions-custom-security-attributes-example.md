@@ -3,6 +3,7 @@ title: Scale the management of Azure role assignments by using conditions and cu
 description: Scale the management of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Azure AD custom security attributes for principals.
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
@@ -112,7 +113,7 @@ If you have a similar scenario, follow these steps to see if you could potential
 
 To use this solution, you must have:
 
-- Multiple built-in or custom role assignments that have [storage blob data actions](../storage/common/storage-auth-abac-attributes.md). These include the following built-in roles:
+- Multiple built-in or custom role assignments that have [storage blob data actions](../storage/blobs/storage-auth-abac-attributes.md). These include the following built-in roles:
 
     - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
     - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
