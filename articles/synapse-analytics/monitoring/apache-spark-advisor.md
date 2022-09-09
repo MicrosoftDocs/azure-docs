@@ -13,7 +13,7 @@ ms.date: 06/23/2022
 
 # Troubleshoot Spark application issues with Spark Advisor
 
-Spark Advisor is a system that automatically analyzes your code and query commands and advises you about them. By following this advice, you can improve your execution performance, fix execution failures, and decrease costs. This article helps you solve common problems with Spark Advisor.
+Spark Advisor is a system that automatically analyzes your code, queries, and commands, and advises you about them. By following this advice, you can improve your execution performance, fix execution failures, and decrease costs. This article helps you solve common problems with Spark Advisor.
 
 ## Advice on query hints
 
