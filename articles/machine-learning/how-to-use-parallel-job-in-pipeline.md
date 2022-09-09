@@ -65,22 +65,22 @@ You can declare your major input data with `input_data` attribute in parallel jo
 
 ``` python
 
-    file_batch_inference = parallel_run_function(
-        name="file_batch_score",
-        inputs=dict(
-            <mark><b>job_data_path</b>=Input(</mark>
-                <mark>type=AssetTypes.MLTABLE,</mark>
-                <mark>description="The data to be split and scored in parallel",</mark>
-            <mark>)</mark>
-        ),
-        outputs=dict(job_output_path=Output(type=AssetTypes.MLTABLE)),
-        <mark>input_data="${{inputs.<b>job_data_path</b>}}",</mark>
-        task=RunFunction(
-            code="./src",
-            entry_script="file_batch_inference.py",
-            program_arguments="--job_output_path ${{outputs.job_output_path}}",
-            environment="azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:1",
-        ),
+file_batch_inference = parallel_run_function(
+    name="file_batch_score",
+    inputs=dict(
+        <mark><b>job_data_path</b>=Input(</mark>
+            <mark>type=AssetTypes.MLTABLE,</mark>
+            <mark>description="The data to be split and scored in parallel",</mark>
+        <mark>)</mark>
+    ),
+    outputs=dict(job_output_path=Output(type=AssetTypes.MLTABLE)),
+    <mark>input_data="${{inputs.<b>job_data_path</b>}}",</mark>
+    task=RunFunction(
+        code="./src",
+        entry_script="file_batch_inference.py",
+        program_arguments="--job_output_path ${{outputs.job_output_path}}",
+        environment="azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:1",
+    ),
 )
 ```
 
@@ -103,30 +103,30 @@ Sample code to set two attributes:
 
 ```azurecli
 
-    batch_prediction:
-        type: parallel
-        compute: azureml:cpu-cluster
-        inputs:
-        input_data: 
-            type: mltable
-            path: ./neural-iris-mltable
-            mode: direct
-        score_model: 
-            type: uri_folder
-            path: ./iris-model
-            mode: download
-        outputs:
-        job_output_file:
-            type: uri_file
-            mode: rw_mount
+batch_prediction:
+    type: parallel
+    compute: azureml:cpu-cluster
+    inputs:
+    input_data: 
+        type: mltable
+        path: ./neural-iris-mltable
+        mode: direct
+    score_model: 
+        type: uri_folder
+        path: ./iris-model
+        mode: download
+    outputs:
+    job_output_file:
+        type: uri_file
+        mode: rw_mount
 
-        mini_batch_size: "500kb"
-        mini_batch_error_threshold: 5
-        logging_level: "DEBUG"
-        input_data: ${{inputs.input_data}}
-        <mark>max_concurrency_per_instance: 3</mark>
-        <mark>resources:</mark>
-            <mark>instance_count: 2</mark>
+    mini_batch_size: "500kb"
+    mini_batch_error_threshold: 5
+    logging_level: "DEBUG"
+    input_data: ${{inputs.input_data}}
+    <mark>max_concurrency_per_instance: 3</mark>
+    <mark>resources:</mark>
+        <mark>instance_count: 2</mark>
 ```
 
 
@@ -134,24 +134,24 @@ Sample code to set two attributes:
 
 ```python
 
-    file_batch_inference = parallel_run_function(
-        name="file_batch_score",
-        inputs=dict(
-            job_data_path=Input(
-                type=AssetTypes.MLTABLE,
-                description="The data to be split and scored in parallel",
-            )
-        ),
-        outputs=dict(job_output_path=Output(type=AssetTypes.MLTABLE)),
-        input_data="${{inputs.<b>job_data_path</b>}}",
-        <mark>instance_count=2,</mark>
-        <mark>max_concurrency_per_instance=3,</mark>
-        task=RunFunction(
-            code="./src",
-            entry_script="file_batch_inference.py",
-            program_arguments="--job_output_path ${{outputs.job_output_path}}",
-            environment="azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:1",
-        ),
+file_batch_inference = parallel_run_function(
+    name="file_batch_score",
+    inputs=dict(
+        job_data_path=Input(
+            type=AssetTypes.MLTABLE,
+            description="The data to be split and scored in parallel",
+        )
+    ),
+    outputs=dict(job_output_path=Output(type=AssetTypes.MLTABLE)),
+    input_data="${{inputs.<b>job_data_path</b>}}",
+    <mark>instance_count=2,</mark>
+    <mark>max_concurrency_per_instance=3,</mark>
+    task=RunFunction(
+        code="./src",
+        entry_script="file_batch_inference.py",
+        program_arguments="--job_output_path ${{outputs.job_output_path}}",
+        environment="azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:1",
+    ),
 )
 ```
 ---
@@ -186,29 +186,31 @@ Sample code to set two attributes:
 # [Python](#tab/python)
 
 ```python
-    file_batch_inference = parallel_run_function(
-        name="file_batch_score",
-        display_name="Batch Score with File Dataset",
-        description="parallel component for batch score",
-        inputs=dict(
-            job_data_path=Input(
-                type=AssetTypes.MLTABLE,
-                description="The data to be split and scored in parallel",
-            )
-        ),
-        outputs=dict(job_output_path=Output(type=AssetTypes.MLTABLE)),
-        input_data="${{inputs.job_data_path}}",
-        instance_count=2,
-        mini_batch_size="1",
-        mini_batch_error_threshold=1,
-        max_concurrency_per_instance=1,
-        task=RunFunction(
-            <mark>code="./src",</mark>
-            <mark>entry_script="file_batch_inference.py",</mark>
-            program_arguments="--job_output_path ${{outputs.job_output_path}}",
-            environment="azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:1",
-        ),
+    
+file_batch_inference = parallel_run_function(
+    name="file_batch_score",
+    display_name="Batch Score with File Dataset",
+    description="parallel component for batch score",
+    inputs=dict(
+        job_data_path=Input(
+            type=AssetTypes.MLTABLE,
+            description="The data to be split and scored in parallel",
+        )
+    ),
+    outputs=dict(job_output_path=Output(type=AssetTypes.MLTABLE)),
+    input_data="${{inputs.job_data_path}}",
+    instance_count=2,
+    mini_batch_size="1",
+    mini_batch_error_threshold=1,
+    max_concurrency_per_instance=1,
+    task=RunFunction(
+        <mark>code="./src",</mark>
+        <mark>entry_script="file_batch_inference.py",</mark>
+        program_arguments="--job_output_path ${{outputs.job_output_path}}",
+        environment="azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:1",
+    ),
 )
+    
 ```
 
 ---
@@ -244,53 +246,53 @@ Sample code to update these settings:
 
 ```azurecli
 
-    batch_prediction:
-        type: parallel
-        compute: azureml:cpu-cluster
-        inputs:
-        input_data: 
-            type: mltable
-            path: ./neural-iris-mltable
-            mode: direct
-        score_model: 
-            type: uri_folder
-            path: ./iris-model
-            mode: download
-        outputs:
-        job_output_file:
-            type: uri_file
-            mode: rw_mount
+batch_prediction:
+    type: parallel
+    compute: azureml:cpu-cluster
+    inputs:
+    input_data: 
+        type: mltable
+        path: ./neural-iris-mltable
+        mode: direct
+    score_model: 
+        type: uri_folder
+        path: ./iris-model
+        mode: download
+    outputs:
+    job_output_file:
+        type: uri_file
+        mode: rw_mount
 
-        mini_batch_size: "500kb"
-        <mark>mini_batch_error_threshold: 5</mark>
-        <mark>logging_level: "DEBUG"</mark>
-        input_data: ${{inputs.input_data}}
-        max_concurrency_per_instance: 2
-        resources:
-            instance_count: 1
-        retry_settings:
-            <mark>max_retries: 2</mark>
-            <mark>timeout: 60</mark>
+    mini_batch_size: "500kb"
+    <mark>mini_batch_error_threshold: 5</mark>
+    <mark>logging_level: "DEBUG"</mark>
+    input_data: ${{inputs.input_data}}
+    max_concurrency_per_instance: 2
+    resources:
+        instance_count: 1
+    retry_settings:
+        <mark>max_retries: 2</mark>
+        <mark>timeout: 60</mark>
 
-        task:
-            type: run_function
-            code: "./script"
-            entry_script: iris_prediction.py
-            environment:
-                name: "prs-env"
-                version: 1
-                image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
-                conda_file: ./environment/environment_parallel.yml
-            program_arguments: >-
-                --model ${{inputs.score_model}}
-                <mark>--error_threshold 5</mark>
-                <mark>--allowed_failed_percent 30</mark>
-                <mark>--task_overhead_timeout 1200</mark>
-                <mark>--progress_update_timeout 600</mark>
-                <mark>--first_task_creation_timeout 600</mark>
-                <mark>--copy_logs_to_parent True</mark>
-                <mark>--resource_monitor_interva 20</mark>
-            <mark>append_row_to: ${{outputs.job_output_file}}</mark>
+    task:
+        type: run_function
+        code: "./script"
+        entry_script: iris_prediction.py
+        environment:
+            name: "prs-env"
+            version: 1
+            image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+            conda_file: ./environment/environment_parallel.yml
+        program_arguments: >-
+            --model ${{inputs.score_model}}
+            <mark>--error_threshold 5</mark>
+            <mark>--allowed_failed_percent 30</mark>
+            <mark>--task_overhead_timeout 1200</mark>
+            <mark>--progress_update_timeout 600</mark>
+            <mark>--first_task_creation_timeout 600</mark>
+            <mark>--copy_logs_to_parent True</mark>
+            <mark>--resource_monitor_interva 20</mark>
+        <mark>append_row_to: ${{outputs.job_output_file}}</mark>
 ```
 
 # [Python](#tab/python)
