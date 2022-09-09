@@ -60,9 +60,8 @@ To register your application and add the app's registration information to your 
    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** of the application you registered earlier. Find this ID on the app registration's **Overview** pane in the Azure portal.
    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com).  Find these values on the app registration's **Overview** pane in the Azure portal.
    - `Enter_the_Client_Secret_Here` - replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.
-
-    > [!WARNING]
-    > Any plaintext secret in source code poses an increased security risk. This article uses a plaintext client secret for simplicity only. Use [certificate credentials](../../active-directory-certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
+   
+   Using a plaintext secret in the source code poses an increased security risk for your application. Although the sample in this quickstart uses a plaintext client secret, it's only for simplicity. We recommend using[certificate credentials](../../active-directory-certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
 
 1. Edit *.env* and replace the Azure AD and Microsoft Graph endpoints with the following values:
  - For the Azure AD endpoint, replace `Enter_the_Cloud_Instance_Id_Here` with `https://login.microsoftonline.com`.
@@ -74,7 +73,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Global tenant administrator
 
-If you are a global tenant administrator, go to **API Permissions** page in the Azure portal's Application Registration and select **Grant admin consent for {Tenant Name}** (where {Tenant Name} is the name of your directory).
+If you're a global tenant administrator, go to **API Permissions** page in the Azure portal's Application Registration and select **Grant admin consent for {Tenant Name}** (where {Tenant Name} is the name of your directory).
 
 ##### Standard user
 
@@ -90,7 +89,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 #### Step 5: Run the application
 
-Locate the sample's root folder (where `package.json` resides) in a command prompt or console. You'll need to install the dependencies of this sample once:
+Locate the sample's root folder (where `package.json` resides) in a command prompt or console. You'll need to install the dependencies your sample app requires before running it for the first time:
 
 ```console
 npm install
