@@ -302,10 +302,10 @@ limits:
 # Trigger Automode
 image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2, timeout_minutes=60)
 ```
+---
 
 Automode is currently not supported in the UI.
 
----
 
 ## Individual runs
 
