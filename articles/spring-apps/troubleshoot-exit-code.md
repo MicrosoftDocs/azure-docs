@@ -17,6 +17,8 @@ ms.author: kunsun
 
 This article describes troubleshooting actions you can take when your application in Azure Spring Apps exits with an error code. You may receive an error code if your application deployment is unsuccessful, or if the application exits when it's running.
 
+## Exit codes
+
 The exit code indicates the reason the application terminated. The following list describes some common exit codes:
 
 - **0** - The application exited because it ran to completion. Update your server application so that it runs continuously.
