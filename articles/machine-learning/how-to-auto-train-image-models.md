@@ -296,6 +296,8 @@ limits:
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 ```python
 # Trigger Automode
 image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2, timeout_minutes=60)
