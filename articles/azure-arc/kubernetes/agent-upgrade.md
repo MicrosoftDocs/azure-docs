@@ -47,7 +47,7 @@ az connectedk8s update --name AzureArcTest1 --resource-group AzureArcTest --auto
 
 ## Check if automatic upgrade is enabled on a cluster
 
-Confirming the automatic upgrade configuration is not available in the public API for Azure Arc-enabled Kubernetes. To check whether a cluster is enabled for automatic upgrade, use the following kubectl command:
+To check whether a cluster is enabled for automatic upgrade, run the following kubectl command. Note that the automatic upgrade configuration is not available in the public API for Azure Arc-enabled Kubernetes.
 
 ```console
 kubectl -n azure-arc get cm azure-clusterconfig -o jsonpath="{.data['AZURE_ARC_AUTOUPDATE']}"
