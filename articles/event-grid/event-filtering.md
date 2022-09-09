@@ -22,7 +22,8 @@ The examples shown in this article are JSON snippets for defining filters in Azu
 
 In the following example, the event subscription filters for `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted` events. 
 
-```json{
+```json
+{
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
