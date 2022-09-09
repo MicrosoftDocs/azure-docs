@@ -43,7 +43,7 @@ Login-AzAccount
 
 ## Create an IoT hub
 
-Create an IoT hub, using your resource group,. Use the [New-AzIotHub](/powershell/module/az.IotHub/New-azIotHub) command. This example creates an **S1** hub called **MyTestIoTHub** in the **East US** region:
+Create an IoT hub using your resource group. Use the [New-AzIotHub](/powershell/module/az.IotHub/New-azIotHub) command. This example creates an **S1** hub called **MyTestIoTHub** in the **East US** region:
 
 ```azurepowershell-interactive
 New-AzIotHub `
