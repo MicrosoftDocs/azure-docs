@@ -15,8 +15,8 @@ ms.date: 07/13/2022
 
 # Set up AutoML to train computer vision models
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
 > * [v1](v1/how-to-auto-train-image-models-v1.md)
 > * [v2 (current version)](how-to-auto-train-image-models.md)
 
@@ -30,6 +30,8 @@ Automated ML supports model training for computer vision tasks like image classi
 ## Prerequisites
 
 # [Azure CLI](#tab/cli)
+ [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the `ml` extension.
@@ -555,10 +557,10 @@ Once the run completes, you can register the model that was created from the bes
 
 ### Get the best run
 
-
 # [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 ```yaml
       
 ```
