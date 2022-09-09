@@ -15,7 +15,7 @@ ms.date: 06/23/2022
 
 Spark Advisor is a system that automatically analyzes your code and query commands and advises you about them. By following this advice, you can improve your execution performance, fix execution failures, and decrease costs. This article helps you solve common problems with Spark Advisor.
 
-## Issues related to hints
+## Advice on query hints
 
 ### The selected query contains a hint that the system doesn't recognize
 Verify that the hint is spelled correctly.
