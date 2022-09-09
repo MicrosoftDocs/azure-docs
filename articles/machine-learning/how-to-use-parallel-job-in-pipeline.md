@@ -153,6 +153,7 @@ Sample code to set two attributes:
         ),
 )
 ```
+---
 
 > [!NOTE]
 > If you use tabular mltable as your major input data, you need have mltable specification file with `transformations - read_delimited` section filled under your specific path. See more example from this document: [Create data assets - create a mltable data](how-to-create-register-data-assets.md#create-a-mltable-data-asset)
@@ -215,7 +216,7 @@ Sample code to set two attributes:
 > Run(mini_batch) function requires a return of either a dataframe, list, or tuple item. Parallel job will use the count of that return to measure the success items under that mini-batch. Ideally mini-batch count should be equal to the return list count if all items have well processed in this mini-batch.
 
 > [!IMPORTANT]
-> If you want to parse arguments in Init() or Run(mini_batch) function, use "parse_known_args" instead of "parse_args" for avoiding exceptions. See this example for entry script with argument parser: [iris_score](#https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/parallel-run/Code/iris_score.py)
+> If you want to parse arguments in Init() or Run(mini_batch) function, use "parse_known_args" instead of "parse_args" for avoiding exceptions. See this example for entry script with argument parser: [iris_score](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/parallel-run/Code/iris_score.py)
 
 ### Consider automation settings
 
@@ -328,6 +329,8 @@ Sample code to update these settings:
         ),
 ```
 
+---
+
 ## Create parallel job in pipeline
 
 # [Azure CLI](#tab/cliv2)
@@ -368,7 +371,7 @@ az ml job create --file pipeline.yml
 
 You can submit your pipeline job with parallel step by using `jobs.create_or_update` function of ml_client:
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=submit-pipeline-job)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb?name=submit-pipeline)]
 
 ---
 
