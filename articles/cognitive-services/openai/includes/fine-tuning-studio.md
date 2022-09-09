@@ -29,9 +29,12 @@ keywords:
 The fine-tuning workflow requires the following steps:
 
 1. Prepare your training and validation data
-1. Choose a base model
-1. Upload your training and validation data
-1. Train a new fine-tuned model
+1. Use the **Create customized model** wizard in Azure OpenAI Studio to train your fine-tuned model
+    1. Choose a base model
+    1. Choose your training data
+    1. Optionally choose your validation data
+    1. Optionally choose advanced options
+    1. Review your choices and train your new fine-tuned model
 1. Deploy your fine-tuned model
 1. Use your fine-tuned model
 
@@ -80,7 +83,7 @@ This tool accepts different data formats, with the only requirement that they co
 
 Navigate to the Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a>and sign in with credentials that have access to your Azure OpenAI resource. During the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-## Landing page
+### Landing page
 
 You'll first land on our main page for the Azure OpenAI Studio. From here, you can start fine-tuning a custom model.
 
@@ -90,11 +93,11 @@ If you have a deployment for your resource, select the **Start fine-tuning a cus
 
 :::image type="content" source="../media/fine-tuning/studio-portal.png" alt-text="Screenshot of the landing page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/fine-tuning/studio-portal.png":::
 
-## Models page
+## Start the wizard from the Models page
 
-To create a customized model, select the **Create customized model** button under the **Provided models** section on the Models page, highlighted in the following picture, to start the **Create customized model** wizard.
+To create a customized model, select the **Create customized model** button under the **Provided models** section on the **Models** page, highlighted in the following picture, to start the **Create customized model** wizard.
 
-:::image type="content" source="../media/fine-tuning/studio-models.png" alt-text="Screenshot of the Models page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/fine-tuning/studio-models.png":::
+:::image type="content" source="../media/fine-tuning/studio-models.png" alt-text="Screenshot of the Models page from the Azure OpenAI Studio, with sections highlighted." lightbox="../media/fine-tuning/studio-models.png":::
 
 ## Select a base model
 
@@ -113,151 +116,89 @@ For more information about our base models, see [Models](../concepts/models.md).
 
 The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. The **Training data** pane, shown in the following picture, displays any existing, previously-uploaded datasets and provides options by which you can upload new training data. 
 
-:::image type="content" source="../media/fine-tuning/studio-training-data.png" alt-text="Screenshot of the **Training data** pane of the **Create customized model** wizard." lightbox="../media/fine-tuning/studio-training-data.png":::
+:::image type="content" source="../media/fine-tuning/studio-training-data.png" alt-text="Screenshot of the Training data pane for the Create customized model wizard." lightbox="../media/fine-tuning/studio-training-data.png":::
 
-We offer two ways to upload training data:
-
-1. [From a local file](#to-upload-training-data-from-a-local-file)
-1. [Import from an Azure Blob store or other web location](#to-import-training-data-from-an-azure-blob-store)
+If your training data has already been uploaded to the service, select **Choose dataset**, and then select the file from the list shown in the **Training data** pane. Otherwise, select either **Local file** to [upload training data from a local file](#to-upload-training-data-from-a-local-file), or **Azure blob or other shared web locations** to [import training data from Azure Blob or another shared web location](#to-import-training-data-from-an-azure-blob-store).
 
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
+> [!NOTE]
+> Training data files must be formatted as JSON Lines (.jsonl) files, encoded as UTF-8 with a byte-order mark (BOM), and less than 200MB in size.
+
 ### To upload training data from a local file
 
-:::image type="content" source="../media/fine-tuning/studio-base-model.png" alt-text="Screenshot of the Base model pane of the Create customized model dialog." lightbox="../media/fine-tuning/studio-base-model.png":::
+You can upload a new training dataset to the service from a local file by using one of the following methods:
+- Drag and drop the file into the client area of the **Training data** pane, and then select **Upload file**
+- Select **Browse for a file** from the client area of the **Training data** pane, choose the file to upload from the **Open** dialog, and then select **Upload file**.
+
+After you've selected and uploaded the training dataset, select **Next** to optionally [choose your validation data](#choose-your-validation-data).
+
+:::image type="content" source="../media/fine-tuning/studio-training-data-local.png" alt-text="Screenshot of the Training data pane for the Create customized model wizard, with local file options." lightbox="../media/fine-tuning/studio-training-data-local.png":::
 
 ### To import training data from an Azure Blob store
 
+You can import a training dataset from Azure Blob or another shared web location by providing the name and location of the file, as shown in the following picture. Enter the name of the file in **File name** and the Azure Blob URL, Azure Storage shared access signature (SAS), or other link to an accessible shared web location, which contains that file in **File location**, then select **Upload file** to import the training dataset to the service. 
 
-After your training data is uploaded, select the training
-The following Python example creates a sample training dataset file, then uploads the file and prints the returned ID. Make sure to save the IDs returned by the example, because you'll need them for the fine-tuning training job creation.
+After you've selected and uploaded the training dataset, select **Next** to optionally [choose your validation data](#choose-your-validation-data).
 
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
+:::image type="content" source="../media/fine-tuning/studio-training-data-blob.png" alt-text="Screenshot of the Training data pane for the Create customized model wizard, with Azure Blob and shared web location options." lightbox="../media/fine-tuning/studio-training-data-blob.png":::
 
-```python
-import openai
-from openai import cli
-import time
-import shutil
-import json
+## Choose your validation data
 
+You can now choose to optionally use validation data in the training process of your fine-tuned model. If you don't want to use validation data, you can choose **Next** to choose advanced options for yourmodel. Otherwise, if you have a validation dataset, you can either choose existing prepared validation data or upload new prepared validation data to use when customizing your model. The **Validation data** pane, shown in the following picture, displays any existing, previously-uploaded training and validation datasets and provides options by which you can upload new validation data. 
 
-openai.api_key = "COPY_YOUR_OPENAI_KEY_HERE"
-openai.api_base =  "COPY_YOUR_OPENAI_ENDPOINT_HERE" # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
-openai.api_type = 'azure'
-openai.api_version = '2022-06-01-preview' # this may change in the future
+:::image type="content" source="../media/fine-tuning/studio-validation-data.png" alt-text="Screenshot of the Validation data pane for the Create customized model wizard." lightbox="../media/fine-tuning/studio-validation-data.png":::
 
+If your validation data has already been uploaded to the service, select **Choose dataset**, and then select the file from the list shown in the **Validation data** pane. Otherwise, select either **Local file** to [upload validation data from a local file](#to-upload-validation-data-from-a-local-file), or **Azure blob or other shared web locations** to [import validation data from Azure Blob or another shared web location](#to-import-validation-data-from-an-azure-blob-store).
 
-training_file_name = 'training.jsonl'
-validation_file_name = 'validation.jsonl'
+### To upload validation data from a local file
 
-sample_data = [{"prompt": "When I go to the store, I want an", "completion": "apple"},
-    {"prompt": "When I go to work, I want a", "completion": "coffee"},
-    {"prompt": "When I go home, I want a", "completion": "soda"}]
+You can upload a new validation dataset to the service from a local file by using one of the following methods:
+- Drag and drop the file into the client area of the **Validation data** pane, and then select **Upload file**
+- Select **Browse for a file** from the client area of the **Validation data** pane, choose the file to upload from the **Open** dialog, and then select **Upload file**.
 
-print(f'Generating the training file: {training_file_name}')
-with open(training_file_name, 'w') as training_file:
-    for entry in sample_data:
-        json.dump(entry, training_file)
-        training_file.write('\n')
+After you've uploaded the validation dataset, select **Next** to optionally [choose advanced options](#choose-advanced-options).
 
-print(f'Copying the training file to the validation file')
-shutil.copy(training_file_name, validation_file_name)
+:::image type="content" source="../media/fine-tuning/studio-validation-data-local.png" alt-text="Screenshot of the Validation data pane for the Create customized model wizard, with local file options." lightbox="../media/fine-tuning/studio-validation-data-local.png":::
 
-def check_status(training_id, validation_id):
-    train_status = openai.File.retrieve(training_id)["status"]
-    valid_status = openai.File.retrieve(validation_id)["status"]
-    print(f'Status (training_file | validation_file): {train_status} | {valid_status}')
-    return (train_status, valid_status)
+### To import validation data from an Azure Blob store
 
-#importing our two files
-training_id = cli.FineTune._get_or_upload(training_file_name, True)
-validation_id = cli.FineTune._get_or_upload(validation_file_name, True)
+You can import a validation dataset from Azure Blob or another shared web location by providing the name and location of the file, as shown in the following picture. Enter the name of the file in **File name** and the Azure Blob URL, Azure Storage shared access signature (SAS), or other link to an accessible shared web location which contains that file in **File location**, then select **Upload file** to import the validation dataset to the service. 
 
-#checking the status of the imports
-(train_status, valid_status) = check_status(training_id, validation_id)
+After you've imported the validation dataset, select **Next** to optionally [choose advanced options](#choose-advanced-options).
 
-while train_status not in ["succeeded", "failed"] or valid_status not in ["succeeded", "failed"]:
-    time.sleep(1)
-    (train_status, valid_status) = check_status(training_id, validation_id)
-```
+:::image type="content" source="../media/fine-tuning/studio-validation-data-blob.png" alt-text="Screenshot of the Validation data pane for the Create customized model wizard, with Azure Blob and shared web location options." lightbox="../media/fine-tuning/studio-validation-data-blob.png":::
 
-## Create a customized model
+## Choose advanced options
 
-After you've uploaded the training and (optional) validation file, you wish to use for your training job you're ready to start the process. You can use the [Models API](../reference.md#models) to identify which models are fine-tunable.
+You can either use default values for the parameters of the fine-tune job that the wizard runs to train your fine-tuned model, or you can adjust those parameters for your customization needs in the **Advanced options** pane, shown in the following picture.
 
-Once you have the model, you want to fine-tune you need to create a job. The following Python code shows an example of how to create a new job:
+:::image type="content" source="../media/fine-tuning/studio-advanced-options-default.png" alt-text="Screenshot of the Advanced options pane for the Create customized model wizard, with default options selected." lightbox="../media/fine-tuning/studio-advanced-options-default.png":::
 
-```python
-create_args = {
-    "training_file": training_id,
-    "validation_file": validation_id,
-    "model": "curie",
-    "hyperparams": {
-    "n_epochs": 1
-    },
-    "compute_classification_metrics": True,
-    "classification_n_classes": 3
-}
-resp = openai.FineTune.create(**create_args)
-job_id = resp["id"]
-status = resp["status"]
+Either select **Default** to use the default values for the fine-tune job, or select **Advanced** to display and edit the parameter values, as shownn in the following picture. For more information about the various parameters, see the [Create a Fine tune job](../reference.md#create-a-fine-tune-job) section of the [REST API](../reference.md) documentation.
 
-print(f'Fine-tunning model with jobID: {job_id}.')
-```
+:::image type="content" source="../media/fine-tuning/studio-advanced-options-advanced.png" alt-text="Screenshot of the Advanced options pane for the Create customized model wizard, with advanced options selected." lightbox="../media/fine-tuning/studio-advanced-options-advanced.png":::
 
-After you've started a fine-tune job, it may take some time to complete. Your job may be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size. You can check the status of your job by retrieving information about your Job using the ID returned from the prior call:
+After you've chosen use either default or advanced options, select **Next** to [review your choices and train your fine-tuned model](#review-your-choices-and-train-your-fine-tuned-model).
 
-```python
-    status = openai.FineTune.retrieve(id=job_id)["status"]
-    if status not in ["succeeded", "failed"]:
-        print(f'Job not in terminal status: {status}. Waiting.')
-        while status not in ["succeeded", "failed"]:
-            time.sleep(2)
-            status = openai.FineTune.retrieve(id=job_id)["status"]
-            print(f'Status: {status}')
-    else:
-        print(f'Finetune job {job_id} finished with status: {status}')
+## Review your choices and train your model
 
-    print('Checking other finetune jobs in the subscription.')
-    result = openai.FineTune.list()
-    print(f'Found {len(result)} finetune jobs.')
-```
+The **Review and train** pane displays information about the choices you've made in the **Create customized model** wizard for your fine-tuned model, as shown in the following picture. 
+
+:::image type="content" source="../media/fine-tuning/studio-review-and-train.png" alt-text="Screenshot of the Review and train pane for the Create customized model wizard." lightbox="../media/fine-tuning/studio-review-and-train.png":::
+
+If you're ready to train your model, select **Save and close** to start the fine-tune job and return to the [**Models** page](#start-the-wizard-from-the-models-page). The **Models** page displays information about your customized model, as shown in the following picture, including the status and ID of the fine-tune job for that model. When the training job is completed, the ID of the results file is also displayed.
+
+:::image type="content" source="../media/fine-tuning/studio-models-job-running.png" alt-text="Screenshot of the Models page from the Azure OpenAI Studio, with a customized model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
+
+After you've started a fine-tune job, it may take some time to complete. Your job may be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size. You can check the status of the fine-tune job for your customized model in the **Status** column of the **Customized models** tab on the **Models** page, and you can select **Refresh** to update the information on that page. 
+You can also select the name of the model from the **Model name** column of the **Models** page to display more information about your customized model, including the status of the fine-tune job, and select the **Refresh** button on that page to refresh the information for your model.
 
 ## Deploy a customized model
 
+When the fine-tune job has succeeded, you can deploy the model from the **Models** pane. Select the customized model to be deployed, and then select **Deploy model** to deploy your fine-tuned model.
+
 When a job has succeeded, the **fine_tuned_model** field will be populated with the name of the model. Your model will also be available in the [list Models API](../reference.md#list-all-available-models). You must now deploy your model so that you can run completions calls. You can do this either using the Management APIs or using the deployment APIs. We'll show you both options below.
-
-### Deploy a model with the service APIs
-
-```python
-    #Fist let's get the model of the previous job:
-    result = openai.FineTune.retrieve(id=job_id)
-    if result["status"] == 'succeeded':
-        model = result["fine_tuned_model"]
-
-    # Now let's create the deployment
-    print(f'Creating a new deployment with model: {model}')
-    result = openai.Deployment.create(model=model, scale_settings={"scale_type":"standard", "capacity": None})
-    deployment_id = result["id"]
-```
-
-### Deploy a model with the Azure CLI
-
-Alternatively, the following code will deploy a new model using the Azure CLI, which allows you to set the name for the model. :
-
-```console
-az cognitiveservices account deployment create 
-    --subscription YOUR_AZURE_SUBSCRIPTION
-    -g YOUR_RESOURCE_GROUP
-    -n YOUR_RESOURCE_NAME 
-    --deployment-name YOUR_DEPLOYMENT_NAME
-    --model-name YOUR_FINE_TUNED_MODEL_ID 
-    --model-version "1" 
-    --model-format OpenAI 
-    --scale-settings-scale-type "Standard" 
-```
 
 ## Use a fine-tuned model
 
@@ -276,7 +217,7 @@ print(f'"{start_phrase} {text}"')
 
 ## Clean up your deployments, fine-tuned models and training files
 
-When you're done with your fine-tuned model, you can delete the deployment and fine-tuned model. You can also delete the training files you uploaded to the service. 
+When you're done with your fine-tuned model, you can delete the deployment and fine-tuned model. You can also delete the training and validation files you uploaded to the service. 
 
 ### Delete your model deployment
 
@@ -342,17 +283,6 @@ The **results.csv** file contains a row for each training step, where a step ref
 ### Validation
 
 It's a best practice to reserve some of your data for validation and testing. Both files can have the same format as your training file and all should be mutually exclusive. You can optionally include a validation file when creating your fine-tune job. If you do, the generated results file will include evaluations on how well the fine-tuned model performs against your validation data at periodic intervals during training.
-
-### Hyperparameters
-
-We've picked default hyperparameters that work well across a range of use cases. The only required parameters are the model and training file.
-
-That said, tweaking the hyperparameters used for fine-tuning can often lead to a model that produces higher quality output. In particular, you may want to configure the following:
-
-- **model**: The name of the base model to fine-tune. You can select one of "ada" or "curie". To learn more about these models, see the [Models documentation](../concepts/models.md). You can find out the exact models available for fine-tuning in your resource by calling the  [Models API](../reference.md#models).
-- **n_epochs**: The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
-- **batch_size**: The batch size is the number of training examples used to train a single forward and backward pass. In general, we've found that larger batch sizes tend to work better for larger datasets.
-- **learning_rate_multiplier**: The fine-tuning learning rate is the original learning rate used for pre-training multiplied by this multiplier. We recommend experimenting with values in the range 0.02 to 0.2 to see what produces the best results. Empirically, we've found that larger learning rates often perform better with larger batch sizes.
 
 ## Next Steps
 
