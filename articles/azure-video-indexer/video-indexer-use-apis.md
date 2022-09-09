@@ -14,7 +14,9 @@ When visiting the [Azure Video Indexer](https://www.videoindexer.ai/) website fo
 
 This article shows how the developers can take advantage of the [Azure Video Indexer API](https://api-portal.videoindexer.ai/).
 
-Before you start, see the [Recommendations](#recommendations) section (that follows).
+## Prerequisite
+
+Before you start, see the [Recommendations](#recommendations) section (that follows later in this article).
 
 ## Subscribe to the API
 
