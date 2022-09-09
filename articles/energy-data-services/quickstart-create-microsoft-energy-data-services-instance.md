@@ -45,19 +45,19 @@ Application ID | You'll need an application ID (often referred to as "App ID" or
 1. Add a client secret with the steps laid out in [this documentation](/articles/active-directory/develop/quickstart-register-app.md)
 
 > [!NOTE]
-> Note down your Application (client) ID and client secret for future use
+> Note down your **Application (client) ID** and **client secret** for future use
 
 ## Create a Microsoft Energy Data Services instance
 
 > [!IMPORTANT]
-> Please use the link below as it contains a *hidden flag* which is needed to be able to find the 'Microsoft Energy Data Services' in the Azure Marketplace.
+> *Microsoft Energy Data Services* is available on the Azure Marketplace only if you use the below Azure portal link.
 
-1. Log in to [Microsoft Azure Marketplace (Hidden items enabled)](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden)
+1. Log in to [Microsoft Azure Marketplace](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden)
 
 
 1. Select your account in the top-right corner and switch to the Azure AD tenant where you want to install Microsoft Energy Data Services instance.
 
-1. Go to Azure Marketplace within the portal and search for **Microsoft Energy Data Services** in the Marketplace.
+1. Go to Azure Marketplace within the portal and search for *Microsoft Energy Data Services* in the Marketplace.
 
     [![Screenshot of the search result on Azure Marketplace that shows Microsoft energy data services. Microsoft Energy data services shows as a card.](media/quickstart-create-microsoft-energy-data-services-instance/search-meds-on-azure-marketplace.png)](media/quickstart-create-microsoft-energy-data-services-instance/search-meds-on-azure-marketplace.png#lightbox)
 
