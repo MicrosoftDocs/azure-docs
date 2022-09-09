@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 09/09/2022
 
 ms.author: justinha
 author: vimrang
@@ -24,8 +24,6 @@ Android and iOS devices can use certificate-based authentication (CBA) to authen
 - Exchange ActiveSync (EAS) clients
 
 Azure AD certificate-based authentication (CBA) is supported for certificates on-device on native browsers as well as on Microsoft first-party applications on both iOS and Android devices. 
-
-Azure AD CBA eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.
 
 ## Prerequisites
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 09/09/2022
 
 
 ms.author: justinha
@@ -35,7 +35,7 @@ Let's cover each step:
 
 1. The user tries to access an application, such as [MyApps portal](https://myapps.microsoft.com/).
 1. If the user is not already signed in, the user is redirected to the Azure AD **User Sign-in** page at [https://login.microsoftonline.com/](https://login.microsoftonline.com/).
-1. The user enters their username into the Azure AD sign-in page, and then clicks **Next**.
+1. The user enters their username into the Azure AD sign-in page, and then clicks **Next**. Their username is used look them up in Azure AD.
    
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
@@ -70,8 +70,9 @@ Let's cover each step:
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png":::
 
-1. Azure AD verifies the certificate revocation list to make sure the certificate is not revoked and is valid. Azure AD identifies the user in the tenant by using the [username binding configured](how-to-certificate-based-authentication.md#step-3-configure-username-binding-policy) on the tenant by mapping the certificate field value to user attribute value.
-1. If a unique user is found and the user has a conditional access policy and needs multifactor authentication (MFA) and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-2-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD Multi-Factor Authentication.
+1. Azure AD verifies the certificate revocation list (CRL) to make sure the certificate is not revoked and is valid. As part of CRL validation, Azure AD will check the CRL of CAs in the entire PKI chain. There is a limit of 5 CAs within the PKI chain for which CRLs will be validated.  
+1. Azure AD authenticates the user in the tenant by using the [username binding configured on the tenant](how-to-certificate-based-authentication.md#step-3-configure-username-binding-policy) by mapping the certificate field value to user attribute value.
+1. If the user has a conditional access policy and needs multifactor authentication (MFA) and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-2-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD Multi-Factor Authentication.
 1. Azure AD completes the sign-in process by sending a primary refresh token back to indicate successful sign-in.
 1. If the user sign-in is successful, the user can access the application.
 
@@ -98,11 +99,13 @@ An administrator can override the default and create a custom mapping. Currently
 
 Use the highest priority (lowest number) binding.
 
-1. If the X.509 certificate field is on the presented certificate, try to look up the user by using the value in the specified field.
-   1. If a unique user is found, authenticate the user.
-   1. If a unique user is not found, authentication fails.
+1. Look up the user object by using the username or User Principal Name.
+1. If the X.509 certificate field is on the presented certificate, Azure AD will match the value in the certificate field to the user object attribute value.
+   1. If a match is found, user authentication is successful.
+   1. If a match is not found, authentication fails.
 1. If the X.509 certificate field is not on the presented certificate, move to the next priority binding.
-1. If the specified X.509 certificate field is found on the certificate, but Azure AD does not find a user object in the directory matching that value, the authentication fails. Azure AD does not attempt to use the next binding in the list in this case. Only if the X.509 certificate field is not on the certificate does it try the next binding, as mentioned in Step 2.
+1. Validate all the configured username bindings until one of them results in a match and user authentication is successful.
+1. If a match is not found on all the configured username bindings, user authentication fails.
 
 ## Understanding the certificate revocation process
 
@@ -133,7 +136,9 @@ As of now, we don't support Online Certificate Status Protocol (OCSP) because of
    - Azure AD will attempt to download a new CRL from the distribution point if the cached CRL document is expired. 
 
 >[!NOTE]
->Azure AD will only check the CRL of the issuing CA but not of the entire PKI trust chain up to the root CA. In case of a CA compromise, the administrator should remove the compromised trusted issuer from the Azure AD tenant configuration. 
+>Azure AD will check the CRL of the issuing CA and other CAs in the PKI trust chain up to the root CA. We have a limit of up to 5 CAs from the leaf client certificate for CRL validation in the PKI chain. The limitation is to make sure a bad actor will not bring down the service by uploading a PKI chain with a huge number of CAs with a bigger CRL size.
+If the tenant’s PKI chain has more than 5 CAs and in case of a CA compromise, the administrator should remove the compromised trusted issuer from the Azure AD tenant configuration.
+ 
 
 >[!IMPORTANT]
 >Due to the nature of CRL caching and publishing cycles, it is highly recommended in case of a certificate revocation to also revoke all sessions of the affected user in Azure AD.
@@ -170,7 +175,7 @@ For the first test scenario, configure the authentication policy where the Issue
 
    Let's look closer at some of the entries you can find in the **Sign-in logs**.
 
-   The first entry requests the X.509 certificate from the user. The status **Success** means that Azure AD validated that CBA is enabled in the tenant and a certificate is requested for authentication.
+   The first entry requests the X.509 certificate from the user. The status **Interrupted** means that Azure AD validated that CBA is enabled in the tenant and a certificate is requested for authentication.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/entry-one.png":::  
 
@@ -223,12 +228,6 @@ For the next test scenario, configure the authentication policy where the **poli
    | User certificate authentication level identifier | 1.2.3.4<br>This shows the value of the identifier policy OID from the certificate. |
 
 ## Known issues
-
-- The Sign-in log shows the User ID instead of the username in one of the log entries.
-
-  :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/known-issue.png" alt-text="Screenshot of username in the sign-in logs." :::
- 
-- The **Additional Details** tab shows **User certificate subject name** as the attribute name but it is actually "User certificate binding identifier". It is the value of the certificate field that username binding is configured to use.
 
 - There is a double prompt for iOS because iOS only supports pushing certificates to a device storage. When an organization pushes user certificates to an iOS device through Mobile Device Management (MDM) or when a user accesses first-party or native apps, there is no access to device storage. Only Safari can access device storage.
 
