@@ -2,7 +2,7 @@
 title: About SAP HANA database backup in Azure VMs
 description: In this article, learn about backing up SAP HANA databases that are running on Azure virtual machines.
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 10/12/2022
 ---
 
 # About SAP HANA database backup in Azure VMs
@@ -66,6 +66,24 @@ To restore a VM running SAP HANA, follow these steps:
 * After all the other configurations (such as IP, system name, and so on) are set, the VM is set to receive DB data from Azure Backup.
 * Now restore the DB into the VM from the [Azure SAP HANA DB backup](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) to the desired point-in-time.
 
+## Using Azure Backup to back up database instances (preview)
+
+As databases grow in size, the time taken to restore becomes a factor when dealing with streaming backups. Also, during back up, the time taken by the database to generate *backint streams* can grow in proportion to the churn, which can be factor as well.
+
+A database consistent snapshot based approach helps to solve both issues and provide you the benefit of instant backup and instant restore. In case of HANA, Azure Backup is now providing a HANA consistent snapshot based approach that is integrated with backint so that you can use Azure Backup as a single product for your entire HANA landscape, irrespective of size.
+
+### Pricing
+
+#### Managed disk snapshot
+
+The disk snapshots are managed disk snapshots. Azure Backup stores these in a Resource Group you specify. Managed disk snapshots use standard HDDs storage irrespective of the storage type of the disk and you're charged as per [Managed disk snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/). The first disk snapshot is a full snapshot and all subsequent ones are incremental that consist only of the changes since the last snapshot. 
+
+>[!Note]
+>There are no backup storage costs for snapshots since they are NOT transferred to Recovery Services vault.
+#### BackInt streams
+
+As per SAP recommendation, it's mandatory to have weekly fulls for all the databases within an Instance, which is protected by snapshot. So, you'll be charged for all protected databases within the Instance (Protected instance pricing + backup storage pricing) as per [Azure Backup pricing for SAP HANA databases](https://azure.microsoft.com/pricing/details/backup/).
+    
 ## Next steps
 
 * Learn how to [restore an SAP HANA database running on an Azure VM](./sap-hana-db-restore.md)
