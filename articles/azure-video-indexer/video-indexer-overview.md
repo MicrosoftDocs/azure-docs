@@ -116,6 +116,10 @@ The following list shows the supported browsers that you can use for the Azure V
 - Chrome for Android, version: 87
 - Firefox for Android, version: 83
 
+### Supported file formats
+
+See the [input container/file formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Azure Video Indexer.
+
 ### Start using Azure Video Indexer
 
 You can access Azure Video Indexer capabilities in three ways:
