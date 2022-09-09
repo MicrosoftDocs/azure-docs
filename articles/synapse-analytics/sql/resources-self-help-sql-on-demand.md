@@ -913,7 +913,7 @@ Other operations are not allowed in Lake databases.
 
 ### Dataverse real-time snapshot tables are not available in serverless SQL pool
 
-If you are exporting your [Dataverse table to Azure Data Lake storage](/power-apps/maker/data-platform/azure-synapse-link-data-lake.md#manage-table-data-to-the-data-lake) to Data Lake, and you don't see the snapshot data (with `_partitioned` suffix) in your Lake database, make sure that your workspace Managed Identity has read-access on the ADLS storage that contains exported data. The serverless SQL pool reads the schema of the exported data using Managed Identity access to create the table schema.
+If you are exporting your [Dataverse table to Azure Data Lake storage](/power-apps/maker/data-platform/azure-synapse-link-data-lake.md#manage-table-data-to-the-data-lake) to Data Lake, and you don't see the [snapshot data](/power-apps/maker/data-platform/azure-synapse-link-synapse.md#access-near-real-time-data-and-read-only-snapshot-data) (the tables with the `_partitioned` suffix) in your Lake database, make sure that your workspace Managed Identity has read-access on the ADLS storage that contains exported data. The serverless SQL pool reads the schema of the exported data using Managed Identity access to create the table schema.
 
 ### Delta tables in Lake databases are not available in serverless SQL pool
 
