@@ -68,7 +68,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 1. From Azure portal, validate if Microsoft Purview account Network is set to public access.
 1. From Power BI tenant Admin Portal, make sure Power BI tenant is configured to allow public network.
 1. In Azure Active Directory tenant, create a security group.
-1. From Azure Active Directory tenant, make sure [Microsoft Purview account MSI is member of the new security group](#authenticate-to-power-bi-tenant-managed-identity-only).
+1. From Azure Active Directory tenant, make sure [Microsoft Purview account MSI is member of the new security group](#authenticate-to-power-bi-tenant).
 1. On the Power BI Tenant Admin portal, validate if [Allow service principals to use read-only Power BI admin APIs](#associate-the-security-group-with-power-bi-tenant) is enabled for the new security group.
 
 # [Public access with Self-hosted IR](#tab/Scenario2)
@@ -103,7 +103,7 @@ Use any of the following deployment checklists during the setup or for troublesh
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled.
    4. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
 1. In Azure Active Directory tenant, create a security group.
-1. From Azure Active Directory tenant, make sure [Service Principal is member of the new security group](#authenticate-to-power-bi-tenant-managed-identity-only).
+1. From Azure Active Directory tenant, make sure [Service Principal is member of the new security group](#authenticate-to-power-bi-tenant).
 1. On the Power BI Tenant Admin portal, validate if [Allow service principals to use read-only Power BI admin APIs](#associate-the-security-group-with-power-bi-tenant) is enabled for the new security group.
 
 # [Private access](#tab/Scenario3)
@@ -139,7 +139,7 @@ Use any of the following deployment checklists during the setup or for troublesh
    3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled through private network.
 1. In Azure Active Directory tenant, create a security group.
-1. From Azure Active Directory tenant, make sure [Service Principal is member of the new security group](#authenticate-to-power-bi-tenant-managed-identity-only).
+1. From Azure Active Directory tenant, make sure [Service Principal is member of the new security group](#authenticate-to-power-bi-tenant).
 1. On the Power BI Tenant Admin portal, validate if [Allow service principals to use read-only Power BI admin APIs](#associate-the-security-group-with-power-bi-tenant) is enabled for the new security group.
 ---
 
@@ -189,10 +189,11 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
 4. Add relevant user to the security group:
 
-   1. If you are using **Managed Identity** as authentication method, add your Microsoft Purview managed identity to this security group. Select **Members**, then select **+ Add members**.
+   - If you are using **Managed Identity** as authentication method, add your Microsoft Purview managed identity to this security group. Select **Members**, then select **+ Add members**.
+
        :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Screenshot of how to add the catalog's managed instance to group.":::
 
-   2. If you are using **delegated authentication** or **service principal** as authentication method, add your **service princial** to this security group. Select **Members**, then select **+ Add members**.
+   - If you are using **delegated authentication** or **service principal** as authentication method, add your **service princial** to this security group. Select **Members**, then select **+ Add members**.
 
 5. Search for your Microsoft Purview managed identity or service principal and select it.
 
