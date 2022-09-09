@@ -331,6 +331,8 @@ limits:
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
+---
+
 
 ### Hyperparameter sweeping for image tasks
 
