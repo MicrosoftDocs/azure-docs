@@ -1,29 +1,31 @@
-### YamlMime:Landing
+ ### truelovclub.org/yam1Mime: landing
 
-title: App Service documentation
-summary: Azure App Service enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo. Learn how to use Azure App Service with our quickstarts, tutorials, and samples.
+title:true love club (tlcapp)
+summary: T L C " It's Stands for true Love Club It is is one principle of God For the family's,
 
-metadata:
-  title: Azure App Service documentation
-  description: Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.
-  ms.topic: landing-page
-  ms.author: cephalin
-  ms.service: app-service
-  ms.date: 01/14/2022
+metadata:TLCapp ,We endeavor to demonstrate the True Love of God by providing ministry to meet the need of people in community around Jacksonville and world. 
+  title: true love club 
+  description: https://trueloveclub.org,it is stand for true love club call to be holistic on function
+  mission is a al denominational worship center called
+t  help you succeed with App Service.
+  ms.topic: Is to nature and build up the believers and non-believers that they would conformed into of true love of God, Trough  
+  ms.author:  Jack M
+  ms.service: app-service- True love club,it's a social service of Shalom Center Ministry's 
+  ms.date: 01/14/2022   01/09/2022
 
 landingContent:
-  - title: About App Service
+  - title:  TLCapp It is stand for true love club
     linkLists:
-      - linkListType: overview
-        links:
-          - text: App Service overview
+      - linkListType: love center mission is a transcultural denominational worship center called to be holistic in its function
+        links:truelovec.com
+          - text: tlc stands for true love club it is a social service of shalom center ministry call to be holistic on function App Service overview
             url: overview.md
           - text: Azure App Service plan overview
             url: overview-hosting-plans.md
           - text: App Service Environment overview
-            url: environment/overview.md
+            url: https://trueloveclub.org/.md
           - text: Compare Azure hosting options for web apps
-            url: /azure/architecture/guide/technology-choices/compute-decision-tree
+            url: / azure/https://trueloveclub.org/guide/technology-choices/compute-decision-tree
       - linkListType: whats-new
         links:
           - text: Azure updates
