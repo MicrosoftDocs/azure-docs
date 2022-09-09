@@ -44,7 +44,7 @@ You need to grant Azure Spring Apps access to your key vault before you import y
 
    :::image type="content" source="media/use-tls-certificates/grant-key-vault-permission.png" alt-text="Screenshot of Azure portal 'Create an access policy' page with Permission pane showing and Get and List permissions highlighted." lightbox="media/use-tls-certificates/grant-key-vault-permission.png":::
 
-1. Under **Principal**, select your **Azure Spring Apps Resource Provider**.
+1. Under **Principal**, select your **Azure Spring Cloud Resource Provider**.
 
    :::image type="content" source="media/use-tls-certificates/select-service-principal.png" alt-text="Screenshot of Azure portal 'Create an access policy' page with Principal pane showing and Azure Spring Apps Resource Provider highlighted." lightbox="media/use-tls-certificates/select-service-principal.png":::
 

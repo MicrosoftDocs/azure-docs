@@ -30,7 +30,7 @@ Find these options in the **Azure portal** > **Azure Active Directory**, **Diagn
 
 ## Use the audit log
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Audit logs**.
 1. Select the **Date** range you want to query in.
 1. Select **Activity** and choose one of the following

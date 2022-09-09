@@ -115,6 +115,6 @@ Alternatively, if you want to delete both the role assignment and the condition,
 
 ## Next steps
 
-- [Example Azure role assignment conditions](../storage/common/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI](../storage/common/storage-auth-abac-cli.md)
+- [Example Azure role assignment conditions](../storage/blobs/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI](../storage/blobs/storage-auth-abac-cli.md)
 - [Troubleshoot Azure role assignment conditions](conditions-troubleshoot.md)

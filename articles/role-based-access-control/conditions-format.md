@@ -238,7 +238,7 @@ Currently, conditions can be added to built-in or custom role assignments that h
 - [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
 - [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
 
-For a list of the blob storage actions you can use in conditions, see [Actions and attributes for Azure role assignment conditions in Azure Storage](../storage/common/storage-auth-abac-attributes.md).
+For a list of the blob storage actions you can use in conditions, see [Actions and attributes for Azure role assignment conditions in Azure Storage](../storage/blobs/storage-auth-abac-attributes.md).
 
 ## Attributes
 
@@ -255,7 +255,7 @@ Depending on the selected actions, the attribute might be found in different pla
 
 For a list of the blob storage or queue storage attributes you can use in conditions, see:
 
-- [Actions and attributes for Azure role assignment conditions in Azure Storage](../storage/common/storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions in Azure Storage](../storage/blobs/storage-auth-abac-attributes.md)
 
 #### Principal attributes
 
@@ -305,7 +305,7 @@ This section lists the function operators that are available to construct condit
 > | **Operator** | `Exists` |
 > | **Description** | Checks if the specified attribute exists. |
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
-> | **Attributes support** | [Encryption scope name](../storage/common/storage-auth-abac-attributes.md#encryption-scope-name)<br/>[Snapshot](../storage/common/storage-auth-abac-attributes.md#snapshot)<br/>[Version ID](../storage/common/storage-auth-abac-attributes.md#version-id) |
+> | **Attributes support** | [Encryption scope name](../storage/blobs/storage-auth-abac-attributes.md#encryption-scope-name)<br/>[Snapshot](../storage/blobs/storage-auth-abac-attributes.md#snapshot)<br/>[Version ID](../storage/blobs/storage-auth-abac-attributes.md#version-id) |
 
 ## Logical operators
 
@@ -492,6 +492,6 @@ a AND (b OR c)
 
 ## Next steps
 
-- [Example Azure role assignment conditions](../storage/common/storage-auth-abac-examples.md)
-- [Actions and attributes for Azure role assignment conditions in Azure Storage](../storage/common/storage-auth-abac-attributes.md)
+- [Example Azure role assignment conditions](../storage/blobs/storage-auth-abac-examples.md)
+- [Actions and attributes for Azure role assignment conditions in Azure Storage](../storage/blobs/storage-auth-abac-attributes.md)
 - [Add or edit Azure role assignment conditions using the Azure portal](conditions-role-assignments-portal.md)

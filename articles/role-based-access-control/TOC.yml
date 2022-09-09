@@ -44,7 +44,7 @@
     - name: Condition format
       href: conditions-format.md
     - name: Example conditions
-      href: ../storage/common/storage-auth-abac-examples.md?toc=%2fazure%2frole-based-access-control%2ftoc.json
+      href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
     - name: Conditions prerequisites
       href: conditions-prerequisites.md
     - name: Conditions FAQ
