@@ -188,7 +188,7 @@ If you use the Azure Cloud Shell, `kubectl` is already installed. You can also i
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. The following example gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*:
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command.
 
 ```azurecli-interactive
 az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
