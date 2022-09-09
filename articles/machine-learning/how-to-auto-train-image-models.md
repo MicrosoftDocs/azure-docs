@@ -268,9 +268,9 @@ image_object_detection_job = automl.image_object_detection(
 
 ## Configure experiments
 
-With support for computer vision tasks, you can launch individual runs or sweeps, either manual or automatic. We recommend starting with an automatic sweep to get a first baseline. Then, you can try out individual runs with certain models and hyperparameter configurations if you think they will work well. Finally, with manual sweeps you can explore multiple hyperparameter values for the more promising models or around promising models and hyperparameter configurations. This iterative approach reduces the hyperparameter search space, which grows exponentially in the number of hyperparameters.
+With support for computer vision tasks, you can launch individual runs or sweeps, either manual or automatic. We recommend starting with an automatic sweep to get a first baseline. Then, you can try out individual runs with certain models and hyperparameter configurations if you think they will work well. Finally, with manual sweeps you can explore multiple hyperparameter values for the more promising models or around promising models and hyperparameter configurations. This iterative approach avoids searching the entirety of the hyperparameter space, which grows exponentially in the number of hyperparameters.
 
-Automatic sweeps can yield competitive results for many datasets. Additionally, they do not require advanced knowledge of models, they take into account hyperparameter correlations and they work seamlessly across different hardware setups. All these reasons make them a strong option for the early stage of your experimentation process.
+Automatic sweeps can yield competitive results for many datasets. Additionally, they do not require advanced knowledge of model architectures, they take into account hyperparameter correlations and they work seamlessly across different hardware setups. All these reasons make them a strong option for the early stage of your experimentation process.
 
 ## Automatically sweeping model hyperparameters (Automode)
 
@@ -390,7 +390,7 @@ When training computer vision models, model performance depends heavily on the h
 
 You can define the model algorithms and hyperparameters to sweep in the parameter space. You can either specify a single model algorithm or multiple ones. 
 
-* See [Configure model algorithms and hyperparameters](#configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms for each task type. 
+* See [Individual runs](#individual-runs) for the list of supported model algorithms for each task type. 
 * See [Hyperparameters for computer vision tasks](reference-automl-images-hyperparameters.md)  hyperparameters for each computer vision task type. 
 * See [details on supported distributions for discrete and continuous hyperparameters](how-to-tune-hyperparameters.md#define-the-search-space).
 
