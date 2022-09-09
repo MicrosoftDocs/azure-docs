@@ -39,9 +39,9 @@ General Exporter Settings
 
 |  Setting     | Description |
 |--------------|-----------|
-| endpoint       | Kafka or Elasticsearch |
-| certificateName     | The certificateName of the Exporter  | 
-| caCertificateName      | The cluster's CACertificate for the Exporter  |
+| endpoint       | Endpoint of the monitoring solution to export to |
+| certificateName     | The client certificate in order to export to the monitoring solution  | 
+| caCertificateName      | The cluster's Certificate Authority certificate for the Exporter  |
 
 Kafka Exporter Settings
 
@@ -66,7 +66,7 @@ Pipeline Settings
 |  Setting     | Description |
 |--------------|-----------|
 | logs       | Can only declare new logs pipelines. Must be prefixed with "logs"       |
-| exporters       | kafka or elasticsearch      |
+| exporters       | List of exporters. Can be multiple of the same type.      |
 
 ### Credentials 
 
@@ -74,7 +74,7 @@ Pipeline Settings
 
 |  Setting     | Description |
 |--------------|-----------|
-| certificateName       | Name of the certificate       |
+| certificateName       | Name of the certificate must correspond to the certificate name specified in the exporter declaration       |
 | secretName       | Name of the secret provide through Kubernetes      |
 | secretNamespace       | Namespace with secret provided through Kubernetes      |
 
