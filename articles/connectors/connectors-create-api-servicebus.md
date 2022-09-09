@@ -38,7 +38,13 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A Service Bus namespace and messaging entity, such as a queue. If you don't have these items, learn how to [create your Service Bus namespace](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* A Service Bus namespace and messaging entity, such as a queue. For more information, review the following documentation:
+
+  * [create a Service Bus namespace](../service-bus-messaging/service-bus-create-namespace-portal.md)
+
+  * [Create a Service Bus namespace and queue](../service-bus-messaging/service-bus-quickstart-portal.md)
+
+  * [Create a Service Bus namespace and topic with subscription](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
 
 * The logic app workflow where you connect to your Service Bus namespace and messaging entity. To start your workflow with a Service Bus trigger, you have to start with a blank workflow. To use a Service Bus action in your workflow, start your workflow with any trigger.
 
@@ -56,7 +62,7 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 ### Limit on saved sessions in connector cache
 
-From a service bus, the Service Bus connector can save up to 1,500 unique sessions at a time to the connector cache, per [Service Bus messaging entity, such as a subscription or topic](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Message sessions](../service-bus-messaging/message-sessions.md).
+Per [Service Bus messaging entity, such as a subscription or topic](../service-bus-messaging/service-bus-queues-topics-subscriptions.md), the Service Bus connector can save up to 1,500 unique sessions at a time to the connector cache, . If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Message sessions](../service-bus-messaging/message-sessions.md).
 
 <a name="sequential-convoy"></a>
 
@@ -124,9 +130,9 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
 
 <a name="permissions-connection-string"></a>
 
-## Check permissions and get connection string
+## Step 1 - Check access to Service Bus namespace
 
-Confirm that your logic app resource has permissions to access your Service Bus namespace and get the service bus namespace connection string to use later.
+To confirm that your logic app resource has permissions to access your Service Bus namespace, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
 
@@ -134,61 +140,167 @@ Confirm that your logic app resource has permissions to access your Service Bus 
 
    ![Screenshot showing the Azure portal, Service Bus namespace, and 'Shared access policies' selected.](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
-1. Get the connection string for your Service Bus namespace. You need this string when you later provide the connection information in your workflow.
+## Step 2 - Get connection authentication requirements
 
-   1. On the **Shared access policies** pane, select **RootManageSharedAccessKey**.
+Later, when you add a Service Bus trigger or action for the first time, you're prompted for connection information, including the connection authentication type. Based on your logic app workflow and selected authentication type, you'll need one of the following items:
 
-   1. Next to your primary connection string, select the copy button.
+### Managed Service Bus connector (Consumption and Standard workflows)
 
-      ![Screenshot showing the Service Bus namespace connection string and the copy button selected.](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
+| Authentication type | Required information |
+|---------------------|----------------------|
+| **Access Key** | The connection string for your Service Bus namespace. For more information, review [Get connection string for Service Bus namespace](#get-connection-string) |
+| **Azure AD Integrated** | The endpoint URL for your Service Bus namespace. For more information, review [Get endpoint URL for Service Bus namespace](#get-endpoint-url). |
+| **Logic Apps Managed Identity** | The endpoint URL for your Service Bus namespace. For more information, review [Get endpoint URL for Service Bus namespace](#get-endpoint-url). |
 
-      > [!NOTE]
-      >
-      > To check that the string is for the namespace, not a specific messaging entity, search the 
-      > connection string for the `EntityPath` parameter. If you find this parameter, the connection 
-      > string is for a specific entity, and isn't the correct string to use with your workflow.
+### Built-in Service Bus connector (Standard workflows only)
 
-   1. Save the connection string for later use.
+| Authentication type | Required information |
+|---------------------|----------------------|
+| **Connection String** | The connection string for your Service Bus namespace. For more information, review [Get connection string for Service Bus namespace](#get-connection-string) |
+| **Active Directory OAuth** | The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). |
+| **Managed identity** | The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). |
+
+<a name="get-connection-string"></a>
+
+### Get connection string for Service Bus namespace
+
+1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
+
+1. On the namespace menu, under **Settings**, select **Shared access policies**.
+
+1. On the **Shared access policies** pane, select **RootManageSharedAccessKey**.
+
+1. Next to your primary connection string, select the copy button.
+
+   ![Screenshot showing the Service Bus namespace connection string and the copy button selected.](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
+
+   > [!NOTE]
+   >
+   > To check that the string is for the namespace, not a specific messaging entity, search the 
+   > connection string for the `EntityPath` parameter. If you find this parameter, the connection 
+   > string is for a specific entity, and isn't the correct string to use with your workflow.
+
+1. Save the connection string for later use.
+
+<a name="get-endpoint-url"></a>
+
+### Get endpoint URL for Service Bus namespace
+
+1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
+
+1. On the namespace menu, under **Settings**, select **Properties**.
+
+1. In the **Properties** section, find the **Service bus endpoint** property, and copy the URL.
+
+1. Save the URL for later use.
+
+<a name="get-fully-qualified-namespace"></a>
+
+### Get fully qualified name for Service Bus namespace
+
+1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
+
+1. On the namespace menu, select **Overview**.
+
+1. On the **Overview** pane, find the **Host name** property, and copy the fully qualfied name, which looks like **<*your-Service-Bus-namespace*>.servicebus.windows.net**.
 
 ## Add a Service Bus trigger
 
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
 
-1. In the portal search box, enter `azure service bus`. From the triggers list that appears, select the trigger that you want.
+1. On the designer, under the search box, select **Standard**. In the search box, enter **azure service bus**.
 
-   For example, to trigger your workflow when a new item gets sent to a Service Bus queue, select the **When a message is received in a queue (auto-complete)** trigger.
+1. From the triggers list, select the trigger that you want.
 
-   ![Select Service Bus trigger](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
+   This example continues with the trigger named **When a message is received in a queue (auto-complete)**.
 
-1. If your trigger is connecting to your Service Bus namespace for the first time, follow these steps when the workflow designer prompts you for connection information.
+   ![Screenshot showing Azure portal, Consumption workflow designer, and Service Bus trigger selected.](./media/connectors-create-api-azure-service-bus/select-trigger-consumption.png)
 
-   1. Provide a name for your connection, and select your Service Bus namespace.
+1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
-      ![Screenshot that shows providing connection name and selecting Service Bus namespace](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for your connection |
+   | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace: <br><br>- **Access Key**: Provide the connection string that you saved earlier. <br><br>- **Azure AD Integrated**: Provide the endpoint URL that you saved earlier. <br><br>- **Logic Apps Managed Identity**: Provide the endpoint URL that you saved earlier. |
 
-      To manually enter the connection string instead, select **Manually enter connection information**. If you don't have your connection string, learn [how to find your connection string](#permissions-connection-string).
+   For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
-   1. Select your Service Bus policy, and select **Create**.
+   ![Screenshot showing Consumption workflow, Service Bus trigger, and example connection information.](./media/connectors-create-api-azure-service-bus/trigger-create-connection-access-key-consumption.png)
 
-      ![Screenshot that shows selecting Service Bus policy](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+1. After the trigger information box appears, provide the necessary trigger information, for example:
 
-   1. Select the messaging entity you want, such as a queue or topic. For this example, select your Service Bus queue.
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Queue name** | Yes | The selected queue to access |
+   | **Queue type** | No | The type for the selected queue |
+   | **How often do you want to check for items?** | Yes | The polling interval and frequency to check the queue for items |
 
-      ![Screenshot that shows selecting Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+   ![Screenshot showing Consumption workflow, Service Bus trigger, and example trigger information.](./media/connectors-create-api-azure-service-bus/service-bus-trigger-consumption.png)
 
-1. Provide the necessary information for your selected trigger. To add other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
-
-   For this example's trigger, select the polling interval and frequency for checking the queue.
-
-   ![Screenshot that shows setting polling interval on the Service Bus trigger](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
-
-   For more information about available triggers and properties, see the connector's [reference page](/connectors/servicebus/).
+1. To add any other available properties to the trigger, open the **Add new parameter** list, and select the properties that you want.
 
 1. Continue building your workflow by adding the actions that you want.
 
    For example, you can add an action that sends email when a new message arrives. When your trigger checks your queue and finds a new message, your workflow runs your selected actions for the found message.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+### [Standard](#tab/standard)
+
+The steps to add and use a Service Bus action differ based on whether your workflow uses a built-in connector trigger or a managed, Azure-hosted connector trigger.
+
+* [**Built-in trigger**](#built-in-connector-trigger): Describes the steps for workflows that start with a built-in trigger.
+
+* [**Managed trigger**](#managed-connector-trigger): Describes the steps for workflows that start with a managed trigger.
+
+<a name="built-in-connector-trigger"></a>
+
+#### Built-in connector trigger
+
+1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
+
+1. On the designer, select **Choose an operation**.
+
+1. On the **Add a trigger** pane, under the search box, select **Built-in**. In the search box, enter **service bus**.
+
+1. From the triggers list, select the trigger that you want.
+
+   This example continues with the trigger named **When messages are available in a queue**.
+
+   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus built-in connector trigger selected.](./media/connectors-create-api-azure-service-bus/select-trigger-built-in-standard.png)
+
+1. If prompted, provide the following information for your connection. When you're done, select **Create**.
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for your connection |
+   | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace: <br><br>- **Connection String**: Provide the connection string that you saved earlier. <br><br>- **Active Directory OAuth**: <TBD> <br><br>- **Managed identity**: The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net** |
+
+   For example, this connection uses connection string authentication and provides the connection string for a Service Bus namespace:
+
+   ![Screenshot showing Consumption workflow, Service Bus trigger, and example connection information.](./media/connectors-create-api-azure-service-bus/trigger-create-connection-access-key-consumption.png)
+
+1. After the trigger information box appears, provide the necessary trigger information, for example:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Queue name** | Yes | The selected queue to access |
+   | **Queue type** | No | The type for the selected queue |
+   | **How often do you want to check for items?** | Yes | The polling interval and frequency to check the queue for items |
+
+   ![Screenshot showing Consumption workflow, Service Bus trigger, and example trigger information.](./media/connectors-create-api-azure-service-bus/service-bus-trigger-consumption.png)
+
+1. To add any other available properties to the trigger, open the **Add new parameter** list, and select the properties that you want.
+
+1. Continue building your workflow by adding the actions that you want.
+
+   For example, you can add an action that sends email when a new message arrives. When your trigger checks your queue and finds a new message, your workflow runs your selected actions for the found message.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+---
 
 ## Add a Service Bus action
 
