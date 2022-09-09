@@ -4,11 +4,11 @@ description: This topic describes how to run scripts within an Azure Windows vir
 services: automation
 ms.service: virtual-machines
 ms.collection: windows
-author: cynthn
-ms.author: cynthn
-ms.date: 10/28/2021
+author: nikhilpatel909
+ms.author: erd
+ms.date: 09/07/2022
 ms.topic: how-to  
-ms.reviewer: jushiman
+ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Preview: Run scripts in your Windows VM by using managed Run Commands
@@ -58,7 +58,7 @@ az vm run-command list --vm-name "myVM" --resource-group "myRG"
 This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```azurecli-interactive
-az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --instance-view
+az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --expand instanceView
 ```
 
 ### Delete RunCommand resource from the VM
