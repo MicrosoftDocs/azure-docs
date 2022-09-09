@@ -433,12 +433,29 @@ trace.set_tracer_provider(
 
 For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
 
-## Sampling
+## Enable Sampling
 
-Sampling is supported in OpenTelemetry, but it isn't supported in the Azure Monitor OpenTelemetry Exporter at this time.
+You may want to enable sampling to reduce your data ingestion volume which then reduces your cost. Azure Monitor provides a custom sampler that is specially designed to preserve your traces across services using existing Application Insights SDKs.
 
-> [!WARNING]
-> Enabling sampling in OpenTelemetry makes standard and log-based metrics extremely inaccurate, which adversely affects all Application Insights experiences. Also, enabling sampling alongside the existing Application Insights SDKs results in broken traces.
+#### [.NET](#tab/net)
+
+Placeholder
+
+#### [Node.js](#tab/nodejs)
+
+Placeholder
+
+#### [Python](#tab/python)
+
+Placeholder
+
+---
+
+> [!TIP]
+> Setting your sampling rate requires a tradeoff between cost-optimization and accuracy. The Azure Monitor sampler uses fixed-rate sampling which, for example, multiplies exception count by a factor to compensate for the sampling rate. Setting the sampling rate too low can lead to wildly innacurate log-based metrics, especially for uncommon events. Many users start at 5% and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy.
+
+> [!TIP]
+> OpenTelemetry pre-aggregated metrics generated from instrumentation libraries or via custom metrics bypass sampling and therefore are highly accurate for alerting. Even though log-based metrics power some experiences in Application Insights including parts of the failures and performance blades, we recommend using pre-aggregated metrics for alerting whenever possible.
 
 ## Instrumentation libraries
 
@@ -926,7 +943,7 @@ Placeholder
 
 You may want to send exceptions to Application Insights that ordinarily would not be sent
 because you catch them in your code. In this way, Application Insights will draw attention
-to them in relevant blades including the end-to-end transaction view.
+to them in relevant experiences including the failures blade and end-to-end transaction view.
 
 #### [.NET](#tab/net)
 
