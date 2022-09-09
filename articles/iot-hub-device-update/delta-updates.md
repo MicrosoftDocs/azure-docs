@@ -8,9 +8,12 @@ ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
-# How to understand and use delta updates in Device Update for IoT Hub
+# How to understand and use delta updates in Device Update for IoT Hub (Preview)
 
 Delta updates allow you to generate a small update that represents only the changes between two full updates - a source image and a target image. This approach is ideal for reducing the bandwidth used to download an update to a device, particularly if there have been only a few changes between the source and target updates.
+
+>[!NOTE]
+>The delta update feature is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Requirements for using delta updates in Device Update for IoT Hub
 
