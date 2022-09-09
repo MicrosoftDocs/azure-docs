@@ -87,10 +87,11 @@ You can declare your major input data with `input_data` attribute in parallel jo
 ---
 
 Once you have partition setting defined, you can configure parallel setting by using two attributes below:
+
 | Attribute name | Type | Description | Default value |
-|: ------------- | ---- |: ---------- | ------------- |
+|:-|--|:-|--|
 | `instance_count` | integer | The number of nodes to use for the job. | 1 |
-| `max_concurrency_per_instance` | integer| The number of processors on each node.|For a GPU compute, the default value is 1.<br>For a CPU compute, the default value is the number of cores.|
+| `max_concurrency_per_instance` | integer | The number of processors on each node. | For a GPU compute, the default value is 1.<br>For a CPU compute, the default value is the number of cores. |
 
 These two attributes work together with your specified compute cluster as diagram below:
 
