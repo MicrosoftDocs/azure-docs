@@ -76,7 +76,7 @@ If you have an environment with both Azure Active Directory (cloud) and Windows 
 You can delete an existing user using Azure Active Directory portal.
 
 >[!Note]
->You must have a Global administrator or User administrator role assignment to delete users in your organization. Global admins can delete any users including other admins. User administrators can delete any non-admin users, Helpdesk administrators and other User administrators. For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
+>You must have a Global administrator, Privileged authentication administrator or User administrator role assignment to delete users in your organization. Global admins and Privileged authentication admins can delete any users including other admins. User administrators can delete any non-admin users, Helpdesk administrators and other User administrators. For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
 
 To delete a user, follow these steps:
 
