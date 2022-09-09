@@ -37,8 +37,6 @@ spark.sql("SELECT /*+ BROADCAST(unknownTable) */ * FROM t1 INNER JOIN t2 ON t1.s
 spark.sql("SELECT /*+ BROADCAST(t1), MERGE(t1, t2) */ * FROM t1 INNER JOIN t2 ON t1.str = t2.str")
 ```
 
-## Advice related to queries
-
 ### Reduce rounding error propagation caused by division.
 This query contains the expression with the `double` type. We recommend that you enable the configuration `spark.advise.divisionExprConvertRule.enable`, which can help reduce the division expressions and the rounding error propagation.
 
@@ -48,8 +46,6 @@ This query contains the expression with the `double` type. We recommend that you
 
 ### Improve query performance for non-equal join. 
 This query contains a time-consuming join because of an `Or` condition within the query. We recommend that you enable the configuration `spark.advise.nonEqJoinConvertRule.enable`. It can help convert the join triggered by the `Or` condition to shuffle sort merge join (SMJ) or broadcast hash join (BHJ) to accelerate this query.
-
-## Other troubleshooting
 
 ### The use of the randomSplit method might return inconsistent results
 Spark Advisor might return inconsistent or inaccurate results when you work with the results of the `randomSplit` method. Use Apache Spark resilient distributed dataset caching (RDD) before you use the `randomSplit` method.
