@@ -1,16 +1,16 @@
 ---
-title: Importing updates into Device Update for IoT Hub - schema and other information | Microsoft Docs
-description: Schema and other related information (including objects) that is used when importing updates into Device Update for IoT Hub.
+title: Importing updates into Device Update for IoT Hub - import manifest schema | Microsoft Docs
+description: Schema used to create the import manifest required to import updates into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 06/27/2022
+ms.date: 09/9/2022
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
 # Importing updates into Device Update for IoT Hub: schema and other information
 
-If you want to import an update into Device Update for IoT Hub, be sure you've reviewed the [concepts](import-concepts.md) and [how-to guide](import-update.md) first. If you're interested in the details of import manifest schema, or information about API permissions, see below.
+If you want to import an update into Device Update for IoT Hub, be sure you've reviewed the [concepts](import-concepts.md) and [how-to guide](import-update.md) first. If you're interested in the details of the import manifest schema itself, see below.
 
 The import manifest JSON schema is hosted at [SchemaStore.org](https://json.schemastore.org/azure-deviceupdate-import-manifest-5.0.json).
 
