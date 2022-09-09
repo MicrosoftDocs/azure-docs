@@ -58,7 +58,7 @@ After you connect a cluster to Azure Arc, you can change the automatic upgrade s
 > # remove existing extension
 > az extension remove --name connectedk8s 
 > 
-> #add latest extension version
+> # add latest extension version
 > az extension add --name connectedk8s 
 > ```
 
