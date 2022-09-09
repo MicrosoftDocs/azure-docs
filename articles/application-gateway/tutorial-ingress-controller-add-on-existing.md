@@ -48,18 +48,23 @@ In the following example, you'll be deploying a new AKS cluster named **myCluste
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity --generate-ssh-keys
 ```
 
-To configure other parameters for the `az aks create` command, visit references [here](/cli/azure/aks#az-aks-create). 
+To configure more parameters for the above command, see [az aks create](/cli/azure/aks#az-aks-create). 
+
+> [!NOTE]
+> A node resource group will be created with the name **MC_resource-group-name_cluster-name_location**.
 
 ## Deploy a new application gateway 
 
-You'll now deploy a new application gateway, to simulate having an existing application gateway that you want to use to load balance traffic to your AKS cluster, **myCluster**. The name of the application gateway will be **myApplicationGateway**, but you'll need to first create a public IP resource, named **myPublicIp**, and a new virtual network called **myVnet** with address space 11.0.0.0/8, and a subnet with address space 11.1.0.0/16 called **mySubnet**, and deploy your application gateway in **mySubnet** using **myPublicIp**. 
+You'll now deploy a new application gateway, to simulate having an existing application gateway that you want to use to load balance traffic to your AKS cluster, **myCluster**. The name of the application gateway will be **myApplicationGateway**, but you'll need to first create a public IP resource, named **myPublicIp**, and a new virtual network called **myVnet** with address space 10.0.0.0/16, and a subnet with address space 10.0.0.0/24 called **mySubnet**, and deploy your application gateway in **mySubnet** using **myPublicIp**. 
 
-When you use an AKS cluster and application gateway in separate virtual networks, the address spaces of the two virtual networks must not overlap. The default address space that an AKS cluster deploys in is 10.0.0.0/8, so we set the application gateway virtual network address prefix to 11.0.0.0/8. 
+> [!CAUTION]
+> When you use an AKS cluster and application gateway in separate virtual networks, the address spaces of the two virtual networks must not overlap. The default address space that an AKS cluster deploys in is 10.224.0.0/12.
+
 
 ```azurecli-interactive
 az network public-ip create -n myPublicIp -g myResourceGroup --allocation-method Static --sku Standard
-az network vnet create -n myVnet -g myResourceGroup --address-prefix 11.0.0.0/8 --subnet-name mySubnet --subnet-prefix 11.1.0.0/16 
-az network application-gateway create -n myApplicationGateway -l eastus -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet --priority 200
+az network vnet create -n myVnet -g myResourceGroup --address-prefix 10.0.0.0/16 --subnet-name mySubnet --subnet-prefix 10.0.0.0/24 
+az network application-gateway create -n myApplicationGateway -l eastus -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet --priority 100
 ```
 
 > [!NOTE]

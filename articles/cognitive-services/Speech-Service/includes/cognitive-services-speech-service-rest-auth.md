@@ -33,9 +33,7 @@ The `issueToken` endpoint has this format:
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-Replace `<REGION_IDENTIFIER>` with the identifier that matches the region of your subscription from this table:
-
-[!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
+Replace `<REGION_IDENTIFIER>` with the identifier that matches the [region](../regions.md) of your subscription.
 
 Use the following samples to create your access token request.
 

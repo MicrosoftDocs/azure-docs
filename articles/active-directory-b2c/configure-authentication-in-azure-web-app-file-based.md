@@ -15,7 +15,7 @@ ms.custom: "b2c-support"
 
 # Configure authentication in an Azure Web App configuration file by using Azure AD B2C
 
-This article explains how to add Azure Active Directory B2C (Azure AD B2C) authentication functionality to an Azure Web App. For more information, check out the [File-based configuration in Azure App Service authentication](/azure/app-service/configure-authentication-file-based) article.
+This article explains how to add Azure Active Directory B2C (Azure AD B2C) authentication functionality to an Azure Web App. For more information, check out the [File-based configuration in Azure App Service authentication](../app-service/configure-authentication-file-based.md) article.
 
 ## Overview
 
@@ -141,6 +141,5 @@ From your server code, the provider-specific tokens are injected into the reques
 
 ## Next steps
 
-* After successful authentication, you can show display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, check out the [Work with user identities in Azure App Service authentication](/azure/app-service/configure-authentication-user-identities).
-* Lear how to [Work with OAuth tokens in Azure App Service authentication](/azure/app-service/configure-authentication-oauth-tokens).
-
+* After successful authentication, you can show display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, check out the [Work with user identities in Azure App Service authentication](../app-service/configure-authentication-user-identities.md).
+* Learn how to [Work with OAuth tokens in Azure App Service authentication](../app-service/configure-authentication-oauth-tokens.md).

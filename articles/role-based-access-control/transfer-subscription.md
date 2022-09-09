@@ -3,11 +3,11 @@ title: Transfer an Azure subscription to a different Azure AD directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Azure Active Directory (Azure AD) directory.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/04/2021
+ms.date: 07/26/2022
 ms.author: rolyon
 ---
 
@@ -122,7 +122,13 @@ To complete these steps, you will need:
     az extension list
     ```
 
-1. If not, install the *resource-graph* extension.
+1. If you are using a preview version or an older version of the *resource-graph* extension, use [az extension update](/cli/azure/extension#az-extension-update) to update the extension.
+
+    ```azurecli
+    az extension update --name resource-graph
+    ```
+
+1. If the *resource-graph* extension is not installed, use [az extension add](/cli/azure/extension#az-extension-add) to install the extension.
 
     ```azurecli
     az extension add --name resource-graph
@@ -234,7 +240,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 - Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](/cli/azure/graph) extension to see if you are using Azure SQL databases with Azure AD authentication integration enabled. For more information, see [Configure and manage Azure Active Directory authentication with SQL](/azure/azure-sql/database/authentication-aad-configure).
 
     ```azurecli
-    az sql server ad-admin list --ids $(az graph query -q "resources | where type == 'microsoft.sql/servers' | project id" -o tsv | cut -f1)
+    az sql server ad-admin list --ids $(az graph query -q "resources | where type == 'microsoft.sql/servers' | project id" --query data[*].[id] -o tsv)
     ```
 
 ### List ACLs

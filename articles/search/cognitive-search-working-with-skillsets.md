@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/13/2022
+ms.date: 07/14/2022
 ---
 
 # Skillset concepts in Azure Cognitive Search

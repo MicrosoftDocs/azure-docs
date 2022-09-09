@@ -28,7 +28,7 @@ Use of Office 365 within Azure Automation requires Microsoft Azure Active Direct
 
 ## Create an Azure Automation account
 
-To complete the steps in this article, you need an account in Azure Automation. See [Create an Azure Automation account](./quickstarts/create-account-portal.md).
+To complete the steps in this article, you need an account in Azure Automation. See [Create an Azure Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal).
  
 ## Add MSOnline and MSOnlineExt as assets
 

@@ -10,7 +10,7 @@ ms.date: 02/07/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: etbasser
 
 ms.collection: M365-identity-device-management
@@ -36,10 +36,10 @@ To make use of workload identity risk, including the new **Risky workload identi
 
 - Azure AD Premium P2 licensing
 - One of the following administrator roles assigned
-   - Global administrator
-   - Security administrator
-   - Security operator
-   - Security reader
+   - Global Administrator
+   - Security Administrator
+   - Security Operator
+   - Security Reader
 
 Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
 
@@ -113,3 +113,4 @@ The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerSh
 - [Microsoft Graph API](/graph/use-the-api)
 - [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md)
 - [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md)
+- [Simulate risk detections](howto-identity-protection-simulate-risk.md)

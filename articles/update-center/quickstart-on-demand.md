@@ -1,8 +1,7 @@
 ---
 title: Quickstart - deploy updates in using update management center in the Azure portal
 description: This quickstart helps you to deploy updates immediately and view results for supported machines in update management center (preview) using the Azure portal.
-ms.service: automation
-ms.subservice: update-management
+ms.service: update-management-center
 ms.date: 04/21/2022
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -18,7 +17,7 @@ This quickstart details you how to perform manual assessment and apply updates o
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have one yet, sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Your role must be either an [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) for Azure VM and resource administrator for Arc enabled servers.
+- Your role must be either an [Owner](../role-based-access-control/built-in-roles.md#owner) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) for Azure VM and resource administrator for Arc enabled servers.
 - Ensure that the target machines meet the specific operating system requirements of the Windows Server and Linux. For more information, see [Overview](overview.md).
 
 

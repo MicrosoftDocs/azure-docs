@@ -22,6 +22,9 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 
+> [!NOTE]
+> Setting the access tier is only allowed on Block Blobs. They are not supported for Append and Page Blobs.
+
 ## Online access tiers
 
 When your data is stored in an online access tier (either Hot or Cool), users can access it immediately. The Hot tier is the best choice for data that is in active use, while the Cool tier is ideal for data that is accessed less frequently, but that still must be available for reading and writing.

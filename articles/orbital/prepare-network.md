@@ -18,13 +18,21 @@ Ensure the objects comply with the recommendations in this article. Note, these 
 ## Prepare subnet for VNET injection
 
 Prerequisites:
-- An entire subnet that can be dedicated to Orbital GSaaS in your virtual network in your resource group.
+- An entire subnet with no existing IPs allocated or in use that can be dedicated to Orbital GSaaS in your virtual network in your resource group.
 
 Steps:
-1. Delegate a subnet to service named: Microsoft.Orbital/orbitalGateways. Follow instructions here: [Add or remove a subnet delegation in an Azure virtual network](/azure/virtual-network/manage-subnet-delegation).
+1. Delegate a subnet to service named: Microsoft.Orbital/orbitalGateways. Follow instructions here: [Add or remove a subnet delegation in an Azure virtual network](../virtual-network/manage-subnet-delegation.md).
 
 > [!NOTE]
 >  Address range needs to be at least /24 (example 10.0.0.0/23)
+
+Here is an example of a typical VNET setup with a subnet delegated to Azure Orbital Ground Station.
+
+:::image type="content" source="media/azure-ground-station-subnet-example.png" alt-text="Screenshot of subnet configuration with Orbital delegated subnet." lightbox="media/azure-ground-station-subnet-example.png":::
+
+## Prepare endpoints
+
+Set the MTU of all desired endpoints to at least 3650.
 
 ## Setting up the contact profile
 
@@ -45,7 +53,7 @@ Make sure the contact profile properties are set as follows:
 
 The platform pre-reserves IPs in the subnet when the contact is scheduled. These IPs represent the platform side endpoints for each link. IPs will be unique between contacts, and if multiple concurrent contacts are using the same subnet, we guarantee those IPs to be distinct. The service will fail to schedule the contact and an error will be returned if the service runs out of IPs or can't allocate an IP.
 
-When you create a contact, you can find these IPs by viewing the contact properties. Select JSON view in the portal or use the GET contact API call to view the contact properties. The parameters of interest are below:
+When you create a contact, you can find these IPs by viewing the contact properties. Select JSON view in the portal or use the GET contact API call to view the contact properties. Make sure to use the current API version of 2022-03-01. The parameters of interest are below:
 
 | Parameter                          | Usage                                                                      |
 |------------------------------------|----------------------------------------------------------------------------|
@@ -54,8 +62,10 @@ When you create a contact, you can find these IPs by viewing the contact propert
 
 You can use this information to set up network policies or to distinguish between simultaneous contacts to the same endpoint.
 
+:::image type="content" source="media/azure-ground-station-contact-ips-example.png" alt-text="Screenshot of contact object with source and destination IPs." lightbox="media/azure-ground-station-contact-ips-example.png":::
+
 > [!NOTE]
-> - The source and destination IPs are always taken from the subnet address range
+> - The source and destination IPs are always taken from the subnet address range.
 > - Only one destination IP is present. Any link in client mode should connect to this IP and the links are differentiated based on port.
 > - Many source IPs can be present. Links in server mode will connect to your specified IP address in the contact profile. The flows will originate from the source IPs present in this field and target the port as per the link details in the contact profile. There is no fixed assignment of link to source IP so please make sure to allow all IPs in any networking setup or firewalls. 
 
@@ -68,11 +78,11 @@ Here's how to set up the link flows based on direction on tcp or udp preference.
 
 | Setting                        | TCP Client                 | TCP Server                           | UDP Client                 | UDP Server                           |
 |--------------------------------|----------------------------|--------------------------------------|----------------------------|--------------------------------------|
-| Contact Profile Link ipAddress | Blank                      | Routable IP from delegated subnet    | Blank                      | Routable IP from delegated subnet    |
-| Contact Profile Link port      | Unique port in 49152-65535 | Unique port in 49152-65535           | Unique port in 49152-65535 | Unique port in 49152-65535           |
+| Contact Profile Link ipAddress | Blank                      | Routable IP from delegated subnet    | Blank                      | Not applicable                       |
+| Contact Profile Link port      | Unique port in 49152-65535 | Unique port in 49152-65535           | Unique port in 49152-65535 | Not applicable                       |
 | **Output**                     |                            |                                      |                            |                                      |
 | Contact Object destinationIP   | Connect to this IP         | Not applicable                       | Connect to this IP         | Not applicable                       |
-| Contact Object sourceIP        | Not applicable             | Link will come from one of these IPs | Not applicable             | Link will come from one of these IPs |
+| Contact Object sourceIP        | Not applicable             | Link will come from one of these IPs | Not applicable             | Not applicable                       |
 
 
 
@@ -80,13 +90,14 @@ Here's how to set up the link flows based on direction on tcp or udp preference.
 
 | Setting                        | TCP Client                 | TCP Server                           | UDP Client                 | UDP Server                           |
 |--------------------------------|----------------------------|--------------------------------------|----------------------------|--------------------------------------|
-| Contact Profile Link ipAddress | Blank                      | Routable IP from delegated subnet    | Blank                      | Routable IP from delegated subnet    |
-| Contact Profile Link port      | Unique port in 49152-65535 | Unique port in 49152-65535           | Unique port in 49152-65535 | Unique port in 49152-65535           |
+| Contact Profile Link ipAddress | Blank                      | Routable IP from delegated subnet    | Not applicable             | Routable IP from delegated subnet    |
+| Contact Profile Link port      | Unique port in 49152-65535 | Unique port in 49152-65535           | Not applicable             | Unique port in 49152-65535           |
 | **Output**                     |                            |                                      |                            |                                      |
-| Contact Object destinationIP   | Connect to this IP         | Not applicable                       | Connect to this IP         | Not applicable                       |
+| Contact Object destinationIP   | Connect to this IP         | Not applicable                       | Not applicable             | Not applicable                       |
 | Contact Object sourceIP        | Not applicable             | Link will come from one of these IPs | Not applicable             | Link will come from one of these IPs |
 
 ## Next steps
 
 - [Register Spacecraft](register-spacecraft.md)
+- [Configure the modem chain](modem-chain.md)
 - [Schedule a contact](schedule-contact.md)

@@ -143,13 +143,13 @@ Track the state of the overall reservation through the following properties:
 - `virtualMachinesAllocated` = List of VMs allocated against the Capacity Reservation and count towards consuming the capacity. These VMs are either *Running*, *Stopped* (*Allocated*), or in a transitional state such as *Starting* or *Stopping*. This list doesn’t include the VMs that are in deallocated state, referred to as *Stopped* (*deallocated*). 
 - `virtualMachinesAssociated` = List of VMs associated with the Capacity Reservation. This list has all the VMs that have been configured to use the reservation, including the ones that are in deallocated state.  
 
-The previous example will start with `capacity` as 2 and length of `virutalMachinesAllocated` and `virtualMachinesAssociated` as 0.  
+The previous example will start with `capacity` as 2 and length of `virtualMachinesAllocated` and `virtualMachinesAssociated` as 0.  
 
 When a VM is then allocated against the Capacity Reservation, it will logically consume one of the reserved capacity instances: 
 
 ![Capacity Reservation image 2.](./media/capacity-reservation-overview/capacity-reservation-2.jpg) 
 
-The status of the Capacity Reservation will now show `capacity` as 2 and length of `virutalMachinesAllocated` and `virtualMachinesAssociated` as 1.  
+The status of the Capacity Reservation will now show `capacity` as 2 and length of `virtualMachinesAllocated` and `virtualMachinesAssociated` as 1.  
 
 Allocations against the Capacity Reservation will succeed as along as the VMs have matching properties and there is at least one empty capacity instance.  
 
@@ -157,7 +157,7 @@ Using our example, when a third VM is allocated against the Capacity Reservation
 
 ![Capacity Reservation image 3.](./media/capacity-reservation-overview/capacity-reservation-3.jpg) 
 
-The `capacity` is 2 and the length of `virutalMachinesAllocated` and `virtualMachinesAssociated` is 3. 
+The `capacity` is 2 and the length of `virtualMachinesAllocated` and `virtualMachinesAssociated` is 3. 
 
 Now suppose the application scales down to the minimum of two VMs. Since VM 0 needs an update, it is chosen for deallocation. The reservation automatically shifts to this state: 
 

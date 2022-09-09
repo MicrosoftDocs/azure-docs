@@ -265,7 +265,7 @@ Add the network interface of each VM to one of the application security groups y
 
 ## Test traffic filters
 
-1. Search for *myVMWeb* in the portal search box.
+1. Search for *myVMMgmt* in the portal search box.
 
 1. On the **Overview** page, select the **Connect** button and then select **RDP**.
 

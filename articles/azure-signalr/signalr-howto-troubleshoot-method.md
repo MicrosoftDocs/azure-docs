@@ -3,8 +3,8 @@ title: "Troubleshooting practice for Azure SignalR Service"
 description: Learn how to troubleshoot connectivity and message delivery issues
 author: vicancy
 ms.service: signalr
-ms.topic: conceptual
-ms.date: 11/17/2020
+ms.topic: how-to
+ms.date: 07/18/2022
 ms.author: lianwei
 ---
 
@@ -28,7 +28,7 @@ Second, you need to capture service traces to troubleshoot. For how to capture t
 
 ## How to capture service traces
 
-To simplify troubleshooting process, Azure SignalR service provides **live trace tool** to expose service traces on **connectivity** and **messaging** categories. The traces includes but not limited to connection connected/disconnected events, message received/left events. With **live trace tool**, you can capture, view, sort, filter and export live traces. For more details, refer to [How to use live trace tool](./signalr-howto-troubleshoot-live-trace.md).
+To simplify troubleshooting process, Azure SignalR service provides **live trace tool** to expose service traces on **connectivity** and **messaging** categories. The traces include but aren't limited to connection connected/disconnected events and message received/left events. With **live trace tool**, you can capture, view, sort, filter and export live traces. For more information, see [How to use live trace tool](./signalr-howto-troubleshoot-live-trace.md).
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
@@ -72,11 +72,11 @@ With the client-side network trace in hand, check which request fails with what 
 
 #### Server requests
 
-SignalR *Server* maintains the *Server Connection* between *Server* and *Service*. When the app server starts, it starts the **WebSocket** connection to Azure SignalR service. All the client traffics are routed through Azure SignalR service to these *Server Connection*s and then dispatched to the `Hub`. When a *Server Connection* drops, the clients routed to this *Server Connection* will be impacted. Our Azure SignalR SDK has a logic "Always Retry" to reconnect the *Server Connection* with at most 1-minute delay to minimize the impact.
+SignalR *Server* maintains the *Server Connection* between *Server* and *Service*. When the app server starts, it starts the **WebSocket** connection to Azure SignalR service. All the client traffics are routed through Azure SignalR service to these *Server Connection*s and then dispatched to the `Hub`. When a *Server Connection* drops, the clients routed to this *Server Connection* will be impacted. Our Azure SignalR SDK has a logic "Always Retry" to reconnect the *Server Connection* with at most 1-minute delay to minimize the effects.
 
-*Server Connection*s can drop because of network instability or regular maintenance of Azure SignalR Service, or your hosted app server updates/maintainance. As long as client-side has the disconnect/reconnect mechanism, the impact is minimal like any client-side caused disconnect-reconnect.
+*Server Connection*s can drop because of network instability or regular maintenance of Azure SignalR Service, or your hosted app server updates/maintainance. As long as client-side has the disconnect/reconnect mechanism, the effect is minimal like any client-side caused disconnect-reconnect.
 
-View server-side network trace to find out the status code and error detail why *Server Connection* drops or is rejected by the *Service*, and look for the root cause inside [Troubleshooting Guide](./signalr-howto-troubleshoot-guide.md).
+View the server-side network trace to find the status code and error detail why *Server Connection* drops or is rejected by the *Service*. Look for the root cause inside [Troubleshooting Guide](./signalr-howto-troubleshoot-guide.md).
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
@@ -186,7 +186,7 @@ To diagnose connectivity issues in `Serverless` mode, the most straight forward 
 
 ## Classic mode troubleshooting
 
-`Classic` mode is obsoleted and is not encouraged to use. When in this mode, Azure SignalR service uses the connected *Server Connections* to determine if current service is in `default` mode or `serverless` mode. This can lead to some intermediate client connectivity issues because, when there is a sudden drop of all the connected *Server Connection*, for example due to network instability, Azure SignalR believes it is now switched to `serverless` mode, and clients connected during this period will never be routed to the hosted app server. Enable [service-side logs](#add_logs_server) and check if there are any clients recorded as `ServerlessModeEntered` if you have hosted app server however some clients never reach the app server side. If there is any, [abort these client connections](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#API) and let the clients restart can help.
+`Classic` mode is obsoleted and isn't encouraged to use. When in Classic mode, Azure SignalR service uses the connected *Server Connections* to determine if current service is in `default` mode or `serverless` mode. Classic mode can lead to intermediate client connectivity issues because, when there's a sudden drop of all the connected *Server Connection*, for example due to network instability, Azure SignalR believes it's now switched to `serverless` mode, and clients connected during this period will never be routed to the hosted app server. Enable [service-side logs](#add_logs_server) and check if there are any clients recorded as `ServerlessModeEntered` if you have hosted app server, however, some clients never reach the app server side. If you see any of these clients, [abort the client connections](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#API), and then let the clients restart.
 
 Troubleshooting `classic` mode connectivity and message delivery issues are similar to [troubleshooting default mode issues](#default_mode_tsg).
 
@@ -202,9 +202,9 @@ You can check the health api for service health.
   * 200: healthy.
   * 503: your service is unhealthy. You can:
     * Wait several minutes for autorecover.
-    * Check the ip address is same as the ip from portal.
+    * Check the ip-address is same as the ip from portal.
     * Or restart instance.
-    * If all above options do not work, contact us by adding new support request in Azure portal.
+    * If all above options don't work, contact us by adding new support request in Azure portal.
 
 More about [disaster recovery](./signalr-concept-disaster-recovery.md).
 

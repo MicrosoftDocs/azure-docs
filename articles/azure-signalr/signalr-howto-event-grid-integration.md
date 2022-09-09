@@ -4,8 +4,8 @@ description: A guide to show you how to enable Event Grid events for your Signal
 services: signalr
 author: vicancy
 ms.service: signalr
-ms.topic: conceptual
-ms.date: 11/13/2019
+ms.topic: how-to
+ms.date: 07/18/2022
 ms.author: lianwei
 ---
 
@@ -21,7 +21,7 @@ Azure Event Grid is a fully managed event routing service that provides uniform 
 
 ## Create a resource group
 
-An Azure resource group is a logical container in which you deploy and manage your Azure resources. The following [az group create][az-group-create] command creates a resource group named *myResourceGroup* in the *eastus* region. If you want to use a different name for your resource group, set `RESOURCE_GROUP_NAME` to a different value.
+An Azure resource group is a logical container in which you deploy and manage your Azure resources. The command [az group create][az-group-create] creates a resource group named *myResourceGroup* in the *eastus* region. If you want to use a different name for your resource group, set `RESOURCE_GROUP_NAME` to a different value.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -31,14 +31,14 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## Create a SignalR Service
 
-Next, deploy an Azure Signalr Service into the resource group with the following commands.
+Next, deploy an Azure Signals Service into the resource group with the following commands.
 ```azurecli-interactive
 SIGNALR_NAME=SignalRTestSvc
 
 az signalr create --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --sku Free_F1
 ```
 
-Once the SignalR Service has been created, the Azure CLI returns output similar to the following:
+Once the SignalR Service has been created, the Azure CLI returns output similar to the following example:
 
 ```json
 {
@@ -81,7 +81,7 @@ az deployment group create \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
 ```
 
-Once the deployment succeeds (it might take a few minutes), open a browser and navigate to your web app to make sure it's running:
+Once the deployment succeeds (it might take a few minutes), open your browser, and then go to your web app to make sure it's running:
 
 `http://<your-site-name>.azurewebsites.net`
 
@@ -89,7 +89,7 @@ Once the deployment succeeds (it might take a few minutes), open a browser and n
 
 ## Subscribe to registry events
 
-In Event Grid, you subscribe to a *topic* to tell it which events you want to track, and where to send them. The following [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] command subscribes to the Azure SignalR Service you created, and specifies your web app's URL as the endpoint to which it should send events. The environment variables you populated in earlier sections are reused here, so no edits are required.
+In Event Grid, you subscribe to a *topic* to tell it which events you want to track, and where to send them. The command [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] subscribes to the Azure SignalR Service you created and specifies your web app's URL as the endpoint to which it should send events. The environment variables you populated in earlier sections are reused here, so no edits are required.
 
 ```azurecli-interactive
 SIGNALR_SERVICE_ID=$(az signalr show --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --query id --output tsv)
@@ -101,7 +101,7 @@ az eventgrid event-subscription create \
     --endpoint $APP_ENDPOINT
 ```
 
-When the subscription is completed, you should see output similar to the following:
+When the subscription is completed, you should see output similar to the following example:
 
 ```JSON
 {
@@ -136,7 +136,7 @@ When the subscription is completed, you should see output similar to the followi
 
 ## Trigger registry events
 
-Switch to the service mode to `Serverless Mode` and setup a client connection to the SignalR Service. You can take [Serverless Sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) as a reference.
+Switch to the service mode to `Serverless Mode` and set up a client connection to the SignalR Service. You can take [Serverless Sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) as a reference.
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -157,7 +157,7 @@ dotnet run
 
 ## View registry events
 
-You have now connected a client to the SignalR Service. Navigate to your Event Grid Viewer web app, and you should see a `ClientConnectionConnected` event. If you terminate the client, you will also see a `ClientConnectionDisconnected` event.
+You've now connected a client to the SignalR Service. Navigate to your Event Grid Viewer web app, and you should see a `ClientConnectionConnected` event. If you terminate the client, you'll also see a `ClientConnectionDisconnected` event.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

@@ -40,7 +40,7 @@ highlightedContent:
       itemType: architecture
       url: /azure/architecture/reference-architectures/iot/
     # Card
-    - title: Azure IoT on Microsoft Learn
+    - title: Learn modules for Azure IoT
       itemType: learn
       url: /learn/browse/?products=azure&term=iot
     # Card

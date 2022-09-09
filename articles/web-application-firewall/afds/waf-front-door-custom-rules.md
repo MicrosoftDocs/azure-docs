@@ -9,9 +9,11 @@ ms.date: 03/22/2022
 ms.author: victorh
 ---
 
-#  Custom rules for Web Application Firewall with Azure Front Door
+# Custom rules for Web Application Firewall with Azure Front Door
 
-Azure Web Application Firewall (WAF) with Front Door allows you to control access to your web applications based on the conditions you define. A custom WAF rule consists of a priority number, rule type, match conditions, and an action. There are two types of custom rules: match rules and rate limit rules. A match rule controls access based on a set of matching conditions while a rate limit rule controls access based on matching conditions and the rates of incoming requests. You may disable a custom rule to prevent it from being evaluated, but still keep the configuration. 
+Azure Web Application Firewall (WAF) with Front Door allows you to control access to your web applications based on the conditions you define. A custom WAF rule consists of a priority number, rule type, match conditions, and an action. There are two types of custom rules: match rules and rate limit rules. A match rule controls access based on a set of matching conditions while a rate limit rule controls access based on matching conditions and the rates of incoming requests. You may disable a custom rule to prevent it from being evaluated, but still keep the configuration.
+
+For more information on rate limiting, see [What is rate limiting for Azure Front Door Service?](waf-front-door-rate-limit.md).
 
 ## Priority, match conditions, and action types
 
@@ -90,12 +92,15 @@ You can control access with a custom WAf rule that defines a priority number, a 
 
 ## Examples
 
-### WAF custom rules example based on http parameters
+### Match based on HTTP request parameters
 
-Here is an example that shows the configuration of a custom rule with two match conditions. Requests are from a specified site as defined by referrer, and query string doesn't contain "password".
+Suppose you need to configure a custom rule to allow requests that match the following two conditions:
+- The `Referer` header's value is equal to a known value.
+- The query string doesn't contain the word "password".
 
-```
-# http rules example
+Here's an example JSON description of the custom rule:
+
+```json
 {
   "name": "AllowFromTrustedSites",
   "priority": 1,
@@ -119,15 +124,17 @@ Here is an example that shows the configuration of a custom rule with two match 
       "negateCondition": true
     }
   ],
-  "action": "Allow",
-  "transforms": []
+  "action": "Allow"
 }
-
 ```
-An example configuration for blocking "PUT" method is shown as below:
 
-``` 
-# http Request Method custom rules
+### Block HTTP PUT requests
+
+Suppose you need to block any request that uses the HTTP PUT method.
+
+Here's an example JSON description of the custom rule:
+
+``` json
 {
   "name": "BlockPUT",
   "priority": 2,
@@ -143,17 +150,19 @@ An example configuration for blocking "PUT" method is shown as below:
       ]
     }
   ],
-  "action": "Block",
-  "transforms": []
+  "action": "Block"
 }
 ```
 
 ### Size constraint
 
-You may build a custom rule that specifies size constraint on part of an incoming request. For example, below rule blocks a Url that is longer than 100 characters.
+Front Door's WAF enables you to build custom rules that apply a length or size constraint on a part of an incoming request.
 
-```
-# http parameters size constraint
+Suppose you need to block requests where the URL is longer than 100 characters.
+
+Here's an example JSON description of the custom rule:
+
+```json
 {
   "name": "URLOver100",
   "priority": 5,
@@ -169,8 +178,7 @@ You may build a custom rule that specifies size constraint on part of an incomin
       ]
     }
   ],
-  "action": "Block",
-  "transforms": []
+  "action": "Block"
 }
 ```
 
@@ -178,4 +186,3 @@ You may build a custom rule that specifies size constraint on part of an incomin
 - [Configure a Web Application Firewall policy using Azure PowerShell](waf-front-door-custom-rules-powershell.md) 
 - Learn about [web Application Firewall with Front Door](afds-overview.md)
 - Learn how to [create a Front Door](../../frontdoor/quickstart-create-front-door.md).
-

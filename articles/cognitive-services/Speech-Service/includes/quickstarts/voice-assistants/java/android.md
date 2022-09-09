@@ -27,7 +27,7 @@ Before you get started, make sure to:
 
 ## Create and configure a project
 
-[Install the Speech SDK](/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=android) by using Android Studio.
+[Install the Speech SDK](../../../../quickstarts/setup-platform.md?pivots=programming-language-java&tabs=android) by using Android Studio.
 
 ## Create user interface
 

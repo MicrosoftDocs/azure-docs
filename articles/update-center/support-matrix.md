@@ -1,8 +1,7 @@
 ---
 title: Update management center (preview) support matrix
 description: Provides a summary of supported regions and operating system settings
-ms.service: automation
-ms.subservice: update-management
+ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022
@@ -68,9 +67,12 @@ United Kingdom | UK South
 
 The following table lists the supported operating systems for Azure VMs and Azure Arc-enabled servers. Before you enable update management center (preview), ensure that the target machines meet the operating system requirements.
 
+>[!NOTE]
+> For Azure VMs, we currently support a combination of Offer, Publisher, and SKU of the VM image. Ensure you match all three to confirm support.
+
 # [Azure VMs](#tab/azurevm-os)
 
-[Azure VMs](/azure/virtual-machines/index) are: 
+[Azure VMs](../virtual-machines/index.yml) are: 
  
    | Publisher | Operating System | SKU |
    |----------|-------------|-------------|
@@ -97,7 +99,7 @@ The following table lists the supported operating systems for Azure VMs and Azur
 
 # [Azure Arc-enabled servers](#tab/azurearc-os)
 
-[Azure Arc-enabled servers](/azure/azure-arc/servers/overview) are:
+[Azure Arc-enabled servers](../azure-arc/servers/overview.md) are:
 
    | Publisher | Operating System
    |----------|-------------|

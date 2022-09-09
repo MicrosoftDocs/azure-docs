@@ -32,7 +32,7 @@ az webapp config show --resource-group <resource-group-name> --name <app-name> -
 To show all supported PHP versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes --os windows | grep php
+az webapp list-runtimes --os windows | grep PHP
 ```
 
 ::: zone-end

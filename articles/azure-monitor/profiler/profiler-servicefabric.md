@@ -3,7 +3,7 @@ title: Enable Profiler for Azure Service Fabric applications
 description: Profile live Azure Service Fabric apps with Application Insights
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 06/23/2022
+ms.date: 07/15/2022
 ---
 
 # Enable Profiler for Azure Service Fabric applications
@@ -72,6 +72,9 @@ Redeploy your application once you've enabled Application Insights.
 
 ## Next steps
 
-For help with troubleshooting Profiler issues, see [Profiler troubleshooting](./profiler-troubleshooting.md).
+Learn how to...
+> [!div class="nextstepaction"]
+> [Generate load and view Profiler traces](./profiler-data.md)
+
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]

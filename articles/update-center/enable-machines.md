@@ -1,8 +1,7 @@
 ---
 title: Enable update management center (preview) for periodic assessment and scheduled patching
 description: This article describes how to enable the periodic assessment and scheduled patching features using update management center (preview) for Windows and Linux machines running on Azure or outside of Azure connected to Azure Arc-enabled servers.
-ms.service: automation
-ms.subservice: update-management
+ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022
@@ -26,9 +25,9 @@ Register the periodic assessment and scheduled patching feature resource provide
 
 - Azure subscription - if you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Your account must be a member of the Azure [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in the subscription.
+- Your account must be a member of the Azure [Owner](../role-based-access-control/built-in-roles.md#owner) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) role in the subscription.
 
-- One or more [Azure virtual machines](/azure/virtual-machines), or physical or virtual machines managed by [Arc-enabled servers](/azure/azure-arc/servers/overview).
+- One or more [Azure virtual machines](../virtual-machines/index.yml), or physical or virtual machines managed by [Arc-enabled servers](../azure-arc/servers/overview.md).
 
 - Ensure that you meet all [prerequisites for update management center](overview.md#prerequisites)
 
@@ -65,7 +64,7 @@ After your register for the above feature, go to update management center (previ
 For Azure VMs, to register the resource provider, use:
 
 ```azurepowershell
-Register-AzResourceProvider -FeatureName InGuestAutoAssessmentVMPreview -ProviderNamespace Microsoft.Compute
+Register-AzProviderPreviewFeature -Name InGuestAutoAssessmentVMPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### [CLI](#tab/cli-periodic)

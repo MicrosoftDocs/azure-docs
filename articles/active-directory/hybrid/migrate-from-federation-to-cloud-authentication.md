@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 08/26/2022
 
 ms.author: jricketts
 author: janicericketts
-manager: martinco
+manager: amycolannino
 
 ms.collection: M365-identity-device-management
 ---
@@ -86,13 +86,16 @@ Proactively communicate with your users how their experience will change, when i
 
 ### Plan the maintenance window
 
-After the domain conversion, Azure AD might continue to send some legacy authentication requests from Exchange Online to your AD FS servers for up to four hours. The delay is because the Exchange Online cache for [legacy applications authentication](../fundamentals/concept-fundamentals-block-legacy-authentication.md) can take up to 4 hours to be aware of the cutover from federation to cloud authentication.
+After the domain conversion, Azure AD might continue to send some legacy authentication requests from Exchange Online to your AD FS servers for up to four hours. The delay is because the Exchange Online cache for legacy applications authentication can take up to 4 hours to be aware of the cutover from federation to cloud authentication.
 
 During this four-hour window, you may prompt users for credentials repeatedly when reauthenticating to applications that use legacy authentication. Although the user can still successfully authenticate against AD FS, Azure AD no longer accepts the user's issued token because that federation trust is now removed.
 
 Existing Legacy clients (Exchange ActiveSync, Outlook 2010/2013) aren't affected because Exchange Online keeps a cache of their credentials for a set period of time. The cache is used to silently reauthenticate the user. The user doesn't have to return to AD FS. Credentials stored on the device for these clients are used to silently reauthenticate themselves after the cached is cleared. Users aren't expected to receive any password prompts as a result of the domain conversion process.
 
 Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients will continue to function without extra configuration.
+
+>[!NOTE] 
+>When you migrate from federated to cloud authentication, the process to convert the domain from federated to managed may take up to 60 minutes. During this process, users might not be prompted for credentials for any new logins to Azure portal or other browser based applications protected with Azure AD. We recommend that you include this delay in your maintenance window.
 
 ### Plan for rollback
 
