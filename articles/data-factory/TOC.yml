@@ -353,6 +353,8 @@ items:
       href: connector-amazon-simple-storage-service.md
     - name: Amazon S3 Compatible Storage
       href: connector-amazon-s3-compatible-storage.md
+    - name: AppFigures
+      href: connector-appfigures.md
     - name: Asana
       href: connector-asana.md     
     - name: Avro format
@@ -1112,6 +1114,9 @@ items:
       - name: Azure Cosmos DB (including SQL API)
         href: connector-troubleshoot-azure-cosmos-db.md
         displayName: troubleshooting
+      - name: Azure Data Explorer
+        href: connector-troubleshoot-azure-data-explorer.md      
+        displayName: troubleshooting                
       - name: Azure Data Lake (Gen1 and Gen2)
         href: connector-troubleshoot-azure-data-lake.md
         displayName: troubleshooting
