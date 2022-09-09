@@ -16,7 +16,7 @@ ms.date: 09/08/2022
 
 # Frequently Asked Questions (FAQs)
 
-- **When using Azure Database Migration Service, what’s the difference between an offline and an online migration??**
+- **When using Azure Database Migration Service, what’s the difference between an offline and an online migration?**
 Azure Database Migration Service supports both offline and online migrations. With an offline migration, application downtime starts when the migration starts. With an online migration, downtime is limited to the time required to cut over at the end of migration. We suggest that you test an offline migration to determine whether the downtime is acceptable; if not, then perform an online migration.
 Online and Offline migrations are compared in the following table:
 
