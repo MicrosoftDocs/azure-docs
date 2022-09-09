@@ -17,7 +17,7 @@ Spark Advisor is a system that automatically analyzes your code, queries, and co
 
 ## Advice on query hints
 
-### The selected query contains a hint that the system doesn't recognize
+### May return inconsistent results when using 'randomsplit'
 Verify that the hint is spelled correctly.
 
 ```scala
