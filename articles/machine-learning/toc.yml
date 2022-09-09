@@ -722,7 +722,7 @@
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
             - name: Parallal job
-              href: reference-yaml-job-parallal.md 
+              href: reference-yaml-job-parallel.md 
         - name: Datastore
           items: 
             - name: Azure Blob
