@@ -70,6 +70,14 @@ The QuickStart template method includes these steps automatically, but is not in
 
 For more details on all six step of this architecture diagram, see [Get started with the MedTech service in the Azure Health Data Services](./get-started-with-iot.md).
 
+## Granting access to the device message event hub
+
+For information about granting access to the device message event hub, see [Granting access to the device message event hub](#granting-access-to-the-device-message-event-hub).
+
+## Granting access to the FHIR service
+
+For information about granting access to the FHIR service, see [Granting access to the FHIR service](#granting-access-to-the-fhir-service).
+
 ## Next steps
 
 In this article, you learned about the different types of deployment for MedTech service. To learn more about each type of deployment, see
