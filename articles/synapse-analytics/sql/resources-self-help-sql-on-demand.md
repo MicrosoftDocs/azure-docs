@@ -673,7 +673,7 @@ If the issue persists, create a support ticket.
 
 The error "Incorrect syntax near 'NOT'" indicates there are some external tables with columns that contain the NOT NULL constraint in the column definition. Update the table to remove NOT NULL from the column definition. This error can sometimes also occur transiently with tables created from a CETAS statement. If the problem doesn't resolve, you can try dropping and re-creating the external table.
 
-### Partitione column returns NULL values
+### Partition column returns NULL values
 
 If your query returns NULL values instead of partitioning columns or can't find the partition columns, you have a few possible troubleshooting steps:
 
@@ -892,6 +892,21 @@ There are two options available to circumvent this error:
 * Downgrade to Spark 3.2.1.
 
 Our engineering team is currently working on a full support for Spark 3.3.
+
+## Lake database
+
+The Lake database tables that are created using Spark or Synapse designer are automatically available in serverless SQL pool for querying.
+
+### A table created in Spark is not available in serverless pool
+
+Tables that are created might not be immediately available in serverless SQL pool.
+- The tables will be available in serverless pools with some delay. You might need to wait 5-10 minutes after creation of a table in Spark to see it in serverless SQL pool.
+- Only the tables that reference Parquet, CSV, and Delta formats are available in serverless SQL pool. Other table types are not available.
+- Accessing Delta Lake tables in Lake databases is in **public preview**. Check other issues listed in this section or in the Delta Lake section.
+
+### Delta tables in Lake databases are not available in serverless SQL pool
+
+Make sure that your workspace Managed Identity has read access on the ADLS storage that contains Delta folder. The serverless SQL pool reads the Delta Lake table schema from the Delta log that are placed in ADLS and use the workspace Managed Identity to access the Delta transaction logs.
 
 ### Delta tables in Lake databases do not have identical schema in Spark and serverless pools
 
