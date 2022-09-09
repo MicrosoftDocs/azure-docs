@@ -27,7 +27,7 @@ Customizing views in cost analysis includes anything from tweaking display setti
 
 ## Group costs
 
-You **Group by** common properties to break down costs and identify top contributors. It should be your first change when drilling into data because it helps you identify the largest changes. To group by resource tags, for example, select the tag key you want to group by. Costs are broken down by each tag value, with an extra segment for resources that don't have that tag applied.
+Use the **Group by** option to group common properties so that you get a break down of costs and to identify top contributors. It should be your first change when drilling into data because it helps you identify the largest changes. To group by resource tags, for example, select the tag key you want to group by. Costs are broken down by each tag value, with an extra segment for resources that don't have that tag applied.
 
 Most Azure resources support tagging. However, some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Support for tags applies to usage reported _after_ the tag was applied to the resource. Tags aren't applied retroactively for cost rollups.
 
