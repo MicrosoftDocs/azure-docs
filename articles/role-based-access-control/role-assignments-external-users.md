@@ -4,13 +4,13 @@ description: Learn how to grant access to Azure resources for users external to 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.devlang:
 ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 10/15/2021
+ms.date: 08/26/2022
 ms.author: rolyon
 ms.custom: it-pro,subject-rbac-steps
 
@@ -225,7 +225,7 @@ If a guest user has been granted access to a directory, but they do not see the 
 
 If a guest user has been granted access to a directory, but they do not see the resources they have been granted access to in the Azure portal, make sure the guest user has selected the correct directory. A guest user might have access to multiple directories. To switch directories, in the upper left, click **Settings** > **Directories**, and then click the appropriate directory.
 
-![Screenshot of Poral setting Directories section in Azure portal.](./media/role-assignments-external-users/directory-switch.png)
+![Screenshot of Portal setting Directories section in Azure portal.](./media/role-assignments-external-users/directory-switch.png)
 
 ## Next steps
 

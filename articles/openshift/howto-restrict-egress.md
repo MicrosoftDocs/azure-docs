@@ -20,7 +20,7 @@ This article assumes that you're creating a new cluster. If you need a basic ARO
 
 ## Minimum Required FQDN - Proxied through ARO service
 
-This list is based on the list of FQDNs found in the OpenShift docs here: https://docs.openshift.com/container-platform/4.6/installing/install_config/configuring-firewall.html
+This list is based on the list of FQDNs found in the OpenShift docs here: https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html
 
 The following FQDNs are proxied through the service, and will not need additional firewall rules. They are here for informational purposes.
 

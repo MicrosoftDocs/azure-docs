@@ -1,12 +1,12 @@
 ---
 title: Model and partition data on Azure Cosmos DB with a real-world example
 description: Learn how to model and partition a real-world example using the Azure Cosmos DB Core API
-author: ThomasWeiss
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.author: thweiss
+ms.author: sidandrews
 ms.devlang: javascript
 ms.custom: devx-track-js
 ---
