@@ -26,7 +26,7 @@ keywords:
 
 ## Fine-tuning workflow
 
-The fine-tuning workflow requires the following steps:
+The fine-tuning workflow in Azure OpenAI Studio requires the following steps:
 
 1. Prepare your training and validation data
 1. Use the **Create customized model** wizard in Azure OpenAI Studio to train your fine-tuned model
@@ -35,6 +35,7 @@ The fine-tuning workflow requires the following steps:
     1. Optionally choose your validation data
     1. Optionally choose advanced options
     1. Review your choices and train your new fine-tuned model
+1. Check the status of your fine-tuned model
 1. Deploy your fine-tuned model
 1. Use your fine-tuned model
 
@@ -52,7 +53,7 @@ Here's an example of the training data format:
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 ```
 
-For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
+In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM), and the file must be less than 200MB in size. For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
 ### Creating your training and validation datasets
 
@@ -79,11 +80,14 @@ openai tools fine_tunes.prepare_data -f <LOCAL_FILE>
 
 This tool accepts different data formats, with the only requirement that they contain a prompt and a completion column/key. You can pass a CSV, TSV, XLSX, JSON, or JSONL file, and the tool reformats your training data and saves output into a JSONL file ready for fine-tuning, after guiding you through the process of implementing suggested changes.
 
-## Go to the Azure OpenAI Studio
+## Use the Create customized model wizard
+
+Azure OpenAI Studio provides the **Create customized model** wizard, so you can interactively create and train a fine-tuned model for your Azure resource. 
+### Go to the Azure OpenAI Studio
 
 Navigate to the Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a>and sign in with credentials that have access to your Azure OpenAI resource. During the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-### Landing page
+#### Landing page
 
 You'll first land on our main page for the Azure OpenAI Studio. From here, you can start fine-tuning a custom model.
 
@@ -93,13 +97,13 @@ If you have a deployment for your resource, select the **Start fine-tuning a cus
 
 :::image type="content" source="../media/fine-tuning/studio-portal.png" alt-text="Screenshot of the landing page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/fine-tuning/studio-portal.png":::
 
-## Start the wizard from the Models page
+### Start the wizard from the Models page
 
 To create a customized model, select the **Create customized model** button under the **Provided models** section on the **Models** page, highlighted in the following picture, to start the **Create customized model** wizard.
 
 :::image type="content" source="../media/fine-tuning/studio-models.png" alt-text="Screenshot of the Models page from the Azure OpenAI Studio, with sections highlighted." lightbox="../media/fine-tuning/studio-models.png":::
 
-## Select a base model
+#### Select a base model
 
 The first step in creating a customized model is to choose a base model. The **Base model** pane allows you to select a base model to use for your customized model, and the choice influences both the performance and the cost of your model. You can create a customized model from one of the following available base models:
 - `ada`
@@ -112,7 +116,7 @@ For more information about our base models, see [Models](../concepts/models.md).
 
 :::image type="content" source="../media/fine-tuning/studio-base-model.png" alt-text="Screenshot of the **Base model** pane of the **Create customized model** wizard." lightbox="../media/fine-tuning/studio-base-model.png":::
 
-## Choose your training data
+#### Choose your training data
 
 The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. The **Training data** pane, shown in the following picture, displays any existing, previously-uploaded datasets and provides options by which you can upload new training data. 
 
@@ -123,9 +127,9 @@ If your training data has already been uploaded to the service, select **Choose 
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
 > [!NOTE]
-> Training data files must be formatted as JSON Lines (.jsonl) files, encoded as UTF-8 with a byte-order mark (BOM), and less than 200MB in size.
+> Training data files must be formatted as JSON Lines (.jsonl) files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200MB in size.
 
-### To upload training data from a local file
+##### To upload training data from a local file
 
 You can upload a new training dataset to the service from a local file by using one of the following methods:
 - Drag and drop the file into the client area of the **Training data** pane, and then select **Upload file**
@@ -135,7 +139,7 @@ After you've selected and uploaded the training dataset, select **Next** to opti
 
 :::image type="content" source="../media/fine-tuning/studio-training-data-local.png" alt-text="Screenshot of the Training data pane for the Create customized model wizard, with local file options." lightbox="../media/fine-tuning/studio-training-data-local.png":::
 
-### To import training data from an Azure Blob store
+##### To import training data from an Azure Blob store
 
 You can import a training dataset from Azure Blob or another shared web location by providing the name and location of the file, as shown in the following picture. Enter the name of the file in **File name** and the Azure Blob URL, Azure Storage shared access signature (SAS), or other link to an accessible shared web location, which contains that file in **File location**, then select **Upload file** to import the training dataset to the service. 
 
@@ -143,7 +147,7 @@ After you've selected and uploaded the training dataset, select **Next** to opti
 
 :::image type="content" source="../media/fine-tuning/studio-training-data-blob.png" alt-text="Screenshot of the Training data pane for the Create customized model wizard, with Azure Blob and shared web location options." lightbox="../media/fine-tuning/studio-training-data-blob.png":::
 
-## Choose your validation data
+#### Choose your validation data
 
 You can now choose to optionally use validation data in the training process of your fine-tuned model. If you don't want to use validation data, you can choose **Next** to choose advanced options for yourmodel. Otherwise, if you have a validation dataset, you can either choose existing prepared validation data or upload new prepared validation data to use when customizing your model. The **Validation data** pane, shown in the following picture, displays any existing, previously-uploaded training and validation datasets and provides options by which you can upload new validation data. 
 
@@ -151,7 +155,12 @@ You can now choose to optionally use validation data in the training process of 
 
 If your validation data has already been uploaded to the service, select **Choose dataset**, and then select the file from the list shown in the **Validation data** pane. Otherwise, select either **Local file** to [upload validation data from a local file](#to-upload-validation-data-from-a-local-file), or **Azure blob or other shared web locations** to [import validation data from Azure Blob or another shared web location](#to-import-validation-data-from-an-azure-blob-store).
 
-### To upload validation data from a local file
+For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
+
+> [!NOTE]
+> Like training data files, validation data files must be formatted as JSON Lines (.jsonl) files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200MB in size. 
+
+##### To upload validation data from a local file
 
 You can upload a new validation dataset to the service from a local file by using one of the following methods:
 - Drag and drop the file into the client area of the **Validation data** pane, and then select **Upload file**
@@ -161,7 +170,7 @@ After you've uploaded the validation dataset, select **Next** to optionally [cho
 
 :::image type="content" source="../media/fine-tuning/studio-validation-data-local.png" alt-text="Screenshot of the Validation data pane for the Create customized model wizard, with local file options." lightbox="../media/fine-tuning/studio-validation-data-local.png":::
 
-### To import validation data from an Azure Blob store
+##### To import validation data from an Azure Blob store
 
 You can import a validation dataset from Azure Blob or another shared web location by providing the name and location of the file, as shown in the following picture. Enter the name of the file in **File name** and the Azure Blob URL, Azure Storage shared access signature (SAS), or other link to an accessible shared web location which contains that file in **File location**, then select **Upload file** to import the validation dataset to the service. 
 
@@ -169,7 +178,7 @@ After you've imported the validation dataset, select **Next** to optionally [cho
 
 :::image type="content" source="../media/fine-tuning/studio-validation-data-blob.png" alt-text="Screenshot of the Validation data pane for the Create customized model wizard, with Azure Blob and shared web location options." lightbox="../media/fine-tuning/studio-validation-data-blob.png":::
 
-## Choose advanced options
+#### Choose advanced options
 
 You can either use default values for the parameters of the fine-tune job that the wizard runs to train your fine-tuned model, or you can adjust those parameters for your customization needs in the **Advanced options** pane, shown in the following picture.
 
@@ -181,13 +190,17 @@ Either select **Default** to use the default values for the fine-tune job, or se
 
 After you've chosen use either default or advanced options, select **Next** to [review your choices and train your fine-tuned model](#review-your-choices-and-train-your-fine-tuned-model).
 
-## Review your choices and train your model
+#### Review your choices and train your model
 
-The **Review and train** pane displays information about the choices you've made in the **Create customized model** wizard for your fine-tuned model, as shown in the following picture. 
+The **Review and train** pane of the wizard displays information about the choices you've made in the **Create customized model** wizard for your fine-tuned model, as shown in the following picture. 
 
 :::image type="content" source="../media/fine-tuning/studio-review-and-train.png" alt-text="Screenshot of the Review and train pane for the Create customized model wizard." lightbox="../media/fine-tuning/studio-review-and-train.png":::
 
-If you're ready to train your model, select **Save and close** to start the fine-tune job and return to the [**Models** page](#start-the-wizard-from-the-models-page). The **Models** page displays information about your customized model, as shown in the following picture, including the status and ID of the fine-tune job for that model. When the training job is completed, the ID of the results file is also displayed.
+If you're ready to train your model, select **Save and close** to start the fine-tune job and return to the [**Models** page](#start-the-wizard-from-the-models-page). 
+
+## Check the status of your fine-tuned model
+
+The **Models** page displays information about your fine-tuned model in the **Customized models** tab, as shown in the following picture. The tab includes information about the status and ID of the fine-tune job for your model. When the training job is completed, the ID of the results file is also displayed.
 
 :::image type="content" source="../media/fine-tuning/studio-models-job-running.png" alt-text="Screenshot of the Models page from the Azure OpenAI Studio, with a customized model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
 
