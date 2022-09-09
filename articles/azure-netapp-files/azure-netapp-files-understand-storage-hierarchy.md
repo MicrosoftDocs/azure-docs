@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 06/14/2021
+ms.date: 09/09/2022
 ms.author: anfdocs
 ---
 # Storage hierarchy of Azure NetApp Files
@@ -74,11 +74,44 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 - A volume's capacity consumption counts against its pool's provisioned capacity.
 - A volume’s throughput consumption counts against its pool’s available throughput. See [Manual QoS type](#manual-qos-type).
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
+- Volumes contain a capacity of between 4 and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 100 and 500 TiB.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
 The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   
 
 ![Conceptual diagram of storage hierarchy](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)
+
+## Large volumes
+
+Azure NetApp Files allows you to create volumes up to 500 TiB in size, exceeding the previous 100-TiB limit. Large volumes begin at a capacity of 102,401 GiB and scale up to 500 TiB, whereas regular Azure NetApp Files volumes, which are offered between 100 GiB and 102,400 GiB. 
+
+> [!IMPORTANT]
+> Large volumes for Azure NetApp Files is currently in public preview. This preview is offered under the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and is controlled via Azure Feature Exposure Control (AFEC) settings on a per subscription basis. To access this feature, contact your account team. 
+
+### Considerations and requirements for large volumes
+
+* Existing volumes cannot be resized over 100 TiB. You cannot currently convert Azure NetApp Files to large volumes.
+* Large volumes must be created at a size greater than 100 TiB. A single volume cannot exceed 500 TiB.  
+* Large volumes don't support all operations that are currently supported for volumes smaller than the 100-TiB limit. You cannot:
+    * Use large volumes in a cross-region replication relationship
+    * Create a large volume from a backup
+    * Create a backup from a large volume
+    * Use cool tiering: if you're using the Standard performance tier, you can move large volumes to cool access <!-- remove depending on cool access release -->
+    * Create a large volume with application volume groups 
+    
+* Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes is based on the existing 100-TiB maximum capacity targets. Customers will be able to grow to 500 TiB with the throughput ceiling as per the table below. 
+
+| Capacity tier | Volume size (TiB) | Throughput (MiB/s) |
+| --- | --- | --- |
+| Standard | 100 to 500 | 1,600 |
+| Premium | 100 to 500 | 6,400 | 
+| Ultra | 100 to 500 | 10,240 | 
+
+## Configure large volumes 
+
+You must first request [an increase in regional capacity quota](azure-netapp-files-resource-limits.md#request-limit-increase) before you can use large volumes. 
+
+Once your capacity quota has increased, you can create volumes to 500 TiB in size. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Otherwise, large volumes are managed the same way as existing Azure NetApp Files volumes. 
 
 ## Next steps
 

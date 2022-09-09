@@ -1,7 +1,7 @@
 ---
 author: karavar
 ms.author: vakarand
-ms.date: 08/11/2022
+ms.date: 09/01/2022
 ms.service: active-directory
 ms.subservice: managed-identity
 ms.topic: include
@@ -16,9 +16,13 @@ Many service providers building Software as a Service (SaaS) offerings on Azure 
 
 Azure platform services and resources that are owned by the service provider and that reside in the service provider's tenant require access to the key from the customer's tenant to perform the encryption/decryption operations.
 
-For the purposes of this how-to article, assume there are two Azure AD tenants: an independent service provider's tenant (*Tenant1*), and a customer's tenant (*Tenant2*). *Tenant1* hosts Azure platform services and *Tenant2* hosts the customer's key vault.
+The image below shows a data encryption at rest with federated identity in a cross-tenant CMK workflow spanning a service provider and its customer.
 
-The service provider first creates a multi-tenant application registration in *Tenant1*. The service provider configures a [federated identity credential](/azure/active-directory/develop/workload-identity-federation-create-trust-managed-identity-as-credential) on this application using a user-assigned managed identity. The service provider then shares the name and application ID of the app with the customer.
+:::image type="content" source="media/active-directory-msi-cross-tenant-cmk-overview/cross-tenant-cmk.png" alt-text="Screenshot showing a cross-tenant CMK with a federated identity." lightbox="media/active-directory-msi-cross-tenant-cmk-overview/cross-tenant-cmk.png" border="true":::
+
+In the example above, there are two Azure AD tenants: an independent service provider's tenant (*Tenant1*), and a customer's tenant (*Tenant2*). *Tenant1* hosts Azure platform services and *Tenant2* hosts the customer's key vault.
+
+A multi-tenant application registration is created by the service provider in *Tenant1*. A [federated identity credential](/azure/active-directory/develop/workload-identity-federation-create-trust-managed-identity-as-credential) is created on this application using a user-assigned managed identity. Then, the name and application ID of the app is shared with the customer.
 
 A user with the appropriate permissions installs the service provider's application in the customer tenant, *Tenant2*. A user then grants the service principal associated with the installed application access to the customer's key vault. The customer also stores the encryption key, or customer-managed key, in the key vault. The customer shares the key location (the URL of the key) with the service provider.
 
@@ -58,7 +62,7 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 | Step | Description | Least privileged Azure RBAC roles | Least privileged Azure AD roles |
 | -- | ----------------------------------- | -------------- | --------------|
 | 1. | <li><i>Recommended</i>: Send the user to [sign in](/azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore) to your app. If the user can sign in, then a service principal for your app exists in their tenant. </li><li>Use [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals), [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/new-mgserviceprincipal?view=graph-powershell-beta&preserve-view=true), [Azure PowerShell](/powershell/module/az.resources/new-azadserviceprincipal), or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-create) to create the service principal. </li><li>Construct [an admin-consent URL](../articles/active-directory/manage-apps/grant-admin-consent.md#construct-the-url-for-granting-tenant-wide-admin-consent) and grant tenant-wide consent to create the service principal using the application ID. | None | Users with permissions to install applications |
-| 2. | Create an Azure Key Vault and a key used as the customer-managed key. | A user must must be assigned the [Key Vault Contributor](../articles/role-based-access-control/built-in-roles.md#key-vault-contributor) role to create the key vault<br /><br /> A user must be assigned the [Key Vault Crypto Officer](../articles/role-based-access-control/built-in-roles.md#key-vault-crypto-officer) role to add a key to the key vault | None |
+| 2. | Create an Azure Key Vault and a key used as the customer-managed key. | A user must be assigned the [Key Vault Contributor](../articles/role-based-access-control/built-in-roles.md#key-vault-contributor) role to create the key vault<br /><br /> A user must be assigned the [Key Vault Crypto Officer](../articles/role-based-access-control/built-in-roles.md#key-vault-crypto-officer) role to add a key to the key vault | None |
 | 3. | Grant the consented application identity access to the Azure key vault by assigning the role [Key Vault Crypto Service Encryption User](/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations&preserve-view=true) | To assign the **Key Vault Crypto Service Encryption User** role to the application, you must have been assigned the [User Access Administrator](../articles/role-based-access-control/built-in-roles.md#user-access-administrator) role. | None |
 | 4. | Copy the key vault URL and key name into the customer-managed keys configuration of the SaaS offering.| None| None|
 
@@ -68,6 +72,6 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 - Access to Azure Key Vault can be authorized using Azure RBAC or access policies. When granting access to a key vault, make sure to use the active mechanism for your key vault.
 - An Azure AD application registration has an application ID (client ID). When the application is installed in your tenant, a service principal is created. The service principal shares the same application ID as the app registration, but generates its own object ID. When you authorize the application to have access to resources, you may need to use the service principal `Name` or `ObjectID` property.
 
-### Phase 3
+### Phase 3 - The service provider encrypts data in an Azure resource using the customer-managed key
 
-After phase 1 and 2 are complete, the service provider can configure encryption on the Azure resource to work across tenants. You can do this using an ARM template or REST API.
+After phase 1 and 2 are complete, the service provider can configure encryption on the Azure resource with the key and key vault in the customer's tenant and the Azure resource in the ISV's tenant. The service provider can configure cross-tenant customer-managed keys with the client tools supported by that Azure resource, with an ARM template, or with the REST API.

@@ -103,8 +103,8 @@
       href: how-to-query-graph.md
   - name: Develop client apps
     items:
-    - name: Make API requests with Postman
-      href: how-to-use-postman.md
+    - name: Call Azure Digital Twins APIs with Postman
+      href: how-to-use-postman-with-digital-twins.md
     - name: Use 3D Scenes Studio
       href: how-to-use-3d-scenes-studio.md
     - name: Write app authentication code
@@ -149,12 +149,12 @@
       href: troubleshoot-performance.md
     - name: Known issues
       href: troubleshoot-known-issues.md
-    - name: Problem resolution
+    - name: Problem resolution in Azure Digital Twins
       items:
       - name: Error 403 (Forbidden)
-        href: troubleshoot-error-403.md
+        href: troubleshoot-error-403-digital-twins.md
       - name: Error 404 (Sub-Domain not found)
-        href: troubleshoot-error-404.md
+        href: troubleshoot-error-404-digital-twins.md
       - name: Azure Digital Twins Explorer authentication error
         href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
       - name: CLI parsing failures

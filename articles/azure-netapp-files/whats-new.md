@@ -12,14 +12,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 09/01/2022
+ms.date: 09/09/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-* [Large volumes](manage-large-volumes.md) (Preview)
+* [Large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) (Preview)
     
 
 ## August 2022
@@ -43,8 +43,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     In preview: 
     * Azure Key Vault to store Service Principal content
     * Azure Managed Disk as an alternate storage back end
-
-* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now in public preview. You can back up Azure NetApp Files datastores and VMs using Cloud Backup. This virtual appliance installs in the Azure VMware Solution cluster and provides policy based automated backup of VMs integrated with Azure NetApp Files snapshot technology for fast backups and restores of VMs, groups of VMs (organized in resource groups) or complete datastores. 
 
 * [Active Directory connection enhancement: Reset Active Directory computer account password](create-active-directory-connections.md#reset-active-directory) (Preview)
 

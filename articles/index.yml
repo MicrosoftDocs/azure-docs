@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure documentation
   description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
-  services: azure
+  services: azure-resource-manager
   ms.service: azure
   ms.topic: hub-page
   author: rolyon
