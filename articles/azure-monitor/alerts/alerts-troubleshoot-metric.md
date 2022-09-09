@@ -67,10 +67,10 @@ If you believe your metric alert shouldn't have fired but it did, the following 
 
 ## Can't find the metric to alert on: Virtual machines guest metrics
 
-To alert on guest operating system metrics of virtual machines, such as memory and disk space, ensure you've installed the required agent to collect this data to Azure Monitor Metrics:
+To alert on guest operating system metrics of virtual machines, such as memory and disk space, ensure you've installed the required agent to collect this data to Azure Monitor Metrics for:
 
-- [For Windows VMs](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md)
-- [For Linux VMs](../essentials/collect-custom-metrics-linux-telegraf.md)
+- [Windows VMs](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md)
+- [Linux VMs](../essentials/collect-custom-metrics-linux-telegraf.md)
 
 For more information about collecting data from the guest operating system of a virtual machine, see [this website](../vm/monitor-vm-azure.md#guest-operating-system).
 
