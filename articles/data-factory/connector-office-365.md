@@ -173,9 +173,6 @@ If you were setting `dateFilterColumn`, `startTime`, `endTime`, and `userScopeFi
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Microsoft 365 (Office 365) source.
 
-## Lookup activity properties
-
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ### Microsoft 365 (Office 365) as source
 
@@ -332,6 +329,10 @@ To copy data from Microsoft 365 (Office 365), the following properties are suppo
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
