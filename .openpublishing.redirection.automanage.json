@@ -1,9 +1,0 @@
-{
-    "redirections": [
-        {
-            "source_path_from_root": "/articles/automanage/automanage-virtual-machines.md",
-            "redirect_url": "/articles/automanage/overview-about",
-            "redirect_document_id": false
-        }
-    ]
-}
