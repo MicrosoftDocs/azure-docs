@@ -144,7 +144,7 @@ The sample response will have data-partition-id appended to the legal tag name a
 ```bash
     curl --location --request GET 'https://<instance>.energy.azure.com/api/legal/v1/legaltags/<instance>-<data-partition-name>-legal-tag' \
     --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXh...'
+    --header 'Authorization: Bearer <access_token>'
 ```
 
 ### Sample response

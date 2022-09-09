@@ -377,4 +377,4 @@ Microsoft Energy Data Services instance is using OSDU&trade; M8 Version of sduti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [CSV ingestion tutorial](tutorial-csv-ingestion.md)
+> [Tutorial: Steps to interact with Well Delivery DDMS](tutorial-well-delivery-ddms.md)

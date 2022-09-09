@@ -124,7 +124,7 @@ Add user to the "Users" group using Entitlement service.
 ```bash
     curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/users@<instance>-<data-partition-name>.contoso.com/members' \
     --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ9...' \
+    --header 'Authorization: Bearer <access_token>' \
     --header 'Content-Type: application/json' \
     --data-raw '{
                     "email": "90e0d063-2f8e-4244-860a-XXXXXXXXXX",
@@ -161,7 +161,7 @@ Add user to the "Users" group using Entitlement service.
 ```bash
     curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/users.datalake.editors@<instance>-<data-partition-name>.contoso.com/members' \
     --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ9...' \
+    --header 'Authorization: Bearer <access_token>' \
     --header 'Content-Type: application/json' \
     --data-raw '{
                 "email": "90e0d063-2f8e-4244-860a-XXXXXXXXXX",
@@ -235,7 +235,7 @@ Add user to the "Users" group using Entitlement service.
 ```bash
     curl --location --request DELETE 'https://<instance>.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX' \
     --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ9...'
+    --header 'Authorization: Bearer <access_token>'
 ```
 
 **Sample response**
