@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: reference
 ms.reviewer: nibaccam
-ms.author: risha
-author: RitiSharma
-ms.date: 10/13/2021
+ms.author: rvadthyavath
+author: vadthyavath
+ms.date: 09/09/2022
 ---
 
 # Data schemas to train computer vision models with automated machine learning
