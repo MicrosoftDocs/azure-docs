@@ -281,5 +281,4 @@ See the complete regional availability of Functions on the [Azure web site](http
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Understand Azure Functions hosting options](functions-scale.md)
+* [Understand Azure Functions hosting options](functions-scale.md)
