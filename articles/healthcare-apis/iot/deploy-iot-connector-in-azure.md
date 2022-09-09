@@ -72,11 +72,11 @@ For more details on all six step of this architecture diagram, see [Get started 
 
 ## Granting access to the device message event hub
 
-For information about granting access to the device message event hub, see [Granting access to the device message event hub](#granting-access-to-the-device-message-event-hub).
+For information about granting access to the device message event hub, see [Granting access to the device message event hub](deploy-07-new-post-deploy.md#granting-access-to-the-device-message-event-hub).
 
 ## Granting access to the FHIR service
 
-For information about granting access to the FHIR service, see [Granting access to the FHIR service](#granting-access-to-the-fhir-service).
+For information about granting access to the FHIR service, see [Granting access to the FHIR service](deploy-07-new-post-deploy.md#granting-access-to-the-fhir-service).
 
 ## Next steps
 
