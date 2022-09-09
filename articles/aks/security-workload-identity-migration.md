@@ -32,7 +32,7 @@ This article reviews the different options available depending if you are planni
 
 ## How it works
 
-In this security model, the AKS cluster becomes a token issuer, issuing tokens to Kubernetes service accounts. These service account tokens can be configured to be trusted on Azure AD applications. The workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library or the Microsoft Authentication Library.
+In this security model, the AKS cluster acts as token issuer, Azure Active Directory leverages OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library or the Microsoft Authentication Library.
 
 :::image type="content" source="media/security-workload-identity-migration/aks-workload-identity-model.png" alt-text="Diagram of the AKS workload identity security model.":::
 
@@ -43,13 +43,22 @@ The following table describes the required OIDC issuer endpoints for Azure AD Wo
 |`{IssuerURL}/.well-known/openid-configuration` |Also known as the OIDC discovery document. This contains the metadata about the issuer's configurations. |
 |`{IssuerURL}/openid/v1/jwks` |This contains the public signing key(s) that AAD uses to verify the authenticity of the service account token. |
 
+The following diagram summarizes the authentication sequence using OpenID Connect.
+
 :::image type="content" source="media/security-workload-identity-migration/aks-workload-identity-oidc-authentication-model.png" alt-text="Diagram of the AKS workload identity OIDC authentication sequence.":::
 
 ## How to migrate to Workload Identity
 
 You can configure Workload Identity on a cluster that is currently running pod-managed identity. You can use the same configuration you have for pod-managed identity today, you just need to annotate the service account within the namespace with the identity so that Workload Identity can inject the annotations into the pods. Depending on which Azure Identity client library the application is using with pod-managed identity today, you have two approaches to run that application in Workload Identity.
 
-To help streamline and ease the migration process, we've developed a migration sidecar that converts the IDMS transactions your application makes over to [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) (OIDC). This isn't intended to be a long-term solution, but a way to get up and running quickly on Workload Identity. Running a sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to migrate your SDK to [Azure Identity](../active-directory/develop/reference-v2-libraries.md) client library version 1.6 or later, which supports OIDC authentication.
+The following table summarizes our migration or deployment recommendations for Workload Identity.
+
+|Scenario |Description |
+|---------|------------|
+| New or existing cluster deployment<br> running Azure Identity v1.6 | No migration steps are required. |
+| New or existing cluster deployment<br> not running Azure Identity v1.6 | Update container image and deploy, or update using new image version, or use the migration sidecar. |
+
+To help streamline and ease the migration process, we've developed a migration sidecar that converts the IDMS transactions your application makes over to [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) (OIDC). This isn't intended to be a long-term solution, but a way to get up and running quickly on Workload Identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to upgrade to [Azure Identity](../active-directory/develop/reference-v2-libraries.md) client library version 1.6 or later, which supports OIDC authentication.
 
 ### Managed Identity with Workload Identity sidecar
 
@@ -88,6 +97,12 @@ spec:
 ```
 
 ## How setup a new AKS cluster with Workload Identity
+
+If your application is already running [Azure Identity](../active-directory/develop/reference-v2-libraries.md) client library version 1.6 or later, which supports OIDC authentication, you can follow the steps below to create a new cluster with Workload Identity enabled. You can then install your application.
+
+If you are not running the minimum supported SDK version, you can upgrade and then deploy, or deploy the migration sidecar.
+
+ from a Greenfield perspective if a customer application is running that version, they can just deploy workload identity and then there application.  If they are not running the minimum supported SDK version above they can upgrade and then deploy, or just deploy the sidecar (which will proxy IMDS calls there legacy SDK is making over to OIDC).  
 
 1. Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
