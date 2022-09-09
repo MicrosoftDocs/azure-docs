@@ -12,14 +12,14 @@ ms.author: v-amallick
 
 SAP HANA databases are mission critical workloads that require a low recovery point objective (RPO) and a fast recovery time objective (RTO). You can now [back up SAP HANA databases running on Azure VMs](./tutorial-backup-sap-hana-db.md) using [Azure Backup](./backup-overview.md).
 
-Azure Backup is [Backint certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) by SAP, to provide native backup support by leveraging SAP HANA's native APIs. This offering from Azure Backup aligns with Azure Backup's mantra of **zero-infrastructure** backups, eliminating the need to deploy and manage backup infrastructure. You can now seamlessly back up and restore SAP HANA databases running on Azure VMs ([M series VMs](../virtual-machines/m-series.md) also supported now!) and leverage enterprise management capabilities that Azure Backup provides.
+Azure Backup is [Backint certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) by SAP, to provide native backup support by leveraging SAP HANA's native APIs. This offering from Azure Backup aligns with Azure Backup's mantra of **zero-infrastructure** backups, eliminating the need to deploy and manage the backup infrastructure. You can now seamlessly back up and restore SAP HANA databases running on Azure VMs ([M series VMs](../virtual-machines/m-series.md) also supported now!) and leverage enterprise management capabilities that Azure Backup provides.
 
 ## Added value
 
-Using Azure Backup to back up and restore SAP HANA databases, gives the following advantages:
+Using the Azure Backup service to back up and restore SAP HANA databases, gives the following advantages:
 
 * **15-minute Recovery Point Objective (RPO)**: Recovery of critical data of up to 15 minutes is now possible.
-* **One-click, point-in-time restores**: Restore of production data to alternate HANA servers is made easy. Chaining of backups and catalogs to perform restores is all managed by Azure behind the scenes.
+* **One-click, point-in-time restores**: Restore of production data to alternate HANA servers is made easy. The chaining of backups and catalogs to perform restores is all managed by Azure behind the scenes.
 * **Long-term retention**: For rigorous compliance and audit needs. Retain your backups for years, based on the retention duration, beyond which the recovery points will be pruned automatically by the built-in lifecycle management capability.
 * **Backup Management from Azure**: Use Azure Backup's management and monitoring capabilities for improved management experience. Azure CLI is also supported.
 
@@ -39,11 +39,11 @@ You can back up SAP HANA databases running inside an Azure VM and stream backup 
 * To [configure backup](./tutorial-backup-sap-hana-db.md#configure-backup) on the databases that are discovered, choose the required backup policy and enable backups.
 
 * Once the backup is configured, Azure Backup service sets up the following Backint parameters at the DATABASE level on the protected SAP HANA server:
-  * [catalog_backup_using_backint:true]
-  * [enable_accumulated_catalog_backup:false]
-  * [parallel_data_backup_backint_channels:1]
-  * [log_backup_timeout_s:900)]
-  * [backint_response_timeout:7200]
+  * `[catalog_backup_using_backint:true]`
+  * `[enable_accumulated_catalog_backup:false]`
+  * `[parallel_data_backup_backint_channels:1]`
+  * `[log_backup_timeout_s:900)]`
+  * `[backint_response_timeout:7200]`
 
 >[!NOTE]
 >Ensure that these parameters are *not* present at HOST level. Host-level parameters will override these parameters and might cause unexpected behavior.
@@ -69,11 +69,11 @@ To restore a VM running SAP HANA, follow these steps:
 * After all the other configurations (such as IP, system name, and so on) are set, the VM is set to receive DB data from Azure Backup.
 * Now restore the DB into the VM from the [Azure SAP HANA DB backup](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) to the desired point-in-time.
 
-## Using Azure Backup to back up database instances (preview)
+## Using the Azure Backup service to back up database instances (preview)
 
-As databases grow in size, the time taken to restore becomes a factor when dealing with streaming backups. Also, during back up, the time taken by the database to generate *backint streams* can grow in proportion to the churn, which can be factor as well.
+As databases grow in size, the time taken to restore becomes a factor when dealing with streaming backups. Also, during backup, the time taken by the database to generate *backint streams* can grow in proportion to the churn, which can be factor as well.
 
-A database consistent snapshot based approach helps to solve both issues and provide you the benefit of instant backup and instant restore. In case of HANA, Azure Backup is now providing a HANA consistent snapshot based approach that is integrated with backint so that you can use Azure Backup as a single product for your entire HANA landscape, irrespective of size.
+A database consistent snapshot based approach helps to solve both issues and provide you the benefit of instant backup and instant restore. If HANA, Azure Backup is now providing a HANA consistent snapshot based approach that is integrated with backint so that you can use Azure Backup as a single product for your entire HANA landscape, irrespective of size.
 
 ### Pricing
 
