@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
+  - name: Upgrade guidance from basic to standard load balancer
+    href: load-balancer-basic-upgrade-guidance.md
 - name: Quickstarts
   items:
   - name: Create a public load balancer
@@ -197,8 +199,9 @@
     - name: Use with an existing Azure Load Balancer - CLI
       href: configure-vm-scale-set-cli.md
   - name: Upgrade from a basic to standard load balancer
-    href: load-balancer-basic-upgrade-standard.md
     items:
+    - name: Upgrade options and guidance
+      href: load-balancer-basic-upgrade-guidance.md
     - name: Upgrade a basic public load balancer
       href: upgrade-basic-standard.md
     - name: Upgrade an internal load balancer - Outbound connections not required
