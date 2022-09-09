@@ -34,4 +34,4 @@ After you've uploaded and sent your self-hosted integration runtime logs, contac
 
 ## Next steps
 
-[Auto-generate a pipeline by using the SAP ODP data partitioning template](sap-change-data-capture-data-partitioning-template.md)
+[Auto-generate a pipeline by using the SAP data partitioning template](sap-change-data-capture-data-partitioning-template.md)

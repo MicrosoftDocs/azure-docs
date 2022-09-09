@@ -16,23 +16,23 @@ ms.author: ulrichchrist
 
 Learn how to create and set up a self-hosted integration runtime for the SAP change data capture (CDC) solution (preview) in Azure Data Factory.
 
-To prepare a self-hosted integration runtime to use with the SAP ODP (preview) linked service and the SAP ODP data extraction template or SAP ODP data partition template, complete the steps that are described in the following sections.
+To prepare a self-hosted integration runtime to use with the SAP ODP (preview) linked service and the SAP data extraction template or the SAP data partition template, complete the steps that are described in the following sections.
 
 ## Create and set up a self-hosted integration runtime
 
 In Azure Data Factory Studio, [create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md?tabs=data-factory). You can download the latest version of the private [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). The download version has improved performance and detailed error messages. Install the runtime on your on-premises computer or on a virtual machine (VM).
 
-The more CPU cores you have on the computer running the self-hosted integration runtime, the higher your data extraction throughput will be.  For example, an internal test achieved higher than 12 MB/s throughput when running parallel extractions on a self-hosted integration runtime computer that has 16 CPU cores.
+The more CPU cores you have on the computer running the self-hosted integration runtime, the higher your data extraction throughput is. For example, an internal test achieved higher than 12 MB/s throughput when running parallel extractions on a self-hosted integration runtime computer that has 16 CPU cores.
 
 ## Download and install the SAP .NET connector
 
-Download the latest [64-bit SAP .NET Connector (SAP NCo 3.0)](https://support.sap.com/en/product/connectors/msnet.html) and install it on the computer running the self-hosted integration runtime. During installation, in the **Optional setup steps** dialog, select **Install Assemblies to GAC**, and then select **Next**.
+Download the latest [64-bit SAP .NET Connector (SAP NCo 3.0)](https://support.sap.com/en/product/connectors/msnet.html) and install it on the computer running the self-hosted integration runtime. During installation, in the **Optional setup steps** dialog, select **Install assemblies to GAC**, and then select **Next**.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-net-connector-installation.png" alt-text="Screenshot of the SAP .NET Connector 3.0 installation dialog.":::
 
 ## Add a network security rule
 
-Add a network security rule on your SAP systems, so your self-hosted integration runtime computer can connect to them. If your SAP system is on an Azure VM, to add the rule:
+Add a network security rule on your SAP systems so that your self-hosted integration runtime computer can connect to them. If your SAP system is on an Azure VM, to add the rule:
 
 1. Set **Source IP addresses/CIDR ranges** to your self-hosted integration runtime machine IP address.
 
@@ -67,4 +67,4 @@ On the computer running your self-hosted integration runtime, edit *C:\Windows\S
 
 ## Next steps
 
-[Set up a linked service and source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md)
+[Set up an SAP ODP linked service and source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md)

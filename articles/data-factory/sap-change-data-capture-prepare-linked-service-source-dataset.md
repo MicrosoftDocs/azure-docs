@@ -24,16 +24,16 @@ To set up a linked service for your SAP CDC solution:
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-new-linked-service.png" alt-text="Screenshot of the Manage hub in Azure Data Factory Studio, with the New linked service button highlighted.":::
 
-1. In **New linked service**, search for **SAP**. Select **SAP ODP (preview)**, and then select **Continue**.
+1. In **New linked service**, search for **SAP**. Select **SAP ODP (Preview)**, and then select **Continue**.
 
-   :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-linked-service-selection.png" alt-text="Screenshot of the linked service source selection, with SAP ODP (preview) selected.":::
+   :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-linked-service-selection.png" alt-text="Screenshot of the linked service source selection, with SAP ODP (Preview) selected.":::
 
-1. Set the linked service properties. Many of the properties are similar to SAP table linked service properties. For more information, see [Linked service properties](connector-sap-table.md?tabs=data-factory#linked-service-properties).
+1. Set the linked service properties. Many of the properties are similar to SAP Table linked service properties. For more information, see [Linked service properties](connector-sap-table.md?tabs=data-factory#linked-service-properties).
 
    1. In **Name**, enter a unique name for the linked service.
    1. In **Connect via integration runtime**, select your self-hosted integration runtime.
    1. In **Server name**, enter the mapped server name for your SAP system.
-   1. In **Subscriber name**, enter a unique name to register and identify this Data Factory connection as a subscriber that consumes data packages produced in the Operational Delta Queue (ODQ) by your SAP system. For example, you might name it `<your-data-factory-name>_<your-linked-service-name>`.
+   1. In **Subscriber name**, enter a unique name to register and identify this Data Factory connection as a subscriber that consumes data packages that are produced in the Operational Delta Queue (ODQ) by your SAP system. For example, you might name it `<your data factory -name>_<your linked service name>`.
 
     When you use delta extraction mode in SAP, the combination of subscriber name (maintained in the linked service) and subscriber process must be unique for every copy activity that reads from the same ODP source object. A unique name ensures that the ODP framework can distinguish between copy activities and provide the correct delta.
 
@@ -55,9 +55,9 @@ To create a Data Factory copy activity that uses an SAP ODP data source, complet
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-data-source-new.png" alt-text="Screenshot of the Copy data activity Source configuration.":::
 
-1. In **New dataset**, search for **SAP**. Select **SAP ODP (preview)**, and then select **Continue**.
+1. In **New dataset**, search for **SAP**. Select **SAP ODP (Preview)**, and then select **Continue**.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-selection.png" alt-text="Screenshot of the SAP ODP (preview) dataset type on the New dataset dialog.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-selection.png" alt-text="Screenshot of the SAP ODP (Preview) dataset type on the New dataset dialog.":::
 
 1. In **Set properties**, enter a name for the SAP ODP linked service data source. In **Linked service**, select the dropdown and select **New**.
 
@@ -71,21 +71,21 @@ To create a Data Factory copy activity that uses an SAP ODP data source, complet
        - To extract SAP extractors from SAP ECC, select **SAPI**.
        - To extract SAP application tables from SAP source systems via SAP LT replication server as a proxy, select **SLT_\<your queue alias\>**.
 
-       If you want to extract SAP application tables but you don’t want to use SAP Landscape Transformation Replication Server (SLT) as a proxy, you can create SAP extractors by using the RSO2 transaction code or CDS views with the tables. Then, extract the tables directly from your SAP source systems by using either an **SAPI** or an **ABAP_CDS** context.
+       If you want to extract SAP application tables, but you don’t want to use SAP Landscape Transformation Replication Server (SLT) as a proxy, you can create SAP extractors by using the RSO2 transaction code or Core Data Services (CDS) views with the tables. Then, extract the tables directly from your SAP source systems by using either an **SAPI** or an **ABAP_CDS** context.
 
    1. For **Object name**, under the selected data extraction context, select the name of the data source object to extract. If you connect to your SAP source system by using SLT as a proxy, the **Preview data** feature currently isn't supported.
 
       To enter the selections directly, select the **Edit** checkbox.
   
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-configuration.png" alt-text="Screenshot of the SAP ODP (preview) dataset configuration page.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-configuration.png" alt-text="Screenshot of the SAP ODP (Preview) dataset configuration page.":::
 
 1. Select **OK** to create your new SAP ODP source dataset.
 
 1. In the Data Factory copy activity, in **Extraction mode**, select one of the following options:
 
-    - **Full**. Always extracts the current snapshot of the selected data source object. This option doesn't register the Data Factory copy activity as its delta subscriber that consumes data changes produced in the ODQ by your SAP system.
-    - **Delta**. Initially extracts the current snapshot of the selected data source object. This option registers the Data Factory copy activity as its delta subscriber and subsequently extracts new data changes produced in the ODQ by your SAP system since the last extraction.
-    - **Recovery**. Repeats the last extraction that was part of a failed pipeline run.
+    - **Full**: Always extracts the current snapshot of the selected data source object. This option doesn't register the Data Factory copy activity as its delta subscriber that consumes data changes produced in the ODQ by your SAP system.
+    - **Delta**: Initially extracts the current snapshot of the selected data source object. This option registers the Data Factory copy activity as its delta subscriber and subsequently extracts new data changes produced in the ODQ by your SAP system since the last extraction.
+    - **Recovery**: Repeats the last extraction that was part of a failed pipeline run.
 
 1. In **Subscriber process**, enter a unique name to register and identify this Data Factory copy activity as a delta subscriber of the selected data source object. Your SAP system manages its subscription state to keep track of data changes that are produced in the ODQ and consumed in consecutive extractions. You don't need to manually watermark data changes. For example, you might name the subscriber process `<your pipeline name>_<your copy activity name>`.
 
@@ -130,7 +130,7 @@ To create a Data Factory copy activity that uses an SAP ODP data source, complet
 
 1. In the Data Factory copy activity, select the **Sink** tab. Select an existing sink dataset or create a new one for a data store like Azure Blob Storage or Azure Data Lake Storage Gen2.
 
-    To increase throughput, you can enable the Data Factory copy activity to concurrently extract data packages produced in ODQ by your SAP system and enforce all extraction processes to immediately write them to the sink in parallel. For example, if you use Data Lake Storage Gen2 as a sink, in **File path** for the sink dataset, leave **File name** empty. All extracted data packages will be written as separate files.
+    To increase throughput, you can enable the Data Factory copy activity to concurrently extract data packages that your SAP system produces in the ODQ. You can enforce all extraction processes to immediately write them to the sink in parallel. For example, if you use Data Lake Storage Gen2 as a sink, in **File path** for the sink dataset, leave **File name** empty. All extracted data packages will be written as separate files.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-staging-dataset.png" alt-text="Screenshot of the staging dataset configuration for the solution.":::
 
@@ -142,17 +142,17 @@ To create a Data Factory copy activity that uses an SAP ODP data source, complet
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-settings-parallelism.png" alt-text="Screenshot of a Copy activity with the Degree of parallelism setting highlighted.":::
 
-1. To fine-tune parallel extractions, adjust the maximum size of data packages produced in the ODQ. The default size is 50 MB. 3 GB of an SAP table or object are extracted into 60 files of raw SAP data in Data Lake Storage Gen2. Lowering the maximum size to 15 MB might increase throughput, but more (200) files are produced. To lower the maximum size, in the pipeline navigation menu, select **Code**.
+1. To fine-tune parallel extractions, adjust the maximum size of data packages that are produced in the ODQ. The default size is 50 MB. 3 GB of an SAP table or object are extracted into 60 files of raw SAP data in Data Lake Storage Gen2. Lowering the maximum size to 15 MB might increase throughput, but more (200) files are produced. To lower the maximum size, in the pipeline navigation menu, select **Code**.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-code-configuration.png" alt-text="Screenshot of a pipeline with the Code configuration button highlighted.":::
 
-    Then, in the code file, edit `maxPackageSize` to lower the maximum size.
+    Then, in the JSON file, edit `maxPackageSize` to lower the maximum size.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-code-1.png" alt-text="Screenshot of the code configuration for a pipeline with the maxPackageSize setting highlighted.":::
 
 1. If you set **Extraction mode** in the Data Factory copy activity to **Delta**, your initial or subsequent extractions consume full data or new data changes produced in the ODQ by your SAP system since the last extraction.
 
-    For each extraction, you can skip the actual data production, consumption, or transfer, and instead directly initialize or advance your delta subscription state. This option is especially useful if you want to perform full and delta extractions by using separate copy activities by using different partitions. To set up full and delta extractions by using separate copy activities with different partitions, in the pipeline navigation menu, select **Code**. In the code file, add the `deltaExtensionNoData` property and set it to `true`. To resume extracting data, remove that property or set it to `false`.
+    For each extraction, you can skip the actual data production, consumption, or transfer, and instead directly initialize or advance your delta subscription state. This option is especially useful if you want to perform full and delta extractions by using separate copy activities by using different partitions. To set up full and delta extractions by using separate copy activities with different partitions, in the pipeline navigation menu, select **Code**. In the JSON file, add the `deltaExtensionNoData` property and set it to `true`. To resume extracting data, remove that property or set it to `false`.
 
      :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-copy-code-2.png" alt-text="Screenshot of the code configuration for a pipeline with the deltaExtensionNoData property highlighted.":::
 
