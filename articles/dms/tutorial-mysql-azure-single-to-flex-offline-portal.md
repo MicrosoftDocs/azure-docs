@@ -116,7 +116,7 @@ With these best practices in mind, create your target flexible server and then c
       * innodb_buffer_pool_size – can only be increased by scaling up compute for Azure Database for MySQL server. Scale up the server to 64 vCore General Purpose SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size.
       * innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.
       * innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
-  * Configure the firewall rules and replicas on the target server to match those on the source server.
+  * Configure the replicas on the target server to match those on the source server.
   * Replicate the following server management features from the source single server to the target flexible server:
     * Role assignments, Roles, Deny Assignments, classic administrators, Access Control (IAM)
     * Locks (read-only and delete)
@@ -235,7 +235,7 @@ Selecting this check box prevents Write/Delete operations on the source server d
 
     DMS validates your inputs, and if the validation passes, you will be able to start the migration.
 
-8. After configuring for schema migration, select **Next : Summary>>**.
+8. After configuring for schema migration, select **Review and start migration**.
     > [!NOTE]
     > You only need to navigate to the Configure migration settings tab if you are trying to troubleshoot failing migrations.
 
