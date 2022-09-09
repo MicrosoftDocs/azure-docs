@@ -30,7 +30,7 @@ This page lists the currently available regions for use with Azure Remote Render
 ## Region connection best practice
 
 For best results, a client application should always use the region that is closest to your physical location. The [network requirements](./network-requirements.md) chapter mentions strategies how to measure latencies for individual regions.
-The session creation API doesn't implicitly fall back to a different region when creation fails. To make client applications resilient to potential Azure outages in specific regions, it's recommended to add one or more fallback regions to the session creation logic. So if a session can't be allocated and the API returns with a timeout, the client could try the next closest region.
+The session creation API doesn't implicitly fall back to a different region when creation fails. To make client applications resilient to potential outages in specific regions, it's recommended to add one or more fallback regions to the session creation logic. So if a session can't be allocated and the API returns with a timeout, the client could try the next closest region.
 
 ## Next steps
 
