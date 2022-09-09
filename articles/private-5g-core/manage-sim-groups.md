@@ -34,7 +34,7 @@ You can view your existing SIM groups in the Azure portal.
 
 ## Create a SIM group
 
-You can create new SIM groups in the Azure portal. As part of creating a SIM group, you'll be given the option of provisioning new SIMs to add to your new SIM group. If you want to provision new SIMs, you'll need to [collect values for your SIMs](collect-required-information-for-private-mobile-network.md#collect-sim-values) before you start.
+You can create new SIM groups in the Azure portal. As part of creating a SIM group, you'll be given the option of provisioning new SIMs to add to your new SIM group. If you want to provision new SIMs, you'll need to [Collect SIM and SIM Group values](collect-required-information-for-private-mobile-network.md#collect-sim-and-sim-group-values) before you start.
 
 To create a new SIM group:
 
@@ -52,7 +52,7 @@ To create a new SIM group:
 1. On the **Encryption** configuration tab, select your chosen encryption type next to **Encryption Type**. By default, Microsoft-managed keys (MMK) is selected. Once created, you cannot change the encryption type of a SIM group.
 
     - If you leave **Microsoft-managed keys (MMK)** selected, you will not need to enter any more configuration information on this tab.
-    - If you select **Customer-managed Keys (CMK)**, a new set of fields will appear. You need to provide the Key URI and User-assigned identity created or collected in [Collect values for your SIMs](collect-required-information-for-private-mobile-network.md#collect-sim-values). These values can be updated as required after SIM group creation.
+    - If you select **Customer-managed Keys (CMK)**, a new set of fields will appear. You need to provide the Key URI and User-assigned identity created or collected in [Collect SIM and SIM Group values](collect-required-information-for-private-mobile-network.md#collect-sim-and-sim-group-values). These values can be updated as required after SIM group creation.
 
 1. Select **Next: SIMs**.
 1. On the **SIMs** configuration tab, select your chosen input method by selecting the appropriate option next to **How would you like to input the SIMs information?**. You can then input the information you collected for your SIMs.

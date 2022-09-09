@@ -45,9 +45,9 @@ If you want to provision SIMs as part of deploying your private mobile network, 
 1. Choose the configuration values for a new SIM group to which all of the SIMs you provision will be added.
     - An encryption type. Microsoft-managed keys (MMK) by default, or optionally customer-managed keys (CMK). Once the SIM group is created, the encryption type cannot be changed.
     - If you select CMK encryption, a new set of fields will appear.  
-    You must create a Key URI in your [Azure Key Vault](../key-vault/). CMK encryption requires a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview) with read, wrap, and unwrap access to the key. The SIM group will access the key via the user-assigned identity.  
+    You must create a Key URI in your [Azure Key Vault](azure/key-vault/). CMK encryption requires a [User-assigned identity](azure/active-directory/managed-identities-azure-resources/overview) with read, wrap, and unwrap access to the key. The SIM group will access the key via the user-assigned identity.  
     Additionally, the key must be configured to have an activation and expiration date. We recommend that you enable automatic rotation for the key.  
-    For additional information on configuring CMK for a SIM group, see [Configure customer-managed keys](../cosmos-db/how-to-setup-cmk).
+    For additional information on configuring CMK for a SIM group, see [Configure customer-managed keys](azure/cosmos-db/how-to-setup-cmk).
 
 1. Collect each of the values given in the following table for the SIM group you want to provision.
    |Value  |Field name in Azure portal  | JSON file parameter name |
