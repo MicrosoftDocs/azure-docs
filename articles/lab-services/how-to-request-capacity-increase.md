@@ -15,6 +15,7 @@ If you reach the cores limit for your subscription, you can request a limit incr
 For information about creating support requests in general, see how to create a [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 ## Prepare to submit a request
 Before you begin your request for a capacity increase, you should make sure that you have all the information you need available and verify that you have the appropriate permissions. Review this article, and gather information like the number and size of cores you want to add, the regions you can use, and the location of resources like your existing labs and virtual networks.  
+
 ### Permissions
 To create a support request, you must be assigned to one of the following roles at the subscription level:
  - [Owner](../role-based-access-control/built-in-roles.md)
@@ -23,6 +24,7 @@ To create a support request, you must be assigned to one of the following roles 
 
 ### Determine the regions for your labs
 Azure Lab Services resources can exist in many regions. You can choose to deploy resources in multiple regions close to your students. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
+
 ### Locate and copy lab plan or lab account resource ID
 To add extra capacity to an existing lab, you must specify the lab's resource ID when you make the request. 
 
