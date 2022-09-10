@@ -22,7 +22,7 @@ To create a support request, you must be assigned to one of the following roles 
  - [Support Request Contributor](../role-based-access-control/built-in-roles.md)
 
 ### Determine the regions for your labs
-Azure Lab Services resources can exist in many regions. You can choose to deploy resources in multiple regions close to your students. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/).
+Azure Lab Services resources can exist in many regions. You can choose to deploy resources in multiple regions close to your students. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 ### Locate and copy lab plan or lab account resource ID
 To add extra capacity to an existing lab, you must specify the lab's resource ID when you make the request. 
 
