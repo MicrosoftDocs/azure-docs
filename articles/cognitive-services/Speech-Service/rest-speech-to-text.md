@@ -25,23 +25,23 @@ Speech-to-text REST API v3.1 is used for [Batch transcription](batch-transcripti
 > [See the Speech to Text API v3.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)
 
 Use Speech-to-text REST API to:
-- Copy models to other subscriptions if you want colleagues to have access to a model that you built, or if you want to deploy a model to more than one region.
-- Transcribe data from a container (bulk transcription) and provide multiple URLs for audio files.
-- Upload data from Azure storage accounts by using a shared access signature (SAS) URI.
-- Get logs for each endpoint if logs have been requested for that endpoint.
-- Request the manifest of the models that you create, to set up on-premises containers.
+
+- [Custom Speech](custom-speech-overview.md): With Custom Speech, you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. Copy models to other subscriptions if you want colleagues to have access to a model that you built, or if you want to deploy a model to more than one region.
+- [Batch transcription](batch-transcription.md): Transcribe audio files as a batch from multiple URLs or an Azure container. 
 
 Speech-to-text REST API includes such features as:
-- **Webhook notifications**: All running processes of the service support webhook notifications. You can register your webhooks where notifications are sent.
-- **Updating models behind endpoints** 
-- **Model adaptation with multiple datasets**: Adapt a model by using multiple dataset combinations of acoustic, language, and pronunciation data.
-- **Bring your own storage**: Use your own storage accounts for logs, transcription files, and other data.
 
-For examples of using the Speech-to-text REST API for batch transcription, see [How to use batch transcription](batch-transcription.md).
+- Get logs for each endpoint if logs have been requested for that endpoint.
+- Request the manifest of the models that you create, to set up on-premises containers.
+- Upload data from Azure storage accounts by using a shared access signature (SAS) URI.
+- Bring your own storage. Use your own storage accounts for logs, transcription files, and other data.
+- Some operations support webhook notifications. You can register your webhooks where notifications are sent.
 
 ## Datasets
 
 Datasets are applicable for [Custom Speech](custom-speech-overview.md). You can use datasets to train and test the performance of different models. For example, you can compare the performance of a model trained with a specific dataset to the performance of a model trained with a different dataset.
+
+See [Upload training and testing datasets](how-to-custom-speech-upload-data.md?pivots=rest-api) for examples of how to upload datasets. This table includes all the operations that you can perform on datasets.
 
 |Path|Method|Operation ID|
 |---|---|---|
@@ -61,6 +61,8 @@ Datasets are applicable for [Custom Speech](custom-speech-overview.md). You can 
 ## Endpoints
 
 Endpoints are applicable for [Custom Speech](custom-speech-overview.md). You must deploy a custom endpoint to use a Custom Speech model.  
+
+See [Deploy a model](how-to-custom-speech-deploy-model.md?pivots=rest-api) for examples of how to manage deployment endpoints. This table includes all the operations that you can perform on endpoints.
 
 |Path|Method|Operation ID|
 |---|---|---|
@@ -82,6 +84,8 @@ Endpoints are applicable for [Custom Speech](custom-speech-overview.md). You mus
 ## Evaluations
 
 Evaluations are applicable for [Custom Speech](custom-speech-overview.md). You can use evaluations to compare the performance of different models. For example, you can compare the performance of a model trained with a specific dataset to the performance of a model trained with a different dataset.
+
+See [Test recognition quality](how-to-custom-speech-inspect-data.md?pivots=rest-api) and [Test accuracy](how-to-custom-speech-evaluate-data.md?pivots=rest-api) for examples of how to test and evaluate Custom Speech models. This table includes all the operations that you can perform on evaluations.
 
 |Path|Method|Operation ID|
 |---|---|---|
@@ -106,6 +110,8 @@ Health status provides insights about the overall health of the service and sub-
 
 Models are applicable for [Custom Speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). You can use models to transcribe audio files. For example, you can use a model trained with a specific dataset to transcribe audio files. 
 
+See [Train a model](how-to-custom-speech-train-model.md?pivots=rest-api) and [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md?pivots=rest-api) for examples of how to train and manage Custom Speech models. This table includes all the operations that you can perform on models.
+
 |Path|Method|Operation ID|
 |---|---|---|
 |`/models/{id}:copyto`|POST|[Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo)|
@@ -126,6 +132,8 @@ Models are applicable for [Custom Speech](custom-speech-overview.md) and [Batch 
 
 Projects are applicable for [Custom Speech](custom-speech-overview.md). Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt-tts). For example, you might create a project for English in the United States.
 
+See [Create a project](how-to-custom-speech-create-project.md?pivots=rest-api) for examples of how to create projects. This table includes all the operations that you can perform on projects.
+
 |Path|Method|Operation ID|
 |---|---|---|
 |`/projects`|POST|[Projects_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Create)|
@@ -143,7 +151,9 @@ Projects are applicable for [Custom Speech](custom-speech-overview.md). Custom S
 
 ## Transcriptions
 
-Transcriptions are applicable for [Batch Transcription](batch-transcription.md). Transcriptions are the result of a batch transcription job. 
+Transcriptions are applicable for [Batch Transcription](batch-transcription.md). Batch transcription is used to transcribe a large amount of audio in storage. You should send multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe.
+
+See [How to use batch transcription](batch-transcription.md?pivots=rest-api) for examples of how to create a transcription from multiple audio files. This table includes all the operations that you can perform on transcriptions.
 
 |Path|Method|Operation ID|
 |---|---|---|
@@ -159,7 +169,9 @@ Transcriptions are applicable for [Batch Transcription](batch-transcription.md).
 
 ## Web hooks
 
-Web hooks are applicable for [Custom Speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). Web hooks are commonly used to receive notifications when a batch transcription job is completed.
+Web hooks are applicable for [Custom Speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). In particular, web hooks apply to [datasets](#datasets), [endpoints](#endpoints), [evaluations](#evaluations), [models](#models), and [transcriptions](#transcriptions). Web hooks can be used to receive notifications about creation, processing, completion, and deletion events.
+
+This table includes all the web hook operations that are available with the speech-to-text REST API.
 
 |Path|Method|Operation ID|
 |---|---|---|
@@ -174,7 +186,6 @@ Web hooks are applicable for [Custom Speech](custom-speech-overview.md) and [Bat
 
 ## Next steps
 
-- [Customize acoustic models](./how-to-custom-speech-train-model.md)
-- [Customize language models](./how-to-custom-speech-train-model.md)
+- [Create a Custom Speech project](how-to-custom-speech-create-project.md)
 - [Get familiar with batch transcription](batch-transcription.md)
 
