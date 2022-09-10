@@ -100,9 +100,19 @@ The Account ID parameter is required in all operational API calls. Account ID is
 
 This section lists some recommendations when using Azure Video Indexer API.
 
+### Uploading
+
 - If you're planning to upload a video, it's recommended to place the file in some public network location (for example, an Azure Blob Storage account). Get the link to the video and provide the URL as the upload file param.
 
 	The URL provided to Azure Video Indexer must point to a media (audio or video) file. An easy verification for the URL (or SAS URL) is to paste it into a browser, if the file starts playing/downloading, it's likely a good URL. If the browser is rendering some visualization, it's likely not a link to a file but to an HTML page.
+When you're uploading videos by using the API, you have the following options:
+
+* Upload your video from a URL (preferred).
+* Send the video file as a byte array in the request body.
+* Use existing an Azure Media Services asset by providing the [asset ID](/azure/media-services/latest/assets-concept). This option is supported in paid accounts only.
+
+### Getting JSON output
+
 - When you call the API that gets video insights for the specified video, you get a detailed JSON output as the response content. [See details about the returned JSON in this topic](video-indexer-output-json-v2.md).
 - The JSON output produced by the API contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility).
 - We do not recommend that you use data directly from the artifacts folder for production purposes. Artifacts are intermediate outputs of the indexing process. They are essentially raw outputs of the various AI engines that analyze the videos; the artifacts schema may change over time. 
