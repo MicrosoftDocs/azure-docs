@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: reference
-ms.date: 04/01/2022
+ms.date: 09/10/2022
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp

@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/23/2022
+ms.date: 09/10/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -100,172 +100,6 @@ Call [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/ser
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
 
 
-## Configuration
-
-Configuration parameters are provided as JSON. You can transcribe one or more individual files, process a whole storage container, and use a custom trained model in a batch transcription.
-
-If you have more than one file to transcribe, it's a good idea to send multiple files in one request. The following example uses three files:
-
-```json
-{
-  "contentContainerUrl": "<SAS URL to the Azure blob container to transcribe>",
-  "properties": {
-    "wordLevelTimestampsEnabled": true
-  },
-  "locale": "en-US",
-  "displayName": "Transcription of file using default model for en-US"
-}
-```
-
-To process a whole storage container, you can make the following configurations. Container [SAS](../../storage/common/storage-sas-overview.md) should contain `r` (read) and `l` (list) permissions:
-
-```json
-{
-  "contentContainerUrl": "<SAS URL to the Azure blob container to transcribe>",
-  "properties": {
-    "wordLevelTimestampsEnabled": true
-  },
-  "locale": "en-US",
-  "displayName": "Transcription of container using default model for en-US"
-}
-```
-
-Here's an example of using a custom trained model in a batch transcription. 
-
-```json
-{
-  "contentContainerUrl": "<SAS URL to the Azure blob container to transcribe>",
-  "properties": {
-    "wordLevelTimestampsEnabled": true
-  },
-  "locale": "en-US",
-  "model": {
-    "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.1/models/{id}"
-  },
-  "displayName": "Transcription of file using default model for en-US"
-}
-```
-
-## Batch transcription request
-
-Use these optional properties to configure transcription:
-
-| Property | Description |
-|----------|-------------|
-|`profanityFilterMode`|Optional, defaults to `Masked`. Specifies how to handle profanity in recognition results. Accepted values are `None` to disable profanity filtering, `Masked` to replace profanity with asterisks, `Removed` to remove all profanity from the result, or `Tags` to add profanity tags.|
-|`punctuationMode`|Optional, defaults to `DictatedAndAutomatic`. Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation.|
-|`wordLevelTimestampsEnabled`|Optional, `false` by default. Specifies if word level timestamps should be added to the output.|
-|`diarizationEnabled`|Optional, `false` by default. Specifies that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains two voices. Requires `wordLevelTimestampsEnabled` to be set to `true`.|
-|`channels`|Optional, `0` and `1` transcribed by default. An array of channel numbers to process. Here, a subset of the available channels in the audio file can be specified to be processed (for example `0` only).|
-|`timeToLive`|Optional, no deletion by default. A duration to automatically delete transcriptions after completing the transcription. The `timeToLive` is useful in mass processing transcriptions to ensure they will be eventually deleted (for example, `PT12H` for 12 hours).|
-|`destinationContainerUrl`|Optional URL with [ad hoc SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. SAS with stored access policies isn't supported. If you don't specify a container, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete), the result data is also deleted.|
-
-## Batch transcription result
-
-For each audio input, one transcription result file is created. The [Transcriptions_ListFiles](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) operation returns a list of result files for this transcription. The only way to confirm the audio input for a transcription, is to check the `source` field in the transcription result file. 
-
-Each transcription result file has this format:
-
-```json
-{
-  "source": "...",                      // sas url of a given contentUrl or the path relative to the root of a given container
-  "timestamp": "2020-06-16T09:30:21Z",  // creation time of the transcription, ISO 8601 encoded timestamp, combined date and time
-  "durationInTicks": 41200000,          // total audio duration in ticks (1 tick is 100 nanoseconds)
-  "duration": "PT4.12S",                // total audio duration, ISO 8601 encoded duration
-  "combinedRecognizedPhrases": [        // concatenated results for simple access in single string for each channel
-    {
-      "channel": 0,                     // channel number of the concatenated results
-      "lexical": "hello world",
-      "itn": "hello world",
-      "maskedITN": "hello world",
-      "display": "Hello world."
-    }
-  ],
-  "recognizedPhrases": [                // results for each phrase and each channel individually
-    {
-      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"
-      "speaker": 1,                     // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
-      "channel": 0,                     // channel number of the result
-      "offset": "PT0.07S",              // offset in audio of this phrase, ISO 8601 encoded duration
-      "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
-      "offsetInTicks": 700000.0,        // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
-      "durationInTicks": 15900000.0,    // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
-
-      // possible transcriptions of the current phrase with confidences
-      "nBest": [
-        {
-          "confidence": 0.898652852,    // confidence value for the recognition of the whole phrase
-          "lexical": "hello world",
-          "itn": "hello world",
-          "maskedITN": "hello world",
-          "display": "Hello world.",
-
-          // if wordLevelTimestampsEnabled is `true`, there will be a result for each word of the phrase, otherwise this property is not present
-          "words": [
-            {
-              "word": "hello",
-              "offset": "PT0.09S",
-              "duration": "PT0.48S",
-              "offsetInTicks": 900000.0,
-              "durationInTicks": 4800000.0,
-              "confidence": 0.987572
-            },
-            {
-              "word": "world",
-              "offset": "PT0.59S",
-              "duration": "PT0.16S",
-              "offsetInTicks": 5900000.0,
-              "durationInTicks": 1600000.0,
-              "confidence": 0.906032
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-The response contains the following properties:
-
-| Property | Description |
-|----------|-------------|
-|`lexical`|The actual words recognized.|
-|`itn`|The inverse-text-normalized (ITN) form of the recognized text. Abbreviations (for example, "doctor smith" to "dr smith"), phone numbers, and other transformations are applied.|
-|`maskedITN`|The ITN form with profanity masking applied.|
-|`display`|The display form of the recognized text. Added punctuation and capitalization are included.|
-
-## Speaker separation (diarization)
-
-Diarization is the process of separating speakers in audio data. The batch pipeline can recognize and separate multiple speakers on mono channel recordings. The feature isn't available with stereo recordings.
-
-The output of transcription with diarization enabled contains a `Speaker` entry for each transcribed phrase. If diarization isn't used, the `Speaker` property isn't present in the JSON output. For diarization, the speakers are identified as `1` or `2`.
-
-To request diarization, set the `diarizationEnabled` property to `true`. Here's an example:
-
-```json
-{
-  "contentContainerUrl": "<SAS URL to the Azure blob container to transcribe>",
-  "properties": {
-    "diarizationEnabled": true,
-    "diarization": {
-      "speakers": {
-        "minCount": 1,
-        "maxCount": 2
-      }
-    },
-    "wordLevelTimestampsEnabled": true,
-    "punctuationMode": "DictatedAndAutomatic",
-    "profanityFilterMode": "Masked"
-  },
-  "locale": "en-US",
-  "displayName": "Transcription of file using default model for en-US"
-}
-```
-
-Word-level timestamps must be enabled, as the parameters in this request indicate.
-
-
 ## Using custom models with batch transcription
 
 The service uses the base model for transcribing the file or files. For baseline transcriptions, you don't need to declare the ID for the base model. To specify the model, you can pass on the same method the model reference for the custom model.
@@ -296,6 +130,109 @@ To use a Custom Speech model for batch transcription, you need the model's URI. 
 
 Batch transcription requests for expired models will fail with a 4xx error. In each [Transcriptions_Create](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model.
 
+## Optional request configurations
+
+Here are some optional properties that you can use to configure a transcription:
+
+| Property | Description |
+|----------|-------------|
+|`channels`|An array of channel numbers to process. Channels `0` and `1` are transcribed by default. |
+|`destinationContainerUrl`|The result can be stored in an Azure container. Specify the [ad hoc SAS](../../storage/common/storage-sas-overview.md) with write permissions. SAS with stored access policies isn't supported. If you don't specify a container, the Speech service stores the results in a container managed by Microsoft. When the transcription job is deleted, the transcription result data is also deleted.|
+|`diarization`|Indicates that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains multiple voices. Specify the minimum and maximum number of people who might be speaking. You must also set the `diarizationEnabled` and `wordLevelTimestampsEnabled` properties to `true`. The [transcription file](#batch-transcription-result-file) will contain a `speaker` entry for each transcribed phrase.<br/><br/>Diarization is the process of separating speakers in audio data. The batch pipeline can recognize and separate multiple speakers on mono channel recordings. The feature isn't available with stereo recordings.|
+|`diarizationEnabled`|Specifies that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains two voices. Requires `wordLevelTimestampsEnabled` to be set to `true`. This value is `false` by default.|
+|`profanityFilterMode`|Optional, defaults to `Masked`. Specifies how to handle profanity in recognition results. Accepted values are `None` to disable profanity filtering, `Masked` to replace profanity with asterisks, `Removed` to remove all profanity from the result, or `Tags` to add profanity tags.|
+|`punctuationMode`|Optional, defaults to `DictatedAndAutomatic`. Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation.|
+|`timeToLive`|Optional, no deletion by default. A duration to automatically delete transcriptions after completing the transcription. The `timeToLive` is useful in mass processing transcriptions to ensure they will be eventually deleted (for example, `PT12H` for 12 hours).|
+|`wordLevelTimestampsEnabled`|Optional, `false` by default. Specifies if word level timestamps should be added to the output.|
+
+## Batch transcription result file
+
+For each audio input, one transcription result file is created. The [Transcriptions_ListFiles](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) operation returns a list of result files for a transcription. 
+
+The contents of each transcription result file are formatted as JSON, as shown in this example.
+
+```json
+{
+  "source": "...",
+  "timestamp": "2022-09-16T09:30:21Z",  
+  "durationInTicks": 41200000,
+  "duration": "PT4.12S",
+  "combinedRecognizedPhrases": [
+    {
+      "channel": 0,
+      "lexical": "hello world",
+      "itn": "hello world",
+      "maskedITN": "hello world",
+      "display": "Hello world."
+    }
+  ],
+  "recognizedPhrases": [
+    {
+      "recognitionStatus": "Success",
+      "speaker": 1,
+      "channel": 0,
+      "offset": "PT0.07S",
+      "duration": "PT1.59S",
+      "offsetInTicks": 700000.0,
+      "durationInTicks": 15900000.0,
+
+      "nBest": [
+        {
+          "confidence": 0.898652852,
+          "lexical": "hello world",
+          "itn": "hello world",
+          "maskedITN": "hello world",
+          "display": "Hello world.",
+
+          "words": [
+            {
+              "word": "hello",
+              "offset": "PT0.09S",
+              "duration": "PT0.48S",
+              "offsetInTicks": 900000.0,
+              "durationInTicks": 4800000.0,
+              "confidence": 0.987572
+            },
+            {
+              "word": "world",
+              "offset": "PT0.59S",
+              "duration": "PT0.16S",
+              "offsetInTicks": 5900000.0,
+              "durationInTicks": 1600000.0,
+              "confidence": 0.906032
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+Depending in part on the request parameters set when you created the transcription job, the transcription file can contain the following result properties.
+
+|Property|Description|
+|----------|-------------|
+|`channel`|The channel number of the results. For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each channel.|
+|`combinedRecognizedPhrases`|The concatenated results of all phrases for the channel.|
+|`confidence`|The confidence value for the recognition.|
+|`display`|The display form of the recognized text. Added punctuation and capitalization are included.|
+|`displayPhraseElements`|A list of results with display text for each word of the phrase. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property is not present.|
+|`duration`|The audio duration, ISO 8601 encoded duration.|
+|`durationInTicks`|The audio duration in ticks (1 tick is 100 nanoseconds).|
+|`itn`|The inverse text normalized (ITN) form of the recognized text. Abbreviations such as "doctor smith" to "dr smith", phone numbers, and other transformations are applied.|
+|`lexical`|The actual words recognized.|
+|`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set to `true`, otherwise this property is not present.|
+|`maskedITN`|The ITN form with profanity masking applied.|
+|`nBest`|A list of possible transcriptions for the current phrase with confidences.|
+|`offset`|The offset in audio of this phrase, ISO 8601 encoded duration.|
+|`offsetInTicks`|The offset in audio of this phrase in ticks (1 tick is 100 nanoseconds).||
+|`recognitionStatus`|The recognition state. For example: "Success" or "Failure".|
+|`recognizedPhrases`|The list of results for each phrase.|
+|`source`|The URL that was provided as the input audio source. The source corresponds to the `contentUrls` or `contentContainerUrl` request property. The `source` property is the only way to confirm the audio input for a transcription.|
+|`speaker`|The identified speaker. The `diarization` and `diarizationEnabled` request properties must be set, otherwise this property is not present.|
+|`timestamp`|The creation time of the transcription, ISO 8601 encoded timestamp, combined date and time.|
+|`words`|A list of results with lexical text for each word of the phrase. The `wordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property is not present.|
 
 ## Supported audio formats
 
@@ -311,10 +248,28 @@ For stereo audio streams, the left and right channels are split during the trans
 
 ## Azure Storage for audio files
 
-You can point to audio files by using a typical URI or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI, and asynchronously receive transcription results. With the [Speech to text REST API](rest-speech-to-text.md#transcriptions), you can transcribe one or more audio files, or process a whole storage container.
+Batch transcription can read audio files from a public URI or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI. You can submit individual audio files, or a whole storage container. You can also read or write transcription results in a container.
 
+The SAS URI must have `r` (read) and `l` (list) permissions. The Azure [blob](../../storage/blobs/storage-blobs-overview.md) container must have at most 5GB of audio data and a maximum number of 10,000 blobs. The maximum size for a blob is 2.5GB.
 
-Batch transcription can read audio from a public-visible internet URI and can read audio or write transcriptions by using a SAS URI with [Blob Storage](../../storage/blobs/storage-blobs-overview.md). The Azure blob container must have at most 5GB of audio data and a maximum number of 10,000 blobs. The maximum size for a blob is 2.5GB. 
+The following [configuration](#optional-request-configurations) example uses two files:
+
+```json
+{
+  "contentUrls": [
+    "https://crbn.us/hello.wav",
+    "https://crbn.us/whatstheweatherlike.wav"
+  ],
+}
+```
+
+To process a whole storage container, follow this [configuration](#optional-request-configurations) example:
+
+```json
+{
+  "contentContainerUrl": "<SAS URL to the Azure blob container to transcribe>",
+}
+```
 
 Follow these steps to create a storage account, upload wav files from your local directory to a new container, and generate a SAS URL that you can use for batch transcriptions.
 
