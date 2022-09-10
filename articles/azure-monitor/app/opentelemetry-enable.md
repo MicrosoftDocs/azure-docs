@@ -490,7 +490,6 @@ The following libraries are validated to work with the preview release.
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.24b0/)
 - [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) version:
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.24b0/)
-```
 
 ---
 
@@ -910,6 +909,9 @@ Use the add [custom property example](#add-a-custom-property), but replace the f
 This section explains how to collect custom telemetry from your application.
 
 ### Add Custom Metrics
+
+> [!NOTE]
+> Custom Metrics are currently preview status within Azure Monitor Application Insights. Custom metrics without dimensions is available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 You may want to collect metrics beyond what is collected by [instrumentation libraries](#instrumentation-libraries).
 
