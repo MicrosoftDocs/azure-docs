@@ -38,7 +38,7 @@ You can use the REST API for batch transcription. For more information, see the 
 
 To create a transcription, use the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md#transcriptions). Construct the request body according to the following instructions:
 
-- You must set either the `contentContainerUrl` or `contentContainerUrl` property. The SAS URL for the container must have read (r) and list (l) permissions. This property will not be returned in a response. For more information about Azure blob storage and SAS URLs, see [Azure storage for audio files](#azure-storage-for-audio-files).
+- You must set either the `contentContainerUrl` or `contentUrls` property. The SAS URL for the container must have read (r) and list (l) permissions. This property will not be returned in a response. For more information about Azure blob storage and SAS URLs, see [Azure storage for audio files](#azure-storage-for-audio-files).
 - Set the required `locale` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later.
 - Set the required `displayName` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later.
 
@@ -46,19 +46,16 @@ Make an HTTP POST request using the URI as shown in the following [Transcription
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
-  "contentContainerUrl": "https://YourStorageAccountName.blob.core.windows.net/YourContainerName?YourSASToken",
+  "contentUrls": [
+    "https://crbn.us/hello.wav",
+    "https://crbn.us/whatstheweatherlike.wav"
+  ],
   "locale": "en-US",
-  "model": null,
   "displayName": "Transcription using the default base model for en-US",
+  "model": null,
   "properties": {
     "wordLevelTimestampsEnabled": true,
-    "languageIdentification": {
-      "candidateLocales": [
-        "en-US", "es-ES", "de-DE", "fr-FR"
-      ],
-    },
   },
-  "displayName": "Transcription using the default base model for en-US"
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
 ```
 
@@ -66,12 +63,12 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/transcriptions/ca33f326-a85a-495e-8bb2-ce0413635d6c",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
   "model": {
     "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/transcriptions/ca33f326-a85a-495e-8bb2-ce0413635d6c/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -84,9 +81,9 @@ You should receive a response body in the following format:
     "punctuationMode": "DictatedAndAutomatic",
     "profanityFilterMode": "Masked"
   },
-  "lastActionDateTime": "2022-09-06T16:06:47Z",
+  "lastActionDateTime": "2022-09-10T18:39:07Z",
   "status": "NotStarted",
-  "createdDateTime": "2022-09-06T16:06:47Z",
+  "createdDateTime": "2022-09-10T18:39:07Z",
   "locale": "en-US",
   "displayName": "Transcription using the default base model for en-US"
 }
@@ -98,37 +95,6 @@ You can query the status of your transcriptions with the [Transcriptions_List](h
 
 Call [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
-
-
-## Using custom models with batch transcription
-
-The service uses the base model for transcribing the file or files. For baseline transcriptions, you don't need to declare the ID for the base model. To specify the model, you can pass on the same method the model reference for the custom model.
-
-Optionally, you can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. 
-
-```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
-  "contentContainerUrl": "https://YourStorageAccountName.blob.core.windows.net/YourContainerName?YourSASToken",
-  "locale": "en-US",
-  "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
-  },
-  "displayName": "Transcription using a specific base model for en-US",
-  "properties": {
-    "wordLevelTimestampsEnabled": true,
-    "languageIdentification": {
-      "candidateLocales": [
-        "en-US", "es-ES", "de-DE", "fr-FR"
-      ],
-    },
-  },
-  "displayName": "Transcription using the default base model for en-US"
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
-```
-
-To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. A [deployed custom endpoint](how-to-custom-speech-deploy-model.md) isn't needed for the batch transcription service.
-
-Batch transcription requests for expired models will fail with a 4xx error. In each [Transcriptions_Create](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model.
 
 ## Optional request configurations
 
@@ -142,10 +108,135 @@ Here are some optional properties that you can use to configure a transcription:
 |`destinationContainerUrl`|The result can be stored in an Azure container. Specify the [ad hoc SAS](../../storage/common/storage-sas-overview.md) with write permissions. SAS with stored access policies isn't supported. If you don't specify a container, the Speech service stores the results in a container managed by Microsoft. When the transcription job is deleted, the transcription result data is also deleted.|
 |`diarization`|Indicates that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains multiple voices. Specify the minimum and maximum number of people who might be speaking. You must also set the `diarizationEnabled` and `wordLevelTimestampsEnabled` properties to `true`. The [transcription file](#batch-transcription-result-file) will contain a `speaker` entry for each transcribed phrase.<br/><br/>Diarization is the process of separating speakers in audio data. The batch pipeline can recognize and separate multiple speakers on mono channel recordings. The feature isn't available with stereo recordings.|
 |`diarizationEnabled`|Specifies that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains two voices. Requires `wordLevelTimestampsEnabled` to be set to `true`. The default value is `false`.|
+|`model`|You can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. For more information, see [Azure storage for audio files](#using-custom-models).|
 |`profanityFilterMode`|Specifies how to handle profanity in recognition results. Accepted values are `None` to disable profanity filtering, `Masked` to replace profanity with asterisks, `Removed` to remove all profanity from the result, or `Tags` to add profanity tags. The default value is `Masked`. |
 |`punctuationMode`|Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation. The default value is  `DictatedAndAutomatic`.|
 |`timeToLive`|A duration after the transcription job is created, when the transcription results will be automatically deleted. For example, specify `PT12H` for 12 hours. As an alternative, you can call [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete) regularly after you retrieve the transcription results.|
 |`wordLevelTimestampsEnabled`|Specifies if word level timestamps should be included in the output. The default value is `false`.|
+
+## Using custom models
+
+The service uses the base model for transcribing the file or files. For baseline transcriptions, you don't need to declare the ID for the base model. To specify the model, you can pass on the same method the model reference for the custom model.
+
+Optionally, you can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. 
+
+```azurecli-interactive
+curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
+  "contentContainerUrl": "https://YourStorageAccountName.blob.core.windows.net/YourContainerName?YourSASToken",
+  "locale": "en-US",
+  "model": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+  },
+  "displayName": "Transcription using the default base model for en-US",
+  "properties": {
+    "wordLevelTimestampsEnabled": true,
+  },
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+```
+
+To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. A [deployed custom endpoint](how-to-custom-speech-deploy-model.md) isn't needed for the batch transcription service.
+
+Batch transcription requests for expired models will fail with a 4xx error. In each [Transcriptions_Create](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model.
+
+## Get transcription results
+
+To get transcription results, first check the status of the transcription job. If the job is completed, you can retrieve the transcriptions and transcription report. 
+
+To get the status of the transcription job, start by using the [Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
+
+Make an HTTP GET request using the URI as shown in the following example. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+
+```azurecli-interactive
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/YourTranscriptionId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+```
+
+You should receive a response body in the following format:
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
+  "model": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+  },
+  "links": {
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
+  },
+  "properties": {
+    "diarizationEnabled": false,
+    "wordLevelTimestampsEnabled": true,
+    "displayFormWordLevelTimestampsEnabled": false,
+    "channels": [
+      0,
+      1
+    ],
+    "punctuationMode": "DictatedAndAutomatic",
+    "profanityFilterMode": "Masked",
+    "duration": "PT3S"
+  },
+  "lastActionDateTime": "2022-09-10T18:39:09Z",
+  "status": "Succeeded",
+  "createdDateTime": "2022-09-10T18:39:07Z",
+  "locale": "en-US",
+  "displayName": "Transcription using the default base model for en-US"
+}
+```
+
+The `status` property indicates the current status of the transcriptions. The transcriptions and transcription report will be available when the transcription status is `Succeeded`.
+
+Make an HTTP GET request using the "files" URI from the previous response body. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+
+```azurecli-interactive
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/YourTranscriptionId/files" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+```
+
+You should receive a response body in the following format:
+
+```json
+{
+  "values": [
+    {
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/2dd180a1-434e-4368-a1ac-37350700284f",
+      "name": "contenturl_0.json",
+      "kind": "Transcription",
+      "properties": {
+        "size": 3407
+      },
+      "createdDateTime": "2022-09-10T18:39:09Z",
+      "links": {
+        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_0_0.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=AobsqO9DH9CIOuGC5ifFH3QpkQay6PjHiWn5G87FcIg%3D"
+      }
+    },
+    {
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/c027c6a9-2436-4303-b64b-e98e3c9fc2e3",
+      "name": "contenturl_1.json",
+      "kind": "Transcription",
+      "properties": {
+        "size": 8233
+      },
+      "createdDateTime": "2022-09-10T18:39:09Z",
+      "links": {
+        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_1_0.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=wO3VxbhLK4PhT3rwLpJXBYHYQi5EQqyl%2Fp1lgjNvfh0%3D"
+      }
+    },
+    {
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1-preview.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/faea9a41-c95c-4d91-96ff-e39225def642",
+      "name": "report.json",
+      "kind": "TranscriptionReport",
+      "properties": {
+        "size": 279
+      },
+      "createdDateTime": "2022-09-10T18:39:09Z",
+      "links": {
+        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_report.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=gk1k%2Ft5qa1TpmM45tPommx%2F2%2Bc%2FUUfsYTX5FoSa1u%2FY%3D"
+      }
+    }
+  ]
+}
+```
+
+The location of each transcription and transcription report files with more details are returned in the response body. The `contentUrl` property contains the URL to the transcription (`"kind": "Transcription"`) or transcription report (`"kind": "TranscriptionReport"`) file.
+
+If you didn't specify a container in the `destinationContainerUrl` property of the transcription request, the results are stored in a container managed by Microsoft. When the transcription job is deleted, the transcription result data is also deleted.
 
 ## Batch transcription result file
 
