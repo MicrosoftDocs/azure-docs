@@ -165,8 +165,7 @@ sections:
           - [JavaScript/TypeScript](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4)
 
           - [Python](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)
-no-loc:
-- 
+
       - question: |
           Where can I find the supported API version for the latest programming language SDKs?
         answer:   |
@@ -238,7 +237,7 @@ no-loc:
           - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request. When the service analyzes Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
 
           - When analyzing PDF and TIFF files, each page in the PDF file or each image in the TIFF file is counted as one page with no maximum character limits.
-          
+
           - When analyzing Microsoft Word and HTML files supported by only the Read model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, the two pages with 3,000 characters each and one page with 1,000 characters will add up to a total of three pages.
 
           - In addition, when using the Read model, if your Microsoft Word, Excel, and PowerPoint pages have embedded images, each image will be analyzed and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total text pages and total images analyzed. In the previous example if the document contains 2 embedded images, the total page count in the service output will be three text pages plus two images equaling a total of five pages.
