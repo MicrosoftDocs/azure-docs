@@ -75,7 +75,7 @@ Pipeline Settings
 |  Setting     | Description |
 |--------------|-----------|
 | certificateName       | Name of the certificate must correspond to the certificate name specified in the exporter declaration       |
-| secretName       | Name of the secret provide through Kubernetes      |
+| secretName       | Name of the secret provided through Kubernetes      |
 | secretNamespace       | Namespace with secret provided through Kubernetes      |
 
 ### Example TelemetryRouter Specification:
