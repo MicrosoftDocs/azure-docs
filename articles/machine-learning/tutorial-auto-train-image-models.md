@@ -318,15 +318,61 @@ primary_metric: mean_average_precision
 
 ---
 
+### Automatic hyperparameter sweeping for image tasks
+
+In your AutoML job, you can perform an automatic hyperparameter sweep in order to find the optimal model. You only specify the number of trials; the hyperparameter search space, samping method and early termination policy are not needed. The Automode feature will automatically determine the region of the hyperparameter space to sweep based on the number of trials.
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+limits:
+  max_trials: 10
+  max_concurrent_trials: 2
+  timeout_minutes: 60
+```
+
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+# Trigger Automode
+image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2, timeout_minutes=60)
+```
+---
+
+You can then submit the job to train an image model.
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+To submit your AutoML job, you run the following CLI v2 command with the path to your .yml file, workspace name, resource group and subscription ID.
+
+```azurecli
+az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
+```
+
+# [Python SDK](#tab/python)
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+When you've configured your AutoML Job to the desired settings, you can submit the job.
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=submit-run)]
+
+---
+
+### Manual hyperparameter sweeping for image tasks
+
 In your AutoML job, you can specify the model algorithms by using `model_name` parameter and configure the settings to perform a hyperparameter sweep over a defined search space to find the optimal model.
 
 In this example, we will train an object detection model with `yolov5` and `fasterrcnn_resnet50_fpn`, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over thousands of labeled images with over 80 label categories.
 
-### Hyperparameter sweeping for image tasks
-
 You can perform a hyperparameter sweep over a defined search space to find the optimal model.
 
-The following code, defines the search space in preparation for the hyperparameter sweep for each defined algorithm, `yolov5` and `fasterrcnn_resnet50_fpn`.  In the search space, specify the range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc., for AutoML to choose from as it attempts to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for each algorithm.
+The following code defines the search space in preparation for the hyperparameter sweep for each defined algorithm, `yolov5` and `fasterrcnn_resnet50_fpn`.  In the search space, specify the range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc., for AutoML to choose from as it attempts to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for each algorithm.
 
 For the tuning settings, use random sampling to pick samples from this parameter space by using the `random` sampling_algorithm. Doing so, tells automated ML to try a total of 10 trials with these different samples, running two trials at a time on our compute target, which was set up using four nodes. The more parameters the search space has, the more trials you need to find optimal models.
 
