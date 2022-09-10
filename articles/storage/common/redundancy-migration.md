@@ -337,6 +337,9 @@ For example, going *from* LRS to any other type of replication will incur additi
 
 If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
 
+> [!IMPORTANT]
+> If you migrate your storage account from RA-GRS to GRS or LRS, that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
+
 ## Replication conversion table
 
 The following table shows the path for converting between every storage account replication type:
@@ -350,6 +353,11 @@ The following table shows the path for converting between every storage account 
 | <b> ZRS</b>     |        | Migrate | Convert to GZRS first, then migrate to GRS | Convert to RA-GZRS first, then migrate to RA-GRS |***N/A*** | Migrate<br><br> <b>-OR-</b><br><br>Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> | Migrate<br><br> <b>-OR-</b><br><br>Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
 | <b> GZRS</b>    |        | Convert to ZRS first, then migrate to LRS | Migrate | Convert to RA-GZRS first, then migrate to RA-GRS | Use Azure portal, PowerShell, or CLI | ***N/A*** | Use Azure portal, PowerShell, or CLI |
 | <b> RA-GZRS</b> |        | Convert to ZRS first, then migrate to LRS | Convert to GZRS first, then migrate to GRS | Migrate | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | ***N/A*** |
+
+| Convert between | ...to: | ZRS | GZRS | RA-GZRS |
+|-----------------|--------|-----|------|---------|
+| <b>…from:       |        |     |      |         |
+| <b> LRS</b>     |        | manual migration <br><br><b> -or- </b><br><br> live migration | manual migration <br><br><b> -or- </b><br><br> Switch to GRS, then migrate to GZRS <br>(live or manual)  | manual migration <br><br><b> -or- </b><br><br> Switch to RA-GRS, then migrate to RA-GZRS <br>(live or manual) |
 
 <sup>1</sup> Converting from local to geo-redundancy incurs a one-time egress charge. See [Costs associated with changing how data is replicated](#costs-associated-with-changing-how-data-is-replicated). <br />
 <sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier. See [the section about Access tiers](#access-tier).<br />
@@ -366,9 +374,6 @@ For example, if you want to change a storage account from LRS to RA-GZRS, the re
 
 1. Perform a live migration from LRS to ZRS
 1. Convert the account from ZRS to RA-GZRS using the Azure portal, Azure PowerShell, or the Azure CLI
-
-> [!IMPORTANT]
-> If you migrate your storage account from RA-GRS to GRS or LRS, that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
 
 ## See also
 
