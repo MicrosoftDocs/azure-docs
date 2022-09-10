@@ -12,12 +12,6 @@ This article shows how to upload and index videos by using the Azure Video Index
 
 After you upload and index a video, you can use [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
 
-When you're uploading videos by using the API, you have the following options:
-
-* Upload your video from a URL (preferred).
-* Send the video file as a byte array in the request body.
-* Use existing an Azure Media Services asset by providing the [asset ID](/azure/media-services/latest/assets-concept). This option is supported in paid accounts only.
-
 ## Supported file formats
 
 For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
@@ -47,6 +41,9 @@ After Azure Video Indexer is done analyzing, you get an email with a link to you
 ## Upload and index a video by using the API
 
 You can use the [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API to upload and index your videos based on a URL. The code sample that follows includes the commented-out code that shows how to upload the byte array.
+
+> [!NOTE]
+> Before you proceed, make sure to review [API recommendations](video-indexer-use-apis.md#recommendations).
 
 ### Configurations and parameters
 
