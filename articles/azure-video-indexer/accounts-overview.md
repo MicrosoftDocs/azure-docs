@@ -39,12 +39,12 @@ When creating a new paid account, you need to connect the Azure Video Indexer ac
 > [!NOTE]
 > It is recommended to use Azure Video Indexer ARM-based accounts. 
     
-* [Create an ARM-based (paid) account in Azure portal](../create-account-portal.md). To create an account with an API, see [Accounts](https://docs.microsoft.com/rest/api/videoindexer/accounts?branch=videoindex)
+* [Create an ARM-based (paid) account in Azure portal](create-account-portal.md). To create an account with an API, see [Accounts](https://docs.microsoft.com/rest/api/videoindexer/accounts?branch=videoindex)
 
     > [!TIP]
-    > Make sure you are signed in with the correct domain to the [Azure Video Indexer website](https://www.videoindexer.ai/). For details, see [Switch tenants](../switch-tenants-portal.md).  
-* [Upgrade a trial account to an ARM-based (paid) account and import your content for free](../import-content-from-trial.md).  
-* If you have a classic (paid) account, [connect an existing classic Azure Video Indexer account to an ARM-based account](../connect-classic-account-to-arm.md).
+    > Make sure you are signed in with the correct domain to the [Azure Video Indexer website](https://www.videoindexer.ai/). For details, see [Switch tenants](switch-tenants-portal.md).  
+* [Upgrade a trial account to an ARM-based (paid) account and import your content for free](import-content-from-trial.md).  
+* If you have a classic (paid) account, [connect an existing classic Azure Video Indexer account to an ARM-based account](connect-classic-account-to-arm.md).
 
    Unless your code or infrastructure prevents you from moving from existing classic accounts, you should start using ARM-based accounts.
 
@@ -52,8 +52,8 @@ When creating a new paid account, you need to connect the Azure Video Indexer ac
 
 |   | ARM-based |Classic| Trial|
 |---|---|---|---|
-|Get access token | [ARM REST API](https://aka.ms/avam-arm-api) |[Get access token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)|Same as classic
-|Share account| [Azure RBAC(role based access control)](../role-based-access-control/overview.md)| [Invite users](invite-users.md) |Same as classic
+|Get access token | [ARM REST API](https://aka.ms/avam-arm-api) |[Get access token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)|Same as classic|
+|Share account| [Azure RBAC(role based access control)](../role-based-access-control/overview.md)| [Invite users](invite-users.md) |Same as classic|
 
 ## Limited access features
 
