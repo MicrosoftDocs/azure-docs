@@ -72,13 +72,12 @@ A better option is to use the managed identities feature in Azure Active Directo
 Use the App Configuration provider or SDK libraries to access App Configuration directly in your application. This approach gives you full access to App Configuration's functionalities, including dynamic configuration and feature management. Your application running on App Service or Azure Functions can obtain access to your App Configuration store via any of the following methods:
 
 * Enable managed identity on your App Service or Azure Functions and grant it access to your App Configuration store. For more information, see [Use managed identities to access App Configuration](howto-integrate-azure-managed-service-identity.md).
-* Store the connection string to your App Configuration store in Key Vault and [reference it from App Service or Azure Functions](../app-service/app-service-key-vault-references.md).
-* Store the connection string to your App Configuration store in the *Application settings* of App Service or Azure Functions.
+* Store the connection string to your App Configuration store in the *Application settings* of App Service or Azure Functions. For enhanced security, store the connection string in Key Vault and [reference it from App Service or Azure Functions](../app-service/app-service-key-vault-references.md).
 
 You can also make your App Configuration data accessible to your application as *Application settings* or environment variables. With this approach, you can avoid changing your application code.
 
-* Reference your App Configuration data from your App Service or Azure Functions. For more information, see [Use App Configuration references for App Service and Azure Functions](../app-service/app-service-configuration-references.md).
-* [Export your App Configuration data](howto-import-export-data.md#export-data-to-azure-app-service) to App Service or Azure Functions. Export your data again every time you make new changes in App Configuration if you like your application to pick up the change.
+* Add references to your App Configuration data in the *Application settings* of your App Service or Azure Functions. For more information, see [Use App Configuration references for App Service and Azure Functions](../app-service/app-service-configuration-references.md).
+* [Export your App Configuration data](howto-import-export-data.md#export-data-to-azure-app-service) to the *Application settings* of your App Service or Azure Functions. Export your data again every time you make new changes in App Configuration if you like your application to pick up the change.
 
 ## Reduce requests made to App Configuration
 
