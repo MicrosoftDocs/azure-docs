@@ -924,7 +924,7 @@ describes the instruments and provides examples of when you might use each one.
 Additionally, UpDownCounters and Asynchronous UpDownCounters are not supported in .NET at this time.
 
 For example, you can use a counter to collect an important business event such as "add to shopping cart"
-and view it in [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started)
+and view it in [Metrics Explorer](essentials/metrics-getting-started.md)
 for easy and accurate alerting.
 
 #### [.NET](#tab/net)
