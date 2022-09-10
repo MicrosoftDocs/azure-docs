@@ -8,7 +8,7 @@ ms.custom: ignite-fall-2021
 
 # Upload and index your videos
 
-This article shows how to upload and index videos by using the Azure Video Indexer website (see [get started with the website](video-indexer-get-started.md)) and the Upload Video API (see [get started with API](video-indexer-use-apis)).
+This article shows how to upload and index videos by using the Azure Video Indexer website (see [get started with the website](video-indexer-get-started.md)) and the Upload Video API (see [get started with API](video-indexer-use-apis.md)).
 
 After you upload and index a video, you can use [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
 
