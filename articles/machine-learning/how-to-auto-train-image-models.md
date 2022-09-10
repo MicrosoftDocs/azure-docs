@@ -426,7 +426,7 @@ Learn more about [how to configure the early termination policy for your hyperpa
 
 You can control the resources spent on your hyperparameter sweep by specifying the `max_trials` and the `max_concurrent_trials` for the sweep.
 > [!NOTE]
-> For a complete sweep configuration sample, please refer to this [tutorial](tutorial-auto-train-image-models.md#hyperparameter-sweeping-for-image-tasks).
+> For a complete sweep configuration sample, please refer to this [tutorial](tutorial-auto-train-image-models.md#manual-hyperparameter-sweeping-for-image-tasks).
 
 Parameter | Detail
 -----|----
