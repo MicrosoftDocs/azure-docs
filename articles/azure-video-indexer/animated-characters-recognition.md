@@ -24,8 +24,8 @@ The following diagram demonstrates the flow of the animated character detection 
 
 Depending on a type of your Azure Video Indexer account, different feature sets are available. For information on how to connect your account to Azure, see [Create an Azure Video Indexer account connected to Azure](connect-to-azure.md).
 
-* Trial account: Azure Video Indexer uses an internal Custom Vision account to create model and connect it to your Azure Video Indexer account. 
-* Paid account: you connect your Custom Vision account to your Azure Video Indexer account (if you don’t already have one, you need to create an account first).
+* The trial account: Azure Video Indexer uses an internal Custom Vision account to create model and connect it to your Azure Video Indexer account. 
+* The paid account: you connect your Custom Vision account to your Azure Video Indexer account (if you don’t already have one, you need to create an account first).
 
 ### Trial vs. paid
 
