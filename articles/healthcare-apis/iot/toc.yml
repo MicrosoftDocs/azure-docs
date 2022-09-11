@@ -22,6 +22,8 @@ items:
         href: deploy-02-new-button.md
       - name: Manual deployment overview
         href: deploy-03-new-manual.md
+        expanded: false
+        items:
           - name: Prerequisites
             href: deploy-04-new-prereq.md
           - name: Configuration
@@ -30,6 +32,8 @@ items:
             href: deploy-06-new-deploy.md
           - name: Post-deployment
             href: deploy-07-new-post-deploy.md
+        expanded: false
+        items:
         - name: Using Azure PowerShell and Azure CLI to deploy the MedTech service
           href: deploy-08-new-ps-cli.md
 - name: Tutorials
