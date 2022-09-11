@@ -96,9 +96,9 @@ You can query the status of your transcriptions with the [Transcriptions_List](h
 Call [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
 
-## Optional request configurations
+## Request configuration options
 
-Here are some optional properties that you can use to configure a transcription:
+Here are some property options that you can use to configure a transcription when you call the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation.
 
 | Property | Description |
 |----------|-------------|
@@ -108,7 +108,7 @@ Here are some optional properties that you can use to configure a transcription:
 |`destinationContainerUrl`|The result can be stored in an Azure container. Specify the [ad hoc SAS](../../storage/common/storage-sas-overview.md) with write permissions. SAS with stored access policies isn't supported. If you don't specify a container, the Speech service stores the results in a container managed by Microsoft. When the transcription job is deleted, the transcription result data is also deleted.|
 |`diarization`|Indicates that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains multiple voices. Specify the minimum and maximum number of people who might be speaking. You must also set the `diarizationEnabled` and `wordLevelTimestampsEnabled` properties to `true`. The [transcription file](#batch-transcription-result-file) will contain a `speaker` entry for each transcribed phrase.<br/><br/>Diarization is the process of separating speakers in audio data. The batch pipeline can recognize and separate multiple speakers on mono channel recordings. The feature isn't available with stereo recordings.|
 |`diarizationEnabled`|Specifies that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains two voices. Requires `wordLevelTimestampsEnabled` to be set to `true`. The default value is `false`.|
-|`model`|You can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. For more information, see [Azure storage for audio files](#using-custom-models).|
+|`model`|You can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. For more information, see [Using custom models](#using-custom-models).|
 |`profanityFilterMode`|Specifies how to handle profanity in recognition results. Accepted values are `None` to disable profanity filtering, `Masked` to replace profanity with asterisks, `Removed` to remove all profanity from the result, or `Tags` to add profanity tags. The default value is `Masked`. |
 |`punctuationMode`|Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation. The default value is  `DictatedAndAutomatic`.|
 |`timeToLive`|A duration after the transcription job is created, when the transcription results will be automatically deleted. For example, specify `PT12H` for 12 hours. As an alternative, you can call [Transcriptions_Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete) regularly after you retrieve the transcription results.|
@@ -116,9 +116,9 @@ Here are some optional properties that you can use to configure a transcription:
 
 ## Using custom models
 
-The service uses the base model for transcribing the file or files. For baseline transcriptions, you don't need to declare the ID for the base model. To specify the model, you can pass on the same method the model reference for the custom model.
+Batch transcription uses the default base model for the locale that you specify. You don't need to set any properties to use the default base model. 
 
-Optionally, you can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. 
+Optionally, you can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. 
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
@@ -136,7 +136,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 
 To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. A [deployed custom endpoint](how-to-custom-speech-deploy-model.md) isn't needed for the batch transcription service.
 
-Batch transcription requests for expired models will fail with a 4xx error. In each [Transcriptions_Create](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model.
+Batch transcription requests for expired models will fail with a 4xx error. In each [Transcriptions_Create](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. For more information, see [Choose a model](how-to-custom-speech-create-project.md#choose-your-model) and [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
 ## Get transcription results
 
@@ -305,7 +305,7 @@ The contents of each transcription result file are formatted as JSON, as shown i
 Depending in part on the request parameters set when you created the transcription job, the transcription file can contain the following result properties.
 
 |Property|Description|
-|----------|-------------|
+|--------|-----------|
 |`channel`|The channel number of the results. For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each channel.|
 |`combinedRecognizedPhrases`|The concatenated results of all phrases for the channel.|
 |`confidence`|The confidence value for the recognition.|
@@ -319,7 +319,7 @@ Depending in part on the request parameters set when you created the transcripti
 |`maskedITN`|The ITN form with profanity masking applied.|
 |`nBest`|A list of possible transcriptions for the current phrase with confidences.|
 |`offset`|The offset in audio of this phrase, ISO 8601 encoded duration.|
-|`offsetInTicks`|The offset in audio of this phrase in ticks (1 tick is 100 nanoseconds).||
+|`offsetInTicks`|The offset in audio of this phrase in ticks (1 tick is 100 nanoseconds).|
 |`recognitionStatus`|The recognition state. For example: "Success" or "Failure".|
 |`recognizedPhrases`|The list of results for each phrase.|
 |`source`|The URL that was provided as the input audio source. The source corresponds to the `contentUrls` or `contentContainerUrl` request property. The `source` property is the only way to confirm the audio input for a transcription.|
@@ -345,7 +345,7 @@ Batch transcription can read audio files from a public URI or a [shared access s
 
 The SAS URI must have `r` (read) and `l` (list) permissions. The Azure [blob](../../storage/blobs/storage-blobs-overview.md) container must have at most 5GB of audio data and a maximum number of 10,000 blobs. The maximum size for a blob is 2.5GB.
 
-The following [configuration](#optional-request-configurations) example uses two files:
+The following [configuration](#request-configuration-options) example uses two files:
 
 ```json
 {
@@ -356,7 +356,7 @@ The following [configuration](#optional-request-configurations) example uses two
 }
 ```
 
-To process a whole storage container, follow this [configuration](#optional-request-configurations) example:
+To process a whole storage container, follow this [configuration](#request-configuration-options) example:
 
 ```json
 {
