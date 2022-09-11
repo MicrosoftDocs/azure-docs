@@ -15,9 +15,10 @@ items:
     expanded: false
     items:
     - name: Deployment methods   
-      href: deploy-iot-connector-in-azure.md
       expanded: false
       items:
+      - name: Choose a deployment methods
+        href: deploy-iot-connector-in-azure.md
       - name: QuickStart template
         href: deploy-02-new-button.md
       - name: Manual deployment overview
@@ -30,7 +31,7 @@ items:
         href: deploy-06-new-deploy.md
       - name: Post-deployment
         href: deploy-07-new-post-deploy.md
-      - name: Using Azure PowerShell and Azure CLI to deploy the MedTech service
+      - name: Azure PowerShell and Azure CLI
         href: deploy-08-new-ps-cli.md
 - name: Tutorials
   expanded: true
