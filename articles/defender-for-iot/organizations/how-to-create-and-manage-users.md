@@ -1,8 +1,8 @@
 ---
-title: Create and manage users
-description: Create and manage users of sensors and the on-premises management console. Users can be assigned the role of Administrator, Security Analyst, or Read-only user.
-ms.date: 01/26/2022
-ms.topic: article
+title: Create and manage on-premises users for OT monitoring - Microsoft Defender for IoT
+description: Create and manage on-premises users for OT network sensors or an on-premises management console.
+ms.date: 09/11/2022
+ms.topic: how-to
 ---
 # Create and manage on-premises users for OT monitoring
 
