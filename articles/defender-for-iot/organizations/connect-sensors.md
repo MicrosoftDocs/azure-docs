@@ -51,7 +51,7 @@ Before you start, make sure that you have:
 
 - A proxy server resource, with firewall permissions to access Microsoft cloud services. The procedure described in this article uses a Squid server hosted in Azure.
 
-- Outbound HTTPS traffic on port 443 to the required hostnames for Defender for IoT. You can access the list of required hostnames from the **Sites and sensors** page: Select **More actions** > **Download endpoint details**.
+- Outbound HTTPS traffic on port 443 to the required endpoint domains for Defender for IoT. Download the list of required endpoint domains from the **Sites and sensors** page: Select **More actions** > **Download endpoint details**.
 
 > [!IMPORTANT]
 > Microsoft Defender for IoT does not offer support for Squid or any other proxy services. It is the customer's responsibility to set up and maintain the proxy service.
