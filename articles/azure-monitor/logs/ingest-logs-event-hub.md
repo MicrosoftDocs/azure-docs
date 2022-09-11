@@ -45,7 +45,18 @@ In this tutorial, you learn how to:
 
 ## Create a destination table for event hub data in your Log Analytics workspace
 
-Create the table to which you'll ingest events from Event Hubs, providing the table name (`<table_name>`) and a definition of each of the table columns:  
+Create the table to which you'll ingest events from Event Hubs in the Azure portal: 
+
+1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** to find your subscription ID, Log Analytics workspace resource ID, and resource group name.
+
+    :::image type="content" source="media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
+
+1. Select the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
+
+    :::image type="content" source="media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell":::
+
+
+1. Run this PowerShell command to create the table, providing the table name (`<table_name>`) in the JSON, and setting the `<subscription_id>`, `<resource_group_name>`, `<workspace_id>`, and `<table_name>` values in the `Invoke-AzRestMethod -Path`:
 
 ```PowerShell
 $tableParams = @'
@@ -75,12 +86,8 @@ $tableParams = @'
 }
 '@
 
-Invoke-AzRestMethod -Path "/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/microsoft.operationalinsights/workspaces/{workspace}/tables<table_name>?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+Invoke-AzRestMethod -Path "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/microsoft.operationalinsights/workspaces/<workspace_id>/tables<table_name>?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
 ```
-
-To find your subscription ID, Log Analytics workspace resource ID, and resource group name in the Azure portal, navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties**.
-
-:::image type="content" source="media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
 
 > [!IMPORTANT]
 > Azure Monitor automatically adds the `_CL` (custom logs) suffix to all tables not created by an Azure resource. Be sure to set `<table_name>_CL` as the `outputStream` in the `dataFlows` definition when you create your data collection rule.
