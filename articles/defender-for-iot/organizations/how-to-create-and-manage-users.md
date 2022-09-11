@@ -87,10 +87,10 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
     - To adjust an inactivity timeout period, adjust the `= <number>` value to the required time, in seconds.
 
 
-### Reset a sensor user's password
+### Reset a user's password
 
 <!--validate this procedure-->
-On an OT network sensor, users with an administrator role can change passwords for other users who have either the **Security Analyst** or **Read-only** role.
+Users with an administrator role can change passwords for other users who have either the **Security Analyst** or **Read-only** role.
 
 Administrator users cannot change their own passwords, and must contact a user who has access to either the *cyberx* or *support* user to have their passwords reset.
 
@@ -185,7 +185,7 @@ Before you create access groups, we also recommend that you:
 
   - **Assign groups of Active Directory groups**: Verify that you set up an Active Directory instance to integrate with the on-premises management console.
 
-  - **Assign local users**: Verify that you created users. For more information, see [Define users](how-to-create-and-manage-users.md#define-users).
+  - **Assign local users**: Verify that you created users. For more information, see [Add new users](#add-new-users).
 
 
 > [!NOTE]

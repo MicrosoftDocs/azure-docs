@@ -197,6 +197,8 @@
           href: manage-users-portal.md
         - name: Create and manage user access on-premises
           href: how-to-create-and-manage-users.md
+        - name: Track on-premises user activity
+          href: track-user-activity.md
       - name: Enrich device information
         items:
         - name: Work with device notifications

@@ -185,7 +185,7 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premises management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX, or Support user you will need to select that subscription. For more information on recovering a CyberX, or Support user password, see [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
+    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *cyberx*, or *support* user. For more information, see [Recover a password](how-to-create-and-manage-users.md#recover-a-password).
 
 ### Investigate a lack of traffic
 
@@ -338,7 +338,7 @@ You may also want to export your audit logs to send them to the support team for
 
 1. Exported audit logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its password. If you're forwarding the audit logs to the support team, make sure to send the password to support separately from the exported logs.
 
-For more information, see [View audit log data on the on-premises management console](how-to-create-and-manage-users.md#view-audit-log-data-on-the-on-premises-management-console).
+For more information, see [Track on-premises user activity](track-user-activity.md).
 
 ## Next steps
 
