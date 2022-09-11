@@ -189,7 +189,6 @@ This release includes the following updates:
 
   * [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
 
-
 ## June 2022
 
 ### [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) June Update

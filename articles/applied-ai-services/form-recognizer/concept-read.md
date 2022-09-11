@@ -26,21 +26,21 @@ Form Recognizer v3.0 includes the new Read Optical Character Recognition (OCR) m
 
 | **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Read  | ✓  | ✓  | ✓  | ✓ (2022-06-30-preview)  | ✓ (2022-06-30-preview)  | ✓ (2022-06-30-preview) | ✓ (2022-06-30-preview) |
+| **prebuilt-read**  | GA</br> (2022-08-31)| GA</br> (2022-08-31)  | GA</br> (2022-08-31)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview) | Preview</br>(2022-06-30-preview) |
 
 ### Data extraction
 
-| **Read model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
+| **Model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
 | --- | --- | --- |
-prebuilt-read  | ✓  |✓  |
+**prebuilt-read**  | ✓  |✓  |
 
 ## Development options
 
 The following resources are supported by Form Recognizer v3.0:
 
-| Feature | Resources | Model ID |
+| Model | Resources | Model ID |
 |----------|------------|------------|
-|**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
+|**prebuilt-read**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
 ## Try Form Recognizer
 

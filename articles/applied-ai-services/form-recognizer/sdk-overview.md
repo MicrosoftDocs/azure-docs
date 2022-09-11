@@ -34,18 +34,20 @@ Form Recognizer SDK supports the following languages and platforms:
 
 ## Supported Clients
 
-| Language: SDK version | API version | Supported clients|
-| :------ | :----------- | :-----------------|
-|&bullet; .NET/C# → 4.0.0 </br> &bullet; Java → 4.0.0 </br> &bullet; JavaScript → 4.0.0 </br> &bullet; Python → 3.2.0| &check; 3.0 (default) | &bullet; **DocumentAnalysisClient** </br> &bullet; **DocumentModelAdministrationClient** |
-|&bullet; .NET/C# → 3.1.X </br> &bullet; Java → 3.1.X </br> &bullet; JavaScript → 3.1.X </br> &bullet; Python → 3.1.X| &check; 2.1 (default)</br> &check; 2.0 | &bullet; **FormRecognizerClient** </br> &bullet; **FormTrainingClient**|
-|&bullet; .NET/C# → 3.0.X </br> &bullet; Java → 3.0.X </br> &bullet; JavaScript → 3.0.X </br> &bullet; Python → 3.0.X| &check; 2.0 | &bullet; **FormRecognizerClient** </br> &bullet; **FormTrainingClient**
+| Language| SDK version | API version | Supported clients|
+| :------ | :-----------:|:----------: | :-----------------|
+|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 4.0.0| v3.0 | <ul><li> **DocumentAnalysisClient**</li><li>**DocumentModelAdministrationClient**</li></ul> |
+|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 4.0.0| v2.1, v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| v3.1.x | v2.1, v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+
+
+
+|&bullet; .NET/C# → 3.1.X </br> &bullet; Java → 3.1.X </br> &bullet; JavaScript → 3.1.X </br> &bullet; Python → 3.1.X| &check; v2.1 (default)</br> &check; v2.0 | &bullet; **FormRecognizerClient** </br> &bullet; **FormTrainingClient**|
+|&bullet; .NET/C# → 3.0.X </br> &bullet; Java → 3.0.X </br> &bullet; JavaScript → 3.0.X </br> &bullet; Python → 3.0.X| &check; v2.0 | &bullet; **FormRecognizerClient** </br> &bullet; **FormTrainingClient**
 
 ## Changelog and release history
 
 #### Form Recognizer SDK September 2022 GA release
-
->[!NOTE]
-> C#/.NET, Java, and JavaScript 4.0.0 and Python 3.2.0 SDKs support the same models, features and capabilities;  The versioning numbers aren't in sync across all programming languages.
 
 This release includes the following updates:
 
@@ -119,14 +121,12 @@ This release includes the following updates:
 
 #### Form Recognizer SDK beta August 2022 preview release
 
->[!NOTE]
-> The 4.0.0-beta.5 (C#), 4.0.0-beta.6 (Java), 4.0.0-beta.6 (JavaScript) and 3.2.0b6 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
-
 This release includes the following updates:
 
 ### [**C#**](#tab/csharp)
 
 **Version 4.0.0-beta.5 (2022-08-09)**
+**Supports REST API 2022-06-30-preview clients**
 
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#400-beta5-2022-08-09)
 
@@ -137,6 +137,7 @@ This release includes the following updates:
 ### [**Java**](#tab/java)
 
 **Version 4.0.0-beta.6 (2022-08-10)**
+**Supports REST API 2022-06-30-preview and earlier clients**
 
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#400-beta6-2022-08-10)
 
@@ -147,6 +148,7 @@ This release includes the following updates:
 ### [**JavaScript**](#tab/javascript)
 
 **Version 4.0.0-beta.6 (2022-08-09)**
+**Supports REST API 2022-06-30-preview and earlier clients**
 
  [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0-beta.6/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
@@ -160,6 +162,7 @@ This release includes the following updates:
 > Python 3.6 is no longer supported in this release. Use Python 3.7 or later.
 
 **Version 3.2.0b6 (2022-08-09)**
+**Supports REST API 2022-06-30-preview and earlier clients**
 
  [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b6/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 

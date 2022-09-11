@@ -225,10 +225,10 @@ Once you've built your composed model, you can use it to analyze forms and docum
 
 |Programming language| Code sample |
 |--|--|
-|**C#** | [Analyze a document with a custom/composed model](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_AnalyzeWithCustomModel.md)
-|**Java** | [Analyze forms with your custom/composed model ](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/AnalyzeCustomDocumentFromUrl.java)
-|**JavaScript** | [Analyze documents by model ID](https://github.com/witemple-msft/azure-sdk-for-js/blob/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/analyzeDocumentByModelId.js)
-|**Python** | [Analyze custom documents](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2/sample_analyze_custom_documents.py)
+|**C#** | [Analyze a document with a custom/composed model using model ID](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_AnalyzeWithCustomModel.md)
+|**Java** | [Analyze a document with a custom/composed model using model ID](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/AnalyzeCustomDocumentFromUrl.java)
+|**JavaScript** | [Analyze a document with a custom/composed model using model ID](https://github.com/witemple-msft/azure-sdk-for-js/blob/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/analyzeDocumentByModelId.js)
+|**Python** | [Analyze a document with a custom/composed model using model ID](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2/sample_analyze_custom_documents.py)
 
 ## Manage your composed models
 
@@ -237,9 +237,9 @@ You can manage a custom model at each stage in its life cycles. You can copy a c
 |Programming language| Code sample |
 |--|--|
 |**C#** | [Copy a custom model between Form Recognizer resources](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_CopyCustomModel.md#copy-a-custom-model-between-form-recognizer-resources)|
-|**Java** | [Copy custom model](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/administration/CopyDocumentModel.java)|
-|**JavaScript** | [Copy a model from one resource to another](https://github.com/witemple-msft/azure-sdk-for-js/blob/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/copyModel.js)|
-|**Python** | [Copy a custom model from a source to a target Form Recognizer resource](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2/sample_copy_model_to.py)|
+|**Java** | [Copy a custom model between Form Recognizer resources](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/administration/CopyDocumentModel.java)|
+|**JavaScript** | [Copy a custom model between Form Recognizer resources](https://github.com/witemple-msft/azure-sdk-for-js/blob/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/copyModel.js)|
+|**Python** | [Copy a custom model between Form Recognizer resources](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2/sample_copy_model_to.py)|
 
 ---
 
