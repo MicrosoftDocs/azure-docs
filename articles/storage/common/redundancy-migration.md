@@ -319,6 +319,8 @@ Converting your storage account to zone-redundancy (ZRS, GZRS or RA-GZRS) is not
 
 ### Failover and failback
 
+After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, see [use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary).
+
 If you performed an [account failover](storage-disaster-recovery-guidance.md) for your (RA-)GRS or (RA-)GZRS account, the account is locally redundant (LRS) in the new primary region after the failover. Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of so-called failback operations. For example, if you perform an account failover from RA-GZRS to the LRS in the secondary region, and then configure it again to RA-GRS and perform another account failover to the original primary region, you can't perform a live migration to RA-GZRS in the primary region. Instead, you'll need to perform a manual migration to ZRS or GZRS.
 
 ## Downtime requirements
@@ -340,21 +342,11 @@ If you migrate your storage account from GRS to LRS, there is no additional cost
 > [!IMPORTANT]
 > If you migrate your storage account from RA-GRS to GRS or LRS, that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
 
-## Replication conversion table
+## Replication conversion tables
 
-The following table shows the path for converting between every storage account replication type:
+This section includes tables that show the paths for changing between replication types. These tables focus on adding or removing zone-redundancy, since changing geo-redundancy or read access to the secondary region can be easily changed by using the Azure portal, PowerShell, or the Azure CLI. The one exception is when you want to switch to another type after a failover operation. See [Failover and failback](#failover-and-failback) for more details.
 
-| Convert         | ...to: | LRS| GRS/RA-GRS <sup>1,2</sup> | ZRS <sup>5</sup> | GZRS/RA-GZRS <sup>1,2,5</sup> |---|---|
-|-----------------|--------|----|---------------------------|------------------|-------------------------------|---|---|
-| <b>…from:       |        |    |                           |                  |                               |---|---|
-| <b> LRS</b>     |        | ***N/A*** | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | Perform a live migration<br><br> <b>-OR-</b><br><br>Perform a manual migration | Convert to GRS/RA-GRS first, then migrate to GZRS/RA-GZRS |---|
-| <b> GRS</b>     |        | Use Azure portal, PowerShell, or CLI | ***N/A*** | Convert to LRS first, then migrate to ZRS | Migrate |Convert to RA-GRS first, then migrate to RA-GZRS |---|
-| <b> RA-GRS</b>  |        | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | ***N/A*** | Convert to LRS first, then migrate to ZRS | Convert to GRS first, then migrate to GZRS | Migrate |
-| <b> ZRS</b>     |        | Migrate | Convert to GZRS first, then migrate to GRS | Convert to RA-GZRS first, then migrate to RA-GRS |***N/A*** | Migrate<br><br> <b>-OR-</b><br><br>Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> | Migrate<br><br> <b>-OR-</b><br><br>Use Azure Portal, PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
-| <b> GZRS</b>    |        | Convert to ZRS first, then migrate to LRS | Migrate | Convert to RA-GZRS first, then migrate to RA-GRS | Use Azure portal, PowerShell, or CLI | ***N/A*** | Use Azure portal, PowerShell, or CLI |
-| <b> RA-GZRS</b> |        | Convert to ZRS first, then migrate to LRS | Convert to GZRS first, then migrate to GRS | Migrate | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | ***N/A*** |
-
-The following table shows the paths for adding zone-redundancy in an existing storage account:
+The following table shows the paths available for adding zone-redundancy to an existing storage account:
 
 | Convert         | ...to: | ZRS | GZRS | RA-GZRS |
 |-----------------|--------|-----|------|---------|
@@ -363,7 +355,7 @@ The following table shows the paths for adding zone-redundancy in an existing st
 | <b> GRS</b>     |  ---   | manual migration <br><b> -or- </b><br> Switch to LRS using the Azure portal, PowerShell, or the Azure CLI,<br> then migrate to ZRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration | manual migration <br><b> -or- </b><br> Switch to RA-GRS using the Azure portal, PowerShell, or the Azure CLI,<br>then migrate to RA-GZRS <br>(live or manual) |
 | <b> RA-GRS</b>  |  ---   | manual migration <br><b> -or- </b><br> Switch to LRS using the Azure portal, PowerShell, or the Azure CLI,<br> then migrate to ZRS <br>(live or manual) | manual migration <br><b> -or- </b><br> Switch to GRS using the Azure portal, PowerShell, or the Azure CLI,<br> then migrate to GZRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration |
 
-The following table shows the paths for removing zone-redundancy from an existing storage account:
+The following table shows the paths available for removing zone-redundancy from an existing storage account:
 
 | Convert         | ...to: | LRS | GRS | RA-GRS |
 |-----------------|--------|-----|------|---------|
@@ -371,12 +363,6 @@ The following table shows the paths for removing zone-redundancy from an existin
 | <b> ZRS</b>     |  ---   | manual migration <br><b> -or- </b><br> live migration | manual migration <br><b> -or- </b><br> Switch to GZRS using the Azure portal, PowerShell, or the Azure CLI,<br> then migrate to GRS <br>(live or manual) | manual migration <br><b> -or- </b><br> Switch to RA-GZRS using the Azure portal, PowerShell, or the Azure CLI, <br>then migrate to RA-GRS <br>(live or manual) |
 | <b> GZRS</b>    |  ---   | manual migration <br><b> -or- </b><br> Switch to ZRS using the Azure portal, PowerShell, or the Azure CLI,<br> then migrate to LRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration | manual migration <br><b> -or- </b><br> Switch to RA-GZRS using the Azure portal, PowerShell, or the Azure CLI,<br> then migrate to RA-GRS <br>(live or manual) |
 | <b> RA-GZRS</b> |  ---   | manual migration <br><b> -or- </b><br> Switch to ZRS using the Azure portal, PowerShell, or the Azure CLI,<br> then migrate to LRS <br>(live or manual) | manual migration <br><b> -or- </b><br> Switch to GZRS using the Azure portal, PowerShell, or the Azure CLI,<br> then migrate to RA-GRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration |
-
-<sup>1</sup> Converting from local to geo-redundancy incurs a one-time egress charge. See [Costs associated with changing how data is replicated](#costs-associated-with-changing-how-data-is-replicated). <br />
-<sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier. See [the section about Access tiers](#access-tier).<br />
-<sup>3</sup> Live migration is supported for standard general-purpose v2 and premium file share storage accounts. Live migration is not supported for premium block blob or page blob storage accounts. While live migration is supported for premium file share storage accounts, it must be initiated by opening a support request with Microsoft. Customer-initiated live migration is not currently supported for premium file share accounts. See [the storage account type section](#storage-account-type).<br />
-<sup>4</sup> After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, See [the failover and failback section](#failover-and-failback) and [use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary).<br />
-<sup>5</sup> Migrating from LRS to ZRS is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares. See [Protocol support](#protocol-support).<br />
 
 ## See also
 
