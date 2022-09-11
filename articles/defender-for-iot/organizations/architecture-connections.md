@@ -2,14 +2,14 @@
 title: OT sensor cloud connection methods - Microsoft Defender for IoT
 description: Learn about the architecture models available for connecting your sensors to Microsoft Defender for IoT.
 ms.topic: conceptual
-ms.date: 03/08/2022
+ms.date: 09/11/2022
 ---
 
 # OT sensor cloud connection methods
 
 This article describes the architectures and methods supported for connecting your Microsoft Defender for IoT OT sensors to the cloud.
 
-All supported cloud connection methods provide:
+The cloud connection methods described in this article are supported only for OT sensor version 22.x and later. All methods provide:
 
 - **Simple deployment**, requiring no extra installations in your private Azure environment, such as for an IoT Hub
 

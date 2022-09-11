@@ -226,9 +226,14 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
     You can also download the file manually by selecting the relevant link in the **Activate your sensor** box. You'll use this file to activate your sensor, as described [below](#activate-your-sensor).
 
-1. Make sure that your new sensor will be able to successfully connect to Azure. The **Add outbound allow rules** box lists the domains that are required to be configured as secure endpoints from your sensor. Make sure the listed domains are allowed as outbound HTTP traffic over port 443.
+1. Make sure that your new sensor will be able to successfully connect to Azure. In the **Add outbound allow rules** box, select the **Download endpoint details** link to download a JSON list of the domains you must configure as secure endpoints from your sensor.  For example:
 
-    You can also access the list of required domains from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
+    :::image type="content" source="media/release-notes/download-domains.png" alt-text="Screenshot of the **Add outbound allow rules** box.":::
+
+    To ensure that your sensor can connect to Azure, configure the listed domains as allowed, outbound HTTP traffic over port 443.
+
+    > [!TIP]
+    > You can also access the list of required domains from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
 1. At the bottom left of the page, select **Finish**. You can now see your new sensor listed on the Defender for IoT **Sites and sensors** page.
 

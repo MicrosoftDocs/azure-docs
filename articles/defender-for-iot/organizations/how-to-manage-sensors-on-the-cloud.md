@@ -122,7 +122,7 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 | **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).|
 | **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
 | :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support (Public preview)](#upload-a-diagnostics-log-for-support-public-preview).|
-| **Download sensor endpoint details** | Download the list of domains that must be enabled as secure endpoints from OT and Enterprise IoT network sensors. Makes sure that HTTP traffic is enabled over port 443 to the listed endpoints for your sensor to connect to Azure. |
+| **Download sensor endpoint details** | Available from the **Sites and sensors** toolbar **More actions** menu, for OT sensor versions 22.x only. <br><br>Download the list of domains that must be enabled as secure endpoints from OT network sensors. Make sure that HTTP traffic is enabled over port 443 to the listed endpoints for your sensor to connect to Azure. |
 
 ## Reactivate an OT sensor
 
