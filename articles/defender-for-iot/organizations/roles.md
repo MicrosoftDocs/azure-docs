@@ -21,26 +21,26 @@ The following tables list functionality that is available to each user role by d
 
 |Sensor operator  |Security reader  |Security admin  |Contributor  |Owner  |
 |---------|---------|---------|---------|---------|
-|  **Download sensor and on-premises management console software and threat intelligence packages**<br>Resource scope: *Subscription*  |
+|  **Download sensor and on-premises management console software and threat intelligence packages**<br>Resource scope: *Subscription*  | | | | |
 |Yes |   Yes      |  Yes       |   Yes      | Yes |
-|  **Download activation files**<br>Resource scope: *Subscription*  |
+|  **Download activation files**<br>Resource scope: *Subscription*  | | | | |
 |   Yes      |    No     |   Yes      | Yes | Yes |
-|  **Modify values on the Pricing page, update committed devices**<br>Resource scope: *Subscription*   |
+|  **Modify values on the Pricing page, update committed devices**<br>Resource scope: *Subscription*   | | | | |
 |  Read-only      |  No       |   Read-write      | Read-write | Read-write |
-|  **Recover on-premises passwords**<br>Resource scope: *Subscription*   |
+|  **Recover on-premises passwords**<br>Resource scope: *Subscription*   | | | | |
 |   Yes      |   No      |   Yes     | Yes | Yes |
-|  **Push threat intelligence updates**<br>Resource scope: *Subscription*  |
+|  **Push threat intelligence updates**<br>Resource scope: *Subscription*  | | | | |
 |    No     |    No     |   Yes     | Yes | Yes |
-|  **Modify values on the Sites and sensors page**<br>Resource scope: *Subscription*   |
+|  **Modify values on the Sites and sensors page**<br>Resource scope: *Subscription*   |  | | | |
 |   Read-write      |     No    |   Read-write     | Read-write | Read-write |
 
 **Permissions for security monitoring functionalities**:
 
 |Sensor operator  |Security reader  |Security admin  |Contributor  |Owner  |
 |---------|---------|---------|---------|---------|
-| **Alerts page** <br><br>Resource scope: *Subscription* or *site* |
+| **Alerts page** <br><br>Resource scope: *Subscription* or *site* | | | | |
 |No  | Read-only | Read-write | Read-write | Read-write |
-| **Device inventory** <br><br>Resource scope: *Subscription* or *site* |
+| **Device inventory** <br><br>Resource scope: *Subscription* or *site* | | | | |
 |No  | Read-only | Read-write | Read-write | Read-write |
 
 For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
