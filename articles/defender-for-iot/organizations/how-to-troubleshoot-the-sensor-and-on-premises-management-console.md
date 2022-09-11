@@ -95,7 +95,7 @@ Verify that you can access the console web GUI:
 
 1. Define the laptop NIC address to be in the same range as the appliance.
 
-    :::image type="content" source="media/tutorial-install-components/access-to-ui.png" alt-text="Screenshot that shows management access to the UI.":::
+    :::image type="content" source="media/tutorial-install-components/access-to-ui.png" alt-text="Screenshot that shows management access to the UI." border="false":::
 
 1. Ping the appliance's IP address from the laptop to verify connectivity (default: 10.100.10.1).
 
