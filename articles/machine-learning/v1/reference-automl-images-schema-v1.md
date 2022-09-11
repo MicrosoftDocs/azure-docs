@@ -14,6 +14,17 @@ ms.date: 10/13/2021
 
 # Data schemas to train computer vision models with automated machine learning
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+	
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](v1/reference-automl-images-schema-v1.md)
+> * [v2 (current version)](reference-automl-images-schema.md)
+	
+[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+
+> [!IMPORTANT]
+> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks during training and inference.
 
 
