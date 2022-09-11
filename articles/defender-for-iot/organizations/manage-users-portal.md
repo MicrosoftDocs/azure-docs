@@ -1,6 +1,6 @@
 ---
-title: Manage users for OT network security
-description: Learn how to manage user permissions in the Azure portal and for the OT monitoring sensors or on-premises management consoles.
+title: Manage Azure users for OT network security - Microsoft Defender for IoT
+description: Learn how to manage user permissions in the Azure portal for the OT monitoring sensors or on-premises management consoles.
 ms.date: 09/04/2022
 ms.topic: how-to
 ---
@@ -17,7 +17,7 @@ For OT network monitoring specifically, administrators can also grant access at 
 
 1. In the Azure portal, go to the **Defender for IoT** > **Sites and sensors** page, and select the site where you want to assign permissions.
 
-    Site-based access control is not relevant or supported for default sites, such as the **BuiltIn-Enterprise** site.
+    Site-based access control is not relevant or supported for default sites or for Enterprise IoT networks.
 
 1. In the **Edit site** pane that appears on the right, select **Manage site access control (Preview)**. For example:
 
