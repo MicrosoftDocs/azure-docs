@@ -12,13 +12,13 @@ author: vadthyavath
 ms.date: 10/13/2021
 ---
 
-# Data schemas to train computer vision models with automated machine learning
+# Data schemas to train computer vision models with automated machine learning (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 	
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/reference-automl-images-schema-v1.md)
-> * [v2 (current version)](reference-automl-images-schema.md)
+> * [v1](reference-automl-images-schema-v1.md)
+> * [v2 (current version)](../reference-automl-images-schema.md)
 	
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
@@ -67,7 +67,7 @@ Example of a JSONL file for multi-class image classification:
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": "water_bottle"}
   ```
 
-![Image example for image classification multi-class.](media/reference-automl-images-schema/multiclass-predictions.jpg)
+![Image example for image classification multi-class.](../media/reference-automl-images-schema/multiclass-predictions.jpg)
 
 ### Image classification multi-label
 
@@ -114,7 +114,7 @@ Example of a JSONL file for Image Classification Multi-label:
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": ["carton","milk_bottle","water_bottle"]}
   ```
 
-![Image example for image classification multi-label.](media/reference-automl-images-schema/multilabel-predictions.jpg)
+![Image example for image classification multi-label.](../media/reference-automl-images-schema/multilabel-predictions.jpg)
 
 ### Object detection
 
@@ -185,7 +185,7 @@ Example of a JSONL file for object detection:
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "carton", "topX": 0.0180, "topY": 0.297, "bottomX": 0.380, "bottomY": 0.836, "isCrowd": 0}, {"label": "milk_bottle", "topX": 0.454, "topY": 0.348, "bottomX": 0.613, "bottomY": 0.683, "isCrowd": 0}, {"label": "water_bottle", "topX": 0.667, "topY": 0.279, "bottomX": 0.841, "bottomY": 0.615, "isCrowd": 0}]}
 ```
 
-![Image example for object detection.](media/reference-automl-images-schema/object-detect-predictions.jpg)
+![Image example for object detection.](../media/reference-automl-images-schema/object-detect-predictions.jpg)
 
 ### Instance segmentation
 
@@ -235,7 +235,7 @@ Example of a JSONL file for Instance Segmentation:
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "water_bottle", "isCrowd": 0, "polygon": [[0.334, 0.626, 0.304, 0.621, 0.254, 0.603, 0.164, 0.605, 0.158, 0.602, 0.146, 0.602, 0.142, 0.608, 0.094, 0.612, 0.084, 0.599, 0.080, 0.585, 0.080, 0.539, 0.082, 0.536, 0.092, 0.533, 0.126, 0.530, 0.132, 0.533, 0.144, 0.533, 0.162, 0.525, 0.172, 0.525, 0.186, 0.521, 0.196, 0.521 ]]}, {"label": "milk_bottle", "isCrowd": 0, "polygon": [[0.392, 0.773, 0.380, 0.732, 0.379, 0.767, 0.367, 0.755, 0.362, 0.735, 0.362, 0.714, 0.352, 0.644, 0.352, 0.611, 0.362, 0.597, 0.40, 0.593, 0.444,  0.494, 0.588, 0.515, 0.585, 0.621, 0.588, 0.671, 0.582, 0.713, 0.572, 0.753 ]]}]}
 ```
 
-![Image example for instance segmentation.](media/reference-automl-images-schema/instance-segmentation-predictions.jpg)
+![Image example for instance segmentation.](../media/reference-automl-images-schema/instance-segmentation-predictions.jpg)
 
 ## Data format for inference
 
@@ -243,7 +243,7 @@ In this section, we document the input data format required to make predictions 
 
 ### Input format
 
-The following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](how-to-auto-train-image-models.md#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
+The following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](how-to-auto-train-image-models-v1.md#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
 
 ```python
 # input image for inference
@@ -408,6 +408,6 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 
 ## Next steps
 
-* Learn how to [Prepare data for training computer vision models with automated ML](how-to-prepare-datasets-for-automl-images.md).
-* [Set up computer vision tasks in AutoML](how-to-auto-train-image-models.md)
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* Learn how to [Prepare data for training computer vision models with automated ML](how-to-prepare-datasets-for-automl-images-v1.md).
+* [Set up computer vision tasks in AutoML](how-to-auto-train-image-models-v1.md)
+* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models-v1.md).
