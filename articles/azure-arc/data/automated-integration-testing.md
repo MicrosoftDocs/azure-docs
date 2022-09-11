@@ -212,7 +212,7 @@ export SKIP_UPLOAD="0"
 
 > [!IMPORTANT]
 > If performing the configuration file generation in a Windows machine, you will need to convert the End-of-Line sequence from `CRLF` (Windows) to `LF` (Linux), as `arc-ci-launcher` runs as a Linux container. Leaving the line ending as `CRLF` may cause an error upon `arc-ci-launcher` container start - such as: `/launcher/config/.test.env: $'\r': command not found`
-> For example, perform the change using VSCode (bottom-right of window):
+> For example, perform the change using VSCode (bottom-right of window): <br>
 > ![CRLF to LF](media/automated-integration-testing/crlf-to-lf.png)
 
 #### Detailed explanation for certain variables
