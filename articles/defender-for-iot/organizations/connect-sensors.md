@@ -51,7 +51,7 @@ Before you start, make sure that you have:
 
 - A proxy server resource, with firewall permissions to access Microsoft cloud services. The procedure described in this article uses a Squid server hosted in Azure.
 
-- Outbound HTTPS traffic on port 443 to the required endpoint domains for Defender for IoT. Download the list of required endpoint domains from the **Sites and sensors** page: Select **More actions** > **Download endpoint details**.
+- Outbound HTTPS traffic on port 443 enabled to the required endpoint domains for Defender for IoT. Download the list of required endpoint domains from the **Sites and sensors** page: Select **More actions** > **Download endpoint details**.
 
 > [!IMPORTANT]
 > Microsoft Defender for IoT does not offer support for Squid or any other proxy services. It is the customer's responsibility to set up and maintain the proxy service.
@@ -335,7 +335,11 @@ This procedure describes how to install and configure a connection between your 
         sudo systemctl enable squid
         ```
 
-1. Connect your proxy to Defender for IoT. Enable outbound HTTP traffic on port 443 from the sensor to each of the required domains for Defender for IoT. You can find the list of required domains from the **Sites and sensors** page on the Azure portal. Select **More actions** > **Download endpoint details**.
+1. Connect your proxy to Defender for IoT:
+
+    1. Download the list of required endpoint domains from the **Sites and sensors** page: Select **More actions** > **Download endpoint details**.
+    1. Enable outbound HTTP traffic on port 443 from the sensor to each of the required domains for Defender for IoT.
+
 
 > [!IMPORTANT]
 > Some organizations must define firewall rules by IP addresses. If this is true for your organization, it's important to know that the Azure public IP ranges are updated weekly.

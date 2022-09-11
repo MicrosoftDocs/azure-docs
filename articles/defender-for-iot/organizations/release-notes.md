@@ -70,7 +70,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 For OT sensors with software versions 22.x and higher, Defender for IoT now supports networking [sensor connections to Azure](how-to-set-up-your-network.md#sensor-access-to-azure-portal) using endpoint domains *with* or *without* wildcards. To communicate with Azure, your OT sensor must have outbound HTTP traffic enabled to each of the required domains on port 443.
 
-The full list of required domains is also now available from the Azure portal. Download a JSON list of domains from the following locations:
+For supported sensor versions, the full list of required domains is also now available from the Azure portal. Download a JSON list of domains from the following locations:
 
 - **A successful sensor registration page**: After onboarding a new OT sensor, version 22.x, the successful registration page now provides instructions for next steps, including a link to the endpoint domains you'll need to add as secure, outbound allow rules on your network. Select the **Download endpoint details** link to download the JSON file.
 
