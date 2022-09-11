@@ -34,8 +34,8 @@ Before you can follow the steps in this tutorial you must:
 
  - Have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin
  - [Enable Defender for Cloud](get-started.md)
-  - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-ado.md)
-  - Have [enhanced security features](enhanced-security-features-overview.md) enabled on your Azure subscriptions
+ - Have [enhanced security features](enhanced-security-features-overview.md) enabled on your Azure subscriptions
+ - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-ado.md)
  - [Configure the Microsoft Security DevOps Azure DevOps extension](msdo-azure-devops-extension.md)
 
 ## Enable pull request annotations in GitHub
@@ -135,7 +135,9 @@ All annotations will now be displayed based on your configurations with the rele
 
 ## Learn more
 
-In this tutorial you learned how to enable pull request annotations in GitHub and Azure DevOps.
+Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.
+Learn how to [connect your Azure DevOps](quickstart-onboard-ado.md) to Defender for Cloud.
 
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.
