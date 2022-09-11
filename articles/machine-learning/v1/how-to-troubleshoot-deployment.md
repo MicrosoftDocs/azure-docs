@@ -61,7 +61,7 @@ To get the logs from a deployed webservice, do:
 az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 

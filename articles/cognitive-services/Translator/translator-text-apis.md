@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 09/07/2022
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: cog-serv-seo-aug-2020, mode-other
@@ -60,7 +60,7 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 |**X-ClientTraceId**|A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named ClientTraceId.|<ul><li>***Optional***</li></ul>
 |||
 
-## Setup your application
+## Set up your application
 
 ### [C#](#tab/csharp)
 
@@ -113,7 +113,7 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 
 1. Open the **Program.cs** file.
 
-1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. You will copy and paste the code samples into your application's Program.cs file. For each code sample, make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
+1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. You'll copy and paste the code samples into your application's Program.cs file. For each code sample, make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
 
 1. Once you've added a desired code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
@@ -141,7 +141,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. Create a new GO file named **text-translator.go** from the **translator-text-app** directory.
 
-1. You will copy and paste the code samples into your **text-translator.go** file. Make sure you update the key variable with the value from your Azure portal Translator instance.
+1. You'll copy and paste the code samples into your **text-translator.go** file. Make sure you update the key variable with the value from your Azure portal Translator instance.
 
 1. Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-text-app** folder and use the following command:
 
@@ -227,7 +227,7 @@ You can use any text editor to write Go applications. We recommend using the lat
     >
     > * You can also create a new file in your IDE named `TranslatorText.java`  and save it to the `java` directory.
 
-1. You will copy and paste the code samples `TranslatorText.java` file. **Make sure you update the key with one of the key values from your Azure portal Translator instance**.
+1. You'll copy and paste the code samples `TranslatorText.java` file. **Make sure you update the key with one of the key values from your Azure portal Translator instance**.
 
 1. Once you've added a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
 
@@ -290,7 +290,7 @@ You can use any text editor to write Go applications. We recommend using the lat
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `translator-text-app` directory.
 
-1. You will copy and paste the code samples into your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**.
+1. You'll copy and paste the code samples into your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**.
 
 1. Once you've added the code sample to your application, run your program:
 
@@ -610,6 +610,8 @@ After a successful call, you should see the following response:
    }
 ]
 ```
+
+You can check the consumption (the number of characters for which you'll be charged) for each request in the [**response headers: x-metered-usage**](reference/v3-0-translate.md#response-headers) field.
 
 ## Detect language
 

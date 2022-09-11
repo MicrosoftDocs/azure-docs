@@ -201,9 +201,6 @@ The response to this request looks like the following example:
 
 You can use ODATA filters to filter the results returned by the list devices API.
 
-> [!NOTE]
-> Currently, ODATA support is only available for `api-version=1.2-preview`
-
 ### $top
 
 Use the **$top** to set the result size, the maximum returned result size is 100, the default size is 25.
@@ -211,7 +208,7 @@ Use the **$top** to set the result size, the maximum returned result size is 100
 Use the following request to retrieve a top 10 device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.2-preview&$top=10
+GET https://{subdomain}.{baseDomain}/api/devices?api-version=2022-07-31&$top=10
 ```
 
 The response to this request looks like the following example:
@@ -239,7 +236,7 @@ The response to this request looks like the following example:
         },
         ...
     ],
-    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/devices?api-version=1.2-preview&%24top=1&%24skiptoken=%257B%2522token%2522%253A%2522%252BRID%253A%7EJWYqAOis7THQbBQAAAAAAg%253D%253D%2523RT%253A1%2523TRC%253A1%2523ISV%253A2%2523IEO%253A65551%2523QCF%253A4%2522%252C%2522range%2522%253A%257B%2522min%2522%253A%2522%2522%252C%2522max%2522%253A%252205C1D7F7591D44%2522%257D%257D"
+    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/devices?api-version=2022-07-31&%24top=1&%24skiptoken=%257B%2522token%2522%253A%2522%252BRID%253A%7EJWYqAOis7THQbBQAAAAAAg%253D%253D%2523RT%253A1%2523TRC%253A1%2523ISV%253A2%2523IEO%253A65551%2523QCF%253A4%2522%252C%2522range%2522%253A%257B%2522min%2522%253A%2522%2522%252C%2522max%2522%253A%252205C1D7F7591D44%2522%257D%257D"
 }
 ```
 
@@ -254,10 +251,10 @@ Use **$filter** to create expressions that filter the list of devices. The follo
 | -------------------- | ------ | --------------------------------------- |
 | Equals               | eq     | id eq 'device1' and scopes eq 'redmond' |
 | Not Equals           | ne     | Enabled ne true                         |
-| Less than or equals       | le     | indexof(displayName, 'device1') le -1   |
-| Less than            | lt     | indexof(displayName, 'device1') lt 0    |
-| Greater than or equals      | ge     | indexof(displayName, 'device1') ge 0    |
-| Greater than           | gt     | indexof(displayName, 'device1') gt 0    |
+| Less than or equals       | le     | contains(displayName, 'device1') le -1   |
+| Less than            | lt     | contains(displayName, 'device1') lt 0    |
+| Greater than or equals      | ge     | contains(displayName, 'device1') ge 0    |
+| Greater than           | gt     | contains(displayName, 'device1') gt 0    |
 
 The following table shows the logic operators you can use in *$filter* expressions:
 
@@ -280,16 +277,16 @@ Currently, *$filter* works with the following device fields:
 
 **$filter supported functions:**
 
-Currently, the only supported filter function for device lists is the `indexof` function:
+Currently, the only supported filter function for device lists is the `contains` function:
 
 ```
-$filter=indexof(displayName, 'device1') ge 0
+$filter=contains(displayName, 'device1') ge 0
 ```
 
-The following example shows how to retrieve all the devices where the display name has index the string `thermostat`:
+The following example shows how to retrieve all the devices where the display name contains the string `thermostat`:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=index(displayName, 'thermostat')
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')
 ```
 
 The response to this request looks like the following example:
@@ -331,7 +328,7 @@ $orderby=displayName desc
 The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.2-preview&$orderby=displayName
+GET https://{subdomain}.{baseDomain}/api/devices?api-version=2022-07-31&$orderby=displayName
 ```
 
 The response to this request looks like the following example:
@@ -366,7 +363,7 @@ You can also combine two or more filters.
 The following example shows how to retrieve the top 2 device where the display name contains the string `thermostat`.
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=contains(displayName, 'thermostat')&$top=2
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
 ```
 
 The response to this request looks like the following example:

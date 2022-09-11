@@ -407,6 +407,7 @@
               href: iot-hub-create-using-powershell.md
             - name: Use Azure CLI
               displayName: create IoT Hub, change settings, shared access policies, register device, message routing, delete IoT hub, az iot hub create
+              href: iot-hub-create-using-cli.md
             - name: Use the REST API
               displayName: create IoT Hub, change settings, shared access policies, register device, message routing, delete IoT hub, cmdlets, Azure Resource Manager, token
               href: iot-hub-rm-rest.md
