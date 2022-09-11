@@ -5,7 +5,7 @@ author: stevenmatthew
 
 ms.service: storage-mover
 ms.topic: overview
-ms.date: 08/29/2022
+ms.date: 09/10/2022
 ms.author: shaas
 ---
 
@@ -15,7 +15,7 @@ STATUS: IN REVIEW
 
 CONTENT: final
 
-REVIEW Stephen/Fabian: not reviewed
+REVIEW Stephen/Fabian: Reviewed - Stephen
 REVIEW Engineering: not reviewed
 EDIT PASS: not started
 

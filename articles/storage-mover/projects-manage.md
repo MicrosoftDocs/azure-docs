@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 09/10/2022
 ms.custom: template-how-to
 ---
 
@@ -15,7 +15,7 @@ STATUS: DRAFT
 
 CONTENT: 
 
-REVIEW Stephen/Fabian: not reviewed
+REVIEW Stephen/Fabian: Reviewed - Stephen
 REVIEW Engineering: not reviewed
 EDIT PASS: started
 
