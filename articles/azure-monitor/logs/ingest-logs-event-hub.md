@@ -41,6 +41,8 @@ In this tutorial, you learn how to:
     
     Send events to your event hub by following the steps in the [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
+- [User-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+
 
 
 ## Create a destination table for event hub data in your Log Analytics workspace
@@ -258,7 +260,7 @@ To generate a data collection rule JSON file in the Azure portal:
 
 The final step is to associate the data collection rule to the event hub from which you want to collect events. 
 
-You can associate a single data collection rule with multiple event hubs that share the same consumer group and ingest data to the same stream; otherwise, create a separate rule for consumer group and stream.
+You can associate a single data collection rule with multiple event hubs that share the same [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and ingest data to the same stream; otherwise, create a separate rule for consumer group and stream.
 
 ```powershell
 {
