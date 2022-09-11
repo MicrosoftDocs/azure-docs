@@ -41,8 +41,8 @@ After filtering this information, you're also able to see other information in t
 
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
+
 - [Lifecycle Workflow History](lifecycle-workflow-history.md)
-- [Links](links-how-to.md)
+- [Check the status of a workflow (Preview)](check-status-workflow.md)
 
 
