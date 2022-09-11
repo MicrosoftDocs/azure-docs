@@ -354,19 +354,23 @@ The following table shows the path for converting between every storage account 
 | <b> GZRS</b>    |        | Convert to ZRS first, then migrate to LRS | Migrate | Convert to RA-GZRS first, then migrate to RA-GRS | Use Azure portal, PowerShell, or CLI | ***N/A*** | Use Azure portal, PowerShell, or CLI |
 | <b> RA-GZRS</b> |        | Convert to ZRS first, then migrate to LRS | Convert to GZRS first, then migrate to GRS | Migrate | Use Azure portal, PowerShell, or CLI | Use Azure portal, PowerShell, or CLI | ***N/A*** |
 
+The following table shows the paths for adding zone-redundancy in an existing storage account:
+
 | Convert         | ...to: | ZRS | GZRS | RA-GZRS |
 |-----------------|--------|-----|------|---------|
-| <b>…from:       |        |     |      |         |
-| <b> LRS</b>     |        | manual migration <br><br><b> -or- </b><br><br> live migration | manual migration <br><br><b> -or- </b><br><br> Switch to GRS, then migrate to GZRS <br>(live or manual) | manual migration <br><br><b> -or- </b><br><br> Switch to RA-GRS, then migrate to RA-GZRS <br>(live or manual) |
-| <b> GRS</b>     |        | manual migration <br><br><b> -or- </b><br><br> Switch to LRS, then migrate to ZRS <br>(live or manual) | manual migration <br><br><b> -or- </b><br><br> live migration | manual migration <br><br><b> -or- </b><br><br> Switch to RA-GRS, then migrate to RA-GZRS <br>(live or manual) |
-| <b> RA-GRS</b>  |        | manual migration <br><br><b> -or- </b><br><br> Switch to LRS, then migrate to ZRS <br>(live or manual) | manual migration <br><br><b> -or- </b><br><br> Switch to GRS, then migrate to GZRS <br>(live or manual) | manual migration <br><br><b> -or- </b><br><br> live migration |
+| <b>…from:       |  ---   | --- |  --- |  ---    |
+| <b> LRS</b>     |  ---   | manual migration <br><b> -or- </b><br> live migration | manual migration <br><b> -or- </b><br> Switch to GRS, then migrate to GZRS <br>(live or manual) | manual migration <br><b> -or- </b><br> Switch to RA-GRS, then migrate to RA-GZRS <br>(live or manual) |
+| <b> GRS</b>     |  ---   | manual migration <br><b> -or- </b><br> Switch to LRS, then migrate to ZRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration | manual migration <br><b> -or- </b><br> Switch to RA-GRS, then migrate to RA-GZRS <br>(live or manual) |
+| <b> RA-GRS</b>  |  ---   | manual migration <br><b> -or- </b><br> Switch to LRS, then migrate to ZRS <br>(live or manual) | manual migration <br><b> -or- </b><br> Switch to GRS, then migrate to GZRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration |
+
+The following table shows the paths for removing zone-redundancy from an existing storage account:
 
 | Convert         | ...to: | LRS | GRS | RA-GRS |
 |-----------------|--------|-----|------|---------|
-| <b>…from:       |        |     |      |         |
-| <b> ZRS</b>     |        | manual migration <br><b> -or- </b><br> live migration | manual migration <br><b> -or- </b><br> Switch to GZRS, then migrate to GRS <br>(live or manual) | manual migration <br><b> -or- </b><br> Switch to RA-GZRS, then migrate to RA-GRS <br>(live or manual) |
-| <b> GZRS</b>    |        | manual migration <br><b> -or- </b><br> Switch to ZRS, then migrate to LRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration | manual migration <br><b> -or- </b><br> Switch to RA-GZRS, then migrate to RA-GRS <br>(live or manual) |
-| <b> RA-GZRS</b> |        | manual migration <br><b> -or- </b><br> Switch to ZRS, then migrate to LRS <br>(live or manual) | manual migration <br><b> -or- </b><br> Switch to GZRS, then migrate to RA-GRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration |
+| <b>…from:       |  ---   | --- |  --- |  ---    |
+| <b> ZRS</b>     |  ---   | manual migration <br><b> -or- </b><br> live migration | manual migration <br><b> -or- </b><br> Switch to GZRS, then migrate to GRS <br>(live or manual) | manual migration <br><b> -or- </b><br> Switch to RA-GZRS, then migrate to RA-GRS <br>(live or manual) |
+| <b> GZRS</b>    |  ---   | manual migration <br><b> -or- </b><br> Switch to ZRS, then migrate to LRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration | manual migration <br><b> -or- </b><br> Switch to RA-GZRS, then migrate to RA-GRS <br>(live or manual) |
+| <b> RA-GZRS</b> |  ---   | manual migration <br><b> -or- </b><br> Switch to ZRS, then migrate to LRS <br>(live or manual) | manual migration <br><b> -or- </b><br> Switch to GZRS, then migrate to RA-GRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration |
 
 <sup>1</sup> Converting from local to geo-redundancy incurs a one-time egress charge. See [Costs associated with changing how data is replicated](#costs-associated-with-changing-how-data-is-replicated). <br />
 <sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier. See [the section about Access tiers](#access-tier).<br />
