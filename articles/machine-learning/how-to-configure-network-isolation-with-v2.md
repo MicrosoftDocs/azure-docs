@@ -89,7 +89,7 @@ After the parameter has been implemented, the default value of the flag depends 
 
 To update v1_legacy_mode, use the following steps:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 To disable v1_legacy_mode, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `v1_legacy_mode=false`.
 
