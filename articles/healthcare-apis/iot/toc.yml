@@ -9,7 +9,7 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Get started with the MedTech service
+  - name: Get started with MedTech service
     href: get-started-with-iot.md
   - name: Deploy the MedTech service
     expanded: false
@@ -17,11 +17,13 @@ items:
     - name: Deployment methods   
       expanded: false
       items:
-      - name: Choose a deployment methods
+      - name: Choose deployment method
         href: deploy-iot-connector-in-azure.md
       - name: QuickStart template
         href: deploy-02-new-button.md
-      - name: Manual deployment overview
+      - name: Azure PowerShell & CLI
+        href: deploy-08-new-ps-cli.md
+      - name: Manual deployment
         href: deploy-03-new-manual.md
       - name: Prerequisites
         href: deploy-04-new-prereq.md
@@ -31,7 +33,7 @@ items:
         href: deploy-06-new-deploy.md
       - name: Post-deployment
         href: deploy-07-new-post-deploy.md
-      - name: Azure PowerShell and Azure CLI
+      - name: Azure PowerShell & CLI
         href: deploy-08-new-ps-cli.md
 - name: Tutorials
   expanded: true
