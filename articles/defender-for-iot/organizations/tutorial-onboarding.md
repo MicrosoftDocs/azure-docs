@@ -7,7 +7,7 @@ ms.date: 07/11/2022
 
 # Tutorial: Get started with Microsoft Defender for IoT for OT security
 
-This tutorial describes how to set up your network for OT system security monitoring, using a virtual, cloud-connected sensor, on a virtual machine (VM), using a trial subscription of Microsoft Defender for IoT.
+This tutorial describes how to set up your network for OT system security monitoring, using a virtual, cloud-connected sensor, on a virtual machine (VM), using a trial subscription of Microsoft Defender for IoT. 
 
 > [!NOTE]
 > If you're looking to set up security monitoring for enterprise IoT systems, see [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md) instead.
