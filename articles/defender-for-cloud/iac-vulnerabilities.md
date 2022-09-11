@@ -1,18 +1,18 @@
 ---
 title: Discover misconfigurations in Infrastructure as Code
-description: Learn how to use Defender for DevOps to discover misconfigurations in Infrastructure as Code (IAC)
+description: Learn how to use Defender for DevOps to discover misconfigurations in Infrastructure as Code (IaC)
 ms.date: 09/08/2022
 ms.topic: how-to
 ---
 
 # Discover misconfigurations in Infrastructure as Code (IaC)
 
-Once you have set up the Microsoft Security DevOps Extension, or Workflow, extra support is located in the YAML configuration that can be used to run a tool, or several of the tools. For example, setting up Infrastructure as Code (IaC) scanning.
+Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps extension, extra support is located in the YAML configuration that can be used to run a specific tool, or several of the tools. For example, setting up the action or extension to run _only_ Infrastructure as Code (IaC) scanning. This can help reduce pipeline run time.
 
 ## Prerequisites
 
 - [Configure Microsoft Security DevOps GitHub action](msdo-github-action.md).
-- [Configure the Microsoft Security DevOps extension](msdo-azure-devops-extension.md).
+- [Configure the Microsoft Security DevOps Azure DevOps extension](msdo-azure-devops-extension.md).
 
 ## View the results of the IaC scan in GitHub 
 
@@ -30,7 +30,8 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, extra
     with:
         categories: 'Iac"
     ```
-
+    > [!NOTE] 
+    > Categories are case sensitive.
     :::image type="content" source="media/tutorial-iac-vulnerabilities/add-to-yaml.png" alt-text="Screenshot that shows the information that needs to be added to the yaml file.":::
 
 1. Select **Start Commit** 
@@ -49,7 +50,7 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, extra
 
     1. Select **Raw**
     
-    1. Copy all of the information in the file.
+    1. Copy all the information in the file.
 
     ```Bash
     {
@@ -156,7 +157,7 @@ Once you have set up the Microsoft Security DevOps Extension, or Workflow, extra
 
 **To view the results of the IaC scan in Azure DevOps**
 
-1. Sign into [Azure DevOps](https://dev.azure.com/)
+1. Sign in to [Azure DevOps](https://dev.azure.com/)
 
 1. Navigate to **Pipeline**.
 
@@ -425,8 +426,7 @@ Set the protocols property to only include HTTPs.
 
 ## Learn more
 
-- You can learn more and add the [Microsoft Security DevOps extension](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops) to Visual Studio Code.
-- Learn the [template for Best Practice Analyzer](https://github.com/Azure/template-analyzer) (BPA).
+- Learn more about the [Template for Best Practice Analyzer](https://github.com/Azure/template-analyzer).
 
 ## Next steps
 
