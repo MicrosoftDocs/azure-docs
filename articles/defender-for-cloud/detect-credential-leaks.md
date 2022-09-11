@@ -1,23 +1,41 @@
 ---
-title: Enable credential scanning in code
-description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's credential scanner for Defender for DevOps.
+title: Detect exposed secrets in code
+description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's secret scanning for Defender for DevOps.
 ms.topic: how-to
 ms.date: 09/08/2022
 ---
 
-# Detect credential leaks in code
+# Detect exposed secrets in code
 
-When passwords and other secrets are stored in source code, it poses a significant risk, and could compromise the security of your environments. Defender for Cloud offers a solution by using Credential Scanner (CredScan). Credential Scanner detects credentials, secrets, certificates, and other sensitive content in your source code and your build output. Credential Scanner can be run as part of the Microsoft Security DevOps for Azure DevOps extension.
+When passwords and other secrets are stored in source code, it poses a significant risk and could compromise the security of your environments. Defender for Cloud offers a solution by using secret scanning to detect credentials, secrets, certificates, and other sensitive content in your source code and your build output. Secret scanning can be run as part of the Microsoft Security DevOps for Azure DevOps extension. To explore the options available for secret scanning in GitHub, learn more [about secret scanning](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/about-secret-scanning) in GitHub.
 
 Check the list of [supported file types and exit codes](#supported-file-types-and-exit-codes).
 
-## Setup credential scanning
+## Setup secret scanning in Azure DevOps
 
-You can run CredScan as part of the Azure DevOps build process by using the Microsoft Security DevOps (MSDO) Azure DevOps extension.
+You can run secret scanning as part of the Azure DevOps build process by using the Microsoft Security DevOps (MSDO) Azure DevOps extension.
 
-**To add Credential Scanner to Azure DevOps build process**:
+**To add secret scanning to Azure DevOps build process**:
 
-1. ????? Need all the steps prior to step 2?????
++ 1. Sign in to [Azure DevOps](https://dev.azure.com/)
+
+1. Navigate to **Pipeline**.
+
+1. Locate the pipeline with MSDO Azure DevOps Extension is configured.
+
+2. Select **Edit**.
+
+3. Add the following lines to the YAML file
+
+    ```yml
+    inputs:
+        categories: 'secrets'
+    ```
+    :::image type="content" source="ADD NEW IMAGE.png" alt-text="Screenshot showing you where to add this line to the YAML file.":::
+
+4.  Select **Save**.
+
+The above steps ensure that only secret scanning runs when you execute the Azure DevOps build pipeline.
 
 1. Select the relevant Azure DevOps build definition.
 

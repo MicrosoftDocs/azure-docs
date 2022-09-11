@@ -16,7 +16,7 @@ The Microsoft Security DevOps uses the following Open Source tools:
 | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
 | [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
 | [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
-| [Credscan](https://secdevtools.azurewebsites.net/helpcredscan.html) | Credential Scanner (also known as CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files <br> common types: default passwords, SQL connection strings, Certificates with private keys | Not Open Source |
+| [Credscan](detect-credential-leaks.md) | Credential Scanner (also known as CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files <br> common types: default passwords, SQL connection strings, Certificates with private keys | Not Open Source |
 | [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM template, Bicep file | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
 | [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
 | [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
@@ -116,7 +116,9 @@ The pipeline will run for a few minutes and save the results.
 ## Learn more
 
 - Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
-- Learn how to [deploy to Azure](/azure/devops/pipelines/overview-azure?toc=%2Fazure%2Fdevops%2Fcross-service%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fcross-service%2Fbreadcrumb%2Ftoc.json&view=azure-devops).
+- Learn how to [deploy pipelines to Azure](/azure/devops/pipelines/overview-azure?toc=%2Fazure%2Fdevops%2Fcross-service%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fcross-service%2Fbreadcrumb%2Ftoc.json&view=azure-devops).
 
 ## Next steps
+Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+Learn how to [connect your Azure DevOps](quickstart-onboard-ado.md) to Defender for Cloud.
 [Discover misconfigurations in Infrastructure as Code (IaC)](iac-vulnerabilities.md)

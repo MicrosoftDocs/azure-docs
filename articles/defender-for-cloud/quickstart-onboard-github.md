@@ -76,12 +76,14 @@ When the process completes, the GitHub connector appears on your Environment set
 
 :::image type="content" source="media/quickstart-onboard-github/github-connector.png" alt-text="Screenshot showing the Environmental page with the GitHub connector now connected." lightbox="media/quickstart-onboard-github/github-connector.png":::
 
-The Defender for DevOps service automatically discovers your repositories and analyzes them for any security issues. The Inventory page will populate with your repositories, and the Recommendations page will show any security issues related to a repository.
+The Defender for DevOps service automatically discovers the repositories you select and analyzes them for any security issues. The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository.
 
 ## Learn more
 
-- You can learn more about how [Azure and GitHub integrate](/azure/developer/github/).
-- Learn about [security hardening practices in GitHub Action](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
+- You can learn more about how [Azure and GitHub integrate](https://docs.microsoft.com/en-us/azure/developer/github/).
+- Learn about [security hardening practices for GitHub Actions](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
 
 ## Next steps
-Learn how to [connect your Azure DevOps](quickstart-onboard-ado.md) to Defender for Cloud.
+Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+Learn how to [configure the MSDO GitHub action](msdo-github-action.md).
+Learn how to [configure pull request annotations](tutorial-enable-pr-annotations.md) in Defender for Cloud.
