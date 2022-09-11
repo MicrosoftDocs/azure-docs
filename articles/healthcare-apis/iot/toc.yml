@@ -17,26 +17,26 @@ items:
     - name: Using portal
       expanded: false
       items:
-      - name:  Choose a deployment method   
+      - name: Deployment methods   
         href: deploy-iot-connector-in-azure.md
-      - name: Deploy the MedTech service with a QuickStart template
-        href: deploy-02-new-button.md
         expanded: false
         items:
-        - name: Manual deploy overview of the MedTech service
+        - name: QuickStart template
+          href: deploy-02-new-button.md
+        - name: Manual deployment overview
           href: deploy-03-new-manual.md
           expanded: false
           items:
-          - name: Prerequisites for manually deploying the MedTech service
+          - name: Prerequisites
             href: deploy-04-new-prereq.md
-          - name: Configure the MedTech service for manual deployment
+          - name: Configuration
             href: deploy-05-new-config.md
-          - name: Manually creating a deployment of the MedTech service
+          - name: Manual Deployment
             href: deploy-06-new-deploy.md
-          - name: Necessary post-deployment tasks needed after a manual deployment
+          - name: Post-deployment
             href: deploy-07-new-post-deploy.md
-          - name: Using Azure PowerShell and Azure CLI to deploy the MedTech service
-            href: deploy-08-new-ps-cli.md
+        - name: Using Azure PowerShell and Azure CLI to deploy the MedTech service
+          href: deploy-08-new-ps-cli.md
 - name: Tutorials
   expanded: true
   items:
