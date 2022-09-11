@@ -9,7 +9,7 @@ ms.topic: overview
 
 Microsoft Defender for Cloud enables comprehensive visibility, posture management and threat protection across multicloud environments including Azure, AWS, Google, and on-premises resources. Defender for DevOps integrates with GitHub Advanced Security that is embedded into both GitHub and Azure DevOps, to empower security teams with the ability to protect resources from code to cloud.
 
-Defender for DevOps uses a central console to provide security teams DevOps insights across multi-pipeline environments, such as, GitHub and Azure DevOps. These insights can then be correlated with other contextual cloud security intelligence to prioritize remediation in code and apply consistent security guardrails throughout the application lifecycle. Key capabilities starting in Defender for DevOps, available through Defender for Cloud includes:
+Defender for DevOps uses a central console to provide security teams DevOps insights across multi-pipeline environments, such as GitHub and Azure DevOps. These insights can then be correlated with other contextual cloud security intelligence to prioritize remediation in code and apply consistent security guardrails throughout the application lifecycle. Key capabilities starting in Defender for DevOps, available through Defender for Cloud includes:
 
 - **Unified visibility into DevOps security posture**: Security administrators are given full visibility into the DevOps inventory, the security posture of pre-production application code, resource configurations across multi-pipeline and multicloud environments in a single view.
 
@@ -64,10 +64,10 @@ In this example we see:
 
 - **Pull request status**: Shows whether PR annotations are enabled for the repository. 
     - `On` - PR annotations are enabled.
-    - `Off`- PR annotations are enabled.
-    - `NA`- Defender for Cloud doesn't have information about the enablement. Currently, only information about pull request annotations in Azure DevOps is included.
+    - `Off` - PR annotations are not enabled.
+    - `NA` - Defender for Cloud doesn't have information about the enablement. Currently, this information is available only for Azure DevOps repositories.
 
-- **Total exposed secrets**: Shows number of secrets identified in the repositories.
+- **Total exposed secrets** - Shows number of secrets identified in the repositories.
 
 - **OSS vulnerabilities** – Shows number of vulnerabilities identified in the repositories. Currently, this information is available only for GitHub repositories.
 
@@ -78,8 +78,9 @@ In this example we see:
 - You can learn more about DevOps from our [DevOps resource center](/devops/).
 - Learn about [security in DevOps](/devops/operate/security-in-devops).
 - You can learn about [securing Azure Pipelines](/azure/devops/pipelines/security/overview?view=azure-devops).
-- Learn about [security hardening practices in GitHub Action](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
+- Learn about [security hardening practices for GitHub Actions](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
 
 ## Next steps
 
 Learn how to [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
+Learn how to [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-ado.md).

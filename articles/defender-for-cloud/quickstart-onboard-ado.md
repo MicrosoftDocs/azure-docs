@@ -25,7 +25,6 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Download and install the [Microsoft Security DevOps for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops) extension for Visual Studio Code.
 
 ## Availability
 
@@ -58,7 +57,7 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
 
 1. Select **Next: Select plans >**.
 
-1. Select **Next: Authorize connection >**
+1. Select **Next: Authorize connection >**.
 
 1. Select **Authorize**.
 
@@ -77,18 +76,20 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
     - Select your relevant project(s) from the drop-down menu.
     
     > [!NOTE]
-    > If you select your relevant project(s) rom the drop down menu, you will also need select to auto discover repositories or select individual repositories.
+    > If you select your relevant project(s) from the drop down menu, you will also need select to auto discover repositories or select individual repositories.
 
-1. Select **Next: Review and create >**
+1. Select **Next: Review and create >**.
 
-1. Review the information and select **Create**
+1. Review the information and select **Create**.
 
-Defender for DevOps will discover your organizations, projects, and repositories and analyzes any security issues. Once security issues are discovered, the Inventory page populates with the associated repositories, and the Recommendations page populates with any security issues related to a repository.
+The Defender for DevOps service automatically discovers the organizations, projects, and repositories you select and analyzes them for any security issues. The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository.
 
 ## Learn more
 
-- Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
 - Learn more about [Azure DevOps](/azure/devops/?view=azure-devops).
+- Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
 
 ## Next steps
-Learn more about [Defender for DevOps](defender-for-devops-introduction.md)
+Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+Learn how to [configure the MSDO Azure DevOps extension](msdo-azure-devops-extension.md).
+Learn how to [configure pull request annotations](tutorial-enable-pr-annotations.md) in Defender for Cloud.

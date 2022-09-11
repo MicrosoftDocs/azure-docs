@@ -20,7 +20,7 @@ Security DevOps uses the following Open Source tools:
 | [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
 | [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
 
-## Prerequisite
+## Prerequisites
 
 - [Connect your GitHub repositories](quickstart-onboard-github.md).
 
@@ -63,8 +63,8 @@ Security DevOps uses the following Open Source tools:
       sample:
         name: Microsoft Security DevOps Analysis
 
-        # MSDO runs on windows-latest.
-        # ubuntu-latest and macos-latest supporting coming soon
+        # MSDO runs on windows-latest and ubuntu-latest.
+        # macos-latest supporting coming soon
         runs-on: windows-latest
 
       steps:
@@ -114,7 +114,7 @@ Security DevOps uses the following Open Source tools:
 
     :::image type="content" source="media/msdo-github-action/verify-actions.png" alt-text="Screenshot showing you where to navigate to, to see that your new action is running.":::
 
-## Steps: View Scan Results
+## View Scan Results
 
 **To view your scan results**:
 
@@ -130,8 +130,10 @@ Code scanning findings will be filtered by specific MSDO tools in GitHub. These 
 
 ## Learn more
 
-- You can learn about [GitHub actions for Azure](/azure/developer/github/github-actions).
+- Learn about [GitHub actions for Azure](/azure/developer/github/github-actions).
 - Learn how to [deploy apps from GitHub to Azure](/azure/developer/github/deploy-to-azure).
 
 ## Next steps
-[Configure the Microsoft Security DevOps Azure DevOps extension](msdo-azure-devops-extension.md)
+Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.
+[Discover misconfigurations in Infrastructure as Code (IaC)](iac-vulnerabilities.md)
