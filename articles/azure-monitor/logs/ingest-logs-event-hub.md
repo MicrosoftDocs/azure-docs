@@ -178,7 +178,13 @@ To generate a data collection rule JSON file in the Azure portal:
                 "location": "[parameters('location')]",
                 "apiVersion": "2022-06-01",
                 "identity": {
-                                 "type": "systemAssigned"
+                        "type": "userAssigned",
+                        "userAssignedIdentities": {
+                            "/subscriptions/<subscription_id>/resourceGroups/demogroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/chechenmsi": {
+                                "principalId": "<principal_id>",
+                                "clientId": "<client_id>"
+                            }
+                        }
                   },
                 "properties": {
                     "dataCollectionEndpointId": "[parameters('<endpoint_resource_id>')]",
