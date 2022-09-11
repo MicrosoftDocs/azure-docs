@@ -152,7 +152,9 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 1. Run the pre-registration script to reset the user credentials.
 1. Once done, recover all tenant databases from a data snapshot using HANA Studio. See this [HANA documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/b2c283094b9041e7bdc0830c06b77bf8.html).
 
+## Next steps
 
+Learn about [Azure Backup service to back up database instances (preview)](sap-hana-db-about.md#using-the-azure-backup-service-to-back-up-database-instances-preview).
 
 
 

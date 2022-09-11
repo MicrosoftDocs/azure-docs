@@ -28,7 +28,7 @@ In this article, you'll learn how to:
 
 ## Before you start
 
-#### Policy
+### Policy
 
 As per SAP recommendation, it's mandatory to have weekly full backup for all the databases within an Instance, which is protected by snapshot. Currently, logs are also mandatory for a database when creating a policy. With snapshots happening daily, we don’t see a need to have incremental/differential backup in the database policy. Therefore, all databases under the database Instance (which is required to be protected by snapshots) should have a database policy that has only *weekly fulls + logs ONLY* along with daily snapshots at an Instance level.
 
@@ -39,9 +39,9 @@ As per SAP recommendation, it's mandatory to have weekly full backup for all the
 
 - Always protect all the databases within an Instance with a database policy before applying daily snapshots to the database Instance.
 - Make sure that all database policies have only *Weekly fulls + logs*. No differential/incremental backups.
-- Do NOT trigger on-demand backint based streaming differential/incremental backups for these databases.
+- Do NOT trigger on-demand Backint based streaming differential/incremental backups for these databases.
 
-#### Permissions required for backup
+### Permissions required for backup
 
 You must assign the required permissions to the Azure Backup service (residing within the HANA VM) to take snapshots of the Managed Disks and place them in a User-specified Resource Group mentioned in the policy. To do so, you can use System-assigned Managed Identity (MSI) of the source VM.
 
@@ -154,7 +154,7 @@ Follow these steps:
 
 Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status, follow these steps:
 
-1. In the Recovery Services vault blade, select **Backup Jobs** in the left pane.
+1. In the Recovery Services vault, select **Backup Jobs** in the left pane.
 
    It shows the jobs dashboard with operation and status of the jobs triggered in *past 24 hours*. To modify the time range, select **Filter** and do required changes.
 

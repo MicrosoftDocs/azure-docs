@@ -19,7 +19,7 @@ Azure Backup is [Backint certified](https://www.sap.com/dmc/exp/2013_09_adpd/enE
 Using the Azure Backup service to back up and restore SAP HANA databases, gives the following advantages:
 
 * **15-minute Recovery Point Objective (RPO)**: Recovery of critical data of up to 15 minutes is now possible.
-* **One-click, point-in-time restores**: Restore of production data to alternate HANA servers is made easy. The chaining of backups and catalogs to perform restores is all managed by Azure behind the scenes.
+* **One-click, point-in-time restores**: Restore of production data to alternate HANA servers is made easy. The chaining of the backups and catalogs to perform restores are all managed by Azure behind the scenes.
 * **Long-term retention**: For rigorous compliance and audit needs. Retain your backups for years, based on the retention duration, beyond which the recovery points will be pruned automatically by the built-in lifecycle management capability.
 * **Backup Management from Azure**: Use Azure Backup's management and monitoring capabilities for improved management experience. Azure CLI is also supported.
 
@@ -64,16 +64,19 @@ The [Backint certified Azure SAP HANA backup solution](#backup-architecture) can
 
 To restore a VM running SAP HANA, follow these steps:
 
-* [Restore a new VM from Azure VM backup](backup-azure-arm-restore-vms.md) from the latest recovery point. Or create a new empty VM and attach the disks from the latest recovery point.
-* If WA disks are excluded, they aren’t restored. In this case, create empty WA disks and log area.
-* After all the other configurations (such as IP, system name, and so on) are set, the VM is set to receive DB data from Azure Backup.
-* Now restore the DB into the VM from the [Azure SAP HANA DB backup](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) to the desired point-in-time.
+1. [Restore a new VM from Azure VM backup](backup-azure-arm-restore-vms.md) from the latest recovery point. Or create a new empty VM and attach the disks from the latest recovery point.
+1. If WA disks are excluded, they aren’t restored.
+
+   In this case, create empty WA disks and log area.
+
+1. After all the other configurations (such as IP, system name, and so on) are set, the VM is set to receive DB data from Azure Backup.
+1. Now restore the DB into the VM from the [Azure SAP HANA DB backup](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) to the desired point-in-time.
 
 ## Using the Azure Backup service to back up database instances (preview)
 
-As databases grow in size, the time taken to restore becomes a factor when dealing with streaming backups. Also, during backup, the time taken by the database to generate *backint streams* can grow in proportion to the churn, which can be factor as well.
+As databases grow in size, the time taken to restore becomes a factor when dealing with streaming backups. Also, during backup, the time taken by the database to generate *Backint streams* can grow in proportion to the churn, which can be factor as well.
 
-A database consistent snapshot based approach helps to solve both issues and provide you the benefit of instant backup and instant restore. If HANA, Azure Backup is now providing a HANA consistent snapshot based approach that is integrated with backint so that you can use Azure Backup as a single product for your entire HANA landscape, irrespective of size.
+A database consistent snapshot based approach helps to solve both issues and provide you the benefit of instant backup and instant restore. If HANA, Azure Backup is now providing a HANA consistent snapshot based approach that is integrated with Backint so that you can use Azure Backup as a single product for your entire HANA landscape, irrespective of size.
 
 ### Pricing
 

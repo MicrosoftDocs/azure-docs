@@ -54,7 +54,7 @@ Target disk resource group (where all existing disks of target VM are present, f
 
 ## Restore entire system to snapshot restore point
 
-#### Select and mount the snapshot
+### Select and mount the snapshot
 
 Follow these steps:
 
@@ -80,7 +80,7 @@ Follow these steps:
 
 1. In **Restore Point**, choose **Select**.
 
-1. In the **Select restore point** blade, select a recovery point and select **OK**.
+1. In the **Select restore point** pane, select a recovery point and select **OK**.
 
    :::image type="content" source="./media/sap-hana-database-instances-restore/select-hana-snapshot-recovery-point.png" alt-text="Screenshot showing to select HANA snapshot recovery point.":::
 
@@ -88,14 +88,14 @@ Follow these steps:
 
 1. Select **OK** to create disks from snapshots, attach them to the target VM and mount them.
 
-#### Restore System DB
+### Restore System DB
 
 Recover System database from data snapshot using HANA Studio. See [this SAP documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/9fd053d58cb94ac69655b4ebc41d7b05.html).
 
 >[!Note]
 >After restoring System DB, you need to run the pre-registration script on the target VM to update the user credentials.
 
-#### Restore Tenant databases
+### Restore Tenant databases
 
 Once done, recover all Tenant databases from a data snapshot using HANA Studio. See [this HANA documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/b2c283094b9041e7bdc0830c06b77bf8.html).
 
@@ -103,11 +103,11 @@ Once done, recover all Tenant databases from a data snapshot using HANA Studio. 
 
 Perform the following actions.
 
-#### Select and mount the nearest snapshot
+### Select and mount the nearest snapshot
 
 First, decide the nearest snapshot to the required log point-in-time. Then [attach and mount that snapshot](#select-and-mount-the-snapshot) to the target VM.
 
-#### Restore system database
+### Restore system database
 
 To select and restore the required point-in-time for System DB, follow these steps:
 
@@ -129,7 +129,7 @@ To select and restore the required point-in-time for System DB, follow these ste
 
 1. On **Restore Point**, choose **Select**.
 
-1. On the **Select restore point** blade, select the restore point and select **OK**.
+1. On the **Select restore point** pane, select the restore point and select **OK**.
 
    :::image type="content" source="./media/sap-hana-database-instances-restore/restore-system-database-restore-point.png" alt-text="Screenshot showing to select restore points of system database instance for restore.":::
 select
@@ -139,7 +139,7 @@ select
 >After restoring system database, you need to run the pre-registration script on the target VM to update the user credentials.
 
 
-#### Restore tenant database
+### Restore tenant database
 
 Follow these steps:
 
@@ -165,7 +165,7 @@ Follow these steps:
 
 1. In **Restore Point**, choose **Select**.
 
-1. In the **Select restore point** blade, select a recovery point, and then select **OK**.
+1. In the **Select restore point** pane, select a recovery point, and then select **OK**.
 
    :::image type="content" source="./media/sap-hana-database-instances-restore/select-hana-snapshot-recovery-point.png" alt-text="Screenshot showing to select HANA tenant database recovery point.":::
 
@@ -178,7 +178,7 @@ Follow these steps:
 
 ## Cross region restore
 
-The Managed Disk snapshots don't get transferred to Recovery Services vault. Therefore, cross-region [restore is only possible via backint stream backups](sap-hana-db-restore.md#cross-region-restore).
+The Managed Disk snapshots don't get transferred to Recovery Services vault. Therefore, cross-region [restore is only possible via Backint stream backups](sap-hana-db-restore.md#cross-region-restore).
 
 ## Next steps
 
