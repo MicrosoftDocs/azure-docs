@@ -29,8 +29,10 @@ The following scenarios show what can cause, and how to avoid flapping.
 
 It's important to have an adequate margin between scaling thresholds. For example, the following rules would cause flapping.
 
-+ Scale out when thread count >=600
-+ Scale in when thread count < 600
+* Scale out when thread count >=600
+* Scale in when thread count < 600
+
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example2.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example":::
 
 |Time| Instance count| Thread count|Thread count per instance| Scale event| Resulting instance count
 |---|---|---|---|---|---|
@@ -46,8 +48,10 @@ In this case, it would appear that autoscale isn't working as no scale event wou
 
 Setting an adequate margin between thresholds solves the above condition. For example,
 
-+ Scale out when thread count >=600
-+ Scale in when thread count < 400
+* Scale out when thread count >=600
+* Scale in when thread count < 400
+
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example3.png" alt-text="A screenshot showing  autoscale rules configured for the example":::
 
 If the scale-in thread count is 400, the total thread count would have to drop to below 1200 before a scale event would take place. See the table below.
 
@@ -66,24 +70,26 @@ To avoid flapping, when scaling in or out by more than one instance, autoscale m
 
 For example, given the following rules:
 
-* Scale out by 20 when Message count >=200 per instance.
-* OR when CPU > 70 per instance.
-* Scale in by 10 when message count <=50 per instance.
+* Scale out by 20 when the request count >=200 per instance.
+* OR when CPU > 70% per instance.
+* Scale in by 10 when the request count <=50 per instance.
 
-|Time|Number of instances|CPU |Message count| Scale event| Resulting instances|Comments|
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example1.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example":::
+
+|Time|Number of instances|CPU |Request count| Scale event| Resulting instances|Comments|
 |---|---|---|---|---|---|---|
 |T0|30|65%|3000, or 100 per instance.|No scale event|30|
 |T1|30|65|1500| Scale in by 3 instances |27|Scaling-in by 10 would cause an estimated CPU rise above 70%, leading to a scale-out event.
 
-At time T0, the app is running with 30 instances, a total message count of 3000, and a CPU usage of 65% per instance.
+At time T0, the app is running with 30 instances, a total request count of 3000, and a CPU usage of 65% per instance.
 
-At T1, when the message count drops to 1500 messages, or 50 messages per instance, autoscale will try to scale in by 10 instances to 20. However, autoscale estimates that the CPU load for 20 instances will be above 70%, causing a scale-out event.
+At T1, when the request count drops to 1500 requests, or 50 requests per instance, autoscale will try to scale in by 10 instances to 20. However, autoscale estimates that the CPU load for 20 instances will be above 70%, causing a scale-out event.
 
 To avoid flapping, the autoscale engine will estimate the CPU usage for instance counts above 20, until it finds an instance count that satisfies all of the rules:
 
   1. Keep the CPU below 70%.
   1. Reduce the number of instances below 30.
-  1. Keep the number of messages per instance is above 50.
+  1. Keep the number of requests per instance is above 50.
 
 In this situation, autoscale may scale in by 3, from 30 to 27 instances in order to satisfy both rules, even though the rule specifies a decrease of 10.
 
