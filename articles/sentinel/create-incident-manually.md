@@ -114,7 +114,7 @@ You need to supply parameters as described below:
 
     :::image type="content" source="media/create-incident-manually/create-incident-logicapp-parameters.png" alt-text="Screenshot of create incident action parameters in Microsoft Sentinel connector.":::
 
-Microsoft Sentinel supplies sample playbook templates that shows you how to work with this capability:
+Microsoft Sentinel supplies some sample playbook templates that show you how to work with this capability:
 
 - **Create incident with Microsoft Form**
 - **Create incident from shared email inbox**
