@@ -154,7 +154,7 @@
           href: customize-language-model-with-website.md
         - name: using the API
           href: customize-language-model-with-api.md
-- name: Embed widgets into your application
+  - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md      
   - name: Logic Apps connector
     href: logic-apps-connector-tutorial.md
