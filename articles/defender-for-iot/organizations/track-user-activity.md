@@ -1,11 +1,11 @@
 ---
-title: Track on-premises user activity - Microsoft Defender for IoT
+title: Track on-premises OT monitoring user activity - Microsoft Defender for IoT
 description: Track Microsoft Defender for IoT on-premises user activity on a sensor's event timeline, or by viewing audit logs generated on an on-premises management console.
 ms.date: 01/26/2022
 ms.topic: article
 ---
 
-# Track on-premises user activity
+# Track on-premises OT monitoring user activity
 
 Track user activity on a sensor's event timeline, or by viewing audit logs generated on an on-premises management console.
 
