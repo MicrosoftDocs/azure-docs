@@ -35,19 +35,51 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac)
+- [Log Analytics workspace](../logs/quick-create-workspace.md) where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - [Dedicated cluster linked to the Log Analytics workspace](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 - [Event hub](/azure/event-hubs/event-hubs-create) with events.
     
-    You can send to an event hub
+    Send events to your event hub by following the steps in the [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
+
+
 
 ## Create a destination table for Event Hub data in your Log Analytics workspace
-<!-- Introduction paragraph -->
 
-1. Sign in to the [<service> portal](url).
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+Create the table to which you'll ingest events from Event Hubs, providing the table name (`<table_name>`) and a definition of each of the table columns:  
 
+```powershell-interactive
+$tableParams = @'
+{
+    "properties": {
+        "schema": {
+            "name": "<table_name>",
+            "columns": [
+                {
+                    "name": "TimeGenerated",
+                    "type": "datetime",
+                    "description": "The time at which the data was generated"
+                },
+                {
+                    "name": "RawData",
+                    "type": "string",
+                    "description": "Body of the event"
+                },
+                {
+                    "name": "Properties",
+                    "type": "dynamic",
+                    "description": "Additional message properties"
+                }
+            ]
+        }
+    }
+}
+'@
+
+Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables<table_name>?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+```
+
+> [!IMPORTANT]
+> Azure Monitor automatically adds the `_CL` (custom logs) suffix to all tables not created by an Azure resource. Be sure to set `<table_name>_CL` as the `outputStream` in the `dataFlows` definition when you create your data collection rule.
 
 ## Create a data collection endpoint
 
