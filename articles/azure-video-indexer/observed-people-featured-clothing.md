@@ -1,12 +1,12 @@
 ---
-title: People's featured clothing
-description: This article gives an overview of featured clothing images appearing in a video.
-ms.topic: conceptual
+title: Enable featured clothing of an observed person
+description: When indexing a video using Azure Video Indexer advanced video settings, you can view the featured clothing of an observed person. The featured clothing insight provides the following information: key items worn by individuals within a video and the specific time in which the clothing appears. 
+ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: juliako
 ---
 
-# People's featured clothing (preview)
+# Enable featured clothing of an observed person (preview)
 
 When indexing a video using Azure Video Indexer advanced video settings, you can view the featured clothing of an observed person. The featured clothing insight provides the following information: key items worn by individuals within a video and the specific time in which the clothing appears. 
 
