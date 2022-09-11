@@ -350,13 +350,12 @@ images:
 ```
 
 > [!TIP]
-> At this point - there are **3** places we specified `imageTag`s, for clarity, here's an explanation of the different uses of each:
+> At this point - there are **3** places we specified `imageTag`s, for clarity, here's an explanation of the different uses of each. Typically - when testing a given release, all 3 values would be the same:
 > | #   | Filename                 | Variable name    | Why?                                                                                                                                                                                                        | Used by?                                                                                                                                            |
 > | --- | ------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 > | 1   | **`.test.env`**          | `DOCKER_TAG`     | Sourcing the [Bootstrapper image](https://mcr.microsoft.com/v2/arcdata/arc-bootstrapper/tags/list) as part of [extension install](https://mcr.microsoft.com/v2/arcdata/arcdataservices-extension/tags/list) | [`az k8s-extension create`](https://docs.microsoft.com/en-us/cli/azure/k8s-extension?view=azure-cli-latest#az-k8s-extension-create) in the launcher |
 > | 2   | **`patch.json`**         | `value.imageTag` | Sourcing the [Data Controller image](https://mcr.microsoft.com/v2/arcdata/arc-controller/tags/list)                                                                                                         | [`az arcdata dc create`](https://docs.microsoft.com/en-us/cli/azure/arcdata/dc?view=azure-cli-latest#az-arcdata-dc-create) in the launcher          |
 > | 3   | **`kustomization.yaml`** | `images.newTag`  | Sourcing the [Launcher's image](https://mcr.microsoft.com/v2/arcdata/arc-ci-launcher/tags/list)                                                                                                             | `kubectl apply`ing the launcher                                                                                                                     |
-> Typically - when testing a given release, all 3 values would be the same.
 
 
 ### `kubectl apply`
