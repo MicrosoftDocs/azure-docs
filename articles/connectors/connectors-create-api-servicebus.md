@@ -62,7 +62,7 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 ### Limit on saved sessions in connector cache
 
-Per [Service Bus messaging entity, such as a subscription or topic](../service-bus-messaging/service-bus-queues-topics-subscriptions.md), the Service Bus connector can save up to 1,500 unique sessions at a time to the connector cache, . If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Message sessions](../service-bus-messaging/message-sessions.md).
+Per [Service Bus messaging entity, such as a subscription or topic](../service-bus-messaging/service-bus-queues-topics-subscriptions.md), the Service Bus connector can save up to 1,500 unique sessions at a time to the connector cache. If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Message sessions](../service-bus-messaging/message-sessions.md).
 
 <a name="sequential-convoy"></a>
 
@@ -142,7 +142,7 @@ To confirm that your logic app resource has permissions to access your Service B
 
 ## Step 2 - Get connection authentication requirements
 
-Later, when you add a Service Bus trigger or action for the first time, you're prompted for connection information, including the connection authentication type. Based on your logic app workflow and selected authentication type, you'll need one of the following items:
+Later, when you add a Service Bus trigger or action for the first time, you're prompted for connection information, including the connection authentication type. Based on your logic app workflow type, Service Bus connector version, and selected authentication type, you'll need the following corresponding items:
 
 ### Managed Service Bus connector (Consumption and Standard workflows)
 
@@ -157,7 +157,7 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 | Authentication type | Required information |
 |---------------------|----------------------|
 | **Connection String** | The connection string for your Service Bus namespace. For more information, review [Get connection string for Service Bus namespace](#get-connection-string) |
-| **Active Directory OAuth** | The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). |
+| **Active Directory OAuth** | - The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). For the other property values, review [Azure Active Directory Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#azure-active-directory-oauth-authentication). |
 | **Managed identity** | The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). |
 
 <a name="get-connection-string"></a>
@@ -202,7 +202,7 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 
 1. On the namespace menu, select **Overview**.
 
-1. On the **Overview** pane, find the **Host name** property, and copy the fully qualfied name, which looks like **<*your-Service-Bus-namespace*>.servicebus.windows.net**.
+1. On the **Overview** pane, find the **Host name** property, and copy the fully qualified name, which looks like **<*your-Service-Bus-namespace*>.servicebus.windows.net**.
 
 ## Add a Service Bus trigger
 
