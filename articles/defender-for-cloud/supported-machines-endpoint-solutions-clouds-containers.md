@@ -75,8 +75,8 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | EC2 | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
-| Vulnerability Assessment | Registry scan | - | - | - | - | - |
-| Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
+| Vulnerability Assessment | Registry scan | - | Preview | Preview | Preview | Defender for Containers |
+| Vulnerability Assessment | View vulnerabilities for running images | - | Preview | Preview | Preview | Defender for Containers |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | EKS | Preview | - | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| EKS | Preview | Preview | Agentless | Defender for Containers |

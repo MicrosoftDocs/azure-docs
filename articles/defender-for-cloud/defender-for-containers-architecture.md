@@ -28,7 +28,7 @@ To protect your Kubernetes containers, Defender for Containers receives and anal
 - Workload configuration from Azure Policy
 - Security signals and events from the node level
 
-## Architecture for each container environment
+## Architecture for each Kubernetes environment
 
 ## [**Azure (AKS)**](#tab/defender-for-container-arch-aks)
 
