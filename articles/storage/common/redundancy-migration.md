@@ -74,7 +74,7 @@ If you want to change zone-redundancy in combination with geo-redundancy or read
 | Zone redundancy     | Live migrate the storage account | [Request by creating a support request with Microsoft](#support-requested-live-migration) |
 | Zone redundancy     | [Manually migrate the storage account](#storage-account-migration) | |
 
-For the complete list of options for converting from one replication type to another, see [the replication conversion table](#replication-conversion-table).
+For the complete list of options for converting from one replication type to another, see [the replication conversion tables](#replication-conversion-tables).
 
 ## Storage account migration
 
