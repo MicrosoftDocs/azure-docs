@@ -79,7 +79,6 @@ git clone https://github.com/microsoft/azure_arc.git
 
 In this tutorial, we're going to focus on steps for AKS, but the overlay structure above can be extended to include additional Kubernetes distributions.
 
-
 The ready to deploy manifest will represent the following:
 ```text
 ├── base
@@ -100,10 +99,8 @@ There are two files that need to be generated to localize the launcher to run in
 * `.test.env`: fill out from `.test.env.tmpl`
 * `patch.json`: fill out from `patch.json.tmpl`
 
-> [!IMPORTANT]
-> If performing the configuration file generation in a Windows machine, you will need to convert the End-of-Line sequence from `CRLF` (Windows) to `LF` (Linux), as `arc-ci-launcher` runs as a Linux container. For example, perform the change using VSCode (bottom-right of window):
-> ![CRLF to LF](media/automated-integration-testing/crlf-to-lf.png)
-> Leaving the line ending as `CRLF` may cause an error upon `arc-ci-launcher` container start - such as: `/launcher/config/.test.env: $'\r': command not found`
+> [!TIP]
+> The `.test.env` is a single set of of environment variables that drives the Launcher's behavior. Generating it with care for a given environment will ensure reproducibility of the launcher's behavior.
 
 ### Config 1: `.test.env`
 
@@ -112,7 +109,7 @@ A filled-out sample of the `.test.env` file, generated based on `.test.env.tmpl`
 > [!IMPORTANT]
 > The `export VAR="value"` syntax below is not meant to be run locally to source environment variables from your machine - but is there for the launcher. The launcher mounts this `.test.env` file **as-is** as a Kubernetes `secret` using Kustomize's [`secretGenerator`](https://github.com/kubernetes-sigs/kustomize/blob/master/examples/secretGeneratorPlugin.md#secret-values-from-local-files) (Kustomize takes a file, and turns it into a Kubernetes secret). During initialization, the launcher runs bash's [`source`](https://ss64.com/bash/source.html) command, which imports the environment variables from the as-is mounted `.test.env` file into the launcher's environment.
 
-In other words, after filling out `.test.env.tmpl` to create `.test.env`, the generated file should look similar to the sample below. The process to fill out the `.test.env` file is identical across operating systems and terminals.
+In other words, after copy-pasting `.test.env.tmpl` and editing to create `.test.env`, the generated file should look similar to the sample below. The process to fill out the `.test.env` file is identical across operating systems and terminals.
 
 > [!TIP]
 > There are a handful of environment variables that require additional explanation for clarity in reproducibility. These will be commented with `see detailed explanation below [X]`.
@@ -154,7 +151,7 @@ export ARC_DATASERVICES_WHL_OVERRIDE=""
 export CUSTOM_LOCATION_OID="..."
 
 # A pre-rexisting Resource Group is used if found with the same name. Otherwise, launcher will attempt to create a Resource Group
-# with the name specified, using the Service Principal specified below
+# with the name specified, using the Service Principal specified below (which will require `Owner/Contributor` at the Subscription level to work)
 export LOCATION="eastus"
 export RESOURCE_GROUP_NAME="..."
 
@@ -165,7 +162,7 @@ export SPN_TENANT_ID="..."
 export SUBSCRIPTION_ID="..."
 
 # Optional: certain integration tests test upload to Log Analytics workspace:
-# https://docs.microsoft.com/azure/azure-arc/data/upload-logs?tabs=windows
+# https://docs.microsoft.com/azure/azure-arc/data/upload-logs
 export WORKSPACE_ID="..."
 export WORKSPACE_SHARED_KEY="..."
 
@@ -213,13 +210,18 @@ export SKIP_POSTCLEAN="0"
 export SKIP_UPLOAD="0"
 ```
 
+> [!IMPORTANT]
+> If performing the configuration file generation in a Windows machine, you will need to convert the End-of-Line sequence from `CRLF` (Windows) to `LF` (Linux), as `arc-ci-launcher` runs as a Linux container. For example, perform the change using VSCode (bottom-right of window):
+> ![CRLF to LF](media/automated-integration-testing/crlf-to-lf.png)
+> Leaving the line ending as `CRLF` may cause an error upon `arc-ci-launcher` container start - such as: `/launcher/config/.test.env: $'\r': command not found`
+
 #### Detailed explanation for certain variables
 
 ##### 1. `ARC_DATASERVICES_WHL_OVERRIDE` - Azure CLI previous version download URL
 
 > Optional: leave this empty in `.test.env` to use the pre-packaged default.
 
-The launcher image is pre-packaged with the latest arcdata CLI version at the time of the container release. However, to work with older releases, it may be necessary to provide the launcher with Azure CLI Blob URL download link, to override the pre-packaged version; e.g to instruct the launcher to install version **1.4.3**, fill in:
+The launcher image is pre-packaged with the latest arcdata CLI version at the time of each container image release. However, to work with older releases, it may be necessary to provide the launcher with Azure CLI Blob URL download link, to override the pre-packaged version; e.g to instruct the launcher to install version **1.4.3**, fill in:
 
 ```bash
 export ARC_DATASERVICES_WHL_OVERRIDE="https://azurearcdatacli.blob.core.windows.net/cli-extensions/arcdata-1.4.3-py2.py3-none-any.whl"
@@ -250,7 +252,7 @@ az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
 
 > Mandatory: this is required for Direct Mode deployments.
 
-The Launcher is meant to be used for **Non-Production/Test Kubernetes cluster & Azure Subscriptions** - focusing on functional validation of the Kubernetes setup. Therefore, to avoid the number of manual steps required to perform launches, it's recommended to provide a `SPN_CLIENT_ID/SECRET` that has `Owner` at the Resource Group (or Subscription) level, as it will create several resources in this Resource Group, as well as assigning permissions to those resources against several Managed Identities created as part of the deployment.
+The Launcher is meant to be used for **Non-Production/Test Kubernetes cluster & Azure Subscriptions** - focusing on functional validation of the Kubernetes setup. Therefore, to avoid the number of manual steps required to perform launches, it's recommended to provide a `SPN_CLIENT_ID/SECRET` that has `Owner` at the Resource Group (or Subscription) level, as it will create several resources in this Resource Group, as well as assigning permissions to those resources against several Managed Identities created as part of the deployment (which requires `Owner`).
 
 ##### 4. `LOGS_STORAGE_ACCOUNT_SAS` - Blob Storage Account SAS URL
 
