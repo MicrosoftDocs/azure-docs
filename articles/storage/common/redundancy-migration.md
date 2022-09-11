@@ -364,9 +364,9 @@ The following table shows the path for converting between every storage account 
 | Convert         | ...to: | LRS | GRS | RA-GRS |
 |-----------------|--------|-----|------|---------|
 | <b>…from:       |        |     |      |         |
-| <b> ZRS</b>     |        | manual migration <br><br><b> -or- </b><br><br> live migration | manual migration <br><br><b> -or- </b><br><br> Switch to GZRS, then migrate to GRS <br>(live or manual) | manual migration <br><br><b> -or- </b><br><br> Switch to RA-GZRS, then migrate to RA-GRS <br>(live or manual) |
-| <b> GZRS</b>    |        | manual migration <br><br><b> -or- </b><br><br> Switch to ZRS, then migrate to LRS <br>(live or manual) | manual migration <br><br><b> -or- </b><br><br> live migration | manual migration <br><br><b> -or- </b><br><br> Switch to RA-GZRS, then migrate to RA-GRS <br>(live or manual) |
-| <b> RA-GZRS</b> |        | manual migration <br><br><b> -or- </b><br><br> Switch to ZRS, then migrate to LRS <br>(live or manual) | manual migration <br><br><b> -or- </b><br><br> Switch to GZRS, then migrate to RA-GRS <br>(live or manual) | manual migration <br><br><b> -or- </b><br><br> live migration |
+| <b> ZRS</b>     |        | manual migration <br><b> -or- </b><br> live migration | manual migration <br><b> -or- </b><br> Switch to GZRS, then migrate to GRS <br>(live or manual) | manual migration <br><b> -or- </b><br> Switch to RA-GZRS, then migrate to RA-GRS <br>(live or manual) |
+| <b> GZRS</b>    |        | manual migration <br><b> -or- </b><br> Switch to ZRS, then migrate to LRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration | manual migration <br><b> -or- </b><br> Switch to RA-GZRS, then migrate to RA-GRS <br>(live or manual) |
+| <b> RA-GZRS</b> |        | manual migration <br><b> -or- </b><br> Switch to ZRS, then migrate to LRS <br>(live or manual) | manual migration <br><b> -or- </b><br> Switch to GZRS, then migrate to RA-GRS <br>(live or manual) | manual migration <br><b> -or- </b><br> live migration |
 
 <sup>1</sup> Converting from local to geo-redundancy incurs a one-time egress charge. See [Costs associated with changing how data is replicated](#costs-associated-with-changing-how-data-is-replicated). <br />
 <sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier. See [the section about Access tiers](#access-tier).<br />
