@@ -56,7 +56,7 @@ Alternatively, you can follow the instructions for deleting multiple incidents (
     :::image type="content" source="media/delete-incident/delete-multiple-incidents-from-queue.png" alt-text="Screenshot of deleting multiple incidents from incident queue.":::
 
 1. Answer **Yes** to the confirmation prompt that appears.
-    :::image type="content" source="media/delete-incident/delete-multiple-incidents-confirm.png" alt-text="Screenshot of multiple incident deletion confirmation dialog.":::
+    :::image type="content" source="media/delete-incident/delete-multiple-incidents-confirm.png" alt-text="Screenshot of multiple-incident-deletion confirmation dialog.":::
 
 ## Delete an incident using the Microsoft Sentinel API
 
