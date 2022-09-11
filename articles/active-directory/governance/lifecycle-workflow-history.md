@@ -48,7 +48,7 @@ Within the user summary, you're able to find the following information:
 
 ### User history details
 
-User detailed history information allow you to filter for specific information based on:
+User detailed history information allows you to filter for specific information based on:
 
 - **Date**: You can filter a specific range from as short as 24 hours up to 30 days of when workflow ran.
 - **Status**: You can filter a specific status of the user processed. The supported statuses are: **Completed**, **In Progress**, **Queued**, **Canceled**, **Completed with errors**, and **Failed**. 
@@ -76,7 +76,7 @@ Within the runs summary, you're able to find the following information:
 
 ### Runs history details
 
-Runs detailed history information allow you to filter for specific information based on:
+Runs detailed history information allows you to filter for specific information based on:
 
 - **Date**: You can filter a specific range from as short as 24 hours up to 30 days of when workflow ran.
 - **Status**: You can filter a specific status of the workflow run. The supported statuses are: **Completed**, **In Progress**, **Queued**, **Canceled**, **Completed with errors**, and **Failed**. 
@@ -105,7 +105,7 @@ Within the tasks summary, you're able to find the following information:
 
 ### Task history details
 
-Task detailed history information allow you to filter for specific information based on:
+Task detailed history information allows you to filter for specific information based on:
 
 - **Date**: You can filter a specific range from as short as 24 hours up to 30 days of when workflow ran.
 - **Status**: You can filter a specific status of the workflow run. The supported statuses are: **Completed**, **In Progress**, **Queued**, **Canceled**, **Completed with errors**, and **Failed**. 
