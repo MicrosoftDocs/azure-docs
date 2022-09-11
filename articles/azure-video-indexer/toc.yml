@@ -28,7 +28,7 @@
   - name: Deploy using ARM template
     displayName: Azure resporce manager
     href: deploy-with-arm-template.md
-  - name: Use Azure Video Indexer API
+  - name: Develop with API
     href: video-indexer-use-apis.md    
 - name: Samples
   items:
