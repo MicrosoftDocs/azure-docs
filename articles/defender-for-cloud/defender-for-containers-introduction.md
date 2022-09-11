@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 08/17/2022
+ms.date: 09/07/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -53,19 +53,17 @@ You can learn more about [Kubernetes data plane hardening](kubernetes-workload-p
 
 ## Vulnerability assessment
 
-### Scanning images in ACR registries
+### Scanning images in container registries
 
-Defender for Containers offers vulnerability scanning for images in Azure Container Registries (ACRs). Triggers for scanning an image include:
+Defender for Containers scans the containers in Azure Container Registry (ACR) and Amazon AWS Elastic Container Registry (ECR) to notify you if there are known vulnerabilities in your images. This capability is powered by Qualys, a leading provider of information security.
 
-- **On push**: When an image is pushed in to a registry for storage, Defender for Containers automatically scans the image.
+When you push an image to a container registry and while the image is stored in the container registry, Defender for Containers automatically scans it. Defender for Containers checks for known vulnerabilities in packages or dependencies defined in the image file.
 
-- **Recently pulled**: Weekly scans of images that have been pulled in the last 30 days.
+When the scan completes, Defender for Containers provides details and a security classification for each vulnerability detected, along with guidance on how to remediate issues and protect vulnerable attack surfaces.
 
-- **On import**: When you import images into an ACR, Defender for Containers scans any supported images.
-
-Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
-
-:::image type="content" source="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in Azure Container Registry (ACR) hosted images." lightbox="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png":::
+Learn more about:
+- [Vulnerability assessment for Azure Container Registry (ACR)](defender-for-containers-va-acr.md)
+- [Vulnerability assessment for Amazon AWS Elastic Container Registry (ECR)](defender-for-containers-va-acr.md).
 
 ### View vulnerabilities for running images
 
