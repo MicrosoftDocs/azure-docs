@@ -99,12 +99,15 @@ This procedure describes how to prepare your physical appliance or VM to install
     | DNS | TCP/UDP | In/Out | 53  | Address resolution |
 
 
-1. Make sure that your physical appliance or VM can access the cloud using HTTP on port 443 to to each of the required domains for Defender for IoT.
+1. Make sure that your physical appliance or VM can access the cloud using HTTP on port 443 to the following Microsoft domains:
 
-    You can find the list of required domains from the **Sites and sensors** page on the Azure portal. Select **More actions** > **Download endpoint details**.
+    - **EventHub**: `*.servicebus.windows.net`
+    - **Storage**: `*.blob.core.windows.net`
+    - **Download Center**: `download.microsoft.com`
+    - **IoT Hub**: `*.azure-devices.net`
 
     > [!TIP]
-    > You can also download and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) so your firewall will allow the required Azure domains that are specified above.
+    > You can also download and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) so your firewall will allow the Azure domains that are specified above, along with their region.
     >
     > The Azure public IP ranges are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. To use this option, download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
@@ -129,21 +132,13 @@ This procedure describes how to register your Enterprise IoT sensor with Defende
     - In the **Sensor name** field, enter a meaningful name for your sensor.
     - From the **Subscription** drop-down menu, select the subscription where you want to add your sensor.
 
-    A **Sensor registration successful** screen shows your next steps. <!--new screenshot-->
+    A **Sensor registration successful** screen shows your next steps and the command you'll need to start the sensor installation.
 
     For example:
 
     :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise IoT sensor.":::
 
-    1. In the **Activate your sensor** box, a command is listed, which you'll need to start the sensor installation. Copy the command to a safe location, where you'll be able to copy it to your physical appliance or VM in order to [install the sensor](#install-the-sensor-software).
-
-    1. In the **Add outbound allow rules** box, select the **Download endpoint details** link to download a JSON list of the domains you must configure as secure endpoints from your sensor.
-
-        To ensure that your sensor can connect to Azure, configure the listed domains as allowed, outbound HTTP traffic over port 443.
-
-        You can also access the list of required domains from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
-
-1. At the bottom left of the page, select **Finish**. You can now see your new sensor listed on the Defender for IoT **Sites and sensors** page.
+1. Copy the command to a safe location, where you'll be able to copy it to your physical appliance or VM in order to [install the sensor](#install-the-sensor-software).
 
 
 ## Install the sensor software
