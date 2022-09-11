@@ -115,6 +115,8 @@
       href: video-indexer-search.md
     - name: Detect scenes, shots, keyframes
       href: scenes-shots-keyframes.md
+    - name: Insert or remove transcript lines
+      href: edit-transcript-lines-portal.md     
     - name: Identify and transcribe multi-language content
       href: multi-language-identification-transcription.md
     - name: Use editor to create projects
