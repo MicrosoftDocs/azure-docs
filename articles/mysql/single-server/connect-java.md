@@ -19,10 +19,11 @@ This article demonstrates creating a sample application that uses Java and [JDBC
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
-In this article, we'll include two authentication methods, one is Azure Active Directory (Azure AD) authenction and the other is MySQL authentication. The "Credential-free connection" tab is using the Azure AD authentication, and the "Password" tab is using the MySQL authentication.
+In this article, we'll include two authentication methods: Azure Active Directory (Azure AD) authentication and MySQL authentication. The **Passwordless** tab shows the Azure AD authentication and the **Password** tab shows the MySQL authentication.
 
-- Azure AD authentication is a mechanism of connecting to Azure Database for MySQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
-- MySQL authentication is to use accounts that stored in MySQL. And if you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. So these passwords are stored in MySQL and you'll need to manage the rotation of the passwords by yourself.
+Azure AD authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+
+MySQL authentication uses accounts stored in MySQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in MySQL, you'll need to manage the rotation of the passwords by yourself.
 
 ## Prerequisites
 
@@ -30,15 +31,14 @@ In this article, we'll include two authentication methods, one is Azure Active D
 - [Azure Cloud Shell](../../cloud-shell/quickstart.md) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
 - A supported [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
 - The [Apache Maven](https://maven.apache.org/) build tool.
-- MySQL command line client. You can connect to your server using a popular client tool, [mysql.exe](https://dev.mysql.com/downloads/) command-line tool with Azure Cloud Shell. Alternatively, you can use mysql command line on your local environment.
+- MySQL command line client. You can connect to your server using the [mysql.exe](https://dev.mysql.com/downloads/) command-line tool with Azure Cloud Shell. Alternatively, you can use the `mysql` command line in your local environment.
 
 ## Prepare the working environment
 
-We're going to use environment variables to limit typing mistakes, and to make it easier for you to customize the following configuration for your specific needs.
-
 First, set up some environment variables. In [Azure Cloud Shell](https://shell.azure.com/), run the following commands:
 
-### [Credential-free connection (Recommended)](#tab/credential-free)
+### [Passwordless (Recommended)](#tab/passwordless)
+
 ```bash
 export AZ_RESOURCE_GROUP=database-workshop
 export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
@@ -52,8 +52,8 @@ export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id -o tsv)
 Replace the placeholders with the following values, which are used throughout this article:
 
 - `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
-- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
-- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it's to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 ### [Password](#tab/password)
 
@@ -73,11 +73,11 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
 - `<YOUR_MYSQL_ADMIN_PASSWORD>` and `<YOUR_MYSQL_NON_ADMIN_PASSWORD>`: The password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
-- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Java application. One convenient way to find it's to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Java application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 ---
 
-Next, create a resource group:
+Next, create a resource group by using the following command:
 
 ```azurecli
 az group create \
@@ -90,12 +90,12 @@ az group create \
 
 ### Create a MySQL server and set up admin user
 
-The first thing we'll create is a managed MySQL server.
+The first thing you'll create is a managed MySQL server.
 
 > [!NOTE]
-> You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
+> You can read more detailed information about creating MySQL servers in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
-#### [Credential-free connection (Recommended)](#tab/credential-free)
+#### [Passwordless connection (Recommended)](#tab/passwordless)
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
@@ -103,7 +103,7 @@ If you're using Azure CLI, run the following command to make sure it has suffici
 az login --scope https://graph.microsoft.com/.default
 ```
 
-Run the following commands to create the server:
+Then, run the following command to create the server:
 
 ```azurecli
 az mysql server create \
@@ -115,7 +115,7 @@ az mysql server create \
     --output tsv
 ```
 
-Then to set the Azure AD admin user:
+Next, run the following command to set the Azure AD admin user:
 
 ```azurecli
 az mysql server ad-admin create \
@@ -126,7 +126,7 @@ az mysql server ad-admin create \
 ```
 
 > [!IMPORTANT]
->  When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions. Only one Azure AD admin can be created per MySQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
+> When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions. You can only create one Azure AD admin per MySQL server. Selection of another user will overwrite the existing Azure AD admin configured for the server.
 
 This command creates a small MySQL server and sets the Active Directory admin to the signed-in user.
 
@@ -150,9 +150,9 @@ This command creates a small MySQL server.
 
 ### Configure a firewall rule for your MySQL server
 
-Azure Databases for MySQL instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
+Azure Databases for MySQL instances are secured by default. These instances have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
 
-Because you configured our local IP address at the beginning of this article, you can open the server's firewall by running the following command:
+Because you configured your local IP address at the beginning of this article, you can open the server's firewall by running the following command:
 
 ```azurecli
 az mysql server firewall-rule create \
@@ -164,7 +164,7 @@ az mysql server firewall-rule create \
     --output tsv
 ```
 
-If you're connecting to your MySQL server from WSL on a Windows computer, you'll need to add the WSL host ID to your firewall.
+If you're connecting to your MySQL server from Windows Subsystem for Linux (WSL) on a Windows computer, you'll need to add the WSL host ID to your firewall.
 
 Obtain the IP address of your host machine by running the following command in WSL:
 
@@ -172,7 +172,7 @@ Obtain the IP address of your host machine by running the following command in W
 cat /etc/resolv.conf
 ```
 
-Copy the IP address following the term **nameserver**, then use the following command to set an environment variable for the WSL IP Address:
+Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP Address:
 
 ```bash
 AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
@@ -192,7 +192,7 @@ az mysql server firewall-rule create \
 
 ### Configure a MySQL database
 
-The MySQL server that you created earlier is empty. It doesn't have any database that you can use with the Java application. Create a new database called `demo`:
+The MySQL server that you created earlier is empty. Use the following command to create a new database called `demo`:
 
 ```azurecli
 az mysql db create \
@@ -204,16 +204,14 @@ az mysql db create \
 
 ### Create a MySQL non-admin user and grant permission
 
-This step will create a non-admin user and grant all permissions on the `demo` database to it.
+Next, create a non-admin user and grant all permissions on the `demo` database to it.
 
 > [!NOTE]
 > You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
 
-#### [Credential-free connection (Recommended)](#tab/credential-free)
+#### [Passwordless connection (Recommended)](#tab/passwordless)
 
-We've already enabled the Azure AD authentication, and this step will create an Azure AD user and grant permissions.
-
-Save an sql script of creating non-admin user to local:
+Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 export AZ_MYSQL_AD_NON_ADMIN_USERID=$CURRENT_USER_OBJECTID
@@ -230,13 +228,13 @@ FLUSH privileges;
 EOF
 ```
 
-Run the sql script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
 mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` < create_ad_user.sql
 ```
 
-Remove the temporary sql script file:
+Now use the following command to remove the temporary SQL script file:
 
 ```bash
 rm create_ad_user.sql
@@ -244,7 +242,7 @@ rm create_ad_user.sql
 
 #### [Password](#tab/password)
 
-Save an sql script of creating non-admin user to local:
+Create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 cat << EOF > create_user.sql
@@ -258,13 +256,13 @@ FLUSH PRIVILEGES;
 EOF
 ```
 
-Run the sql script to create the non-admin user:
+Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
 mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $AZ_MYSQL_ADMIN_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=$AZ_MYSQL_ADMIN_PASSWORD < create_user.sql
 ```
 
-Remove the temporary sql script file:
+Now use the following command to remove the temporary SQL script file:
 
 ```bash
 rm create_user.sql
@@ -274,9 +272,9 @@ rm create_user.sql
 
 ### Create a new Java project
 
-Using your favorite IDE, create a new Java project using Java 8 or above, and add a `pom.xml` file in its root directory:
+Using your favorite IDE, create a new Java project using Java 8 or above. Create a *pom.xml* file in its root directory and add the following contents:
 
-#### [Credential-free connection (Recommended)](#tab/credential-free)
+#### [Passwordless connection (Recommended)](#tab/passwordless)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -334,16 +332,13 @@ Using your favorite IDE, create a new Java project using Java 8 or above, and ad
 
 ---
 
-This file is an [Apache Maven](https://maven.apache.org/) that configures our project to use:
-
-- Java 8
-- A recent MySQL driver for Java
+This file is an [Apache Maven](https://maven.apache.org/) file that configures your project to use Java 8 and a recent MySQL driver for Java.
 
 ### Prepare a configuration file to connect to Azure Database for MySQL
 
-Run the following script in the project root directory, create a *src/main/resources/application.properties* file, and add configuration:
+Run the following script in the project root directory to create a *src/main/resources/application.properties* file and add configuration details:
 
-#### [Credential-free connection (Recommended)](#tab/credential-free)
+#### [Passwordless connection (Recommended)](#tab/passwordless)
 
 ```bash
 mkdir -p src/main/resources && touch src/main/resources/application.properties
@@ -369,11 +364,11 @@ EOF
 ---
 
 > [!NOTE]
-> We append `?serverTimezone=UTC` to the configuration property `url`, to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Otherwise, our Java server would not use the same date format as the database, which would result in an error.
+> The configuration property `url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Otherwise, your Java server would not use the same date format as the database, which would result in an error.
 
 ### Create an SQL file to generate the database schema
 
-We'll use a *src/main/resources/`schema.sql`* file in order to create a database schema. Create that file, with the following content:
+Next, you'll use a *src/main/resources/schema.sql* file to create a database schema. Create that file, then add the following contents:
 
 ```bash
 touch src/main/resources/schema.sql
@@ -390,9 +385,9 @@ EOF
 
 Next, add the Java code that will use JDBC to store and retrieve data from your MySQL server.
 
-Create a *src/main/java/DemoApplication.java* file that contains:
+Create a *src/main/java/DemoApplication.java* file and add the following contents:
 
-#### [Credential-free connection (Recommended)](#tab/credential-free)
+#### [Passwordless connection (Recommended)](#tab/passwordless)
 
 ```java
 package com.example.demo;
@@ -430,20 +425,20 @@ public class DemoApplication {
             statement.execute(scanner.nextLine());
         }
 
-		/* Prepare to store and retrieve data from the MySQL server.
-		Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
+        /* Prepare to store and retrieve data from the MySQL server.
+        Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
         insertData(todo, connection);
         todo = readData(connection);
         todo.setDetails("congratulations, you have updated data!");
         updateData(todo, connection);
         deleteData(todo, connection);
-		*/
+        */
 
         log.info("Closing database connection");
         connection.close();
         AbandonedConnectionCleanupThread.uncheckedShutdown();
     }
-    
+
 }
 ```
 
@@ -483,14 +478,14 @@ public class DemoApplication {
             statement.execute(scanner.nextLine());
         }
 
-		/* Prepare to store and retrieve data from the MySQL server.
-		Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
+        /* Prepare to store and retrieve data from the MySQL server.
+        Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
         insertData(todo, connection);
         todo = readData(connection);
         todo.setDetails("congratulations, you have updated data!");
         updateData(todo, connection);
         deleteData(todo, connection);
-		*/
+        */
 
         log.info("Closing database connection");
         connection.close();
@@ -501,30 +496,29 @@ public class DemoApplication {
 
 ---
 
-This Java code will use the *application.properties* and the *schema.sql* files that we created earlier. After connecting to the MySQL server, we can create a schema to store our data.
+This Java code will use the *application.properties* and the *schema.sql* files that you created earlier. After connecting to the MySQL server, you can create a schema to store your data.
 
-In this file, you can see that we commented methods to insert, read, update and delete data: We'll code those methods in the rest of this article, and you'll be able to uncomment them one after each other.
+In this file, you can see that we commented methods to insert, read, update and delete data. You'll implement those methods in the rest of this article, and you'll be able to uncomment them one after each other.
 
 > [!NOTE]
 > The database credentials are stored in the *user* and *password* properties of the *application.properties* file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
 
 > [!NOTE]
-> The `AbandonedConnectionCleanupThread.uncheckedShutdown();` line at the end is a MySQL driver specific command to destroy an internal thread when shutting down the application.
-> It can be safely ignored. 
+> The `AbandonedConnectionCleanupThread.uncheckedShutdown();` line at the end is a MySQL driver command to destroy an internal thread when shutting down the application. You can safely ignore this line.
 
 You can now execute this main class with your favorite tool:
 
 - Using your IDE, you should be able to right-click on the *DemoApplication* class and execute it.
-- Using Maven, you can run the application by executing: `mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication"`.
+- Using Maven, you can run the application with the following command: `mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication"`.
 
-The application should connect to the Azure Database for MySQL, create a database schema, and then close the connection, as you should see in the console logs:
+The application should connect to the Azure Database for MySQL, create a database schema, and then close the connection. You should see output similar to the following example in the console logs:
 
-```
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
-[INFO   ] Database connection test: demo 
-[INFO   ] Create database schema 
-[INFO   ] Closing database connection 
+```output
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
+[INFO   ] Database connection test: demo
+[INFO   ] Create database schema
+[INFO   ] Closing database connection
 ```
 
 ### Create a domain class
@@ -624,18 +618,18 @@ insertData(todo, connection);
 
 Executing the main class should now produce the following output:
 
-```
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
-[INFO   ] Database connection test: demo 
-[INFO   ] Create database schema 
-[INFO   ] Insert data 
+```output
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
+[INFO   ] Database connection test: demo
+[INFO   ] Create database schema
+[INFO   ] Insert data
 [INFO   ] Closing database connection
 ```
 
 ### Reading data from Azure Database for MySQL
 
-Let's read the data previously inserted, to validate that our code works correctly.
+Next, read the data previously inserted to validate that your code works correctly.
 
 In the *src/main/java/DemoApplication.java* file, after the `insertData` method, add the following method to read data from the database:
 
@@ -666,20 +660,20 @@ todo = readData(connection);
 
 Executing the main class should now produce the following output:
 
-```
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
-[INFO   ] Database connection test: demo 
-[INFO   ] Create database schema 
-[INFO   ] Insert data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
-[INFO   ] Closing database connection 
+```output
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
+[INFO   ] Database connection test: demo
+[INFO   ] Create database schema
+[INFO   ] Insert data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true}
+[INFO   ] Closing database connection
 ```
 
 ### Updating data in Azure Database for MySQL
 
-Let's update the data we previously inserted.
+Next, update the data you previously inserted.
 
 Still in the *src/main/java/DemoApplication.java* file, after the `readData` method, add the following method to update data inside the database:
 
@@ -707,23 +701,23 @@ updateData(todo, connection);
 
 Executing the main class should now produce the following output:
 
-```
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
-[INFO   ] Database connection test: demo 
-[INFO   ] Create database schema 
-[INFO   ] Insert data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
-[INFO   ] Update data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have updated data!', done=true} 
-[INFO   ] Closing database connection 
+```output
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
+[INFO   ] Database connection test: demo
+[INFO   ] Create database schema
+[INFO   ] Insert data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true}
+[INFO   ] Update data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have updated data!', done=true}
+[INFO   ] Closing database connection
 ```
 
 ### Deleting data in Azure Database for MySQL
 
-Finally, let's delete the data we previously inserted.
+Finally, delete the data you previously inserted.
 
 Still in the *src/main/java/DemoApplication.java* file, after the `updateData` method, add the following method to delete data inside the database:
 
@@ -745,21 +739,21 @@ deleteData(todo, connection);
 
 Executing the main class should now produce the following output:
 
-```
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
-[INFO   ] Database connection test: demo 
-[INFO   ] Create database schema 
-[INFO   ] Insert data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
-[INFO   ] Update data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have updated data!', done=true} 
-[INFO   ] Delete data 
-[INFO   ] Read data 
-[INFO   ] There is no data in the database! 
-[INFO   ] Closing database connection 
+```output
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
+[INFO   ] Database connection test: demo
+[INFO   ] Create database schema
+[INFO   ] Insert data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true}
+[INFO   ] Update data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have updated data!', done=true}
+[INFO   ] Delete data
+[INFO   ] Read data
+[INFO   ] There is no data in the database!
+[INFO   ] Closing database connection
 ```
 
 ## Clean up resources
