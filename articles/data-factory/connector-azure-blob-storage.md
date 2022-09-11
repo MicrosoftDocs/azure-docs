@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/13/2021
+ms.date: 08/24/2022
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory or Azure Synapse Analytics
@@ -26,13 +26,17 @@ This article outlines how to use the Copy activity in Azure Data Factory and Azu
 
 ## Supported capabilities
 
-This Azure Blob storage connector is supported for the following activities:
+This Azure Blob storage connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
-- [Delete activity](delete-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ <small> Exclude storage account V1|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 For the Copy activity, this Blob storage connector supports:
 
@@ -83,7 +87,7 @@ This Blob storage connector supports the following authentication types. See the
 - [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 >[!NOTE]
->- If want to use the public Azure integration runtime to connect to your Blob storage by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity).
+>- If want to use the public Azure integration runtime to connect to your Blob storage by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity). For more information about the Azure Storage firewalls settings, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 >- When you use PolyBase or COPY statement to load data into Azure Synapse Analytics, if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Azure Synapse. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
 
 >[!NOTE]
@@ -253,7 +257,8 @@ These properties are supported for an Azure Blob storage linked service:
 | serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
 | accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | servicePrincipalId | Specify the application's client ID. | Yes |
-| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securelyFactory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalCredentialType | The credential type to use for service principal authentication. Allowed values are **ServicePrincipalKey** and **ServicePrincipalCert**. | Yes |
+| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering over the upper-right corner of the Azure portal. | Yes |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment, to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |

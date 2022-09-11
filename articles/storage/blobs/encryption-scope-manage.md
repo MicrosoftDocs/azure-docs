@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 05/10/2021
+ms.date: 07/13/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -176,7 +176,7 @@ az storage account encryption-scope create \
 To learn how to configure Azure Storage encryption with customer-managed keys in a key vault or managed HSM, see the following articles:
 
 - [Configure encryption with customer-managed keys stored in Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md)
-- [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](../common/customer-managed-keys-configure-key-vault-hsm.md).
+- [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](../common/customer-managed-keys-configure-key-vault-hsm.md)
 
 To learn more about infrastructure encryption, see [Enable infrastructure encryption for double encryption of data](../common/infrastructure-encryption-enable.md).
 
@@ -274,6 +274,8 @@ If a client attempts to specify a scope when uploading a blob to a container tha
 ## Upload a blob with an encryption scope
 
 When you upload a blob, you can specify an encryption scope for that blob, or use the default encryption scope for the container, if one has been specified.
+
+When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob.
 
 # [Portal](#tab/portal)
 

@@ -29,7 +29,7 @@ The private packages are used through [Environment](/python/api/azureml-core/azu
 ## Prerequisites
 
  * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install)
- * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+ * An [Azure Machine Learning workspace](quickstart-create-resources.md)
 
 ## Use small number of packages for development and testing
 

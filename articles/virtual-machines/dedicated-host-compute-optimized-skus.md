@@ -3,7 +3,7 @@ title: Compute Optimized Azure Dedicated Host SKUs
 description: Specifications for VM packing of Compute Optimized ADH SKUs.
 author: brittanyrowe
 ms.author: brittanyrowe
-ms.reviewer: mimckitt
+ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: conceptual

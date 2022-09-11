@@ -15,7 +15,7 @@ This article is about role-based access control for data plane operations in Azu
 
 If you are using management plane operations, see [role-based access control](../role-based-access-control.md) applied to your management plane operations article.
 
-The API for MongoDB exposes a built-in role-based access control (RBAC) system that lets you authorize your data requests with a fine-grained, role-based permission model. Users are roles reside within a database and are managed using the Azure CLI, Azure PowerShell, or ARM for this preview feature.
+The API for MongoDB exposes a built-in role-based access control (RBAC) system that lets you authorize your data requests with a fine-grained, role-based permission model. Users and roles reside within a database and are managed using the Azure CLI, Azure PowerShell, or ARM for this preview feature.
 
 ## Concepts
 
@@ -66,7 +66,7 @@ These roles already exist on every database and do not need to be created.
 ### read
 Has the following privileges: changeStream, collStats, find, killCursors, listIndexes, listCollections
 
-### readwrite
+### readWrite
 Has the following privileges: collStats, createCollection, dropCollection, createIndex, dropIndex, find, insert, killCursors, listIndexes, listCollections, remove, update
 
 ### dbAdmin
@@ -89,11 +89,8 @@ az cloud set -n  AzureCloud
 az login
 az account set --subscription <your subscription ID>
 ```
-7. Enable the RBAC capability on your existing API for MongoDB database account.
-```powershell
-az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongoRoleBasedAccessControl
-```
-or create a new database account with the RBAC capability set to true. Your subscription must be allow-listed in order to create an account with the EnableMongoRoleBasedAccessControl capability. 
+7. Enable the RBAC capability on your existing API for MongoDB database account. You'll need to [add the capability](how-to-configure-capabilities.md) "EnableMongoRoleBasedAccessControl" to your database account. 
+If you prefer a new database account instead, create a new database account with the RBAC capability set to true.
 ```powershell
 az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --capabilities EnableMongoRoleBasedAccessControl
 ```
@@ -208,7 +205,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 ## Limitations
 
 - The number of users and roles you can create must equal less than 10,000. 
-- The commands listCollections, listDatabases, killCursors are excluded from RBAC in the preview.
+- The commands listCollections, listDatabases, killCursors, and currentOp are excluded from RBAC in the preview.
 - Backup/Restore is not supported in the preview.
 - [Azure Synapse Link for Azure Cosmos DB](../synapse-link.md) is not supported in the preview.
 - Users and Roles across databases are not supported in the preview.

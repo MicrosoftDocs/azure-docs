@@ -207,9 +207,9 @@ src = ScriptRunConfig(source_directory=project_folder,
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](how-to-train-with-datasets.md).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](v1/how-to-train-with-datasets.md).
 
-For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
+For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](v1/how-to-set-up-training-targets.md).
 
 > [!WARNING]
 > If you were previously using the PyTorch estimator to configure your PyTorch training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
@@ -245,7 +245,7 @@ model = run.register_model(model_name='pytorch-birds', model_path='outputs/model
 
 > [!TIP]
 > The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 You can also download a local copy of the model by using the Run object. In the training script `pytorch_train.py`, a PyTorch save object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
 
@@ -273,8 +273,7 @@ To optimize inference with the [ONNX Runtime](concept-onnx.md), convert your tra
 
 In this article, you trained and registered a deep learning, neural network using PyTorch on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
 
-- [How and where to deploy models](how-to-deploy-and-where.md)
+- [How and where to deploy models](./v1/how-to-deploy-and-where.md)
 - [Track run metrics during training](how-to-log-view-metrics.md)
 - [Tune hyperparameters](how-to-tune-hyperparameters.md)
-- [Deploy a trained model](how-to-deploy-and-where.md)
 - [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

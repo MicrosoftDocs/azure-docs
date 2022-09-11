@@ -65,7 +65,7 @@ The following list mentions fields that have specific guidelines for File activi
 
 | **Field** | **Class** | **Type**  | **Description** |
 | --- | --- | --- | --- |
-| **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For File records, supported values include: <br><br>- `FileCreated`<br>- `FileModified`<br>- `FileDeleted`<br>- `FileRenamed`<br>- `FileCopied`<br>- `FileMoved`<br>- `FolderCreated`<br>- `FolderDeleted` |
+| **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For File records, supported values include: <br><br>- `FileAccessed`<br>- `FileCreated`<br>- `FileModified`<br>- `FileDeleted`<br>- `FileRenamed`<br>- `FileCopied`<br>- `FileMoved`<br>- `FolderCreated`<br>- `FolderDeleted` |
 | **EventSchema** | Optional | String | The name of the schema documented here is **FileEvent**. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1`         |
 | **Dvc** fields| -      | -    | For File activity events, device fields refer to the system on which the file activity occurred. |

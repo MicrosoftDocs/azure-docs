@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # View rules in the Autopilot dashboard
 
-> [!IMPORTANT]
-> Micorosft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 The **Autopilot** dashboard in Permissions Management provides a table of information about **Autopilot rules** for administrators.
 
 

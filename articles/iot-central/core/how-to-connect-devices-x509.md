@@ -93,9 +93,7 @@ Make a note of the location of these files. You need it later.
 
 1. Open the enrollment group you created and select **Manage Primary**.
 
-1. Select file option to upload the root certificate file called _mytestrootcert_cert.pem_ that you generated previously:
-
-    ![Certificate Upload](./media/how-to-connect-devices-x509/certificate-upload.png)
+1. Select file option to upload the root certificate file called _mytestrootcert_cert.pem_ that you generated previously.
 
 1. To complete the verification, generate the verification code, copy it, and then use it to create an X.509 verification certificate at the command prompt:
 
@@ -243,9 +241,7 @@ These commands produce the following device certificates:
 
 1. Open the device you created and select **Connect**.
 
-1. Select **Individual Enrollments** as the **Connect Method** and **Certificates (X.509)** as the mechanism:
-
-    ![Individual enrollment](./media/how-to-connect-devices-x509/individual-device-connect.png)
+1. Select **Individual Enrollments** as the **Connect Method** and **Certificates (X.509)** as the mechanism.
 
 1. Select file option under primary and upload the certificate file called _mytestselfcertprimary_cert.pem_ that you generated previously.
 

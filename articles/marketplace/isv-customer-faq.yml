@@ -7,7 +7,7 @@ metadata:
   ms.topic: faq
   author: emerb19
   ms.author: emerb
-  ms.date: 04/05/2022
+  ms.date: 08/18/2022
 title: Independent Software Vendor (ISV) to customer private offers FAQ
 summary: This article addresses frequently asked questions about Independent Software Vendor (ISV) to customer private offers in Partner Center.
 
@@ -30,11 +30,6 @@ sections:
           :::image type="content" source="media/isv-customer/private-offer-plan-compare.png" lightbox="media/isv-customer/private-offer-plan-compare.png" alt-text="Shows the differences between private offers and private plans.":::
           
           \* Requires a publicly transactable offer in the marketplace.
-
-      - question: |
-          When should I use private plans instead of the new private offers?
-        answer: |
-          You should use the new private offer experience in the commercial marketplace for all negotiated deals for offers on Azure Marketplace. The private plans feature will continue to be supported and can be used for specific scenarios, for example: if you want to use a private (custom) VM image for your customer as part of the private deal or it meets requirements for their specific use case.
 
       - question: |
           Does the new private offers feature support all offers in the marketplace?
@@ -147,7 +142,7 @@ sections:
       - question: |
           Why can't my customer access the private offer link I shared?
         answer: |
-          To accept a private offer, the user in the customer organization needs to be an owner, contributor, or admin on the Azure account. Without appropriate permissions, the user can't accept the private offer. To get access to the billing account, the user should contact the billing account admin or owner.
+          Any user within the customer’s organization can see the details of the private offer. To accept a private offer, the user in the customer organization needs to be an owner, contributor, or admin on the Azure account. Without appropriate permissions, the user can't accept the private offer. To get access to the billing account, the user should contact the billing account admin or owner. A red notice at the top of the page will indicate 3 people within the customer’s organization who have the appropriate permissions to reach out to.
 
       - question: |
           Why can't I make changes to a private offer after it's accepted?
@@ -157,14 +152,16 @@ sections:
       - question: |
           My customer accepted the private offer. What's next?
         answer: |
-          They can go to the Azure portal to subscribe to the offer using any Azure Subscription associated with the billing account. They must use an Azure subscription associated with the configured billing account to get the private price. If the private offer includes PAYG offers (Virtual Machines) and was extended to an existing customer, the customer will be charged using the private price as soon as the private offer is accepted.
+          If the private offer is due to begin on the Accepted date, the customer can go to the Azure portal to subscribe to the offer using any Azure Subscription associated with the billing account. They must use an Azure subscription associated with the configured billing account to get the private price. If the private offer includes PAYG offers (Virtual Machines) and was extended to an existing customer, the customer will be charged using the private price as soon as the private offer is accepted.
 
-          For a private offer that includes SaaS, the customer must subscribe within 30 days of accepting the private offer.
+          For a private offer that includes SaaS, the customer must subscribe to the software as a service (SaaS) product first and then configure the product within 30 days of subscribing to the product.
+
+          If the ISV has configured the private offer to begin at a future date, the customer can accept the private offer before the Accept by date, but should not subscribe to or deploy the product until after the Start date set for the private offer.
 
       - question: |
           My customer accepted the private offer, but the private price is still not reflected in the marketplace products page.
         answer: |
-          Once the customer has accepted the private offer, it can take up to 48 hours for the private price to be reflected in the marketplace on the Products details page. If the customer transacts within these 48 hours, the marketplace will still charge the customer correctly using the private price.
+          Once the customer has accepted the private offer, it can take up to 15 minutes for the private price to be reflected in the marketplace on the Private products details page. If the customer transacts within these 15 minutes, the marketplace will still charge the customer correctly using the private price.
 
       - question: |
           My customer accepted the private offer. When will they be billed?
@@ -200,6 +197,27 @@ sections:
           Are there changes in the Analytics experience for private offers?
         answer: |
           In the Insights workspace, the Orders and Usage reports can now be filtered by Private offers and Public offers.
+
+  - name: Private plans and private offers
+    questions:
+      - question: |
+          When should I use private plans instead of the new private offers?
+        answer: |
+          You should use the new private offer experience in the commercial marketplace for all negotiated deals for offers on Azure Marketplace. The private plans feature will continue to be supported and can be used for specific scenarios. For example, if you want to use a private (custom) VM image for your customer as part of the private deal or it meets requirements for their specific use case.
+
+      - question: |
+          I have customers who have subscribed to private plans. How do I move those customers to private offers?
+        answer: |
+          To leverage private offers, ISVs must have an offer with public transactable plans published in the Azure marketplace.
+
+          It is not recommended for an ISV to have both a private plan and a private offer for the same customer, product, and time period. Private plans can continue to exist for existing deals and ISVs can also use private offers for new deals.
+          
+          It is recommended to move to private offers as the customer’s private plan term comes up for renewal or expiration. You can create a private offer that will begin at the end of the current private plan subscription term. Note that once your customer accepts the private offer, customers will need to subscribe to the plan contained in your private offer.
+          
+          You can move your customer to a private offer in the middle of a private plan term. To do this, create a private offer and, if your customer has already paid for the full term as part of the original private plan, you can set a price of 0$ or apply a 100% discount to the retail price of the new public plan your customer will subscribe to as part of the private offer. 
+          
+          Note that we currently only support monthly, annual, 2-year or 3-year terms, so if your customer has a remaining duration that’s different to these terms, it’s best for your customer to complete the private plan term before subscribing to a private offer. For example, if your customer is in year 2 of a 3-year private plan term and is due to pay for their third year, you could create a private offer for a 1-year duration that your customer will subscribe to and then charge the customer the final year’s invoice via the private offer. Your customer will need to cancel the original subscription to the private plan so they don’t get charged as part of the private plan renewal. You can then stop-sell the private plan.
+
 
 additionalContent: |
 

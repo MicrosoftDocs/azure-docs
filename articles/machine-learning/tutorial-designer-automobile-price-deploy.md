@@ -61,7 +61,7 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
 1. Select **Submit**, and use the same compute target and experiment that you used in part one.
 
-    If this is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
+    If this is the first job, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline jobs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
 
 1. Go to the real-time inference pipeline job detail by selecting **Job detail** link in the left pane.
 
@@ -139,8 +139,6 @@ After deployment finishes, you can view your real-time endpoint by going to the 
     In the **Deployment logs** tab, you can find the detailed deployment logs of your real-time endpoint.
 
 1. To test your endpoint, go to the **Test** tab. From here, you can enter test data and select **Test** verify the output of your endpoint.
-
-For more information on consuming your web service, see [Consume a model deployed as a webservice](how-to-consume-web-service.md).
 
 ## Update the real-time endpoint
 

@@ -5,7 +5,7 @@ description: Name resolution scenarios for Azure IaaS, hybrid solutions, between
 services: virtual-network
 documentationcenter: na
 author: rohinkoul
-ms.service: virtual-network
+ms.service: dns
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

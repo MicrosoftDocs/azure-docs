@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 06/29/2022
+ms.date: 08/03/2022
 ms.topic: conceptual
 ---
 
@@ -37,9 +37,9 @@ When running a network connectivity check, you must provide the name of the Azur
 
 `azcmagent check --location <regionName> --verbose`
 
-If you expect your server to communicate with Azure through an Azure Arc Private Link Scope, use the `--use-private-link` parameter to run additional tests that verify the hostnames and IP addresses resolved for the Azure Arc services are private endpoints.
+If you expect your server to communicate with Azure through an Azure Arc Private Link Scope, use the `--enable-pls-check` (`--use-private-link` on versions 1.17-1.19) parameter to run additional tests that verify the hostnames and IP addresses resolved for the Azure Arc services are private endpoints.
 
-`azcmagent check --location <regionName> --use-private-link --verbose`
+`azcmagent check --location <regionName> --enable-pls-check --verbose`
 
 ### connect
 
@@ -269,7 +269,7 @@ For Azure Arc-enabled servers, before you rename the machine, it's necessary to 
 
 3. Use the **azcmagent** tool with the [Disconnect](manage-agent.md#disconnect) parameter to disconnect the machine from Azure Arc and delete the machine resource from Azure. You can run this manually while logged on interactively, with a Microsoft identity [access token](../../active-directory/develop/access-tokens.md), or with the service principal you used for onboarding (or with a [new service principal that you create](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
-    Disconnecting the machine from Azure Arc-enabled servers doesn't remove the Connected Machine agent, and you do not need to remove the agent as part of this process. 
+    Disconnecting the machine from Azure Arc-enabled servers doesn't remove the Connected Machine agent, and you do not need to remove the agent as part of this process.
 
 4. Re-register the Connected Machine agent with Azure Arc-enabled servers. Run the `azcmagent` tool with the [Connect](manage-agent.md#connect) parameter to complete this step. The agent will default to using the computer's current hostname, but you can choose your own resource name by passing the `--resource-name` parameter to the connect command.
 
@@ -406,7 +406,7 @@ The proxy bypass feature does not require you to enter specific URLs to bypass. 
 
 | Proxy bypass value | Affected endpoints |
 | --------------------- | ------------------ |
-| AAD | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
+| Azure AD | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
 | ARM | `management.azure.com` |
 | Arc | `his.arc.azure.com`, `guestconfiguration.azure.com`, `guestnotificationservice.azure.com`, `servicebus.windows.net` |
 
@@ -488,4 +488,4 @@ If you're already using environment variables to configure the proxy server for 
 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.

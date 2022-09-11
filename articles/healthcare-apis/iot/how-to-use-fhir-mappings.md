@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 07/07/2022
 ms.author: jasteppe
 ---
 
@@ -18,7 +18,7 @@ This article describes how to configure the MedTech service using the Fast Healt
 
 Below is a conceptual example of what happens during the normalization and transformation process within the MedTech service:
 
-:::image type="content" source="media/iot-data-normalization-high-level.png" alt-text="IoT data normalization flow example1" lightbox="media/iot-data-normalization-high-level.png":::
+:::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="Diagram of IoT data normalization flow." lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
 
 ## FHIR destination mappings
 
@@ -274,4 +274,4 @@ In this article, you learned how to use FHIR destination mappings. To learn how 
 >[!div class="nextstepaction"]
 >[How to use Device mappings](how-to-use-device-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

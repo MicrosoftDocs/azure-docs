@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 06/14/2020
 ---
 
-# Support matrix for physical server migration
+# Support matrix for migration of physical servers, AWS VMs, and GCP VMs
 
-This article summarizes support settings and limitations for migrating physical servers to Azure with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-physical.md).
+This article summarizes support settings and limitations for migrating physical servers, AWS VMs, and GCP VMs to Azure with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-physical.md).
 
 ## Migrating machines as physical
 
@@ -30,7 +30,7 @@ You can select up to 10 machines at once for replication. If you want to migrate
 
 ## Physical server requirements
 
-The table summarizes support for physical servers you want to migrate using agent-based migration.
+The table summarizes support for physical servers, AWS VMs, and GCP VMs that you want to migrate using agent-based migration.
 
 **Support** | **Details**
 --- | ---
@@ -60,7 +60,7 @@ The table summarizes support for physical servers you want to migrate using agen
 
 ## Replication appliance requirements
 
-If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements summarized in the table. When you set up the Azure Migrate replication appliance as an VMware VM using the OVA template provided in the Azure Migrate hub, the appliance is set up with Windows Server 2016, and complies with the support requirements. 
+If you set up the replication appliance manually, then make sure that it complies with the requirements summarized in the table. When you set up the Azure Migrate replication appliance as an VMware VM using the OVA template provided in the Azure Migrate hub, the appliance is set up with Windows Server 2016, and complies with the support requirements. 
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements).
 - MySQL must be installed on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).

@@ -206,6 +206,9 @@ Members of the Log Analytics Contributor role can:
 - Add and remove management solutions. Permission must be granted at the resource group or subscription level.
 - Read storage account keys.
 - Configure the collection of logs from Azure Storage.
+- Configure data export rules.
+- [Run a search job.](search-jobs.md)
+- [Restore archived logs.](restore.md)
 
 > [!WARNING]
 > You can use the permission to add a virtual machine extension to a virtual machine to gain full control over a virtual machine.
@@ -326,7 +329,7 @@ Grant access to all tables except the _SecurityAlert_ table:
  Custom logs are tables created from data sources such as [text logs](../agents/data-sources-custom-logs.md) and the [HTTP Data Collector API](data-collector-api.md). The easiest way to identify the type of log is by checking the tables listed under [Custom Logs in the log schema](./log-analytics-tutorial.md#view-table-information).
 
 > [!NOTE]
-> Tables created by the [Custom Logs API](../essentials/../logs/custom-logs-overview.md) don't yet support table-level RBAC.
+> Tables created by the [Logs ingestion API](../essentials/../logs/logs-ingestion-api-overview.md) don't yet support table-level RBAC.
 
  You can't grant access to individual custom log tables, but you can grant access to all custom logs. To create a role with access to all custom log tables, create a custom role by using the following actions:
 

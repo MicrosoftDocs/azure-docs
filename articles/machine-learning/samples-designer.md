@@ -43,9 +43,9 @@ Here's how to use a designer sample:
 
    1. In the dialog that appears, select an existing compute target or create a new one. Select **Save**.
 
-   1. Select **Submit** at the top of the canvas to submit a pipeline run.
+   1. Select **Submit** at the top of the canvas to submit a pipeline job.
 
-   Depending on the sample pipeline and compute settings, runs may take some time to complete. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
+   Depending on the sample pipeline and compute settings, jobs may take some time to complete. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline jobs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
 
 
 1. After the pipeline finishes running, you can review the pipeline and view the output for each component to learn more. Use the following steps to view component outputs:

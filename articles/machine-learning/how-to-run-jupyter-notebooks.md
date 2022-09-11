@@ -26,7 +26,7 @@ For information on how to create and manage files, including notebooks, see [Cre
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* A Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 * Your user identity must have access to your workspace's default storage account. Whether you can read, edit, or create notebooks depends on your [access level](how-to-assign-roles.md) to your workspace. For example, a Contributor can edit the notebook, while a Reader could only view it.
 
 ## Access notebooks from your workspace
@@ -348,7 +348,7 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 * **File upload limit**: When uploading a file through the notebook's file explorer, you are limited files that are smaller than 5TB. If you need to upload a file larger than this, we recommend that you use one of the following methods:
 
     * Use the SDK to upload the data to a datastore. For more information, see the [Upload the data](./tutorial-1st-experiment-bring-data.md#upload) section of the tutorial.
-    * Use [Azure Data Factory](how-to-data-ingest-adf.md) to create a data ingestion pipeline.
+    * Use [Azure Data Factory](v1/how-to-data-ingest-adf.md) to create a data ingestion pipeline.
 
 
 ## Next steps

@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 06/14/2022
+ms.date: 07/12/2022
 ms.author: cynthn
 
 ---

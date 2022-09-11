@@ -40,7 +40,7 @@ This article shows how to do the following tasks:
 
 > [!TIP]
 > If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](../monitor-azure-machine-learning.md).
-> If you're looking for information on monitoring models deployed as web services, see [Collect model data](../how-to-enable-data-collection.md) and [Monitor with Application Insights](../how-to-enable-app-insights.md).
+> If you're looking for information on monitoring models deployed as web services, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](../how-to-enable-app-insights.md).
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ You'll need the following items:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An [Azure Machine Learning workspace](../how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](../quickstart-create-resources.md).
 
 * The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](/python/api/overview/azure/ml/install).
 
@@ -65,7 +65,7 @@ You'll need the following items:
 
 * Start a run and its logging process
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -131,7 +131,7 @@ You'll need the following items:
 
 * Monitor the status of a run
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -196,7 +196,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 * Add properties and tags
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -254,7 +254,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     You can query runs within an experiment to return a list of runs that match specific properties and tags.
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -285,7 +285,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 

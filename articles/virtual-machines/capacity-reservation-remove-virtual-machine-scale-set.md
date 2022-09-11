@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Remove a virtual machine scale set association from a Capacity Reservation group 
 
-**Applies to:** :heavy_check_mark: Uniform scale set 
+**Applies to:** :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
 
 This article walks you through removing a virtual machine scale set association from a Capacity Reservation group. To learn more about capacity reservations, see the [overview article](capacity-reservation-overview.md). 
 

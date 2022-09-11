@@ -1,11 +1,12 @@
 ---
 title: Configure a virtual network - Premium-tier Azure Cache for Redis instance
 description: Learn how to create and manage virtual network support for your Premium-tier Azure Cache for Redis instance
+
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 07/22/2022
 
 ---
 
@@ -14,7 +15,7 @@ ms.date: 05/06/2022
 [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation along with: subnets, access control policies, and other features to restrict access further. When an Azure Cache for Redis instance is configured with a virtual network, it isn't publicly addressable. Instead, the instance can only be accessed from virtual machines and applications within the virtual network. This article describes how to configure virtual network support for a Premium-tier Azure Cache for Redis instance.
 
 > [!NOTE]
-> Azure Cache for Redis supports both classic deployment model and Azure Resource Manager virtual networks.
+>Classic deployment model is retiring in August 2024. For more information, see [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/).
 >
 
 > [!IMPORTANT]
@@ -151,6 +152,7 @@ There are eight inbound port range requirements. Inbound requests in these range
 
 There are network connectivity requirements for Azure Cache for Redis that might not be initially met in a virtual network. Azure Cache for Redis requires all the following items to function properly when used within a virtual network:
 
+- Outbound network connectivity to Azure Key Vault endpoints worldwide. Azure Key Vault endpoints resolve under the DNS domain *vault.azure.net*.
 - Outbound network connectivity to Azure Storage endpoints worldwide. Endpoints located in the same region as the Azure Cache for Redis instance and storage endpoints located in *other* Azure regions are included. Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net*, and *file.core.windows.net*.
 - Outbound network connectivity to *ocsp.digicert.com*, *crl4.digicert.com*, *ocsp.msocsp.com*, *mscrl.microsoft.com*, *crl3.digicert.com*, *cacerts.digicert.com*, *oneocsp.microsoft.com*, and *crl.microsoft.com*. This connectivity is needed to support TLS/SSL functionality.
 - The DNS configuration for the virtual network must be able to resolve all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.

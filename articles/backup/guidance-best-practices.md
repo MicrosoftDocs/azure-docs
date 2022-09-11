@@ -212,8 +212,7 @@ To help you protect your backup data and meet the security needs of your busines
   - In terms of the scope of the access,
 
     - _User2_ can access only the Resources of Subscription1, and User3 can access only the Resources of Subscription2. 
-    - _User4_ is a Backup Operator. It has the permission to enable backup, trigger on-demand backup, trigger 
-    - Restores, along with the capabilities of a Backup Reader. However, in this scenario, its scope is limited only to Subscription2. 
+    - _User4_ is a Backup Operator. It has the permission to enable backup, trigger on-demand backup, trigger restores, along with the capabilities of a Backup Reader. However, in this scenario, its scope is limited only to Subscription2. 
     - _User1_ is a Backup Contributor. It has the permission to create vaults, create/modify/delete backup policies, and stop backups, along with the capabilities of a Backup Operator. However, in this scenario, its scope is limited only to _Subscription1_.
 
 - Storage accounts used by Recovery Services vaults are isolated and can't be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore.

@@ -4,7 +4,7 @@ description: Application Insights automatically collect and visualize dependenci
 ms.topic: reference
 ms.devlang: csharp, java, javascript
 ms.custom: devx-track-dotnet
-ms.date: 05/06/2020
+ms.date: 08/22/2022
 ms.reviewer: mmcc
 ---
 
@@ -34,47 +34,13 @@ Below is the currently supported list of dependency calls that are automatically
 
 
 ## Java
-| App servers | Versions |
-|-------------|----------|
-| [Tomcat](https://tomcat.apache.org/) | 7, 8 | 
-| [JBoss EAP](https://developers.redhat.com/products/eap/download/) | 6, 7 |
-| [Jetty](https://www.eclipse.org/jetty/) | 9 |
-| <b>App frameworks </b> |  |
-| [Spring](https://spring.io/) | 3.0 |
-| [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9+<sup>*</sup> |
-| Java Servlet | 3.1+ |
-| <b>Communication libraries</b> |  |
-| [Apache Http Client](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
-| <b>Storage clients</b> | |
-| [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
-| [PostgreSQL (Beta Support)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
-| [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
-| [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
-| <b>Logging libraries</b> | |
-| [Logback](https://logback.qos.ch/) | 1+ |
-| [Log4j](https://logging.apache.org/log4j/) | 1.2+ |
-| <b>Metrics libraries</b> |  |
-| JMX | 1.0+ |
 
-> [!NOTE]
-> *Except reactive programing support.
-> <br>†Requires installation of [JVM Agent](java-2x-agent.md#install-the-application-insights-agent-for-java).
+See the list of Application Insights Java's
+[autocollected dependencies](java-in-process-agent.md#autocollected-dependencies).
 
 ## Node.js
 
-| Communication libraries | Versions |
-| ------------------------|----------|
-| [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) | 0.10+ |
-| <b>Storage clients</b> | |
-| [Redis](https://www.npmjs.com/package/redis) | 2.x |
-| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x - 3.x |
-| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0 - 2.16.x |
-| [PostgreSql](https://www.npmjs.com/package/pg); | 6.x - 7.x |
-| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x - 2.x |
-| <b>Logging libraries</b> | |
-| [console](https://nodejs.org/api/console.html) | 0.10+ |
-| [Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
-| [Winston](https://www.npmjs.com/package/winston) | 2.x - 3.x |
+A list of the latest [currently-supported modules](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers) is maintained [here](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers).
 
 ## JavaScript
 
@@ -85,7 +51,7 @@ Below is the currently supported list of dependency calls that are automatically
 ## Next steps
 
 - Set up custom dependency tracking for [.NET](./asp-net-dependencies.md).
-- Set up custom dependency tracking for [Java](java-2x-agent.md).
+- Set up custom dependency tracking for [Java](java-in-process-agent.md#add-spans).
 - Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 - [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 - See [data model](./data-model.md) for Application Insights types and data model.

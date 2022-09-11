@@ -20,6 +20,7 @@ There are a number of advantages to using deployment slots. The following scenar
 - **Different environments for different purposes**: Using different slots gives you the opportunity to differentiate app instances before swapping to production or a staging slot.
 - **Prewarming**: Deploying to a slot instead of directly to production allows the app to warm up before going live. Additionally, using slots reduces latency for HTTP-triggered workloads. Instances are warmed up before deployment, which reduces the cold start for newly deployed functions.
 - **Easy fallbacks**: After a swap with production, the slot with a previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can immediately reverse the swap to get your "last known good instance" back.
+- **Minimize restarts**: Changing app settings in a production slot requires a restart of the running app. You can instead change settings in a staging slot and swap the settings change into production with a prewarmed instance. This is the recommended way to upgrade between Functions runtime versions while maintaining the highest availability. To learn more, see [Minimum downtime upgrade](functions-versions.md#minimum-downtime-upgrade). 
 
 ## Swap operations
 
@@ -203,6 +204,7 @@ Azure Functions deployment slots have the following considerations:
 - The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. Additional slots are available for apps running under other plans. For details, see [Service limits](functions-scale.md#service-limits).
 - Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
 - When slots are enabled, your function app is set to read-only mode in the portal.
+- Use function app names shorter than 32 characters. Names longer than 32 characters are at risk of causing [host ID collisons](storage-considerations.md#host-id-considerations).
 
 ## Next steps
 

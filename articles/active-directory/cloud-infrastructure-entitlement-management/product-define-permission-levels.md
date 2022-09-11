@@ -13,10 +13,6 @@ ms.author: kenwith
 
 # Define and manage users, roles, and access levels
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 In Permissions Management, a key component of the interface is the User management dashboard. This topic describes how system administrators can define and manage users, their roles, and their access levels in the system.
 
 ## The User management dashboard
