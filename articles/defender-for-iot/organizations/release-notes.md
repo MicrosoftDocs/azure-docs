@@ -64,17 +64,17 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | **Sensor versions 22.1.x**: [Site-based access control for OT networks](#site-based-access-control-for-ot-networks)        |
+|**OT networks**     | **Sensor versions 22.1.x and later**: [Site-based access control for OT networks](#site-based-access-control-for-ot-networks-public-preview)        |
 
-### Site-based access control for OT networks
+### Site-based access control for OT networks (Public preview)
 
 Until now, user management in the Azure portal has been limited to the subscription level, where administrators can assign roles that allow users to configure Defender for IoT, define pricing plans, access data about their sites and sensors, and so on.
 
-Defender for IoT now supports site-based access control, which provides new support for administrators to assign roles for security monitoring at the site-level. For example, you can now grant access to view device data, such as inventory and alerts, differently per site.
+Defender for IoT now supports *site-based access control*, which provides new support for administrators to assign roles for security monitoring at the OT *site* level. For example, you can now grant access to view device data, such as inventory and alerts, differently per site.
 
-Manage site access control by selecting the site in the **Sites and sensors** page. For example:
+Manage site access control by selecting the site in the **Sites and sensors** page, and then selecting the **Manage site access control (Preview). For example:
 
-TBD screenshot
+:::image type="content" source="media/release-notes/site-based-access.png" alt-text="Screenshot of the site-based access link in the Sites and sensors page.":::
 
 For more information, see [Manage OT monitoring users on the Azure portal](manage-users-portal.md) and [Defender for IoT users, roles, and permissions](roles.md).
 

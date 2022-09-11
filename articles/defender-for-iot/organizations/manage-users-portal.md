@@ -19,9 +19,9 @@ For OT network monitoring specifically, administrators can also grant access at 
 
     Site-based access control is not relevant or supported for default sites, such as the **BuiltIn-Enterprise** site.
 
-1. In the **Edit site** pane that appears on the right, select **Manage site access control (Preview)**.
+1. In the **Edit site** pane that appears on the right, select **Manage site access control (Preview)**. For example:
 
-    <!--TBD ADD SCREENSHOT-->
+    :::image type="content" source="media/release-notes/site-based-access.png" alt-text="Screenshot of the site-based access option from the Sites and sensors page.":::
 
     An **Access control** page opens in Defender for IoT for your site. This **Access control** page is the same interface as is available directly from the **Access control** tab on any Azure resource.
 

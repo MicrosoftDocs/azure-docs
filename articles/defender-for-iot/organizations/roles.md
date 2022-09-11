@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT users, roles, and permissions
 description: Learn about the users, roles, and permissions available for Defender for IoT on the Azure portal and on-premises sensors and management consoles.
-ms.date: 09/04/2022
+ms.date: 09/11/2022
 ms.topic: reference
 ---
 
@@ -13,7 +13,7 @@ This articles provides a reference of all roles relevant to Defender for IoT, th
 
 ## Azure user roles for Defender for IoT
 
-The built-in **Security reader**, **Security administrator**, **Contributor**, and **Owner** roles are relevant for use in Defender for IoT. An extra **Sensor operator** role is also added for Defender for IoT users.
+The built-in **Security reader**, **Security administrator**, **Contributor**, and **Owner** roles are relevant for use in Defender for IoT. An extra **Sensor operator** role is also added for Defender for IoT users, specifically for OT sensor management.
 
 The following tables list functionality that is available to each user role by default.
 
@@ -21,19 +21,27 @@ The following tables list functionality that is available to each user role by d
 
 |Sensor operator  |Security reader  |Security admin  |Contributor  |Owner  |
 |---------|---------|---------|---------|---------|
-|  **Download sensor and on-premises management console software and threat intelligence packages**<br>Resource scope: *Subscription*   |   Yes      |  Yes       |   Yes      | Yes | Yes |
-|  **Download activation files**<br>Resource scope: *Subscription*   |   Yes      |    No     |   Yes      | Yes | Yes |
-|  **Modify values on the Pricing page, update committed devices**<br>Resource scope: *Subscription*   |   Read-only      |  No       |   Read-write      | Read-write | Read-write |
-|  **Recover on-premises passwords**<br>Resource scope: *Subscription*   |   Yes      |   No      |   Yes     | Yes | Yes |
-|  **Push threat intelligence updates**<br>Resource scope: *Subscription*   |    No     |    No     |   Yes     | Yes | Yes |
-|  **Modify values on the Sites and sensors page**<br>Resource scope: *Subscription*   |   Read-write      |     No    |   Read-write     | Read-write | Read-write |
+|  **Download sensor and on-premises management console software and threat intelligence packages**<br>Resource scope: *Subscription*  |
+|Yes |   Yes      |  Yes       |   Yes      | Yes |
+|  **Download activation files**<br>Resource scope: *Subscription*  |
+|   Yes      |    No     |   Yes      | Yes | Yes |
+|  **Modify values on the Pricing page, update committed devices**<br>Resource scope: *Subscription*   |
+|  Read-only      |  No       |   Read-write      | Read-write | Read-write |
+|  **Recover on-premises passwords**<br>Resource scope: *Subscription*   |
+|   Yes      |   No      |   Yes     | Yes | Yes |
+|  **Push threat intelligence updates**<br>Resource scope: *Subscription*  |
+|    No     |    No     |   Yes     | Yes | Yes |
+|  **Modify values on the Sites and sensors page**<br>Resource scope: *Subscription*   |
+|   Read-write      |     No    |   Read-write     | Read-write | Read-write |
 
 **Permissions for security monitoring functionalities**:
 
 |Sensor operator  |Security reader  |Security admin  |Contributor  |Owner  |
 |---------|---------|---------|---------|---------|
-| **Alerts page** <br><br>Resource scope: *Subscription* or *site* |  | Read-only | Read-write | Read-write | Read-write |
-| **Device inventory** <br><br>Resource scope: *Subscription* or *site* |  | Read-only | Read-write | Read-write | Read-write |
+| **Alerts page** <br><br>Resource scope: *Subscription* or *site* |
+|No  | Read-only | Read-write | Read-write | Read-write |
+| **Device inventory** <br><br>Resource scope: *Subscription* or *site* |
+|No  | Read-only | Read-write | Read-write | Read-write |
 
 For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
