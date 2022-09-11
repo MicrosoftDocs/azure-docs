@@ -196,7 +196,7 @@
         - name: Manage user access from the Azure portal
           href: manage-users-portal.md
         - name: Create and manage user access on-premises
-          href: manage-users-portal.md
+          href: how-to-create-and-manage-users.md
       - name: Enrich device information
         items:
         - name: Work with device notifications

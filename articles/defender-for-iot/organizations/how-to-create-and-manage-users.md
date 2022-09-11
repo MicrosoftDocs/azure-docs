@@ -10,7 +10,13 @@ Microsoft Defender for IoT provides tools both in the Azure portal and on-premis
 
 This article describes how to manage on-premises users directly on the sensor or the on-premises management console you want your users to access.
 
-By default, each sensor and on-premises management console is installed with the *cyberx* and *support* users. Sensors are also installed with the *cyberx_host* user. These privileged users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an initial user with an **Administrator** role, and then create extra users for security analysts and read-only users.
+## Default privileged users
+
+By default, each sensor and on-premises management console is installed with the *cyberx* and *support* users. Sensors are also installed with the *cyberx_host* user. 
+
+These privileged users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an initial user with an **Administrator** role, and then create extra users for security analysts and read-only users.
+
+For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software).
 
 ## Add new users
 
@@ -260,13 +266,13 @@ For more information, see [Other firewall rules for external services (optional)
 
     Select **+ Add Server** to add another server and enter its values as needed, and **Save** when you're done.
 
-> [!IMPORTANT]
-> When entering LDAP parameters:
->
-> - Define values exactly as they appear in Active directory, except for the case.
-> - User lowercase only, even if the configuration in Active Directory uses uppercase.
-> - LDAP and LDAPS can't be configured for the same domain. However, you can configure each in different domains and then use them at the same time.
->
+    > [!IMPORTANT]
+    > When entering LDAP parameters:
+    >
+    > - Define values exactly as they appear in Active directory, except for the case.
+    > - User lowercase only, even if the configuration in Active Directory uses uppercase.
+    > - LDAP and LDAPS can't be configured for the same domain. However, you can configure each in different domains and then use them at the same time.
+    >
 
 1. Create access group rules for on-premises console users. If you configure Active Directory groups for on-premises management console users, you must also create an access group rule for each Active Directory group. Active Directory credentials won't work for on-premises management console users without a corresponding access group rule. For more information, see [Define global access permission for on-premises users](#define-global-access-permission-for-on-premises-users).
 
