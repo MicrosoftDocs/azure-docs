@@ -118,6 +118,9 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 ---
 
+> [!NOTE]
+> Network subnet address prefix requires a CIDR range of `/23`.
+
 With the VNET established, you can now query for the infrastructure subnet ID.
 
 # [Bash](#tab/bash)

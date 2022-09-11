@@ -210,6 +210,8 @@ PAHI_FULL = <True/False>
 AGR_AGRS_FULL = <True/False>
 USRSTAMP_FULL = <True/False>
 USRSTAMP_INCREMENTAL = <True/False>
+SNCSYSACL_FULL = <True/False> (Preview)
+USRACL_FULL = <True/False> (Preview)
 ```
 ## Next steps
 
