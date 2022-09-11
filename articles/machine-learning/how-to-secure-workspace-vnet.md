@@ -22,9 +22,7 @@ In this article, you learn how to secure an Azure Machine Learning workspace and
 >
 > * [Virtual network overview](how-to-network-security-overview.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
-> * For securing inference, see the following documents:
->     * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
->     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
@@ -47,6 +45,9 @@ In this article you learn how to enable the following workspaces resources in a 
 + Read the [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) article to learn about best practices.
 
 + An existing virtual network and subnet to use with your compute resources.
+
+    > [!IMPORTANT]
+    > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
@@ -354,10 +355,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 
 * [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
-* [Secure online endpoints (inference)](how-to-secure-online-endpoint.md)
-* For securing inference, see the following documents:
-    * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
-    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)

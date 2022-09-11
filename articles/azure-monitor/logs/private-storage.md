@@ -30,6 +30,9 @@ Supported data types:
 ## Using Private links
 Customer-managed storage accounts are used to ingest Custom logs when private links are used to connect to Azure Monitor resources. The ingestion process of these data types first uploads logs to an intermediary Azure Storage account, and only then ingests them to a workspace. 
 
+> [!IMPORTANT]
+> Collection of IIS logs is not supported with private link.
+
 ### Using a customer-managed storage account over a Private Link
 #### Workspace requirements
 When connecting to Azure Monitor over a private link, Log Analytics agents are only able to send logs to workspaces accessible over a private link. This requirement means you should:
