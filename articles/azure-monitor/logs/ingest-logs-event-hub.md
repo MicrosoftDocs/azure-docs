@@ -41,9 +41,6 @@ In this tutorial, you learn how to:
     
     Send events to your event hub by following the steps in the [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
-- [User-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
-
-
 
 ## Create a destination table for event hub data in your Log Analytics workspace
 
@@ -255,10 +252,26 @@ To generate a data collection rule JSON file in the Azure portal:
     > [!NOTE]
     > All of the properties of the DCR, such as the transformation, may not be displayed in the Azure portal even though the DCR was successfully created with those properties.
 
-## Grant the data collection rule permissions to the event hub
+## Grant the event hub permission to the data collection rule
+
+With [user-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md), you can give any data hub permission to send events to the data collection rule and data collection endpoint you created:
+
+1. From the data collection rule in the Azure portal, select **Access Control (IAM)** and then **Add role assignment**. 
+
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR.":::
+
+2. Select **Monitoring Metrics Publisher** and select **Next**.  You could instead create a custom action with the `Microsoft.Insights/Telemetry/Write` data action. 
+
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment.":::
+
+3. Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select your event hub and click **Select**.
+
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment.":::
 
 
+4. Click **Review + assign** and verify the details before saving your role assignment.
 
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" alt-text="Screenshot for saving DCR role assignment.":::
 
 
 ## Associate the data collection rule with the Event Hub
