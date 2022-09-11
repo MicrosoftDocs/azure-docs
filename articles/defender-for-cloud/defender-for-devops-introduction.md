@@ -76,11 +76,15 @@ In this example we see:
 ## Learn more
 
 - You can learn more about DevOps from our [DevOps resource center](/devops/).
+
 - Learn about [security in DevOps](/devops/operate/security-in-devops).
+
 - You can learn about [securing Azure Pipelines](/azure/devops/pipelines/security/overview?view=azure-devops).
+
 - Learn about [security hardening practices for GitHub Actions](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
 
 ## Next steps
 
 Learn how to [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
+
 Learn how to [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-ado.md).

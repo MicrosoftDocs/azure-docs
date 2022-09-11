@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud'
 description: Learn how to connect your GitHub repositories to Defender for Cloud.
-ms.date: 09/06/2022
+ms.date: 09/11/2022
 ms.topic: quickstart
 ---
 
@@ -81,9 +81,12 @@ The Defender for DevOps service automatically discovers the repositories you sel
 ## Learn more
 
 - You can learn more about how [Azure and GitHub integrate](https://docs.microsoft.com/en-us/azure/developer/github/).
+
 - Learn about [security hardening practices for GitHub Actions](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
 
 ## Next steps
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+
 Learn how to [configure the MSDO GitHub action](msdo-github-action.md).
+
 Learn how to [configure pull request annotations](tutorial-enable-pr-annotations.md) in Defender for Cloud.

@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps GitHub action
 description: Learn how to configure the Microsoft Security DevOps GitHub action.
-ms.date: 09/08/2022
+ms.date: 09/11/2022
 ms.topic: how-to
 ---
 
@@ -131,9 +131,12 @@ Code scanning findings will be filtered by specific MSDO tools in GitHub. These 
 ## Learn more
 
 - Learn about [GitHub actions for Azure](/azure/developer/github/github-actions).
+
 - Learn how to [deploy apps from GitHub to Azure](/azure/developer/github/deploy-to-azure).
 
 ## Next steps
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+
 Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.
+
 [Discover misconfigurations in Infrastructure as Code (IaC)](iac-vulnerabilities.md)

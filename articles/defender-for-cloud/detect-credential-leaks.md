@@ -32,17 +32,16 @@ You can run secret scanning as part of the Azure DevOps build process by using t
 
 1. Locate the pipeline with MSDO Azure DevOps Extension is configured.
 
-2. Select **Edit**.
+1. Select **Edit**.
 
-3. Add the following lines to the YAML file
+1. Add the following lines to the YAML file
 
     ```yml
     inputs:
         categories: 'secrets'
     ```
-    :::image type="content" source="ADD NEW IMAGE.png" alt-text="Screenshot showing you where to add this line to the YAML file.":::
 
-4.  Select **Save**.
+1.  Select **Save**.
 
 The above steps ensure that only secret scanning runs when you execute the Azure DevOps build pipeline.
 
