@@ -258,6 +258,11 @@ To generate a data collection rule JSON file in the Azure portal:
 ## Grant the data collection rule permissions to the event hub
 
 
+
+
+
+## Associate the data collection rule with the Event Hub
+
 The final step is to associate the data collection rule to the event hub from which you want to collect events. 
 
 You can associate a single data collection rule with multiple event hubs that share the same [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and ingest data to the same stream; otherwise, create a separate rule for consumer group and stream.
@@ -291,7 +296,7 @@ You can associate a single data collection rule with multiple event hubs that sh
       "type": "Microsoft.Insights/dataCollectionRuleAssociations",
       "apiVersion": "2021-09-01-preview",
       "scope": "/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.EventHub/namespaces/IlanaEventHub-Namespace/eventhubs/<event_hub_name>",
-      "name": "IlanaEventHub-DCRA-template",
+      "name": "template_name",
       "properties": {
         "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
         "dataCollectionRuleId": "/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Insights/dataCollectionRules/<dcr_name>"
@@ -300,15 +305,6 @@ You can associate a single data collection rule with multiple event hubs that sh
   ]
 }
 ```
-
-
-## Associate the data collection rule with the Event Hub
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
-
-
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
