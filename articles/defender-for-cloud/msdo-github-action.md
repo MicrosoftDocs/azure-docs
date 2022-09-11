@@ -124,9 +124,9 @@ Security DevOps uses the following Open Source tools:
 
 1. From the dropdown menu, select **Filter by tool**.
 
-**THEN WHAT THIS IS UNCLEAR**
-
 :::image type="content" source="media/msdo-github-action/tool-dropdown.png" alt-text="Screenshot showing you how to navigate to the filter by tool option.":::
+
+Code scanning findings will be filtered by specific MSDO tools in GitHub. These code scanning results are also pulled into Defender for Cloud recommendations.
 
 ## Learn more
 

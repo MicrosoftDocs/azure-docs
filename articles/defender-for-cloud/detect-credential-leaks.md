@@ -1,15 +1,24 @@
 ---
-title: Enable credential scanning in code
+title: Detect exposed secrets in code
 description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's credential scanner for Defender for DevOps.
 ms.topic: how-to
-ms.date: 09/08/2022
+ms.date: 09/11/2022
 ---
 
-# Detect credential leaks in code
+# Detect exposed secrets in code
 
 When passwords and other secrets are stored in source code, it poses a significant risk, and could compromise the security of your environments. Defender for Cloud offers a solution by using Credential Scanner (CredScan). Credential Scanner detects credentials, secrets, certificates, and other sensitive content in your source code and your build output. Credential Scanner can be run as part of the Microsoft Security DevOps for Azure DevOps extension.
 
+> [!NOTE]
+> During the Defender for DevOps preview period, GitHub Advanced Security for Azure DevOps (GHAS for AzDO) is also providing a free trial of secret scanning.
+
 Check the list of [supported file types and exit codes](#supported-file-types-and-exit-codes).
+
+## Prerequisites
+
+- An Azure subscription. If you don't have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
+edit-button
+- [Configure the Microsoft Security DevOps Azure DevOps extension](msdo-azure-devops-extension.md)
 
 ## Setup credential scanning
 
@@ -17,36 +26,30 @@ You can run CredScan as part of the Azure DevOps build process by using the Micr
 
 **To add Credential Scanner to Azure DevOps build process**:
 
-1. ????? Need all the steps prior to step 2?????
+1. Sign in to [Azure DevOps](https://dev.azure.com/)
 
-1. Select the relevant Azure DevOps build definition.
+1. Select the relevant project.
 
-1. Add the Credential Scanner build task to your build definition after the publishing steps for your build artifacts **HOW IS THIS DONE** using the classic UI or the yaml editor/assistant.
+1. Navigate to **Pipelines**.
 
-1. Customize the scanner based on your requirements.
+1. Select the pipeline that you configured the MSDO Azure DevOps Extension to.
 
-    :::image type="content" source="media/detect-credential-leaks/credscan.png" alt-text="Screenshot of the custimaztion screen used by the credential scanning tool.":::
+1. Select **Edit**.
 
-    | Field name | Options available |
-    |--|--|
-    | **ARE THE FIRST 2 The Same? Version and Tool Major version????** |  |
-    | Version | The build task version within Azure DevOps. This option isn't frequently used. |        
-    | Tool Major Version | CredScan V2, CredScan V1. <br> We recommend customers use the CredScan V2 version. |
-    | Display Name | Enter the name of the Azure DevOps Task. The default value is Run Credential Scanner. |
-    | Output Format | TSV, CSV, SARIF, and PREfast. |
-    | Tool Version | **What are the options?** <br> We recommend you select `Latest`. |
-    | Scan Folder | Select the repository folder to be scanned. |
-    | Searchers File Type | The options for locating the searchers file that is used for scanning. |
-    | Suppressions File | A JSON file can suppress issues in the output log. For more information about suppression scenarios, see the FAQ section of this article. |
-    | Suppress as Error |  |
-    | Verbose Output |   |
-    | Batch Size | The number of concurrent threads used to run Credential Scanner. The default value is 20. <br> Possible values range from 1 through 2,147,483,647. |
-    | Regex Match Timeout in Seconds | The amount of time (in seconds) to spend attempting a searcher match before abandoning the check. |
-    | File Scan Read Buffer Size | The size (in bytes) of the buffer used while content is read. The default value is 524,288. |
-    | Maximum File Scan Read Bytes | The maximum number of bytes to read from a file during content analysis. The default value is 104,857,600. |
-    | Control Options > Run this task | Specifies when the task will run. Select Custom conditions to specify more complex conditions. |
+    :::image type="content" source="media/detect-credential-leaks/edit-button.png" alt-text="Screenshot of the pipeline screen that shows you where to locate the edit button.":::
 
-1. Select **Save**.
+1. Add the following lines to the YAML file
+
+    ```yml
+    inputs:
+        categories: 'secrets'
+    ```
+
+    :::image type="content" source="secrets-yaml.png" alt-text="Screenshot that shows you where to add the line to the YAML file.":::
+
+1.  Select **Save**.
+
+By adding this to your yaml file, it will ensure that the secret scanner runs only when you execute the Azure DevOps build pipeline.
 
 ## Suppress false positives
 

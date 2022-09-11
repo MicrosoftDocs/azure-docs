@@ -2,12 +2,15 @@
 title: Tutorial Enable pull request annotations in GitHub or in Azure DevOps
 description: Add pull request annotations in GitHub or in Azure DevOps for your SecOps an developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
-ms.date: 09/04/2022
+ms.date: 09/11/2022
 ---
 
 # Tutorial: Enable pull request annotations in GitHub and Azure DevOps
 
 Defender for Cloud allows you to configure pull request annotations in GitHub or in Azure DevOps, to be sent to developers to allow them to both the security operations team and the developers to see the same security information in the system they are accustomed to working in. These issues can then be reviewed by developers when they submit their pull requests. This is beneficial because it helps prevent potential security vulnerabilities and misconfigurations before they enter the production stage. 
+
+> [!NOTE]
+> During the Defender for DevOps preview period, GitHub Advanced Security for Azure DevOps (GHAS for AzDO) is also providing a free trial of pull request annotations.
 
 In this tutorial you'll learn how to:
 
@@ -36,7 +39,7 @@ Before you can follow the steps in this tutorial you must:
 
 ## Enable pull request annotations in GitHuB
 
-By enabling pull request annotations in GitHub, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
+By enabling pull request annotations, (commonly refereed to as Checks) in GitHub, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
 
 **To enable pull request annotations in GitHub**:
 
@@ -105,7 +108,7 @@ Once you have configured the scanner you will be able to view all issues that we
 
 ## Enable pull request annotations in Azure DevOps
 
-By enabling pull request annotations in Azure DevOps, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
+By enabling pull request annotations, (commonly refereed to as Checks) in GitHub in Azure DevOps, you give your developers the ability to see their security issues when they submit their pull requests directly to the main branch.
 
 **To enable pull request annotations in Azure DevOps**:
 
@@ -129,10 +132,15 @@ By enabling pull request annotations in Azure DevOps, you give your developers t
 
 All annotations will now be displayed based on your configurations with the relevant line of code.
 
-## Next steps
+## Learn more
 
 In this tutorial you learned how to enable pull request annotations in GitHub and Azure DevOps.
 
+Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.
+Learn how to [connect your Azure DevOps](quickstart-onboard-ado.md) to Defender for Cloud.
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > Now learn more about [Defender for DevOps](defender-for-devops-introduction.md).
