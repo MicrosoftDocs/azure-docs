@@ -1,68 +1,44 @@
 ---
-title: Attack path security
+title: What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer? 
 description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
-ms.date: 09/05/2022
+ms.date: 09/11/2022
 ---
 
-# What are cloud security graph, Attack Path Analysis, and Cloud Security Explorer?
+# What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer? 
 
-**Tal will add some lines on contextual security**
+One of the biggest challenges that security teams face today is the amount of security issues. There are always numerous security issues that need to be resolve and never enough resources to address them all. 
 
-## What is cloud security graph <--CHECK TO SEE IF THIS GETS CAPs
+Defender for Cloud's contextual security capabilities assist security teams to assess the risk behind each security issue, and identify the highest risk issues that need to be resolved soonest. Defender for Cloud assists security teams to reduce the risk of an impactful breach to their environment in the most effective way. 
 
-Cloud map security allows businesses to prioritize how they organize and remediate their cloud misconfigurations and vulnerabilities based on the risk level. With cloud map security, you'll gain visibility into your cloud environments and allow your security team to hunt and explore all of your cloud risks.
+## What is Cloud Security Graph
 
-Security teams in general have many cloud misconfigurations and vulnerabilities to resolve. For them, it's hard to quickly understand each security risk imposed by their security issues and prioritize them in a meaningful way in order to remediate the highest risk issues. By using cloud map's graph based context and risk assessment engines, security teams can focus on the small percent of security issues that matter the most. 
+The Cloud Security Graph is a graph-based context engine that exists within Defender for Cloud, that compares the risk-assessment of security issues. Cloud Security Graph collects data from your multi cloud environment and numerous amount of data sources, such as, The cloud assets inventory, connections and lateral movement possibilities between resources, exposure to internet, permissions, network connections, vulnerabilities and more, to build a graph representing your multi-cloud environment. 
 
-:::image type="content" source="media/concept-cloud-map/security-map.png" alt-text="Image of a conceptualized graph that shows the complexity of security graphing." lightbox="media/concept-cloud-map/security-map.png":::
+Defender for Cloud then uses the generated graph to perform an attack path analysis and find the issues with the highest risk that exist within your environment. You can also query the graph using the explorer.  
+
+:::image type="content" source="media/concept-cloud-map/security-map.png" alt-text="Image of a conceptualized graph that shows the complexity of security graphing." lightbox="media/concept-cloud-map/:::image type="content" source="media/concept-cloud-map/security-map.png" alt-text="security-map":::.png":::
 
 ## What is Attack Path Analysis
 
-Defender for Cloud provides contextual security capabilities that help organizations assess risks that their multicloud environments may be exposed to while taking into account the structure of their cloud environment and 
-their unique circumstances. For example, internet exposure, permissions, connections between resources.
+Attack Path Analysis is a graph-based algorithm that scans the Cloud Security Graph and detects exploitable paths that attackers may use in order to breach your environment to reach your high-impact assets. Attack Path Analysis exposes those attack paths and suggests recommendations as to how best remediate the issues that will break the attack path and prevent successful breach. 
 
-[Attack path analysis](#attack-path-analysis) helps you address misconfigurations and vulnerabilities that pose immediate threats 
-with the greatest potential of being exploited in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate it.
+By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more. Attack Path Analysis can identify the issues that can lead to an impactful breach on your environment, and help you to remediate those first. 
 
-You can also build queries to help you proactively hunt for vulnerabilities in your multicloud environments and mitigate and remediate them based on their priority.
+:::image type="content" source="media/concept-cloud-map/attack-path.png" alt-text="Image that shows a sample attack path from attacker to your sensitive data.":::
+
+Learn how to use [Attack Path Analysis](how-to-manage-attack-path.md).
 
 ## What is Cloud Security Explorer
+
+The Cloud Security Explorer allows you to proactively identify security risks in your multi cloud environment by running graph-based queries on the Cloud Security Graph. Your security team can use the query builder to search for and locate risks, while taking your organization's specific contextual and conventional information into account. 
+
+Learn how to use the [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
 
 Defender for Cloud provides cloud security capabilities that help organizations assess their risks to their environments that are exposed. Organizations can do this while taking into account the structure of their cloud environment and its unique circumstances. Such as Internet exposure, permissions, connection between resources and more, which can affect the overall level of risk.
 
 Cloud Security Explorer provides you the ability to perform proactive hunting and search for these security risks within your organization by running graph-based path-finding queries on top the contextual security data already provided by Defender for Cloud. Such as, cloud misconfigurations, vulnerabilities, resource context, lateral movement possibilities between resources and more.
-
-## Assessing risk THIS SECTION MAYBE TO REMOVE
-
-Defender for Cloud offers three ways to assess your risk of security issues that exist in your cloud environments. 
-
-- **Graph-based context engine**: <NEED A DESCRIPTION FOR THIS>
-
-- **Attack path analysis**: Shows you the paths that potential attackers can use to breach your environment.
-
-- **Graph-based queries**: Building a query allows you to proactively find security risks in your environment on top of the context engine.
-
-When you assess your environments, certain scenarios will have lower risks, and others will have higher risk. It isn't always easy to differentiate which are which. Below are some clear example of situations that would be low, medium and high risk.
-
-### High risk example
-
-:::image type="content" source="media/concept-cloud-map/high-risk.png" alt-text="Image that shows a virtual machine that is exposed to the internet that could get infected and allow credit card information to be stolen.":::
-
-In this scenario, the virtual machine (VM) is exposed to the internet and all internal networks. In this scenario, the VM is putting the company at further risk because it has access to customers credit card information.
-
-### Medium risk example
-
-:::image type="content" source="media/concept-cloud-map/medium-risk.png" alt-text="Image that shows a virtual machine that is exposed to the internet that could get infected.":::
-
-In this scenario, we have a VM that is exposed to the internet and got infected but doesn't have access to any sensitive information. Since no sensitive information is exposed, this scenario should be mitigated, but doesn't require the highest level priority.
-
-### Low risk scenario
-
-:::image type="content" source="media/concept-cloud-map/low-risk.png" alt-text="Image that shows a lone virtual machine with no internet access and no exposure to sensitive information.":::
-
-In this scenario, we have a VM that is isolated from internet and all internal devices in the virtual network. It has a low risk of being compromised by an attacker.
 
 ## Cloud security engine
 

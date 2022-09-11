@@ -1,33 +1,29 @@
 ---
-title: Manage your attack path analysis
+title: Identify and remediate attack paths
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
 ms.date: 09/05/2022
 ---
 
-# Manage your attack path analysis
+# Identify and remediate attack paths 
 
-Defender for Cloud provides contextual security capabilities that help organizations assess risks that their multicloud environments may be exposed to while taking into account the structure of their cloud environment and 
-their unique circumstances. For example, internet exposure, permissions, connections between resources.
+Defender for Cloud's contextual security capabilities assist security teams in the reduction of the risk of impactful breaches. Defender for Cloud uses environment context to perform a risk assessment to you security issues, by identifying the biggest security risk issues, while distinguishing them from less risky issues.
 
-[Attack path analysis](#attack-path-analysis) helps you address misconfigurations and vulnerabilities that pose immediate threats 
-with the greatest potential of being exploited in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate it.
-
-You can also build queries to help you proactively hunt for vulnerabilities in your multicloud environments and mitigate and remediate them based on their priority.
+[Attack path analysis](#attack-path-analysis) helps you to address the security issues that pose immediate threats with the greatest potential of being exploited in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate it.
 
 ## Availability
 
 | Aspect | Details |
 |--|--|
-| Required plans | - Defender for SQL enabled <br> - Defender for Servers enabled <br> - [Threat and vulnerability management integration with Defender for Cloud](deploy-vulnerability-assessment-tvm.md) enabled |
+| Required plans | - Defender CSPM P1 enabled |
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
-## Attack path analysis
+## Investigate and remediate attack paths
 
 Attack path analysis allows you to see the details of each node within your environment to locate any node that has vulnerabilities or misconfigurations. You can then remediate each recommendation in order to harden your environment.
 
-**To investigate and remediate attack path**:
+**To investigate and remediate an attack path**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -61,7 +57,7 @@ Once an attack path is resolved, it can take up to 24 hours for an attack path t
 
 Attack path analysis also gives you the ability to see all recommendations by attack path without having to check each node individually. You can resolve all recommendation without having to view each node individually.
 
-**To resolve view and resolve all recommendations**:
+**To resolve all recommendations**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
