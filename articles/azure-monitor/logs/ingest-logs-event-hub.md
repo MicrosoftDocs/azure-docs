@@ -1,12 +1,12 @@
 ---
 title: Send events from Azure Event Hubs to Azure Monitor Logs with a data collection rule
 description: Ingest logs from Event Hub into Azure Monitor Logs 
+services: azure-monitor
 author: guywi-ms
 ms.author: guywild
-ms.service: Azure Monitor Logs
 ms.reviewer: ilanawaitser
 ms.topic: tutorial 
-ms.date: 09/20/22
+ms.date: 09/20/2022
 ms.custom: template-tutorial 
 
 # customer-intent: As a workspace administrator, I want to collect data from an event hub into a Log Analytics workspace so that I can monitor application logs that I ingest using Azure Event Hubs.
