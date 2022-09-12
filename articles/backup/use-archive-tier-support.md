@@ -2,7 +2,7 @@
 title: Use Archive tier
 description: Learn about using Archive tier Support for Azure Backup.
 ms.topic: conceptual
-ms.date: 07/04/2022
+ms.date: 09/12/2022
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 zone_pivot_groups: backup-client-portaltier-powershelltier-clitier
 author: v-amallick
@@ -29,14 +29,14 @@ You can now view all the recovery points that are moved to archive.
 
 :::image type="content" source="./media/use-archive-tier-support/view-recovery-points-list-inline.png" alt-text="Screenshot showing the list of recovery points." lightbox="./media/use-archive-tier-support/view-recovery-points-list-expanded.png":::
 
-## Enable Smart Tiering to Vault-archive using a backup policy (preview)
+## Enable Smart Tiering to Vault-archive using a backup policy
 
 You can automatically move all eligible/recommended recovery points to vault-archive by configuring the required settings in the backup policy.
 
 >[!Note]
->This feature is currently in preview. Enable your subscription to use this feature.
+>Enable your subscription to use this feature.
 
-### Enable a subscription for Smart Tiering (preview)
+### Enable a subscription for Smart Tiering
 
 To enable a subscription, follow these steps:
 
@@ -346,6 +346,115 @@ You can perform the following operations using the sample scripts provided by Az
 - Move all recommended recovery points for a particular Azure Virtual Machine to Archive tier.
  
 You can also write a script as per your requirements or modify the above sample scripts to fetch the required backup items.
+
+## Enable Smart Tiering to Vault-archive using a backup policy.
+
+You can automatically move all eligible/ recommended recovery points to vault-archive using backup policy.
+
+To enable Smart Tiering, see the following sections.
+
+### Create a policy
+
+To create and configure a policy, run the following cmdlets:
+
+1. Fetch the vault name:
+
+   ```azurepowershell
+   $vault = Get-AzRecoveryServicesVault -ResourceGroupName "testRG"  -Name "TestVault"
+   ```
+
+1. Set the policy schedule:
+
+   ```azurepowershell
+   $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType AzureVM -BackupManagementType AzureVM -PolicySubType Enhanced -ScheduleRunFrequency Weekly
+   ```
+
+1. Set long-term retention point retention:
+
+   ```azurepowershell
+   $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType AzureVM -BackupManagementType AzureVM -ScheduleRunFrequency  Weekly
+   ```
+
+### Configure Smart Tiering
+
+You can now configure Smart Tiering to move recovery points to Vault-archive and retain them using the backup policy. To do so, see the following section:
+
+#### Tier recommended recovery points for Azure Virtual Machines
+
+To tier all recommended recovery points to Vault-archive, run the following cmdlet:
+
+```azurepowershell
+$pol = New-AzRecoveryServicesBackupProtectionPolicy -Name TestPolicy  -WorkloadType AzureVM  -BackupManagementType AzureVM -RetentionPolicy $retPol -SchedulePolicy $schPol -VaultId $vault.ID  -MoveToArchiveTier $true -TieringMode TierRecommended
+```
+[Learn more](archive-tier-support.md#archive-recommendations-only-for-azure-virtual-machines) about archive recommendations for Azure VMs.
+
+If the policy doesn't match the Vault-Archive criteria, the following error appears:
+
+```error
+New-AzRecoveryServicesBackupProtectionPolicy: TierAfterDuration needs to be >= 3 months, at least one of monthly or yearly retention should be >= (TierAfterDuration + 6) months
+```
+>[!Note]
+>Tier recommended is supported for Azure Virtual Machines only, and not for SQL Server in Azure Virtual Machines.
+
+#### Tier all eligible Azure Virtual Machines backup item
+
+To tier all your eligible recovery points to Vault-archive, specify the number of months after which you want to move the recovery points and run the following cmdlet:
+
+```azurepowershell
+$pol = New-AzRecoveryServicesBackupProtectionPolicy -Name hiagaVMArchiveTierAfter  -WorkloadType AzureVM  -BackupManagementType AzureVM -RetentionPolicy $retPol -SchedulePolicy $schPol -VaultId $vault.ID  -MoveToArchiveTier $true -TieringMode TierAllEligible -TierAfterDuration 3 -TierAfterDurationType Months
+```
+
+>[!Note]
+>- The number of months must range from *3* to *( Retention - 6)* months.
+>- This can increase your overall costs.
+
+
+#### Tier all eligible for SQL Server in Azure VM backup item
+
+This tier all your eligible recovery points to Vault-archive, specify the number of days after which you want to move your eligible recovery points and run the following cmdlet:
+
+The number of days ranges from 45 to (Retention – 180 ) days.
+
+```azurepowershell
+$pol = New-AzRecoveryServicesBackupProtectionPolicy -Name SQLArchivePolicy -WorkloadType MSSQL  -BackupManagementType AzureWorkload -RetentionPolicy $retPol -SchedulePolicy $schPol -VaultId $vault.ID  -MoveToArchiveTier $true -TieringMode TierAllEligible -TierAfterDuration 40 -TierAfterDurationType Days
+```
+
+If the policy isn't eligible for Vault-archive, the following error appears:
+
+```error
+New-AzRecoveryServicesBackupProtectionPolicy: TierAfterDuration needs to be >= 45 Days, at least one retention policy for full backup (daily / weekly / monthly / yearly) should be >= (TierAfter + 180) days
+```
+## Modify a policy
+
+To modify an existing policy, run the following cmdlet:
+
+```azurepowershell
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy  -VaultId $vault.ID | Where { $_.Name -match "Archive" }
+```
+
+## Disable Smart Tiering
+
+To disable Smart Tiering to archive recovery point, run the following cmdlet:
+
+```azurepowershell
+Set-AzRecoveryServicesBackupProtectionPolicy -VaultId $vault.ID -Policy $pol[0] -MoveToArchiveTier $false
+```
+
+### Enable Smart Tiering
+
+To enable Smart Tiering after disablement, run the required cmdlet:
+
+**Azure Virtual Machine**
+
+```azurepowershell
+Set-AzRecoveryServicesBackupProtectionPolicy -VaultId $vault.ID -Policy $pol[0] -MoveToArchiveTier $true -TieringMode TierRecommended
+```
+
+**Azure SQL  Server in Azure VMs**
+
+```azurepowershell
+Set-AzRecoveryServicesBackupProtectionPolicy -VaultId $vault.ID -Policy $pol[1] -MoveToArchiveTier $true -TieringMode TierAllEligible -TierAfterDuration 45 -TierAfterDurationType Days
+```
 
 ## Next steps
 
