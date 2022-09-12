@@ -69,7 +69,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	:::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Screenshot of a Notepad++ document. In the Plugins menu, MIME tools is highlighted. In the MIME tools menu, Base64 encode is highlighted." border="false":::
 	
-	To generate the bearer token using Powershell instead of Notepad++, use the following commands:
+	To generate the bearer token using PowerShell instead of Notepad++, use the following commands:
 	 ```powershell
     $Identifier = "<User Identifier>"
 	$SCIMPassword = "<SCIM Password>"
