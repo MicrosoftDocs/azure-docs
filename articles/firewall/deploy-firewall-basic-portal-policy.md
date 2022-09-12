@@ -17,16 +17,19 @@ ms.custom: mvc
 > Azure Firewall Basic is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Controlling outbound network access is an important part of an overall network security plan. For example, you may want to limit access to web sites. Or, you may want to limit the outbound IP addresses and ports that can be accessed.
+Azure Firewall Basic provides the essential protection SMB customers need at an affordable price point. This solution is recommended for SMB customer environments with less than 250 Mbps throughput requirements. It is recommended to deploy the [Standard SKU](tutorial-firewall-deploy-portal-policy.md) for environments with more than 250 Mbps throughput requirements and the [Premium SKU](premium-portal.md) for advanced threat protection. 
 
-One way you can control outbound network access from an Azure subnet is with Azure Firewall and Firewall Policy. With Azure Firewall and Firewall Policy, you can configure:
+Filtering network and application traffic is an important part of an overall network security plan. For example, you may want to limit access to web sites. Or, you may want to limit the outbound IP addresses and ports that can be accessed.
+
+One way you can control both inbound and outbound network access from an Azure subnet is with Azure Firewall and Firewall Policy. With Azure Firewall and Firewall Policy, you can configure:
 
 * Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet.
 * Network rules that define source address, protocol, destination port, and destination address.
+* DNAT rules to translate and filter inbound Internet traffic to your subnets. 
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this how-to, you create a simplified single VNet with three subnets for easy deployment. The Firewall Basic Preview is deployed in forced tunnelling mode to allow for traffic throughput control.
+For this how-to, you create a simplified single VNet with three subnets for easy deployment. The Firewall Basic Preview has a mandatory requirement to be configured with a management NIC.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **AzureFirewallManagementSubnet** - for service management traffic.
@@ -53,7 +56,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Enable Firewall Basic
 
-For the preview, you must enable Firewall Basic before you begin.
+For the preview, you must enable the Firewall Basic feature on your subscription.
 
 ```azurepowershell
 Connect-AzAccount
