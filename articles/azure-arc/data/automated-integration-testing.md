@@ -145,11 +145,14 @@ export DOCKER_REGISTRY="mcr.microsoft.com"
 export DOCKER_REPOSITORY="arcdata"
 export DOCKER_TAG="v1.11.0_2022-09-13"
 
+# Arcdata extension version override - see detailed explanation below [2]
+export ARC_DATASERVICES_WHL_OVERRIDE=""
+
 # ================
 # ARM parameters =
 # ================
 
-# Custom Location Resource Provider Azure AD Object ID - this is a single, unique value per Azure AD tenant - see detailed explanation below [2]
+# Custom Location Resource Provider Azure AD Object ID - this is a single, unique value per Azure AD tenant - see detailed explanation below [3]
 export CUSTOM_LOCATION_OID="..."
 
 # A pre-rexisting Resource Group is used if found with the same name. Otherwise, launcher will attempt to create a Resource Group
@@ -157,7 +160,7 @@ export CUSTOM_LOCATION_OID="..."
 export LOCATION="eastus"
 export RESOURCE_GROUP_NAME="..."
 
-# A Service Principal with "sufficient" privileges - see detailed explanation below [3]
+# A Service Principal with "sufficient" privileges - see detailed explanation below [4]
 export SPN_CLIENT_ID="..."
 export SPN_CLIENT_SECRET="..."
 export SPN_TENANT_ID="..."
@@ -186,7 +189,7 @@ export KUBERNETES_STORAGECLASS="default"
 # Launcher specific parameters =
 # ==============================
 
-# Log/test result upload from launcher container, via SAS URL - see detailed explanation below [4]
+# Log/test result upload from launcher container, via SAS URL - see detailed explanation below [5]
 export LOGS_STORAGE_ACCOUNT="<your-storage-account>"
 export LOGS_STORAGE_ACCOUNT_SAS="?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=...&spr=https&sig=..."
 export LOGS_STORAGE_CONTAINER="arc-ci-launcher-1662513182"
@@ -208,7 +211,7 @@ export TEST_TYPE="ci"
 # - SKIP_POSTCLEAN: Skips final cleanup
 # - SKIP_UPLOAD: Skips log upload
 #
-# See detailed explanation below [5]
+# See detailed explanation below [6]
 export SKIP_PRECLEAN="0"
 export SKIP_SETUP="0"
 export SKIP_TEST="0"
@@ -233,9 +236,18 @@ The extension version to release-train (`ARC_DATASERVICES_EXTENSION_RELEASE_TRAI
 * **GA**: `stable` - [Version log](version-log.md)
 * **Pre-GA**: `preview` - [Pre-release testing](preview-testing.md)
 
-The launcher image is pre-packaged with the latest arcdata CLI version at the time of each container image release.
+##### 2. `ARC_DATASERVICES_WHL_OVERRIDE` - Azure CLI previous version download URL
 
-##### 2. `CUSTOM_LOCATION_OID` - Custom Locations Object ID from your specific Azure AD Tenant
+> Optional: leave this empty in `.test.env` to use the pre-packaged default.
+
+The launcher image is pre-packaged with the latest arcdata CLI version at the time of each container image release. However, to work with older releases, it may be necessary to provide the launcher with Azure CLI Blob URL download link, to override the pre-packaged version; e.g to instruct the launcher to install version **1.4.3**, fill in:
+
+```bash
+export ARC_DATASERVICES_WHL_OVERRIDE="https://azurearcdatacli.blob.core.windows.net/cli-extensions/arcdata-1.4.3-py2.py3-none-any.whl"
+```
+The CLI version to Blob URL mapping can be found [here](https://azcliextensionsync.blob.core.windows.net/index1/index.json).
+
+##### 3. `CUSTOM_LOCATION_OID` - Custom Locations Object ID from your specific Azure AD Tenant
 
 > Mandatory: this is required for Connected Cluster Custom Location creation.
 
@@ -255,7 +267,7 @@ az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
 2. Via Azure portal - navigate to your Azure Active Directory blade, and search for `Custom Locations RP`:
 
 ![Custom Location Object ID - Portal](media/automated-integration-testing/custom-location-oid-portal.png)
-##### 3. `SPN_CLIENT_*` - Service Principal Credentials
+##### 4. `SPN_CLIENT_*` - Service Principal Credentials
 
 > Mandatory: this is required for Direct Mode deployments.
 
@@ -263,7 +275,7 @@ The Launcher logs in to Azure using these credentials.
 
 Validation testing is meant to be performed on **Non-Production/Test Kubernetes cluster & Azure Subscriptions** - focusing on functional validation of the Kubernetes/Infrastructure setup. Therefore, to avoid the number of manual steps required to perform launches, it's recommended to provide a `SPN_CLIENT_ID/SECRET` that has `Owner` at the Resource Group (or Subscription) level, as it will create several resources in this Resource Group, as well as assigning permissions to those resources against several Managed Identities created as part of the deployment (these role assignments in turn require the Service Principal to have `Owner`).
 
-##### 4. `LOGS_STORAGE_ACCOUNT_SAS` - Blob Storage Account SAS URL
+##### 5. `LOGS_STORAGE_ACCOUNT_SAS` - Blob Storage Account SAS URL
 
 > Recommended: leaving this empty means you will not obtain test results and logs.
 
@@ -285,7 +297,7 @@ There are several approaches to generating a SAS URL - we explore the Portal opt
 
 To use the Azure CLI instead, see [`az storage account generate-sas`](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az-storage-account-generate-sas)
 
-##### 5. `SKIP_*` - controlling the launcher behavior by skipping certain stages
+##### 6. `SKIP_*` - controlling the launcher behavior by skipping certain stages
 
 > Optional: leave this empty in `.test.env` to run all stages (equivalent to `0` or blank)
 
