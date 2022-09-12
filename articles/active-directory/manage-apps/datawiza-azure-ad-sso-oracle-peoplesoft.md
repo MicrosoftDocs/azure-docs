@@ -203,11 +203,11 @@ To enable SSO in the Oracle PeopleSoft environment:
 
     c.  Create user **PSPUBUSER** and enter the password.
 
-        ![Screenshot that shows creating a username/password in the console.](./media/access-oracle-peoplesoft-using-datawiza/create-user.png)
+    ![Screenshot that shows creating a username/password in the console.](./media/access-oracle-peoplesoft-using-datawiza/create-user.png)
 
     d.  Select the **ID** tab and choose the type as **none**.
 
-        ![Screenshot that shows the ID type.](./media/access-oracle-peoplesoft-using-datawiza/id-type.png)
+    ![Screenshot that shows the ID type.](./media/access-oracle-peoplesoft-using-datawiza/id-type.png)
 
 3. Configure the web profile.
 
@@ -217,7 +217,7 @@ To enable SSO in the Oracle PeopleSoft environment:
 
     c. Select **Save**.
 
-       ![Screenshot that shows the web profile configure.](./media/access-oracle-peoplesoft-using-datawiza/web-profile-config.png)
+    ![Screenshot that shows the web profile configure.](./media/access-oracle-peoplesoft-using-datawiza/web-profile-config.png)
 
 4. Enable SSO.
 
@@ -233,7 +233,7 @@ To enable SSO in the Oracle PeopleSoft environment:
 
     b.  Open **FUNCLIB_LDAP**.
 
-        ![Screenshot that shows the selection criteria.](./media/access-oracle-peoplesoft-using-datawiza/selection-criteria.png)
+    ![Screenshot that shows the selection criteria.](./media/access-oracle-peoplesoft-using-datawiza/selection-criteria.png)
 
     c.  Select the record.
 
@@ -243,7 +243,7 @@ To enable SSO in the Oracle PeopleSoft environment:
 
     f.  Double check the user Header is `PS_SSO_UID` for `OAMSSO_AUTHENTICATION` function. Save the record definition.
 
-        ![Screenshot that shows the record definition.](./media/access-oracle-peoplesoft-using-datawiza/record-definition.png)
+    ![Screenshot that shows the record definition.](./media/access-oracle-peoplesoft-using-datawiza/record-definition.png)
 
 ## Test an Oracle PeopleSoft application
 
