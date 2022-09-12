@@ -2,16 +2,16 @@
 title: Serverless SQL pool self-help
 description: This article contains information that can help you troubleshoot problems with serverless SQL pool.
 author: azaricstefan
-ms.service: synapse-analytics
-ms.topic: overview
-ms.subservice: sql
-ms.custom: event-tier1-build-2022
-ms.date: 07/21/2022
 ms.author: stefanazaric
 ms.reviewer: sngun, wiassaf
+ms.date: 09/01/2022
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: overview
+ms.custom: event-tier1-build-2022
 ---
 
-# Self-help for serverless SQL pool
+# Troubleshoot serverless SQL pool in Azure Synapse Analytics
 
 This article contains information about how to troubleshoot the most frequent problems with serverless SQL pool in Azure Synapse Analytics.
 
@@ -69,13 +69,13 @@ For more information, see:
 
 #### Alternative to Storage Blob Data Contributor role
 
-Instead of granting yourself a Storage Blob Data Contributor role, you can also grant more granular permissions on a subset of files.
+Instead of [granting yourself a Storage Blob Data Contributor role](../security/how-to-grant-workspace-managed-identity-permissions.md), you can also grant more granular permissions on a subset of files.
 
 All users who need access to some data in this container also must have EXECUTE permission on all parent folders up to the root (the container).
 
 Learn more about how to [set ACLs in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-explorer-acl.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Execute permission on the container level must be set within Data Lake Storage Gen2.
 > Permissions on the folder can be set within Azure Synapse.
 
@@ -85,19 +85,19 @@ If you want to query data2.csv in this example, the following permissions are ne
    - Execute permission on folder1
    - Read permission on data2.csv
 
-![Diagram that shows permission structure on data lake.](./media/resources-self-help-sql-on-demand/folder-structure-data-lake.png)
+:::image type="content" source="./media/resources-self-help-sql-on-demand/folder-structure-data-lake.png" alt-text="Diagram that shows permission structure on data lake.":::
 
 1. Sign in to Azure Synapse with an admin user that has full permissions on the data you want to access.
 1. In the data pane, right-click the file and select **Manage access**.
 
-   ![Screenshot that shows the Manage access option.](./media/resources-self-help-sql-on-demand/manage-access.png)
+   :::image type="content" source="./media/resources-self-help-sql-on-demand/manage-access.png" alt-text="Screenshot that shows the manage access option.":::
 
 1. Select at least **Read** permission. Enter the user's UPN or object ID, for example, user@contoso.com. Select **Add**.
 1. Grant read permission for this user.
 
-   ![Screenshot that shows granting read permissions.](./media/resources-self-help-sql-on-demand/grant-permission.png)
+   :::image type="content" source="./media/resources-self-help-sql-on-demand/grant-permission.png" alt-text="Screenshot that shows granting read permissions.":::
 
-> [!NOTE]
+> [!NOTE]  
 > For guest users, this step needs to be done directly with Azure Data Lake because it can't be done directly through Azure Synapse.
 
 ### Content of directory on the path can't be listed
@@ -118,13 +118,9 @@ For more information, see:
 
 #### Content of Dataverse table can't be listed
 
-If you are using the Synapse link for Dataverse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool. For more information, see [Azure Synapse Link for Dataverse with Azure Data Lake](/powerapps/maker/data-platform/azure-synapse-link-data-lake).
+If you are using the Azure Synapse Link for Dataverse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool. For more information, see [Azure Synapse Link for Dataverse with Azure Data Lake](/powerapps/maker/data-platform/azure-synapse-link-data-lake).
 
-If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error:
-
-```
-External table '???' is not accessible because content of directory cannot be listed.
-```
+If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error: `External table '???' is not accessible because content of directory cannot be listed.`
 
 Dataverse external tables always use Azure AD passthrough authentication. You *can't* configure them to use a [shared access signature key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity).
 
@@ -140,11 +136,11 @@ Make sure the `_delta_log` folder exists. Maybe you're querying plain Parquet fi
 
 ```sql
 select top 10 *
-from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json',FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b',ROWTERMINATOR = '0x0b') 
+from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json',FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b',ROWTERMINATOR = '0x0b')  
 with (line varchar(max)) as logs
 ```
 
-If this query fails, the caller doesn't have permission to read the underlying storage files.  
+If this query fails, the caller doesn't have permission to read the underlying storage files.
 
 ## Query execution
 
@@ -161,7 +157,7 @@ Your query might fail with the error message "This query cannot be executed due 
 - Make sure data types of reasonable sizes are used.  
 - If your query targets Parquet files, consider defining explicit types for string columns because they'll be VARCHAR(8000) by default. [Check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types).
 - If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool).
-- To optimize your query, see [Performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md).  
+- To optimize your query, see [Performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md).
 
 ### Query timeout expired
 
@@ -178,7 +174,7 @@ The error "Invalid object name 'table name'" indicates that you're using an obje
 - If you don't see the object, maybe you're trying to query a table from a lake or Spark database. The table might not be available in the serverless SQL pool because:
 
     - The table has some column types that can't be represented in serverless SQL pool.
-    - The table has a format that isn't supported in serverless SQL pool. Examples are Delta or ORC.
+    - The table has a format that isn't supported in serverless SQL pool. Examples are Avro or ORC.
 
 ### Unclosed quotation mark after the character string
 
@@ -186,15 +182,14 @@ In rare cases, where you use the LIKE operator on a string column or some compar
 
 ```
 Msg 105, Level 15, State 1, Line 88
-Unclosed quotation mark after the character string 
+Unclosed quotation mark after the character string
 ```
 
 This error might happen if you use the `Latin1_General_100_BIN2_UTF8` collation on the column. Try to set `Latin1_General_100_CI_AS_SC_UTF8` collation on the column instead of the `Latin1_General_100_BIN2_UTF8` collation to resolve the issue. If the error is still returned, raise a support request through the Azure portal.
 
 ### Couldn't allocate tempdb space while transferring data from one distribution to another
 
-The error "Could not allocate tempdb space while transferring data from one distribution to another" is returned when the query execution engine can't process data and transfer it between the nodes that are executing the query.
-It's a special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cant-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query.
+The error "Could not allocate tempdb space while transferring data from one distribution to another" is returned when the query execution engine can't process data and transfer it between the nodes that are executing the query. It's a special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cant-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query.
 
 Apply best practices before you file a support ticket.
 
@@ -211,7 +206,7 @@ If you want to query the file `names.csv` with this Query 1, Azure Synapse serve
 names.csv
 
 ```csv
-Id,first name, 
+Id,first name,  
 1, Adam
 2,Bob
 3,Charles
@@ -231,10 +226,10 @@ FROM
         PARSER_VERSION='2.0',
        FIELDTERMINATOR =';',
        FIRSTROW = 2
-    ) 
+    )  
     WITH (
-    [ID] SMALLINT, 
-    [Text] VARCHAR (1) COLLATE Latin1_General_BIN2 
+    [ID] SMALLINT,  
+    [Text] VARCHAR (1) COLLATE Latin1_General_BIN2  
 )
 
     AS [result]
@@ -248,7 +243,7 @@ As soon as the parser version is changed from version 2.0 to 1.0, the error mess
 
 Truncation tells you that your column type is too small to fit your data. The longest first name in this names.csv file has seven characters. The according data type to be used should be at least VARCHAR(7). The error is caused by this line of code:
 
-```sql 
+```sql
     [Text] VARCHAR (1) COLLATE Latin1_General_BIN2
 ```
 
@@ -256,7 +251,7 @@ Changing the query accordingly resolves the error. After debugging, change the p
 
 For more information about when to use which parser version, see [Use OPENROWSET using serverless SQL pool in Synapse Analytics](develop-openrowset.md).
 
-```sql 
+```sql
 SELECT
     TOP 100 *
 FROM
@@ -266,10 +261,10 @@ FROM
         PARSER_VERSION='2.0',
         FIELDTERMINATOR =';',
         FIRSTROW = 2
-    ) 
+    )  
     WITH (
-    [ID] SMALLINT, 
-    [Text] VARCHAR (7) COLLATE Latin1_General_BIN2 
+    [ID] SMALLINT,  
+    [Text] VARCHAR (7) COLLATE Latin1_General_BIN2  
 )
 
     AS [result]
@@ -281,7 +276,7 @@ The error "Cannot bulk load because the file could not be opened" is returned if
 
 The serverless SQL pools can't read files that are being modified while the query is running. The query can't take a lock on the files. If you know that the modification operation is *append*, you can try to set the following option:
 
- `{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}`.
+`{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}`.
 
 For more information, see how to [query append-only files](query-single-csv-file.md#querying-appendable-files) or [create tables on append-only files](create-use-external-tables.md#external-table-on-appendable-files).
 
@@ -301,7 +296,7 @@ If you want to query the file names.csv:
 
 names.csv
 ```csv
-Id, first name, 
+Id, first name,  
 1,Adam
 2,Bob
 3,Charles
@@ -311,7 +306,7 @@ five,Eva
 with the following Query 1:
 
 Query 1:
-```sql 
+```sql
 SELECT
     TOP 100 *
 FROM
@@ -321,10 +316,10 @@ FROM
         PARSER_VERSION='1.0',
        FIELDTERMINATOR =',',
        FIRSTROW = 2
-    ) 
+    )  
     WITH (
-    [ID] SMALLINT, 
-    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+    [ID] SMALLINT,  
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2  
 )
 
     AS [result]
@@ -351,10 +346,10 @@ FROM
         PARSER_VERSION='1.0',
        FIELDTERMINATOR =',',
        FIRSTROW = 2
-    ) 
+    )  
     WITH (
-    [ID] VARCHAR(100), 
-    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+    [ID] VARCHAR(100),  
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2  
 )
 
     AS [result]
@@ -363,7 +358,7 @@ FROM
 names.csv
 
 ```csv
-Id, first name, 
+Id, first name,  
 1, Adam
 2, Bob
 3, Charles
@@ -373,7 +368,7 @@ five, Eva
 
 You might observe that the data has unexpected values for ID in the fifth row. In such circumstances, it's important to align with the business owner of the data to agree on how corrupt data like this example can be avoided. If prevention isn't possible at the application level, reasonable-sized VARCHAR might be the only option here.
 
-> [!Tip]
+> [!TIP]  
 > Try to make VARCHAR() as short as possible. Avoid VARCHAR(MAX) if possible because it can impair performance.
 
 ### The query result doesn't look as expected
@@ -389,7 +384,7 @@ If you want to query the file `names.csv` with the query in Query 1, Azure Synap
 names.csv
 
 ```csv
-Id,first name, 
+Id,first name,  
 1, Adam
 2, Bob
 3, Charles
@@ -407,22 +402,22 @@ FROM
         PARSER_VERSION='1.0',
        FIELDTERMINATOR =';',
        FIRSTROW = 2
-    ) 
+    )  
     WITH (
-    [ID] VARCHAR(100), 
-    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+    [ID] VARCHAR(100),  
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2  
 )
 
     AS [result]
 ```
 
-| ID            |   Firstname   | 
-| ------------- |-------------  | 
-| 1,Adam        | NULL | 
-| 2,Bob         | NULL | 
-| 3,Charles     | NULL | 
-| 4,David       | NULL | 
-| 5,Eva         | NULL | 
+| ID            |   Firstname   |  
+| ------------- |-------------  |  
+| 1,Adam        | NULL |  
+| 2,Bob         | NULL |  
+| 3,Charles     | NULL |  
+| 4,David       | NULL |  
+| 5,Eva         | NULL |
 
 There seems to be no value in the column `Firstname`. Instead, all values ended up being in the `ID` column. Those values are separated by a comma. The problem was caused by this line of code because it's necessary to choose the comma instead of the semicolon symbol as field terminator:
 
@@ -449,24 +444,24 @@ FROM
         PARSER_VERSION='1.0',
        FIELDTERMINATOR =',',
        FIRSTROW = 2
-    ) 
+    )  
     WITH (
-    [ID] VARCHAR(100), 
-    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+    [ID] VARCHAR(100),  
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2  
 )
 
     AS [result]
-``` 
+```
 
 returns
 
-| ID            |   Firstname   | 
-| ------------- |-------------  | 
-| 1        | Adam | 
-| 2         | Bob | 
-| 3     | Charles | 
-| 4       | David | 
-| 5         | Eva | 
+| ID            |   Firstname   |  
+| ------------- |-------------  |  
+| 1        | Adam |  
+| 2         | Bob |  
+| 3     | Charles |  
+| 4       | David |  
+| 5         | Eva |
 
 ### Column of type isn't compatible with external data type
 
@@ -500,8 +495,8 @@ FROM
         FORMAT='PARQUET'
     )  WITh
         (
-        PassengerCount INT, 
-        SumTripDistance INT, 
+        PassengerCount INT,  
+        SumTripDistance INT,  
         AVGTripDistance FLOAT
         )
 
@@ -513,7 +508,7 @@ FROM
 This error message tells you that data types aren't compatible and comes with the suggestion to use FLOAT instead of INT. The error is caused by this line of code:
 
 ```sql
-SumTripDistance INT, 
+SumTripDistance INT,
 ```
 
 With this slightly changed Query 2, the data can now be processed and shows all three columns:
@@ -529,8 +524,8 @@ FROM
         FORMAT='PARQUET'
     )  WITh
         (
-        PassengerCount INT, 
-        SumTripDistance FLOAT, 
+        PassengerCount INT,  
+        SumTripDistance FLOAT,  
         AVGTripDistance FLOAT
         )
 
@@ -565,7 +560,7 @@ There are reasons why this error code can happen:
 
 - The file was deleted by another application.
   - In this common scenario, the query execution starts, it enumerates the files, and the files are found. Later, during the query execution, a file is deleted. For example, it could be deleted by Databricks, Spark, or Azure Data Factory. The query fails because the file isn't found.
- - This issue can also occur with the Delta format. The query might succeed on retry because there's a new version of the table and the deleted file isn't queried again.
+- This issue can also occur with the Delta format. The query might succeed on retry because there's a new version of the table and the deleted file isn't queried again.
 - An invalid execution plan is cached.
   - As a temporary mitigation, run the command `DBCC FREEPROCCACHE`. If the problem persists, create a support ticket.
 
@@ -635,7 +630,7 @@ When the file format is Parquet, the query won't recover automatically. It needs
 
 ### Synapse Link for Dataverse
 
-This error can occur when reading data from Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this behavior. 
+This error can occur when reading data from Azure Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this behavior.
 
 ### [0x800700A1](#tab/x800700A1)
 
@@ -678,7 +673,7 @@ If the issue persists, create a support ticket.
 
 The error "Incorrect syntax near 'NOT'" indicates there are some external tables with columns that contain the NOT NULL constraint in the column definition. Update the table to remove NOT NULL from the column definition. This error can sometimes also occur transiently with tables created from a CETAS statement. If the problem doesn't resolve, you can try dropping and re-creating the external table.
 
-### Partitioning column returns NULL values
+### Partition column returns NULL values
 
 If your query returns NULL values instead of partitioning columns or can't find the partition columns, you have a few possible troubleshooting steps:
 
@@ -686,11 +681,11 @@ If your query returns NULL values instead of partitioning columns or can't find 
 - If you use the [partitioned views](create-use-views.md#partitioned-views) with the OPENROWSET that [queries partitioned files by using the FILEPATH() function](query-specific-files.md), make sure you correctly specified the wildcard pattern in the location and used the proper index for referencing the wildcard.
 - If you're querying the files directly in the partitioned folder, be aware that the partitioning columns aren't the parts of the file columns. The partitioning values are placed in the folder paths and not the files. For this reason, the files don't contain the partitioning values.
 
-### Inserting value to batch for column type DATETIME2 failed
+### <a id="#inserting-value-to-batch-for-column-type-datetime2-failed"></a>Insert value to batch for column type DATETIME2 failed
 
 The error "Inserting value to batch for column type DATETIME2 failed" indicates that the serverless pool can't read the date values from the underlying files. The datetime value stored in the Parquet or Delta Lake file can't be represented as a `DATETIME2` column.
 
-Inspect the minimum value in the file by using Spark, and check that some dates are less than 0001-01-03. If you stored the files by using Spark 2.4, the datetime values before are written by using the Julian calendar that isn't aligned with the proleptic Gregorian calendar used in serverless SQL pools. 
+Inspect the minimum value in the file by using Spark, and check that some dates are less than 0001-01-03. If you stored the files by using Spark 2.4, the datetime values before are written by using the Julian calendar that isn't aligned with the proleptic Gregorian calendar used in serverless SQL pools.
 
 There might be a two-day difference between the Julian calendar used to write the values in Parquet (in some Spark versions) and the proleptic Gregorian calendar used in serverless SQL pool. This difference might cause conversion to a negative date value, which is invalid.
 
@@ -700,7 +695,7 @@ Try to use Spark to update these values because they're treated as invalid date 
 from delta.tables import *
 from pyspark.sql.functions import *
 
-deltaTable = DeltaTable.forPath(spark, 
+deltaTable = DeltaTable.forPath(spark,  
              "abfss://my-container@myaccount.dfs.core.windows.net/delta-lake-data-set")
 deltaTable.update(col("MyDateTimeColumn") < '0001-02-02', { "MyDateTimeColumn": null } )
 ```
@@ -723,7 +718,7 @@ Describe anything that might be unusual compared to the regular workload. For ex
 
 Serverless SQL pools enable you to use T-SQL to configure database objects. There are some constraints:
 
-- You can't create objects in master and lakehouse or Spark databases.
+- You can't create objects in `master` and `lakehouse` or Spark databases.
 - You must have a master key to create credentials.
 - You must have permission to reference data that's used in the objects.
 
@@ -746,12 +741,12 @@ To resolve this problem, create a master key with the following query:
 CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Replace `'password'` with a different secret here.
 
 ### CREATE statement isn't supported in the master database
 
-If your query fails with the error message "Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database," it means that the master database in serverless SQL pool doesn't support the creation of:
+If your query fails with the error message "Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database," it means that the `master` database in serverless SQL pool doesn't support the creation of:
 
   - External tables.
   - External data sources.
@@ -766,25 +761,15 @@ Here's the solution:
         CREATE DATABASE <DATABASE_NAME>
         ```
 
-  1. Execute a CREATE statement in the context of <DATABASE_NAME>, which failed earlier for the master database.
-  
+  1. Execute a CREATE statement in the context of <DATABASE_NAME>, which failed earlier for the `master` database.
+
       Here's an example of the creation of an external file format:
-            
+
         ```sql
         USE <DATABASE_NAME>
-        CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+        CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]  
         WITH ( FORMAT_TYPE = PARQUET)
         ```
-
-### Operation isn't allowed for a replicated database
-
-If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation is not allowed for a replicated database." This error might be returned when you try to modify a Lake database that's [shared with Spark pool](../metadata/database.md). The Lake databases that are replicated from the Apache Spark pool are managed by Synapse and you cannot create objects like in SQL Databases by using T-SQL. 
-Only the following operations are allowed in the Lake databases:
-- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the schemas other than `dbo`. If you are creating a SQL object in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
-- Creating and dropping the database users from Azure Active Directory.
-- Adding or removing database users from `db_datareader` schema.
-
-Other operations are not allowed in Lake databases.
 
 ### Can't create Azure AD sign-in or user
 
@@ -834,7 +819,7 @@ Azure Synapse SQL returns NULL instead of the values that you see in the transac
 
 The error "Column `column name` of the type `type name` is not compatible with the external data type `type name`" is returned if the specified column type in the WITH clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings) or use the VARCHAR type.
 
-### Resolving Azure Cosmos DB path has failed with error
+### <a id="resolving-azure-cosmos-db-path-has-failed-with-error"></a>Resolve: Azure Cosmos DB path has failed with error
 
 If you get the error "Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation'," check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
 
@@ -854,7 +839,7 @@ There are some limitations and known issues that you might see in Delta Lake sup
 - Make sure that you're referencing the root Delta Lake folder in the [OPENROWSET](./develop-openrowset.md) function or external table location.
   - The root folder must have a subfolder named `_delta_log`. The query fails if there's no `_delta_log` folder. If you don't see that folder, you're referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) by using Apache Spark pools.
   - Don't specify wildcards to describe the partition schema. The Delta Lake query automatically identifies the Delta Lake partitions.
-- Delta Lake tables created in the Apache Spark pools aren't automatically available in serverless SQL pool. To query such Delta Lake tables by using the T-SQL language, run the [CREATE EXTERNAL TABLE](./create-use-external-tables.md#delta-lake-external-table) statement and specify Delta as the format.
+- Delta Lake tables that are created in the Apache Spark pools are automatically available in serverless SQL pool, but the schema is not updated (public preview limitation). If you add columns in the Delta table using a Spark pool, the changes will not be shown in serverless SQL pool database.
 - External tables don't support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on the Delta Lake folder to use the partition elimination. See known issues and workarounds later in the article.
 - Serverless SQL pools don't support time travel queries. Use Apache Spark pools in Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools don't support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Synapse Analytics to [update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
@@ -887,19 +872,60 @@ If the dataset is valid, [create a support ticket](../../azure-portal/supportabi
 
 Now you can continue using the Delta Lake folder with Spark pool. You'll provide copied data to Microsoft support if you're allowed to share this information. The Azure team will investigate the content of the `delta_log` file and provide more information about possible errors and workarounds.
 
-### Resolving Delta logs failed
+### <a id="#resolving-delta-logs-failed"></a>Resolve Delta logs failed
 
-The following error indicates that serverless SQL pool cannot resolve Delta logs:
-```
-Resolving Delta logs on path '%ls' failed with error: Cannot parse json object from log folder.
-```   
-The most common cause is that `last_checkpoint_file` in `_delta_log` folder is larger than 200 bytes due to the `checkpointSchema` field added in Spark 3.3. 
-	  
+The following error indicates that serverless SQL pool cannot resolve Delta logs: `Resolving Delta logs on path '%ls' failed with error: Cannot parse json object from log folder.`
+The most common cause is that `last_checkpoint_file` in `_delta_log` folder is larger than 200 bytes due to the `checkpointSchema` field added in Spark 3.3.
+
 There are two options available to circumvent this error:
 * Modify appropriate config in Spark notebook and generate a new checkpoint, so that `last_checkpoint_file` gets re-created. In case you are using Azure Databricks, the config modification is the following: `spark.conf.set("spark.databricks.delta.checkpointSchema.writeThresholdLength", 0);`
 * Downgrade to Spark 3.2.1.
 
 Our engineering team is currently working on a full support for Spark 3.3.
+
+## Lake database
+
+The Lake database tables that are created using Spark or Synapse designer are automatically available in serverless SQL pool for querying. You can use serverless SQL pool to query the Parquet, CSV, and Delta Lake tables that are created using Spark pool, and add additional schemas, views, procedures, table-value functions, and Azure AD users in `db_datareader` role to your Lake database. Possible issues are listed in this section.
+
+### A table created in Spark is not available in serverless pool
+
+Tables that are created might not be immediately available in serverless SQL pool.
+- The tables will be available in serverless pools with some delay. You might need to wait 5-10 minutes after creation of a table in Spark to see it in serverless SQL pool.
+- Only the tables that reference Parquet, CSV, and Delta formats are available in serverless SQL pool. Other table types are not available.
+- A table that contains some [unsupported column types](../metadata/table.md#share-spark-tables) will not be available in serverless SQL pool.
+- Accessing Delta Lake tables in Lake databases is in **public preview**. Check other issues listed in this section or in the Delta Lake section.
+
+### Operation isn't allowed for a replicated database
+
+This error is returned if you are trying to modify a Lake database, create external tables, external data sources, database scoped credentials or other objects in your [Lake database](../metadata/database.md). These objects can be created only on SQL databases.
+
+The Lake databases are replicated from the Apache Spark pool and managed by Apache Spark. Therefore, you cannot create objects like in SQL Databases by using T-SQL language.  
+
+Only the following operations are allowed in the Lake databases:
+- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the **schemas other than `dbo`**. 
+- Creating and dropping the database users from Azure Active Directory.
+- Adding or removing database users from `db_datareader` schema.
+
+Other operations are not allowed in Lake databases.
+
+> [!NOTE]
+> If you are creating a view, procedure, or function in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
+
+### Dataverse real-time snapshot tables are not available in serverless SQL pool
+
+If you are exporting your [Dataverse table to Azure Data Lake storage](/power-apps/maker/data-platform/azure-synapse-link-data-lake#manage-table-data-to-the-data-lake) to Data Lake, and you don't see the [snapshot data](/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data) (the tables with the `_partitioned` suffix) in your Lake database, make sure that your workspace Managed Identity has read-access on the ADLS storage that contains exported data. The serverless SQL pool reads the schema of the exported data using Managed Identity access to create the table schema.
+
+### Delta tables in Lake databases are not available in serverless SQL pool
+
+Make sure that your workspace Managed Identity has read access on the ADLS storage that contains Delta folder. The serverless SQL pool reads the Delta Lake table schema from the Delta log that are placed in ADLS and use the workspace Managed Identity to access the Delta transaction logs.
+
+Try to setup a data source in some SQL Database that references your Azure Data Lake storage using Managed Identity credential, and try to [create external table on top of data source with Managed Identity](/sql/develop-storage-files-storage-access-control.md?tabs=managed-identity#access-a-data-source-using-credentials) to confirm that a table with the Managed Identity can access your storage.
+
+### Delta tables in Lake databases do not have identical schema in Spark and serverless pools
+
+Serverless SQL pools enable you to access Parquet, CSV, and Delta tables that are created in Lake database using Spark or Synapse designer. Accessing the Delta tables is still in public preview, and currently serverless will synchronize a Delta table with Spark at the time of creation but will not update the schema if the columns are added later using the `ALTER TABLE` statement in Spark.
+
+This is a public preview limitation. Drop and re-create the Delta table in Spark (if it is possible) instead of altering tables to resolve this issue.
 
 ## Performance
 
@@ -942,7 +968,7 @@ Serverless SQL pool enables you to connect by using the TDS protocol and by usin
 
 ### SQL pool is warming up
 
-Following a longer period of inactivity, serverless SQL pool will be deactivated. The activation happens automatically on the first next activity, such as the first connection attempt. The activation process might take a bit longer than a single connection attempt interval, so the error message is displayed. Retrying the connection attempt should be enough.  
+Following a longer period of inactivity, serverless SQL pool will be deactivated. The activation happens automatically on the first next activity, such as the first connection attempt. The activation process might take a bit longer than a single connection attempt interval, so the error message is displayed. Retrying the connection attempt should be enough.
 
 As a best practice, for the clients that support it, use ConnectionRetryCount and ConnectRetryInterval connection string keywords to control the reconnect behavior.
 
@@ -978,13 +1004,9 @@ Dataverse tables access storage by using the caller's Azure AD identity. A SQL u
 
 ### Azure AD service principal sign-in failures when SPI creates a role assignment
 
-If you want to create a role assignment for a service principal identifier (SPI) or Azure AD app by using another SPI, or you've already created one and it fails to sign in, you'll probably receive the following error:
+If you want to create a role assignment for a service principal identifier (SPI) or Azure AD app by using another SPI, or you've already created one and it fails to sign in, you'll probably receive the following error: `Login error: Login failed for user '<token-identified principal>'.`
 
-```
-Login error: Login failed for user '<token-identified principal>'.
-```
-
-For service principals, sign-in should be created with an application ID as a security ID (SID) not with an object ID. There's a known limitation for service principals, which prevents Azure Synapse from fetching the application ID from Microsoft Graph when it creates a role assignment for another SPI or app.  
+For service principals, sign-in should be created with an application ID as a security ID (SID) not with an object ID. There's a known limitation for service principals, which prevents Azure Synapse from fetching the application ID from Microsoft Graph when it creates a role assignment for another SPI or app.
 
 **Solution 1**
 
@@ -1007,7 +1029,7 @@ go
 
 You can also set up a service principal Azure Synapse admin by using PowerShell. You must have the [Az.Synapse module](/powershell/module/az.synapse) installed.
 
-The solution is to use the cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"`. In that parameter field, provide the application ID instead of the object ID by using the workspace admin Azure service principal credentials.
+The solution is to use the cmdlet `New-AzSynapseRoleAssignment` with `-ObjectId "parameter"`. In that parameter field, provide the application ID instead of the object ID by using the workspace admin Azure service principal credentials.
 
 PowerShell script:
 
@@ -1057,35 +1079,8 @@ If you get the error "CREATE DATABASE failed. User database limit has been alrea
 
 You don't need to use separate databases to isolate data for different tenants. All data is stored externally on a data lake and Azure Cosmos DB. The metadata like table, views, and function definitions can be successfully isolated by using schemas. Schema-based isolation is also used in Spark where databases and schemas are the same concepts.
 
-## Query Azure data
+## Next steps
 
-Serverless SQL pools enable you to query data in Azure Storage or Azure Cosmos DB by using [external tables and the OPENROWSET function](develop-storage-files-overview.md).  Make sure that you have proper [permission set up](develop-storage-files-overview.md#permissions) on your storage.
-
-### Query CSV data
-
-Learn how to [query a single CSV file](query-single-csv-file.md) or [folders and multiple CSV files](query-folders-multiple-csv-files.md). You can also [query partitioned files](query-specific-files.md)
-
-### Query Parquet data
-
-Learn how to [query Parquet files](query-parquet-files.md) with [nested types](query-parquet-nested-types.md). You can also [query partitioned files](query-specific-files.md).
-
-### Query Delta Lake
-
-Learn how to [query Delta Lake files](query-delta-lake-format.md) with [nested types](query-parquet-nested-types.md).
-
-### Query Azure Cosmos DB data
-
-Learn how to [query Azure Cosmos DB analytical store](query-cosmos-db-analytical-store.md). You can use an [online generator](https://htmlpreview.github.io/?https://github.com/Azure-Samples/Synapse/blob/main/SQL/tools/cosmosdb/generate-openrowset.html) to generate the WITH clause based on a sample Azure Cosmos DB document. You can [create views](create-use-views.md#cosmosdb-view) on top of Azure Cosmos DB containers.
-
-### Query JSON data
-
-Learn how to [query JSON files](query-json-files.md). You can also [query partitioned files](query-specific-files.md).
-
-### Create views, tables, and other database objects
-
-Learn how to create and use [views](create-use-views.md) and [external tables](create-use-external-tables.md) or set up [row-level security](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-implement-row-level-security-in-serverless-sql-pools/ba-p/2354759).
-If you have [partitioned files](query-specific-files.md), make sure you use [partitioned views](create-use-views.md#partitioned-views).
-
-### Copy and transform data (CETAS)
-
-Learn how to [store query results to storage](create-external-table-as-select.md) by using the CETAS command.
+- [Best practices for serverless SQL pool in Azure Synapse Analytics](best-practices-serverless-sql-pool.md)
+- [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)
+- [Store query results to storage using serverless SQL pool in Azure Synapse Analytics](create-external-table-as-select.md)

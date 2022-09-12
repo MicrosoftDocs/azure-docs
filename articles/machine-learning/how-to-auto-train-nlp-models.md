@@ -15,7 +15,7 @@ ms.date: 03/15/2022
 
 # Set up AutoML to train a natural language processing model (preview)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
 > * [v1](./v1/how-to-auto-train-nlp-models-v1.md)
 > * [v2 (current version)](how-to-auto-train-nlp-models.md)
@@ -30,7 +30,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
 ## Prerequisites
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -45,7 +45,9 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -183,7 +185,7 @@ However, there are key differences:
 * If the majority of the samples in your dataset contain more than 128 words, it's considered long range. By default, automated ML considers all samples long range text. 
    * If your dataset contains long range text, then a GPU with higher memory is required such as, [NCv3](../virtual-machines/ncv3-series.md) series  or  [ND](../virtual-machines/nd-series.md)  series.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -191,7 +193,9 @@ For CLI v2 AutoML jobs you configure your experiment in a YAML file like the fol
 
 
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -231,7 +235,7 @@ Multi-label text classification|`"eng"` <br>  `"deu"` <br> `"mul"`|  English&nbs
 Multi-class text classification|`"eng"` <br>  `"deu"` <br> `"mul"`|  English&nbsp;BERT&nbsp;[cased](https://huggingface.co/bert-base-cased)<br>  [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) <br><br>For all other languages, automated ML applies multilingual BERT
 Named entity recognition (NER)|`"eng"` <br>  `"deu"` <br> `"mul"`|  English&nbsp;BERT&nbsp;[cased](https://huggingface.co/bert-base-cased) <br>  [German BERT](https://huggingface.co/bert-base-german-cased)<br>  [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) <br><br>For all other languages, automated ML applies multilingual BERT
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -242,7 +246,9 @@ featurization:
    dataset_language: "eng"
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -258,12 +264,14 @@ text_classification_job.set_featurization(dataset_language='eng')
 
 You can also run your NLP experiments with distributed training on an Azure ML compute cluster. 
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -280,7 +288,7 @@ In AutoML NLP only hold-out validation is supported and it requires a validation
 
 ## Submit the AutoML job
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -291,7 +299,9 @@ To submit your AutoML job, you can run the following CLI v2 command with the pat
 az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -310,7 +320,10 @@ ml_client.jobs.stream(returned_job.name)
 
 ## Code examples
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
+
+ [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 
 See the following sample YAML files for each NLP task.
 
@@ -318,7 +331,9 @@ See the following sample YAML files for each NLP task.
 * [Multi-label text classification](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/automl-standalone-jobs/cli-automl-text-classification-multilabel-paper-cat/cli-automl-text-classification-multilabel-paper-cat.yml)
 * [Named entity recognition](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/automl-standalone-jobs/cli-automl-text-ner-conll/cli-automl-text-ner-conll2003.yml)
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 

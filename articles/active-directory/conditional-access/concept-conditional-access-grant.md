@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 09/06/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -132,9 +132,9 @@ In your Conditional Access policy, you can require that an [Intune app protectio
 
 To apply this grant control, Conditional Access requires that the device is registered in Azure AD, which requires using a broker app. The broker app can be either Microsoft Authenticator for iOS or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the app store to install the broker app.
 
-Applications must have the Intune SDK with policy assurance implemented and must meet certain other requirements to support this setting. Developers who are implementing applications with the Intune SDK can find more information on these requirements in the SDK documentation.
+Applications must have the Intune SDK with policy assurance implemented and must meet certain other requirements to support this setting. Developers who are implementing applications with the Intune SDK can find more information on these requirements in the [SDK documentation](/mem/intune/developer/app-sdk-get-started).
 
-The following client apps support this setting:
+The following client apps are confirmed to support this setting:
 
 - Microsoft Cortana
 - Microsoft Edge
@@ -151,8 +151,13 @@ The following client apps support this setting:
 - Microsoft Teams
 - Microsoft To Do
 - Microsoft Word
+- Microsoft Power Apps
+- Microsoft Field Service (Dynamics 365)
 - MultiLine for Intune
 - Nine Mail - Email and Calendar
+- Notate for Intune
+
+This list is not all encompassing, if your app is not in this list please check with the application vendor to confirm support.
 
 > [!NOTE]
 > Kaizala, Skype for Business, and Visio don't support the **Require app protection policy** grant. If you require these apps to work, use the **Require approved apps** grant exclusively. Using the "or" clause between the two grants will not work for these three applications.
