@@ -395,7 +395,7 @@ SAP on Oracle on Azure also supports Windows. The recommendations for Windows de
 
 At the time, of writing ASM for Windows customers on Azure is not supported. SWPM for Windows does not support ASM currently. VLDB SAP on Oracle migrations to Azure have required ASM and have therefore selected Oracle Linux.
 
-##Storage Configurations for SAP on Oracle on Windows##
+##Storage Configurations for SAP on Oracle on Windows
 
 ##Minimum configuration:##
 
