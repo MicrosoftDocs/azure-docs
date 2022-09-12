@@ -65,7 +65,7 @@ You'll need the following items:
 
 * Start a run and its logging process
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -131,7 +131,7 @@ You'll need the following items:
 
 * Monitor the status of a run
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -196,7 +196,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 * Add properties and tags
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -254,7 +254,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     You can query runs within an experiment to return a list of runs that match specific properties and tags.
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -285,7 +285,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
