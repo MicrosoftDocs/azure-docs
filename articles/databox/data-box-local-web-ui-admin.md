@@ -208,11 +208,11 @@ We strongly recommend that you do not disable checksum unless the performance is
 
 1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
-    ![Screenshot of Connect and copy settings](media/data-box-local-web-ui-admin/connect-copy-settings.png)
+    ![Screenshot of Connect and copy settings.](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Disable** checksum validation
 
-    ![Screenshot of disable checksum option](media/data-box-local-web-ui-admin/disable-checksum.png)
+    ![Screenshot of disable checksum option.](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 3. Select **Apply**.
 
@@ -229,7 +229,7 @@ To enable SMB signing in your Azure Device:
 
 1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
-    ![Screenshot of Connect and copy settings 2](media/data-box-local-web-ui-admin/connect-copy-settings.png)
+    ![Screenshot of Connect and copy settings 2.](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Enable** SMB Signing.
 
@@ -249,11 +249,11 @@ To enable Backup Operator privileges in your Azure Device:
 
 1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
-   ![Screenshot of Connect and copy settings 3](media/data-box-local-web-ui-admin/connect-copy-settings.png)
+   ![Screenshot of Connect and copy settings 3.](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Enable** Backup Operator privileges.
 
-   ![Screenshot of Backup operator privileges](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
+   ![Screenshot of Backup operator privileges.](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
 
 3. **Select Apply**.
 4. In the local web UI, go to **Shut down or restart**.
@@ -272,7 +272,7 @@ To enable transfer of ACLs for Azure files:
 
 1. In the local web UI, go to **Connect and copy**. Select **Settings**. 
 
-    ![Screenshot of Connect and copy settings 4](media/data-box-local-web-ui-admin/connect-copy-settings.png)
+    ![Screenshot of Connect and copy settings 4.](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Enable** ACLs for Azure files.
 
