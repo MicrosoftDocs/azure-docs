@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 09/09/2022
+ms.date: 09/13/2022
 ms.custom: references_regions
 ---
 
@@ -48,6 +48,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - Extension installation failures are now reported to Azure more reliably to prevent extensions from being stuck in the "creating" state
 - Metadata for Google Cloud Platform virtual machines can now be retrieved when the agent is configured to use a proxy server
 - Improved network connection retry logic and error handling
+- Linux only: resolves local escalation of privilege vulnerability [CVE-2022-38007](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007)
 
 ## Version 1.20 - July 2022
 
