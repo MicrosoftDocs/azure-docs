@@ -51,7 +51,16 @@ The following diagram summarizes the authentication sequence using OpenID Connec
 
 ## Service account labels and annotations
 
-The following is a list of available labels and annotations that can be used to configure the behavior when exchanging the service account token for an AAD access token.
+Azure AD Workload Identity supports the following mappings related to a service account:
+
+- One-to-one where a service account references an Azure AD object.
+- Many-to-one where multiple service accounts references the same Azure AD object.
+- One-to-many where a service account references multiple Azure AD objects by changing the client ID annotation.
+
+> [!NOTE]
+> If the service account annotations are updated, you need to restart the pod for the changes to take effect.
+
+If you've used an Azure AD pod-identity, think of a service account as an Azure identity, except a service account is part of the core Kubernetes API, rather than a CRD. The following describe a list of available labels and annotations that can be used to configure the behavior when exchanging the service account token for an Azure AD access token.
 
 ### Service account labels
 
@@ -71,12 +80,12 @@ The following is a list of available labels and annotations that can be used to 
 
 |Annotation |Description |Default |
 |-----------|------------|--------|
-|`azure.workload.identity/service-account-token-expiration` |Represents the `expirationSeconds` field<br> for the projected service account token. It's an optional field that you configure to prevent any downtime<br> caused by errors during service account token refresh. Kubernetes service account token expiry are not<br> correlated with Azure AD tokens. Azure AD tokens expire in 24 hours after they are issued. [^1] |3600<br> Supported range is 3600-86400. |
-|`azure.workload.identity/skip-containers` |Represents a semi-colon-separated list of containers,<br> (for example container1;container2) to skip adding projected service account token volume. |By default, the projected service account token volume is added to all containers if the service account is labeled with `azure.workload.identity/use: true`. |
-|`azure.workload.identity/inject-proxy-sidecar` |Injects a proxy init container and proxy sidecar<br> into the pod. The proxy sidecar is used to intercept token requests to IMDS and acquire an Azure AD<br> token on behalf of the user with federated identity credential. |true |
+|`azure.workload.identity/service-account-token-expiration` |Represents the `expirationSeconds` field for the projected service account token. It's an optional field that you configure to prevent any downtime caused by errors during service account token refresh. Kubernetes service account token expiry are not correlated with Azure AD tokens. Azure AD tokens expire in 24 hours after they are issued. <sup>1</sup> |3600<br> Supported range is 3600-86400. |
+|`azure.workload.identity/skip-containers` |Represents a semi-colon-separated list of containers to skip adding projected service account token volume. For example `container1;container2`. |By default, the projected service account token volume is added to all containers if the service account is labeled with `azure.workload.identity/use: true`. |
+|`azure.workload.identity/inject-proxy-sidecar` |Injects a proxy init container and proxy sidecar into the pod. The proxy sidecar is used to intercept token requests to IMDS and acquire an Azure AD token on behalf of the user with federated identity credential. |true |
 |`azure.workload.idenityt/proxy-sidecar-port` |Represents the port of the proxy sidecar. |8080 |
 
-[^1]: Takes precedence if the service account is also annotated.
+ <sup>1</sup> Takes precedence if the service account is also annotated.
 
 ## How to migrate to Workload Identity
 
