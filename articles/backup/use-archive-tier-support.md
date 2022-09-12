@@ -349,9 +349,9 @@ You can also write a script as per your requirements or modify the above sample 
 
 ## Enable Smart Tiering to Vault-archive using a backup policy.
 
-You can automatically move all eligible/ recommended recovery points to vault-archive using backup policy.
+You can automatically move all eligible/ recommended recovery points to vault-archive using a backup policy.
 
-To enable Smart Tiering, see the following sections.
+In the following sections, you will learn how to enable Smart Tiering for eligible recovery points.
 
 ### Create a policy
 
@@ -377,10 +377,10 @@ To create and configure a policy, run the following cmdlets:
 
 ### Configure Smart Tiering
 
-You can now configure Smart Tiering to move recovery points to Vault-archive and retain them using the backup policy. To do so, see the following section:
+You can now configure Smart Tiering to move recovery points to Vault-archive and retain them using the backup policy.
 
 >[!Note]
->After you configure Smart Tiering, it is automatically enabled to move the  recovery points to Vault-archive.
+>After configuration, Smart Tiering is automatically enabled that moves the  recovery points to Vault-archive.
 
 #### Tier recommended recovery points for Azure Virtual Machines
 
@@ -400,7 +400,7 @@ New-AzRecoveryServicesBackupProtectionPolicy: TierAfterDuration needs to be >= 3
 >[!Note]
 >*Tier recommended* is supported for Azure Virtual Machines, and not for SQL Server in Azure Virtual Machines.
 
-#### Tier all eligible Azure Virtual Machines backup item
+#### Tier all eligible Azure Virtual Machines backup items
 
 To tier all eligible Azure VM recovery points to Vault-archive, specify the number of months after which you want to move the recovery points and run the following cmdlet:
 
@@ -413,7 +413,7 @@ $pol = New-AzRecoveryServicesBackupProtectionPolicy -Name hiagaVMArchiveTierAfte
 >- This can increase your overall costs.
 
 
-#### Tier all eligible SQL Server in Azure VM backup item
+#### Tier all eligible SQL Server in Azure VM backup items
 
 To tier all eligible SQL Server in Azure VM recovery points to Vault-archive, specify the number of days after which you want to move the recovery points and run the following cmdlet:
 
@@ -439,7 +439,7 @@ $pol = Get-AzRecoveryServicesBackupProtectionPolicy  -VaultId $vault.ID | Where 
 
 ## Disable Smart Tiering
 
-To disable Smart Tiering to archive recovery point, run the following cmdlet:
+To disable Smart Tiering to archive recovery points, run the following cmdlet:
 
 ```azurepowershell
 Set-AzRecoveryServicesBackupProtectionPolicy -VaultId $vault.ID -Policy $pol[0] -MoveToArchiveTier $false
@@ -447,7 +447,7 @@ Set-AzRecoveryServicesBackupProtectionPolicy -VaultId $vault.ID -Policy $pol[0] 
 
 ### Enable Smart Tiering
 
-To enable Smart Tiering after you disable, run the required cmdlet:
+To enable Smart Tiering after you've disable it, run the corresponding cmdlet:
 
 - **Azure Virtual Machine**
 
@@ -464,7 +464,7 @@ To enable Smart Tiering after you disable, run the required cmdlet:
 ## Next steps
 
 - Use Archive tier support via [Azure portal](?pivots=client-portaltier)/[CLI](?pivots=client-clitier).
-- [Troubleshoot Archive tier errors](troubleshoot-archive-tier.md)
+- [Troubleshoot Archive tier errors](troubleshoot-archive-tier.md).
 
 ::: zone-end
 
