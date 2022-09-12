@@ -746,9 +746,13 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 ## Manual (preview)
 
 The new `manual` (preview) effect enables you to define and track your own custom attestation
-resources. nlike other Policy definitions that actively scan for evaluation, the Manual effect
+resources. Unlike other Policy definitions that actively scan for evaluation, the Manual effect
 allows for manual changes to the compliance state. To change the compliance for a manual policy,
 you will need to create an attestation for that compliance state.
+
+> [!NOTE]
+> Currently, manual policy is available only in the Microsoft Defender Azure Security Benchmark
+> policy initiative.
 
 The following example targets Azure subscriptions and sets the initial compliance state to `Unknown`.
 
