@@ -3,7 +3,7 @@ title: Monitoring, log analytics, Azure portal (PostgreSQL Hyperscale)
 description: Monitor Azure Arc-enabled PostgreSQL services
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-postgresql
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

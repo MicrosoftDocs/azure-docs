@@ -10,7 +10,7 @@ ms.date: 06/16/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps

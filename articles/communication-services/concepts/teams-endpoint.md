@@ -14,8 +14,6 @@ ms.subservice: teams-interop
 ---
 # Communication as Teams user
 
-[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
-
 You can use Azure Communication Services and Graph API to integrate communication as Teams users into your products. Teams users can communicate with other people in and outside their organization. The benefits for enterprises are:
 - No requirement to download Teams desktop, mobile or web clients for Teams users
 - Teams users don't lose context by switching between applications for day-to-day work and Teams client for communication

@@ -234,6 +234,9 @@ Name                                  Operation           Status      Item Name 
 00000000-0000-0000-0000-000000000000  CrossRegionRestore  InProgress  H10 [hanasnapcvt01]  AzureWorkload             2021-12-22T05:21:34.165617+00:00  0:00:05.665470
 ```
 
+>[!Note]
+>The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
+
 ## Restore as files
 
 To restore the backup data as files instead of a database, we'll use **RestoreAsFiles** as the restore mode. Then choose the restore point, which can either be a previous point-in-time or any of the previous restore points. Once the files are dumped to a specified path, you can take these files to any SAP HANA machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.

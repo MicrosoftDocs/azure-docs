@@ -7,7 +7,7 @@ author: chugugrace
 ms.author: chugu
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2022
+ms.date: 08/09/2022
 ---
 
 # Install paid or licensed custom components for the Azure-SSIS integration runtime

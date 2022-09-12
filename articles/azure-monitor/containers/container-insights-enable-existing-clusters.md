@@ -110,7 +110,7 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor,
 
 3. On the **Monitor - containers** page, select **Unmonitored clusters**.
 
-4. From the list of unmonitored clusters, find the container in the list and click **Enable**.
+4. From the list of unmonitored clusters, find the cluster in the list and click **Enable**.
 
 5. On the **Onboarding to Container insights** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription.
@@ -179,7 +179,7 @@ The Log Analytics workspace must be created before you deploy the Resource Manag
 
   - For **aksResourceId** and **aksResourceLocation**, use the values on the **AKS Overview** page for the AKS cluster. 
   - For **workspaceResourceId**, use the resource ID of your Log Analytics workspace.
-  - For **resourceTagValues**, match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in Log Analytics Workspace Resource Group. If this first-time onboarding, you can set the arbitrary tag values.
+  - For **resourceTagValues**, match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in AKS clusters Resource Group. If this first-time onboarding, you can set the arbitrary tag values.
 
 
 **If you don't want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)**
@@ -415,13 +415,13 @@ az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWo
 2.	Disable monitoring with the following command:
 
   ```cli
-  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> 
   ```
 
 3.	Upgrade cluster to system managed identity with the following command:
 
   ```cli
-  az aks update -g <resource-group-name> -n <cluster-name> --enable-managed-identity --workspace-resource-id <workspace-resource-id>
+  az aks update -g <resource-group-name> -n <cluster-name> --enable-managed-identity
   ```
 
 4.	Enable Monitoring addon with managed identity authentication option using Log Analytics workspace resource ID obtained in the first step:
@@ -450,6 +450,35 @@ AKS Clusters with system assigned identity must first disable monitoring and the
   ```cli
   az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
   ```
+
+## Private link
+To enable network isolation by connecting your cluster to the Log Analytics workspace using [private link](../logs/private-link-security.md), your cluster must be using managed identity authentication with the Azure Monitor agent. 
+
+1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md) to create a data collection endpoint and add it to your AMPLS.
+2. Create an association between the cluster and the data collection endpoint using the following API call. See [Data Collection Rule Associations - Create](/rest/api/monitor/data-collection-rule-associations/create) for details on this call. The DCR association name must be **configurationAccessEndpoint**, `resourceUri` is the resource Id of the AKS cluster.
+
+    ```rest
+    PUT https://management.azure.com/{cluster-resource-id}/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
+    {
+    "properties": {
+        "dataCollectionEndpointId": "{data-collection-endpoint-resource-id}"
+        }
+    }
+    ```
+
+    Following is an example of this API call.
+
+    ```rest
+    PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
+
+    {
+    "properties": {
+        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionEndpoints/myDataCollectionEndpoint"
+        }
+    }
+    ```
+
+3. Enable monitoring with managed identity authentication option using the steps in [Migrate to managed identity authentication](#migrate-to-managed-identity-authentication).
 
 ## Limitations
 

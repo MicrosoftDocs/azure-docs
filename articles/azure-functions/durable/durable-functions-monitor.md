@@ -21,7 +21,7 @@ The monitor pattern refers to a flexible *recurring* process in a workflow - for
 # [JavaScript](#tab/javascript)
 
 * [Complete the quickstart article](quickstart-js-vscode.md)
-* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/javascript)
+* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-js/tree/main/samples)
 
 ---
 

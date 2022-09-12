@@ -6,8 +6,9 @@ ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
-ms.date: 07/18/2022
+ms.date: 09/09/2022
 ms.custom: generated
 ---
 
@@ -80,11 +81,11 @@ The following table provides a brief description of each built-in role. Click th
 > | **Web** |  |  |
 > | [Azure Maps Data Contributor](#azure-maps-data-contributor) | Grants access to read, write, and delete access to map related data from an Azure maps account. | 8f5e0ce6-4f7b-4dcf-bddf-e6f48634a204 |
 > | [Azure Maps Data Reader](#azure-maps-data-reader) | Grants access to read map related data from an Azure maps account. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
-> | [Azure Spring Apps Config Server Contributor](#azure-spring-apps-config-server-contributor) | Allow read, write and delete access to Azure Spring Apps Config Server | a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b |
-> | [Azure Spring Apps Config Server Reader](#azure-spring-apps-config-server-reader) | Allow read access to Azure Spring Apps Config Server | d04c6db6-4947-4782-9e91-30a88feb7be7 |
-> | [Azure Spring Apps Data Reader](#azure-spring-apps-data-reader) | Allow read access to Azure Spring Apps Data | b5537268-8956-4941-a8f0-646150406f0c |
-> | [Azure Spring Apps Service Registry Contributor](#azure-spring-apps-service-registry-contributor) | Allow read, write and delete access to Azure Spring Apps Service Registry | f5880b48-c26d-48be-b172-7927bfa1c8f1 |
-> | [Azure Spring Apps Service Registry Reader](#azure-spring-apps-service-registry-reader) | Allow read access to Azure Spring Apps Service Registry | cff1b556-2399-4e7e-856d-a8f754be7b65 |
+> | [Azure Spring Cloud Config Server Contributor](#azure-spring-cloud-config-server-contributor) | Allow read, write and delete access to Azure Spring Cloud Config Server | a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b |
+> | [Azure Spring Cloud Config Server Reader](#azure-spring-cloud-config-server-reader) | Allow read access to Azure Spring Cloud Config Server | d04c6db6-4947-4782-9e91-30a88feb7be7 |
+> | [Azure Spring Cloud Data Reader](#azure-spring-cloud-data-reader) | Allow read access to Azure Spring Cloud Data | b5537268-8956-4941-a8f0-646150406f0c |
+> | [Azure Spring Cloud Service Registry Contributor](#azure-spring-cloud-service-registry-contributor) | Allow read, write and delete access to Azure Spring Cloud Service Registry | f5880b48-c26d-48be-b172-7927bfa1c8f1 |
+> | [Azure Spring Cloud Service Registry Reader](#azure-spring-cloud-service-registry-reader) | Allow read access to Azure Spring Cloud Service Registry | cff1b556-2399-4e7e-856d-a8f754be7b65 |
 > | [Media Services Account Administrator](#media-services-account-administrator) | Create, read, modify, and delete Media Services accounts; read-only access to other Media Services resources. | 054126f8-9a2b-4f1c-a9ad-eca461f08466 |
 > | [Media Services Live Events Administrator](#media-services-live-events-administrator) | Create, read, modify, and delete Live Events, Assets, Asset Filters, and Streaming Locators; read-only access to other Media Services resources. | 532bc159-b25e-42c0-969e-a1d439f60d77 |
 > | [Media Services Media Operator](#media-services-media-operator) | Create, read, modify, and delete Assets, Asset Filters, Streaming Locators, and Jobs; read-only access to other Media Services resources. | e4395492-1534-4db2-bedf-88c14621589c |
@@ -270,6 +271,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [Site Recovery Reader](#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
 > | [Support Request Contributor](#support-request-contributor) | Lets you create and manage Support requests | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [Tag Contributor](#tag-contributor) | Lets you manage tags on entities, without providing access to the entities themselves. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
+> | [Template Spec Contributor](#template-spec-contributor) | Allows full access to Template Spec operations at the assigned scope. | 1c9b6475-caf0-4164-b5a1-2142a7116f4b |
+> | [Template Spec Reader](#template-spec-reader) | Allows read access to Template Specs at the assigned scope. | 392ae280-861d-42bd-9ea5-08ee6d83b80e |
 > | **Virtual desktop infrastructure** |  |  |
 > | [Desktop Virtualization Application Group Contributor](#desktop-virtualization-application-group-contributor) | Contributor of the Desktop Virtualization Application Group. | 86240b0e-9422-4c43-887b-b61143f32ba8 |
 > | [Desktop Virtualization Application Group Reader](#desktop-virtualization-application-group-reader) | Reader of the Desktop Virtualization Application Group. | aebf23d0-b568-4e86-b8f9-fe83a2c6ab55 |
@@ -1720,7 +1723,7 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read |  |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1804,7 +1807,7 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/locations/operationStatus/read",
         "Microsoft.DataProtection/locations/operationResults/read",
         "Microsoft.DataProtection/backupVaults/validateForBackup/action",
-        "Microsoft.DataProtection/providers/operations/read"
+        "Microsoft.DataProtection/operations/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2515,7 +2518,7 @@ Lets you perform backup and restore operations using Azure Backup on the storage
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/objectReplicationPolicies/delete | Delete object replication policy |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/objectReplicationPolicies/read | List object replication policies |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/objectReplicationPolicies/write | Create or update object replication policy |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/objectReplicationPolicies/restorePointMarkers/write |  |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/objectReplicationPolicies/restorePointMarkers/write | Create object replication restore point marker |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/write | Returns the result of put blob container |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
@@ -3326,9 +3329,9 @@ Grants access to read map related data from an Azure maps account. [Learn more](
 }
 ```
 
-### Azure Spring Apps Config Server Contributor
+### Azure Spring Cloud Config Server Contributor
 
-Allow read, write and delete access to Azure Spring Apps Config Server [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read, write and delete access to Azure Spring Cloud Config Server [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3348,7 +3351,7 @@ Allow read, write and delete access to Azure Spring Apps Config Server [Learn mo
   "assignableScopes": [
     "/"
   ],
-  "description": "Allow read, write and delete access to Azure Spring Apps Config Server",
+  "description": "Allow read, write and delete access to Azure Spring Cloud Config Server",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b",
   "name": "a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b",
   "permissions": [
@@ -3363,15 +3366,15 @@ Allow read, write and delete access to Azure Spring Apps Config Server [Learn mo
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Spring Apps Config Server Contributor",
+  "roleName": "Azure Spring Cloud Config Server Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Azure Spring Apps Config Server Reader
+### Azure Spring Cloud Config Server Reader
 
-Allow read access to Azure Spring Apps Config Server [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read access to Azure Spring Cloud Config Server [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3389,7 +3392,7 @@ Allow read access to Azure Spring Apps Config Server [Learn more](../spring-apps
   "assignableScopes": [
     "/"
   ],
-  "description": "Allow read access to Azure Spring Apps Config Server",
+  "description": "Allow read access to Azure Spring Cloud Config Server",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d04c6db6-4947-4782-9e91-30a88feb7be7",
   "name": "d04c6db6-4947-4782-9e91-30a88feb7be7",
   "permissions": [
@@ -3402,15 +3405,15 @@ Allow read access to Azure Spring Apps Config Server [Learn more](../spring-apps
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Spring Apps Config Server Reader",
+  "roleName": "Azure Spring Cloud Config Server Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Azure Spring Apps Data Reader
+### Azure Spring Cloud Data Reader
 
-Allow read access to Azure Spring Apps Data
+Allow read access to Azure Spring Cloud Data
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3428,7 +3431,7 @@ Allow read access to Azure Spring Apps Data
   "assignableScopes": [
     "/"
   ],
-  "description": "Allow read access to Azure Spring Apps Data",
+  "description": "Allow read access to Azure Spring Cloud Data",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b5537268-8956-4941-a8f0-646150406f0c",
   "name": "b5537268-8956-4941-a8f0-646150406f0c",
   "permissions": [
@@ -3441,15 +3444,15 @@ Allow read access to Azure Spring Apps Data
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Spring Apps Data Reader",
+  "roleName": "Azure Spring Cloud Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Azure Spring Apps Service Registry Contributor
+### Azure Spring Cloud Service Registry Contributor
 
-Allow read, write and delete access to Azure Spring Apps Service Registry [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read, write and delete access to Azure Spring Cloud Service Registry [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3469,7 +3472,7 @@ Allow read, write and delete access to Azure Spring Apps Service Registry [Learn
   "assignableScopes": [
     "/"
   ],
-  "description": "Allow read, write and delete access to Azure Spring Apps Service Registry",
+  "description": "Allow read, write and delete access to Azure Spring Cloud Service Registry",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/f5880b48-c26d-48be-b172-7927bfa1c8f1",
   "name": "f5880b48-c26d-48be-b172-7927bfa1c8f1",
   "permissions": [
@@ -3484,15 +3487,15 @@ Allow read, write and delete access to Azure Spring Apps Service Registry [Learn
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Spring Apps Service Registry Contributor",
+  "roleName": "Azure Spring Cloud Service Registry Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Azure Spring Apps Service Registry Reader
+### Azure Spring Cloud Service Registry Reader
 
-Allow read access to Azure Spring Apps Service Registry [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
+Allow read access to Azure Spring Cloud Service Registry [Learn more](../spring-apps/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3510,7 +3513,7 @@ Allow read access to Azure Spring Apps Service Registry [Learn more](../spring-a
   "assignableScopes": [
     "/"
   ],
-  "description": "Allow read access to Azure Spring Apps Service Registry",
+  "description": "Allow read access to Azure Spring Cloud Service Registry",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/cff1b556-2399-4e7e-856d-a8f754be7b65",
   "name": "cff1b556-2399-4e7e-856d-a8f754be7b65",
   "permissions": [
@@ -3523,7 +3526,7 @@ Allow read access to Azure Spring Apps Service Registry [Learn more](../spring-a
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Spring Apps Service Registry Reader",
+  "roleName": "Azure Spring Cloud Service Registry Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -4298,6 +4301,7 @@ Manage the web plans for websites. Does not allow you to assign roles in Azure R
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/* | Create and manage server farms |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/hostingEnvironments/Join/Action | Joins an App Service Environment |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/autoscalesettings/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4323,7 +4327,8 @@ Manage the web plans for websites. Does not allow you to assign roles in Azure R
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
         "Microsoft.Web/serverFarms/*",
-        "Microsoft.Web/hostingEnvironments/Join/Action"
+        "Microsoft.Web/hostingEnvironments/Join/Action",
+        "Microsoft.Insights/autoscalesettings/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -10262,7 +10267,8 @@ Microsoft Sentinel Contributor [Learn more](../sentinel/roles.md)
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/ConfidentialWatchlists/* |  |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/ConfidentialWatchlist/* |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -10296,7 +10302,10 @@ Microsoft Sentinel Contributor [Learn more](../sentinel/roles.md)
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.SecurityInsights/ConfidentialWatchlists/*",
+        "Microsoft.OperationalInsights/workspaces/query/ConfidentialWatchlist/*"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -10333,10 +10342,11 @@ Microsoft Sentinel Reader [Learn more](../sentinel/roles.md)
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/templateSpecs/*/read |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/templateSpecs/*/read | Get or list template specs and template spec versions |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/ConfidentialWatchlists/* |  |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/ConfidentialWatchlist/* |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -10375,7 +10385,10 @@ Microsoft Sentinel Reader [Learn more](../sentinel/roles.md)
         "Microsoft.Resources/templateSpecs/*/read",
         "Microsoft.Support/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.SecurityInsights/ConfidentialWatchlists/*",
+        "Microsoft.OperationalInsights/workspaces/query/ConfidentialWatchlist/*"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -10423,6 +10436,8 @@ Microsoft Sentinel Responder [Learn more](../sentinel/roles.md)
 > | **NotActions** |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/cases/*/Delete |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/incidents/*/Delete |  |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/ConfidentialWatchlists/* |  |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/ConfidentialWatchlist/* |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -10469,7 +10484,9 @@ Microsoft Sentinel Responder [Learn more](../sentinel/roles.md)
       ],
       "notActions": [
         "Microsoft.SecurityInsights/cases/*/Delete",
-        "Microsoft.SecurityInsights/incidents/*/Delete"
+        "Microsoft.SecurityInsights/incidents/*/Delete",
+        "Microsoft.SecurityInsights/ConfidentialWatchlists/*",
+        "Microsoft.OperationalInsights/workspaces/query/ConfidentialWatchlist/*"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -11172,7 +11189,7 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Monitor](resource-provider-operations.md#microsoftmonitor)/accounts/data/metrics/read | Read metrics data in any Monitoring Account |
+> | *none* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -11192,9 +11209,7 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
         "Microsoft.Support/*"
       ],
       "notActions": [],
-      "dataActions": [
-        "Microsoft.Monitor/accounts/data/metrics/read"
-      ],
+      "dataActions": [],
       "notDataActions": []
     }
   ],
@@ -13480,6 +13495,90 @@ Lets you manage tags on entities, without providing access to the entities thems
 }
 ```
 
+### Template Spec Contributor
+
+Allows full access to Template Spec operations at the assigned scope.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/templateSpecs/* | Create and manage template specs and template spec versions |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows full access to Template Spec operations at the assigned scope.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/1c9b6475-caf0-4164-b5a1-2142a7116f4b",
+  "name": "1c9b6475-caf0-4164-b5a1-2142a7116f4b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/templateSpecs/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Template Spec Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Template Spec Reader
+
+Allows read access to Template Specs at the assigned scope.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/templateSpecs/*/read | Get or list template specs and template spec versions |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows read access to Template Specs at the assigned scope.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/392ae280-861d-42bd-9ea5-08ee6d83b80e",
+  "name": "392ae280-861d-42bd-9ea5-08ee6d83b80e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/templateSpecs/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Template Spec Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Virtual desktop infrastructure
 
 
@@ -14048,10 +14147,11 @@ Full access role for Digital Twins data-plane [Learn more](../digital-twins/conc
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | Read, delete, create, or update any Event Route |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* | Read, create, update, or delete any Digital Twin |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* | Invoke any Command on a Digital Twin |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* | Read, create, update, or delete any Digital Twin Relationship |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | Read, delete, create, or update any Event Route |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/jobs/* |  |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* | Read, create, update, or delete any Model |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/* | Query any Digital Twins Graph |
 > | **NotDataActions** |  |
@@ -14070,10 +14170,11 @@ Full access role for Digital Twins data-plane [Learn more](../digital-twins/conc
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.DigitalTwins/eventroutes/*",
         "Microsoft.DigitalTwins/digitaltwins/*",
         "Microsoft.DigitalTwins/digitaltwins/commands/*",
         "Microsoft.DigitalTwins/digitaltwins/relationships/*",
+        "Microsoft.DigitalTwins/eventroutes/*",
+        "Microsoft.DigitalTwins/jobs/*",
         "Microsoft.DigitalTwins/models/*",
         "Microsoft.DigitalTwins/query/*"
       ],
@@ -14100,6 +14201,7 @@ Read-only role for Digital Twins data-plane properties [Learn more](../digital-t
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | Read any Digital Twin |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | Read any Digital Twin Relationship |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/read | Read any Event Route |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/jobs/import/read | Read any Bulk Import Job |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/read | Read any Model |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/action | Query any Digital Twins Graph |
 > | **NotDataActions** |  |
@@ -14121,6 +14223,7 @@ Read-only role for Digital Twins data-plane properties [Learn more](../digital-t
         "Microsoft.DigitalTwins/digitaltwins/read",
         "Microsoft.DigitalTwins/digitaltwins/relationships/read",
         "Microsoft.DigitalTwins/eventroutes/read",
+        "Microsoft.DigitalTwins/jobs/import/read",
         "Microsoft.DigitalTwins/models/read",
         "Microsoft.DigitalTwins/query/action"
       ],

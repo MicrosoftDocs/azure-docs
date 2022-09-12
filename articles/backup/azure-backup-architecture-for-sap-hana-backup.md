@@ -2,8 +2,10 @@
 title: Azure Backup Architecture for SAP HANA Backup
 description: Learn about Azure Backup architecture for SAP HANA backup.
 ms.topic: conceptual
-ms.date: 09/27/2021
-
+ms.date: 08/11/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 # Azure Backup architecture for SAP HANA backup
 
@@ -66,7 +68,7 @@ See the [high-level architecture of Azure Backup for SAP HANA databases](./sap-h
 
 1. To stream the backup data, Backint creates up to three pipes, which directly write to Azure Backup’s Recovery Services vault.
 
-   If you aren’t using firewall/NVA  in your setup, then the backup stream is transferred over the Azure network to the Recovery Services vault. Also, you can set up [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) or [Private Endpoint](../private-link/private-endpoint-overview.md) to allow SAP HANA to send backup traffic directly to Azure Storage, skipping NVA/Azure Firewall. Additionally, when you use firewall/NVA, the traffic to Azure Active Directory and Recovery Services vault will pass through the firewall/NVA and it doesn’t affect the overall backup performance. 
+   If you aren’t using firewall/NVA  in your setup, then the backup stream is transferred over the Azure network to the Recovery Services vault / Azure Storage. Also, you can set up [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) or [Private Endpoint](../private-link/private-endpoint-overview.md) to allow SAP HANA to send backup traffic directly to Recovery Services Vault / Azure Storage, skipping NVA/Azure Firewall. Additionally, when you use firewall/NVA, the traffic to Azure Active Directory and Azure Backup Service will pass through the firewall/NVA and it doesn’t affect the overall backup performance. 
 
 1. Azure Backup attempts to achieve speeds up to 420 MB/sec for non-log backups and up to 100 MB/sec for log backups. [Learn more](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) about backup and restore throughput performance.
 
@@ -93,4 +95,5 @@ Refer to the following SAP HANA setups and see the execution of backup operation
 
 ## Next steps
 
-[Back up SAP HANA databases in Azure VMs](./backup-azure-sap-hana-database.md).
+- Learn about the supported configurations and scenarios in the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
+- Learn about how to [back up SAP HANA databases in Azure VMs](./backup-azure-sap-hana-database.md).

@@ -15,7 +15,7 @@ ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 
 # What are Azure Cognitive Services?
 
-Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help you build cognitive intelligence into your applications. They are available as REST APIs, client library SDKs, and user interfaces. You can add cognitive features to your applications without having AI or data science skills. Cognitive Services enable you to build cognitive solutions that can see, hear, speak, understand, and even make decisions.
+Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
 ## Categories of Cognitive Services
 
@@ -80,7 +80,7 @@ With Azure and Cognitive Services, you have access to several development option
 * Automation and integration tools like Logic Apps and Power Automate.
 * Deployment options such as Azure Functions and the App Service. 
 * Cognitive Services Docker containers for secure access.
-* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. 
+* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for big data scenarios. 
 
 To learn more, see [Cognitive Services development options](./cognitive-services-development-options.md).
 

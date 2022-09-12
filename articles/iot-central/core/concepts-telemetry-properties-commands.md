@@ -14,7 +14,7 @@ ms.custom: device-developer
 
 # Telemetry, property, and command payloads
 
-A device template in Azure IoT Central is a blueprint that defines the:
+A [device template](concepts-device-templates.md) in Azure IoT Central is a blueprint that defines the:
 
 * Telemetry a device sends to IoT Central.
 * Properties a device synchronizes with IoT Central.
@@ -61,6 +61,16 @@ Don't create telemetry types with the following names. IoT Central uses these re
 * `User`
 * `$metadata`
 * `$version`
+
+### Telemetry timestamps
+
+By default, IoT Central uses the message enqueued time when it displays telemetry on dashboards and charts. Message enqueued time is set internally when IoT Central receives the message from the device.
+
+A device can set the `iothub-creation-time-utc` property when it creates a message to send to IoT Central. If this property is present, IoT Central uses it when it displays telemetry on dashboards and charts.
+
+You can export both the enqueued time and the `iothub-creation-time-utc` property when you export telemetry from your IoT Central application.
+
+To learn more about message properties, see [System Properties of device-to-cloud IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
 
 ### Telemetry in components
 
@@ -1062,7 +1072,7 @@ When the device has finished processing the request, it should send a property t
 
 In the IoT Central web UI, you can select the **Queue if offline** option for a command. Offline commands are one-way notifications to the device from your solution that are delivered as soon as a device connects. Offline commands can have a request parameter but don't return a response.
 
-The **Queue if offline** setting isn't included if you export a model or interface from the device template. You can't tell by looking at an exported model or interface JSON that a command is an offline command.
+Offline commands are marked as `durable` if you export the model as DTDL.
 
 Offline commands use [IoT Hub cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md) to send the command and payload to the device.
 
