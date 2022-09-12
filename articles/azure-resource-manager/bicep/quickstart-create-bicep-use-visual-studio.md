@@ -1,6 +1,6 @@
 ---
 title: Create Bicep files - Visual Studio
-description: Use Visual Studio and the Bicep extension to create Bicep files for deploy Azure resources
+description: Use Visual Studio and the Bicep extension to create Bicep files for deploy Azure resources.
 ms.date: 09/12/2022
 ms.topic: quickstart
 
@@ -26,7 +26,7 @@ Visual Studio with the Bicep extension simplifies development by providing pre-d
 
 In *main.bicep*, type **vnet**. Select **res-vnet** from the list, and then press **[TAB]** or **[ENTER]**.
 
-:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/add-snippet.png" alt-text="Screenshot of adding snippet for virtual network":::
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/add-snippet.png" alt-text="Screenshot of adding snippet for virtual network.":::
 
 > [!TIP]
 > If you don't see those intellisense options in Visual Studio, make sure you've installed the Bicep extension as specified in [Prerequisites](#prerequisites). If you have installed the extension, give the Bicep language service some time to start after opening your Bicep file. It usually starts quickly, but you will not have intellisense options until it starts.
@@ -79,7 +79,7 @@ param storageName
 
 When you add a space after **storageName**, notice that intellisense offers the data types that are available for the parameter. Select **string**.
 
-:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/add-param.png" alt-text="Screenshot of adding string type to parameter":::
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/add-param.png" alt-text="Screenshot of adding string type to parameter.":::
 
 You have the following parameter:
 
@@ -91,7 +91,7 @@ This parameter works fine, but storage accounts have limits on the length of the
 
 Add a line above the parameter, and type **@**. You see the available decorators. Notice there are decorators for both **minLength** and **maxLength**.
 
-:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/add-decorators.png" alt-text="Screenshot of adding decorators to parameter":::
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/add-decorators.png" alt-text="Screenshot of adding decorators to parameter.":::
 
 Add both decorators and specify the character limits, as shown below:
 
@@ -132,15 +132,15 @@ resource exampleStorage
 
 When you add a space after the symbolic name, a list of resource types is displayed. Continue typing **storage** until you can select it from the available options.
 
-:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/select-resource-type.png" alt-text="Screenshot of selecting storage accounts for resource type":::
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/select-resource-type.png" alt-text="Screenshot of selecting storage accounts for resource type.":::
 
 After selecting **Microsoft.Storage/storageAccounts**, you're presented with the available API versions. Select **2021-09-01** or the latest API version. We recommend using the latest API version.
 
-:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/select-api-version.png" alt-text="Screenshot of selecting API version for resource type":::
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/select-api-version.png" alt-text="Screenshot of selecting API version for resource type.":::
 
 After the single quote for the resource type, add `=` and a space. You're presented with options for adding properties to the resource. Select **required-properties**.
 
-:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/select-required-properties.png" alt-text="Screenshot of adding required properties":::
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/select-required-properties.png" alt-text="Screenshot of adding required properties.":::
 
 This option adds all of the properties for the resource type that are required for deployment. After selecting this option, your storage account has the following properties:
 
