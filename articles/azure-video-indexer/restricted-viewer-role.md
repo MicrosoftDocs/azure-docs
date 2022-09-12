@@ -7,31 +7,22 @@ ms.date: 08/29/2022
 
 # Manage access with the Video Indexer Restricted Viewer role
 
-Azure Video Indexer enables managing access to the Azure Video Indexer resource at the account level with the following built-in role: **Video Indexer Restricted Viewer**. 
+Azure Video Indexer enables managing user access to the Azure Video Indexer resource at the account level with the following built-in role: **Video Indexer Restricted Viewer**. 
 
-If you have the owner or administrator Azure AD permissions, you can assign **Video Indexer Restricted Viewer** role to specific users or security groups for your account. For information on how to assign roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
+Users with the owner or administrator Azure AD permissions can assign the **Video Indexer Restricted Viewer** role to Azure Active Directory (AAD) users or security groups for an account. 
+For information on how to assign roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
+The limited access Video Indexer Restricted Viewer role is intended for Video Indexer portal users as its permitted actions relate to the portal experience.
 
-## To manage access to the Azure Video Indexer resource
+### Azure Video Indexer Restricted viewer permissions
 
-We recommend to use the [Azure portal](https://ms.portal.azure.com) to add the restricted viewer role.
+Users with this role are **able** to perform the following tasks:
 
-### Using an ARM API
+- View and play videos in the account
+- Search through insights in the account
+- Translate the transcription of a specific video
+- 
 
-If you prefer to assign the role with an ARM API, see [documentation](https://review.docs.microsoft.com/rest/api/documentation-preview/generate/restricted-viewer-access-token?view=azure-rest-preview&branch=result_openapiHub_production_6a6469abffe9&tabs=HTTP). 
-
-## The Video Indexer Restricted Viewer role 
-
-### Azure Video Indexer allowed tasks
-
-With this role, you're able to perform the following tasks:
-
-- View and play videos in the account.
-- Search through insights in the account. 
-- Translate the transcription of a specific video.
-
-### Azure Video Indexer restricted tasks
-
-With this role, come the following restrictions:
+Users with this role are **unable** to perform the following tasks:
 
 - Upload/Index/Re-index a video 
 - Download/Embed video/insights 
@@ -41,11 +32,16 @@ With this role, come the following restrictions:
     - Language  
     - People  
     - Brands 
-- Invite others 
+- Assign roles
+- Generate an access token 
 
-## Not able to access the website error
+### Using an ARM API
+
+To generate a Video Indexer restriced viewer access token via API, see [documentation](https://aka.ms/vi-restricted-doc). 
+
+## Restricted Viewer Video Indexer portal experience
  
-When visiting the [Azure Video Indexer](https://www.videoindexer.ai/) website with the Video Indexer Restricted Viewer access, the following message appears: 
+When using the Video Indexer portal with a Video Indexer Restricted Viewer access, disabled features are greyed out. If a user with the restricted viewer role attempts to access an unauthorized page, they will encounter the pop-up message below: 
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/restricted-viewer-role/no-access.png" alt-text="No access to the gallery page.":::
