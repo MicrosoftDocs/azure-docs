@@ -42,7 +42,7 @@ In this article, you learn how to:
     >Self-sign certificates are not recommended for production environments.  
     - [Export the certificate for LDAPS authentication](#export-the-certificate-for-ldaps-authentication) and upload it to an Azure Storage account as blob storage. Then, you'll need to [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
 
-- Ensure Azure VMware Solution has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. See [Configure DNS forwarder for Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/configure-dns-azure-vmware-solution) for further information.
+- Ensure Azure VMware Solution has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. See [Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md) for further information.
 
 >[!NOTE]
 >For further information about LDAPS and certificate issuance, consult with your security or identity management team.
