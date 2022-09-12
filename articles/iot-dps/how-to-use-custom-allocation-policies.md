@@ -21,14 +21,15 @@ This article demonstrates a custom allocation policy using an Azure Function wri
 
 Devices will be simulated using a provisioning sample included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-You perform the following steps in this article:
+In this tutorial you will do the following:
 
-* Use the Azure CLI to create a DPS instance and to create and link two Contoso division IoT hubs (**Contoso Toasters Division** and **Contoso Heat Pumps Division**) to it
-* Create an Azure Function that implements the custom allocation policy
-* Create a new enrollment group uses the Azure Function for the custom allocation policy
-* Create device symmetric keys for two simulated devices
-* Set up the development environment for the Azure IoT C SDK
-* Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy
+> [!div class="checklist"]
+> * Use the Azure CLI to create a DPS instance and to create and link two Contoso division IoT hubs (**Contoso Toasters Division** and **Contoso Heat Pumps Division**) to it
+> * Create an Azure Function that implements the custom allocation policy
+> * Create a new enrollment group uses the Azure Function for the custom allocation policy
+> * Create device symmetric keys for two simulated devices
+> * Set up the development environment for the Azure IoT C SDK
+> * Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -643,6 +644,17 @@ To delete the resource group by name:
 
 ## Next steps
 
-* To learn more about custom allocation policies, see [Understand custom allocation policies](concepts-custom-allocation.md)
-* To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
-* To learn more Deprovisioning, see [How to deprovision devices that were previously autoprovisioned](how-to-unprovision-devices.md)
+* To learn more about custom allocation policies, see
+
+> [!div class="nextstepaction"]
+> [Understand custom allocation policies](concepts-custom-allocation.md)
+
+* To learn more Reprovisioning, see
+
+> [!div class="nextstepaction"]
+> [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
+
+* To learn more Deprovisioning, see
+
+> [!div class="nextstepaction"]
+> [How to deprovision devices that were previously autoprovisioned](how-to-unprovision-devices.md)
