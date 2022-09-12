@@ -380,7 +380,7 @@ To create and configure a policy, run the following cmdlets:
 You can now configure Smart Tiering to move recovery points to Vault-archive and retain them using the backup policy.
 
 >[!Note]
->After configuration, Smart Tiering is automatically enabled that moves the  recovery points to Vault-archive.
+>After configuration, Smart Tiering is automatically enabled and moves the recovery points to Vault-archive.
 
 #### Tier recommended recovery points for Azure Virtual Machines
 
@@ -410,7 +410,7 @@ $pol = New-AzRecoveryServicesBackupProtectionPolicy -Name hiagaVMArchiveTierAfte
 
 >[!Note]
 >- The number of months must range from *3* to *(Retention - 6)* months.
->- This can increase your overall costs.
+>- Enabling Smart Tiering for eligible recovery points can increase your overall costs.
 
 
 #### Tier all eligible SQL Server in Azure VM backup items
@@ -447,7 +447,7 @@ Set-AzRecoveryServicesBackupProtectionPolicy -VaultId $vault.ID -Policy $pol[0] 
 
 ### Enable Smart Tiering
 
-To enable Smart Tiering after you've disable it, run the corresponding cmdlet:
+To enable Smart Tiering after you've disable it, run the following cmdlet:
 
 - **Azure Virtual Machine**
 
