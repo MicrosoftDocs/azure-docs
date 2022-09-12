@@ -3,7 +3,7 @@ title: Create a Microsoft Energy Data Services Preview instance #Required; page 
 description: Quickly create a Microsoft Energy Data Services Preview instance #Required; article description that is displayed in search results. 
 author: nitinnms #Required; your GitHub user alias, with correct capitalization.
 ms.author: nitindwivedi #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 08/18/2022
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
@@ -15,7 +15,7 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 In this quickstart, you'll learn how to create and deploy a Microsoft Energy Data Services instance. 
 
-Microsoft Energy Data Services (or MEDS, in short) is a managed Platform-as-a-service (PaaS) offering from Microsoft that builds on top of the Open Subsurface Data Universe (OSDU&trade;) data platform. MEDS lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
+Microsoft Energy Data Services (or MEDS, in short) is a managed Platform-as-a-service (PaaS) offering from Microsoft that builds on top of the [OSDU&trade;](https://osduforum.org/) data platform. MEDS lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
 
 ## Before you start
 

@@ -13,7 +13,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-The article describes how you can add data partitions to an existing Microsoft Energy Data Services (MEDS) instance. The concept of "data partitions" in MEDS is picked from Open Subsurface Data Universe (OSDU&trade;) where single deployment can contain multiple partitions. 
+The article describes how you can add data partitions to an existing Microsoft Energy Data Services (MEDS) instance. The concept of "data partitions" in MEDS is picked from [OSDU&trade;](https://osduforum.org/) where single deployment can contain multiple partitions. 
 
 Each partition provides the highest level of data isolation within a single deployment. All access rights are governed at a partition level. Data is separated in a way that allows for the partitions life cycle and deployment to be handled independently. (See [Partition Service](https://community.opengroup.org/osdu/platform/home/-/issues/31) in OSDU&trade;)
 
