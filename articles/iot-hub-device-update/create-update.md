@@ -51,7 +51,7 @@ Once you have your update files, create an import manifest to describe the updat
 
     $updateId = New-AduUpdateId -Provider Contoso -Name Toaster -Version 1.0
 
-    $compat = New-AduUpdateCompatibility -Properties @{ deviceManufacturer = 'Contoso'; deviceModel = 'Toaster' }
+    $compat = New-AduUpdateCompatibility -Properties @{ manufacturer = 'Contoso'; model = 'Toaster' }
 
     $installStep = New-AduInstallationStep -Handler 'microsoft/swupdate:1'-HandlerProperties @{ installedCriteria = '1.0' } -Files 'path to your update file'
 
@@ -82,7 +82,7 @@ If your update is more complex, such as a [proxy update](device-update-proxy-upd
     Write-Host 'Preparing child update ...'
     
     $microphoneUpdateId = New-AduUpdateId -Provider Contoso -Name Microphone -Version $UpdateVersion
-    $microphoneCompat = New-AduUpdateCompatibility -DeviceManufacturer Contoso -DeviceModel Microphone
+    $microphoneCompat = New-AduUpdateCompatibility -Manufacturer Contoso -Model Microphone
     $microphoneInstallStep = New-AduInstallationStep -Handler 'microsoft/swupdate:1' -Files $childFile
     $microphoneUpdate = New-AduImportManifest -UpdateId $microphoneUpdateId `
                                                  -IsDeployable $false `
@@ -96,7 +96,7 @@ If your update is more complex, such as a [proxy update](device-update-proxy-upd
     Write-Host 'Preparing another child update ...'
     
     $speakerUpdateId = New-AduUpdateId -Provider Contoso -Name Speaker -Version $UpdateVersion
-    $speakerCompat = New-AduUpdateCompatibility -DeviceManufacturer Contoso -DeviceModel Speaker
+    $speakerCompat = New-AduUpdateCompatibility -Manufacturer Contoso -Model Speaker
     $speakerInstallStep = New-AduInstallationStep -Handler 'microsoft/swupdate:1' -Files $childFile
     $speakerUpdate = New-AduImportManifest -UpdateId $speakerUpdateId `
                                               -IsDeployable $false `
@@ -110,7 +110,7 @@ If your update is more complex, such as a [proxy update](device-update-proxy-upd
     Write-Host 'Preparing parent update ...'
     
     $parentUpdateId = New-AduUpdateId -Provider Contoso -Name Toaster -Version $UpdateVersion
-    $parentCompat = New-AduUpdateCompatibility -DeviceManufacturer Contoso -DeviceModel Toaster
+    $parentCompat = New-AduUpdateCompatibility -Manufacturer Contoso -Model Toaster
     $parentSteps = @()
     $parentSteps += New-AduInstallationStep -Handler 'microsoft/script:1' -Files $parentFile -HandlerProperties @{ 'arguments'='--pre'} -Description 'Pre-install script'
     $parentSteps += New-AduInstallationStep -UpdateId $microphoneUpdateId -Description 'Microphone Firmware'

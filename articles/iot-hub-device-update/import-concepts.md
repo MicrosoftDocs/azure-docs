@@ -28,8 +28,8 @@ For example:
   "isDeployable": false,
   "compatibility": [
     {
-      "deviceManufacturer": "Contoso",
-      "deviceModel": "Toaster"
+      "manufacturer": "Contoso",
+      "model": "Toaster"
     }
   ],
   "instructions": {
@@ -94,8 +94,8 @@ Here's an example of an update that can only be deployed to a device that report
 {
   "compatibility": [
     {
-      "deviceManufacturer": "Contoso",
-      "deviceModel": "Toaster"
+      "manufacturer": "Contoso",
+      "model": "Toaster"
     }
   ]
 }
