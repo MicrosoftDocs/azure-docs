@@ -273,7 +273,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 10. Select **Add credentials** to add the credentials of the machine(s) you plan to protect. Add all the details such as the **Operating system**, **Provide a friendly name for the credential**, **Username**, and **Password**. The user account details will be encrypted and stored locally in the machine. Select **Add**. 
 
-    :::image type="Add Physical server credentials." source="./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-credentials.png" alt-text="Screenshot of Add Physical server credentials..":::
+    :::image type="Add Physical server credentials." source="./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-credentials.png" alt-text="Screenshot of Add Physical server credentials.":::
 
 11. Select **Add server** to add physical server details. Provide the machine’s **IP address/FQDN of  physical server**, **Select credential account** and select **Add**.
 
