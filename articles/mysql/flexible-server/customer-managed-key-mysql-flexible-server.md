@@ -21,7 +21,6 @@ Data encryption with customer-managed keys is set at the server-level. For a giv
 **Data encryption key (DEK):** A symmetric AES256 key used to encrypt a partition or block of data. Encrypting each block of data with a different key makes crypto analysis attacks more difficult. Access to DEKs is needed by the resource provider or application instance that is encrypting and decrypting a specific block. When you replace a DEK with a new key, only the data in its associated block must be re-encrypted with the new key.
 
 Key encryption key (KEK): An encryption key used to encrypt the DEKs. A KEK that never leaves Key Vault allows the DEKs themselves to be encrypted and controlled. The entity that has access to the KEK might be different than the entity that requires the DEK. Since the KEK is required to decrypt the DEKs, the KEK is effectively a single point by which DEKs can be effectively deleted by deletion of the KEK. The DEKs, encrypted with the KEKs, are stored separately. Only an entity with access to the KEK can decrypt these DEKs. For more information, see [Security in encryption at](/azure/security/fundamentals/encryption-atrest.md)rest.
-
 ## Benefits
 
 Data encryption with customer-managed keys for Azure Database for MySQL Flexible server provides the following benefits:
