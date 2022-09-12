@@ -86,5 +86,7 @@ GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/delet
 > Permanently deleted workflows are not able to be restored.
 
 ## Next steps
+
+- [Delete workflow (lifecycle workflow)](/graph/api/identitygovernance-workflow-delete?view=graph-rest-beta)
 - [What are Lifecycle Workflows?](what-are-lifecycle-workflows.md)
 - [Manage Lifecycle Workflow Versions](manage-workflow-tasks.md)

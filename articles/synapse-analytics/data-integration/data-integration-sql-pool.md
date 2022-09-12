@@ -2,8 +2,13 @@
 title: Ingest data into a dedicated SQL pool 
 description: Learn how to ingest data into a dedicated SQL pool in Azure Synapse Analytics
 services: synapse-analytics 
+<<<<<<< HEAD
 author: kromerm
 ms.author: makromer
+=======
+author: JasonWHowell
+ms.author: jasonh
+>>>>>>> 4773b3fae89dafa0ed34a049242e038f271d0e09
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: pipeline
