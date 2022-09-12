@@ -1,4 +1,4 @@
----
+Fpreview---
 title: Change how a storage account is replicated
 titleSuffix: Azure Storage
 description: Learn how to change how data in an existing storage account is replicated.
@@ -104,7 +104,13 @@ The live migration option is available in most scenarios where you want to chang
 #### Customer-initiated live migration
 
 > [!IMPORTANT]
-> Customer-initiated live migration is currently in preview.
+> Customer-initiated live migration is currently in preview, but is not available in the following regions:
+>
+> - (Europe) West Europe
+> - (North America) Canada Central
+> - (North America) East US
+> - (North America) East US 2
+>
 > This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
