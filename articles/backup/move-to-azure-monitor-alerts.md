@@ -57,7 +57,7 @@ Follow these steps:
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/backup-center-overview-inline.png" alt-text="Screenshot showing Overview tab in Backup center." lightbox="./media/move-to-azure-monitor-alerts/backup-center-overview-expanded.png":::
 
-1. On the **Alerts** tile, the count of vaults appears that still has the classic alerts enabled.
+2. On the **Alerts** tile, the count of vaults appears that still has the classic alerts enabled.
 
    Select the link to take the required action.
 
@@ -76,29 +76,29 @@ Follow these steps:
 
    To modify any of these parameters, for example, scope of alert processing rule, or choice of notification channels, you can edit these resources after creation, or you can [create the alert processing rule and action group from scratch](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#configuring-notifications-for-alerts) via the Azure portal.
 
-1. Enter the subscription, resource group, and region in which the alert processing rule and action group should be created. Also specify the email ID(s) to which notifications should be sent. Other parameters populate with default values and only need to be edited, if you want to customize the names and descriptions that the resources are created in.
+3. Enter the subscription, resource group, and region in which the alert processing rule and action group should be created. Also specify the email ID(s) to which notifications should be sent. Other parameters populate with default values and only need to be edited, if you want to customize the names and descriptions that the resources are created in.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-parameters.png" alt-text="Screenshot showing template parameters to setup notification rules for Azure Monitor alerts.":::
 
-1. Select **Review+Create** to initiate deployment.
+4. Select **Review+Create** to initiate deployment.
 
    Once deployed, notifications for Azure Monitor based alerts are enabled. If you have multiple subscriptions, repeat the above process to create an alert processing rule for each subscription.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-deploy.png" alt-text="Screenshot showing deployment of notification rules for Azure Monitor alerts.":::
 
-1. Next, you need to opt-out of classic alerts to avoid receiving duplicate alerts from two solutions.
+5. Next, you need to opt-out of classic alerts to avoid receiving duplicate alerts from two solutions.
 
    Select **Manage Alerts** to view the vaults for which classic alerts are currently enabled.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/recommended-action-two.png" alt-text="Screenshot showing recommended alert migration action Manage Alerts for Recovery Services vaults.":::
 
-1. Select **Update** -> **Use only Azure Monitor alerts** checkbox.
+6. Select **Update** -> **Use only Azure Monitor alerts** checkbox.
 
    By doing so, you agree to receive backup alerts only via Azure Monitor, and you'll stop receiving alerts from the older (classic alerts) solution.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/classic-alerts-vault.png" alt-text="Screenshot showing how to opt out of classic alerts for vault.":::
 
-1. To select multiple vaults on a page and update the settings for these vaults with a single action, select **Update** from the top menu.
+7. To select multiple vaults on a page and update the settings for these vaults with a single action, select **Update** from the top menu.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/classic-alerts-multiple-vaults.png" alt-text="Screenshot showing how to opt out of classic alerts for multiple vaults.":::
 
@@ -114,11 +114,11 @@ To create a suppression alert processing rule, follow these steps:
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-blade.png" alt-text="Screenshot showing alert processing rules blade in portal.":::
 
-1. Select **Create**.
+2. Select **Create**.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-create.png" alt-text="Screenshot showing creation of new alert processing rule.":::
 
-1. Select **Scope**, for example, subscription or resource group, that the alert processing rule should span.
+3. Select **Scope**, for example, subscription or resource group, that the alert processing rule should span.
 
    You can also select more granular filters if you want to suppress notifications only for a particular backup item. For example, if you want to suppress notifications for *testdb1* database within Virtual Machine *VM1*, you can specify filters "where Alert Context (payload) contains /subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/VM1/providers/Microsoft.RecoveryServices/backupProtectedItem/SQLDataBase;MSSQLSERVER;testdb1".
    
@@ -126,19 +126,19 @@ To create a suppression alert processing rule, follow these steps:
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-scope.png" alt-text="Screenshot showing specified scope of alert processing rule.":::
 
-1. Under **Rule Settings**, select **Suppress notifications**.
+4. Under **Rule Settings**, select **Suppress notifications**.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-settings.png" alt-text="Screenshot showing alert processing rule settings.":::
 
-1. Under **Scheduling**, select the window of time for which the alert processing rule will apply.
+5. Under **Scheduling**, select the window of time for which the alert processing rule will apply.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-schedule.png" alt-text="Screenshot showing alert processing rules scheduling.":::
 
-1. Under **Details**, specify the subscription, resource group, and name under that the alert processing rule should be created.
+6. Under **Details**, specify the subscription, resource group, and name under that the alert processing rule should be created.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-details.png" alt-text="Screenshot showing alert processing rules details.":::
 
-1. Select **Review+Create**.
+7. Select **Review+Create**.
 
    If your suppression windows are one-off scenarios and not recurring, you can **Disable** the alert processing rule once you don't need it anymore. You can enable it again in future when you have a new maintenance window in the future.
 
@@ -146,7 +146,11 @@ To create a suppression alert processing rule, follow these steps:
 
 You can also use programmatic methods to opt-out of classic alerts and manage Azure Monitor notifications.
 
-- **Opting out of classic backup alerts**: The **monitoringSettings** vault property helps you specify whether you want to disable classic alerts. You can create a custom ARM/Bicep template or Azure Policy to modify this setting for your vaults. Below is an example of this property for a vault where classic alerts are disabled and built-in Azure Monitor alerts are enabled for all job failures.
+### Opting out of classic backup alerts
+
+#### Using ARM/Bicep/REST API/Azure Policy
+
+The **monitoringSettings** vault property helps you specify whether you want to disable classic alerts. You can create a custom ARM/Bicep template or Azure Policy to modify this setting for your vaults. Below is an example of this property for a vault where classic alerts are disabled and built-in Azure Monitor alerts are enabled for all job failures.
 
    ```json
    {
@@ -159,13 +163,78 @@ You can also use programmatic methods to opt-out of classic alerts and manage Az
    }
    ```
 
-- **Setting up notifications for Azure Monitor alerts**:
+#### Using PowerShell
+
+Use the [Update-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault?view=azps-8.2.0) command to modify the alert settings of the vault. The below example enables built-in Azure Monitor alerts for job failures and disables clasic alerts.
+
+```powershell
+Update-AzRecoveryServicesVault -ResourceGroupName testRG -Name testVault -DisableClassicAlerts $true -DisableAzureMonitorAlertsForJobFailure $false
+```
+
+### Using CLI
+
+Use the [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest) command to modify the alert settings of the vault. The below example enables built-in Azure Monitor alerts for job failures and disables clasic alerts.
+
+```azurecli-interactive
+az backup vault backup-properties set \
+	--name testVault \
+	--resource-group testRG \
+    --clasic-alerts  Disable \
+    --alerts-for-job-failures Enable
+```
+
+### Setting up notifications for Azure Monitor alerts
 
 You can use the following standard programmatic interfaces supported by Azure Monitor to manage action groups and alert processing rules.
 
 - [Azure Monitor REST API reference](/rest/api/monitor/)
 - [Azure Monitor PowerShell reference](/powershell/module/az.monitor/?view=azps-8.0.0&preserve-view=true)
 - [Azure Monitor CLI reference](/cli/azure/monitor?view=azure-cli-latest)
+
+#### Using ARM/Bicep/REST API
+
+You can use [these sample ARM and Bicep templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-create-alert-processing-rule) which create an alert processing rule and action group associated to all Recovery Services vaults in the selected subscription.
+
+#### Using PowerShell
+
+As described in earlier sections, you will need an action group (notification channel) and alert processing rule (notification rule) to configure notifications for your vaults. Use the below commands to configure the same.
+
+1. Create an action group associated with an email id, using the [New-AzActionGroupReceiver](https://docs.microsoft.com/powershell/module/az.monitor/new-azactiongroupreceiver?view=azps-8.2.0) command and the [Set-AzActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/set-azactiongroup?view=azps-8.2.0) command.
+
+```powershell
+$email1 = New-AzActionGroupReceiver -Name 'user1' -EmailReceiver -EmailAddress 'user1@contoso.com'
+Set-AzActionGroup -Name "testActionGroup" -ResourceGroupName "testRG" -ShortName "testAG" -Receiver $email1
+```
+
+2. Then, create an alert processing rule that is linked to the above action group using the [Set-AzAlertProcessingRule](https://docs.microsoft.com/powershell/module/az.alertsmanagement/set-azalertprocessingrule?view=azps-8.2.0) command.
+
+```powershell
+Set-AzAlertProcessingRule -ResourceGroupName "testRG" -Name "AddActionGroupToSubscription" -Scope "/subscriptions/xxxx-xxx-xxxx" -FilterTargetResourceType "Equals:Microsoft.RecoveryServices/vaults" -Description "Add ActionGroup1 to alerts on all RS vaults in subscription" -Enabled "True" -AlertProcessingRuleType "AddActionGroups" -ActionGroupId "/subscriptions/xxxx-xxx-xxxx/resourcegroups/testRG/providers/microsoft.insights/actiongroups/testActionGroup"
+```
+
+#### Using CLI
+
+As described in earlier sections, you will need an action group (notification channel) and alert processing rule (notification rule) to configure notifications for your vaults. Use the below commands to configure the same.
+
+1. Create an action group associated with an email id, using the [az monitor action-group create](https://docs.microsoft.com/cli/azure/monitor/action-group?view=azure-cli-latest#az-monitor-action-group-create) command.
+
+```azurecli-interactive
+az monitor action-group create --name testag1 --resource-group testRG --short-name testag1 --action email user1 user1@contoso.com --subscription "Backup PM Subscription"
+```
+
+2. Then, create an alert processing rule that is linked to the above action group using the [az monitor alert-processing-rule create](https://docs.microsoft.com/cli/azure/monitor/alert-processing-rule?view=azure-cli-latest#az-monitor-alert-processing-rule-create) command.
+
+```azurecli-interactive
+az monitor alert-processing-rule create \
+--name 'AddActionGroupToSubscription' \
+--rule-type AddActionGroups \
+--scopes "/subscriptions/xxxx-xxx-xxxx" \
+--filter-resource-type Equals "Microsoft.RecoveryServices/vaults"
+--action-groups "/subscriptions/xxxx-xxx-xxxx/resourcegroups/testRG/providers/microsoft.insights/actiongroups/testag1" \
+--enabled true \
+--resource-group testRG \
+--description "Add ActionGroup1 to all RS vault alerts in subscription"
+```
 
 ## Next steps
 Learn more about [Azure Backup monitoring and reporting](monitoring-and-alerts-overview.md).
