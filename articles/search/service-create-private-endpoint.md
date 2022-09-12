@@ -14,17 +14,17 @@ ms.date: 09/12/2022
 
 In this article, you'll learn how to secure an Azure Cognitive Search service so that it can't be accessed over the internet:
 
-+ [Create an Azure virtual network](#create-the-virtual-network) or use an existing one
-+ [Create or update a search service to use a private endpoint](#create-a-search-service-with-a-private-endpoint)
-+ [Configure an Azure virtual machine in the same virtual network](#create-a-virtual-machine)
-+ [Connect to the search service using a browser session on the virtual machine](#connect-to-the-vm)
++ [Create an Azure virtual network](#create-the-virtual-network) (or use an existing one)
++ [Create a search service to use a private endpoint](#create-a-search-service-with-a-private-endpoint)
++ [Create a Azure virtual machine in the same virtual network](#create-a-virtual-machine)
++ [Connect to search using a browser session on the virtual machine](#connect-to-the-vm)
 
 Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate billable service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 
 You can create a private endpoint in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
 > [!NOTE]
-> Once a search service is configured for private link, portal access a search service must be initiated from a browser session on a virtual machine inside the virtual network. See [this step](#portal-access-private-search-service) for details.
+> Once a search service has a private endpoint, portal access to that service must be initiated from a browser session on a virtual machine inside the virtual network. See [this step](#portal-access-private-search-service) for details.
 
 ## Why use a Private Endpoint for secure access?
 
@@ -42,17 +42,16 @@ In this section, you'll create a virtual network and subnet to host the VM that 
 
 1. From the Azure portal home tab, select **Create a resource** > **Networking** > **Virtual network**.
 
-1. In **Create virtual network**, enter or select this information:
+1. In **Create virtual network**, enter or select the following values:
 
     | Setting | Value |
     | ------- | ----- |
-    | Subscription | Select your subscription|
-    | Resource group | Select **Create new**, enter *myResourceGroup*, then select **OK** |
-    | Name | Enter *MyVirtualNetwork* |
-    | Region | Select your desired region |
-    |||
+    | Subscription | Select your subscription.|
+    | Resource group | Select **Create new**, enter a name, such as "myResourceGroup", then select **OK**. |
+    | Name | Enter a name, such as "MyVirtualNetwork". |
+    | Region | Select a region. |
 
-1. Leave the defaults for the rest of the settings. Select **Review + create** and then **Create**
+1. Accept the defaults for the rest of the settings. Select **Review + create** and then **Create**.
 
 ## Create a search service with a private endpoint
 
@@ -60,43 +59,41 @@ In this section, you'll create a new Azure Cognitive Search service with a Priva
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Web** > **Azure Cognitive Search**.
 
-1. In **New Search Service - Basics**, enter or select this information:
+1. In **New Search Service - Basics**, enter or select the following values:
 
     | Setting | Value |
     | ------- | ----- |
     | **PROJECT DETAILS** | |
     | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**, which you created in the previous section.|
+    | Resource group | Use the resource group that you created in the previous step.|
     | **INSTANCE DETAILS** |  |
     | URL | Enter a unique name. |
-    | Location | Select your desired region. |
-    | Pricing tier | Select **Change Pricing Tier** and choose your desired service tier. (Not support on **Free** tier. Must be **Basic** or higher.) |
-    |||
+    | Location | Select your region. |
+    | Pricing tier | Select **Change Pricing Tier** and choose your desired service tier. Private endpoints aren't supported on the  **Free** tier. You must select **Basic** or higher. |
   
 1. Select **Next: Scale**.
 
-1. Leave the values as default and select **Next: Networking**.
+1. Accept the defaults and select **Next: Networking**.
 
 1. In **New Search Service - Networking**, select **Private** for **Endpoint connectivity(data)**.
 
-1. In **New Search Service - Networking**, select **+ Add** under **Private endpoint**. 
+1. Select **+ Add** under **Private endpoint**. 
 
-1. In **Create Private Endpoint**, enter or select the following values:
+1. In **Create Private Endpoint**, enter or select values that associate your search service with the virtual network you created:
 
     | Setting | Value |
     | ------- | ----- |
     | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**, which you created in the previous section.|
-    | Location | Select **West US**.|
-    | Name | Enter *myPrivateEndpoint*.  |
-    | Target subresource | Leave the default **searchService**. |
+    | Resource group | Use the resource group that you created in the previous step. |
+    | Location | Select a region. |
+    | Name | Enter a name, such as "myPrivateEndpoint".  |
+    | Target subresource | Accept the default **searchService**. |
     | **NETWORKING** |  |
-    | Virtual network  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
-    | Subnet | Select *mySubnet*. |
+    | Virtual network  | Select the virtual network you created in the previous step. |
+    | Subnet | Select the default. |
     | **PRIVATE DNS INTEGRATION** |  |
-    | Integrate with private DNS zone  | Leave the default **Yes**. |
-    | Private DNS zone  | Leave the default ** (New) privatelink.search.windows.net**. |
-    |||
+    | Integrate with private DNS zone  | Accept the default "Yes". |
+    | Private DNS zone  | Accept the default **(New) privatelink.search.windows.net**. |
 
 1. Select **OK**. 
 
@@ -122,58 +119,55 @@ In this section, you'll create a new Azure Cognitive Search service with a Priva
     | ------- | ----- |
     | **PROJECT DETAILS** | |
     | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**, which you created in the previous section.  |
+    | Resource group | Use the resource group that you created in the previous section.|
     | **INSTANCE DETAILS** |  |
-    | Virtual machine name | Enter *myVm*. |
-    | Region | Select **West US** or whatever region you're using. |
-    | Availability options | Leave the default **No infrastructure redundancy required**. |
-    | Image | Select **Windows Server 2019 Datacenter**. |
-    | Size | Leave the default **Standard DS1 v2**. |
+    | Virtual machine name | Enter a name, such as "my-vm". |
+    | Region | Select your region. |
+    | Availability options | You can choose **No infrastructure redundancy required**, or select another option if you need the functionality. |
+    | Image | Select **Windows Server 2022 Datacenter: Azure Edition - Gen2**. |
+    | VM architecture | Accept the default **x64**. |
+    | Size | Accept the default **Standard D2S v3**. |
     | **ADMINISTRATOR ACCOUNT** |  |
-    | Username | Enter a username of your choosing. |
-    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
+    | Username | Enter the user name of the administrator.. |
+    | Password | Enter the password. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Reenter password. |
     | **INBOUND PORT RULES** |  |
-    | Public inbound ports | Leave the default **Allow selected ports**. |
-    | Select inbound ports | Leave the default **RDP (3389)**. |
-    | **SAVE MONEY** |  |
-    | Already have a Windows license? | Leave the default **No**. |
-    |||
+    | Public inbound ports | Accept the default **Allow selected ports**. |
+    | Select inbound ports | Accept the default **RDP (3389)**. |
 
 1. Select **Next: Disks**.
 
-1. In **Create a virtual machine - Disks**, leave the defaults and select **Next: Networking**.
+1. In **Create a virtual machine - Disks**, accept the defaults and select **Next: Networking**.
 
-1. In **Create a virtual machine - Networking**, select this information:
+1. In **Create a virtual machine - Networking**, provide the following values:
 
     | Setting | Value |
     | ------- | ----- |
-    | Virtual network | Leave the default **MyVirtualNetwork**.  |
-    | Address space | Leave the default **10.1.0.0/24**.|
-    | Subnet | Leave the default **mySubnet (10.1.0.0/24)**.|
-    | Public IP | Leave the default **(new) myVm-ip**. |
-    | Public inbound ports | Select **Allow selected ports**. |
-    | Select inbound ports | Select **HTTP** and **RDP**.|
-    ||
+    | Virtual network | Select the virtual network you created in a previous step. |
+    | Subnet | Accept the default (10.1.0.0/24).|
+    | NIC network security group | Accept the default "Basic" |
+    | Public IP | Accept the default "(new) myVm-ip". |
+    | Public inbound ports | Select the default "Allow selected ports". |
+    | Select inbound ports | Select "HTTP 80", "HTTPS (443)" and "RDP (3389)".|
 
    > [!NOTE]
    > IPv4 addresses can be expressed in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format. Remember to avoid the IP range reserved for private networking, as described in [RFC 1918](https://tools.ietf.org/html/rfc1918):
    >
-   > - `10.0.0.0 - 10.255.255.255  (10/8 prefix)`
-   > - `172.16.0.0 - 172.31.255.255  (172.16/12 prefix)`
-   > - `192.168.0.0 - 192.168.255.255 (192.168/16 prefix)`
+   > + `10.0.0.0 - 10.255.255.255  (10/8 prefix)`
+   > + `172.16.0.0 - 172.31.255.255  (172.16/12 prefix)`
+   > + `192.168.0.0 - 192.168.255.255 (192.168/16 prefix)`
 
-1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
+1. Select **Review + create** for a validation check.
 
 1. When you see the **Validation passed** message, select **Create**. 
 
 ## Connect to the VM
 
-Download and then connect to the VM *myVm* as follows:
+Download and then connect to the virtual machine as follows:
 
-1. In the portal's search bar, enter *myVm*.
+1. In the portal's search bar, search for the virtual machine created in the previous step.
 
-1. Select the **Connect** button. After selecting the **Connect** button, **Connect to virtual machine** opens.
+1. Select **Connect**. After selecting the **Connect** button, **Connect to virtual machine** opens.
 
 1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
@@ -235,13 +229,9 @@ To work around this restriction, connect to Azure portal from a browser on a vir
 
 ## Clean up resources
 
-When you're done using the Private Endpoint, search service, and the VM, delete the resource group and all of the resources it contains:
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money.
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
-
-1. Select **Delete resource group**. 
-
-1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+You can delete individual resources or the resource group to delete everything you created in this exercise. Select the resource group on any resource's overview page, and then select **Delete**.
 
 ## Next steps
 
