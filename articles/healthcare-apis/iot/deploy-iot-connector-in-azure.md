@@ -5,7 +5,7 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/06/2022
+ms.date: 09/11/2022
 ms.author: v-smcevoy
 ---
 
@@ -13,23 +13,31 @@ ms.author: v-smcevoy
 
 MedTech service provides multiple methods for deploying it into an Azure Platform as a service (PaaS) configuration. Each method has different advantages so you can customize your development environment to suit your needs.
 
+## Different methods of deployment for MedTech service
+
 The different deployment methods are:
 
-## Choosing Azure portal
+- Quickstart template with portal
+- ARM template with Azure PowerShell and Azure CLI
+- Manual deployment with portal
 
-Using Azure portal to deploy MedTech service allows you to view and manage all your applications in one unified hub. This allows you to utilize portal's graphical features of menus, buttons, and other visual elements to implement your deployment procedures. There are two different methods available:
+### QuickStart template with portal
 
-### QuickStart template
+Using a Quickstart template with Azure portal is the easiest and fastest method because it automates, with the touch of a button, the creation of managed identity RBAC roles and provisions a workspace, namespace, an Event Hubs instance, FHIR service instance, and MedTech service instance.
 
-This is the easiest and fastest method because it automates, with the touch of a button, the creation of managed identity RBAC roles and provisions a workspace, namespace, an Event Hubs instance, FHIR service instance, and MedTech service instance.
+For more information about Quickstart template with portal, see [Deploy the MedTech service with a QuickStart template](deploy-02-new-button.md).
 
-### Manual deployment
+### Using an ARM template with Azure PowerShell and Azure CLI
 
-This method requires you to implement every step individually. None are automatic, but this procedure can be useful if you need to customize or troubleshoot your deployment process.
+Deploying MedTech service with an Azure Resource Manager (ARM) template can be useful for adding automation code to scale your procedures for use by many developers. Azure provides Azure PowerShell and Azure CLI to speed up your configurations when used for large teams.
 
-## Choosing an ARM template
+For more information about Using an ARM template with Azure PowerShell and Azure CLI, see [Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates](/deploy-08-new-ps-cli.md).
 
-Deploying MedTech service with an Azure Resource Manager (ARM) template can be useful for adding automation code to scale your procedures for use by many developers. Azure provides Azure PowerShell and Azure CLI to speed up your configurations for large teams.
+### Manual deployment with portal
+
+This method requires you to implement every step individually using Azure portal. None are automatic, but this procedure can be useful if you need to customize or troubleshoot your deployment process.
+
+For more information about manual deployment with portal, see [Overview of how to manually deploy the MedTech service using the Azure portal](/deploy-03-new-manual.md).
 
 ## Deployment architecture overview
 
@@ -70,28 +78,19 @@ The QuickStart template method includes these steps automatically, but is not in
 
 For more details on all six step of this architecture diagram, see [Get started with the MedTech service in the Azure Health Data Services](./get-started-with-iot.md).
 
-## Granting access to the device message event hub
+### Granting access to the device message event hub
 
 For information about granting access to the device message event hub, see [Granting access to the device message event hub](deploy-07-new-post-deploy.md#granting-access-to-the-device-message-event-hub).
 
-## Granting access to the FHIR service
+### Granting access to the FHIR service
 
 For information about granting access to the FHIR service, see [Granting access to the FHIR service](deploy-07-new-post-deploy.md#granting-access-to-the-fhir-service).
 
 ## Next steps
 
-In this article, you learned about the different types of deployment for MedTech service. To learn more about each type of deployment, see
+In this article, you learned about the different types of deployment for MedTech service. To learn more about MedTech service, see
 
 >[!div class="nextstepaction"]
->[How to deploy MedTech service using a Quickstart template with Azure portal](deploy-02-new-button.md)
-
->[!div class="nextstepaction"]
->[How to manually deploy MedTech service with Azure portal](deploy-03-new-manual.md)
-
->[!div class="nextstepaction"]
->[How to deploy MedTech service using an ARM template and Azure PowerShell or Azure CLI](deploy-08-new-ps-cli.md)
+>[What is MedTech service?](/iot-connector-overview.md).
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
-
-
-
