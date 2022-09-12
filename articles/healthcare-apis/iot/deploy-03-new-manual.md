@@ -5,7 +5,7 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/22/2022
+ms.date: 09/11/2022
 ms.author: v-smcevoy
 ---
 
@@ -22,13 +22,21 @@ The manual deployment of MedTech service is divided into four steps:
 
 For more information about the four steps, see [Deployment architecture overview](deploy-iot-connector-in-azure.md#deployment-architecture-overview)
 
-To satisfy the necessary **prerequisites** for deploying MedTech service, see [Prerequisites for manually deploying the MedTech service using the Azure portal](deploy-04-new-prereq.md).
+## Prerequisites for manual deployment of MedTech service
 
-To **configure** MedTech service for deployment, see [Configure the MedTech service for manual deployment using the Azure portal](deploy-05-new-config.md).
+To satisfy the necessary prerequisites for deploying MedTech service, see [Prerequisites for manually deploying the MedTech service using the Azure portal](deploy-04-new-prereq.md).
 
-When you have satisfied the needed prerequisites and configure everything properly, you are ready to **deploy** MedTech service by following the steps at [Creating a manual deployment of the MedTech service using the Azure portal](deploy-06-new-deploy.md).
+## Configuring the MedTech service for manual deployment
 
-After you have deployed the MedTech service, you must follow specific **post-deployment** procedures to make MedTech service function properly. For more information on post-deployment, see [Necessary post-deployment tasks needed after a manual deployment of the MedTech service using the Azure portal](deploy-07-new-post-deploy.md).
+To configure MedTech service for deployment, see [Configure the MedTech service for manual deployment using the Azure portal](deploy-05-new-config.md).
+
+## Deploying the MedTech service
+
+When you have satisfied the needed prerequisites and configure everything properly, you are ready to deploy MedTech service by following the steps at [Creating a manual deployment of the MedTech service using the Azure portal](deploy-06-new-deploy.md).
+
+## Post-deployment procedures for MedTech service
+
+After you have deployed the MedTech service, you must follow specific post-deployment procedures to make MedTech service function properly. For more information on post-deployment, see [Necessary post-deployment tasks needed after a manual deployment of the MedTech service using the Azure portal](deploy-07-new-post-deploy.md).
 
 ## Next steps
 
