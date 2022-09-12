@@ -15,7 +15,7 @@ ms.date: 10/13/2021
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
 > * [v1](how-to-prepare-datasets-for-automl-images-v1.md)
 > * [v2 (current version)](../how-to-prepare-datasets-for-automl-images.md)
   
