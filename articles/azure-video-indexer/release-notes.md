@@ -58,11 +58,13 @@ The [Azure Video Indexer website](https://vi.microsoft.com) session length was e
 
 ## July 2022
 
-### Featured clothing insight (preview)
+### The featured clothing insight (preview)
 
-When indexing a video using Azure Video Indexer advanced video settings, you can view the featured clothing of an observed person. The featured clothing insight provides information of key items worn by individuals within a video and the specific time in which the clothing appears. Based on this insight, you can enable more targeted ads placement.
+The featured clothing insight enables more targeted ads placement. 
 
-For details on how featured clothing images are ranked and how to view this insight, see [observed people featured clothing](observed-people-featured-clothing.md).
+The insight provides information of key items worn by individuals within a video and the timestamp in which the clothing appears. This allows high-quality in-video contextual advertising, where relevant clothing ads are matched with the specific time within the video in which they are viewed.
+
+To view the featured clothing of an observed person, you have to index the video using Azure Video Indexer advanced video settings. For details on how featured clothing images are ranked and how to view this insight, see [featured clothing](observed-people-featured-clothing.md).
 
 ## June 2022
 
@@ -302,7 +304,7 @@ Azure Video Indexer has a new [Developer Portal](https://api-portal.videoindexer
 
 SDK is now available to embed Azure Video Indexer's insights widget in your own service and customize its style and data. The SDK supports the standard Azure Video Indexer insights widget and a fully customizable insights widget. Code sample is available in [Azure Video Indexer GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets/widget-customization). With this advanced customization capabilities, solution developer can apply custom styling and bring customer’s own AI data and present that in the insight widget (with or without Azure Video Indexer insights).
 
-### Azure Video Indexer deployed in the US North Central , US West and Canada Central
+### Azure Video Indexer deployed in the US North Central, US West and Canada Central
 
 You can now create an Azure Video Indexer paid account in the US North Central, US West and Canada Central regions
 
