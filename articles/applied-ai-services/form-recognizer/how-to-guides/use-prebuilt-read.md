@@ -8,7 +8,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 zone_pivot_groups: programming-languages-set-formre
-ms.date: 04/12/2022
+ms.date: 09/09/2022
 ms.author: jppark
 recommendations: false
 ---

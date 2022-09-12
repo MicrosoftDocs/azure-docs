@@ -6,12 +6,12 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/13/2022
+ms.date: 09/09/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.4/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.4/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (Maven)](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)| [Supported REST API versions](../../sdk-overview.md)
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
         mavenCentral()
     }
     dependencies {
-        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.4")
+        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0")
     }
     ```
 
@@ -115,17 +115,20 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ```java
 import com.azure.ai.formrecognizer.*;
-import com.azure.ai.formrecognizer.models.AnalyzeResult;
-import com.azure.ai.formrecognizer.models.DocumentLine;
-import com.azure.ai.formrecognizer.models.AnalyzedDocument;
-import com.azure.ai.formrecognizer.models.DocumentOperationResult;
-import com.azure.ai.formrecognizer.models.DocumentWord;
-import com.azure.ai.formrecognizer.models.DocumentTable;
+
+import com.azure.ai.formrecognizer.documentanalysis.models.*;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.polling.SyncPoller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Arrays;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class FormRecognizer {
 
@@ -146,32 +149,32 @@ public class FormRecognizer {
 
         String modelId = "prebuilt-read";
 
-        SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeLayoutResultPoller =
-            client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
+            SyncPoller < OperationResult, AnalyzeResult > analyzeLayoutResultPoller =
+                client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
 
-        AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult();
+            AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult();
 
-            // pages
-            analyzeLayoutResult.getPages().forEach(documentPage -> {
-                System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
-                    documentPage.getWidth(),
-                    documentPage.getHeight(),
-                    documentPage.getUnit());
+                // pages
+                analyzeLayoutResult.getPages().forEach(documentPage -> {
+                    System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
+                        documentPage.getWidth(),
+                        documentPage.getHeight(),
+                        documentPage.getUnit());
 
-            // lines
-            documentPage.getLines().forEach(documentLine ->
-                System.out.printf("Line %s is within a bounding box %s.%n",
-                    documentLine.getContent(),
-                    documentLine.getBoundingBox().toString()));
+                // lines
+                documentPage.getLines().forEach(documentLine ->
+                    System.out.printf("Line %s is within a bounding polygon %s.%n",
+                        documentLine.getContent(),
+                        documentLine.getBoundingPolygon().toString()));
 
-            // words
-            documentPage.getWords().forEach(documentWord ->
-                System.out.printf("Word '%s' has a confidence score of %.2f.%n",
-                    documentWord.getContent(),
-                    documentWord.getConfidence()));
-        });
+                // words
+                documentPage.getWords().forEach(documentWord ->
+                    System.out.printf("Word '%s' has a confidence score of %.2f.%n",
+                        documentWord.getContent(),
+                        documentWord.getConfidence()));
+            });
+        }
     }
-}
 ```
 
 > [!IMPORTANT]
