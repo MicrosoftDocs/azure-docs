@@ -3,7 +3,7 @@ title: Deploy Azure Arc Telemetry Router
 description: Learn how to deploy the Azure Arc Telemetry Router
 author: lcwright
 ms.author: lancewright
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+ms.service: azure
 ms.topic: how-to 
 ms.date: 09/07/2022
 ms.custom: template-how-to
@@ -147,7 +147,7 @@ spec:
 
 Once you have your cluster and Azure CLI setup correctly, to deploy the telemetry router, you must create the *DataController* custom resource. Then, set the `enableOpenTelemetry` flag on its spec to `true`.  This is a temporary feature flag that must be enabled.
 
-To do this, follow the [normal configuration profile instructions](https://docs.microsoft.com/en-us/azure/azure-arc/data/create-custom-configuration-template). After you have created your configuration profile, add the monitoring property with the `enableOpenTelemetry` flag set to `true`. You can do this by running the following commends in the az CLI:
+To do this, follow the [normal configuration profile instructions](create-custom-configuration-template.md). After you have created your configuration profile, add the monitoring property with the `enableOpenTelemetry` flag set to `true`. You can do this by running the following commends in the az CLI:
 
 ```bash
 az arcdata dc config add --path ./output/control.json --json-values ".spec.monitoring={}"
@@ -162,7 +162,7 @@ spec:
         enableOpenTelemetry: true
 ```
 
-Then deploy the data controller as normal in the [Deployment Instructions](https://docs.microsoft.com/en-us/azure/azure-arc/data/create-data-controller-indirect-cli?tabs=linux)
+Then deploy the data controller as normal in the [Deployment Instructions](create-data-controller-indirect-cli.md?tabs=linux)
 
 When the data controller is deployed, it also deploys a default TelemetryRouter custom resource at the end of the data controller creation. Use the following command to verify that it exists:
 
@@ -520,4 +520,4 @@ This will add a Kafka exporter that exports to to the topic name at the broker s
 
 ## Next steps
 
-- [Test Arc-enabled servers using an Azure VM]([contribute-how-to-write-howto.md](https://docs.microsoft.com/en-us/azure/azure-arc/servers/plan-evaluate-on-azure-virtual-machine))
+- [Test Arc-enabled servers using an Azure VM](plan-evaluate-on-azure-virtual-machine.md)
