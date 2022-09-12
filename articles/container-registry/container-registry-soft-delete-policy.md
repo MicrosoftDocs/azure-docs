@@ -113,7 +113,7 @@ az acr manifest restore -r MyRegistry -n hello-world:latest -d sha256:abc123
 az acr manifest restore -r MyRegistry -n hello-world:latest
 ```
 
-Force restore will overwrite the existing tag with the same name in the repository. If the soft delete policy is enabled during force restore, The overwritten tag will be soft deleted. You can force restore with specific arguments `--force, -f`. 
+Force restore will overwrite the existing tag with the same name in the repository. If the soft delete policy is enabled during force restore. The overwritten tag will be soft deleted. You can force restore with specific arguments `--force, -f`.  
 
 3. Force restore the image of a `hello-world` repository by tag `latest`and digest `sha256:abc123` in a given `MyRegistry` ACR.
 
