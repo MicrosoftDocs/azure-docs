@@ -45,7 +45,7 @@ The [azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%2
 
 There are several ways to retrieve this information for deployed web services:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
