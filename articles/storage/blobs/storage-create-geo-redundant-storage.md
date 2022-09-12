@@ -41,13 +41,13 @@ To complete this tutorial:
 
 - Install [Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **Azure development** workload.
 
-  ![Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads-net-v12.png)
+  ![Screenshot of Visual Studio Azure development workload (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads-net-v12.png)
 
 # [.NET v11 SDK](#tab/dotnet11)
 
 - Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **Azure development** workload.
 
-  ![Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
+  ![Screenshot of Visual Studio Azure development workload (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
 # [Python v12 SDK](#tab/python)
 
@@ -222,7 +222,7 @@ When the console window launches, the app will get the status of the secondary r
 
 Next, the application enters a loop with a prompt to download the blob, initially reading from primary storage. Press any key to download the blob. If there's a retryable error reading from the primary region, a retry of the read request is performed against the secondary region endpoint. The console output will show when the region switches to secondary.
 
-![Console output secondary request](media/storage-create-geo-redundant-storage/request-secondary-region.png)
+![Screenshot of Console output for secondary request](media/storage-create-geo-redundant-storage/request-secondary-region.png)
 
 To exit the loop and clean up resources, press the `Esc` key at the blob download prompt.
 
@@ -232,7 +232,7 @@ In Visual Studio, press **F5** or select **Start** to begin debugging the applic
 
 A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GZRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
 
-![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
+![Screenshot of Console application output](media/storage-create-geo-redundant-storage/figure3.png)
 
 In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) is defined. The operation context defines event handlers that fire when a download completes successfully, or if a download fails and is retrying.
 
