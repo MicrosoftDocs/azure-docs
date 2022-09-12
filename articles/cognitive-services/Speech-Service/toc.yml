@@ -58,9 +58,17 @@ items:
       href: how-to-recognize-speech.md
     - name: Get speech recognition results
       href: get-speech-recognition-results.md
-    - name: How to use batch transcription
-      href: batch-transcription.md
-    - name: Improve recognition with Custom Speech
+    - name: Batch transcription
+      items:
+      - name: What is batch transcription?
+        href: batch-transcription.md
+      - name: Locate audio files in storage
+        href: batch-transcription-audio-data.md
+      - name: Create a batch transcription
+        href: batch-transcription-create.md
+      - name: Get batch transcription results
+        href: batch-transcription-get.md
+    - name: Custom Speech
       items:
         - name: What is Custom Speech?
           href: custom-speech-overview.md
