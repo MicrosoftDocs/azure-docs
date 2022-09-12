@@ -32,7 +32,7 @@ You decide to create an exclusion to allow these legitimate requests to pass thr
 
 1. Select **Managed rules**, and then select **Manage exclusions** on the toolbar.
 
-   :::image type="content" source="../media/waf-front-door-exclusion-configure/exclusion-add.png" alt-text="Screenshot of the Azure portal showing the WAF policy's managed rules page, with the 'Manage exclusions' button highlighted." :::
+   :::image type="content" source="../media/waf-front-door-exclusion-configure/managed-rules-exclusion.png" alt-text="Screenshot of the Azure portal showing the WAF policy's managed rules page, with the 'Manage exclusions' button highlighted." :::
 
 1. Select the **Add** button.
 
