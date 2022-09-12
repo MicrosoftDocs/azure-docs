@@ -48,14 +48,12 @@
     - name: Connect GCP projects
       displayName: hybrid, multicloud, multicloud, google
       href: quickstart-onboard-gcp.md
-  - name: 4. Configure auto provisioning
-    href: enable-data-collection.md
-  - name: 5. Set up email notifications
+  - name: 4. Set up email notifications
     href: configure-email-notifications.md
-  - name: 6. Create auto-responses to alerts using an ARM template or Bicep
+  - name: 5. Create auto-responses to alerts using an ARM template or Bicep
     displayName: Resource Manager, ARM, Template
     href: quickstart-automation-alert.md
-  - name: 7. Choose standards for your compliance dashboard
+  - name: 6. Choose standards for your compliance dashboard
     displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
     href: update-regulatory-compliance-packages.md
 
@@ -84,7 +82,7 @@
   - name: The Defender for Cloud multicloud solution
     href: multicloud.yml
 
-  - name: Cloud Security Posture Management concepts
+  - name: Cloud Security Posture Management
     items:
     - name: Policies, initiatives, and recommendations
       href: security-policy-concept.md
@@ -95,8 +93,24 @@
     - name: Reference list of AWS recommendations
       href: recommendations-reference-aws.md
 
-  - name: Cloud Workload Protection concepts
+  - name: Cloud Workload Protection
     items:
+    - name: Extensions for workload monitoring
+      items:
+      - name: Overview
+        href: extensions-overview.md
+      - name: Azure Monitor Agent
+        href: extensions-azure-monitor-agent.md
+      - name: Microsoft Defender for Endpoint
+        href: extensions-defender-for-endpoint.md
+      - name: Log Analytics agent
+        href: extensions-log-analytics-agent.md
+      - name: Defender for Containers
+        href: extensions-defender-for-containers.md
+      - name: Guest Configuration
+        href: extensions-guest-configuration.md
+      - name: Vulnerability assessment
+        href: extensions-vulnerability-assessment.md
     - name: Security alerts and incidents
       href: alerts-overview.md
     - name: Reference list of alerts

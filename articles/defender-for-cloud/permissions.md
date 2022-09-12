@@ -34,7 +34,7 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
 
 
-For **auto provisioning**, the specific role required depends on the extension you're deploying. For full details, check the tab for the specific extension in the [availability table on the auto provisioning quick start page](enable-data-collection.md#availability).
+The specific role required to deploy monitoring extensions depends on the extension you're deploying. Learn more about [monitoring extensions](extensions-overview.md).
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.

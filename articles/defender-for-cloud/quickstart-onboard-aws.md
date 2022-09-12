@@ -88,9 +88,9 @@ The native cloud connector requires:
         
         - If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
         
-    - Additional extensions should be enabled on the Arc-connected machines.
+    - Additional extensions should be enabled on the Arc-connected machines:
         - Microsoft Defender for Endpoint
-        - VA solution (TVM/ Qualys)
+        - VA solution (TVM/Qualys)
         - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
         
             The LA agent is currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regards to the LA agent.

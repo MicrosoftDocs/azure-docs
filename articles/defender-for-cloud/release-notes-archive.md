@@ -889,7 +889,7 @@ With this update, you can now set Security Center to automatically provision thi
 
 :::image type="content" source="media/release-notes/auto-provisioning-guest-configuration.png" alt-text="Enable auto deployment of Guest Configuration extension.":::
 
-Learn more about how auto provisioning works in [Configure auto provisioning for agents and extensions](enable-data-collection.md).
+Learn more about how auto provisioning works in [Configure auto provisioning for agents and extensions](extensions-overview.md).
 
 ### Recommendations to enable Azure Defender plans now support "Enforce"
 
@@ -2128,7 +2128,7 @@ You can now configure the auto provisioning of:
 - (New) Azure Policy Add-on for Kubernetes
 - (New) Microsoft Dependency agent
 
-Learn more in [Auto provisioning agents and extensions from Azure Security Center](enable-data-collection.md).
+Learn more in [Auto provisioning agents and extensions from Azure Security Center](extensions-overview.md).
 
 ### Secure score is now available in continuous export (preview)
 

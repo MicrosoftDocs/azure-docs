@@ -11,6 +11,23 @@ ms.custom: mode-other
 
 In this quickstart, you'll learn how to enable the enhanced security features by enabling the Defender for Cloud plans through the Azure portal.
 
+Microsoft Defender for Cloud uses monitoring extensions, such as Azure Monitor Agent, to collect data from your resources. Each Defender plan has its own requirements for monitoring extensions, so it's important that the required extensions are deployed to your resources to get all of the benefits of each plan. When an extension is on, the extension is installed on existing machines and on new machines that are created in the subscription.
+
+If you manually turn on an extension, Defender for Cloud automatically deploys that extension to your resources. When you turn off an extension, the extension isn't installed on new machines, but it's also not uninstalled from existing machines.
+
+The Defender plans show you the monitoring coverage for each Defender plan, and you can configure monitoring settings for some plans.
+
+:::image type="content" source="media/enable-data-collection/defender-plans.png" alt-text="Screenshot of monitoring coverage of Microsoft Defender for Cloud extensions." lightbox="media/enable-data-collection/defender-plans.png":::
+
+The available extensions are:
+
+- [Azure Monitor Agent](extensions-azure-monitor-agent.md)
+- [Log Analytics agent](extensions-log-analytics-agent.md)
+- [Microsoft Defender for Endpoint](extensions-defender-for-endpoint.md)
+- [Vulnerability assessment](extensions-vulnerability-assessment.md)
+- [Defender for Containers](extensions-defender-for-containers.md)
+- [Guest Configuration](extensions-guest-configuration.md)
+
 To learn more about the benefits of enhanced security features, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
 
 ## Prerequisites
@@ -49,7 +66,7 @@ When you enabled Defender plans on an entire Azure subscription, the protections
 
 All of the plans are turned on and the monitoring extensions required by each plan are deployed to the protected resources.
 
-If you want to disable any of the plans, turn the plan off. Data collection may continue for a short period of time.
+If you want to disable any of the plans, turn the plan off. The extensions used by the plan are not uninstalled but, after a short time, the extensions stop collecting data.
 
 ### Enable enhanced security on multiple subscriptions or workspaces
 
@@ -73,7 +90,7 @@ If you want to disable any of the plans, turn the plan off. Data collection may 
     > - If you select subscriptions and workspaces that aren't eligible for trial, the next step will upgrade them and charges will begin.
     > - If you select a workspace that's eligible for a free trial, the next step will begin a trial.   
 
-If you want to disable any of the plans, turn the plan off. Data collection may continue for a short period of time.
+If you want to disable any of the plans, turn the plan off. The extensions used by the plan are not uninstalled but, after a short time, the extensions stop collecting data.
 
 ## Next steps
 
