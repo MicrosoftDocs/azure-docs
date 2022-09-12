@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 09/02/2022
 ---
 
 # Troubleshoot and diagnose workflow failures in Azure Logic Apps
@@ -127,6 +127,24 @@ To help with debugging, you can add diagnostic steps to a logic app workflow, al
 1. Paste your URL from Webhook Tester into the HTTP POST action.
 
 1. To review how Azure Logic Apps generates and forms a request, run the logic app workflow. You can then revisit the Webhook Tester site for more information.
+
+## Performance - frequently asked questions (FAQ)
+
+### Why is the workflow run duration longer than the sum of all the workflow action durations?
+
+Scheduling overhead exists when running actions, while waiting time between actions can happen due to backend system load. A workflow run duration includes these scheduling times and waiting times along with the sum of all of the action durations.
+
+### Usually, my workflow completes within 10 seconds. But, sometimes, completion can take much longer. How can I make sure the workflow always finishes within 10 seconds?
+
+* No SLA guarantee exists on latency.
+
+* Consumption workflows run on multi-tenant Azure Logic Apps, so other customers' workloads might negatively affect your workflow's performance.
+
+* For more predictable performance, you might consider creating [Standard workflows](single-tenant-overview-compare.md), which run in single-tenant Azure Logic Apps. You'll have more control to scale up or out to improve performance.
+
+### My action times out after 2 minutes. How can I increase the timeout value?
+
+The action timeout value can't be changed and is fixed at 2 minutes. If you're using the HTTP action, and you own the service called by the HTTP action, you can change your service to avoid the 2-minute timeout by using the asynchronous pattern. For more information, review [Perform long-running tasks with the polling action pattern](logic-apps-create-api-app.md#perform-long-running-tasks-with-the-polling-action-pattern).
 
 ## Common problems - Standard logic apps
 

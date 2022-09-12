@@ -2,18 +2,15 @@
 title: Update Container insights for metrics | Microsoft Docs
 description: This article describes how you update Container insights to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
 ms.topic: conceptual
-ms.date: 10/09/2020 
+ms.date: 08/29/2022 
 ms.custom: devx-track-azurecli
-ms.reviewer: aul
+ms.reviewer: viviandiec
 
 ---
 
 # Update Container insights to enable metrics
 
 Container insights now includes support for collecting metrics from Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes cluster nodes and pods, and then writing those metrics to the Azure Monitor metrics store. With this support, you can present timely aggregate calculations (average, count, maximum, minimum, sum) in performance charts, pin performance charts in Azure portal dashboards, and take advantage of metric alerts.
-
->[!NOTE]
-> This feature doesn't currently support Azure Red Hat OpenShift clusters.
 
 This feature enables the following metrics:
 
@@ -56,7 +53,7 @@ To update an existing AKS cluster monitored by Container insights:
 
 2. In the banner that appears at the top of the pane, select **Enable** to start the update. 
 
-   ![Screenshot of the Azure portal that shows the banner for upgrading an A K S cluster.](./media/container-insights-update-metrics/portal-banner-enable-01.png)
+   :::image type="content" source="./media/container-insights-update-metrics/portal-banner-enable-01.png" alt-text="Screenshot of the Azure portal that shows the banner for upgrading an AKS cluster." lightbox="media/container-insights-update-metrics/portal-banner-enable-01.png":::
 
    The process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
 
@@ -83,7 +80,8 @@ To update a specific cluster in your subscription by using Azure CLI, run the fo
 ```azurecli
 az login
 az account set --subscription "<subscriptionName>"
-az aks show -g <resourceGroupName> -n <clusterName> 
+az aks show -g <resourceGroupName> -n <clusterName> --query "servicePrincipalProfile"
+az aks show -g <resourceGroupName> -n <clusterName> --query "addonProfiles.omsagent.identity"
 az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
 ```
 
@@ -93,7 +91,8 @@ To get the value for `clientIdOfSPNOrMsi`, you can run the command `az aks show`
 ```azurecli
 az login
 az account set --subscription "<subscriptionName>"
-az aks show -g <resourceGroupName> -n <clusterName> 
+az aks show -g <resourceGroupName> -n <clusterName> --query "servicePrincipalProfile"
+az aks show -g <resourceGroupName> -n <clusterName> --query "addonProfiles.omsagent.identity" 
 az role assignment create --assignee <clientIdOfSPNOrMsi> --scope <clusterResourceId> --role "Monitoring Metrics Publisher"
 ```
 
