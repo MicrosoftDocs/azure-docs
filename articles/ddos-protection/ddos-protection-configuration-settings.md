@@ -36,14 +36,13 @@ The following table shows features and corresponding SKUs.
 | Active traffic monitoring & always on detection |  Yes| Yes |
 | L3/L4 Automatic attack mitigation  | Yes | Yes |
 | Automatic attack mitigation | Yes | Yes |
-| Availability guarantee| Yes | Yes |
-| Application based mitigation policies | Yes| Yes |
+| Application based mitigation policies | Yes| Yes | **what do you mean by applicaiton based?**
 | Metrics & alerts | Yes | Yes |
 | Mitigation reports | Yes | Yes |
 | Mitigation flow logs| Yes| Yes |
-| Mitigation policy customizations | Yes| Yes |
+| Mitigation policy customizations | Yes| Yes | **with DDoS Rapid Response for Network Protection**
 | Integration with Firewall Manager | Yes | Yes |
-| Azure Sentinel data connector | Yes | Yes |
+| Azure Sentinel data connector and workbook | Yes | Yes |
 | DDoS rapid response support | Not available | Yes |
 | Cost protection | Not available  | Yes |
 | WAF discount | Not available | Yes |
@@ -51,7 +50,7 @@ The following table shows features and corresponding SKUs.
 | Price | Per protected IP | Per 100 protected IP addresses |
 
 >!Note
->At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection does not store customer data.
+>At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. **for more details on supported PaaS services, see xyz** Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection does not store customer data.
 
 ## DDoS Network Protection
 
@@ -59,7 +58,7 @@ Azure DDoS Network Protection, combined with application design best practices, 
 
 ## DDoS IP Protection
 
-Azure DDoS IP Protection is a pay-per-protection IP plan. DDoS IP Protection have the same core engineering features as DDoS Network Protection but will differ in the following value-added services: DDoS rapid response support, cost protection, integration with Firewall Manager, and discounts on WAF.
+Azure DDoS IP Protection is a pay-per-protection IP plan **what do you mean by plan? it's a bit confusing because ddos protection plan is associated with Network Protection.** DDoS IP Protection have the same core engineering features as DDoS Network Protection but will differ in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF.
 
 ## Next steps
 
