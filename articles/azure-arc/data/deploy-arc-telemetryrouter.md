@@ -520,4 +520,4 @@ This will add a Kafka exporter that exports to to the topic name at the broker s
 
 ## Next steps
 
-- [Test Arc-enabled servers using an Azure VM](plan-evaluate-on-azure-virtual-machine.md)
+- [Test Arc-enabled servers using an Azure VM](../servers/plan-evaluate-on-azure-virtual-machine.md)
