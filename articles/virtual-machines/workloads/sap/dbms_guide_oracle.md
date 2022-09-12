@@ -308,6 +308,7 @@ We highly recommend using the Oracle dNFS clint for all Oracle volumes.
 Recommended mount options are:
 
 ## NFS3: rw,vers=3,rsize=262144,wsize=262144,hard,timeo=600,noatime
+
 ## NFSv4.1: rw,vers=4.1,rsize=262144,wsize=262144,hard,timeo=600,noatime
 
 ## Azure VM Throughput Limits
