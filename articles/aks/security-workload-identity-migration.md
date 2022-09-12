@@ -43,7 +43,7 @@ The following table describes the required OIDC issuer endpoints for Azure AD Wo
 |Endpoint |Description |
 |---------|------------|
 |`{IssuerURL}/.well-known/openid-configuration` |Also known as the OIDC discovery document. This contains the metadata about the issuer's configurations. |
-|`{IssuerURL}/openid/v1/jwks` |This contains the public signing key(s) that AAD uses to verify the authenticity of the service account token. |
+|`{IssuerURL}/openid/v1/jwks` |This contains the public signing key(s) that Azure AD uses to verify the authenticity of the service account token. |
 
 The following diagram summarizes the authentication sequence using OpenID Connect.
 
@@ -60,7 +60,7 @@ Azure AD Workload Identity supports the following mappings related to a service 
 > [!NOTE]
 > If the service account annotations are updated, you need to restart the pod for the changes to take effect.
 
-If you've used an Azure AD pod-identity, think of a service account as an Azure identity, except a service account is part of the core Kubernetes API, rather than a CRD. The following describe a list of available labels and annotations that can be used to configure the behavior when exchanging the service account token for an Azure AD access token.
+If you've used an Azure AD pod-identity, think of a service account as an Azure Identity, except a service account is part of the core Kubernetes API, rather than a CRD. The following describe a list of available labels and annotations that can be used to configure the behavior when exchanging the service account token for an Azure AD access token.
 
 ### Service account labels
 
@@ -153,3 +153,5 @@ If your application is already running [Azure Identity](../active-directory/deve
     ```azurecli
         az aks show --resource-group myResourceGroup --name myAKSCluster --query "oidcIssuerProfile.issuerUrl" -otsv
     ```
+
+## Next steps
