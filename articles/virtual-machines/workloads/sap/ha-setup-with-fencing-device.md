@@ -1,6 +1,6 @@
 ---
-title: High availability setup with STONITH for SAP HANA on Azure (Large Instances)| Microsoft Docs
-description: Learn to establish high availability for SAP HANA on Azure (Large Instances) in SUSE by using the STONITH device.
+title: High availability setup with fencing device for SAP HANA on Azure (Large Instances)| Microsoft Docs
+description: Learn to establish high availability for SAP HANA on Azure (Large Instances) in SUSE by using the fencing device.
 services: virtual-machines-linux
 documentationcenter:
 author: lauradolan
@@ -16,14 +16,14 @@ ms.author: ladolan
 ms.custom: H1Hack27Feb2017
 
 ---
-# High availability setup in SUSE using the STONITH device
+# High availability setup in SUSE using the fencing device
 
-In this article, we'll go through the steps to set up high availability (HA) in HANA Large Instances on the SUSE operating system by using the STONITH device.
+In this article, we'll go through the steps to set up high availability (HA) in HANA Large Instances on the SUSE operating system by using the fencing device.
 
 > [!NOTE]
 > This guide is derived from successfully testing the setup in the Microsoft HANA Large Instances environment. The Microsoft Service Management team for HANA Large Instances doesn't support the operating system. For troubleshooting or clarification on the operating system layer, contact SUSE. 
 >
-> The Microsoft Service Management team does set up and fully support the STONITH device. It can help troubleshoot STONITH device problems.
+> The Microsoft Service Management team does set up and fully support the fencing device. It can help troubleshoot fencing device problems.
 
 ## Prerequisites
 
@@ -43,21 +43,21 @@ This guide uses the following setup:
 - HANA Large Instances: 2xS192 (four sockets, 2 TB)
 - HANA version: HANA 2.0 SP1
 - Server names: sapprdhdb95 (node1) and sapprdhdb96 (node2)
-- STONITH device: iSCSI based
+- Fencing device: iSCSI based
 - NTP on one of the HANA Large Instance nodes
 
-When you set up HANA Large Instances with HANA system replication, you can request that the Microsoft Service Management team set up the STONITH device. Do this at the time of provisioning. 
+When you set up HANA Large Instances with HANA system replication, you can request that the Microsoft Service Management team set up the fencing device. Do this at the time of provisioning. 
 
-If you're an existing customer with HANA Large Instances already provisioned, you can still get the STONITH device set up. Provide the following information to the Microsoft Service Management team in the service request form (SRF). You can get the SRF through the Technical Account Manager or your Microsoft contact for HANA Large Instance onboarding.
+If you're an existing customer with HANA Large Instances already provisioned, you can still get the fencing device set up. Provide the following information to the Microsoft Service Management team in the service request form (SRF). You can get the SRF through the Technical Account Manager or your Microsoft contact for HANA Large Instance onboarding.
 
 - Server name and server IP address (for example, myhanaserver1 and 10.35.0.1)
 - Location (for example, US East)
 - Customer name (for example, Microsoft)
 - HANA system identifier (SID) (for example, H11)
 
-After the STONITH device is configured, the Microsoft Service Management team will provide you with the STONITH block device (SBD) name and IP address of the iSCSI storage. You can use this information to configure STONITH setup. 
+After the fencing device is configured, the Microsoft Service Management team will provide you with the fencing block device (SBD) name and IP address of the iSCSI storage. You can use this information to configure fencing setup. 
 
-Follow the steps in the following sections to set up HA by using STONITH.
+Follow the steps in the following sections to set up HA by using the fencing device.
 
 ## Identify the SBD device
 
@@ -297,7 +297,7 @@ This section describes the steps to configure the cluster resources.
 In this example, you set up the following resources. You can configure the rest (if needed) by referencing the SUSE HA guide.
 
 - Cluster bootstrap
-- STONITH device
+- Fencing device
 - Virtual IP address
 
 Do the configuration on the *primary node* only.
@@ -326,7 +326,7 @@ Do the configuration on the *primary node* only.
     ```
     ![Screenshot that shows part of a console window running the c r m command.](media/HowToHLI/HASetupWithFencing/crm-configure-crmbs.png)
     
-3. Configure the STONITH device by adding the resource, creating the file, and adding text as follows.
+3. Configure the fencing device by adding the resource, creating the file, and adding text as follows.
 
     ```
     # vi crm-sbd.txt
@@ -603,11 +603,7 @@ To fix it:
 You can find more information on SUSE HA setup in the following articles: 
 
 - [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/support/kb/doc/?id=000019450) (SUSE website)
-- [Fencing and STONITH](https://documentation.suse.com/sle-ha/15-SP1/html/SLE-HA-all/cha-ha-fencing.html) (SUSE website)
+- [Fencing and fencing devices](https://documentation.suse.com/sle-ha/15-SP1/html/SLE-HA-all/cha-ha-fencing.html) (SUSE website)
 - [Be Prepared for Using Pacemaker Cluster for SAP HANA – Part 1: Basics](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/) (SAP blog)
 - [Be Prepared for Using Pacemaker Cluster for SAP HANA – Part 2: Failure of Both Nodes](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/) (SAP blog)
-
-Learn how to do a file-level backup and restore for an operating system:
-
-> [!div class="nextstepaction"]
-> [OS backup and restore](large-instance-os-backup.md)
+- [OS backup and restore](large-instance-os-backup.md)

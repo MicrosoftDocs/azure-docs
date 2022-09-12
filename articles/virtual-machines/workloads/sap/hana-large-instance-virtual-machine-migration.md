@@ -38,7 +38,7 @@ This article makes the following assumptions:
 - You've validated the design and migration plan.
 - Plan for disaster recovery VM along with the primary site.  You can't use the HLI as the DR node for the primary site running on VMs after the migration.
 - You copied the required backup files to target VMs, based on business recoverability and compliance requirements. With VM accessible backups, it allows for point-in-time recovery during the transition period.
-- For SAP HANA system replication (HSR) high availability (HA), you need to set up and configure the STONITH device per SAP HANA HA guides for [SLES](./high-availability-guide-suse-pacemaker.md) and [RHEL](./high-availability-guide-rhel-pacemaker.md).  It’s not preconfigured like the HLI case.
+- For SAP HANA system replication (HSR) high availability (HA), you need to set up and configure the fencing device per SAP HANA HA guides for [SLES](./high-availability-guide-suse-pacemaker.md) and [RHEL](./high-availability-guide-rhel-pacemaker.md).  It’s not preconfigured like the HLI case.
 - This migration approach doesn't cover the HLI SKUs with Optane configuration.
 
 ## Deployment scenarios
