@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/07/2022
+ms.date: 09/12/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -90,6 +90,9 @@ We tend to think that administrator accounts are the only accounts that need ext
 After these attackers gain access, they can request access to privileged information for the original account holder. They can even download the entire directory to do a phishing attack on your whole organization. 
 
 One common method to improve protection for all users is to require a stronger form of account verification, such as Multi-Factor Authentication, for everyone. After users complete Multi-Factor Authentication registration, they'll be prompted for another authentication whenever necessary. Azure AD decides when a user will be prompted for Multi-Factor Authentication, based on factors such as location, device, role and task. This functionality protects all applications registered with Azure AD including SaaS applications.
+
+> [!NOTE]
+> In case of [B2B direct connect](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-direct-connect-overview) users, any Multi-Factor Authentication requirment due to security defaults enabled by resource tenant will need to be satisfied, including Multi-Factor Authentication registration by the direct connect user in their home tenant.  
 
 ### Block legacy authentication protocols
 
@@ -175,9 +178,9 @@ You may choose to [disable password expiration](../authentication/concept-sspr-p
 
 For more detailed information about emergency access accounts, see the article [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
 
-### B2B guest users
+### B2B users
 
-Any B2B Guest users that access your directory will be subject to the same controls as your organization's users.
+Any [B2B guest](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b) users or [B2B direct connect](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-direct-connect-overview) users that access your directory will be subject to the same controls as your organization's users.
 
 ### Disabled MFA status
 
