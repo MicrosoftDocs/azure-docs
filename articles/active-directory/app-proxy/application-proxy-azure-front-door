@@ -46,13 +46,16 @@ Follow these steps to configure Application Proxy for Front Door:
 
 #### Sample Application Proxy Configuration.
 The following table shows a sample Application Proxy configuration. The sample scenario uses the sample application domain www.contoso.org as the External URL. 
-	Configuration	Additional Information
-Internal URL	nam.contoso.com 
 
-External URL	contoso.org	Configure a custom domain for users to access the app from.
-Connector Group	North America	Select the connector group in the geo closest to where the app instance will be in for optimized performance.
+|     | North America-based app | Additional Information |
+|---- | ----------------------- | ---------------------- |
+| **Internal URL** | nam.contoso.com |  |
+| **External URL** | contoso.org | Configure a custom domain for users to access the app from.|
+| **Connector group** | North America | Select the connector group in the geo closest to where the app instance will be in for optimized performance.|
 
+### Front Door Configuration.
 
+Azure Front Door is offered in different tiers including Standard, Premium and Classic. Select a tier based on the preference. For more information on tier comparison, refer here: Azure Front Door tier comparison | Microsoft Docs
 
 ## Next steps
 
