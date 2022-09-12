@@ -132,7 +132,63 @@ Update-AzFrontDoorWafPolicy `
 
 ::: zone pivot="bicep"
 
-TODO
+The following example Bicep file shows how to do the following steps:
+- Creates a Front Door WAF policy.
+- Enables the DRS 2.0 rule set.
+- Configures rule 942250, within the SQLI rule group, with an exclusion. This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If the WAF detects a header that would normally be blocked by rule 942230, it ignores the header and moves on.
+
+```bicep
+param wafPolicyName string = 'WafPolicy'
+
+@description('The mode that the WAF should be deployed using. In "Prevention" mode, the WAF will block requests it detects as malicious. In "Detection" mode, the WAF will not block requests and will simply log the request.')
+@allowed([
+  'Detection'
+  'Prevention'
+])
+param wafMode string = 'Prevention'
+
+resource wafPolicy 'Microsoft.Network/frontDoorWebApplicationFirewallPolicies@2022-05-01' = {
+  name: wafPolicyName
+  location: 'Global'
+  sku: {
+    name: 'Premium_AzureFrontDoor'
+  }
+  properties: {
+    policySettings: {
+      enabledState: 'Enabled'
+      mode: wafMode
+    }
+    managedRules: {
+      managedRuleSets: [
+        {
+          ruleSetType: 'Microsoft_DefaultRuleSet'
+          ruleSetVersion: '2.0'
+          ruleSetAction: 'Block'
+          ruleGroupOverrides: [
+            {
+              ruleGroupName: 'SQLI'
+              rules: [
+                {
+                  ruleId: '942250'
+                  enabledState: 'Enabled'
+                  action: 'AnomalyScoring'
+                  exclusions: [
+                    {
+                      matchVariable: 'RequestHeaderNames'
+                      selectorMatchOperator: 'StartsWith'
+                      selector: 'user'
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
 
 ::: zone-end
 
