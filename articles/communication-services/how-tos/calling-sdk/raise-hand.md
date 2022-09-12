@@ -1,7 +1,7 @@
 ---
-title: Raise Hand States
+title: Raise hand states
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services SDKs to send Raise Hand state.
+description: Use Azure Communication Services SDKs to send raise hand state.
 author: rzdor
 ms.author: ruslanzdor
 ms.service: azure-communication-services
@@ -13,7 +13,7 @@ ms.custom: template-how-to
 #Customer intent: As a developer, I want to learn how to send and receive Raise Hand state using SDK.
 ---
 
-# Raise Hand States
+# Raise hand states
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 

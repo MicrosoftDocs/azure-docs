@@ -22,7 +22,7 @@ Then you can get the feature API object from the call instance:
 const raiseHandFeature = call.feature(Features.RaiseHand );
 ```
 
-### Raise and Lower Hand for current participant:
+### Raise and lower hand for current participant:
 Raise Hand state can be used in any call type: on 1:1 calls and on calls with many participants, in ACS and in Teams calls.
 If it Teams meeting - organizer will have ability to enable or disable raise hand states for all participants.
 To change state for current participant, you can use methods:
@@ -66,7 +66,7 @@ const raiseHandFeature = call.feature(Features.RaiseHand );
 let activeStates = raiseHandFeature.getStatus();
 ```
 
-### Order of Raised Hands
+### Order of raised Hands
 It possible to get order of all raised hand states on the call, this order is started from 1.
 There are two ways: get all raise hand state on the call or use `raiseHandChanged` event subscription.
 In event subscription when any participant will lower a hand - call will generate only one event, but not for all participants with order above.
