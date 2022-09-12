@@ -1,22 +1,22 @@
 ---
 
-title: Upgrading a basic Public IP
-description: Overview of upgrade options and rationale for migrating basic Public IP to standard Public IP
+title: Upgrading a Basic Public IP to Standard Public IP - Guidance
+description: Overview of upgrade options and guidance for migrating basic Public IP to standard Public IP for future basic Public IP address retirement
 author: mbender-ms
 ms.service: load-balancer
 ms.author: mbender
 ms.topic: overview
 ms.date: 09/08/2022
-
+#customer-intent: As an cloud engineer with basic Public IP services, I need guidance and direction on migrating my workloads off basic to standard SKUs
 ---
 
-# Upgrading a basic Public IP
+# Upgrading a Basic Public IP to Standard Public IP - Guidance
 
 On September 30, 2025, Basic public IP addresses will be retired. For more information, see the official announcement. If you use Basic SKU public IP addresses, make sure to upgrade to Standard SKU public IP addresses prior to that date. This article will help guide you with the upgrade. 
 
 ## Steps to complete the upgrade 
 
-We recommend the following approach to upgrade to Standard SKU public IP addresses. 
+We recommend the following approach to upgrade to Standard SKU Public IP addresses. 
 
 ## Basic SKU vs. Standard SKU 
 
@@ -40,3 +40,10 @@ Use these PowerShell scripts to help with upgrading from Basic to Standard SKU.
 - [Upgrade a public IP address - Azure portal](public-ip-upgrade-portal.md)
 - [Upgrade a public IP address - Azure PowerShell](public-ip-upgrade-powershell.md)
 - [Upgrade a public IP address - Azure CLI](public-ip-upgrade-cli.md)
+
+## Next Steps
+
+For guidance on upgrading basic Load Balancer to Standard SKUs, see:
+
+> [!div class="nextstepaction"]
+> [Upgrading from Basic Load Balancer - Guidance](../../load-balancer/load-balancer-basic-upgrade-guidance.md)

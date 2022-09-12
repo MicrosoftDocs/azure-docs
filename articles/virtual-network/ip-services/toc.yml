@@ -5,8 +5,6 @@ items:
   items:
   - name: What is Azure Virtual Network IP Services?
     href: ip-services-overview.md
-  - name: Upgrade guidance from basic Public IP SKUs
-    href: public-ip-basic-upgrade-guidance.md
 - name: Quickstarts
   items:
   - name: Create public IP address - Portal
@@ -100,7 +98,7 @@ items:
         href: configure-public-ip-bastion.md
     - name: Upgrade a public IP address
       items:
-      - name: Upgrade guidance from basic Public IP SKUs
+      - name: Upgrade guidance for basic Public IP SKUs
         href: public-ip-basic-upgrade-guidance.md
       - name: Upgrade a public IP address - Portal
         href: public-ip-upgrade-portal.md

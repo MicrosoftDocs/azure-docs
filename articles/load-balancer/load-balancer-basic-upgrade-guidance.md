@@ -1,14 +1,15 @@
 ---
 title: Upgrading from Basic Load Balancer - Guidance
-description: Upgrade guidance for migrating basic Load Balancer to standard Load Balancer
+description: Upgrade guidance for migrating Basic Load Balancer to Standard Load Balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.author: mbender
 ms.topic: overview
 ms.date: 09/08/2022
+#customer-intent: As an cloud engineer with basic Load Balancer services, I need guidance and direction on migrating my workloads off basic to standard SKUs
 ---
 
-# Upgrading a basic Load Balancer guidance
+# Upgrading from Basic Load Balancer - Guidance
 
 On September 30, 2025, Basic Load Balancer will be retired. For more information, see the official announcement. If you use Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to that date. This article will help guide you with the upgrade. 
 
@@ -19,7 +20,7 @@ We recommend the following approach to upgrade to Standard Load Balancer:
 1. Learn about some of the [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) between Basic Load Balancer and Standard Load Balancer. 
 1. Identify the basic load balancer to upgrade. 
 1. Create a migration plan for planned downtime. 
-1. Create a new standard load balancer with the basic load balancer configurations or [use automated PowerShell scripts](#upgrade-using-automated-scripts). 
+1. Create a new standard load balancer with the basic load balancer configurations or [use automated PowerShell scripts](#upgrade-using-automated-scripts) for different scenarios. 
 1. Verify your application and workloads are receiving traffic through the standard load balancer. Then delete your basic load balancer resource. 
 
 ## Basic Load Balancer SKU vs. Standard Load Balancer SKU 
@@ -51,8 +52,15 @@ This section lists out some key differences between these two Load Balancer SKUs
 
 ## Upgrade using automated scripts 
 
-Use these PowerShell scripts to help with upgrading from Basic to Standard SKU. 
+Use these PowerShell scripts to help with upgrading from Basic to Standard SKU:
 
 - [Upgrading a basic to standard public load balancer](upgrade-basic-standard.md)
 - [Upgrade from Basic Internal to Standard Internal](upgrade-basicInternal-standard.md)
 - [Upgrade an internal basic load balancer - Outbound connections required](upgrade-internalbasic-to-publicstandard.md)
+
+## Next Steps
+
+For guidance on upgrading basic Public IP addresses to Standard SKUs, see:
+
+> [!div class="nextstepaction"]
+> [Upgrading a Basic Public IP to Standard Public IP - Guidance](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md)
