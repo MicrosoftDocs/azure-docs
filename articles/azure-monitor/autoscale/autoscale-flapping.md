@@ -109,7 +109,7 @@ Find flapping in autoscale evaluation log with the following query:
 AutoscaleEvaluationsLog 
 | sort by TimeGenerated desc 
 | where InstanceUpdateReason contains "flap" 
-```
+````
 
 Below is an example of a log record for flapping:
 
