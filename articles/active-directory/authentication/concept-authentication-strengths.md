@@ -53,7 +53,7 @@ An authentication strength can include a combination of authentication methods. 
 
 ### Built-in authentication strengths
 
-Built-in authentication strengths are combinations of authentication methods that are predefined by Microsoft. Built-in authentication strengths are always available and can't be modified.
+Built-in authentication strengths are combinations of authentication methods that are predefined by Microsoft. Built-in authentication strengths are always available and can't be modified. Microsoft will update built-in authentication strengths when new methods become available. 
 
 The following table lists the combinations of authentication methods for each built-in authentication strength. Depending on which methods are available in the authentication methods policy and registered for users, they can use any one of the combinations to sign-in.
 
@@ -114,7 +114,6 @@ Deletion of a custom authentication strengths policy is not allowed if it is bei
  
 Editing of a custom authentication strength policy is allowed. If the policy is referenced by a Conditional Access policy, the administrator is required to confirm this step. 
 
-
 ## Using authentication strength policies in Conditional Access
 After you review and choose built-in authentication strength policies, or create your own custom strengths, you can use them in Conditional Access policies. By referencing an authentication strength in a Conditional Access policy, you can restrict which authentication methods are allowed when the Conditional Access policy applies to sign-in.
 <!-- ### Place holder:How to create conditional access policy that uses authentication strength
@@ -139,6 +138,7 @@ The Conditional Access authentication strengths takes the above into considerati
 
 To evaluate if the user should gain access to the resource, the following considerations are taken into account: 
 
+- Which method was used previously?
 - Which methods are available in the authentication strength policy? 
 - Which methods are allowed for user sign-in in the authentication methods policy?
 - Is the user registered for the required methods?
