@@ -278,17 +278,17 @@ Before you can use an FTP action, your workflow must already start with a trigge
 
    ![Screenshot shows Consumption workflow designer, "Get file content" action, and "File" property with "Id" entered.](./media/connectors-create-api-ftp/ftp-get-file-content-id-entered-consumption.png)
 
-1. When you're done, save your logic app workflow.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
 
-The steps to add and use an FTP action differ based on whether your workflow uses an "Azure" managed connector trigger or a built-in connector trigger.
+The steps to add and use an FTP action differ based on whether your workflow uses the built-in connector or the managed, Azure-hosted connector.
 
-* [**Workflows with a built-in trigger**](#built-in-trigger-workflows): Describes the steps for workflows that start with a built-in trigger.
+* [**Built-in trigger**](#built-in-trigger-workflows): Describes the steps to add a built-in action.
 
   If you used the FTP built-in trigger, and you want the content from a newly added or updated file, you can use a **For each** loop to iterate through the array that's returned by the trigger. You can then use just the **Get file content** action without any other intermediary actions. For more information about FTP built-in connector operations, review [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
 
-* [**Workflows with a managed trigger**](#managed-trigger-workflows): Describes the steps for workflows that start with a managed trigger.
+* [**Managed trigger**](#managed-trigger-workflows): Describes the steps to add a managed action.
 
  If you used the FTP managed connector trigger, and want the content from a newly added or modified file, you can use a **For each** loop to iterate through the array that's returned by the trigger. You then have to use intermediary actions such as the FTP action named **Get file metadata** before you use the **Get file content** action.
 
@@ -327,7 +327,9 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
    ![Screenshot shows Standard workflow designer and "Get file content" action complete.](./media/connectors-create-api-ftp/ftp-action-get-file-content-complete-built-in-standard.png)
 
-1. Add any other actions that your workflow needs. When you're done, save your logic app workflow.
+1. Add any other actions that your workflow needs. 
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 <a name="managed-trigger-workflows"></a>
 
@@ -384,7 +386,9 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
    ![Screenshot shows Standard workflow designer, "Get file content" action, and "File" property set to "Id" action output.](./media/connectors-create-api-ftp/ftp-get-file-content-complete-azure-standard.png)
 
-1. Add any other actions that your workflow needs. When you're done, save your logic app workflow.
+1. Add any other actions that your workflow needs.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ---
 

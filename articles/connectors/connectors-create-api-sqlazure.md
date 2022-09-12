@@ -125,7 +125,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [SQL Server managed connector reference](/connectors/sql/).
 
-1. When you're done, save your workflow.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
 
@@ -157,7 +157,7 @@ In Standard logic app workflows, only the SQL Server managed connector has trigg
 
    For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [SQL Server managed connector reference](/connectors/sql/).
 
-1. When you're done, save your workflow.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
@@ -215,7 +215,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
 
-1. When you're done, save your workflow.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
 
@@ -263,7 +263,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, review the [managed connector's reference page](/connectors/sql/).
 
-1. When you're done, save your workflow.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ---
 

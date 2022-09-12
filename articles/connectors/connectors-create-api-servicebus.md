@@ -251,7 +251,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. To add any other available properties to the trigger, open the **Add new parameter** list, and select the properties that you want.
 
-1. Continue building your workflow by adding the actions that you want.
+1. Add any actions that your workflow needs.
 
    For example, you can add an action that sends email when a new message arrives. When your trigger checks your queue and finds a new message, your workflow runs your selected actions for the found message.
 
@@ -307,7 +307,7 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
    > for events or data that meet the specified condition before running a workflow. The trigger doesn't check 
    > for events or data based on a specified schedule. For more information, review [Triggers](apis-list.md#triggers).
 
-1. Continue building your workflow by adding the actions that you want.
+1. Add any actions that your workflow needs.
 
    For example, you can add an action that sends email when a new message arrives. When your trigger checks your queue and finds a new message, your workflow runs your selected actions for the found message.
 
@@ -352,7 +352,7 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
 
 1. To add any other available properties to the trigger, open the **Add new parameter** list, and select the properties that you want.
 
-1. Continue building your workflow by adding the actions that you want.
+1. Add any actions that your workflow needs.
 
    For example, you can add an action that sends email when a new message arrives. When your trigger checks your queue and finds a new message, your workflow runs your selected actions for the found message.
 
@@ -405,7 +405,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. To add any other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
 
-1. Continue building your workflow by adding any other actions that you want.
+1. Add any other actions that your workflow needs.
 
    For example, you can add an action that sends email to confirm that your message was sent.
 
@@ -413,7 +413,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Standard](#tab/standard)
 
-The steps to add and use a Service Bus action differ based on whether you want to use the built-in connector trigger or the managed, Azure-hosted connector.
+The steps to add and use a Service Bus action differ based on whether you want to use the built-in connector or the managed, Azure-hosted connector.
 
 * [**Built-in action**](#built-in-connector-action): Describes the steps to add a built-in action.
 
@@ -458,7 +458,7 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
 1. To add any other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
 
-1. Continue building your workflow by adding the actions that you want.
+1. Add any other actions that your workflow needs.
 
    For example, you can add an action that sends email to confirm that your message was sent.
 
@@ -505,13 +505,37 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
 1. To add any other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
 
-1. Continue building your workflow by adding any other actions that you want.
+1. Add any other actions that your workflow needs.
 
    For example, you can add an action that sends email to confirm that your message was sent.
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ---
+
+<a name="built-in-connector-operations"></a>
+
+## Service Bus built-in connector operations
+
+The Service Bus built-in connector is available only for Standard logic app workflows and provides the following triggers and actions:
+
+| Trigger | Description |
+|-------- |-------------|
+| When messages are available in a queue | Start a workflow when one or more messages are available in a queue. |
+| When messages are available in a topic subscription | Start a workflow when one or more messages are available in a topic subscription. |
+
+These Service Bus triggers follow the *push trigger* pattern, which means that the trigger waits and listens for events or data that meet the specified condition before running a workflow. The trigger doesn't check for events or data based on a specified schedule. For more information, review [Triggers](apis-list.md#triggers).
+
+| Action | Description |
+|--------|-------------|
+| Send message | Send a message to a queue or topic. |
+| Send multiple messages | Send more than one message to a queue or topic. |
+
+<a name="built-in-connector-app-settings"></a>
+
+## Service Bus built-in connector app settings
+
+In a Standard logic app resource, the Service Bus built-in connector includes app settings that control various thresholds, such as timeout for sending messages and number of message senders per processor core in the message pool. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
 
 ## Troubleshooting
 
@@ -538,30 +562,6 @@ The Service Bus connector uses in-memory cache to support all operations associa
 The chance exists that requests might not get routed to the same role instance, due to reasons such as an infrastructure update, connector deployment, and so on. If this event happens, requests fail because the receiver that performs the operations in the session isn't available in the role instance that serves the request.
 
 As long as this error happens only occasionally, the error is expected. When the error happens, the message is still preserved in the service bus. The next trigger or workflow run tries to process the message again.
-
-<a name="built-in-connector-operations"></a>
-
-## Service Bus built-in connector operations
-
-The Service Bus built-in connector is available only for Standard logic app workflows and provides the following triggers and actions:
-
-| Trigger | Description |
-|-------- |-------------|
-| When messages are available in a queue | Start a workflow when one or more messages are available in a queue. |
-| When messages are available in a topic subscription | Start a workflow when one or more messages are available in a topic subscription. |
-
-These Service Bus triggers follow the *push trigger* pattern, which means that the trigger waits and listens for events or data that meet the specified condition before running a workflow. The trigger doesn't check for events or data based on a specified schedule. For more information, review [Triggers](apis-list.md#triggers).
-
-| Action | Description |
-|--------|-------------|
-| Send message | Send a message to a queue or topic. |
-| Send multiple messages | Send more than one message to a queue or topic. |
-
-<a name="built-in-connector-app-settings"></a>
-
-## Service Bus built-in connector app settings
-
-In a Standard logic app resource, the Service Bus built-in connector includes app settings that control various thresholds, such as timeout for sending messages and number of message senders per processor core in the message pool. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
 
 ## Next steps
 
