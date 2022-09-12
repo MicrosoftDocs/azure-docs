@@ -17,10 +17,10 @@ On September 30, 2025, Basic Load Balancer will be retired. For more information
 We recommend the following approach to upgrade to Standard Load Balancer:
 
 1. Learn about some of the [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) between Basic Load Balancer and Standard Load Balancer. 
-1. Identify the Basic Load Balancer that you'll need to upgrade. 
+1. Identify the basic load balancer to upgrade. 
 1. Create a migration plan for planned downtime. 
-1. Create a new Standard Load Balancer with Basic Load Balancer configurations or use automated PowerShell scripts 
-1. Verify your application and workloads are receiving traffic through the Standard Load Balancer. Then delete your Basic Load Balancer resource. 
+1. Create a new standard load balancer with the basic load balancer configurations or [use automated PowerShell scripts](#upgrade-using-automated-scripts). 
+1. Verify your application and workloads are receiving traffic through the standard load balancer. Then delete your basic load balancer resource. 
 
 ## Basic Load Balancer SKU vs. Standard Load Balancer SKU 
 
