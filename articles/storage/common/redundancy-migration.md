@@ -1,4 +1,4 @@
-Fpreview---
+---
 title: Change how a storage account is replicated
 titleSuffix: Azure Storage
 description: Learn how to change how data in an existing storage account is replicated.
@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2022
+ms.date: 09/12/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
