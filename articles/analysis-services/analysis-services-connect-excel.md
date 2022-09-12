@@ -11,7 +11,7 @@ ms.reviewer: minewiskan
 ---
 # Connect with Excel
 
-Once you've created a server and deployed a tabular model to it, clients can connect and begin exploring data. This article describes connecting to an Azure Analysis Services resource by using the Excel desktop app. Connecting to an Azure Analysis Services resource is not supported in Excel for the Web or Excel for MacOS.
+Once you've created a server and deployed a tabular model to it, clients can connect and begin exploring data. This article describes connecting to an Azure Analysis Services resource by using the Excel desktop app. Connecting to an Azure Analysis Services resource is not supported in Excel for the web or Excel for Mac.
 
 ## Before you begin
 
