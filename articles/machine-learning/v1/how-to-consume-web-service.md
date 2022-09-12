@@ -45,7 +45,7 @@ The [azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%2
 
 There are several ways to retrieve this information for deployed web services:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -84,7 +84,7 @@ If you know the name of the deployed service, use the [az ml service show](/cli/
 az ml service show -n <service-name>
 ```
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
 From Azure Machine Learning studio, select __Endpoints__, __Real-time endpoints__, and then the endpoint name. In details for the endpoint, the __REST endpoint__ field contains the scoring URI. The __Swagger URI__ contains the swagger URI.
 
