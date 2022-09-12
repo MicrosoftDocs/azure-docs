@@ -38,12 +38,12 @@ Only the agent is a relevant part of the service for performance testing. To omi
 
 The following table describes the characteristics of the test environment that produced the performance test results shared later in this article.
 
-|         |         |
-|---------|---------|
-|Test namespace     | 19% files 0 KiB - 1 KiB <br />57% files 1 KiB - 16 KiB <br />16% files 16 KiB - 1 MiB <br />6% folders |
-|Test source device | Linux server VM <br />16 virtual CPU cores<br />64 GiB RAM  |
-|Test source share  | NFS v3.0 share <br /> Warm cache: Data set in memory (baseline test). In real-world scenarios add disk recall times.|
-|Network            | Dedicated, over-provisioned configuration, negligible latency. No bottle neck between source - agent - target Azure storage.)
+|Test               | Result                                                                                                                        |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------|
+|Test namespace     | 19% files 0 KiB - 1 KiB <br />57% files 1 KiB - 16 KiB <br />16% files 16 KiB - 1 MiB <br />6% folders                        |
+|Test source device | Linux server VM <br />16 virtual CPU cores<br />64 GiB RAM                                                                    |
+|Test source share  | NFS v3.0 share <br /> Warm cache: Data set in memory (baseline test). In real-world scenarios add disk recall times.          |
+|Network            | Dedicated, over-provisioned configuration, negligible latency. No bottle neck between source - agent - target Azure storage.) |
 
 ## Performance baselines
 
@@ -55,7 +55,7 @@ Different agent resource configurations are tested:
 
 4 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent. 
 
-|                          |Single file, 1 TiB |&tilde;3.3M files, &tilde;200K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
+|Test                      | Single file, 1 TiB|&tilde;3.3M files, &tilde;200K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
 |--------------------------|-------------------|------------------------------------------------------|--------------------------------------------------|
 |Elapsed time              | 16 Min, 42 Sec    | 15 Min, 18 Sec                                       | 5 Hours, 28 Min                                  |
 |Items* per Second         | -                 | 3548                                                 | 2860                                             |

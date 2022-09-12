@@ -267,8 +267,5 @@ Remove-AzStorageMoverProject `
 
 ## Next steps
 
-After your projects are created, you can begin working with job definitions. You can also define new endpoints or update existing resources if needed.
-
-> [!div class="nextstepaction"]
-> [Manage job definitions](job-definitions-manage.md)
-> [Manage endpoints](endpoints-manage.md)
+After your projects are created, you can begin working with job definitions.
+Check back soon for a guide on how to manage job definitions.

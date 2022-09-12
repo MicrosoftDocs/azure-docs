@@ -113,8 +113,9 @@ The agent also emits additional information and migration results through the Az
 > [!IMPORTANT]
 > Metric information is available by default, but you must opt-in to enable copy logs. That can be done as part of creating your storage mover resource and also later on. If you want to check if copy logs are enabled, or manage details, you can use the *Diagnostic settings* menu on the Azure portal page for your storage mover resource.
 !########################################################
+
+Learn more about telemetry, metrics and logs in the job definition monitoring article.
 -->
-Learn more about telemetry, metrics and logs in the [job definition monitoring article](job-definitions-monitor.md).
 
 ## Endpoint
 
