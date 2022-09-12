@@ -22,7 +22,7 @@ You implement a custom allocation policy in a webhook hosted in [Azure Functions
 
 The following steps describe how custom allocation polices work:
 
-1. A custom allocation developer develops a webhook that implements the intended allocation policy and deploys it as an HTTP Trigger function to Azure Functions. The webhook takes information about the DPS enrollment entry and the device and returns the IoT hub that the device should be registered to and, optionally, information about the device's initial state. For details, see the following steps.
+1. A custom allocation developer develops a webhook that implements the intended allocation policy and deploys it as an HTTP Trigger function to Azure Functions. The webhook takes information about the DPS enrollment entry and the device and returns the IoT hub that the device should be registered to and, optionally, information about the device's initial state.
 
 1. An IoT operator configures one or more individual enrollments and/or enrollment groups for custom allocation and provides calling details for the custom allocation webhook in Azure Functions.
 
@@ -46,7 +46,7 @@ The request body is an **AllocationRequest** object:
 |---------------|-------------|
 | individualEnrollment | An [individual enrollment record](/rest/api/iot-dps/service/individual-enrollment/get#individualenrollment) that contains properties associated with the individual enrollment that the allocation request originated from. Present if the device is registering through an individual enrollment. |
 | enrollmentGroup | An [enrollment group record](/rest/api/iot-dps/service/enrollment-group/get#enrollmentgroup) that contains the properties associated with the enrollment group that the allocation request originated from. Present if the device is registering through an enrollment group. |
-| deviceRuntimeContext | A context that contains properties associated with the device that is registering. Always present. |
+| deviceRuntimeContext | An object that contains properties associated with the device that is registering. Always present. |
 | linkedHubs | An array that contains the hostnames of the IoT hubs that are linked to the enrollment entry that the allocation request originated from. The device may be assigned to any one of these IoT hubs. Always present. |
 
 The **DeviceRuntimeContext** object has the following properties:
@@ -156,7 +156,7 @@ For example, you may want to allocate devices based on the device model. In this
 
 ### Device sends data payload to DPS
 
-A device calls the [register](/rest/api/iot-dps/device/runtime-registration/register-device) API to register with DPS. The request can be enhanced with the optional **pqyload** property. This property can contain any valid JSON object. The exact contents will depend on the requirements of your solution.
+A device calls the [register](/rest/api/iot-dps/device/runtime-registration/register-device) API to register with DPS. The request can be enhanced with the optional **payload** property. This property can contain any valid JSON object. The exact contents will depend on the requirements of your solution.
 
 For attestation with TPM, the request body looks like the following:
 
