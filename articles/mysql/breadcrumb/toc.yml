@@ -11,11 +11,11 @@
   topicHref: /azure/index
   items:
   - name: MySQL
-    tocHref: /azure/security-center to defender-for-cloud/
+    tocHref: /azure/defender-for-cloud/
     topicHref: /azure/mysql/index
 
 - name: Azure
-  tocHref: /azure/
+  tocHref: /dms/
   topicHref: /azure/index
   items: 
   - name: MySQL
