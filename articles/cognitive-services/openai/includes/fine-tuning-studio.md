@@ -188,7 +188,7 @@ Either select **Default** to use the default values for the fine-tune job, or se
 
 :::image type="content" source="../media/fine-tuning/studio-advanced-options-advanced.png" alt-text="Screenshot of the Advanced options pane for the Create customized model wizard, with advanced options selected." lightbox="../media/fine-tuning/studio-advanced-options-advanced.png":::
 
-After you've chosen use either default or advanced options, select **Next** to [review your choices and train your fine-tuned model](#review-your-choices-and-train-your-fine-tuned-model).
+After you've chosen use either default or advanced options, select **Next** to [review your choices and train your fine-tuned model](#review-your-choices-and-train-your-model).
 
 #### Review your choices and train your model
 
