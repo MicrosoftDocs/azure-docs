@@ -516,7 +516,7 @@ spec:
 kubectl apply -f router.yaml -n <namespace>
 ```
 
-This will add a Kafka exporter that exports to to the topic name at the broker service endpoint you provided on the logs pipeline.  The TelemetryRouter custom resource should go into an updating state and the collector service will restart.  Once it is in a ready state, you can inspect the collector logs as shown above again to ensure there are no errors and verify on your Kafka cluster that it is receiving the logs.  
+This will add a Kafka exporter that exports to the topic name at the broker service endpoint you provided on the logs pipeline.  The TelemetryRouter custom resource should go into an updating state and the collector service will restart.  Once it is in a ready state, you can inspect the collector logs as shown above again to ensure there are no errors and verify on your Kafka cluster that it is receiving the logs.  
 
 ## Next steps
 
