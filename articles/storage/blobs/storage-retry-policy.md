@@ -58,25 +58,13 @@ Next, we'll create a client object for the blob service with the options defined
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Retry.cs" id="Snippet_RetryOptionsCreateClientGRS":::
 
-
-
-## [Section n heading]
+## Remarks
 <!-- Introduction paragraph -->
 1. <!-- Step 1 -->
 1. <!-- Step 2 -->
 1. <!-- Step n -->
 
-<!-- 5. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
-
 ## Next steps
-<!-- Add a context sentence for the following links -->
+
 - For architectural guidance and general best practices around retry policies, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 - For guidance on implementing a retry pattern for transient failures, see [Retry pattern](/azure/architecture/patterns/retry).
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
