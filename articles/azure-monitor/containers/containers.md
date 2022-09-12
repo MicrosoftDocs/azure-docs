@@ -36,7 +36,7 @@ If you are interested in monitoring the performance of your workloads deployed t
 
 The following diagram shows the relationships between various container hosts and agents with Azure Monitor.
 
-:::image type="content" source="./media/containers/containers-diagram.png" alt-text="Containers diagram" lightbox="media/containers/containers-diagram.png" border="false":::
+:::image type="content" source="./media/containers/containers-diagram.png" alt-text="Diagram that shows the relationships between Azure Monitor and container hosts and agents located on Azure cloud, other clouds, and a local network." lightbox="media/containers/containers-diagram.png" border="false":::
 
 ## System requirements and supported platforms
 
@@ -104,10 +104,10 @@ Use the following information to install and configure the solution.
      - If you have a Red Hat OpenShift environment, review Configure a Log Analytics agent for Red Hat OpenShift.
      - If you have a Kubernetes cluster using the Azure Container Service:
        - Review [Configure a Log Analytics Linux agent for Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
-       - Review [Configure an Log Analytics Windows agent for Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
+       - Review [Configure a Log Analytics Windows agent for Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Review Use Helm to deploy Log Analytics agent on Linux Kubernetes.
      - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Azure Monitor](/previous-versions/azure/container-service/dcos-swarm/container-service-monitoring-oms).
-     - If you have a Docker Swarm mode environment, learn more at Configure an Log Analytics agent for Docker Swarm.
+     - If you have a Docker Swarm mode environment, learn more at Configure a Log Analytics agent for Docker Swarm.
      - If you have a Service Fabric cluster, learn more at [Monitor containers with Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Review the [Docker Engine on Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
@@ -551,7 +551,7 @@ Labels appended to *PodLabel* data types are your own custom labels. The appende
 ## Monitor containers
 After you have the solution enabled in the Azure portal, the **Containers** tile shows summary information about your container hosts and the containers running in hosts.
 
-:::image type="content" source="./media/containers/containers-title.png" alt-text="Containers tile" border="false" lightbox="media/containers/containers-title.png":::
+:::image type="content" source="./media/containers/containers-title.png" alt-text="Screenshot that shows the Containers tile, which includes summary information about containers presented as a pie chart." border="false" lightbox="media/containers/containers-title.png":::
 
 The tile shows an overview of how many containers you have in the environment and whether they're failed, running, or stopped.
 
@@ -575,15 +575,15 @@ Each area of the dashboard is a visual representation of a search that is run on
 
 :::image type="content" source="./media/containers/containers-dash01.png" alt-text="Screenshot that shows a dashboard to view the collected data." lightbox="media/containers/containers-dash01.png" border="false":::
 
-:::image type="content" source="./media/containers/containers-dash02.png" alt-text="Containers dashboard" lightbox="media/containers/containers-dash02.png" border="false":::
+:::image type="content" source="./media/containers/containers-dash02.png" alt-text="Screenshot that shows a dashboard to view the collected data, which includes the status, process, performance, and images inventory of containers." lightbox="media/containers/containers-dash02.png" border="false":::
 
 In the **Container Status** area, click the top area, as shown below.
 
-:::image type="content" source="./media/containers/containers-status.png" alt-text="Containers status" lightbox="media/containers/containers-status.png" border="false":::
+:::image type="content" source="./media/containers/containers-status.png" alt-text="Screenshot that shows the Container Status area of the Containers dashboard, which includes container status information presented as a pie chart." lightbox="media/containers/containers-status.png" border="false":::
 
 Log Analytics opens, displaying information about the state of your containers.
 
-:::image type="content" source="./media/containers/containers-log-search.png" alt-text="Log Analytics for containers" border="false" lightbox="media/containers/containers-log-search.png":::
+:::image type="content" source="./media/containers/containers-log-search.png" alt-text="Screenshot that shows Log Analytics with a query for the state of containers and the search results." border="false" lightbox="media/containers/containers-log-search.png":::
 
 From here, you can edit the search query to modify it to find the specific information you're interested in. For more information about log queries, see [Log queries in Azure Monitor](../logs/log-query-overview.md).
 
@@ -594,15 +594,15 @@ Log Analytics marks a container as **Failed** if it has exited with a non-zero e
 ### To find failed containers
 
 1. Click the **Container Status** area.  
-   :::image type="content" source="./media/containers/containers-status.png" alt-text="containers status" border="false" lightbox="media/containers/containers-status.png":::
+   :::image type="content" source="./media/containers/containers-status.png" alt-text="Screenshot that shows the Container Status area of the Containers dashboard, which includes container status information presented as a pie chart." border="false" lightbox="media/containers/containers-status.png":::
 2. Log Analytics opens and displays the state of your containers, similar to the following.  
-   :::image type="content" source="./media/containers/containers-log-search.png" alt-text="containers state" border="false" lightbox="media/containers/containers-log-search.png":::
+   :::image type="content" source="./media/containers/containers-log-search.png" alt-text="Screenshot that shows Log Analytics with a query for the state of containers and the search results." border="false" lightbox="media/containers/containers-log-search.png":::
 3. Expand the Failed line and click + to add its criteria to the query. Then comment out the Summarize line in the query.
    :::image type="content" source="./media/containers/containers-state-failed-select.png" alt-text="Screenshot that shows the line that should be commented out." border="false" lightbox="media/containers/containers-state-failed-select.png":::
 1. Run the query and then expand a line in the results to view the image ID.  
    :::image type="content" source="./media/containers/containers-state-failed.png" alt-text="Screenshot that shows how to view the image ID." border="false" lightbox="media/containers/containers-state-failed.png":::
 1. Type the following in the log query. `ContainerImageInventory | where ImageID == <ImageID>` to see details about the image such as image size and number of stopped and failed images.  
-   :::image type="content" source="./media/containers/containers-failed04.png" alt-text="failed containers" border="false" lightbox="media/containers/containers-failed04.png":::
+   :::image type="content" source="./media/containers/containers-failed04.png" alt-text="Screenshot that shows Log Analytics with a query for a container image and details about the image." border="false" lightbox="media/containers/containers-failed04.png":::
 
 ## Query logs for container data
 
@@ -620,7 +620,7 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 ### To query logs for container data
 
 * Choose an image that you know has failed recently and find the error logs for it. Start by finding a container name that is running that image with a **ContainerInventory** search. For example, search for `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
-    :::image type="content" source="./media/containers/search-ubuntu.png" alt-text="Search for Ubuntu containers" lightbox="media/containers/search-ubuntu.png" border="false":::
+    :::image type="content" source="./media/containers/search-ubuntu.png" alt-text="Screenshot that shows a search for failed Ubuntu containers and the search results." lightbox="media/containers/search-ubuntu.png" border="false":::
 
   Expand any row in the results to view details for that container.
 
@@ -628,7 +628,7 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 
 It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **SAMPLE QUERIES** area on the far right of the solution page, to help you build more advanced queries.
 
-:::image type="content" source="./media/containers/containers-queries.png" alt-text="Containers queries" border="false" lightbox="media/containers/containers-queries.png":::
+:::image type="content" source="./media/containers/containers-queries.png" alt-text="Screenshot that shows the Sample Queries area with example log queries." border="false" lightbox="media/containers/containers-queries.png":::
 
 ## Saving log queries
 
