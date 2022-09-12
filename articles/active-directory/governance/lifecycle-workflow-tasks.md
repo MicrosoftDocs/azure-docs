@@ -24,7 +24,7 @@ Lifecycle Workflows currently support the following tasks:
 |Task  |taskDefinitionID  |
 |---------|---------|
 |[Send welcome email to new hire](lifecycle-workflow-tasks.md#send-welcome-email-to-new-hire)     |   70b29d51-b59a-4773-9280-8841dfd3f2ea      |
-|[Generate Temporary Access Password and send via email to user's manager](lifecycle-workflow-tasks.md#generate-temporary-access-password-and-send-via-email-to-users-manager)     |  1b555e50-7f65-41d5-b514-5894a026d10d       |
+|[Generate Temporary Access Pass and send via email to user's manager](lifecycle-workflow-tasks.md#generate-temporary-access-password-and-send-via-email-to-users-manager)     |  1b555e50-7f65-41d5-b514-5894a026d10d       |
 |[Add user to group](lifecycle-workflow-tasks.md#add-user-to-group)     |    22085229-5809-45e8-97fd-270d28d66910     |
 |[Add user to team](lifecycle-workflow-tasks.md#add-user-to-team)      |  e440ed8d-25a1-4618-84ce-091ed5be5594       |
 |[Enable user account](lifecycle-workflow-tasks.md#enable-user-account)     |    6fc52c9d-398b-4305-9763-15f42c1676fc     |
@@ -100,9 +100,9 @@ For Microsoft Graph the parameters for the **Send welcome email to new hire** ta
 
 ```
 
-### Generate Temporary Access Password and send via email to user's manager
+### Generate Temporary Access Pass and send via email to user's manager
 
-When a compatible user joins your organization, Lifecycle Workflows allow you to automatically generate a Temporary Access Password(TAP) and have it sent to the new user's manager.
+When a compatible user joins your organization, Lifecycle Workflows allow you to automatically generate a Temporary Access Pass(TAP) and have it sent to the new user's manager.
 
 With this task in the Azure portal, you're able to give the task a name and description. You must also set the following:
 
@@ -111,7 +111,7 @@ With this task in the Azure portal, you're able to give the task a name and desc
 :::image type="content" source="media/lifecycle-workflow-task/tap-task.png" alt-text="Screenshot of Workflows task: TAP task.":::
  
 
-The Azure AD prerequisites to run the **Generate Temporary Access Password and send via email to user's manager** task are:
+The Azure AD prerequisites to run the **Generate Temporary Access Pass and send via email to user's manager** task are:
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
@@ -121,13 +121,13 @@ The Azure AD prerequisites to run the **Generate Temporary Access Password and s
 > [!IMPORTANT]
 > A user having this task run for them in a workflow must also not have any other authentication methods, sign ins, or AAD role assignments for this task to work for them.
 
-For Microsoft Graph the parameters for the **Generate Temporary Access Password and send via email to user's manager** task are as follows:
+For Microsoft Graph the parameters for the **Generate Temporary Access Pass and send via email to user's manager** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  joiner      |
 |displayName     | GenerateTAPAndSendEmail (Customizable by user)      |
-|description     | Generate Temporary Access Password and send via email to user's manager (Customizable by user)       |
+|description     | Generate Temporary Access Pass and send via email to user's manager (Customizable by user)       |
 |taskDefinitionId     |   1b555e50-7f65-41d5-b514-5894a026d10d     |
 |arguments     |  Argument contains the name parameter "tapLifetimeInMinutes", which is the lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days). The argument also contains the tapIsUsableOnce parameter, which determines whether the password is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime.    |
 
@@ -135,7 +135,7 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Password 
 ```Example for usage within the workflow
 {
     "category": "joiner",
-    "description": "Generate Temporary Access Password and send via email to user's manager",
+    "description": "Generate Temporary Access Pass and send via email to user's manager",
     "displayName": "GenerateTAPAndSendEmail",
     "isEnabled": true,
     "continueOnError": true,
