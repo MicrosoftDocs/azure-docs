@@ -87,6 +87,6 @@ Note also that with `/LFSM` you must also use a local path for the destination, 
 > [!CAUTION]
 > The currently available version of RoboCopy on Windows Server 2022 has a bug that causes the pauses to count against the per file error count. Apply the following workaround.
 
-The recommended `/R:2 /W:1` flags increase the probability that a file is failed due to an `/LFSM` induced pause. In this example, a file that wasn't copied after 3 pauses because `/LFSM` caused the pause, will incorrectly make RoboCopy fail the file. The workaround for this is to use higher values for `/R:n` and `/W:n`. A good example is `/R:10 /W:1800` (10 retries of 30 minutes each). This should give the Azue File Sync tiering algorithm time to create space on the destination volume. 
+The recommended `/R:2 /W:1` flags increase the probability that a file is failed due to an `/LFSM` induced pause. In this example, a file that wasn't copied after 3 pauses because `/LFSM` caused the pause, will incorrectly make RoboCopy fail the file. The workaround for this is to use higher values for `/R:n` and `/W:n`. A good example is `/R:10 /W:1800` (10 retries of 30 minutes each). This should give the Azure File Sync tiering algorithm time to create space on the destination volume. 
 
 This bug has been fixed but the fix is not yet publicly available. Check this paragraph for updates on the availability of the fix and how to deploy it.
