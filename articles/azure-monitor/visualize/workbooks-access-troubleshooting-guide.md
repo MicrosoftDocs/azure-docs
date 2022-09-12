@@ -19,7 +19,7 @@ Use the 'Change Type' feature to change workbook types and move them from the Tr
 ## Change the workbook type using the Change Type toolbar item
 
 1. Switch the workbook to edit mode by selecting **Edit**.
-1. Select the *8Edit** icon, and then **Change Type**. 
+1. Select the **Edit** icon, and then **Change Type**. 
 
     :::image type="content" source="media/workbooks-access-troubleshooting-guides/workbooks-tsg-change-type-menu.png" alt-text="Screenshot of icon to change the workbooks type. ":::
 
