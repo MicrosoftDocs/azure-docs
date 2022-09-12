@@ -62,13 +62,13 @@ When your device is registered in IoT Hub but is not appearing in your Device Up
 
 From a high level, the agent check feature works as follows:
 
-1. The user registers a device with IoT Hub. If the device reports a Model ID that matches those compatible with Device Update for IoT Hub, the user's connected Device Update instance will automatically register the device with Device Update.
+- The user registers a device with IoT Hub. If the device reports a Model ID that matches those compatible with Device Update for IoT Hub, the user's connected Device Update instance will automatically register the device with Device Update.
 
-2. In order for a device to be properly managed by Device Update, it must meet certain criteria that can be verified using Agent Check's pre-made validation checks. More information on these criteria can be found [here](device-update-agent-check.md).
+- In order for a device to be properly managed by Device Update, it must meet certain criteria that can be verified using Agent Check's pre-made validation checks. More information on these criteria can be found [here](device-update-agent-check.md).
 
-3. If a device does not meet all of these criteria, it cannot be properly managed by Device Update and will not show up in the Device Update interface or API responses. Users can use Agent Check to find this device and attempt to identify which criteria is not being met by using Agent Check.
+- If a device does not meet all of these criteria, it cannot be properly managed by Device Update and will not show up in the Device Update interface or API responses. Users can use Agent Check to find this device and attempt to identify which criteria is not being met by using Agent Check.
 
-4. Once the user has identified which criteria is not being met, the user may correct the issue and the device should then properly appear in the Deivce Update interface.
+- Once the user has identified which criteria is not being met, the user may correct the issue and the device should then properly appear in the Device Update interface.
 
 ## Next steps
 
