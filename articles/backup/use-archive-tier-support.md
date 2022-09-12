@@ -31,7 +31,7 @@ You can now view all the recovery points that are moved to archive.
 
 ## Enable Smart Tiering to Vault-archive using a backup policy
 
-You can automatically move all eligible/recommended recovery points to vault-archive by configuring the required settings in the backup policy.
+You can automatically move all eligible/recommended recovery points to Vault-archive by configuring the required settings in the backup policy.
 
 >[!Note]
 >Enable your subscription to use this feature.
@@ -351,7 +351,7 @@ You can also write a script as per your requirements or modify the above sample 
 
 You can automatically move all eligible/ recommended recovery points to vault-archive using a backup policy.
 
-In the following sections, you will learn how to enable Smart Tiering for eligible recovery points.
+In the following sections, you'll learn how to enable Smart Tiering for eligible recovery points.
 
 ### Create a policy
 
@@ -402,14 +402,14 @@ New-AzRecoveryServicesBackupProtectionPolicy: TierAfterDuration needs to be >= 3
 
 #### Tier all eligible Azure Virtual Machines backup items
 
-To tier all eligible Azure VM recovery points to Vault-archive, specify the number of months after which you want to move the recovery points and run the following cmdlet:
+To tier all eligible Azure VM recovery points to Vault-archive, specify the number of months after which you want to move the recovery points, and run the following cmdlet:
 
 ```azurepowershell
 $pol = New-AzRecoveryServicesBackupProtectionPolicy -Name hiagaVMArchiveTierAfter  -WorkloadType AzureVM  -BackupManagementType AzureVM -RetentionPolicy $retPol -SchedulePolicy $schPol -VaultId $vault.ID  -MoveToArchiveTier $true -TieringMode TierAllEligible -TierAfterDuration 3 -TierAfterDurationType Months
 ```
 
 >[!Note]
->- The number of months must range from *3* to *( Retention - 6)* months.
+>- The number of months must range from *3* to *(Retention - 6)* months.
 >- This can increase your overall costs.
 
 
