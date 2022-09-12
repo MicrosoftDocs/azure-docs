@@ -39,9 +39,9 @@ The limited access Video Indexer Restricted Viewer role is intended for Video In
 
 To generate a Video Indexer restricted viewer access token via API, see [documentation](https://aka.ms/vi-restricted-doc). 
 
-## Restricted Viewer Video Indexer portal experience
+## Restricted Viewer Video Indexer website experience
  
-When using the Video Indexer portal with a Video Indexer Restricted Viewer access, disabled features are greyed out. If a user with the restricted viewer role attempts to access an unauthorized page, they'll encounter the pop-up message below: 
+When using the [Azure Video Indexer](https://www.videoindexer.ai/) website with a Video Indexer Restricted Viewer access, disabled features are greyed out. If a user with the restricted viewer role attempts to access an unauthorized page, they'll encounter the pop-up message below: 
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/restricted-viewer-role/no-access.png" alt-text="No access to the gallery page.":::
