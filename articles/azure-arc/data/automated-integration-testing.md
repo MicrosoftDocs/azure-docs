@@ -241,7 +241,7 @@ The launcher image is pre-packaged with the latest arcdata CLI version at the ti
 
 The following steps are sourced from [Enable custom locations on your cluster](../kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster) to retrieve the Custom Location OID for your Azure AD tenant.
 
-There are 2 approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure AD tenant.
+There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure AD tenant.
 
 1. Via Azure CLI:
 
@@ -252,7 +252,7 @@ az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
 
 ![Custom Location Object ID - CLI](media/automated-integration-testing/custom-location-oid-cli.png)
 
-2. Via Azure Portal - navigate to your Azure Active Directory blade, and search for `Custom Locations RP`:
+2. Via Azure portal - navigate to your Azure Active Directory blade, and search for `Custom Locations RP`:
 
 ![Custom Location Object ID - Portal](media/automated-integration-testing/custom-location-oid-portal.png)
 ##### 3. `SPN_CLIENT_*` - Service Principal Credentials
@@ -267,9 +267,9 @@ Validation testing is meant to be performed on **Non-Production/Test Kubernetes 
 
 > Recommended: leaving this empty means you will not obtain test results and logs.
 
-The launcher needs a persistent location (Azure Blob Storage) to upload results to, as Kubernetes does not (yet) allow copying files from stopped/completed pods - [see here](https://github.com/kubernetes/kubectl/issues/454). The launcher achieves connectivity to Azure Blob Storage using an _**account-scoped SAS URL**_ (as opposed to _container_ or _blob_ scoped) - a signed URL with a time-bound access definition - see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md), in order to:
+The launcher needs a persistent location (Azure Blob Storage) to upload results to, as Kubernetes doesn't (yet) allow copying files from stopped/completed pods - [see here](https://github.com/kubernetes/kubectl/issues/454). The launcher achieves connectivity to Azure Blob Storage using an _**account-scoped SAS URL**_ (as opposed to _container_ or _blob_ scoped) - a signed URL with a time-bound access definition - see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md), in order to:
 1. Create a new Storage Container in the pre-existing Storage Account (`LOGS_STORAGE_ACCOUNT`), if it doesn't exist (name based on `LOGS_STORAGE_CONTAINER`)
-2. Create new, uniquely named blobs (test log tarfiles)
+2. Create new, uniquely named blobs (test log tar files)
 
 The follow steps are sourced from [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md#grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas).
 
@@ -392,7 +392,7 @@ At this point, the launcher should start - and you should see the following:
 
 ![CLI launcher starting](media/automated-integration-testing/launcher-start.png)
 
-Although it's best to deploy the Launcher in a Cluster with no pre-existing Arc resources, the Launcher contains pre-flight validation to discover pre-existing Arc and Arc Data Services CRDs and ARM resources, and attempts to clean them up on a best-effort basis (using the provided Service Principal creds), prior to deploying the new release:
+Although it's best to deploy the Launcher in a Cluster with no pre-existing Arc resources, the Launcher contains pre-flight validation to discover pre-existing Arc and Arc Data Services CRDs and ARM resources, and attempts to clean them up on a best-effort basis (using the provided Service Principal credentials), prior to deploying the new release:
 
 ![CLI example output](media/automated-integration-testing/launcher-pre-flight.png)
 
@@ -405,7 +405,7 @@ At a high-level, the launcher performs the following sequence of steps:
 1. Authenticate to Kubernetes API using Pod-mounted Service Account
 2. Authenticate to ARM API using Secret-mounted Service Principal
 3. Perform CRD metadata scan to discover existing Arc and Arc Data Services Custom Resources
-4. Clean up any existing Custom Resources in Kubernetes, and subsequent resources in Azure. In case of any mismatch between the credentials in `.test.env` compared to resources existing in the cluster, fails fast
+4. Clean up any existing Custom Resources in Kubernetes, and subsequent resources in Azure. If any mismatch between the credentials in `.test.env` compared to resources existing in the cluster, fails fast
 5. Generate a unique set of environment variables based on timestamp for Arc Cluster name, Data Controller and Custom Location/Namespace. Prints out the environment variables, obfuscating sensitive values (e.g. Service Principal Password etc.)
 6. a. For Direct Mode - Onboard the Cluster to Azure Arc, then deploys the Controller via the [unified experience](/create-data-controller-direct-cli?tabs=linux#deploy---unified-experience)
    b. For Indirect Mode: deploy the Data Controller
