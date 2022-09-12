@@ -48,6 +48,8 @@
       href: migrate-search-service.md
     - name: Container instances
       href: migrate-container-instances.md
+    - name: Load Balancer 
+      href: migrate-load-balancer.md
     - name: Log Analytics workspaces
       href: migrate-monitor-log-analytics.md
     - name: Recovery Services vault

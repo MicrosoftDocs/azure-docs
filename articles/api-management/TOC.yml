@@ -76,6 +76,8 @@
               href: ./security-controls-policy.md
             - name: Security baseline
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
+            - name: Authentication and authorization
+              href: authentication-authorization-overview.md
       - name: Observability
         href: observability.md
       - name: DevOps and CI/CD
@@ -430,10 +432,20 @@
         href: https://aka.ms/apimupdates
       - name: Release notes
         href: https://aka.ms/apim/releases
-      - name: Retiring features
+      - name: Breaking changes
         items:
-          - name: Deprecated developer portal
-            items:
+            - name: Breaking changes overview
+              href: breaking-changes/overview.md
+            - name: Virtual network changes (March 2023)
+              href: breaking-changes/rp-source-ip-address-change-mar-2023.md
+            - name: Virtual network changes (September 2023)
+              href: breaking-changes/rp-source-ip-address-change-sep-2023.md
+            - name: API version retirements (September 2023)
+              href: breaking-changes/api-version-retirement-sep-2023.md
+            - name: Self-hosted gateway v0/v1 retirements (October 2023)
+              href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
+            - name: Deprecated (legacy) developer portal (October 2023)
+              items:
                 - name: Deprecated portal - customize the portal
                   href: api-management-customize-styles.md
                 - name: Deprecated portal - modify pages and layouts
@@ -462,12 +474,12 @@
                       href: api-management-page-templates.md
                     - name: Template resources
                       href: api-management-template-resources.md
-      - name: Breaking changes
-        items:
-            - name: Breaking changes overview
-              href: breaking-changes/overview.md
-            - name: Virtual network changes (March 2023)
-              href: breaking-changes/rp-source-ip-address-change-mar2023.md
+            - name: stv1 compute platform retirement (August 2024)
+              href: breaking-changes/stv1-platform-retirement-august-2024.md
+            - name: ADAL-based identity provider retirement (September 2025)
+              href: breaking-changes/identity-provider-adal-retirement-sep-2025.md
+            - name: CAPTCHA endpoint update (September 2025)
+              href: breaking-changes/captcha-endpoint-change-sep-2025.md       
       - name: Regional availability
         href: https://azure.microsoft.com/global-infrastructure/services/
       - name: Microsoft Q&A question page
