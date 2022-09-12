@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 09/08/2022
 ---
 
-# Access Troubleshooting Guides in Azure Workbooks
+# Access Debrecated Troubleshooting Guides in Azure Workbooks
 
 Troubleshooting guides are now deprecated, and the **Troubleshooting Guides** menu item is no longer available. You can still access the troubleshooting guides in the Azure Workbooks menu on the left. 
 
 Use the 'Change Type' feature to change workbook types and move them from the Troubleshooting Guide gallery to the Workbook gallery.
 
-## Change the Workbook type using the Change Type toolbar item
+## Change the workbook type using the Change Type toolbar item
 
 1. Switch the workbook to edit mode by selecting **Edit**.
 
@@ -35,7 +35,7 @@ Use the 'Change Type' feature to change workbook types and move them from the Tr
     :::image type="content" source="media/workbooks-access-troubleshooting-guides/workbooks-tsg-done.png" alt-text="Screenshot showing the troubleshooting guide in the Workbooks gallery. ":::
 
 
-## Change the Workbook type using the browse pane
+## Change the workbook type using the browse pane
 
 1. Open up the workbooks browse pane and select the workbook that you want to change by clicking on the workbook name.
 
@@ -48,7 +48,7 @@ Use the 'Change Type' feature to change workbook types and move them from the Tr
 1. A success status popup window appears in the top right corner. It may take up to a minute for the change to be reflected in the gallery.
  
 
-## Change the Workbook type using the Gallery card '...' menu
+## Change the workbook type using the gallery card '...' menu
 1. Navigate to the gallery containing the workbook that you'd like to change the type for. 
 1. Select the **...** button on the gallery card item, and then select **Change Type**.
 
