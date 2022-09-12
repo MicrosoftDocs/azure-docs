@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Find your Microsoft Sentinel data connector
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article describes how to deploy data connectors in Microsoft Sentinel, listing all supported, out-of-the-box data connectors, together with links to generic deployment procedures, and extra steps required for specific connectors.
 
 > [!TIP]
@@ -32,7 +30,6 @@ This article describes how to deploy data connectors in Microsoft Sentinel, list
     | **Azure Functions and the REST API** | [Use Azure Functions to connect Microsoft Sentinel to your data source](connect-azure-functions-template.md) |
     | **Syslog** | [Collect data from Linux-based sources using Syslog](connect-syslog.md) |
     | **Custom logs** | [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md) |
-    |
 
     > [!NOTE]
     > The **Azure service-to-service integration** data ingestion method links to three different sections of its article, depending on the connector type. Each connector's section below specifies the section within that article that it links to.
@@ -704,7 +701,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 
 ## DNS (Preview)
 
-**See [Windows DNS Server (Preview)](#windows-dns-server-preview).**
+**See [Windows DNS Events via AMA (Preview)](#windows-dns-events-via-ama-preview) or [Windows DNS Server (Preview)](#windows-dns-server-preview).**
 
 ## Dynamics 365
 
@@ -863,7 +860,7 @@ For more information, see the Eset documentation.
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | ExabeamEvent |
 | **Kusto function URL:** | https://aka.ms/Sentinel-Exabeam-parser |
-| **Vendor documentation/<br>installation instructions** | [Configure Advanced Analytics system activity notifications](https://docs.exabeam.com/en/advanced-analytics/i54/advanced-analytics-administration-guide/113254-configure-advanced-analytics.html#UUID-7ce5ff9d-56aa-93f0-65de-c5255b682a08) |
+| **Vendor documentation/<br>installation instructions** | [Configure Advanced Analytics system activity notifications](https://docs.exabeam.com/en/advanced-analytics/i56/advanced-analytics-administration-guide/125371-configure-advanced-analytics.html#UUID-6d28da8d-6d3e-5aa7-7c12-e67dc804f894) |
 | **Supported by** | Microsoft |
 
 
@@ -1821,9 +1818,18 @@ Follow the instructions to obtain the credentials.
 | **Vendor documentation/<br>installation instructions** | Contact [WireX support](https://wirexsystems.com/contact-us/) in order to configure your NFP solution to send Syslog messages in CEF format. |
 | **Supported by** | [WireX Systems](mailto:support@wirexsystems.com) |
 
+## Windows DNS Events via AMA (Preview)
 
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Azure monitor Agent-based connection](connect-dns-ama.md)** |
+| **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
+| **DCR support** | Standard DCR |
+| **Supported by** | Microsoft |
 
 ## Windows DNS Server (Preview)
+
+This connector uses the legacy agent. We recommend that you use the DNS over AMA connector above.
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1879,8 +1885,9 @@ We recommend installing the [Advanced Security Information Model (ASIM)](normali
 | **DCR support** | Standard DCR |
 | **Supported by** | Microsoft |
 
-
-See also: [**Security events via legacy agent**](#security-events-via-legacy-agent-windows) connector.
+See also: 
+- [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md): Uses the Azure Monitor Agent to stream and filter events from Windows Domain Name System (DNS) server logs.
+- [**Security events via legacy agent**](#security-events-via-legacy-agent-windows) connector.
 
 ### Configure the Security events / Windows Security Events connector for anomalous RDP login detection
 

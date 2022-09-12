@@ -405,6 +405,8 @@ You’ll only be able to update your virtual hub router if all the resources (ga
 
 If the update fails for any reason, your hub will be auto recovered to the old version to ensure there is still a working setup.
 
+>[!NOTE]
+> The user will need to have an **owner** or **contributor** role to see an accurate status of the hub router version. If a user is assigned a **Reader** role to the Azure subscription, then Azure portal will display to the user that the hub router needs to be upgraded to the latest version, even if the hub is already on the latest version. 
 
 ### Is there a route limit for OpenVPN clients connecting to an Azure P2S VPN gateway?
 

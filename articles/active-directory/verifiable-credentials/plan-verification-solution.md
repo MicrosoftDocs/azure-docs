@@ -114,13 +114,13 @@ Verifiable credentials can be used to enable faster onboarding by replacing some
 
    * **External identities** - invitation: When an existing user in your organization invites an external user to be onboarded in the target system, the RP can generate a link with a unique identifier that represents the invitation transaction and sends it to the external user’s email address. This unique identifier should be sufficient to correlate the VC verification request to the invitation record or underlying data and continue the provisioning workflow. The attributes in the VC can be used to validate or complete the external user attributes.
 
-   * **External identities** – self-service: When external identities sign up to the target system through self-service (for example, a B2C application) the attributes in the VC can be used to populate the initial attributes of the user account. The VC attributes can also be used to find out if a profile already exists.
+   * **External identities** - self-service: When external identities sign up to the target system through self-service (for example, a B2C application) the attributes in the VC can be used to populate the initial attributes of the user account. The VC attributes can also be used to find out if a profile already exists.
 
 * **Interaction with target identity systems**: The service-to-service communication between the web front end and your target identity systems needs to be secured as a highly privileged system, because it can create accounts. Grant the web front end the least privileged roles possible. Some examples include:
 
-   * To create a new user in Azure AD, the RP website can use a service principal that is granted the MS Graph scope of User.ReadWrite.All to create users, and the scope UserAuthenticationMethod.ReadWrite.All to reset authentication method
+   * To create a new user in Azure AD, the RP website can use a service principal that is granted the MS Graph scope of `User.ReadWrite.All` to create users, and the scope `UserAuthenticationMethod.ReadWrite.All` to reset their authentication method.
 
-   * To invite users to Azure AD using B2B collaboration, the RP website can use a service principal that is granted the MS Graph scope of User.Invite.All to create invitations.
+   * To invite users to Azure AD using B2B collaboration, the RP website can use a service principal that is granted the MS Graph scope of `User.Invite.All` to create invitations.
 
    * If your RP is running in Azure, use Managed Identities to call Microsoft Graph. Using managed identities removes the risks of managing service principal credentials in code or configuration files. To learn more about Managed identities, go to [Managed identities for Azure resources.](../managed-identities-azure-resources/overview.md)
 
@@ -213,7 +213,7 @@ Similarly, you can use a VC to generate a temporary access pass that will allow 
 
 **Interaction with Azure AD**: The service-to-service communication between the web front end and Azure AD must be secured as a highly privileged system because it can reset employees’ credentials. Grant the web front end the least privileged roles possible. Some examples include:
 
-* Grant the RP website the ability to use a service principal granted the MS Graph scope UserAuthenticationMethod.ReadWrite.All to reset authentication methods. Don’t grant the User.ReadWrite.All, which enables the ability to create and delete users.
+* Grant the RP website the ability to use a service principal granted the MS Graph scope `UserAuthenticationMethod.ReadWrite.All` to reset authentication methods. Don’t grant `User.ReadWrite.All`, which enables the ability to create and delete users.
 
 * If your RP is running in Azure, use Managed Identities to call Microsoft Graph. This removes the risks around managing service principal credentials in code or configuration files. For more information, see [Managed identities for Azure resources.](../managed-identities-azure-resources/overview.md)
 
@@ -231,7 +231,7 @@ Below are some IAM considerations when incorporating VCs to relying parties. Rel
 
 * A successful presentation of the VC can be considered a coarse-grained authorization gate by itself. The VC attributes can also be consumed for fine-grained authorization decisions.
 
-* Determine if an expired VC has meaning in your application; if so check the value of the “exp” claim (the expiration time) of the VC as part of the authorization checks. One example where expiration is not relevant is requiring a government-issued document such as a driver’s license to validate if the subject is older than 18. The date of birth claim is valid, even if the VC is expired. 
+* Determine if an expired VC has meaning in your application; if so check the value of the `exp` claim (the expiration time) of the VC as part of the authorization checks. One example where expiration is not relevant is requiring a government-issued document such as a driver’s license to validate if the subject is older than 18. The date of birth claim is valid, even if the VC is expired. 
 
 * Determine if a revoked VC has meaning to your authorization decision. 
 
@@ -249,7 +249,7 @@ You can use information in presented VCs to build a user profile. If you want to
 
 * If the application requires a persistent user profile store:
 
-   * Consider using the “sub” claim as an immutable identifier of the user. This is an opaque unique attribute that will be constant for a given subject/RP pair. 
+   * Consider using the `sub` claim as an immutable identifier of the user. This is an opaque unique attribute that will be constant for a given subject/RP pair. 
 
    * Define a mechanism to deprovision the user profile from the application. Due to the decentralized nature of the Microsoft Entra Verified ID system, there is no application user provisioning lifecycle.
 
