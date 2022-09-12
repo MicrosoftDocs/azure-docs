@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 09/12/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with OneTrust Privacy Management Software
@@ -31,9 +31,9 @@ To configure Azure AD integration with OneTrust Privacy Management Software, you
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* OneTrust Privacy Management Software supports **SP** and **IDP** initiated SSO
+* OneTrust Privacy Management Software supports **SP** and **IDP** initiated SSO.
 
-* OneTrust Privacy Management Software supports **Just In Time** user provisioning
+* OneTrust Privacy Management Software supports **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -77,8 +77,14 @@ In this section, you enable Azure AD SSO in the Azure portal.
     a. In the **Identifier** text box, type the URL:
     `https://www.onetrust.com/saml2`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<subdomain>.onetrust.com/auth/consumerservice`
+    b. In the **Reply URL** text box, type a URL using one of the following patterns:
+
+    | Reply URL |
+    |------------|
+    | `https://<subdomain>.onetrust.com/auth/consumerservice` |
+    |  `https://app.onetrust.com/access/v1/saml/SSO` |
+    |
+    
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
