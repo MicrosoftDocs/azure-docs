@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Microsoft Energy Data Services Preview documentation # < 60 chars
-summary: Microsoft Energy Data Services is an enterprise-grade, OSDU&trade;-ready data platform developed in collaboration with Schlumberger (SLB). Customers can not only run their large-scale simulations on the cloud for the first time, but also start to connect previously disparate parts of their business from wells, subsurface, and production. Any industry ISV can leverage the offering to also bring their domain software to Microsoft. The platform will be delivered as a first-party managed Microsoft PaaS offering, adding significant new features and capabilities over the OSDU&trade; community code. As a first-party Azure service, the platform will offer all the Enterprise promises like Security, Privacy, Compliance, SLAs, and Disaster Recovery as expected by our customers. The platform will incorporate innovative scalable data ingestion capabilities, unified AI templates, domain services, etc., and bring the power of the rest of Microsoft technologies to help our customers achieve more with their data.  # < 160 chars
+summary: Microsoft Energy Data Services is a secure, reliable, hyperscale, and a fully managed cloud based data platform solution for the energy industry. It is an enterprise grade data platform that brings together the capabilities of OSDU™ Data Platform, Microsoft's secure and trusted Azure cloud platform, and Schlumberger's extensive domain expertise.
 
 metadata:
   title: Microsoft Energy Data Services Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
