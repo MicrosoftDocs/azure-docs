@@ -177,12 +177,12 @@ Use the `check` tool to verify configuration and connection status of the device
 
 >[!NOTE]
 >On a newly provisioned device, you may see an error related to IoT Edge Hub:
->```
+>
 >× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error
 >
 >    Could not check current state of edgeHub container
->```
->This error is expected on a fresh install, and will go away when IoT Edge Hub module is started as a result of setting a deployment for the device.
+>
+>This error is expected on a newly provisioned device since the IoT Edge Hub module isn't running. To resolve the error, set the modules for the device and create deployment. Creating a deployment for the device starts the modules on the device including IoT Edge Hub module.
 
 View all the modules running on your IoT Edge device. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
 
