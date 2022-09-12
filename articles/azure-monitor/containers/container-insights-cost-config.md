@@ -1,3 +1,11 @@
+---
+title: Configure Container insights cost optimization data collection rules | Microsoft Docs
+description: This article describes how you can configure the Container insights agent to control data collection.
+ms.topic: conceptual
+ms.date: 09/12/2022
+ms.reviewer: aul
+---
+
 # Container Insights - Cost Optimization DCR Settings
 
 # Overview
