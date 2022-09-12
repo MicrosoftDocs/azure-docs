@@ -80,7 +80,7 @@ The Defender for DevOps service automatically discovers the repositories you sel
 
 ## Learn more
 
-- You can learn more about [how Azure and GitHub integrate](/azure/developer/github/).
+- You can learn more about [how Azure and GitHub integrate](https://docs.microsoft.com/azure/developer/github/).
 
 - Learn about [security hardening practices for GitHub Actions](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
 
