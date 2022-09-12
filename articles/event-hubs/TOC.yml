@@ -199,8 +199,6 @@
               items:
               - name: .NET development overview
                 href: dot-net-development.md
-              - name: Hello world - publish and receive events
-                href: hello-world-publish-receive-events.md
               - name: .NET samples on GitHub
                 href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md
             - name: Java (azure-messaging-eventhubs)
