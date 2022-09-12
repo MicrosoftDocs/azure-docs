@@ -1,27 +1,27 @@
 ---
-title: Enable a Customer managed key on Azure Container Registry
+title: Enable a customer-managed key on Azure Container Registry
 description: In this tutorial, learn to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault using Azure CLI.
 ms.topic: tutorial
 ms.date: 08/5/2022
 ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
-# Tutorial: Encrypt Azure Container Registry with a Customer managed key 
+# Tutorial: Encrypt Azure Container Registry with a customer-managed key 
 
-This article is part two in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview about a Customer managed key, key features, and the considerations before you enable a Customer managed key on your registry. This article walks you through the steps using the Azure CLI, Azure portal, or a Resource Manager template.
+This article is part two in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview about a customer-managed key, key features, and the considerations before you enable a customer-managed key on your registry. This article walks you through the steps using the Azure CLI, Azure portal, or a Resource Manager template.
 
 In this article 
 
->* Enable a Customer managed key - Azure CLI
->* Enable a Customer managed key - Azure Portal
->* Enable a Customer managed key - Azure Resource Manager template
+>* Enable a customer-managed key - Azure CLI
+>* Enable a customer-managed key - Azure Portal
+>* Enable a customer-managed key - Azure Resource Manager template
 
 ## Prerequisites
 
 >* See [Install Azure CLI][azure-cli] or run in [Azure Cloud Shell.](../cloud-shell/quickstart.md).
 >* Sign into [Azure Portal](https://ms.portal.azure.com/) 
 
-## Enable a Customer managed key - Azure CLI
+## Enable a customer-managed key - Azure CLI
 
 ### Create a resource group
 
@@ -192,7 +192,7 @@ keyID=$(az keyvault key show \
 keyID=$(echo $keyID | sed -e "s/\/[^/]*$//")
 ```
 
-### Create a registry with a Customer managed key
+### Create a registry with a customer-managed key
 
 1. Run the [az acr create][az-acr-create](/cli/azure/acr#az-acr-create) command to create a registry in the *Premium* service tier and enable the customer-managed key. 
 
@@ -230,7 +230,7 @@ az acr encryption show --name <container-registry-name>
 }
 ```
 
-## Enable a Customer managed key - Azure portal
+## Enable a customer-managed key - Azure Portal
 
 ### Create a user-assigned managed identity
 
@@ -288,7 +288,7 @@ Create a key in the key vault and use it to encrypt the registry. Follow these s
 1. Accept the remaining default values and select **Create**.
 1. After creation, select the key and then select the current version. Copy the **Key identifier** for the key version.
 
-### Create Azure container registry
+### Create Azure Container Registry
 
 1. Select **Create a resource** > **Containers** > **Container Registry**.
 1. In the **Basics** tab, select or create a resource group, and enter a registry name. In **SKU**, select **Premium**.
@@ -306,9 +306,9 @@ Create a key in the key vault and use it to encrypt the registry. Follow these s
 
 To see the encryption status of your registry in the portal, navigate to your registry. Under **Settings**, select  **Encryption**.
 
-## Enable a Customer managed key - Azure Resource Manager template
+## Enable a customer-managed key - Azure Resource Manager template
 
-You can use a Resource Manager template to create a registry and enable encryption with a Customer managed key. 
+You can use a Resource Manager template to create a registry and enable encryption with a customer-managed key. 
 
 The following Resource Manager template creates a new container registry and a *user-assigned* managed identity.
 
@@ -443,7 +443,7 @@ az acr encryption show --name <registry-name>
 
 ## Next steps
 
-In this tutorial, you've learned to enable a customer-managed key on your Azure container registry using Azure CLI, portal, and Resource Manager template. This article also explains how to create resources for the encryption and verify the encryption status of your registry.
+In this tutorial, you've learned to enable a customer-managed key on your Azure Container Registry using Azure CLI, portal, and Resource Manager template. This article also explains how to create resources for the encryption and verify the encryption status of your registry.
 
 Advance to the next [tutorial](tutorial-rotate-revoke-customer-managed-keys.md), to have a walk-through of performing the customer-managed key rotation, update key versions, and revoke a customer-managed key. 
 

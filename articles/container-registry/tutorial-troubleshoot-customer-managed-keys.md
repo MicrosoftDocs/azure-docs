@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot a Customer managed key 
-description: Tutorial to troubleshoot the most common issues from a registry enabled with a Customer managed key.
+title: Troubleshoot a customer-managed key 
+description: Tutorial to troubleshoot the most common issues from a registry enabled with a customer-managed key.
 author: tejaswikolli-web
 ms.topic: tutorial
 ms.date: 08/5/2022
@@ -8,11 +8,11 @@ ms.custom: subject-rbac-steps, devx-track-azurecli
 ms.author: tejaswikolli
 ---
 
-# Troubleshoot a Customer managed key 
+# Troubleshoot a customer-managed key 
 
-This article is part four in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed key, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you've learned to enable customer-managed keys using the Azure CLI, Azure portal, or a Resource Manager template. In [part three](tutorial-rotate-revoke-customer-managed-keys.md), you'll learn to rotate, update, revoke a Customer managed key. In this article, learn to troubleshoot any issues with customer-managed keys.
+This article is part four in a four-part tutorial series. In [part one](tutorial-customer-managed-keys.md), you have an overview of the customer-managed keys, their key features, and the considerations before you enable a customer-managed key on your registry. In [part two](tutorial-enable-customer-managed-keys.md), you've learned to enable customer-managed keys using the Azure CLI, Azure portal, or a Resource Manager template. In [part three](tutorial-rotate-revoke-customer-managed-keys.md), you'll learn to rotate, update, revoke a customer-managed key. In this article, learn to troubleshoot any issues with customer-managed keys.
 
-## Troubleshoot a Customer managed key
+## Troubleshoot a customer-managed key
 
 This article helps you to troubleshoot and resolve most common issues such as authentication issues, accidental deletions of keys, etc.
 ## Removing managed identity
@@ -48,7 +48,7 @@ If issue occurs while you try to remove a system-assigned identity, please [crea
 
 ## Enabling the key vault firewall
 
-If you enable a key vault firewall or virtual network after creating an encrypted registry, you might see HTTP 403 or other errors with image import or automated key rotation. To correct this problem, reconfigure the managed identity and key you used initially for encryption. See steps in [Rotate a customer managed key.](tutorial-rotate-revoke-customer-managed-keys.md#rotate-a-customer-managed-key)
+If you enable a key vault firewall or virtual network after creating an encrypted registry, you might see HTTP 403 or other errors with image import or automated key rotation. To correct this problem, reconfigure the managed identity and key you used initially for encryption. See steps in [Rotate a customer-managed key.](tutorial-rotate-revoke-customer-managed-keys.md#rotate-a-customer-managed-key)
 
 If the problem persists, please contact Azure Support.
 
