@@ -87,8 +87,6 @@ The following API call can be used to list definitions of all the built-in authe
 GET https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationStrengths/policies?$filter=policyType eq 'builtIn'
 ```
 
-As we add support for additional authentication methods and combinations, the built-in authentication strengths will get updated. 
-
 ### Custom authentication strengths
 
 In addition to the three built-in authentication strengths, administrators can create their own custom authentication strengths to exactly suit their requirements. A custom authentication strength can contain any of the supported combinations in the preceding table. 
