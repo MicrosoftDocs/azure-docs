@@ -208,7 +208,9 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 
 1. On the **Overview** pane, find the **Host name** property, and copy the fully qualified name, which looks like **<*your-Service-Bus-namespace*>.servicebus.windows.net**.
 
-## Add a Service Bus trigger
+<a name="add-trigger"></a>
+
+## Step 3: Option 1 - Add a Service Bus trigger
 
 The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
 
@@ -360,7 +362,9 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
 
 ---
 
-## Add a Service Bus action
+<a name="add-action"></a>
+
+## Step 3: Option 2 - Add a Service Bus action
 
 The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
 
