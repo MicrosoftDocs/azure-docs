@@ -101,7 +101,7 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
 
 ### Service Bus triggers
 
-* For the Service Bus managed connector, all triggers are *long-polling*. This behavior means that when such a trigger fires, the trigger processes all the messages and then waits 30 seconds for more messages to appear in the queue or topic subscription. If no messages appear in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty. The next trigger poll is based on the recurrence interval specified in the trigger's properties.
+* For the Service Bus managed connector, all triggers are *long-polling*. This trigger type processes all the messages and then waits 30 seconds for more messages to appear in the queue or topic subscription. If no messages appear in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty. The next trigger poll is based on the recurrence interval specified in the trigger's properties.
 
 * Some triggers, such as the **When one or more messages arrive in a queue (auto-complete)** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages that's specified by the trigger's **Maximum message count** property.
 
@@ -210,6 +210,12 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 
 ## Add a Service Bus trigger
 
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
+
+* Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
+
+* Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
+
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
@@ -233,7 +239,7 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 
    ![Screenshot showing Consumption workflow, Service Bus trigger, and example connection information.](./media/connectors-create-api-azure-service-bus/trigger-connection-access-key-consumption.png)
 
-1. After the trigger information box appears, provide the necessary trigger information, for example:
+1. After the trigger information box appears, provide the necessary information, for example:
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -273,7 +279,7 @@ The steps to add and use a Service Bus action differ based on whether your workf
 
    This example continues with the trigger named **When messages are available in a queue**.
 
-   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus built-in connector trigger selected.](./media/connectors-create-api-azure-service-bus/select-trigger-built-in-standard.png)
+   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus built-in trigger selected.](./media/connectors-create-api-azure-service-bus/select-trigger-built-in-standard.png)
 
 1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
@@ -284,16 +290,16 @@ The steps to add and use a Service Bus action differ based on whether your workf
 
    For example, this connection uses connection string authentication and provides the connection string for a Service Bus namespace:
 
-   ![Screenshot showing Standard workflow, Service Bus trigger, and example connection information.](./media/connectors-create-api-azure-service-bus/trigger-connection-string-built-in-standard.png)
+   ![Screenshot showing Standard workflow, Service Bus built-in trigger, and example connection information.](./media/connectors-create-api-azure-service-bus/trigger-connection-string-built-in-standard.png)
 
-1. After the trigger information box appears, provide the necessary trigger information, for example:
+1. After the trigger information box appears, provide the necessary information, for example:
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Queue name** | Yes | The selected queue to access |
    | **IsSessionsEnabled** | No | - **No** (default) if not connecting to a session-aware queue <br>- **Yes** if otherwise |
 
-   ![Screenshot showing Standard workflow, Service Bus trigger, and example trigger information.](./media/connectors-create-api-azure-service-bus/service-bus-trigger-built-in-standard.png)
+   ![Screenshot showing Standard workflow, Service Bus built-in trigger, and example trigger information.](./media/connectors-create-api-azure-service-bus/service-bus-trigger-built-in-standard.png)
 
    > [!NOTE]
    >
@@ -332,9 +338,9 @@ The steps to add and use a Service Bus action differ based on whether your workf
 
    For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
-   ![Screenshot showing Consumption workflow, Service Bus trigger, and example connection information.](./media/connectors-create-api-azure-service-bus/trigger-connection-string-managed-standard.png)
+   ![Screenshot showing Standard workflow, Service Bus managed trigger, and example connection information.](./media/connectors-create-api-azure-service-bus/trigger-connection-string-managed-standard.png)
 
-1. After the trigger information box appears, provide the necessary trigger information, for example:
+1. After the trigger information box appears, provide the necessary information, for example:
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -342,7 +348,7 @@ The steps to add and use a Service Bus action differ based on whether your workf
    | **Queue type** | No | The type for the selected queue |
    | **How often do you want to check for items?** | Yes | The polling interval and frequency to check the queue for items |
 
-   ![Screenshot showing Consumption workflow, Service Bus trigger, and example trigger information.](./media/connectors-create-api-azure-service-bus/service-bus-trigger-managed-standard.png)
+   ![Screenshot showing Standard workflow, Service Bus managed trigger, and example trigger information.](./media/connectors-create-api-azure-service-bus/service-bus-trigger-managed-standard.png)
 
 1. To add any other available properties to the trigger, open the **Add new parameter** list, and select the properties that you want.
 
@@ -356,49 +362,58 @@ The steps to add and use a Service Bus action differ based on whether your workf
 
 ## Add a Service Bus action
 
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
+
+* Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
+
+* Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
+
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Under the step where you want to add an action, select **New step**.
+1. Under the trigger or action where you want to add the action, select **New step**.
 
-   Or, to add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and select **Add an action**.
+   Or, to add an action between steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-1. Under **Choose an action**, in the search box, enter `azure service bus`. From the actions list that appears, select the action that you want.
+1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **azure service bus**. From the actions list, select the action that you want.
 
-   For this example, select the **Send message** action.
+   This example continues with the **Send message** action.
 
-   ![Screenshot that shows selecting the Service Bus action](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png)
+   ![Screenshot showing Azure portal, Consumption workflow designer, and Service Bus connector action selected.](./media/connectors-create-api-azure-service-bus/select-action-consumption.png)
 
-1. If your action is connecting to your Service Bus namespace for the first time, follow these steps when the workflow designer prompts you for connection information.
+1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
-   1. Provide a name for your connection, and select your Service Bus namespace.
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for your connection |
+   | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Managed connector authentication](#managed-connector-auth). |
 
-      ![Screenshot that shows providing a connection name and selecting a Service Bus namespace](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+   For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
-      To manually enter the connection string instead, select **Manually enter connection information**. If you don't have your connection string, learn [how to find your connection string](#permissions-connection-string).
+   ![Screenshot showing Consumption workflow, Service Bus action, and example connection information.](./media/connectors-create-api-azure-service-bus/action-connection-access-key-consumption.png)
 
-   1. Select your Service Bus policy, and select **Create**.
+1. After the action information box appears, provide the necessary information, for example:
 
-      ![Screenshot that shows selecting a Service Bus policy and selecting the Create button](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Queue/Topic name** | Yes | The selected queue or topic destination for sending the message |
+   | **Session Id** | No | The session ID if sending the message to a session-aware queue or topic  |
+   | **System properties** | No | - **None** <br>- **Run Details**: Add metadata property information about the run as custom properties in the message. |
 
-   1. Select the messaging entity you want, such as a queue or topic. For this example, select your Service Bus queue.
+   ![Screenshot showing Consumption workflow, Service Bus action, and example action information.](./media/connectors-create-api-azure-service-bus/service-bus-action-consumption.png)
 
-      ![Screenshot that shows selecting a Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
-
-1. Provide the necessary details for your selected action. To add other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
-
-   For example, select the **Content** and **Content Type** properties so that you add them to the action. Then, specify the content for the message that you want to send.
-
-   ![Screenshot that shows providing the message content type and details](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
-
-   For more information about available actions and their properties, see the connector's [reference page](/connectors/servicebus/).
+1. To add any other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
 
 1. Continue building your workflow by adding any other actions that you want.
 
    For example, you can add an action that sends email to confirm that your message was sent.
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+### [Standard](#tab/standard)
+
+---
 
 ## Troubleshooting
 
@@ -437,6 +452,8 @@ The Service Bus built-in connector is available only for Standard logic app work
 | When messages are available in a queue | Start a workflow when one or more messages are available in a queue. |
 | When messages are available in a topic subscription | Start a workflow when one or more messages are available in a topic subscription. |
 
+These Service Bus triggers follow the *push trigger* pattern, which means that the trigger waits and listens for events or data that meet the specified condition before running a workflow. The trigger doesn't check for events or data based on a specified schedule. For more information, review [Triggers](apis-list.md#triggers).
+
 | Action | Description |
 |--------|-------------|
 | Send message | Send a message to a queue or topic. |
@@ -450,4 +467,5 @@ In a Standard logic app resource, the Service Bus built-in connector includes ap
 
 ## Next steps
 
-* Learn about other [Azure Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors in Azure Logic Apps](built-in.md)
