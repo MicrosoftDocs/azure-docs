@@ -551,7 +551,7 @@ Labels appended to *PodLabel* data types are your own custom labels. The appende
 ## Monitor containers
 After you have the solution enabled in the Azure portal, the **Containers** tile shows summary information about your container hosts and the containers running in hosts.
 
-:::image type="content" source="./media/containers/containers-title.png" alt-text="Screenshot that shows the Containers tile, which includes summary information about containers presented as a pie chart." border="false" lightbox="media/containers/containers-title.png":::
+:::image type="content" source="./media/containers/containers-title.png" alt-text="Screenshot that shows the Containers tile, which includes a pie chart showing summary information about containers." border="false" lightbox="media/containers/containers-title.png":::
 
 The tile shows an overview of how many containers you have in the environment and whether they're failed, running, or stopped.
 
@@ -579,7 +579,7 @@ Each area of the dashboard is a visual representation of a search that is run on
 
 In the **Container Status** area, click the top area, as shown below.
 
-:::image type="content" source="./media/containers/containers-status.png" alt-text="Screenshot that shows the Container Status area of the Containers dashboard, which includes container status information presented as a pie chart." lightbox="media/containers/containers-status.png" border="false":::
+:::image type="content" source="./media/containers/containers-status.png" alt-text="Screenshot that shows the Container Status area of the Containers dashboard, which includes a pie chart showing container status information." lightbox="media/containers/containers-status.png" border="false":::
 
 Log Analytics opens, displaying information about the state of your containers.
 
@@ -594,7 +594,7 @@ Log Analytics marks a container as **Failed** if it has exited with a non-zero e
 ### To find failed containers
 
 1. Click the **Container Status** area.  
-   :::image type="content" source="./media/containers/containers-status.png" alt-text="Screenshot that shows the Container Status area of the Containers dashboard, which includes container status information presented as a pie chart." border="false" lightbox="media/containers/containers-status.png":::
+   :::image type="content" source="./media/containers/containers-status.png" alt-text="Screenshot that shows the Container Status area of the Containers dashboard, which includes a pie chart showing container status information." border="false" lightbox="media/containers/containers-status.png":::
 2. Log Analytics opens and displays the state of your containers, similar to the following.  
    :::image type="content" source="./media/containers/containers-log-search.png" alt-text="Screenshot that shows Log Analytics with a query for the state of containers and the search results." border="false" lightbox="media/containers/containers-log-search.png":::
 3. Expand the Failed line and click + to add its criteria to the query. Then comment out the Summarize line in the query.
