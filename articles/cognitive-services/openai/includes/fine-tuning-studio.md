@@ -101,7 +101,7 @@ If you have a deployment for your resource, select the **Start fine-tuning a cus
 
 To create a customized model, select the **Create customized model** button under the **Provided models** section on the **Models** page, highlighted in the following picture, to start the **Create customized model** wizard.
 
-:::image type="content" source="../media/fine-tuning/studio-models.png" alt-text="Screenshot of the Models page from the Azure OpenAI Studio, with sections highlighted." lightbox="../media/fine-tuning/studio-models.png":::
+:::image type="content" source="../media/fine-tuning/studio-models.png" alt-text="Screenshot of the Models page from Azure OpenAI Studio, with sections highlighted." lightbox="../media/fine-tuning/studio-models.png":::
 
 #### Select a base model
 
@@ -202,16 +202,27 @@ If you're ready to train your model, select **Save and close** to start the fine
 
 The **Models** page displays information about your fine-tuned model in the **Customized models** tab, as shown in the following picture. The tab includes information about the status and ID of the fine-tune job for your model. When the training job is completed, the ID of the results file is also displayed.
 
-:::image type="content" source="../media/fine-tuning/studio-models-job-running.png" alt-text="Screenshot of the Models page from the Azure OpenAI Studio, with a customized model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
+:::image type="content" source="../media/fine-tuning/studio-models-job-running.png" alt-text="Screenshot of the Models page from Azure OpenAI Studio, with a customized model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
 
 After you've started a fine-tune job, it may take some time to complete. Your job may be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size. You can check the status of the fine-tune job for your customized model in the **Status** column of the **Customized models** tab on the **Models** page, and you can select **Refresh** to update the information on that page. 
 You can also select the name of the model from the **Model name** column of the **Models** page to display more information about your customized model, including the status of the fine-tune job, and select the **Refresh** button on that page to refresh the information for your model.
 
 ## Deploy a customized model
 
-When the fine-tune job has succeeded, you can deploy the model from the **Models** pane. Select the customized model to be deployed, and then select **Deploy model** to deploy your fine-tuned model.
+When the fine-tune job has succeeded, you can deploy the model from the **Models** pane. You must deploy your customized model to make it available for use with completions calls.
 
-When a job has succeeded, the **fine_tuned_model** field will be populated with the name of the model. Your model will also be available in the [list Models API](../reference.md#list-all-available-models). You must now deploy your model so that you can run completions calls. You can do this either using the Management APIs or using the deployment APIs. We'll show you both options below.
+To deploy your customized model, select the customized model to be deployed and then select **Deploy model**, as shown in the following picture.
+
+> [!NOTE]
+> Only one deployment is permitted for a customized model. An error message is displayed if you select an already-deployed customized model.
+
+:::image type="content" source="../media/fine-tuning/studio-models-deploy.png" alt-text="Screenshot of the Models page from Azure OpenAI Studio, with the Deploy model button highlighted." lightbox="../media/fine-tuning/studio-models-deploy.png":::
+
+The **Deploy model** dialog is presented, in which you can provide a name for the deployment of your customized model. Enter a name in **Deployment name** and then select **Create** to start the deployment of your customized model. 
+
+:::image type="content" source="../media/fine-tuning/studio-models-deploy-model.png" alt-text="Screenshot of the Deploy Model dialog from Azure OpenAI Studio." lightbox="../media/fine-tuning/studio-models-deploy-model.png":::
+
+When the dialog closes, you can monitor the progress of your deployment from the **Deployments** pane of Azure OpenAI Studio.
 
 ## Use a fine-tuned model
 
