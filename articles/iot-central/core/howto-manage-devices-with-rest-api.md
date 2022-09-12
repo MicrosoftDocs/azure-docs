@@ -7,7 +7,7 @@ ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-zone_pivot_groups: programming-languages-set-ten
+zone_pivot_groups: enrollment-groups
 
 ---
 
@@ -557,7 +557,7 @@ Enrollment groups are used to manage the device authentication options in your I
 
 To learn how to create and manage enrollment groups in the UI, see [How to connect devices with X.509 certificates to IoT Central Application](how-to-connect-devices-x509.md).
 
-:::zone pivot="x509"
+:::zone pivot="enrollment-group-x509"
 
 ### Generate root and device certificates
 
@@ -783,7 +783,7 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx
 
 :::zone-end
 
-:::zone pivot="symmetric-key"
+:::zone pivot="enrollment-group-symmetrickey"
 
 
 ### Add an symmetric key enrollment group

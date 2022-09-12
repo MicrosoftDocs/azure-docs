@@ -255,6 +255,15 @@ groups:
     title: Python
   - id: programming-language-embedded-c
     title: Embedded C
+- id: enrollment-groups
+# Owner: v-krishnag
+  title: Enrollment groups
+  prompt: Choose a programming language
+  pivots:
+  - id: enrollment-group-x509
+    title: X.509
+  - id: enrollment-group-symmetrickey
+    title: Symmetric Key
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
