@@ -154,8 +154,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |active|Boolean||
    |roles|String||
 
-	> [!NOTE]
-	> The displayName attribute in Tableau Cloud will be mapped to the userPrincipalName attribute in Azure AD. When a provisioned user signs into Azure AD for the first time, they will be asked to create an account where they will need to enter in a first name and last name. Tableau Cloud will automatically update the value of the displayName field based on the first name and last name values provided by the provisioned user. Therefore, the displayName you see in Azure AD may have differences with the displayName that appears in Tableau Cloud based on the user’s input.
+
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Tableau Cloud**.
 
 

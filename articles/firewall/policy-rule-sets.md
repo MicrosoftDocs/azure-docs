@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/11/2022
+ms.date: 09/12/2022
 ms.author: victorh
 ---
 
@@ -70,8 +70,8 @@ You can use a network rule when you want to filter traffic based on IP addresses
 
 ### Application rules
 
-Application rules allow or deny inbound, outbound, and east-west traffic based on the application layer (L7). 
-You can use an application rule when you want to filter traffic based on fully qualified domain names (FQDNs) and HTTP/HTTPS protocols. 
+Application rules allow or deny outbound and east-west traffic based on the application layer (L7). 
+You can use an application rule when you want to filter traffic based on fully qualified domain names (FQDNs), URLs, and HTTP/HTTPS protocols. 
 
 
 ## Next steps
