@@ -2,7 +2,7 @@
 title: "Upgrade Azure Arc-enabled Kubernetes agents"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 08/02/2022
+ms.date: 09/09/2022
 ms.topic: how-to
 description: "Control agent upgrades for Azure Arc-enabled Kubernetes"
 keywords: "Kubernetes, Arc, Azure, K8s, containers, agent, update, auto upgrade"
@@ -12,7 +12,7 @@ keywords: "Kubernetes, Arc, Azure, K8s, containers, agent, update, auto upgrade"
 
 Azure Arc-enabled Kubernetes provides both automatic and manual upgrade capabilities for its [agents](conceptual-agent-overview.md). If you disable automatic upgrade and instead rely on manual upgrade, a [version support policy](#version-support-policy) applies for Arc agents and the underlying Kubernetes clusters.
 
-## Toggle automatic upgrade on or off when connecting cluster to Azure Arc
+## Toggle automatic upgrade on or off when connecting a cluster to Azure Arc
 
 By default, Azure Arc-enabled Kubernetes provides its agents with out-of-the-box automatic upgrade capabilities.
 
@@ -35,14 +35,45 @@ az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest --dis
 > [!TIP]
 > If you plan to disable automatic upgrade, be aware of the [version support policy](#version-support-policy) for Azure Arc-enabled Kubernetes.
 
-## Toggle automatic upgrade on or off after connecting cluster to Azure Arc
+## Toggle automatic upgrade on or off after connecting a cluster to Azure Arc
 
 After you connect a cluster to Azure Arc, you can change the automatic upgrade selection by using the `az connectedk8s update` command and setting `--auto-upgrade` to either true or false.
+
+> [!IMPORTANT]
+> To change the automatic upgrade setting, you must use version 1.2.11 of the `connectedk8s` Azure CLI extension. We are working to enable this functionality in future releases.
+>
+> To ensure you are using this version, run the following commands:
+>
+> ```azurecli
+> # remove existing extension
+> az extension remove --name connectedk8s 
+> 
+> # add specific extension version
+> az extension add --name connectedk8s --version 1.2.11 
+> ```
+>
+> Once you've adjusted the automatic upgrade selection, use the following command to revert back to the latest version of the extension:
+>
+> ```azurecli
+> # remove existing extension
+> az extension remove --name connectedk8s 
+> 
+> # add latest extension version
+> az extension add --name connectedk8s 
+> ```
 
 The following command turns automatic upgrade off for a connected cluster:
 
 ```azurecli
 az connectedk8s update --name AzureArcTest1 --resource-group AzureArcTest --auto-upgrade false
+```
+
+## Check if automatic upgrade is enabled on a cluster
+
+To check whether a cluster is enabled for automatic upgrade, run the following kubectl command. Note that the automatic upgrade configuration is not available in the public API for Azure Arc-enabled Kubernetes.
+
+```console
+kubectl -n azure-arc get cm azure-clusterconfig -o jsonpath="{.data['AZURE_ARC_AUTOUPDATE']}"
 ```
 
 ## Manually upgrade agents
@@ -61,6 +92,14 @@ The following command upgrades the agent to version 1.1.0:
 
 ```azurecli
 az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.1.0
+```
+
+## Check agent version
+
+To list connected clusters and reported agent version, use the following command:
+
+```azurecli
+az connectedk8s list --query '[].{name:name,rg:resourceGroup,id:id,version:agentVersion}'
 ```
 
 ## Version support policy

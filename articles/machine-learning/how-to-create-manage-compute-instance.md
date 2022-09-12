@@ -60,7 +60,7 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 The following example demonstrates how to create a compute instance:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
@@ -428,7 +428,7 @@ You can [create a schedule](#schedule-automatic-start-and-stop-preview) for the 
 > [!TIP]
 > The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance. Please do not stop the compute instance by issuing sudo shutdown from the terminal. The temp disk size on compute instance depends on the VM size chosen and is mounted on /mnt.
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
