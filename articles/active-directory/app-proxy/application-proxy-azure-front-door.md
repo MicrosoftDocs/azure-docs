@@ -93,7 +93,7 @@ Follow these steps to configure the Front Door Service (Standard):
 To prevent false positives, learn how to [Customize Web Application Firewall rules](../../web-application-firewall/ag/application-gateway-customize-waf-rules-portal.md), configure [Web Application Firewall exclusion lists](../../web-application-firewall/ag/application-gateway-waf-configuration.md?tabs=portal), or [Web Application Firewall custom rules](../../web-application-firewall/ag/create-custom-waf-rules.md).
 
 [front-door-overview]: ../../frontdoor/front-door-overview.md
-[front-door-origin]: ../../frontdoor/origin?pivots=front-door-standard-premium#origin-host-header.md
+[front-door-origin]: ../../frontdoor/origin.md?pivots=front-door-standard-premium#origin-host-header
 [front-door-tier]: ../../frontdoor/standard-premium/tier-comparison.md
 [front-door-custom-domain]: ../../frontdoor/standard-premium/how-to-add-custom-domain.md
 [appproxy-custom-domain]: ./application-proxy-configure-custom-domain.md
