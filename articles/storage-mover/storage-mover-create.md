@@ -77,10 +77,10 @@ To deploy a storage mover resource, you'll need to supply values for the require
 ```powershell
       
 ## Set variables
-$subscriptionID     = <Your subscription ID>
-$resourceGroupName  = <Your resource group name>
-$storageMoverName   = <Your storage mover name>
-$description        = <Up to 1024 characters>
+$subscriptionID     = "Your subscription ID"
+$resourceGroupName  = "Your resource group name"
+$storageMoverName   = "Your storage mover name"
+$description        = "Optional, up to 1024 characters"
 
 ## Log into Azure with your Azure credentials
 Connect-AzAccount -SubscriptionId $subscriptionID
@@ -88,15 +88,18 @@ Connect-AzAccount -SubscriptionId $subscriptionID
 ## If this is the first storage mover resource deployed in this subscription:
 ## You need to manually register the resource provider namespaces Microsoft.StorageMover and Microsoft.HybridCompute with your subscription. 
 ## This only needs to be done once per subscription. You must have at least Contributor permissions (RBAC role) on the subscription.
-## Register-AzResourceProvider -ProviderNamespace Microsoft.StorageMover
-## Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+Register-AzResourceProvider -ProviderNamespace Microsoft.StorageMover
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 
 ## The value for the Azure region of your resource stems from an enum. 
 ## To find the correct Location value for your selected Azure region, run:
 ## Get-AzLocation | select displayname,location
 
 ## Create a storage mover resource
-New-AzStorageMover -Name $storageMoverName -ResourceGroupName $resourceGroupName -Location #<Your Location value>
+New-AzStorageMover `
+    -Name $storageMoverName `
+    -ResourceGroupName $resourceGroupName `
+    -Location "Your Location value"
 
 ```
 
