@@ -24,7 +24,7 @@ Lifecycle Workflows currently support the following tasks:
 |Task  |taskDefinitionID  |
 |---------|---------|
 |[Send welcome email to new hire](lifecycle-workflow-tasks.md#send-welcome-email-to-new-hire)     |   70b29d51-b59a-4773-9280-8841dfd3f2ea      |
-|[Generate Temporary Access Pass and send via email to user's manager](lifecycle-workflow-tasks.md#generate-temporary-access-password-and-send-via-email-to-users-manager)     |  1b555e50-7f65-41d5-b514-5894a026d10d       |
+|[Generate Temporary Access Pass and send via email to user's manager](lifecycle-workflow-tasks.md#generate-temporary-access-pass-and-send-via-email-to-users-manager)     |  1b555e50-7f65-41d5-b514-5894a026d10d       |
 |[Add user to group](lifecycle-workflow-tasks.md#add-user-to-group)     |    22085229-5809-45e8-97fd-270d28d66910     |
 |[Add user to team](lifecycle-workflow-tasks.md#add-user-to-team)      |  e440ed8d-25a1-4618-84ce-091ed5be5594       |
 |[Enable user account](lifecycle-workflow-tasks.md#enable-user-account)     |    6fc52c9d-398b-4305-9763-15f42c1676fc     |
