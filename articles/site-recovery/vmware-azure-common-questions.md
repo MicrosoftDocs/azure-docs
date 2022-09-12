@@ -13,9 +13,9 @@ This article answers common questions that might come up when you deploy disaste
 
 ## General
 
-### How do I use the classic experience in the Recovery Services vault rather than the preview experience? 
+### How do I use the classic experience in the Recovery Services vault rather than the modernized experience? 
 
-A new and more reliable way to protect VMware virtual machines using the Azure Site Recovery replication appliance is now in [public preview](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094). When a new Recovery Services vault is created, by default the preview experience will be selected. 
+A new and more reliable way to protect VMware virtual machines using the Azure Site Recovery replication appliance is now in generally available. When a new Recovery Services vault is created, by default the modernized experience will be selected. 
 
 To change the experience - 
 
