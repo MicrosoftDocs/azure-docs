@@ -107,7 +107,7 @@ If you do not bring your own ACR, Azure Machine Learning service will create one
 
 To access the workspace ACR, create machine learning compute cluster with system-assigned managed identity enabled. You can enable the identity from  Azure portal or Studio when creating compute, or from Azure CLI using the below. For more information, see [using managed identity with compute clusters](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 When creating a compute cluster with the [AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration), use the `identity_type` parameter to set the managed identity type.
 
@@ -119,7 +119,7 @@ When creating a compute cluster with the [AmlComputeProvisioningConfiguration](/
 az ml computetarget create amlcompute --name <cluster name> -w <workspace> -g <resource group> --vm-size <vm sku> --assign-identity '[system]'
 ```
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
 For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](../how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
