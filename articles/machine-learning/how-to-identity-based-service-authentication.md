@@ -8,7 +8,7 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 09/08/2022
+ms.date: 09/12/2022
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022
 ---
@@ -19,8 +19,8 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 
 * The Azure Machine Learning workspace uses a __managed identity__ to communicate with other services. By default, this is a system-assigned managed identity. You can also use a user-assigned managed identity instead.
-* The Azure ML compute cluster uses a __managed identity__ to retrieve connection information for datastores from Azure Key Vault. You can also configure identity-based access to datastores, which will instead use the managed identity of the compute cluster.
 * Azure Machine Learning uses Azure Container Registry (ACR) to store Docker images used to train and deploy models. If you allow Azure ML to automatically create ACR, it will enable the __admin account__.
+* The Azure ML compute cluster uses a __managed identity__ to retrieve connection information for datastores from Azure Key Vault and to pull Docker images from ACR. You can also configure identity-based access to datastores, which will instead use the managed identity of the compute cluster.
 * Data access can happen along multiple paths depending on the data storage service and your configuration. For example, authentication to the datastore may use an account key, token, security principal, managed identity, or user identity.
 
     For information on how data access is authenticated, see the [Data administration](how-to-administrate-data-authentication.md) article.
@@ -43,10 +43,77 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 ## User-assigned managed identity
 
+With the default system-assigned managed identities, you have to grant access to storage and other resources for each workspace. A new system-assigned identity is created for each new workspace. User-assigned managed identities can be re-used, allowing you to grant access to storage and other resources for multiple workspaces. The same applies to Azure RBAC role assignments when granting permissions to the managed identities. 
+
 To use a user-assigned managed identity with your workspace, compute instance, or compute cluster, use the following information:
 
-[Q: Should the command/SDK live here, or in the various "how-to-create-resource" articles?]
+### Workspace
 
+> [!IMPORTANT]
+> When creating workspace with user-assigned managed identity, you must create the associated resources yourself, and grant the managed identity roles on those resources. Use the [role assignment ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) to make the assignments.
+
+Use Azure CLI or Python SDK to create the workspace. When using the CLI, specify the ID using the `--primary-user-assigned-identity` parameter. When using the SDK, use `primary_user_assigned_identity`. The following are examples of using the Azure CLI and Python to create a new workspace using these parameters:
+
+# [Azure CLI](#tab/azurecli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli-interactive
+az ml workspace create -w <workspace name> -g <resource group> --primary-user-assigned-identity <managed identity ARM ID>
+```
+
+# [Python SDK](#tab/pythonsdk)
+
+[TBD v2]
+
+# [Studio](#tab/azure-studio)
+
+Currently there is no option to create a workspace from Azure Machine Learning studio.
+
+---
+
+You can also use [an ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/) to create a workspace with user-assigned managed identity.
+
+> [!TIP]
+> For a workspace with [customer-managed keys for encryption](concept-data-encryption.md), you can pass in a user-assigned managed identity to authenticate from storage to Key Vault. Use the `user-assigned-identity-for-cmk-encryption` (CLI) or `user_assigned_identity_for_cmk_encryption` (SDK) parameters to pass in the managed identity. This managed identity can be the same or different as the workspace primary user assigned managed identity.
+
+### Compute instance
+
+### Compute cluster
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+# [Azure CLI](#tab/azure-cli)
+
+To create a new managed compute cluster with managed identity, use this command:
+
+```azurecli
+az ml compute create -f create-cluster.yml
+```
+
+Where the contents of *create-cluster.yml* are as follows: 
+
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-user-identity.yml":::
+
+For comparison, the following example is from a YAML file that creates a cluster that uses a system-assigned managed identity:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-system-identity.yml":::
+
+If you have an existing compute cluster, you can change between user-managed and system-managed identity. The following examples demonstrate how to change the configuration:
+
+__User-assigned managed identity__
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-mlcompute-update-to-user-identity.sh":::
+
+__System-assigned managed identity__
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-mlcompute-update-to-system-identity.sh":::
+
+# [Studio](#tab/azure-studio)
+
+During cluster creation or when editing compute cluster details, in the **Advanced settings**, toggle **Assign a managed identity** and specify a system-assigned identity or user-assigned identity.
+
+---
 
 ## Scenario: Azure Container Registry without admin user
 
