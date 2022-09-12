@@ -41,7 +41,7 @@ To complete this tutorial:
 
 - Install [Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **Azure development** workload.
 
-  ![Screenshot of Visual Studio Azure development workload (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads-net-v12.png)
+  ![Screenshot of Visual Studio Azure development workload (under Web & Cloud).](media/storage-create-geo-redundant-storage/workloads-net-v12.png)
 
 # [.NET v11 SDK](#tab/dotnet11)
 
@@ -222,7 +222,7 @@ When the console window launches, the app will get the status of the secondary r
 
 Next, the application enters a loop with a prompt to download the blob, initially reading from primary storage. Press any key to download the blob. If there's a retryable error reading from the primary region, a retry of the read request is performed against the secondary region endpoint. The console output will show when the region switches to secondary.
 
-![Screenshot of Console output for secondary request](media/storage-create-geo-redundant-storage/request-secondary-region.png)
+![Screenshot of Console output for secondary request.](media/storage-create-geo-redundant-storage/request-secondary-region.png)
 
 To exit the loop and clean up resources, press the `Esc` key at the blob download prompt.
 
