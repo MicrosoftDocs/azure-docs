@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 07/13/2022
+ms.date: 09/09/2022
 ms.author: alkohli
 ---
 
@@ -50,6 +50,10 @@ The following file attributes aren't transferred:
 - FILE_ATTRIBUTE_NOT_CONTENT_INDEXED
   
 Read-only attributes on directories aren't transferred.
+
+## Alternate Data Streams and Extended Attributes
+
+Alternate Data Streams and Extended Attributes are not supported in Azure Files or Block Blob storage, so they are not transferred when copying data. 
 
 ## ACLs
 
