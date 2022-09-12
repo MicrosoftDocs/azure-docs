@@ -142,19 +142,19 @@ When a user accesses a resource protected by an authentication strength Conditio
 
 Let's suppose they next access a resource protected by Phishing-resistant MFA authentication strength policy. At this point, the user will be prompted to provide a phishing-resistant authentication method, such as Windows Hello for Business. 
 
-If the user is not registered for any of the methods required by the authentication strength policy, they'll use [interrupt mode](concept-registration-mfa-sspr-combined.md#interrupt-mode) to register a required method. <!-- making this a comment for now because we have a limitation. Once it is fixed we can remove the comment::: Only users who satisfy MFA are redirected to register another strong authentication method.-->
+If the user is not registered for any of the methods required by the authentication strength policy, they'll register a required method by using [combined registration interrupt mode](concept-registration-mfa-sspr-combined.md#interrupt-mode). <!-- making this a comment for now because we have a limitation. Once it is fixed we can remove the comment::: Only users who satisfy MFA are redirected to register another strong authentication method.-->
 
 If the authentication strength policy doesn't include a method that the user can register and use, the user is blocked from sign-in to the resource. 
 
 ### Registering authentication methods
 
-The following authentication methods can't be registered during interrupt mode: 
+The following authentication methods can't be registered as part of combined registration interrupt mode: 
 * [Microsoft Authenticator (phone sign-in)](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c)
 * [FIDO2](howto-authentication-passwordless-security-key.md)
 * [Certificate-based authentication](concept-certificate-based-authentication.md)
 * [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-prepare-people-to-use) 
 
-If a user is not registered for these methods, they can use [managed mode](concept-registration-mfa-sspr-combined.mdd#manage-mode) to register the required method. They can't access the resource until the required method is registered. For the best user experience, make sure users are registered in advance for the different methods they may need to use.
+If a user is not registered for these methods, they can register a required method by using [combined registration managed mode](concept-registration-mfa-sspr-combined.mdd#manage-mode). They can't access the resource until the required method is registered. For the best user experience, make sure users complete combined registered in advance for the different methods they may need to use.
 
 ## External users 
 <!-- Namrata to include admin section-->
