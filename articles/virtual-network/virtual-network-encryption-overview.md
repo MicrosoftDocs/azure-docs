@@ -18,10 +18,14 @@ The underlying encryption technology uses DTLS v1.2 RFC 6347 with AES-GCM-256 as
 
 With the addition of virtual network encryption, end-to-end encryption between on-premisses and Azure workloads is now possible. VPN gateway and Application gateway encrypt data from outside the cloud. MACsec encrypts data in-transit between datacenters and regions. Data traversing within private virtual networks can now be encrypted through virtual network encryption. 
 
+
 > [!IMPORTANT]
 > Azure Virtual Network encryption is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+:::image type="content" source="./media/virtual-network-encryption-overview/virtual-network-encryption.png" alt-text="Diagram of virtual network encryption.":::
+
 
 ## Requirements
 
