@@ -1,48 +1,66 @@
 ---
-title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using an ARM Template'
-description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account using an ARM Template.
+title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using a Bicep file'
+description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account using a Bicep file.
 author: whhender
 ms.author: whhender
-ms.date: 04/05/2022
+ms.date: 09/12/2022
 ms.topic: quickstart
 ms.service: purview
-ms.custom: mode-arm
 ---
 
-# Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using an ARM template
+# Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using a Bicep file
 
-This quickstart describes the steps to deploy a Microsoft Purview (formerly Azure Purview) account using an Azure Resource Manager (ARM) template.
+This quickstart describes the steps to deploy a Microsoft Purview (formerly Azure Purview) account using a Bicep file.
 
 After you've created the account, you can begin registering your data sources and using the Microsoft Purview governance portal to understand and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end data linage. Data consumers are able to discover data across your organization and data administrators are able to audit, secure, and ensure right use of your data.
 
 For more information about the governance capabilities of Microsoft Purview, formerly Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md)
 
-To deploy a Microsoft Purview account to your subscription using an ARM template, follow the guide below.
+To deploy a Microsoft Purview account to your subscription using a Bicep file, follow the guide below.
 
 [!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
-## Deploy a custom template
+## Review the Bicep file
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal where you can customize values and deploy.
-The template will deploy a Microsoft Purview account into a new or existing resource group in your subscription.
-
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.azurepurview%2Fazure-purview-deployment%2Fazuredeploy.json)
-
-
-## Review the template
-
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/data-share-share-storage-account/).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/data-share-share-storage-account/).
 
 <!--- Below link needs to be updated to Purview quickstart, which I'm currently working on. --->
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.azurepurview/azure-purview-deployment/azuredeploy.json":::
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.azurepurview/azure-purview-deployment/main.bicep":::
 
-The following resources are defined in the template:
+The following resources are defined in the Bicep file:
 
-* [Microsoft.Purview/accounts](/azure/templates/microsoft.purview/accounts?pivots=deployment-language-arm-template)
+* [Microsoft.Purview/accounts](/azure/templates/microsoft.purview/accounts?pivots=deployment-language-bicep)
 
-The template performs the following tasks:
+The Bicep file performs the following tasks:
 
 * Creates a Microsoft Purview account in the specified resource group.
+
+## Deploy the Bicep file
+
+1. Save the Bicep file as **main.bicep** to your local computer.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli
+    az group create --name exampleRG --location eastus
+    az deployment group create --resource-group exampleRG --template-file main.bicep
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    ```
+
+    ---
+
+You will be prompted to enter the following values:
+
+* Purview name: enter a name for the Azure Purview account.
+
+When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Open Microsoft Purview governance portal
 
@@ -65,14 +83,21 @@ At this time, these actions aren't able to be taken through an Azure Resource Ma
 
 ## Clean up resources
 
-To clean up the resources deployed in this quickstart, delete the resource group, which deletes all resources in the group.
-You can delete the resources either through the Azure portal, or using the PowerShell script below.
+When you no longer need them, use the Azure portal, Azure CLI, or Azure PowerShell to remove the resource group, firewall, and all related resources.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az group delete --name exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
+Remove-AzResourceGroup -Name exampleRG
 ```
+
+---
 
 ## Next steps
 
