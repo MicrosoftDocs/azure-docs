@@ -22,8 +22,9 @@ You can find information about Oracle versions and corresponding OS versions tha
 
 General information about running SAP Business Suite on Oracle can be found at [SAP on Oracle](https://www.sap.com/community/topic/oracle.html). Oracle software is supported by Oracle to run on Microsoft Azure. For more information about general support for Windows Hyper-V and Azure, check the [Oracle and Microsoft Azure FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html).
 
-**SAP Notes relevant for Oracle, SAP, and Azure**
-The following SAP notes are relevant to this artcile as well.
+
+
+**The following SAP notes are relevant for an Oracle Installation**
 
 | Note number  | Note title  |
 | --- | --- |
@@ -36,6 +37,8 @@ The following SAP notes are relevant to this artcile as well.
 | 974876 |  [Oracle Transparent Data Encryption (TDE) SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000974876) |
 | 2936683 | [Oracle Linux 8: SAP Installation and Upgrade SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2936683) |
 | 1672954 | [Oracle 11g, 12c, 18c and 19c: Usage of hugepages on Linux](https://launchpad.support.sap.com/#/notes/1672954) |
+| 1171650 | [Automated Oracle DB parameter check](https://launchpad.support.sap.com/#/notes/1171650) |
+| 2936683 | [Oracle Linux 8: SAP Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2936683) |
 
 **Specifics for Oracle Database on Oracle Linux**
 
@@ -247,7 +250,7 @@ or other backup tools.
 
 ASM is the default recommendation from Oracle for all SAP systems of any size on Azure. Performance, Reliability and Support will be better for customers using ASM. Oracle provide documentation and training for DBAs to transition to ASM and every customer who has migrated to ASM has been pleased with the benefits. In cases where the Oracle DBA team do not follow the recommendation from Oracle, Microsoft and SAP to use ASM the following LVM configuration should be used.
 
-Note: when creating LVM the “-i” option must be used to evenly distribute data across the number of disks in the LVM group.
+Note that: when creating LVM the “-i” option must be used to evenly distribute data across the number of disks in the LVM group.
 
 Mirror Log is required when running LVM.
 
@@ -261,12 +264,9 @@ Mirror Log is required when running LVM.
 | /oracle/\<SID\>/oraarch<sup>3</sup>  | Premium  | None                  | Not needed               |
 | Oracle Home, saptrace, ...           | Premium  | None                  | None                     |
 
-1\. Striping: LVM stripe using RAID0
-
-2\. During R3load migrations the Host Cache option for SAPDATA should be
-set to None
-
-3\. oraarch: LVM is optional
+1. Striping: LVM stripe using RAID0
+2. During R3load migrations the Host Cache option for SAPDATA should be set to None
+3. oraarch: LVM is optional
 
 The disk selection for hosting Oracle's online redo logs should be driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on a single mounted disk as long as the volume, IOPS, and throughput satisfy the requirements.
 
@@ -362,8 +362,6 @@ Oracle Linux provides a useful GUI management utility
 - Oracle web console [Oracle Linux: Install Cockpit Web Console on Oracle Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/obe-cockpit-install/index.html#want-to-learn-more)
 - Upstream [Cockpit Project — Cockpit Project (cockpit-project.org)](https://cockpit-project.org/)
 
- 
-
 Oracle Linux has a new package management tool – DNF
 
 [Oracle Linux 8: Package Management made easy with free videos \| Oracle Linux Blog](https://blogs.oracle.com/linux/oracle-linux-8%3a-package-management-made-easy-with-free-videos)
@@ -387,8 +385,8 @@ Information on UDEV Log Corruption issue [Oracle Redolog corruption on Azure \| 
 SAP on Oracle on Azure also supports Windows. The recommendations for Windows deployments are summarized below:
 
 1.  The following Windows releases are recommended:
-> > Windows Server 2022 (only from Oracle Database 19.13.0 on)
-> > Windows Server 2019 (only from Oracle Database 19.5.0 on)
+    Windows Server 2022 (only from Oracle Database 19.13.0 on)
+    Windows Server 2019 (only from Oracle Database 19.5.0 on)
 2.  There is no support for ASM on Windows. Windows Storage Spaces should be used to aggregate disks for optimal performance
 3.  Install the Oracle Home on a dedicated independent disk (do not install Oracle Home on the C: Drive)
 4.  All disks must be formatted NTFS
