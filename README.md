@@ -10,9 +10,11 @@ Contributing to open source is more than just providing updates, it's also about
 
 You've decided to contribute, that's great! To contribute to the documentation, you need a few tools.
 
+#### Github
+
 Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for [GitHub account setup](https://docs.microsoft.com/en-us/contribute/get-started-setup-github) from our contributor guide.
 
-#### Install
+#### Tools
 
 To install necessary tools, follow the instructions for [Install content authoring tools](https://docs.microsoft.com/en-us/contribute/get-started-setup-tools) from our contributor guide.
 
