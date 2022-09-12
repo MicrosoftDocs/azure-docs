@@ -15,7 +15,7 @@
   href: sql/toc.yml
 - name: MongoDB API
   href: mongodb/toc.yml
-- name: API for PostgreSQL
+- name: PostgreSQL API
   href: postgresql/toc.yml
 - name: Cassandra API
   href: cassandra/toc.yml
