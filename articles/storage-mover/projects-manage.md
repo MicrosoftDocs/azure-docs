@@ -31,7 +31,7 @@ A Storage Mover project is used to organize migration jobs into logical tasks or
 
 When you define a project, it's a good idea to add all related, inter-dependent data sources into the same project so that they can be migrated together. You should add all the data sources necessary to migrate a single workload rather than create projects for each data source in your migration plan. You may also choose to create individual projects for each distinct group of data sources in your migration plan.
 
-This article guides you through the creation and management of Azure Storage Mover projects. To follow these examples, you'll need a top-level storage mover resource. If you haven't yet created one, follow the steps within the [Create a Storage Mover resource](resource-create.md) article before continuing.
+This article guides you through the creation and management of Azure Storage Mover projects. To follow these examples, you'll need a top-level storage mover resource. If you haven't yet created one, follow the steps within the [Create a Storage Mover resource](storage-mover-create.md) article before continuing.
 
 After you complete the steps within this article, you'll be able to create and manage projects using the Azure portal and Azure PowerShell.
 

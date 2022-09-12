@@ -167,5 +167,5 @@ Here are a few more recommendations:
 These articles can help you utilize Azure Storage Mover for your cloud migration:
 
 - [Become familiar with the Storage Mover resource hierarchy](resource-hierarchy.md)
-- [Learn how to deploy a Storage Mover in your Azure subscription](resource-create.md)
+- [Learn how to deploy a Storage Mover in your Azure subscription](storage-mover-create.md)
 - [Learn how to deploy a Storage Mover agent in your environment](agent-deploy.md)

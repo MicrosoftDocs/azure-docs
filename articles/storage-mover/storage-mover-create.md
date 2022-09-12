@@ -51,6 +51,8 @@ To deploy a storage mover into a resource group, you must be a member of the *Co
 
 ### [PowerShell](#tab/powershell)
 
+Creating a storage mover requires you to decide on a subscription, a resource group, a region, and a name. The *[Planning for an Azure Storage Mover deployment](deployment-planning.md)* article shares best practices. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
+
 The `New-AzStorageMover` cmdlet is used to create new storage mover resource in a resource group. If you haven't yet installed the `Az.StorageMover` module:
 
 ```powershell
@@ -83,15 +85,18 @@ $description        = <Up to 1024 characters>
 ## Log into Azure with your Azure credentials
 Connect-AzAccount -SubscriptionId $subscriptionID
 
-## If this is the first storage mover resource deployed in this subscription, you need to manually register the resource provider namespaces Microsoft.StorageMover and Microsoft.HybridCompute with your subscription. This only needs to be done once per subscription. You must have at least Contributor permissions (RBAC role) on the subscription.
+## If this is the first storage mover resource deployed in this subscription:
+## You need to manually register the resource provider namespaces Microsoft.StorageMover and Microsoft.HybridCompute with your subscription. 
+## This only needs to be done once per subscription. You must have at least Contributor permissions (RBAC role) on the subscription.
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.StorageMover
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 
-## The value for the Azure region of your resource stems from an enum. To find the correct Location value for your selected Azure region, run:
+## The value for the Azure region of your resource stems from an enum. 
+## To find the correct Location value for your selected Azure region, run:
 ## Get-AzLocation | select displayname,location
 
 ## Create a storage mover resource
-New-AzStorageMover -Name $storageMoverName -ResourceGroupName $resourceGroupName -Location <Your Location value>
+New-AzStorageMover -Name $storageMoverName -ResourceGroupName $resourceGroupName -Location #<Your Location value>
 
 ```
 

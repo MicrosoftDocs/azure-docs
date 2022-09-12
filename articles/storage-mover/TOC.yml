@@ -19,7 +19,7 @@ items:
   - name: Deploy
     items: 
     - name: Create a storage mover resource
-      href: resource-create.md
+      href: storage-mover-create.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
   - name: Manage
