@@ -158,6 +158,7 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 | **months** | January, February, March, April, May, June, July, August, September, October, November, December |
 | **ver_fail_server** | We are having trouble verifying your email address. Please enter a valid email address and try again. |
 | **error_requiredFieldMissing** | A required field is missing. Please fill out all required fields and try again. |
+| **heading** | User Details |
 | **initial_intro** | Please provide the following details. |
 | **ver_but_resend** | Send new code |
 | **button_continue** | Create |
@@ -234,6 +235,7 @@ The following example shows the use of some of the user interface elements in th
     <LocalizedString ElementType="UxElement" StringId="error_passwordEntryMismatch">The password entry fields do not match. Please enter the same password in both fields and try again.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="error_requiredFieldMissing">A required field is missing. Please fill out all required fields and try again.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="helplink_text">What is this?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="heading">User Details</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="initial_intro">Please provide the following details.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="preloader_alt">Please wait</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="required_field">This information is required.</LocalizedString>
