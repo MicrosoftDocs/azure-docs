@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 09/13/2022
 tags: connectors
 ---
 
@@ -72,11 +72,11 @@ When you need to send related messages in a specific order, you can create a wor
 
 When you create a Consumption logic app workflow, you can select the **Correlated in-order delivery using service bus sessions** template, which implements the sequential convoy pattern. For more information, see [Send related messages in order](../logic-apps/send-related-messages-sequential-convoy.md).
 
-### Large messages
+### Large message support
 
 Large message support is available only for Standard workflows when you use the Service Bus built-in connector operations. For example, you can receive and large messages using the built-in triggers and actions respectively.
 
-### Timeout for receiving and sending messages
+### Increase timeout for receiving and sending messages
 
 In Standard workflows that use the Service Bus built-in operations, you can increase the timeout for receiving and sending messages. For example, to increase the timeout for receiving a message, [change the following setting in the Azure Functions extension](../azure-functions/functions-bindings-service-bus.md#install-bundle):
 
@@ -259,11 +259,11 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Standard](#tab/standard)
 
-The steps to add and use a Service Bus action differ based on whether your workflow uses a built-in connector trigger or a managed, Azure-hosted connector trigger.
+The steps to add and use a Service Bus trigger differ based on whether you want to use the built-in connector or the managed, Azure-hosted connector.
 
-* [**Built-in trigger**](#built-in-connector-trigger): Describes the steps for workflows that start with a built-in trigger.
+* [**Built-in trigger**](#built-in-connector-trigger): Describes the steps to add the built-in trigger.
 
-* [**Managed trigger**](#managed-connector-trigger): Describes the steps for workflows that start with a managed trigger.
+* [**Managed trigger**](#managed-connector-trigger): Describes the steps to add the managed trigger.
 
 <a name="built-in-connector-trigger"></a>
 
@@ -412,6 +412,104 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
+
+The steps to add and use a Service Bus action differ based on whether you want to use the built-in connector trigger or the managed, Azure-hosted connector.
+
+* [**Built-in action**](#built-in-connector-action): Describes the steps to add a built-in action.
+
+* [**Managed action**](#managed-connector-action): Describes the steps to add a managed action.
+
+<a name="built-in-connector-action"></a>
+
+#### Built-in connector action
+
+1. In the [Azure portal](https://portal.azure.com), and open your logic app workflow in the designer.
+
+1. Under the trigger or action where you want to add the action, select the plus sign (**+**), and then select **Add an action**.
+
+   Or, to add an action between existing steps, select the plus sign (**+**) on the connecting arrow, and then select **Add an action**.
+
+1. On the **Add an action** pane, under the search box, select **Built-in**. In the search box, enter **service bus**.
+
+1. From the actions list, select the action that you want.
+
+   This example continues with the action named **Send message**.
+
+   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus built-in action selected.](./media/connectors-create-api-azure-service-bus/select-action-built-in-standard.png)
+
+1. If prompted, provide the following information for your connection. When you're done, select **Create**.
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for your connection |
+   | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Built-in connector authentication](#built-in-connector-auth). |
+
+   For example, this connection uses connection string authentication and provides the connection string for a Service Bus namespace:
+
+   ![Screenshot showing Standard workflow, Service Bus built-in action, and example connection information.](./media/connectors-create-api-azure-service-bus/action-connection-string-built-in-standard.png)
+
+1. After the action information box appears, provide the necessary information, for example:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Queue or topic name** | Yes | The selected queue to access |
+
+   ![Screenshot showing Standard workflow, Service Bus built-in trigger, and example trigger information.](./media/connectors-create-api-azure-service-bus/service-bus-trigger-built-in-standard.png)
+
+1. To add any other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
+
+1. Continue building your workflow by adding the actions that you want.
+
+   For example, you can add an action that sends email to confirm that your message was sent.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+<a name="managed-connector-action"></a>
+
+#### Managed connector action
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+
+1. Under the trigger or action where you want to add the action, select **New step**.
+
+   Or, to add an action between steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **azure service bus**.
+
+1. From the actions list, select the action that you want.
+
+   This example continues with the **Send message** action.
+
+   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus connector action selected.](./media/connectors-create-api-azure-service-bus/select-action-managed-standard.png)
+
+1. If prompted, provide the following information for your connection. When you're done, select **Create**.
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for your connection |
+   | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Managed connector authentication](#managed-connector-auth). |
+
+   For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
+
+   ![Screenshot showing Standard workflow, Service Bus action, and example connection information.](./media/connectors-create-api-azure-service-bus/action-connection-string-managed-standard.png)
+
+1. After the action information box appears, provide the necessary information, for example:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Queue/Topic name** | Yes | The selected queue or topic destination for sending the message |
+   | **Session Id** | No | The session ID if sending the message to a session-aware queue or topic  |
+   | **System properties** | No | - **None** <br>- **Run Details**: Add metadata property information about the run as custom properties in the message. |
+
+   ![Screenshot showing Standard workflow, Service Bus managed action, and example action information.](./media/connectors-create-api-azure-service-bus/service-bus-action-managed-standard.png)
+
+1. To add any other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
+
+1. Continue building your workflow by adding any other actions that you want.
+
+   For example, you can add an action that sends email to confirm that your message was sent.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ---
 

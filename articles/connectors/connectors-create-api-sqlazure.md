@@ -36,7 +36,7 @@ The SQL Server connector has different versions, based on [logic app type and ho
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql). <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version doesn't have triggers. You can use either an SQL managed connector trigger or a different trigger. <br><br>- The built-in version connects directly to an SQL server and database requiring only a connection string. You don't need the on-premises data gateway. <br><br>- The built-in version can directly access Azure virtual networks. You don't need the on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version doesn't have triggers. You can use either an SQL managed connector trigger or a different trigger. <br><br>- The built-in version connects directly to an SQL server and database requiring only a connection string. You don't need the on-premises data gateway. <br><br>- The built-in version can directly access Azure virtual networks. You don't need the on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Limitations
 
@@ -105,7 +105,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. Find and select the [SQL Server trigger](/connectors/sql) that you want to use.
 
-   1. On the designer, under the search box, select **All**.
+   1. On the designer, under the search box, select **Standard**.
 
    1. In the search box, enter **sql server**.
 
@@ -193,9 +193,9 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    1. Under the trigger or action where you want to add the SQL action, select **New step**.
 
-      Or, to add an action between existing steps, move your mouse over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
+      Or, to add an action between existing steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-   1. Under the **Choose an operation** search box, select **All**.
+   1. Under the **Choose an operation** search box, select **Standard**.
 
    1. In the search box, enter **sql server**.
 
@@ -223,7 +223,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 1. Find and select the SQL Server action that you want to use.
 
-   1. Under the trigger or action where you want to add the SQL Server action, select the plus sign (**+**), and then select **Add an action**.
+   1. Under the trigger or action where you want to add the action, select the plus sign (**+**), and then select **Add an action**.
 
       Or, to add an action between existing steps, select the plus sign (**+**) on the connecting arrow, and then select **Add an action**.
 
