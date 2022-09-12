@@ -68,6 +68,14 @@ Before configuring and enabling automatic user provisioning, you should decide w
 5. To generate the bearer token, copy the **User Identifier** and **SCIM Password**. Paste them in notepad++ separated by a colon. Encode the string value by navigating to **Plugins > MIME Tools > Basic64 Encode**. 
 
 	:::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Screenshot of a Notepad++ document. In the Plugins menu, MIME tools is highlighted. In the MIME tools menu, Base64 encode is highlighted." border="false":::
+	
+	To generate the bearer token using PowerShell instead of Notepad++, use the following commands:
+	 ```powershell
+    $Identifier = "<User Identifier>"
+	$SCIMPassword = "<SCIM Password>"
+	$bytes = [System.Text.Encoding]::UTF8.GetBytes($($Identifier):$($SCIMPassword))
+	[Convert]::ToBase64String($bytes)
+   	 ```
 
 3.	Copy the bearer token. This value will be entered in the Secret Token field in the Provisioning tab of your Infor CloudSuite application in the Azure portal.
 
