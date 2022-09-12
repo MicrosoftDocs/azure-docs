@@ -102,13 +102,13 @@ If autoscale can't find a suitable number of instances, it will skip the scale i
 
 ## Log files
 
-Find flapping in autoscale evaluation log with the following query:
+Find flapping in the autoscale evaluation log with the following query:
 ````
 // Autoscale operation status 
-// Lists latest Autoscale operations, where the InstanceUpdateReason contains the string "flap". 
+// Lists latest Autoscale operations, where the InstanceUpdateReason contains the string "flapping". 
 AutoscaleEvaluationsLog 
 | sort by TimeGenerated desc 
-| where InstanceUpdateReason contains "flap" 
+| where InstanceUpdateReason contains "flapping" 
 ````
 
 Below is an example of a log record for flapping:
