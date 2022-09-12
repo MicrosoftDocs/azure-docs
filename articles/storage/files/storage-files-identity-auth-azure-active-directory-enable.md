@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 09/09/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -56,7 +56,7 @@ Azure AD Kerberos authentication only supports using AES-256 encryption.
 
 ## Regional availability
 
-Azure Files authentication with Azure AD Kerberos public preview is available in Azure public cloud in [all Azure regions](https://azure.microsoft.com/global-infrastructure/locations/).
+Azure Files authentication with Azure AD Kerberos public preview is available in Azure public cloud in [all Azure regions](https://azure.microsoft.com/global-infrastructure/locations/) except China (Mooncake).
 
 ## Enable Azure AD Kerberos authentication for hybrid user accounts (preview)
 
@@ -86,6 +86,9 @@ To enable Azure AD Kerberos authentication on Azure Files for hybrid user accoun
 1. Select **Save**.
 
 ## Grant admin consent to the new service principal
+
+> [!WARNING]
+> If you've previously enabled Azure AD Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Azure AD-joined VMs, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Azure AD" under [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](storage-troubleshoot-windows-file-connection-problems.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users).
 
 After enabling Azure AD Kerberos authentication, you'll need to explicitly grant admin consent to the new Azure AD application registered in your Azure AD tenant to complete your configuration. You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
 
@@ -152,6 +155,7 @@ If you want to use another authentication method, you can disable Azure AD authe
 
 For more information, see these resources:
 
+- [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](storage-troubleshoot-windows-file-connection-problems.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users)
 - [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md)
 - [Enable AD DS authentication to Azure file shares](storage-files-identity-ad-ds-enable.md)
 - [Create a profile container with Azure Files and Azure Active Directory (preview)](../../virtual-desktop/create-profile-container-azure-ad.md)

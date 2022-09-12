@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/25/2021
+ms.date: 08/31/2022
 ms.author: alkohli
 ---
 
@@ -206,11 +206,14 @@ Checksum computation during prepare to ship is only done for import orders, and 
 
 We strongly recommend that you do not disable checksum unless the performance is severely affected.
 
-1. In the top-right corner of the local web UI of your device, go to **Settings**.
+1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
-    ![Disable checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
+    ![Screenshot of Connect and copy settings.](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Disable** checksum validation
+
+    ![Screenshot of disable checksum option.](media/data-box-local-web-ui-admin/disable-checksum.png)
+
 3. Select **Apply**.
 
 > [!NOTE]
@@ -224,9 +227,9 @@ For more information related to SMB signing, see [Overview of Server Message Blo
 
 To enable SMB signing in your Azure Device:
 
-1. In the top-right corner of the local web UI of your device, select **Settings**.
+1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
-    ![Open Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Screenshot of Connect and copy settings 2.](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Enable** SMB Signing.
 
@@ -238,19 +241,19 @@ To enable SMB signing in your Azure Device:
 
 ## Enable Backup Operator privileges
 
-Your web UI users have Backup Operator privileges on SMB shares by default. If you don't want this, use **Enable Back Operator privileges** to disable or enable the privileges.
+Your web UI users have Backup Operator privileges on SMB shares by default. If you don't want this, use **Enable Backup Operator privileges** to disable or enable the privileges.
 
 For information, see Backup Operators in [Active Directory Security Groups](/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
 
 To enable Backup Operator privileges in your Azure Device:
 
-1. In the top-right corner of the local web UI of your device, select **Settings**.
+1. In the local web UI, go to **Connect and copy**. Select **Settings**.
 
-   ![Open Data Box Settings - 1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Screenshot of Connect and copy settings 3.](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Enable** Backup Operator privileges.
 
-   ![Enable Backup Operator privileges](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
+   ![Screenshot of Backup operator privileges.](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
 
 3. **Select Apply**.
 4. In the local web UI, go to **Shut down or restart**.
@@ -267,13 +270,13 @@ Metadata on files is transferred by default when users upload data via SMB to yo
 
 To enable transfer of ACLs for Azure files:
 
-1. In the top-right corner of the local web UI of your device, select **Settings**.
+1. In the local web UI, go to **Connect and copy**. Select **Settings**. 
 
-    ![Open Data Box Settings -2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Screenshot of Connect and copy settings 4.](media/data-box-local-web-ui-admin/connect-copy-settings.png)
 
 2. **Enable** ACLs for Azure files.
 
-     ![Enable ACLs for Azure files](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
+     ![Screenshot of ACLs for Azure files](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
   
 3. Select **Apply**.
 4. In the local web UI, go to **Shut down or restart**.
@@ -289,11 +292,11 @@ To enable TLS 1.1 in your Azure device:
 
 1. In the top-right corner of the local web UI of your device, select **Settings**.
 
-    ![Open Data Box Settings -3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Screenshot of Data Box Settings -3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Enable** TLS 1.1.
 
-    ![Enable TLS 1.1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
+    ![Screenshot of Enable TLS 1.1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
 
 3. Select **Apply**.
 4. In the local web UI, go to **Shut down or restart**.

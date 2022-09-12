@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/05/2021
+ms.date: 02/12/2022
 ms.author: jeedes
 ---
 
@@ -32,7 +32,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Secret Server (On-Premises) supports **SP and IDP** initiated SSO
+* Secret Server (On-Premises) supports **SP and IDP** initiated SSO.
 
 ## Add Secret Server (On-Premises) from the gallery
 
@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
-	> The Entity ID shown above is an example only and you are free to choose any unique value that identifies your Secret Server instance in Azure AD. You need to send this Entity ID to [Secret Server (On-Premises) Client support team](https://thycotic.force.com/support/s/) and they configure it on their side. For more details, please read [this article](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
+	> The Entity ID shown above is an example only and you are free to choose any unique value that identifies your Secret Server instance in Azure AD. You need to send this Entity ID to [Secret Server (On-Premises) Client support team](https://support.delinea.com/s/) and they configure it on their side. For more details, please read [this article](https://docs.delinea.com/secrets/current/authentication/configuring-saml-sso/index.md).
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SecretServerURL>/login.aspx`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Secret Server (On-Premises) Client support team](https://thycotic.force.com/support/s/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Secret Server (On-Premises) Client support team](https://support.delinea.com/s/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -129,11 +129,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Secret Server (On-Premises) SSO
 
-To configure single sign-on on the **Secret Server (On-Premises)** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the Azure portal to the [Secret Server (On-Premises) support team](https://thycotic.force.com/support/s/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Secret Server (On-Premises)** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the Azure portal to the [Secret Server (On-Premises) support team](https://support.delinea.com/s/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Secret Server (On-Premises) test user
 
-In this section, you create a user called Britta Simon in Secret Server (On-Premises). Work with [Secret Server (On-Premises) support team](https://thycotic.force.com/support/s/) to add the users in the Secret Server (On-Premises) platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Secret Server (On-Premises). Work with [Secret Server (On-Premises) support team](https://support.delinea.com/s/) to add the users in the Secret Server (On-Premises) platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 
@@ -141,15 +141,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Secret Server (On-Premises) Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Secret Server (On-Premises) Sign-on URL where you can initiate the login flow.  
 
-* Go to Secret Server (On-Premises) Sign-on URL directly and initiate the login flow from there.
+* Go to Secret Server (On-Premises) Sign on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Secret Server (On-Premises) for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Secret Server (On-Premises) tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Secret Server (On-Premises) for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Secret Server (On-Premises) tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Secret Server (On-Premises) for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
