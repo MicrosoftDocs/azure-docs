@@ -101,6 +101,6 @@ At the same time, users can contribute to the catalog by tagging, documenting, a
 ## Next steps
 
 >[!TIP]
-> Check if Microsoft Purview is available in your region on the [regional availalbilty page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
+> Check if Microsoft Purview is available in your region on the [regional availability page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
 To get started with Microsoft Purview, see [Create a Microsoft Purview account](create-catalog-portal.md).
