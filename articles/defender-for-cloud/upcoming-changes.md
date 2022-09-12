@@ -18,16 +18,10 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters](#change-in-pricing-of-runtime-protection-for-arc-enabled-kubernetes-clusters) | August 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | September 2022 |
 | [Removing security alerts for machines reporting to cross tenant Log Analytics workspaces](#removing-security-alerts-for-machines-reporting-to-cross-tenant-log-analytics-workspaces) | September 2022 |
 | [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation) | September 2022 |
 
-### Change in pricing of runtime protection for Arc-enabled Kubernetes clusters
-
-**Estimated date for change:** August 2022
-
-Runtime protection is currently a preview feature for Arc-enabled Kubernetes clusters. In August, Arc-enabled Kubernetes clusters will be charged for runtime protection. You can view pricing details on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Subscriptions with Kubernetes clusters already onboarded to Arc will begin to incur charges in August.
 
 ### Multiple changes to identity recommendations
 
