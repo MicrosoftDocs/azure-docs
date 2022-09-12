@@ -724,8 +724,6 @@ Use the following command to generate a verification certificate from the verifi
   node create_test_cert.js verification --ca mytestrootcert_cert.pem --key mytestrootcert_key.pem --nonce  {verification-code}
   ```
 
-Now generate the base-64 encode version of the verification certificate by updating the location of the certificate in the javascript code above.
-
 Run the following command to generate a base-64 encoded version of the certificate:
 
 ```cmd/sh

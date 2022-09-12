@@ -255,7 +255,6 @@ groups:
     title: Python
   - id: programming-language-embedded-c
     title: Embedded C
-<<<<<<< HEAD
 - id: enrollment-groups
 # Owner: v-krishnag
   title: Enrollment groups
@@ -264,8 +263,7 @@ groups:
   - id: enrollment-group-x509
     title: X.509
   - id: enrollment-group-symmetrickey
-    title: Symmetric Key
-=======
+    title: Symmetric Key    
 - id: programming-languages-set-twenty-eight
 # Owner: aahi
   title: Programming languages
@@ -279,7 +277,6 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
->>>>>>> 073acba84e51a8ee46c8b877786b6139a752eb76
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
