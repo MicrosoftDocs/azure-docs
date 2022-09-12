@@ -15,7 +15,7 @@ ms.date: 04/22/2022
 >[!NOTE]
 >Run commands are executed one at a time in the order submitted.
 
-In this how-to, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Export the certificate for LDAPS authentication
@@ -32,15 +32,17 @@ In this how-to, you learn how to:
 
 ## Prerequisites
 
-- Connectivity from your Active Directory network to your AVS private cloud must be operational.
+- Connectivity from your Active Directory network to your Azure VMware Solution private cloud must be operational.
 
 - For AD authentication with LDAPS:
 
-    - You will need access to the Active Directory Domain Controller(s) with Administrator permissions
-    - Your Active Directory Domain Controller(s) must have LDAPS enabled and should be using a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or [Third-party/Public CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority). **Note**: Self-sign certificates are not recommended for production environments.  
+    - You will need access to the Active Directory Domain Controller(s) with Administrator permissions.
+    - Your Active Directory Domain Controller(s) must have LDAPS enabled with a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [Third-party/Public CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority). 
+    >[!NOTE]
+    >Self-sign certificates are not recommended for production environments.  
     - [Export the certificate for LDAPS authentication](#export-the-certificate-for-ldaps-authentication) and upload it to an Azure Storage account as blob storage. Then, you'll need to [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
 
-- Ensure AVS has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. See [Configure DNS forwarder for Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/configure-dns-azure-vmware-solution) for further information.
+- Ensure Azure VMware Solution has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. See [Configure DNS forwarder for Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/configure-dns-azure-vmware-solution) for further information.
 
 >[!NOTE]
 >For further information about LDAPS and certificate issuance, consult with your security or identity management team.
@@ -85,7 +87,7 @@ Now proceed to export the certificate
 > Make sure to copy each SAS URL string(s), because they will no longer be available once you leave the page. 
 
 > [!TIP]
-> Another alternative method for consolidating certificates is saving the certificate chains in a single file as mentioned in [this VMware KB article](https://kb.vmware.com/s/article/2041378) and generate a single SAS URL for the file that contains all of the certificates.
+> Another alternative method for consolidating certificates is saving the certificate chains in a single file as mentioned in [this VMware KB article](https://kb.vmware.com/s/article/2041378), and generate a single SAS URL for the file that contains all of the certificates.
 
 ## Configure NSX-T DNS for resolution to your Active Directory Domain
 
@@ -94,14 +96,14 @@ A DNS Zone needs to be created and added to the DNS Service, follow the instruct
 After completion, verify that your DNS Service has your DNS zone included.
  :::image type="content" source="media/run-command/ldaps-dns-zone-service-configured.png" alt-text="Screenshot showing the DNS Service that includes the required DNS zone." lightbox="ldaps-dns-zone-service-configured.png":::
 
-Your AVS Private cloud should now be able to resolve your on-prem Active Directory domain name properly.
+Your Azure VMware Solution Private cloud should now be able to resolve your on-premises Active Directory domain name properly.
 
 
 ## Add Active Directory over LDAP with SSL
 
-In your AVS private cloud you'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter Server.
+In your Azure VMware Solution private cloud you'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter Server.
 
-1. Browse to your AVS private cloud and then select **Run command** > **Packages** > **New-LDAPSIdentitySource**.
+1. Browse to your Azure VMware Solution private cloud and then select **Run command** > **Packages** > **New-LDAPSIdentitySource**.
 
 1. Provide the required values or change the default values, and then select **Run**.
 
@@ -153,7 +155,7 @@ You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an externa
 
 ## Add existing AD group to cloudadmin group
 
-You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to cloudadmin group. The users in this group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter Server SSO.
+You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to a cloudadmin group. Users in the cloud admin group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter Server SSO.
 
 1. Select **Run command** > **Packages** > **Add-GroupToCloudAdmins**.
 
@@ -196,7 +198,7 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
 ## Assign additional vCenter Server Roles to Active Directory Identities
 Once you added an external identity over LDAP or LDAPS you can assign vCenter Server Roles to Active Directory security groups based on your organization's security controls.
 
-1. After you sign in to vCenter Server as a cloud admin role. You can select an item from the inventory click ACTIONS menu and select Add Permission.
+1. After you sign in to vCenter Server with cloud admin privileges, you can select an item from the inventory click **ACTIONS** menu and select **Add Permission**.
    
     :::image type="content" source="media/run-command/ldaps-vcenter-permission-assignment-1.png" alt-text="Screenshot displaying hot to add permission assignment." lightbox="media/run-command/ldaps-vcenter-permission-assignment-1.png":::
 
@@ -207,7 +209,7 @@ Once you added an external identity over LDAP or LDAPS you can assign vCenter Se
     1. *Propagate to children*. Optionally select the checkbox if permissions should be propagated down to children resources.
     :::image type="content" source="media/run-command/ldaps-vcenter-permission-assignment-2.png" alt-text="Screenshot displaying assign the permission." lightbox="media/run-command/ldaps-vcenter-permission-assignment-3.png":::
     
-1. Switch to the Permissions tab and verify the permission assignment was added.
+1. Switch to the **Permissions** tab and verify the permission assignment was added.
     :::image type="content" source="media/run-command/ldaps-vcenter-permission-assignment-3.png" alt-text="Screenshot displaying the add completion of permission assignment." lightbox="media/run-command/ldaps-vcenter-permission-assignment-3.png":::
 1. Users should now be able to sign in to vCenter Server using their Active Directory credentials.
 
