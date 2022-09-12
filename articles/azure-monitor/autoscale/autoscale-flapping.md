@@ -99,3 +99,18 @@ If autoscale can't find a suitable number of instances, it will skip the scale i
 
 > [!NOTE]
 > If the autoscale engine detects that flapping could occur as a result of scaling to the target number of instances, it will also try to scale to a lower number of instances between the current count and the target count. If flapping does not occur within this range, autoscale will continue the scale operation with the new target.
+
+## Log files
+
+Find flapping in autoscale evaluation log with the following query:
+````
+// Autoscale operation status 
+// Lists latest Autoscale operations, where the InstanceUpdateReason contains the string "flap". 
+AutoscaleEvaluationsLog 
+| sort by TimeGenerated desc 
+| where InstanceUpdateReason contains "flap" 
+```
+
+Below is an example of a log record for flapping:
+
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-log.png" alt-text="A screen shot showing a log record form a flapping event":::
