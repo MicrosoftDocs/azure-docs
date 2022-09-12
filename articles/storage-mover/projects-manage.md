@@ -250,6 +250,9 @@ The removal of a project resource should be a relatively rare occurrence in your
 
    :::image type="content" source="media/projects-manage/project-explorer-delete-sml.png" alt-text="An image showing the steps to permanently remove a project resource from within the Portal Explorer." lightbox="media/projects-manage/project-explorer-delete-lrg.png":::
 
+> [!WARNING]
+> Deleting a project will delete all contained job definitions, their run history and results. Deleting any of these resources is permanent and cannot be undone. Storage endpoints are not affected.
+
 # [PowerShell](#tab/powershell)
 
 Use the `Remove-AzStorageMoverProject` to permanently delete a project resource. Provide the project's name with the `-Name` parameter, and resource group and storage mover resource names with the `-ResourceGroupName` and `-StorageMoverName` parameters, respectively.
@@ -262,6 +265,9 @@ Remove-AzStorageMoverProject `
    -StorageMoverName $storageMoverName
 
 ```
+
+> [!WARNING]
+> Deleting a project will delete all contained job definitions, their run history and results. Deleting any of these resources is permanent and cannot be undone. Storage endpoints are not affected.
 
 ---
 

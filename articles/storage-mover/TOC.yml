@@ -12,8 +12,12 @@ items:
     href: deployment-planning.md
   - name: Resource Hierarchy
     href: resource-hierarchy.md
-  - name: Understanding billing
+  - name: Migration costs
     href: billing.md
+  - name: Cloud migration basics
+    href: migration-basics.md
+  - name: Performance targets
+    href: performance-targets.md
 - name: How-To
   items: 
   - name: Deploy
@@ -32,17 +36,9 @@ items:
     items:
       - name: Unregister an agent
         href: agent-register.md
-- name: Tutorials
-  items:
-    - name: Migrate an NFS share to an Azure blob container
-      href: migrate-share-nfs.md
+  expanded: true
 - name: Resources
   items:
   - name: Release notes
     href: release-notes.md
-  - name: Samples
-    href: /samples/browse/?branch=main&expanded=azure
-  - name: Azure Storage Mover release notes
-    href: release-notes.md
-
   
