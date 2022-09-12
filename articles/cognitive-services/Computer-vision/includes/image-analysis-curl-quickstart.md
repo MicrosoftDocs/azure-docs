@@ -43,9 +43,15 @@ To analyze an image for various visual features, do the following steps:
 1. Open a command prompt window.
 1. Paste the command from the text editor into the command prompt window, and then run the command.
 
-```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
-```
+    #### [Version 3.2](#tab/3-2)
+
+    ```bash
+    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+    ```
+    #### [Version 4.0](#tab/4-0)
+
+    (TBD new code)
+    ---
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Analyze-image" target="_target">I ran into an issue</a>

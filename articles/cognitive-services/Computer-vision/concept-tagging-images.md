@@ -86,7 +86,14 @@ The following JSON response illustrates what Computer Vision returns when taggin
 
 ## Use the API
 
+#### [Version 3.2](#tab/3-2)
+
 The tagging feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Tags` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"tags"` section.
+
+#### [Version 4.0](#tab/4-0)
+
+(TBD new instructions)
+---
 
 * [Quickstart: Image Analysis REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
 
