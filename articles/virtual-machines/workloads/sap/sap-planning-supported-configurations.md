@@ -1,17 +1,12 @@
 ---
 title: 'SAP on Azure: Supported Scenarios with Azure VMs'
 description: Azure Virtual Machines supported scenarios with SAP workload
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
-keywords: 'SAP'
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2022
 ms.author: juergent
@@ -20,7 +15,6 @@ ms.custom: H1Hack27Feb2017
 
 # SAP workload on Azure virtual machine supported scenarios
 Designing SAP NetWeaver, Business one, `Hybris` or S/4HANA systems architecture in Azure opens many different opportunities for various architectures and tools to use to get to a scalable, efficient, and highly available deployment. Though dependent on the operating system or DBMS used, there are restrictions. Also, not all scenarios that are supported on-premises are supported in the same way in Azure. This document will lead through the supported non-high-availability configurations and high-availability configurations and architectures using Azure VMs exclusively. For scenarios supported with [HANA Large Instances](./hana-overview-architecture.md), check the article [Supported scenarios for HANA Large Instances](./hana-supported-scenario.md).
-
 
 ## 2-Tier configuration
 An SAP 2-Tier configuration is considered to be built up out of a combined layer of the SAP DBMS and application layer that run on the same server or VM unit. The second tier is considered to be the user interface layer. In the case of a 2-Tier configuration, the DBMS, and SAP application layer share the resources of the Azure VM. As a result, you need to configure the different components in a way that these components don't compete for resources. You also need to be careful to not oversubscribe the resources of the VM. Such a configuration does not provide any high availability, beyond the [Azure Service Level agreements](https://azure.microsoft.com/support/legal/sla/) of the different Azure components involved.
@@ -34,7 +28,6 @@ For all OS/DBMS combinations supported on Azure, this type of configuration is s
 
 > [!NOTE]
 > For production SAP systems, we recommend additional high availability and eventual disaster recovery configurations as described later in this document
-
 
 ## 3-Tier configuration
 In such configurations, you separate the SAP application layer and the DBMS layer into different VMs. You usually do that for larger systems and out of reasons of being more flexible on the resources of the SAP application layer. In the most simple setup, there is no high availability beyond the [Azure Service Level agreements](https://azure.microsoft.com/support/legal/sla/) of the different Azure components involved.
