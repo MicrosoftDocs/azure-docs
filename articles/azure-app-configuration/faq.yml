@@ -46,7 +46,7 @@ sections:
           
           In contrast, Azure App Configuration allows you to define settings that can be shared among multiple apps. This includes apps running in App Service, as well as other platforms. Your application code accesses these settings through the configuration providers for .NET and Java, through the Azure SDK, or directly via REST APIs.
           
-          You can also import and export settings between App Service and App Configuration. This capability allows you to quickly set up a new App Configuration store based on existing App Service settings. You can also share configuration with an existing app that relies on App Service settings.
+          You can add [references to your App Configuration data](../app-service/app-service-configuration-references.md) in the Application settings of your App Service. You can also [import and export settings](./howto-import-export-data.md) between App Service and App Configuration. This capability allows you to quickly set up a new App Configuration store based on existing App Service settings. You can also share configuration with an existing app that relies on App Service settings.
           
       - question: Are there any size limitations on keys and values stored in App Configuration?
         answer: |
@@ -151,7 +151,7 @@ sections:
 
       - question: Can I create and update feature flags or Key Vault references programmatically?
         answer: |
-          While you can manage feature flags and Key Vault references in App Configuration through the Azure portal or CLI, you can also create and update them programmatically using App Configuration SDKs. Therefore, you can write your customized management portal or manage them in your CI/CD programmatically. The feature flag and Key Vault reference APIs are available in SDKs of all supported languages. Check out the [sample links](https://github.com/Azure/AppConfiguration#sdks) for examples in each supported language.
+          Yes. While you can manage feature flags and Key Vault references in App Configuration through the Azure portal or CLI, you can also create and update them programmatically using App Configuration SDKs. Therefore, you can write your customized management portal or manage them in your CI/CD programmatically. The feature flag and Key Vault reference APIs are available in SDKs of all supported languages. Check out the [sample links](https://github.com/Azure/AppConfiguration#sdks) for examples in each supported language.
 
           Evaluating and consuming feature flags in your application requires the App Configuration provider and feature management libraries, which are available in .NET and Java Spring. Check out the _Feature management_ section under _Quickstarts_ and _Tutorials_ for more information.
           

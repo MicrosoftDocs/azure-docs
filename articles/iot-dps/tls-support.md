@@ -86,6 +86,10 @@ These cipher suites are currently still supported by DPS but will be depreciated
 
 When DPS enrollments are configured for X.509 authentication, mutual TLS (mTLS) is supported by DPS.
 
+## Certificate pinning
+
+[Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates (aka leaf certificates) and intermediate certificates associated with DPS endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
+
 ## Use TLS 1.2 in the IoT SDKs
 
 Use the links below to configure TLS 1.2 and allowed ciphers in the Azure IoT client SDKs.
