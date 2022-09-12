@@ -166,15 +166,54 @@ You'll use a `pipeline.yml` file to deploy your Azure ML pipeline. This is a mac
 
 ## Step 5: Run your GitHub Actions workflow
 
+Your workflow file is made up of a trigger section and jobs:
+- A trigger starts the workflow in the `on` section. The workflow runs by default on a cron schedule and when a pull request is made from matching branches and paths. Learn more about [events that trigger workflows](https://docs.github.com/actions/using-workflows/events-that-trigger-workflows). 
+- In the jobs section of the workflow, you checkout code and log into Azure. There are two options for login: a service principal or OpenID Connect.
+- The jobs section also includes a setup action that installs and sets up the [Machine Learning CLI (v2)](how-to-configure-cli.md). Once the CLI is installed, the run job action runs your Azure Machine Learning `pipeline.yml` file to train a model with nyc taxi data.
+
+```yaml
+name: cli-jobs-pipelines-nyc-taxi-pipeline
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0/4 * * *"
+  pull_request:
+    branches:
+      - main
+      - sdk-preview
+    paths:
+      - cli/jobs/pipelines/nyc-taxi/**
+      - .github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml
+      - cli/run-pipeline-jobs.sh
+      - cli/setup.sh
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: check out repo
+      uses: actions/checkout@v2
+    - name: azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZ_CREDS}}
+    - name: setup
+      run: bash setup.sh
+      working-directory: cli
+      continue-on-error: true
+    - name: run job
+      run: bash -x ../../../run-job.sh pipeline.yml
+      working-directory: cli/jobs/pipelines/nyc-taxi
+```
+
 1. In your cloned repository, open `.github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml`.
 1. Select **View runs**. 
 1. Enable workflows by selecting **I understand my workflows, go ahead and enable them**.
 1. Select the **cli-jobs-pipelines-nyc-taxi-pipeline workflow** and choose to **Enable workflow**. 
+    :::image type="content" source="media/how-to-github-actions-machine-learning/enable-github-actions-la-workflow.png" alt-text="Screenshot of enable GitHub Actions workflow.":::
 1. Select **Run workflow** and choose the option to **Run workflow** now. 
+    :::image type="content" source="media/how-to-github-actions-machine-learning/github-actions-run-workflow.png" alt-text="Screenshot of run GitHub Actions workflow.":::
 
-
-
-<!--TODO: Add workflow breakdown -->
+### Example workflow
 
 <!--TODO: Add OPENID Scenario -->
 
