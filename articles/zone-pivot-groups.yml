@@ -258,7 +258,7 @@ groups:
 - id: enrollment-groups
 # Owner: v-krishnag
   title: Enrollment groups
-  prompt: Choose a programming language
+  prompt: Choose an enrollment-group
   pivots:
   - id: enrollment-group-x509
     title: X.509
