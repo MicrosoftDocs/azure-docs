@@ -23,24 +23,19 @@ You can find information about Oracle versions and corresponding OS versions tha
 General information about running SAP Business Suite on Oracle can be found at [SAP on Oracle](https://www.sap.com/community/topic/oracle.html). Oracle software is supported by Oracle to run on Microsoft Azure. For more information about general support for Windows Hyper-V and Azure, check the [Oracle and Microsoft Azure FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html).
 
 **SAP Notes relevant for Oracle, SAP, and Azure**
+The following SAP notes are relevant to this artcile as well.
 
-[1738053 - SAPinst for Oracle ASM installation - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0001738053)
-
-[2896926 - ASM disk group compatibility - NetWeaver - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0002896926)
-
-[1550133 - Using Oracle Automatic Storage Management (ASM) with SAP NetWeaver based Products - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0001550133)
-
-[888626 - Redo log layout for high-end systems - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000888626)
-
-[105047 - Support for Oracle functions in the SAP environment - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000105047)
-
-[2799920 - Patches for 19c: Database - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0002799920)
-
-[974876 - Oracle Transparent Data Encryption (TDE) - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000974876)
-
-[2936683 - Oracle Linux 8: SAP Installation and Upgrade - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2936683)
-
-[1672954 - Oracle 11g, 12c, 18c and 19c: Usage of hugepages on Linux](https://launchpad.support.sap.com/#/notes/1672954)
+| Note number  | Note title  |
+| --- | --- |
+| 1738053 | [SAPinst for Oracle ASM installation SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0001738053) |
+| 2896926 | [ASM disk group compatibility NetWeaver SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0002896926) |
+| 1550133 | [Using Oracle Automatic Storage Management (ASM) with SAP NetWeaver based Products SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0001550133)] |
+| 888626 | [Redo log layout for high-end systems SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000888626) |
+| 105047  | [Support for Oracle functions in the SAP environment SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000105047) | 
+| 2799920 | [Patches for 19c: Database SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0002799920) |
+| 974876 |  [Oracle Transparent Data Encryption (TDE) SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/0000974876) |
+| 2936683 | [Oracle Linux 8: SAP Installation and Upgrade SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2936683) |
+| 1672954 | [Oracle 11g, 12c, 18c and 19c: Usage of hugepages on Linux](https://launchpad.support.sap.com/#/notes/1672954) |
 
 **Specifics for Oracle Database on Oracle Linux**
 
@@ -53,31 +48,18 @@ The specific scenario of SAP applications using Oracle Databases is supported as
 When installing or migrating existing SAP on Oracle systems to Azure, the following deployment pattern should be followed:
 
 1.  Use the most [recent Oracle Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/) version available (Oracle Linux 8.6 or higher)
-
 2.  Use the most recent Oracle Database version available with the latest SAP Bundle Patch (SBP) (Oracle 19 Patch 15 or higher) [2799920 - Patches for 19c: Database](https://launchpad.support.sap.com/#/notes/2799920)
-
 3.  Use Automatic Storage Management (ASM) for small, medium and large sized databases on block storage
-
-4.  Azure Premium Storage SSD or Premium Storage SSD v2 should be used. Do not use Standard or other storage types.
-
+4.  Azure Premium Storage SSD should be used. Do not use Standard or other storage types.
 5.  ASM removes the requirement for Mirror Log. Follow the guidance from Oracle in Note [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
-
 6.  Use ASMLib and do not use udev
-
 7.  Azure NetApp Files deployments should use Oracle dNFS (Oracle’s own high performance Direct NFS solution)
-
 8.  Large databases benefit greatly from large SGA sizes. Large customers should deploy on Azure M-series with 4 TB or more RAM size.
-
-    1.  Set Linux Huge Pages to 75% of Physical RAM size
-
-    2.  Set SGA to 90% of Huge Page size
-
+    - Set Linux Huge Pages to 75% of Physical RAM size
+    - Set SGA to 90% of Huge Page size
 9.  Oracle Home should be located outside of the “root” volume or disk. Use a separate disk or ANF volume. The disk holding the Oracle Home should be 64GB or larger
-
 10. The size of the boot disk for large high performance Oracle database servers is important. As a minimum a P10 disk should be used for M-series or E-series. Do not use small disks such as P4 or P6. A small disk can cause performance issues.
-
 11. Accelerated Networking must be enabled on all VMs. Upgrade to the latest OL release if there are any problems enabling Accelerated Networking
-
 12. Check for updates in this documentation and SAP note [2039619 - SAP Applications on Microsoft Azure using the Oracle Database: Supported Products and Versions - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2039619)
 
 For information about which Oracle versions and corresponding OS versions are supported for running SAP on Oracle on Azure Virtual Machines, see SAP Note [<u>2039619</u>](https://launchpad.support.sap.com/#/notes/2039619).
@@ -86,7 +68,7 @@ General information about running SAP Business Suite on Oracle can be found in t
 
 **Storage configuration**
 
-There are two recommended and supported storage deployment patterns for SAP on Oracle on Azure:
+There are two recommended storage deployment patterns for SAP on Oracle on Azure:
 
 1.  Oracle Automatic Storage Management (ASM)
 2.  Azure NetApp Files (ANF) with Oracle dNFS (Direct NFS)
@@ -100,7 +82,7 @@ Checklist for Oracle Automatic Storage Management:
 1.  All SAP on Oracle on Azure systems are running **ASM** including Development, QAS and Production. Small, Medium and Large databases
 2.  [**ASMLib**](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/about-oracle-asm-with-oracle-asmlib.html)
     is used and not UDEV. UDEV is required for multiple SANs, a scenario that does not exist on Azure
-3.  ASM should be configured for **External Redundancy**. Azure Premium SSD storage has built in triple redundancy. Azure Premium SSD and SSD v2 matches the reliability and integrity of any other storage solution. For optional safety customers can consider **Normal Redundancy** for the Log Disk Group
+3.  ASM should be configured for **External Redundancy**. Azure Premium SSD storage has built in triple redundancy. Azure Premium SSD matches the reliability and integrity of any other storage solution. For optional safety customers can consider **Normal Redundancy** for the Log Disk Group
 4.  No Mirror Log is required for ASM [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
 5.  ASM Disk Groups configured as per Variant 1, 2 or 3 below
 6.  ASM Allocation Unit size = 4MB (default). VLDB OLAP systems such as BW may benefit from larger ASM Allocation Unit size. Change only after confirming with Oracle support
@@ -111,9 +93,8 @@ Checklist for Oracle Automatic Storage Management:
 
 Part II of the official Oracle Guide describes the installation and the management of ASM:
 
-[Oracle Automatic Storage Management Administrator's Guide, 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/index.html)
-
-[Oracle Grid Infrastructure Grid Infrastructure Installation and Upgrade Guide, 19c for Linux](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/index.html)
+- [Oracle Automatic Storage Management Administrator's Guide, 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/index.html)
+- [Oracle Grid Infrastructure Grid Infrastructure Installation and Upgrade Guide, 19c for Linux](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/index.html)
 
 The following ASM limits exist for Oracle Database 12c or later:
 
@@ -127,19 +108,16 @@ Customer has small or medium sized databases where backup and/or restore + recov
 
 Oracle ASM disk group recommendation:
 
-|ASM Disk Group Name   |Stores                        |Azure Storage       |
+|ASM Disk Group Name   |Stores                        | Azure Storage       |
 |----------------------|------------------------------|--------------------|
-|**+DATA**                 |All data files                |3-6 x P 30 (1 TB)   |
-|                      |Control file (first copy)     |To increase DB size add extra P30 disks |
-|                      |Online redo logs (first copy) |                    |
-|                      |                              |                    |
-|**+ARCH**                |Control file (second copy)    |2 x P20 (512 GB)    |
-|                      |Archived redo logs            |                    |
-|                      |                              |                    |
-|**+RECO**                 |Control file (third copy)     |2 x P20 (512 GB)    |
-|                      |RMAN backups (optional)       |                    |
-|                      |Fast recovery area (optional) |                    |
-|                      |                              |                    |
+| **+DATA**  |All data files |3-6 x P 30 (1 TiB) |
+| |Control file (first copy) | To increase DB size add extra P30 disks |
+| |Online redo logs (first copy) |                    |
+| **+ARCH** |Control file (second copy) | 2 x P20 (512 GiB) |
+| |Archived redo logs  |  |
+| **+RECO**  |Control file (third copy) | 2 x P20 (512 GiB) |
+|  |RMAN backups (optional) |  |
+|  |  recovery area (optional) |   |
 
 **Variant 2** – medium to large data volumes between \~**3 TB** to \~**12 TB**, restore time important
 
@@ -157,21 +135,18 @@ Major differences to Variant 1 are:
 3.  The number of the DATA disk group is appended if the database spans over more than one DATA disk group
 4.  No online redo logs are located in the “data” disk groups. Instead an extra disk group is used for the first member of each online redo log group.
 
-|ASM Disk Group Name   |Stores                        |Azure Storage       |
-|----------------------|------------------------------|--------------------|
-|**+\<DBNAME\>\_DATA[#]**                 |All data files                |3-12 x P 30 (1 TB)   |
-|                      |All temp files                |To increase DB size, add extra P30 disks |
-|                      |Control file (first copy)     |                   |
-|                      |                              |                    |
-|**+OLOG**                 |Online redo logs (first copy) |3 x P20 (512 GB)                   |
-|                      |                              |                    |
-|**+ARCH**                |Control file (second copy)    |3 x P20 (512 GB)    |
-|                      |Archived redo logs            |                    |
-|                      |                              |                    |
-|**+RECO**                 |Control file (third copy)     |3 x P20 (512 GB)    |
-|                      |RMAN backups (optional)       |                    |
-|                      |Fast recovery area (optional) |                    |
-|                      |                              |                    |
+| ASM Disk Group Name   | Stores |Azure Storage |
+|---|----|---|
+| **+\<DBNAME\>\_DATA[#]** | All data files | 3-12 x P 30 (1 TiB) |
+|   | All temp files | To increase DB size, add extra P30 disks |
+|   |Control file (first copy)   |  |
+| **+OLOG**  | Online redo logs (first copy) | 3 x P20 (512 GiB) |
+| **+ARCH**  | Control file (second copy) |3 x P20 (512 GB) |
+|   | Archived redo logs  |   |
+| **+RECO** | Control file (third copy) | 3 x P20 (512 GiB)  |
+|   |RMAN backups (optional)  |   |
+|    |Fast recovery area (optional) |  |
+
 
 
 **Variant 3** – huge data and data change volumes more than \~**5 TB**, restore time crucial
@@ -180,86 +155,69 @@ Customer has a huge database where backup and/or restore + recovery of a single 
 
 Usually customers will use RMAN, Azure Backup for Oracle and/or disk snap techniques in combination. In this variant, each relevant database file type is separated to different Oracle ASM disk groups.
 
-|ASM Disk Group Name   |Stores                        |Azure Storage       |
-|-----------------------|------------------------------|--------------------|
-|**+\<DBNAME\>\_DATA[#]**                  |All data files                |5-30 or more x P30 (1 TB) or P40 (2 TB)   |
-|                       |All temp files                |To increase DB size, add extra P30 disks |
-|                       |Control file (first copy)     |                   |
-|                       |                              |                    |
-|**+OLOG**                  |Online redo logs (first copy) |3-8 x P20 (512 GB) or P30 (1 TB)                  |
-|                       |                              |For more safety “Normal Redundancy” can be selected for this ASM Disk Group                    |
-|                       |                              |                    |
-|**+ARCH**                 |Control file (second copy)    |3-8 x P20 (512 GB) or P30 (1 TB)    |
-|                       |Archived redo logs            |                    |
-|                       |                              |                    |
-|**+RECO**                  |Control file (third copy)     |3 x P30 (1 TB), P40 (2 TB) or P50 (4 TB)    |
-|                       |RMAN backups (optional)       |                    |
-|                       |Fast recovery area (optional) |                    |
-|                       |                              |                    |
+|ASM Disk Group Name | Stores | Azure Storage  |
+|---|---|---|
+| **+\<DBNAME\>\_DATA[#]** | All data files  |5-30 or more x P30 (1 TiB) or P40 (2 TiB) 
+|   | All temp files  To increase DB size, add extra P30 disks |
+|   |Control file (first copy)  |  |
+| **+OLOG** | Online redo logs (first copy) |3-8 x P20 (512 GiB) or P30 (1 TiB)  |
+|   |    | For more safety “Normal Redundancy” can be selected for this ASM Disk Group |
+|**+ARCH** | Control file (second copy) |3-8 x P20 (512 GiB) or P30 (1 TiB) |
+|   | Archived redo logs | |
+| **+RECO** | Control file (third copy) |3 x P30 (1 TiB), P40 (2 TiB) or P50 (4 TiB) |
+|    |RMAN backups (optional)  |  |
+|     | Fast recovery area (optional) |   |
 
 
 
-**Note:** Azure Host Disk Cache for the DATA ASM Disk Group can be set to either Read Only or None. All other ASM Disk Groups should be set to None. On BW or SCM a separate ASM Disk Group for TEMP can be considered for large or busy systems.
+> [!NOTE]
+> Azure Host Disk Cache for the DATA ASM Disk Group can be set to either Read Only or None. All other ASM Disk Groups should be set to None. On BW or SCM a separate ASM Disk Group for TEMP can be considered for large or busy systems.
 
 **Adding Space to ASM + Azure Disks**
 
 Oracle ASM Disk Groups can either be extended by adding extra disks or by extending current disks. It is recommended to add extra disks rather than extending existing disks. Review these MOS articles and links MOS Notes 1684112.1 and 2176737.1
 
-> asmca -silent -addDisk -diskGroupName DATA -disk '/dev/sdd1'
+`asmca -silent -addDisk -diskGroupName DATA -disk '/dev/sdd1'`
 >
 > Disk added successfully to diskgroup DATA.
 
 ASM will rebalance. To check rebalancing run this command.
 
-> ps -ef \| grep rbal
->
-> oraasm 4288 1 0 Jul28 ? 00:04:36 asm_rbal_oradb1
->
-> 54322 104817 104767 0 17:17 pts/0 00:00:00 grep rbal
+`ps -ef \| grep rbal`
 
-[How to Resize ASM Disk Groups Between Multiple Zones (aemcorp.com)](https://www.aemcorp.com/managedservices/blog/resizing-asm-disk-groups-between-multiple-zones)
+oraasm 4288 1 0 Jul28 ? 00:04:36 asm_rbal_oradb1`
 
-[RESIZING - Altering Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/21/ostmg/alter-diskgroups.html#GUID-6AEFFA72-7BDC-4AA8-8667-8417AAF3DAC8)
+54322 104817 104767 0 17:17 pts/0 00:00:00 grep rbal
+
+Documentation is available with:
+- [How to Resize ASM Disk Groups Between Multiple Zones (aemcorp.com)](https://www.aemcorp.com/managedservices/blog/resizing-asm-disk-groups-between-multiple-zones)
+- [RESIZING - Altering Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/21/ostmg/alter-diskgroups.html#GUID-6AEFFA72-7BDC-4AA8-8667-8417AAF3DAC8)
 
 **Monitoring SAP on Oracle ASM Systems on Azure**
 
 Run an Oracle AWR report as the first step when troubleshooting a performance problem. Disk performance metrics will be detailed in the AWR report.
 
-Disk performance can be monitored from inside Oracle Enterprise Manager and via external tools.
-
-[Using Views to Display Oracle ASM Information](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/views-asm-info.html#GUID-23E1F0D8-ECF5-4A5A-8C9C-11230D2B4AD4)
-
-[ASMCMD Disk Group Management Commands (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/asmcmd-diskgroup-commands.html#GUID-55F7A91D-2197-467C-9847-82A3308F0392)
+Disk performance can be monitored from inside Oracle Enterprise Manager and via external tools. Documentation which might help is available here:
+- [Using Views to Display Oracle ASM Information](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/views-asm-info.html#GUID-23E1F0D8-ECF5-4A5A-8C9C-11230D2B4AD4)
+- [ASMCMD Disk Group Management Commands (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/asmcmd-diskgroup-commands.html#GUID-55F7A91D-2197-467C-9847-82A3308F0392)
 
 OS level monitoring tools cannot monitor ASM disks as there is no recognizable file system. Freespace monitoring must be done from within Oracle.
 
 **Training Resources on Oracle Automatic Storage Management (ASM)**
 
 Oracle DBAs that are not familiar with Oracle ASM follow the training materials and resources here:
-
-[Sap on Oracle with ASM on Microsoft Azure - Part1 - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-oracle-with-asm-on-microsoft-azure-part1/ba-p/1865024)
-
-[Oracle19c DB \[ ASM \] installation on \[ Oracle Linux 8.3 \] \[ Grid \| ASM \| UDEV \| OEL 8.3 \] \[ VMware \] - YouTube](https://www.youtube.com/watch?v=pRJgiuT-S2M)
-
-[ASM Administrator's Guide (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/automatic-storage-management-administrators-guide.pdf)
-
-[Oracle for SAP Technology Update (April 2022)](https://www.oracle.com/a/ocom/docs/ora4sap-technology-update-5112158.pdf)
-
-[Performance and Scalability Considerations for Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/performance-scability-diskgroup.html#GUID-BC6544D7-6D59-42B3-AE1F-4201D3459ADD)
-
-[Migrating to Oracle ASM with Oracle Enterprise Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/admin-asm-em.html#GUID-002546C0-7D5F-46E9-B3AD-CDCFF25AFEA0)
-
-[Using RMAN to migrate to ASM \| The Oracle Mentor (wordpress.com)](https://theoraclementor.wordpress.com/2013/07/07/using-rman-to-migrate-to-asm/)
-
-[<u>What is Oracle ASM to Azure IaaS? - Simple Talk (red-gate.com)</u>](https://www.red-gate.com/simple-talk/databases/oracle-databases/what-is-oracle-asm-to-azure-iaas/)
-
-[ASM Command-Line Utility (ASMCMD) (oracle.com)](https://docs.oracle.com/cd/B19306_01/server.102/b14215/asm_util.htm)
-
-[Useful asmcmd commands - DBACLASS DBACLASS](https://dbaclass.com/article/useful-asmcmd-commands-oracle-cluster/)
-
-[Moving your SAP Database to Oracle Automatic Storage Management 11g Release 2 - A Best Practices Guide](https://www.sap.com/documents/2016/08/f2e8c029-817c-0010-82c7-eda71af511fa.html)
-
-[Installing and Configuring Oracle ASMLIB Software](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/installing-and-configuring-oracle-asmlib-software.html#GUID-79F9D58F-E5BB-45BD-A664-260C0502D876)
+- [Sap on Oracle with ASM on Microsoft Azure - Part1 - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-oracle-with-asm-on-microsoft-azure-part1/ba-p/1865024)
+- [Oracle19c DB \[ ASM \] installation on \[ Oracle Linux 8.3 \] \[ Grid \| ASM \| UDEV \| OEL 8.3 \] \[ VMware \] - YouTube](https://www.youtube.com/watch?v=pRJgiuT-S2M)
+- [ASM Administrator's Guide (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/automatic-storage-management-administrators-guide.pdf)
+- [Oracle for SAP Technology Update (April 2022)](https://www.oracle.com/a/ocom/docs/ora4sap-technology-update-5112158.pdf)
+- [Performance and Scalability Considerations for Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/performance-scability-diskgroup.html#GUID-BC6544D7-6D59-42B3-AE1F-4201D3459ADD)
+- [Migrating to Oracle ASM with Oracle Enterprise Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/admin-asm-em.html#GUID-002546C0-7D5F-46E9-B3AD-CDCFF25AFEA0)
+- [Using RMAN to migrate to ASM \| The Oracle Mentor (wordpress.com)](https://theoraclementor.wordpress.com/2013/07/07/using-rman-to-migrate-to-asm/)
+- [<u>What is Oracle ASM to Azure IaaS? - Simple Talk (red-gate.com)</u>](https://www.red-gate.com/simple-talk/databases/oracle-databases/what-is-oracle-asm-to-azure-iaas/)
+- [ASM Command-Line Utility (ASMCMD) (oracle.com)](https://docs.oracle.com/cd/B19306_01/server.102/b14215/asm_util.htm)
+- [Useful asmcmd commands - DBACLASS DBACLASS](https://dbaclass.com/article/useful-asmcmd-commands-oracle-cluster/)
+- [Moving your SAP Database to Oracle Automatic Storage Management 11g Release 2 - A Best Practices Guide](https://www.sap.com/documents/2016/08/f2e8c029-817c-0010-82c7-eda71af511fa.html)
+- [Installing and Configuring Oracle ASMLIB Software](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/installing-and-configuring-oracle-asmlib-software.html#GUID-79F9D58F-E5BB-45BD-A664-260C0502D876)
 
 **Azure NetApp Files (ANF) with Oracle dNFS (Direct NFS)**
 
@@ -267,13 +225,12 @@ The combination of Azure VM’s and ANF is a robust and proven combination imple
 
 Databases of 100+ TB are already running productive on this combination. To start, we wrote a detailed blog on how to set up this combination:
 
-[Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
+- [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 
 More general information
 
-[TR-3633: Oracle Databases on NetApp ONTAP \| NetApp](https://www.netapp.com/pdf.html?item=/media/8744-tr3633pdf.pdf)
-
-[NFS best practice and implementation guide \| TR-4067 (netapp.com)](https://www.netapp.com/media/10720-tr-4067.pdf)
+- [TR-3633: Oracle Databases on NetApp ONTAP \| NetApp](https://www.netapp.com/pdf.html?item=/media/8744-tr3633pdf.pdf)
+- [NFS best practice and implementation guide \| TR-4067 (netapp.com)](https://www.netapp.com/media/10720-tr-4067.pdf)
 
 Mirror Log is required on dNFS ANF Production systems.
 
@@ -325,16 +282,15 @@ The disk selection for hosting Oracle's online redo logs should be driven by IOP
 | /oracle/\<SID\>/oraarch<sup>3</sup> | Premium  | None                  | Not needed               |
 | Oracle Home, saptrace, ...          | Premium  | None                  | None                     |
 
-1\. Striping: LVM stripe using RAID0
-2\. During R3load migrations the Host Cache option for SAPDATA should be set to None
-3\. oraarch: LVM is optional
+1. Striping: LVM stripe using RAID0
+2. During R3load migrations the Host Cache option for SAPDATA should be set to None
+3. oraarch: LVM is optional
 
 **Azure Infra: VM Throughput Limits & Azure Disk Storage Options**
 
 **Oracle Automatic Storage Management (ASM)** can evaluate these storage technologies:
 
 1.  Azure Premium Storage – currently the default choice
-2.  Azure Premium Storage SSD v2 – improved throughput and latency [Azure Premium SSD v2 Disk Storage in preview \| Azure Blog and Updates \| Microsoft Azure](https://azure.microsoft.com/blog/azure-premium-ssd-v2-disk-storage-in-preview/)
 3.  Managed Disk Bursting - [Managed disk bursting - Azure Virtual Machines \| Microsoft  Docs](/azure/virtual-machines/disk-bursting)
 4.  Azure Write Accelerator
 5.  Online disk extension for Azure Premium SSD storage is still in progress
@@ -366,7 +322,6 @@ The following recommendations should be followed when selecting a VM type:
 2.  Consider enabling paid **bursting** especially for Redo Log disk(s)
 3.  For ANF, the Network throughput is important as all storage traffic is counted as “Network” rather than Disk throughput
 4.  Review this blog for Network tuning for M-series [Optimizing Network Throughput on Azure M-series VMs HCMT (microsoft.com)](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/optimizing-network-throughput-on-azure-m-series-vms/ba-p/3581129)
-
 5.  Review this [link](/azure/virtual-machines/workloads/oracle/oracle-design) that describes how to use an AWR report to select the correct Azure VM
 6.  Azure Intel Ev5 [Edv5 and Edsv5-series - Azure Virtual Machines \|Microsoft Docs](/azure/virtual-machines/edv5-edsv5-series#edsv5-series)
 7.  Azure AMD Eadsv5 [Easv5 and Eadsv5-series - Azure Virtual Machines \|Microsoft Docs](/azure/virtual-machines/easv5-eadsv5-series#eadsv5-series)
@@ -377,9 +332,9 @@ The following recommendations should be followed when selecting a VM type:
 
 For backup/restore functionality, the SAP BR\*Tools for Oracle are supported in the same way as they are on bare metal and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restores from disk.
 
-For more information about how you can use Azure Backup and Recovery services for Oracle databases, see [<u>Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine</u>](/azure/virtual-machines/workloads/oracle/oracle-overview).
-
-[<u>Azure Backup service</u>](/azure/backup/backup-overview) is also supporting Oracle backups as described in the article [<u>Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup</u>](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup).
+For more information about how you can use Azure Backup and Recovery services for Oracle databases, see:
+-  [<u>Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine</u>](/azure/virtual-machines/workloads/oracle/oracle-overview)
+- [<u>Azure Backup service</u>](/azure/backup/backup-overview) is also supporting Oracle backups as described in the article [<u>Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup</u>](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup).
 
 **High availability**
 
@@ -395,9 +350,7 @@ VLDB SAP on Oracle on Azure deployments apply SGA sizes in excess of 3TB.  Mode
 
 As general guidance Linux Huge Pages should be configured to approximately 75% of the VM RAM size.  The SGA size can be set to 90% of the Huge Page size.  A approximate example would be a m192ms VM with 4 TB of RAM would have Huge Pages set proximately 3 TB.  The SGA can be set to a value a little less such as 2.95 TB.
 
-Large SAP customers running on High Memory Azure VMs greatly benefit from HugePages 
-
-[https://www.carajandb.com/en/blog/2016/7-easy-steps-to-configure-hugepages-for-your-oracle-database-...](https://www.carajandb.com/en/blog/2016/7-easy-steps-to-configure-hugepages-for-your-oracle-database-server/)
+Large SAP customers running on High Memory Azure VMs greatly benefit from HugePages as described in this [article](https://www.carajandb.com/en/blog/2016/7-easy-steps-to-configure-hugepages-for-your-oracle-database-server/)
 
 NUMA systems vm.min_free_kbytes should be set to 524288 \* \<# of NUMA nodes\>.  [See Oracle Linux : Recommended Value of vm.min_free_kbytes Kernel Tuning Parameter (Doc ID 2501269.1...](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=79485198498171&parent=EXTERNAL_SEARCH&sourceId=HOWTO&id=2501269.1&_afrWindowMode=0&_adf.ctrl-state=mvhajwq3z_4)
 
@@ -406,10 +359,8 @@ NUMA systems vm.min_free_kbytes should be set to 524288 \* \<# of NUMA nodes\>.�
 **Links & other Oracle Linux Utilities**
 
 Oracle Linux provides a useful GUI management utility
-
-Oracle web console [Oracle Linux: Install Cockpit Web Console on Oracle Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/obe-cockpit-install/index.html#want-to-learn-more)
-
-Upstream [Cockpit Project — Cockpit Project (cockpit-project.org)](https://cockpit-project.org/)
+- Oracle web console [Oracle Linux: Install Cockpit Web Console on Oracle Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/obe-cockpit-install/index.html#want-to-learn-more)
+- Upstream [Cockpit Project — Cockpit Project (cockpit-project.org)](https://cockpit-project.org/)
 
  
 
@@ -436,8 +387,8 @@ Information on UDEV Log Corruption issue [Oracle Redolog corruption on Azure \| 
 SAP on Oracle on Azure also supports Windows. The recommendations for Windows deployments are summarized below:
 
 1.  The following Windows releases are recommended:
-> Windows Server 2022 (only from Oracle Database 19.13.0 on)
-> Windows Server 2019 (only from Oracle Database 19.5.0 on)
+> > Windows Server 2022 (only from Oracle Database 19.13.0 on)
+> > Windows Server 2019 (only from Oracle Database 19.5.0 on)
 2.  There is no support for ASM on Windows. Windows Storage Spaces should be used to aggregate disks for optimal performance
 3.  Install the Oracle Home on a dedicated independent disk (do not install Oracle Home on the C: Drive)
 4.  All disks must be formatted NTFS
@@ -457,9 +408,9 @@ At the time, of writing ASM for Windows customers on Azure is not supported. SWP
 | H:\oracle\\\<SID\>\oraarch<sup>3</sup>  | Premium  | None                  | Not needed               |
 | I:\Oracle Home, saptrace, ...           | Premium  | None                  | None                     |
 
-1\. Striping: Windows Storage Spaces
-2\. During R3load migrations the Host Cache option for SAPDATA should be set to None
-3\. oraarch: Windows Storage Spaces is optional
+1. Striping: Windows Storage Spaces
+2. During R3load migrations the Host Cache option for SAPDATA should be set to None
+3. oraarch: Windows Storage Spaces is optional
 
 The disk selection for hosting Oracle's online redo logs should be driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on a single mounted disk as long as the volume, IOPS, and throughput satisfy the requirements.
 
@@ -475,19 +426,15 @@ The disk selection for hosting Oracle's online redo logs should be driven by IOP
 | J:\oracle\\\<SID\>\oraarch<sup>3</sup> | Premium  | None                  | Not needed               |
 | K:\Oracle Home, saptrace, ...          | Premium  | None                  | None                     |
 
-1\. Striping: Windows Storage Spaces
-2\. During R3load migrations the Host Cache option for SAPDATA should be set to None
-3\. oraarch: Windows Storage Spaces is optional
+1. Striping: Windows Storage Spaces
+2. During R3load migrations the Host Cache option for SAPDATA should be set to None
+3. oraarch: Windows Storage Spaces is optional
 
 **Links for Oracle on Windows**
-
-[Overview of Windows Tuning (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntqrf/overview-of-windows-tuning.html#GUID-C0A0EC5D-65DD-4693-80B1-DA2AB6147AB9)
-
-[Postinstallation Configuration Tasks on Windows (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntqrf/postinstallation-configuration-tasks-on-windows.html#GUID-ECCA1626-A624-48E4-AB08-3D1F6419709E)
-
-[SAP on Windows Presentation (oracle.com)](https://www.oracle.com/technetwork/topics/dotnet/tech-info/oow2015-windowsdb-bestpracticesperf-2757613.pdf)
-
-[2823030 - Oracle on MS WINDOWS Large Pages](https://launchpad.support.sap.com/#/notes/2823030)
+- [Overview of Windows Tuning (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntqrf/overview-of-windows-tuning.html#GUID-C0A0EC5D-65DD-4693-80B1-DA2AB6147AB9)
+- [Postinstallation Configuration Tasks on Windows (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntqrf/postinstallation-configuration-tasks-on-windows.html#GUID-ECCA1626-A624-48E4-AB08-3D1F6419709E)
+- [SAP on Windows Presentation (oracle.com)](https://www.oracle.com/technetwork/topics/dotnet/tech-info/oow2015-windowsdb-bestpracticesperf-2757613.pdf)
+ [2823030 - Oracle on MS WINDOWS Large Pages](https://launchpad.support.sap.com/#/notes/2823030)
 
 ## Next steps
 Read the article 
