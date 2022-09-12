@@ -255,7 +255,7 @@ groups:
     title: Python
   - id: programming-language-embedded-c
     title: Embedded C
-- id: enrollment-groups
+- id: enrollment-group
 # Owner: v-krishnag
   title: Enrollment groups
   prompt: Choose an enrollment-group

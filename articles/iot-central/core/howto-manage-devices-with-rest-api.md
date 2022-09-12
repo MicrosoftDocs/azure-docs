@@ -7,7 +7,7 @@ ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-zone_pivot_groups: enrollment-groups
+zone_pivot_groups: enrollment-group
 
 ---
 
@@ -674,7 +674,7 @@ PUT https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509
 
 Use this request to add either a primary or secondary X.509 certificate to the enrollment group.
 
-The following example shows a request body that adds a X.509 certificate to a enrollment group:
+The following example shows a request body that adds a X.509 certificate to an enrollment group:
 
 ```json
 {
