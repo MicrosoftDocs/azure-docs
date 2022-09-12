@@ -35,15 +35,15 @@ Form Recognizer SDK supports the following languages and platforms:
 ## Supported Clients
 
 | Language| SDK version | API version | Supported clients|
-| :------ | :-----------:|:----------: | :-----------------|
-|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 4.0.0 (latest GA release)| v3.0 (default)| <ul><li> **DocumentAnalysisClient**</li><li>**DocumentModelAdministrationClient**</li></ul> |
-|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 4.0.0 (latest GA release)| v2.1, v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
-|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 3.1.x | v2.1 (default), v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
-|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 3.0.x | v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
-|<ul><li> Python</li></ul>| 3.2.0 (latest GA release) | v3.0 (default) | <ul><li> **DocumentAnalysisClient**</li><li>**DocumentModelAdministrationClient**</li></ul>|
-|<ul><li> Python</li></ul>| 3.2.0 (latest GA release) | v2.1, v2.0  | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
-|<ul><li> Python </li></ul>| 3.1.x | v2.1 (default), v2.0 |<ul><li>**FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
-|<ul><li> Python</li></ul>| 3.0.0 | v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+| :------ | :-----------|:---------- | :-----------------|
+|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| <ul><li>4.0.0 (latest GA release)</li></ul>| <ul><li> v3.0 (default)</li></ul>| <ul><li> **DocumentAnalysisClient**</li><li>**DocumentModelAdministrationClient**</li></ul> |
+|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| <ul><li>4.0.0 (latest GA release)</li></ul>| <ul><li> v2.1</li><li>v2.0</li></ul>  | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| <ul><li>3.1.x</li></ul> | <ul><li> v2.1 (default)</li><li>v2.0</li></ul> | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| <ul><li>3.0.x</li></ul>| <ul><li>v2.0</li></ul> | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+|<ul><li> Python</li></ul>| <ul><li>3.2.0 (latest GA release)</li></ul> | <ul><li> v3.0 (default)</li></ul> | <ul><li> **DocumentAnalysisClient**</li><li>**DocumentModelAdministrationClient**</li></ul>|
+|<ul><li> Python</li></ul>| <ul><li>3.2.0 (latest GA release)</li></ul> | <ul><li> v2.1</li><li>v2.0</li></ul>  | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+|<ul><li> Python </li></ul>| <ul><li>3.1.x</li></ul> | <ul><li> v2.1 (default)</li><li>v2.0</li></ul> |<ul><li>**FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+|<ul><li> Python</li></ul>| <ul><li>3.0.0</li></ul> | <ul><li>v2.0</li></ul>| <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
 
 ## Changelog and release history
 
