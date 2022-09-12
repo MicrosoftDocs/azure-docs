@@ -305,8 +305,8 @@ print(f"Retrieving your secrets from {keyVaultName}.")
 retrieved_key = kv_client.get_secret(keySecretName).value
 retrieved_endpoint = kv_client.get_secret(endpointSecretName).value
 
-print(f"Your secret key value is {retrieved_key}.")
-print(f"Your secret endpoint value is {retrieved_endpoint}.")
+print(f"Your secret key value is {retrieved_key}.");
+print(f"Your secret endpoint value is {retrieved_endpoint}.");
 
 ```
 
@@ -599,4 +599,3 @@ If you're using a multi-service resource or Language resource, you can update [y
     * [Best practices for using Azure Key Vault](/azure/key-vault/general/best-practices)
     * [Cognitive Services security](cognitive-services-security.md)
     * [Azure security baseline for Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json)
-   
