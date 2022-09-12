@@ -22,7 +22,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Removing security alerts for machines reporting to cross tenant Log Analytics workspaces](#removing-security-alerts-for-machines-reporting-to-cross-tenant-log-analytics-workspaces) | September 2022 |
 | [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation) | September 2022 |
 
-### Change in pricing of runtime protection for Arc-enabled Kubernetes clusters
 
 ### Multiple changes to identity recommendations
 
