@@ -3,7 +3,7 @@ title: What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Se
 description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
-ms.date: 09/11/2022
+ms.date: 09/12/2022
 ---
 
 # What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer? 
@@ -18,7 +18,7 @@ The Cloud Security Graph is a graph-based context engine that exists within Defe
 
 Defender for Cloud then uses the generated graph to perform an attack path analysis and find the issues with the highest risk that exist within your environment. You can also query the graph using the explorer.  
 
-:::image type="content" source="media/concept-cloud-map/security-map.png" alt-text="Image of a conceptualized graph that shows the complexity of security graphing." lightbox="media/concept-cloud-map/:::image type="content" source="media/concept-cloud-map/security-map.png" alt-text="security-map":::.png":::
+:::image type="content" source="media/concept-cloud-map/security-map.png" alt-text="Image of a conceptualized graph that shows the complexity of security graphing." lightbox="media/concept-cloud-map/security-map.png":::
 
 ## What is Attack Path Analysis
 
