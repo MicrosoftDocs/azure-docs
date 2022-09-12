@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 09/08/2022
 ---
 
-# Access deprecated Troubleshooting Guides in Azure Workbooks
+# Access deprecated Troubleshooting guides in Azure Workbooks
 
-Troubleshooting guides are now deprecated, and the **Troubleshooting Guides** menu item is no longer available. You can still access the troubleshooting guides in the Azure Workbooks menu on the left. 
+Troubleshooting guides are now deprecated, and the **Troubleshooting guides** menu item is no longer available. You can still access the troubleshooting guides in the Azure Workbooks menu on the left. 
 
   :::image type="content" source="media/workbooks-access-troubleshooting-guides/workbooks-tsg-menu.png" alt-text="Screenshot of Troubleshooting guides icon in the menu. ":::
 
@@ -29,7 +29,7 @@ Use the 'Change Type' feature to change workbook types and move them from the Tr
 
 1. A success status popup window appears in the top right corner. It may take up to a minute for the change to be reflected in the gallery.
 
-1. The workbook that was previously a `Troubleshooting Guide` and resided in the Troubleshooting Guides gallery is now in the Workbooks gallery.
+1. The workbook that was previously a `Troubleshooting guide` and resided in the Troubleshooting guides gallery is now in the Workbooks gallery.
 
     :::image type="content" source="media/workbooks-access-troubleshooting-guides/workbooks-tsg-done.png" alt-text="Screenshot showing the troubleshooting guide in the Workbooks gallery. ":::
 
