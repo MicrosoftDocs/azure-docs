@@ -73,7 +73,7 @@ You should be prepared to run multiple rounds of RoboCopy against a given namesp
 
 The RoboCopy switch `/LFSM` can be used to avoid a RoboCopy job failing with a *volume full* error. RoboCopy will pause whenever a file copy would cause the destination volume's free space to go below a "floor" value.
 
-Use RoboCopy on a Wndows Server 2022. Only this version of RoboCopy contains important bug fixes and features that make the switch compatible with additional flags needed in most migrations. For example compatibility with the `/B` flag.
+Use RoboCopy with Windows Server 2022. Only this version of RoboCopy contains important bug fixes and features that make the switch compatible with additional flags needed in most migrations. For example, compatibility with the `/B` flag.
 
 `/B` runs RoboCopy in the same mode that a backup application would use. This switch allows RoboCopy to move files that the current user doesn't have permissions for. 
 
