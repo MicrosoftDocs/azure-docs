@@ -29,7 +29,7 @@ A Service Fabric cluster offers several entry points to its management functiona
 > It is a [known issue](https://github.com/microsoft/service-fabric/issues/399) that applications and nodes on Linux AAD-enabled clusters cannot be viewed in Azure Portal.
 
 > [!NOTE]
-> Azure Active Directory now requires an application (app registration) publishers domain to be verified or use of default scheme. See [Configure an application's publisher domain](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain) and [AppId Uri in single tenant applications will require use of default scheme or verified domains](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-breaking-changes#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains) for additional information.
+> Azure Active Directory now requires an application (app registration) publishers domain to be verified or use of default scheme. See [Configure an application's publisher domain](../active-directory/develop/howto-configure-publisher-domain) and [AppId Uri in single tenant applications will require use of default scheme or verified domains](../active-directory/develop/reference-breaking-changes#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains) for additional information.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ Run `SetupApplications.ps1`, provide the tenant ID, cluster name, web applicatio
 
 - **webApplicationReplyUrl:** *WebApplicationReplyUrl* is the default endpoint that Azure AD returns to your users after they finish signing in. Set this endpoint as the Service Fabric Explorer endpoint for your cluster. If you are creating Azure AD applications to represent an existing cluster, make sure this URL matches your existing cluster's endpoint. If you are creating applications for a new cluster, plan the endpoint your cluster will have and make sure not to use the endpoint of an existing cluster. By default the Service Fabric Explorer endpoint is: `https://<cluster_domain>:19080/Explorer`
 
-- **webApplicationUri:** *WebApplicationUri* is either the uri of a 'verified domain' or uri using api scheme format of api://{{tenant Id}}/{{cluster name}}. See [AppId Uri in single tenant applications will require use of default scheme or verified domains](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-breaking-changes#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains) for additional information.
+- **webApplicationUri:** *WebApplicationUri* is either the uri of a 'verified domain' or uri using api scheme format of api://{{tenant Id}}/{{cluster name}}. See [AppId Uri in single tenant applications will require use of default scheme or verified domains](../active-directory/develop/reference-breaking-changes#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains) for additional information.
 
   Example api scheme: api://0e3d2646-78b3-4711-b8be-74a381d9890c/mysftestcluster
 
@@ -164,7 +164,8 @@ $resourceGroupName = 'mysftestcluster'
   -resourceGroupName $resourceGroupName
 ```
 
-> [!NOTE] Update cluster provisioning ARM templates or scripts with new cluster resource AAD configuration changes.
+> [!NOTE] 
+> Update cluster provisioning ARM templates or scripts with new cluster resource AAD configuration changes.
 
 ---
 
@@ -172,9 +173,9 @@ $resourceGroupName = 'mysftestcluster'
 
 It may be necessary to 'Grant admin consent' for the 'API permissions' being configured. Navigate to [Azure App registrations](https://ms.portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps) blade and add name of cluster to the filter. For both registrations, open 'API permissions', and select 'Grant admin consent for' if available.
 
-![](media/service-fabric-cluster-creation-setup-aad/portal-client-api-grant.png)
+![api-grant](media/service-fabric-cluster-creation-setup-aad/portal-client-api-grant.png)
 
-![](media/service-fabric-cluster-creation-setup-aad/portal-client-api-grant-confirm.png)
+![api-grant-confirm](media/service-fabric-cluster-creation-setup-aad/portal-client-api-grant-confirm.png)
 
 ---
 
@@ -187,7 +188,8 @@ Navigate to the Service Fabric Explorer (SFX) url. This should be the same as pa
 
 Setting up Azure AD and using it can be challenging, so here are some pointers on what you can do to debug the issue. Powershell transcript logging can be enabled by using the '-logFile' argument on 'SetupApplications.ps1' and 'SetupUser.ps1' scripts to review output.
 
-> [!NOTE] With migration of Identities platforms (ADAL to MSAL), deprecation of AzureRM in favor of Azure AZ, and supporting multiple versions of PowerShell, dependencies may not always be correct or up to date causing errors in script execution. Running PowerShell commands and scripts from Azure cloud shell reduces the potential for errors with session auto authentication and managed identity.
+> [!NOTE] 
+> With migration of Identities platforms (ADAL to MSAL), deprecation of AzureRM in favor of Azure AZ, and supporting multiple versions of PowerShell, dependencies may not always be correct or up to date causing errors in script execution. Running PowerShell commands and scripts from Azure cloud shell reduces the potential for errors with session auto authentication and managed identity.
 
 [![Launch Cloud Shell](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com/powershell)
 
