@@ -40,7 +40,7 @@ Before you start, see the [Recommendations](#recommendations) section (that foll
    > [!NOTE]
    > New users are automatically subscribed to Authorization.
 	
-   After you subscribe, you can find your subscription under **Products** -> **Authorization**. In the subscription page, you will find the primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
+   After you subscribe, you can find your subscription under **Products** -> **Profile**. In the subscription page, you will find the primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
 
    ![Subscription and keys in Video Indexer Developer Portal](./media/video-indexer-use-apis/subscriptions.png)
 
