@@ -18,8 +18,8 @@ ms.date: 08/29/2022
 [!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
-> * [v1](how-to-configure-private-link.md)
-> * [v2 (current version)](../how-to-configure-private-link.md)
+> * [CLI or SDK v1](how-to-configure-private-link.md)
+> * [CLI v2 (current version)](../how-to-configure-private-link.md)
 
 In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
@@ -85,7 +85,7 @@ ws = Workspace.create(name='myworkspace',
 ```
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 
 If you're using the Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md), use the [az ml workspace create](/cli/azure/ml/workspace#az-ml-workspace-create) command. The following parameters for this command can be used to create a workspace with a private network, but it requires an existing virtual network:
@@ -137,7 +137,7 @@ ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approv
 For more information on the classes and methods used in this example, see [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) and [Workspace.add_private_endpoint](/python/api/azureml-core/azureml.core.workspace(class)#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-).
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint add](/cli/azure/ml(v1)/workspace/private-endpoint#az-ml-workspace-private-endpoint-add) command.
 
@@ -174,7 +174,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 ```
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint delete](/cli/azure/ml(v1)/workspace/private-endpoint#az-ml-workspace-private-endpoint-delete) command.
 

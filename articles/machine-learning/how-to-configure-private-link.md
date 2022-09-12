@@ -18,8 +18,8 @@ ms.date: 08/29/2022
 [!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
-> * [v1](v1/how-to-configure-private-link.md)
-> * [v2 (current)](how-to-configure-private-link.md)
+> * [CLI or SDK v1](v1/how-to-configure-private-link.md)
+> * [CLI v2 (current)](how-to-configure-private-link.md)
 
 In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
