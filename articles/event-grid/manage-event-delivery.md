@@ -128,6 +128,9 @@ New-AzEventGridSubscription `
 > [!NOTE]
 > If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 10 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 10 attempts, whichever happens first, the event is dead-lettered.  
 
+## Managed identity
+If you enable managed identity for dead-lettering, you'll need to add the managed identity to the appropriate role-based access control (RBAC) role on the Azure Storage account that will hold the dead-lettered events. For more information, see [Supported destinations and Azure roles](add-identity-roles.md#supported-destinations-and-azure-roles).
+
 ## Next steps
 
 * For a sample application that uses an Azure Function app to process dead letter events, see [Azure Event Grid Dead Letter Samples for .NET](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).

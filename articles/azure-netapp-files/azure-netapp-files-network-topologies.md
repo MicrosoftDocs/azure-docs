@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/26/2022
+ms.date: 09/09/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -51,6 +51,7 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   North Europe
 *   Norway East
 *	South Central US
+*   South India 
 *   Southeast Asia
 *   Switzerland North
 *   UK South
@@ -83,10 +84,7 @@ The following table describes what’s supported for each network features confi
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only   supported)    |     No <br> (IPv4 only supported)    |
 
 > [!IMPORTANT]
-> Upgrade from Basic to Standard network feature is not currently supported.
-
-> [!IMPORTANT]
-> Conversion between Basic and Standard networking features is not currently supported.
+> Conversion between Basic and Standard networking features in either direction is not currently supported.
 
 ### Supported network topologies
 

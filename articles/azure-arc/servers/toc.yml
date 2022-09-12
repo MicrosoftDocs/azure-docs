@@ -125,8 +125,6 @@
       href: troubleshoot-vm-extensions.md
 - name: Reference
   items:
-  - name: Data residency
-    href: data-residency.md
   - name: Azure CLI
     href: /cli/azure/connectedmachine
   - name: Azure PowerShell
