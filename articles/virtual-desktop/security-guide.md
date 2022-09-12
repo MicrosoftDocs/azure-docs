@@ -90,7 +90,7 @@ Monitor your Azure Virtual Desktop service's usage and availability with [Azure 
 
 ### Encrypt your VM
 
-Encrypt your VM with [managed disk encryptio options](https://docs.microsoft.com/azure/virtual-machines/disk-encryption-overview) to protect stored data from unauthorized access. 
+Encrypt your VM with [managed disk encryptio options](../azure/virtual-machines/disk-encryption-overview.md) to protect stored data from unauthorized access. 
 
 ## Session host security best practices
 
