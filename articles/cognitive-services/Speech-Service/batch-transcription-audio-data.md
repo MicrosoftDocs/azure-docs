@@ -1,7 +1,7 @@
 ---
 title: Locate audio files for batch transcription - Speech service
 titleSuffix: Azure Cognitive Services
-description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure blobs. Then you can asynchronously retrieve transcriptions.
+description: Batch transcription is used to transcribe a large amount of audio in storage. You should provide multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe.
 services: cognitive-services
 manager: nitinme
 author: eric-urban

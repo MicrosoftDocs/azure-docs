@@ -1,7 +1,7 @@
 ---
 title: Create a batch transcription - Speech service
 titleSuffix: Azure Cognitive Services
-description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure blobs. Then you can asynchronously retrieve transcriptions.
+description: With batch transcriptions, you submit the audio, and then retrieve transcription results asynchronously.
 services: cognitive-services
 manager: nitinme
 author: eric-urban
@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 09/11/2022
-zone_pivot_groups: speech-studio-cli-rest
+zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
 ---
 
