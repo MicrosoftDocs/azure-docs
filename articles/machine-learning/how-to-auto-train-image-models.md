@@ -393,6 +393,7 @@ search_space:
 # [Python SDK](#tab/python)
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
+---
 
 ### Define the parameter search space
 
