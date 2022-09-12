@@ -30,6 +30,8 @@ This article reviews the different options available depending if you are planni
 
 - The `aks-preview` extension version 0.5.102 or later.
 
+- [Azure Identity](../active-directory/develop/reference-v2-libraries.md) client library version 1.6 or later.
+
 ## How it works
 
 In this security model, the AKS cluster acts as token issuer, Azure Active Directory leverages OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library or the Microsoft Authentication Library.
@@ -46,6 +48,44 @@ The following table describes the required OIDC issuer endpoints for Azure AD Wo
 The following diagram summarizes the authentication sequence using OpenID Connect.
 
 :::image type="content" source="media/security-workload-identity-migration/aks-workload-identity-oidc-authentication-model.png" alt-text="Diagram of the AKS workload identity OIDC authentication sequence.":::
+
+## Service account labels and annotations
+
+The following is a list of available labels and annotations that can be used to configure the behavior when exchanging the service account token for an AAD access token.
+
+### Service account labels
+
+|Label |Description |Recommended value |Required |
+|------|------------|------------------|---------|
+|azure.workload.identity/use |Represents the service account<br> is to be used for workload identity. |true |Yes |
+
+### Service account annotations
+
+|Annotation |Description |Default |
+|-----------|------------|--------|
+|azure.workload.identity/client-id |Represents the Azure AD application<br> client ID to be used with the pod. ||
+|azure.workload.identity/tenant-id |Represents the Azure tenant ID<br> where the Azure AD application is registered. |AZURE_TENANT_ID environment variable extracted<br> from azure-wi-webhook-config ConfigMap.|
+|azure.workload.identity/service-account-token-expiration |Represents the `expirationSeconds` field<br>
+for the projected service account token. It is an optional field that you configure to prevent downtime<br>
+caused by errors during service account token refresh. Kubernetes service account token expiry are not<br>
+correlated with Azure AD tokens. Azure AD tokens expire in 24 hours after they are issued. |3600. Supported range is 3600-86400.|
+
+### Pod annotations
+
+|Annotation |Description |Default |
+|-----------|------------|--------|
+|azure.workload.identity/service-account-token-expiration |Represents the `expirationSeconds` field<br>
+for the projected service account token. It's an optional field that you configure to prevent any downtime<br>
+caused by errors during service account token refresh. Kubernetes service account token expiry are not<br>
+correlated with Azure AD tokens. Azure AD tokens expire in 24 hours after they are issued.[^1] |3600. Supported range is 3600-86400. |
+|azure.workload.identity/skip-containers |Represents a semi-colon-separated list of containers,<br>
+(for example container1;container2) to skip adding projected service account token volume. |By default, the projected service account token volume is added to all containers if the service account is labeled with `azure.workload.identity/use: true`. |
+|azure.workload.identity/inject-proxy-sidecar |Injects a proxy init container and proxy sidecar<br>
+into the pod. The proxy sidecar is used to intercept token requests to IMDS and acquire an Azure AD<br>
+token on behalf of the user with federated identity credential. |true |
+|azure.workload.idenityt/proxy-sidecar-port |Represents the port of the proxy sidecar. |8080 |
+
+[^1] Takes precedence if the service account is also annotated.
 
 ## How to migrate to Workload Identity
 
@@ -98,11 +138,9 @@ spec:
 
 ## How setup a new AKS cluster with Workload Identity
 
-If your application is already running [Azure Identity](../active-directory/develop/reference-v2-libraries.md) client library version 1.6 or later, which supports OIDC authentication, you can follow the steps below to create a new cluster with Workload Identity enabled. You can then install your application.
+If your application is already running [Azure Identity](../active-directory/develop/reference-v2-libraries.md) client library version 1.6 or later, which supports OIDC authentication, you can follow the steps below to create a new cluster with Workload Identity enabled. You can then install your application. If you are not running the minimum supported SDK version, you can upgrade and then deploy, or deploy the migration sidecar.
 
-If you are not running the minimum supported SDK version, you can upgrade and then deploy, or deploy the migration sidecar.
-
- from a Greenfield perspective if a customer application is running that version, they can just deploy workload identity and then there application.  If they are not running the minimum supported SDK version above they can upgrade and then deploy, or just deploy the sidecar (which will proxy IMDS calls there legacy SDK is making over to OIDC).  
+### Deploy a new cluster with Workload Identity
 
 1. Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
