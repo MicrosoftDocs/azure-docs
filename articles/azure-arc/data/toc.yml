@@ -84,6 +84,8 @@ items:
           href: upload-usage-data.md
         - name: Monitor with Grafana & Kibana
           href: monitor-grafana-kibana.md
+        - name: Deploy telemetry router 
+          href: deploy-telemetry-router.md
         - name: Upload to Azure Monitor
           items:
             - name: Upload prerequisites
