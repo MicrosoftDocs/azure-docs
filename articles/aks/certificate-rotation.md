@@ -40,19 +40,19 @@ Certificates mentioned above are maintained by Microsoft, except the cluster cer
 > kubectl config view --raw -o jsonpath="{.users[?(@.name == 'clusterUser_rg_myAKSCluster')].user.client-certificate-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
 
-* Check expiration date of apiserver certificate
+* To check expiration date of apiserver certificate, run the following command:
 
 ```console
 curl https://{apiserver-fqdn} -k -v 2>&1 |grep expire
 ```
 
-* Check expiration date of certificate on VMAS agent node
+* To check the expiration date of certificate on VMAS agent node, run the following command:
 
 ```azurecli
 az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
 ```
 
-* Check expiration date of certificate on one virtual machine scale set agent node
+* To check expiration date of certificate on one virtual machine scale set agent node, run the following command:
 
 ```azurecli
 az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-id 0 --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
@@ -110,27 +110,27 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > It may take up to 30 minutes for `az aks rotate-certs` to complete. If the command fails before completing, use `az aks show` to verify the status of the cluster is *Certificate Rotating*. If the cluster is in a failed state, rerun `az aks rotate-certs` to rotate your certificates again.
 
-Verify that the old certificates are no longer valid by running a `kubectl` command. Since you have not updated the certificates used by `kubectl`, you will see an error.  For example:
+Verify that the old certificates aren't valid by running any `kubectl` command. If you haven't updated the certificates used by `kubectl`, you'll see an error similar to the following example:
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
 Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "ca")
 ```
 
-Update the certificate used by `kubectl` by running `az aks get-credentials`.
+To update the certificate used by `kubectl`, run the [az aks get-credentials][az-aks-get-credentials] command:
 
 ```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Verify the certificates have been updated by running a `kubectl` command, which will now succeed. For example:
+To verify the certificates have been updated, run the following [kubectl get][kubectl-get] command:
 
 ```console
 kubectl get nodes
 ```
 
 > [!NOTE]
-> If you have any services that run on top of AKS, you may need to update certificates related to those services as well.
+> If you have any services that run on top of AKS, you might need to update their certificates.
 
 ## Next steps
 
@@ -138,6 +138,7 @@ This article showed you how to automatically rotate your cluster's certificates,
 
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
