@@ -12,6 +12,9 @@ ms.custom: mvc
 
 In this article, you learn how Azure Functions allows you to build highly scalable APIs. Azure Functions comes with a collection of built-in HTTP triggers and bindings, which make it easy to author an endpoint in a variety of languages, including Node.js, C#, and more. In this article, you'll customize an HTTP trigger to handle specific actions in your API design. You'll also prepare for growing your API by integrating it with Azure Functions Proxies and setting up mock APIs. These tasks are accomplished on top of the Functions serverless compute environment, so you don't have to worry about scaling resources - you can just focus on your API logic.
 
+> [!IMPORTANT] 
+> This article currently features Functions proxies, which is a legacy feature of Functions [runtime versions](./functions-versions.md) 1.x to 3.x. Proxies are only supported in version 4.x to allow you to successfully upgrade your function apps to the latest runtime version. To take advantage of a more complete set of API behaviors, you should switch to using [Azure API Management](../api-management/api-management-key-concepts.md) for exposing and managing your APIs at the earliest possible convenience. For more information, see [Serverless REST APIs using Azure Functions](functions-proxies.md).
+
 ## Prerequisites 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
@@ -126,7 +129,7 @@ Next, you'll use a proxy to create a mock API for your solution. This proxy allo
 
 To create this mock API, we'll create a new proxy, this time using the [App Service Editor](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). To get started, navigate to your function app in the portal. Select **Platform features**, and under **Development Tools** find **App Service Editor**. The App Service Editor opens in a new tab.
 
-Select `proxies.json` in the left navigation. This file stores the configuration for all of your proxies. If you use one of the [Functions deployment methods](./functions-continuous-deployment.md), you maintain this file in source control. To learn more about this file, see [Proxies advanced configuration](./functions-proxies.md#advanced-configuration).
+Select `proxies.json` in the left navigation. This file stores the configuration for all of your proxies. If you use one of the [Functions deployment methods](./functions-continuous-deployment.md), you maintain this file in source control. To learn more about this file, see [Proxies advanced configuration](./legacy-proxies.md#advanced-configuration).
 
 If you've followed along so far, your proxies.json should look like as follows:
 
@@ -180,7 +183,7 @@ Next, you'll add your mock API. Replace your proxies.json file with the followin
 }
 ```
 
-This code adds a new proxy, `GetUserByName`, without the `backendUri` property. Instead of calling another resource, it modifies the default response from Proxies using a response override. Request and response overrides can also be used in conjunction with a backend URL. This technique is particularly useful when proxying to a legacy system, where you might need to modify headers, query parameters, and so on. To learn more about request and response overrides, see [Modifying requests and responses in Proxies](./functions-proxies.md).
+This code adds a new proxy, `GetUserByName`, without the `backendUri` property. Instead of calling another resource, it modifies the default response from Proxies using a response override. Request and response overrides can also be used in conjunction with a backend URL. This technique is particularly useful when proxying to a legacy system, where you might need to modify headers, query parameters, and so on. To learn more about request and response overrides, see [Modifying requests and responses in Proxies](./legacy-proxies.md).
 
 Test your mock API by calling the `<YourProxyApp>.azurewebsites.net/api/users/{username}` endpoint using a browser or your favorite REST client. Be sure to replace _{username}_ with a string value representing a username.
 
@@ -196,4 +199,4 @@ The following references may be helpful as you develop your API further:
 
 
 [Create your first function]: ./functions-get-started.md
-[Working with Azure Functions Proxies]: ./functions-proxies.md
+[Working with Azure Functions Proxies]: ./legacy-proxies.md
