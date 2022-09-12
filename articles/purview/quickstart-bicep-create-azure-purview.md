@@ -12,7 +12,7 @@ ms.service: purview
 
 This quickstart describes the steps to deploy a Microsoft Purview (formerly Azure Purview) account using a Bicep file.
 
-After you've created the account, you can begin registering your data sources and using the Microsoft Purview governance portal to understand and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end data linage. Data consumers are able to discover data across your organization and data administrators are able to audit, secure, and ensure right use of your data.
+After you've created the account, you can begin registering your data sources, and using the Microsoft Purview governance portal to understand and govern your data landscape. By connecting to data across your on-premises, multicloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end data linage. Data consumers are able to discover data across your organization and data administrators are able to audit, secure, and ensure right use of your data.
 
 For more information about the governance capabilities of Microsoft Purview, formerly Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md)
 
@@ -56,7 +56,7 @@ The Bicep file performs the following tasks:
 
     ---
 
-You will be prompted to enter the following values:
+You'll be prompted to enter the following values:
 
 * Purview name: enter a name for the Azure Purview account.
 
