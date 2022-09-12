@@ -16,8 +16,6 @@ Sometimes the Front Door Web Application Firewall (WAF) might block a legitimate
 
 An exclusion list can be configured by using [Azure PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), the [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az-network-front-door-waf-policy-managed-rules-exclusion-add), the [REST API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), Bicep, ARM templates, and the Azure portal.
 
-::: zone pivot="portal"
-
 ## Scenario
 
 Suppose you've created an API. Your clients send requests to your API that include headers with names like `userid` and `user-id`.
@@ -25,6 +23,8 @@ Suppose you've created an API. Your clients send requests to your API that inclu
 While tuning your WAF, you've noticed that some legitimate requests have been blocked because the user headers included character sequences that the WAF detected as SQL injection attacks. Specifically, rule ID 942230 detects the request headers and blocks the requests. [Rule 942230 is part of the SQLI rule group.](waf-front-door-drs.md#drs942-20)
 
 You decide to create an exclusion to allow these legitimate requests to pass through without the WAF blocking them.
+
+::: zone pivot="portal"
 
 ## Create an exclusion
 
