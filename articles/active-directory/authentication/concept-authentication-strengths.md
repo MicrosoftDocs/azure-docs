@@ -89,8 +89,7 @@ GET https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationSt
 
 ### Custom authentication strengths
 
-In addition to the three built-in authentication strengths, administrators can create their own custom authentication strengths to exactly suit their requirements. A custom authentication strength can contain any of the supported combinations in the preceding table. 
-Deleting a custom authentication strength is not allowed if the authentication strength policy is referenced by any Conditional Access policy.
+In addition to the three built-in authentication strengths, administrators can create up to 15 of their own custom authentication strengths to exactly suit their requirements. A custom authentication strength can contain any of the supported combinations in the preceding table. A custom authentication strength can be edited. But if a custom strength is referenced by a Conditional Access policy, an administrator needs to confirm the edit. A custom authentication strength can't be deleted if it's is referenced by a Conditional Access policy. 
 
 1. In the Azure portal, browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths (Preview)**.
 1. Select **New authentication strength**.
@@ -128,15 +127,13 @@ In addition, users must register or be configured for an authentication method i
 
 The Conditional Access authentication strengths takes the above into consideration when evaluating the user’s access to the resource. For example, an administrator has configured a custom authentication strengths policy that includes FIDO2 Security Key or SMS. The user is accessing a resource protected by this policy. During sign-in we check which methods the user is allowed to use (legacy and new authentication method policy), which methods they have registered and which methods are allowed by the Conditional Access policy.
 
-
-
 ## User experience
 
 <!---Should we add a flowchart or another conceptual diagram to illustrate this?--->
 
 To evaluate if the user should gain access to the resource, the following considerations are taken into account: 
 
-- Which method was used previously?
+- Which method was previously used sign-in?
 - Which methods are available in the authentication strength policy? 
 - Which methods are allowed for user sign-in in the authentication methods policy?
 - Is the user registered for the required methods?
