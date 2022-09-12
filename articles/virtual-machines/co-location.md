@@ -6,7 +6,7 @@ ms.author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.date: 09/12/2022
 ms.reviewer: 
 ---
 
@@ -36,7 +36,7 @@ You can also move an existing resource into a proximity placement group. When mo
 
 In the case of availability sets and virtual machine scale sets, you should set the proximity placement group at the resource level rather than the individual virtual machines. 
 
-A proximity placement group is a colocation constraint rather than a pinning mechanism. It is pinned to a specific data center with the deployment of the first resource to use it. Once all resources using the proximity placement group have been stopped (deallocated) or deleted, it is no longer pinned. Therefore, whenever you use a proximity placement group with multiple VM series, it is important to specify all the required types upfront in a template if possible or follow a deployment sequence, which will improve your chances for a successful deployment. If your deployment fails, restart the deployment with the VM size, which has failed as the first size to be deployed.
+A proximity placement group is a colocation constraint rather than a pinning mechanism. It's pinned to a specific data center with the deployment of the first resource to use it. Once all resources using the proximity placement group have been stopped (deallocated) or deleted, it's no longer pinned. Therefore, whenever you use a proximity placement group with multiple VM series, it's important to specify all the required types upfront in a template if possible or follow a deployment sequence, which will improve your chances for a successful deployment. If your deployment fails, restart the deployment with the VM size, which has failed as the first size to be deployed.
 
 ## Use intent to specify VM sizes
 
@@ -48,7 +48,7 @@ When specifying `intent`, you can also add the optional `zone` parameter to spec
 - The `zone` parameter can only be use with `intent`, it can't be used alone.
 - Only one availability zone can be specified.
 
-Proximity Placement Group creation or update will succeed only when at least one data center supports all the VM Sizes specified in the intent. Otherwise, the creation or update will fail with "OverconstrainedAllocationRequest", indicating that the combination of VM Sizes cannot be supported within a proximity placement group. The **intent does not provide any capacity reservation or guarantee**. The VM Sizes and zone  given in `intent` are used to select an appropriate data center, reducing the chances of failure if the desired VM size isn't available in a data center. Allocation failures can still occur if there is no more capacity for a VM size at the time of deployment. 
+Proximity Placement Group creation or update will succeed only when at least one data center supports all the VM Sizes specified in the intent. Otherwise, the creation or update will fail with "OverconstrainedAllocationRequest", indicating that the combination of VM Sizes can't be supported within a proximity placement group. The **intent does not provide any capacity reservation or guarantee**. The VM Sizes and zone  given in `intent` are used to select an appropriate data center, reducing the chances of failure if the desired VM size isn't available in a data center. Allocation failures can still occur if there is no more capacity for a VM size at the time of deployment. 
 
 ### Best Practices while using intent
 
@@ -60,12 +60,12 @@ Proximity Placement Group creation or update will succeed only when at least one
 ### Intent can be affected with decommissioning
 
 - It is possible that after creating a proximity placement group with intent and before deploying VMs, planned maintenance events such as hardware decommissioning at an Azure datacenter could occur, resulting in the combination of VM Sizes specified in the intent not being available in the data center. In such cases, an "OverconstrainedAllocationRequest" error will occur, even while deploying VMs of sizes specified in the intent. You can try deallocating all the resources in the proximity placement group and recreate them to get a data center that can accommodate the intent. If there is no datacenter with the specified VM Sizes after the decommissioning, you may have to modify the intent to use a different combination of VM Sizes, since the combination of VM sizes is no longer supported.
-- Azure may retire an entire VM family or a specific set of VM sizes. If you have that VM size in the intent, you may have to either remove it or replace it with a different size before the retirement date for that specific VM size. Otherwise, the intent will no longer be valid.
+- Azure may retire an entire VM family or a specific set of VM sizes. If you have such a VM size in the intent, you may have to either remove it or replace it with a different size before the retirement date for the original VM size. Otherwise, the intent will no longer be valid.
 
 ## What to expect when using Proximity Placement Groups 
 Proximity placement groups offer colocation in the same data center. However, because proximity placement groups represent an additional deployment constraint, allocation failures can occur. There are few use cases where you may see allocation failures when using proximity placement groups:
 
-- When you ask for the first virtual machine in the proximity placement group, the data center is automatically selected. In some cases, a second request for a different VM size, may fail if it doesn't exist in that data center. In this case, an **OverconstrainedAllocationRequest** error is returned. To avoid this, try changing the order in which you deploy your VM sizes or have both resources deployed using a single ARM template.
+- When you ask for the first virtual machine in the proximity placement group, the data center is automatically selected. In some cases, a second request for a different VM size, may fail if it doesn't exist in that data center. In this case, an **OverconstrainedAllocationRequest** error is returned. To avoid this error, try changing the order in which you deploy your VM sizes or have both resources deployed using a single ARM template.
 - If the proximity placement group is created with intent, the VMs are not required to be deployed in any particular order and are not required to be batched using a single ARM template, since the intent is used to select a datacenter that supports all VM sizes indicated in the intent.
 - In the case of elastic workloads, where you add and remove VM instances, having a proximity placement group constraint on your deployment may result in a failure to satisfy the request resulting in **AllocationFailure** error.
 - Stopping (deallocate) and starting your VMs as needed is another way to achieve elasticity. Since the capacity is not kept once you stop (deallocate) a VM, starting it again may result in an **AllocationFailure** error.
@@ -90,9 +90,9 @@ You can do the following to check the alignment status of your proximity placeme
 
     - **Aligned**: Resource is within the same latency envelop of the proximity placement group.
 
-    - **Unknown**: at least one of the VM resources are deallocated. After re-starting them successfully, the status should go back to **Aligned**.
+    - **Unknown**: At least one of the VM resources are deallocated. After re-starting them successfully, the status should go back to **Aligned**.
 
-    - **Not aligned**: at least one VM resource is not aligned with the proximity placement group. The specific resources which are not aligned will also be called out separately in the membership section
+    - **Not aligned**: At least one VM resource is not aligned with the proximity placement group. The specific resources that are not aligned will also be called out separately in the membership section
 
 - For Availability Sets, you can see information about alignment of individual VMs in the Availability Set Overview page.
 
@@ -100,9 +100,9 @@ You can do the following to check the alignment status of your proximity placeme
 
 ### Realign resources 
 
-If a proximity placement group is `Not Aligned`, you can stop\deallocate and then restart the affected resources. If the VM is in an availability set or a scale set, all VMs in the availability set or scale set must be stopped\deallocated first before restarting them.
+If a proximity placement group is `Not Aligned`, you can stop\deallocate, and then restart the affected resources. If the VM is in an availability set or a scale set, all VMs in the availability set or scale set must be stopped\deallocated first before restarting them.
 
-If there is an allocation failure due to deployment constraints, you may have to stop\deallocate all resources in the affected proximity placement group (including the aligned resources) first and then restart them to restore alignment.
+If there is an allocation failure due to deployment constraints, you may have to stop\deallocate all resources in the affected proximity placement group (including the aligned resources) first, and then restart them to restore alignment.
 
 ## Best practices 
 - For the lowest latency, use proximity placement groups together with accelerated networking. For more information, see [Create a Linux virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) or [Create a Windows virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md).
