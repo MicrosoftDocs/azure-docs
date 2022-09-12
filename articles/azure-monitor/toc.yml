@@ -326,59 +326,67 @@ items:
           href: logs/personal-data-mgmt.md
         - name: Application data collection, retention, and storage
           href: app/data-retention-privacy.md
-  - name: Workspaces
-    items:
-      - name: Overview
-        displayName: Log Analytics workspace
-        href: logs/log-analytics-workspace-overview.md
-      - name: Create workspaces
-        href: logs/quick-create-workspace.md
-      - name: Configure
-        items:
-        - name: Manage access
+     - name: Log workspaces
+       items:
+        - name: Overview
           displayName: Log Analytics workspace
-          href: logs/manage-access.md
-        - name: Change pricing tier
-          href: logs/change-pricing-tier.md
-        - name: Set a daily cap
-          href: logs/daily-cap.md
-        - name: Configure Basic Logs
-          href: logs/basic-logs-configure.md
-        - name: Use Azure AD authentication
-          href: logs/azure-ad-authentication-logs.md
-      - name: Archive and restore
-        items:
-        - name: Set retention and archive policy
-          href: logs/data-retention-archive.md
-        - name: Run a search job
-          href: logs/search-jobs.md
-        - name: Restore logs
-          href: logs/restore.md
-      - name: Design
-        items:
-        - name: Design a workspace architecture
-          href: logs/workspace-design.md
-        - name: Dedicated clusters
-          href: logs/logs-dedicated-clusters.md
-        - name: Availability zones
-          href: logs/availability-zones.md
-      - name: Monitor
-        items:
-        - name: Monitor a workspace
-          href: logs/monitor-workspace.md
-        - name: Analyze usage and cost
-          href: logs/analyze-usage.md
-        - name: Log data ingestion time
-          displayName: latency
-          href: logs/data-ingestion-time.md
-      - name: Move and delete
-        items:
-        - name: Move a workspace
-          href: logs/move-workspace.md
-        - name: Move a workspace across regions
-          href: logs/move-workspace-region.md
-        - name: Delete and recover a workspace
-          href: logs/delete-workspace.md  
+          href: logs/log-analytics-workspace-overview.md
+        - name: Create workspaces
+          href: logs/quick-create-workspace.md
+        - name: Configure
+          items:
+          - name: Manage access
+            displayName: Log Analytics workspace
+            href: logs/manage-access.md
+          - name: Change pricing tier
+            href: logs/change-pricing-tier.md
+          - name: Set a daily cap
+            href: logs/daily-cap.md
+          - name: Configure Basic Logs
+            href: logs/basic-logs-configure.md
+          - name: Use Azure AD authentication
+            href: logs/azure-ad-authentication-logs.md
+        - name: Archive and restore
+          items:
+          - name: Set retention and archive policy
+            href: logs/data-retention-archive.md
+          - name: Run a search job
+            href: logs/search-jobs.md
+          - name: Restore logs
+            href: logs/restore.md
+        - name: Design
+          items:
+          - name: Design a workspace architecture
+            href: logs/workspace-design.md
+          - name: Dedicated clusters
+            href: logs/logs-dedicated-clusters.md
+          - name: Availability zones
+            href: logs/availability-zones.md
+        - name: Monitor
+          items:
+          - name: Monitor a workspace
+            href: logs/monitor-workspace.md
+          - name: Analyze usage and cost
+            href: logs/analyze-usage.md
+          - name: Log data ingestion time
+            displayName: latency
+            href: logs/data-ingestion-time.md
+        - name: Move and delete
+          items:
+          - name: Move a workspace
+            href: logs/move-workspace.md
+          - name: Move a workspace across regions
+            href: logs/move-workspace-region.md
+          - name: Delete and recover a workspace
+            href: logs/delete-workspace.md  
+        - name: Workspace transformations
+          items:
+          - name: Azure portal
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-portal.md
+          - name: Resource Manager templates
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-api.md
   - name: Data export
     items:
       - name: Workspace data export
@@ -971,43 +979,6 @@ items:
     href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
   - name: Resource groups
     href: insights/resource-group-insights.md
-  - name: Monitoring solutions
-    items:
-    - name: Overview
-      href: insights/solutions.md
-      displayName: Azure CLI, az monitor log-analytics
-    - name: Target solutions
-      href: insights/solution-targeting.md
-    - name: Available solutions
-      items:
-      - name: AD health assessment
-        href: insights/ad-assessment.md
-      - name: AD Replication Status
-        href: insights/ad-replication-status.md
-      - name: Capacity and performance solution
-        href: insights/capacity-performance.md
-      - name: Docker and Windows Container monitoring
-        href: containers/containers.md
-      - name: Networks
-        items:
-        - name: Networking Analytics
-          href: insights/azure-networking-analytics.md
-        - name: DNS
-          href: insights/dns-analytics.md
-        - name: Network Performance Monitor
-          items:
-          - name: Solution overview
-            href: insights/network-performance-monitor.md
-          - name: Performance Monitor
-            href: insights/network-performance-monitor-performance-monitor.md
-          - name: Service Connectivity Monitor
-            href: insights/network-performance-monitor-service-connectivity.md
-          - name: ExpressRoute
-            href: insights/network-performance-monitor-expressroute.md
-          - name: Pricing
-            href: insights/network-performance-monitor-pricing-faq.yml
-          - name: FAQ
-            href: insights/network-performance-monitor-faq.yml
 - name: Visualizations
   items:
   - name: Workbooks
@@ -1152,14 +1123,6 @@ items:
           href: app/automate-with-logic-apps.md
     - name: Tutorials
       items:
-        - name: Workspace transformations
-          items:
-          - name: Azure portal
-            displayName: Workspace transformations
-            href: logs/tutorial-workspace-transformations-portal.md
-          - name: Resource Manager templates
-            displayName: Workspace transformations
-            href: logs/tutorial-workspace-transformations-api.md
         - name: Custom logs
           items:
           - name: Custom logs in the Azure portal
@@ -1274,6 +1237,8 @@ items:
       href: alerts/alerts-manage-alert-instances.md
     - name: Metric alert rules
       items:
+      - name: T:Create a metric alert
+        href: alerts/tutorial-metric-alert.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
@@ -1286,6 +1251,8 @@ items:
         href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:
+      - name: T:Create a log query alert
+        href: alerts/tutorial-log-alert.md
       - name: Edit log alerts created in previous versions
         href: alerts/alerts-manage-alerts-previous-version.md
       - name: Optimizing alert queries
@@ -1389,12 +1356,6 @@ items:
         href: alerts/alerts-enable-template.md
       - name: Classic metric alert calling a webhook
         href: alerts/alerts-webhooks.md
-    - name: Tutorials
-      items:
-      - name: Create a metric alert
-        href: alerts/tutorial-metric-alert.md
-      - name: Create a log query alert
-        href: alerts/tutorial-log-alert.md
   - name: AutoScale
     items:
       - name: Overview
@@ -1496,17 +1457,11 @@ items:
     href: azure-monitor-monitoring-reference.md 
   - name: Supported metrics
     items:
-    - name: Platform metrics
+    - name: Resource metrics
       href: essentials/metrics-supported.md
-    - name: Export via diagnostic settings
-      href: essentials/metrics-supported-export-diagnostic-settings.md
     - name: Metrics in alerts
       href: alerts/alerts-metric-near-real-time.md
-  - name: Logs
-    items:
-    - name: Supported tables for transformations
-      href: logs/tables-feature-support.md
-  - name: Platform logs
+  - name: Log sources
     items:
     - name: Supported resource log categories
       href: essentials/resource-logs-categories.md
@@ -1514,6 +1469,10 @@ items:
       href: essentials/resource-logs-schema.md
     - name: Activity log schema
       href: essentials/activity-log-schema.md
+  - name: Azure Monitor Log store
+    items:
+    - name: Supported tables for transformations
+      href: logs/tables-feature-support.md
   - name: Windows diagnostics extension schema
     href: agents/diagnostics-extension-schema-windows.md
   - name: Azure Monitor Agent extension versions
@@ -1607,29 +1566,68 @@ items:
     items:
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
-    - name: Classic alerting & monitoring
-      href: alerts/monitoring-classic-retirement.md
-    - name: Switch to current log alert API
-      href: alerts/alerts-log-api-switch.md
-    - name: Web App Analytics solution
-      href: insights/azure-web-apps-analytics.md
-    - name: Application Insights Connector
-      href: logs/app-insights-connector.md
-    - name: OMS portal deprecation
-      href: logs/oms-portal-transition.md
+    - name: NULL values in exported metrics
+      href: essentials/metrics-supported-export-diagnostic-settings.md
     - name: Disk metrics deprecation
       href: essentials/portal-disk-metrics-deprecation.md
-    - name: Change to blob storage format
-      displayName: Diagnostic settings
-      href: essentials/resource-logs-blob-format.md
-    - name: Key Vault Analytics (deprecated)
-      href: insights/azure-key-vault-deprecated.md
     - name: Unix metrics
       href: app/java-2x-collectd.md
     - name: Micrometer Metrics
       displayName: java
       href: app/java-2x-micrometer.md
-    - name: Views
+    - name: Change to blob storage format
+      displayName: Diagnostic settings
+      href: essentials/resource-logs-blob-format.md
+    - name: Classic alerting & monitoring
+      href: alerts/monitoring-classic-retirement.md
+    - name: Switch to current log alert API
+      href: alerts/alerts-log-api-switch.md
+    - name: Monitoring solutions 
+      items:
+      - name: Overview
+        href: insights/solutions.md
+        displayName: Azure CLI, az monitor log-analytics
+      - name: Target solutions
+        href: insights/solution-targeting.md
+      - name: Available solutions
+        items:
+        - name: AD health assessment
+          href: insights/ad-assessment.md
+        - name: AD Replication Status
+          href: insights/ad-replication-status.md
+        - name: Capacity and performance solution
+          href: insights/capacity-performance.md
+        - name: Docker and Windows Container monitoring
+          href: containers/containers.md
+        - name: Networks
+          items:
+          - name: Networking Analytics
+            href: insights/azure-networking-analytics.md
+          - name: DNS
+            href: insights/dns-analytics.md
+          - name: Network Performance Monitor
+            items:
+            - name: Solution overview
+              href: insights/network-performance-monitor.md
+            - name: Performance Monitor
+              href: insights/network-performance-monitor-performance-monitor.md
+            - name: Service Connectivity Monitor
+              href: insights/network-performance-monitor-service-connectivity.md
+            - name: ExpressRoute
+              href: insights/network-performance-monitor-expressroute.md
+            - name: Pricing
+              href: insights/network-performance-monitor-pricing-faq.yml
+            - name: FAQ
+              href: insights/network-performance-monitor-faq.yml
+          - name: Web App Analytics solution (deprecated)
+            href: insights/azure-web-apps-analytics.md
+          - name: Application Insights Connector (deprecated)
+            href: logs/app-insights-connector.md
+          - name: Key Vault Analytics (deprecated)
+            href: insights/azure-key-vault-deprecated.md
+    - name: OMS portal deprecation
+      href: logs/oms-portal-transition.md
+    - name: Views (deprecated)
       items:
       - name: View Designer
         href: visualize/view-designer.md
