@@ -133,6 +133,7 @@ Because the policy is applied to the Azure management portal and API, services, 
 - SQL Managed Instance 
 - Azure Synapse 
 - Visual Studio subscriptions administrator portal 
+- [Microsoft IoT Central](https://apps.azureiotcentral.com/)
 
 > [!NOTE]
 > The Microsoft Azure Management application applies to [Azure PowerShell](/powershell/azure/what-is-azure-powershell), which calls the [Azure Resource Manager API](../../azure-resource-manager/management/overview.md). It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/overview), which calls the [Microsoft Graph API](/graph/overview).
