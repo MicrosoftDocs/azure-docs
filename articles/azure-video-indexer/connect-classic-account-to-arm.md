@@ -9,9 +9,9 @@ ms.custom: ignite-fall-2021
 
 # Connect an existing classic paid Azure Video Indexer account to ARM-based account  
 
-This article demonstrates how to connect an existing classic paid Azure Video Indexer account to an Azure Resource Manager (ARM)-based (recommended) account. To create a new ARM-based account, see [create a new account](create-account-portal.md). Before creating a new account, review [Account types](accounts-overview.md).
+This article shows how to connect an existing classic paid Azure Video Indexer account to an Azure Resource Manager (ARM)-based (recommended) account. To create a new ARM-based account, see [create a new account](create-account-portal.md). To understand the Azure Video Indexer account types, review [account types](accounts-overview.md).
 
-In this article, we will go through options on connecting your **existing** Azure Video Indexer account to an [ARM][docs-arm-overview]-based account.
+In this article, we demonstrate options of connecting your **existing** Azure Video Indexer account to an [ARM][docs-arm-overview]-based account.
 
 ## Prerequisites
 
