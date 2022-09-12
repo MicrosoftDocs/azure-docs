@@ -55,9 +55,9 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
     > The subscription will be the location where Defender for DevOps will create and store the Azure DevOps connection.
 
 
-1. Select **Next: Select plans >**.
+1. Select **Next: Select plans**.
 
-1. Select **Next: Authorize connection >**.
+1. Select **Next: Authorize connection**.
 
 1. Select **Authorize**.
 
@@ -78,7 +78,7 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
     > [!NOTE]
     > If you select your relevant project(s) from the drop down menu, you will also need select to auto discover repositories or select individual repositories.
 
-1. Select **Next: Review and create >**.
+1. Select **Next: Review and create**.
 
 1. Review the information and select **Create**.
 
@@ -86,7 +86,7 @@ The Defender for DevOps service automatically discovers the organizations, proje
 
 ## Learn more
 
-- Learn more about [Azure DevOps](/azure/devops/?view=azure-devops)
+- Learn more about [Azure DevOps](/azure/devops/?view=azure-devops).
 
 - Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
 

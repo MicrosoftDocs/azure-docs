@@ -53,7 +53,7 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
     > [!NOTE] 
     > The subscription will be the location where Defender for DevOps will create and store the GitHub connection.
 
-1. Select **Next: Select plans >**.
+1. Select **Next: Select plans**.
 
 1. Select **Next: Authorize connection**.
 
