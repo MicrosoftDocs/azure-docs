@@ -380,4 +380,4 @@ To unassign and delete a sensor:
 
 ## Next steps
 
-For more information, see [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
+For more information, see [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md) and [Manage individual sensors](how-to-manage-individual-sensors.md).

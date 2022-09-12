@@ -62,6 +62,16 @@ Don't create telemetry types with the following names. IoT Central uses these re
 * `$metadata`
 * `$version`
 
+### Telemetry timestamps
+
+By default, IoT Central uses the message enqueued time when it displays telemetry on dashboards and charts. Message enqueued time is set internally when IoT Central receives the message from the device.
+
+A device can set the `iothub-creation-time-utc` property when it creates a message to send to IoT Central. If this property is present, IoT Central uses it when it displays telemetry on dashboards and charts.
+
+You can export both the enqueued time and the `iothub-creation-time-utc` property when you export telemetry from your IoT Central application.
+
+To learn more about message properties, see [System Properties of device-to-cloud IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
+
 ### Telemetry in components
 
 If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model. To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
