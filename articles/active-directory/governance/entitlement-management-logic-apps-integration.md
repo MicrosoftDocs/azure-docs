@@ -4,7 +4,7 @@ description: Learn how to configure and use custom Logic Apps in Azure Active Di
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity

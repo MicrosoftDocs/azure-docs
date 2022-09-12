@@ -7,8 +7,7 @@ metadata:
   title: Secure development documentation on Microsoft Azure
   description: Learn how to develop secure applications on Azure by using sample apps, best practices, and guidance.
   services: security
-  ms.service: security
-  ms.subservice: develop
+  ms.service: app-service
   ms.topic: landing-page
   author: TerryLanfear
   ms.author: terrylan

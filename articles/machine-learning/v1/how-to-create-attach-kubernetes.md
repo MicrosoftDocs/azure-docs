@@ -162,7 +162,7 @@ Creating or attaching an AKS cluster is a one time process for your workspace. Y
 
 The following example demonstrates how to create a new AKS cluster using the SDK and CLI:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -232,13 +232,13 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
-* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
+* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=/azure/bread/toc.json&toc=/azure/aks/TOC.json#az-aks-create)
 * [Create an AKS cluster (portal)](../../aks/learn/quick-kubernetes-deploy-portal.md)
 * [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
 The following example demonstrates how to attach an existing AKS cluster to your workspace:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -415,7 +415,7 @@ To detach a cluster from your workspace, use one of the following methods:
 > [!WARNING]
 > Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster **does not delete the AKS cluster**. To delete the cluster, see [Use the Azure CLI with AKS](../../aks/learn/quick-kubernetes-deploy-cli.md#delete-the-cluster).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 

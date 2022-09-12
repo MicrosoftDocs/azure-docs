@@ -15,7 +15,9 @@ This article answers common questions that might come up when you deploy disaste
 
 ### How do I use the classic experience in the Recovery Services vault rather than the modernized experience? 
 
+
 A new and more reliable way to protect VMware virtual machines using the Azure Site Recovery replication appliance is now generally available. When a new Recovery Services vault is created, by default the modernized experience will be selected. 
+
 
 To change the experience - 
 

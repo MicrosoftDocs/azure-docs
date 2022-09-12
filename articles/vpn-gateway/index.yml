@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: cherylmc #Required; your GitHub user alias, with correct capitalization.
   ms.author: cherylmc #Required; microsoft alias of author; optional team alias.
-  ms.date: 05/23/2022
+  ms.date: 08/30/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -116,6 +116,18 @@ landingContent:
             url: vpn-gateway-delete-vnet-gateway-portal.md
           - text: Modify a local network gateway
             url: vpn-gateway-modify-local-network-gateway-portal.md
+
+  # Card
+  - title: Learn about VPN Gateway architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Virtual network peering and VPN gateways
+            url: /azure/architecture/reference-architectures/hybrid-networking/vnet-peering/
+      - linkListType: concept
+        links:
+          - text: Troubleshoot a hybrid VPN connection
+            url: /azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn/
 
   # Card
   - title: Security and monitoring

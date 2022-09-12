@@ -48,7 +48,7 @@ You may start with a run configuration for your local computer, and then switch 
 * [What is a run configuration?](v1/concept-azure-machine-learning-architecture.md#run-configurations)
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
 * [Examples: Jupyter Notebook and Python examples of training models](https://github.com/Azure/azureml-examples)
-* [How to: Configure a training run](how-to-set-up-training-targets.md)
+* [How to: Configure a training run](v1/how-to-set-up-training-targets.md)
 
 ### Automated Machine Learning
 
@@ -59,7 +59,6 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 
 * [What is automated machine learning?](concept-automated-ml.md)
 * [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md)
-* [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md)
 * [Examples: Jupyter Notebook examples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
 * [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
@@ -117,4 +116,4 @@ You can use the VS Code extension to run and manage your training jobs. See the 
 
 ## Next steps
 
-Learn how to [Configure a training run](how-to-set-up-training-targets.md).
+Learn how to [Configure a training run](v1/how-to-set-up-training-targets.md).

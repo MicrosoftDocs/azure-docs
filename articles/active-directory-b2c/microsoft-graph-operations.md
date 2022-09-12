@@ -60,8 +60,8 @@ Note, the [list](/graph/api/authentication-list-phonemethods) operation returns 
 
 An email address that can be used by a [username sign-in account](sign-in-options.md#username-sign-in) to reset the password. For more information, see [Azure AD authentication methods API](/graph/api/resources/emailauthenticationmethod).
 
-- [Add](/graph/api/emailauthenticationmethod-post)
-- [List](/graph/api/emailauthenticationmethod-list)
+- [Add](/graph/api/authentication-post-emailmethods)
+- [List](/graph/api/authentication-list-emailmethods)
 - [Get](/graph/api/emailauthenticationmethod-get)
 - [Update](/graph/api/emailauthenticationmethod-update)
 - [Delete](/graph/api/emailauthenticationmethod-delete)
