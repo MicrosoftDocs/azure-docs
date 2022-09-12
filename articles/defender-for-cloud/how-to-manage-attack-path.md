@@ -75,4 +75,30 @@ Attack path analysis also gives you the ability to see all recommendations by at
 
 Once an attack path is resolved, it can take up to 24 hours for an attack path to be removed from the list.
 
+## Attack path names and descriptions
+
+A full list of attack paths and their descriptions.
+
+### Azure VMs
+
+| New Attack Path Type | Attack Path Display Name | Attack Path Description |
+|--|--|--|
+| Azure.VulnerableExposedVM | Internet exposed VM has high severity vulnerabilities | Virtual machine '\[MachineName]' is reachable from the internet and has high severity vulnerabilities \[RCE] |
+| Azure.VulnerableExposedVMHasHighpermissionToSubscription | Internet exposed VM has high severity vulnerabilities and high permission to a subscription | Virtual machine '\[MachineName]' is reachable from the internet, has high severity vulnerabilities \[RCE] and \[IdentityDescription] with \[PermissionType] permission to subscription '\[SubscriptionName]' |
+| Azure.VulnerableExposedVMHasReadpermissionTodata storeWithSensitiveData | Internet exposed VM has high severity vulnerabilities and read permission to a data store with sensitive data | Virtual machine '\[MachineName]' is reachable from the internet, has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to \[DatabaseType] '\[DatabaseName]' containing sensitive data |
+| Azure.VulnerableExposedVMHasReadpermissionTodata store | Internet exposed VM has high severity vulnerabilities and read permission to a data store | Virtual machine '\[MachineName]' is reachable from the internet, has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to \[DatabaseType] '\[DatabaseName]' |
+| Azure.VulnerableExposedVMHasReadpermissionToKV | Internet exposed VM has high severity vulnerabilities and read permission to a Key Vault | Virtual machine '\[MachineName]' is reachable from the internet, has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to Key Vault '\[KVName]' |
+| Azure.VulnerableVMHasHighpermissionToSubscription | VM has high severity vulnerabilities and high permission to a subscription | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and has high permission to subscription '\[SubscriptionName]' |
+| Azure.VulnerableVMHasReadpermissionTodata storeWithSensitiveData | VM has high severity vulnerabilities and read permission to a data store with sensitive data | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to \[DatabaseType] '\[DatabaseName]' containing sensitive data |
+| Azure.VulnerableVMHasReadpermissionToKV | VM has high severity vulnerabilities and read permission to a Key Vault | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to Key Vault '\[KVName]' |
+| Azure.VulnerableVMHasReadpermissionTodata store | VM has high severity vulnerabilities and read permission to a data store | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to \[DatabaseType] '\[DatabaseName]' |
+
+### AWS VMs
+
+| New Attack Path Type | Attack Path Display Name	| Attack Path Description |
+|--|--|--|
+| AWS.VulnerableExposedEC2InstanceHasHighpermissionToAccount | Internet exposed EC2 instance has high severity vulnerabilities and high permission to an account | AWS EC2 instance '[EC2Name]' is reachable from the internet, has high severity vulnerabilities[RCE] and has '[permission]' permission to account '[AccountName]' |
+| AWS.VulnerableExposedEC2InstanceHasReadpermissionToDB | Internet exposed EC2 instance has high severity vulnerabilities and read permission to a DB | AWS EC2 instance '[MachineName]' is reachable from the internet, has high severity vulnerabilities[RCE] and has '[permission]' permission to DB '[DatabaseName]'|
+|  AWS.VulnerableExposedEC2InstanceHasReadpermissionToS3Bucket | Internet exposed EC2 instance has high severity vulnerabilities and read permission to S3 bucket | Option 1 <br> AWS EC2 instance '[MachineName]' is reachable from the internet, has high severity vulnerabilities[RCE] and has IAM role attached with '[Rolepermission]' permission via IAM policy to S3 bucket '[BucketName]' <br> <br> Option 2 <br> AWS EC2 instance '[MachineName]' is reachable from the internet, has high severity vulnerabilities[RCE] and has IAM role attached with '[S3permission]' permission via bucket policy to S3 bucket '[BucketName]' <br> <br> Option 3 <br> AWS EC2 instance '[MachineName]' is reachable from the internet, has high severity vulnerabilities[RCE] and has IAM role attached with '[Rolepermission]' permission via IAM policy and '[S3permission]' permission via bucket policy to S3 bucket '[BucketName]'|
+| 
 ## Next Steps
