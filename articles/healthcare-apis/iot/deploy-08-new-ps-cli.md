@@ -5,7 +5,7 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/07/2022
+ms.date: 09/11/2022
 ms.author: v-smcevoy
 ---
 
