@@ -23,7 +23,7 @@ To create a glossary term, follow these steps:
 
 2. On the **Glossary terms** page, select **+ New term**. 
 
-   A pane opens with the **System Default** template selected. Choose the template that you want to use to create a glossary term, and then select **Continue**.
+   A pane opens with the **System default** template selected. Choose the template that you want to use to create a glossary term, and then select **Continue**.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/new-term-with-default-template.png" alt-text="Screenshot of the button and pane for creating a new term." border="true":::
 
@@ -61,7 +61,7 @@ To create a glossary term, follow these steps:
    | Redo | Redo changes that you made to the content. | Ctrl+Y | 
 
    > [!NOTE]
-   > Updating a definition with the rich text editor adds the attribute `microsoft_isDescriptionRichText": "true"` in the term payload. This attribute is not visible on the user experience and is automatically populated when you take any rich text action. The right text definition is populated in the following snippet of a term's JSON message:
+   > Updating a definition with the rich text editor adds the attribute `"microsoft_isDescriptionRichText": "true"` in the term payload. This attribute is not visible on the user experience and is automatically populated when you take any rich text action. The right text definition is populated in the following snippet of a term's JSON message:
    >
    >```json
    >   {
@@ -75,7 +75,7 @@ To create a glossary term, follow these steps:
 
    :::image type="content" source="media/how-to-create-import-export-glossary/overview-tab.png" alt-text="Screenshot of the status choices.":::
 
-   These status markers are metadata associated with the term. Currently, you can set the following status on each term:
+   Status markers are metadata associated with the term. Currently, you can set the following status on each term:
 
    - **Draft**: This term isn't yet officially implemented.
    - **Approved**: This term is officially approved.
@@ -87,7 +87,7 @@ To create a glossary term, follow these steps:
                                                                           
 6. Add **Resources** and **Acronym** information. If the term is part of a hierarchy, you can add parent terms at **Parent** on the **Overview** tab.
 
-7. Add **Synonyms** and **Related terms** information on the **Related** tab.
+7. Add **Synonyms** and **Related terms** information on the **Related** tab, and then select **Apply**.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/related-tab.png" alt-text="Screenshot of tab for related terms and the box for adding synonyms." border="true":::
 
@@ -115,11 +115,11 @@ The Microsoft Purview data catalog provides a template .csv file for you to impo
    Give your template file a name that starts with a letter and includes only letters, numbers, spaces, an underscore (_), or other non-ASCII Unicode characters. Special characters in the file name will create an error.
 
    > [!Important]
-   > The system supports only importing columns that are available in the template. The **System Default** template will have all the default attributes.
+   > The system supports only importing columns that are available in the template. The **System default** template will have all the default attributes.
    >
    > Custom term templates define out-of-the box attributes and additional custom attributes. Therefore, the .csv file differs in the total number of columns and the column names, depending on the term template that you select. You can also review the file for problems after upload.
    >
-   > If you want to upload a file with a rich text definition, be sure to enter the definition with markup tags and populate the column **IsDefinitionRichText** to **true** in the .csv file.
+   > If you want to upload a file with a rich text definition, be sure to enter the definition with markup tags and populate the column `IsDefinitionRichText` to `true` in the .csv file.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-file-for-import.png" alt-text="Screenshot of the button for downloading a sample template file.":::
 
@@ -141,7 +141,7 @@ Select **Export terms** to download the selected terms.
 :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot of the button to export terms on the glossary terms page.":::
 
 > [!Important]
-> If the terms in a hierarchy belong to different term templates, you need to split them into different .csv files for import. Also, updating a parent of a term is currently not supported in the import process.
+> If the terms in a hierarchy belong to different term templates, you need to split them into different .csv files for import. Also, the import process currently doesn't support updating the parent of a term.
 
 ## Delete terms
 
@@ -171,11 +171,9 @@ Select **Export terms** to download the selected terms.
 1. The **Approval needed** column shows which terms require an approval process. If the value is **Yes**, the term will go through an approval workflow before deletion. If the value is **No**, the term will be deleted without any approvals.
 
    > [!NOTE]
-   > If a parent has an associated approval process but its child doesn't, the workflow for deleting the parent term will be triggered. This is because the selection is done on the parent, and you're acknowledging to delete child terms along with parent.
+   > If a parent has an associated approval process but its child doesn't, the workflow for deleting the parent term will be triggered. This is because the selection is done on the parent, and you're acknowledging the deletion of child terms along with parent.
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/approval-needed.png" alt-text="Screenshot of the window for deleting glossary terms, with the column that shows which terms need approval to be deleted." border="true":::
-
-1. If at least one term needs to be approved, **Submit for approval** and **Cancel** buttons appear. Selecting **Submit for approval** will delete all the terms where approval isn't needed and will trigger approval workflows for terms that require it.
+   If at least one term needs to be approved, **Submit for approval** and **Cancel** buttons appear. Selecting **Submit for approval** will delete all the terms where approval isn't needed and will trigger approval workflows for terms that require it.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/yes-approval-needed.png" alt-text="Screenshot of the window for deleting glossary terms, which shows terms that need approval and includes the button for submitting them for approval." border="true":::
 

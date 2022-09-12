@@ -24,10 +24,10 @@ The data analyst notices that one of the Azure Data Lake Storage Gen2 accounts s
 
 You can create these workflows for any of your resources across your data estate to automate the access request process. Workflows are assigned at the [collection](reference-azure-purview-glossary.md#collection) level, so they automate business processes along the same organizational lines as your permissions.
 
-This guide will show you how to create and manage self-service access workflows in Microsoft Purview.
+This guide shows you how to create and manage self-service access workflows in Microsoft Purview.
 
 >[!NOTE]
-> To create or edit a workflow, you'll need the [workflow admin role](catalog-permissions.md) in Microsoft Purview. You can also contact the workflow admin in your collection, or reach out to your collection administrator, for permissions.
+> To create or edit a workflow, you need the [workflow admin role](catalog-permissions.md) in Microsoft Purview. You can also contact the workflow admin in your collection, or reach out to your collection administrator, for permissions.
 
 ## Create and enable the self-service access workflow
 
@@ -69,14 +69,14 @@ This guide will show you how to create and manage self-service access workflows 
    Assign data owners as approvers. Using the dynamic variable **Asset.Owner** as approvers in the approval connector will send approval requests to the data owners on the entity. 
    
     >[!Note]
-    > Because entities might not have the data owner field populated, using the **Asset.Owner** variable might result in errors if no data owner is found. 
+    > Using the **Asset.Owner** variable might result in errors if an entity doesn't have a data owner. 
     
 1. If the condition to check approval status is approved, take the following steps: 
            
     * If a data source is registered for [data use management](how-to-enable-data-use-governance.md) with the policy:
        1. Create a [self-service policy](concept-self-service-data-access-policy.md). 
        1. Send email to the requestor that confirms access. 
-    * If a data source isn't registered with policy:
+    * If a data source isn't registered with the policy:
        1. Use a connector to assign [a task](how-to-workflow-manage-requests-approvals.md#tasks) to a user or an Azure Active Directory (Azure AD) group to manually provide access to the requestor. 
        1. Send an email to requestor to explain that access is provided after the task is marked as complete. 
     
@@ -109,22 +109,23 @@ This guide will show you how to create and manage self-service access workflows 
 1. Make sure that the **Enable** toggle is on. The workflow should be enabled by default.
 1. Select **Save and close** to create and enable the workflow.
 
+   Your new workflow now appears in the list of workflows.
+
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/completed-workflows.png" alt-text="Screenshot that shows the workflow authoring page with the newly created workflow listed among the other workflows.":::
 
 ## Edit an existing workflow
 
-To modify an existing workflow, select the workflow and then select the **Edit** button. You're presented with the canvas that contains the workflow definition. Modify the workflow and select **Save** to commit the changes.
+To modify an existing workflow, select the workflow and then select the **Edit** button. You're presented with the canvas that contains the workflow definition. Modify the workflow and then select **Save** to commit the changes.
 
 :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-edit.png" alt-text="Screenshot that shows the workflow authoring page, with the Edit button highlighted on the top menu.":::
 
 ## Disable a workflow
 
-To disable a workflow, you can use either of these methods:
-
-- Select the workflow, and then select **Disable**.
-- Select the workflow, select **Edit**, turn off the **Enable** toggle in the workflow canvas, and then select **Save and close**.
+To disable a workflow, select the workflow and then select **Disable**.
 
 :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-disable.png" alt-text="Screenshot that shows the workflow authoring page, with the Disable button highlighted on the top menu.":::
+
+Another way is to select the workflow, select **Edit**, turn off the **Enable** toggle in the workflow canvas, and then select **Save and close**.
 
 ## Delete a workflow
 
