@@ -4,7 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 08/04/2022
+ms.date: 09/12/2022
 ms.author: robb
 ms.reviewer: priyamishra
 ---
@@ -2776,13 +2776,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|QueryVolume|Yes|Query Volume|Count|Total|Number of queries served for a Private DNS zone|No Dimensions|
+|QueryVolume|No|Query Volume|Count|Total|Number of queries served for a Private DNS zone|No Dimensions|
 |RecordSetCapacityUtilization|No|Record Set Capacity Utilization|Percent|Maximum|Percent of Record Set capacity utilized by a Private DNS zone|No Dimensions|
-|RecordSetCount|Yes|Record Set Count|Count|Maximum|Number of Record Sets in a Private DNS zone|No Dimensions|
+|RecordSetCount|No|Record Set Count|Count|Maximum|Number of Record Sets in a Private DNS zone|No Dimensions|
 |VirtualNetworkLinkCapacityUtilization|No|Virtual Network Link Capacity Utilization|Percent|Maximum|Percent of Virtual Network Link capacity utilized by a Private DNS zone|No Dimensions|
-|VirtualNetworkLinkCount|Yes|Virtual Network Link Count|Count|Maximum|Number of Virtual Networks linked to a Private DNS zone|No Dimensions|
+|VirtualNetworkLinkCount|No|Virtual Network Link Count|Count|Maximum|Number of Virtual Networks linked to a Private DNS zone|No Dimensions|
 |VirtualNetworkWithRegistrationCapacityUtilization|No|Virtual Network Registration Link Capacity Utilization|Percent|Maximum|Percent of Virtual Network Link with auto-registration capacity utilized by a Private DNS zone|No Dimensions|
-|VirtualNetworkWithRegistrationLinkCount|Yes|Virtual Network Registration Link Count|Count|Maximum|Number of Virtual Networks linked to a Private DNS zone with auto-registration enabled|No Dimensions|
+|VirtualNetworkWithRegistrationLinkCount|No|Virtual Network Registration Link Count|Count|Maximum|Number of Virtual Networks linked to a Private DNS zone with auto-registration enabled|No Dimensions|
 
 
 ## Microsoft.Network/privateEndpoints
