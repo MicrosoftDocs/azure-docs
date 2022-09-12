@@ -36,14 +36,14 @@ Form Recognizer SDK supports the following languages and platforms:
 
 | Language| SDK version | API version | Supported clients|
 | :------ | :-----------:|:----------: | :-----------------|
-|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 4.0.0| v3.0 | <ul><li> **DocumentAnalysisClient**</li><li>**DocumentModelAdministrationClient**</li></ul> |
-|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 4.0.0| v2.1, v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
-|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| v3.1.x | v2.1, v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
-
-
-
-|&bullet; .NET/C# → 3.1.X </br> &bullet; Java → 3.1.X </br> &bullet; JavaScript → 3.1.X </br> &bullet; Python → 3.1.X| &check; v2.1 (default)</br> &check; v2.0 | &bullet; **FormRecognizerClient** </br> &bullet; **FormTrainingClient**|
-|&bullet; .NET/C# → 3.0.X </br> &bullet; Java → 3.0.X </br> &bullet; JavaScript → 3.0.X </br> &bullet; Python → 3.0.X| &check; v2.0 | &bullet; **FormRecognizerClient** </br> &bullet; **FormTrainingClient**
+|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 4.0.0 (latest GA release)| v3.0 (default)| <ul><li> **DocumentAnalysisClient**</li><li>**DocumentModelAdministrationClient**</li></ul> |
+|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 4.0.0 (latest GA release)| v2.1, v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 3.1.x | v2.1 (default), v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+|<ul><li> C# /.NET </li><li>Java</li><li>JavaScript</li></ul>| 3.0.x | v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+|<ul><li> Python</li></ul>| 3.2.0 (latest GA release) | v3.0 (default) | <ul><li> **DocumentAnalysisClient**</li><li>**DocumentModelAdministrationClient**</li></ul>|
+|<ul><li> Python</li></ul>| 3.2.0 (latest GA release) | v2.1, v2.0  | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+|<ul><li> Python </li></ul>| 3.1.x | v2.1 (default), v2.0 |<ul><li>**FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
+|<ul><li> Python</li></ul>| 3.0.0 | v2.0 | <ul><li> **FormRecognizerClient**</li><li>**FormTrainingClient**</li></ul> |
 
 ## Changelog and release history
 
