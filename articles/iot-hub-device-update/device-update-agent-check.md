@@ -15,7 +15,7 @@ Learn how to use Agent Check to find, diagnose, and fix devices missing from you
 ## Prerequisites
 
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md).
-* An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) and reporting a compatible PnP Model Id.
+* An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) and reporting a compatible PnP Model ID.
 
 > [!NOTE]
 > The Agent Check feature can only perform validation checks on devices that have the Device Update agent installed and are reporting a PnP Model Id that matches those compatible with Device Update for IoT Hub.
@@ -28,21 +28,21 @@ The Agent Check feature currently performs the following validation checks on al
 
 | Validation check                      | Criteria                                                                                                           |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| PnP Model Id                          | The PnP Model Id is a string that is reported by the DU agent to the Device Twin that describes what PnP Model should be used for device/cloud communication. This must be a valid digital twin model identifier (DTMI) that supports the Device Update interface.                    |
-| Interface Id                          | The Interface Id is a string that is reported by the DU agent to the Device Twin that describes what DU interface version should be used for device/cloud communication. "deviceUpdate.agent.deviceProperties[interfaceId]" must be a valid DTMI that supports the Device Update interface. |
-| Compatibility Property Names          | CompatPropertyNames is a field reported by the DU agent to the Device Twin that describes what deviceProperties fields should be used to determine the device’s compatibility with a given deployment. This must be a comma-delimited list of strings. The list must contain at least one and no more than 5 strings. Each string must be <32 characters. |
-| Compatibility Property Values         | Compatibility Property Values are the field:value pairs specified by the compatPropertyNames field and reported by the DU agent to the Device Twin as deviceProperties. This must contain every field defined in "Compatibility Property Names". The value of each field is limited to 64 characters. |
-| ADU Group                             | The ADU Group tag is an optional tag that is defined in the device’s Device Twin and used in conjunction with compatibility properties to determine what device group the device belongs to. If specified, the tag string is limited to 255 characters and may only contain alphanumeric characters and the following special characters: "." "-" "_" "~" |
+| PnP Model ID                          | The PnP Model ID is a string that is reported by the DU agent to the Device Twin that describes what PnP Model should be used for device/cloud communication. This string must be a valid digital twin model identifier (DTMI) that supports the Device Update interface.                    |
+| Interface ID                          | The Interface ID is a string that is reported by the DU agent to the Device Twin that describes what DU interface version should be used for device/cloud communication. This string must be a valid DTMI that supports the Device Update interface. |
+| Compatibility Property Names          | CompatPropertyNames is a field reported by the DU agent to the Device Twin that describes what deviceProperties fields should be used to determine the device’s compatibility with a given deployment. This field's value must be a string of comma-delimited names. The string must contain at least one and no more than five names. Each name must be <32 characters. |
+| Compatibility Property Values         | Compatibility Property Values are the field:value pairs specified by the compatPropertyNames field and reported by the DU agent to the Device Twin as deviceProperties. Every name defined in "Compatibility Property Names" must have a corresponding field:value pair reported. The value for each pair is limited to 64 characters. |
+| ADU Group                             | The ADU Group tag is an optional tag that is defined in the device’s Device Twin and determines what device group the device belongs to. If specified, the tag string is limited to 255 characters and may only contain alphanumeric characters and the following special characters: "." "-" "_" "~" |
 
-If a device fails any of these criteria, it may not show up properly in Device Update. Correcting the invalid value to meet the specified critiera should cause the device to properly appear in Device Update. If the device does not show up in Device Update **nor** in Agent Check, you may need to run Device Sync to resolve the issue.
+If a device fails any of these criteria, it may not show up properly in Device Update. Correcting the invalid value to meet the specified criteria should cause the device to properly appear in Device Update. If the device doesn't show up in Device Update **nor** in Agent Check, you may need to run Device Sync to resolve the issue.
 
 ## View Agent Check results
 
-The results of Agent Check can be found by navigating to the Diagnostics tab of the Device Update Azure Portal interface, then expanding the "View device health" section.
+The results of Agent Check can be found by navigating to the Diagnostics tab of the Device Update Azure portal interface, then expanding the "View device health" section.
 
 ## Initiate a Device Sync operation
 
-Device Sync should be triggered if a device has been registered in IoT Hub but is not showing up in Device Update nor in Agent Check results. Device Sync operations can be initiated by navigating to the Diagnostics tab of the DEvice Update Azure Portal interface, expanding the "View device health" section, then clicking "Start a device sync".
+Device Sync should be triggered if a device has been registered in IoT Hub but isn't showing up in Device Update nor in Agent Check results. Device Sync operations can be initiated by navigating to the Diagnostics tab of the DEvice Update Azure portal interface, expanding the "View device health" section, then clicking "Start a device sync".
 
 Only one Device Sync operation may be active at a time for each Device Update instance.
 
