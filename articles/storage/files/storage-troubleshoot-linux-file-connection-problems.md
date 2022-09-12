@@ -4,7 +4,7 @@ description: Troubleshooting Azure Files problems in Linux. See common issues re
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/09/2022
+ms.date: 09/12/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -336,7 +336,19 @@ This issue can be mitigated by simply rebooting the client OS, but you might run
 
 ### Solution
 
-Several fixes for the Linux SMB kernel client were recently submitted to the mainline Linux kernel; however, these fixes are yet to be backported by popular Linux distros into their stable kernels. For a permanent fix, upgrade your client OS to a Linux distro version with account migration support. Refer to the corresponding [distro version column on this OneNote page](onenote:https://microsoft.sharepoint.com/teams/AzureStorage/Shared%20Documents/XFiles/XFile%20Development/Feature%20Areas/Linux%20SMB3%20to%20Azure.one#Account%20migration%20support%20on%20Linux&section-id={50487058-4B1B-4D89-A06A-D89A504F0D15}&page-id={73F66219-8D91-4929-B6FA-2FC55A82B3CD}&end).
+For a permanent fix, upgrade your client OS to a Linux distro version with account migration support. Several fixes for the Linux SMB kernel client were recently submitted to the mainline Linux kernel. Kernel version 5.15+ and Keyutils-1.6.2+ have the fixes. However, these fixes are yet to be backported by popular Linux distros into their stable kernels. Some distros have backported these fixes, and you can check if the following fixes exist in the distro version you're using:
+
+[cifs: On cifs_reconnect, resolve the hostname again](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4e456b30f78c429b183db420e23b26cde7e03a78)
+
+[cifs: use the expiry output of dns_query to schedule next resolution](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=506c1da44fee32ba1d3a70413289ad58c772bba6)
+
+[cifs: set a minimum of 120s for next dns resolution](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4ac0536f8874a903a72bddc57eb88db774261e3a)
+
+[cifs: To match file servers, make sure the server hostname matches](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7be3248f313930ff3d3436d4e9ddbe9fccc1f541)
+
+[cifs: fix memory leak of smb3_fs_context_dup::server_hostname](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=869da64d071142d4ed562a3e909deb18e4e72c4e)
+
+[dns: Apply a default TTL to records obtained from getaddrinfo()](https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/commit/?id=75e7568dc516db698093b33ea273e1b4a30b70be)
 
 ## Need help? Contact support.
 
