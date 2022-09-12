@@ -18,17 +18,49 @@ An exclusion list can be configured by using [Azure PowerShell](/powershell/modu
 
 ::: zone pivot="portal"
 
-## Configure exclusion lists using the Azure portal
+## Scenario
 
-**Manage exclusions** is accessible from WAF portal under **Managed rules**
+Suppose you've created an API. Your clients send requests to your API that include headers with names like `userid` and `user-id`.
 
-![Manage exclusion](../media/waf-front-door-exclusion/exclusion1.png)
-![Manage exclusion_add](../media/waf-front-door-exclusion/exclusion2.png)
+While tuning your WAF, you've noticed that some legitimate requests have been blocked because the user headers included character sequences that the WAF detected as SQL injection attacks. Specifically, rule ID 942230 detects the request headers and blocks the requests. [Rule 942230 is part of the SQLI rule group.](waf-front-door-drs.md#drs942-20)
 
- An example exclusion list:
-![Manage exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
+You decide to create an exclusion to allow these legitimate requests to pass through without the WAF blocking them.
 
-This example excludes the value in the *user* header field. A valid request may include the *user* field that contains a string that triggers a SQL injection rule. You can exclude the *user* parameter in this case so that the WAF rule doesn't evaluate anything in the field.
+## Create an exclusion
+
+1. Open your Front Door WAF policy.
+
+1. Select **Managed rules**, and then select **Manage exclusions** on the toolbar.
+
+   :::image type="content" source="../media/waf-front-door-exclusion-configure/exclusion-add.png" alt-text="Screenshot of the Azure portal showing the WAF policy's managed rules page, with the 'Manage exclusions' button highlighted." :::
+
+1. Select the **Add** button.
+
+   :::image type="content" source="../media/waf-front-door-exclusion-configure/exclusion-add.png" alt-text="Screenshot of the Azure portal showing the exclusion list, with the Add button highlighted." :::
+
+1. Configure the exclusion's **Applies to** section as follows:
+
+   | Field | Value |
+   |-|-|
+   | Rule set | Microsoft_DefaultRuleSet_2.0 |
+   | Rule group | SQLI |
+   | Rule | 924430 Detects conditional SQL injection attempts |
+
+1. Configure the exclusion match conditions as follows:
+
+   | Field | Value |
+   |-|-|
+   | Match variable | Request header name |
+   | Operator | Starts with |
+   | Selector | user |
+
+1. Review the exclusion, which should look like the following screenshot:
+
+   :::image type="content" source="../media/waf-front-door-exclusion-configure/exclusion-details.png" alt-text="Screenshot of the Azure portal showing the exclusion configuration." :::
+
+   This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If the WAF detects a header that would normally be blocked by rule 942230, it ignores the header and moves on.
+
+1. Select **Save**.
 
 ::: zone-end
 
@@ -47,3 +79,4 @@ TODO
 ## Next steps
 
 - Learn more about [Front Door](../../frontdoor/front-door-overview.md).
+0
