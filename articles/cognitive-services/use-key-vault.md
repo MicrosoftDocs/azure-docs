@@ -305,8 +305,8 @@ print(f"Retrieving your secrets from {keyVaultName}.")
 retrieved_key = kv_client.get_secret(keySecretName).value
 retrieved_endpoint = kv_client.get_secret(endpointSecretName).value
 
-print(f"Your secret key value is {retrieved_key}.")
-print(f"Your secret endpoint value is {retrieved_endpoint}.")
+print(f"Your secret key value is {retrieved_key}.");
+print(f"Your secret endpoint value is {retrieved_endpoint}.");
 
 ```
 
