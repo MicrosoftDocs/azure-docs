@@ -47,7 +47,7 @@ To complete this tutorial:
 
 - Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **Azure development** workload.
 
-  ![Screenshot of Visual Studio Azure development workload (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
+  ![Screenshot of Visual Studio Azure development workload (under Web & Cloud).](media/storage-create-geo-redundant-storage/workloads.png)
 
 # [Python v12 SDK](#tab/python)
 
@@ -232,7 +232,7 @@ In Visual Studio, press **F5** or select **Start** to begin debugging the applic
 
 A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GZRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
 
-![Screenshot of Console application output](media/storage-create-geo-redundant-storage/figure3.png)
+![Screenshot of Console application output.](media/storage-create-geo-redundant-storage/figure3.png)
 
 In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) is defined. The operation context defines event handlers that fire when a download completes successfully, or if a download fails and is retrying.
 
