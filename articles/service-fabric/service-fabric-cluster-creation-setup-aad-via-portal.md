@@ -68,7 +68,7 @@ Select 'Authentication'. Under 'Implicit grant and hybrid flows', check 'ID toke
 
 Select 'Expose an API' and 'Set' link to enter value for 'ApplicationID URI'. Enter either the uri of a 'verified domain' or uri using api scheme format of api://{{tenant Id}}/{{cluster name}}.
 
-See [AppId Uri in single tenant applications will require use of default scheme or verified domains](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains) for additional information.
+See [AppId Uri in single tenant applications will require use of default scheme or verified domains](../active-directory/develop/reference-breaking-changes.md#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains) for additional information.
 
 Example api scheme: api://{{tenant id}}/{{cluster}}
 
