@@ -66,7 +66,7 @@
     - name: Classic
       href: vmware-azure-tutorial-failover-failback.md
     - name: Preview
-      href: vmware-azure-tutorial-failover-failback-preview.md
+      href: vmware-azure-tutorial-failover-failback-modernized.md
   - name: Azure VMware Solution disaster recovery to Azure
     items:
     - name: Prepare Azure
