@@ -1,4 +1,4 @@
----
+----
 title: Video Indexer restricted viewer built-in role
 description: This article talks about Video Indexer restricted viewer built-in role. This role is an account level permission, which allows users to grant restricted access to a specific user or security group. 
 ms.topic: how-to
@@ -7,12 +7,14 @@ ms.date: 09/12/2022
 
 # Manage access with the Video Indexer Restricted Viewer role
 
-Azure Video Indexer enables managing user access to the Azure Video Indexer resource at the account level with the following built-in role: **Video Indexer Restricted Viewer**. This built-in role is not available for classic account only for ARM-based (recommended) accounts.
+Azure Video Indexer enables managing user access to the Azure Video Indexer resource at the account level with the following built-in role: **Video Indexer Restricted Viewer**. 
 
-Users with the owner or administrator Azure Active Directory (Azure AD) permissions can assign the **Video Indexer Restricted Viewer** role to  Azure AD users or security groups for an account. 
+Users with the owner or administrator Azure Active Directory (Azure AD) permissions can assign the **Video Indexer Restricted Viewer** role to  Azure AD users or security groups for an account. For information on how to assign roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
 
-For information on how to assign roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
-The limited access Video Indexer Restricted Viewer role is intended for Video Indexer portal users as its permitted actions relate to the portal experience.
+The limited access Video Indexer Restricted Viewer role is intended for the [Azure Video Indexer website](https://www.videoindexer.ai/) users as its permitted actions relate to the portal experience.
+
+> [!NOTE]
+> The **Video Indexer Restricted Viewer** built-in role is only available for ARM-based (recommended) accounts. To create a new account, see [Create a new ARM-based paid account](create-account-portal.md). If you have an existing classic account, see [Connect an existing classic paid account to an ARM-based account](connect-classic-account-to-arm.md).
 
 ### Azure Video Indexer Restricted viewer permissions
 
