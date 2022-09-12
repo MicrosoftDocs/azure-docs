@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 09/09/2022
 ---
 # Built-in skills for text and image processing during indexing (Azure Cognitive Search)
 
