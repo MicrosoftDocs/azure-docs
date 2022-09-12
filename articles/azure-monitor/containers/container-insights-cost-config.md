@@ -53,7 +53,8 @@ The below table outlines the list of the container insights Log Analytics tables
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
     - If the AKS Cluster is using Service Principal, it MUST be upgraded to use Managed Identity [https://docs.microsoft.com/en-us/azure/aks/use-managed-identity#update-an-aks-cluster-to-use-a-managed-identity](https://docs.microsoft.com/en-us/azure/aks/use-managed-identity#update-an-aks-cluster-to-use-a-managed-identity)
 
-- AKS Cluster or AKS Cluster subscription MUST be whitelisted to use this feature
+- AKS Cluster or AKS Cluster subscription MUST be allow-listed to use this feature
+    - The current recommendation is to allow-list at a per cluster level, unless using a test subscription for allow-listing
 - Install latest version of the Azure CLI as per the instructions in [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
 # Onboarding
