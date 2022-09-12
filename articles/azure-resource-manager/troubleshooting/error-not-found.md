@@ -6,7 +6,7 @@ ms.date: 09/12/2022
 ms.custom: devx-track-azurepowershell
 ---
 
-# Resolve resource not found errors
+# Resolve errors for resource not found
 
 This article describes the error you see when a resource can't be found during an operation. Typically, you see this error when deploying resources with a Bicep file or Azure Resource Manager template (ARM template). You also see this error when doing management tasks and Azure Resource Manager can't find the required resource. For example, if you try to add tags to a resource that doesn't exist, you receive this error.
 
