@@ -10,9 +10,9 @@ ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 # What is Microsoft Energy Data Services Preview?
 
-Cloud Computing has not only made data assimilation, ingestion, storage, and processing significantly better than before but also provided new set of capabilities, cost effective and at scale. Capabilities like data storage and compute are now an elastic medium that can be grown or shrunk based on the organization’s needs, quickly and affordably, increasing business agility and strategic alignment. The cloud therefore is proving to be a critical element in the transformation of industries at large.
+Cloud Computing has not only made data assimilation, ingestion, storage, and processing significantly better than before but also provided new set of capabilities, cost effective and at scale. Capabilities like data storage and compute are now an elastic medium that can be grown or shrunk based on the organization's needs, quickly and affordably, increasing business agility and strategic alignment. The cloud therefore is proving to be a critical element in the transformation of industries at large.
 
-This is especially true of the Energy Industry. There is a need to collapse data silos, provide strong data management, storage and federation strategy while ensuring compatibility with evolving community standards from organizations like Open Group, specifying the Open Subsurface Data Universe (OSDU&trade;) Technical Standard and enabling value addition through interoperability with both first party and third-party solutions. This is also an imperative for new strategic initiatives in AI (artificial intelligence) that are dependent on the availability of substantial number of high quality and complete data sets.
+This is especially true of the Energy Industry. There is a need to collapse data silos, provide strong data management, storage and federation strategy while ensuring compatibility with evolving community standards from organizations like Open Group, specifying the [OSDU&trade;](https://osduforum.org/) Technical Standard and enabling value addition through interoperability with both first party and third-party solutions. This is also an imperative for new strategic initiatives in AI (artificial intelligence) that are dependent on the availability of substantial number of high quality and complete data sets.
 
 Microsoft Energy Data Services is a cloud product line that Microsoft is developing in collaboration with Schlumberger, to help in data storage, management, standardization, liberation, search, and consumption in the upstream energy space. It is a best-in-class hyperscale data ecosystem that leverages the capabilities of the OSDU&trade; Data Platform, Microsoft's secure and trustworthy Azure services and Schlumberger's extensive domain expertise.
 
@@ -35,7 +35,7 @@ Microsoft Energy Data Services platform provides encryption for data-in-transit 
 ## Azure enterprise promise
 
 As an Azure-based service, Microsoft Energy Data Services is Highly Available with support for multiple Availability Zones. It also provides reliability with Auto-Scaling to handle dynamically varying workloads. 
-Microsoft and Schlumberger will jointly provide support and monitoring for the platform to support Microsoft’s Terms of Use (TOU).
+Microsoft and Schlumberger will jointly provide support and monitoring for the platform to support Microsoft's Terms of Use (TOU).
 
 ## Next steps
 
