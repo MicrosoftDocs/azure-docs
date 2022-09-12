@@ -8,7 +8,7 @@ ms.reviewer: aul
 
 # Container Insights - Cost Optimization DCR Settings
 
-# Overview
+## Overview
 
 This private preview supports the data collection settings such as data collection interval and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview).
 
@@ -48,7 +48,7 @@ The below table outlines the list of the container insights Log Analytics tables
 | Insights.container/containers | Yes | Yes | |
 | Insights.container/persistentvolumes | Yes | Yes | |
 
-# Pre-requisites
+## Pre-requisites
 
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
     - If the AKS Cluster is using Service Principal, it MUST be upgraded to use Managed Identity [https://docs.microsoft.com/en-us/azure/aks/use-managed-identity#update-an-aks-cluster-to-use-a-managed-identity](https://docs.microsoft.com/en-us/azure/aks/use-managed-identity#update-an-aks-cluster-to-use-a-managed-identity)
@@ -57,9 +57,9 @@ The below table outlines the list of the container insights Log Analytics tables
     - The current recommendation is to allow-list at a per cluster level, unless using a test subscription for allow-listing
 - Install latest version of the Azure CLI as per the instructions in [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
-# Onboarding
+## Onboarding
 
-## Existing AKS Cluster
+### Existing AKS Cluster
 
 1. Download the Azure Resource Manager Template and Parameter files
 
@@ -90,7 +90,7 @@ az account set --subscription"Cluster Subscription Name"
 az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
 ```
 
-## Existing Azure Arc K8s Clusters
+### Existing Azure Arc K8s Clusters
 
 1. Download the Azure Resource Manager Template and Parameter files
 
@@ -122,20 +122,20 @@ az account set --subscription "Cluster's Subscription Name"
 az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
 ```
 
-# **Data Collection Settings Updates**
+## **Data Collection Settings Updates**
 
 To update your data collection Settings, modify the values in parameter files, and re-deploy the Azure Resource Manager Templates to your corresponding AKS or Azure Arc Kubernetes cluster.
 
-# Portal Experience
+## Portal Experience
 
 - Navigate to Azure Portal [https://aka.ms/cicostsettings](https://aka.ms/cicostsettings) for Container Insights experience
 
-# Known Issues/Limitations
+## Known Issues/Limitations
 
 - Recommended alerts will not work as expected if the Data collection interval is configured more than 1 minute interval. Plan is to migrate to Metrics addon for the metrics once it becomes available.
 - There will be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
 - Configuring the Data Collection Settings through Azure Portal and Azure CLI not available in private preview and this will be available in public preview & GA release of this feature
 
-# **For Help**
+## **For Help**
 
 Please reach out to [coinsupport@microsoft.com](mailto:coinsupport@microsoft.com) if you are facing any issues.
