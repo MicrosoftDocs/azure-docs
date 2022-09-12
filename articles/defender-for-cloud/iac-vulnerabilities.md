@@ -426,7 +426,7 @@ Set the protocols property to only include HTTPs.
 
 ## Learn more
 
-- Learn more about the [Template for Best Practice Analyzer](https://github.com/Azure/template-analyzer).
+- Learn more about the [Template Best Practice Analyzer](https://github.com/Azure/template-analyzer).
 
 In this tutorial you learned how to configure the Microsoft Security DevOps GitHub Action and Azure DevOps Extension to scan for only Infrastructure as Code misconfigurations.
 
