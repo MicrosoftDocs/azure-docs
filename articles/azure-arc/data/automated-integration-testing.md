@@ -1,6 +1,6 @@
 ---
-title: Azure Arc-enabled data services - Automated deployment and integration testing
-description: Running containerized integration tests on any Kubernetes Cluster
+title: Azure Arc-enabled data services - Automated validation testing
+description: Running containerized validation tests on any Kubernetes Cluster
 author: mdrakiburrahman
 ms.author: mdrrahman
 ms.reviewer: mikeray
@@ -13,14 +13,20 @@ ms.custom: template-tutorial
 ---
 
 
-# Tutorial: Automated kube-native Integration Tests
+# Tutorial: Automated validation testing
 
-As part of each commit that builds up Arc-enabled data services, Microsoft runs automated CI/CD pipelines that perform end-to-end integration tests. These tests are orchestrated via two containers that are maintained alongside the core-product (Data Controller, Azure Arc-enabled SQL Managed Instance & PostgreSQL server). These containers are:
+As part of each commit that builds up Arc-enabled data services, Microsoft runs automated CI/CD pipelines that perform end-to-end tests. These tests are orchestrated via two containers that are maintained alongside the core-product (Data Controller, Azure Arc-enabled SQL Managed Instance & PostgreSQL server). These containers are:
 
 - `arc-ci-launcher`: Containing deployment dependencies (for example, CLI extensions), as well product deployment code (using Azure CLI) for both Direct and Indirect connectivity modes. Once Kubernetes is onboarded with the Data Controller, the container leverages [Sonobuoy](https://sonobuoy.io/) to trigger parallel integration tests.
 -  `arc-sb-plugin`: A [Sonobuoy plugin](https://sonobuoy.io/plugins/) containing [Pytest](https://docs.pytest.org/en/7.1.x/)-based end-to-end integration tests, ranging from simple smoke-tests (deployments, deletes), to complex high-availability scenarios, chaos-tests (resource deletions) etc.
 
-These testing containers are made publicly available for customers and partners to ensure reliability in their own Kubernetes clusters - running anywhere - to ease continuous conformance tests, and pre-production/QA testing. 
+These testing containers are made publicly available for customers and partners to perform Arc-enabled data services validation testing in their own Kubernetes clusters running anywhere, to validate:
+* Kubernetes distro/versions
+* Host disto/versions
+* Storage (`StorageClass`/CSI), networking (e.g. `LoadBalancer`s, DNS)
+* Other Kubernetes or infrastructure specific setup
+
+For Customers intending to run Arc-enabled Data Services on an undocumented distribution, they must run these validation tests successfully to be considered supported. Additionally, Partners can use this approach to certify their solution is compliant with Arc-enabled Data Services - see [here](https://docs.microsoft.com/en-us/azure/azure-arc/data/validation-program).
 
 The following diagram outlines this high-level process:
 
@@ -34,14 +40,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
  
-- **Credentials**: The [`test.env.tmpl`](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/test/launcher/base/configs/.test.env.tmpl) file contains the necessary credentials required, and is a combination of the existing pre-requisites required to onboard an [Azure Arc Connected Cluster](../kubernetes/quickstart-connect-cluster.md?tabs=azure-cli) and [Directly Connected Data Controller](plan-azure-arc-data-services.md). Setup of this file is explained below with samples.
+- **Credentials**: 
+   * The [`test.env.tmpl`](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/test/launcher/base/configs/.test.env.tmpl) file contains the necessary credentials required, and is a combination of the existing pre-requisites required to onboard an [Azure Arc Connected Cluster](../kubernetes/quickstart-connect-cluster.md?tabs=azure-cli) and [Directly Connected Data Controller](plan-azure-arc-data-services.md). Setup of this file is explained below with samples.
+   * A [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file to the tested Kubernetes cluster with `cluster-admin` access (required for Connected Cluster onboarding at this time)
 
-- **Client-tooling**: `kubectl` installed - minimum version (Major:"1", Minor:"21")
-
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+- **Client-tooling**: 
+   * `kubectl` installed - minimum version (Major:"1", Minor:"21")
+   * `git` command line interface (or UI-based alternatives)
 
 ## Kubernetes manifest preparation
 
@@ -114,6 +119,11 @@ In other words, after copy-pasting `.test.env.tmpl` and editing to create `.test
 > [!TIP]
 > There are a handful of environment variables that require additional explanation for clarity in reproducibility. These will be commented with `see detailed explanation below [X]`.
 
+> [!TIP]
+> Note that the `.test.env` example below is for **direct** mode. Some of these variables, such as `ARC_DATASERVICES_EXTENSION_VERSION_TAG` do not apply to **indirect** mode. For simplicity, it's best to setup the `.test.env` file with **direct** mode variables in mind, switching `CONNECTIVITY_MODE=indirect` will have the launcher ignore **direct** mode specific-settings and use a subset from the list.
+> 
+> In other words, planning for **direct** mode allows us to satisfy **indirect** mode variables.
+
 Finished sample of `.test.env`:
 ```bash
 # ======================================
@@ -122,15 +132,10 @@ Finished sample of `.test.env`:
 
 # Controller deployment mode: direct, indirect
 # For 'direct', the launcher will also onboard the Kubernetes Cluster to Azure Arc
-# For 'indirect', the launcher will skip Azure Arc onboarding and proceed to Data Controller deployment
+# For 'indirect', the launcher will skip Azure Arc and extension onboarding, and proceed directly to Data Controller deployment - see `patch.json` file
 export CONNECTIVITY_MODE="direct"
 
-# All 3 artifact versions (Extension, Image, CLI) are obtained from here:
-# https://docs.microsoft.com/azure/azure-arc/data/version-log
-#
-# The launcher supports deployment of older release versions.
-
-# Extension version
+# The launcher supports deployment of both GA/pre-GA trains - see detailed explanation below [1]
 export ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN="stable"
 export ARC_DATASERVICES_EXTENSION_VERSION_TAG="1.11.0"
 
@@ -139,9 +144,6 @@ export DOCKER_IMAGE_POLICY="Always"
 export DOCKER_REGISTRY="mcr.microsoft.com"
 export DOCKER_REPOSITORY="arcdata"
 export DOCKER_TAG="v1.11.0_2022-09-13"
-
-# Arcdata CLI version override - see detailed explanation below [1]
-export ARC_DATASERVICES_WHL_OVERRIDE=""
 
 # ================
 # ARM parameters =
@@ -173,7 +175,11 @@ export WORKSPACE_SHARED_KEY="..."
 # Samples for AKS
 # To see full list of CONTROLLER_PROFILE, run: az arcdata dc config list
 export CONTROLLER_PROFILE="azure-arc-aks-default-storage"
+
+# azure, aws, gcp, onpremises, alibaba, other
 export DEPLOYMENT_INFRASTRUCTURE="azure"
+
+# The StorageClass used for PVCs created during the tests 
 export KUBERNETES_STORAGECLASS="default"
 
 # ==============================
@@ -217,16 +223,17 @@ export SKIP_UPLOAD="0"
 
 #### Detailed explanation for certain variables
 
-##### 1. `ARC_DATASERVICES_WHL_OVERRIDE` - Azure CLI previous version download URL
+##### 1. `ARC_DATASERVICES_EXTENSION_*` - Extension version and train
 
-> Optional: leave this empty in `.test.env` to use the pre-packaged default.
+> Mandatory: this is required for `direct` mode deployments.
 
-The launcher image is pre-packaged with the latest arcdata CLI version at the time of each container image release. However, to work with older releases, it may be necessary to provide the launcher with Azure CLI Blob URL download link, to override the pre-packaged version; e.g to instruct the launcher to install version **1.4.3**, fill in:
+The launcher can deploy both GA and pre-GA releases.
 
-```bash
-export ARC_DATASERVICES_WHL_OVERRIDE="https://azurearcdatacli.blob.core.windows.net/cli-extensions/arcdata-1.4.3-py2.py3-none-any.whl"
-```
-The CLI version to Blob URL mapping can be found [here](https://azcliextensionsync.blob.core.windows.net/index1/index.json).
+The extension version to release-train (`ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN`) mapping are obtained from here:
+* **GA**: `stable` - [link](https://docs.microsoft.com/azure/azure-arc/data/version-log)
+* **Pre-GA**: `preview` - [link](https://docs.microsoft.com/en-us/azure/azure-arc/data/preview-testing)
+
+The launcher image is pre-packaged with the latest arcdata CLI version at the time of each container image release.
 
 ##### 2. `CUSTOM_LOCATION_OID` - Custom Locations Object ID from your specific Azure AD Tenant
 
@@ -252,7 +259,9 @@ az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
 
 > Mandatory: this is required for Direct Mode deployments.
 
-The Launcher is meant to be used for **Non-Production/Test Kubernetes cluster & Azure Subscriptions** - focusing on functional validation of the Kubernetes setup. Therefore, to avoid the number of manual steps required to perform launches, it's recommended to provide a `SPN_CLIENT_ID/SECRET` that has `Owner` at the Resource Group (or Subscription) level, as it will create several resources in this Resource Group, as well as assigning permissions to those resources against several Managed Identities created as part of the deployment (which requires `Owner`).
+The Launcher logs in to Azure using these credentials. 
+
+Validation testing is meant to be performed on **Non-Production/Test Kubernetes cluster & Azure Subscriptions** - focusing on functional validation of the Kubernetes/Infrastructure setup. Therefore, to avoid the number of manual steps required to perform launches, it's recommended to provide a `SPN_CLIENT_ID/SECRET` that has `Owner` at the Resource Group (or Subscription) level, as it will create several resources in this Resource Group, as well as assigning permissions to those resources against several Managed Identities created as part of the deployment (these role assignments in turn require the Service Principal to have `Owner`).
 
 ##### 4. `LOGS_STORAGE_ACCOUNT_SAS` - Blob Storage Account SAS URL
 
