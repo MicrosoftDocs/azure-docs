@@ -23,7 +23,11 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 #### Form Recognizer SDK version 4.0.0 GA release
 
-**Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!** Update your applications using your programming language's migration guide (see below).
+* **Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
+
+* For more information on Form Recognizer SDKs, see the [**SDK overview**](sdk-overview.md).
+
+* Update your applications using your programming language's **migration guide** (see below).
 
 >[!NOTE]
 > Starting with version 4.0.0, a new set of clients has been introduced to leverage the newest features of the Form Recognizer service.
@@ -98,9 +102,6 @@ This release includes the following updates:
 ## August 2022
 
 #### Form Recognizer SDK beta August 2022 preview release
-
->[!NOTE]
-> The 4.0.0-beta.5 (C#), 4.0.0-beta.6 (Java), 4.0.0-beta.6 (JavaScript) and 3.2.0b6 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
 
 This release includes the following updates:
 
@@ -214,9 +215,6 @@ The **2022-06-30-preview** release presents extensive updates across the feature
 
 #### Form Recognizer SDK beta June 2022 preview release
 
->[!NOTE]
-> The 4.0.0-beta.4 (C# and JavaScript), 4.0.0-beta.5 (Java), and 3.2.0b5 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
-
 This new release includes the following updates:
 
 ### [**C#**](#tab/csharp)
@@ -292,9 +290,6 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
   | Custom neural    |✓  |  ✓ | ✓  | ✓  |   |
 
 #### Form Recognizer SDK beta preview release
-
->[!NOTE]
-> The 4.0.0-beta.3 (C# and JavaScript), 4.0.0-beta.4 (Java), and 3.2.0b4 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
 
 This new release includes the following updates:
 

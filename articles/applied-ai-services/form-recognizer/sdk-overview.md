@@ -174,9 +174,6 @@ This release includes the following updates:
 
 ### Form Recognizer SDK beta June 2022 preview release
 
->[!NOTE]
-> The 4.0.0-beta.4 (C# and JavaScript), 4.0.0-beta.5 (Java), and 3.2.0b5 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
-
 This release includes the following updates:
 
 ### [**C#**](#tab/csharp)
