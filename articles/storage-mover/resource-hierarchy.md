@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 09/12/2022
 ---
 
 <!-- 
@@ -18,12 +18,15 @@ REVIEW Stephen/Fabian: not reviewed
 REVIEW Engineering: not reviewed
 EDIT PASS: not started
 
+Initial doc score: 86
+Current doc score: 96 (1915 words and 0 issues)
+
 !########################################################
 -->
 
 # Understanding the Azure Storage Mover resource hierarchy
 
-Several Azure resources are involved in a Storage Mover deployment. This article describes each of these resources, their use, was well as best practices for expressing your migration needs with them.
+Several Azure resources are involved in a Storage Mover deployment. This article describes each of these resources, their uses, and best practices for expressing your migration needs with them.
 
 :::image type="content" source="media/resource-hierarchy/resource-hierarchy.png" alt-text="An image showing the hierarchical relationship of Storage Mover Azure resources further described in the article." lightbox="media/resource-hierarchy/resource-hierarchy-large.png":::
 
@@ -33,12 +36,15 @@ Several Azure resources are involved in a Storage Mover deployment. This article
 
 ## Storage mover resource
 
-A storage mover resource is the name of the top-level service resource, that you'll deploy in a resource group of your choice. All aspects of the service - of your migration - are controlled from here.
+A storage mover resource is the name of the top-level service resource that you'll deploy in a resource group of your choice. All aspects of the service and of your migration are controlled from this resource. In most cases, deploying a single storage mover resource is sufficient for even the largest migrations.
 
-In most cases, deploying a single storage mover resource is best for even the largest migration needs. 
-- An agent can only be registered to one storage mover. You'll be able to utilize your agents and manage your migrations better, if all resources find their home in the same storage mover instance.
-- When you deploy this resource, your subscription is registered with the resource providers *Microsoft.StorageMover* and *Microsoft.HybridCompute*.
-- A storage mover resource has a region you'll assign at the time of it's deployment. The region you select is only determining where control messages and metadata about your migration is stored. The data that is migrated, is sent directly from the agent to the target in Azure Storage. Your files never travel through the Storage Mover service. That means the proximity between source, agent, and target storage is more important for migration performance than the location of your storage mover resource.
+You'll be better able to utilize your agents and manage your migrations if all resources find their home in the same storage mover instance.
+
+An agent can only be registered to one storage mover.
+
+When you deploy the resource, your subscription is registered with the *Microsoft.StorageMover* and *Microsoft.HybridCompute* resource providers. You'll also assign the region in which control messages and metadata about your migration is stored. The region assignment does not  
+
+<!--- A storage mover resource has a region you'll assign at the time of it's deployment. The region you select is only determining where control messages and metadata about your migration is stored. The data that is migrated, is sent directly from the agent to the target in Azure Storage. Your files never travel through the Storage Mover service. That means the proximity between source, agent, and target storage is more important for migration performance than the location of your storage mover resource.-->
 
 :::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="Illustrating the previous bullet point by showing two arrows. The first arrow for data traveling to a storage account from the source/agent and a second arrow for only the management/control info to the storage mover resource/service." lightbox="media/across-articles/data-vs-management-path-large.png"::: 
 

@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 08/25/2022
+ms.date: 09/12/2022
 ---
 
 <!-- 
@@ -18,18 +18,21 @@ REVIEW Stephen/Fabian: COMPLETE
 REVIEW Engineering: not reviewed
 EDIT PASS: started
 
+Initial doc score: 83
+Current doc score: 96 (1915 words and 0 issues)
+
 !########################################################
 -->
 
 # Deploy an Azure Storage Mover agent
 
-The Azure Storage Mover service utilizes agents to perform the migration jobs you configure in the service. An agent is a virtual machine-based migration appliance which runs on a virtualization host. Ideally, your virtualization host will be located as near as possible to the source storage which you intend to migrate.
+The Azure Storage Mover service utilizes agents to perform the migration jobs you configure in the service. An agent is a virtual machine-based migration appliance that runs on a virtualization host. Ideally, your virtualization host will be located as near as possible to the source storage to be migrated.
 
 Because the agent is essentially a migration appliance, you'll interact with it through an agent-local administrative shell. The shell limits the operations you can perform on this machine, though network configuration and troubleshooting tasks are accessible.
 
-Use of the agent in migrations is managed through Azure. Both Azure PowerShell and CLI are supported, and graphical interaction is available within the Azure Portal. The agent is made available as a VM disk image compatible with a new Windows Hyper-V virtual machine (VM).
+Use of the agent in migrations is managed through Azure. Both Azure PowerShell and CLI are supported, and graphical interaction is available within the Azure portal. The agent is made available as a disk image compatible with new Windows Hyper-V virtual machines (VM).
 
-In this article you'll learn how to successfully deploy a Storage Mover agent virtual machine.
+This article will guide you through the steps necessary to successfully deploy a Storage Mover agent VM.
 
 ## Prerequisites
 
@@ -44,7 +47,7 @@ The image is hosted on Microsoft Download Center as a zip file. Download the fil
 
 ## Determine required resources for the VM
 
-Like every VM, the agent requires available compute, memory and storage space resources on the host. Although overall data size may impact the time to complete a migration, it is generally the number of files and folders that drives resource requirements.
+Like every VM, the agent requires available compute, memory, and storage space resources on the host. Although overall data size may affect the time required to complete a migration, it's generally the number of files and folders that drives resource requirements.
 
 ### Recommended compute and memory resources
 
@@ -65,7 +68,7 @@ The [Performance targets](performance-targets.md) article contains test results 
 
 ### Local storage capacity
 
-At a minimum, the agent image needs 20GiB of local storage. The amount required may increase if a large number of small files are cached during a migration.
+At a minimum, the agent image needs 20 GiB of local storage. The amount required may increase if a large number of small files are cached during a migration.
 
 ## Create the agent VM
 
@@ -82,10 +85,10 @@ At a minimum, the agent image needs 20GiB of local storage. The amount required 
    > [!IMPORTANT]
    Only *Generation 1* VMs are supported. This Linux image won't boot as a *Generation 2* VM.
 
-1. If you haven't already, [determine the amount of memory you'll need for your VM](#determine-required-resources-for-the-vm). Enter this amount in the **Assign Memory** pane. Note that you need to enter the value in MiB. 1GiB = 1024MiB. Using the **Dynamic Memory** feature is fine.
+1. If you haven't already, [determine the amount of memory you'll need for your VM](#determine-required-resources-for-the-vm). Enter this amount in the **Assign Memory** pane, noting that you need to enter the value in MiB. 1 GiB = 1024 MiB. Using the **Dynamic Memory** feature is fine.
   :::image type="content" source="media/agent-deploy/agent-memory-allocate-sml.png" lightbox="media/agent-deploy/agent-memory-allocate-lrg.png"  alt-text="Image showing the location of the Startup Memory field within the New Virtual Machine Wizard.":::
 
-1. Within the **Configure Networking** pane, select the **Connection** drop-down and choose the virtual switch which will provide the agent with internet connectivity. Select **Next**. Refer to the [HyperV virtual networking documentation](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-overview-windows-server) for more details.
+1. Within the **Configure Networking** pane, select the **Connection** drop-down. From the list, choose the virtual switch that will provide the agent with internet connectivity and select **Next**. For more information, see the [Hyper-V virtual networking documentation](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-overview-windows-server) for details.
   :::image type="content" source="media/agent-deploy/agent-networking-configure-sml.png" lightbox="media/agent-deploy/agent-networking-configure-lrg.png"  alt-text="Image showing the location of the network Connection field within the New Virtual Machine Wizard.":::
 
 1. Within the **Connect Virtual Hard Disk** pane, select the **Use an existing Virtual Hard Disk** option. In the **Location** field, select **Browse** and navigate to the VHD file that was extracted in the previous steps. Select **Next**.
@@ -105,12 +108,12 @@ The agent is delivered with a default user account and password. Immediately aft
 
 ## Bandwidth throttling
 
-A general consideration when deploying new machines in a network is the amount of bandwidth they will use. Any Azure Storage Mover agent will use all available network bandwidth on the local network (source share to agent) and the WAN link (agent to Azure Storage).
+A general consideration when deploying new machines in a network is the amount of bandwidth they'll use. Any Azure Storage Mover agent will use all available network bandwidth on the local network (source share to agent) and the WAN link (agent to Azure Storage).
 
 > [!IMPORTANT]
 > The current Azure Storage Mover agent does not support bandwidth throttling schedules.
 
-If bandwidth throttling is important to you, consider creating a local VNET with network QoS settings and an internet connection. Then expose the agent to the internet through this VNET. A network proxy server (unauthenticated) can also be configured locally on the agent.
+If bandwidth throttling is important to you, consider creating a local virtual network (VNet) with network quality of service (QoS) settings and an internet connection. Then expose the agent to the internet through this VNet. An unauthenticated network proxy server can also be configured locally on the agent.
 
 ## Decommissioning an agent
 
@@ -124,7 +127,7 @@ Decommissioning an agent starts with unregistering the agent. There are three op
 
 # [Agent administrative shell](#tab/xdmshell)
 
-You can unregister an agent using the administrative shell of the agent VM. The agent must be connected to the service and showing online locally as well as through Azure portal or Az PowerShell / Az CLI.
+You can unregister an agent using the administrative shell of the agent VM. The agent must be connected to the service and showing online both locally and through Azure portal and either Azure PowerShell or Azure CLI.
 
 [!INCLUDE [agent-shell-connect](includes/agent-shell-connect.md)]
 
@@ -141,7 +144,7 @@ You can unregister an agent using the administrative shell of the agent VM. The 
 xdmsh> 4
 ```
 
-Select the option **4) Unregister**. You will be prompted for confirmation.
+Select the option **4) Unregister**. You'll be prompted for confirmation.
 
 > [!WARNING]
 > Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported in public preview. If you need a new agent, you must use a new agent image that was never registered before and register this new agent VM. Do not reuse a previously unregistered agent VM.
@@ -150,9 +153,9 @@ Select the option **4) Unregister**. You will be prompted for confirmation.
 
 You can unregister an agent in the Azure portal by navigating to your storage mover resource the agent is registered with.
 
-- select **Registered agents** in the main navigation menu.
-- select the agent you wish to decommission - a context blade showing agent details opens.
-- select **Unregister agent** and wait for this operation to finish.
+- Select **Registered agents** in the main navigation menu.
+- Select the agent to be decommissioned. The agent details pane opens.
+- Select **Unregister agent** and wait for the operation to complete.
 
 > [!WARNING]
 > Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported in public preview. If you need a new agent, you must use a new agent image that was never registered before and register this new agent VM. Do not reuse a previously unregistered agent VM.
@@ -169,24 +172,26 @@ Unregister-AzStorageMoverAgent -ResourceGroupName <YourResourceGroupName> -Stora
 *-Force* is an optional parameter, suppressing the confirmation prompt.
 
 > [!WARNING]
-> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported in public preview. If you need a new agent, you must use a new agent image that was never registered before and register this new agent VM. Do not reuse a previously unregistered agent VM.
+> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported in public preview. New agent VMs must be created from a new agent image that has not been previously registered. Do not reuse a previously unregistered agent VM.
 
 ---
 
-The unregistration process has multiple effects:
+Several things take place during the unregistration process:
 
 - The agent is removed from the storage mover resource. You'll no longer be able to see the agent in the *Registered agents* tab in the portal or select it for new migration jobs.
 - The agent is also removed from the Azure ARC service. This removal deletes the hybrid compute resource of type *Server - Azure Arc* that represented the agent with the Azure ARC service in the same resource group as your storage mover resource.
-- Unregistration removes the managed identity of the agent from Azure Active Directory (AAD). The associated service principal is automatically removed, invalidating any permissions this agent may have had on other Azure resources. If you check the RBAC (role based access control) role assignments, for instance of a target storage container the agent previously had permissions to, you'll no longer find the service principal of the agent, because it was deleted. The assignment itself is still visible as "Unknown service principal" but this assignment no longer connects to an identity and can never be reconnected. It is simply a sign that a role assignment used to be here, of a service principal that no longer exists. <br /><br />This is standard behavior and not specific to Azure Storage Mover. You can observe the same behavior if you remove a different service principal from AAD and then check a former role assignment.
+- Unregistration removes the managed identity of the agent from Azure Active Directory (Azure AD). The associated service principal is automatically removed, invalidating any permissions this agent may have had on other Azure resources. If you check the role-based access control (RBAC) role assignments, for instance of a target storage container the agent previously had permissions to, you'll no longer find the service principal of the agent, because it was deleted. The assignment itself is still visible as "Unknown service principal" but this assignment no longer connects to an identity and can never be reconnected. It's simply a sign that a role assignment used to be here, of a service principal that no longer exists.
+
+  This behavior is standard, and not specific to Azure Storage Mover. You can observe the same behavior if you remove a different service principal from Azure AD and then check a former role assignment.
 
 > [!WARNING]
-> During public preview, unregistration of an offline agent is supported but the Azure ARC resource for the agent is not automatically deleted. You must manually delete the resource after unregistering an offline agent. The lifecycle of the agent's managed identity is tied to this resource. Removing it removes the managed identity and service principal, as previously described.
+> During public preview, unregistration of an offline agent is supported but the agent's Azure ARC resource isn't automatically deleted. Instead, you'll need to manually delete the resource after unregistering an offline agent. The lifecycle of the agent's managed identity is tied to this resource. Removing it removes the managed identity and service principal, as previously described.
 
-You can check that the uregistration process is complete when the agent disappears in the Azure portal or Az PowerShell/CLI and the hybrid compute resource of type *Server - Azure Arc* is also gone from the resource group.
+You can check that the unregistration process is complete when the agent disappears from the Azure portal and either Azure PowerShell or Azure CLI. You'll also need to confirm that the hybrid compute resource of type *Server - Azure Arc* is gone from the resource group.
 
-You can also use the agent's administrative shell to check that the agent is unregistered. Simply navigate to a sub-menu and back to the top menu. You should see the menu option toggle from "Unregister" to Register. During public preview, do not re-register!
+You can also use the agent's administrative shell to check that the agent is unregistered. To verify unregistration, navigate to any submenu and then return to the top-level menu. If unregistration was successful, you'll see the menu option toggle from *Unregister* to *Register*. As previously mentioned, re-registering isn't supported during the public preview.
 
-You can then stop the agent VM on your virtualization host. It's best to delete the agent VM image. It was previously registered, retains some state and must not be used again. If you need a new agent, deploy a new VM with a new agent image that had never been registered before.
+You can stop the agent VM on your virtualization host after the unregistration is complete. It's best to delete the agent VM image since it was previously registered, retains some state, and must not be used again. If you need a new agent, deploy a new VM with a new agent image that had never been registered before.
 
 ## Next steps
 
