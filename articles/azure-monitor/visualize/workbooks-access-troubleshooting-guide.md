@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/08/2022
 ---
 
-# Access Debrecated Troubleshooting Guides in Azure Workbooks
+# Access deprecated Troubleshooting Guides in Azure Workbooks
 
 Troubleshooting guides are now deprecated, and the **Troubleshooting Guides** menu item is no longer available. You can still access the troubleshooting guides in the Azure Workbooks menu on the left. 
 
