@@ -3,5 +3,21 @@
   topicHref: /azure/index
   items:
   - name: MySQL
-    tocHref: /azure/security-center/
+    tocHref: /azure/mysql/
+    topicHref: /azure/mysql/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: MySQL
+    tocHref: /azure/security-center to defender-for-cloud/
+    topicHref: /azure/mysql/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items: 
+  - name: MySQL
+    tocHref: /azure/dms/
     topicHref: /azure/mysql/index
