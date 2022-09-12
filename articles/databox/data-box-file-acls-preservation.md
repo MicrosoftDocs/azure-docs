@@ -51,9 +51,9 @@ The following file attributes aren't transferred:
   
 Read-only attributes on directories aren't transferred.
 
-## Alternate Data Streams and Extended Attributes
+## Alternate data streams and extended attributes
 
-Alternate Data Streams and Extended Attributes are not supported in Azure Files or Block Blob storage, so they are not transferred when copying data. 
+Alternate data streams and extended attributes are not supported in Azure Files or Block blob storage, so they are not transferred when copying data. 
 
 ## ACLs
 
