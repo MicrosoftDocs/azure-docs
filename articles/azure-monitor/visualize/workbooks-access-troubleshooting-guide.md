@@ -1,6 +1,6 @@
 ---
 title: Access Troubleshooting Guides in Azure Workbooks
-description: Learn how to access the deprecated troubleshooting guides in Azure Workbooks .
+description: Learn how to access the deprecated troubleshooting guides in Azure Workbooks.
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -12,7 +12,7 @@ ms.date: 09/08/2022
 
 Troubleshooting guides are now deprecated, and the **Troubleshooting Guides** menu item is no longer available. You can still access the troubleshooting guides in the Azure Workbooks menu on the left. 
 
-Use the 'Change Type' feature to to change workbook types and move them from the Troubleshooting Guide gallery to the Workbook gallery.
+Use the 'Change Type' feature to change workbook types and move them from the Troubleshooting Guide gallery to the Workbook gallery.
 
 ## Change the Workbook type using the Change Type toolbar item
 
@@ -24,7 +24,7 @@ Use the 'Change Type' feature to to change workbook types and move them from the
 
     :::image type="content" source="media/workbooks-access-troubleshooting-guides/workbooks-tsg-change-type-menu.png" alt-text="Screenshot of icon to change the workbooks type. ":::
 
-1. A window opens with a dropdown with a workbook types to which you can change. Select **Workbook** and then **OK**. 
+1. A window opens with a dropdown with a workbook type to which you can change. Select **Workbook** and then **OK**. 
 
     :::image type="content" source="media/workbooks-access-troubleshooting-guides/workbooks-tsg-select-type.png" alt-text="Screenshot of window to select new workbook type. ":::
 
