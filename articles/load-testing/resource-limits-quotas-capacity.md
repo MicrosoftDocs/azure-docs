@@ -28,23 +28,23 @@ In this section, you learn about the default and maximum quota limits.
 
 The following limits apply on a per-region, per-subscription basis.
 
-| Resource  | Limit | 
+| Resource  | Default limit | 
 |---------|---------| 
 | Concurrent engine instances |     5-100 <sup>1</sup>    |
 | Engine instances per test run | 1-45 <sup>1</sup> |
 
-<sup>1</sup> To request an increase beyond this limit, contact Azure Support.
+<sup>1</sup> To request an increase beyond this limit, contact Azure Support. Default limits vary by offer category type.
 
 ### Test runs
 
 The following limits apply on a per-region, per-subscription basis.
 
-| Resource  | Limit |
+| Resource  | Default limit |
 |---------|---------|
 | Concurrent test runs | 5-25 <sup>2</sup> |
 | Test duration | 3 hours |
 
-<sup>2</sup>To request an increase beyond this limit, contact Azure Support.
+<sup>2</sup> To request an increase beyond this limit, contact Azure Support. Default limits vary by offer category type.
 
 ### Data retention
 
