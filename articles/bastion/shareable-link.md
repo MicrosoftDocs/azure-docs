@@ -70,17 +70,13 @@ In this section, you specify each resource for which you want to create a sharea
 
 1. After receiving the link, the user opens the link in their browser.
 
-   > [!NOTE]
-   > If a link is no longer clickable, this means that someone in your organization has deleted that resource. While you'll still be able to see the shared links in your list, it will no longer connect to the target resource and will lead to a connection error. You can delete the shared link in your list, or keep it for auditing purposes.
-   >
-
-1. In the left corner, the user can select whether to see text and images copied to the clipboard.
-
-1. The user inputs the required information, then clicks **Login** to connect. A shared link doesn't contain authentication credentials. The admin must provide sign-in credentials to the user. Custom port and protocols are supported. 
+1. In the left corner, the user can select whether to see text and images copied to the clipboard. The user inputs the required information, then clicks **Login** to connect. A shared link doesn't contain authentication credentials. The admin must provide sign-in credentials to the user. Custom port and protocols are supported. 
 
    :::image type="content" source="./media/shareable-link/login.png" alt-text="Screenshot Sign in to bastion using the shareable link in the browser." lightbox="./media/shareable-link/login.png":::
 
-
+> [!NOTE]
+> If a link is no longer able to be opened, this means that someone in your organization has deleted that resource. While you'll still be able to see the shared links in your list, it will no longer connect to the target resource and will lead to a connection error. You can delete the shared link in your list, or keep it for auditing purposes.
+>
 
 ## Delete a shareable link
 
