@@ -923,7 +923,7 @@ describes the instruments and provides examples of when you might use each one.
 > While histograms are supported in OpenTelemetry, they are not supported in Azure Monitor at this time.
 Additionally, UpDownCounters and Asynchronous UpDownCounters are not supported in .NET at this time.
 
-For example, you can use a counter to collect an important business event such as "add to shopping cart"
+For example, you can use a counter to report the number of times an important business event such as "add to shopping cart" has occurred
 and view it in [Metrics Explorer](essentials/metrics-getting-started.md)
 for easy and accurate alerting.
 
