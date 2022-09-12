@@ -62,7 +62,7 @@ Follow these steps to restore your flexible server using an existing backup.
 
 7.  A notification will be shown that the restore operation has been initiated.
 
-## Performing Geo-Restore (Preview)
+## Performing Geo-Restore
 
 If your source server is configured with geo-redundant backup, you can restore the servers in a paired region. Please note that, for the first time restore, please wait at least 1 hour after the source server is created.
 
