@@ -88,6 +88,10 @@ When choosing a deployment model, you can either provide remote users access to 
 
 Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.
 
+### Encrypt your VM
+
+Encrypt your VM with [managed disk encryptio options](https://docs.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview) to protect stored data from unauthorized access. 
+
 ## Session host security best practices
 
 Session hosts are virtual machines that run inside an Azure subscription and virtual network. Your Azure Virtual Desktop deployment's overall security depends on the security controls you put on your session hosts. This section describes best practices for keeping your session hosts secure.
