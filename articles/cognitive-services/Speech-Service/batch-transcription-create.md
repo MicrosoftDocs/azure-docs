@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 09/11/2022
-ms.devlang: csharp
+zone_pivot_groups: speech-studio-cli-rest
 ms.custom: devx-track-csharp
 ---
 
@@ -20,27 +20,18 @@ With batch transcriptions, you submit the [audio data](batch-transcription-audio
 
 ## Create a transcription job
 
-To create a transcription, use the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md#transcriptions). Construct the request body according to the following instructions:
+::: zone pivot="speech-cli"
 
-- You must set either the `contentContainerUrl` or `contentUrls` property. This property will not be returned in a response. For more information about Azure blob storage and SAS URLs, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-storage-for-audio-files).
-- Set the required `locale` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later.
-- Set the required `displayName` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later.
+To create a transcription and connect it to an existing project, use the `spx batch transcription create` command. Construct the request parameters according to the following instructions:
 
-Make an HTTP POST request using the URI as shown in the following [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+- Set the required `content` parameter. You can specify either a semi-colon delimited list of individual files, or the SAS URL for an entire container. This property will not be returned in the response. For more information about Azure blob storage and SAS URLs, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-storage-for-audio-files).
+- Set the required `language` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
+- Set the required `name` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
+
+Here's an example Speech CLI command that creates a transcription job:
 
 ```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
-  "contentUrls": [
-    "https://crbn.us/hello.wav",
-    "https://crbn.us/whatstheweatherlike.wav"
-  ],
-  "locale": "en-US",
-  "displayName": "Transcription using the default base model for en-US",
-  "model": null,
-  "properties": {
-    "wordLevelTimestampsEnabled": true,
-  },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav
 ```
 
 You should receive a response body in the following format:
@@ -69,7 +60,73 @@ You should receive a response body in the following format:
   "status": "NotStarted",
   "createdDateTime": "2022-09-10T18:39:07Z",
   "locale": "en-US",
-  "displayName": "Transcription using the default base model for en-US"
+  "displayName": "My Transcription"
+}
+```
+
+The top-level `self` property in the response body is the transcription's URI. Use this URI to get details such as the URI of the transcriptions and transcription report files. You also use this URI to update or delete a transcription.
+
+For Speech CLI help with transcriptions, run the following command:
+
+```azurecli-interactive
+spx help batch transcription
+```
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+To create a transcription, use the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md#transcriptions). Construct the request body according to the following instructions:
+
+- You must set either the `contentContainerUrl` or `contentUrls` property. This property will not be returned in the response. For more information about Azure blob storage and SAS URLs, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-storage-for-audio-files).
+- Set the required `locale` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later.
+- Set the required `displayName` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later.
+
+Make an HTTP POST request using the URI as shown in the following [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+
+```azurecli-interactive
+curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
+  "contentUrls": [
+    "https://crbn.us/hello.wav",
+    "https://crbn.us/whatstheweatherlike.wav"
+  ],
+  "locale": "en-US",
+  "displayName": "My Transcription",
+  "model": null,
+  "properties": {
+    "wordLevelTimestampsEnabled": true,
+  },
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+```
+
+
+You should receive a response body in the following format:
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
+  "model": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+  },
+  "links": {
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
+  },
+  "properties": {
+    "diarizationEnabled": false,
+    "wordLevelTimestampsEnabled": true,
+    "displayFormWordLevelTimestampsEnabled": false,
+    "channels": [
+      0,
+      1
+    ],
+    "punctuationMode": "DictatedAndAutomatic",
+    "profanityFilterMode": "Masked"
+  },
+  "lastActionDateTime": "2022-09-10T18:39:07Z",
+  "status": "NotStarted",
+  "createdDateTime": "2022-09-10T18:39:07Z",
+  "locale": "en-US",
+  "displayName": "My Transcription"
 }
 ```
 
@@ -80,7 +137,21 @@ You can query the status of your transcriptions with the [Transcriptions_Get](ht
 Call [Transcriptions_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete)
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
 
+::: zone-end
+
 ## Request configuration options
+
+::: zone pivot="speech-cli"
+
+For Speech CLI help with transcription configuration options, run the following command:
+
+```azurecli-interactive
+spx help batch transcription create advanced
+```
+
+::: zone-end
+
+::: zone pivot="rest-api"
 
 Here are some property options that you can use to configure a transcription when you call the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation.
 
@@ -98,11 +169,26 @@ Here are some property options that you can use to configure a transcription whe
 |`timeToLive`|A duration after the transcription job is created, when the transcription results will be automatically deleted. For example, specify `PT12H` for 12 hours. As an alternative, you can call [Transcriptions_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete) regularly after you retrieve the transcription results.|
 |`wordLevelTimestampsEnabled`|Specifies if word level timestamps should be included in the output. The default value is `false`.|
 
+
+::: zone-end
+
+
 ## Using custom models
 
 Batch transcription uses the default base model for the locale that you specify. You don't need to set any properties to use the default base model. 
 
 Optionally, you can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. 
+
+
+::: zone pivot="speech-cli"
+
+```azurecli-interactive
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+```
+
+::: zone-end
+
+::: zone pivot="rest-api"
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
@@ -111,16 +197,18 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "model": {
     "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
-  "displayName": "Transcription using the default base model for en-US",
+  "displayName": "My Transcription",
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
 ```
 
+::: zone-end
+
 To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. A [deployed custom endpoint](how-to-custom-speech-deploy-model.md) isn't needed for the batch transcription service.
 
-Batch transcription requests for expired models will fail with a 4xx error. In each [Transcriptions_Create](https://eastus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. For more information, see [Choose a model](how-to-custom-speech-create-project.md#choose-your-model) and [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
+Batch transcription requests for expired models will fail with a 4xx error. You'll want to set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. For more information, see [Choose a model](how-to-custom-speech-create-project.md#choose-your-model) and [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
 ## Next steps
 

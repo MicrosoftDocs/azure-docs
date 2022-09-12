@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 09/11/2022
-ms.devlang: csharp
+zone_pivot_groups: speech-studio-cli-rest
 ms.custom: devx-track-csharp
 ---
 
@@ -20,7 +20,62 @@ To get transcription results, first check the [status](#get-transcription-status
 
 ## Get transcription status
 
-To get the status of the transcription job, start by using the [Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
+::: zone pivot="speech-cli"
+
+To get the status of the transcription job, use the `spx batch transcription status` command. Construct the request parameters according to the following instructions:
+
+- Set the `transcription` parameter to the ID of the transcription that you want to get. 
+
+Here's an example Speech CLI command to get the transcription status:
+
+```azurecli-interactive
+spx batch transcription status --transcription YourTranscriptionId
+```
+
+You should receive a response body in the following format:
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
+  "model": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+  },
+  "links": {
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
+  },
+  "properties": {
+    "diarizationEnabled": false,
+    "wordLevelTimestampsEnabled": true,
+    "displayFormWordLevelTimestampsEnabled": false,
+    "channels": [
+      0,
+      1
+    ],
+    "punctuationMode": "DictatedAndAutomatic",
+    "profanityFilterMode": "Masked",
+    "duration": "PT3S"
+  },
+  "lastActionDateTime": "2022-09-10T18:39:09Z",
+  "status": "Succeeded",
+  "createdDateTime": "2022-09-10T18:39:07Z",
+  "locale": "en-US",
+  "displayName": "My Transcription"
+}
+```
+
+The `status` property indicates the current status of the transcriptions. The transcriptions and transcription report will be available when the transcription status is `Succeeded`.
+
+For Speech CLI help with transcriptions, run the following command:
+
+```azurecli-interactive
+spx help batch transcription
+```
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+To get the status of the transcription job, call the [Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
@@ -55,13 +110,84 @@ You should receive a response body in the following format:
   "status": "Succeeded",
   "createdDateTime": "2022-09-10T18:39:07Z",
   "locale": "en-US",
-  "displayName": "Transcription using the default base model for en-US"
+  "displayName": "My Transcription"
 }
 ```
 
 The `status` property indicates the current status of the transcriptions. The transcriptions and transcription report will be available when the transcription status is `Succeeded`.
 
+
+::: zone-end
+
 ## Get transcription results
+
+
+::: zone pivot="speech-cli"
+
+The `spx batch transcription list` command returns a list of result files for a transcription. A [transcription report](#transcription-report-file) file is provided for each submitted batch transcription job. In addition, one [transcription](#transcription-result-file) file (the end result) is provided for each successfully transcribed audio file. 
+
+- Set the required `files` flag.
+- Set the required `transcription` parameter to the ID of the transcription that you want to get logs.
+
+Here's an example Speech CLI command that gets a list of result files for a transcription:
+
+```azurecli-interactive
+spx batch transcription list --files --transcription YourTranscriptionId
+```
+
+You should receive a response body in the following format:
+
+```json
+{
+  "values": [
+    {
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/2dd180a1-434e-4368-a1ac-37350700284f",
+      "name": "contenturl_0.json",
+      "kind": "Transcription",
+      "properties": {
+        "size": 3407
+      },
+      "createdDateTime": "2022-09-10T18:39:09Z",
+      "links": {
+        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_0_0.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=AobsqO9DH9CIOuGC5ifFH3QpkQay6PjHiWn5G87FcIg%3D"
+      }
+    },
+    {
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/c027c6a9-2436-4303-b64b-e98e3c9fc2e3",
+      "name": "contenturl_1.json",
+      "kind": "Transcription",
+      "properties": {
+        "size": 8233
+      },
+      "createdDateTime": "2022-09-10T18:39:09Z",
+      "links": {
+        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_1_0.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=wO3VxbhLK4PhT3rwLpJXBYHYQi5EQqyl%2Fp1lgjNvfh0%3D"
+      }
+    },
+    {
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/faea9a41-c95c-4d91-96ff-e39225def642",
+      "name": "report.json",
+      "kind": "TranscriptionReport",
+      "properties": {
+        "size": 279
+      },
+      "createdDateTime": "2022-09-10T18:39:09Z",
+      "links": {
+        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_report.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=gk1k%2Ft5qa1TpmM45tPommx%2F2%2Bc%2FUUfsYTX5FoSa1u%2FY%3D"
+      }
+    }
+  ]
+}
+```
+
+The location of each transcription and transcription report files with more details are returned in the response body. The `contentUrl` property contains the URL to the [transcription](#transcription-result-file) (`"kind": "Transcription"`) or [transcription report](#transcription-report-file) (`"kind": "TranscriptionReport"`) file.
+
+By default, the results are stored in a container managed by Microsoft. When the transcription job is deleted, the transcription result data is also deleted.
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
 
 The [Transcriptions_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) operation returns a list of result files for a transcription. A [transcription report](#transcription-report-file) file is provided for each submitted batch transcription job. In addition, one [transcription](#transcription-result-file) file (the end result) is provided for each successfully transcribed audio file.  
 
@@ -119,6 +245,9 @@ You should receive a response body in the following format:
 The location of each transcription and transcription report files with more details are returned in the response body. The `contentUrl` property contains the URL to the [transcription](#transcription-result-file) (`"kind": "Transcription"`) or [transcription report](#transcription-report-file) (`"kind": "TranscriptionReport"`) file.
 
 If you didn't specify a container in the `destinationContainerUrl` property of the transcription request, the results are stored in a container managed by Microsoft. When the transcription job is deleted, the transcription result data is also deleted.
+
+::: zone-end
+
 
 ### Transcription report file
 
