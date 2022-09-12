@@ -29,7 +29,7 @@ Below is an example of an import manifest that uses the related files feature to
       },
       "compatibility": [
         {
-          // deviceManufacturer, deviceModel, etc.
+          // manufacturer, model, etc.
         }
       ],
       "instructions": {
