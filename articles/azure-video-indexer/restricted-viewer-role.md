@@ -16,15 +16,15 @@ Users with the owner or administrator Azure Active Directory (Azure AD) permissi
 
 The limited access Video Indexer Restricted Viewer role is intended for the [Azure Video Indexer website](https://www.videoindexer.ai/) users as its permitted actions relate to the [Azure Video Indexer website](https://www.videoindexer.ai/) experience.
 
-## Azure Video Indexer Restricted viewer permissions
+## Azure Video Indexer Restricted Viewer permissions
 
-### Users with this role are **able** to perform the following tasks:
+Users with this role are **able** to perform the following tasks:
 
 - View and play videos in the account
 - Search through insights in the account
 - Translate the transcription of a specific video
 
-### Users with this role are **unable** to perform the following tasks:
+Users with this role are **unable** to perform the following tasks:
 
 - Upload/Index/Re-index a video
 - Download/Embed video/insights 
