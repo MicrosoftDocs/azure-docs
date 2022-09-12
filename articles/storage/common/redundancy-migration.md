@@ -76,6 +76,46 @@ If you want to change zone-redundancy in combination with geo-redundancy or read
 
 For the complete list of options for converting from one replication type to another, see [the replication conversion tables](#replication-conversion-tables).
 
+## Change the replication setting using the portal, PowerShell, or the CLI
+
+In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account. If you are changing zone redundancy and initiating a live migration from the Azure portal is [allowed in your scenario](#migration-support-table), you can change the setting from within the Azure portal, but not from PowerShell or the Azure CLI.
+
+Changing how your storage account is replicated in the portal does not result in down time for your applications. This includes changes that require live migration.
+
+# [Portal](#tab/portal)
+
+To change the redundancy option for your storage account in the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. Under **Data management** select **Redundancy**.
+1. Update the **Redundancy** setting.
+1. **Save**.
+
+    :::image type="content" source="media/redundancy-migration/change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/redundancy-migration/change-replication-option.png":::
+
+# [PowerShell](#tab/powershell)
+
+To change the redundancy option for your storage account with PowerShell, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and specify the `-SkuName` parameter:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource_group> `
+    -Name <storage_account> `
+    -SkuName <sku>
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To change the redundancy option for your storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and specify the `--sku` parameter:
+
+```azurecli-interactive
+az storage account update \
+    --name <storage-account>
+    --resource-group <resource_group> \
+    --sku <sku>
+```
+
+---
+
 ## Storage account migration
 
 For scenarios where migration is [required and supported](#migration-support-table), Microsoft supports three methods for migrating your storage account:
@@ -184,46 +224,6 @@ The following table summarizes the benefits and supported scenarios for each mig
 
 <sup>1</sup> See the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/)<br />
 <sup>2</sup> You cannot use manual migration to migrate a premium page blob account for the purpose of changing the replication setting, although you can use it to [move an account to a different region](storage-account-move.md).
-
-## Change the replication setting using the portal, PowerShell, or the CLI
-
-In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account. If you are changing zone redundancy and initiating a live migration from the Azure portal is [allowed in your scenario](#migration-support-table), you can change the setting from within the Azure portal, but not from PowerShell or the Azure CLI.
-
-Changing how your storage account is replicated in the portal does not result in down time for your applications. This includes changes that require live migration.
-
-# [Portal](#tab/portal)
-
-To change the redundancy option for your storage account in the Azure portal, follow these steps:
-
-1. Navigate to your storage account in the Azure portal.
-1. Under **Data management** select **Redundancy**.
-1. Update the **Redundancy** setting.
-1. **Save**.
-
-    :::image type="content" source="media/redundancy-migration/change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/redundancy-migration/change-replication-option.png":::
-
-# [PowerShell](#tab/powershell)
-
-To change the redundancy option for your storage account with PowerShell, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and specify the `-SkuName` parameter:
-
-```powershell
-Set-AzStorageAccount -ResourceGroupName <resource_group> `
-    -Name <storage_account> `
-    -SkuName <sku>
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To change the redundancy option for your storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and specify the `--sku` parameter:
-
-```azurecli-interactive
-az storage account update \
-    --name <storage-account>
-    --resource-group <resource_group> \
-    --sku <sku>
-```
-
----
 
 ## Restrictions for changing replication types
 
