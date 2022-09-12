@@ -26,7 +26,7 @@ These testing containers are made publicly available for customers and partners 
 * Storage (`StorageClass`/CSI), networking (e.g. `LoadBalancer`s, DNS)
 * Other Kubernetes or infrastructure specific setup
 
-For Customers intending to run Arc-enabled Data Services on an undocumented distribution, they must run these validation tests successfully to be considered supported. Additionally, Partners can use this approach to certify their solution is compliant with Arc-enabled Data Services - see [here](https://docs.microsoft.com/en-us/azure/azure-arc/data/validation-program).
+For Customers intending to run Arc-enabled Data Services on an undocumented distribution, they must run these validation tests successfully to be considered supported. Additionally, Partners can use this approach to certify their solution is compliant with Arc-enabled Data Services - see [Azure Arc-enabled data services Kubernetes validation](validation-program.md).
 
 The following diagram outlines this high-level process:
 
@@ -233,8 +233,8 @@ export SKIP_UPLOAD="0"
 The launcher can deploy both GA and pre-GA releases.
 
 The extension version to release-train (`ARC_DATASERVICES_EXTENSION_RELEASE_TRAIN`) mapping are obtained from here:
-* **GA**: `stable` - [link](https://docs.microsoft.com/azure/azure-arc/data/version-log)
-* **Pre-GA**: `preview` - [link](https://docs.microsoft.com/en-us/azure/azure-arc/data/preview-testing)
+* **GA**: `stable` - [Version log](version-log.md)
+* **Pre-GA**: `preview` - [Pre-release testing](preview-testing.md)
 
 ##### 2. `ARC_DATASERVICES_WHL_OVERRIDE` - Azure CLI previous version download URL
 
@@ -251,7 +251,7 @@ The CLI version to Blob URL mapping can be found [here](https://azcliextensionsy
 
 > Mandatory: this is required for Connected Cluster Custom Location creation.
 
-The follow steps are [sourced from here](https://docs.microsoft.com/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster) to retrieve the Custom Location OID for your Azure AD tenant.
+The following steps are sourced from [Enable custom locations on your cluster](../kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster) to retrieve the Custom Location OID for your Azure AD tenant.
 
 There are 2 approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure AD tenant.
 
@@ -279,11 +279,11 @@ Validation testing is meant to be performed on **Non-Production/Test Kubernetes 
 
 > Recommended: leaving this empty means you will not obtain test results and logs.
 
-The launcher needs a persistent location (Azure Blob Storage) to upload results to, as Kubernetes does not (yet) allow copying files from stopped/completed pods - [see here](https://github.com/kubernetes/kubectl/issues/454). The launcher achieves connectivity to Azure Blob Storage using an _**account-scoped SAS URL**_ (as opposed to _container_ or _blob_ scoped) - a signed URL with a time-bound access definition - see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview), in order to:
+The launcher needs a persistent location (Azure Blob Storage) to upload results to, as Kubernetes does not (yet) allow copying files from stopped/completed pods - [see here](https://github.com/kubernetes/kubectl/issues/454). The launcher achieves connectivity to Azure Blob Storage using an _**account-scoped SAS URL**_ (as opposed to _container_ or _blob_ scoped) - a signed URL with a time-bound access definition - see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md), in order to:
 1. Create a new Storage Container in the pre-existing Storage Account (`LOGS_STORAGE_ACCOUNT`), if it doesn't exist (name based on `LOGS_STORAGE_CONTAINER`)
 2. Create new, uniquely named blobs (test log tarfiles)
 
-The follow steps are [sourced from here](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#account-sas).
+The follow steps are sourced from [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md#grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas).
 
 > [!TIP]
 > SAS URLs are different from the Storage Account Key, a SAS URL is formatted as follows.
@@ -295,7 +295,7 @@ There are several approaches to generating a SAS URL - we explore the Portal opt
 
 ![Account level SAS URL](media/automated-integration-testing/sas-url-portal.png)
 
-To use the Azure CLI instead, see [`az storage account generate-sas`](https://docs.microsoft.com/en-us/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)
+To use the Azure CLI instead, see [`az storage account generate-sas`](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az-storage-account-generate-sas)
 
 ##### 6. `SKIP_*` - controlling the launcher behavior by skipping certain stages
 
@@ -374,8 +374,8 @@ images:
 > At this point - there are **3** places we specified `imageTag`s, for clarity, here's an explanation of the different uses of each. Typically - when testing a given release, all 3 values would be the same:
 > | #   | Filename                 | Variable name    | Why?                                                                                                                                                                                                        | Used by?                                                                                                                                            |
 > | --- | ------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-> | 1   | **`.test.env`**          | `DOCKER_TAG`     | Sourcing the [Bootstrapper image](https://mcr.microsoft.com/v2/arcdata/arc-bootstrapper/tags/list) as part of [extension install](https://mcr.microsoft.com/v2/arcdata/arcdataservices-extension/tags/list) | [`az k8s-extension create`](https://docs.microsoft.com/en-us/cli/azure/k8s-extension?view=azure-cli-latest#az-k8s-extension-create) in the launcher |
-> | 2   | **`patch.json`**         | `value.imageTag` | Sourcing the [Data Controller image](https://mcr.microsoft.com/v2/arcdata/arc-controller/tags/list)                                                                                                         | [`az arcdata dc create`](https://docs.microsoft.com/en-us/cli/azure/arcdata/dc?view=azure-cli-latest#az-arcdata-dc-create) in the launcher          |
+> | 1   | **`.test.env`**          | `DOCKER_TAG`     | Sourcing the [Bootstrapper image](https://mcr.microsoft.com/v2/arcdata/arc-bootstrapper/tags/list) as part of [extension install](https://mcr.microsoft.com/v2/arcdata/arcdataservices-extension/tags/list) | [`az k8s-extension create`](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true#az-k8s-extension-create) in the launcher |
+> | 2   | **`patch.json`**         | `value.imageTag` | Sourcing the [Data Controller image](https://mcr.microsoft.com/v2/arcdata/arc-controller/tags/list)                                                                                                         | [`az arcdata dc create`](/cli/azure/arcdata/dc?view=azure-cli-latest&preserve-view=true#az-arcdata-dc-create) in the launcher          |
 > | 3   | **`kustomization.yaml`** | `images.newTag`  | Sourcing the [Launcher's image](https://mcr.microsoft.com/v2/arcdata/arc-ci-launcher/tags/list)                                                                                                             | `kubectl apply`ing the launcher                                                                                                                     |
 
 
