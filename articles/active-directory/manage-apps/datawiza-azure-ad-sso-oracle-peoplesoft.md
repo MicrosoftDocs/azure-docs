@@ -113,7 +113,7 @@ To integrate Oracle PeopleSoft with Azure AD:
 
 8. On the Configure IdP dialog, enter the relevant information.
 
-   [!Note]
+   >[!Note]
    >DCMC has [one-click integration](https://docs.datawiza.com/tutorial/web-app-azure-one-click.html) to help complete Azure AD configuration. DCMC calls the Microsoft Graph API to create an application registration on your behalf in your Azure AD tenant.
 
 9. Select **Create**.
@@ -138,19 +138,18 @@ For the Oracle PeopleSoft application to recognize the user correctly, there's a
 
 3. Use the following values.
 
-  | Property | Value |
-  |:--------------|:--------------|
-  |Field  |        Email|
-  |Expected |      PS_SSO_UID |
-  |Type |          Header|
+   | Property | Value |
+   |:--------------|:--------------|
+   |Field  |        Email|
+   |Expected |      PS_SSO_UID |
+   |Type |          Header|
 
-  ![Screenshot that shows the attribute pass value.](./media/access-oracle-peoplesoft-using-datawiza/attribute-pass.png)
+   ![Screenshot that shows the attribute pass value.](./media/access-oracle-peoplesoft-using-datawiza/attribute-pass.png)
 
->[!Note]
->This configuration uses the Azure AD user principal name as
-the sign in username used by Oracle PeopleSoft. To use another user identity, go to the Mappings tab.
+   >[!Note]
+   >This configuration uses the Azure AD user principal name as the sign in username used by Oracle PeopleSoft. To use another user identity, go to the Mappings tab.
 
-![Screenshot that shows the user principal name field as the username.](./media/access-oracle-peoplesoft-using-datawiza/user-principal-name.png)
+   ![Screenshot that shows the user principal name field as the username.](./media/access-oracle-peoplesoft-using-datawiza/user-principal-name.png)
 
 ## SSL Configuration
 
@@ -161,12 +160,14 @@ the sign in username used by Oracle PeopleSoft. To use another user identity, go
 2. Select **Enable SSL**.
 
 3. From the Cert Type dropdown, select a type.
+
    ![Screenshot that shows the cert type dropdown.](./media/access-oracle-peoplesoft-using-datawiza/cert-type.png)
 
 4. For testing purposes, we'll be providing a self-signed certificate.
+
    ![Screenshot that shows the self-signed certificate.](./media/access-oracle-peoplesoft-using-datawiza/self-signed-cert.png)
 
-   [!Note]
+   >[!Note]
    >You have the option to upload a certificate from a file.
 
    ![Screenshot that shows uploading cert from a file option.](./media/access-oracle-peoplesoft-using-datawiza/cert-upload.png)
