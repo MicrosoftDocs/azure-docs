@@ -46,7 +46,7 @@ Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Lin
 
 The specific scenario of SAP applications using Oracle Databases is supported as well. Details are discussed in the next part of the document.
 
-##General Recommendations for running SAP on Oracle on Azure##
+## General Recommendations for running SAP on Oracle on Azure 
 
 When installing or migrating existing SAP on Oracle systems to Azure, the following deployment pattern should be followed:
 
@@ -237,6 +237,18 @@ Mirror Log is required on dNFS ANF Production systems.
 
 Even though the ANF is highly redundant, Oracle still requires a mirrored redo-logfile volume. The recommendation is to create two separate volumes and configure origlogA together with mirrlogB and origlogB together with mirrlogA. In this case, you make use of a distributed load balancing of the redo-logfiles.
 
+The mount option “nconnect” is NOT recommended when the dNFS client is configured. dNFS manages the IO channel and makes use of multiple sessions, so this option is obsolete and can cause manifold issues. The dNFS client will ignore the mount options and will handle the IO directly.
+
+Both NFS versions (v3 and v4.1) with ANF are supported for the Oracle binaries, data- and log-files.
+
+We highly recommend using the Oracle dNFS clint for all Oracle volumes.
+
+Recommended mount options are:
+
+### NFS3: rw,vers=3,rsize=262144,wsize=262144,hard,timeo=600,noatime
+
+### NFSv4.1: rw,vers=4.1,rsize=262144,wsize=262144,hard,timeo=600,noatime
+
 ## ANF Backup
 
 With ANF, some key features are available like consistent snapshot-based backups, low latency, and remarkably high performance. From version 6 of our AzAcSnap tool [Azure Application Consistent Snapshot tool for ANF](/azure/azure-netapp-files/azacsnap-get-started) Oracle databases can be configured for consistent database snapshots. Also, the option of resizing the volumes on the fly is valued by our customers.
@@ -252,7 +264,7 @@ Note that: when creating LVM the “-i” option must be used to evenly distribu
 
 Mirror Log is required when running LVM.
 
-## Minimum configuration:
+## Minimum configuration Linux:
 
 | **Component**                        | **Disk** | **Host Cache**        | **Striping<sup>1</sup>** |
 |--------------------------------------|----------|-----------------------|--------------------------|
@@ -268,7 +280,7 @@ Mirror Log is required when running LVM.
 
 The disk selection for hosting Oracle's online redo logs should be driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on a single mounted disk as long as the volume, IOPS, and throughput satisfy the requirements.
 
-## Performance configuration:
+## Performance configuration Linux:
 
 | **Component**                       | **Disk** | **Host Cache**        | **Striping<sup>1</sup>** |
 |-------------------------------------|----------|-----------------------|--------------------------|
@@ -296,20 +308,6 @@ The disk selection for hosting Oracle's online redo logs should be driven by IOP
 Log write times can be improved on Azure M-Series VMs by enabling Write Accelerator. Enable Azure Write Accelerator for the Azure Premium Storage disks used by the ASM Disk Group for <u>online redo log files</u>. For more information, see [<u>Write Accelerator</u>](/azure/virtual-machines/how-to-enable-write-accelerator).
 
 Using Write Accelerator is optional but can be enabled if the AWR report indicates higher than expected log write times.
-
-## Azure NetApp Files (ANF) with Oracle dNFS (Direct NFS)
-
-The mount option “nconnect” is NOT recommended when the dNFS client is configured. dNFS manages the IO channel and makes use of multiple sessions, so this option is obsolete and can cause manifold issues. The dNFS client will ignore the mount options and will handle the IO directly.
-
-Both NFS versions (v3 and v4.1) with ANF are supported for the Oracle binaries, data- and log-files.
-
-We highly recommend using the Oracle dNFS clint for all Oracle volumes.
-
-Recommended mount options are:
-
-## NFS3: rw,vers=3,rsize=262144,wsize=262144,hard,timeo=600,noatime
-
-## NFSv4.1: rw,vers=4.1,rsize=262144,wsize=262144,hard,timeo=600,noatime
 
 ## Azure VM Throughput Limits
 
@@ -395,7 +393,7 @@ At the time, of writing ASM for Windows customers on Azure is not supported. SWP
 
 ## Storage Configurations for SAP on Oracle on Windows
 
-## Minimum configuration:
+## Minimum configuration Windows:
 
 | **Component**                           | **Disk** | **Host Cache**        | **Striping<sup>1</sup>** |
 |-----------------------------------------|----------|-----------------------|--------------------------|
@@ -411,7 +409,7 @@ At the time, of writing ASM for Windows customers on Azure is not supported. SWP
 
 The disk selection for hosting Oracle's online redo logs should be driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on a single mounted disk as long as the volume, IOPS, and throughput satisfy the requirements.
 
-## Performance configuration:
+## Performance configuration Windows:
 
 | **Component**                          | **Disk** | **Host Cache**        | **Striping<sup>1</sup>** |
 |----------------------------------------|----------|-----------------------|--------------------------|
