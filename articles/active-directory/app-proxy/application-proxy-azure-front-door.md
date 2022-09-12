@@ -82,11 +82,11 @@ Follow these steps to configure the Front Door Service (Standard):
 | **Origin hostname** | contoso.msappproxy.net | The URL generated for the app by Application Proxy must be utilized here.|
 | **Connector group** | North America | Select the connector group in the geo closest to where the app instance will be in for optimized performance.|
 
-![Azure Front Door Configuration 1](./media/application-proxy-azure-front-door/azure-front-door.png)
+![Azure Front Door Configuration 1](./media/application-proxy-azure-front-door/azure-front-door-profile-1.png)
 
-![Azure Front Door Configuration 2](./media/application-proxy-azure-front-door/azure-front-door.png)
+![Azure Front Door Configuration 2](./media/application-proxy-azure-front-door/azure-front-door-profile-2.png)
 
-![Azure Front Door Configuration 3](./media/application-proxy-azure-front-door/azure-front-door.png)
+![Azure Front Door Configuration 3](./media/application-proxy-azure-front-door/azure-front-door-profile-3.png)
 
 ## Next steps
 
