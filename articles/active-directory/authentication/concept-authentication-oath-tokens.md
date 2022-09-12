@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/07/2022
+ms.date: 09/12/2022
 
 ms.author: justinha
 author: justinha
@@ -59,7 +59,7 @@ Once any errors have been addressed, the administrator then can activate each ke
 Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. Hardware OATH tokens cannot be assigned to guest users in the resource tenant.
 
 >[!IMPORTANT]
->The preview is not supported in Azure Government or sovereign clouds.
+>The preview is only supported in Azure Global and Azure Government clouds.
 
 ## Next steps
 
