@@ -66,7 +66,67 @@ You decide to create an exclusion to allow these legitimate requests to pass thr
 
 ::: zone pivot="powershell"
 
-TODO
+## Define an exclusion selector
+
+Use the [New-AzFrontDoorWafManagedRuleExclusionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleexclusionobject) cmdlet to define a new exclusion selector.
+
+The following example identifies request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion.
+
+```azurepowershell
+$exclusionSelector = New-AzFrontDoorWafManagedRuleExclusionObject `
+  -Variable RequestHeaderNames `
+  -Operator StartsWith `
+  -Selector 'user'
+```
+
+## Define a per-rule exclusion
+
+Use the [New-AzFrontDoorWafManagedRuleOverrideObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject) cmdlet to define a new per-rule exclusion, which includes the selector you created in the previous step.
+
+The following example creates an exclusion for rule ID 924430.
+
+```azurepowershell
+$exclusion = New-AzFrontDoorWafManagedRuleOverrideObject `
+  -RuleId '924430' `
+  -Exclusion $exclusionSelector
+```
+
+## Apply the exclusion to the rule group
+
+Use the [New-AzFrontDoorWafRuleGroupOverrideObject](/powershell/module/az.frontdoor/new-azfrontdoorwafrulegroupoverrideobject) cmdlet to create a rule group override, which applies the exclusion to the appropriate rule group.
+
+The example below uses the SQLI rule group, because that group contains rule ID 924430.
+
+```azurepowershell
+$ruleGroupOverride = New-AzFrontDoorWafRuleGroupOverrideObject `
+  -RuleGroupName 'SQLI' `
+  -ManagedRuleOverride $exclusion
+```
+
+## Configure the managed rule set
+
+Use the [New-AzFrontDoorWafManagedRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleobject) cmdlet to configure the managed rule set, including the rule group override that you created in the previous step.
+
+The example below configures the DRS 2.0 rule set with the rule group override and its exclusion.
+
+```azurepowershell
+$managedRuleSet = New-AzFrontDoorWafManagedRuleObject `
+  -Type 'Microsoft_DefaultRuleSet' `
+  -Version '2.0' `
+  -Action Block `
+  -RuleGroupOverride $ruleGroupOverride
+```
+
+## Apply the managed rule set configuration to the WAF profile
+
+Use the [Update-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/update-azfrontdoorwafpolicy) cmdlet to update your WAF policy to include the configuration you created above. Ensure that you use the correct resource group name and WAF policy name for your own environment.
+
+```azurepowershell
+Update-AzFrontDoorWafPolicy `
+  -ResourceGroupName 'FrontDoorWafPolicy' `
+  -Name 'WafPolicy'
+  -ManagedRule $managedRuleSet
+```
 
 ::: zone-end
 
