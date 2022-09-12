@@ -3,7 +3,6 @@ title: About customer-managed keys - Overview
 description: Learn about the customer-managed keys, an overview on its key features and considerations before you encrypt your Premium registry with a customer-managed key stored in Azure Key Vault.
 ms.topic: tutorial
 ms.date: 08/5/2022
-ms.custom: subject-rbac-steps, devx-track-azurecli
 ms.author: tejaswikolli
 ---
 

@@ -4,7 +4,6 @@ description: Tutorial to troubleshoot the most common issues from a registry ena
 author: tejaswikolli-web
 ms.topic: tutorial
 ms.date: 08/5/2022
-ms.custom: subject-rbac-steps, devx-track-azurecli
 ms.author: tejaswikolli
 ---
 
