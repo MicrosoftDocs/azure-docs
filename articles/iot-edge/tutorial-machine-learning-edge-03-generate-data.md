@@ -8,6 +8,7 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "=iotedge-2018-06"
 ---
 
 # Tutorial: Generate simulated device data
@@ -60,7 +61,7 @@ This article is part of a series for a tutorial about using Azure Machine Learni
 
 1. Since you're using extensions on this machine for the first time, some extensions will update and install their dependencies. You may be prompted to update extension. If so, select **Reload Window**.
 
-   If OmniSharp errors appear in the output window, you’ll need to uninstall the C# extension.
+   If OmniSharp errors appear in the output window, you'll need to uninstall the C# extension.
 
 1. You will be prompted to add required assets for DeviceHarness. Select **Yes** to add them.
 
@@ -145,7 +146,7 @@ The data sent by the DeviceHarness went to your IoT hub, where you can verify in
 
 ## Validate data in Azure Storage
 
-The data we just sent to your IoT hub was routed to the storage container that we created in the previous article. Let’s look at the data in our storage account.
+The data we just sent to your IoT hub was routed to the storage container that we created in the previous article. Let's look at the data in our storage account.
 
 1. In the Azure portal, navigate to your storage account.
 
