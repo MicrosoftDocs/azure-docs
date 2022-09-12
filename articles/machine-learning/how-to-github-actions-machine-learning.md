@@ -209,7 +209,7 @@ jobs:
 1. Select **View runs**. 
 1. Enable workflows by selecting **I understand my workflows, go ahead and enable them**.
 1. Select the **cli-jobs-pipelines-nyc-taxi-pipeline workflow** and choose to **Enable workflow**. 
-    :::image type="content" source="media/how-to-github-actions-machine-learning/enable-github-actions-la-workflow.png" alt-text="Screenshot of enable GitHub Actions workflow.":::
+    :::image type="content" source="media/how-to-github-actions-machine-learning/enable-github-actions-ml-workflow.png" alt-text="Screenshot of enable GitHub Actions workflow.":::
 1. Select **Run workflow** and choose the option to **Run workflow** now. 
     :::image type="content" source="media/how-to-github-actions-machine-learning/github-actions-run-workflow.png" alt-text="Screenshot of run GitHub Actions workflow.":::
 
