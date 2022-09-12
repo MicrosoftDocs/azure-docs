@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About the Azure portal
+  - name: What is the Azure portal?
     href: azure-portal-overview.md
   - name: Get started with Azure Quickstart Center
     href: azure-portal-quickstart-center.md
