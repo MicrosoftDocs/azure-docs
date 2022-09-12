@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect your Azure DevOps repositories to Microsoft Defender for Cloud'
 description: Learn how to connect your Azure DevOps repositories to Defender for Cloud.
-ms.date: 09/11/2022
+ms.date: 09/12/2022
 ms.topic: quickstart
 ---
 
@@ -86,7 +86,7 @@ The Defender for DevOps service automatically discovers the organizations, proje
 
 ## Learn more
 
-- Learn more about [Azure DevOps](/azure/devops/?view=azure-devops).
+- Learn more about [Azure DevOps](/azure/devops/?view=azure-devops)
 
 - Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
 
