@@ -79,7 +79,7 @@ To raise the limit or quota above the default limit, [open an online customer su
 
 1. Enter the **New limit requested** and select **Save and continue**.
 
-1. Fill the details for **Advanced diagnostic information**, **Support method**, and **Contact information**
+1. Fill the details for **Advanced diagnostic information**, **Support method**, and **Contact information**.
 
 1. Select **Next** to continue.
 
