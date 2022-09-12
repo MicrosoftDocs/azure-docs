@@ -43,18 +43,7 @@ You can run secret scanning as part of the Azure DevOps build process by using t
 
 1.  Select **Save**.
 
-The above steps ensure that only secret scanning runs when you execute the Azure DevOps build pipeline.
-
-
-
-
-
-
-
-
-
-1.  Select **Save**.
-
+By adding the additions to your yaml file, you will ensure that secret scanning only runs when you execute a build to your Azure DevOps pipeline.
 
 ## Suppress false positives
 
