@@ -1,7 +1,7 @@
 ---
 title: Create Bicep files - Visual Studio
 description: Use Visual Studio and the Bicep extension to create Bicep files for deploy Azure resources
-ms.date: 07/28/2022
+ms.date: 09/12/2022
 ms.topic: quickstart
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio to create and edit Bicep files, so I can use them to deploy Azure resources.
@@ -16,9 +16,6 @@ This quickstart guides you through the steps to create a [Bicep file](overview.m
 - Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - Visual Studio version 17.3.0 preview 3 or newer.  See [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/).
 - Visual Studio Bicep extension.  See [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
-
-    (*** include a screenshot once the extension is published.)
-
 - Bicep file deployment requires either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 
 ## Add resource snippet
