@@ -415,7 +415,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
   --- | ---
     Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q`  
     `-S` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-    `-c` |  Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).
+    `-c` |  Mandatory. Used to define modernized and legacy architecture. (CSPrime or CSLegacy).
     `-q` |  Optional. Specifies whether to run the installer in silent mode.
 
 ## Generate Mobility Service configuration file

@@ -37,13 +37,19 @@ Physical server to Azure replication includes the following procedures:
 
 You can add details of the physical servers, which you plan to protect, when you’re performing the appliance registration for the first time, or when the registration is complete. To add the physical server details to the appliance, follow the steps below:
 
-1.	After adding the vCenter details, expand **Provide Physical server details** to add the details of the physical servers that you plan to protect.
+1. After adding the vCenter details, expand **Provide Physical server details** to add the details of the physical servers that you plan to protect.
 
-2.	Select **Add credentials** to add credentials of the machine(s) you plan to protect. Add all the details such as the operating system, friendly name for the credentials, username, and password. The user account details will be encrypted and stored locally in the machine. 
+   :::image type="Physical server credentials." source="./media/physical-server-enable-replication/physical-server-credentials.png" alt-text="Screenshot of Physical server credentials.":::
+
+2. Select **Add credentials** to add credentials of the machine(s) you plan to protect. Add all the details such as the operating system, friendly name for the credentials, username, and password. The user account details will be encrypted and stored locally in the machine.
+
+   :::image type="Add Physical server credentials." source="./media/physical-server-enable-replication/add-physical-server-credentials.png" alt-text="Screenshot of Add Physical server credentials."::: 
 
 3. Select **Add**.
 
 4. Select **Add server** to add physical server details. Provide the machine’s IP address, select the machine's credentials and then select **Add**.
+
+   ![Screenshot of Add Physical server details.](./media/physical-server-enable-replication/add-physical-server-details.png)
 
 This will add your physical server details to the appliance, and you can enable replication on these machines using any appliance which has healthy or warning status. 
 
@@ -59,10 +65,12 @@ Follow these steps to enable replication:
 
 1.	Under **Getting Started**, select **Site Recovery**. 
 
-2. Under **VMware**, select **Enable Replication (Modernized)** and select the machine type as Physical machines if you want to protect physical machines. 
+2. Under **VMware**, select **Enable Replication** and select the machine type as Physical machines if you want to protect physical machines. 
 Lists all the machines  discovered by various appliances registered to the vault.
 
-3.	Search the source machine name to protect it and review the selected machines. Select **Selected resources**.
+   :::image type="Select source." source="./media/physical-server-enable-replication/select-source.png" alt-text="Screenshot of select source tab."::: 
+
+3.	Search the source machine name to protect it and review the selected machines. To review, select **Selected resources**.
 
 4.	Select the desired machine and select **Next**. Source settings page opens. 
 
@@ -71,14 +79,17 @@ Lists all the machines  discovered by various appliances registered to the vault
     >[!Note]
     >- For Linux OS, ensure to provide the root credentials. 
     >- For Windows OS, add a user account with admin privileges. 
-    >- These credentials will be used to push mobility service on to the source machine during enable replication operation.
+    >- These credentials will be used to push install mobility service on to the source machine during enable replication operation.
     >- You may be asked to provide a name for the virtual machine which will be created.
  
+   :::image type="Source settings." source="./media/physical-server-enable-replication/source-settings.png" alt-text="Screenshot of source settings tab."::: 
 
-6.	Select **Next** and provide target region properties. 
+6. Select **Next** and provide target region properties. 
 
     By default, Vault subscription and Vault resource group are selected. You can choose a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
  
+   :::image type="Target properties." source="./media/physical-server-enable-replication/target-properties.png" alt-text="Screenshot of target properties tab."::: 
+
 7.	You can select an existing Azure network or create a new target network to be used during failover. 
 
     If you select **Create new**, you are redirected to **Create virtual network** blade. Provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
@@ -114,5 +125,7 @@ Lists all the machines  discovered by various appliances registered to the vault
 
 11. Choose the replication policy and select **Next**. Review the Source and Target properties and select **Enable Replication** to initiate the operation.
  
+    :::image type="Review." source="./media/physical-server-enable-replication/review.png" alt-text="Screenshot of review tab."::: 
+
     A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 

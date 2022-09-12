@@ -1,14 +1,14 @@
 ---
-title: Fail over VMware VMs to Azure with Site Recovery - Preview
-description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Preview
+title: Fail over VMware VMs to Azure with Site Recovery - Modernized
+description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 08/19/2021
 ms.custom: MVC
 ---
-# Fail over VMware VMs - Preview
+# Fail over VMware VMs - Modernized
 
-This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md) - Preview.
+This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md) - Modernized.
 
 For information about failover in Classic releases, see [this article](vmware-azure-tutorial-failover-failback.md).
 
@@ -135,11 +135,11 @@ If the VM does not boot properly or some application does not come up properly, 
 
 3. Finally, attach the disks back to the appliance and resume the replication.
 
-This behavior is different from what was present in the Legacy/Classic architecture.
+This behavior is different from what was present in the Classic architecture.
 
-- Using the preview, you can do the failback operation again at a later point of time.
+- In Modernized architecture, you can do the failback operation again at a later point of time.
 
-- In Legacy architecture, you cannot cancel and retry the failback - if the VM does not boot up or the application does not come up or for any other reason.  
+- In Classic architecture, you cannot cancel and retry the failback - if the VM does not boot up or the application does not come up or for any other reason.  
 
 
 > [!NOTE]

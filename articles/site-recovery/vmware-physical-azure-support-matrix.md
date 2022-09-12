@@ -195,9 +195,9 @@ Resize disk on replicated VM | Resizing up on the source VM is supported. Resizi
 Add disk on replicated VM | Not supported.<br/> Disable replication for the VM, add the disk, and then re-enable replication.
 
 > [!NOTE]
-> Any change to disk identity is not supported. For example, if the disk partitioning has been changed from GPT to MBR or vice versa, then this will change the disk identity. In such a scenario, the replication will break and a fresh setup will be required.
-> For Linux machines, device name change is not supported as it has an impact on the disk identity.
-> In Modernized, resizing the disk size to reduce it from its original size, is not supported.
+>  - Any change to disk identity is not supported. For example, if the disk partitioning has been changed from GPT to MBR or vice versa, then this will change the disk identity. In such a scenario, the replication will break and a fresh setup will be required.
+> - For Linux machines, device name change is not supported as it has an impact on the disk identity.
+> - In Modernized, resizing the disk size to reduce it from its original size, is not supported.
 
 ## Network
 
@@ -296,7 +296,7 @@ Soft delete | Not supported.
 
 **Feature** | **Supported**
 --- | ---
-Availability sets | Yes. 
+Availability sets | No 
 Availability zones | No
 HUB | Yes
 Managed disks | Yes
@@ -312,7 +312,7 @@ Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB for Generation 1 machines. <br> Up to 4,095 GB for Generation 2 machines. | Check fails if unsupported.
 Operating system disk count | 1 </br> boot and system partition on different disks is not supported | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
-Data disk size | Up to 32 TB when replicating to managed disk (9.41 version onwards)<br> Up to 4 TB when replicating to storage account </br> Each premium storage account can host up to 35 TB of data </br> Minimum disk size requirement - at least 1 GB </br> Modernized architecture supports disks up to 8 TB.  | Check fails if unsupported.
+Data disk size | Up to 32 TB when replicating to managed disk (9.41 version onwards)<br> Up to 4 TB when replicating to storage account </br> Each premium storage account can host up to 35 TB of data </br> Minimum disk size requirement - at least 1 GB  | Check fails if unsupported.
 RAM | Site Recovery driver consumes 6% of RAM.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.

@@ -19,7 +19,7 @@ By default, automatic updates are enabled on a vault. Automatic updates will be 
 > [!NOTE]
 > If you are using private preview bits, automatic updates are blocked for the protected machines. Ensure that you setup Site Recovery on your machine again, using a fresh ASR replication appliance.
 
-To avail the latest features, enhancements, and fixes, we recommend you choose **Allow Site Recovery to manage** option on the **Mobility agent upgrade settings (Modernized)**. Automatic updates do not require a reboot or affect on-going replication of your virtual machines. Automatic updates also ensure that all the replication appliances in the vault are automatically updated.
+To avail the latest features, enhancements, and fixes, we recommend you choose **Allow Site Recovery to manage** option on the **Mobility agent upgrade settings**. Automatic updates do not require a reboot or affect on-going replication of your virtual machines. Automatic updates also ensure that all the replication appliances in the vault are automatically updated.
 
 ![Automatic updates on for Mobility agent](./media/upgrade-mobility-service-modernized/automatic-updates-on.png)
 

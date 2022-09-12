@@ -68,9 +68,6 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   |`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks. |
 
 
-> [!NOTE]
-> Private links are not supported with the preview release.
-
 ### Folder exclusions from Antivirus program
 
 #### If Antivirus Software is active on appliance
@@ -270,24 +267,24 @@ In case of any organizational restrictions, you can manually set up the Site Rec
    > - For Linux OS, ensure to provide root credentials and for Windows OS, a user account with admin privileges should be added, these credentials will be used to push install mobility agent on to the source VM during enable replication operation. The credentials can be chosen per VM in the Azure portal during enable replication workflow.
    > - Visit the appliance configurator to edit or add credentials to access your machines.
 
-9. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This activity can take up to 30 minutes.
+9.	After you add the vCenter details, expand **Provide Physical server details** to add the details of any physical servers you plan to protect.
+
+    :::image type="Physical server credentials." source="./media/deploy-vmware-azure-replication-appliance-modernized/physical-server-credentials.png" alt-text="Screenshot of Physical server credentials.":::
+
+10. Select **Add credentials** to add the credentials of the machine(s) you plan to protect. Add all the details such as the **Operating system**, **Provide a friendly name for the credential**, **Username**, and **Password**. The user account details will be encrypted and stored locally in the machine. Select **Add**. 
+
+    :::image type="Add Physical server credentials." source="./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-credentials.png" alt-text="Screenshot of Add Physical server credentials.":::
+
+11. Select **Add server** to add physical server details. Provide the machine’s **IP address/FQDN of  physical server**, **Select credential account** and select **Add**.
+
+    ![Screenshot of Add Physical server details.](./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-details.png)
+
+12. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This activity can take up to 30 minutes.
 
     Ensure you do not close the browser while configuration is in progress.
 
     >[!NOTE]
     > Appliance cloning is not supported with this preview. If you attempt to clone, it might disrupt the recovery flow.
-
-10.	After you add the vCenter details, expand **Provide Physical server details** to add the details of any physical servers you plan to protect.
-
-    :::image type="Physical server credentials." source="./media/deploy-vmware-azure-replication-appliance-modernized/physical-server-credentials.png" alt-text="Screenshot of Physical server credentials..":::
-
-11. Select **Add credentials** to add the credentials of the machine(s) you plan to protect. Add all the details such as the **Operating system**, **Provide a friendly name for the credential**, **Username**, and **Password**. The user account details will be encrypted and stored locally in the machine. Select **Add**. 
-
-    :::image type="Add Physical server credentials." source="./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-credentials.png" alt-text="Screenshot of Add Physical server credentials..":::
-
-12. Select **Add server** to add physical server details. Provide the machine’s **IP address/FQDN of  physical server**, **Select credential account** and select **Add**.
-
-    ![Screenshot of Add Physical server details.](./media/deploy-vmware-azure-replication-appliance-modernized/add-physical-server-details.png)
 
 
 ## View Azure Site Recovery replication appliance in Azure portal
