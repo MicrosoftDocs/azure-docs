@@ -366,14 +366,13 @@ Before proceeding further with authentication, register the application on **Azu
   };
 ```
 
-<<<<<<< HEAD
-2. Modify the values in the `msalConfig` section as described below. You can refer to your app's **Overview** page on Azure for some of these:
+Modify the values in the `msalConfig` section as described below. You can refer to your app's **Overview** page on Azure for some of these:
     - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered. 
-=======
+
 2. Modify the values in the `msalConfig` section as described below. Refer to the **Overview** page of the application for these values:
     - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered. You can copy this directly from **Azure**.
->>>>>>> 08cb730340838eee7f3f94496d84235daba3cde7
-    - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), refer to [*National clouds*](./authentication-national-cloud.md).
+
+    - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), refer to [*National clouds*](./authentication-national-cloud.md).
     - Set `Enter_the_Tenant_info_here` to one of the following options:
       - If your application supports *accounts in this organizational directory*, replace this value with the **Directory (tenant) ID** or **Tenant name** (for example, *contoso.microsoft.com*).
     - `Enter_the_Redirect_URI_Here` is the default URL that you set in the previous section, `http://localhost:3000/`.
@@ -549,19 +548,19 @@ Now that the code is setup, it needs to be tested.
 
 After the browser loads your *index.html* file, select **Sign In**. You'll now be prompted to sign in with the Microsoft identity platform:
 
-![The JavaScript SPA account sign-in window](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot_v2.png)
+:::image type="content" source="./media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot_v2.png" alt-text="The JavaScript SPA account sign-in window" :::
 
 ### Provide consent for application access
 
 The first time that you sign in to your application, you're prompted to grant it access to your profile and sign you in. Select **Accept** to continue.
 
-![The "Permissions requested" window](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent_v2.png)
+:::image type="content" source="./media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent_v2.png" alt-text="The Permissions requested window." :::
 
 ### View application results
 
-After you sign in, your user profile information is returned in the Microsoft Graph API response that's displayed:
+After you sign in, you can select **Read More** under your displayed name and your user profile information is returned in the Microsoft Graph API response that's displayed:
 
-![Results from the Microsoft Graph API call](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults_v2.png)
+:::image type="content" source="./media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults_v2.png" alt-text="Results from the Microsoft Graph API call" ::: 
 
 ### More information about scopes and delegated permissions
 
