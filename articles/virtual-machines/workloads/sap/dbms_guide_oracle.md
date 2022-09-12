@@ -24,7 +24,7 @@ General information about running SAP Business Suite on Oracle can be found at 
 
 
 
-## The following SAP notes are relevant for an Oracle Installation
+### The following SAP notes are relevant for an Oracle Installation
 
 | Note number  | Note title  |
 | --- | --- |
@@ -40,7 +40,7 @@ General information about running SAP Business Suite on Oracle can be found at 
 | 1171650 | [Automated Oracle DB parameter check](https://launchpad.support.sap.com/#/notes/1171650) |
 | 2936683 | [Oracle Linux 8: SAP Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2936683) |
 
-## Specifics for Oracle Database on Oracle Linux
+### Specifics for Oracle Database on Oracle Linux
 
 Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Linux as the guest OS. For more information about general support for Windows Hyper-V and Azure, see the [<u>Azure and Oracle FAQ</u>](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html).
 
@@ -186,7 +186,7 @@ ASM will add a disk to the disk group:
 ASM will automatically rebalance the data. 
 To check rebalancing run this command.
 
-`ps -ef \| grep rbal`
+`ps -ef | grep rbal`
 
 `oraasm 4288 1 0 Jul28 ? 00:04:36 asm_rbal_oradb1`
 
