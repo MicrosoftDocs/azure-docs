@@ -25,7 +25,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: July 2022
 
-* Support for [Geo-redundant backup](./concepts-backup-restore.md#geo-redundant-backup-and-restore-preview) in [additional regions](./overview.md#azure-regions) - Australia East, Australia Southeast, Canada Central, Canada East, UK South, UK West, East US, West US, East Asia, Southeast Asia, North Central US, South Central US, and France Central.
+* Support for [Geo-redundant backup](./concepts-backup-restore.md#geo-redundant-backup-and-restore) in [additional regions](./overview.md#azure-regions) - Australia East, Australia Southeast, Canada Central, Canada East, UK South, UK West, East US, West US, East Asia, Southeast Asia, North Central US, South Central US, and France Central.
 
 ## Release: June 2022
 
