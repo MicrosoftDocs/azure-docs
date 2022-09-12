@@ -35,7 +35,7 @@ Open Azure AD 'App Registrations' blade in Azure portal and select '+ New regist
 
 [Default Directory | App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)
   
-![portal-app-registration](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-app-registration.png)
+![portal app registration](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-app-registration.png)
 
 ### Properties
 
@@ -49,20 +49,20 @@ Open Azure AD 'App Registrations' blade in Azure portal and select '+ New regist
 
   - Example:  'https://{{cluster name}}.{{location}}.cloudapp.azure.com:19080/Explorer/index.html'
 
-![portal-cluster-app-registration](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-app-registration.png)
+![portal cluster app registration](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-app-registration.png)
 
 ### Branding & properties
 
 After registering the 'Cluster' App Registration, select 'Branding & Properties' and populate any additional information.
 - **Home page URL:** Enter SFX URL.
 
-![portal-cluster-branding](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-branding.png)
+![portal cluster branding](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-branding.png)
 
 ### Authentication
 
 Select 'Authentication'. Under 'Implicit grant and hybrid flows', check 'ID tokens (used for implicit and hybrid flows)'.
 
-![portal-cluster-authentication](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-authentication.png)
+![portal cluster authentication](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-authentication.png)
 
 ### Expose an API
 
@@ -74,7 +74,7 @@ Example api scheme: api://{{tenant id}}/{{cluster}}
 
 Example: api://0e3d2646-78b3-4711-b8be-74a381d9890c/mysftestcluster
 
-![portal-cluster-expose-applicationid](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-expose-applicationid.png)
+![portal cluster expose applicationid](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-expose-applicationid.png)
 
 
 Select '+ Add a scope' to add a new scope with 'user_impersonation'. 
@@ -95,13 +95,13 @@ Select '+ Add a scope' to add a new scope with 'user_impersonation'.
 - **User consent description:** Example: Allow the application to access mysftestcluster_Cluster on your behalf.
 - **State:** Select 'Enabled'.
 
-![portal-cluster-expose-scope](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-expose-scope.png)
+![portal cluster expose scope](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-expose-scope.png)
 
 ### App roles
 
 Select 'App roles', '+ Create app role' to add 'Admin' and 'ReadOnly' roles.
 
-![portal-cluster-roles](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-roles.png)
+![portal cluster roles](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-roles.png)
 
 #### Admin User Properties
 - **Display Name:** Enter 'Admin'.
@@ -109,7 +109,7 @@ Select 'App roles', '+ Create app role' to add 'Admin' and 'ReadOnly' roles.
 - **Value:** Enter 'Admin'.
 - **Description:** Enter 'Admins can manage roles and perform all task actions'.
 
-![portal-cluster-roles-admin](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-roles-admin.png)
+![portal cluster roles admin](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-roles-admin.png)
 
 #### ReadOnly User Properties
 - **Display Name:** Enter 'ReadOnly'.
@@ -117,7 +117,7 @@ Select 'App roles', '+ Create app role' to add 'Admin' and 'ReadOnly' roles.
 - **Value:** Enter 'ReadOnly'.
 - **Description:** Enter 'ReadOnly roles have limited query access'.
 
-![portal-cluster-roles-readonly](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-roles-readonly.png)
+![portal cluster roles readonly](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-roles-readonly.png)
 
 ---
 
@@ -127,7 +127,7 @@ Open Azure AD 'App Registrations' blade in Azure portal and select '+ New regist
 
 [Default Directory | App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)
   
-![portal-app-registration](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-app-registration.png)
+![portal app registration](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-app-registration.png)
 
 ### Properties
 
@@ -135,36 +135,36 @@ Open Azure AD 'App Registrations' blade in Azure portal and select '+ New regist
 - **Supported account types:** Select 'Accounts in this organizational directory only'.
 - **Redirect URI:** Select 'Public client/native' and Enter 'urn:ietf:wg:oauth:2.0:oob'
 
-  ![portal-client-app-registration](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-app-registration.png)
+  ![portal client app registration](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-app-registration.png)
 
 ### Authentication
 
 After Registering, select 'Authentication'. Under 'Advanced Settings', select 'Yes' to 'Allow public client flows' and 'Save'.
 
-  ![portal-client-authentication](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-authentication.png)
+  ![portal client authentication](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-authentication.png)
 
 ### API Permissions
 
 Select 'API permissions', '+ Add a permission' to add 'user_impersonation' from 'Cluster' App Registration from above.
 
-![portal-client-api-cluster](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-api-cluster-add.png)
+![portal client api cluster](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-api-cluster-add.png)
 
 Select 'Delegated Permissions', select 'user_impersonation' permissions, and 'Add permissions'.
 
-![portal-client-api-delegated](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-api-delegated.png)
+![portal client api delegated](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-api-delegated.png)
 
 In API permissions list, select 'Grant admin consent for Default Directory'
 
-![portal-client-api-grant](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-api-grant.png)
+![portal client api grant](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-api-grant.png)
 
-![portal-client-api-grant-confirm](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-api-grant-confirm.png)
+![portal client api grant confirm](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-client-api-grant-confirm.png)
 
 ### Disable 'Assignment required' for Azure AD Client App Registration
 
 For the 'Client' App Registration only, navigate to 'Enterprise Applications' blade for 'Client' app registration. Use link above or steps below. 
 In the 'Properties' view, select 'No' for 'Assignment required?'.
 
-![portal-app-registration-client-properties](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-app-registration-client-properties.png)
+![portal app registration client properties](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-app-registration-client-properties.png)
 
 ---
 ## Assigning Application Roles to Users
@@ -180,37 +180,37 @@ Role Assignments are performed from the [Enterprise Applications](https://portal
 
 >> ### Default Filters to be removed
 
->> ![portal-enterprise-apps-filter](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-filter.png)
+>> ![portal enterprise apps filter](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-filter.png)
 
 >> ### Filter Removed
 
->> ![portal-enterprise-apps-no-filter](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-no-filter.png)
+>> ![portal enterprise apps no filter](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-no-filter.png)
 
 ### Adding Role Assignment to AAD User
 
 To add application to existing AAD users, navigate to 'Enterprise Applications and find the App Registration created for 'Azure AD Cluster App Registration'. 
 Select 'Users and groups' and '+ Add user/group' to add existing AAD user role assignment. 
 
-![portal-enterprise-apps-add-user](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-add-user.png)
+![portal enterprise apps add user](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-add-user.png)
 
 Select 'Users' 'None Selected' link.
 
-![portal-enterprise-apps-add-assignment](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-add-assignment.png)
+![portal enterprise apps add assignment](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-add-assignment.png)
 
 #### Assigning ReadOnly Role
 
 For users needing readonly / view access, find the user, and for 'Select a role', click on the 'None Selected' link to add the 'ReadOnly' role.
 
-![portal-enterprise-apps-readonly-role](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-readonly-role.png)
+![portal enterprise apps readonly role](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-readonly-role.png)
 
 #### Assigning Admin Role
 
 For users needing full read / write access, find the user, and for 'Select a role', click on the 'None Selected' link to add the 'Admin' role.
 
-![portal-enterprise-apps-admin-role](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-admin-role.png)
+![portal enterprise apps admin role](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-admin-role.png)
 
 
-![portal-enterprise-apps-user-assignment](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-user-assignments.png)
+![portal enterprise apps user assignment](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-enterprise-apps-user-assignments.png)
 
 ---
 
@@ -228,14 +228,14 @@ Check 'Enable Azure Active Directory'.
 - **Cluster application:** Enter Azure App Registration 'Application (client)ID' for the 'Azure AD Cluster App Registration'. This is also known as the web application.
 - **Client application:** Enter Azure App Registration 'Application (client)ID' for the 'Azure AD Client App Registration'. This is also known as the native application.
 
-![portal-managed-cluster-aad](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-managed-cluster-aad.png)
+![portal managed cluster aad](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-managed-cluster-aad.png)
 
 ### Azure Service Fabric Cluster Configuration
 
 Open the cluster resource and select 'Security'.
 Select '+ Add...'
 
-![portal-cluster-aad-add](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-aad-add.png)
+![portal cluster aad add](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-aad-add.png)
 
 #### Properties
 
@@ -244,7 +244,7 @@ Select '+ Add...'
 - **Cluster application:** Enter Azure App Registration 'Application (client)ID' for the 'Azure AD Cluster App Registration'. This is also known as the web application.
 - **Client application:** Enter Azure App Registration 'Application (client)ID' for the 'Azure AD Client App Registration'. This is also known as the native application.
 
-![portal-cluster-aad-settings](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-aad-settings.png)
+![portal cluster aad settings](media/service-fabric-cluster-creation-setup-aad-via-portal/portal-cluster-aad-settings.png)
 
 ---
 
