@@ -2,11 +2,11 @@
 author: lgayhardt 
 ms.service: machine-learning
 ms.topic: include
-ms.date: 04/26/2022
+ms.date: 09/12/2022
 ms.author: lagayhar
 ---
 
-## How to configure emails in the studio (preview)
+## How to configure emails in the studio
 
 To start receiving emails when your job, online endpoint, or batch endpoint is complete or if there's an issue (failed, canceled), follow the preceding instructions.
 
