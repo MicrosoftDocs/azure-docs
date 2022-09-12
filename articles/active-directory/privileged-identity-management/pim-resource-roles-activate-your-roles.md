@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/24/2022
+ms.date: 09/12/2022
 ms.author: amsliu
 ms.reviewer: ilyal
 ms.custom: pim
