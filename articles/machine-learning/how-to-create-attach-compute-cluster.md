@@ -84,7 +84,7 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs are created to run your jobs as needed.
     
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 To create a persistent Azure Machine Learning Compute resource in Python, specify the **vm_size** and **max_nodes** properties. Azure Machine Learning then uses smart defaults for the other properties.
     
@@ -175,7 +175,7 @@ You may also choose to use [low-priority VMs](how-to-manage-optimize-cost.md#low
 
 Use any of these ways to specify a low-priority VM:
     
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
@@ -209,7 +209,7 @@ In the studio, choose **Low Priority** when you create a VM.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
