@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/02/2022
+ms.date: 09/09/2022
 ms.author: alkohli
 ms.custom: references_regions
 zone_pivot_groups: data-box-shipping
