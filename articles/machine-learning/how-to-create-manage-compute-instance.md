@@ -172,7 +172,9 @@ Note that activity on custom applications installed on the compute instance is n
 
 This setting can be configured during CI creation or for existing CIs via the following interfaces:
 * AzureML Studio
-// TODO add image
+    
+    :::image type="content" source="media/how-to-create-attach-studio/idle_shutdown_advanced_settings.jpg" alt-text="Create compute instance with idle shutdown":::
+    :::image type="content" source="media/how-to-create-attach-studio/idle_shutdown_update.jpg" alt-text="Update existing compute instance with idle shutdown":::
 
 * REST API
 
