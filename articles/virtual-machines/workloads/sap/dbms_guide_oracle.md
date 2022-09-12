@@ -92,7 +92,7 @@ Checklist for Oracle Automatic Storage Management:
 7.  ASM Sector Size and Logical Sector Size = default (UDEV is not recommended but requires 4k)
 8.  Appropriate ASM Variant is used. Production systems should use Variant 2 or 3
 
-## Oracle Automatic Storage Management Disk Groups
+### Oracle Automatic Storage Management Disk Groups
 
 Part II of the official Oracle Guide describes the installation and the management of ASM:
 
@@ -105,7 +105,7 @@ The following ASM limits exist for Oracle Database 12c or later:
 
 Review the ASM documentation in the relevant SAP Installation Guide for Oracle available from <https://help.sap.com/viewer/nwguidefinder>
 
-## Variant 1 – small to medium data volumes up to 3 TB, restore time not critical
+### Variant 1 – small to medium data volumes up to 3 TB, restore time not critical
 
 Customer has small or medium sized databases where backup and/or restore + recovery of all databases can be accomplished by RMAN in a timely fashion. Example: When a complete Oracle ASM disk group, with data files, from one or more databases is broken and all data files from all databases need to be restored to a newly created Oracle ASM disk group using RMAN.
 
@@ -122,7 +122,7 @@ Oracle ASM disk group recommendation:
 |  |RMAN backups (optional) |  |
 |  |  recovery area (optional) |   |
 
-## Variant 2 – medium to large data volumes between 3 TB and 12 TB, restore time important
+### Variant 2 – medium to large data volumes between 3 TB and 12 TB, restore time important
 
 Customer has medium to large sized databases where backup and/or restore
 +
@@ -152,7 +152,7 @@ Major differences to Variant 1 are:
 
 
 
-## Variant 3 – huge data and data change volumes more than 5 TB, restore time crucial
+### Variant 3 – huge data and data change volumes more than 5 TB, restore time crucial
 
 Customer has a huge database where backup and/or restore + recovery of a single databases cannot be accomplished in a timely fashion.
 
@@ -187,6 +187,7 @@ ASM will automatically rebalance the data.
 To check rebalancing run this command.
 
 `ps -ef \| grep rbal`
+
 `oraasm 4288 1 0 Jul28 ? 00:04:36 asm_rbal_oradb1`
 
 
@@ -194,7 +195,7 @@ Documentation is available with:
 - [How to Resize ASM Disk Groups Between Multiple Zones (aemcorp.com)](https://www.aemcorp.com/managedservices/blog/resizing-asm-disk-groups-between-multiple-zones)
 - [RESIZING - Altering Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/21/ostmg/alter-diskgroups.html#GUID-6AEFFA72-7BDC-4AA8-8667-8417AAF3DAC8)
 
-## Monitoring SAP on Oracle ASM Systems on Azure
+### Monitoring SAP on Oracle ASM Systems on Azure
 
 Run an Oracle AWR report as the first step when troubleshooting a performance problem. Disk performance metrics will be detailed in the AWR report.
 
@@ -204,7 +205,7 @@ Disk performance can be monitored from inside Oracle Enterprise Manager and via 
 
 OS level monitoring tools cannot monitor ASM disks as there is no recognizable file system. Freespace monitoring must be done from within Oracle.
 
-## Training Resources on Oracle Automatic Storage Management (ASM)
+### Training Resources on Oracle Automatic Storage Management (ASM)
 
 Oracle DBAs that are not familiar with Oracle ASM follow the training materials and resources here:
 - [Sap on Oracle with ASM on Microsoft Azure - Part1 - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-oracle-with-asm-on-microsoft-azure-part1/ba-p/1865024)
@@ -245,11 +246,11 @@ We highly recommend using the Oracle dNFS clint for all Oracle volumes.
 
 Recommended mount options are:
 
-### NFS3: rw,vers=3,rsize=262144,wsize=262144,hard,timeo=600,noatime
+**NFS3**: rw,vers=3,rsize=262144,wsize=262144,hard,timeo=600,noatime
 
-### NFSv4.1: rw,vers=4.1,rsize=262144,wsize=262144,hard,timeo=600,noatime
+**NFSv4.1**: rw,vers=4.1,rsize=262144,wsize=262144,hard,timeo=600,noatime
 
-## ANF Backup
+### ANF Backup
 
 With ANF, some key features are available like consistent snapshot-based backups, low latency, and remarkably high performance. From version 6 of our AzAcSnap tool [Azure Application Consistent Snapshot tool for ANF](/azure/azure-netapp-files/azacsnap-get-started) Oracle databases can be configured for consistent database snapshots. Also, the option of resizing the volumes on the fly is valued by our customers.
 
@@ -264,7 +265,7 @@ Note that: when creating LVM the “-i” option must be used to evenly distribu
 
 Mirror Log is required when running LVM.
 
-## Minimum configuration Linux:
+### Minimum configuration Linux:
 
 | **Component**                        | **Disk** | **Host Cache**        | **Striping<sup>1</sup>** |
 |--------------------------------------|----------|-----------------------|--------------------------|
@@ -280,7 +281,7 @@ Mirror Log is required when running LVM.
 
 The disk selection for hosting Oracle's online redo logs should be driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on a single mounted disk as long as the volume, IOPS, and throughput satisfy the requirements.
 
-## Performance configuration Linux:
+### Performance configuration Linux:
 
 | **Component**                       | **Disk** | **Host Cache**        | **Striping<sup>1</sup>** |
 |-------------------------------------|----------|-----------------------|--------------------------|
@@ -298,7 +299,7 @@ The disk selection for hosting Oracle's online redo logs should be driven by IOP
 
 ## Azure Infra: VM Throughput Limits & Azure Disk Storage Options
 
-## Oracle Automatic Storage Management (ASM)## can evaluate these storage technologies:
+### Oracle Automatic Storage Management (ASM)## can evaluate these storage technologies:
 
 1.  Azure Premium Storage – currently the default choice
 3.  Managed Disk Bursting - [Managed disk bursting - Azure Virtual Machines \| Microsoft  Docs](/azure/virtual-machines/disk-bursting)
@@ -309,7 +310,7 @@ Log write times can be improved on Azure M-Series VMs by enabling Write Accelera
 
 Using Write Accelerator is optional but can be enabled if the AWR report indicates higher than expected log write times.
 
-## Azure VM Throughput Limits
+### Azure VM Throughput Limits
 
 Each Azure VM type has specified limits for CPU, Disk, Network and RAM. The limits are documented in the links below
 
@@ -352,7 +353,6 @@ Large SAP customers running on High Memory Azure VMs greatly benefit from HugePa
 NUMA systems vm.min_free_kbytes should be set to 524288 \* \<# of NUMA nodes\>.  [See Oracle Linux : Recommended Value of vm.min_free_kbytes Kernel Tuning Parameter (Doc ID 2501269.1...](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=79485198498171&parent=EXTERNAL_SEARCH&sourceId=HOWTO&id=2501269.1&_afrWindowMode=0&_adf.ctrl-state=mvhajwq3z_4)
 
  
-
 ## Links & other Oracle Linux Utilities
 
 Oracle Linux provides a useful GUI management utility
@@ -393,7 +393,7 @@ At the time, of writing ASM for Windows customers on Azure is not supported. SWP
 
 ## Storage Configurations for SAP on Oracle on Windows
 
-## Minimum configuration Windows:
+### Minimum configuration Windows:
 
 | **Component**                           | **Disk** | **Host Cache**        | **Striping<sup>1</sup>** |
 |-----------------------------------------|----------|-----------------------|--------------------------|
@@ -409,7 +409,7 @@ At the time, of writing ASM for Windows customers on Azure is not supported. SWP
 
 The disk selection for hosting Oracle's online redo logs should be driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on a single mounted disk as long as the volume, IOPS, and throughput satisfy the requirements.
 
-## Performance configuration Windows:
+### Performance configuration Windows:
 
 | **Component**                          | **Disk** | **Host Cache**        | **Striping<sup>1</sup>** |
 |----------------------------------------|----------|-----------------------|--------------------------|
@@ -425,7 +425,7 @@ The disk selection for hosting Oracle's online redo logs should be driven by IOP
 2. During R3load migrations the Host Cache option for SAPDATA should be set to None
 3. oraarch: Windows Storage Spaces is optional
 
-## Links for Oracle on Windows
+### Links for Oracle on Windows
 - [Overview of Windows Tuning (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntqrf/overview-of-windows-tuning.html#GUID-C0A0EC5D-65DD-4693-80B1-DA2AB6147AB9)
 - [Postinstallation Configuration Tasks on Windows (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntqrf/postinstallation-configuration-tasks-on-windows.html#GUID-ECCA1626-A624-48E4-AB08-3D1F6419709E)
 - [SAP on Windows Presentation (oracle.com)](https://www.oracle.com/technetwork/topics/dotnet/tech-info/oow2015-windowsdb-bestpracticesperf-2757613.pdf)
