@@ -308,15 +308,7 @@ In this example, we will train an object detection model with `yolov5` and `fast
 
 ### Job Limits
 
-You can control the resources spent on your Vision training by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings.
-
-Parameter | Detail
------|----
-`max_trials` |  Required parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1.
-`max_concurrent_trials`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
-`timeout_minutes`| The amount of time in minutes before the experiment terminates. If none specified, default experiment timeout_minutes is seven days (maximum 60 days)
-
-
+You can control the resources spent on your AutoML Image training job by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings.[detailed description on Job Limits parameters](./how-to-auto-train-image-models.md#job-limits).
 # [CLI v2](#tab/CLI-v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -340,7 +332,7 @@ You can perform a hyperparameter sweep over a defined search space to find the o
 
 The following code, defines the search space in preparation for the hyperparameter sweep for each defined algorithm, `yolov5` and `fasterrcnn_resnet50_fpn`.  In the search space, specify the range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc., for AutoML to choose from as it attempts to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for each algorithm.
 
-For the tuning settings, use random sampling to pick samples from this parameter space by using the `random` sampling_algorithm. Doing so, tells automated ML to try a total of 10 trials with these different samples, running two trials at a time on our compute target, which was set up using four nodes. The more parameters the search space has, the more trials you need to find optimal models.
+For the tuning settings, use random sampling to pick samples from this parameter space by using the `random` sampling_algorithm. The job limits configured above, tells automated ML to try a total of 10 trials with these different samples, running two trials at a time on our compute target, which was set up using four nodes. The more parameters the search space has, the more trials you need to find optimal models.
 
 The Bandit early termination policy is also used. This policy terminates poor performing configurations; that is, those configurations that are not within 20% slack of the best performing configuration, which significantly saves compute resources.
 
