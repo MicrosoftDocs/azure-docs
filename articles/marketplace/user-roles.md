@@ -7,7 +7,7 @@ ms.topic: how-to
 author: sharath-satish-msft
 ms.author: shsatish
 ms.custom: contperf-fy21q2
-ms.date: 04/07/2021
+ms.date: 9/12/2022
 ---
 
 # Assign user roles and permissions
