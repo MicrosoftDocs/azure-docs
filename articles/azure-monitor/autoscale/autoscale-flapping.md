@@ -23,11 +23,13 @@ For example, let's assume the following rules:
 
 When usage is at 56% for a single instance, a scale-out action would result in 56% CPU usage across 2 instances, or an average of 28% for the scale set. As 28% is less than the scale-in threshold, autoscale should scale back in. Scaling in would return the scale set to 56% CPU usage, which requires a scale-out. In this situation, the autoscale engine will defer the scale-out event and reevaluate during the next autoscale run. The scale-out will only happen once the average CPU usage is above 60%.
 
-The following scenarios show what can cause, and how to avoid flapping.
+The following scenarios show what can cause flapping, and how to avoid it.
 
 ## Keep a margin between thresholds
 
-It's important to have an adequate margin between scaling thresholds. For example, the following rules would cause flapping.
+To avoid flapping, keep and adequate margin between scaling thresholds
+
+For example, the following rules, where there is no margin between thresholds, cause flapping.
 
 * Scale out when thread count >=600
 * Scale in when thread count < 600
