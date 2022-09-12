@@ -32,12 +32,17 @@ To check whether an Azure Cosmos DB account is eligible for the preview, you can
 :::image type="content" source="media/merge/merge-eligibility-check.png" alt-text="Merge eligibility check with table of all preview eligibility criteria":::
 
 ### How to identify containers to merge
-Containers that meet both of these criteria are likely to benefit from merging partitions:
-- Criteria 1: The current RU/s per physical partition is <3000 RU/s
-- Criteria 2: The current average storage in GB per physical partition is <35 GB
+Containers that meet both of these conditions are likely to benefit from merging partitions:
+- Condition 1: The current RU/s per physical partition is <3000 RU/s
+- Condition 2: The current average storage in GB per physical partition is <20 GB
+
+Condition 1 often occurs when you have previously scaled up the RU/s (often for a data ingestion) and now want to scale down in steady state.
+Condition 2 often occurs when you delete/TTL a large volume of data, leaving unused partitions.
 
 #### Criteria 1
-To determine the current RU/s per physical partition, from your Cosmos account, navigate to **Metrics**. Select the metric **Physical Partition Throughput** and filter to your database and container. Apply splitting by **PhysicalPartitionId**. For containers using autoscale, this will show the max RU/s currently provisioned on each physical partition. For containers using manual throughput, this will show the manual RU/s on each physical partition.
+To determine the current RU/s per physical partition, from your Cosmos account, navigate to **Metrics**. Select the metric **Physical Partition Throughput** and filter to your database and container. Apply splitting by **PhysicalPartitionId**. 
+
+For containers using autoscale, this will show the max RU/s currently provisioned on each physical partition. For containers using manual throughput, this will show the manual RU/s on each physical partition.
 
 In the below example, we have an autoscale container provisioned with 5000 RU/s (scales between 500 - 5000 RU/s). It has 5 physical partitions and each physical partition has 1000 RU/s.
 
@@ -54,7 +59,7 @@ Next, find the total number of physical partitions. This is the distinct number 
 
 Finally, calculate: Total storage in GB / number of physical partitions. In our example, we have an average of (74 GB / 5 physical partitions) = 14.8 GB per physical partition. 
 
-Based on criteria 1 and 2, our container is a candidate for merging partitions.
+Based on criteria 1 and 2, our container can potentially benefit from merging partitions.
 
 ### Merging physical partitions
 
