@@ -32,7 +32,7 @@ For the Public Preview Refresh release, the Device Update agent needs to be upda
    
 4. Remove the old configuration file
    ```bash
-   rm -f /etc/adu/adu-conf.txt 
+   sudo rm -f /etc/adu/adu-conf.txt 
    ```
    
 5. Install the new agent
