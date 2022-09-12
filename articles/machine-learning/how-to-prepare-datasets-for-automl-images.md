@@ -50,7 +50,7 @@ If you already have a data labeling project and you want to use that data, you c
 + [Export your labeled data as an Azure ML Dataset](how-to-create-image-labeling-projects.md#export-the-labels). You can then access the exported dataset under the 'Datasets' tab in Azure ML Studio, and download the underlying JSONL file from the Dataset details page under Data sources. The downloaded JSONL file can then be used to create an `MLTable` that can be used by automated ML for training computer vision models.
 + You can also provide the dataset in yaml using the following format `azureml:<tabulardataset_name>:<version>`.
 
-# [CLI v2](#tab/CLI-v2)
+# [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 Create a .yml file with the following configuration.
