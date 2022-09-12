@@ -464,26 +464,38 @@ The following libraries are validated to work with the preview release.
 > [!WARNING]
 > Instrumentation libraries are based on experimental OpenTelemetry specifications. Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
 
-### HTTP
+### Traces
 
 #### [.NET](#tab/net)
 
+Requests
 - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md) version:
   [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc7)
 - [ASP.NET
   Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) version:
   [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc7)
+
+Dependencies
 - [HTTP
   clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md) version:
   [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc7)
+- [SQL
+  client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) version:
+  [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc7)
 
 #### [Node.js](#tab/nodejs)
 
+Requests
 - [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
   [0.26.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.26.0)
+  
+Dependencies
+- [mysql](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql) version:
+  [0.25.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-mysql/v/0.25.0)
 
 #### [Python](#tab/python)
 
+Requests
 - [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) version:
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.24b0/)
 - [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) version:
@@ -491,30 +503,30 @@ The following libraries are validated to work with the preview release.
 - [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) version:
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.24b0/)
 
----
-
-### Database
-
-#### [.NET](#tab/net)
-
-- [SQL
-  client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) version:
-  [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc7)
-
-#### [Node.js](#tab/nodejs)
-
-- [mysql](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql) version:
-  [0.25.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-mysql/v/0.25.0)
-
-#### [Python](#tab/python)
-
+Dependencies
 - [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2) version:
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.24b0/)
 
 ---
 
-> [!NOTE]
-> The *preview* offering only includes instrumentations that handle HTTP and database requests. To learn more, see [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions).
+### Metrics
+
+#### [.NET](#tab/net)
+
+- Placeholder
+
+#### [Node.js](#tab/nodejs)
+
+- Placeholder
+
+#### [Python](#tab/python)
+
+- Placeholder
+
+---
+
+> [!TIP]
+> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#Add-Custom-Metrics). You can find them in the Application Insights Metrics Blade under the "CUSTOM" Metric Namespace.
 
 ## Modify telemetry
 
@@ -911,7 +923,7 @@ This section explains how to collect custom telemetry from your application.
 ### Add Custom Metrics
 
 > [!NOTE]
-> Custom Metrics are currently preview status within Azure Monitor Application Insights. Custom metrics without dimensions is available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+> Custom Metrics are under preview in Azure Monitor Application Insights. Custom metrics without dimensions are available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 You may want to collect metrics beyond what is collected by [instrumentation libraries](#instrumentation-libraries).
 
