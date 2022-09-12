@@ -50,7 +50,7 @@ There are two types of backups in App Service. Automatic backups made for your a
    
     :::image type="content" source="./media/manage-backup/open-backups-page.png" alt-text="Screenshot that shows how to open the backups page.":::
 
-1. Select the backup to restore by clicking its **Restore** link.
+1. Select the automatic backup or custom backup to restore by clicking its **Restore** link.
    
     :::image type="content" source="./media/manage-backup/click-restore-link.png" alt-text="Screenshot that shows how to select the restore link.":::
    
