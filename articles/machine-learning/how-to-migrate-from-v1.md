@@ -114,8 +114,6 @@ You can continue using your existing v1 model deployments. For new model deploym
 |Azure Kubernetes Service (AKS)|ACI, AKS|Manage your own AKS cluster(s) for model deployment, giving flexibility and granular control at the cost of IT overhead.|
 |Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-premises, giving flexibility and granular control at the cost of IT overhead.|
 
-For an example of the code differences between v1 and v2 deployments, see [Migrate endpoints from SDK v1 to SDK v2](https://github.com/Azure/azureml-previews/blob/dpv2-interop-docs/previews/dpv2-migration-docs/inferencing-endpoints-interop.md) on GitHub.
-
 ### Jobs (experiments, runs, pipelines in v1)
 
 In v2, "experiments", "runs", and "pipelines" are consolidated into jobs. A job has a type. Most jobs are `command` jobs that run a command, like `python main.py`. What runs in a job is agnostic to any programming language, so you can run `bash` scripts, invoke `python` interpreters, run a bunch of `curl` commands, or anything else. Another common type of job is `pipeline`, which defines child jobs that may have input/output relationships, forming a directed acyclic graph (DAG).
