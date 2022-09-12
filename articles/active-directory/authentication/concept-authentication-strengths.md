@@ -154,7 +154,7 @@ The following authentication methods can't be registered as part of combined reg
 * [Certificate-based authentication](concept-certificate-based-authentication.md)
 * [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-prepare-people-to-use) 
 
-If a user is not registered for these methods, they can register a required method by using [combined registration managed mode](concept-registration-mfa-sspr-combined.mdd#manage-mode). They can't access the resource until the required method is registered. For the best user experience, make sure users complete combined registered in advance for the different methods they may need to use.
+If a user is not registered for these methods, they can register a required method by using [combined registration managed mode](concept-registration-mfa-sspr-combined.md#manage-mode). They can't access the resource until the required method is registered. For the best user experience, make sure users complete combined registered in advance for the different methods they may need to use.
 
 ## External users 
 <!-- Namrata to include admin section-->
