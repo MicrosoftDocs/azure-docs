@@ -236,7 +236,7 @@ For more information on creating an AKS cluster using the Azure CLI or portal, s
 
 * [Create an AKS cluster (CLI)](/cli/azure/aks?bc=/azure/bread/toc.json&toc=/azure/aks/TOC.json#az-aks-create)
 * [Create an AKS cluster (portal)](../../aks/learn/quick-kubernetes-deploy-portal.md)
-* [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
+* [Create an AKS cluster (ARM Template on Azure Quickstart Templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
 The following example demonstrates how to attach an existing AKS cluster to your workspace:
 
