@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
+monikerRange: "=iotedge-2018-06"
 ---
 
 # Tutorial: Configure an Azure IoT Edge device
