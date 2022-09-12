@@ -12,9 +12,9 @@ ms.topic: conceptual
 
 # What's new in Azure Synapse Analytics?
 
-See below for a recent review of what's new in [Azure Synapse Analytics](overview-what-is.md), and also what features are currently in preview. To follow the latest in Azure Synapse news and features, see the [Azure Synapse Analytics Blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/bg-p/AzureSynapseAnalyticsBlog) and [companion videos on YouTube](https://www.youtube.com/channel/UCsZ4IlYjjVxqe5OZ14tyh5g).
+See below for a recent review of what's new in [Azure Synapse Analytics](overview-what-is.md), and also what features are currently in preview. To follow the latest in Azure Synapse news and features, see the [Azure Synapse Analytics Blog](https://aka.ms/SynapseMonthlyUpdate) and [companion videos on YouTube](https://www.youtube.com/channel/UCsZ4IlYjjVxqe5OZ14tyh5g).
 
-For older updates, review past [Azure Synapse Analytics Blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/bg-p/AzureSynapseAnalyticsBlog) posts or [previous monthly updates in Azure Synapse Analytics](whats-new-archive.md).
+For older updates, review past [Azure Synapse Analytics Blog](https://aka.ms/SynapseMonthlyUpdate) posts or [previous monthly updates in Azure Synapse Analytics](whats-new-archive.md).
 
 ## Features currently in preview
 
@@ -239,7 +239,7 @@ This section summarizes recent improvements and features in SQL pools in Azure S
 
 ## Next steps
 
-- [Azure Synapse Analytics Blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/bg-p/AzureSynapseAnalyticsBlog)
+- [Azure Synapse Analytics Blog](https://aka.ms/SynapseMonthlyUpdate)
 - [Become a Azure Synapse Influencer](https://aka.ms/synapseinfluencers)
 - [Azure Synapse Analytics terminology](overview-terminology.md)
 - [Azure Synapse Analytics migration guides](migration-guides/index.yml)
