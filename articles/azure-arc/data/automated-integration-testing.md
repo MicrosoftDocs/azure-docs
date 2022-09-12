@@ -417,7 +417,7 @@ At a high-level, the launcher performs the following sequence of steps:
 1. Authenticate to Kubernetes API using Pod-mounted Service Account
 2. Authenticate to ARM API using Secret-mounted Service Principal
 3. Perform CRD metadata scan to discover existing Arc and Arc Data Services Custom Resources
-4. Clean up any existing Custom Resources in Kubernetes, and subsequent resources in Azure. If any mismatch between the credentials in `.test.env` compared to resources existing in the cluster, fails fast
+4. Clean up any existing Custom Resources in Kubernetes, and subsequent resources in Azure. If any mismatch between the credentials in `.test.env` compared to resources existing in the cluster, fail fast.
 5. Generate a unique set of environment variables based on timestamp for Arc Cluster name, Data Controller and Custom Location/Namespace. Prints out the environment variables, obfuscating sensitive values (e.g. Service Principal Password etc.)
 6. a. For Direct Mode - Onboard the Cluster to Azure Arc, then deploys the Controller via the [unified experience](/create-data-controller-direct-cli?tabs=linux#deploy---unified-experience)
    b. For Indirect Mode: deploy the Data Controller
