@@ -1,5 +1,5 @@
 ---
-title: Deprecate Single Server
+title: Deprecate Azure Database for MySQL - Single Server
 ms.service: mysql
 ms.topic: include
 author: markingmyname

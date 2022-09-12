@@ -60,8 +60,8 @@ To complete this tutorial, you need:
 
 To configure the Data-in replication, you need to ensure that the target can connect to the source over port 3306. Based on the type of endpoint set up on the source, perform the appropriate following steps.
 
-* If a public endpoint is enabled on the source, then ensure that the target can connect to the source by enabling “Allow access to Azure services” in the firewall rule. To learn more, see [[Firewall rules - Azure Database for MySQL](../single-server/concepts-firewall-rules.md#connecting-from-azure). 
-* If a private endpoint and *[Deny public access](../single-server/concepts-data-access-security-private-link.md#deny-public-access-for-azure-database-for-mysql)* is enabled on the source, then install the private link in the same VNet that hosts the target. To learn more, see [[Private Link - Azure Database for MySQL](../single-server/concepts-data-access-security-private-link.md).
+* If a public endpoint is enabled on the source, then ensure that the target can connect to the source by enabling “Allow access to Azure services” in the firewall rule. To learn more, see [Firewall rules - Azure Database for MySQL](../single-server/concepts-firewall-rules.md#connecting-from-azure). 
+* If a private endpoint and *[Deny public access](../single-server/concepts-data-access-security-private-link.md#deny-public-access-for-azure-database-for-mysql)* is enabled on the source, then install the private link in the same VNet that hosts the target. To learn more, see [Private Link - Azure Database for MySQL](../single-server/concepts-data-access-security-private-link.md).
 
 ## Configure Data-in replication
 
