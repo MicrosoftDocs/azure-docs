@@ -242,6 +242,15 @@ Each device needs its corresponding configuration bundle. You can use a USB driv
     sudo iotedge check
     ```
 
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 If you want a closer look at what modifications are being made to your device's configuration file, see [the configure IoT Edge on devices section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#configure-parent-device).
 
 ##### Lower-layer device configuration

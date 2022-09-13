@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 08/31/2022
+ms.date: 09/06/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -27,8 +27,24 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## September 2022
 
+- [Create and delete incidents manually (Preview)](#create-and-delete-incidents-manually-preview)
 - [Add entities to threat intelligence (Preview)](#add-entities-to-threat-intelligence-preview)
 - [Windows DNS Events via AMA connector (Preview)](#windows-dns-events-via-ama-connector-preview)
+
+### Create and delete incidents manually (Preview)
+
+Microsoft Sentinel **incidents** have two main sources: 
+
+- They are generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources.
+
+- They are ingested directly from other connected Microsoft security services (such as [Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md)) that created them.
+
+There can, however, be data from sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, that justify launching an investigation. For this reason, Microsoft Sentinel now allows security analysts to manually create incidents from scratch for any type of event, regardless of its source or associated data, in order to manage and document the investigation.
+
+Since this capability raises the possibility that you'll create an incident in error, Microsoft Sentinel also allows you to delete incidents right from the portal as well.
+
+- [Learn more about creating incidents manually](create-incident-manually.md).
+- [Learn more about deleting incidents](delete-incident.md).
 
 ### Add entities to threat intelligence (Preview)
 
