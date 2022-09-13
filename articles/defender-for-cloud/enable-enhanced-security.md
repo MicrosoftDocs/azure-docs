@@ -11,22 +11,11 @@ ms.custom: mode-other
 
 In this quickstart, you'll learn how to enable the enhanced security features by enabling the Defender for Cloud plans through the Azure portal.
 
-Microsoft Defender for Cloud uses monitoring extensions, such as Azure Monitor Agent, to collect data from your resources. Each Defender plan has its own requirements for monitoring extensions, so it's important that the required extensions are deployed to your resources to get all of the benefits of each plan. When an extension is on, the extension is installed on existing machines and on new machines that are created in the subscription.
+Microsoft Defender for Cloud uses [monitoring extensions](enable-data-collection.md) to collect data from your resources. These extensions are automatically deployed when you turn on a Defender plan. Each Defender plan has its own requirements for monitoring extensions, so it's important that the required extensions are deployed to your resources to get all of the benefits of each plan.
 
-If you manually turn on an extension, Defender for Cloud automatically deploys that extension to your resources. When you turn off an extension, the extension isn't installed on new machines, but it's also not uninstalled from existing machines.
-
-The Defender plans show you the monitoring coverage for each Defender plan, and you can configure monitoring settings for some plans.
+The Defender plans show you the monitoring coverage for each Defender plan. If the monitoring coverage is **Full**, all of the necessary extensions are installed. If the monitoring coverage is **Partial**, the information tooltip tells you what extensions are missing. For some plans, you can configure specific monitoring settings.
 
 :::image type="content" source="media/enable-data-collection/defender-plans.png" alt-text="Screenshot of monitoring coverage of Microsoft Defender for Cloud extensions." lightbox="media/enable-data-collection/defender-plans.png":::
-
-The available extensions are:
-
-- [Azure Monitor Agent](extensions-azure-monitor-agent.md)
-- [Log Analytics agent](extensions-log-analytics-agent.md)
-- [Microsoft Defender for Endpoint](extensions-defender-for-endpoint.md)
-- [Vulnerability assessment](extensions-vulnerability-assessment.md)
-- [Defender for Containers](extensions-defender-for-containers.md)
-- [Guest Configuration](extensions-guest-configuration.md)
 
 To learn more about the benefits of enhanced security features, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
 
@@ -99,4 +88,4 @@ Certain plans allow you to customize your protection.
 - Learn about the [Defender for Servers plans](defender-for-servers-introduction.md#defender-for-servers-plans) to help you choose which plan you want to apply to your subscription.
 - Defender for Databases lets you [select which type of resources you want to protect](quickstart-enable-database-protections.md).
 - Learn more about [how to enable Defender for Containers](defender-for-containers-enable.md) for different Kubernetes environments.
-- Learn about the [monitoring extensions](extensions-overview.md) that the Defender plans use to collect data from your Azure, hybrid, and multicloud resources.
+- Learn about the [monitoring extensions](enable-data-collection.md) that the Defender plans use to collect data from your Azure, hybrid, and multicloud resources.

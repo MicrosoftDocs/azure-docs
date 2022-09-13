@@ -95,22 +95,8 @@
 
   - name: Cloud Workload Protection
     items:
-    - name: Extensions for workload monitoring
-      items:
-      - name: Overview
-        href: extensions-overview.md
-      - name: Azure Monitor Agent
-        href: extensions-azure-monitor-agent.md
-      - name: Microsoft Defender for Endpoint
-        href: extensions-defender-for-endpoint.md
-      - name: Log Analytics agent
-        href: extensions-log-analytics-agent.md
-      - name: Defender for Containers
-        href: extensions-defender-for-containers.md
-      - name: Guest Configuration
-        href: extensions-guest-configuration.md
-      - name: Vulnerability assessment
-        href: extensions-vulnerability-assessment.md
+    - name: Monitoring extensions for data collection
+      href: enable-data-collection.md
     - name: Security alerts and incidents
       href: alerts-overview.md
     - name: Reference list of alerts

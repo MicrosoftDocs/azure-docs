@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.date: 09/12/2022
 ms.custom: mode-other
 ---
-# Quickstart: Configure monitoring extensions for Microsoft Defender for Cloud
+# Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud uses monitoring extensions, such as Azure Monitor Agent, to collect data from your resources. Each Defender plan has its own requirements for monitoring extensions, so you need to make sure that the required extensions are deployed to your resources to get all of the benefits of each plan. When an extension is on, the extension is installed on existing machines and on new machines that are created in the subscription.
 
