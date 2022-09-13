@@ -129,6 +129,9 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.familyName|String||&check; 
    |externalId|String||&check;
 
+	>[!NOTE]
+	>All the required fields (for example, first name, last name and email) are required to be filled in Azure AD in order get the auto provision work without any issue. 
+
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. To enable the Azure AD provisioning service for Ideagen Cloud, change the **Provisioning Status** to **On** in the **Settings** section.

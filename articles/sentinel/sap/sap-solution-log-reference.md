@@ -1058,7 +1058,8 @@ For best results, refer to these tables using the name in the **Sentinel functio
 | AGR_DEFINE | Role definition                                       | SAP_AGR_DEFINE  |
 | AGR_AGRS   | Roles in composite roles                              | SAP_AGR_AGRS    |
 | PAHI       | History of the system, database, and SAP parameters   | SAP_PAHI        |
-
+| SNCSYSACL (PREVIEW)| SNC Access Control List (ACL): Systems        | SAP_SNCSYSACL   |
+| USRACL (PREVIEW)| SNC Access Control List (ACL): User              | SAP_USRACL      |
 
 
 ## Next steps
