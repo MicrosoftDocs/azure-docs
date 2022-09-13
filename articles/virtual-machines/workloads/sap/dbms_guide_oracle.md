@@ -46,7 +46,7 @@ Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Lin
 
 The specific scenario of SAP applications using Oracle Databases is supported as well. Details are discussed in the next part of the document.
 
-## General Recommendations for running SAP on Oracle on Azure 
+### General Recommendations for running SAP on Oracle on Azure 
 
 When installing or migrating existing SAP on Oracle systems to Azure, the following deployment pattern should be followed:
 
@@ -78,7 +78,7 @@ There are two recommended storage deployment patterns for SAP on Oracle on Azure
 
 Customers currently running Oracle databases on EXT4 or XFS file systems with LVM are encouraged to move to ASM. There are considerable performance, administration and reliability advantages to running on ASM compared to LVM. ASM reduces complexity, improves supportability and makes administration tasks simpler. This documentation contains links for Oracle DBAs to learn how to install and manage ASM.
 
-## Oracle Automatic Storage Management (ASM)
+### Oracle Automatic Storage Management (ASM)
 
 Checklist for Oracle Automatic Storage Management:
 
@@ -246,7 +246,7 @@ We highly recommend using the Oracle dNFS clint for all Oracle volumes.
 
 Recommended mount options are:
 
-**NFS3**: rw,vers=3,rsize=262144,wsize=262144,hard,timeo=600,noatime
+**NFSv3**: rw,vers=3,rsize=262144,wsize=262144,hard,timeo=600,noatime
 
 **NFSv4.1**: rw,vers=4.1,rsize=262144,wsize=262144,hard,timeo=600,noatime
 
@@ -431,7 +431,7 @@ The disk selection for hosting Oracle's online redo logs should be driven by IOP
 - [SAP on Windows Presentation (oracle.com)](https://www.oracle.com/technetwork/topics/dotnet/tech-info/oow2015-windowsdb-bestpracticesperf-2757613.pdf)
  [2823030 - Oracle on MS WINDOWS Large Pages](https://launchpad.support.sap.com/#/notes/2823030)
 
-## Next steps
+### Next steps
 Read the article 
 
 - [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
