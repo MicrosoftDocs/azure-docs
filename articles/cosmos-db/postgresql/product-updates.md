@@ -1,5 +1,5 @@
 ---
-title: Product updates for Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Product updates for Azure Cosmos DB for PostgreSQL
 description: New features and features in preview
 ms.author: jonels
 author: jonels-msft
@@ -23,7 +23,7 @@ section for the latest. An RSS feed is also available on that page.
 
 ## Features in preview
 
-Azure Database for PostgreSQL - Hyperscale (Citus) offers
+Azure Cosmos DB for PostgreSQL offers
 previews for unreleased features. Preview versions are provided
 without a service level agreement, and aren't recommended for
 production workloads. Certain features might not be supported or

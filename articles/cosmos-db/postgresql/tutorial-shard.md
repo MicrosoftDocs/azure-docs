@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 12/16/2020
 ---
 
-# Tutorial: Shard data on worker nodes in Azure Database for PostgreSQL – Hyperscale (Citus)
+# Tutorial: Shard data on worker nodes in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
+In this tutorial, you use Azure Cosmos DB for PostgreSQL to learn how to:
 
 > [!div class="checklist"]
 > * Create hash-distributed shards

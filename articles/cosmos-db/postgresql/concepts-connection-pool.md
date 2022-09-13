@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 05/31/2022
 ---
 
-# Azure Database for PostgreSQL – Hyperscale (Citus) connection pooling
+# Azure Cosmos DB for PostgreSQL connection pooling
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

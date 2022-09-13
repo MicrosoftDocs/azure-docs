@@ -1,6 +1,6 @@
 ---
 title: Public access - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: This article describes public access for Azure Database for PostgreSQL - Hyperscale (Citus).
+description: This article describes public access for Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/15/2021
 ---
 
-# Public access in Azure Database for PostgreSQL - Hyperscale (Citus)
+# Public access in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -42,7 +42,7 @@ When the firewall blocks connections, it can cause application errors. Using the
 See [Create and manage firewall rules](howto-manage-firewall-using-portal.md) to learn how the rules are defined.
 
 ## Troubleshooting the database server firewall
-When access to the Microsoft Azure Database for PostgreSQL - Hyperscale (Citus) service doesn't behave as you expect, consider these points:
+When access to the Microsoft Azure Cosmos DB for PostgreSQL service doesn't behave as you expect, consider these points:
 
 * **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Hyperscale (Citus) firewall configuration to take effect.
 

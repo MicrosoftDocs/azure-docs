@@ -13,7 +13,7 @@ ms.date: 07/27/2020
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Database for PostgreSQL - Hyperscale (Citus) provides high availability
+Azure Cosmos DB for PostgreSQL provides high availability
 (HA) to avoid database downtime. With HA enabled, every node in a server group
 will get a standby. If the original node becomes unhealthy, its standby will be
 promoted to replace it.

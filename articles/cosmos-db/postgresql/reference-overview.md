@@ -13,7 +13,7 @@ ms.date: 08/02/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Database for PostgreSQL - Hyperscale (Citus) includes features beyond
+Azure Cosmos DB for PostgreSQL includes features beyond
 standard PostgreSQL. Below is a categorized reference of functions and
 configuration options for:
 

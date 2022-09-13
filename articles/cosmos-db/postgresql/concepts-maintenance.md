@@ -1,6 +1,6 @@
 ---
-title: Scheduled maintenance - Azure Database for PostgreSQL - Hyperscale (Citus)
-description: This article describes the scheduled maintenance feature in Azure Database for PostgreSQL - Hyperscale (Citus).
+title: Scheduled maintenance - Azure Cosmos DB for PostgreSQL
+description: This article describes the scheduled maintenance feature in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/14/2022
 ---
 
-# Scheduled maintenance in Azure Database for PostgreSQL – Hyperscale (Citus)
+# Scheduled maintenance in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Database for PostgreSQL - Hyperscale (Citus) does periodic maintenance to
+Azure Cosmos DB for PostgreSQL does periodic maintenance to
 keep your managed database secure, stable, and up-to-date.  During maintenance,
 all nodes in the server group get new features, updates, and patches.
 

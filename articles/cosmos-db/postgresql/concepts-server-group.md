@@ -1,6 +1,6 @@
 ---
 title: Server group - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: What is a server group in Azure Database for PostgreSQL - Hyperscale (Citus)
+description: What is a server group in Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -15,7 +15,7 @@ ms.date: 07/15/2022
 
 ## Nodes
 
-The Azure Database for PostgreSQL - Hyperscale (Citus) deployment option allows
+The Azure Cosmos DB for PostgreSQL deployment option allows
 PostgreSQL servers (called nodes) to coordinate with one another in a "server
 group." The server group's nodes collectively hold more data and use more CPU
 cores than would be possible on a single server. The architecture also allows
@@ -59,7 +59,7 @@ window](concepts-maintenance.md).
 
 ## Tiers
 
-The basic tier in Azure Database for PostgreSQL - Hyperscale (Citus) is a
+The basic tier in Azure Cosmos DB for PostgreSQL is a
 simple way to create a small server group that you can scale later. While
 server groups in the standard tier have a coordinator node and at least two
 worker nodes, the basic tier runs everything in a single database node.

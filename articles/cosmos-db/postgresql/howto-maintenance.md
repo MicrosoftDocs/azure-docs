@@ -1,6 +1,6 @@
 ---
-title: Azure Database for PostgreSQL - Hyperscale (Citus) - Scheduled maintenance - Azure portal
-description: Learn how to configure scheduled maintenance settings for an Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal.
+title: Azure Cosmos DB for PostgreSQL - Scheduled maintenance - Azure portal
+description: Learn how to configure scheduled maintenance settings for an Azure Cosmos DB for PostgreSQL from the Azure portal.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 04/07/2021
 ---
 
-# Manage scheduled maintenance settings for Azure Database for PostgreSQL – Hyperscale (Citus)
+# Manage scheduled maintenance settings for Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -21,7 +21,7 @@ notification settings for upcoming and finished maintenance events.
 
 To complete this how-to guide, you need:
 
-- An [Azure Database for PostgreSQL - Hyperscale (Citus) server
+- An [Azure Cosmos DB for PostgreSQL server
   group](quickstart-create-portal.md)
 
 ## Specify maintenance schedule options
@@ -45,5 +45,5 @@ alerts in Azure Service Health to get notifications about maintenance events.
 
 ## Next steps
 
-* Learn about [scheduled maintenance in Azure Database for PostgreSQL – Hyperscale (Citus)](concepts-maintenance.md)
+* Learn about [scheduled maintenance in Azure Cosmos DB for PostgreSQL](concepts-maintenance.md)
 * Lean about [Azure Service Health](../../service-health/overview.md)

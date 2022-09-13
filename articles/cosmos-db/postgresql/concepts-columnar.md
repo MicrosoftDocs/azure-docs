@@ -14,7 +14,7 @@ ms.custom: kr2b-contr-experiment
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Database for PostgreSQL - Hyperscale (Citus) supports append-only
+Azure Cosmos DB for PostgreSQL supports append-only
 columnar table storage for analytic and data warehousing workloads. When
 columns (rather than rows) are stored contiguously on disk, data becomes more
 compressible, and queries can request a subset of columns more quickly.

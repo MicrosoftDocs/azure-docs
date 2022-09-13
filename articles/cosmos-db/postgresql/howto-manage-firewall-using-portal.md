@@ -1,6 +1,6 @@
 ---
 title: Manage firewall rules - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Create and manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus) using the Azure portal
+description: Create and manage firewall rules for Azure Cosmos DB for PostgreSQL using the Azure portal
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 11/16/2021
 ---
-# Manage public access for Azure Database for PostgreSQL - Hyperscale (Citus)
+# Manage public access for Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -19,12 +19,12 @@ public internet.
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- A server group [Create an Azure Database for PostgreSQL – Hyperscale (Citus) server group](quickstart-create-portal.md).
+- A server group [Create an Azure Cosmos DB for PostgreSQL server group](quickstart-create-portal.md).
 
 ## Create a server-level firewall rule in the Azure portal
 
 > [!NOTE]
-> These settings are also accessible during the creation of an Azure Database for PostgreSQL - Hyperscale (Citus) server group. Under the **Networking** tab, select **Public access (allowed IP address)**.
+> These settings are also accessible during the creation of an Azure Cosmos DB for PostgreSQL server group. Under the **Networking** tab, select **Public access (allowed IP address)**.
 >
 > :::image type="content" source="media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png" alt-text="Azure portal - networking tab":::
 

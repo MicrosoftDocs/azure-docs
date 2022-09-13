@@ -1,6 +1,6 @@
 ---
 title: Extensions – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Describes the ability to extend the functionality of your database by using extensions in Azure Database for PostgreSQL - Hyperscale (Citus)
+description: Describes the ability to extend the functionality of your database by using extensions in Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 08/02/2022
 ---
-# PostgreSQL extensions in Azure Database for PostgreSQL – Hyperscale (Citus)
+# PostgreSQL extensions in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -26,7 +26,7 @@ PostgreSQL extensions must be installed in your database before you can use them
 > SELECT create_extension('postgis');
 > ```
 
-Azure Database for PostgreSQL - Hyperscale (Citus) currently supports a subset of key extensions as listed here. Extensions other than the ones listed aren't supported. You can't create your own extension with Azure Database for PostgreSQL.
+Azure Cosmos DB for PostgreSQL currently supports a subset of key extensions as listed here. Extensions other than the ones listed aren't supported. You can't create your own extension with Azure Database for PostgreSQL.
 
 ## Extensions supported by Azure Database for PostgreSQL
 

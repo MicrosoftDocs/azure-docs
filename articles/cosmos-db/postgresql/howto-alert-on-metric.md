@@ -1,6 +1,6 @@
 ---
 title: Configure alerts - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL - Hyperscale (Citus)
+description: This article describes how to configure and access metric alerts for Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 3/16/2020
 ---
 
-# Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Hyperscale (Citus)
+# Use the Azure portal to set up alerts on metrics for Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

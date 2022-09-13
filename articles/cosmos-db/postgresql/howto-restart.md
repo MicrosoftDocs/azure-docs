@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 05/06/2022
 ---
 
-# Restart Azure Database for PostgreSQL - Hyperscale (Citus)
+# Restart Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: Restore - Hyperscale (Citus) - Azure Database for PostgreSQL - Azure portal
-description: This article describes how to perform restore operations in Azure Database for PostgreSQL - Hyperscale (Citus) through the Azure portal.
+description: This article describes how to perform restore operations in Azure Cosmos DB for PostgreSQL through the Azure portal.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db

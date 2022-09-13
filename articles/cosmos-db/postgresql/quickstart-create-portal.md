@@ -16,7 +16,7 @@ ms.date: 06/29/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Database for PostgreSQL - Hyperscale (Citus) is a managed service that
+Azure Cosmos DB for PostgreSQL is a managed service that
 allows you to run horizontally scalable PostgreSQL databases in the cloud.
 
 ## Prerequisites

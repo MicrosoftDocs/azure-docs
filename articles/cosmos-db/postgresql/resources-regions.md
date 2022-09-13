@@ -10,7 +10,7 @@ ms.custom: references_regions
 ms.date: 06/21/2022
 ---
 
-# Regional availability for Azure Database for PostgreSQL – Hyperscale (Citus)
+# Regional availability for Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

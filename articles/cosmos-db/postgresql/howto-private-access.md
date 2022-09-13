@@ -1,6 +1,6 @@
 ---
 title: Enable private access - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: How to set up private link in a server group for Azure Database for PostgreSQL - Hyperscale (Citus)
+description: How to set up private link in a server group for Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db

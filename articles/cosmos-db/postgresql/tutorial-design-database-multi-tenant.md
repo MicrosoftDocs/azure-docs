@@ -12,11 +12,11 @@ ms.date: 06/29/2022
 #Customer intent: As an developer, I want to design a hyperscale database so that my multi-tenant application runs efficiently for all tenants.
 ---
 
-# Design a multi-tenant database using Azure Database for PostgreSQL – Hyperscale (Citus)
+# Design a multi-tenant database using Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
+In this tutorial, you use Azure Cosmos DB for PostgreSQL to learn how to:
 
 > [!div class="checklist"]
 > * Create a Hyperscale (Citus) server group
@@ -33,7 +33,7 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 
 ## Use psql utility to create a schema
 
-Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using psql, you can complete some basic tasks. This tutorial walks you through creating a web app that allows advertisers to track their campaigns.
+Once connected to the Azure Cosmos DB for PostgreSQL using psql, you can complete some basic tasks. This tutorial walks you through creating a web app that allows advertisers to track their campaigns.
 
 Multiple companies can use the app, so let's create a table to hold companies and another for their campaigns. In the psql console, run these commands:
 

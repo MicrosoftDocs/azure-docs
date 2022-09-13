@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/15/2022
 ---
 
-# High availability in Azure Database for PostgreSQL – Hyperscale (Citus)
+# High availability in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

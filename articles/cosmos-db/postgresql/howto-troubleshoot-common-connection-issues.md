@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot connections - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
+description: Learn how to troubleshoot connection issues to Azure Cosmos DB for PostgreSQL
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
 ms.author: jonels
 author: jonels-msft
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 12/17/2021
 ---
 
-# Troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
+# Troubleshoot connection issues to Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -92,5 +92,5 @@ most common causes are firewall misconfiguration or user error.
 
 ## Next steps
 
-* Learn the concepts of [Firewall rules in Azure Database for PostgreSQL - Hyperscale (Citus)](concepts-firewall-rules.md)
-* See how to [Manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus)](howto-manage-firewall-using-portal.md)
+* Learn the concepts of [Firewall rules in Azure Cosmos DB for PostgreSQL](concepts-firewall-rules.md)
+* See how to [Manage firewall rules for Azure Cosmos DB for PostgreSQL](howto-manage-firewall-using-portal.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Run queries - Hyperscale (Citus) - Azure Database for PostgreSQL'
-description: Quickstart to run queries on table data in Azure Database for PostgreSQL - Hyperscale (Citus).
+description: Quickstart to run queries on table data in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 recommendations: false

@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 01/14/2022
 ---
 
-# Create server group with private access in Azure Database for PostgreSQL - Hyperscale (Citus)
+# Create server group with private access in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

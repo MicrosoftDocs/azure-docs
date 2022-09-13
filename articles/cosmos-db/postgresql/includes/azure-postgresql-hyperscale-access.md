@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Azure Database for PostgreSQL – Hyperscale (Citus) supports three networking options:
+Azure Cosmos DB for PostgreSQL supports three networking options:
 
 * No access
   * This is the default for a newly created server group if public or private access is not enabled. No computers, whether inside or outside of Azure, can connect to the database nodes.

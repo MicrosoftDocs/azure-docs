@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: distribute tables - Hyperscale (Citus) - Azure Database for PostgreSQL'
-description: Quickstart to distribute table data across nodes in Azure Database for PostgreSQL - Hyperscale (Citus).
+description: Quickstart to distribute table data across nodes in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 recommendations: false

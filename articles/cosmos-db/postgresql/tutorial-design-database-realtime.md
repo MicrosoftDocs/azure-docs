@@ -11,11 +11,11 @@ ms.date: 06/29/2022
 #Customer intent: As a developer, I want to parallelize queries so that I can make a real-time dashboard application.
 ---
 
-# Tutorial: Design a real-time analytics dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus)
+# Tutorial: Design a real-time analytics dashboard by using Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
+In this tutorial, you use Azure Cosmos DB for PostgreSQL to learn how to:
 
 > [!div class="checklist"]
 > * Create a Hyperscale (Citus) server group
@@ -32,7 +32,7 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 
 ## Use psql utility to create a schema
 
-Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using psql, you can complete some basic tasks. This tutorial walks you through ingesting traffic data from web analytics, then rolling up the data to provide real-time dashboards based on that data.
+Once connected to the Azure Cosmos DB for PostgreSQL using psql, you can complete some basic tasks. This tutorial walks you through ingesting traffic data from web analytics, then rolling up the data to provide real-time dashboards based on that data.
 
 Let's create a table that will consume all of our raw web traffic data. Run the following commands in the psql terminal:
 

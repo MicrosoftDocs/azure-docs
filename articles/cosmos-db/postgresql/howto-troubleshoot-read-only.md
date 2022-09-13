@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 08/03/2021
 ---
 
-# Troubleshoot read-only access to Azure Database for PostgreSQL - Hyperscale (Citus)
+# Troubleshoot read-only access to Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

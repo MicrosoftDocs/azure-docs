@@ -1,6 +1,6 @@
 ---
 title: Supported versions – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: PostgreSQL versions available in Azure Database for PostgreSQL - Hyperscale (Citus)
+description: PostgreSQL versions available in Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/28/2021
 ---
 
-# Supported database versions in Azure Database for PostgreSQL – Hyperscale (Citus)
+# Supported database versions in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

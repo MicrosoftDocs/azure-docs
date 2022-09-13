@@ -1,6 +1,6 @@
 ---
-title: Read replicas - Azure Database for PostgreSQL - Hyperscale (Citus)
-description: This article describes the read replica feature in Azure Database for PostgreSQL - Hyperscale (Citus).
+title: Read replicas - Azure Cosmos DB for PostgreSQL
+description: This article describes the read replica feature in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/17/2022
 ---
 
-# Read replicas in Azure Database for PostgreSQL - Hyperscale (Citus)
+# Read replicas in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

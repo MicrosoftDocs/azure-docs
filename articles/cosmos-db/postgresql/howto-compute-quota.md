@@ -1,6 +1,6 @@
 ---
-title: Change compute quotas - Azure portal - Azure Database for PostgreSQL - Hyperscale (Citus)
-description: Learn how to increase vCore quotas per region in Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal.
+title: Change compute quotas - Azure portal - Azure Cosmos DB for PostgreSQL
+description: Learn how to increase vCore quotas per region in Azure Cosmos DB for PostgreSQL from the Azure portal.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 12/10/2021
 ---
 
-# Change compute quotas in Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal
+# Change compute quotas in Azure Cosmos DB for PostgreSQL from the Azure portal
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

@@ -14,7 +14,7 @@ If you don't have an Azure subscription, create a
 [free](https://azure.microsoft.com/free/) account before you begin.
 
 Sign in to the [Azure portal](https://portal.azure.com) and follow these steps
-to create an Azure Database for PostgreSQL - Hyperscale (Citus) server group:
+to create an Azure Cosmos DB for PostgreSQL server group:
 
 # [Direct link](#tab/direct)
 

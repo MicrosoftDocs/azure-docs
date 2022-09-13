@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/08/2022
 ---
 
-# Azure Database for PostgreSQL – Hyperscale (Citus) compute and storage
+# Azure Cosmos DB for PostgreSQL compute and storage
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
  

@@ -13,7 +13,7 @@ ms.date: 12/10/2021
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Database for PostgreSQL - Hyperscale (Citus) provides self-service
+Azure Cosmos DB for PostgreSQL provides self-service
 scaling to deal with increased load. The Azure portal makes it easy to add new
 worker nodes, and to increase the vCores of existing nodes. Adding nodes causes
 no downtime, and even moving shards to the new nodes (called [shard

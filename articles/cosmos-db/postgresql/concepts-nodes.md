@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/28/2019
 ---
 
-# Nodes and tables in Azure Database for PostgreSQL – Hyperscale (Citus)
+# Nodes and tables in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

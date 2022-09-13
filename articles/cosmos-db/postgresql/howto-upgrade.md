@@ -1,6 +1,6 @@
 ---
 title: Upgrade server group - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: This article describes how you can upgrade PostgreSQL and Citus in Azure Database for PostgreSQL - Hyperscale (Citus).
+description: This article describes how you can upgrade PostgreSQL and Citus in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/25/2022
 ---
 
-# Azure Database for PostgreSQL – Hyperscale (Citus) limits and limitations
+# Azure Cosmos DB for PostgreSQL limits and limitations
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
