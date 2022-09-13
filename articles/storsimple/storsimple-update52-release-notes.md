@@ -1,11 +1,11 @@
 ---
 title: StorSimple 8000 Series Update 5.2 release notes
-description: Describes new features, issues, and work arounds for StorSimple 8000 Series Update 5.2.
+description: Describes new features, issues, and workarounds for StorSimple 8000 Series Update 5.2.
 author: alkohli
 ms.assetid: 
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 09/08/2022
+ms.date: 09/13/2022
 ms.author: alkohli
 ---
 
@@ -66,3 +66,5 @@ To verify Update 5.2, check for these software versions after installation:
 * Lsisas2Version: 2.0.78.00
 
 ## Next steps
+
+Install StorSimple 8000 Series Update 5.2.
