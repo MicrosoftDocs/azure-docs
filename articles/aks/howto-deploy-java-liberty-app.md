@@ -32,8 +32,7 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
 * This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
   * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, Windows Subsystem for Linux).
-  ### RR: AdoptOpenJDK is done. We should reference another JDK here, ideally OpenJ9.
-  * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
+  * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
   * Make sure you have been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group) 
@@ -42,52 +41,53 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
 
 The steps in this section guide you to create a Liberty runtime on AKS. After completing these steps, you'll have an Azure Container Registry and an Azure Kubernetes Service cluster for the sample application.
 
-## RR: We should show the use of the App Gateway.
-
-1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section.
-1. Select **Create** to start.
-1. In the **Basics** tab, create a new resource group called *java-liberty-project-rg*.
+1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link, [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
+1. Select **Create**.
+1. In the **Basics** blade, create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
 1. Select *East US* as **Region**.
-1. Leave all other values at the defaults and start creating the cluster by selecting **Review + create**.
-1. When the validation completes, select **Create**. The validation may take up to 10 minutes.
-1. After the deployment is complete, select the resource group into which you deployed the resources.
-   1. In the list of resources in the resource group, select the resource with **Type** of **Container registry**.
-   ### RR: Where do I find these values? That's not clear.
-   3. Save aside the values for **Registry name**, **Login server**, **Username**, and **password**. You may use the copy icon at the right of each field to copy the value of that field to the system clipboard.
+1. Select **Next: Configure cluster**.
+1. This section allows you to select an existing AKS cluster and Azure Container  Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability allows leveraging the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. Leave all other values at the defaults and select **Next: Networking**.
+1. Next to **Connect to Azure Application Gateway?** select **Yes**. This blade lets you customize the following deployment options.
+   1. You can customize the virtual network and subnet into which the deployment will place the resources. Leave these values at their defaults.
+   1. You can provide the TLS/SSL certificate presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Do not go to production using a self-certificate. For more information about self-signed certificates see [Create a self-signed public certificate to authenticate your application](/azure/active-directory/develop/howto-create-self-signed-certificate).
+   1. You can enable cookie based affinity, also known as sticky sessions. We want this enabled for this article, so ensure this option is selected.
+      ![Screenshot of the enable cookie-based affinity checkbox](./media/howto-deploy-java-liberty-app/enable-cookie-based-affinity.png)
+1. Select **Review + create** to validate your selected options.
+1. When you see the message **Validation Passed**, select **Create**. The deployment may take up to 20 minutes.
+
+## Capture selected information from the deployment
+
+[!INCLUDE [portal-find-resource-group](includes/portal-find-resource-group.md)]
+1. In the list of resources in the resource group, select the resource with **Type** of **Container registry**.
+1. In the navigation pane, under **Settings** select **Access keys**.
+1. Save aside the values for **Login server**, **Registry name**, **Username**, and **password**. You may use the copy icon at the right of each field to copy the value of that field to the system clipboard.
 1. Navigate again to the resource group into which you deployed the resources.
 1. In the **Settings** section, select **Deployments**.
-1. Select the bottom-most deployment. The **Deployment name** will match the publisher ID of the offer. It will contain the string **ibm**.
+1. Select the bottom-most deployment in the list. The **Deployment name** will match the publisher ID of the offer. It will contain the string **ibm**.
 1. In the left pane, select **Outputs**.
 1. Using the same copy technique as with the preceding values, save aside the values for the following outputs:
 
-   - **appDeploymentTemplateYamlEncoded**
-   - **cmdToConnectToCluster**
+   * **appDeploymentTemplateYamlEncoded**
+   * **cmdToConnectToCluster**
 
    These values will be used later in this article. Note that several other useful commands are listed in the outputs.
 
-## Create an Azure SQL Database
-
 The steps in this section guide you through creating an Azure SQL Database single database for use with your app.
 
-1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences below. Return to this document after creating and configuring the database server.
-    > [!NOTE]
-    >
-    > * At the **Basics** step, write down **Database name**, ***Server name**.database.windows.net*, **Server admin login** and **Password**.
-    > * At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
-    >
-    >   ![Screenshot of configuring SQL database networking](./media/howto-deploy-java-liberty-app/create-sql-database-networking.png)
+1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences in the box below. Return to this document after creating and configuring the database server.
 
-### RR: What is this referring to? I can't find it? There is a setting in the create UI. Why didn't we just use that?
+   > [!NOTE]
+   >
+   > * At the **Basics** step, write down **Resource group**, **Database name**, ***Server name**.database.windows.net*, **Server admin login** and **Password**. The database **Resource group** will be referred to as `<db-resource-group>` later in this article.
+   > * At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
+   >
+   >   ![Screenshot of configuring SQL database networking.](./media/howto-deploy-java-liberty-app/create-sql-database-networking.png)
+   >
+   > * Also at the **Networking** step, under **Encrypted connections**, set the **Minimum TLS version** to **TLS 1.0**.
+   >
+   >   ![Screenshot of configuring SQL database networking TLS 1.0.](./media/howto-deploy-java-liberty-app/sql-database-minimum-tls-version.png)
 
-2. Once your database is created, open **your SQL server** > **Firewalls and virtual networks**. Set **Minimal TLS Version** to **> 1.0** and select **Save**.
-
-    ![Screenshot of configuring SQL database minimum TLS version](./media/howto-deploy-java-liberty-app/sql-database-minimum-TLS-version.png)
-    
-### RR: Why do we need this? The port is always 1433.
-
-3. Open **your SQL database** > **Connection strings** > Select **JDBC**. Write down the **Port number** following sql server address. For example, **1433** is the port number in the example below.
-
-   ![Screenshot of getting SQL server jdbc connection string](./media/howto-deploy-java-liberty-app/sql-server-jdbc-connection-string.png)
+Now that the database and AKS cluster have been created, we can proceed to preparing AKS to host your Open Liberty application.
 
 ## Configure and deploy the sample application
 
