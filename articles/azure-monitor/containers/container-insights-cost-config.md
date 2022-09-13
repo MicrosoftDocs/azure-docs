@@ -8,8 +8,6 @@ ms.reviewer: aul
 
 # Container Insights - Cost Optimization DCR Settings
 
-## Overview
-
 This private preview supports the data collection settings such as data collection interval and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview).
 
 This feature reduces the volume of data being ingested and in turn helps to reduce the total cost.
@@ -57,9 +55,7 @@ The below table outlines the list of the container insights Log Analytics tables
     - The current recommendation is to allow-list at a per cluster level, unless using a test subscription for allow-listing
 - Install latest version of the Azure CLI as per the instructions in [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
-## Onboarding
-
-### Existing AKS Cluster
+## Onboarding to an existing AKS Cluster
 
 1. Download the Azure Resource Manager Template and Parameter files
 
@@ -90,7 +86,7 @@ az account set --subscription"Cluster Subscription Name"
 az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
 ```
 
-### Existing Azure Arc K8s Clusters
+### Onboarding to an existing Azure Arc K8s Clusters
 
 1. Download the Azure Resource Manager Template and Parameter files
 
