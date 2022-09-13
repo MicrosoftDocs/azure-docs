@@ -7,7 +7,7 @@ ms.date: 09/13/2022
 
 # Identify and remediate attack paths 
 
-Defender for Cloud's contextual security capabilities assist security teams in the reduction of the risk of impactful breaches. Defender for Cloud uses environment context to perform a risk assessment to you security issues, by identifying the biggest security risk issues, while distinguishing them from less risky issues.
+Defender for Cloud's contextual security capabilities assists security teams in the reduction of the risk of impactful breaches. Defender for Cloud uses environment context to perform a risk assessment of your security issues. Defender for Cloud identifies the biggest security risk issues, while distinguishing them from less risky issues.
 
 Attack Path Analysis helps you to address the security issues that pose immediate threats with the greatest potential of being exploited in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate it.
 
@@ -23,13 +23,13 @@ You can check out the full list of [Attack path names and descriptions](attack-p
 
 ## Features of the attack path overview page
 
-The attack path homepage offers you an overview of your total attack paths. From here you can see all of your affected resources and a list of all active recommendations.
+The attack path homepage offers you an overview of your total attack paths. From here, you can see all of your affected resources and a list of all active recommendations.
 
 :::image type="content" source="media/concept-cloud-map/attack-path-homepage.png" alt-text="Screenshot of a sample attack path homepage.":::
 
 On this page you can organize your recommendations based on name, environment, paths count, risk categories.
 
-For each recommendation you can also see all of risk categories and affected resources.
+For each recommendation you can see all of risk categories and any affected resources.
 
 The potential risk categories include Credentials exposure, Compute abuse, Data exposure, Subscription/account takeover.
 
@@ -99,7 +99,7 @@ Attack path analysis also gives you the ability to see all recommendations by at
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack paths**
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack paths**.
 
 1. Select an attack path.
 
@@ -115,11 +115,30 @@ Once an attack path is resolved, it can take up to 24 hours for an attack path t
 
 ## External attack surface management (EASM)
 
-An external attack surface is the entire area of an organization or system that is susceptible to an attack from an external source. An organization's attack surface is made up pf all the points of access than an unauthorized person could use to enter their system. The larger your attack surface is, the harder it is to protect.
+An external attack surface is the entire area of an organization or system that is susceptible to an attack from an external source. An organization's attack surface is made up of all the points of access that an unauthorized person could use to enter their system. The larger your attack surface is, the harder it's to protect.
 
-**To manage your external attack surface**:
+While you are [investigating and remediating an attack path](#investigate-and-remediate-attack-paths), you can also view your EASM.
 
+> [!NOTE]
+> To manage your EASM, you must [deploying the Defender EASM Azure resource](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md) to your subscription. Defender EASM has it's own cost and is separate from Defender for Cloud. To learn more about Defender for EASM pricing options, you can check out the [pricing page](https://azure.microsoft.com/pricing/details/defender-external-attack-surface-management/). 
 
+**To manage your EASM**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack paths**.
+
+1. Select an attack path.
+
+1. Select a resource.
+
+1. Select **Insights**.
+
+1. Select **Open EASM**.
+
+    :::image type="content" source="media/how-to-manage-attack-path/open-easm.png" alt-text="Screenshot the shows you where on the screen you need to select open Defender EASM from.":::
+
+1. Follow the [Using and managing discovery](../external-attack-surface-management/using-and-managing-discovery.md) instructions.
 
 ## Next Steps
 
