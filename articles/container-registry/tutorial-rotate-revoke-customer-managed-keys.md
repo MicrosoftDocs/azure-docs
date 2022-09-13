@@ -1,5 +1,5 @@
 ---
-title: Rotate and Revoke a customer-managed key 
+title: Rotate and revoke a customer-managed key 
 description: Learn how to rotate, update, revoke a customer-managed key.
 ms.topic: tutorial
 ms.date: 08/5/2022
