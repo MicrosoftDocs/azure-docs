@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/14/2022
+ms.date: 09/09/2022
 ms.author: jeedes
 
 ---
@@ -97,6 +97,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | email | user.mail |
     | family_name | user.surname |
     | userName | user.userprincipalname |
+
+1. In order to fill Headspace's requirements, please follow the steps below to correctly configure the necessary Attributes & Claims:
+
+	1. Click the pencil or **Edit** in the Attributes & Claims modal which should open a new page.
+
+	2. Update the claims to match the below image, see step 3 for configuring `email`.
+	
+    ![Screenshot shows the image of Headspace attributes.](./media/headspace-tutorial/claims.png "Attributes")
+
+	3. Open to manage the `email` claim and select **Transform** as the Source type and configure the transformation to match the screenshot below.
+	
+    ![Screenshot shows the image of Headspace email claim.](./media/headspace-tutorial/email-attribute.png "Attributes")
     
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 
