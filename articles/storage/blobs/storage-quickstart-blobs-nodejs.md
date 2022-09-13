@@ -134,9 +134,9 @@ Use _one_ of the following methods to securely connect to Azure:
 
 ### Use @azure/identity for secressless connection
 
-To securely connect without using secrets in your source code, use the @azure/identity library. This library provides several identity credentials including those or the development and production environments. Once the credential is set up in your environment, your code is simplified so that the code works regardless of the environement:
+To securely connect without using secrets in your source code, use the @azure/identity library. This library provides several identity credentials including those or the development and production environments. Once the credential is set up in your environment, your code is simplified so that the code works regardless of the environment:
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/default-azure-credential.js" id="snippet_StorageAcctInfo":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/default-azure-credential.js":::
 
 ### Get the connection string
 
