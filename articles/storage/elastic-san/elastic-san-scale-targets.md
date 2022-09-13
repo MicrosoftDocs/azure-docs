@@ -31,40 +31,17 @@ The throughput of an SAN increases by 80 MB/s per base TiB, up to a maximum of 8
 
 ### Appliance scale targets
 
-The appliance scale targets vary depending on region and redundancy of the SAN itself.
+The appliance scale targets vary depending on region and redundancy of the SAN itself. The following table breaks out the scale targets by the [redundancy](elastic-san-planning.md#redundancy) of the SAN and the SAN's region.
 
-For a SAN using locally-redundant storage (LRS) in West US 2:
+|Resource  |West US 2  |France Central  |Southeast Asia  |
+|---------|---------|---------|---------|
+|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5         |
+|Maximum total capacity (TiB)     | LRS - 600, ZRS - 200         |LRS - 100, ZRS - 200         |LRS - 100         |
+|Maximum base capacity (TiB)    |LRS - 400, ZRS - 100         |LRS - 100, ZRS - 100         |LRS - 100         |
+|Minimum total capacity (TiB)    |64          |64         |64         |
+|Maximum total IOPS     |LRS - 2,000,000, ZRS - 500,000         |LRS/ZRS - 500,000         |LRS - 500,000         |
+|Maximum total throughput (MB/s)    |LRS - 32,000, ZRS - 8,000         |LRS/ZRS - 8,000         |LRS - 8,000         |
 
-| Resource | Target |
-|-|-|
-| Maximum number of Elastic SAN that can be deployed per subscription per region | 5 |
-| Maximum total capacity | 600 TiB |
-| Maximum base capacity | 400 TiB |
-| Minimum total capacity | 64 TiB |
-| Maximum total IOPS | 2,000,000 |
-| Maximum total throughput | 32,000 MB/s |
-
-For a SAN using LRS in either France Central or Southeast Asia:
-
-| Resource | Target |
-|-|-|
-| Maximum number of Elastic SAN that can be deployed per subscription per region | 5 |
-| Maximum total capacity | 100 TiB |
-| Maximum base capacity | 100 TiB |
-| Minimum total capacity | 64 TiB |
-| Maximum total IOPS | 500,000 |
-| Maximum total throughput | 8,000 MB/s |
-
-For a SAN using zone-redundant storage in either West US 2 or France Central:
-
-| Resource | Target |
-|-|-|
-| Maximum number of Elastic SAN that can be deployed per subscription per region | 5 |
-| Maximum total capacity | 200 TiB |
-| Maximum base capacity | 100 TiB |
-| Minimum total capacity | 64 TiB |
-| Maximum total IOPS | 500,000 |
-| Maximum total throughput | 8,000 MB/s |
 
 ## Volume group
 

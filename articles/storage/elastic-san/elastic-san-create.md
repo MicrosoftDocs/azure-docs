@@ -140,7 +140,6 @@ New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -Grou
 ```azurecli
 az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroupName -v volumeGroupName -n $volumeName –size-gib 2000
 ```
-
 ---
 
 
