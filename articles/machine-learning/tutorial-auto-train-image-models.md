@@ -324,7 +324,7 @@ In this example, we will train an object detection model with `yolov5` and `fast
 
 ### Job Limits
 
-You can control the resources spent on your AutoML Image training job by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings.[detailed description on Job Limits parameters](./how-to-auto-train-image-models.md#job-limits).
+You can control the resources spent on your AutoML Image training job by specifying the `timeout_minutes`, `max_trials` and the `max_concurrent_trials` for the job in limit settings. PLease refer to [detailed description on Job Limits parameters](./how-to-auto-train-image-models.md#job-limits).
 # [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
