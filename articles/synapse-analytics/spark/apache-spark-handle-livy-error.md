@@ -67,7 +67,7 @@ Each error code falls under one of the following four buckets:
 
     For Spark batch scenarios (see section 6): [Apache Spark manage packages for batch jobs](./apache-spark-job-definitions.md#create-an-apache-spark-job-definition-for-apache-sparkscala )
 
-    Ensure that all the code dependencies are included in the JARs Synapse runs. If you do not or cannot include third party JARs with your own code, ensure that all dependencies are included in the workspace packages for the Spark pool you are executing code on, or they are included in the "Reference files" listing for the Spark batch submission. See the above documentatoion for more information.
+    Ensure that all the code dependencies are included in the JARs Synapse runs. If you do not or cannot include third party JARs with your own code, ensure that all dependencies are included in the workspace packages for the Spark pool you are executing code on, or they are included in the "Reference files" listing for the Spark batch submission. See the above documentation for more information.
 
 ### Spark_Unknown_Unknown_java.lang.Exception
 
