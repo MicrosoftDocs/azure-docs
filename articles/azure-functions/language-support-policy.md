@@ -11,7 +11,7 @@ This article explains Azure functions language runtime support policy.
 
 ## Retirement process
 
-Azure Functions runtime is built around various components, including operating systems, the Azure Functions host, and language-specific workers. To maintain full support coverages for function apps, Azure Functions support aligns with end-of-life support for a given language. To acheive this, Functions implements a phased reduction in support as programming language versions reach their end-of-life dates. For most language versions, the retirement date coincides with the community end-of-life date.
+Azure Functions runtime is built around various components, including operating systems, the Azure Functions host, and language-specific workers. To maintain full-support coverages for function apps, Functions support aligns with end-of-life support for a given language. To achieve this, Functions implements a phased reduction in support as programming language versions reach their end-of-life dates. For most language versions, the retirement date coincides with the community end-of-life date.
 
 ### Notification phase
 
@@ -19,7 +19,7 @@ We'll send notification emails to function app users about upcoming language ver
 
 ### Retirement phase
 
-After the language end-of-life date, function apps that use retired language versions can still be created and continue to run on the platform, however they won't be eligible for new features, security patches, and performance optimizations.
+After the language end-of-life date, function apps that use retired language versions can still be created and deployed, and they continue to run on the platform. However your apps won't be eligible for new features, security patches, and performance optimizations until you upgrade them to a supported language version.
 
 > [!IMPORTANT]
 >You're highly encouraged to upgrade the language version of your affected function apps to a supported version.
