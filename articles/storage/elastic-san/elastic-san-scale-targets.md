@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure Elas
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 08/01/2022
+ms.date: 09/13/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
@@ -19,15 +19,15 @@ An elastic SAN has three main attributes: total capacity, IOPS, and throughput.
 
 ### Capacity
 
-The total capacity of your elastic SAN is determined by two different capacities: The base capacity, and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but is more costly than increasing the additional capacity. Increasing additional capacity doesn't increase IOPS or throughput. The maximum total capacity an elastic SAN can have is 1 pebibyte (PiB) and the minimum total capacity an elastic SAN can have is 64 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
+The total capacity of your elastic SAN is determined by two different capacities: The base capacity, and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but is more costly than increasing the additional capacity. Increasing additional capacity doesn't increase IOPS or throughput.The maximum total capacity of your SAN is determined by the region it's in and the redundancy of the SAN. The minimum total capacity an elastic SAN can have is 64 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
 
 ### IOPS
 
-Its IOPS increases by 5,000 per base TiB, up to a maximum of 5,120,000. So if you had an SAN that has 6 TiB of base capacity, that SAN would have 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 58 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an SAN is distributed among all its volumes.
+The IOPS of a SAN increases by 5,000 per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN would have 30,000 IOPS. That same SAN would still have 30,000 IOPS whether it had 58 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an SAN is distributed among all its volumes.
 
 ### Throughput
 
-The throughput of an SAN increases by 80 MB/s per base TiB, up to a maximum of 81,920 MB/s. So if you had an SAN that has 6 TiB of base capacity, that SAN would have 480 MB/s. That same SAN would have 480 MB/s throughput whether it had 58 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
+The throughput of an SAN increases by 80 MB/s per base TiB. So if you had an SAN that has 6 TiB of base capacity, that SAN would have 480 MB/s. That same SAN would have 480 MB/s throughput whether it had 58 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an SAN is distributed among all its volumes.
 
 ### Appliance scale targets
 
