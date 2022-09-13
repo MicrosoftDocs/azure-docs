@@ -1,7 +1,7 @@
 ---
-title: Train scikit-learn machine learning models 
+title: Train scikit-learn machine learning models (SDK v1)
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning enables you to scale out a scikit-learn training job using elastic cloud compute resources.
+description: Learn how Azure Machine Learning SDK (v1) enables you to scale out a scikit-learn training job using elastic cloud compute resources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 
-# Train scikit-learn models at scale with Azure Machine Learning
+# Train scikit-learn models at scale with Azure Machine Learning (SDK v1)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 

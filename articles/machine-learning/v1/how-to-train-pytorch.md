@@ -1,7 +1,7 @@
 ---
-title: Train deep learning PyTorch models
+title: Train deep learning PyTorch models (SDK v1)
 titleSuffix: Azure Machine Learning
-description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning.
+description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning SDK (v1).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 #Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
-# Train PyTorch models at scale with Azure Machine Learning
+# Train PyTorch models at scale with Azure Machine Learning SDK (v1)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 

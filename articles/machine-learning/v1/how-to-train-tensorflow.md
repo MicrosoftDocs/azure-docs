@@ -1,7 +1,7 @@
 ---
-title: Train and deploy a TensorFlow model
+title: Train and deploy a TensorFlow model (SDK v1)
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning enables you to scale out a TensorFlow training job using elastic cloud compute resources.
+description: Learn how Azure Machine Learning SDK (v1) enables you to scale out a TensorFlow training job using elastic cloud compute resources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 #Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
-# Train TensorFlow models at scale with Azure Machine Learning
+# Train TensorFlow models at scale with Azure Machine Learning SDK (v1)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
