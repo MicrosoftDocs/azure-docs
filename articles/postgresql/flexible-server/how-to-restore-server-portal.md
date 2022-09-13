@@ -50,7 +50,7 @@ Follow these steps to restore your flexible server using an existing backup.
 2.  From the overview page, click **Restore**.
  :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Restore overview":::
     
-3.  Restore page will be shown with an option to choose between the latest restore point , custom restore point and fast restore point.
+3.  Restore page will be shown with an option to choose between the latest restore point, custom restore point and fast restore point.
 
 4.  Choose **Custom restore point**.
 
@@ -64,7 +64,7 @@ Follow these steps to restore your flexible server using an existing backup.
 
  ## Restoring using fast restore
 
-Follow these steps to restore your flexible server using an fast restore option.
+Follow these steps to restore your flexible server using a fast restore option.
 
 1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
 
@@ -75,7 +75,7 @@ Follow these steps to restore your flexible server using an fast restore option.
 
 4.  Choose **Fast restore point (Restore using full backup only)**.
 
-5.  Select full backup of your choice from the Fast Restore Point drop down. Provide a new server name and you can optionally choose the **Availability zone** to restore to.
+5.  Select full backup of your choice from the Fast Restore Point drop-down. Provide a **new server name** and you can optionally choose the **Availability zone** to restore to.
    
 :::image type="content" source="./media/how-to-restore-server-portal/fast-restore.png" alt-text="Fast restore time":::
  
