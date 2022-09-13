@@ -2,7 +2,7 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 09/14/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -27,19 +27,29 @@ For details on Monitoring scenarios, go to [Monitoring in the Azure portal](back
 
 ## View backup alerts
 
-Because log backups occur every 15 minutes, monitoring backup jobs can be tedious. Azure Backup eases monitoring by sending email alerts. Email alerts are:
+Azure Backup raises built-in alerts via Azure Monitor for the following SQL database backups scenarios:
 
-- Triggered for all backup failures.
-- Consolidated at the database level by error code.
-- Sent only for a database's first backup failure.
+- Backup failures
+- Restore failures
+- Unsupported backup type configured
+- Workload extension unhealthy
+- Deletion of backup data
 
-To monitor database backup alerts:
+For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#azure-monitor-alerts-for-azure-backup-preview).
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+To monitor database backup alerts, follow these steps:
 
-2. On the vault dashboard, select **Backup Alerts**.
+1. In the Azure portal, go to **Backup center** and filter for **SQL in Azure VM** data source type.
 
-   ![Select Backup Alerts](./media/backup-azure-sql-database/sql-backup-alerts-list.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alerts-inline.png" alt-text="Screenshot showing the Backup alerts menu item." lightbox="./media/backup-azure-sql-database/sql-alerts-expanded.png":::
+
+1. Select the **Alerts** menu item to view the list of all alerts that were fired for SQL database backups in the selected time period.
+
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alerts-list-inline.png" alt-text="Screenshot showing the Backup alerts list." lightbox="./media/backup-azure-sql-database/sql-alerts-list-expanded.png":::
+
+1. To configure notifications for these alerts, you must create an alert processing rule.
+
+   Learn about [Configure notifications for alerts](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#configuring-notifications-for-alerts).
 
 ## Stop protection for a SQL Server database
 
