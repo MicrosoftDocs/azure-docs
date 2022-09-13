@@ -281,7 +281,7 @@ It is generally hard to predict the best model architecture and hyperparameters 
 
 ### Triggering automatic sweeps
 
-You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits`, as shown in the example below. The time budget for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time. Note that a search space, sampling method and termination policy must not be specified.
+You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits` and by not specifying the search space, sampling method and termination policy. Please see the example below. The time budget for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time.
 
 # [Azure CLI](#tab/cli)
 
