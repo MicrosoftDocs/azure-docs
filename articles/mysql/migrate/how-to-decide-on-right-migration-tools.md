@@ -1,8 +1,8 @@
 ---
 title: Select the right tools for migration to Azure Database for MySQL
 description: "This article provides a decision table, which helps customers in picking the right tools for migrating into Azure Database for MySQL"
-author: shriram-muthukrishnan
-ms.author: shriramm
+author: aditivgupta
+ms.author: adig
 ms.reviewer: maghan
 ms.date: 09/06/2022
 ms.service: mysql
@@ -28,19 +28,30 @@ If your application can afford some downtime, offline migrations are always the 
 
 ## Decision table
 
-To help you select the right tools for migrating to Azure Database for MySQL, consider the detail in the following table. 
+To help you select the right tools for migrating to Azure Database for MySQL - Flexible Server, consider the detail in the following table for offline migrations.
 
-| Migration Scenario | Offline or Online | Tool(s) | Details | More information |
-|--------------------|-------------------|-------|---------|------------------|
-| Single to Flexible Server | Offline | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (offline)](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) | Recommended |
-| Single to Flexible Server | Online | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (online)](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) | Recommended |
-| Single to Flexible Server | Offline | [Custom shell script](https://github.com/Azure/azure-mysql/tree/master/azuremysqltomysqlmigrate) | [Migrate from Azure Database for MySQL - Single Server to Flexible Server in five easy steps!](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057) | The [script](https://github.com/Azure/azure-mysql/tree/master/azuremysqltomysqlmigrate) also moves other server components such as security settings and server parameter configurations. |
-| Single to Flexible Server | Online | Mydumper/Myloader with Data-in replication | [Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with open-source tools](how-to-migrate-single-flexible-minimum-downtime.md) | N/A |
-| Large databases (>= 1 TB) to Azure Database for MySQL | Offline | Dump and Restore using **MyDumper/MyLoader** + High Compute VM | [Migrate large databases to Azure Database for MySQL using mydumper/myloader](concepts-migrate-mydumper-myloader.md) | [Best Practices for migrating large databases to Azure Database for MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699) |
-| MySQL databases ( < 1 TB) to Azure Database for MySQL | Offline | Database Migration Service (DMS) and the Azure portal | [Migrate MySQL databases to Azure Database for MySQL using DMS](../../dms/tutorial-mysql-azure-mysql-offline-portal.md) | If network bandwidth between source and target is good (e.g: High-speed express route), use Azure DMS (database migration service) |
-| Amazon RDS for MySQL databases (< 1 TB) to Azure Database for MySQL  | Offline | MySQL Workbench | [Migrate Amazon RDS for MySQL databases ( < 1 TB) to Azure Database for MySQL using MySQL Workbench](../single-server/how-to-migrate-rds-mysql-workbench.md) | If you have low network bandwidth between source and Azure, use **Mydumper/Myloader + High compute VM** to take advantage of compression settings to efficiently move data over low speed networks |
-| Import and export MySQL databases (< 1 TB) in Azure Database for MySQL | Offline | mysqldump or MySQL Workbench Import/Export utility | [Import and export - Azure Database for MySQL](../single-server/concepts-migrate-import-export.md) | Use the **mysqldump** and **MySQL Workbench Export/Import** utility tool to perform offline migrations for smaller databases.  |
-| Azure Database for MySQL Flexible Server Data-in replication | Online | **Mydumper/Myloader with Data-in replication** | [Configure Data-in replication - Azure Database for MySQL Flexible Server](../flexible-server/how-to-data-in-replication.md) | N/A |
+### Offline
+
+To help you select the right tools for migrating to Azure Database for MySQL, consider the detail in the following table for offline migrations.
+
+| Migration Scenario | Tool(s) | Details | More information |
+|--------------------|---------|---------|------------------|
+| Single to Flexible Server (Azure portal) | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal   (offline)](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) | Recommended |
+| Single to Flexible Server (Azure CLI) | [Custom shell script](https://github.com/Azure/azure-mysql/tree/master/azuremysqltomysqlmigrate) | [Migrate from Azure Database for MySQL - Single Server to   Flexible Server in five easy steps!](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057) | The [script](https://github.com/Azure/azure-mysql/tree/master/azuremysqltomysqlmigrate) also moves other server components such as security settings and server   parameter configurations. |
+| MySQL databases (>= 1 TB) to Azure Database for MySQL | Dump and Restore using **MyDumper/MyLoader** + High Compute VM | [Migrate large databases to Azure Database for MySQL using   mydumper/myloader](concepts-migrate-mydumper-myloader.md) | [Best Practices for migrating large databases to Azure   Database for   MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699) |
+| MySQL databases (< 1 TB) to Azure Database for MySQL | Database Migration Service (DMS) and the Azure portal | [Migrate MySQL databases to Azure Database for MySQL using   DMS](../../dms/tutorial-mysql-azure-mysql-offline-portal.md) | If network bandwidth between source and target is good (e.g: High-speed express route), use Azure DMS (database migration service) |
+| Amazon RDS for MySQL databases (< 1 TB) to Azure Database for MySQL | MySQL Workbench | [Migrate Amazon RDS for MySQL databases ( < 1 TB) to Azure   Database for MySQL using MySQL   Workbench](../single-server/how-to-migrate-rds-mysql-workbench.md) | If you have low network bandwidth between source and Azure, use **Mydumper/Myloader + High compute VM** to take advantage of compression settings to efficiently move data over low speed networks |
+| Import and export MySQL databases (< 1 TB) in Azure Database for MySQL | mysqldump or MySQL Workbench Import/Export utility | [Import and export - Azure Database for   MySQL](../single-server/concepts-migrate-import-export.md) | Use the **mysqldump** and **MySQL Workbench Export/Import** utility tool to perform offline migrations for smaller databases. |
+
+### Online
+
+To help you select the right tools for migrating to Azure Database for MySQL - Flexible Server, consider the detail in the following table for online migrations.
+
+| Migration Scenario | Tool(s) | Details | More information |
+|--------------------|---------|---------|------------------|
+| Single to Flexible Server (Azure portal) | Database Migration Service (DMS) | [Tutorial: DMS with the Azure portal (online)](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) | Recommended |
+| Single to Flexible Server | Mydumper/Myloader with Data-in replication | [Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with open-source   tools](how-to-migrate-single-flexible-minimum-downtime.md) | N/A |
+| Azure Database for MySQL Flexible Server Data-in replication | **Mydumper/Myloader with Data-in replication** | [Configure Data-in replication - Azure Database for MySQL Flexible   Server](../flexible-server/how-to-data-in-replication.md) | N/A |
 
 ## Next steps
 * [Migrate MySQL on-premises to Azure Database for MySQL](../migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md)
