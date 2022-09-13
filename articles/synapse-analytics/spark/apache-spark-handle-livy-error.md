@@ -44,7 +44,7 @@ Each error code falls under one of the following four buckets:
     In Python, the error `TypeError: argument of type 'insert type' is not iterable` occurs when the membership operator (in, not in) is used to validate the membership of a value in non iterable objects such as list, tuple, dictionary. This is usually due to the search of value in a non-iterable object. Possible solutions:
 
     * Check if the value is present in the iterable object.
-    2. If you want to check one value to another, use logical operator instead of Membership Operator.
+    * If you want to check one value to another, use logical operator instead of Membership Operator.
     3. If the membership operator contains "None" value, it won't be able to iterate, and a null check or assigned default must be done.
     4. Check if the type of the value used can actually be checked and the typing is correct.
 
