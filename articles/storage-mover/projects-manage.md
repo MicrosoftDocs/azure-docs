@@ -31,7 +31,7 @@ A Storage Mover project is used to organize migration jobs into logical tasks or
 
 When you define a project, it's a good idea to add all related, inter-dependent data sources into the same project so that they can be migrated together. You should add all the data sources necessary to migrate a single workload rather than create projects for each data source in your migration plan. You may also choose to create individual projects for each distinct group of data sources in your migration plan.
 
-This article guides you through the creation and management of Azure Storage Mover projects. To follow these examples, you'll need a top-level storage mover resource. If you haven't yet created one, follow the steps within the [Create a Storage Mover resource](resource-create.md) article before continuing.
+This article guides you through the creation and management of Azure Storage Mover projects. To follow these examples, you'll need a top-level storage mover resource. If you haven't yet created one, follow the steps within the [Create a Storage Mover resource](storage-mover-create.md) article before continuing.
 
 After you complete the steps within this article, you'll be able to create and manage projects using the Azure portal and Azure PowerShell.
 
@@ -56,19 +56,35 @@ The first step in defining a migration job is the creation of a project resource
        :::image type="content" source="media/projects-manage/project-explorer-create-sml.png" alt-text="project explorer create" lightbox="media/projects-manage/project-explorer-create-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
+   
+   Creating a project you to decide on a name. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name. A description is optional and can contain up to 1024 single-byte characters.
+   
+   The `New-AzStorageMoverProject` cmdlet is used to create a new project within a [storage mover resource](storage-mover-create.md) you previously deployed. If you haven't yet installed the `Az.StorageMover` module:
 
-   The `New-AzStorageMoverProject` cmdlet is used to create new storage mover projects. If you haven't yet installed the `Az.StorageMover` module, follow the guidance within the [Install Azure Storage Mover modules for PowerShell](module-install.md) article before proceeding.
+   ```powershell
+   ## Ensure you are running the latest version of PowerShell 7
+   $PSVersionTable.PSVersion
 
-   You'll need to supply values for the required `-Name`, `-ResourceGroupName`, and `-StorageMoverName` parameters. The `-Description` parameter is optional and will be intentionally omitted in the example below and added in the next section.
+   ## Your local execution policy must be set to at least remote signed or less restrictive
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-   The following examples contain sample values. You'll need to substitute actual values to complete the example.
+   ## If you don't have the general Az PowerShell module, install it first
+   Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
+
+   ## Lastly, the Az.StorageMover module is not installed by default and must be manually requested.
+   Install-Module -Name Az.StorageMover -Scope CurrentUser -Repository PSGallery -Force
+   ```
+
+   The [Install Azure PowerShell](/powershell/azure/install-az-ps) article has more details.
+
+   You'll need to supply values for the required `-Name`, `-ResourceGroupName`, and `-StorageMoverName` parameters. The `-Description` parameter is optional.   
 
    1. It's always a good idea to create and use variables to store lengthy or potentially complex strings.
 
       ```powershell
       
       ## Set variables
-      $subscriptionID     = "0a12b3c4-5d67-8e63-9c12-7b38c901de2f"
+      $subscriptionID     = "Your subscription ID GUID"
       $resourceGroupName  = "demoResourceGroup"
       $storageMoverName   = "demoMover"
       $projectName        = "demoProject"
@@ -101,7 +117,7 @@ The first step in defining a migration job is the creation of a project resource
       ```Response
 
       Description                  : This is a project used for demonstration.
-      Id                           : /subscriptions/0a12b3c4-5d67-8e63-9c12-7b38c901de2f/resourceGroups/
+      Id                           : /subscriptions/<GUID>/resourceGroups/
                                     demoResourceGroup/providers/Microsoft.StorageMover/storageMovers/
                                     demoMover/projects/demoProject
       Name                         : testingAgain
@@ -168,7 +184,7 @@ Follow the steps in this section to view projects accessible to your Storage Mov
    ```Response
 
       Description                  :
-      Id                           : /subscriptions/0a12b3c4-5d67-8e63-9c12-7b38c901de2f/resourceGroups/
+      Id                           : /subscriptions/<GUID>/resourceGroups/
                                      demoResourceGroup/providers/Microsoft.StorageMover/storageMovers/
                                      demoMover/projects/demoProject
       Name                         : demoProject
@@ -200,7 +216,7 @@ Follow the steps in this section to view projects accessible to your Storage Mov
    ```Response
 
      Description                  : Demo project managed with PowerShell.
-     Id                           : /subscriptions/0a12b3c4-5d67-8e63-9c12-7b38c901de2f/resourceGroups/
+     Id                           : /subscriptions/<GUID>/resourceGroups/
                                      demoResourceGroup/providers/Microsoft.StorageMover/storageMovers/
                                      demoMover/projects/demoProject
      Name                         : demoProject
@@ -234,6 +250,9 @@ The removal of a project resource should be a relatively rare occurrence in your
 
    :::image type="content" source="media/projects-manage/project-explorer-delete-sml.png" alt-text="An image showing the steps to permanently remove a project resource from within the Portal Explorer." lightbox="media/projects-manage/project-explorer-delete-lrg.png":::
 
+> [!WARNING]
+> Deleting a project will delete all contained job definitions, their run history and results. Deleting any of these resources is permanent and cannot be undone. Storage endpoints are not affected.
+
 # [PowerShell](#tab/powershell)
 
 Use the `Remove-AzStorageMoverProject` to permanently delete a project resource. Provide the project's name with the `-Name` parameter, and resource group and storage mover resource names with the `-ResourceGroupName` and `-StorageMoverName` parameters, respectively.
@@ -247,12 +266,12 @@ Remove-AzStorageMoverProject `
 
 ```
 
+> [!WARNING]
+> Deleting a project will delete all contained job definitions, their run history and results. Deleting any of these resources is permanent and cannot be undone. Storage endpoints are not affected.
+
 ---
 
 ## Next steps
 
-After your projects are created, you can begin working with job definitions. You can also define new endpoints or update existing resources if needed.
-
-> [!div class="nextstepaction"]
-> [Manage job definitions](job-definitions-manage.md)
-> [Manage endpoints](endpoints-manage.md)
+After your projects are created, you can begin working with job definitions.
+Check back soon for a guide on how to manage job definitions.
