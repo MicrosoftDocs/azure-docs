@@ -3,8 +3,8 @@ title: Overview of Container insights | Microsoft Docs
 description: This article describes Container insights, which monitors the AKS Container insights solution, and the value it delivers by monitoring the health of your AKS clusters and Container Instances in Azure.
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 09/08/2020
-ms.reviewer: aul
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 ---
 
 # Container insights overview
@@ -51,7 +51,7 @@ The following video provides an intermediate-level deep dive to help you learn a
 
 You can access Container insights in the Azure portal from Azure Monitor or directly from the selected AKS cluster. The Azure Monitor menu gives you the global perspective of all the containers that are deployed and monitored. This information allows you to search and filter across your subscriptions and resource groups. You can then drill into Container insights from the selected container. Access Container insights for a particular AKS container directly from the AKS page.
 
-![Screenshot that shows an overview of methods to access Container insights.](./media/container-insights-overview/azmon-containers-experience.png)
+:::image type="content" source="./media/container-insights-overview/azmon-containers-experience.png" alt-text="Screenshot that shows an overview of methods to access Container insights." lightbox="media/container-insights-overview/azmon-containers-experience.png" border="false":::
 
 ## Differences between Windows and Linux clusters
 
