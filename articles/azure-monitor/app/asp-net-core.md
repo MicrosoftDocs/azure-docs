@@ -9,7 +9,7 @@ ms.reviewer: casocha
 ---
 # Application Insights for ASP.NET Core applications
 
-This article describes how to enable Application Insights for an [ASP.NET Core](/aspnet/core) application.
+This article describes how to enable and configure Application Insights for an [ASP.NET Core](/aspnet/core) application.
 
 Application Insights can collect the following telemetry from your ASP.NET Core application:
 
@@ -21,7 +21,7 @@ Application Insights can collect the following telemetry from your ASP.NET Core 
 > * Heartbeats
 > * Logs
 
-We'll use an [MVC application](/aspnet/core/tutorials/first-mvc-app) example that targets `netcoreapp3.0`. You can apply these instructions to all ASP.NET Core applications. If you're using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
+We'll use an [MVC application](/aspnet/core/tutorials/first-mvc-app) example. If you're using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
 
 > [!NOTE]
 > A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. [Learn more](opentelemetry-overview.md).
@@ -30,7 +30,8 @@ We'll use an [MVC application](/aspnet/core/tutorials/first-mvc-app) example tha
 
 ## Supported scenarios
 
-The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) can monitor your applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported. Support covers the following scenarios:
+The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) can monitor your applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported and covers the following scenarios:
+
 * **Operating system**: Windows, Linux, or Mac
 * **Hosting method**: In process or out of process
 * **Deployment method**: Framework dependent or self-contained
@@ -40,7 +41,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **IDE**: Visual Studio, Visual Studio Code, or command line
 
 > [!NOTE]
-> ASP.NET Core 3.1 requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
+> ASP.NET Core 6.0 requires [Application Insights 2.18.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.18.0) or later.<br/>ASP.NET Core 3.1 requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
 
 ## Prerequisites
 
@@ -70,57 +71,84 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
 ## Enable Application Insights server-side telemetry (no Visual Studio)
 
-1. Install the [Application Insights SDK NuGet package for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore). We recommend that you always use the latest stable version. Find full release notes for the SDK on the [open-source GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet/releases).
+1. Install the [Application Insights SDK NuGet package for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)
+
+    We recommend that you always use the latest stable version. Find full release notes for the SDK on the [open-source GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet/releases).
 
     The following code sample shows the changes to be added to your project's `.csproj` file.
 
     ```xml
-        <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.16.0" />
-        </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
+    </ItemGroup>
     ```
 
-2. Add `services.AddApplicationInsightsTelemetry();` to the `ConfigureServices()` method in your `Startup` class, as in this example:
+2. Add `AddApplicationInsightsTelemetry()` to your `startup.cs` or `program.cs` class (depending on your .NET Core version)
+
+### [ASP.NET Core 6.0](#tab/netcore6)
+
+Add `builder.Services.AddApplicationInsightsTelemetry();` to the `WebApplication.CreateBuilder()` method in your `Program` class, as in this example:
 
     ```csharp
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            // The following line enables Application Insights telemetry collection.
-            services.AddApplicationInsightsTelemetry();
+    // This method gets called by the runtime. Use this method to add services to the container.
+    var builder = WebApplication.CreateBuilder(args);
     
-            // This code adds other services for your application.
-            services.AddMvc();
-        }
+    // The following line enables Application Insights telemetry collection.
+    builder.Services.AddApplicationInsightsTelemetry();
+    
+    // This code adds other services for your application.
+    builder.Services.AddMvc();
+
+    var app = builder.Build();
     ```
 
-3. Set up the connection string.
+### [ASP.NET Core 3.1](#tab/netcore3)
+
+Add `services.AddApplicationInsightsTelemetry();` to the `ConfigureServices()` method in your `Startup` class, as in this example:
+
+    ```csharp
+    // This method gets called by the runtime. Use this method to add services to the container.
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // The following line enables Application Insights telemetry collection.
+        services.AddApplicationInsightsTelemetry();
+
+        // This code adds other services for your application.
+        services.AddMvc();
+    }
+    ```
+
+---
+
+3. Set up the connection string
 
     Although you can provide a connection string as part of the `ApplicationInsightsServiceOptions` argument to AddApplicationInsightsTelemetry, we recommend that you specify the connection string in configuration. The following code sample shows how to specify a connection string in `appsettings.json`. Make sure `appsettings.json` is copied to the application root folder during publishing.
 
     ```json
-        {
-          "ApplicationInsights": {
-            "ConnectionString" : "Copy connection string from Application Insights Resource Overview"
-          },
-          "Logging": {
-            "LogLevel": {
-              "Default": "Warning"
-            }
-          }
+    {
+        "Logging": {
+        "LogLevel": {
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
         }
+        },
+        "AllowedHosts": "*",
+        "ApplicationInsights": {
+        "ConnectionString": "Copy connection string from Application Insights Resource Overview"
+        }
+    }
     ```
 
     Alternatively, specify the connection string in the "APPLICATIONINSIGHTS_CONNECTION_STRING" environment variable or "ApplicationInsights:ConnectionString" in the JSON configuration file.
-
+    
     For example:
-
+    
     * `SET ApplicationInsights:ConnectionString = <Copy connection string from Application Insights Resource Overview>`
-
+    
     * `SET APPLICATIONINSIGHTS_CONNECTION_STRING = <Copy connection string from Application Insights Resource Overview>`
-
+    
     * Typically, `APPLICATIONINSIGHTS_CONNECTION_STRING` is used in [Azure Web Apps](./azure-web-apps.md?tabs=net), but it can also be used in all places where this SDK is supported.
-
+    
     > [!NOTE]
     > An connection string specified in code wins over the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`, which wins over other options.
 
@@ -209,6 +237,25 @@ You can customize the Application Insights SDK for ASP.NET Core to change the de
 
 You can modify a few common settings by passing `ApplicationInsightsServiceOptions` to `AddApplicationInsightsTelemetry`, as in this example:
 
+### [ASP.NET Core 6.0](#tab/netcore6)
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+
+// Disables adaptive sampling.
+aiOptions.EnableAdaptiveSampling = false;
+
+// Disables QuickPulse (Live Metrics stream).
+aiOptions.EnableQuickPulseMetricStream = false;
+
+builder.Services.AddApplicationInsightsTelemetry(aiOptions);
+var app = builder.Build();
+```
+
+### [ASP.NET Core 3.1](#tab/netcore3)
+
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -222,6 +269,8 @@ public void ConfigureServices(IServiceCollection services)
     services.AddApplicationInsightsTelemetry(aiOptions);
 }
 ```
+
+---
 
 This table has the full list of `ApplicationInsightsServiceOptions` settings:
 
@@ -256,7 +305,7 @@ In Microsoft.ApplicationInsights.AspNetCore SDK version [2.15.0](https://www.nug
 }
 ```
 
-If `services.AddApplicationInsightsTelemetry(aiOptions)` is used, it overrides the settings from `Microsoft.Extensions.Configuration.IConfiguration`.
+If `builder.Services.AddApplicationInsightsTelemetry(aiOptions)` for ASP.NET Core 6.0 or `services.AddApplicationInsightsTelemetry(aiOptions)` for APS.NET Core 3.1 and earlier is used, it overrides the settings from `Microsoft.Extensions.Configuration.IConfiguration`.
 
 ### Sampling
 
@@ -270,6 +319,21 @@ When you want to enrich telemetry with additional information, use [telemetry in
 
 Add any new `TelemetryInitializer` to the `DependencyInjection` container as shown in the following code. The SDK automatically picks up any `TelemetryInitializer` that's added to the `DependencyInjection` container.
 
+### [ASP.NET Core 6.0](#tab/netcore6)
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
+
+var app = builder.Build();
+```
+
+> [!NOTE]
+> `builder.Services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` works for simple initializers. For others, the following is required: `builder.Services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
+
+### [ASP.NET Core 3.1](#tab/netcore3)
+
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -279,6 +343,8 @@ public void ConfigureServices(IServiceCollection services)
 
 > [!NOTE]
 > `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` works for simple initializers. For others, the following is required: `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
+
+---
     
 ### Removing TelemetryInitializers
 
