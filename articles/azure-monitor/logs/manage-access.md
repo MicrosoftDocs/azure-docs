@@ -65,24 +65,24 @@ The following table summarizes the access modes:
 
 *Access control mode* is a workspace-level setting that defines how to apply permissions in each [access mode](#access-mode):
 
-* **Require workspace permissions**. 
+* **Require workspace permissions** 
 
     A user who accesses the workspace in the [workspace context](#access-mode) has access to all data in any table they've been granted access to. 
 
     A user who accesses the workspace in the [resource context](#access-mode) only has access to data for that resource in any table they've been granted access to.
 
-    This setting is the default for all workspaces created before March 2019.
+    This is the default setting for workspaces created before March 2019.
 
-* **Use resource or workspace permissions**. 
+* **Use resource or workspace permissions** 
 
     A user who accesses the workspace in the [workspace context](#access-mode) has access to all data in any table they've been granted access to at the workspace level. 
     
     A user who accesses the workspace in the [resource context](#access-mode), has access to all data related to the resource, if they have resource-level permissions, regardless of workspace permissions. Enable Azure RBAC for a user by removing them from workspace permissions and allowing their resource permissions to be recognized.
 
-    This setting is the default for all workspaces created after March 2019.
+    This is the default setting for workspaces created after March 2019.
 
     > [!NOTE]
-    > If a user has only resource permissions to the workspace, they can only access the workspace by using resource-context mode assuming the workspace access mode is set to **Use resource or workspace permissions**.
+    > A user who only has resource permissions to a workspace can only access the workspace in resource-context mode assuming the workspace access mode is set to **Use resource or workspace permissions**.
 
 To view or change the access control mode settings for a Log Analytics workspace:
 # [Azure portal](#tab/portal)
