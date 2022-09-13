@@ -69,7 +69,7 @@ Each error code falls under one of the following four buckets:
 
     Ensure that all the code dependencies are included in the JARs Synapse runs. If you do not or cannot include third party JARs with your own code, ensure that all dependencies are included in the workspace packages for the Spark pool you are executing code on, or they are included in the "Reference files" listing for the Spark batch submission. See the above documentatoion for more information.
 
-4. **Spark_Unknown_Unknown_java.lang.Exception**
+### Spark_Unknown_Unknown_java.lang.Exception
 
     An unknown failure, the model wasn't able to classify.
 
