@@ -12,26 +12,17 @@ ms.custom: devx-track-azurepowershell
 
 # Manage access to Log Analytics workspaces
 
- The data you can access in a Log Analytics workspace depends on a combination of the following factors:
+ The data you can access in a Azure Monitor Logs depends on a combination factors. This article describes the factors that determine which data you can access in a Log Analytics workspace and how to manage access to data in a workspace.
 
-- Role-based access control (RBAC) settings on the monitored resource.
-- Role-based access control (RBAC) settings configured for the workspace.
-- Table-level read access settings.
-- The context in which you access the workspace, also known as *access mode*.
-- Access control mode, which is a workspace-level setting that defines whether to apply workspace or resource-level access control settings in each access mode.
-
-This article describes the Log Analytics workspace access control mechanisms and how to manage access to logs in a workspace.
-
-## Overview
-
-The factors that define the data you can access are described in the following table. Each factor is further described in the sections that follow.
+The following table describes the factors that define the data you can access in a workspace. Each factor is further described in the sections that follow:
 
 | Factor | Description |
 |:---|:---|
 | [Access mode](#access-mode) | Context in which you access data in the workspace. Defines the scope of the data available and the access control mode that's applied. |
-| [Access control mode](#access-control-mode) | Setting on the workspace that defines whether permissions are applied at the workspace or resource level. |
-| [Workspace-level permissions](#azure-rbac) | Permissions applied to individuals or groups of users for the workspace or resource sending data to the workspace. Defines what data you have access to. |
-| [Table-level read access](#table-level-azure-rbac) | Optional permissions that define specific data types in the workspace that you can access. |
+| [Access control mode](#access-control-mode) | A workspace setting that determines whether to apply workspace or resource-level access control settings in each access mode. |
+| [Workspace-level permissions](#azure-rbac) | Permissions for the workspace, applied to individuals or groups of users |
+| [Table-level read access](#table-level-azure-rbac) | Optional permissions that grant read access to specific data types in the workspace. |
+| Resource-defined permissions | Permissions for the monitored resource, applied to individuals or groups of users. |
 
 ## Access mode
 
