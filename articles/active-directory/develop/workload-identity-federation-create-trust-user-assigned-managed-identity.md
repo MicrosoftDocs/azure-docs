@@ -69,25 +69,23 @@ Run the [az identity federated-credential create](/cli/azure/identity/federated-
 az login 
 
 # set variables 
-# in Linux shell remove $ from set variable statement 
-$location="westcentralus" // this can be any supported location  
-$subscription="{your subscription ID}" 
-$rg="fic-test-rg" 
+location="centralus"
+subscription="{subscription-id}" 
+rg="fic-test-rg" 
 
 # user assigned identity name 
-$uaId="fic-test-ua" 
+uaId="fic-test-ua" 
 
 # federated identity credential name 
-$ficId="fic-test-fic-name"  
+ficId="fic-test-fic-name"  
 
 # create prerequisites if required.  
 # otherwise make sure that existing resources names are set in variables above 
-az account set --subscription $subscription 
-az group create --name $rg --location $location --subscription $subscription 
+az account set --subscription $subscription
+az group create --location $location --name $rg
 az identity create --name $uaId --resource-group $rg --location $location --subscription $subscription  
 
 # Create/update a federated identity credential 
-# in Linux shell replace ` with \ and $($var) with ${var} 
 az identity federated-credential create --name $ficId --identity-name $uaId --resource-group $rg --issuer 'https://aks.azure.com/issuerGUID' --subject 'system:serviceaccount:ns:svcaccount' --audiences 'api://AzureADTokenExchange'
 ```
 
@@ -98,11 +96,10 @@ Run the [az identity federated-credential list](/cli/azure/identity/federated-cr
 az login 
 
 # Set variables 
-# in Linux shell remove $ from set variable statement 
-$rg="fic-test-rg" 
+rg="fic-test-rg" 
 
 # User assigned identity name 
-$uaId="fic-test-ua" 
+uaId="fic-test-ua" 
 
 # Read all federated identity credentials assigned to the user-assigned managed identity 
 az identity federated-credential list --identity-name $uaId --resource-group $rg
@@ -116,14 +113,13 @@ Run the [az identity federated-credential show](/cli/azure/identity/federated-cr
 az login 
 
 # Set variables 
-# in Linux shell remove $ from set variable statement 
-$rg="fic-test-rg" 
+rg="fic-test-rg" 
 
 # User assigned identity name 
-$uaId="fic-test-ua" 
+uaId="fic-test-ua" 
 
 # Federated identity credential name 
-$ficId="fic-test-fic-name"  
+ficId="fic-test-fic-name"  
 
 # Show the federated identity credential 
 az identity federated-credential show --name $ficId --identity-name $uaId --resource-group $rg
