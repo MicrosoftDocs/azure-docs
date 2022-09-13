@@ -175,7 +175,7 @@ sections:
          Can ASR track source VM changes outside the Source OS?
         answer: |
               ASR doesn't track source VM changes outside the Source OS.
-              For example; If you are using Azure to Azure replication and change the size of the source VM, the change in size of source VM is not replicated to the target VM.
+              For example, If you are using Azure to Azure replication and change the size of the source VM, the change in size of source VM is not replicated to the target VM.
 
   - name: Disaster recovery
     questions:
