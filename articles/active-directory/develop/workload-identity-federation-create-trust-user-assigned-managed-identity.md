@@ -25,20 +25,7 @@ After you configure your user-assigned managed identity to trust an external IdP
 
 In this article, you learn how to create, list, and delete federated identity credentials on a user-assigned managed identity.
 
-## Important considerations and limitations
-
-When you configure a federated identity credential, there are several important pieces of information to provide.
-
-*issuer* and *subject* are the key pieces of information needed to set up the trust relationship. *issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged.  *subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
-
-> [!IMPORTANT]
-> If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
-
-*audiences* lists the audiences that can appear in the external token.  This field is mandatory. The recommended value is "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.
-
-*name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created.
-
-*description* is the un-validated, user-provided description of the federated identity credential. 
+[!INCLUDE [Important considerations and restrictions](./includes/workload-identity-federation-apps-considerations.md)]
 
 ::: zone pivot="identity-wif-mi-methods-azp"
 
@@ -76,7 +63,7 @@ When you configure a federated identity credential, there are several important 
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
-Run the az rest command to create a new federated identity credential on your user-assigned managed identity (specified by the object ID of the app).  Specify the *name*, *issuer*, *subject*, and other parameters.
+Run the [az identity federated-credential create](/cli/azure/identity/federated-credential?view=azure-cli-latest#az-identity-federated-credential-create) command to create a new federated identity credential on your user-assigned managed identity (specified by the object ID of the app).  Specify the *name*, *issuer*, *subject*, and other parameters.
 
 ```azurecli
 az login 
@@ -99,69 +86,70 @@ az account set --subscription $subscription
 az group create --name $rg --location $location --subscription $subscription 
 az identity create --name $uaId --resource-group $rg --location $location --subscription $subscription  
 
-# create/update federated identity credential 
+# Create/update a federated identity credential 
 # in Linux shell replace ` with \ and $($var) with ${var} 
-az rest --method put ` 
---url "/subscriptions/$($subscription)/resourceGroups/$($rg)/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$($uaId)/federatedIdentityCredentials/$($ficId)?api-version=2022-01-31-PREVIEW" ` 
---headers "Content-Type=application/json" ` 
---body "{'properties': { 'issuer': 'https://aks.azure.com/issuerGUID', 'subject': 'system:serviceaccount:ns:svcaccount', 'audiences': ['api://AzureADTokenExchange'] }}" 
+az identity federated-credential create --name $ficId --identity-name $uaId --resource-group $rg --issuer 'https://aks.azure.com/issuerGUID' --subject 'system:serviceaccount:ns:svcaccount' --audiences 'api://AzureADTokenExchange'
 ```
 
 ## List federated identity credentials on a user-assigned managed identity
 
-To read all the federated identity credentials configured on a user-assigned managed identity:
+Run the [az identity federated-credential list](/cli/azure/identity/federated-credential?view=azure-cli-latest#az-identity-federated-credential-list) command to read all the federated identity credentials configured on a user-assigned managed identity:
 ```azurecli
 az login 
 
-# set variables 
+# Set variables 
 # in Linux shell remove $ from set variable statement 
-$location="westcentralus" // this can be any supported location  
-$subscription="{your subscription ID}" 
 $rg="fic-test-rg" 
 
-# user assigned identity name 
+# User assigned identity name 
 $uaId="fic-test-ua" 
 
-# federated identity credential name 
-$ficId="fic-test-fic-name"  
-
-# read all federated identity credentials assigned to the user-assigned managed identity 
-az rest --method get --url "/subscriptions/$($subscription)/resourceGroups/$($rg)/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$($uaId)/federatedIdentityCredentials/$($ficId)?api-version=2022-01-31-PREVIEW" 
+# Read all federated identity credentials assigned to the user-assigned managed identity 
+az identity federated-credential list --identity-name $uaId --resource-group $rg
 ```
 
 ## Get a federated identity credential on a user-assigned managed identity
 
-To get a federated identity credential (by ID):
+Run the [az identity federated-credential show](/cli/azure/identity/federated-credential?view=azure-cli-latest#az-identity-federated-credential-show) command to show a federated identity credential (by ID):
 
 ```azurecli
 az login 
 
-# set variables 
+# Set variables 
 # in Linux shell remove $ from set variable statement 
-$location="westcentralus" // this can be any supported location  
-$subscription="{your subscription ID}" 
 $rg="fic-test-rg" 
 
-# user assigned identity name 
+# User assigned identity name 
 $uaId="fic-test-ua" 
 
-# federated identity credential name 
+# Federated identity credential name 
 $ficId="fic-test-fic-name"  
 
-# read federated identity credential 
-az rest --method get --url "/subscriptions/$($subscription)/resourceGroups/$($rg)/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$($uaId)/federatedIdentityCredentials/$($ficId)?api-version=2022-01-31-PREVIEW" 
+# Show the federated identity credential 
+az identity federated-credential show --name $ficId --identity-name $uaId --resource-group $rg
 ```
 
 ## Delete a federated identity credential from a user-assigned managed identity
 
-```azure cli
+Run the [az identity federated-credential delete](/cli/azure/identity/federated-credential?view=azure-cli-latest#az-identity-federated-credential-delete) command to delete a federated identity credential under an existing user assigned identity.
 
-# delete federated identity credential 
-az rest --method delete --url "/subscriptions/$($subscription)/resourceGroups/$($rg)/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$($uaId)/federatedIdentityCredentials/$($ficId)?api-version=2022-01-31-PREVIEW" 
+```azure cli
+az login 
+
+# Set variables 
+# in Linux shell remove $ from set variable statement 
+$rg="fic-test-rg" 
+
+# User assigned identity name 
+$uaId="fic-test-ua" 
+
+# Federated identity credential name 
+$ficId="fic-test-fic-name"  
+
+az identity federated-credential delete --name $ficId --identity-name $uaId --resource-group $rg
 ```
 
 ::: zone-end
-
 
 ::: zone pivot="identity-wif-mi-methods-arm"
 
