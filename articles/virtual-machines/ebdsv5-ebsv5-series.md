@@ -26,6 +26,11 @@ The Ebdsv5 and Ebsv5 series run on the Intel® Xeon® Platinum 8370C (Ice Lake) 
 - [Intel® Advanced Vector Extensions 512 (Intel® AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)
 - Support for [Intel® Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html) 
 
+> [!IMPORTANT]
+> - Accelerated networking is required and turned on by default on all Ebsv5 and Ebdsv5 VMs. 
+> - Accelerated networking can be applied to two NICs. 
+>-  Ebsv5 and Ebdsv5-series VMs can [burst their disk performance](disk-bursting.md) and get up to their bursting max for up to 30 minutes at a time.
+
 ## Ebdsv5 series
 
 Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8370C (Ice Lake) processors. The Ebdsv5 VM sizes feature up to 512 GiB of RAM, in addition to fast and large local SSD storage (up to 2400 GiB). These VMs are ideal for memory-intensive enterprise applications and applications that benefit from high remote storage performance, low latency, high-speed local storage. Remote Data disk storage is billed separately from VMs. 
@@ -48,14 +53,6 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8370C (Ice Lake) processo
 | Standard_E32bds_v5 | 32 | 256 | 1200 | 32 | 150000/1250 | 88000/2500 | 120000/4000 | 117920/2500|16000/4000|  8 | 16000 | 
 | Standard_E48bds_v5 | 48 | 384 | 1800 | 32 | 225000/2000 | 120000/4000 | 120000/4000 | 16000/4000|16000/4000 | 8 | 16000 | 
 | Standard_E64bds_v5 | 64 | 512 | 2400 | 32 | 300000/4000 | 120000/4000 | 120000/4000 |16000/4000 | 16000/4000| 8 | 20000 |
-
-> [!NOTE]
-> Accelerated networking is required and turned on by default on all Ebdsv5 VMs. 
->
-> Accelerated networking can be applied to two NICs. 
-
-> [!NOTE]
-> Ebdsv5-series VMs can [burst their disk performance](disk-bursting.md) and get up to their bursting max for up to 30 minutes at a time.
 
 
 ## Ebsv5 series
@@ -81,14 +78,6 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These V
 | Standard_E48bs_v5 | 48 | 384 | 32 | 120000/4000 | 120000/4000 | 16000/4000| 16000/4000| 8 | 16000 |
 | Standard_E64bs_v5 | 64 | 512 | 32 | 120000/4000 | 120000/4000 | 16000/4000|16000/4000 | 8 | 20000 | 
 
-
-> [!NOTE]
-> Accelerated networking is required and turned on by default on all Ebsv5 VMs. 
->
-> Accelerated networking can be applied to two NICs. 
-
-> [!NOTE]
-> Ebsv5-series VMs can [burst their disk performance](disk-bursting.md) and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
