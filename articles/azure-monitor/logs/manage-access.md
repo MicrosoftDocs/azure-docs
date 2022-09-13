@@ -12,13 +12,14 @@ ms.custom: devx-track-azurepowershell
 
 # Manage access to Log Analytics workspaces
 
- The data in a Log Analytics workspace that you can access is determined by a combination of the following factors:
+ The data you can access in a Log Analytics workspace depends on a combination of the following factors:
 
-- The settings on the workspace itself.
-- The access to resources sending data to the workspace.
-- The method used to access the workspace.
+- Role-based access control (RBAC) settings configured for the workspace.
+- Role-based access control (RBAC) settings on the monitored resource.
+- The context in which you access the workspace.
+- Table-level access settings.
 
-This article describes how access is managed and how to perform any required configuration.
+This article describes the Log Analytics workspace access control mechanisms and how to manage workspace access.
 
 ## Overview
 
@@ -33,7 +34,7 @@ The factors that define the data you can access are described in the following t
 
 ## Access mode
 
-The *access mode* refers to how you access a Log Analytics workspace and defines the data you can access during the current session. The mode is determined according to the [scope](scope.md) you select in Log Analytics.
+*Access mode* depends on the context in which you access a Log Analytics workspace, based on the [scope](scope.md) you select in Log Analytics.
 
 There are two access modes:
 
