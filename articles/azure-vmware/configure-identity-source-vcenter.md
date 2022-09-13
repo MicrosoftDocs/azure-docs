@@ -63,8 +63,9 @@ First, verify that the certificate used for LDAPS is valid.
     
 1. Double click the certificate for LDAPS purposes. The **Certificate** General properties will display. Ensure the certificate date **Valid from** and **to** is current and the certificate has a **private key** that corresponds to the certificate.
     :::image type="content" source="media/run-command/ldaps-certificate-personal-general.png" alt-text="Screenshot showing the properties of the certificate." lightbox="media/run-command/ldaps-certificate-personal-general.png":::    
-1. On the same window, select the **Certification Path** tab and verify that the **Certification path** is valid, which it should include the certificate chain of root CA and optionally intermediate certificates and the **Certificate Status** is OK. Close the window.
+1. On the same window, select the **Certification Path** tab and verify that the **Certification path** is valid, which it should include the certificate chain of root CA and optionally intermediate certificates and the **Certificate Status** is OK.
     :::image type="content" source="media/run-command/ldaps-certificate-cert-path.png" alt-text="Screenshot showing the certificate chain." lightbox="media/run-command/ldaps-certificate-cert-path.png":::
+1. Close the window.
 
 Now proceed to export the certificate
 
