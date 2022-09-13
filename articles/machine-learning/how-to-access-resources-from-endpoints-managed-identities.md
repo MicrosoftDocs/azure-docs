@@ -107,7 +107,6 @@ Next, specify what you want to name your blob storage account, blob container, a
 storage_account_name = "<STORAGE_ACCOUNT_NAME>"
 storage_container_name = "<CONTAINER_TO_ACCESS>"
 file_name = "<FILE_TO_ACCESS>"
-
 ``` 
 
 After these variables are assigned, create a text file locally. When the endpoint is deployed, the scoring script will access this text file using the system-assigned managed identity that's generated upon endpoint creation.
@@ -127,7 +126,6 @@ from azure.ai.ml.entities import (
 
 credential = AzureCliCredential()
 ml_client = MLClient(credential, subscription_id, resource_group, workspace_name)
-
 ``` 
 
 We will use this value to create a storage account. 
@@ -156,15 +154,12 @@ file_name = "<FILE_TO_ACCESS>"
 
 After these variables are assigned, create a text file locally. When the endpoint is deployed, the scoring script will access this text file using the user-assigned managed identity that's generated upon endpoint creation.
 
-
 Decide on the name of your user identity name:
 ```python 
 uai_name = "<USER_ASSIGNED_IDENTITY_NAME>"
-
 ``` 
 
 Now, get a handle to the workspace and retrieve its location:
-
 ```python 
 from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential, AzureCliCredential
@@ -178,7 +173,6 @@ from azure.ai.ml.entities import (
 
 credential = AzureCliCredential()
 ml_client = MLClient(credential, subscription_id, resource_group, workspace_name)
-
 ``` 
 
 We will use this value to create a storage account. 
@@ -188,7 +182,7 @@ We will use this value to create a storage account.
 ## Define the deployment configuration
 
 
-# [System-assigned managed identity](#tab/system-identity)
+# [System-assigned (CLI)](#tab/system-identity-cli)
 
 To deploy an online endpoint with the CLI, you need to define the configuration in a YAML file. For more information on the YAML schema, see [online endpoint YAML reference](reference-yaml-endpoint-online.md) document.
 
@@ -241,9 +235,7 @@ The following Python endpoint object:
 * Specifies the type of authorization to use to access the endpoint `auth-mode="key"`.
 
 ```python
-
 endpoint = ManagedOnlineEndpoint(name=endpoint_name, auth_mode="key")
-
 ``` 
 
 This deployment object: 
@@ -256,7 +248,6 @@ This deployment object:
 
 
 ```python
-
 deployment = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=endpoint_name,
@@ -276,7 +267,6 @@ deployment = ManagedOnlineDeployment(
         "FILE_NAME": file_name,
     },
 )
-
 ``` 
 
 # [User-assigned (Python)](#tab/user-identity-python)
@@ -289,9 +279,7 @@ The following Python endpoint object:
 * Specifies the type of authorization to use to access the endpoint `auth-mode="key"`.
 
 ```python
-
 endpoint = ManagedOnlineEndpoint(name=endpoint_name, auth_mode="key")
-
 ``` 
 
 This deployment object: 
@@ -305,7 +293,6 @@ This deployment object:
 
 
 ```python
-
 deployment = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=endpoint_name,
@@ -327,7 +314,6 @@ deployment = ManagedOnlineDeployment(
         "UAI_CLIENT_ID": "uai_client_id_place_holder",
     },
 )
-
 ``` 
 
 ---
@@ -355,7 +341,6 @@ When you [create an online endpoint](#create-an-online-endpoint), a system-assig
 To create a user-assigned managed identity, first get a handle to the `ManagedServiceIdentityClient`: 
 
 ```python
-
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.msi import ManagedServiceIdentityClient
 from azure.mgmt.msi.models import Identity
@@ -365,7 +350,6 @@ msi_client = ManagedServiceIdentityClient(
     subscription_id=subscription_id,
     credential=credential,
 )
-
 ``` 
 
 Then, create the identity:
@@ -376,7 +360,6 @@ msi_client.user_assigned_identities.create_or_update(
     resource_name=uai_name,
     parameters=Identity(location=workspace_location),
 )
-
 ``` 
 
 Now, retrieve the identity object, which contains details we will use below: 
@@ -386,7 +369,6 @@ uai_identity = msi_client.user_assigned_identities.get(
     resource_group_name=resource_group,
     resource_name=uai_name,
 )
-
 ``` 
 
 ---
@@ -446,7 +428,6 @@ storage_client = StorageManagementClient(
 Then, create a storage account: 
 
 ```python 
-
 storage_account_parameters = StorageAccountCreateParameters(
     sku=Sku(name="Standard_LRS"), kind="Storage", location=workspace_location
 )
@@ -459,7 +440,6 @@ poller = storage_client.storage_accounts.begin_create(
 poller.wait()
 
 storage_account = poller.result()
-
 ``` 
 
 Next, create the blob container in the storage account:
@@ -471,13 +451,11 @@ blob_container = storage_client.blob_containers.create(
     container_name=storage_container_name,
     blob_container=BlobContainer(),
 )
-
 ``` 
 
 Retrieve the storage account key and create a handle to the container with `ContainerClient`: 
 
 ```python 
-
 res = storage_client.storage_accounts.list_keys(
     resource_group_name=resource_group,
     account_name=storage_account_name,
@@ -489,17 +467,14 @@ container_client = ContainerClient(
     container_name=storage_container_name,
     credential=key,
 )
-
 ``` 
 
 Then, upload a blob to the container with the `ContainerClient`:
 
 ```python 
-
 file_path = "hello.txt"
 with open(file_path, "rb") as f:
     container_client.upload_blob(name=file_name, data=f.read())
-
 ``` 
 
 # [User-assigned (Python)](#tab/user-identity-python)
@@ -520,7 +495,6 @@ storage_client = StorageManagementClient(
 Then, create a storage account: 
 
 ```python 
-
 storage_account_parameters = StorageAccountCreateParameters(
     sku=Sku(name="Standard_LRS"), kind="Storage", location=workspace_location
 )
@@ -533,7 +507,6 @@ poller = storage_client.storage_accounts.begin_create(
 poller.wait()
 
 storage_account = poller.result()
-
 ``` 
 
 Next, create the blob container in the storage account:
@@ -545,13 +518,11 @@ blob_container = storage_client.blob_containers.create(
     container_name=storage_container_name,
     blob_container=BlobContainer(),
 )
-
 ``` 
 
 Retrieve the storage account key and create a handle to the container with `ContainerClient`: 
 
 ```python 
-
 res = storage_client.storage_accounts.list_keys(
     resource_group_name=resource_group,
     account_name=storage_account_name,
@@ -563,17 +534,14 @@ container_client = ContainerClient(
     container_name=storage_container_name,
     credential=key,
 )
-
 ``` 
 
 Then, upload a blob to the container with the `ContainerClient`:
 
 ```python 
-
 file_path = "hello.txt"
 with open(file_path, "rb") as f:
     container_client.upload_blob(name=file_name, data=f.read())
-
 ``` 
 
 ---
@@ -611,9 +579,7 @@ If you encounter any issues, see [Troubleshooting online endpoints deployment an
 When you create an online endpoint, a system-assigned managed identity is created for the endpoint by default.
 
 ```python
-
 endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
-
 ``` 
 
 A deployed endpoint object can be retrieved using `online_endpoints.get`. One is also returned by the `begin_create_or_update` method as above. 
@@ -621,9 +587,7 @@ A deployed endpoint object can be retrieved using `online_endpoints.get`. One is
 Check the status of the endpoint via the details of the deployed endpoint object with the following code:  
 
 ```python
-
 endpoint.identity.as_dict()
-
 ```
 
 If you encounter any issues, see [Troubleshooting online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md).
@@ -634,9 +598,7 @@ If you encounter any issues, see [Troubleshooting online endpoints deployment an
 First, deploy the endpoint: 
 
 ```python
-
 endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
-
 ``` 
 
 Then, update the identity configuration of the deployment to User-assigned: 
@@ -647,7 +609,6 @@ endpoint.identity = endpoint.identity.from_dict(
 )
 
 endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
-
 ``` 
 
 A deployed endpoint object can be retrieved using `online_endpoints.get`. One is also returned by the `begin_create_or_update` method as above. 
@@ -655,9 +616,7 @@ A deployed endpoint object can be retrieved using `online_endpoints.get`. One is
 Check the status of the endpoint via the details of the deployed endpoint object with the following code:  
 
 ```python
-
 endpoint.identity.as_dict()
-
 ```
 
 If you encounter any issues, see [Troubleshooting online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md).
@@ -731,16 +690,13 @@ import uuid
 auth_client = AuthorizationManagementClient(
     credential=credential, subscription_id=subscription_id
 )
-
 ```
 
 Then, get the Principal ID of the System-assigned managed identity: 
 
 ```python
-
 endpoint = ml_client.online_endpoints.get(endpoint_name)
 system_principal_id = endpoint.identity.principal_id
-
 ```
 
 Next, give permission to the user storage account:
@@ -781,19 +737,16 @@ import uuid
 auth_client = AuthorizationManagementClient(
     credential=credential, subscription_id=subscription_id
 )
-
 ```
 
 Then, get the UAI identity object, which contains the Principal and Client IDs:  
 
 ```python
-
 uai_identity = msi_client.user_assigned_identities.get(
     resource_group_name=resource_group, resource_name=uai_name
 )
 uai_principal_id = uai_identity.principal_id
 uai_client_id = uai_identity.client_id
-
 ```
 
 Next, give permission to the user storage account:
@@ -814,18 +767,16 @@ auth_client.role_assignments.create(
 )
 ``` 
 
-For the next two permissions, we'll need the workspace and container container registry objects: 
+For the next two permissions, we'll need the workspace and container registry objects: 
 
 ```python 
 workspace = ml_client.workspaces.get(workspace_name)
 container_registry = workspace.container_registry
-
 ``` 
 
 Now, give permission for the UAI top pull from the container registry: 
 
 ```python 
-
 role_name = "AcrPull"
 scope = container_registry
 
@@ -839,13 +790,11 @@ auth_client.role_assignments.create(
         role_definition_id=role_def.id, principal_id=uai_principal_id
     ),
 )
-
 ``` 
 
 Finally, give permission to the workspace storage account: 
 
 ```python 
-
 role_name = "Storage Blob Data Reader"
 scope = workspace.storage_account
 
@@ -859,7 +808,6 @@ auth_client.role_assignments.create(
         role_definition_id=role_def.id, principal_id=uai_principal_id
     ),
 )
-
 ``` 
 
 ---
@@ -923,18 +871,14 @@ To check the init method output, see the deployment log with the following code.
 # [System-assigned (Python)](#tab/system-identity-python)
 
 ```python 
-
 deployment = ml_client.online_deployments.begin_create_or_update(deployment)
-
 ```
 
 Once the command executes, you can check the status of the deployment.
 
 
 ```python 
-
 deployment.as_dict()
-
 ``` 
 
 > [!NOTE]
@@ -944,7 +888,6 @@ To check the init method output, see the deployment log with the following code.
 
 ```python 
 ml_client.online_deployments.get_logs(deployment.name, deployment.endpoint_name, 1000)
-
 ``` 
 
 # [User-assigned (Python)](#tab/user-identity-python)
@@ -961,18 +904,14 @@ deployment = ml_client.online_deployments.begin_create_or_update(deployment)
 Create the deployment. 
 
 ```python 
-
 deployment = ml_client.online_deployments.begin_create_or_update(deployment)
-
 ```
 
 Once the command executes, you can check the status of the deployment.
 
 
 ```python 
-
 deployment.as_dict()
-
 ``` 
 
 > [!NOTE]
@@ -982,7 +921,6 @@ To check the init method output, see the deployment log with the following code.
 
 ```python 
 ml_client.online_deployments.get_logs(deployment.name, deployment.endpoint_name, 1000)
-
 ``` 
 
 ---
@@ -1008,20 +946,16 @@ To call your endpoint, run:
 # [System-assigned (Python)](#tab/system-identity-python)
 
 ```python 
-
 sample_data = "../../model-1/sample-request.json"
 ml_client.online_endpoints.invoke(endpoint_name=endpoint_name, request_file=sample_data)
-
 ``` 
 
 # [User-assigned (Python)](#tab/user-identity-python)
 
 
 ```python 
-
 sample_data = "../../model-1/sample-request.json"
 ml_client.online_endpoints.invoke(endpoint_name=endpoint_name, request_file=sample_data)
-
 ``` 
 
 ---
@@ -1052,11 +986,9 @@ ml_client.online_endpoints.begin_delete(endpoint_name)
 Delete the storage account: 
 
 ```python 
-
 storage_client.storage_accounts.delete(
     resource_group_name=resource_group, account_name=storage_account_name
 )
-
 ``` 
 
 # [User-assigned (Python)](#tab/user-identity-python)
@@ -1070,11 +1002,9 @@ ml_client.online_endpoints.begin_delete(endpoint_name)
 Delete the storage account: 
 
 ```python 
-
 storage_client.storage_accounts.delete(
     resource_group_name=resource_group, account_name=storage_account_name
 )
-
 ``` 
 
 ---
