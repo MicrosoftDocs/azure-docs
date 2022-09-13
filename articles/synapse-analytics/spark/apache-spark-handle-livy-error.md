@@ -39,7 +39,7 @@ Each error code falls under one of the following four buckets:
 
 ## Error code examples for each classification type
 
-1. **Spark_User_TypeError_TypeNotIterable**
+### Spark_User_TypeError_TypeNotIterable
     
     In Python, the error `TypeError: argument of type 'insert type' is not iterable` occurs when the membership operator (in, not in) is used to validate the membership of a value in non iterable objects such as list, tuple, dictionary. This is usually due to the search of value in a non-iterable object. Possible solutions:
 
