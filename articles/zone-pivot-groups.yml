@@ -254,16 +254,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-embedded-c
-    title: Embedded C
-- id: enrollment-group
-# Owner: v-krishnag
-  title: Enrollment groups
-  prompt: Choose an enrollment-group
-  pivots:
-  - id: enrollment-group-x509
-    title: X.509
-  - id: enrollment-group-symmetrickey
-    title: Symmetric Key    
+    title: Embedded C   
 - id: programming-languages-set-twenty-eight
 # Owner: aahi
   title: Programming languages

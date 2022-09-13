@@ -7,7 +7,6 @@ ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-zone_pivot_groups: enrollment-group
 
 ---
 
@@ -550,17 +549,19 @@ The response to this request looks like the following example:
 
 ## Enrollment groups
 
-Enrollment groups are used to manage the device authentication options in your IoT Central application. To learn more, see [Device authentication concepts in IoT Central](concepts-device-authentication.md)
+Enrollment groups are used to manage the device authentication options in your IoT Central application. To learn more, see [Device authentication concepts in IoT Central](concepts-device-authentication.md).
 
 To learn how to create and manage enrollment groups in the UI, see [How to connect devices with X.509 certificates to IoT Central Application](how-to-connect-devices-x509.md).
 
-## Add enrollment groups
+## Create an enrollment group
 
-:::zone pivot="enrollment-group-x509"
+### [X.509](#tab/X.509)
+
+When you create an enrollment group for devices that use X.509 certificates, you first need to upload the root or intermediate certificate to your IoT Central application.
 
 ### Generate root and device certificates
 
-In this section, you use an X.509 certificate to connect a device with a certificate derived from the IoT Central enrollment group's certificate.
+In this section, you generate the X.509 certificates you need to connect a device to IoT Central.
 
 > [!WARNING]
 > This way of generating X.509 certs is for testing only. For a production environment you should use your official, secure mechanism for certificate generation.
@@ -586,14 +587,14 @@ These commands produce the following root and the device certificate
 
 | filename | contents |
 | -------- | -------- |
-| mytestrootcert_cert.pem | The public portion of the root X509 certificate |
-| mytestrootcert_key.pem | The private key for the root X509 certificate |
-| mytestrootcert_fullchain.pem | The entire keychain for the root X509 certificate. |
-| mytestrootcert.pfx | The PFX file for the root X509 certificate. |
-| sampleDevice01_cert.pem | The public portion of the device X509 certificate |
-| sampleDevice01_key.pem | The private key for the device X509 certificate |
-| sampleDevice01_fullchain.pem | The entire keychain for the device X509 certificate. |
-| sampleDevice01.pfx | The PFX file for the device X509 certificate. |
+| mytestrootcert_cert.pem | The public portion of the root X.509 certificate |
+| mytestrootcert_key.pem | The private key for the root X.509 certificate |
+| mytestrootcert_fullchain.pem | The entire keychain for the root X.509 certificate. |
+| mytestrootcert.pfx | The PFX file for the root X.509 certificate. |
+| sampleDevice01_cert.pem | The public portion of the device X.509 certificate |
+| sampleDevice01_key.pem | The private key for the device X.509 certificate |
+| sampleDevice01_fullchain.pem | The entire keychain for the device X.509 certificate. |
+| sampleDevice01.pfx | The PFX file for the device X.509 certificate. |
 
 Make a note of the location of these files. You need it later.
 
@@ -662,7 +663,7 @@ The response to this request looks like the following example:
 }
 ```
 
-### Add a X.509 certificate to an enrollment group
+### Add an X.509 certificate to an enrollment group
 
 Use the following request to set the primary X.509 certificate of the myx509eg enrollment group:
 
@@ -674,7 +675,7 @@ PUT https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509
 
 Use this request to add either a primary or secondary X.509 certificate to the enrollment group.
 
-The following example shows a request body that adds a X.509 certificate to an enrollment group:
+The following example shows a request body that adds an X.509 certificate to an enrollment group:
 
 ```json
 {
@@ -700,7 +701,7 @@ The response to this request looks like the following example:
 
 ### Generate verification code for an X.509 certificate
 
-Use the following request to generate a verification code for the primary or secondary X509 certificate of an enrollment group.
+Use the following request to generate a verification code for the primary or secondary X.509 certificate of an enrollment group.
 
 If you set `verified` to `false` in the previous request, use the following request to generate a verification code for the primary X.509 certificate in the `myx509eg` enrollment group:
 
@@ -739,10 +740,10 @@ Make a note of the base-64 encoded version of the certifcate. You need it later.
 Use the following request to verify the primary X.509 certificate of the `myx509eg` enrollment group by providing the certificate with the signed verification code:
 
 ```http
-POST https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}/certificates/{entry}/verify?api-version=2022-07-31
+POST PUT https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg/certificates/primary/verify?api-version=2022-07-31
 ```
 
-The following example shows a request body that verifys a X509 certificate:
+The following example shows a request body that verifies an X.509 certificate:
 
 ```json
 {
@@ -752,10 +753,10 @@ The following example shows a request body that verifys a X509 certificate:
 
 ### Get X.509 certificate of an enrollment group
 
-Use the following request to retrieve details of X509 certificate of an enrollment group from your application:
+Use the following request to retrieve details of X.509 certificate of an enrollment group from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}/certificates/{entry}?api-version=2022-07-31
+GET https://{your app subdomain}/api/enrollmentGroups/myx509eg/certificates/primary?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
@@ -770,7 +771,7 @@ The response to this request looks like the following example:
 }
 ```
 
-### Delete a X.509 certificate from an enrollment group
+### Delete an X.509 certificate from an enrollment group
 
 Use the following request to delete the primary X.509 certificate from an enrollment group with ID `myx509eg`:
 
@@ -778,9 +779,7 @@ Use the following request to delete the primary X.509 certificate from an enroll
 DELETE https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg/certificates/primary?api-version=2022-07-31
 ```
 
-:::zone-end
-
-:::zone pivot="enrollment-group-symmetrickey"
+### [Symmetric Key](#tab/SymmetricKey)
 
 ### Add an symmetric key enrollment group
 
@@ -822,21 +821,21 @@ The response to this request looks like the following example:
 }
 ```
 
-:::zone-end
+IoT Central generates the primary and secondary syymetric keys when you make this api call.
 
 ### Get an enrollment group
 
-Use the following request to retrieve details of an enrollment group from your application:
+Use the following request to retrieve details of an enrollment group with `mysymmetric` as the ID:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/enrollmentGroups/{enrollmentGroupId}?api-version=2022-07-31
+GET https://{your app subdomain}/api/enrollmentGroups/mysymmetric?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
 
 ```json
 {
-  "id": "enrollmentGroupId",
+  "id": "mysymmetric",
   "displayName": "My group",
   "enabled": true,
   "type": "iot",
@@ -856,7 +855,7 @@ The response to this request looks like the following example:
 Use the following request to update an enrollment group.
 
 ```http
-PATCH https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/mysampleeg?api-version=2022-07-31
+PATCH https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg?api-version=2022-07-31
 ```
 
 The following example shows a request body that updates the display name of a  enrollment group:
@@ -888,10 +887,10 @@ The response to this request looks like the following example:
 
 ### Delete an enrollment group
 
-Use the following request to delete an enrollment group with ID `mysampleeg`:
+Use the following request to delete an enrollment group with ID `myx509eg`:
 
 ```http
-DELETE https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/mysampleeg?api-version=2022-07-31
+DELETE https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg?api-version=2022-07-31
 ```
 
 ### List enrollment groups
@@ -899,7 +898,7 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/mys
 Use the following request to retrive a list of enrollment groups from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/enrollmentGroups?api-version=2022-07-31
+GET https://{your app subdomain}/api/enrollmentGroups?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
