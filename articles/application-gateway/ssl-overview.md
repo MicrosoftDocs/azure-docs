@@ -115,8 +115,8 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 
 ### Frontend TLS connection (client to application gateway)
 
----
-Scenario | v1 | v2 |
+
+|Scenario | v1 | v2 |
 | --- | --- | --- |
 | If the client specifies SNI header and all the multi-site listeners are enabled with "Require SNI" flag | Returns the appropriate certificate and if the site doesn't exist (according to the server_name), then the connection is reset. | Returns appropriate certificate if available, otherwise, returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners|
 | If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners
@@ -126,8 +126,8 @@ Scenario | v1 | v2 |
 
 #### For probe traffic
 
----
-Scenario | v1 | v2 |
+
+|Scenario | v1 | v2 |
 | --- | --- | --- |
 | SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the custom probe attached to the HTTP settings (if configured), otherwise from the hostname mentioned in the HTTP settings, otherwise from the FQDN mentioned in the backend pool. The order of precedence is custom probe > HTTP settings > backend pool. <br> **Note:** If the hostnames configured in HTTP settings and custom probe are different, then according to the precedence, SNI will be set as the hostname from the custom probe.
 | If the backend pool address is an IP address (v1) or if custom probe hostname is configured as IP address (v2) | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be allow-listed in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | In the order of precedence mentioned previously, if they have IP address as hostname, then SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Note:** SNI also won't be set in v2 probes if no custom probe is configured and no hostname is set on HTTP settings or backend pool |
@@ -137,8 +137,8 @@ Scenario | v1 | v2 |
 
 #### For live traffic
 
----
-Scenario | v1 | v2 |
+
+|Scenario | v1 | v2 |
 | --- | --- | --- |
 | SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the HTTP settings, otherwise, if *PickHostnameFromBackendAddress* option is chosen or if no hostname is mentioned, then it will be set as the FQDN in the backend pool configuration
 | If the backend pool address is an IP address or hostname isn't set in HTTP settings | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066) if the backend pool entry isn't an FQDN | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.

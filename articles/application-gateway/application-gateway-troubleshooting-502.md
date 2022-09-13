@@ -41,32 +41,32 @@ Similarly, the presence of a custom DNS in the VNet could also cause issues. An 
 
 Validate NSG, UDR, and DNS configuration by going through the following steps:
 
-* Check NSGs associated with the application gateway subnet. Ensure that communication to backend isn't blocked.
-* Check UDR associated with the application gateway subnet. Ensure that the UDR isn't directing traffic away from the backend subnet. For example, check for routing to network virtual appliances or default routes being advertised to the application gateway subnet via ExpressRoute/VPN.
+1. Check NSGs associated with the application gateway subnet. Ensure that communication to backend isn't blocked.
+2. Check UDR associated with the application gateway subnet. Ensure that the UDR isn't directing traffic away from the backend subnet. For example, check for routing to network virtual appliances or default routes being advertised to the application gateway subnet via ExpressRoute/VPN.
 
-```azurepowershell
-$vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
-Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
-```
+    ```azurepowershell
+    $vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+    Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+    ```
 
-* Check effective NSG and route with the backend VM
+3. Check effective NSG and route with the backend VM
 
-```azurepowershell
-Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
-```
+    ```azurepowershell
+    Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+    Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+    ```
 
-* Check presence of custom DNS in the VNet. DNS can be checked by looking at details of the VNet properties in the output.
+4. Check presence of custom DNS in the VNet. DNS can be checked by looking at details of the VNet properties in the output.
 
-```json
-Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
-DhcpOptions            : {
-                           "DnsServers": [
-                             "x.x.x.x"
-                           ]
-                         }
-```
-If present, ensure that the DNS server can resolve the backend pool member's FQDN correctly.
+    ```json
+    Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+    DhcpOptions            : {
+                               "DnsServers": [
+                                 "x.x.x.x"
+                               ]
+                             }
+    ```
+5. If present, ensure that the DNS server can resolve the backend pool member's FQDN correctly.
 
 ## Problems with default health probe
 
