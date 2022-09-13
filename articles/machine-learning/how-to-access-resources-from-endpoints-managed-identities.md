@@ -18,6 +18,13 @@ ms.custom: devplatv2, cliv2, event-tier1-build-2022
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+> [!IMPORTANT]
+> SDK v2 is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Learn how to access Azure resources from your scoring script with an online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
 
@@ -41,7 +48,7 @@ This guide assumes you don't have a managed identity, a storage account or an on
 
    ```azurecli
    az account set --subscription <subscription ID>
-   az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
+   az configure --defaults gitworkspace=<Azure Machine Learning workspace name> group=<resource group>
    ```
 
 * To follow along with the sample, clone the samples repository
