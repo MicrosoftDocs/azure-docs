@@ -76,6 +76,8 @@ items:
     href: device-update-security.md
   - name: Network security
     href: network-security.md
+  - name: Data privacy
+    href: device-update-data-privacy.md
 - name: How-to guides
   items:
   - name: Create a Device Update account
