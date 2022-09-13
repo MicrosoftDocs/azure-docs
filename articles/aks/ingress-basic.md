@@ -1,8 +1,8 @@
 ---
 title: Create an ingress controller in Azure Kubernetes Service (AKS)
 description: Learn how to create and configure an ingress controller in an Azure Kubernetes Service (AKS) cluster.
-author: erik-ha-msft
-ms.author: erikha
+author: rayoef
+ms.author: rayoflores
 services: container-service
 ms.topic: article
 ms.date: 05/17/2022
@@ -149,7 +149,7 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx \
+helm install ingress-nginx ingress-nginx/ingress-nginx \
     --version 4.1.3 \
     --namespace ingress-basic \
     --create-namespace \
@@ -394,7 +394,7 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 Both applications are now running on your Kubernetes cluster. To route traffic to each application, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
-In the following example, traffic to *EXTERNAL_IP* is routed to the service named `aks-helloworld-one`. Traffic to *EXTERNAL_IP/hello-world-two* is routed to the `aks-helloworld-two` service. Traffic to *EXTERNAL_IP/static* is routed to the service named `aks-helloworld-one` for static assets.
+In the following example, traffic to *EXTERNAL_IP/hello-world-one* is routed to the service named `aks-helloworld-one`. Traffic to *EXTERNAL_IP/hello-world-two* is routed to the `aks-helloworld-two` service. Traffic to *EXTERNAL_IP/static* is routed to the service named `aks-helloworld-one` for static assets.
 
 Create a file named `hello-world-ingress.yaml` and copy in the following example YAML.
 

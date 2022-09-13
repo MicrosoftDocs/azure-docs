@@ -9,12 +9,7 @@ ms.date: 04/07/2022
 ---
 # Deploy SAP Change Requests (CRs) and configure authorization
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
 This article shows you how to deploy the SAP Change Requests (CRs) necessary to prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
-
-> [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Deployment milestones
 
@@ -30,11 +25,11 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy SAP security content](deploy-sap-security-content.md)
 
-1. [Configure Threat Monitoring for SAP solution](deployment-solution-configuration.md)
+1. [Configure Microsoft Sentinel Solution for SAP](deployment-solution-configuration.md)
 
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
-   - [Configure SAP data connector to use SNC](configure-snc.md)
+   - [Configure data connector to use SNC](configure-snc.md)
 
 
 > [!IMPORTANT]
@@ -57,7 +52,7 @@ Track your SAP solution deployment journey through this series of articles:
 > - **IP address:** `192.168.136.4`
 > - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials. 
 
-The deployment of Microsoft Sentinel's Threat Monitoring for SAP solution requires the installation of several CRs. More details about the required CRs can be found in the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of this guide.
+The deployment of the Microsoft Sentinel Solution for SAP requires the installation of several CRs. More details about the required CRs can be found in the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of this guide.
 
 To deploy the CRs, follow the steps outlined below:
 
@@ -69,19 +64,19 @@ To deploy the CRs, follow the steps outlined below:
 
 1. Transfer the CR files to the SAP system.  
     Alternatively, you can download the files directly onto the SAP system from the SSH prompt. Use the following commands:  
-    - Download NLPK900202
+    - Download NPLK900202
         ```bash
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL
         ```
 
-    - Download NLPK900201
+    - Download NPLK900201
         ```bash
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL
         ```
 
-    - Download NLPK900271
+    - Download NPLK900271
         ```bash
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL
@@ -207,7 +202,7 @@ The next step is to generate an active role profile for Microsoft Sentinel to us
 
 ### Create a user
 
-Microsoft Sentinel's Threat Monitoring solution for SAP requires a user account to connect to your SAP system. Use the following instructions to create a user account and assign it to the role that you created in the previous step.
+The Microsoft Sentinel Solution for SAP requires a user account to connect to your SAP system. Use the following instructions to create a user account and assign it to the role that you created in the previous step.
 
 In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNECTOR**.
 
@@ -354,4 +349,4 @@ You have now fully prepared your SAP environment. The required CRs have been dep
 Now you are ready to deploy the data connector agent container.
 
 > [!div class="nextstepaction"]
-> [Deploy and configure the data connector agent container](deploy-data-connector-agent-container.md)
+> [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md)

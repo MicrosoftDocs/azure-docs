@@ -5,7 +5,7 @@ services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 09/06/2022
 ms.author: jodowns
 
 ---
@@ -31,6 +31,12 @@ For more information, see [Tuning Web Application Firewall (WAF) for Azure Front
 ### Use prevention mode
 
 After you've tuned your WAF, you should configure it to [run in prevention mode](waf-front-door-policy-settings.md#waf-mode). By running in prevention mode, you ensure the WAF actually blocks requests that it detects are malicious. Running in detection mode is useful while you tune and configure your WAF, but provides no protection.
+
+### Define your WAF configuration as code
+
+When you tune your WAF for your application workload, you typically create a set of rule exclusions to reduce false positive detections. If you manually configure these exclusions by using the Azure portal, then when you upgrade your WAF to use a newer ruleset version, you need to reconfigure the same exceptions against the new ruleset version. This process can be time-consuming and error-prone.
+
+Instead, consider defining your WAF rule exclusions and other configuration as code, such as by using the Azure CLI, Azure PowerShell, Bicep or Terraform. Then, when you need to update your WAF ruleset version, you can easily reuse the same exclusions.
 
 ## Managed ruleset best practices
 
@@ -59,8 +65,15 @@ For more information, see [Web Application Firewall DRS rule groups and rules](w
 Front Door's WAF enables you to control the number of requests allowed from each client's IP address over a period of time. It's a good practice to add rate limiting to reduce the impact of clients accidentally or intentionally sending large amounts of traffic to your service, such as during a [*retry storm*](/azure/architecture/antipatterns/retry-storm/).
 
 For more information, see the following resources:
-- [Configure a Web Application Firewall rate limit rule using Azure PowerShell](waf-front-door-rate-limit-powershell.md).
+- [What is rate limiting for Azure Front Door Service?](waf-front-door-rate-limit.md).
+- [Configure a Web Application Firewall rate limit rule using Azure PowerShell](waf-front-door-rate-limit-configure.md).
 - [Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?](waf-faq.yml#why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server-)
+
+### Use a high threshold for rate limits
+
+It's usually a good practice to set your rate limit threshold to be quite high. For example, if you know that a single client IP address might send around 10 requests to your server each minute, consider specifying a threshold of 20 requests per minute.
+ 
+High rate limit thresholds avoid blocking legitimate traffic, while still providing protection against extremely high numbers of requests that might overwhelm your infrastructure. 
 
 ## Geo-filtering best practices
 

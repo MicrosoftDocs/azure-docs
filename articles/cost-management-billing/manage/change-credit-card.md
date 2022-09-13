@@ -25,7 +25,9 @@ If you want to a delete credit card, see [Delete an Azure billing payment method
 The supported payment methods for Microsoft Azure are credit cards, debit cards, and check wire transfer. To get approved to pay by check wire transfer, see [Pay for your Azure subscription by check or wire transfer](pay-by-invoice.md).
 
 >[!NOTE]
-> Credit cards are accepted and debit cards are accepted by most countries or regions. However, Hong Kong and Brazil only support credit cards.
+> Credit cards are accepted and debit cards are accepted by most countries or regions.
+>   - Hong Kong and Brazil only support credit cards.
+>   - India supports debit and credit cards through Visa and Mastercard.
 
 With a Microsoft Customer Agreement, your payment methods are associated with billing profiles. Learn how to [check access to a Microsoft Customer Agreement](#check-the-type-of-your-account).
 

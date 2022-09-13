@@ -8,7 +8,7 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2021
 ms.author: jushiman 
 ms.custom: devx-track-azurepowershell
-#pmcontact: shants
+#pmcontact: PPHILLIPS
 ---
 
 # Maintenance control for OS image upgrades on Azure virtual machine scale sets using Azure portal
