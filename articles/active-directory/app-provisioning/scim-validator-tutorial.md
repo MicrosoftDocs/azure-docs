@@ -73,22 +73,14 @@ Don't forget to delete any Azure resources that you no longer need.
 
 ## Known issues 
 
-### Support for deletes
-Deletes aren't yet supported.
-
-### Time zone format 
-The time zone format is randomly generated and will fail for systems that try to validate it.
-
-### Preferred language format 
-The preferred language format is randomly generated and will fail for systems that try to validate it.
-
-### Patch user - remove attributes attempting to remove required fields 
-
-The patch user remove attributes may attempt to remove mandatory/required attributes for certain systems. Such failures should be ignored.
+- Deletes aren't yet supported.
+- The time zone format is randomly generated and will fail for systems that try to validate it.
+- The preferred language format is randomly generated and will fail for systems that try to validate it.
+- The patch user remove attributes may attempt to remove mandatory/required attributes for certain systems. Such failures should be ignored.
 
 
 ## Next steps
 
 Advance to the next article to learn how to customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory.
 > [!div class="nextstepaction"]
-> [Next steps button](customize-application-attributes.md)
+> [Learn how to customize application attributes](customize-application-attributes.md)
