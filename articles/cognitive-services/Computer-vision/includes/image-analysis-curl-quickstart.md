@@ -9,15 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 04/19/2021
+ms.date: 09/12/2022
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
 Use the Image Analysis REST API to analyze an image for tags.
 
+> [!TIP]
+> The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../../how-to/call-analyze-image.md) for examples that showcase all of the available features.
+
 > [!NOTE]
-> This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST), and [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST).
+> This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST), and [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST).\
 
 ## Prerequisites
 
@@ -46,11 +49,13 @@ To analyze an image for various visual features, do the following steps:
     #### [Version 3.2](#tab/3-2)
 
     ```bash
-    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Tags" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
     ```
     #### [Version 4.0](#tab/4-0)
 
-    (TBD new code)
+    ```bash
+    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v4.0-preview.1/operations/imageanalysis:analyze?features=Tags" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+    ```
     ---
 
 > [!div class="nextstepaction"]
@@ -60,53 +65,37 @@ To analyze an image for various visual features, do the following steps:
 
 A successful response is returned in JSON. The sample application parses and displays a successful response in the command prompt window, similar to the following example:
 
+
 ```json
 {
-  "categories": [
-    {
-      "name": "outdoor_water",
-      "score": 0.9921875,
-      "detail": {
-        "landmarks": []
-      }
-    }
+  "tags": [
+    "nature",
+    "water",
+    "waterfall",
+    "outdoor",
+    "rock",
+    "mountain",
+    "rocky",
+    "grass",
+    "hill",
+    "covered",
+    "hillside",
+    "standing",
+    "side",
+    "group",
+    "walking",
+    "white",
+    "man",
+    "large",
+    "snow",
+    "grazing",
+    "forest",
+    "slope",
+    "herd",
+    "river",
+    "giraffe",
+    "field"
   ],
-  "description": {
-    "tags": [
-      "nature",
-      "water",
-      "waterfall",
-      "outdoor",
-      "rock",
-      "mountain",
-      "rocky",
-      "grass",
-      "hill",
-      "covered",
-      "hillside",
-      "standing",
-      "side",
-      "group",
-      "walking",
-      "white",
-      "man",
-      "large",
-      "snow",
-      "grazing",
-      "forest",
-      "slope",
-      "herd",
-      "river",
-      "giraffe",
-      "field"
-    ],
-    "captions": [
-      {
-        "text": "a large waterfall over a rocky cliff",
-        "confidence": 0.916458423253597
-      }
-    ]
-  },
   "requestId": "b6e33879-abb2-43a0-a96e-02cb5ae0b795",
   "metadata": {
     "height": 959,
