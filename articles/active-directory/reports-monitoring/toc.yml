@@ -127,6 +127,7 @@
     href: reports-faq.yml
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md
+
 - name: Workbooks
   items:
     - name: Authentication prompts analysis
@@ -141,6 +142,7 @@
       href: workbook-risk-analysis.md
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md
+
 - name: Recommendations
   items:
     - name: Convert to conditional access MFA
