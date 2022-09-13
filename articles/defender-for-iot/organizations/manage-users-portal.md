@@ -38,5 +38,5 @@ For more information, see [Tutorial: Grant a user access to Azure resources usin
 
 ## Next steps
 
-- [Defender for IoT users, roles, and permissions](roles.md)
+- [Defender for IoT users, roles, and permissions for OT network monitoring](roles-operational.md)
 - [Track sensor activity](how-to-track-sensor-activity.md)
