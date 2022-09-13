@@ -58,7 +58,7 @@ You decide to create an exclusion to allow these legitimate requests to pass thr
 
    :::image type="content" source="../media/waf-front-door-exclusion-configure/exclusion-details.png" alt-text="Screenshot of the Azure portal showing the exclusion configuration." :::
 
-   This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If the WAF detects a header that would normally be blocked by rule 942230, it ignores the header and moves on.
+   This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If WAF rule 942230 detects a risk in these header values, it ignores the header and moves on.
 
 1. Select **Save**.
 
@@ -138,7 +138,7 @@ The following example Bicep file shows how to do the following steps:
 
 - Create a Front Door WAF policy.
 - Enable the DRS 2.0 rule set.
-- Configure an exclusion for rule 942250, which exists within the SQLI rule group. This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If the WAF detects a header that would normally be blocked by rule 942230, it ignores the header and moves on.
+- Configure an exclusion for rule 942250, which exists within the SQLI rule group. This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If WAF rule 942230 detects a risk in these header values, it ignores the header and moves on.
 
 ```bicep
 param wafPolicyName string = 'WafPolicy'

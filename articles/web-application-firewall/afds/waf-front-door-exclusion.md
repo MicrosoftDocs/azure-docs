@@ -25,7 +25,7 @@ You can create exclusions at the following scopes:
 
 ## Exclusion selectors
 
-Exclusion selectors tells the WAF the parts of a request that the exclusion applies to. The WAF ignores any detections that it finds in the specified parts of the request. You can specify multiple exclusion selectors in a single exclusion.
+Exclusion selectors identify the parts of requests that the exclusion applies to. The WAF ignores any detections that it finds in the specified parts of the request. You can specify multiple exclusion selectors in a single exclusion.
 
 Each exclusion selector specified a match variable, an operator, and a selector.
 
@@ -59,7 +59,7 @@ If you create an exclusion with a match variable of *Request body POST args* and
 
 [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md) describes how you can use logs to view the details of a blocked request, including the parts of the request that triggered the rule.
 
-If a header value, cookie value, POST argument value, or query argument value produces false positives for some rules, you can exclude that part of the request from being considered by the rule.
+Sometimes a specific WAF rule produces false positive detections from the values included in a request header, cookie, POST argument, query string argument, or JSON field in a request body. If this happens, you can configure the rule to exclude that part of the request from its evaluation.
 
 The following table shows example values from WAF logs and the corresponding exclusion selectors that you could create.
 
