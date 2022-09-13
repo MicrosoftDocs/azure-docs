@@ -108,7 +108,7 @@ servicebus.azure.net (Azure Service Bus)
 servicebus.windows.net (Azure Service Bus)
 shell.azure.com (Azure Command Shell)
 sphere.azure.net (Azure Sphere)
-status.azure.com (Azure Status)
+azure.status.microsoft (Azure Status)
 storage.azure.com (Azure Storage)
 storage.azure.net (Azure Storage)
 vault.azure.net (Azure Key Vault Service)
@@ -129,7 +129,7 @@ vault.azure.net (Azure Key Vault Service)
 graph.microsoftazure.us
 ```
 
-### [China Government Cloud](#tab/china-government-cloud)
+### [Azure China Cloud](#tab/azure-china-cloud)
 
 ```
 aadcdn.msauth.cn

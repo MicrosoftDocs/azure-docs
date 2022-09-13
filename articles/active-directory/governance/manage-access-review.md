@@ -3,8 +3,8 @@ title: Manage access with access reviews - Azure AD
 description: Learn how to manage user and guest access as membership of a group or assignment to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 08/20/2021
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---

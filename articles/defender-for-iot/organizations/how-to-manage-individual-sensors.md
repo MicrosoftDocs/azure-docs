@@ -51,15 +51,17 @@ You might need to upload a new activation file for an onboarded sensor when:
 1. Use the search bar to find the sensor you just added, and select it.
 1. Select the three dots (...) on the row and select **Download activation file**.
 
-6. Save the file.
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-7. Sign in to the Defender for IoT sensor console.
+1. Save the file.
 
-8. Select **System Settings** > **Sensor management** > **Subscription & Activation Mode**.
+1. Sign in to the Defender for IoT sensor console.
 
-9. Select **Upload** and select the file that you saved.
+1. Select **System Settings** > **Sensor management** > **Subscription & Activation Mode**.
 
-10. Select **Activate**.
+1. Select **Upload** and select the file that you saved.
+
+1. Select **Activate**.
 
 ### Troubleshoot activation file upload
 
@@ -126,7 +128,9 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 7. Paste the connection string in the **Connection string** box and select **Connect**.
 
-8. In the on-premises management console, in the **Site Management** window, assign the sensor to a zone.
+8. In the on-premises management console, in the **Site Management** window, assign the sensor to a site and zone.
+
+Continue with additional configurations, such as adding users, configuring forwarding exclusion rules and more. For example, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md), [About Defender for IoT console users](how-to-create-and-manage-users.md), or [Forward alert information](how-to-forward-alert-information-to-partners.md).
 
 ## Change the name of a sensor
 
@@ -354,6 +358,8 @@ This feature is supported for the following sensor versions:
 
 - **22.1.1** - Download a diagnostic log from the sensor console
 - **22.1.3** - For locally-managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 **To download a diagnostics log**:
 

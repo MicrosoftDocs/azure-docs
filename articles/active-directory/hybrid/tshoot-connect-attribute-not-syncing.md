@@ -4,7 +4,7 @@ description: This topic provides steps for how to troubleshoot issues with attri
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: curtand
 ms.service: active-directory
 ms.workload: identity

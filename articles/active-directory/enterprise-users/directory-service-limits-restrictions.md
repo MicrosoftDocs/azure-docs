@@ -3,8 +3,8 @@ title: Service limits and restrictions - Azure Active Directory | Microsoft Docs
 description: Usage constraints and other service limits for the Azure Active Directory service
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
 ms.date: 06/23/2022
-ms.author: curtand
+ms.author: barclayn
 ms.custom: aaddev;it-pro
 ms.reviewer: vincesm
 

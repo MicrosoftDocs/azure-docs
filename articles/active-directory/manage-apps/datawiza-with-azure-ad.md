@@ -123,4 +123,8 @@ DAB evaluates policies, calculates headers, and sends you to the upstream applic
 
 - [Configure Datawiza with Azure AD B2C](../../active-directory-b2c/partner-datawiza.md)
 
+- [Configure Azure AD Multi-Factor Authentication and SSO for Oracle JDE applications using DAB](datawiza-azure-ad-sso-oracle-jde.md)
+
+-  [Configure Azure AD Multi-Factor Authentication and SSO for Oracle PeopleSoft applications using DAB](datawiza-azure-ad-sso-oracle-peoplesoft.md)
+
 - [Datawiza documentation](https://docs.datawiza.com)

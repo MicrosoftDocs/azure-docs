@@ -26,7 +26,7 @@ To deliver this experience, you need to deploy the [Azure Arc resource bridge](.
 
 ## Supported VMware vSphere versions
 
-Azure Arc-enabled VMware vSphere (preview) works with VMware vSphere version 6.7.
+Azure Arc-enabled VMware vSphere (preview) works with VMware vSphere version 6.7 and 7.
 
 > [!NOTE]
 > Azure Arc-enabled VMware vSphere  (preview)  supports vCenters with a maximum of 2500 VMs. If your vCenter has more than 2500 VMs, it is not recommended to use Arc-enabled VMware vSphere with it at this point.
@@ -43,7 +43,7 @@ The following scenarios are supported in Azure Arc-enabled VMware vSphere (previ
 
 - App teams can use Azure interfaces (portal, CLI, or REST API) to manage the lifecycle of on-premises VMs they use for deploying their applications (CRUD, Start/Stop/Restart).
 
-- App teams and administrators can install extensions such as the Log Analytics agent, Custom Script Extension, and Dependency Agent, on  the virtual machines and do operations supported by the extensions.
+- App teams and administrators can install extensions such as the Log Analytics agent, Custom Script Extension, Dependency Agent, and Azure Automation Hybrid Runbook Worker extension on the virtual machines and do operations supported by the extensions.
 
 ## Supported regions
 

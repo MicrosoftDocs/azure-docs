@@ -1,13 +1,13 @@
 ---
 title: Building Azure confidential solutions
 description: Learn how to build solutions on Azure confidential computing
-author: stempesta
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/01/2021
-ms.author: stempesta
+ms.author: mamccrea
 ms.custom: ignite-fall-2021
 ---
 

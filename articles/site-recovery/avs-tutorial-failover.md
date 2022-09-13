@@ -74,10 +74,10 @@ Verify properties as follows:
 
 In some scenarios, failover requires additional processing that takes around 8 to 10 minutes to complete. You might notice longer test failover times for:
 
-* VMware VMs running a Mobility service version older than 9.8.
-* VMware Linux VMs.
-* VMware VMs that don't have the DHCP service enabled.
-* VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
+* VMware vSphere VMs running a Mobility service version older than 9.8.
+* VMware vSphere Linux VMs.
+* VMware vSphere VMs that don't have the DHCP service enabled.
+* VMware vSphere VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
 > Don't cancel a failover in progress. Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
