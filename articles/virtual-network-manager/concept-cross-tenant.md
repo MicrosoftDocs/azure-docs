@@ -1,0 +1,61 @@
+---
+title: 'Cross-tenant support in Azure Virtual Network Manager (Preview)'
+description: Learn about how cross-tenant connections are supported in Azure Virtual Network Manager.
+author: mbender-ms    
+ms.author: mbender
+ms.service: virtual-network-manager
+ms.topic: conceptual
+ms.date: 09/12/2022
+ms.custom: template-concept, ignite-fall-2022
+---
+
+
+# Cross-tenant support in Azure Virtual Network Manager (Preview)
+In this article, you’ll learn about cross-tenant support in Azure Virtual Network Manager. Cross-tenant supports allows organizations to use a central Network Manager instance for managing virtual networks across different tenants and subscriptions.
+ 
+> [!IMPORTANT]
+> Azure Virtual Network Manager is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+ ## Overview of Cross-Tenant 
+
+Cross-tenant support in Azure Virtual Network Manager allows you to add subscriptions or management groups from other tenants to your network manager. This is done by establishing a two-way connection between the network manager and target tenants. Once connected, the central manager can deploy connectivity and/or security admin rules to virtual networks across those connected subscriptions or management groups. This support will assist organizations that fit the following scenarios: 
+
+- Acquisitions – In instances where organizations merge through acquisition and have multiple tenants, cross tenant support allows a central network manager to manage virtual networks across the tenants. 
+
+- Manage service provider – In managed service provider scenarios, an organization may manage the resources of other organizations. Cross-tenant support will allow central management of virtual networks by a central service provider for multiple clients. 
+
+## Cross-tenant connection 
+
+Establishing cross-tenant support begins with creating a cross tenant connection between two tenants. Cross-tenant support requires two-way consent from both your network manager and from the tenant, in the form of cross-tenant connection objects. A cross-tenant connection can only be established and maintained when both objects from each party exist. 
+
+Next, you create a cross-tenant connection from your network manager. The connection includes the exact scope of the tenant’s subscriptions and/or management groups to manage in your network manager. Then, the tenant creates a cross-tenant connection from their virtual network manager hub. This connection includes the scope of subscriptions and/or management groups to be managed by the central network manager.
+
+Once a cross-tenant connection is established, administrators can use their network manager to manage virtual networks included in the connection scope. This may involve the deployment of connectivity and/or security admin rules, either new or existing.
+
+## Required Permissions 
+
+To use cross-tenant connection in Azure Virtual Network Manager, users need the following permissions: 
+
+- Administrator of central management tenant has guest account in target managed tenant. 
+
+- Administrator guest account has *Network Contributor* permissions applied at appropriate scope level(Management group, subscription, or virtual network). 
+
+Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md), and how to [assign user roles to resources in Azure portal](../role-based-access-control/role-assignments-portal.md) 
+
+## Known limitations 
+
+Currently, cross-tenant virtual networks can only be [added to network groups manually](concept-network-groups.md#group-membership). Adding cross-tenant virtual networks to network groups dynamically through Azure Policy is a future capability. 
+
+ 
+Deleting a cross-tenant connections has the follow impact:
+ 
+## Helpful Tips 
+
+
+## Next Steps 
+
+- Learn how to [create a mesh network topology with Azure Virtual Network Manager using the Azure portal](how-to-create-mesh-network.md)
+
+- Check out the [Azure Virtual Network Manager FAQ](faq.md)
