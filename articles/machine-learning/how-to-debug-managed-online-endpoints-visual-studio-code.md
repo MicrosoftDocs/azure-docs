@@ -337,7 +337,7 @@ In this case, `<REQUEST-FILE>` is a JSON file that contains input data samples f
 >
 >    ```python 
 >    endpoint = ml_client.online_endpoints.get(endpoint_name, local=True)
->     endpoint.as_dict()
+>    endpoint.as_dict()
 >    ```
 >
 > The output should look similar to the following:
