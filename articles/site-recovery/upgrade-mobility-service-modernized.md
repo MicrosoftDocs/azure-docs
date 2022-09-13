@@ -3,7 +3,7 @@ title: Upgrade Mobility Service and appliance components - Modernized
 description: This article describes about automatic updates for mobility agent and the procedure involved with manual updates - Modernized.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/30/2022
+ms.date: 09/12/2022
 ---
 
 
@@ -62,6 +62,18 @@ To update mobility agent of a protected item, follow these steps:
 
    > [!NOTE]
    > If upgrade is blocked, check and resolve the errors as detailed [here](#resolve-blocking-issues-for-agent-upgrade).
+
+### Update mobility agent when private endpoint is enabled 
+
+Automatic updates will not be available when private endpoints have been enabled. To update mobility agent of a protected item, follow these steps:  
+
+1. Navigate to **Recovery services vault** > **Replicated items**, select a VM. 
+
+2. In VM's Overview blade, against Agent version, view the current version of the mobility agent. If a new update is available, the status is updated as New update available. 
+
+3. Once confirmed that a new version is available, download the latest agent version’s package from here, on the source machine.  
+
+4. Once done, update the agent version. 
 
 ## Mobility agent on latest version
 
@@ -132,6 +144,14 @@ To delete the registry key:
 1. On the server running the appliance, open the Registry Editor.
 2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. Delete the registry key **AutoUpdate**, that was previously created to turn off auto-update.
+
+### Update appliance components when private endpoint is enabled
+
+Automatic updates will not be available when private endpoints have been enabled. To update all the components of ASR replication appliance, follow these steps: 
+
+1.	Navigate to this page and check if a new version for any of the components has been released for a particular version.  
+2.	Download packages of all the versions for which an update is available, on the appliance. 
+3.	Once done, update all the components. 
 
 ### Resolve issues with component upgrade
 
