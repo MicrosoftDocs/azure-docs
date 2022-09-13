@@ -1,7 +1,6 @@
 ---
 title: Supported browsers and devices for Azure portal
 description: You can use the Azure portal on all modern devices and with the latest browser versions.
-ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
 ms.topic: conceptual
 ms.date: 09/12/2022
 ms.custom: accessibility
@@ -13,7 +12,7 @@ The [Azure portal](https://portal.azure.com) is a web-based console and runs in 
 
 ## Recommended browsers
 
-We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
+We recommend using the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
 
 * Microsoft Edge (latest version)
 * Safari (latest version, Mac only)
@@ -22,4 +21,4 @@ We recommend that you use the most up-to-date browser that's compatible with you
 
 ## Mobile app
 
-If you need to manage Azure resources from a mobile device, try the  [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/). It's available for iOS and Android.
+To manage Azure resources from a mobile device, try the [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/). It's available for iOS and Android.
