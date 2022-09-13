@@ -63,13 +63,12 @@ T1|3|1250|417|Scale in|2|
 
 1. At time T0, there are two instances handling 1250 threads, or 625 treads per instance. Autoscale scales out to three instances.
 1. Following the scale-out, at T1, we have the same 1250 threads, but with three instances, only 417 threads per instance. A scale-in event is triggered.
-1. Before scaling-in, autoscale evaluates what would happen if the scale-in event occurs. In this example, 1250 / 2 = 625, that is, 625 threads per instance. Autoscale would have to immediately scale out again after it scaled in, however, if it scaled out again, the whole process would repeat, leading to flapping loop.
-1. To avoid this situation, autoscale doesn't scale in. Instead, it skips the current scale event and reevaluates the condition in the next execution cycle.
+1. Before scaling-in, autoscale evaluates what would happen if the scale-in event occurs. In this example, 1250 / 2 = 625, that is, 625 threads per instance. Autoscale would have to immediately scale out again after it scaled in. If it scaled out again, the process would repeat, leading to flapping loop.
+1. To avoid this situation, autoscale doesn't scale in. Autoscale skips the current scale event and reevaluates the rule in the next execution cycle.
 
 In this case, it looks like autoscale isn't working since no scale event takes place. Check the *Run history* tab on the autoscale setting page to see if there is any flapping.
 
 :::image type="content" source="./media/autoscale-flapping/autoscale-flapping-runhistory-small.png" alt-text="A screenshot showing the autoscale run history tab with records showing flapping" lightbox="./media/autoscale-flapping/autoscale-flapping-runhistory.png":::
-
 
 Setting an adequate margin between thresholds solves the above condition. For example,
 
@@ -77,11 +76,6 @@ Setting an adequate margin between thresholds solves the above condition. For ex
 * Scale in when thread count < 400
 
 :::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example3.png" alt-text="A screenshot showing autoscale rules configured for the example" :::
-
-
-
-
-
 
 If the scale-in thread count is 400, the total thread count would have to drop to below 1200 before a scale event would take place. See the table below.
 
@@ -150,7 +144,7 @@ Below is an example of an activity log record for flapping:
 "eventName": "FlappingOccurred",
 "operationId": "ffd31c67-1438-47a5-bee4-1e3a102cf1c2",
 "eventProperties": 
-    "{"Description":"Scale down will occur with updated instance count to   avoid flapping. 
+    "{"Description":"Scale down will occur with updated instance count to avoid flapping. 
      Resource: '/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/  resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/  ScaleableAppServicePlan'.
      Current instance count: '6', 
      Intended new instance count: '1'.
