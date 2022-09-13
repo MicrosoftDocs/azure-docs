@@ -1276,8 +1276,6 @@ items:
         href: containers/container-insights-livedata-setup.md
       - name: View cluster metrics
         href: containers/container-insights-livedata-metrics.md
-      - name: View deployments
-        href: containers/container-insights-livedata-deployments.md
     - name: Alerting
       items:
       - name: Create log alert rules
