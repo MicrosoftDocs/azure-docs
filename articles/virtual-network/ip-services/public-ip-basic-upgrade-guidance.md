@@ -18,6 +18,20 @@ On September 30, 2025, Basic public IP addresses will be retired. For more infor
 
 We recommend the following approach to upgrade to Standard SKU Public IP addresses. 
 
+1. Learn about some of the [key differences](#basic-sku-vs-standard-sku) between Basic Public IP and Standard Public IP. 
+1. Identify the basic public IP to upgrade.
+1. Create a migration plan for planned downtime.
+1. Depending on the usage of Public IPs, perform the upgrade based on the following chart:
+
+    | Service using Basic Public IP | Decision path |
+    | ------ | ------ |
+    |Zone Redundancy | Create a new standard IP |
+    | No Zone Redundancy | Use script to upgrade |
+    | Load Balancer |  |
+    | VPN Gateway | Cannot dissociate and upgrade. You will need to create a new VPN GW |
+    | App Gateway | Cannot dissociate and upgrade. You will need to create a new App Gateway. |
+1. Verify your application and workloads are receiving traffic through the Standard Load Balancer.
+
 ## Basic SKU vs. Standard SKU 
 
 This section lists out some key differences between these two Public IP addresses SKUs.
