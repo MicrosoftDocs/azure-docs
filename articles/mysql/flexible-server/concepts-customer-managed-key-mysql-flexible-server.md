@@ -35,7 +35,7 @@ Data encryption with customer-managed keys for Azure Database for MySQL Flexible
 
 Managed identities in Azure Active Directory (Azure AD) provide Azure services an alternative to storing credentials in the code by provisioning an automatically-assigned identity that can be used to authenticate to any service supporting Azure AD authentication, such as Azure Key Vault (AKV). Azure Database for MySQL Flexible server currently supports only User-assigned Managed Identity (UMI). For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure.
 
-To configure the CMK for an Azure Azure Database for MySQL flexible server, you need to link the UMI to the server and specify the Azure Key vault and key to use. Note that the UMI must have the following access to key vault. 
+To configure the CMK for an Azure Database for MySQL flexible server, you need to link the UMI to the server and specify the Azure Key vault and key to use. Note that the UMI must have the following access to key vault. 
 
 - **Get**: For retrieving the public part and properties of the key in the key vault. 
 - **List**: List the versions of the key stored in a Key Vault.
