@@ -97,7 +97,7 @@ Policy.Read.All
 
 ## Permissions for PowerShell 
 
-Like any other client app, the Microsoft Graph Powershell module needs client permissions to access applied conditional access policies in the sign-in logs. To successfully pull applied conditional access in the sign-in logs, you must consent to the necessary permissions with your administrator account for MS Graph Powershell. As a best practice, consent to:
+Like any other client app, the Microsoft Graph PowerShell module needs client permissions to access applied conditional access policies in the sign-in logs. To successfully pull applied conditional access in the sign-in logs, you must consent to the necessary permissions with your administrator account for MS Graph PowerShell. As a best practice, consent to:
 
 - Policy.Read.ConditionalAccess
 - AuditLog.Read.All 
@@ -117,7 +117,7 @@ The output of this cmdlet contains a **AppliedConditionalAccessPolicies** proper
 
 For more information about this cmdlet, see [Get-MgAuditLogSignIn](https://docs.microsoft.com/powershell/module/microsoft.graph.reports/get-mgauditlogsignin?view=graph-powershell-1.0).
 
-The AzureAD Graph powershell module does not support viewing applied conditional access policies; only the Microsoft Graph Powershell module returns applied conditional access policies.  
+The AzureAD Graph powerShell module does not support viewing applied conditional access policies; only the Microsoft Graph PowerShell module returns applied conditional access policies.  
 
 ## Confirming access 
 
@@ -126,13 +126,13 @@ In the **Conditional Access** tab, you see a list of conditional access policies
 
 To confirm you have admin access to view applied conditional access policies in the sign in logs, do: 
 
-1. Navigate to the Azure portal. 
+1. Navigate to the Azure Portal. 
 
 2. In the top-right corner, select your directory, and then select **Azure Active Directory** in the left navigation pane. 
 
 3. In the **Monitoring** section, select **Sign-in logs**. 
 
-4. Click an item in the sign-in row table to bring up the Activity Details: Sign-Ins context pane.  
+4. Click an item in the sign-in row table to bring up the Activity Details: Sign-ins context pane.  
 
 5. Click on the Conditional Access tab in the context pane. If your screen is small, you may need to click the ellipsis […] to see all context pane tabs.  
 
