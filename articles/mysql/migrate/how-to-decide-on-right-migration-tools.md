@@ -14,9 +14,9 @@ ms.topic: how-to
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
-Migrations are multi-step projects that are tough to pull off. Migrating database servers across platforms involves more than data and schema migration. There are also several other components, such as server configuration parameters, networking, access control rules, etc., to move. These are required to ensure that the functionality of the database server in the new target platform mimics the source. 
+Migrations are multi-step projects that can be tough to complete. Migrating database servers across platforms involves more than data and schema migration. There are also several other components, such as server configuration parameters, networking, access control rules, etc., to move. These are required to ensure that the functionality of the database server in the new target platform mimics the source. 
 
-For detailed information and use cases about migrating databases to Azure Database for MySQL, you can refer to the [Database Migration Guide](../migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md). This document provides pointers to help you successfully plan and execute a MySQL migration to Azure. 
+For detailed information and use cases about migrating databases to Azure Database for MySQL, refer to the [Database Migration Guide](../migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md). This document provides pointers to help you successfully plan and execute a MySQL migration to Azure. 
 
 In general, migrations can be categorized as either offline or online. 
 
