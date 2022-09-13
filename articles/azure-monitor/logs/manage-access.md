@@ -35,9 +35,7 @@ The factors that define the data you can access are described in the following t
 
 ## Access mode
 
-*Access mode* depends on the context in which you access a Log Analytics workspace, based on the [scope](scope.md) you select in Log Analytics.
-
-There are two access modes:
+There are two access modes or contexts, which are determined by the [scope](scope.md) you select in Log Analytics: 
 
 - **Workspace-context**: You can view all logs in the workspace for which you have permission. Queries in this mode are scoped to all data in all tables in the workspace. This access mode is used when logs are accessed with the workspace as the scope, such as when you select **Logs** on the **Azure Monitor** menu in the Azure portal.
  - **Resource-context**: When you access the workspace for a particular resource, resource group, or subscription, such as when you select **Logs** from a resource menu in the Azure portal, you can view logs for only resources in all tables that you have access to. Queries in this mode are scoped to only data associated with that resource. This mode also enables granular Azure RBAC. Workspaces use a resource-context log model where every log record emitted by an Azure resource is automatically associated with this resource.
