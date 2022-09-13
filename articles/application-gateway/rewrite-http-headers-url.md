@@ -157,7 +157,7 @@ A rewrite rule set contains:
    * Rewriting URL components
       * **URL path**: The value to which the path is to be rewritten to. 
       * **URL Query String**: The value to which the query string is to be rewritten to. 
-      * **Re-evaluate path map**: Used to determine whether the URL path map is to be re-evaluated or not. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
+      * **Re-evaluate path map**: Used to determine whether the URL path map is to be reevaluated or not. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be reevaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
 
 ## Rewrite configuration common pitfalls
 
@@ -250,10 +250,10 @@ To accomplish scenarios where you want to choose the backend pool based on the v
 
 Now, if the user requests *contoso.com/listing?category=any*, then it will be matched with the default path since none of the path patterns in the path map (/listing1, /listing2, /listing3) will match. Since you associated the above rewrite set with this path, this rewrite set will be evaluated. As the query string will not match the condition in any of the 3 rewrite rules in this rewrite set, no rewrite action will take place and therefore, the request will be routed unchanged to the backend associated with the default path (which is *GenericList*).
 
-If the user requests *contoso.com/listing?category=shoes*, then again the default path will be matched. However, in this case the condition in the first rule will match and therefore, the action associated with the condition will be executed which will rewrite the URL path to /*listing1*  and re-evaluate the path-map. When the path-map is re-evaluated, the request will now match the path associated with pattern */listing1* and the request will be routed to the backend associated with this pattern, which is ShoesListBackendPool.
+If the user requests *contoso.com/listing?category=shoes*, then again the default path will be matched. However, in this case the condition in the first rule will match and therefore, the action associated with the condition will be executed which will rewrite the URL path to /*listing1*  and reevaluate the path-map. When the path-map is reevaluated, the request will now match the path associated with pattern */listing1* and the request will be routed to the backend associated with this pattern, which is ShoesListBackendPool.
 
->[!NOTE]
->This scenario can be extended to any header or cookie value, URL path, query string or server variables based on the conditions defined and essentially enables you to route requests based on those conditions.
+> [!NOTE]
+> This scenario can be extended to any header or cookie value, URL path, query string or server variables based on the conditions defined and essentially enables you to route requests based on those conditions.
 
 #### Rewrite query string parameters based on the URL
 
