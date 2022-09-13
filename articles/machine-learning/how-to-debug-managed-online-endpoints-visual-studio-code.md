@@ -101,7 +101,7 @@ The examples in this article can be found in the [Debug online endpoints locally
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples
-cd cli
+cd sdk/endpoints/online/managed
 ```
 
 Import the required modules: 
