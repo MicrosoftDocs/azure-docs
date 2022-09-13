@@ -94,7 +94,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
 *Regional*: Azure Key Vault is deployed in a region. To maintain high durability of your keys and secrets, the contents of your key vault are replicated within the region, as well as to a secondary region within the same geography.
 
-*Zone-redundant*: For Azure regions that don't have a secondary paired region, such as Qatar Central, and future Azure regions such as New Zealand, Belgium, Taiwan, Indonesia, Malaysia, Key Vault uses zone-redundant storage (ZRS) to replicate the contents of your key vault three times within the single location/region. 
+*Zone-redundant*: For Azure regions with availability zones and no region pair, Key Vault uses zone-redundant storage (ZRS) to replicate the contents of your key vault three times within the single location/region. 
 
 ## Workload considerations
 
