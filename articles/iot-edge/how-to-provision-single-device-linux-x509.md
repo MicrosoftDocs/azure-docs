@@ -197,17 +197,17 @@ If you need to troubleshoot the service, retrieve the service logs.
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
-    ```bash
-   sudo iotedge system logs
-   ```
+```bash
+sudo iotedge system logs
+```
 
 ::: moniker-end
 
 Use the `check` tool to verify configuration and connection status of the device.
 
-    ```bash
-    sudo iotedge check
-    ```
+```bash
+sudo iotedge check
+```
 
 >[!TIP]
 >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
