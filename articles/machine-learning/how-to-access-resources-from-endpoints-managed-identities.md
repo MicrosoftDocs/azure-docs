@@ -34,6 +34,8 @@ This guide assumes you don't have a managed identity, a storage account or an on
 
 ## Prerequisites
 
+# [Azure CLI](#tab/cli)
+
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * Install and configure the Azure CLI and ML (v2) extension. For more information, see [Install, set up, and use the 2.0 CLI](how-to-configure-cli.md).
@@ -57,6 +59,27 @@ This guide assumes you don't have a managed identity, a storage account or an on
     git clone https://github.com/Azure/azureml-examples --depth 1
     cd azureml-examples/cli
     ```
+
+# [Python](#tab/python)
+
+* To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+
+* Install and configure the Azure ML Python SDK (v2). For more information, see [Install and set up SDK (v2)](https://aka.ms/sdk-v2-install).
+
+* An Azure Resource group, in which you (or the service principal you use) need to have `User Access Administrator` and  `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article.
+
+* An Azure Machine Learning workspace. You'll have a workspace if you configured your ML extension per the above article.
+
+* A trained machine learning model ready for scoring and deployment. If you are following along with the sample, a model is provided.
+
+* To follow along with the sample, clone the samples repository
+
+    ```azurecli
+    git clone https://github.com/Azure/azureml-examples --depth 1
+    cd azureml-examples/cli
+    ```
+    
+---
 
 ## Limitations
 
