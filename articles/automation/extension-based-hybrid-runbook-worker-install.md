@@ -31,14 +31,14 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 - **Non-Azure machines** must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
 
->[!NOTE]
-> Hybrid Runbook Worker currently doesn't support Virtual Machine Scale Sets (VMSS).
+  >[!NOTE]
+  > Hybrid Runbook Worker currently doesn't support Virtual Machine Scale Sets (VMSS).
 
 ### Supported operating systems
 
 | Windows | Linux (x64)|
 |---|---|
-| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 | &#9679; Debian GNU/Linux 10 and 11 <br> &#9679; Ubuntu 20.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 | &#9679; Debian GNU/Linux 10 and 11 <br> &#9679; Ubuntu 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
 
 ### Other Requirements
 
