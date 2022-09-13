@@ -20,14 +20,14 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | Schema | Version | Status |
 | ------ | ------- | ------ |
 | [Authentication Event](authentication-normalization-schema.md) | 0.1.1 | Preview |
-| [DNS Activity](dns-normalization-schema.md) | 0.1.3 | Preview |
+| [DNS Activity](dns-normalization-schema.md) | 0.1.4 | Preview |
 | [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
 | [File Activity](file-event-normalization-schema.md) | 0.1 | Preview |
-| [Network Session](normalization-schema.md) | 0.2.2 | Preview |
+| [Network Session](normalization-schema.md) | 0.2.4 | Preview |
 | [Process Event](process-events-normalization-schema.md) | 0.1 | Preview |
 | [Registry Event](registry-event-normalization-schema.md) | 0.1 | Preview |
 | [User Management](user-management-normalization-schema.md) | 0.1 | Preview |
-| [Web Session](web-normalization-schema.md) | 0.2.2 | Preview |
+| [Web Session](web-normalization-schema.md) | 0.2.4 | Preview |
 
 
 > [!IMPORTANT]
