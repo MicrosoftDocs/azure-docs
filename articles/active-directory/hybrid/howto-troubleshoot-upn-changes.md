@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: how-to
-ms.date: 05/18/2022
+ms.date: 09/13/2022
 
 ms.author: baselden
 author: barbaraselden
