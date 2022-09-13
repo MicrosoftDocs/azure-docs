@@ -276,9 +276,9 @@ To grant users read access to specific tables in a workspace, call the https://m
      "requests": [
          {
              "content": {
-                 "Id": "<unique GUID>",
+                 "Id": "<GUID_1>",
                  "Properties": {
-                 "PrincipalId": "<User Object ID to which Table Level RBAC should be assigned",
+                 "PrincipalId": "<Object ID of the user to which the table-level RBAC should be assigned>",
                  "PrincipalType": "User",
                  "RoleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
                  "Scope": "/subscriptions/<subscriptionid>/resourceGroups/<resourcegroup name>/providers/Microsoft.OperationalInsights/workspaces/<workspacename>/Tables/<table name>",
@@ -287,15 +287,17 @@ To grant users read access to specific tables in a workspace, call the https://m
                  }
              },
              "httpMethod": "PUT",
-             "name": "<new unique guid>",
+             "name": "<GUID_2>",
              "requestHeaderDetails":{
                  "commandName": "Microsoft_Azure_AD."
              },
-             "url": "https://api-dogfood.resources.windows-int.net/subscriptions/f8df94f2-2f5a-4f4a-bcaf-1bb992fb564b/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/Dilshad/Tables/First_CL/providers/Microsoft.Authorization/roleAssignments/<first unique GUID from Id>?api-version=2020-04-01-preview"
+             "url": "https://api-dogfood.resources.windows-int.net/subscriptions/f8df94f2-2f5a-4f4a-bcaf-1bb992fb564b/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/Dilshad/Tables/First_CL/providers/Microsoft.Authorization/roleAssignments/<GUID_1 from Id>?api-version=2020-04-01-preview"
          }
      ]
 }
 ```
+
+You can generate a GUID for `<GUID_1>` and `<GUID_2>` using any GUID generator.
 
 ### Legacy method of setting table-level read access
 
