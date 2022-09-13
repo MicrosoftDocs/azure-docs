@@ -40,38 +40,38 @@ Each error code falls under one of the following four buckets:
 ## Error code examples for each classification type
 
 ### Spark_User_TypeError_TypeNotIterable
-    
-    In Python, the error `TypeError: argument of type 'insert type' is not iterable` occurs when the membership operator (in, not in) is used to validate the membership of a value in non iterable objects such as list, tuple, dictionary. This is usually due to the search of value in a non-iterable object. Possible solutions:
 
-    * Check if the value is present in the iterable object.
-    * If you want to check one value to another, use logical operator instead of Membership Operator.
-    * If the membership operator contains "None" value, it won't be able to iterate, and a null check or assigned default must be done.
-    * Check if the type of the value used can actually be checked and the typing is correct.
+In Python, the error `TypeError: argument of type 'insert type' is not iterable` occurs when the membership operator (in, not in) is used to validate the membership of a value in non iterable objects such as list, tuple, dictionary. This is usually due to the search of value in a non-iterable object. Possible solutions:
+
+* Check if the value is present in the iterable object.
+* If you want to check one value to another, use logical operator instead of Membership Operator.
+* If the membership operator contains "None" value, it won't be able to iterate, and a null check or assigned default must be done.
+* Check if the type of the value used can actually be checked and the typing is correct.
 
 ### Spark_System_ABFS_OperationFailed
 
-    An operation with ADLS Gen2 has failed.
+An operation with ADLS Gen2 has failed.
 
-    This error occurs typically due to a permissions issue.
+This error occurs typically due to a permissions issue.
 
-    Ensure that for all ADLS Gen2 resources referenced in the Spark job, has "Storage Blob Data Contributor" RBAC role on the storage accounts the job is expected to read and write from.
-    Check the logs for this Spark application. Navigate to your Synapse Studio, select the **Monitor** tab from the left pane. From the **Activities** section, select **Apache Spark Applications** and find your Spark job from the list. For the ADLS Gen2 storage account name that is experiencing this issue, inspect the logs available in the **Logs** tab at the bottom part of this page.
+Ensure that for all ADLS Gen2 resources referenced in the Spark job, has "Storage Blob Data Contributor" RBAC role on the storage accounts the job is expected to read and write from.
+Check the logs for this Spark application. Navigate to your Synapse Studio, select the **Monitor** tab from the left pane. From the **Activities** section, select **Apache Spark Applications** and find your Spark job from the list. For the ADLS Gen2 storage account name that is experiencing this issue, inspect the logs available in the **Logs** tab at the bottom part of this page.
 
 ### Spark_Ambiguous_ClassLoader_NoClassDefFound
 
-    A class required by the code could not be found when the script was run.
+A class required by the code could not be found when the script was run.
 
-    Please refer to the following pages for package management documentation:
+Please refer to the following pages for package management documentation:
 
-    For Notebook scenarios: [Apache Spark manage packages for interactive jobs](./apache-spark-manage-scala-packages.md) 
+For Notebook scenarios: [Apache Spark manage packages for interactive jobs](./apache-spark-manage-scala-packages.md) 
 
-    For Spark batch scenarios (see section 6): [Apache Spark manage packages for batch jobs](./apache-spark-job-definitions.md#create-an-apache-spark-job-definition-for-apache-sparkscala )
+For Spark batch scenarios (see section 6): [Apache Spark manage packages for batch jobs](./apache-spark-job-definitions.md#create-an-apache-spark-job-definition-for-apache-sparkscala )
 
-    Ensure that all the code dependencies are included in the JARs Synapse runs. If you do not or cannot include third party JARs with your own code, ensure that all dependencies are included in the workspace packages for the Spark pool you are executing code on, or they are included in the "Reference files" listing for the Spark batch submission. See the above documentation for more information.
+Ensure that all the code dependencies are included in the JARs Synapse runs. If you do not or cannot include third party JARs with your own code, ensure that all dependencies are included in the workspace packages for the Spark pool you are executing code on, or they are included in the "Reference files" listing for the Spark batch submission. See the above documentation for more information.
 
 ### Spark_Unknown_Unknown_java.lang.Exception
 
-    An unknown failure, the model wasn't able to classify.
+An unknown failure, the model wasn't able to classify.
 
 
 The error codes (including and beyond the list shown above) along with the troubleshooting instructions on how to resolve the issue will show up on the Synapse Studio application error pane if this feature is enabled.
