@@ -4,7 +4,7 @@ description: Learn how to use customer-managed keys with your Azure disks in dif
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/02/2022
+ms.date: 09/13/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -22,12 +22,12 @@ If you have any questions about cross-tenant customer-managed keys with managed 
 
 ## Prerequisites
 - Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
-- You must enable the preview on your subscription, use the following command to enable the preview:
+- You must enable the preview on your subscription. Use the following command to enable the preview:
     ```azurepowershell
     Register-AzProviderFeature -FeatureName "EncryptionAtRestWithCrossTenantKey" -ProviderNamespace "Microsoft.Compute"
     ```
 
-    It may take some time for the feature registration to complete, you can confirm if it has with the following command:
+    It may take some time for the feature registration to complete. You can confirm if it has with the following command:
     
     ```azurepowershell
     Get-AzProviderFeature -FeatureName "EncryptionAtRestWithCrossTenantKey" -ProviderNamespace "Microsoft.Compute"
