@@ -49,7 +49,7 @@ The following table provides an overview of scenarios to help you choose what wo
 
 ## Prerequisites
 
-# [Portal](#tab/azure-portal)
+# [Azure CLI](#tab/cli)
 
 This guide assumes you have the following items installed locally on your PC.
 
@@ -96,7 +96,7 @@ This guide assumes you have the following items installed locally on your PC.
 
 For more information, see the guide on [how to prepare your system to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md#prepare-your-system).
 
-The examples in this article are based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli` directory in the repo:
+The examples in this article can be found in the [Debug online endpoints locally in Visual Studio Code](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb) notebook within the[azureml-examples](https://github.com/azure/azureml-examples) repository. To run the code locally, clone the repo and then change directories to the notebook's parent directory `sdk/endpoints/online/managed`. 
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -104,26 +104,35 @@ cd azureml-examples
 cd cli
 ```
 
-If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, use the following commands. Replace the following parameters with values for your specific configuration:
+Import the required modules: 
 
-* Replace `<subscription>` with your Azure subscription ID.
-* Replace `<workspace>` with your Azure Machine Learning workspace name.
-* Replace `<resource-group>` with the Azure resource group that contains your workspace.
-* Replace `<location>` with the Azure region that contains your workspace.
+```python
+from azure.ai.ml import MLClient
+from azure.ai.ml.entities import (
+    ManagedOnlineEndpoint,
+    ManagedOnlineDeployment,
+    Model,
+    CodeConfiguration,
+    Environment,
+)
+from azure.identity import DefaultAzureCredential, AzureCliCredential
+``` 
 
-> [!TIP]
-> You can see what your current defaults are by using the `az configure -l` command.
+Set up variables for the workspace and endpoint: 
 
-```azurecli
-az account set --subscription <subscription>
-az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
-```
+```python 
+subscription_id = "<SUBSCRIPTION_ID>"
+resource_group = "<RESOURCE_GROUP>"
+workspace_name = "<AML_WORKSPACE_NAME>"
+
+endpoint_name = "<ENDPOINT_NAME>"
+``` 
 
 --- 
 
 ## Launch development container
 
-# [Portal](#tab/azure-portal)
+# [Azure CLI](#tab/cli)
 
 Azure Machine Learning local endpoints use Docker and VS Code development containers (dev container) to build and configure a local debugging environment. With dev containers, you can take advantage of VS Code features from inside a Docker container. For more information on dev containers, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container).
 
@@ -157,30 +166,6 @@ You'll use a few VS Code extensions to debug your deployments in the dev contain
 # [Python](#tab/python)
 
 Azure Machine Learning local endpoints use Docker and VS Code development containers (dev container) to build and configure a local debugging environment. With dev containers, you can take advantage of VS Code features from inside a Docker container. For more information on dev containers, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container).
-
-Import the required modules: 
-
-```python
-from azure.ai.ml import MLClient
-from azure.ai.ml.entities import (
-    ManagedOnlineEndpoint,
-    ManagedOnlineDeployment,
-    Model,
-    CodeConfiguration,
-    Environment,
-)
-from azure.identity import DefaultAzureCredential, AzureCliCredential
-``` 
-
-Set up variables for the workspace and endpoint: 
-
-```python 
-subscription_id = "<SUBSCRIPTION_ID>"
-resource_group = "<RESOURCE_GROUP>"
-workspace_name = "<AML_WORKSPACE_NAME>"
-
-endpoint_name = "<ENDPOINT_NAME>"
-``` 
 
 Get a handle to the workspace: 
 
@@ -277,7 +262,7 @@ For more information on the VS Code debugger, see [Debugging in VS Code](https:/
 
 ## Debug your endpoint
 
-# [Portal](#tab/azure-portal)
+# [Azure CLI](#tab/cli)
 
 Now that your application is running in the debugger, try making a prediction to debug your scoring script.
 
@@ -381,7 +366,7 @@ At this point, any breakpoints in your `run` function are caught. Use the debug 
 
 ## Edit your endpoint
 
-# [Portal](#tab/azure-portal)
+# [Azure CLI](#tab/cli)
 
 As you debug and troubleshoot your application, there are scenarios where you need to update your scoring script and configurations.
 
