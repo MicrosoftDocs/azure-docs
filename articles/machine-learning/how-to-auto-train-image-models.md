@@ -268,18 +268,18 @@ image_object_detection_job = automl.image_object_detection(
 
 ## Configure experiments
 
-For computer vision tasks only, you can launch either individual runs, manual sweeps or automatic sweeps. We recommend starting with an automatic sweep to get a first baseline model. Then, you can try out individual runs with certain models and hyperparameter configurations. Finally, with manual sweeps you can explore multiple hyperparameter values for the more promising models and hyperparameter configurations. This iterative approach avoids searching the entirety of the hyperparameter space, which grows exponentially in the number of hyperparameters.
+For computer vision tasks, you can launch either individual runs, manual sweeps or automatic sweeps. We recommend starting with an automatic sweep to get a first baseline model. Then, you can try out individual runs with certain models and hyperparameter configurations. Finally, with manual sweeps you can explore multiple hyperparameter values for the more promising models and hyperparameter configurations. This iterative approach avoids searching the entirety of the hyperparameter space, which grows exponentially in the number of hyperparameters.
 
 Automatic sweeps can yield competitive results for many datasets. Additionally, they do not require advanced knowledge of model architectures, they take into account hyperparameter correlations and they work seamlessly across different hardware setups. All these reasons make them a strong option for the early stage of your experimentation process.
 
-## Automatically sweeping model hyperparameters (Automode)
+## Automatically sweeping model hyperparameters
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-It is generally hard to predict the best model architecture and hyperparameters for a dataset. Also, in some cases the human time allocated to tuning hyperparameters may be limited. With support for computer vision tasks, you can specify a number of runs and the Automode feature will automatically determine the region of the hyperparameter space to sweep. You do not have to define a hyperparameter search space, a sampling method or an early termination policy.
+It is generally hard to predict the best model architecture and hyperparameters for a dataset. Also, in some cases the human time allocated to tuning hyperparameters may be limited. For computer vision tasks, you can specify a number of runs and the system will automatically determine the region of the hyperparameter space to sweep. You do not have to define a hyperparameter search space, a sampling method or an early termination policy.
 
-### Triggering Automode
+### Triggering automatic sweeps
 
 You can run automatic sweeps by setting `max_trials` to a value greater than 1 in `limits`, as shown in the example below. The time budget for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time. Note that a search space, sampling method and termination policy must not be specified.
 
@@ -299,12 +299,12 @@ limits:
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
-# Trigger Automode
 image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2, timeout_minutes=60)
 ```
 ---
 
-Automode is currently not supported in the UI.
+> [!Warning]
+> Automatic sweeps for computer vision tasks are currently not supported in the UI.
 
 
 ## Individual runs
@@ -386,7 +386,7 @@ limits:
 
 ## Manually sweeping model hyperparameters
 
-When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance. With support for computer vision tasks in automated ML, you can sweep hyperparameters to find the optimal settings for your model. This feature applies the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](how-to-tune-hyperparameters.md).
+When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance. For computer vision tasks, you can sweep hyperparameters to find the optimal settings for your model. This feature applies the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](how-to-tune-hyperparameters.md).
 
 ### Define the parameter search space
 
