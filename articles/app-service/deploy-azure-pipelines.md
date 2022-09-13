@@ -1,8 +1,8 @@
 ---
 title: Configure CI/CD with Azure Pipelines
-description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with Azure DevOps Pipelines.
+description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with Azure Pipelines.
 ms.topic: article
-ms.date: 06/14/2022
+ms.date: 09/13/2022
 ms.author: jukullam
 ms.manager: mijacobs
 ms.custom: "devops-pipelines-deploy"
@@ -107,7 +107,7 @@ To get started:
 
 Now you're ready to read through the rest of this topic to learn some of the more common changes that people make to customize an Azure Web App deployment.
 
-## Use the Azure Web App task (.NET, )
+## Use the Azure Web App task
 
 # [YAML](#tab/yaml/)
 
@@ -482,4 +482,6 @@ You're now ready to create a release, which means to run the release pipeline wi
 
 1. After the release is complete, navigate to your site running in Azure using the Web App URL `http://{web_app_name}.azurewebsites.net`, and verify its contents.
 
+## Next steps
 
+- Customize your [Azure DevOps pipeline](/azure/devops/pipelines/customize-pipeline). 
