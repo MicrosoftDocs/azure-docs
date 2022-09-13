@@ -30,7 +30,7 @@ coordinator node.
 
 > [!NOTE]
 >
-> Hyperscale (Citus) clusters running older versions of the Citus Engine may not
+> clusters running older versions of the Citus Engine may not
 > offer all the tables listed below.
 
 ### Partition table

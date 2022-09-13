@@ -47,7 +47,7 @@ Health and can be:
 When specifying preferences for the maintenance schedule, you can pick a day of
 the week and a time window. If you don't specify, the system will pick times
 between 11pm and 7am in your cluster's region time. You can define
-different schedules for each Hyperscale (Citus) cluster in your Azure
+different schedules for each cluster in your Azure
 subscription.
 
 > [!IMPORTANT]
@@ -60,7 +60,7 @@ subscription.
 > maintenance was performed in the last 30 days.
 
 You can update scheduling settings at any time. If there's maintenance
-scheduled for your Hyperscale (Citus) cluster and you update the schedule,
+scheduled for your cluster and you update the schedule,
 the pre-existing events will be rescheduled.
 
 If maintenance fails or gets canceled, the system will create a notification.

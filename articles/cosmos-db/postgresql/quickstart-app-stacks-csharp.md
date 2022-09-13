@@ -23,7 +23,7 @@ In this document, you'll learn how to connect to a Hyperscale (Citus) database u
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-* Create a Hyperscale (Citus) cluster using this link [Create Hyperscale (Citus) cluster](quickstart-create-portal.md)
+* Create a cluster using this link [Create cluster](quickstart-create-portal.md)
 * Install the [.NET SDK](https://dotnet.microsoft.com/download) for your platform (Windows, Ubuntu Linux, or macOS) for your platform.
 * Install [Visual Studio](https://www.visualstudio.com/downloads/) to build your project.
 * Install the [Npgsql](https://www.nuget.org/packages/Npgsql/) NuGet package in Visual Studio.

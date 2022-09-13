@@ -13,7 +13,7 @@ ms.date: 07/17/2020
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Running efficient queries on a Hyperscale (Citus) cluster requires that
+Running efficient queries on a cluster requires that
 tables be properly distributed across servers. The recommended distribution
 varies by the type of application and its query patterns.
 

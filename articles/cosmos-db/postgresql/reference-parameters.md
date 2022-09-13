@@ -24,7 +24,7 @@ all worker nodes, or just for the coordinator node.
 
 > [!NOTE]
 >
-> Hyperscale (Citus) clusters running older versions of the Citus Engine may not
+> clusters running older versions of the Citus Engine may not
 > offer all the parameters listed below.
 
 ### General configuration
@@ -777,5 +777,5 @@ The supported values are:
 
 ## Next steps
 
-* Another form of configuration, besides server parameters, are the resource [configuration options](resources-compute.md) in a Hyperscale (Citus) cluster.
+* Another form of configuration, besides server parameters, are the resource [configuration options](resources-compute.md) in a cluster.
 * The underlying PostgreSQL data base also has [configuration parameters](http://www.postgresql.org/docs/current/static/runtime-config.html).

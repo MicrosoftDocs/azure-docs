@@ -1,6 +1,6 @@
 ---
 title: Compute and storage – Azure Cosmos DB for PostgreSQL
-description: Options for a Hyperscale (Citus) cluster, including node compute and storage
+description: Options for a cluster, including node compute and storage
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -18,7 +18,7 @@ worker nodes and the coordinator node in a Hyperscale (Citus) server
 group.  Compute resources are provided as vCores, which represent
 the logical CPU of the underlying hardware. The storage size for
 provisioning refers to the capacity available to the coordinator
-and worker nodes in your Hyperscale (Citus) cluster. The storage
+and worker nodes in your cluster. The storage
 includes  database files, temporary files, transaction logs, and
 the Postgres server logs.
 
@@ -54,7 +54,7 @@ available to each worker and coordinator node.
 | 1                 | 3,072        |
 | 2                 | 6,148        |
 
-For the entire Hyperscale (Citus) cluster, the aggregated IOPS work out to the
+For the entire cluster, the aggregated IOPS work out to the
 following values:
 
 | Worker nodes | 0.5 TiB, total IOPS | 1 TiB, total IOPS | 2 TiB, total IOPS |
@@ -117,5 +117,5 @@ available to the basic tier node.
 
 ## Next steps
 
-* Learn how to [create a Hyperscale (Citus) cluster in the portal](quickstart-create-portal.md)
+* Learn how to [create a cluster in the portal](quickstart-create-portal.md)
 * Change [compute quotas](howto-compute-quota.md) for a subscription and region

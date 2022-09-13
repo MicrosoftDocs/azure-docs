@@ -15,7 +15,7 @@ ms.date: 04/14/2021
 
 Azure Cosmos DB for PostgreSQL automatically creates
 backups of each node and stores them in locally redundant storage. Backups can
-be used to restore your Hyperscale (Citus) cluster to a specified time.
+be used to restore your cluster to a specified time.
 Backup and restore are an essential part of any business continuity strategy
 because they protect your data from accidental corruption or deletion.
 
@@ -29,7 +29,7 @@ AES 256-bit encryption.
 
 In Azure regions that support availability zones, backup snapshots are stored
 in three availability zones. As long as at least one availability zone is
-online, the Hyperscale (Citus) cluster is restorable.
+online, the cluster is restorable.
 
 Backup files can't be exported. They may only be used for restore operations
 in Azure Database for PostgreSQL.
@@ -42,13 +42,13 @@ page](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/).
 
 ## Restore
 
-You can restore a Hyperscale (Citus) cluster to any point in time within
+You can restore a cluster to any point in time within
 the last 35 days.  Point-in-time restore is useful in multiple scenarios. For
 example, when a user accidentally deletes data, drops an important table or
 database, or if an application accidentally overwrites good data with bad data.
 
 > [!IMPORTANT]
-> Deleted Hyperscale (Citus) clusters can't be restored. If you delete the
+> Deleted clusters can't be restored. If you delete the
 > cluster, all nodes that belong to the cluster are deleted and can't
 > be recovered. To protect cluster resources, post deployment, from
 > accidental deletion or unexpected changes, administrators can leverage

@@ -74,7 +74,7 @@ a read replica by using the user accounts that are available on the primary
 server.
 
 You can connect to the replica's coordinator node by using its hostname and a
-valid user account, as you would on a regular Hyperscale (Citus) cluster.
+valid user account, as you would on a regular cluster.
 For instance, given a server named **my replica** with the admin username
 **citus**, you can connect to the coordinator node of the replica by using
 psql:
@@ -91,7 +91,7 @@ This section summarizes considerations about the read replica feature.
 
 ### New replicas
 
-A read replica is created as a new Hyperscale (Citus) cluster. An existing
+A read replica is created as a new cluster. An existing
 cluster can't be made into a replica. You can't create a replica of
 another read replica.
 

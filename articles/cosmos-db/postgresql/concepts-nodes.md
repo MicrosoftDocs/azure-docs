@@ -41,7 +41,7 @@ health of worker nodes, and the distribution of data across nodes.
 
 ## Table types
 
-There are three types of tables in a Hyperscale (Citus) cluster, each
+There are three types of tables in a cluster, each
 stored differently on nodes and used for different purposes.
 
 ### Type 1: Distributed tables

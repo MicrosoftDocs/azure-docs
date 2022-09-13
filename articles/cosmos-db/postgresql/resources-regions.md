@@ -1,6 +1,6 @@
 ---
 title: Regional availability – Azure Cosmos DB for PostgreSQL
-description: Where you can run a Hyperscale (Citus) cluster
+description: Where you can run a cluster
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -14,7 +14,7 @@ ms.date: 06/21/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Hyperscale (Citus) clusters are available in the following Azure regions:
+clusters are available in the following Azure regions:
 
 * Americas:
 	* Brazil South
@@ -52,4 +52,4 @@ request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportB
  
 **Next steps**
 
-Learn how to [create a Hyperscale (Citus) cluster in the portal](quickstart-create-portal.md).
+Learn how to [create a cluster in the portal](quickstart-create-portal.md).

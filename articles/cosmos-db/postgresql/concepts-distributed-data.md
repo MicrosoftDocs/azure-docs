@@ -18,7 +18,7 @@ It shows how distributed tables are stored as shards, and the way that shards ar
 
 ## Table types
 
-There are three types of tables in a Hyperscale (Citus) cluster, each
+There are three types of tables in a cluster, each
 used for different purposes.
 
 ### Type 1: Distributed tables

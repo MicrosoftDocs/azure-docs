@@ -26,7 +26,7 @@ types of Azure resources, such as database servers and Azure Virtual Machines
 (VM), to securely communicate with each other. Virtual networks support on-premises
 connections, allow hosts in multiple virtual networks to interact with each
 other through peering, and provide added benefits of scale, security options,
-and isolation. Each private endpoint for a Hyperscale (Citus) cluster
+and isolation. Each private endpoint for a cluster
 requires an associated virtual network.
 
 **Subnet**. Subnets segment a virtual network into one or more subnetworks.
@@ -57,7 +57,7 @@ nodes' PostgreSQL connection strings.
 ## Private link
 
 You can use [private endpoints](../../private-link/private-endpoint-overview.md)
-for your Hyperscale (Citus) clusters to allow hosts on a virtual network
+for your clusters to allow hosts on a virtual network
 (VNet) to securely access data over a [Private
 Link](../../private-link/private-link-overview.md).
 
@@ -70,7 +70,7 @@ Applications in the virtual network can connect to the Hyperscale (Citus) nodes
 over the private endpoint seamlessly, using the same connection strings and
 authorization mechanisms that they would use otherwise.
 
-You can select private access during Hyperscale (Citus) cluster creation,
+You can select private access during cluster creation,
 and you can switch from public access to private access at any point.
 
 ### Using a private DNS zone
@@ -110,7 +110,7 @@ server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-
 
 ### Recommendations
 
-When you enable private access for your Hyperscale (Citus) cluster,
+When you enable private access for your cluster,
 consider:
 
 * **Subnet size**: When selecting subnet size for Hyperscale (Citus) server
@@ -122,7 +122,7 @@ consider:
   FAQ](../../virtual-network/virtual-networks-faq.md#configuration).
 * **Private DNS zone**: DNS records with private IP addresses are going to be
   maintained by Hyperscale (Citus) service. Make sure you don’t delete private
-  DNS zone used for Hyperscale (Citus) clusters.
+  DNS zone used for clusters.
 
 ## Limits and limitations
 

@@ -18,7 +18,7 @@ to create an Azure Cosmos DB for PostgreSQL cluster:
 
 # [Direct link](#tab/direct)
 
-Visit [Create Hyperscale (Citus) cluster](https://portal.azure.com/#create/Microsoft.PostgreSQLServerGroup) in the Azure portal.
+Visit [Create cluster](https://portal.azure.com/#create/Microsoft.PostgreSQLServerGroup) in the Azure portal.
 
 # [Via portal search](#tab/portal-search)
 
@@ -28,7 +28,7 @@ Visit [Create Hyperscale (Citus) cluster](https://portal.azure.com/#create/Micro
    ![search for citus](media/quickstart-hyperscale-create-portal/portal-search.png)
 2. Select **+ Create**.
    ![create button](media/quickstart-hyperscale-create-portal/create-button.png)
-3. Select the **Hyperscale (Citus) cluster** deployment option.
+3. Select the **cluster** deployment option.
    ![deployment options](media/quickstart-hyperscale-create-portal/deployment-option.png)
 
 ---

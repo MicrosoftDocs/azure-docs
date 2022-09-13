@@ -26,7 +26,7 @@ In this tutorial, you use Azure Cosmos DB for PostgreSQL to learn how to:
 
 ## Prerequisites
 
-This tutorial requires a running Hyperscale (Citus) cluster with two
+This tutorial requires a running cluster with two
 worker nodes. If you don't have a running cluster, follow the [create
 cluster](quickstart-create-portal.md) tutorial and then come back
 to this one.
@@ -38,7 +38,7 @@ for scalable queries in Hyperscale (Citus). Together, multiple nodes can hold
 more data than a traditional database, and in many cases can use worker CPUs in
 parallel to execute queries.
 
-In the prerequisites section, we created a Hyperscale (Citus) cluster with
+In the prerequisites section, we created a cluster with
 two worker nodes.
 
 ![coordinator and two workers](media/tutorial-shard/nodes.png)

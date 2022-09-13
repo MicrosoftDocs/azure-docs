@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/15/2022
 ---
 
-# Hyperscale (Citus) cluster
+# cluster
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

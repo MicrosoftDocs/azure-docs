@@ -13,7 +13,7 @@ ms.date: 01/14/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This tutorial creates a virtual machine and a Hyperscale (Citus) cluster,
+This tutorial creates a virtual machine and a cluster,
 and establishes [private access](concepts-private-access.md) between
 them.
 
@@ -117,7 +117,7 @@ az vm run-command invoke \
 	- **Integrate with private DNS zone**: Yes
 
 9. After creating the private endpoint, select **Review + create** to create
-   your Hyperscale (Citus) cluster.
+   your cluster.
 
 ## Access the cluster privately from the virtual machine
 
@@ -154,7 +154,7 @@ was able to execute the command, and the private link worked.
 ## Clean up resources
 
 We've seen how to create a private link between a virtual machine and a
-Hyperscale (Citus) cluster. Now we can deprovision the resources.
+cluster. Now we can deprovision the resources.
 
 Delete the resource group, and the resources inside will be deprovisioned:
 

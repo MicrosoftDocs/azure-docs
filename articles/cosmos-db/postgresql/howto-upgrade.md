@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 08/29/2022
 ---
 
-# Upgrade Hyperscale (Citus) cluster
+# Upgrade cluster
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -34,7 +34,7 @@ works properly, upgrade the original cluster.
 
 ## Upgrade a cluster in the Azure portal
 
-1. In the **Overview** section of a Hyperscale (Citus) cluster, select the
+1. In the **Overview** section of a cluster, select the
    **Upgrade** button.
 1. A dialog appears, showing the current version of PostgreSQL and Citus.
    Choose a new PostgreSQL version in the **Upgrade to** list.
@@ -46,5 +46,5 @@ works properly, upgrade the original cluster.
 
 * Learn about [supported PostgreSQL versions](reference-versions.md).
 * See [which extensions](reference-extensions.md) are packaged with
-  each PostgreSQL version in a Hyperscale (Citus) cluster.
+  each PostgreSQL version in a cluster.
 * Learn more about [upgrades](concepts-upgrade.md)

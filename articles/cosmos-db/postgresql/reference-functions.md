@@ -19,7 +19,7 @@ distributed functionality to Hyperscale (Citus).
 
 > [!NOTE]
 >
-> Hyperscale (Citus) clusters running older versions of the Citus Engine may not
+> clusters running older versions of the Citus Engine may not
 > offer all the functions listed below.
 
 ## Table and Shard DDL

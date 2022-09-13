@@ -18,7 +18,7 @@ group, and in aggregate across the nodes.
 
 ## View metrics
 
-To access metrics for a Hyperscale (Citus) cluster, open **Metrics**
+To access metrics for a cluster, open **Metrics**
 under **Monitoring** in the Azure portal.
 
 :::image type="content" source="media/howto-hyperscale-monitoring/metrics.png" alt-text="The metrics screen":::

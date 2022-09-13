@@ -14,7 +14,7 @@ ms.date: 01/14/2022
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 This page outlines the multiple layers of security available to protect the data in your
-Hyperscale (Citus) cluster. 
+cluster. 
 
 ## Information protection and encryption
 

@@ -1,6 +1,6 @@
 ---
 title: Limits and limitations – Azure Cosmos DB for PostgreSQL
-description: Current limits for Hyperscale (Citus) clusters
+description: Current limits for clusters
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -20,7 +20,7 @@ Hyperscale (Citus) service.
 
 #### Server group name
 
-A Hyperscale (Citus) cluster must have a name that is 40 characters or
+A cluster must have a name that is 40 characters or
 shorter.
 
 ## Networking
@@ -79,7 +79,7 @@ quotas](howto-compute-quota.md).
 ### Database creation
 
 The Azure portal provides credentials to connect to exactly one database per
-Hyperscale (Citus) cluster, the `citus` database. Creating another
+cluster, the `citus` database. Creating another
 database is currently not allowed, and the CREATE DATABASE command will fail
 with an error.
 
@@ -110,6 +110,6 @@ tables](concepts-columnar.md):
 
 ## Next steps
 
-* Learn how to [create a Hyperscale (Citus) cluster in the
+* Learn how to [create a cluster in the
   portal](quickstart-create-portal.md).
 * Learn to enable [connection pooling](concepts-connection-pool.md).

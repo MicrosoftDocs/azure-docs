@@ -12,7 +12,7 @@ ms.date: 06/29/2022
 #Customer intent: As a developer, I want to provision a hyperscale cluster so that I can run queries quickly on large datasets.
 ---
 
-# Create a Hyperscale (Citus) cluster in the Azure portal
+# Create a cluster in the Azure portal
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

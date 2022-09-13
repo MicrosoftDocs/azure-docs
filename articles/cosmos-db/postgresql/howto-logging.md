@@ -34,7 +34,7 @@ and check the **Send to Log Analytics workspace** box.  Then select **Save**.
 ## Viewing logs
 
 To view and filter the logs, we'll use Kusto queries. Open **Logs** in the
-Azure portal for your Hyperscale (Citus) cluster. If a query selection
+Azure portal for your cluster. If a query selection
 dialog appears, close it:
 
 :::image type="content" source="media/howto-hyperscale-logging/logs-dialog.png" alt-text="Logs page with dialog box open":::

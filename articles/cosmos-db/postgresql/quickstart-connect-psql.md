@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/05/2022
 ---
 
-# Connect to a Hyperscale (Citus) cluster with psql
+# Connect to a cluster with psql
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -23,7 +23,7 @@ To follow this quickstart, you'll first need to:
 
 ## Connect
 
-When you create your Hyperscale (Citus) cluster, a default database named **citus** is created. To connect to your database server, you need a connection string and the admin password.
+When you create your cluster, a default database named **citus** is created. To connect to your database server, you need a connection string and the admin password.
 
 1. Obtain the connection string. In the cluster page, select the
    **Connection strings** menu item.

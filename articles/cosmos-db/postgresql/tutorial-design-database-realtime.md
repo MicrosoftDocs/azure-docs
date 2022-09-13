@@ -18,7 +18,7 @@ ms.date: 06/29/2022
 In this tutorial, you use Azure Cosmos DB for PostgreSQL to learn how to:
 
 > [!div class="checklist"]
-> * Create a Hyperscale (Citus) cluster
+> * Create a cluster
 > * Use psql utility to create a schema
 > * Shard tables across nodes
 > * Generate sample data
@@ -230,7 +230,7 @@ In the preceding steps, you created Azure resources in a cluster. If you don't e
 
 ## Next steps
 
-In this tutorial, you learned how to provision a Hyperscale (Citus) cluster. You connected to it with psql, created a schema, and distributed data. You learned to query data in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
+In this tutorial, you learned how to provision a cluster. You connected to it with psql, created a schema, and distributed data. You learned to query data in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
 
 - Learn about cluster [node types](./concepts-nodes.md)
 - Determine the best [initial

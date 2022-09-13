@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 07/09/2021
 ---
 
-# Point-in-time restore of a Hyperscale (Citus) cluster
+# Point-in-time restore of a cluster
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -20,7 +20,7 @@ a custom restore point within your retention period.
 
 ## Restoring to the earliest restore point
 
-Follow these steps to restore your Hyperscale (Citus) cluster to its
+Follow these steps to restore your cluster to its
 earliest existing backup.
 
 1.  In the [Azure portal](https://portal.azure.com/), choose the cluster
@@ -49,7 +49,7 @@ Finally, follow the [post-restore tasks](#post-restore-tasks).
 
 ## Restoring to a custom restore point
 
-Follow these steps to restore your Hyperscale (Citus) cluster to a date
+Follow these steps to restore your cluster to a date
 and time of your choosing.
 
 1.  In the [Azure portal](https://portal.azure.com/), choose the cluster

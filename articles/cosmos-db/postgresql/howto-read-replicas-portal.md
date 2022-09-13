@@ -20,7 +20,7 @@ In this article, you learn how to create and manage read replicas in Hyperscale
 
 ## Prerequisites
 
-A [Hyperscale (Citus) cluster](quickstart-create-portal.md) to
+A [cluster](quickstart-create-portal.md) to
 be the primary.
 
 ## Create a read replica
@@ -55,7 +55,7 @@ After the read replica is created, it can be viewed from the **Replication** win
 ## Delete a primary cluster
 
 To delete a primary cluster, you use the same steps as to delete a
-standalone Hyperscale (Citus) cluster. From the Azure portal, follow these
+standalone cluster. From the Azure portal, follow these
 steps:
 
 1. In the Azure portal, select your primary Azure Database for PostgreSQL
@@ -78,7 +78,7 @@ group.
 You can also delete the read replica from the **Replication** window by
 following these steps:
 
-1. In the Azure portal, select your primary Hyperscale (Citus) cluster.
+1. In the Azure portal, select your primary cluster.
 
 2. On the cluster menu, under **Server group management**, select
    **Replication**.

@@ -42,7 +42,7 @@ name.
 
 > [!NOTE]
 >
-> Some Hyperscale (Citus) clusters do not support metric splitting. On
+> Some clusters do not support metric splitting. On
 > these clusters, you can view metrics for individual nodes by clicking
 > the node name in the cluster **Overview** page. Then open the
 > **Metrics** page for the node.
@@ -69,7 +69,7 @@ multiple nodes can be placed on the same graph.
 ## Next steps
 
 - Learn how to [view metrics](howto-monitoring.md) for a
-  Hyperscale (Citus) cluster.
+  cluster.
 - See [how to set up alerts](howto-alert-on-metric.md) for guidance
   on creating an alert on a metric.
 - Learn how to do [metric

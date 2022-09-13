@@ -35,7 +35,7 @@ Transient errors occur for a number of reasons. The most common include system
 Maintenance, error with hardware or software, and coordinator node vCore
 upgrades.
 
-Enabling high availability for Hyperscale (Citus) cluster nodes can mitigate these
+Enabling high availability for cluster nodes can mitigate these
 types of problems automatically. However, your application should still be
 prepared to lose its connection briefly. Also other events can take longer to
 mitigate, such as when a large transaction causes a long-running recovery.
@@ -71,8 +71,8 @@ most common causes are firewall misconfiguration or user error.
 * User error: Double-check the connection string. You might have mistyped
   parameters like the server name. You can find connection strings for various
   language frameworks and psql in the Azure portal. Go to the **Connection
-  strings** page in your Hyperscale (Citus) cluster. Also keep in mind that
-  Hyperscale (Citus) clusters have only one database and its predefined name is
+  strings** page in your cluster. Also keep in mind that
+  clusters have only one database and its predefined name is
   **citus**.
 
 ### Steps to resolve persistent connectivity issues

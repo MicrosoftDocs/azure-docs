@@ -15,7 +15,7 @@ ms.date: 06/28/2021
 
 ## PostgreSQL versions
 
-The version of PostgreSQL running in a Hyperscale (Citus) cluster is
+The version of PostgreSQL running in a cluster is
 customizable during creation. Hyperscale (Citus) currently supports the
 following major [PostgreSQL
 versions](https://www.postgresql.org/docs/release/):

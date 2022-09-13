@@ -113,7 +113,7 @@ ALTER TABLE github_users ADD COLUMN dummy_column integer;
 
 ## Next steps
 
-You've successfully created a scalable Hyperscale (Citus) cluster, created
+You've successfully created a scalable cluster, created
 tables, distributed them, loaded data, and run distributed queries.
 
 Now you're ready to learn to build applications with Hyperscale (Citus).

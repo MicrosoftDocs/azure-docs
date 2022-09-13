@@ -32,7 +32,7 @@ Connection attempts from the Internet and Azure must first pass through the fire
 
 ## Connecting from the Internet and from Azure
 
-A Hyperscale (Citus) cluster firewall controls who can connect to the group's coordinator node. The firewall determines access by consulting a configurable list of rules. Each rule is an IP address, or range of addresses, that are allowed in.
+A cluster firewall controls who can connect to the group's coordinator node. The firewall determines access by consulting a configurable list of rules. Each rule is an IP address, or range of addresses, that are allowed in.
 
 When the firewall blocks connections, it can cause application errors. Using the PostgreSQL JDBC driver, for instance, raises an error like this:
 

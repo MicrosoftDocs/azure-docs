@@ -91,7 +91,7 @@ Once you've created an alert, you can select it and do the following actions:
 
 ### Disk space
 
-Monitoring and alerting is important for every production Hyperscale (Citus) cluster. The underlying PostgreSQL database requires free disk space to operate correctly. If the disk becomes full, the database server node will go offline and refuse to start until space is available. At that point, it requires a Microsoft support request to fix the situation.
+Monitoring and alerting is important for every production cluster. The underlying PostgreSQL database requires free disk space to operate correctly. If the disk becomes full, the database server node will go offline and refuse to start until space is available. At that point, it requires a Microsoft support request to fix the situation.
 
 We recommend setting disk space alerts on every node in every cluster, even for non-production usage. Disk space usage alerts provide the advance warning needed to intervene and keep nodes healthy. For best results, try a series of alerts at 75%, 85%, and 95% usage. The percentages to choose depend on data ingestion speed, since fast data ingestion fills up the disk faster.
 

@@ -51,7 +51,7 @@ network and subnet. For an example of setting up prerequisites, see the
 	- **Integrate with private DNS zone**
 
 9. After creating the private endpoint, select **Review + create** to create
-   your Hyperscale (Citus) cluster.
+   your cluster.
 
 ## Enable private access on an existing cluster
 

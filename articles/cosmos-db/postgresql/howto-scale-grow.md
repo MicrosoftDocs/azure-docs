@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 12/10/2021
 ---
 
-# Scale a Hyperscale (Citus) cluster
+# Scale a cluster
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -27,7 +27,7 @@ group.  Dragging the slider for **Worker node count** changes the value.
 
 > [!NOTE]
 >
-> A Hyperscale (Citus) cluster created with the [basic
+> A cluster created with the [basic
 > tier](concepts-server-group.md) has no workers. Increasing the worker
 > count automatically graduates the cluster to the standard tier.  After
 > graduating a cluster to the standard tier, you can't downgrade it back

@@ -23,4 +23,4 @@ Azure Cosmos DB for PostgreSQL supports three networking options:
   * Each node requires a private endpoint to allow hosts in the selected virtual network to access the Hyperscale (Citus) nodes.
   * Security features of Azure virtual networks such as network security groups can be used for access control.
 
-When you create a Hyperscale (Citus) cluster, you may enable public or private access, or opt for the default of no access. Once the cluster is created, you can choose to switch between public or private access, or activate them both at once.
+When you create a cluster, you may enable public or private access, or opt for the default of no access. Once the cluster is created, you can choose to switch between public or private access, or activate them both at once.

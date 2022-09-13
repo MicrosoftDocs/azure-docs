@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 07/20/2021
 ---
 
-# Rebalance shards in Hyperscale (Citus) cluster
+# Rebalance shards in cluster
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

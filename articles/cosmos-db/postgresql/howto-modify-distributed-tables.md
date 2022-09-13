@@ -116,7 +116,7 @@ tutorial](tutorial-design-database-multi-tenant.md).
 ### Distributing Coordinator Data
 
 If an existing PostgreSQL database is converted into the coordinator node for a
-Hyperscale (Citus) cluster, the data in its tables can be distributed
+cluster, the data in its tables can be distributed
 efficiently and with minimal interruption to an application.
 
 The `create_distributed_table` function described earlier works on both empty
