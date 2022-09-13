@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 02/25/2022
+ms.date: 09/12/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -52,6 +52,8 @@ If the required controls of a policy weren't previously satisfied, the policy is
 - Sign-in risk
 - User risk
 - Country location (resolving new IP or GPS coordinates)
+
+The Backup Authentication Service doesn't evaluate authentication methods required by an authentication strengths policy. If a user has satisfied an authentication strength policy at the beginning of the session, during an outage the user will be granted access without being prompted for authentication, even if they access a resource that requires a more secure authentication method, such as phishing resistant MFA.
 
 ## Resilience defaults enabled
 
