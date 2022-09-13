@@ -3,7 +3,7 @@ title: Troubleshoot Azure RBAC
 description: Troubleshoot issues with Azure role-based access control (Azure RBAC).
 services: azure-portal
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.workload: identity
@@ -119,6 +119,31 @@ The reason is likely a replication delay. The service principal is created in on
 **Solution**
 
 Set the `principalType` property to `ServicePrincipal` when creating the role assignment. You must also set the `apiVersion` of the role assignment to `2018-09-01-preview` or later. For more information, see [Assign Azure roles to a new service principal using the REST API](role-assignments-rest.md#new-service-principal) or [Assign Azure roles to a new service principal using Azure Resource Manager templates](role-assignments-template.md#new-service-principal).
+
+### Symptom - ARM template role assignment returns BadRequest status
+
+When you try to deploy an ARM template that assigns a role to a service principal you get the error:
+
+`Tenant ID, application ID, principal ID, and scope are not allowed to be updated. (code: RoleAssignmentUpdateNotPermitted)`
+
+**Cause**
+
+The role assignment `name` is not unique, and it is viewed as an update.
+
+**Solution**
+Provide an idempotent unique value for the role assignment `name`
+
+```
+{
+    "type": "Microsoft.Authorization/roleAssignments",
+    "apiVersion": "2018-09-01-preview",
+    "name": "[guid(concat(resourceGroup().id, variables('resourceName'))]",
+    "properties": {
+        "roleDefinitionId": "[variables('roleDefinitionId')]",
+        "principalId": "[variables('principalId')]"
+    }
+}
+```
 
 ### Symptom - Role assignments with identity not found
 
