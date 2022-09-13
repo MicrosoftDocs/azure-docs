@@ -37,6 +37,8 @@ The first step is to select a testing method to validate your SCIM endpoint.
 1. Open your web browser and navigate to the SCIM Validator: [https://scimvalidator.microsoft.com/](https://scimvalidator.microsoft.com/).
 1. Select one of the three test options. You can use default attributes, automatically discover the schema, or upload a schema.
 
+:::image type="content" source="./media/scim-validator-tutorial/scim-validator.png" alt-text="SCIM Validator Main Page" lightbox="./media/scim-validator-tutorial/scim-validator.png":::
+
 **Use default attributes** - The system provides the default attributes, and you modify them to meet your need.
 
 **Discover schema** - If your end point supports /Schema, this option will allow the tool to discover the supported attributes. We recommend this option as it reduces the overhead of updating your app as you build it out.
