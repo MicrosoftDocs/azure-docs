@@ -132,6 +132,10 @@ items:
       href: concept-generating-thumbnails.md
     - name: Adult content detection
       href: concept-detecting-adult-content.md
+    - name: Reading text
+      href: concept-ocr.md
+    - name: People detection
+      href: concept-people-detection.md
   - name: Tutorials
     items:
     - name: Generate metadata for images

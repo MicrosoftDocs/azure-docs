@@ -18,7 +18,7 @@ keywords: computer vision, computer vision applications, computer vision service
 
 The Computer Vision Image Analysis service can extract a wide variety of visual features from your images. For example, it can determine whether an image contains adult content, find specific brands or objects, or find human faces.
 
-The latest version of Image Analysis, 4.0, features updated models that have achieved human parity in certain recognition tasks. If your resource belongs to one of the regions enabled for 4.0, we highly recommend you use this version going forward.
+The latest version of Image Analysis, 4.0, has new features like OCR and people detection, and it uses updated models that have achieved human parity in certain recognition tasks. If your resource belongs to one of the regions (TBD) enabled for 4.0, we highly recommend you use this version going forward.
 
 You can use Image Analysis through a client library SDK or by calling the [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) directly. Follow the [quickstart](quickstarts-sdk/image-analysis-client-library.md) to get started.
 
@@ -90,8 +90,6 @@ Use domain models to detect and identify domain-specific content in an image, su
 
 Analyze color usage within an image. Computer Vision can determine whether an image is black & white or color and, for color images, identify the dominant and accent colors. [Detect the color scheme](concept-detecting-color-schemes.md)
 
-
-
 ### Generate a thumbnail
 
 Analyze the contents of an image to generate an appropriate thumbnail for that image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the *area of interest*. Computer Vision then crops the image to fit the requirements of the area of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs. [Generate a thumbnail](concept-generating-thumbnails.md)
@@ -106,6 +104,14 @@ Analyze the contents of an image to return the coordinates of the *area of inter
 ### Moderate content in images
 
 You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
+
+### Read text in images (preview)
+
+Version 4.0 of Image Analysis offers the ability to extract text from images. Contextual information like line number and position is also returned. Text reading is also available through the main [OCR service](overview-ocr.md), but in Image Analysis this feature is optimized for image inputs as opposed to documents. [Reading text in images](concept-ocr.md)
+
+### Detect people in images (preview)
+
+Version 4.0 of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. [People detection](concept-people-detection.md)
 
 ## Image requirements
 
