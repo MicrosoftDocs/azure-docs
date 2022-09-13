@@ -50,11 +50,14 @@ To use a user-assigned managed identity with your workspace, compute instance, o
 ### Workspace
 
 > [!IMPORTANT]
-> When creating workspace with user-assigned managed identity, you must create the associated resources yourself, and grant the managed identity roles on those resources. Use the [role assignment ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) to make the assignments.
+> When creating workspace with user-assigned managed identity, you must perform the following steps first:
+> 1. Create a managed identity.
+> 1. Create the Azure Storage Account, Azure Container Registry, and Azure Key Vault resources that will be used by Azure Machine Learning.
+> 1. Use the [role assignment ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) to grant the managed identity the required role assignments to the services.
 
 Use Azure CLI or Python SDK to create the workspace. When using the CLI, specify the ID using the `--primary-user-assigned-identity` parameter. When using the SDK, use `primary_user_assigned_identity`. The following are examples of using the Azure CLI and Python to create a new workspace using these parameters:
 
-# [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -68,7 +71,10 @@ az ml workspace create -w <workspace name> -g <resource group> --primary-user-as
 
 # [Studio](#tab/azure-studio)
 
-Currently there is no option to create a workspace from Azure Machine Learning studio.
+Currently there is no option to create a workspace from Azure Machine Learning studio. However, you can create using the Azure portal. Use the following steps while creating the cluster:
+
+1. From the __Basics__ page, select the Azure Storage Account, Azure Container Registry, and Azure Key Vault you want to use with the workspace.
+1. From the __Advanced__ page, select __User-assigned identity__ and then select the managed identity to use.
 
 ---
 
@@ -83,7 +89,7 @@ You can also use [an ARM template](https://github.com/Azure/azure-quickstart-tem
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 To create a new managed compute cluster with managed identity, use this command:
 
