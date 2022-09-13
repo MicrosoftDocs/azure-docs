@@ -15,11 +15,11 @@ ms.service: machine-configuration
 
 The guest configuration agent `gc-agent` receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
-The latest releases
-Known issues
-Bug fixes
+- The latest releases
+- Known issues
+- Bug fixes
 
-For information on release notes for the connected machine agent, please see [What's new with the connected machine agent](https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-release-notes)
+For information on release notes for the connected machine agent, please see [What's new with the connected machine agent](https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-release-notes).
 
 ## Release notes
 
@@ -27,11 +27,24 @@ For information on release notes for the connected machine agent, please see [Wh
 
 In this release, various improvements were made. 
 
+You can now restrict which URLs can be used to download machine configuration packages by setting the allowedGuestConfigPkgUrls tag on the server resource and providing a comma-separated list of URL patterns to allow. If the tag exists, the agent will only allow custom packages to be downloaded from the specified URLs. Built-in packages are unaffected by this feature. 
+
 # Fixed
 
-- Resolves local elevation of privilege vulnerability [CVE-2022-38007] (https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007)
-- improved error handling 
+- Resolves local elevation of privilege vulnerability [CVE-2022-38007](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007)
+- Improved error handling 
 
 ## Next steps
 
-- related links go here
+- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- [Create a package artifact](./machine-configuration-create.md)
+  for machine configuration.
+- [Test the package artifact](./machine-configuration-create-test.md)
+  from your development environment.
+- Use the `GuestConfiguration` module to
+  [create an Azure Policy definition](./machine-configuration-create-definition.md)
+  for at-scale management of your environment.
+- [Assign your custom policy definition](../policy/assign-policy-portal.md) using
+  Azure portal.
+- Learn how to view
+  [compliance details for machine configuration](../policy/how-to/determine-non-compliance.md) policy assignments.
