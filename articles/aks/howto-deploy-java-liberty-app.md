@@ -35,7 +35,7 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
   * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-  * Make sure you have been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group) 
+* Make sure you have been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group) 
 
 ## Create a Liberty on AKS deployment using the portal
 
@@ -57,7 +57,10 @@ The steps in this section guide you to create a Liberty runtime on AKS. After co
 
 ## Capture selected information from the deployment
 
-[!INCLUDE [portal-find-resource-group](includes/portal-find-resource-group.md)]
+If you navigated away from the **Deployment is in progress** page, the following steps will show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to the third step.
+
+1. In the upper left of any portal page, select the hamburger menu and select **Resource groups**.
+1. In the box with the text **Filter for any field**, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
 1. In the list of resources in the resource group, select the resource with **Type** of **Container registry**.
 1. In the navigation pane, under **Settings** select **Access keys**.
 1. Save aside the values for **Login server**, **Registry name**, **Username**, and **password**. You may use the copy icon at the right of each field to copy the value of that field to the system clipboard.
@@ -71,6 +74,8 @@ The steps in this section guide you to create a Liberty runtime on AKS. After co
    * **cmdToConnectToCluster**
 
    These values will be used later in this article. Note that several other useful commands are listed in the outputs.
+
+## Create an Azure SQL Database
 
 The steps in this section guide you through creating an Azure SQL Database single database for use with your app.
 
@@ -141,7 +146,7 @@ After the offer is successfully deployed, an AKS cluster will be generated autom
 
 Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment.
 
-### RR: We are doing quite a bit of file and parameter manipulation in the Maven build, which is fine but not explained anywhere and not necessarily appropriate for a legacy project. We need to explain what we are doing either here or in the Maven POM as comments (and make a reference here).
+Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment. The reason for this parameterization is to avoid having to hard-code values such as database server names, passwords, and other identifiers into the example source code. This allows the sample source code to be easier to use in a wider variety of contexts.
 
 ```bash
 cd <path-to-your-repo>/java-app
@@ -225,7 +230,8 @@ The steps in this section deploy and test the application.
 1. Apply the DB secret
 
    ```bash
-   kubectl apply -f <path-to-your-repo>/java-app/target/db-secret.yaml
+   cd <path-to-your-repo>/java-app/target
+   kubectl apply -f db-secret.yaml
    ```
 
    You'll see the output `secret/db-secret-postgres created`.
@@ -233,7 +239,7 @@ The steps in this section deploy and test the application.
 1. Apply the deployment file
 
    ```bash
-   kubectl apply -f <path-to-your-repo>/java-app/target/openlibertyapplication.yaml
+   kubectl apply -f openlibertyapplication.yaml
    ```
 
 1. Wait for the pods to be restarted
@@ -268,7 +274,8 @@ The steps in this section deploy and test the application.
 To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli-interactive
-az group delete --name <RESOURCE_GROUP_NAME> --yes --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
+az group delete --name <db-resource-group> --yes --no-wait
 ```
 
 ## Next steps
