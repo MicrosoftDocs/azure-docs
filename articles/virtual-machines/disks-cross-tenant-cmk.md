@@ -18,6 +18,8 @@ ms.subservice: disks
 
 This article covers building a solution where you encrypt managed disks with customer-managed keys using Azure Key Vaults stored in a different Azure AD tenant. This configuration can be ideal for several scenarios, one example being Azure support for service providers that want to offer bring-your-own encryption keys to their customers where resources from the service provider's tenant are encrypted with keys from their customer's tenant.
 
+A disk encryption set with federated identity in a cross-tenant CMK workflow spans service provider/ISV tenant resources (disk encryption set, managed identities, and app registrations) and customer tenant resources (enterprise apps, user role assignments, and key vault).
+
 If you have any questions about cross-tenant customer-managed keys with managed disks, email <crosstenantcmkvteam@service.microsoft.com>.
 
 ## Prerequisites
@@ -36,12 +38,6 @@ If you have any questions about cross-tenant customer-managed keys with managed 
 ## Limitations
 
 The first release of this preview feature is only available in the West Central US region. This preview does not support Ultra Disks or Azure Premium SSD v2 Disk Storage.
-
-## Example cross-tenant CMK disk encryption set
-
-The image below shows a disk encryption set with federated identity in a cross-tenant CMK workflow spanning a service provider and its customer.
-
-:::image type="content" source="media/disks-cross-tenant-cmk/cross-tenant-cmk-disk-encryption-set.png" alt-text="Screenshot showing a cross-tenant CMK disk encryption set used with a federated identity." lightbox="media/disks-cross-tenant-cmk/cross-tenant-cmk-disk-encryption-set.png" border="true":::
 
 [!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
 
