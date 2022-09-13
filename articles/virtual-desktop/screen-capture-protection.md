@@ -45,7 +45,7 @@ To configure screen capture protection:
 
 - This feature protects the Remote Desktop window from being captured through a specific set of public operating system features and Application Programming Interfaces (APIs). However, there's no guarantee that this feature will strictly protect content in scenarios where a user were to take a photo of their screen with a physical camera.
 - For maximum security, customers should use this feature while also disabling clipboard, drive, and printer redirection. Disabling redirection prevents users from copying any captured screen content from the remote session.
-- Users can't share their Remote Desktop window using local collaboration software, such as Microsoft Teams, while this feature is enabled. When they use MIcrosoft Teams, neither the local Teams app nor Teams with media optimization can share protected content.
+- Users can't share their Remote Desktop window using local collaboration software, such as Microsoft Teams, while this feature is enabled. When they use Microsoft Teams, neither the local Teams app nor Teams with media optimization can share protected content.
 
 ## Next steps
 
