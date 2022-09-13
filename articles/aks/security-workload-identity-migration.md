@@ -3,22 +3,22 @@ title: Migrate your application to use an Azure AD Workload Identity on Azure Ku
 description: Learn how migrate your application to use an Azure Active Directory Workload Identity in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 09/07/2022
+ms.date: 09/13/2022
 author: mgoedtel
 
 ---
 
 # Migrate your application to use an Azure AD workload identity
 
-Today with Azure Kubernetes Service (AKS), you can assign [managed identities at the pod-level](use-azure-ad-pod-identity.md). This pod-managed identity allows the hosted workload or application access to resources through Azure Active Directory (Azure AD). For example, a workload stores files in Azure Storage, and when it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity. This authentication method has been replaced with [Azure Active Directory (Azure AD) workload identities](../active-directory/develop/workload-identities-overview.md), which integrates with the Kubernetes native capabilities to federate with any external identity providers. This approach is simpler to use and deploy, and overcomes several limitations in Azure AD pod identity:
+Today with Azure Kubernetes Service (AKS), you can assign [managed identities at the pod-level][use-azure-ad-pod-identity], which has been a preview feature. This pod-managed identity allows the hosted workload or application access to resources through Azure Active Directory (Azure AD). For example, a workload stores files in Azure Storage, and when it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity. This authentication method has been replaced with [Azure Active Directory (Azure AD) workload identities][azure-ad-workload-identity], which integrates with the Kubernetes native capabilities to federate with any external identity providers. This approach is simpler to use and deploy, and overcomes several limitations in Azure AD pod-managed identity:
 
 - Removes the scale and performance issues that existed for identity assignment
 - Supports Kubernetes clusters hosted in any cloud or on-premises
 - Supports both Linux and Windows workloads
-- Removes the need for Custom Resource Definitions and pods that intercept [Azure Instance Metadata Service](../virtual-machines/linux/instance-metadata-service.md) (IMDS) traffic
+- Removes the need for Custom Resource Definitions and pods that intercept [Azure Instance Metadata Service][azure-instance-metadata-service] (IMDS) traffic
 - Avoids the complicated and error-prone installation steps such as cluster role assignment from the previous iteration.
 
-Azure AD workload identity works especially well with the [Azure SDK](https://azure.microsoft.com/downloads/) and the [Microsoft Authentication Library](../active-directory/develop/msal-overview.md) (MSAL) if you are using [application registration](../active-directory/develop/application-model.md#register-an-application). Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
+Azure AD workload identity works especially well with the [Azure SDK][azure-sdk-download] and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) if you are using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
 
 This article reviews the options available to help you plan your migration phases and project strategy.
 
@@ -30,7 +30,7 @@ This article reviews the options available to help you plan your migration phase
 
 - The `aks-preview` extension version 0.5.102 or later.
 
-- [Azure Identity](../active-directory/develop/reference-v2-libraries.md) client library version 1.6 or later.
+- [Azure Identity][azure-identity-libraries] client library version 1.6 or later.
 
 ## How it works
 
@@ -98,7 +98,7 @@ The following table summarizes our migration or deployment recommendations for W
 | New or existing cluster deployment<br> running Azure Identity v1.6 | No migration steps are required. |
 | New or existing cluster deployment<br> not running Azure Identity v1.6 | Update container image and deploy, or update using new image version, or use the migration sidecar. |
 
-To help streamline and ease the migration process, we've developed a migration sidecar that converts the IDMS transactions your application makes over to [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) (OIDC). This isn't intended to be a long-term solution, but a way to get up and running quickly on Workload Identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to upgrade to [Azure Identity](../active-directory/develop/reference-v2-libraries.md) client library version 1.6 or later, which supports OIDC authentication.
+To help streamline and ease the migration process, we've developed a migration sidecar that converts the IDMS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). This isn't intended to be a long-term solution, but a way to get up and running quickly on Workload Identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to upgrade to [Azure Identity][azure-identity-libraries] client library version 1.6 or later, which supports OIDC authentication.
 
 ### Managed Identity with Workload Identity sidecar
 
@@ -136,9 +136,12 @@ spec:
     - containerPort: 8000
 ```
 
+## Upgrade cluster to use Workload Identity
+
+
 ## How set up a new AKS cluster with Workload Identity
 
-If your application is already running [Azure Identity](../active-directory/develop/reference-v2-libraries.md) client library version 1.6 or later, you can follow the steps below to create a new cluster with Workload Identity enabled. You can then install your application. If you are not running the minimum supported SDK version, you can upgrade and then deploy, or deploy the migration sidecar.
+If your application is already running [Azure Identity][azure-identity-libraries] client library version 1.6 or later, you can follow the steps below to create a new cluster with Workload Identity enabled. You can then install your application. If you are not running the minimum supported SDK version, you can upgrade and then deploy, or deploy the migration sidecar.
 
 ### Deploy a new cluster with Workload Identity
 
@@ -155,3 +158,17 @@ If your application is already running [Azure Identity](../active-directory/deve
     ```
 
 ## Next steps
+
+<!-- EXTERNAL LINKS -->
+[azure-sdk-download]: https://azure.microsoft.com/downloads/
+
+<!-- INTERNAL LINKS -->
+[use-azure-ad-pod-identity]: use-azure-ad-pod-identity.md
+[azure-ad-workload-identity]: ../active-directory/develop/workload-identities-overview.md
+[azure-instance-metadata-service]: ../virtual-machines/linux/instance-metadata-service.md
+[microsoft-authentication-library]: ../active-directory/develop/msal-overview.md
+[azure-ad-application-registration]: ../active-directory/develop/application-model.md#register-an-application
+[install-azure-cli]: /cli/azure/install-azure-cli
+[azure-identity-libraries]: ../active-directory/develop/reference-v2-libraries.md
+[openid-connect-overview]: ../active-directory/develop/v2-protocols-oidc.md
+[az-aks-create]: /cli/azure/aks#az-aks-create

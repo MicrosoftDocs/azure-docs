@@ -86,7 +86,7 @@ az aks create -g myResourceGroup -n myAKSCluster --node-count 1 --enable-oidc-is
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
 > [!NOTE]
-> When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../faq.md#why-are-two-resource-groups-created-with-aks)
+> When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups].
 
 To get the OIDC Issuer URL, run the following command:
 
@@ -122,7 +122,7 @@ export FICID="fic-test-fic-name"
 
 ## Create an Azure Key Vault and secret
 
-Use the Azure CLI [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command to create a Key Vault in the resource group created earlier.
+Use the Azure CLI [az keyvault create][az-keyvault-create] command to create a Key Vault in the resource group created earlier.
 
 ```azurecli
 az keyvault create --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --name "${KEYVAULT_NAME}"
@@ -135,7 +135,7 @@ The output of this command shows properties of the newly created key vault. Take
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
-To add a secret to the vault, you need to run the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command to create it. The password is the value you specified for the environment variable `KEYVAULT_SECRET_NAME` and stores the value of **Hello\!** in it.
+To add a secret to the vault, you need to run the Azure CLI [az keyvault secret set][az-keyvault-secret-set] command to create it. The password is the value you specified for the environment variable `KEYVAULT_SECRET_NAME` and stores the value of **Hello\!** in it.
 
 ```azurecli
 az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value "Hello\!" 
@@ -143,7 +143,7 @@ az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET
 
 ## Create a Managed Identity and grant permissions to access the secret
 
-Use the Azure CLI [az account set](/cli/azure/account#az-account-set) command to set a specific subscription to be the current active subscription, and then the [az identity create](/cli/azure/identity#az-identity-create) command to create a Managed Identity.
+Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription, and then the [az identity create][az-identity-create] command to create a Managed Identity.
 
 ```azurecli
 az account set --subscription "${SUBSCRIPTION}"
@@ -165,7 +165,7 @@ az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn 
 
 ### Create Kubernetes service account
 
-Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command.
+Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command.
 
 ```azurecli
 az aks get-credentials -n aks -g MyResourceGroup 
@@ -190,7 +190,7 @@ Serviceaccount/workload-identity-sa created
 
 ## Establish federated identity credential
 
-Use the [az rest](/cli/azure/reference-index#az-rest) command to invoke a custom request to establish the federated identity credential between the Managed Identity, the service account issuer, and the subject.
+Use the [az rest][az-rest] command to invoke a custom request to establish the federated identity credential between the Managed Identity, the service account issuer, and the subject.
 
 ```azurecli
 az rest --method put --url "/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESOURCE_GROUP}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/${UAID}/federatedIdentityCredentials/${FICID}?api-version=2022-01-31-PREVIEW" --headers "Content-Type=application/json" --body "{'properties':{'issuer':'${AKS_OIDC_ISSUER}','subject':'system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}','audiences':['api://AzureADTokenExchange'] }}"
@@ -229,14 +229,14 @@ Pod/quick-start created
 ```
 
 To check whether all properties are injected properly by the webhook, use
-the [kubectl describe](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:
+the [kubectl describe][kubelet-describe] command:
 
 ```bash
 kubectl describe pod quick-start
 ```
 
 To verify that pod is able to get a token and access the secret from the Key Vault, use the
-[kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) command:
+[kubectl logs][kubelet-logs] command:
 
 ```bash
 kubectl logs quick-start
@@ -277,3 +277,24 @@ To learn more about AKS, and walk through a complete code to deployment example,
 > [AKS tutorial][aks-tutorial]
 
 This quickstart is for introductory purposes. For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+
+<!-- EXTERNAL LINKS -->
+[kubelet-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubelet-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
+
+<!-- INTERNAL LINKS -->
+[kubernetes-concepts]: concepts-clusters-workloads.md
+[aks-identity-concepts]: concepts-identity.md
+[az-account]: /cli/azure/account
+[azure-resource-group]: ../../azure-resource-manager/management/overview.md
+[az-group-create]: /cli/azure/group#az-group-create
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-two-resource-groups]: ../faq.md#why-are-two-resource-groups-created-with-aks
+[az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
+[az-account-set]: /cli/azure/account#az-account-set
+[az-identity-create]: /cli/azure/identity#az-identity-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-rest]: /cli/azure/reference-index#az-rest
+[aks-tutorial]: tutorial-kubernetes-prepare-app.md
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here
