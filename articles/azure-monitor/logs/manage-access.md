@@ -61,7 +61,7 @@ The following table summarizes the access modes:
 
 ## Manage access control mode
 
-*Access control mode* is a workspace-level setting that defines how to apply permissions in each [access mode](#access-mode):
+*Access control mode* is a workspace-level setting that defines which permissions Azure Monitor applies in each [access mode](#access-mode):
 
 * **Require workspace permissions** 
 
@@ -75,7 +75,7 @@ The following table summarizes the access modes:
 
     A user who accesses the workspace in the [workspace context](#access-mode) has access to all data in any table they've been granted access to at the workspace level. 
     
-    A user who accesses the workspace in the [resource context](#access-mode), has access to all data related to the resource, if they have resource-level permissions, regardless of workspace permissions. Enable Azure RBAC for a user by removing them from workspace permissions and allowing their resource permissions to be recognized.
+    A user who accesses the workspace in the [resource context](#access-mode) has access to all data related to the resource, if they have resource-level permissions, regardless of workspace permissions. Enable Azure RBAC for a user by removing them from workspace permissions and allowing their resource permissions to be recognized.
 
     This is the default setting for workspaces created after March 2019.
 
