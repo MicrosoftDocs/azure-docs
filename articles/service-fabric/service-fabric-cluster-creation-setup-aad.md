@@ -46,7 +46,7 @@ We'll use the scripts to create two Azure AD applications to control access to t
 
 ### SetupApplications.ps1
 
-Run `SetupApplications.ps1`, provide the tenant ID, cluster name, web application uri, and web application reply URL as parameters. Use -remove to remove the app registrations. Using -logFile `<log file path>` will generate a transcript log. See script help (help .\setupApplications.ps1 -full) for additional information. The script creates the web and native applications to represent your Service Fabric cluster. The two new app registration entries will be in the following format:
+Run `SetupApplications.ps1` and provide the tenant ID, cluster name, web application URI, and web application reply URL as parameters. Use -remove to remove the app registrations. Using -logFile `<log file path>` will generate a transcript log. See script help (help .\setupApplications.ps1 -full) for additional information. The script creates the web and native applications to represent your Service Fabric cluster. The two new app registration entries will be in the following format:
 - ClusterName_Cluster
 - ClusterName_Client
 
@@ -61,9 +61,9 @@ Run `SetupApplications.ps1`, provide the tenant ID, cluster name, web applicatio
 
 - **webApplicationReplyUrl:** *WebApplicationReplyUrl* is the default endpoint that Azure AD returns to your users after they finish signing in. Set this endpoint as the Service Fabric Explorer endpoint for your cluster. If you are creating Azure AD applications to represent an existing cluster, make sure this URL matches your existing cluster's endpoint. If you are creating applications for a new cluster, plan the endpoint your cluster will have and make sure not to use the endpoint of an existing cluster. By default the Service Fabric Explorer endpoint is: `https://<cluster_domain>:19080/Explorer`
 
-- **webApplicationUri:** *WebApplicationUri* is either the uri of a 'verified domain' or uri using api scheme format of api://{{tenant Id}}/{{cluster name}}. See [AppId Uri in single tenant applications will require use of default scheme or verified domains](../active-directory/develop/reference-breaking-changes.md#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains) for additional information.
+- **webApplicationUri:** *WebApplicationUri* is either the URI of a 'verified domain' or URI using API scheme format of api://{{tenant Id}}/{{cluster name}}. See [AppId Uri in single tenant applications will require use of default scheme or verified domains](../active-directory/develop/reference-breaking-changes.md#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains) for additional information.
 
-  Example api scheme: api://0e3d2646-78b3-4711-b8be-74a381d9890c/mysftestcluster
+  Example API scheme: api://0e3d2646-78b3-4711-b8be-74a381d9890c/mysftestcluster
 
 #### SetupApplications.ps1 example
 
@@ -88,7 +88,7 @@ $configObj = .\SetupApplications.ps1 -TenantId $tenantId `
   -Verbose
 ```
 
-The script outputs $configObj variable for subsequent commands and prints the JSON required by the Azure Resource Manager template. Copy the json output and use when creating or modifying existing cluster [create your AAD enabled cluster](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access).
+The script outputs $configObj variable for subsequent commands and prints the JSON required by the Azure Resource Manager template. Copy the JSON output and use when creating or modifying existing cluster [create your Azure AD enabled cluster](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access).
 
 #### SetupApplications.ps1 example output
 
@@ -165,35 +165,32 @@ $resourceGroupName = 'mysftestcluster'
 ```
 
 > [!NOTE] 
-> Update cluster provisioning ARM templates or scripts with new cluster resource AAD configuration changes.
+> Update cluster provisioning ARM templates or scripts with new cluster resource Azure AD configuration changes.
 
----
 
 ## Granting admin consent
 
 It may be necessary to 'Grant admin consent' for the 'API permissions' being configured. Navigate to [Azure App registrations](https://ms.portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps) blade and add name of cluster to the filter. For both registrations, open 'API permissions', and select 'Grant admin consent for' if available.
 
-![api-grant](media/service-fabric-cluster-creation-setup-aad/portal-client-api-grant.png)
+![Screenshot that shows Grant admin consent selected on the Azure App registrations blade.](media/service-fabric-cluster-creation-setup-aad/portal-client-api-grant.png)
 
-![api-grant-confirm](media/service-fabric-cluster-creation-setup-aad/portal-client-api-grant-confirm.png)
+![Screenshot that shows the Grant admin consent confirmation with Yes highlighted.](media/service-fabric-cluster-creation-setup-aad/portal-client-api-grant-confirm.png)
 
----
 
 ## Verifying Azure AD Configuration
 
-Navigate to the Service Fabric Explorer (SFX) url. This should be the same as parameter webApplicationReplyUrl. An Azure authentication dialog should be displayed. Log on with an account configured with new AAD configuration. Verify administrator account has read / write access and user has read access. Any modification to the cluster, for example performing an action is an administrative action.
+Navigate to the Service Fabric Explorer (SFX) URL. This should be the same as the parameter webApplicationReplyUrl. An Azure authentication dialog should be displayed. Log on with an account configured with the new Azure AD configuration. Verify that the administrator account has read/write access and that the user has read access. Any modification to the cluster, for example, performing an action, is an administrative action.
 
 
 ## Troubleshooting help in setting up Azure Active Directory
 
-Setting up Azure AD and using it can be challenging, so here are some pointers on what you can do to debug the issue. Powershell transcript logging can be enabled by using the '-logFile' argument on 'SetupApplications.ps1' and 'SetupUser.ps1' scripts to review output.
+Setting up Azure AD and using it can be challenging, so here are some pointers on what you can do to debug the issue. PowerShell transcript logging can be enabled by using the '-logFile' argument on 'SetupApplications.ps1' and 'SetupUser.ps1' scripts to review output.
 
 > [!NOTE] 
-> With migration of Identities platforms (ADAL to MSAL), deprecation of AzureRM in favor of Azure AZ, and supporting multiple versions of PowerShell, dependencies may not always be correct or up to date causing errors in script execution. Running PowerShell commands and scripts from Azure cloud shell reduces the potential for errors with session auto authentication and managed identity.
+> With migration of Identities platforms (ADAL to MSAL), deprecation of AzureRM in favor of Azure AZ, and supporting multiple versions of PowerShell, dependencies may not always be correct or up to date causing errors in script execution. Running PowerShell commands and scripts from Azure Cloud Shell reduces the potential for errors with session auto authentication and managed identity.
 
-[![Launch Cloud Shell](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com/powershell)
+[![Button that will launch Cloud Shell](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com/powershell)
 
----
 
 ### **Request_BadRequest**
 
@@ -238,7 +235,6 @@ Configuration changes have not propagated. Scripts will retry on certain request
 
 Scripts will retry on certain requests with HTTP status codes 400 and 404 upto provided '-timeoutMin' which is by default 5 minutes. Script can be re-executed as needed.
 
----
 
 ### **Service Fabric Explorer prompts you to select a certificate**
 #### **Problem**
@@ -252,7 +248,6 @@ The user is not assigned a role in the Azure AD cluster application. Thus, Azure
 #### **Solution**
 Follow the instructions for setting up Azure AD, and assign user roles. Also, we recommend that you turn on "User assignment required to access app," as `SetupApplications.ps1` does.
 
----
 
 ### **Connection with PowerShell fails with an error: "The specified credentials are invalid"**
 #### **Problem**
@@ -261,7 +256,6 @@ When you use PowerShell to connect to the cluster by using "AzureActiveDirectory
 #### **Solution**
 This solution is the same as the preceding one.
 
----
 
 ### **Service Fabric Explorer returns a failure when you sign in: "AADSTS50011"**
 
@@ -278,7 +272,6 @@ On the Azure AD app registration page for your cluster, select **Authentication*
 
 ![Web application reply URL][web-application-reply-url]
 
----
 
 ### **Connecting to the cluster using Azure AD authentication via PowerShell gives an error when you sign in: "AADSTS50011"**
 #### **Problem**
@@ -290,13 +283,12 @@ Similar to the preceding issue, PowerShell attempts to authenticate against Azur
 #### **Solution**
 Use the same process as in the preceding issue, but the URL must be set to `urn:ietf:wg:oauth:2.0:oob`, a special redirect for command-line authentication.
 
----
 
 ### **Execution of script results in error in Authorization error**
 
 #### **Problem**
 
-Powershell script may fail to perform all of the REST commands required to complete AAD configuration with error "Authorization_RequestDenied","Insufficient privileges to complete the operation". Example error:
+PowerShell script may fail to perform all of the REST commands required to complete Azure AD configuration with error "Authorization_RequestDenied","Insufficient privileges to complete the operation". Example error:
 
 ```powershell
 Invoke-WebRequest: /home/<user>/clouddrive/service-fabric-aad-helpers/Common.ps1:239
@@ -325,13 +317,12 @@ Line |
 
 #### **Reason**
 
-This error is returned when the permissions of the user account executing script does not have permissions to perform the REST call. This can occur if user does not have Administrator / Manage / Write permissions for the objects being created or modified.
+This error is returned when the user account executing the script doesn't have the permissions to perform the REST call. This can occur if the user doesn't have Administrator/Manage/Write permissions for the objects being created or modified.
 
 #### **Solution**
 
-Work with an Administrator of Azure tenant / Azure Active Directory to complete all remaining actions. The scripts provided are idempotent so can be re-executed to complete process.
+Work with an Administrator of Azure tenant/Azure Active Directory to complete all remaining actions. The scripts provided are idempotent so can be re-executed to complete the process.
 
----
 
 ### **Connect the cluster by using Azure AD authentication via PowerShell**
 To connect the Service Fabric cluster, use the following PowerShell command example:
