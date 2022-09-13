@@ -44,7 +44,7 @@ You decide to create an exclusion to allow these legitimate requests to pass thr
    |-|-|
    | Rule set | Microsoft_DefaultRuleSet_2.0 |
    | Rule group | SQLI |
-   | Rule | 924430 Detects conditional SQL injection attempts |
+   | Rule | 942230 Detects conditional SQL injection attempts |
 
 1. Configure the exclusion match conditions as follows:
 
@@ -83,11 +83,11 @@ $exclusionSelector = New-AzFrontDoorWafManagedRuleExclusionObject `
 
 Use the [New-AzFrontDoorWafManagedRuleOverrideObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject) cmdlet to define a new per-rule exclusion, which includes the selector you created in the previous step.
 
-The following example creates an exclusion for rule ID 924430.
+The following example creates an exclusion for rule ID 942230.
 
 ```azurepowershell
 $exclusion = New-AzFrontDoorWafManagedRuleOverrideObject `
-  -RuleId '924430' `
+  -RuleId '942230' `
   -Exclusion $exclusionSelector
 ```
 
@@ -95,7 +95,7 @@ $exclusion = New-AzFrontDoorWafManagedRuleOverrideObject `
 
 Use the [New-AzFrontDoorWafRuleGroupOverrideObject](/powershell/module/az.frontdoor/new-azfrontdoorwafrulegroupoverrideobject) cmdlet to create a rule group override, which applies the exclusion to the appropriate rule group.
 
-The example below uses the SQLI rule group, because that group contains rule ID 924430.
+The example below uses the SQLI rule group, because that group contains rule ID 942230.
 
 ```azurepowershell
 $ruleGroupOverride = New-AzFrontDoorWafRuleGroupOverrideObject `
@@ -138,7 +138,7 @@ The following example Bicep file shows how to do the following steps:
 
 - Create a Front Door WAF policy.
 - Enable the DRS 2.0 rule set.
-- Configure an exclusion for rule 942250, which exists within the SQLI rule group. This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If WAF rule 942230 detects a risk in these header values, it ignores the header and moves on.
+- Configure an exclusion for rule 942230, which exists within the SQLI rule group. This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If WAF rule 942230 detects a risk in these header values, it ignores the header and moves on.
 
 ```bicep
 param wafPolicyName string = 'WafPolicy'
@@ -172,7 +172,7 @@ resource wafPolicy 'Microsoft.Network/frontDoorWebApplicationFirewallPolicies@20
               ruleGroupName: 'SQLI'
               rules: [
                 {
-                  ruleId: '942250'
+                  ruleId: '942230'
                   enabledState: 'Enabled'
                   action: 'AnomalyScoring'
                   exclusions: [
