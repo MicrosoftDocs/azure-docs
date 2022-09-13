@@ -26,7 +26,7 @@ Activity logs are collected and stored automatically, but can be routed to other
 
 In Azure portal, you can select **Activity Logs**, select  **Export Activity Logs** followed by **Add diagnostic setting** to create diagnostic settings scoped to the logs and platform metrics emitted by your instance.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for DPS are listed in [Resource logs in the Azure IoT Hub Device Provisioning Service monitoring data reference](monitor-iot-dps-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect.
 
 ## Analyzing logs
 
