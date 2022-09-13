@@ -21,18 +21,18 @@ Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Act
 
 To successfully complete this tutorial, make sure you have the required prerequisites:
 
-1. Microsoft Graph PowerShell SDK is installed. Follow the [installation guide](/powershell/microsoftgraph/installation?view=graph-powershell-1.0) for more info on how to do this.
-2. Identity Protection is available in the beta version of Microsoft Graph PowerShell. Run the following command to set your profile to beta.
-```powershell
-# Connect to Graph beta Endpoint
-Select-MgProfile -Name 'beta'
-```
-3. Microsoft Graph PowerShell using a global administrator role and the appropriate permissions. The IdentityRiskEvent.Read.All, IdentityRiskyUser.ReadWrite.All Or IdentityRiskyUser.ReadWrite.All delegated permissions are required. To set the permissions to IdentityRiskEvent.Read.All and IdentityRiskyUser.ReadWrite.All, run;
-```powershell
-Connect-MgGraph -Scopes "IdentityRiskEvent.Read.All","IdentityRiskyUser.ReadWrite.All"
-```
+- Microsoft Graph PowerShell SDK is installed. Follow the [installation guide](/powershell/microsoftgraph/installation?view=graph-powershell-1.0) for more info on how to do this.
+- Identity Protection is available in the beta version of Microsoft Graph PowerShell. Run the following command to set your profile to beta.
+   ```powershell
+   # Connect to Graph beta Endpoint
+   Select-MgProfile -Name 'beta'
+   ```
+- Microsoft Graph PowerShell using a global administrator role and the appropriate permissions. The IdentityRiskEvent.Read.All, IdentityRiskyUser.ReadWrite.All Or IdentityRiskyUser.ReadWrite.All delegated permissions are required. To set the permissions to IdentityRiskEvent.Read.All and IdentityRiskyUser.ReadWrite.All, run:
+   ```powershell
+   Connect-MgGraph -Scopes "IdentityRiskEvent.Read.All","IdentityRiskyUser.ReadWrite.All"
+   ```
 
-OR If you use app-only authentication, you may follow this [guide](/powershell/microsoftgraph/app-only?view=graph-powershell-1.0&tabs=azure-portal) to register an application with the required application permissions, prepare a certificate and run;
+Or, if you use app-only authentication, you may follow this [guide](/powershell/microsoftgraph/app-only?view=graph-powershell-1.0&tabs=azure-portal). To register an application with the required application permissions, prepare a certificate and run:
 ```powershell
 Connect-MgGraph -ClientID YOUR_APP_ID -TenantId YOUR_TENANT_ID -CertificateName YOUR_CERT_SUBJECT ## Or -CertificateThumbprint instead of -CertificateName
 ```
