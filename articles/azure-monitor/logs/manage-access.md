@@ -156,16 +156,15 @@ Each workspace can have multiple accounts associated with it. Each account can h
 
 ### Built-in roles
 
-Assign users to these roles to give them access at different scopes:
+Assign users to these roles to give them access to the workspace:
 
-* **Subscription**: Access to all workspaces in the subscription
-* **Resource group**: Access to all workspaces in the resource group
-* **Resource**: Access to only the specified workspace
+* **Log Analytics Reader**
+* **Log Analytics Contributor**
 
-Create assignments at the resource level (workspace) to assure accurate access control. Use [custom roles](../../role-based-access-control/custom-roles.md) to create roles with the specific permissions needed.
+Create assignments at the workspace level to ensure accurate access control. 
 
 > [!NOTE]
-> To add and remove users to a user role, you must have `Microsoft.Authorization/*/Delete` and `Microsoft.Authorization/*/Write` permission.
+> To assign users to a user role or remove users from a role, you must have `Microsoft.Authorization/*/Delete` and `Microsoft.Authorization/*/Write` permission.
 
 #### Log Analytics Reader
 
@@ -231,7 +230,7 @@ When users query logs from a workspace by using [resource-context access](#acces
 
 The `/read` permission is usually granted from a role that includes _\*/read or_ _\*_ permissions, such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Custom roles that include specific actions or dedicated built-in roles might not include this permission.
 
-### Custom role examples
+### Custom roles
 
 In addition to using the built-in roles for a Log Analytics workspace, you can create custom roles to assign more granular permissions. Here are some common examples.
 
