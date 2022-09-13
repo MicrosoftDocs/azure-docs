@@ -1,6 +1,6 @@
 ---
-title: Using Service Map solution in Azure | Microsoft Docs
-description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
+title: Use the Service Map solution in Azure | Microsoft Docs
+description: Learn how to deploy and use the Service Map solution to automatically discover application components on Windows and Linux systems and map communication between services.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,147 +9,163 @@ ms.reviewer: Xema Pathak
 
 ---
 
-# Using Service Map solution in Azure
+# Use the Service Map solution in Azure
 
-Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
+Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
-This article describes the details of onboarding and using Service Map. The prerequisites of the solution are the following:
+This article describes how to deploy and use Service Map. The prerequisites of the solution are:
 
 * A Log Analytics workspace in a [supported region](vminsights-configure-workspace.md#supported-regions).
-
 * The [Log Analytics agent](vminsights-enable-overview.md#agents) installed on the Windows computer or Linux server connected to the same workspace that you enabled the solution with.
-
 * The [Dependency agent](vminsights-enable-overview.md#agents) installed on the Windows computer or Linux server.
 
 >[!NOTE]
->If you have already deployed Service Map, you can now also view your maps in VM insights, which includes additional features to monitor VM health and performance. To learn more, see [VM insights overview](../vm/vminsights-overview.md). To learn about the differences between the Service Map solution and VM insights Map feature, see the following [FAQ](../faq.yml).
+>If you've already deployed Service Map, you can now also view your maps in VM insights, which includes more features to monitor VM health and performance. To learn more, see [VM insights overview](../vm/vminsights-overview.md). To learn about the differences between the Service Map solution and the VM insights Map feature, see [this FAQ](../faq.yml).
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable Service Map
 
-1. Enable the Service Map solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../insights/solutions.md).
-1. [Install the Dependency agent on Windows](../vm/vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) or [Install the Dependency agent on Linux](../vm/vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
+1. Enable the Service Map solution from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview). Or use the process described in [Add monitoring solutions from the Solutions Gallery](../insights/solutions.md).
+1. [Install the Dependency agent on Windows](../vm/vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) or [Install the Dependency agent on Linux](../vm/vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) on each computer where you want to get data. The Dependency agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
-You access Service Map in the Azure portal from your Log Analytics workspace, and select the option **Solutions** from the left pane.<br><br> ![Select Solutions option in workspace](./media/service-map/select-solution-from-workspace.png).<br> From the list of solutions, select **ServiceMap(workspaceName)** and in the Service Map solution overview page click on the Service Map summary tile.<br><br> ![Service Map summary tile](./media/service-map/service-map-summary-tile.png).
+1. Access Service Map in the Azure portal from your Log Analytics workspace. Select the option **Solutions** from the left pane.
+
+   ![Screenshot that shows selecting the Solutions option in the workspace.](./media/service-map/select-solution-from-workspace.png).
+1. From the list of solutions, select **ServiceMap(workspaceName)**. On the **Service Map solution overview** page, select the **Service Map** summary tile.
+
+   ![Screenshot that shows the Service Map summary tile.](./media/service-map/service-map-summary-tile.png).
 
 ## Use cases: Make your IT processes dependency aware
 
 ### Discovery
 
-Service Map automatically builds a common reference map of dependencies across your servers, processes, and third-party services. It discovers and maps all TCP dependencies, identifying surprise connections, remote third-party systems you depend on, and dependencies to traditional dark areas of your network, such as Active Directory. Service Map discovers failed network connections that your managed systems are attempting to make, helping you identify potential server misconfiguration, service outage, and network issues.
+Service Map automatically builds a common reference map of dependencies across your servers, processes, and third-party services. It discovers and maps all TCP dependencies. It identifies surprise connections, remote third-party systems you depend on, and dependencies to traditional dark areas of your network, such as Active Directory. Service Map discovers failed network connections that your managed systems are attempting to make. This information helps you identify potential server misconfiguration, service outage, and network issues.
 
 ### Incident management
 
-Service Map helps eliminate the guesswork of problem isolation by showing you how systems are connected and affecting each other. In addition to identifying failed connections, it helps identify misconfigured load balancers, surprising or excessive load on critical services, and rogue clients, such as developer machines talking to production systems. By using integrated workflows with Change Tracking, you can also see whether a change event on a back-end machine or service explains the root cause of an incident.
+Service Map helps eliminate the guesswork of problem isolation by showing you how systems are connected and affect each other. Along with identifying failed connections, it helps identify misconfigured load balancers, surprising or excessive load on critical services, and rogue clients, such as developer machines talking to production systems. By using integrated workflows with Change Tracking, you can also see whether a change event on a back-end machine or service explains the root cause of an incident.
 
 ### Migration assurance
 
-By using Service Map, you can effectively plan, accelerate, and validate Azure migrations, which helps ensure that nothing is left behind and surprise outages do not occur. You can discover all interdependent systems that need to migrate together, assess system configuration and capacity, and identify whether a running system is still serving users or is a candidate for decommissioning instead of migration. After the move is complete, you can check on client load and identity to verify that test systems and customers are connecting. If your subnet planning and firewall definitions have issues, failed connections in Service Map maps point you to the systems that need connectivity.
+By using Service Map, you can effectively plan, accelerate, and validate Azure migrations to help ensure that nothing is left behind and surprise outages don't occur. You can:
+
+- Discover all interdependent systems that need to migrate together.
+- Assess system configuration and capacity.
+- Identify whether a running system is still serving users or is a candidate for decommissioning instead of migration.
+
+After the move is complete, you can check on client load and identity to verify that test systems and customers are connecting. If your subnet planning and firewall definitions have issues, failed connections in Service Map maps point you to the systems that need connectivity.
 
 ### Business continuity
 
-If you are using Azure Site Recovery and need help defining the recovery sequence for your application environment, Service Map can automatically show you how systems rely on each other to ensure that your recovery plan is reliable. By choosing a critical server or group and viewing its clients, you can identify which front-end systems to recover after the server is restored and available. Conversely, by looking at critical servers' back-end dependencies, you can identify which systems to recover before your focus systems are restored.
+If you're using Azure Site Recovery and need help defining the recovery sequence for your application environment, Service Map can automatically show you how systems rely on each other. This information helps to ensure that your recovery plan is reliable.
+
+By choosing a critical server or group and viewing its clients, you can identify which front-end systems to recover after the server is restored and available. Conversely, by looking at critical servers' back-end dependencies, you can identify which systems to recover before your focus systems are restored.
 
 ### Patch management
 
-Service Map enhances your use of the System Update Assessment by showing you which other teams and servers depend on your service, so you can notify them in advance before you take down your systems for patching. Service Map also enhances patch management by showing you whether your services are available and properly connected after they are patched and restarted.
+Service Map enhances your use of the System Update Assessment by showing you which other teams and servers depend on your service. This way, you can notify them in advance before you take down your systems for patching. Service Map also enhances patch management by showing you whether your services are available and properly connected after they're patched and restarted.
 
 ## Mapping overview
 
-Service Map agents gather information about all TCP-connected processes on the server where they're installed and details about the inbound and outbound connections for each process.
+Service Map agents gather information about all TCP-connected processes on the server where they're installed. They also collect details about the inbound and outbound connections for each process.
 
-From the list in the left pane, you can select machines or groups that have Service Map agents to visualize their dependencies over a specified time range. Machine dependency maps focus on a specific machine, and they show all the machines that are direct TCP clients or servers of that machine.  Machine Group maps show sets of servers and their dependencies.
+From the list in the left pane, you can select machines or groups that have Service Map agents to visualize their dependencies over a specified time range. Machine dependency maps focus on a specific machine. They show all the machines that are direct TCP clients or servers of that machine. Machine Group maps show sets of servers and their dependencies.
 
-![Service Map overview](media/service-map/service-map-overview.png)
+![Screenshot that shows a Service Map overview.](media/service-map/service-map-overview.png)
 
-Machines can be expanded in the map to show the running process groups and processes with active network connections during the selected time range. When a remote machine with a Service Map agent is expanded to show process details, only those processes that communicate with the focus machine are shown. The count of agentless front-end machines that connect into the focus machine is indicated on the left side of the processes they connect to. If the focus machine is making a connection to a back-end machine that has no agent, the back-end server is included in a Server Port Group, along with other connections to the same port number.
+Machines can be expanded in the map to show the running process groups and processes with active network connections during the selected time range. When a remote machine with a Service Map agent is expanded to show process details, only those processes that communicate with the focus machine are shown.
 
-By default, Service Map maps show the last 30 minutes of dependency information. By using the time controls at the upper left, you can query maps for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred). Service Map data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
+The count of agentless front-end machines that connect into the focus machine is indicated on the left side of the processes they connect to. If the focus machine is making a connection to a back-end machine that has no agent, the back-end server is included in a Server Port Group. This group also include other connections to the same port number.
+
+By default, Service Map maps show the last 30 minutes of dependency information. You can use the time controls at the upper left to query maps for historical time ranges of up to one hour to see how dependencies looked in the past. For example, you might want to see how they looked during an incident or before a change occurred. Service Map data is stored for 30 days in paid workspaces and for 7 days in free workspaces.
 
 ## Status badges and border coloring
 
-At the bottom of each server in the map can be a list of status badges conveying status information about the server. The badges indicate that there is some relevant information for the server from one of the solution integrations. Clicking a badge takes you directly to the details of the status in the right pane. The currently available status badges include Alerts, Service Desk, Changes, Security, and Updates.
+At the bottom of each server in the map can be a list of status badges that convey status information about the server. The badges indicate there's relevant information for the server from one of the solution integrations.
+
+Selecting a badge takes you directly to the details of the status in the right pane. The currently available status badges include **Alerts**, **Service Desk**, **Changes**, **Security**, and **Updates**.
 
 Depending on the severity of the status badges, machine node borders can be colored red (critical), yellow (warning), or blue (informational). The color represents the most severe status of any of the status badges. A gray border indicates a node that has no status indicators.
 
-![Status badges](media/service-map/status-badges.png)
+![Screenshot that shows status badges.](media/service-map/status-badges.png)
 
-## Process Groups
+## Process groups
 
-Process Groups combine processes that are associated with a common product or service into a process group.  When a machine node is expanded it will display standalone processes along with process groups.  If any inbound and outbound connections to a process within a process group has failed then the connection is shown as failed for the entire process group.
+Process groups combine processes that are associated with a common product or service into a process group.  When a machine node is expanded, it will display standalone processes along with process groups. If any inbound and outbound connections to a process within a process group has failed, the connection is shown as failed for the entire process group.
 
-## Machine Groups
+## Machine groups
 
-Machine Groups allow you to see maps centered around a set of servers, not just one so you can see all the members of a multi-tier application or server cluster in one map.
+Machine groups allow you to see maps centered around a set of servers, not just one. In this way, you can see all the members of a multi-tier application or server cluster in one map.
 
-Users select which servers belong in a group together and choose a name for the group.  You can then choose to view the group with all of its processes and connections, or view it with only the processes and connections that directly relate to the other members of the group.
+Users select which servers belong in a group together and choose a name for the group. You can then choose to view the group with all of its processes and connections. You can also view it with only the processes and connections that directly relate to the other members of the group.
 
-![Machine Group](media/service-map/machine-group.png)
+![Screenshot that shows machine groups.](media/service-map/machine-group.png)
 
-### Creating a Machine Group
+### Create a machine group
 
-To create a group, select the machine or machines you want in the Machines list and click **Add to group**.
+To create a group, select the machine or machines you want in the Machines list and select **Add to group**.
 
-![Create Group](media/service-map/machine-groups-create.png)
+![Screenshot that shows creating a group.](media/service-map/machine-groups-create.png)
 
 There, you can choose **Create new** and give the group a name.
 
-![Name Group](media/service-map/machine-groups-name.png)
+![Screenshot that shows naming a group.](media/service-map/machine-groups-name.png)
 
 >[!NOTE]
 >Machine groups are limited to 10 servers.
 
-### Viewing a Group
+### View a group
 
-Once you've created some groups, you can view them by choosing the Groups tab.
+After you've created some groups, you can view them by selecting the **Groups** tab.
 
-![Groups tab](media/service-map/machine-groups-tab.png)
+![Screenshot that shows the Groups tab.](media/service-map/machine-groups-tab.png)
 
-Then select the Group name to view the map for that Machine Group.
-![Machine Group](media/service-map/machine-group.png) 
+Select the group name to view the map for that machine group.
+
+![Screenshot that shows a machine group map.](media/service-map/machine-group.png)
+
 The machines that belong to the group are outlined in white in the map.
 
-Expanding the Group will list the machines that make up the Machine Group.
+Expanding the group lists the machines that make up the machine group.
 
-![Machine Group machines](media/service-map/machine-groups-machines.png)
+![Screenshot that shows machine group machines.](media/service-map/machine-groups-machines.png)
 
 ### Filter by processes
 
-You can toggle the map view between showing all processes and connections in the Group and only the ones that directly relate to the Machine Group.  The default view is to show all processes.  You can change the view by clicking the filter icon above the map.
+You can toggle the map view to show all processes and connections in the group or only the ones that directly relate to the machine group. The default view shows all processes. You can change the view by selecting the filter icon above the map.
 
-![Filter Group](media/service-map/machine-groups-filter.png)
+![Screenshot that shows filtering group.](media/service-map/machine-groups-filter.png)
 
-When **All processes** is selected, the map will include all processes and connections on each of the machines in the Group.
+When **All processes** is selected, the map includes all processes and connections on each of the machines in the group.
 
-![Machine Group all processes](media/service-map/machine-groups-all.png)
+![Screenshot that shows Machine Group All processes.](media/service-map/machine-groups-all.png)
 
-If you change the view to show only **group-connected processes**, the map will be narrowed down to only those processes and connections that are directly connected to other machines in the group, creating a simplified view.
+To create a simplified view, you can change the view to show only **group-connected processes**. The map is then narrowed down to show only those processes and connections directly connected to other machines in the group.
 
-![Machine Group filtered processes](media/service-map/machine-groups-filtered.png)
- 
-### Adding machines to a group
+![Screenshot that shows machine group filtered processes.](media/service-map/machine-groups-filtered.png)
 
-To add machines to an existing group, check the boxes next to the machines you want and then click **Add to group**.  Then, choose the group you want to add the machines to.
- 
-### Removing machines from a group
+### Add machines to a group
 
-In the Groups List, expand the group name to list the machines in the Machine Group.  Then, click on the ellipsis menu next to the machine you want to remove and choose **Remove**.
+To add machines to an existing group, select the checkboxes next to the machines you want and select **Add to group**. Then choose the group you want to add the machines to.
 
-![Remove machine from group](media/service-map/machine-groups-remove.png)
+### Remove machines from a group
 
-### Removing or renaming a group
+In the group list, expand the group name to list the machines in the machine group. Select the ellipsis menu next to the machine you want to remove and select **Remove**.
 
-Click on the ellipsis menu next to the group name in the Group List.
+![Screenshot that shows removing a machine from a group.](media/service-map/machine-groups-remove.png)
 
-![Machine group menu](media/service-map/machine-groups-menu.png)
+### Remove or rename a group
 
+Select the ellipsis menu next to the group name in the group list.
+
+![Screenshot that shows the machine group menu.](media/service-map/machine-groups-menu.png)
 
 ## Role icons
 
-Certain processes serve particular roles on machines: web servers, application servers, database, and so on. Service Map annotates process and machine boxes with role icons to help identify at a glance the role a process or server plays.
+Certain processes serve particular roles on machines, such as web servers, application servers, and databases. Service Map annotates process and machine boxes with role icons to help identify at a glance the role a process or server plays.
 
 | Role icon | Description |
 |:--|:--|
@@ -159,72 +175,73 @@ Certain processes serve particular roles on machines: web servers, application s
 | ![LDAP server](media/service-map/role-ldap.png) | LDAP server |
 | ![SMB server](media/service-map/role-smb.png) | SMB server |
 
-![Role icons](media/service-map/role-icons.png)
-
+![Screenshot that shows role icons.](media/service-map/role-icons.png)
 
 ## Failed connections
 
-Failed connections are shown in Service Map maps for processes and computers, with a dashed red line indicating that a client system is failing to reach a process or port. Failed connections are reported from any system with a deployed Service Map agent if that system is the one attempting the failed connection. Service Map measures this process by observing TCP sockets that fail to establish a connection. This failure could result from a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
+Failed connections are shown in Service Map maps for processes and computers. A dashed red line indicates that a client system is failing to reach a process or port.
 
-![Screenshot of one part of a Service Map highlighting a dashed red line that indicates a failed connection between the backup.pl process and Port 4475.](media/service-map/failed-connections.png)
+Failed connections are reported from any system with a deployed Service Map agent if that system is the one attempting the failed connection. Service Map measures this process by observing TCP sockets that fail to establish a connection. This failure could result from a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
 
-Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding. Failed connections are sometimes harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, or two application tiers being unable to talk after a cloud migration.
+![Screenshot that shows one part of a Service Map highlighting a dashed red line that indicates a failed connection between the backup.pl process and Port 4475.](media/service-map/failed-connections.png)
 
-## Client Groups
+Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding. Failed connections are sometimes harmless, but they often point directly to a problem. A failover environment might suddenly become unreachable or two application tiers might be unable to talk after a cloud migration.
 
-Client Groups are boxes on the map that represent client machines that do not have Dependency Agents. A single Client Group represents the clients for an individual process or machine.
+## Client groups
 
-![Client Groups](media/service-map/client-groups.png)
+Client groups are boxes on the map that represent client machines that don't have Dependency agents. A single client group represents the clients for an individual process or machine.
 
-To see the IP addresses of the servers in a Client Group, select the group. The contents of the group are listed in the **Client Group Properties** pane.
+![Screenshot that shows client groups.](media/service-map/client-groups.png)
 
-![Client Group properties](media/service-map/client-group-properties.png)
+To see the IP addresses of the servers in a client group, select the group. The contents of the group are listed in the **Client Group Properties** pane.
 
-## Server Port Groups
+![Screenshot that shows client group properties.](media/service-map/client-group-properties.png)
 
-Server Port Groups are boxes that represent server ports on servers that do not have Dependency Agents. The box contains the server port and a count of the number of servers with connections to that port. Expand the box to see the individual servers and connections. If there is only one server in the box, the name or IP address is listed.
+## Server port groups
 
-![Server Port Groups](media/service-map/server-port-groups.png)
+Server port groups are boxes that represent server ports on servers that do not have Dependency Agents. The box contains the server port and a count of the number of servers with connections to that port. Expand the box to see the individual servers and connections. If there is only one server in the box, the name or IP address is listed.
+
+![Screenshot that shows Server Port Groups](media/service-map/server-port-groups.png)
 
 ## Context menu
 
-Clicking the ellipsis (...) at the top right of any server displays the context menu for that server.
+Select the ellipsis (...) at the top right of any server to display the context menu for that server.
 
-![Screenshot showing the opened context menu for a server in Service Map. The menu has the options Load Server Map and Show Self-Links.](media/service-map/context-menu.png)
+![Screenshot that shows the menu options Load Server Map and Show Self-Links for a server in Service Map.](media/service-map/context-menu.png)
 
 ### Load server map
 
-Clicking **Load Server Map** takes you to a new map with the selected server as the new focus machine.
+Select **Load Server Map** to go a new map with the selected server as the new focus machine.
 
 ### Show self-links
 
-Clicking **Show Self-Links** redraws the server node, including any self-links, which are TCP connections that start and end on processes within the server. If self-links are shown, the menu command changes to **Hide Self-Links**, so that you can turn them off.
+Select **Show Self-Links** to redraw the server node, including any self-links, which are TCP connections that start and end on processes within the server. If self-links are shown, the menu command changes to **Hide Self-Links** so that you can turn them off.
 
 ## Computer summary
 
 The **Machine Summary** pane includes an overview of a server's operating system, dependency counts, and data from other solutions. Such data includes performance metrics, service desk tickets, change tracking, security, and updates.
 
-![Machine Summary pane](media/service-map/machine-summary.png)
+![Screenshot that shows Machine Summary pane.](media/service-map/machine-summary.png)
 
 ## Computer and process properties
 
 When you navigate a Service Map map, you can select machines and processes to gain additional context about their properties. Machines provide information about DNS name, IPv4 addresses, CPU and memory capacity, VM type, operating system and version, last reboot time, and the IDs of their OMS and Service Map agents.
 
-![Machine Properties pane](media/service-map/machine-properties.png)
+![Screenshot that shows Machine Properties pane](media/service-map/machine-properties.png)
 
 You can gather process details from operating-system metadata about running processes, including process name, process description, user name and domain (on Windows), company name, product name, product version, working directory, command line, and process start time.
 
-![Process Properties pane](media/service-map/process-properties.png)
+![Screenshot that shows Process Properties pane](media/service-map/process-properties.png)
 
 The **Process Summary** pane provides additional information about the process's connectivity, including its bound ports, inbound and outbound connections, and failed connections.
 
-![Process Summary pane](media/service-map/process-summary.png)
+![Screenshot that shows Process Summary pane](media/service-map/process-summary.png)
 
 ## Alerts integration
 
 Service Map integrates with Azure Alerts to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the **Machine Alerts** pane lists the alerts.
 
-![Machine Alerts pane](media/service-map/machine-alerts.png)
+![Screenshot that shows Machine Alerts pane](media/service-map/machine-alerts.png)
 
 To enable Service Map to display relevant alerts, create an alert rule that fires for a specific computer. To create proper alerts:
 - Include a clause to group by computer (for example, **by Computer interval 1 minute**).
@@ -234,7 +251,7 @@ To enable Service Map to display relevant alerts, create an alert rule that fire
 
 Service Map integrates with Log Search to show a count of all available log events for the selected server during the selected time range. You can click any row in the list of event counts to jump to Log Search and see the individual log events.
 
-![Machine Log Events pane](media/service-map/log-events.png)
+![Screenshot that shows Machine Log Events pane](media/service-map/log-events.png)
 
 ## Service Desk integration
 
@@ -259,13 +276,13 @@ The **Machine Change Tracking** pane lists all changes, with the most recent fir
 
 The following image is a detailed view of a ConfigurationChange event that you might see after you select **Show in Log Analytics**.
 
-![ConfigurationChange event](media/service-map/configuration-change-event-01.png)
+![Screenshot that shows ConfigurationChange event](media/service-map/configuration-change-event-01.png)
 
 ## Performance integration
 
 The **Machine Performance** pane displays standard performance metrics for the selected server. The metrics include CPU utilization, memory utilization, network bytes sent and received, and a list of the top processes by network bytes sent and received.
 
-![Machine Performance pane](media/service-map/machine-performance.png)
+![Screenshot that shows Machine Performance pane](media/service-map/machine-performance.png)
 
 To see performance data, you may need to [enable the appropriate Log Analytics performance counters](../agents/data-sources-performance-counters.md).  The counters you will want to enable:
 
