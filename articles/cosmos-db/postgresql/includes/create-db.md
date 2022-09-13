@@ -2,8 +2,8 @@
  title: include file
  description: include file
  author: jonels-msft
- ms.service: postgresql
- ms.subservice: hyperscale-citus
+ ms.service: cosmos-db
+ ms.subservice: postgresql
  ms.topic: include
  ms.date: 06/29/2022
  ms.author: jonels
