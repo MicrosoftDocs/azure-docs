@@ -122,7 +122,7 @@ The Azure AD prerequisites to run the **Generate Temporary Access Pass and send 
  
 
 > [!IMPORTANT]
-> A user having this task run for them in a workflow must also not have any other authentication methods, sign ins, or AAD role assignments for this task to work for them.
+> A user having this task run for them in a workflow must also not have any other authentication methods, sign-ins, or AAD role assignments for this task to work for them.
 
 For Microsoft Graph the parameters for the **Generate Temporary Access Pass and send via email to user's manager** task are as follows:
 
