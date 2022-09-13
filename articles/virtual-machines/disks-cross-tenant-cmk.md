@@ -16,7 +16,7 @@ ms.subservice: disks
 > This preview version is provided without a service level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article covers building a solution where you encrypt managed disks with customer-managed keys using Azure Key Vaults stored in a different Azure AD tenant. This configuration can be ideal for several scenarios, one example being Azure support for service providers that want to offer bring-your-own encryption keys to their customers where resources from the service provider's tenant are encrypted with keys from their customer's tenant.
+This article covers building a solution where you encrypt managed disks with customer-managed keys using Azure Key Vaults stored in a different Azure Active Directory (Azure AD) tenant. This configuration can be ideal for several scenarios, one example being Azure support for service providers that want to offer bring-your-own encryption keys to their customers where resources from the service provider's tenant are encrypted with keys from their customer's tenant.
 
 A disk encryption set with federated identity in a cross-tenant CMK workflow spans service provider/ISV tenant resources (disk encryption set, managed identities, and app registrations) and customer tenant resources (enterprise apps, user role assignments, and key vault). In this case, the source Azure resource is the service provider's disk encryption set.
 
@@ -37,7 +37,7 @@ If you have any questions about cross-tenant customer-managed keys with managed 
 
 ## Limitations
 
-The first release of this preview feature is only available in the West Central US region. This preview does not support Ultra Disks or Azure Premium SSD v2 Disk Storage.
+Currently this feature is only available in the West Central US region. This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
 
 [!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
 
