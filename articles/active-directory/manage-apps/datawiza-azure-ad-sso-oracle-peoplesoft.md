@@ -93,9 +93,9 @@ To integrate Oracle PeopleSoft with Azure AD:
 
 4. In the Name and Description fields, enter the relevant information.
 
-5. Select **Next**.
-
    >![Screenshot that shows the name and description fields.](./media/access-oracle-peoplesoft-using-datawiza/deployment-details.png)
+
+5. Select **Next**.
 
 6. On the Add Application dialog, use the following values:
 
@@ -107,9 +107,9 @@ To integrate Oracle PeopleSoft with Azure AD:
    | Listen Port      | The port that DAB listens on. |
    | Upstream Servers | The Oracle PeopleSoft implementation URL and port to be protected.|  
 
-7. Select **Next**.
-
    ![Screenshot that shows how to add application.](./media/access-oracle-peoplesoft-using-datawiza/add-application.png)
+   
+7. Select **Next**.
 
 8. On the Configure IdP dialog, enter the relevant information.
 
@@ -128,7 +128,7 @@ To integrate Oracle PeopleSoft with Azure AD:
 
 ## SSO and HTTP headers
 
-DAB gets user attributes from IdP and passes them to the upstream application with a header or cookie.
+DAB gets user attributes from the Identity provider (IdP) and passes them to the upstream application with a header or cookie.
 
 For the Oracle PeopleSoft application to recognize the user correctly, there's another configuration step. Using a certain name, it instructs DAB to pass the values from the IdP to the application through the HTTP header.
 
@@ -187,7 +187,7 @@ portal](https://docs.microsoft.com/azure/active-directory/authentication/tutoria
 
 4. Under Enable Security defaults, select **Yes** and then **Save**.
 
-## Enable SSO in the Oracle PeopleSoft Console
+## Enable SSO in the Oracle PeopleSoft console
 
 To enable SSO in the Oracle PeopleSoft environment:
 
@@ -215,9 +215,9 @@ To enable SSO in the Oracle PeopleSoft environment:
 
     b. Select the **Allow Public Access** box and then enter the user ID **PSPUBUSER** and password.
 
-    c. Select **Save**.
-
     ![Screenshot that shows the web profile configure.](./media/access-oracle-peoplesoft-using-datawiza/web-profile-config.png)
+
+    c. Select **Save**.
 
 4. Enable SSO.
 
