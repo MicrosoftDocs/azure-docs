@@ -176,7 +176,7 @@ Usually customers will use RMAN, Azure Backup for Oracle and/or disk snap techni
 > [!NOTE]
 > Azure Host Disk Cache for the DATA ASM Disk Group can be set to either Read Only or None. All other ASM Disk Groups should be set to None. On BW or SCM a separate ASM Disk Group for TEMP can be considered for large or busy systems.
 
-##Adding Space to ASM + Azure Disks##
+### Adding Space to ASM + Azure Disks
 
 Oracle ASM Disk Groups can either be extended by adding extra disks or by extending current disks. It is recommended to add extra disks rather than extending existing disks. Review these MOS articles and links MOS Notes 1684112.1 and 2176737.1
 
@@ -246,9 +246,12 @@ We highly recommend using the Oracle dNFS clint for all Oracle volumes.
 
 Recommended mount options are:
 
-**NFSv3**: rw,vers=3,rsize=262144,wsize=262144,hard,timeo=600,noatime
-
-**NFSv4.1**: rw,vers=4.1,rsize=262144,wsize=262144,hard,timeo=600,noatime
+| NFS Vers    | Mount Options                                                 |
+|-------------|---------------------------------------------------------------|
+| **NFSv3**   | rw,vers=3,rsize=262144,wsize=262144,hard,timeo=600,noatime    |
+|             |                                                               |
+| **NFSv4.1** | rw,vers=4.1,rsize=262144,wsize=262144,hard,timeo=600,noatime  |
+|             |                                                               |
 
 ### ANF Backup
 
