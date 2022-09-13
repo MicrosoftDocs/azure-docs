@@ -120,7 +120,7 @@ An external attack surface is the entire area of an organization or system that 
 While you are [investigating and remediating an attack path](#investigate-and-remediate-attack-paths), you can also view your EASM.
 
 > [!NOTE]
-> To manage your EASM, you must [deploying the Defender EASM Azure resource](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md) to your subscription. Defender EASM has it's own cost and is separate from Defender for Cloud. To learn more about Defender for EASM pricing options, you can check out the [pricing page](https://azure.microsoft.com/pricing/details/defender-external-attack-surface-management/). 
+> To manage your EASM, you must [deploy the Defender EASM Azure resource](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md) to your subscription. Defender EASM has it's own cost and is separate from Defender for Cloud. To learn more about Defender for EASM pricing options, you can check out the [pricing page](https://azure.microsoft.com/pricing/details/defender-external-attack-surface-management/). 
 
 **To manage your EASM**:
 
