@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 03/17/2022
+ms.date: 09/13/2022
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -26,9 +26,7 @@ To check the health of your backend pool, you can use the
 The status retrieved by any of these methods can be any one of the following:
 
 - Healthy
-
 - Unhealthy
-
 - Unknown
 
 If the backend health status for a server is Healthy, it means that Application Gateway will forward the requests

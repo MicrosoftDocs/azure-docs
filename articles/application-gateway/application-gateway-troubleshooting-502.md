@@ -5,8 +5,8 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 11/16/2019
-ms.author: amsriva 
+ms.date: 09/13/2022
+ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
 
