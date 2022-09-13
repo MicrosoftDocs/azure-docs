@@ -69,4 +69,8 @@
     items:
     - name: Data plane
       href: https://microsoft.github.io/meds-samples/
+- name: Resources
+  items:
+  - name: FAQ
+    href: faq-energy-data-services.yml
 
