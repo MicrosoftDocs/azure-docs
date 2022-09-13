@@ -93,4 +93,4 @@ The patch user remove attributes may attempt to remove mandatory/required attrib
 
 Advance to the next article to learn how to customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory.
 > [!div class="nextstepaction"]
-> [Next steps button](app-provisioning/customize-application-attributes.md)
+> [Next steps button](customize-application-attributes.md)
