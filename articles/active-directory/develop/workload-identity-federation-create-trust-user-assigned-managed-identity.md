@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/08/2022
+ms.date: 09/13/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: shkhalide, udayh, vakarand
-zone_pivot_groups: identity-mi-methods
+zone_pivot_groups: identity-wif-mi-methods
 #Customer intent: As an application developer, I want to configure a federated credential on an user-assigned managed identity so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure AD protected resources without managing secrets.
 ---
 
@@ -40,7 +40,7 @@ When you configure a federated identity credential, there are several important 
 
 *description* is the un-validated, user-provided description of the federated identity credential. 
 
-::: zone pivot="identity-mi-methods-azp"
+::: zone pivot="identity-wif-mi-methods-azp"
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ When you configure a federated identity credential, there are several important 
 
 ::: zone-end
 
-::: zone pivot="identity-mi-methods-azcli"
+::: zone pivot="identity-wif-mi-methods-azcli"
 
 ## Prerequisites
 
@@ -162,58 +162,8 @@ az rest --method delete --url "/subscriptions/$($subscription)/resourceGroups/$(
 
 ::: zone-end
 
-::: zone pivot="identity-mi-methods-powershell"
 
-## Prerequisites
-
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](/azure/active-directory/managed-identities-azure-resources/overview). Be sure to review the [difference between a system-assigned and user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- Get the information for your external IdP and software workload, which you need in the following steps.
-- To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
-- To run the example scripts, you have two options:
-  - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
-  - Run scripts locally with Azure PowerShell, as described in the next section.
-- [Create a user-assigned manged identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell#list-user-assigned-managed-identities-2) 
-- Find the object ID of the user-assigned managed identity, which you need in the following steps.
-
-### Configure Azure PowerShell locally
-
-To use Azure PowerShell locally for this article instead of using Cloud Shell:
-
-1. Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
-
-1. Sign in to Azure.
-
-    ```azurepowershell
-    Connect-AzAccount
-    ```
-
-1. Install the [latest version of PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
-
-    ```azurepowershell
-    Install-Module -Name PowerShellGet -AllowPrerelease
-    ```
-
-    You might need to `Exit` out of the current PowerShell session after you run this command for the next step.
-
-1. Install the prerelease version of the `Az.ManagedServiceIdentity` module to perform the user-assigned managed identity operations in this article.
-
-    ```azurepowershell
-    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
-    ```
-
-## Configure a federated identity credential on a user-assigned managed identity
-
-
-## List federated identity credentials on a user-assigned managed identity
-
-## Get a federated identity credential on a user-assigned managed identity
-
-## Delete a federated identity credential from a user-assigned managed identity
-
-::: zone-end
-
-::: zone pivot="identity-mi-methods-arm"
+::: zone pivot="identity-wif-mi-methods-arm"
 
 ## Prerequisites
 
@@ -328,7 +278,7 @@ List, Get, and Delete operations are not available with template. Please refer t
 
 ::: zone-end
 
-::: zone pivot="identity-mi-methods-rest"
+::: zone pivot="identity-wif-mi-methods-rest"
 
 ## Prerequisites
 
