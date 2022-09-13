@@ -370,21 +370,18 @@ search_space:
       max_value: 0.01
     model_size:
       type: choice
-      values: ['small', 'medium']
+      values: [small, medium]
 
   - model_name:
       type: choice
       values: [fasterrcnn_resnet50_fpn]
     learning_rate:
       type: uniform
-      min_value: 0.005
-      max_value: 0.05
-    warmup_cosine_lr_warmup_epochs:
-      type: choice
-      values: [0, 3]
+      min_value: 0.0001
+      max_value: 0.001
     optimizer:
       type: choice
-      values: ['sgd', 'adam', 'adamw']
+      values: [sgd, adam, adamw]
     min_size:
       type: choice
       values: [600, 800]
@@ -392,7 +389,10 @@ search_space:
 
 # [Python SDK](#tab/python)
 
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
+
 ---
 
 ### Define the parameter search space
