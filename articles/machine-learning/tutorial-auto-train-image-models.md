@@ -415,7 +415,7 @@ Once the run completes, you can register the model that was created from the bes
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 ```yaml
-    please refer to Python SDK section for an example.
+CLI example not available, please use Python SDK.
 ```
 
 
@@ -561,7 +561,7 @@ az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fri
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 ```yaml
-please refer to Python SDK section for an example.
+CLI example not available, please use Python SDK.
 ```
 
 # [Python SDK](#tab/python)
@@ -581,7 +581,7 @@ Now that you have scored a test image, you can visualize the bounding boxes for 
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 ```yaml
-please refer to Python SDK section for an example.
+CLI example not available, please use Python SDK.
 ```
 
 # [Python SDK](#tab/python)
