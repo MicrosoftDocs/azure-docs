@@ -35,22 +35,9 @@ The factors that define the data you can access are described in the following t
 
 ## Access mode
 
-There are two access modes or contexts, which are determined by the [scope](scope.md) you select in Log Analytics: 
+There are modes, or contexts, by which you can access data in a Log Analytics workspace - workspace-context and resource-context. The mode you use is determined by the [scope](scope.md) you select in Log Analytics.
 
-- **Workspace-context**: You can view all logs in the workspace for which you have permission. Queries in this mode are scoped to all data in all tables in the workspace. This access mode is used when logs are accessed with the workspace as the scope, such as when you select **Logs** on the **Azure Monitor** menu in the Azure portal.
- - **Resource-context**: When you access the workspace for a particular resource, resource group, or subscription, such as when you select **Logs** from a resource menu in the Azure portal, you can view logs for only resources in all tables that you have access to. Queries in this mode are scoped to only data associated with that resource. This mode also enables granular Azure RBAC. Workspaces use a resource-context log model where every log record emitted by an Azure resource is automatically associated with this resource.
-
-Records are only available in resource-context queries if they're associated with the relevant resource. To check this association, run a query and verify that the [_ResourceId](./log-standard-columns.md#_resourceid) column is populated.
-
-There are known limitations with the following resources:
-
-- **Computers outside of Azure**: Resource-context is only supported with [Azure Arc for servers](../../azure-arc/servers/index.yml).
-- **Application Insights**: Supported for resource-context only when using a [workspace-based Application Insights resource](../app/create-workspace-resource.md).
-- **Azure Service Fabric**
-
-### Compare access modes
-
-The following table summarizes the access modes:
+The following table describes the access modes:
 
 | Issue | Workspace-context | Resource-context |
 |:---|:---|:---|
@@ -58,6 +45,14 @@ The following table summarizes the access modes:
 | What does a user require to view logs? | Permissions to the workspace.<br>See "Workspace permissions" in [Manage access using workspace permissions](./manage-access.md#azure-rbac). | Read access to the resource.<br>See "Resource permissions" in [Manage access using Azure permissions](./manage-access.md#azure-rbac). Permissions can be inherited from the resource group or subscription or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. The user doesn't require access to the workspace.|
 | What is the scope of permissions? | Workspace.<br>Users with access to the workspace can query all logs in the workspace from tables they have permissions to. See [Table access control](./manage-access.md#table-level-azure-rbac). | Azure resource.<br>Users can query logs for specific resources, resource groups, or subscriptions they have access to in any workspace, but they can't query logs for other resources. |
 | How can a user access logs? | On the **Azure Monitor** menu, select **Logs**.<br><br>Select **Logs** from **Log Analytics workspaces**.<br><br>From Azure Monitor [workbooks](../best-practices-analysis.md#workbooks). | Select **Logs** on the menu for the Azure resource. Users will have access to data for that resource.<br><br>Select **Logs** on the **Azure Monitor** menu. Users will have access to data for all resources they have access to.<br><br>Select **Logs** from **Log Analytics workspaces**. Users will have access to data for all resources they have access to.<br><br>From Azure Monitor [workbooks](../best-practices-analysis.md#workbooks). |
+ 
+Records are only available in resource-context queries if they're associated with the relevant resource. To check this association, run a query and verify that the [_ResourceId](./log-standard-columns.md#_resourceid) column is populated.
+
+There are known limitations with the following resources:
+
+- **Computers outside of Azure**: Resource-context is only supported with [Azure Arc for servers](../../azure-arc/servers/index.yml).
+- **Application Insights**: Supported for resource-context only when using a [workspace-based Application Insights resource](../app/create-workspace-resource.md).
+- **Azure Service Fabric**
 
 ## Manage access control mode
 
