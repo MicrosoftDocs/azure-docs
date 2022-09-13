@@ -23,7 +23,7 @@ Now that you know how to acquire a token to call web APIs, here are some things 
 
 ## Deploy your app
 
-Check out a [deployment sample](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter3) for learning how to deploy your SPA and Web API projects with Azure Storage and Azure App Services, respectively.
+Check out a [deployment sample](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/4-Deployment) for learning how to deploy your SPA and Web API projects with Azure Storage and Azure App Service, respectively.
 
 ## Code samples
 
