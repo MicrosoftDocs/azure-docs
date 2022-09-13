@@ -6,7 +6,7 @@ author: zhengchang907
 ms.author: zhengchang
 ms.service: container-service
 ms.topic: how-to
-ms.date: 08/25/2022
+ms.date: 09/13/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli
 ---
@@ -36,7 +36,7 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
   * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-  * Please make sure you have been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group) 
+  * Make sure you have been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group) 
 
 ## Create a Liberty on AKS deployment using the portal
 
@@ -44,7 +44,7 @@ The steps in this section guide you to create a Liberty runtime on AKS. After co
 
 ## RR: We should show the use of the App Gateway.
 
-1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type **IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service**. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section.
+1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section.
 1. Select **Create** to start.
 1. In the **Basics** tab, create a new resource group called *java-liberty-project-rg*.
 1. Select *East US* as **Region**.
