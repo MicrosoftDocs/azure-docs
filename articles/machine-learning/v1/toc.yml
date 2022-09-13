@@ -308,3 +308,5 @@
   items: 
   - name: Machine learning CLI pipeline YAML reference
     href: reference-pipeline-yaml.md
+  - name: Image data schemas for AutoML (v1)
+    href: reference-automl-images-schema-v1.md
