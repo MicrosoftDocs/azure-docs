@@ -23,10 +23,11 @@ In order to maintain the quality and availability of the Device Update service, 
 * Deployment ResultCode, ExtendedResultCode
 * Log collection ResultCode, Extended ResultCode
 
+*For fields marked with asterisk, do not put any personal or sensitive data.
+
 Microsoft maintains no information and has no access to data that would allow correlation of these telemetry data points with an individual’s identity. These system-generated data points are not accessible or exportable by tenant administrators. These data constitute factual actions conducted within the service and diagnostic data related to individual devices.
 
-For fields marked with asterisk, do not put any personal or sensitive data.
 
 ## Next steps
 
-[Read the "Enterprise and developer products" section of the Microsoft Privacy Statement](aka.ms/privacy)
+Read the "Enterprise and developer products" section of the Microsoft Privacy Statement.
