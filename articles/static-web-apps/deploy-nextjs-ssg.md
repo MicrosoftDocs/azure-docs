@@ -137,6 +137,8 @@ By default, the application is treated as a hybrid rendered Next.js application,
 
 1. Update the _Build and Deploy_ job to have an environment variable of `IS_STATIC_EXPORT` set to `true`:
 
+    ### GitHub Actions (#tab/github-acounts)
+
     ```yaml
         - name: Build And Deploy
             id: swa
@@ -147,9 +149,23 @@ By default, the application is treated as a hybrid rendered Next.js application,
               action: "upload"
               app_location: "/" # App source code path
               api_location: "" # Api source code path - optional
-              output_location: "out" # Built app content directory - optional
+              output_location: "" # Built app content directory - optional
             env: # Add environment variables here
               is_static_export: true
+    ```
+
+    ### Azure Pipelines (#tab/azure-pipelines)
+
+    ```yaml
+        - task: AzureStaticWebAppLatest@0
+          inputs:
+            azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_TOKEN)
+            ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+            # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+            app_location: "/" # App source code path
+            api_location: "" # Api source code path - optional
+            output_location: "" # Built app content directory - optional
+            is_static_export: true # For running Static Next.js file - optional
     ```
 
 1. Commit the changes to git and push them to GitHub.

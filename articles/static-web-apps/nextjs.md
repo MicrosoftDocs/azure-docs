@@ -11,16 +11,13 @@ ms.author: aapowell
 ms.custom: devx-track-js
 ---
 # Deploy Next.js websites on Azure Static Web Apps
-Next.js support on Azure Static Web Apps can be categorised as two deployment models, Static Site Generation (SSG) Next.js applications, and _hybrid_ rendering, which covers [Server-Side Rendering](https://nextjs.org/docs/advanced-features/react-18/streaming) and [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration).
-
+Next.js support on Azure Static Web Apps can be categorised as two deployment models, [Static HTML Export](https://nextjs.org/docs/advanced-features/static-html-export) (also known as Static Site Generation (SSG)) Next.js applications, and _hybrid_ rendering, which covers [Server-Side Rendering](https://nextjs.org/docs/advanced-features/react-18/streaming) and [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration).
 
 ## Static HTML export
-
 
 You can deploy a Next.js static site using the [static HTML export](https://nextjs.org/docs/advanced-features/static-html-export) feature of Next.js. This configuration generates static HTML files at build time which are cached and reused for all requests.
 
 To enable static export of a Next.js application, add `next export` the to `build` npm script in _package.json_.
-
 
 ```json
 {
@@ -33,7 +30,6 @@ To enable static export of a Next.js application, add `next export` the to `buil
 If you're using custom build scripts, set `IS_STATIC_EXPORT` to `true` in the Static Web Apps task of the GitHub Actions/Azure DevOps YAML file.
 
 The following example shows the GitHub Actions job that is enabled for static exports.
-
 
 ```yaml
       - name: Build And Deploy
