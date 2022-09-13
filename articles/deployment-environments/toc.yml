@@ -31,3 +31,5 @@ items:
       href: configure-catalog-item.md
     - name: Configure a managed identity
       href: how-to-configure-managed-identity.md
+    - name: Configure environment types
+      href: how-to-configure-environment-types.md
