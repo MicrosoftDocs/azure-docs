@@ -47,16 +47,17 @@ Use the Image Analysis client library for Python to analyze a remote image for c
     ```console
     pip install --upgrade azure-cognitiveservices-vision-computervision
     ```
-    #### [Version 4.0](#tab/4-0)
-
-    (TBD new code)
-    ---
 
     Also install the Pillow library.
 
     ```console
     pip install pillow
     ```
+
+    #### [Version 4.0](#tab/4-0)
+
+    (TBD new code)
+    ---
 
 1. Create a new Python application.
 
@@ -69,13 +70,10 @@ Use the Image Analysis client library for Python to analyze a remote image for c
 1. Open *quickstart-file.py* in a text editor or IDE and paste in the following code.
 
     #### [Version 3.2](#tab/3-2)
-
-   [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart-single.py?name=snippet_single)]
-
-
+    [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart-single.py?name=snippet_single)]
     #### [Version 4.0](#tab/4-0)
+    [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart-single-4-0.py?name=snippet_single)]
 
-    (TBD new code)
     ---
 
 1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.

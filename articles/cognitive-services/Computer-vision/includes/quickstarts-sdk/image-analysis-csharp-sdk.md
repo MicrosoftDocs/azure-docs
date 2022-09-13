@@ -71,7 +71,7 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
     #### [Version 4.0](#tab/4-0)
     ```console
-    dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version x.x.x
+    dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version TBD
     ```
 
     ---
@@ -90,7 +90,7 @@ Use the Image Analysis client library for C# to analyze an image for content tag
     #### [Version 3.2](#tab/3-2)
    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart-single.cs?name=snippet_single)]
     #### [Version 4.0](#tab/4-0)
-    (TBD new code)
+   [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart-single-4-0.cs?name=snippet_single)]
     ---
 
 1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
