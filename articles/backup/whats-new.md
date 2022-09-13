@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 09/14/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -16,6 +16,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- September 2022
+  - [Built-in Azure Monitor alerting for Azure Backup is now generally available](#built-in-azure-monitor-alerting-for-azure-backup-is-now-generally-available)
 - June 2022
   - [Multi-user authorization using Resource Guard is now generally available](#multi-user-authorization-using-resource-guard-is-now-generally-available)
 - May 2022
@@ -41,6 +43,20 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Built-in Azure Monitor alerting for Azure Backup is now generally available
+
+Azure Backup now offers a new and improved alerting solution via Azure Monitor. This solution provides multiple benefits, such as:
+
+- Ability to configure notifications to a wide range of notification channels.
+- Ability to select specific scenarios to get notified.
+- Ability to manage alerts and notifications programmatically.
+- Ability to have a consistent alert management experience for multiple Azure services, including Azure Backup.
+
+If you're currently using the [classic alerts solution](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault), we recommend you to switch to Azure Monitor alerts. Today, Azure Backup provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with a few clicks.
+
+For more information, see [Switch to Azure Monitor based alerts for Azure Backup](move-to-azure-monitor-alerts.md).
+
 
 ## Multi-user authorization using Resource Guard is now generally available
  
