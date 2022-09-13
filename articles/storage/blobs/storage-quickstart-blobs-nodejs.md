@@ -3,7 +3,7 @@ title: "Quickstart: Azure Blob storage library v12 - JavaScript"
 description: In this quickstart, you learn how to use the Azure Blob storage blob npm package version 12 for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: normesta
 ms.author: normesta
-ms.date: 02/25/2022
+ms.date: 09/13/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -122,7 +122,23 @@ From the project directory:
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-## Get the connection string
+## Connect to Azure 
+
+Use _one_ of the following methods to securely connect to Azure:
+
+* Without secrets
+    * Use [**@azure/identity**](https://www.npmjs.com/package/@azure/identity) to connect to Azure
+* With secrets
+    * Use resource name and key
+    * Use connection string
+
+### Use @azure/identity for secressless connection
+
+To securely connect without using secrets in your source code, use the @azure/identity library. This library provides several identity credentials including those or the development and production environments. Once the credential is set up in your environment, your code is simplified so that the code works regardless of the environement:
+
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/default-azure-credential.js" id="snippet_StorageAcctInfo":::
+
+### Get the connection string
 
 The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
