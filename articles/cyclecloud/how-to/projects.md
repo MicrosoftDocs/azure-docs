@@ -30,7 +30,7 @@ The trailing tag is the project version number.
 
 A **locker** is a reference to a storage account container and credential. Nodes have a default locker, so this attribute is not strictly necessary.
 
-Azure CycleCloud uses a shorthand for storage accounts, so _https://mystorage.blob.core.windows.net/mycontainer_ can be written as _az://mystorage/mycontainer_.
+Azure CycleCloud uses a shorthand for storage accounts, so _`https://mystorage.blob.core.windows.net/mycontainer`_ can be written as _az://mystorage/mycontainer_.
 
 The node will download each project it references from the locker using the pogo tool:
 
