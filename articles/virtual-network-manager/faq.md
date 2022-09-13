@@ -56,7 +56,7 @@ ms.custom: references_regions, ignite-fall-2021
 
 ### What are common use cases for using Azure Virtual Network Manager?
 
-* As an IT security manager you can create different network groups to meet the requirements of your environment and its functions. For example, you can create network groups for Production and Test network environments, Dev teams, Finance department, etc. to manage their connectivity and security rules at scale.
+* As an IT security manager you can create different network groups to meet the requirements of your environment and its functions. For example, you can create network groups for Production and Test network environments to manage their connectivity and security rules at scale. For security rules, you'd create a security admin configuration with two security admin rule collections for Production and Test, respectively. Once deployed, this would allow you to have one set of security rules for Production, and one set for Test.
 
 * You can apply connectivity configurations to create a mesh or a hub-and-spoke network topology for a large number of virtual networks across your organization's subscriptions.
 
