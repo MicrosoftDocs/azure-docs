@@ -13,7 +13,7 @@ ms.date: 10/15/2021
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-[!INCLUDE[azure-postgresql-hyperscale-access](includes/azure-postgresql-hyperscale-access.md)]
+[!INCLUDE[access](includes/access.md)]
 
 This page describes the private access option. For public access, see
 [here](concepts-firewall-rules.md).

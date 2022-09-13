@@ -35,7 +35,7 @@ disabled.
 
 ## Network security
 
-[!INCLUDE [azure-postgresql-hyperscale-access](includes/azure-postgresql-hyperscale-access.md)]
+[!INCLUDE [access](includes/access.md)]
 
 ## Limits and limitations
 

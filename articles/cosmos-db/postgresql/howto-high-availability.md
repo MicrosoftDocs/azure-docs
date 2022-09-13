@@ -27,7 +27,7 @@ Enabling HA is possible during cluster creation, or afterward in the
 interface looks similar in either case. Drag the slider for **High
 availability** from NO to YES:
 
-:::image type="content" source="media/howto-hyperscale-high-availability/01-ha-slider.png" alt-text="ha slider":::
+:::image type="content" source="media/howto-high-availability/01-ha-slider.png" alt-text="ha slider":::
 
 Click the **Save** button to apply your selection. Enabling HA can take some
 time as the cluster provisions standbys and streams data to them.
@@ -36,7 +36,7 @@ The **Overview** tab for the cluster will list all nodes and their
 standbys, along with a **High availability** column indicating whether HA is
 successfully enabled for each node.
 
-:::image type="content" source="media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="the ha column in cluster overview":::
+:::image type="content" source="media/howto-high-availability/02-ha-column.png" alt-text="the ha column in cluster overview":::
 
 ### Next steps
 

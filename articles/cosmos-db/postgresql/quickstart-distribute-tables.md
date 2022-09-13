@@ -83,7 +83,7 @@ SELECT create_distributed_table('github_users', 'user_id');
 SELECT create_distributed_table('github_events', 'user_id');
 ```
 
-[!INCLUDE [azure-postgresql-hyperscale-dist-alert](includes/azure-postgresql-hyperscale-dist-alert.md)]
+[!INCLUDE [dist-alert](includes/dist-alert.md)]
 
 ## Load data into distributed tables
 

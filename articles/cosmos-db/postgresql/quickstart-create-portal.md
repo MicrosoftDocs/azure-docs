@@ -36,7 +36,7 @@ application requires greater scale, you can add nodes and rebalance your data.
 
 Let's get started!
 
-[!INCLUDE [azure-postgresql-hyperscale-create-db](includes/azure-postgresql-hyperscale-create-db.md)]
+[!INCLUDE [create-db](includes/create-db.md)]
 
 ## Next steps
 

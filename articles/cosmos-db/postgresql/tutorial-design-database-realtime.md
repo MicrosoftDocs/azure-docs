@@ -28,7 +28,7 @@ In this tutorial, you use Azure Cosmos DB for PostgreSQL to learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [azure-postgresql-hyperscale-create-db](includes/azure-postgresql-hyperscale-create-db.md)]
+[!INCLUDE [create-db](includes/create-db.md)]
 
 ## Use psql utility to create a schema
 
@@ -92,7 +92,7 @@ SELECT create_distributed_table('http_request',      'site_id');
 SELECT create_distributed_table('http_request_1min', 'site_id');
 ```
 
-[!INCLUDE [azure-postgresql-hyperscale-dist-alert](includes/azure-postgresql-hyperscale-dist-alert.md)]
+[!INCLUDE [dist-alert](includes/dist-alert.md)]
 
 ## Generate sample data
 
