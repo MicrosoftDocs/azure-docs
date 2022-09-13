@@ -43,21 +43,21 @@ To make the connection, take the following steps:
  
 1. Select the **MySQL database** option in the connector selection.
 
-:::image type="content" source="./media/connect-with-powerbi-desktop/add-mysql-connection.png" alt-text="Screen shot of adding a mysql connection in power BI":::
+:::image type="content" source="./media/connect-with-powerbi-desktop/add-mysql-connection.png" alt-text="Screenshot of adding a mysql connection in power BI.":::
 
 3. In the **MySQL database** dialog, provide the name of the server and database. 
 
-  :::image type="content" source="./media/connect-with-powerbi-desktop/signin.png" alt-text="Screeshot of Signing in to Power BI":::
+  :::image type="content" source="./media/connect-with-powerbi-desktop/signin.png" alt-text="Screeshot of Signing in to Power BI.":::
 
 3. Select the **Database** authentication type and input your MySQL credentials in the **User name** and **Password** boxes. Make sure to select the level to apply your credentials to.
 
-  :::image type="content" source="./media/connect-with-powerbi-desktop/enter-credentials.png" alt-text="Screenshot of entering credentials to connect with MySQL database"::: 
+  :::image type="content" source="./media/connect-with-powerbi-desktop/enter-credentials.png" alt-text="Screenshot of entering credentials to connect with MySQL database."::: 
 
 4. Once you're done, select **OK**.
 
 5. In **Navigator**, select the data you require, then either load or transform the data.
 
-   :::image type="content" source="./media/connect-with-powerbi-desktop/navigator.png" alt-text="Screenshot of navigator to view MySQL tables"::: 
+   :::image type="content" source="./media/connect-with-powerbi-desktop/navigator.png" alt-text="Screenshot of navigator to view MySQL tables."::: 
    
 ## Connect to MySQL database from Power Query Online
 
@@ -67,7 +67,7 @@ To make the connection, take the following steps:
  
 2. In the **MySQL database** dialog, provide the name of the server and database.  
 
-    :::image type="content" source="./media/connect-with-powerbi-desktop/mysql-advanced-options.png" alt-text="Screenshot of MySQL advanced options"::: 
+    :::image type="content" source="./media/connect-with-powerbi-desktop/mysql-advanced-options.png" alt-text="Screenshot of MySQL advanced options."::: 
 
 3. If necessary, include the name of your on-premises data gateway.
 
