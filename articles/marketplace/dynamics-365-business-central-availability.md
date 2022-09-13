@@ -4,8 +4,8 @@ description: Configure Dynamics 365 Business Central offer availability on Micro
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
+author: trkeya
+ms.author: trkeya
 ms.date: 11/24/2021
 ---
 
@@ -31,6 +31,9 @@ Before you publish your offer live to the broader marketplace offer, you'll firs
 Then, when you're ready to make your offer available and remove the preview restriction, you'll need to remove the **Hide key** and publish again.
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Technical configuration**.
+
+> [!IMPORTANT]
+> Only the offer listing information will be available in the marketplace preview. You won't be able to install the app in the Business Central environment until you've completed the publishing process in Partner Center.
 
 ## Next steps
 

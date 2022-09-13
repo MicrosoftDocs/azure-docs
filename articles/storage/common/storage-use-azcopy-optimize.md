@@ -72,7 +72,7 @@ If you're uploading or downloading files, consider setting the `--check-length` 
 
 #### Turn on concurrent local scanning (Linux)
 
-File scans on some Linux systems don't execute fast enough to saturate all of the parallel network connections. In these cases, you can set the `AZCOPY_CONCURRENT_SCAN` to `true`.
+File scans on some Linux systems don't execute fast enough to saturate all of the parallel network connections. In these cases, you can set the `AZCOPY_CONCURRENT_SCAN` to a higher number.
 
 ## Increase the number of concurrent requests
 

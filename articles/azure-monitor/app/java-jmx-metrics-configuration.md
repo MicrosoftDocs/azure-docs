@@ -5,8 +5,7 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
+ms.reviewer: mmcc
 ---
 
 # Configuring JMX metrics

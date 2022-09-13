@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: active-directory
 author: ajburnle
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: include
 ms.date: 03/30/2020
@@ -15,7 +15,7 @@ ms.custom: include file
 
 Follow these steps if you want to allow users in your directory to be able to request this access package. When defining the request policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
 
-1. In the **Users who can request access** section, click **For users in your directory**.
+1. In the **Users who can request access** section, select **For users in your directory**.
 
     When you select this option, new options appear to further refine who in your directory can request this access package.
 
@@ -31,26 +31,26 @@ Follow these steps if you want to allow users in your directory to be able to re
 
     Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../articles/active-directory/external-identities/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
 
-1. If you selected **Specific users and groups**, click **Add users and groups**.
+1. If you selected **Specific users and groups**, select **Add users and groups**.
 
 1. In the Select users and groups pane, select the users and groups you want to add.
 
     ![Access package - Requests - Select users and groups](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
 
-1. Click **Select** to add the users and groups.
+1. Select **Select** to add the users and groups.
 
 1. Skip down to the [Approval](#approval) section.
 
 ## For users not in your directory
 
- **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Configure external collaboration settings](../articles/active-directory/external-identities/external-collaboration-settings-configure.md).
+ **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to allow invitations in **Collaboration restrictions**. For more information, see [Configure external collaboration settings](../articles/active-directory/external-identities/external-collaboration-settings-configure.md).
 
 > [!NOTE]
 > A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../articles/active-directory/external-identities/user-properties.md).
 
 Follow these steps if you want to allow users not in your directory to request this access package:
 
-1. In the **Users who can request access** section, click **For users not in your directory**.
+1. In the **Users who can request access** section, select **For users not in your directory**.
 
     When you select this option, new options appear.
 
@@ -62,11 +62,11 @@ Follow these steps if you want to allow users not in your directory to request t
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
-    | **All users (All connected organizations + any new external users)** | Choose this option if all users from all your connected organizations can request this access package and that the B2B allow or deny list settings should take precedence for any new external user. |
+    | **All users (All connected organizations + any new external users)** | Choose this option if all users from all your connected organizations can request this access package and that the B2B allow or blocklist settings should take precedence for any new external user. |
 
     A connected organization is an external Azure AD directory or domain that you have a relationship with.
 
-1. If you selected **Specific connected organizations**, click **Add directories** to select from a list of connected organizations that your administrator previously added.
+1. If you selected **Specific connected organizations**, select **Add directories** to select from a list of connected organizations that your administrator previously added.
 
 1. Type the name or domain name to search for a previously connected organization.
 
@@ -74,10 +74,10 @@ Follow these steps if you want to allow users not in your directory to request t
 
     If the organization you want to collaborate with isn't in the list, you can ask your administrator to add it as a connected organization. For more information, see [Add a connected organization](../articles/active-directory/governance/entitlement-management-organization.md).
 
-1. Once you've selected all your connected organizations, click **Select**.
+1. Once you've selected all your connected organizations, select **Select**.
 
     > [!NOTE]
-    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/external-identities/allow-deny-list.md).
+    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or block list. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/external-identities/allow-deny-list.md).
 
 1. Skip down to the [Approval](#approval) section.
 
@@ -85,7 +85,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set lifecycle settings, but there are no request settings.
 
-1. In the **Users who can request access** section, click **None (administrator direct assignments only)**.
+1. In the **Users who can request access** section, select **None (administrator direct assignments only)**.
 
     ![Access package - Requests - None administrator direct assignments only](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
@@ -127,19 +127,19 @@ Use the following steps to add approvers after selecting how many stages you req
 
 1. Add the **First Approver**:
     
-    If the policy is set to govern access for users in your directory, you can select **Manager as approver**. Or, add a specific user by clicking **Add approvers** after selecting Choose specific approvers from the dropdown menu.
+    If the policy is set to *For users in your directory*, you can select **Manager as approver**. Or, add a specific user by clicking **Add approvers** after selecting Choose specific approvers from the dropdown menu.
     
     ![Access package - Requests - For users in directory - First Approver](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    If this policy is set to govern access for users not in your directory, you can select **External sponsor** or **Internal sponsor**. Or, add a specific user by clicking **Add approvers** or groups under Choose specific approvers.
+    If this policy is set to *For users not in your directory*, you can select **External sponsor** or **Internal sponsor**. Or, add a specific user by clicking **Add approvers** or groups under Choose specific approvers.
     
     ![Access package - Requests - For users out of directory - First Approver](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
     
-1. If you selected **Manager** as the first approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
+1. If you selected **Manager** as the first approver, select **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
 
     The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-1. If you selected **Choose specific approvers**, click **Add approvers** to select one or more users or groups in your directory to be approvers.
+1. If you selected **Choose specific approvers**, select **Add approvers** to select one or more users or groups in your directory to be approvers.
 
 1. In the box under **Decision must be made in how many days?**, specify the number of days that an approver has to review a request for this access package.
 
@@ -171,28 +171,28 @@ If you selected a 2-stage approval, you'll need to add a second approver.
 
 You can specify alternate approvers, similar to specifying the first and second approvers who can approve requests. Having alternate approvers will help ensure that the requests are approved or denied before they expire (timeout). You can list alternate approvers the first approver and second approver for 2-stage approval. 
 
-By specifying alternate approvers, in the event that the first or second approvers were unable to approve or deny the request, the pending request gets forwarded to the alternate approvers, per the forwarding schedule you specified during policy setup. They receive an email to approve or deny the pending request.
+When you specify alternate approvers, if the first or second approvers were unable to approve or deny the request, the pending request gets forwarded to the alternate approvers. The request is sent per the forwarding schedule you specified during policy setup. They receive an email to approve or deny the pending request.
 
 After the request is forwarded to the alternate approvers, the first or second approvers can still approve or deny the request. Alternate approvers use the same My Access site to approve or deny the pending request.
 
-We can list people or groups of people to be approvers and alternate approvers. Please ensure that you list different sets of people to be the first, second, and alternate approvers.
+We can list people or groups of people to be approvers and alternate approvers. Ensure that you list different sets of people to be the first, second, and alternate approvers.
 For example, if you listed Alice and Bob as the First Approver(s), list Carol and Dave as the alternate approvers. Use the following steps to add alternate approvers to an access package:
 
-1. Under the First Approver, Second Approver, or both, click **Show advanced request settings**.
+1. Under the First Approver, Second Approver, or both, select **Show advanced request settings**.
 
     ![Access package - Policy - Show advanced request settings](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
 1. Set **If no action taken, forward to alternate approvers?** toggle to **Yes**.
 
-1. Click **Add alternate approvers** and select the alternate approver(s) from the list.
+1. Select **Add alternate approvers** and select the alternate approver(s) from the list.
 
     ![Access package - Policy - Add Alternate Approvers](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
 
-    If you select Manager as approver for the First Approver, you will have an additional option, **Second level manager as alternate approver**,  available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
+    If you select Manager as approver for the First Approver, you'll have an extra option, **Second level manager as alternate approver**,  available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
 
-1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
+1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout). The user will then have to submit another request for the access package. 
 
-    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life, and the decision of the main approver(s) has to time-out after at least 4 days. If the request time-out is less or equal than 3, there is not enough time to forward the request to alternate approver(s). In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
+    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life, and the decision of the main approver(s) has to time out after at least four days. If the request time-out is less or equal than 3, there isn't enough time to forward the request to alternate approver(s). In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
 
 ## Enable requests
 
@@ -204,40 +204,40 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
     ![Screenshot that shows the option for enabling new requests and assignments.](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. Click **Next**.
+1. Select **Next**.
 
 ## Add Requestor information to an access package
 
-1. Go to the **Requestor information** tab and click the **Questions** sub tab.
+1. Go to the **Requestor information** tab and select the **Questions** sub tab.
  
 1. Type in what you want to ask the requestor, also known as the display string, for the question in the **Question** box.
 
     ![Access package - Policy- Enable Requestor information setting](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. If you would like to add your own localization options, click **add localization**.
-    1. Once in the **Add localizations for question** pane, select the **language code** for the language in which you are localizing the question.
+1. If you would like to add your own localization options, select **add localization**.
+    1. Once in the **Add localizations for question** pane, select the **language code** for the language in which you're localizing the question.
     1. In the language you configured, type the question in the **Localized Text** box.
-    1. Once you have added all the localizations needed, click **Save**.
+    1. Once you've added all the localizations needed, select **Save**.
 
     ![Access package - Policy- Configure localized text](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
 
-1. Select the **Answer format** in which you would like requestors to answer. Answer formats include: *short text*, *multiple choice*, and *long text*.
+1. Select the **Answer format** in which you would like requestors to answer. Answer formats include: *Short text*, *Multiple choice*, and *long text*.
  
     ![Access package - Policy- Select view and edit multiple choice answer format](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
-1. If selecting multiple choice, click on the **edit and localize** button to configure the answer options.
-    1. After selecting edit and localize the **View/edit question** pane will open.
+1. If selecting multiple choice, select on the **edit and localize** button to configure the answer options.
+    1. After selecting edit and localize, the **View/edit question** pane will open.
     1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
-    1. Select the language the for the response option. You can localize response options if you choose additional languages.
-    1. Type in as many responses as you need then click **Save**.
+    1. Select the language for the response option. You can localize response options if you choose extra languages.
+    1. Type in as many responses as you need then select **Save**.
     
     ![Access package - Policy- Enter multiple choice options](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   
-1. To require requestors to answer this question when requesting access to an access package, click the check box under **Required**.
+1. To require requestors to answer this question when requesting access to an access package, select the check box under **Required**.
 
-1. Click on the **Attributes (Preview)** sub tab to view attributes associated with resources added to the access package.
+1. Select on the **Attributes** sub tab to view attributes associated with resources added to the access package.
 
     > [!NOTE]
-    > To add or update attributes for an access package's resources, go to **Catalogs** and find the catalog associated with the access package. Read [Add resource-attributes (preview) in the catalog](../articles/active-directory/governance/entitlement-management-catalog-create.md#add-resource-attributes-preview-in-the-catalog) to learn more about how to edit the attributes list for a specific catalog resource and the prerequisite roles. 
+    > To add or update attributes for an access package's resources, go to **Catalogs** and find the catalog associated with the access package. Read [Add resource attributes in the catalog](../articles/active-directory/governance/entitlement-management-catalog-create.md#add-resource-attributes-in-the-catalog) to learn more about how to edit the attributes list for a specific catalog resource and the prerequisite roles. 
 
-1. Click **Next**
+1. Select **Next**

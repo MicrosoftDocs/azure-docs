@@ -9,17 +9,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # Social accounts claims transformations
 
-In Azure Active Directory B2C (Azure AD B2C), social account identities are stored in a `userIdentities` attribute of a **alternativeSecurityIdCollection** claim type. Each item in the **alternativeSecurityIdCollection** specifies the issuer (identity provider name, such as facebook.com) and the `issuerUserId`, which is a unique user identifier for the issuer.
+In Azure Active Directory B2C (Azure AD B2C), social account identities are stored in a `alternativeSecurityIds` attribute of a **alternativeSecurityIdCollection** claim type. Each item in the **alternativeSecurityIdCollection** specifies the issuer (identity provider name, such as facebook.com) and the `issuerUserId`, which is a unique user identifier for the issuer.
 
 ```json
-"userIdentities": [{
+"alternativeSecurityIds": [{
     "issuer": "google.com",
     "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"
   },
@@ -33,7 +33,7 @@ This article provides examples for using the social account claims transformatio
 
 ## AddItemToAlternativeSecurityIdCollection
 
-Adds an `AlternativeSecurityId` to an `alternativeSecurityIdCollection` claim.
+Adds an `AlternativeSecurityId` to an `alternativeSecurityIdCollection` claim. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/social#additemtoalternativesecurityidcollection) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -46,7 +46,7 @@ Adds an `AlternativeSecurityId` to an `alternativeSecurityIdCollection` claim.
 The following example links a new social identity with an existing account. To link a new social identity:
 
 1. In the **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingObjectId** technical profiles, output the user's **alternativeSecurityIds** claim.
-1. Ask the user to sign in with one of the identity providers that are not associated with this user.
+1. Ask the user to sign in with one of the identity providers that aren't associated with this user.
 1. Using the **CreateAlternativeSecurityId** claims transformation, create a new **alternativeSecurityId** claim type with a name of `AlternativeSecurityId2`
 1. Call the **AddItemToAlternativeSecurityIdCollection** claims transformation to add the **AlternativeSecurityId2** claim to the existing **AlternativeSecurityIds** claim.
 1. Persist the **alternativeSecurityIds** claim to the user account
@@ -64,15 +64,46 @@ The following example links a new social identity with an existing account. To l
 ```
 
 - Input claims:
-  - **item**: { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" }
-  - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
+  - **item**: 
+
+      ```json
+      {
+          "issuer": "facebook.com",
+          "issuerUserId": "MTIzNDU="
+      }
+      ```
+
+  - **collection**: 
+    
+      ```json
+      [
+          {
+              "issuer": "live.com",
+              "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"
+          }
+      ]
+      ```
+   
 - Output claims:
-  - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+  - **collection**: 
+
+    ```json
+    [
+        {
+            "issuer": "live.com",
+            "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"
+        },
+        {
+            "issuer": "facebook.com",
+            "issuerUserId": "MTIzNDU="
+        }
+    ]
+    ```
 
 
 ## CreateAlternativeSecurityId
 
-Creates a JSON representation of the user’s alternativeSecurityId property that can be used in the calls to Azure Active Directory. For more information, see the [AlternativeSecurityId](/graph/api/resources/alternativesecurityid) schema.
+Creates a JSON representation of the user’s alternativeSecurityId property that can be used in the calls to Azure Active Directory. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/social#createalternativesecurityid) of this claims transformation. For more information, see the [AlternativeSecurityId](/graph/api/resources/alternativesecurityid) schema. 
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -104,7 +135,7 @@ Use this claims transformation to generate a `alternativeSecurityId` claim. It's
 
 ## GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation
 
-Returns list of issuers from the **alternativeSecurityIdCollection** claim into a new **stringCollection** claim.
+Returns list of issuers from the **alternativeSecurityIdCollection** claim into a new **stringCollection** claim. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/social#getidentityprovidersfromalternativesecurityidcollectiontransformation) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -113,7 +144,7 @@ Returns list of issuers from the **alternativeSecurityIdCollection** claim into 
 
 ### Example of GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation
 
-The following claims transformation reads the user **alternativeSecurityIds** claim and extracts the list of identity provider names associated with that account. Use output **identityProvidersCollection** to show the user the list of identity providers associated with the account. Or, on the identity provider selection page, filter the list of identity providers based on output **identityProvidersCollection** claim. So, user can select to link new social identity that is not already associated with the account.
+The following claims transformation reads the user **alternativeSecurityIds** claim and extracts the list of identity provider names associated with that account. Use output **identityProvidersCollection** to show the user the list of identity providers associated with the account. Or, on the identity provider selection page, filter the list of identity providers based on output **identityProvidersCollection** claim. So, user can select to link new social identity that isn't already associated with the account.
 
 ```xml
 <ClaimsTransformation Id="ExtractIdentityProviders" TransformationMethod="GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation">
@@ -127,13 +158,27 @@ The following claims transformation reads the user **alternativeSecurityIds** cl
 ```
 
 - Input claims:
-  - **alternativeSecurityIdCollection**: [ { "issuer": "google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+  - **alternativeSecurityIdCollection**: 
+
+    ```json
+    [
+        {
+            "issuer": "google.com",
+            "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"
+        },
+        {
+            "issuer": "facebook.com",
+            "issuerUserId": "MTIzNDU="
+        }
+    ]
+    ```
+
 - Output claims:
   - **identityProvidersCollection**: [ "facebook.com", "google.com" ]
 
 ## RemoveAlternativeSecurityIdByIdentityProvider
 
-Removes an **AlternativeSecurityId** from an **alternativeSecurityIdCollection** claim.
+Removes an **AlternativeSecurityId** from an **alternativeSecurityIdCollection** claim. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/social#removealternativesecurityidbyidentityprovider) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -171,4 +216,4 @@ The following example unlinks one of the social identities with an existing acco
 
 ## Next steps
 
-- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/social) on the Azure AD B2C community GitHub repo

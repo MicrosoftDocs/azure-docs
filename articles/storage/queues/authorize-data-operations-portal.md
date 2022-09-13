@@ -2,10 +2,10 @@
 title: Choose how to authorize access to queue data in the Azure portal
 titleSuffix: Azure Storage
 description: When you access queue data using the Azure portal, the portal makes requests to Azure Storage under the covers. These requests to Azure Storage can be authenticated and authorized using either your Azure AD account or the storage account access key.
-author: tamram
+author: jimmart-dev
 services: storage
 
-ms.author: tamram
+ms.author: jammart
 ms.reviewer: ozguns
 ms.date: 12/13/2021
 ms.topic: how-to
@@ -51,9 +51,6 @@ The Azure Resource Manager **Reader** role permits users to view storage account
 For information about the built-in roles that support access to queue data, see [Authorize access to queues using Azure Active Directory](authorize-access-azure-active-directory.md).
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
-
-> [!NOTE]
-> The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify queue data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 ## Navigate to queues in the Azure portal
 

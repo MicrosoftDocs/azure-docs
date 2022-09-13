@@ -1,19 +1,19 @@
 ---
 title: Internal redirection using PowerShell
 titleSuffix: Azure Application Gateway
-description: Learn how to create an application gateway that redirects internal web traffic to the appropriate backend pool of servers using Azure Powershell.
+description: Learn how to create an application gateway that redirects internal web traffic to the appropriate backend pool of servers using Azure PowerShell.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/28/2020
-ms.author: victorh 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Create an application gateway with internal redirection using Azure PowerShell
 
-You can use Azure Powershell to configure [web traffic redirection](multiple-site-overview.md) when you create an [application gateway](overview.md). In this article, you define a backend pool using a virtual machines scale set. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate pool. This article assumes that you own multiple domains and uses examples of *www\.contoso.com* and *www\.contoso.org*.
+You can use Azure PowerShell to configure [web traffic redirection](multiple-site-overview.md) when you create an [application gateway](overview.md). In this article, you define a backend pool using a virtual machines scale set. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate pool. This article assumes that you own multiple domains and uses examples of *www\.contoso.com* and *www\.contoso.org*.
 
 In this article, you learn how to:
 

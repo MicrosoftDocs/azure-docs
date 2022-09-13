@@ -242,7 +242,7 @@ The deployer uses a service principal to deploy resources into a subscription.
 1. Create a role assignment for the service principal. Make sure to replace `<appId>` with the application identifier you noted in the previous step.
 
     ```azurecli-interactive
-    az role assignment create --assignee <appId> --role "User Access Administrator"
+    az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>
     ```
 
 1. Add keys for the service principal to the key vault as follows. Be sure to replace the placeholder values with the information you noted in previous steps. Replace `<environment>` with the name of your environment, such as `DEMO`. 

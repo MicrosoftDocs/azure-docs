@@ -30,7 +30,7 @@ Use your Microsoft Azure Active Directory account with Atlassian JIRA server to 
 To configure Azure AD integration with JIRA SAML SSO by Microsoft, you need the following items:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-- JIRA Core and Software 6.4 to 8.21 or JIRA Service Desk 3.0 to 4.21.0 should installed and configured on Windows 64-bit version
+- JIRA Core and Software 6.4 to 8.22.1 or JIRA Service Desk 3.0 to 4.22.1 should installed and configured on Windows 64-bit version
 - JIRA server is HTTPS enabled
 - Note the supported versions for JIRA Plugin are mentioned in below section.
 - JIRA server is reachable on the Internet particularly to the Azure AD login page for authentication and should able to receive the token from Azure AD
@@ -51,8 +51,8 @@ To get started, you need the following items:
 
 ## Supported versions of JIRA
 
-* JIRA Core and Software: 6.4 to 8.21
-* JIRA Service Desk 3.0 to 4.21.0
+* JIRA Core and Software: 6.4 to 8.22.1
+* JIRA Service Desk 3.0 to 4.22.1
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
@@ -74,6 +74,8 @@ To configure the integration of JIRA SAML SSO by Microsoft into Azure AD, you ne
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **JIRA SAML SSO by Microsoft** in the search box.
 1. Select **JIRA SAML SSO by Microsoft** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for JIRA SAML SSO by Microsoft
 

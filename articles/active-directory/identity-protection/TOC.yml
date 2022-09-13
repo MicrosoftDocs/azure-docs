@@ -15,6 +15,8 @@
     href: concept-identity-protection-policies.md
   - name: What is the sign-in experience?
     href: concept-identity-protection-user-experience.md
+  - name: Securing workload identities
+    href: concept-workload-identity-risk.md
   - name: Identity Protection and B2B users
     href: concept-identity-protection-b2b.md
 - name: How-to guides
@@ -38,7 +40,7 @@
       href: howto-identity-protection-remediate-unblock.md
     - name: Export risk data
       href: howto-export-risk-data.md
-    - name: Use the Microsoft Graph API
+    - name: Use the Microsoft Graph PowerShell 
       href: howto-identity-protection-graph-api.md
   - name: Provide feedback on risk detections
     href: howto-identity-protection-risk-feedback.md

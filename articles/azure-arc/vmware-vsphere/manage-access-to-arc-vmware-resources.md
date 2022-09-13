@@ -11,9 +11,6 @@ ms.date: 11/08/2021
 
 Once your VMware vCenter resources have been enabled in Azure, the final step in setting up a self-service experience for your teams is to provide them access.  This article describes how to use built-in roles to manage granular access to VMware resources through Azure and allow your teams to deploy and manage VMs.
 
-> [!IMPORTANT]
-> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
-
 ## Arc-enabled VMware vSphere built-in roles
 
 There are three built-in roles to meet your access control requirements. You can apply these roles to a whole subscription, resource group, or a single resource.
@@ -56,9 +53,9 @@ We recommend assigning this role at the subscription or resource group you want 
 
 6. Select the custom role you want to assign (one of **Azure Arc VMware Administrator**, **Azure Arc VMware Private Cloud User**, or **Azure Arc VMware VM Contributor**).
 
-7. Search for Azure Active Directory user or group that you want assign this role to.
+7. Search for the Azure Active Directory (Azure AD) user or group to which you want to assign this role.
 
-8. Click on the AAD user or group name to select. Repeat this for each user/group you want to provide this permission.
+8. Select the Azure AD user or group name. Repeat this for each user or group to which you want to grant this permission.
 
 9. Repeat the above steps for each scope and role.
 

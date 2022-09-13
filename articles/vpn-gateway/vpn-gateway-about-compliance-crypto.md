@@ -17,7 +17,7 @@ This article discusses how you can configure Azure VPN gateways to satisfy your 
 
 ## About IKEv1 and IKEv2 for Azure VPN connections
 
-Traditionally we allowed IKEv1 connections for Basic SKUs only and allowed IKEv2 connections for all VPN gateway SKUs other than Basic SKUs. The Basic SKUs allow only 1 connection and along with other limitations such as performance, customers using legacy devices that support only IKEv1 protocols were having limited experience. In order to enhance the experience of customers using IKEv1 protocols, we are now allowing IKEv1 connections for all of the VPN gateway SKUs, except Basic SKU. For more information, see [VPN Gateway SKUs](./vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+Traditionally we allowed IKEv1 connections for Basic SKUs only and allowed IKEv2 connections for all VPN gateway SKUs other than Basic SKUs. The Basic SKUs allow only 1 connection and along with other limitations such as performance, customers using legacy devices that support only IKEv1 protocols were having limited experience. In order to enhance the experience of customers using IKEv1 protocols, we are now allowing IKEv1 connections for all of the VPN gateway SKUs, except Basic SKU. For more information, see [VPN Gateway SKUs](./vpn-gateway-about-vpn-gateway-settings.md#gwsku). Note that VPN gateways using IKEv1 might experience up [tunnel reconnects](./vpn-gateway-vpn-faq.md#why-is-my-ikev1-connection-frequently-reconnecting) during Main mode rekeys.
 
 ![Azure VPN Gateway IKEv1 and IKEv2 connections](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 

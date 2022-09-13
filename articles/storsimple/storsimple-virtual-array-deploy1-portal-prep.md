@@ -5,18 +5,18 @@ author: alkohli
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/19/2022
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ---
 # Deploy StorSimple Virtual Array - Prepare the Azure portal
 
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
+
 ![Diagram showing the steps that are needed to deploy a virtual array. The first step is labeled Get started and is highlighted.](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 
 
 ## Overview
-
-[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server using the Resource Manager model. This article describes the preparation required to create and configure your StorSimple Device Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist and configuration prerequisites.
 
@@ -137,7 +137,7 @@ This step is optional and should be performed only if you did not enable the aut
 
 If you need to create an Azure storage account in a different region, see [How to create a storage account](../storage/common/storage-account-create.md) for step-by-step instructions.
 
-Perform the following steps in the [Azure portal](https://ms.portal.azure.com/) on the StorSimple Device Manager service page to add an existing Microsoft Azure storage account.
+Perform the following steps in the [Azure portal](https://portal.azure.com/) on the StorSimple Device Manager service page to add an existing Microsoft Azure storage account.
 
 #### To add a storage account credential that has the same Azure subscription as the Device Manager service
 

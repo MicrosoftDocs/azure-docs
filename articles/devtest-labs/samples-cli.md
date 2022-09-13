@@ -2,6 +2,8 @@
 title: Azure CLI Samples
 description: Learn about Azure CLI scripts. With these samples, you can create a virtual machine and then start, stop, and delete it in Azure Lab Services.
 ms.topic: sample
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 02/02/2022
 ---
 
@@ -37,9 +39,9 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az lab vm create](/cli/azure/lab/vm#az_lab_vm_create) | Creates a VM in a lab. |
-| [az lab vm show](/cli/azure/lab/vm#az_lab_vm_show) | Displays the status of the VM in a lab. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create) | Creates a VM in a lab. |
+| [az lab vm show](/cli/azure/lab/vm#az-lab-vm-show) | Displays the status of the VM in a lab. |
 
 ## Start a VM
 
@@ -51,7 +53,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [az lab vm start](/cli/azure/lab/vm#az_lab_vm_start) | Starts a VM in a lab. This operation can take a while to complete. |
+| [az lab vm start](/cli/azure/lab/vm#az-lab-vm-start) | Starts a VM in a lab. This operation can take a while to complete. |
 
 ## Stop and delete a VM
 
@@ -63,8 +65,8 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [az lab vm stop](/cli/azure/lab/vm#az_lab_vm_stop) | Stops a VM in a lab. This operation can take a while to complete. |
-| [az lab vm delete](/cli/azure/lab/vm#az_lab_vm_delete) | Deletes a VM in a lab. This operation can take a while to complete. |
+| [az lab vm stop](/cli/azure/lab/vm#az-lab-vm-stop) | Stops a VM in a lab. This operation can take a while to complete. |
+| [az lab vm delete](/cli/azure/lab/vm#az-lab-vm-delete) | Deletes a VM in a lab. This operation can take a while to complete. |
 
 ## Clean up deployment
 

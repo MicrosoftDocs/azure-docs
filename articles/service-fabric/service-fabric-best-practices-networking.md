@@ -1,10 +1,12 @@
 ---
 title: Azure Service Fabric networking best practices
 description: Rules and design considerations for managing network connectivity using Azure Service Fabric.
-author: chrpap
 ms.topic: conceptual
-ms.date: 10/29/2021
-ms.author: chrpap
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Networking
@@ -36,7 +38,7 @@ Service Fabric cluster can be provisioned on [Linux with Accelerated Networking]
 
 Accelerated Networking is supported for Azure Virtual Machine Series SKUs: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms. Accelerated Networking was tested successfully using the Standard_DS8_v3 SKU on 01/23/2019 for a Service Fabric Windows Cluster, and using Standard_DS12_v2 on 01/29/2019 for a Service Fabric Linux Cluster. Please note that Accelerated Networking requires at least 4 vCPUs. 
 
-To enable Accelerated Networking on an existing Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](./virtual-machine-scale-set-scale-node-type-scale-out.md), to perform the following:
+To enable Accelerated Networking on an existing Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](virtual-machine-scale-set-scale-node-type-scale-out.md), to perform the following:
 1. Provision a NodeType with Accelerated Networking enabled
 2. Migrate your services and their state to the provisioned NodeType with Accelerated Networking enabled
 
@@ -54,32 +56,30 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 ## Network Security Rules
 
-The network security group rules described below are the recommended minimum for a typical configuration. We also include what rules are mandatory for an operational cluster if optional rules are not desired. Failure to open the mandatory ports or approving the IP/URL will prevent proper operation of the cluster and may not be supported. The [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is recommended for Windows Updates. If you use [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) an additional rule with the ServiceTag [AzureUpdateDelivery](../virtual-network/service-tags-overview.md) is needed.
-
-The rules marked as mandatory are needed for a proper operational cluster. Described is the minimum for typical configurations. It also enables a complete security lockdown with network peering and jumpbox concepts like Azure Bastion. Failure to open the mandatory ports or approving the IP/URL will prevent proper operation of the cluster and may not be supported. The [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the recommendation for Windows Updates, for the [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) an additional rule with the Virtual Network Service Tag [AzureUpdateDelivery](../virtual-network/service-tags-overview.md) is needed.
+The rules described below are the recommended minimum for a typical configuration. We also include what rules are mandatory for an operational cluster if optional rules are not desired. It allows a complete security lockdown with network peering and jumpbox concepts like Azure Bastion. Failure to open the mandatory ports or approving the IP/URL will prevent proper operation of the cluster and may not be supported. 
 
 ### Inbound 
-|Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action        | Mandatory
+|Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action        |Mandatory
 |---        |---                |---         |---       |---                |---               |---           |---
-|3900       |Azure portal       |19080       |TCP       |ServiceFabric      |Any               |Allow         | No
-|3910       |Client API         |19000       |TCP       |Internet           |Any               |Allow         | No
-|3920       |SFX + Client API   |19080       |TCP       |Internet           |Any               |Allow         | Yes
-|3930       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |Any               |Allow         | Yes
-|3940       |Ephemeral          |49152-65534 |TCP       |VirtualNetwork     |Any               |Allow         | Yes
-|3950       |Application        |20000-30000 |TCP       |VirtualNetwork     |Any               |Allow         | Yes
-|3960       |RDP                |3389-3488   |TCP       |Internet           |Any               |Deny          | No
-|3970       |SSH                |22          |TCP       |Internet           |Any               |Deny          | No
-|3980       |Custom endpoint    |443         |TCP       |Internet           |Any               |Deny          | No
+|3900       |Azure portal       |19080       |TCP       |ServiceFabric      |Any               |Allow         |Yes
+|3910       |Client API         |19000       |TCP       |Internet           |Any               |Allow         |No
+|3920       |SFX + Client API   |19080       |TCP       |Internet           |Any               |Allow         |No
+|3930       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |Any               |Allow         |Yes
+|3940       |Ephemeral          |49152-65534 |TCP       |VirtualNetwork     |Any               |Allow         |Yes
+|3950       |Application        |20000-30000 |TCP       |VirtualNetwork     |Any               |Allow         |Yes
+|3960       |RDP                |3389        |TCP       |Internet           |Any               |Deny          |No
+|3970       |SSH                |22          |TCP       |Internet           |Any               |Deny          |No
+|3980       |Custom endpoint    |443         |TCP       |Internet           |Any               |Deny          |No
 
 More information about the inbound security rules:
 
-* **Azure portal**. This port is used by the Service Fabric Resource Provider to query information about your cluster in order to display in the Azure Management Portal. If this port is not accessible from the Service Fabric Resource Provider then you will see a message such as 'Nodes Not Found' or 'UpgradeServiceNotReachable' in the Azure portal and your node and application list will appear empty. This means that if you wish to have visibility of your cluster in the Azure Management Portal then your load balancer must expose a public IP address and your NSG must allow incoming 19080 traffic.
+* **Azure portal**. This port is used by the Service Fabric Resource Provider to query information about your cluster in order to display in the Azure Management Portal. If this port is not accessible from the Service Fabric Resource Provider then you will see a message such as 'Nodes Not Found' or 'UpgradeServiceNotReachable' in the Azure portal and your node and application list will appear empty. This means that if you wish to have visibility of your cluster in the Azure Management Portal then your load balancer must expose a public IP address and your NSG must allow incoming 19080 traffic. This port is recommended for extended management operations from the Service Fabric Resource Provider to guarantee higher reliability.
 
-* **Client API**. The client connection endpoint for APIs used by PowerShell. Please open the port for the integration with Azure DevOps by using [AzureDevOps](../virtual-network/service-tags-overview.md) as Virtual Network Service Tag. 
+* **Client API**. The client connection endpoint for APIs used by PowerShell.
 
-* **SFX + Client API**. This port is used by Service Fabric Explorer to browse and manage your cluster. In the same way it's used by most common APIs like REST/PowerShell (Microsoft.ServiceFabric.PowerShell.Http)/CLI/.NET. This port is recommended for extended management operations from the Service Fabric Resource Provider to guarantee higher reliability. Please open the port for the integration with Azure API Management by using [ApiManagement](../virtual-network/service-tags-overview.md) as Virtual Network Service Tag.
+* **SFX + Client API**. This port is used by Service Fabric Explorer to browse and manage your cluster. In the same way it's used by most common APIs like REST/PowerShell (Microsoft.ServiceFabric.PowerShell.Http)/CLI/.NET. 
 
-* **Cluster**. Used for inter-node communication; should never be blocked.
+* **Cluster**. Used for inter-node communication.
 
 * **Ephemeral**. Service Fabric uses a part of these ports as application ports, and the remaining are available for the OS. It also maps this range to the existing range present in the OS, so for all purposes, you can use the ranges given in the sample here. Make sure that the difference between the start and the end ports is at least 255. You might run into conflicts if this difference is too low, because this range is shared with the OS. To see the configured dynamic port range, run *netsh int ipv4 show dynamic port tcp*. These ports aren't needed for Linux clusters.
 
@@ -96,10 +96,10 @@ More information about the inbound security rules:
 
 ### Outbound
 
-|Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action        | Mandatory 
-|---        |---                |---         |---       |---                |---               |---           |---
-|4010       |Resource Provider  |443         |TCP       |Any                |ServiceFabric     |Allow         | Yes
-|4020       |Download Binaries  |443         |TCP       |Any                |AzureFrontDoor.FirstParty |Allow | Yes
+|Priority   |Name               |Port        |Protocol  |Source    |Destination               |Action        |Mandatory 
+|---        |---                |---         |---       |---       |---                       |---           |---
+|4010       |Resource Provider  |443         |TCP       |Any       |ServiceFabric             |Allow         |Yes
+|4020       |Download Binaries  |443         |TCP       |Any       |AzureFrontDoor.FirstParty |Allow         |Yes
 
 
 More information about the outbound security rules:
@@ -112,6 +112,35 @@ Use Azure Firewall with [NSG flow log](../network-watcher/network-watcher-nsg-fl
 
 > [!NOTE]
 > Please note that the default network security rules should not be overwritten as they ensure the communication between the nodes. [Network Security Group - How it works](../virtual-network/network-security-group-how-it-works.md). Another example, outbound connectivity on port 80 is needed to do the Certificate Revocation List check.
+
+### Common scenarios needing additional rules
+
+All additional scenarios can be covered with [Azure Service Tags](../virtual-network/service-tags-overview.md).
+
+#### Azure DevOps
+
+The classic PowerShell tasks in Azure DevOps (Service Tag: AzureCloud) need Client API access to the cluster, examples are application deployments or operational tasks. This does not apply to the ARM templates only approach, including [ARM application resources](service-fabric-application-arm-resource.md).
+
+|Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action     |Direction     
+|---        |---                |---         |---       |---                |---               |---        |---     
+|3915       |Azure DevOps       |19000       |TCP       |AzureCloud         |Any               |Allow      |Inbound       
+
+#### Updating Windows
+
+Best practice to patch the Windows operating system is replacing the OS disk by [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), no additional rule is required.
+The [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) is managing in-VM upgrades where Windows Updates applies operating system patches, this needs access to the Download Center (Service Tag: AzureUpdateDelivery) to download the update binaries.
+
+|Priority   |Name               |Port        |Protocol  |Source    |Destination           |Action  |Direction      
+|---        |---                |---         |---       |---       |---                   |---     |---      
+|4015       |Windows Updates    |443         |TCP       |Any       |AzureUpdateDelivery   |Allow   |Outbound       
+
+#### API Management
+
+The integration of Azure API Management (Service Tag: ApiManagement) need Client API access to query endpoint information from the cluster. 
+
+|Priority   |Name               |Port        |Protocol  |Source             |Destination    |Action    |Direction
+|---        |---                |---         |---       |---                |---            |---       |--- 
+|3920       |API Management     |19080       |TCP       |ApiManagement      |Any            |Allow     |Inbound
 
 ## Application Networking
 

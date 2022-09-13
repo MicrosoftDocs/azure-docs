@@ -1,9 +1,8 @@
 ---
 title: Authorize access with Azure Active Directory for Azure SignalR Service
 description: This article provides information on authorizing access to Azure SignalR Service resources using Azure Active Directory. 
-author: terencefan
-
-ms.author: tefa
+author: vicancy
+ms.author: lianwei
 ms.date: 09/06/2021
 ms.service: signalr
 ms.topic: conceptual

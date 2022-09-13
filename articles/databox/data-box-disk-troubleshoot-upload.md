@@ -8,7 +8,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 12/22/2021
+ms.date: 02/24/2022
 ms.author: alkohli
 ---
 
@@ -26,7 +26,7 @@ When the data from a Data Box Disk is uploaded in the Azure datacenter, a copy/e
 
 To find the logs from a data upload, do the following steps.
 
-1. Open your order in the [Azure portal](https://ms.portal.azure.com).
+1. Open your order in the [Azure portal](https://portal.azure.com).
 
 2. As the data upload completes for each disk, the **Overview** pane displays the disk status and the paths to diagnostics logs for the disk.
 
@@ -259,9 +259,9 @@ The errors found in the 2018-10-01 copy log are described below.
 | Error category                      | Description       |
 |-------------------------------------|-------------------|
 | `UploadErrorWin32`                  |File system error. |
-| `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors).|
+| `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-upload-errors).|
 | `UploadErrorDataValidationError`    |CRC computed during data ingestion doesn’t match the CRC computed during upload. |
-| `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors). |
+| `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-upload-errors). |
 | `UploadErrorUnknownType`            |Unknown error. |
 | `ContainerRenamed`                  |Renamed the container because the original container name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original container has been renamed to DataBox-<*GUID*> from <*original container name*>. |
 | `ShareRenamed`                      |Renamed the share because the original share name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original share has been renamed to DataBox-<*GUID*> from <*original folder name*>. |

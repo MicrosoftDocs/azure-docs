@@ -1,13 +1,11 @@
 ---
-title: Working with security policies | Microsoft Docs
+title: Working with security policies
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.date: 01/25/2022
 ---
 
 # Manage security policies
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This page explains how security policies are configured, and how to view them in Microsoft Defender for Cloud. 
 
@@ -105,7 +103,7 @@ To enable a disabled policy and ensure it's assessed for your resources:
 
 1. Open the **Security policy** page.
 
-1. From the **Default initiative**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
+1. From the **Default initiative** or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
 
 1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
 

@@ -7,7 +7,7 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Azure AD join during Windows 10 first-run experience
+  - name: Azure AD join a new Windows device
     href: azuread-joined-devices-frx.md
 - name: Concepts
   expanded: true
@@ -72,8 +72,6 @@
     href: faq.yml
   - name: Enterprise state roaming
     items:
-    - name: What is enterprise state roaming?
-      href: enterprise-state-roaming-overview.md
     - name: Enable enterprise state roaming
       href: enterprise-state-roaming-enable.md
     - name: Enable enterprise state FAQs

@@ -220,7 +220,7 @@ print('Status of the operation: ' + release_poller.status())
 
 ## Run the code
 
-From a console prompt, navigate to the directory containing the phone_numbers_sample.py file, then execute the following python command to run the app.
+From a console prompt, navigate to the directory containing the phone_numbers_sample.py file, then execute the following Python command to run the app.
 
 ```console
 python phone_numbers_sample.py

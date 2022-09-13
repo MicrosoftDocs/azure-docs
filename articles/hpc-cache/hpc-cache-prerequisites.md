@@ -4,8 +4,8 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/19/2022
-ms.author: rohogue
+ms.date: 06/15/2022
+ms.author: v-erinkelly
 ---
 
 # Prerequisites for Azure HPC Cache
@@ -34,20 +34,24 @@ A paid subscription is recommended.
 
 ## Network infrastructure
 
-Two network-related prerequisites should be set up before you can use your cache:
+These network-related prerequisites need to be set up before you can use your cache:
 
 * A dedicated subnet for the Azure HPC Cache instance
 * DNS support so that the cache can access storage and other resources
+* Access from the subnet to additional Microsoft Azure infrastructure services, including NTP servers and the Azure Queue Storage service.
 
 ### Cache subnet
 
 The Azure HPC Cache needs a dedicated subnet with these qualities:
 
 * The subnet must have at least 64 IP addresses available.
+* Communication inside the subnet must be unrestricted. If you use a network security group for the cache subnet, make sure that it permits all services between internal IP addresses.
 * The subnet can't host any other VMs, even for related services like client machines.
 * If you use multiple Azure HPC Cache instances, each one needs its own subnet.
 
 The best practice is to create a new subnet for each cache. You can create a new virtual network and subnet as part of creating the cache.
+
+When creating this subnet, be careful that its security settings allow access to the necessary infrastructure services mentioned later in this section. You can restrict outbound internet connectivity, but make sure that there are exceptions for the items documented here.
 
 ### DNS access
 
@@ -94,6 +98,55 @@ More tips for NTP access:
 * If you have firewalls between your HPC Cache and the NTP server, make sure these firewalls also allow NTP access.
 
 * You can configure which NTP server your HPC Cache uses on the **Networking** page. Read [Configure additional settings](configuration.md#customize-ntp) for more information.
+
+### Azure Queue Storage access
+
+The cache must be able to securely access the [Azure Queue Storage service](../storage/queues/storage-queues-introduction.md) from inside its dedicated subnet. Azure HPC Cache uses the queues service when communicating configuration and state information.
+
+If the cache can't access the queue service, you might see a CacheConnectivityError message when creating the cache.
+
+There are two ways to provide access:
+
+* Create an Azure Storage service endpoint in your cache subnet.
+  Read [Add a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) for instructions to add the **Microsoft.Storage** service endpoint.
+
+* Individually configure access to the Azure storage queue service domain in your network security group or other firewalls.
+
+  Add rules to permit access on these ports:
+
+  * TCP port 443 for secure traffic to any host in the domain queue.core.windows.net (`*.queue.core.windows.net`).
+
+  * TCP port 80 - used for verification of the server-side certificate. This is sometimes referred to as certificate revocation list (CRL) checking and online certificate status protocol (OCSP) communications. All of *.queue.core.windows.net uses the same certificate, and thus the same CRL/OCSP servers. The hostname is stored in the server-side SSL certificate.
+
+  Refer to the security rule tips in [NTP access](#ntp-access) for more information.
+
+  This command lists the CRL and OSCP servers that need to be permitted access. These servers must be resolvable by DNS and reachable on port 80 from the cache subnet.
+
+  ```bash
+
+  openssl s_client -connect azure.queue.core.windows.net:443 2>&1 < /dev/null | sed -n '/-----BEGIN/,/-----END/p' | openssl x509 -noout -text -in /dev/stdin |egrep -i crl\|ocsp|grep URI
+
+  ```
+
+  The output looks something like this, and can change if the SSL certificate updates:
+
+  ```bash
+  OCSP - URI:http://ocsp.msocsp.com
+  CRL - URI:http://mscrl.microsoft.com/pki/mscorp/crl/Microsoft%20RSA%20TLS%20CA%2002.crl
+  CRL - URI:http://crl.microsoft.com/pki/mscorp/crl/Microsoft%20RSA%20TLS%20CA%2002.crl
+  ```
+
+You can check the subnet's connectivity by using this command from a test VM inside the subnet:
+
+```bash
+openssl s_client -connect azure.queue.core.windows.net:443 -status 2>&1 < /dev/null |grep "OCSP Response Status"
+```
+
+A successful connection gives this response:
+
+```bash
+OCSP Response Status: successful (0x0)
+```
 
 ## Permissions
 
@@ -178,15 +231,7 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   * Check firewall settings to be sure that they allow traffic on all of these required ports. Be sure to check firewalls used in Azure as well as on-premises firewalls in your data center.
 
-* Root access (read/write): The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
-  
-  * Enable `no_root_squash`. This option ensures that the remote root user can access files owned by root.
-
-  * Check export policies to make sure they don't include restrictions on root access from the cache's subnet.
-
-  * If your storage has any exports that are subdirectories of another export, make sure the cache has root access to the lowest segment of the path. Read [Root access on directory paths](troubleshoot-nas.md#allow-root-access-on-directory-paths) in the NFS storage target troubleshooting article for details.
-
-* NFS back-end storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
+* NFS back-end storage must be a compatible hardware/software platform. The storage must support NFS Version 3 (NFSv3). Contact the Azure HPC Cache team for details.
 
 ### NFS-mounted blob (ADLS-NFS) storage requirements
 

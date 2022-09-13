@@ -2,6 +2,8 @@
 title: Add an artifact repository to your lab
 description: Learn how to add a private artifact repository to your lab to store your custom artifacts.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 01/11/2022
 ms.custom: devx-track-azurepowershell
 ---

@@ -7,7 +7,7 @@ author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2021
 ms.author: alexeyo
 ---
@@ -87,9 +87,9 @@ In this scenario, private endpoints aren't enabled and one of these statements i
 
 This scenario is equivalent to [using a Speech resource that has a custom domain name and that doesn't have private endpoints](speech-services-private-link.md#adjust-an-application-to-use-a-speech-resource-without-private-endpoints).
 
+[!INCLUDE [](includes/speech-studio-vnet.md)]
 
 [!INCLUDE [](includes/speech-vnet-service-enpoints-private-endpoints-simultaneously.md)]
-
 
 ## Learn more
 

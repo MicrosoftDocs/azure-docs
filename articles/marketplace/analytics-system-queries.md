@@ -4,7 +4,7 @@ description: Learn about system queries you can use to programmatically get anal
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/20/2022
+ms.date: 03/30/2022
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
@@ -14,7 +14,7 @@ ms.reviewer: sroy
 
 The following system queries can be used in the [Create Report API](analytics-programmatic-access.md#create-report-api) directly with a `QueryId`. The system queries are like the export reports in Partner Center for a six month (6M) computation period.
 
-For more information on the column names, attributes, and description, see these articles about commercial marketplace analytics:
+For more information on the column names, attributes, and descriptions, see these articles about commercial marketplace analytics:
 
 - [Customers dashboard](customer-dashboard.md#customer-details-table)
 - [Orders dashboard](orders-dashboard.md#orders-details-table)
@@ -22,6 +22,7 @@ For more information on the column names, attributes, and description, see these
 - [Marketplace Insights dashboard](insights-dashboard.md#marketplace-insights-details-table)
 - [Revenue dashboard](revenue-dashboard.md)
 - [Quality of Service dashboard](quality-of-service-dashboard.md)
+- [Customer retention dashboard](customer-retention-dashboard.md#dictionary-of-data-terms)
 
 The following sections provide various report queries.
 
@@ -87,13 +88,13 @@ The following sections provide various report queries.
 
 **Report query**:
 
-`Date,OfferName,ReferralDomain,CountryName,PageVisits,GetItNow,ContactMe,TestDrive,FreeTrial FROM ISVMarketplaceInsights TIMESPAN LAST_6_MONTHS`
+`SELECT  Date,OfferName,ReferralDomain,CountryName,PageVisits,GetItNow,ContactMe,TestDrive, FreeTrial FROM ISVMarketplaceInsights TIMESPAN LAST_6_MONTHS`
 
 ## Revenue report query
 
 **Report description**: Revenue report for the last 6M
 
-**QueryID**: `6fd7624b-aa9f-42df-a61d-67d42fd00e92`
+**QueryID**: `bf54dde4-7dc4-492f-a69a-f45de049bfcb`
 
 **Report query**:
 
@@ -108,6 +109,16 @@ The following sections provide various report queries.
 **Report query**:
 
 `SELECT OfferId,Sku,DeploymentStatus,DeploymentCorrelationId,SubscriptionId,CustomerTenantId,CustomerName,TemplateType,StartTime,EndTime,DeploymentDurationInMilliSeconds,DeploymentRegion,ResourceProvider,ResourceUri,ResourceGroup,ResourceType,ResourceName,ErrorCode,ErrorName,ErrorMessage,DeepErrorCode,DeepErrorMessage FROM ISVQualityOfService TIMESPAN LAST_3_MONTHS`
+
+## Customer retention report query
+
+**Report description**: Customer retention for the last 6M
+
+**QueryID**: `6d37d057-06f3-45aa-a971-3a34415e8511`
+
+**Report query**:
+
+`SELECT OfferCategory,OfferName,ProductId,DeploymentMethod,ServicePlanName,Sku,SkuBillingType,CustomerId,CustomerName,CustomerCompanyName,CustomerCountryName,CustomerCountryCode,CustomerCurrencyCode,FirstUsageDate,AzureLicenseType,OfferType,Offset FROM ISVOfferRetention TIMESPAN LAST_6_MONTHS`
 
 ## Next steps
 

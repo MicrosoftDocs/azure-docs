@@ -6,7 +6,7 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 03/22/2022
 ms.author: banders
 ---
 

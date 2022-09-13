@@ -2,7 +2,7 @@
 title: Understand migration for Azure Monitor alerts
 description: Understand how the alerts migration works and troubleshoot problems.
 ms.topic: conceptual
-ms.date: 09/06/2021
+ms.date: 2/23/2022
 ms.author: yalavi
 author: yalavi
 ---

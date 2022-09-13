@@ -1,11 +1,11 @@
 ---
 title: Service mode in Azure SignalR Service
 description: An overview of different service modes in Azure SignalR Service, explain their differences and applicable user scenarios
-author: chenkennt
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.author: kenchen
+ms.author: lianwei
 ---
 # Service mode in Azure SignalR Service
 
@@ -32,13 +32,13 @@ So if you have a SignalR application and want to integrate with SignalR service,
 In default mode, there will be websocket connections between hub server and SignalR service (called server connections). These connections are used to transfer messages between server and client. When a new client is connected, SignalR service will route the client to one hub server (assume you have more than one server) through existing server connections. Then the client connection will stick to the same hub server during its lifetime. When client sends messages, they always go to the same hub server. With this behavior, you can safely maintain some states for individual connections on your hub server. For example, if you want to stream something between server and client, you don't need to consider the case that data packets go to different servers.
 
 > [!IMPORTANT]
-> This also means in default mode client cannot connect without server being connected first. If all your hub servers are disconnected due to network interruption or server reboot, your client connect will get an error telling you no server is connected. So it's your responsibility to make sure at any time there is at least one hub server connected to SignalR service (for example, have multiple hub servers and make sure they won't go offline at the same time for things like maintenance).
+> This also means in default mode a client cannot connect without server being connected first. If all your hub servers are disconnected due to network interruption or server reboot, your client connections will get an error telling you no server is connected. So it's your responsibility to make sure at any time there is at least one hub server connected to SignalR service (for example, have multiple hub servers and make sure they won't go offline at the same time for things like maintenance).
 
 This routing model also means when a hub server goes offline, the connections routed that server will be dropped. So you should expect connection drop when your hub server is offline for maintenance and handle reconnect properly so that it won't have negative impact to your application.
 
 ## Serverless mode
 
-Serverless mode, as its name implies, is a mode that you cannot have any hub server. Comparing to default mode, in this mode client doesn't require hub server to get connected. All connections are connected to service in a "serverless" mode and service is responsible for maintaining client connections like handling client pings (in default mode this is handled by hub servers).
+In Serverless mode, you don't have a hub server. Unlike default mode, the client doesn't require a hub server to be running. All connections are connected in a "serverless" mode and the Azure SignalR service is responsible for maintaining client connections like handling client pings (in default mode this is handled by hub servers).
 
 Also there is no server connection in this mode (if you try to use service SDK to establish server connection, you will get an error). Therefore there is also no connection routing and server-client stickiness (as described in the default mode section). But you can still have server-side application to push messages to clients. This can be done in two ways, use [REST APIs](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) for one-time send, or through a websocket connection so that you can send multiple messages more efficiently (note this websocket connection is different than server connection).
 

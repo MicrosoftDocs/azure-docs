@@ -1,12 +1,12 @@
 ---
 title: Integrate and manage security operations & Microsoft Graph Security
-description: Improve your app's threat protection, detection, and response with Microsoft Graph Security & Azure Logic Apps
+description: Improve your app's threat protection, detection, and response with Microsoft Graph Security & Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: preetikr
-ms.reviewer: v-ching, estfan, logicappspm
-ms.topic: article
+ms.reviewer: v-ching, estfan, azla
+ms.topic: how-to
 ms.date: 02/21/2020
 tags: connectors
 ---
@@ -29,7 +29,7 @@ To learn more about Microsoft Graph Security, see the [Microsoft Graph Security 
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * To use the Microsoft Graph Security connector, you must have *explicitly given* Azure Active Directory (AD) tenant administrator consent, which is part of the [Microsoft Graph Security Authentication requirements](/graph/security-authorization). This consent requires the Microsoft Graph Security connector's application ID and name, which you can also find in the [Azure portal](https://portal.azure.com):
 

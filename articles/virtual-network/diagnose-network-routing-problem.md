@@ -3,7 +3,7 @@ title: Diagnose an Azure virtual machine routing problem | Microsoft Docs
 description: Learn how to diagnose a virtual machine routing problem by viewing the effective routes for a virtual machine.
 services: virtual-network
 documentationcenter: na
-author: KumudD    
+author: mbender-ms    
 manager: twooley
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,9 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
-ms.author: kumud 
-ms.custom: devx-track-azurepowershell
+ms.author: mbender 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Diagnose a virtual machine routing problem
@@ -84,7 +85,7 @@ In the previous output, the network interface name is *myVMNic1*.
 
 You can run the commands that follow in the  [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` and log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
-Get the effective routes for a network interface with [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table). The following example gets the effective routes for a network interface named *myVMNic1* that is in a resource group named *myResourceGroup*:
+Get the effective routes for a network interface with [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). The following example gets the effective routes for a network interface named *myVMNic1* that is in a resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az network nic show-effective-route-table \

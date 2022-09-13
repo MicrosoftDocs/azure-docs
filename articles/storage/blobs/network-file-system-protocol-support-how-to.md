@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Mount Blob Storage by using the Network File System (NFS) 3.0 protocol
 
-This article provides guidance on how to mount a container in Azure Blob Storage from a Linux-based Azure virtual machine (VM) or a Linux system that runs on-premises by using the Network File System (NFS) 3.0 protocol. To learn more about NFS 3.0 protocol support in Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-support.md).
+This article provides guidance on how to mount a container in Azure Blob Storage from a Linux-based Azure virtual machine (VM) or a Linux system that runs on-premises by using the Network File System (NFS) 3.0 protocol. To learn more about NFS 3.0 protocol support in Blob Storage, see [Network File System (NFS) 3.0 protocol support for Azure Blob Storage](network-file-system-protocol-support.md).
 
 ## Step 1: Create an Azure virtual network 
 
@@ -75,18 +75,30 @@ Create a directory on your Linux system, and then mount the container in the sto
 1. On your Linux system, create a directory:
 
    ```
-   mkdir -p /mnt/test
+   mkdir -p /nfsdata
    ```
 
-2. Mount the container by using the following command:
+2. Mount the container by using one of the following methods. In both methods, replace the `<storage-account-name>` placeholder with the name of your storage account, and replace `<container-name>` with the name of your container.
 
-   ```
-   mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /mnt/test
-   ```
+   - To have the share mounted automatically on reboot:
 
-   - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.
+     1. Create an entry in the /etc/fstab file by adding the following line:
+  
+        ```
+        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    nfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail    0 0
+        ```
 
-   - Replace the `<container-name>` placeholder with the name of your container.
+     1. Run the following command to immediately process the /etc/fstab entries and attempt to mount the preceding path:
+ 
+        ```
+        mount /nfsdata
+        ```
+        
+   - For a temporary mount that doesn't persist across reboots, run the following command: 
+    
+     ```
+     mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata
+     ```
 
 ## Resolve common errors
 
@@ -94,14 +106,14 @@ Create a directory on your Linux system, and then mount the container in the sto
 |---|---|
 |`Access denied by server while mounting`|Ensure that your client is running within a supported subnet. See [Supported network locations](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Make sure to type, rather than copy and paste, the mount command and its parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear. This error also might appear if the account isn't enabled for NFS 3.0.|
-|`Permission denied`| The default mode of a newly created NFS 3.0 container is 0750. Non-root users don't have access to the volume. If access from non-root users is required, root users must change the mode to 0755. Sample command: `sudo chmod 0755 /mnt/<newcontainer>`|
+|`Permission denied`| The default mode of a newly created NFS 3.0 container is 0750. Non-root users don't have access to the volume. If access from non-root users is required, root users must change the mode to 0755. Sample command: `sudo chmod 0755 /nfsdata`|
 |`EINVAL ("Invalid argument"`) |This error can appear when a client attempts to:<li>Write to a blob that was created from a blob endpoint.<li>Delete a blob that has a snapshot or is in a container that has an active WORM (write once, read many) policy.|
 |`EROFS ("Read-only file system"`) |This error can appear when a client attempts to:<li>Write to a blob or delete a blob that has an active lease.<li>Write to a blob or delete a blob in a container that has an active WORM policy. |
 |`NFS3ERR_IO/EIO ("Input/output error"`) |This error can appear when a client attempts to read, write, or set attributes on blobs that are stored in the archive access tier. |
 |`OperationNotSupportedOnSymLink` error| This error can be returned during a write operation via a Blob Storage or Azure Data Lake Storage Gen2 API. Using these APIs to write or delete symbolic links that are created by using NFS 3.0 is not allowed. Make sure to use the NFS 3.0 endpoint to work with symbolic links. |
-|`mount: /mnt/test: bad option;`| Install the NFS helper program by using `sudo apt install nfs-common`.|
+|`mount: /nfsdata: bad option;`| Install the NFS helper program by using `sudo apt install nfs-common`.|
 
 ## See also
 
-- [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-support.md)
-- [Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-known-issues.md)
+- [Network File System (NFS) 3.0 protocol support for Azure Blob Storage](network-file-system-protocol-support.md)
+- [Known issues with Network File System (NFS) 3.0 protocol support for Azure Blob Storage](network-file-system-protocol-known-issues.md)

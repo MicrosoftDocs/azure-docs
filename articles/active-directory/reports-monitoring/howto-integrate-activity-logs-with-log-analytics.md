@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Active Directory logs with Azure Monit
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/09/2021
+ms.date: 08/22/2022
 ms.author: markvi
 ms.reviewer: besiler
 ms.custom: has-adal-ref
@@ -82,7 +82,7 @@ If you want to know for how long the activity data is stored in a Premium tenant
     * To send audit logs to the Log Analytics workspace, select the **AuditLogs** check box. 
     * To send sign-in logs to the Log Analytics workspace, select the **SignInLogs** check box.
     * To send non-interactive user sign-in logs to the Log Analytics workspace, select the **NonInteractiveUserSignInLogs** check box.
-    * To send service principle sign-in logs to the Log Analytics workspace, select the **ServicePrincipleSignInLogs** check box.
+    * To send service principal sign-in logs to the Log Analytics workspace, select the **ServicePrincipalSignInLogs** check box.
     * To send managed identity sign-in logs to the Log Analytics workspace, select the **ManagedIdentitySignInLogs** check box.
     * To send provisioning logs to the Log Analytics workspace, select the **ProvisioningLogs** check box.
     * To send Active Directory Federation Services (ADFS) sign-in logs to the Log Analytics workspace, select **ADFSSignInLogs**.

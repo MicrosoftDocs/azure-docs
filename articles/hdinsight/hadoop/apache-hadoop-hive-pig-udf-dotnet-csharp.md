@@ -4,7 +4,7 @@ description: Learn how to use C# user-defined functions (UDF) with Apache Hive a
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, devx-track-csharp"
-ms.date: 12/06/2019
+ms.date: 05/30/2022
 ---
 
 # Use C# user-defined functions with Apache Hive and Apache Pig on Apache Hadoop in HDInsight

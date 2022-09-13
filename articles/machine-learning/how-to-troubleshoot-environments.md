@@ -7,10 +7,11 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: edebar01
 ms.author:  ericadebarge
-ms.date: 10/21/2021
+ms.date: 03/01/2022
 ms.topic: troubleshooting
-ms.custom: devx-track-python
+ms.custom: devx-track-python, event-tier1-build-2022
 ---
+
 # Troubleshooting Environment Image Builds using Troubleshooting Log Error Messages
 
 # Azure Machine Learning environments
@@ -454,4 +455,3 @@ without using quotes. Consider adding quotes around the package specification
 #### **"Cannot uninstall package"**
 - Pip failed to uninstall a Python package that was installed via the OS's package manager
 - Consider creating a separate environment using conda instead
-

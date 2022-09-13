@@ -67,7 +67,7 @@ If you chose to update the existing service principal credentials in the previou
 To create a service principal and then update the AKS cluster to use these new credentials, use the [az ad sp create-for-rbac][az-ad-sp-create] command.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --role Contributor
+az ad sp create-for-rbac --role Contributor --scopes /subscriptions/mySubscriptionID
 ```
 
 The output is similar to the following example. Make a note of your own `appId` and `password`. These values are used in the next step.
@@ -103,8 +103,11 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal "$SP_ID" \
-    --client-secret "$SP_SECRET"
+    --client-secret "${SP_SECRET:Q}"
 ```
+
+> [!NOTE]
+> `${SP_SECRET:Q}` escapes any special characters in `SP_SECRET`, which can cause the command to fail. The above example works for Azure Cloud Shell and zsh terminals. For BASH terminals, use `${SP_SECRET@Q}`.
 
 For small and midsize clusters, it takes a few moments for the service principal credentials to be updated in the AKS.
 

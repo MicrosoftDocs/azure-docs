@@ -9,14 +9,13 @@ ms.date: 07/30/2021
 ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
+ms.custom: event-tier1-build-2022
 ---
 
-# High Availability with Azure Arc-enabled SQL Managed Instance (preview)
+# High Availability with Azure Arc-enabled SQL Managed Instance
 
 Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containerized application. It uses Kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. Arc-enabled data service provides this service is provided without user intervention. The service sets up the availability group, configures database mirroring endpoints, adds databases to the availability group, and coordinates failover and upgrade. This document explores both types of high availability.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 Azure Arc-enabled SQL Managed Instance provides different levels of high availability depending on whether the SQL managed instance was deployed as a *General Purpose* service tier or *Business Critical* service tier. 
 
@@ -72,7 +71,7 @@ After all containers within the pod have recovered, you can connect to the manag
 
 ## High availability in Business Critical service tier
 
-In the Business Critical service tier, in addition to what is natively provided by Kubernetes orchestration, there is a new technology called Contained availability group that provides higher levels of availability. Azure Arc-enabled SQL managed instance deployed with `Business Critical` service tier can be deployed with either 2 or 3 replicas. These replicas are always kept in sync with each other. Contained availability group is built on SQL Server Always On availability groups. With contained availability groups, any pod crashes or node failures are transparent to the application as there is at least one other pod that has the SQL managed instance that has all the data from the primary and ready to take on connections.  
+In the Business Critical service tier, in addition to what is natively provided by Kubernetes orchestration, Azure SQL Managed Instance for Azure Arc provides a contained availability group. The contained availability group is built on SQL Server Always On technology. It provides higher levels of availability. Azure Arc-enabled SQL managed instance deployed with *Business Critical* service tier can be deployed with either 2 or 3 replicas. These replicas are always kept in sync with each other. With contained availability groups, any pod crashes or node failures are transparent to the application as there is at least one other pod that has the instance that has all the data from the primary and is ready to take on connections.  
 
 ## Contained availability groups
 
@@ -115,7 +114,7 @@ az sql mi-arc create -n <instanceName> --k8s-namespace <namespace> --use-k8s --t
 Example:
 
 ```azurecli
-az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s --tier bc --replicas 3
+az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s --tier BusinessCritical --replicas 3
 ```
 
 Directly connected mode:
@@ -125,7 +124,7 @@ az sql mi-arc create --name <name> --resource-group <group>  --location <Azure l
 ```
 Example:
 ```azurecli
-az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --tier bc --replcias 3
+az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --tier BusinessCritical --replcias 3
 ```
 
 By default, all the replicas are configured in synchronous mode. This means any updates on the primary instance will be synchronously replicated to each of the secondary instances.
@@ -241,11 +240,14 @@ Additional steps are required to restore a database into an availability group. 
 
 1. Expose the primary instance external endpoint by creating a new Kubernetes service.
 
-    Determine the pod that hosts the primary replica by connecting to the managed instance and run:
+    Determine the pod that hosts the primary replica. Connect to the managed instance and run:
 
     ```sql
     SELECT @@SERVERNAME
     ```
+
+    The query returns the pod that hosts the primary replica.
+
     Create the Kubernetes service to the primary instance by running the command below if your Kubernetes cluster uses nodePort services. Replace `podName` with the name of the server returned at previous step, `serviceName` with the preferred name for the Kubernetes service created.
 
     ```console
@@ -269,12 +271,13 @@ Additional steps are required to restore a database into an availability group. 
     ```console
     kubectl get services -n <namespaceName>
     ```
+
 2. Restore the database to the primary instance endpoint.
 
     Add the database backup file into the primary instance container.
 
     ```console
-    kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
+    kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -c <serviceName> -n <namespaceName>
     ```
 
     Example
@@ -326,7 +329,7 @@ Additional steps are required to restore a database into an availability group. 
     ```
 
 > [!IMPORTANT]
-> As a best practice, you should cleanup by deleting the Kubernetes service created above by running this command:
+> As a best practice, you should delete the Kubernetes service created above by running this command:
 >
 >```console
 >kubectl delete svc sql2-0-p -n arc
@@ -339,4 +342,3 @@ Azure Arc-enabled SQL Managed Instance availability groups has the same limitati
 ## Next steps
 
 Learn more about [Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
-

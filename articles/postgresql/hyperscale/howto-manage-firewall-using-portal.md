@@ -1,14 +1,16 @@
 ---
 title: Manage firewall rules - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Create and manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus) using the Azure portal
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 11/16/2021
 ---
 # Manage public access for Azure Database for PostgreSQL - Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Server-level firewall rules can be used to manage [public
 access](concepts-firewall-rules.md) to a Hyperscale (Citus)

@@ -6,11 +6,17 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 06/03/2022
 ms.author: rabhaiya
 ---
 
 # Azure IoT Connector for FHIR (preview) mapping templates
+
+> [!IMPORTANT]
+> As of September 2022, the IoT Connector feature within Azure API for FHIR will be retired and replaced with the [MedTech service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md) for enhanced service quality and functionality.
+> 
+> All new users are directed to deploy and use the MedTech service feature within the Azure Health Data Services. For more information about the MedTech service, see [What is the MedTech service?](../../healthcare-apis/iot/iot-connector-overview.md).
+
 This article details how to configure Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* using mapping templates.
 
 The Azure IoT Connector for FHIR requires two types of JSON-based mapping templates. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). The second type, **FHIR mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
@@ -70,7 +76,7 @@ The JsonPathContentTemplate allows matching on and extracting values from an Eve
 |**EncounterIdExpression**|*Optional*: The JSON Path expression to extract the encounter identifier.|`$.encounterId`
 |**Values[].ValueName**|The name to associate with the value extracted by the subsequent expression. Used to bind the required value/component in the FHIR mapping template. |`hr`
 |**Values[].ValueExpression**|The JSON Path expression to extract the required value.|`$.heartRate`
-|**Values[].Required**|Will require the value to be present in the payload.  If not found, a measurement will not be generated and an InvalidOperationException will be thrown.|`true`
+|**Values[].Required**|Will require the value to be present in the payload.  If not found, a measurement won't be generated and an InvalidOperationException will be thrown.|`true`
 
 ##### Examples
 ---
@@ -659,4 +665,4 @@ Check out frequently asked questions on Azure IoT Connector for FHIR (preview).
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR FAQs](fhir-faq.yml)
 
-*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.
+*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

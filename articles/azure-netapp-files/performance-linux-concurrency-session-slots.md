@@ -145,7 +145,7 @@ Given the need for 1,250 clients, you could safely set `sunrpc.max_tcp_slot_tabl
 
 ## NFSv4.1 
 
-In NFSv4.1, sessions define the relationship between the client and the server. Weather the mounted NFS file systems sit atop one connection or many (as is the case with `nconnect`), the rules for the session apply. At session setup, the client and server negotiate the maximum requests for the session, settling on the lower of the two supported values. Azure NetApp Files supports 180 outstanding requests, and Linux clients default to 64. The following table shows the session limits: 
+In NFSv4.1, sessions define the relationship between the client and the server. Whether the mounted NFS file systems sit atop one connection or many (as is the case with `nconnect`), the rules for the session apply. At session setup, the client and server negotiate the maximum requests for the session, settling on the lower of the two supported values. Azure NetApp Files supports 180 outstanding requests, and Linux clients default to 64. The following table shows the session limits: 
 
 | Azure NetApp Files NFSv4.1 server <br>  Max commands per session | Linux client <br>  Default max commands per session    | Negotiated max commands for the session |
 |-|-|-|

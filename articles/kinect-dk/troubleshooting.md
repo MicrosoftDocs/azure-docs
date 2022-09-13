@@ -3,8 +3,8 @@ title: Azure Kinect known issues and troubleshooting
 description: Learn about some of the known issues and troubleshooting tips when using the Sensor SDK with Azure Kinect DK.
 author: qm13
 ms.author: quentinm
-ms.prod: kinect-dk
-ms.date: 03/05/2021
+ms.service: azure-kinect-developer-kit
+ms.date: 03/15/2022
 ms.topic: conceptual
 keywords: troubleshooting, update, bug, kinect, feedback, recovery, logging, tips
 ---
@@ -185,47 +185,11 @@ The Sensor SDK C# documentation is located [here](https://microsoft.github.io/Az
 
 The Body Tracking SDK C# documentation is located [here](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html).
 
-## Specifying ONNX Runtime execution environment
+## Changes to contents of Body Tracking packages
 
-The Body Tracking SDK supports CPU, CUDA, DirectML (Windows only) and TensorRT execution environments to inference the pose estimation model. The `K4ABT_TRACKER_PROCESSING_MODE_GPU` defaults to CUDA execution on Linux and DirectML execution on Windows. Three additional modes have been added to select specific execution environments: `K4ABT_TRACKER_PROCESSING_MODE_GPU_CUDA`, `K4ABT_TRACKER_PROCESSING_MODE_GPU_DIRECTML`, and `K4ABT_TRACKER_PROCESSING_MODE_GPU_TENSORRT`.
+Both the MSI and NuGet packages no longer include the Microsoft Visual C++ Redistributable Package files. Download the latest package [here](/cpp/windows/latest-supported-vc-redist).
 
-> [!NOTE]  
-> ONNX Runtime displays warnings for opcodes that are not accelerated. These may be safely ignored.
-
-ONNX Runtime includes environment variables to control TensorRT model caching. The recommended values are:
-- ORT_TENSORRT_ENGINE_CACHE_ENABLE=1 
-- ORT_TENSORRT_CACHE_PATH="pathname"
-
-The folder must be created prior to starting body tracking.
-
-> [!IMPORTANT]  
-> TensorRT pre-processes the model prior to inference resulting in extended start up times when compared to other execution environments. Engine caching limits this to first execution however it is experimental and is specific to the model, ONNX Runtime version, TensorRT version and GPU model.
-
-The TensorRT execution environment supports both FP32 (default) and FP16. FP16 trades ~2x performance increase for minimal accuracy decrease. To specify FP16:
-- ORT_TENSORRT_FP16_ENABLE=1
-
-## Required DLLs for ONNX Runtime execution environments
-
-|Mode      | CUDA 11.1            | CUDNN 8.0.5          | TensorRT 7.2.1       |
-|----------|----------------------|----------------------|----------------------|
-| CPU      | cudart64_110         | cudnn64_8            | -                    |
-|          | cufft64_10           |                      |                      |
-|          | cublas64_11          |                      |                      |
-|          | cublasLt64_11        |                      |                      |
-| CUDA     | cudart64_110         | cudnn64_8            | -                    |
-|          | cufft64_10           | cudnn_ops_infer64_8  |                      |
-|          | cublas64_11          | cudnn_cnn_infer64_8  |                      |
-|          | cublasLt64_11        |                      |                      |
-| DirectML | cudart64_110         | cudnn64_8            | -                    |
-|          | cufft64_10           |                      |                      |
-|          | cublas64_11          |                      |                      |
-|          | cublasLt64_11        |                      |                      |
-| TensorRT | cudart64_110         | cudnn64_8            | nvinfer              |
-|          | cufft64_10           | cudnn_ops_infer64_8  | nvinfer_plugin       |
-|          | cublas64_11          | cudnn_cnn_infer64_8  | myelin64_1           |
-|          | cublasLt64_11        |                      |                      |
-|          | nvrtc64_111_0        |                      |                      |
-|          | nvrtc-builtins64_111 |                      |                      |
+The NuGet package is back however it no longer includes Microsoft DirectML, or NVIDIA CUDA and TensorRT files.
 
 ## Next steps
 

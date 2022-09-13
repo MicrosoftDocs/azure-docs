@@ -1,5 +1,5 @@
 ---
-title: Keyword recognition - Speech service
+title: Keyword recognition overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for keyword recognition by using the Speech Software Development Kit (SDK).
 services: cognitive-services
@@ -7,13 +7,13 @@ author: hasyashah
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/30/2021
 ms.author: hasshah
 ms.custom: ignite-fall-2021
 ---
 
-# Keyword recognition
+# What is keyword recognition?
 
 Keyword recognition detects a word or short phrase within a stream of audio. It's also referred to as keyword spotting.
 
@@ -52,7 +52,7 @@ You can use custom keyword to generate two types of on-device models for any key
 | Advanced | Best suited for product integration purposes. Models are generated with adaptation of a common base model by using simulated training data to improve accuracy characteristics. It can take up to 48 hours for models to be ready. |
 
 > [!NOTE]
-> You can view a list of regions that support the **Advanced** model type in the [keyword recognition region support](regions.md#keyword-recognition) documentation.
+> You can view a list of regions that support the **Advanced** model type in the [keyword recognition region support](regions.md#speech-service) documentation.
 
 Neither model type requires you to upload training data. Custom keyword fully handles data generation and model training.
 

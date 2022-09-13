@@ -1,12 +1,12 @@
 ---
 title: Access control lists in Azure Data Lake Storage Gen2
 description: Understand how POSIX-like ACLs access control lists work in Azure Data Lake Storage Gen2.
-author: normesta
+author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.author: normesta
+ms.date: 09/07/2022
+ms.author: jammart
 ms.reviewer: jamesbak
 ms.devlang: python
 ---
@@ -161,7 +161,9 @@ Identities are evaluated in the following order:
 4. Owning group or named group
 5. All other users
 
-If more than one of these identities applies to a security principal, then the permission level associated with the first identity is granted. For example, if a security principal is both the owning user and a named user, then the permission level associated with the owning user applies.
+If more than one of these identities applies to a security principal, then the permission level associated with the first identity is granted. For example, if a security principal is both the owning user and a named user, then the permission level associated with the owning user applies. 
+
+Named groups are all considered together. If a security principal is a member of more than one named group, then the system evaluates each group until the desired permission is granted. If none of the named groups provide the desired permission, then the system moves on to evaluate a request against the permission associated with all other users.
 
 The following pseudocode represents the access check algorithm for storage accounts. This algorithm shows the order in which identities are evaluated.
 
@@ -223,7 +225,7 @@ The mask may be specified on a per-call basis. This allows different consuming s
 
 ### The sticky bit
 
-The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user.
+The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user, the directory's owner, or the Superuser ($superuser).
 
 The sticky bit isn't shown in the Azure portal.
 
@@ -336,7 +338,7 @@ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 OID will be displayed.
 
-When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**.
+When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**
 
 ### Can I set the ACL of a container?
 
@@ -349,7 +351,7 @@ The Azure Storage REST API does contain an operation named [Set Container ACL](/
 - [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
 - [HDFS permission guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 - [POSIX FAQ](https://www.opengroup.org/austin/papers/posix_faq.html)
-- [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+- [POSIX 1003.1 2008](https://standards.ieee.org/wp-content/uploads/import/documents/interpretations/1003.1-2008_interp.pdf)
 - [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 - [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 - [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)

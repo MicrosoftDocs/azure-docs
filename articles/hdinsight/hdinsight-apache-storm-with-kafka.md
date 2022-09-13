@@ -4,7 +4,8 @@ description: Learn how to create a streaming pipeline using Apache Storm and Apa
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 08/05/2022
+ROBOTS: NOINDEX
 #Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Storm and Kafka to process streaming data.
 ---
 
@@ -28,8 +29,6 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Familiarity with creating Kafka topics. For more information, see the [Kafka on HDInsight quickstart](./kafka/apache-kafka-get-started.md) document.
-
-* Familiarity with building and deploying Storm solutions (topologies). Specifically, topologies that use [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html) framework. For more information, see the [Create an Apache Storm topology in Java](./storm/apache-storm-develop-java-topology.md) document.
 
 * [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
 

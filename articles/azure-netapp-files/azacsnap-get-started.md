@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 03/03/2022
 ms.author: phjensen
 ---
 
@@ -31,8 +31,7 @@ Once these downloads are completed, then follow the steps in this guide to insta
 ### Verifying the download
 
 The installer has an associated PGP signature file with an `.asc` filename extension. This file can be used to ensure the installer downloaded is a verified
-Microsoft provided file. The Microsoft PGP Public Key used for signing Linux packages is available here (<https://packages.microsoft.com/keys/microsoft.asc>)
-and has been used to sign the signature file.
+Microsoft provided file. The [Microsoft PGP Public Key used for signing Linux packages](https://packages.microsoft.com/keys/microsoft.asc) has been used to sign the signature file.
 
 The Microsoft PGP Public Key can be imported to a user's local as follows:
 
@@ -110,20 +109,8 @@ For more information about using GPG, see [The GNU Privacy Handbook](https://www
 
 ## Supported scenarios
 
-The snapshot tools can be used in the following scenarios.
-
-- Single SID
-- Multiple SID
-- HSR
-- Scale-out
-- MDC (Only single tenant supported)
-- Single Container
-- SUSE Operating System
-- RHEL Operating System
-- SKU TYPE I
-- SKU TYPE II
-
-See [Supported scenarios for HANA Large Instances](../virtual-machines/workloads/sap/hana-supported-scenario.md)
+The snapshot tools can be used in the following [Supported scenarios for HANA Large Instances](../virtual-machines/workloads/sap/hana-supported-scenario.md) and 
+[SAP HANA with Azure NetApp Files](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md).
 
 ## Snapshot Support Matrix from SAP
 

@@ -2,13 +2,13 @@
 title: Resource provider registration errors
 description: Describes how to resolve Azure resource provider registration errors for resources deployed with a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
-ms.date: 12/20/2021
+ms.date: 09/12/2022
 ms.custom:  devx-track-azurepowershell
 ---
 
 # Resolve errors for resource provider registration
 
-This article describes errors that occur when you use a resource provider you haven't already used in your Azure subscription. The errors are displayed when you deploy resources with a Bicep file or Azure Resource Manager template (ARM template). If Azure doesn't automatically register a resource provider, you can do a manual registration.
+This article describes resource provider registration errors that occur when you use a resource provider that you haven't already used in your Azure subscription. The errors are displayed when you deploy resources with a Bicep file or Azure Resource Manager template (ARM template). If Azure doesn't automatically register a resource provider, you can do a manual registration.
 
 ## Symptom
 
@@ -55,7 +55,7 @@ You receive these errors for one of these reasons:
 You can use Azure CLI to get information about a resource provider's registration status and
 register a resource provider.
 
-Use [az provider list](/cli/azure/provider#az_provider_list) to display the registration status for your subscription's resource providers. The examples use the `--output table` parameter to filter the output for readability. You can omit the parameter to see all properties.
+Use [az provider list](/cli/azure/provider#az-provider-list) to display the registration status for your subscription's resource providers. The examples use the `--output table` parameter to filter the output for readability. You can omit the parameter to see all properties.
 
 The following command lists all the subscription's resource providers and whether they're `Registered` or `NotRegistered`.
 
@@ -75,13 +75,13 @@ Get the registration status for a specific resource provider:
 az provider list --query "[?namespace=='Microsoft.Compute']" --output table
 ```
 
-To register a resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command, and specify the _namespace_ to register.
+To register a resource provider, use the [az provider register](/cli/azure/provider#az-provider-register) command, and specify the _namespace_ to register.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Cdn
 ```
 
-To get a resource type's supported locations, use [az provider show](/cli/azure/provider#az_provider_show):
+To get a resource type's supported locations, use [az provider show](/cli/azure/provider#az-provider-show):
 
 ```azurecli-interactive
 az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"

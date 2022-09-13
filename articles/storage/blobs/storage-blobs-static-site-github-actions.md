@@ -12,7 +12,7 @@ ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
 
 ---
 
-# Set up a GitHub Actions workflow to deploy your static website in Azure Storage
+# Use GitHub Actions workflow to deploy your static website in Azure Storage
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy a static site to an Azure storage account. Once you have set up a GitHub Actions workflow, you will be able to automatically deploy your site to Azure from GitHub when you make changes to your site's code.
 
@@ -36,7 +36,7 @@ An Azure subscription and GitHub account.
 
 # [Service principal](#tab/userlevel)
 
-You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 Replace the placeholder `myStaticSite` with the name of your site hosted in Azure Storage.
 
@@ -83,10 +83,10 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
      az ad sp create --id $appId
     ```
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
 
     ```azurecli-interactive
-    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal
+    az role assignment create --role contributor --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal
     ```
 
 1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
@@ -152,7 +152,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Go to **Actions** for your GitHub repository.
 
-    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub actions menu item":::
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub Actions menu item":::
 
 1. Select **Set up your workflow yourself**.
 
@@ -240,7 +240,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Go to **Actions** for your GitHub repository.
 
-    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub actions menu item":::
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub Actions menu item":::
 
 1. Select **Set up your workflow yourself**.
 
@@ -358,7 +358,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Open the first result to see detailed logs of your workflow's run.
 
-    :::image type="content" source="../media/index/github-actions-run.png" alt-text="Log of GitHub actions run":::
+    :::image type="content" source="../media/index/github-actions-run.png" alt-text="Log of GitHub Actions run":::
 
 ## Clean up resources
 

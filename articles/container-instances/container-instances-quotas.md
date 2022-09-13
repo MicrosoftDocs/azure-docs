@@ -1,8 +1,12 @@
 ---
 title: Service quotas and region availability
 description: Quotas, limits, and region availability of the Azure Container Instances service.
-ms.topic: article
-ms.date: 07/22/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.topic: conceptual
+ms.date: 06/17/2022
 ---
 # Quotas and limits for Azure Container Instances
 
@@ -21,4 +25,4 @@ Use the [List Usage](/rest/api/container-instances/location/listusage) API to re
 Certain default limits and quotas can be increased. To request an increase of one or more resources that support such an increase, please submit an [Azure support request][azure-support] (select "Quota" for **Issue type**).
 
 <!-- LINKS - External -->
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

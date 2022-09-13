@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource**, and then go to **AI + Machine Learning** > **Language**.
-   Or, go to [Create a Language resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
+   Or, go to [Create a Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
 1. Enter all the required settings:
 
     |Setting|Value|

@@ -1,11 +1,11 @@
 ---
 title: On-premises NAS migration to Azure file shares
 description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to Azure file shares with Azure DataBox.
-author: fauhse
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/02/2021
-ms.author: fauhse
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -65,14 +65,15 @@ Consult your migration plan for the number of storage accounts you have decided 
 
 ### DataBox options
 
-For a standard migration, one or a combination of these three DataBox options should be chosen: 
+For a standard migration, one or a combination of these two DataBox options should be chosen: 
 
-* DataBox Disks
-  Microsoft will send you one and up to five SSD disks with a capacity of 8 TiB each, for a maximum total of 40 TiB. The usable capacity is about 20% less, due to encryption and file system overhead. For more information, see [DataBox Disks documentation](../../databox/data-box-disk-overview.md).
 * DataBox
   This is the most common option. A ruggedized DataBox appliance, that works similar to a NAS, will be shipped to you. It has a usable capacity of 80 TiB. For more information, see [DataBox documentation](../../databox/data-box-overview.md).
 * DataBox Heavy
   This option features a ruggedized DataBox appliance on wheels, that works similar to a NAS, with a capacity of 1 PiB. The usable capacity is about 20% less, due to encryption and file system overhead. For more information, see [DataBox Heavy documentation](../../databox/data-box-heavy-overview.md).
+
+> [!WARNING]
+> Data Box Disks is not recommended for migrations into Azure file shares. Data Box Disks does not preserve file metadata, such as access permissions (ACLs) and other attributes.
 
 ## Phase 4: Provision a temporary Windows Server
 
@@ -148,6 +149,8 @@ Robocopy /MT:32 /NP /NFL /NDL /B /MIR /IT /COPY:DATSO /DCOPY:DAT /UNILOG:<FilePa
 * To learn more about the details of the individual RoboCopy flags, check out the table in the upcoming [RoboCopy section](#robocopy).
 * To learn more about how to appropriately size the thread count `/MT:n`, optimize RoboCopy speed, and make RoboCopy a good neighbor in your data center, take a look at the [RoboCopy troubleshooting section](#troubleshoot).
 
+> [!TIP]
+> As an alternative to Robocopy, Data Box has created a data copy service. You can use this service to load files onto your Data Box with full fidelity. [Follow this data copy service tutorial](../../databox/data-box-deploy-copy-data-via-copy-service.md) and make sure to set the correct Azure file share target.
 
 ## Phase 7: Catch-up RoboCopy from your NAS
 

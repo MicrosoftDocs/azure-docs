@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/21/2022
+ms.date: 02/11/2022
 ms.author: jeedes
 
 ---
@@ -49,6 +49,8 @@ To configure the integration of eLearnPOSH into Azure AD, you need to add eLearn
 1. In the **Add from the gallery** section, type **eLearnPOSH** in the search box.
 1. Select **eLearnPOSH** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for eLearnPOSH
 
 Configure and test Azure AD SSO with eLearnPOSH using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in eLearnPOSH.
@@ -82,14 +84,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	| Name | Source Attribute |
 	| ---------| --------- |
-	| department | user.department |
-    | designation | user.jobtitle |
-    | email | user.userprincipalname |
-    | empid | user.employeeid |
+    | email | user.mail |
+    | username | user.mail |
     | firstname | user.givenname |
     | lastname | user.surname |
-    | primary-email | user.primaryauthoritativeemail |
-    | username | user.userprincipalname |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

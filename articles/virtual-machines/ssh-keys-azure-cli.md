@@ -25,7 +25,7 @@ For more detailed information about creating and using SSH keys with Linux VMs, 
 
 ## Generate new keys
 
-1. After you sign in, use the [az sshkey create](/cli/azure/sshkey#az_sshkey_create) command to create the new SSH key:
+1. After you sign in, use the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command to create the new SSH key:
 
     ```azurecli
     az sshkey create --name "mySSHKey" --resource-group "myResourceGroup"
@@ -58,7 +58,7 @@ For example, enter: `ssh -i /home/user/.ssh/mySSHKey azureuser@123.45.67.890`
 
 You can upload a public SSH key to store in Azure. 
 
-Use the [az sshkey create](/cli/azure/sshkey#az_sshkey_create) command to upload an SSH public key by specifying its file:
+Use the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command to upload an SSH public key by specifying its file:
 
 ```azurecli
 az sshkey create --name "mySSHKey" --public-key "@/home/user/.ssh/7777777777_9999999.pub" --resource-group "myResourceGroup"
@@ -66,7 +66,7 @@ az sshkey create --name "mySSHKey" --public-key "@/home/user/.ssh/7777777777_999
 
 ## List keys
 
-Use the [az sshkey list](/cli/azure/sshkey#az_sshkey_list) command to list all public SSH keys, optionally specifying a resource group:
+Use the [az sshkey list](/cli/azure/sshkey#az-sshkey-list) command to list all public SSH keys, optionally specifying a resource group:
 
 ```azurecli
 az sshkey list --resource-group "myResourceGroup"
@@ -74,7 +74,7 @@ az sshkey list --resource-group "myResourceGroup"
 
 ## Get the public key
 
-Use the [az sshkey show](/cli/azure/sshkey#az_sshkey_show) command to show the values of a public SSH key:
+Use the [az sshkey show](/cli/azure/sshkey#az-sshkey-show) command to show the values of a public SSH key:
 
 ```azurecli
 az sshkey show --name "mySSHKey" --resource-group "myResourceGroup"

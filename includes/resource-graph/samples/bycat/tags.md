@@ -1,9 +1,9 @@
 ---
-author: georgewallace
+author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
-ms.date: 01/20/2022
-ms.author: gwallace
+ms.date: 07/07/2022
+ms.author: timwarner
 ms.custom: generated
 ---
 

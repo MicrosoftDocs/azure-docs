@@ -1,25 +1,36 @@
 ---
-title: Start machines using Automation runbooks
-description: Learn how to start virtual machines in a lab in Azure DevTest Labs by using Azure Automation runbooks. 
+title: Define VM start order with Azure Automation
+description: Learn how to start virtual machines in a specific order by using Azure Automation runbooks in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 06/26/2020 
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 03/17/2022
 ms.custom: devx-track-azurepowershell
 ---
 
-# Start virtual machines in a lab in order by using Azure Automation runbooks
-The [autostart](devtest-lab-set-lab-policy.md#set-autostart) feature of DevTest Labs allows you to configure VMs to start automatically at a specified time. However, this feature doesn't support machines to start in a specific order. There are several scenarios where this type of automation would be useful.  One scenario is where a Jumpbox VM in a lab is the access point to the other VMs. The Jumpbox VM must start before the other VMs. This article shows you how to set up an Azure Automation account with a PowerShell runbook that executes a script. The script uses tags on VMs in the lab to allow you to control the startup order without having to change the script.
+# Define the startup order for DevTest Lab VMs with Azure Automation
 
-## Setup
-In this example, VMs in the lab need to have the tag **StartupOrder** added with the appropriate value, such as 0, 1, 2. Designate any machine that doesn't need starting as -1.
+This article explains how to start up DevTest Labs virtual machines (VMs) in a specific order by using a PowerShell runbook in Azure Automation. The PowerShell script uses tags on lab VMs, so you can change the startup order without having to change the script.
 
-## Create an Azure Automation account
-Create an Azure Automation account by following instructions in [this article](../automation/automation-create-standalone-account.md). Choose the **Run As Accounts** option when creating the account. Once the automation account is created, open the **Modules** page, and select **Update Azure Modules** on the menu bar. The default modules are several versions old and without the update the script may not function.
+The DevTest Labs [autostart](devtest-lab-set-lab-policy.md#set-autostart) feature can configure lab VMs to start automatically at a specified time. However, sometimes you might want lab VMs to start in a specific sequence. For example, if a jumpbox VM in a lab is the access point to the other VMs, the jumpbox VM must start before the other VMs.
 
-## Add a runbook
-Now, to add a runbook to the automation account, select **Runbooks** on the left menu. Select **Add a runbook** on the menu, and follow instructions to [create a PowerShell runbook](../automation/learn/powershell-runbook-managed-identity.md).
+## Prerequisites
 
-## PowerShell script
-The following script takes the subscription name, the lab name as parameters. The flow of the script is to get all the VMs in the lab, and then parse out the tag information to create a list of the VM names and their startup order. The script walks through the VMs in order and starts the VMs. If there are multiple VMs in a specific order number, they start asynchronously using PowerShell jobs. For those VMs that don’t have a tag, set startup value to be the last (10). Those machines start last, by default.  If you don't want the VM to be auto started, set the tag value to 11, and the script will ignore the VM.
+- [Create and apply a tag](devtest-lab-add-tag.md) called **StartupOrder** to all lab VMs with an appropriate startup value, 0 through 10. Designate any machines that don't need starting as -1.
+
+- Create an Azure Automation account by following instructions in [Create a standalone Azure Automation account](../automation/automation-create-standalone-account.md). Choose the **Run As Accounts** option when you create the account.
+
+## Create the PowerShell runbook
+
+1. On the **Overview** page for the Automation Account, select **Runbooks** from the left menu.
+1. On the **Runbooks** page, select **Create a runbook**.
+1. Follow the instructions in [Create an Automation PowerShell runbook using managed identity](../automation/learn/powershell-runbook-managed-identity.md) to create a PowerShell runbook. Populate the runbook with the following PowerShell script.
+
+## Prepare the PowerShell script
+
+The following script takes the subscription name and the lab name as parameters. The script gets all the VMs in the lab and parses their tag information to create a list of VM names and their startup order. The script walks through the list in order and starts the VMs.
+
+If there are multiple VMs in a specific order number, those VMs start asynchronously using PowerShell jobs. VMs that don't have a tag have their startup value set to 10 and start last by default. The script ignores any VMs that have tag values other than 0 through 10.
 
 ```powershell
 #Requires -Version 3.0
@@ -46,7 +57,7 @@ $dtLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName
 $dtlAllVms = New-Object System.Collections.ArrayList
 $AllVMs = Get-AzResource -ResourceId "$($dtLab.ResourceId)/virtualmachines" -ApiVersion 2016-05-15
 
-# Get the StartupOrder tag, if missing set to be run last (10)
+# Get the StartupOrder tag. If missing, set to start up last (10).
 ForEach ($vm in $AllVMs) {
     if ($vm.Tags) {
         if ($vm.Tags['StartupOrder']) {
@@ -119,10 +130,16 @@ While ($current -le 10) {
 }
 ```
 
-## Create a schedule
-To have this script execute daily, [create a schedule](../automation/shared-resources/schedules.md#create-a-schedule) in the automation account. Once the schedule is created, [link it to the runbook](../automation/shared-resources/schedules.md#link-a-schedule-to-a-runbook). 
+## Run the script
 
-In a large-scale situation that has multiple subscriptions with multiple labs, store the parameter information in a file for different labs. Pass the file to the script instead of passing the individual parameters. The script must be modified, but the core execution is the same. While this sample uses the Azure Automation to execute the PowerShell script, there are other options like using a task in a Build/Release pipeline.
+- To run this script daily, [create a schedule](../automation/shared-resources/schedules.md#create-a-schedule) in the Automation Account, and [link the schedule to the runbook](../automation/shared-resources/schedules.md#link-a-schedule-to-a-runbook).
+
+- In an enterprise scenario that has several subscriptions with multiple labs, you can store the parameter information for different labs and subscriptions in a file. Pass the file to the script instead of passing the individual parameters.
+
+- This example uses Azure Automation to run the PowerShell script, but you can also use other options, like a [build/release pipeline](use-devtest-labs-build-release-pipelines.md).
 
 ## Next steps
-See the following article to learn more about Azure Automation: [An introduction to Azure Automation](../automation/automation-intro.md).
+
+- [What is Azure Automation?](/azure/automation/automation-intro)
+- [Start up lab virtual machines automatically](devtest-lab-auto-startup-vm.md)
+- [Use command-line tools to start and stop Azure DevTest Labs virtual machines](use-command-line-start-stop-virtual-machines.md)

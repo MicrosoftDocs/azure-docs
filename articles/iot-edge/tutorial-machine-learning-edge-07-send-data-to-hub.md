@@ -1,14 +1,15 @@
 ---
 title: 'Tutorial: Send device data via transparent gateway - Machine Learning on Azure IoT Edge'
 description: 'This tutorial shows how you can use your development machine as a simulated IoT Edge device to send data to the IoT Hub by going through a device configured as a transparent gateway.'
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
+monikerRange: "=iotedge-2018-06"
 ---
 
 # Tutorial: Send data via transparent gateway
@@ -52,7 +53,7 @@ Look at the code to see how these two items are implemented.
 
 1. Now look at the GetIotHubDevice method on the TurbofanDevice class.
 
-1. When the user specifies the FQDN of the gateway using the “-g” option, that value is passed to this method as the `gatewayFqdn` variable, which gets appended to the device connection string.
+1. When the user specifies the FQDN of the gateway using the "-g" option, that value is passed to this method as the `gatewayFqdn` variable, which gets appended to the device connection string.
 
    ```csharp
    connectionString = $"{connectionString};GatewayHostName={gatewayFqdn.ToLower()}";
@@ -88,7 +89,7 @@ Look at the code to see how these two items are implemented.
    Device: 1 Message count: 250
    ```
 
-   Note the addition of the “GatewayHostName” to the device connection string, which causes the device to communicate through the IoT Hub through the IoT Edge transparent gateway.
+   Note the addition of the "GatewayHostName" to the device connection string, which causes the device to communicate through the IoT Hub through the IoT Edge transparent gateway.
 
 ## Check output
 
@@ -122,7 +123,7 @@ We can observe the results of our leaf device sending data by looking at the sto
 
 1. On the development machine open Visual Studio Code.
 
-1. In the “AZURE STORAGE” panel in the explore window, navigate the tree to find your storage account.
+1. In the "AZURE STORAGE" panel in the explore window, navigate the tree to find your storage account.
 
 1. Expand the **Blob Containers** node.
 

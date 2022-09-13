@@ -109,7 +109,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 #### Grant access to your key vault
 Create an access policy for your key vault that grants key permissions to your user account.
 
-```console
+```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
@@ -172,7 +172,7 @@ Now that your application is authenticated, you can create a key in your key vau
 keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-You can verify that the key has been set with the [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) command:
+You can verify that the key has been set with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -197,7 +197,7 @@ SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
 ```
 
-You can verify that the key has been deleted with the [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) command:
+You can verify that the key has been deleted with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey

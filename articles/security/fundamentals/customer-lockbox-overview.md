@@ -1,11 +1,11 @@
 ---
 title: Customer Lockbox for Microsoft Azure
 description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
-author: TerryLanfear
+author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: terrylan
+ms.author: mbaldwin
 manager: rkarlin
 ms.date: 05/12/2021
 ---
@@ -38,12 +38,15 @@ The following services are generally available for Customer Lockbox:
 - Azure Database for PostgreSQL
 - Azure Functions
 - Azure HDInsight
+- Azure Intelligent Recommendations
 - Azure Kubernetes Service
 - Azure Monitor
 - Azure Storage
 - Azure SQL Database
+- Azure SQL managed Instance
 - Azure subscription transfers
 - Azure Synapse Analytics
+- Azure Unified Vision Service
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
 
 ### Public Preview
@@ -65,7 +68,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 1. Someone at an organization has an issue with their Azure workload.
 
-2. After this person troubleshoots the issue, but can't fix it, they open a support ticket from the [Azure portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac). The ticket is assigned to an Azure Customer Support Engineer.
+2. After this person troubleshoots the issue, but can't fix it, they open a support ticket from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac). The ticket is assigned to an Azure Customer Support Engineer.
 
 3. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
 

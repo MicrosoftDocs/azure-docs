@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/21/2022
+ms.date: 03/06/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -110,16 +110,17 @@ The **Item** element contains the following attributes:
 | Value | Yes | The string claim value associated with selecting this option. |
 | SelectByDefault | No | Indicates whether or not this option should be selected by default in the UI. Possible values: True or False. |
 
-The following example shows the use of the **LocalizedCollections** element. It contains two **LocalizedCollection** elements, one for English and another one for Spanish. Both set the **Restriction** collection of the claim `Gender` with a list of items for English and Spanish.
+The following example shows the use of the **LocalizedCollections** element. It contains two **LocalizedCollection** elements, one for English and another one for Spanish. Both set the **Restriction** collection of the claim `Gender` with a list of items for English and Spanish. For more samples, check out the [Claim restriction enumeration live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims#restriction-enumeration).
 
 ```xml
 <LocalizedResources Id="api.selfasserted.en">
- <LocalizedCollections>
-   <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
+  <LocalizedCollections>
+    <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
       <Item Text="Female" Value="F" />
       <Item Text="Male" Value="M" />
     </LocalizedCollection>
-</LocalizedCollections>
+  </LocalizedCollections>
+</LocalizedResources>
 
 <LocalizedResources Id="api.selfasserted.es">
  <LocalizedCollections>
@@ -127,7 +128,8 @@ The following example shows the use of the **LocalizedCollections** element. It 
       <Item Text="Femenino" Value="F" />
       <Item Text="Masculino" Value="M" />
     </LocalizedCollection>
-</LocalizedCollections>
+  </LocalizedCollections>
+</LocalizedResources>
 ```
 
 ### LocalizedStrings

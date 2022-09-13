@@ -2,8 +2,9 @@
 title: Overview of common autoscale patterns
 description: Learn some of the common patterns to auto scale your resource in Azure.
 ms.topic: conceptual
-ms.date: 05/07/2017
+ms.date: 04/22/2022
 ms.subservice: autoscale
+ms.reviewer: riroloff
 ---
 # Overview of common autoscale patterns
 This article describes some of the common patterns to scale your resource in Azure.
@@ -22,7 +23,7 @@ You have a web app (/VMSS/cloud service role) and
 - Additionally, you want to ensure there is a minimum number of instances.
 - Also, you want to ensure that you set a maximum limit to the number of instances you can scale to.
 
-![Scale based on CPU][2]
+[![Scale based on CPU](./media/autoscale-common-scale-patterns/scale-based-on-cpu.png)](./media/autoscale-common-scale-patterns/scale-based-on-cpu.png#lightbox)
 
 ## Scale differently on weekdays vs weekends
 
@@ -31,7 +32,7 @@ You have a web app (/VMSS/cloud service role) and
 - You want 3 instances by default (on weekdays)
 - You don't expect traffic on weekends and hence you want to scale down to 1 instance on weekends.
 
-![Scale differently on weekdays vs weekends][3]
+[![Scale differently on weekdays vs weekends](./media/autoscale-common-scale-patterns/scale-differently-on-weekends.png)](./media/autoscale-common-scale-patterns/scale-differently-on-weekends.png#lightbox)
 
 ## Scale differently during holidays
 
@@ -40,7 +41,7 @@ You have a web app (/VMSS/cloud service role) and
 - You want to scale up/down based on CPU usage by default
 - However, during holiday season (or specific days that are important for your business) you want to override the defaults and have more capacity at your disposal.
 
-![Scale differently on holidays][4]
+[![Scale differently on holidays](./media/autoscale-common-scale-patterns/scale-for-holiday.png)](./media/autoscale-common-scale-patterns/scale-for-holiday.png#lightbox)
 
 ## Scale based on custom metric
 

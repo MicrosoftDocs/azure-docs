@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IntSights | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with IntSights'
 description: Learn how to configure single sign-on between Azure Active Directory and IntSights.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 03/24/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with IntSights
+# Tutorial: Azure AD SSO integration with IntSights
 
 In this tutorial, you'll learn how to integrate IntSights with Azure Active Directory (Azure AD). When you integrate IntSights with Azure AD, you can:
 
@@ -27,16 +27,18 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * IntSights single sign-on (SSO) enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* IntSights supports **SP and IDP** initiated SSO
+* IntSights supports **SP and IDP** initiated SSO.
 
-* IntSights supports **Just In Time** user provisioning
+* IntSights supports **Just In Time** user provisioning.
 
-## Adding IntSights from the gallery
+## Add IntSights from the gallery
 
 To configure the integration of IntSights into Azure AD, you need to add IntSights from the gallery to your list of managed SaaS apps.
 
@@ -47,6 +49,7 @@ To configure the integration of IntSights into Azure AD, you need to add IntSigh
 1. In the **Add from the gallery** section, type **IntSights** in the search box.
 1. Select **IntSights** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for IntSights
 
@@ -67,25 +70,25 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **IntSights** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
 	a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.intsights.com/auth/saml-callback/azure`
+    `https://<SUBDOMAIN>.ti.insight.rapid7.com/auth/saml-callback/azure`
 	
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.intsights.com/auth/saml-callback/azure`
+    `https://<SUBDOMAIN>.ti.insight.rapid7.com/auth/saml-callback/azure`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.intsights.com/auth/saml-callback/azure`
+    `https://<SUBDOMAIN>.ti.insight.rapid7.com/auth/saml-callback/azure`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [IntSights Client support team](mailto:supportteam@intsights.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [IntSights Client support team](mailto:supportteam@intsights.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. IntSights application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 

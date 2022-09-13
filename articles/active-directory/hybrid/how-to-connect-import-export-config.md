@@ -3,7 +3,7 @@ title: How to import and export Azure AD Connect configuration settings
 description: This article describes frequently asked questions for cloud provisioning.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -21,6 +21,9 @@ Each time the configuration is changed from the Azure AD Connect wizard, a new t
 
 > [!IMPORTANT]
 > Only changes made by Azure AD Connect are automatically exported. Any changes made by using PowerShell, the Synchronization Service Manager, or the Synchronization Rules Editor must be exported on demand as needed to maintain an up-to-date copy. Export on demand can also be used to place a copy of the settings in a secure location for disaster recovery purposes.
+
+>[!NOTE]
+> This feature cannot be combined with using an existing ADSync database. The use of import/export configuration and using existing database are mutually exclusive.
 
 ## Export Azure AD Connect settings 
 
@@ -42,8 +45,8 @@ To import previously exported settings:
 > [!NOTE]
 > Override settings on this page like the use of SQL Server instead of LocalDB or the use of an existing service account instead of a default VSA. These settings aren't imported from the configuration settings file. They are there for information and comparison purposes.
 
->[!NOTE]
->It is not supported to modify the exported JSON file to change the configuration
+> [!NOTE]
+> It is not supported to modify the exported JSON file to change the configuration
 
 ### Import installation experience 
 

@@ -4,13 +4,13 @@ description: Edge Secured-core Certification program requirements
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual 
-ms.date: 05/15/2021
+ms.date: 06/21/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
-# Azure Certified Device - Edge Secured-core (Preview) #
+# Azure Certified Device - Edge Secured-core #
 
 ## Edge Secured-Core certification requirements ##
 
@@ -25,14 +25,14 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 6. Built in security agent and hardening
 
 ## Preview Program Support
-While in public preview, we are supporting a small number of partners to pre-validate devices against the Edge Secured-core program requirements.  If you would like participate in the Edge Secured-core public preview, please contact iotcert@microsoft.com
+While in public preview, we are supporting a small number of partners to pre-validate devices against the Edge Secured-core program requirements.  If you would like to participate in the Edge Secured-core public preview, please contact iotcert@microsoft.com
 
 Overview content
 ::: zone pivot="platform-windows"
 
 ## Windows IoT OS Support
 Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 1903 or greater
-* [Windows 10 IoT Enterprise Lifecycle](https://docs.microsoft.com/lifecycle/products/windows-10-iot-enterprise)
+* [Windows 10 IoT Enterprise Lifecycle](/lifecycle/products/windows-10-iot-enterprise)
 > [!Note]
 > The Windows secured-core tests require you to download and run the following package (https://aka.ms/Scforwiniot) from an Administrator Command Prompt on the IoT device being validated.
 
@@ -149,7 +149,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Requirements dependency|HVCI is enabled on the device.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that HVCI is enabled on the device.|
-|Resources|https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-hvci-enablement|
+|Resources| [Hypervisor-protected Code Integrity enablement](/windows-hardware/design/device-experiences/oem-hvci-enablement) |
 
 ---
 </br>

@@ -1,15 +1,24 @@
 ---
 title: Learn more about Azure Service Fabric 
 description: Learn about the core concepts and major areas of Azure Service Fabric. Provides an extended overview of Service Fabric and how to create microservices. 
-
 ms.topic: conceptual
-ms.date: 12/08/2017
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # So you want to learn about Service Fabric?
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices.  Service Fabric has a large surface area, however, and there's a lot to learn.  This article provides a synopsis of Service Fabric and describes the core concepts, programming models, application lifecycle, testing, clusters, and health monitoring. Read the [Overview](service-fabric-overview.md) and [What are microservices?](service-fabric-overview-microservices.md) for an introduction and how Service Fabric can be used to create microservices. This article does not contain a comprehensive content list, but does link to overview and getting started articles for every area of Service Fabric. 
 
 ## Core concepts
 [Service Fabric terminology](service-fabric-technical-overview.md), [Application model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
+
+* <b>Service Fabric Cluster:</b> [Check this link for a training video to get an introduction to Service Fabric architecture and its core concepts and explore many service fabric features.](/shows/building-microservices-applications-on-azure-service-fabric/what-is-a-service-fabric-cluster)
+* <b>Runtime Concepts:</b> [Check this link for a training video to understand runtime concepts and best practices of Service Fabric.](/shows/building-microservices-applications-on-azure-service-fabric/run-time-concepts)
+* <b>Design Type Concepts:</b> [Check this link for a training video to understand application, packaging, and deployment; key Service Fabric terminology, abstractions, and concepts.](/shows/building-microservices-applications-on-azure-service-fabric/design-time-concepts)
+
 
 ### Design time: service type, service package and manifest, application type, application package and manifest
 A service type is the name/version assigned to a service's code packages, data packages, and configuration packages. This is defined in a ServiceManifest.xml file. The service type is composed of executable code and service configuration settings, which are loaded at run time, and static data that is consumed by the service.
@@ -84,6 +93,7 @@ As with other platforms, an application on Service Fabric usually goes through t
 
 The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/servicefabric/?preserve-view=true&view=azureservicefabricps), [CLI commands](service-fabric-sfctl.md), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/overview/azure/servicefabric), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster).
 
+[Check this link for a training video that describes how to manage your application lifecycle:](/shows/building-microservices-applications-on-azure-service-fabric/application-lifetime-management-in-action)
 ## Test applications and services
 To create truly cloud-scale services, it is critical to verify that your applications and services can withstand real-world failures. The Fault Analysis Service is designed for testing services that are built on Service Fabric. With the [Fault Analysis Service](service-fabric-testability-overview.md), you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
 
@@ -104,6 +114,7 @@ A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-conne
 
 Service Fabric clusters can be created on virtual or physical machines running Windows Server or Linux. You are able to deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected: on-premises, on Microsoft Azure, or on any cloud provider.
 
+[Check this link for a training video that describes Service Fabric architecture, its core concepts, and many other service fabric features](/shows/building-microservices-applications-on-azure-service-fabric/what-is-a-service-fabric-cluster)
 ### Clusters on Azure
 Running Service Fabric clusters on Azure provides integration with other Azure features and services, which makes operations and management of the cluster easier and more reliable. A cluster is an Azure Resource Manager resource, so you can model clusters like any other resources in Azure. Resource Manager also provides easy management of all resources used by the cluster as a single unit. Clusters on Azure are integrated with Azure diagnostics and Azure Monitor logs. Cluster node types are [virtual machine scale sets](../virtual-machine-scale-sets/index.yml), so autoscaling functionality is built in.
 
@@ -158,6 +169,7 @@ Service Fabric provides multiple ways to [view health reports](service-fabric-vi
 * Health queries (through [PowerShell](/powershell/module/servicefabric/?preserve-view=true&view=azureservicefabricps), [CLI](service-fabric-sfctl.md), the [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](/java/api/system.fabric), or [REST APIs](/rest/api/servicefabric)).
 * General queries that return a list of entities that have health as one of the properties (through PowerShell, CLI, the APIs, or REST).
 
+[Check this page for a training video that describes the Service Fabric health model and how it's used:](/shows/building-microservices-applications-on-azure-service-fabric/service-fabric-health-system)
 ## Monitoring and diagnostics
 [Monitoring and diagnostics](service-fabric-diagnostics-overview.md) are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement monitoring and diagnostics that help ensure applications and services are working as expected in a local development environment or in production.
 

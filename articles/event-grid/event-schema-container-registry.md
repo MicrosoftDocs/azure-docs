@@ -31,12 +31,13 @@ The following example shows the schema of an image pushed event:
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
   "subject": "aci-helloworld:v1",
-  "eventType": "ImagePushed",
+  "eventType": "Microsoft.ContainerRegistry.ImagePushed",
   "eventTime": "2018-04-25T21:39:47.6549614Z",
   "data": {
     "id": "31c51664-e5bd-416a-a5df-e5206bc47ed0",
     "timestamp": "2018-04-25T21:39:47.276585742Z",
     "action": "push",
+    "location": "westus",
     "target": {
       "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
       "size": 3023,
@@ -50,9 +51,12 @@ The following example shows the schema of an image pushed event:
       "host": "demo.azurecr.io",
       "method": "PUT",
       "useragent": "docker/18.03.0-ce go/go1.9.4 git-commit/0520e24 os/windows arch/amd64 UpstreamClient(Docker-Client/18.03.0-ce \\\\(windows\\\\))"
-    }
+    },
+    "connectedRegistry": {
+      "name": "edge1"
+    }    
   },
-  "dataVersion": "1.0",
+  "dataVersion": "2.0",
   "metadataVersion": "1"
 }]
 ```
@@ -64,12 +68,13 @@ The schema for an image deleted event is similar:
   "id": "f06e3921-301f-42ec-b368-212f7d5354bd",
   "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
   "subject": "aci-helloworld",
-  "eventType": "ImageDeleted",
+  "eventType": "Microsoft.ContainerRegistry.ImageDeleted",
   "eventTime": "2018-04-26T17:56:01.8211268Z",
   "data": {
     "id": "f06e3921-301f-42ec-b368-212f7d5354bd",
     "timestamp": "2018-04-26T17:56:00.996603117Z",
     "action": "delete",
+    "location": "westus",
     "target": {
       "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
       "digest": "sha256:213bbc182920ab41e18edc2001e06abcca6735d87782d9cef68abd83941cf0e5",
@@ -80,9 +85,12 @@ The schema for an image deleted event is similar:
       "host": "demo.azurecr.io",
       "method": "DELETE",
       "useragent": "python-requests/2.18.4"
-    }
+    },
+    "connectedRegistry": {
+      "name": "edge1"
+    }    
   },
-  "dataVersion": "1.0",
+  "dataVersion": "2.0",
   "metadataVersion": "1"
 }]
 ```
@@ -100,6 +108,7 @@ The schema for a chart pushed event is similar to the schema for an imaged pushe
     "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
     "timestamp":"2019-03-12T22:16:31.0087496+00:00",
     "action":"chart_push",
+    "location": "westus",
     "target":{
       "mediaType":"application/vnd.acr.helm.chart",
       "size":25265,
@@ -108,9 +117,12 @@ The schema for a chart pushed event is similar to the schema for an imaged pushe
       "tag":"mychart-1.0.0.tgz",
       "name":"mychart",
       "version":"1.0.0"
-    }
+    },
+    "connectedRegistry": {
+      "name": "edge1"
+    }    
   },
-  "dataVersion": "1.0",
+  "dataVersion": "2.0",
   "metadataVersion": "1"
 }]
 ```
@@ -128,6 +140,7 @@ The schema for a chart deleted event is similar to the schema for an imaged dele
     "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
     "timestamp":"2019-03-12T22:42:08.3783775+00:00",
     "action":"chart_delete",
+    "location": "westus",
     "target":{
       "mediaType":"application/vnd.acr.helm.chart",
       "size":25265,
@@ -136,9 +149,12 @@ The schema for a chart deleted event is similar to the schema for an imaged dele
       "tag":"mychart-1.0.0.tgz",
       "name":"mychart",
       "version":"1.0.0"
-    }
+    },
+    "connectedRegistry": {
+      "name": "edge1"
+    }    
   },
-  "dataVersion": "1.0",
+  "dataVersion": "2.0",
   "metadataVersion": "1"
 }]
 ```
@@ -152,7 +168,7 @@ The following example shows the schema of an image pushed event:
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "source": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
   "subject": "aci-helloworld:v1",
-  "type": "ImagePushed",
+  "type": "Microsoft.ContainerRegistry.ImagePushed",
   "time": "2018-04-25T21:39:47.6549614Z",
   "data": {
     "id": "31c51664-e5bd-416a-a5df-e5206bc47ed0",
@@ -184,7 +200,7 @@ The schema for an image deleted event is similar:
   "id": "f06e3921-301f-42ec-b368-212f7d5354bd",
   "source": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
   "subject": "aci-helloworld",
-  "type": "ImageDeleted",
+  "type": "Microsoft.ContainerRegistry.ImageDeleted",
   "time": "2018-04-26T17:56:01.8211268Z",
   "data": {
     "id": "f06e3921-301f-42ec-b368-212f7d5354bd",
@@ -275,6 +291,8 @@ An event has the following top-level data:
 | `eventType` | string | One of the registered event types for this event source. |
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |
 | `id` | string | Unique identifier for the event. |
+| `location` | string | The location of the event. |
+| `connectedRegistry` | object | The connected registry information if the event is generated by a connected registry. |
 | `data` | object | Blob storage event data. |
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
@@ -328,6 +346,12 @@ The request object has the following properties:
 | `host` | string | The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests. |
 | `method` | string | The request method that generated the event. |
 | `useragent` | string | The user agent header of the request. |
+
+The connectedRegistry object has the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `name` | string | The name of the connected registry that generated this event. |
 
 ## Tutorials and how-tos
 |Title |Description  |

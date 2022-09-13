@@ -1,5 +1,5 @@
 ---
-title: Azure Container Apps environments Preview
+title: Azure Container Apps environments
 description: Learn how environments are managed in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -7,10 +7,10 @@ ms.service: container-apps
 ms.topic:  conceptual
 ms.date: 12/05/2021
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Azure Container Apps Preview environments
+# Azure Container Apps environments
 
 Individual container apps are deployed to a single Container Apps environment, which acts as a secure boundary around groups of container apps. Container Apps in the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. You may provide an [existing virtual network](vnet-custom.md) when you create an environment.
 
@@ -45,4 +45,4 @@ Billing is relevant only to individual container apps and their resource usage. 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Managing autoscaling behavior](scale-app.md)
+> [Containers](containers.md)

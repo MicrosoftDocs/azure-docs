@@ -128,11 +128,11 @@ landingContent:
             url: ../virtual-machines/workloads/sap/hana-monitor-troubleshoot.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: Monitor SAP on Azure
             url: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-          - text: Azure Monitor for SAP Solutions providers
+          - text: Azure Monitor for SAP solutions providers
             url: ../virtual-machines/workloads/sap/azure-monitor-providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-          - text: Deploy Azure Monitor for SAP Solutions - Azure portal
+          - text: Deploy Azure Monitor for SAP solutions - Azure portal
             url: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-          - text: Configure Alerts in Azure Monitor for SAP Solutions
+          - text: Configure Alerts in Azure Monitor for SAP solutions
             url: ../virtual-machines/workloads/sap/azure-monitor-alerts-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - linkListType: how-to-guide
         links:
@@ -147,4 +147,36 @@ landingContent:
           - text: Setting up SMT server for SUSE Linux
             url: ../virtual-machines/workloads/sap/hana-setup-smt.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: Buy an SAP HANA Large Instances reservation
-            url: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity
+            url: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
+
+# card 4
+  - title: BareMetal Infrastructure for NC2 on Azure
+    linkLists: 
+      - linkListType: overview
+        links:
+         - text: What is BareMetal Infrastructure for NC2 on Azure?
+           url: workloads/nc2-public-preview/nc2-baremetal-overview.md
+         - text: About the Public Preview
+           url: workloads/nc2-public-preview/about-the-public-preview.md
+         - text: FAQ
+           url: workloads/nc2-public-preview/faq.md
+      - linkListType: get-started
+        links:
+         - text: Getting started
+           url: workloads/nc2-public-preview/get-started.md
+         - text: Use cases and supported scenarios
+           url: workloads/nc2-public-preview/use-cases-and-supported-scenarios.md  
+         - text: Requirements
+           url: workloads/nc2-public-preview/requirements.md
+         - text: Supported instances and regions
+           url: ./workloads/nc2-public-preview/supported-instances-and-regions.md
+         - text: SKUs
+           url: workloads/nc2-public-preview/skus.md
+      - linkListType: architecture
+        links:
+         - text: Architecture
+           url: workloads/nc2-public-preview/architecture.md 
+      - linkListType: concept
+        links:
+         - text: Solution design
+           url: workloads/nc2-public-preview/solution-design.md

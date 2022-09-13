@@ -3,13 +3,13 @@ title: Immersive Reader Kotlin (Android) client library quickstart
 titleSuffix: Azure Applied AI Services
 description: In this quickstart, you build an Android app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
-author: dylankil
+author: rwallerms
 manager: guillasi
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
-ms.author: dylankil
+ms.author: rwaller
 ms.custom: devx-track-js
 ---
 
@@ -48,6 +48,9 @@ Create a new **/assets** folder.
 ![Create a new assets folder - Kotlin](../../media/android/kotlin/android-studio-assets-folder.png)
 
  Create a file named **env** inside the assets folder. Add the following names and values, and supply values as appropriate. Don't commit this env file into source control because it contains secrets that shouldn't be made public.
+
+> [!IMPORTANT]
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 ![Create a new env file - Kotlin](../../media/android/kotlin/android-studio-create-env-file.png)
 

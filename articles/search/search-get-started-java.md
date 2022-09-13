@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a search index in Javas'
+title: 'Quickstart: Create a search index in Java'
 titleSuffix: Azure Cognitive Search
 description: In this Java quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search client library for Java.
 manager: nitinme
@@ -34,7 +34,7 @@ We used the following software and services to build and test this quickstart:
 
 + [Java 11 SDK](/java/azure/jdk/)
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 <a name="get-service-info"></a>
 

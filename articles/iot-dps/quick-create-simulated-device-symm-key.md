@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Provision a simulated symmetric key device to Microsoft Azure IoT Hub
 description: Learn how to provision a device that authenticates with a symmetric key in the Azure IoT Hub Device Provisioning Service (DPS)
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 09/29/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -19,7 +19,7 @@ In this quickstart, you'll create a simulated device on your Windows machine. Th
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
 
-This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
+This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [Tutorial: provision for geolatency](how-to-provision-multitenant.md).
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 ::: zone pivot="programming-language-csharp"
 
-* Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```cmd
     dotnet --info
@@ -531,7 +531,7 @@ To update and run the provisioning sample with your device information:
 3. Open a command prompt and go to the directory where the sample file, _provision_symmetric_key.py_, is located.
 
    ```cmd
-   cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
+   cd azure-iot-sdk-python\samples\async-hub-scenarios
    ```
 
 4. In the command prompt, run the following commands to set environment variables used by the sample:
@@ -563,7 +563,7 @@ To update and run the provisioning sample with your device information:
     pip install azure-iot-device
     ```
 
-6. Run the python sample code in *_provision_symmetric_key.py_*.
+6. Run the Python sample code in *_provision_symmetric_key.py_*.
 
     ```cmd
     python provision_symmetric_key.py
@@ -572,7 +572,7 @@ To update and run the provisioning sample with your device information:
 7. You should now see something similar to the following output. Some example wind speed telemetry messages are also sent to the hub as a test.
 
      ```output
-    D:\azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios>python provision_symmetric_key.py
+    D:\azure-iot-sdk-python\samples\async-hub-scenarios>python provision_symmetric_key.py
     RegistrationStage(RequestAndResponseOperation): Op will transition into polling after interval 2.  Setting timer.
     The complete registration result is
     python-device-008

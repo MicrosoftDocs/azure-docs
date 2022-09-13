@@ -1,11 +1,11 @@
 ---
 title: Scale an instance of Azure SignalR Service
 description: Learn how to scale an Azure SignalR Service instance to add or reduce capacity, through Azure portal or Azure CLI.
-author: sffamily
+author: vicancy
 ms.service: signalr
-ms.topic: conceptual
-ms.date: 9/9/2020
-ms.author: zhshang 
+ms.topic: how-to
+ms.date: 07/18/2022
+ms.author: lianwei 
 ms.custom: devx-track-azurecli
 ---
 # How to scale an Azure SignalR Service instance?
@@ -14,7 +14,7 @@ This article shows you how to scale your instance of Azure SignalR Service. Ther
 * [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more units, connections, messages, and more. You scale up by changing the pricing tier from Free to Standard.
 * [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of SignalR units. You can scale out to as many as 100 units. There are limited unit options to select for the scaling: 1, 2, 5, 10, 20, 50 and 100 units for a single SignalR Service instance.
 
-The scale settings take a few minutes to apply. In rare cases, it may take around 30 minutes to apply. They don't require you to change your code or redeploy your server application.
+The scale settings take a few minutes to apply. In rare cases, it may take around 30 minutes to apply. Scaling doesn't require you to change your code or redeploy your server application.
 
 For information about the pricing and capacities of individual SignalR Service, see [Azure SignalR Service Pricing Details](https://azure.microsoft.com/pricing/details/signalr-service/).  
 
@@ -29,11 +29,11 @@ For information about the pricing and capacities of individual SignalR Service, 
 
 2. In your SignalR Service page, from the left menu, select **Scale**.
    
-3. Choose your pricing tier, and then click **Select**. Set the unit count for **Standard** Tier.
+3. Choose your pricing tier, and then select **Select**. Set the unit count for **Standard** Tier.
    
     ![Scale on Portal](./media/signalr-howto-scale/signalr-howto-scale.png)
 
-4. Click **Save**.
+4. Select **Save**.
 
 ## Scale using Azure CLI
 
@@ -69,7 +69,7 @@ az signalr update \
   --unit-count 50
 ```
 
-Make a note of the actual name generated for the new resource group. You will use that resource group name when you want to delete all group resources.
+Make a note of the actual name generated for the new resource group. You'll use that resource group name when you want to delete all group resources.
 
 [!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
 
@@ -82,6 +82,11 @@ For a table of service limits, quotas, and constraints in each tier, see [Signal
 ## Next steps
 
 In this guide, you learned about how to scale single SignalR Service instance.
+
+Autoscale is supported in Azure SignalR Service Premium Tier.
+
+> [!div class="nextstepaction"]
+> [Automatically scale units of an Azure SignalR Service](./signalr-howto-scale-autoscale.md)
 
 Multiple endpoints are also supported for scaling, sharding, and cross-region scenarios.
 

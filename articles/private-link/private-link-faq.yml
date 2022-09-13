@@ -5,11 +5,9 @@ metadata:
   services: private-link
   author: malopMSFT
   ms.service: private-link
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 10/05/2019
   ms.author: allensu
-  
-    
 title: Azure Private Link frequently asked questions (FAQ)
 summary: |
 

@@ -1,11 +1,11 @@
 ---
 title: Azure CLI Samples - Azure SignalR Service
 description: Follow real samples to learn Azure CLI for Azure SignalR Service. You will learn how to create SignalR Service with more Azure services.
-author: sffamily
+author: vicancy
 ms.service: signalr
 ms.topic: reference
 ms.date: 11/13/2019
-ms.author: zhshang
+ms.author: lianwei
 ---
 # Azure CLI reference
 

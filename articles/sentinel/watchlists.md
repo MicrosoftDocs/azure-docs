@@ -5,16 +5,20 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.date: 1/04/2022
+ms.date: 02/07/2022
 ---
 
 # Use watchlists in Microsoft Sentinel
 
 Watchlists in Microsoft Sentinel allow you to correlate data from a data source you provide with the events in your Microsoft Sentinel environment. For example, you might create a watchlist with a list of high-value assets, terminated employees, or service accounts in your environment.
 
-Use watchlists in your search, detection rules, threat hunting, and response playbooks. 
+Use watchlists in your search, detection rules, threat hunting, and response playbooks.
 
 Watchlists are stored in your Microsoft Sentinel workspace as name-value pairs and are cached for optimal query performance and low latency.
+
+> [!IMPORTANT]
+> The features for watchlist templates and the ability to create a watchlist from a file in Azure Storage are currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## When to use watchlists
 
@@ -35,18 +39,22 @@ Before you create a watchlist, be aware of the following limitations:
 - The use of watchlists should be limited to reference data, as they aren't designed for large data volumes.
 - The **total number of active watchlist items** across all watchlists in a single workspace is currently limited to **10 million**. Deleted watchlist items don't count against this total. If you require the ability to reference large data volumes, consider ingesting them using [custom logs](../azure-monitor/agents/data-sources-custom-logs.md) instead.
 - Watchlists can only be referenced from within the same workspace. Cross-workspace and/or Lighthouse scenarios are currently not supported.
-- File uploads are currently limited to files of up to 3.8 MB in size.
+- Local file uploads are currently limited to files of up to 3.8 MB in size.
+- File uploads from an Azure Storage account (in preview) are currently limited to files up to 500 MB in size.
 
 ## Options to create watchlists
 
-You can create a watchlist from a local file you created or by using a template (in public preview).
+Create a watchlist in Microsoft Sentinel from a file you upload from a local folder or from a file in your Azure Storage account.
 
-To create a watchlist from a template, download the watchlist templates from Microsoft Sentinel and populate it with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.  
+You have the option to download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.  
+
+To create a watchlist from a large file that's up to 500 MB in size, upload the file to your Azure Storage account. Then create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. A shared access signature URL is an URI that contains both the resource URI and shared access signature token of a resource like a csv file in your storage account. Finally, add the watchlist to your workspace in Microsoft Sentinel.
 
 For more information, see the following articles:
 
 - [Create watchlists in Microsoft Sentinel](watchlists-create.md)
 - [Built-in watchlist schemas](watchlist-schemas.md)
+- [Azure Storage SAS token](../storage/common/storage-sas-overview.md#sas-token)
 
 ## Watchlists in queries for searches and detection rules
 

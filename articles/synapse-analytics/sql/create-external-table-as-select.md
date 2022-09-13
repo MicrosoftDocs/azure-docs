@@ -1,7 +1,6 @@
 ---
 title: Store query results from serverless SQL pool
 description: In this article, you'll learn how to store query results to storage using serverless SQL pool.
-services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
@@ -84,12 +83,12 @@ USE [mydbname];
 GO
 
 SELECT
-    country_name, population
+    CountryName, PopulationCount
 FROM PopulationCETAS
 WHERE
-    [year] = 2019
+    [Year] = 2019
 ORDER BY
-    [population] DESC;
+    [PopulationCount] DESC;
 ```
 
 ## Remarks

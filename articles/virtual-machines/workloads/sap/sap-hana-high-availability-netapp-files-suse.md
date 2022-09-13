@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/23/2021
+ms.date: 05/10/2022
 ms.author: ampatel
 
 ---
@@ -88,12 +88,10 @@ Mounted on node2 (**hanadb2**)
 > [!NOTE]
 > File systems /hana/shared, /hana/data and /hana/log are not shared between the two nodes. Each cluster node has its own, separate file systems.
 
-SAP high availability HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
+SAP high availability HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The  presented configuration shows a load balancer with:
 
-- Front-end configuration: IP address 10.3.0.50 for hn1-db
-- Back-end configuration: Connected to primary network interfaces of all virtual machines that should be part of HANA System Replication
-- Probe Port: Port 62503
-- Load-balancing rules: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP (if using Basic Azure Load balancer)  
+- Front-end configuration IP address: 10.3.0.50 for hn1-db
+- Probe Port: 62503 
 
 ## Set up the Azure NetApp File infrastructure
 
@@ -201,7 +199,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 > [!NOTE] 
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
-8.	If using standard load balancer, follow these configuration steps:
+8.	To set up standard load balancer, follow these configuration steps:
 	1.	First, create a front-end IP pool:
 		1.	Open the load balancer, select **frontend IP configuration**, and select **Add**.
 		1.	Enter the name of the new front-end IP (for example, **hana-frontend**).
@@ -229,7 +227,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 		1.	Select **OK**.
 
 
-9. Alternatively, if your scenario dictates using basic load balancer, follow these configuration steps:
+9. Alternatively, ***only if*** your scenario dictates using basic load balancer, follow these configuration steps instead:
 	1.	Configure the load balancer. First, create a front-end IP pool:
 		1.	Open the load balancer, select **frontend IP Configuration**, and select **Add**.
 		1.	Enter the name of the new front-end IP (for example, **hana-frontend**).
@@ -369,18 +367,15 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    10.3.0.5   hanadb2
    ```
 
-2.**[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+2.**[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the NetApp configuration settings.  
 
    ```
-   vi /etc/sysctl.d/netapp-hana.conf
+   vi /etc/sysctl.d/91-NetApp-HANA.conf
    # Add the following entries in the configuration file
    net.core.rmem_max = 16777216
    net.core.wmem_max = 16777216
-   net.core.rmem_default = 16777216
-   net.core.wmem_default = 16777216
-   net.core.optmem_max = 16777216
-   net.ipv4.tcp_rmem = 65536 16777216 16777216
-   net.ipv4.tcp_wmem = 65536 16777216 16777216
+   net.ipv4.tcp_rmem = 4096 131072 16777216
+   net.ipv4.tcp_wmem = 4096 16384 16777216
    net.core.netdev_max_backlog = 300000 
    net.ipv4.tcp_slow_start_after_idle=0 
    net.ipv4.tcp_no_metrics_save = 1
@@ -404,7 +399,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 > [!TIP]
 > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more information, see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-4.**[A]** Adjust the sunrpc settings, as recommended in the [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf).  
+4.**[A]** Adjust the sunrpc settings, as recommended in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).  
 
    ```
    vi /etc/modprobe.d/sunrpc.conf
@@ -484,7 +479,7 @@ Follow the steps in, [Setting up Pacemaker on SUSE Enterprise Linux](./high-avai
 
 ### Implement the Python system replication hook SAPHanaSR
 
-This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.  Follow the steps mentioned in, [Implement the Python System Replication hook SAPHanaSR](./sap-hana-high-availability.md#implement-the-python-system-replication-hook-saphanasr)
+This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.  Follow the steps mentioned in, [Implement the Python System Replication hook SAPHanaSR](./sap-hana-high-availability.md#implement-the-python-system-replication-hook-saphanasr)
 
 
 ## Configure SAP HANA cluster resources

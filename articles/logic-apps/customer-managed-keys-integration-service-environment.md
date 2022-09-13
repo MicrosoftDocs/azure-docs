@@ -1,11 +1,11 @@
 ---
 title: Set up customer-managed keys to encrypt data at rest in ISEs
-description: Create and manage your own encryption keys to secure data at rest for integration service environments (ISEs) in Azure Logic Apps
+description: Create and manage your own encryption keys to secure data at rest for integration service environments (ISEs) in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: mijos, rarayudu, azla
-ms.topic: conceptual
-ms.date: 01/20/2021
+ms.topic: how-to
+ms.date: 08/20/2022
 ---
 
 # Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps

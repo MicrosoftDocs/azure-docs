@@ -1,7 +1,6 @@
 ---
 title: Design tables using Synapse SQL
 description: Introduction to designing tables in Synapse SQL. 
-services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics

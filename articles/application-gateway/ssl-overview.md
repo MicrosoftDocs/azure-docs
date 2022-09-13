@@ -6,7 +6,7 @@ author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/03/2021
-ms.author: victorh
+ms.author: greglin
 
 ---
 # Overview of TLS termination and end to end TLS with Application Gateway
@@ -59,9 +59,7 @@ End-to-end TLS allows you to encrypt and securely transmit sensitive data to the
 
 When configured with end-to-end TLS communication mode, Application Gateway terminates the TLS sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application Gateway then initiates a new TLS connection to the backend server and re-encrypts data using the backend server's public key certificate before transmitting the request to the backend. Any response from the web server goes through the same process back to the end user. End-to-end TLS is enabled by setting protocol setting in [Backend HTTP Setting](./configuration-overview.md#http-settings) to HTTPS, which is then applied to a backend pool.
 
-For the Application Gateway and WAF v1 SKU, the TLS policy applies to both frontend and backend traffic. On the front end, Application Gateway acts as the server and enforces the policy. On the backend, Application Gateway acts as the client and sends the protocol/cipher information as the preference during the TLS handshake.
-
-For the Application Gateway and WAF v2 SKU, the TLS policy applies only to the frontend traffic and all ciphers are offered to the backend server, which has control to select specific ciphers and TLS version during the handshake.
+The [TLS policy](./application-gateway-ssl-policy-overview.md) applies only to the frontend traffic for both V1 and V2 SKU gateways. The backend TLS connection supports TLS 1.0 to TLS 1.2 versions.
 
 Application Gateway only communicates with those backend servers that have either allow listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. These include the trusted Azure services such as Azure App Service/Web Apps and Azure API Management.
 
@@ -77,7 +75,7 @@ In this example, requests using TLS1.2 are routed to backend servers in Pool1 us
 
 ## End to end TLS and allow listing of certificates
 
-Application Gateway only communicates with known backend instances that have allow listed their certificate with the application gateway. There are some differences in the end-to-end TLS setup process with respect to the version of Application Gateway used. The following section explains them individually.
+Application Gateway only communicates with those backend servers that have either allow listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. There are some differences in the end-to-end TLS setup process with respect to the version of Application Gateway used. The following section explains them individually.
 
 ## End-to-end TLS with the v1 SKU
 

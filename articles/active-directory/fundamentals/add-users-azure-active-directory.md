@@ -2,15 +2,15 @@
 title: Add or delete users - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add new users or delete existing users using Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: rkarlin
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 05/04/2021
-ms.author: ajburnle
+ms.date: 08/17/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -19,6 +19,8 @@ ms.collection: M365-identity-device-management
 # Add or delete users using Azure Active Directory
 
 Add new users or delete existing users from your Azure Active Directory (Azure AD) organization. To add or delete users you must be a User administrator or Global administrator.
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
 ## Add a new user
 
@@ -74,7 +76,7 @@ If you have an environment with both Azure Active Directory (cloud) and Windows 
 You can delete an existing user using Azure Active Directory portal.
 
 >[!Note]
->You must have a Global administrator or User administrator role assignment to delete users in your organization. Global admins can delete any users including other admins. User administrators can delete any non-admin users, Helpdesk administrators and other User administrators. For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
+>You must have a Global administrator, Privileged authentication administrator or User administrator role assignment to delete users in your organization. Global admins and Privileged authentication admins can delete any users including other admins. User administrators can delete any non-admin users, Helpdesk administrators and other User administrators. For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
 
 To delete a user, follow these steps:
 

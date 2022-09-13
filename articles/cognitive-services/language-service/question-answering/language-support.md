@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: A list of culture, natural languages supported by custom question answering for your knowledge base. Do not mix languages in the same knowledge base.
 services: cognitive-services
 manager: nitinme
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 recommendations: false
 ms.service: cognitive-services
 ms.subservice: language-service

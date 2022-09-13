@@ -1,9 +1,6 @@
 ---
 title: JavaScript user-defined aggregates in Azure Stream Analytics
 description: This article describes how to perform advanced query mechanics with JavaScript user-defined aggregates in Azure Stream Analytics.
-author: fleid
-ms.author: fleide
-
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
@@ -77,7 +74,7 @@ Function alias is the UDA identifier. When called in Stream Analytics query, alw
 
 ### Function type
 
-For UDA, the function type should be **Javascript UDA**.
+For UDA, the function type should be **JavaScript UDA**.
 
 ### Output type
 
