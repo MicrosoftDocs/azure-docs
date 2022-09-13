@@ -179,3 +179,26 @@ Once your networking has been configured, you can begin connecting volumes to yo
 1. Navigate to your SAN and select **Volumes**.
 1. Select the volume you'd like to connect to and select **Connect**.
 1. Copy the PowerShell commands provided and run them as an Administrator in a shell on your client.
+
+You'll need to construct a command to connect to your volume from a client.
+
+```azurepowershell
+# Get the target name and iSCSI portal name to connect a volume to a virtual network 
+$connectVolume = Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -GroupName $searchedVolumeGroup -Name $searchedVolume
+$storageTargetIQN = $connectVolume.storagetargetiqn
+$portalName = $connectVolume.storagetargetportalhostname
+$port = $connectVolume.storagetargetportalport
+
+# Add target IQN
+# The *s are essential, as they are default arguments
+iscsicli AddTarget $storageTargetIQN * $portalName $port * 0 * * * * * * * * * 0
+
+# Login
+
+iscsicli LoginTarget t $storageTargetIQN $portalName $port Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0
+
+```
+
+```azurecli
+az elastic-san volume-group list -e $sanName -g $resourceGroupName -v $searchedVolumeGroup -n $searchedVolume
+```
