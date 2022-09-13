@@ -141,7 +141,7 @@ LOCATION=<Location>
 # Retrieve user managed identity object ID for the add-on
 SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 MANAGEDIDENTITYNAME="webapprouting-${CLUSTERNAME}"
-MCRGNAME="MC_${RGNAME}_${CLUSTERNAME}_${LOCATION}"
+MCRGNAME=$(az aks show -g ${RGNAME} -n ${CLUSTERNAME} --query nodeResourceGroup -o tsv)
 USERMANAGEDIDENTITY_RESOURCEID="/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${MCRGNAME}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/${MANAGEDIDENTITYNAME}"
 MANAGEDIDENTITY_OBJECTID=$(az resource show --id $USERMANAGEDIDENTITY_RESOURCEID --query "properties.principalId" -o tsv | tr -d '[:space:]')
 ```
