@@ -11,18 +11,18 @@ ms.topic: how-to
 
 # Configure environment types
 
-In Azure Deployment Environments, [environment types](./concept-environments-key-concepts.md#environment-types) are used to define the types of environments the development teams can create. You can apply different settings to each environment type, and name it as per your requirements, for example, dev, test, production, or sandbox.
-
-:::image type="content" source="./media/configure-environment-types/azure-deployment-environments-environment-types.png" alt-text="Screenshot of Environment Types.":::
+[Environment types](./concept-environments-key-concepts.md#environment-types) are used to define the types of environments that are available to development teams when they deploy environments. You can specify deployment settings and the permissions available to developers for each environment type in your Project.
 
 In this article, you'll learn how to:
 
 * Add a new environment type
 * Delete an environment type
 
+:::image type="content" source="./media/configure-environment-types/azure-deployment-environments-environment-types.png" alt-text="Screenshot of example Environment types.":::
+
 ## Add a new environment type
 
-You can add environment types to the dev center to define the type of environments your development teams can create.
+Add a new environment type to the project, and specify the subscription and identity to use for the deployment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select the Project.
@@ -36,9 +36,6 @@ You can add environment types to the dev center to define the type of environmen
   1. Add **Tags** by adding a **Name/Value** pair (optional).
 
 :::image type="content" source="./media/configure-environment-types/add-new-environment-type.png" alt-text="Screenshot of **Add environment type** page.":::
-
-
-In a given project, an environment type is only available after it has been assigned a subscription mapping.
 
 ## Delete an environment type
 
