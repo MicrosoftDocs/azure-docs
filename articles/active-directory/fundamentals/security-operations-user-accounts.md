@@ -14,7 +14,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory security operations for user accounts
+# Azure Active Directory security operations for user accounts 
 
 User identity is one of the most important aspects of protecting your organization and data. This article provides guidance for monitoring account creation, deletion, and account usage. The first portion covers how to monitor for unusual account creation and deletion. The second portion covers how to monitor for unusual account usage.
 
