@@ -478,11 +478,11 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
    Or, to add an action between steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **azure service bus**.
+1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **azure service bus**.
 
 1. From the actions list, select the action that you want.
 
-   This example continues with the **Send message** action.
+   This example continues with the action named **Send message**.
 
    ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus managed action selected.](./media/connectors-create-api-azure-service-bus/select-action-managed-standard.png)
 
