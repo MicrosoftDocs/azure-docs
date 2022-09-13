@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/12/2022
+ms.date: 09/13/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
@@ -78,7 +78,7 @@ For the complete list of options for converting from one replication type to ano
 
 ## Change the replication setting using the portal, PowerShell, or the CLI
 
-In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account. If you are changing zone redundancy and initiating a live migration from the Azure portal is [allowed in your scenario](#migration-support-table), you can change the setting from within the Azure portal, but not from PowerShell or the Azure CLI.
+In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account. If you are changing zone redundancy and initiating a live migration from the Azure portal is [allowed in your scenario](#migration-feature-support-table), you can change the setting from within the Azure portal, but not from PowerShell or the Azure CLI.
 
 Changing how your storage account is replicated in the portal does not result in down time for your applications. This includes changes that require live migration.
 
@@ -118,7 +118,7 @@ az storage account update \
 
 ## Storage account migration
 
-For scenarios where migration is [required and supported](#migration-support-table), Microsoft supports three methods for migrating your storage account:
+For scenarios where migration is [required and supported](#migration-feature-support-table), Microsoft supports three methods for migrating your storage account:
 
 - [Initiate a live migration from within the Azure portal (preview)](#customer-initiated-live-migration)
 - [Request a live migration by creating a support request with Microsoft](#support-requested-live-migration)
