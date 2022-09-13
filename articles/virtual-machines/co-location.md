@@ -81,9 +81,9 @@ You can do the following to check the alignment status of your proximity placeme
 
 - Proximity placement group colocation status can be viewed using the portal, CLI, and PowerShell.
 
-    -   Using PowerShell, colocation status can be obtained through Get-AzProximityPlacementGroup cmdlet by including the optional parameter ‘-ColocationStatus`.
+    -   PowerShell - colocation status can be obtained through Get-AzProximityPlacementGroup cmdlet by including the optional parameter ‘-ColocationStatus`.
 
-    -   Using CLI, colocation status can be obtained through `az ppg show` by including the optional parameter ‘--include-colocation-status`.
+    -   CLI - colocation status can be obtained through `az ppg show` by including the optional parameter ‘--include-colocation-status`.
 
 - For each proximity placement group, a **colocation status** property
     provides the current alignment status summary of the grouped resources. 
