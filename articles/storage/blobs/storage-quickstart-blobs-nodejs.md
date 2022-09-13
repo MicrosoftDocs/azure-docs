@@ -22,7 +22,6 @@ These [**example code**](https://github.com/Azure-Samples/AzureStorageSnippets/t
 - [Upload blobs to a container](#upload-blobs-to-a-container)
 - [List the blobs in a container](#list-the-blobs-in-a-container)
 - [Download blobs](#download-blobs)
-- [Get blob url](#get-blob-url)
 - [Delete a container](#delete-a-container)
 
 Additional resources:
