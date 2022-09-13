@@ -555,7 +555,7 @@ To learn how to create and manage enrollment groups in the UI, see [How to conne
 
 ## Create an enrollment group
 
-### [X.509](#tab/X.509)
+### [X509](#tab/X509)
 
 When you create an enrollment group for devices that use X.509 certificates, you first need to upload the root or intermediate certificate to your IoT Central application.
 
@@ -779,7 +779,7 @@ Use the following request to delete the primary X.509 certificate from an enroll
 DELETE https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg/certificates/primary?api-version=2022-07-31
 ```
 
-### [Symmetric Key](#tab/SymmetricKey)
+### [Symmetric key](#tab/symmetric-key)
 
 ### Add an symmetric key enrollment group
 
