@@ -475,7 +475,7 @@ mon_client.autoscale_settings.delete(
 ml_client.online_endpoints.begin_delete(endpoint_name)
 ```
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Endpoints** page.
 1. Select an endpoint by checking the circle next to the model name.
