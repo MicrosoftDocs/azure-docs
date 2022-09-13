@@ -15,7 +15,7 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 
 # Train scikit-learn models at scale with Azure Machine Learning (SDK v1)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 
@@ -28,14 +28,14 @@ Whether you're training a machine learning scikit-learn model from the ground-up
 You can run this code in either an Azure Machine Learning compute instance, or your own Jupyter Notebook:
 
  - Azure Machine Learning compute instance
-    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a compute instance. Every compute instance includes a dedicated notebook server pre-loaded with the SDK and the notebooks sample repository. 
+    - Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) to create a compute instance. Every compute instance includes a dedicated notebook server pre-loaded with the SDK and the notebooks sample repository. 
     - Select the notebook tab in the Azure Machine Learning studio. In the samples training folder, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn** folder.
     - You can use the pre-populated code in the sample training folder to complete this tutorial.
 
  - Create a Jupyter Notebook server and run the code in the following sections.
 
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.13.0).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+    - [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
 
 ## Set up the experiment
 
@@ -43,7 +43,7 @@ This section sets up the training experiment by loading the required Python pack
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
+The [Azure Machine Learning workspace](../concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
@@ -63,10 +63,10 @@ Notes:
 
 ### Define your environment
 
-To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure ML curated environment.
+To define the Azure ML [Environment](../concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure ML curated environment.
 
 #### Use a curated environment
-Optionally, Azure ML provides prebuilt, [curated environments](resource-curated-environments.md) if you don't want to define your own environment. 
+Optionally, Azure ML provides prebuilt, [curated environments](../resource-curated-environments.md) if you don't want to define your own environment. 
 
 If you want to use a curated environment, you can run the following command instead:
 
@@ -137,7 +137,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](v1/how-to-train-with-datasets.md).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](../how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](how-to-train-with-datasets.md).
 
 ### What happens during run execution
 As the run is executed, it goes through the following stages:
@@ -178,7 +178,7 @@ model = run.register_model(model_name='sklearn-iris',
 ## Deployment
 
 The model you just registered can be deployed the exact same way as any other registered model in Azure ML. The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+contains a section on registering models, but you can skip directly to [creating a compute targethow-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 ### (Preview) No-code model deployment
 
@@ -197,12 +197,12 @@ NOTE: These dependencies are included in the pre-built scikit-learn inference co
     - numpy
 ```
 
-The full [how-to](./v1/how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
+The full [how-to](how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
 
 
 ## Next steps
 
 In this article, you trained and registered a scikit-learn model, and learned about deployment options. See these other articles to learn more about Azure Machine Learning.
 
-* [Track run metrics during training](how-to-log-view-metrics.md)
-* [Tune hyperparameters](how-to-tune-hyperparameters.md)
+* [Track run metrics during training](../how-to-log-view-metrics.md)
+* [Tune hyperparameters](../how-to-tune-hyperparameters.md)

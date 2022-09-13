@@ -15,30 +15,30 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 # Train TensorFlow models at scale with Azure Machine Learning SDK (v1)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your [TensorFlow](https://www.tensorflow.org/overview) training scripts at scale using Azure Machine Learning.
 
 This example trains and registers a TensorFlow model to classify handwritten digits using a deep neural network (DNN).
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](./v1/how-to-deploy-and-where.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-and-where.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
 
 ## Prerequisites
 
 Run this code on either of these environments:
 
 - Azure Machine Learning compute instance - no downloads or installation necessary
-     - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+     - Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow** folder.
 
 - Your own Jupyter Notebook server
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+    - [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow) `tf_mnist.py` and `utils.py`
 
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
-[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
+[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the experiment
 
@@ -64,7 +64,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
+The [Azure Machine Learning workspace](../concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
@@ -74,7 +74,7 @@ ws = Workspace.from_config()
 
 ### Create a file dataset
 
-A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they'll be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. For more information the `Dataset` package, see the [How to create register datasets article](./v1/how-to-create-register-datasets.md).
+A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they'll be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. For more information the `Dataset` package, see the [How to create register datasets article](how-to-create-register-datasets.md).
 
 ```python
 from azureml.core.dataset import Dataset
@@ -104,7 +104,7 @@ dataset.to_path()
 
 Create a compute target for your TensorFlow job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
 
-[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota.md)]
+[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 cluster_name = "gpu-cluster"
@@ -122,17 +122,17 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
 
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
+For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ### Define your environment
 
-To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use an Azure ML curated environment.
+To define the Azure ML [Environment](../concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use an Azure ML curated environment.
 
 #### Use a curated environment
 
-Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. For more info, see [Azure ML Curated Environments](resource-curated-environments.md).
+Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. For more info, see [Azure ML Curated Environments](../resource-curated-environments.md).
 
 If you want to use a curated environment, you can run the following command instead:
 
@@ -191,7 +191,7 @@ tf_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudn
 ```
 
 > [!TIP]
-> Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that. For more information, see [Train with custom image](how-to-train-with-custom-image.md).
+> Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that. For more information, see [Train with custom image](../how-to-train-with-custom-image.md).
 
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
@@ -218,9 +218,9 @@ src = ScriptRunConfig(source_directory=script_folder,
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](v1/how-to-train-with-datasets.md).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](../how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](how-to-train-with-datasets.md).
 
-For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](v1/how-to-set-up-training-targets.md).
+For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
 
 > [!WARNING]
 > If you were previously using the TensorFlow estimator to configure your TensorFlow training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
@@ -281,7 +281,7 @@ For more information about distributed training, see the [Distributed GPU traini
 
 ## Deploy a TensorFlow model
 
-The deployment how-to contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+The deployment how-to contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 ### (Preview) No-code model deployment
 
@@ -291,12 +291,12 @@ Instead of the traditional deployment route, you can also use the no-code deploy
 service = Model.deploy(ws, "tensorflow-web-service", [model])
 ```
 
-The full [how-to](./v1/how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
+The full [how-to](how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
 
 ## Next steps
 
 In this article, you trained and registered a TensorFlow model, and learned about options for deployment. See these other articles to learn more about Azure Machine Learning.
 
 - [Track run metrics during training](how-to-log-view-metrics.md)
-- [Tune hyperparameters](how-to-tune-hyperparameters.md)
+- [Tune hyperparameters](../how-to-tune-hyperparameters.md)
 - [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

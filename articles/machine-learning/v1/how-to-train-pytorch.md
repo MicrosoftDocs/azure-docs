@@ -15,11 +15,11 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 # Train PyTorch models at scale with Azure Machine Learning SDK (v1)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning.
 
-The example scripts in this article are used to classify chicken and turkey images to build a deep learning neural network (DNN) based on [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html). Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. Transfer learning shortens the training  process by requiring less data, time, and compute resources than training from scratch. To learn more about transfer learning, see the [deep learning vs machine learning](./concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) article.
+The example scripts in this article are used to classify chicken and turkey images to build a deep learning neural network (DNN) based on [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html). Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. Transfer learning shortens the training  process by requiring less data, time, and compute resources than training from scratch. To learn more about transfer learning, see the [deep learning vs machine learning](../concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) article.
 
 Whether you're training a deep learning PyTorch model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning.
 
@@ -29,17 +29,17 @@ Run this code on either of these environments:
 
 - Azure Machine Learning compute instance - no downloads or installation necessary
 
-    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > pytorch > train-hyperparameter-tune-deploy-with-pytorch** folder.
 
  - Your own Jupyter Notebook server
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+    - [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
      
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
-[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
+[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the experiment
 
@@ -63,7 +63,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
+The [Azure Machine Learning workspace](../concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
@@ -91,7 +91,7 @@ shutil.copy('pytorch_train.py', project_folder)
 
 Create a compute target for your PyTorch job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
 
-[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota.md)]
+[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 
@@ -116,17 +116,17 @@ except ComputeTargetException:
 
 If you instead want to create a CPU cluster, provide a different VM size to the vm_size parameter, such as STANDARD_D2_V2.
 
-[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
 
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
+For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ### Define your environment
 
-To define the [Azure ML Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use an Azure ML curated environment.
+To define the [Azure ML Environment](../concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use an Azure ML curated environment.
 
 #### Use a curated environment
 
-Azure ML provides prebuilt, [curated environments](resource-curated-environments.md) if you don't want to define your own environment. There are several CPU and GPU curated environments for PyTorch corresponding to different versions of PyTorch.
+Azure ML provides prebuilt, [curated environments](../resource-curated-environments.md) if you don't want to define your own environment. There are several CPU and GPU curated environments for PyTorch corresponding to different versions of PyTorch.
 
 If you want to use a curated environment, you can run the following command instead:
 
@@ -186,7 +186,7 @@ pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1
 ```
 
 > [!TIP]
-> Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that. For more information, see [Train with custom image](how-to-train-with-custom-image.md).
+> Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that. For more information, see [Train with custom image](../how-to-train-with-custom-image.md).
 
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
@@ -207,9 +207,9 @@ src = ScriptRunConfig(source_directory=project_folder,
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](v1/how-to-train-with-datasets.md).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](../how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](v1/how-to-train-with-datasets.md).
 
-For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](v1/how-to-set-up-training-targets.md).
+For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
 
 > [!WARNING]
 > If you were previously using the PyTorch estimator to configure your PyTorch training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
@@ -245,7 +245,7 @@ model = run.register_model(model_name='pytorch-birds', model_path='outputs/model
 
 > [!TIP]
 > The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 You can also download a local copy of the model by using the Run object. In the training script `pytorch_train.py`, a PyTorch save object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
 
@@ -267,13 +267,13 @@ For more information about distributed training, see the [Distributed GPU traini
 
 ## Export to ONNX
 
-To optimize inference with the [ONNX Runtime](concept-onnx.md), convert your trained PyTorch model to the ONNX format. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data. For an example, see the [Exporting model from PyTorch to ONNX tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb).
+To optimize inference with the [ONNX Runtime](../concept-onnx.md), convert your trained PyTorch model to the ONNX format. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data. For an example, see the [Exporting model from PyTorch to ONNX tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb).
 
 ## Next steps
 
 In this article, you trained and registered a deep learning, neural network using PyTorch on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
 
-- [How and where to deploy models](./v1/how-to-deploy-and-where.md)
-- [Track run metrics during training](how-to-log-view-metrics.md)
-- [Tune hyperparameters](how-to-tune-hyperparameters.md)
+- [How and where to deploy models](how-to-deploy-and-where.md)
+- [Track run metrics during training](../how-to-log-view-metrics.md)
+- [Tune hyperparameters](../how-to-tune-hyperparameters.md)
 - [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

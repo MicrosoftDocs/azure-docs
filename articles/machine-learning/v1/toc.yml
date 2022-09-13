@@ -169,6 +169,9 @@
       items:
       - name: Train with SDK v1
         href: how-to-attach-compute-targets.md
+      - name: Distributed training
+        displayName: parallellization, deep learning, deep neural network, dnn
+        href: concept-distributed-training.md
       - name: Scikit-learn
         href: how-to-train-scikit-learn.md
       - name: TensorFlow

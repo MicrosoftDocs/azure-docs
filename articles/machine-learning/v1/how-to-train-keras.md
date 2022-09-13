@@ -16,7 +16,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 # Train Keras models at scale with Azure Machine Learning (SDK v1)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your Keras training scripts with Azure Machine Learning.
 
@@ -41,12 +41,12 @@ Run this code on either of these environments:
  - Your own Jupyter Notebook server
 
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+    - [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` and `utils.py`
 
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
-[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
+[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the experiment
 
@@ -68,7 +68,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
+The [Azure Machine Learning workspace](../concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
@@ -78,7 +78,7 @@ ws = Workspace.from_config()
 
 ### Create a file dataset
 
-A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](./v1/how-to-create-register-datasets.md) guide on the `Dataset` package for more information.
+A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](how-to-create-register-datasets.md) guide on the `Dataset` package for more information.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -105,7 +105,7 @@ dataset = dataset.register(workspace=ws,
 
 Create a compute target for your training job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
 
-[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota.md)]
+[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 cluster_name = "gpu-cluster"
@@ -123,13 +123,13 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
 
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
+For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ### Define your environment
 
-Define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies.
+Define the Azure ML [Environment](../concept-environments.md) that encapsulates your training script's dependencies.
 
 First, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
 
@@ -191,7 +191,7 @@ src = ScriptRunConfig(source_directory=script_folder,
                       environment=keras_env)
 ```
 
-For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](v1/how-to-set-up-training-targets.md).
+For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
 
 > [!WARNING]
 > If you were previously using the TensorFlow estimator to configure your Keras training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
@@ -226,7 +226,7 @@ model = run.register_model(model_name='keras-mnist', model_path='outputs/model')
 
 > [!TIP]
 > The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 You can also download a local copy of the model. This can be useful for doing additional model validation work locally. In the training script, `keras_mnist.py`, a TensorFlow saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy from the run history.
 
@@ -245,7 +245,7 @@ for f in run.get_file_names():
 
 In this article, you trained and registered a Keras model on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
 
-* [How and where to deploy models](./v1/how-to-deploy-and-where.md)
+* [How and where to deploy models](how-to-deploy-and-where.md)
 * [Track run metrics during training](how-to-log-view-metrics.md)
-* [Tune hyperparameters](how-to-tune-hyperparameters.md)
+* [Tune hyperparameters](../how-to-tune-hyperparameters.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
