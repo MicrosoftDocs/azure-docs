@@ -1,6 +1,36 @@
 {
     "redirections": [
         {
+            "source_path":  "articles/site-recovery/deploy-vmware-azure-replication-appliance-preview.md",
+            "redirect_url":  "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/site-recovery/failover-failback-overview-preview.md",
+            "redirect_url":  "/azure/site-recovery/failover-failback-overview-modernized",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/site-recovery/switch-replication-appliance-preview.md",
+            "redirect_url":  "/azure/site-recovery/switch-replication-appliance-modernized",
+            "redirect_document_id":  false 
+        },
+        {
+            "source_path":  "articles/site-recovery/upgrade-mobility-service-preview.md",
+            "redirect_url":  "/azure/site-recovery/upgrade-mobility-service-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/site-recovery/vmware-azure-set-up-replication-tutorial-preview.md",
+            "redirect_url":  "/azure/site-recovery/vmware-azure-set-up-replication-tutorial-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/site-recovery/vmware-azure-architecture-preview.md",
+            "redirect_url":  "/azure/site-recovery/vmware-azure-architecture-modernized",
+            "redirect_document_id":  false   
+        },
+        {
             "source_path": "articles/automanage/automanage-virtual-machines.md",
             "redirect_url": "/azure/automanage/index",
             "redirect_document_id": false
