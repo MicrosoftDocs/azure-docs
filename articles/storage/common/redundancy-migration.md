@@ -43,7 +43,7 @@ Three things determine how your storage account is replicated and accessible:
 
 - **Geo-redundancy** - replication within a single "local" region or between different regions (LRS vs. GRS)
 - **Read access (RA)** - read access to the secondary region in the event of a failover when geo-redundancy is used (GRS vs. RA-GRS)
-- **Zone redundancy** - replication between zones within the same region (LRS vs. ZRS)
+- **Zone redundancy** - whether data is replicated between different zones within the primary region (LRS vs. ZRS)
 
 > [!NOTE]
 > Read access (RA) isn't a replication setting like geo-redundancy or zone-redundancy. It simply enables read access to the secondary region in the event of a geo-redundant failover. But it is considered one aspect of the complete redundancy configuration for a storage account.
