@@ -13,6 +13,8 @@ ms.author: bagol
 
 Microsoft Sentinel and Microsoft Defender for IoT help to bridge the gap between IT and OT security challenges, and to empower SOC teams with out-of-the-box capabilities to efficiently and effectively detect and respond to OT threats. The integration between Microsoft Defender for IoT and Microsoft Sentinel helps organizations to quickly detect multistage attacks, which often cross IT and OT boundaries.
 
+<!--The Microsoft Sentinel integration is supported only for OT networks.-->
+
 In this tutorial, you:
 
 > [!div class="checklist"]
@@ -30,6 +32,12 @@ Before you start, make sure you have the following requirements on your workspac
 - **Read** and **Write** permissions on your Microsoft Sentinel workspace
 
 - **Contributor** permissions on the subscription you want to connect
+
+<!--		• A Defender for IoT plan on your Azure subscription. For more information, see Quickstart: Get started with Defender for IoT.
+		• An OT network sensor onboarded, with data streaming into Defender for IoT. For more information, see <OT tutorial>.
+		• A site owner defined for your sensor's site. (unless we have a separate procedure for this)
+-->
+
 
 - <a name="enablehub"></a>Defender for IoT must be enabled on your relevant IoT Hub instances.
 
@@ -152,14 +160,13 @@ The following table describes the Defender for IoT alert timestamp fields, with 
 In Defender for IoT on the Azure portal and the sensor console, the **Last detection** column is shown by default. Edit the columns on the **Alerts** page to show the **First detection** and **Last activity** columns as needed.
 
 For more information, see [View alerts on the Defender for IoT portal](../defender-for-iot/organizations/how-to-manage-cloud-alerts.md) and [View alerts on your sensor](../defender-for-iot/organizations/how-to-view-alerts.md).
-
+ 
 ## Install the Defender for IoT solution
 
 The **IoT OT Threat Monitoring with Defender for IoT** solution is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS).
 
 > [!TIP]
 > Microsoft Sentinel [solutions](sentinel-solutions.md) can help you onboard Microsoft Sentinel security content for a specific data connector using a single process. For example, the **IoT OT Threat Monitoring with Defender for IoT** supports the integration with Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities by providing out-of-the-box and OT-optimized playbooks with automated response and prevention capabilities.
-
 
 **To install the solution**
 
@@ -228,6 +235,28 @@ In the **Instructions** tab of the data connector page, scroll down to the **Cre
 
 ---
 
+## Investigate IoT/OT incidents
+
+ Investigate incidents involving IoT/OT devices directly in Sentinel, for quicker incident management and response.  with IoT Device entity pages.
+
+Entity pages provide comprehensive device details, as well as context and insights into the behavior of the entities involved in an incident.
+
+The **IoT device entity page** contains the IoT/OT device information received from Defender for IoT (such as site, zone, sensor, type, vendor, model and more), a graphical timeline of events related to the device, and behavioral insights for the device.
+
+The IoT/OT entity pages can be accessed from **Incidents**, or from the entity search page under **Entity behavior** in the Microsoft Sentinel main menu.
+
+**To investigate incidents involving IoT/OT devices**:
+
+1. In Microsoft Sentinel, under **Threat management** go to **Incidents**.
+1. Filter for IoT devices:
+1. Select the incident you want to investigate. Under **Entities**, click on an entity (device) to go to the **IoT device entity page**.
+
+If you know the affected device name or IP address, you can search for its entity page under **Entity behavior** in the Microsoft Sentinel main menu.
+
+<!--Add - See the top 5 IoT devices by number of alerts with the highest severity.-->
+
+For more information on entity pages, see [Investigate entities with entity pages in Microsoft Sentinel](entity-pages.md).
+
 ## Visualize and monitor Defender for IoT data
 
 To visualize and monitor your Defender for IoT data, use the workbooks deployed to your Microsoft Sentinel workspace as part of the [IoT OT Threat Monitoring with Defender for IoT](#install-the-defender-for-iot-solution) solution.
@@ -240,13 +269,12 @@ The following table describes the workbooks included in the **IoT OT Threat Moni
 
 |Workbook  |Description  |Logs  |
 |---------|---------|---------|
-|**Alerts**     |  Displays data such as: Alert Metrics, Topmost Alerts, Alert over time, Alert by Severity, Alert by Engine, Alert by Device Type, Alert by Vendor and Alert by IP address.         |    Uses data from Azure Resource Graph (ARG)     |
-|**Incidents**     |   Displays data such as: <br><br>- Incident Metrics, Topmost Incident, Incident over time, Incident by Protocol, Incident by Device Type, Incident by Vendor, and Incident by IP address.<br><br>- Incident by Severity, Incident Mean time to respond, Incident Mean time to resolve and Incident close reasons.       |   Uses data from the following log: SecurityAlert       |
-|**MITRE ATT&CK® for ICS**     |   Displays data such as: Tactic Count, Tactic Details, Tactic over time, Technique Count.        |   Uses data from the following log: SecurityAlert       |
+|**Overview**     | Dashboard displaying a summary of key metrics for device inventory, threat detection and vulnerabilities.         |    Uses data from Azure Resource Graph (ARG)      |
 |**Device Inventory**     | Displays data such as: OT device name, type, IP address, Mac address, Model, OS, Serial Number, Vendor, Protocols, Open alerts, and CVEs and recommendations per device.  Can be filtered by site, zone, and sensor.       |    Uses data from Azure Resource Graph (ARG)      |
-|**Overview**     | Centralized overview displaying key metrics for device inventory, threat detection and vulnerabilities.         |    Uses data from Azure Resource Graph (ARG)      |
+|**Incidents**     |   Displays data such as: <br><br>- Incident Metrics, Topmost Incident, Incident over time, Incident by Protocol, Incident by Device Type, Incident by Vendor, and Incident by IP address.<br><br>- Incident by Severity, Incident Mean time to respond, Incident Mean time to resolve and Incident close reasons.       |   Uses data from the following log: SecurityAlert       |
+|**Alerts**     |  Displays data such as: Alert Metrics, Topmost Alerts, Alert over time, Alert by Severity, Alert by Engine, Alert by Device Type, Alert by Vendor and Alert by IP address.         |    Uses data from Azure Resource Graph (ARG)     |
+|**MITRE ATT&CK® for ICS**     |   Displays data such as: Tactic Count, Tactic Details, Tactic over time, Technique Count.        |   Uses data from the following log: SecurityAlert       |
 |**Vulnerabilities**     | Displays vulnerabilities and CVEs for vulnerable devices. Can be filtered by size and severity.         |    Uses data from Azure Resource Graph (ARG)      |
-
 
 ## Automate response to Defender for IoT alerts
 
@@ -255,7 +283,7 @@ Playbooks are collections of automated remediation actions that can be run from 
 The playbooks described in the following sections are deployed to your Microsoft Sentinel workspace as part of the [IoT OT Threat Monitoring with Defender for IoT](#install-the-defender-for-iot-solution) solution.
 
 > [!NOTE]
-> Some of the playbooks require additional steps to connect, as indicated. 
+> Some of the playbooks require additional steps to connect, as indicated.
 
 For more information, see:
 
@@ -295,51 +323,63 @@ This playbook opens a ticket in ServiceNow each time a new Engineering Workstati
 
 **Playbook name**: AD4IoT-AutoAlertStatusSync
 
+**Role required**: Security admin
+
 This playbook updates alert statuses in Defender for IoT whenever a related alert in Microsoft Sentinel has a **Status** update.
 
 This synchronization overrides any status defined in Defender for IoT, in the Azure portal or the sensor console, so that the alert statuses match that of the related incident.
 
-To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
+> [!NOTE]
+> To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
 
-### Workflow for active CVEs
+### Automatic workflow for incident with active CVEs
 
 **Playbook name**: AD4IoT-CVEAutoWorkflow
 
-This playbook adds active CVEs into the incident comments of affected devices on the IoT Device entity page. An automated triage is performed if the CVE is critical, and the device owner is automatically notified by email.
+**Role required**: Reader
 
-To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
+This playbook adds active CVEs into the incident comments of affected devices on the IoT device entity page. An automated triage is performed if the CVE is critical, and the device owner (the site owner as defined in Defender for IoT) is automatically notified by email.
 
-### Email IoT/OT Device owner 
+> [!NOTE]
+> To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
 
-**Playbook name**: AD4IoT-
+### Send email to IoT/OT device owner
 
-This playbook send an email with the incident details to the IoT/OT device owner (as defined in Defender for IoT) to validate the incident and initiate incident response directly from the email. The incident is automatically updated based on the email response from the device owner.
+**Playbook name**: AD4IoT-SendEmailtoIoTOwner
+
+**Role required**: Reader
+
+This playbook sends an email with the incident details to the IoT/OT device owner (the site owner as defined in Defender for IoT) to validate the incident and initiate incident response directly from the email. The incident is automatically updated based on the email response from the device owner.
 
 Email response options:
 
-Yes this is expected - the incident will be closed automatically
+Yes, this is expected - the incident will be closed automatically.
 
-No this is not expected - the incident will remain active, severity level will increase, and a confirmation tag will be added.
+No, this is not expected - the incident will remain active, severity level will increase, and a confirmation tag will be added.
 
-To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
+> [!NOTE]
+> To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
 
-### Triage high importance devices 
+### Triage incidents involving high importance devices
 
-**Playbook name**: AD4IoT-
+**Playbook name**: AD4IoT-AutoTriageIncident
 
-This playbook updates the incident severity according to the importance of the devices involved, and creates a comment on the IoT Device entity page.
+**Role required**: Reader
 
-To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
+This playbook updates the incident severity according to the importance of the devices involved, and is added to the comments on the IoT device entity page.
+
+> [!NOTE]
+> To use this playbook, make sure to complete the [prerequisites](#prerequisites-for-specific-playbooks).
 
 #### Prerequisites for specific playbooks
 
 Some of the playbooks require the following in order to connect and use the playbook:
 
- - **Security Admin** role applied on the Azure subscription 
+ - The required role (as detailed in the playbook description) applied on the Azure subscription
  - Valid connections where required
  - An automation rule to connect incident triggers with the playbook.
 
-**To add the *Security Admin* role to the Azure subscription where the playbook is installed**:
+**To add the required role to the Azure subscription where the playbook is installed**:
 
 1. Open the playbook from the Microsoft Sentinel **Automation** page.
 
@@ -351,7 +391,7 @@ Some of the playbooks require the following in order to connect and use the play
 
     - Define the **Scope** as **Subscription**
     - From the **Subscription** dropdown, select the subscription where your playbook is installed.
-    - From the **Role** dropdown, select the **Security Admin** role, and then select **Save**.
+    - From the **Role** dropdown, select the  required role (**Security Admin** or **Reader** role), and then select **Save**.
 
 **To ensure that you have valid connections for each of your connection steps in the playbook**:
 
