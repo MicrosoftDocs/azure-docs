@@ -63,15 +63,28 @@ The following table lists the features of Azure Synapse Analytics that have tran
 | November 2021 | **PREDICT** | The T-SQL [PREDICT](/sql/t-sql/queries/predict-transact-sql) syntax is now generally available for dedicated SQL pools. Get started with the [Machine learning model scoring wizard for dedicated SQL pools](./machine-learning/tutorial-sql-pool-model-scoring-wizard.md).|
 | October 2021 | **Synapse RBAC Roles** | [Synapse role-based access control (RBAC) roles are now generally available](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/azure-synapse-analytics-october-update/ba-p/2875372#synapse-rbac). Learn more about [Synapse RBAC roles](./security/synapse-workspace-synapse-rbac-roles.md) and [Azure Synapse role-based access control (RBAC) using PowerShell](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/retrieve-azure-synapse-role-based-access-control-rbac/ba-p/3466419#:~:text=Synapse%20RBAC%20is%20used%20to%20manage%20who%20can%3A,job%20execution%2C%20review%20job%20output%2C%20and%20execution%20logs.).|
 
-## General
+## Community 
 
-This section summarizes recent improvements and new capabilities of Azure Synapse Analytics.
+This section summarizes new Azure Synapse Analytics community opportunities and programs from Microsoft.
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
-| June 2022 | **Azure Orbital analytics with Synapse Analytics** | We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics. The sample solution also demonstrates how to integrate geospatial-specific [Azure Cognitive Services](../cognitive-services/index.yml) models, AI models from partners, and bring-your-own-data models. |
-| June 2022 | **Azure Synapse success by design** | The [Azure Synapse proof of concept playbook](./guidance/proof-of-concept-playbook-overview.md) provides a guide to scope, design, execute, and evaluate a proof of concept for SQL or Spark workloads. |
 | May 2022 | **Azure Synapse influencer program** | [Join a community of Azure Synapse Influencers](https://aka.ms/synapseinfluencers) who are helping each other achieve more with cloud analytics! |
+| March 2022 | **Azure Synapse Analytics and Microsoft MVP YouTube video series** | A joint activity with the Azure Synapse product team and the Microsoft MVP community, a new [YouTube MVP Video Series about the Azure Synapse features](https://www.youtube.com/playlist?list=PLzUAjXZBFU9MEK2trKw_PGk4o4XrOzw4H) has launched. See more at the [Azure Synapse Analytics YouTube channel](https://www.youtube.com/channel/UCsZ4IlYjjVxqe5OZ14tyh5g).|
+
+
+## Samples and guidance
+
+This section summarizes new guidance and sample project resources for Azure Synapse Analytics.
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- |
+| September 2022 | **Azure Synapse Customer Success Engineering blog series** | The new [Azure Synapse Customer Success Engineering blog series](https://aka.ms/synapsecseblog) launches with a detailed introduction to [Building the Lakehouse - Implementing a Data Lake Strategy with Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/building-the-lakehouse-implementing-a-data-lake-strategy-with/ba-p/3612291).|
+| June 2022 | **Azure Orbital analytics with Synapse Analytics** | We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics. The sample solution also demonstrates how to integrate geospatial-specific [Azure Cognitive Services](../cognitive-services/index.yml) models, AI models from partners, and bring-your-own-data models. |
+| June 2022 | **Migration guides for Oracle** | A new Microsoft-authored migration guide for Oracle to Azure Synapse Analytics is now available. [Design and performance for Oracle migrations](migration-guides/oracle/1-design-performance-migration.md). |
+| June 2022 | **Azure Synapse success by design** | The [Azure Synapse proof of concept playbook](./guidance/proof-of-concept-playbook-overview.md) provides a guide to scope, design, execute, and evaluate a proof of concept for SQL or Spark workloads. |
+| June 2022 | **Migration guides for Teradata** | A new Microsoft-authored migration guide for Teradata to Azure Synapse Analytics is now available. [Design and performance for Teradata migrations](migration-guides/teradata/1-design-performance-migration.md). |
+| June 2022 | **Migration guides for IBM Netezza** | A new Microsoft-authored migration guide for IBM Netezza to Azure Synapse Analytics is now available. [Design and performance for IBM Netezza migrations](migration-guides/netezza/1-design-performance-migration.md). |
 
 ## Azure Synapse Analytics Apache Spark
 
@@ -236,6 +249,7 @@ This section summarizes recent improvements and features in SQL pools in Azure S
 - [Realize Integrated Analytical Solutions with Azure Synapse Analytics](/training/paths/realize-integrated-analytical-solutions-with-azure-synapse-analytics/)
 - [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline](/training/paths/data-integration-scale-azure-data-factory/)
 - [Microsoft Training Learning Paths for Azure Synapse](/training/browse/?terms=synapse&resource_type=learning%20path)
+- [Azure Synapse Analytics in Microsoft Q&A](/answers/topics/azure-synapse-analytics.html)
 
 ## Next steps
 
