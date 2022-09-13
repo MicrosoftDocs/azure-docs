@@ -9,7 +9,6 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/06/2022
-zone_pivot_groups: programming-languages-set-six
 ---
 
 # Get started with the local interence SDK for Azure Personalizer
@@ -18,8 +17,6 @@ The Personalizer local inference SDK (Preview) downloads the Personalizer model 
 
 In this guide, you'll learn how to use the Personalizer local inference SDK.
 
-::: zone pivot="programming-language-csharp"
-
 [!INCLUDE [Try local inference with C#](./includes/quickstart-local-inference-csharp.md)]
 
-::: zone-end
+**The local inference SDK is currently only available in C#. Support for other languages is coming soon.**
