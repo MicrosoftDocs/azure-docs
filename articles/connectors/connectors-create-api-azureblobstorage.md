@@ -1,11 +1,11 @@
 ---
 title: Connect to Azure Blob Storage from workflows
-description: Connect to Azure Blob Storage from workflows to manage blobs in Azure Logic Apps.
+description: Connect to Azure Blob Storage from workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 09/14/2022
 tags: connectors
 ---
 
@@ -13,13 +13,13 @@ tags: connectors
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This article shows how to access your Azure Blob Storage account and container from a workflow in Azure Logic Apps with the Azure Blob Storage connector. This connector provides triggers and actions that your workflow can use for blob operations. You can then create automated workflows that run when triggered by events in your SQL database or in other systems, and run actions to work with data and resources in your storage container. 
+This article shows how to access your Azure Blob Storage account and container from a workflow in Azure Logic Apps using the Azure Blob Storage connector. This connector provides triggers and actions that your workflow can use for blob operations. You can then create automated workflows that run when triggered by events in your storage container or in other systems, and run actions to work with data in your storage container.
 
 For example, you can access and manage files stored as blobs in your Azure storage account.
 
-## Connector technical reference
-
 You can connect to Azure Blob Storage from a workflow in **Logic App (Consumption)** and **Logic App (Standard)** resource types. You can use the connector with logic app workflows in multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, and the integration service environment (ISE). With **Logic App (Standard)**, you can use either the **Azure Blob** *built-in* connector operations or the **Azure Blob Storage** managed connector operations.
+
+## Connector technical reference
 
 The Azure Blob Storage connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
@@ -27,7 +27,7 @@ The Azure Blob Storage connector has different versions, based on [logic app typ
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version connects directly to your Azure Storage account requiring only a connection string. <br><br>- The built-in version can directly access Azure virtual networks. <br><br>For more information, review the following documentation: <br><br>- Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Azure Blob built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version connects directly to your Azure Storage account requiring only a connection string. <br><br>- The built-in version can directly access Azure virtual networks. <br><br>For more information, review the following documentation: <br><br>- Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Azure Blob built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Limitations
 
@@ -45,7 +45,7 @@ The Azure Blob Storage connector has different versions, based on [logic app typ
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [Azure storage account and storage container](../storage/blobs/storage-quickstart-blobs-portal.md)
+- An [Azure storage account and blob container](../storage/blobs/storage-quickstart-blobs-portal.md)
 
 - A logic app workflow from which you want to access your Azure Storage account. If you want to start your workflow with an Azure Blob Storage trigger, you need a [blank logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -53,12 +53,12 @@ The Azure Blob Storage connector has different versions, based on [logic app typ
 
 ## Add a Blob trigger
 
-A Consumption logic app workflow can use only the Azure Blob Storage managed connector. However, a Standard logic app workflow can use the Azure Blob Storage managed connector and the Azure blob built-in connector. Although both connector versions have only one Blob trigger, the trigger name differs as follows, based on whether you're working with a Consumption or Standard logic app workflow:
+A Consumption logic app workflow can use only the Azure Blob Storage managed connector. However, a Standard logic app workflow can use the Azure Blob Storage managed connector and the Azure blob built-in connector. Although both connector versions have only one Blob trigger, the trigger name differs as follows, based on whether you're working with a Consumption or Standard workflow:
 
-| Logic app type | Trigger name | Description |
-|----------------|--------------|-------------|
-| Consumption | Managed connector only: **When a blob is added or modified (properties only)** | The trigger fires when a blob's properties are added or updated in your storage container's root folder. When you set up the managed trigger, the managed version ignores existing blobs in your storage container. |
-| Standard | - Built-in: **When a blob is Added or Modified in Azure Storage** <br><br>- Managed connector: **When a blob is added or modified (properties only)** | - Built-in: The trigger fires when a blob is added or updated in your storage container, and fires for any nested folders in your storage container, not just the root folder. When you set up the built-in trigger, the built-in version processes all existing blobs in your storage container. <br><br>- Managed connector: The trigger fires when a blob's properties are added or updated in your storage container's root folder. When you set up the managed trigger, the managed version ignores existing blobs in your storage container. |
+| Logic app | Connector version | Trigger name | Description |
+|-----------|-------------------|--------------|-------------|
+| Consumption | Managed connector only | **When a blob is added or modified (properties only)** | The trigger fires when a blob's properties are added or updated in your storage container's root folder. When you set up the managed trigger, the managed version ignores existing blobs in your storage container. |
+| Standard | - Built-in connector <br><br>- Managed connector | - Built-in: **When a blob is added or updated** <br><br>- Managed: **When a blob is added or modified (properties only)** | - Built-in: The trigger fires when a blob is added or updated in your storage container, and fires for any nested folders in your storage container, not just the root folder. When you set up the built-in trigger, the built-in version processes all existing blobs in your storage container. <br><br>- Managed: The trigger fires when a blob's properties are added or updated in your storage container's root folder. When you set up the managed trigger, the managed version ignores existing blobs in your storage container. |
 ||||
 
 The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
@@ -71,33 +71,53 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
-1. On the designer, under the search box, select **All**. In the search box, enter **Azure blob**.
+1. On the designer, under the search box, select **Standard**. In the search box, enter **Azure blob**.
 
-1. From the triggers list, select the trigger named **When a blob is added or modified (properties only)**.
+1. From the triggers list, select the trigger that you want.
 
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-add.png" alt-text="Screenshot showing Azure portal, Consumption logic app workflow designer, and Azure Blob Storage trigger selected.":::
+   This example continues with the trigger named **When a blob is added or modified (properties only)**.
 
-1. Provide the information to [connect to your Azure Blob Storage account](connectors-create-api-azureblobstorage.md?tabs=consumption#connect-blob-storage-account). When you're done, select **Create**.
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-add-trigger.png" alt-text="Screenshot showing Azure portal, Consumption workflow designer, and Azure Blob Storage trigger selected.":::
 
-1. After the trigger information box appears, provide the necessary trigger information.
+1. If prompted, provide the following information for your connection to your storage account. When you're done, select **Create**.
 
-   For the **Container** property value, select the folder icon to browse for your blob storage container. Or, enter the path manually using the syntax **/<*container-name*>**, for example:
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for your connection |
+   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for triggers and actions that support authentication - Secure access and data](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-triggers-and-actions-that-support-authentication). |
 
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-configure.png" alt-text="Screenshot showing Consumption logic app workflow with Azure Blob Storage trigger and parameters configuration.":::
+   For example, this connection uses access key authentication and provides the access key value for the storage account along with the following property values:
 
-1. To add other properties available for this trigger, open the **Add new parameter list** and select those properties. For more information, review [Azure Blob Storage managed connector trigger properties](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)-(v2)).
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Azure Storage Account name** | Yes, <br>but only for access key authentication | <*storage-account-name*> | The name for the Azure storage account where your blob container exists. <br><br>**Note**: To find the storage account name, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys**. Under **Storage account name**, copy and save the name. |
+   | **Azure Storage Account Access Key** | Yes, <br>but only for access key authentication | <*storage-account-access-key*> | The access key for your Azure storage account. <br><br>**Note**: To find the access key, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **key1** > **Show**. Copy and save the primary key value. |
 
-1. Continue creating your workflow by adding one or more actions.
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-create-connection.png" alt-text="Screenshot showing Consumption workflow, Azure Blob Storage trigger, and example connection information.":::
 
-1. When you're done, save your workflow.
+1. After the trigger information box appears, provide the necessary information.
+
+   For the **Container** property value, select the folder icon to browse for your blob container. Or, enter the path manually using the syntax **/<*container-name*>**, for example:
+
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-information.png" alt-text="Screenshot showing Consumption workflow with Azure Blob Storage trigger, and example trigger information.":::
+
+1. To add other properties available for this trigger, open the **Add new parameter list**, and select the properties that you want.
+
+   For more information, review [Azure Blob Storage managed connector trigger properties](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)-(v2)).
+
+1. Add any other actions that your workflow needs.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
 
-This section shows the steps for the following Azure Blob Storage triggers:
+The steps to add and use a Blob trigger differ based on whether you want to use the built-in connector or the managed, Azure-hosted connector.
 
-* [*Built-in* trigger named **When a blob is Added or Modified in Azure Storage**](#built-in-connector-operations)
+- [**Built-in trigger**](#built-in-connector-trigger): Describes the steps to add the built-in trigger.
 
-* [*Managed* trigger named **When a blob is added or modified (properties only)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)-(v2))
+- [**Managed trigger**](#managed-connector-trigger): Describes the steps to add the managed trigger.
+
+<a name="built-in-connector-trigger"></a>
 
 #### Built-in connector trigger
 
@@ -105,15 +125,28 @@ This section shows the steps for the following Azure Blob Storage triggers:
 
 1. On the designer, select **Choose an operation**. Under the **Choose an operation** search box, select **Built-in**.
 
-1. In the search box, enter **Azure blob**.
+1. In the search box, enter **Azure blob**. From the triggers list, select the trigger that you want.
 
-1. From the triggers list, select the trigger named **When a blob is Added or Modified in Azure Storage**.
+   This example continues with the trigger named **When a blob is added or updated**.
 
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-built-in-trigger-add.png" alt-text="Screenshot showing Azure portal, Standard logic app workflow designer, and Azure Blob built-in trigger selected.":::
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-add-built-in-trigger.png" alt-text="Screenshot showing Azure portal, Standard workflow designer, and Azure Blob built-in trigger selected.":::
 
-1. Provide the information to [connect to your Azure Blob Storage account](connectors-create-api-azureblobstorage.md?tabs=standard#connect-blob-storage-account). When you're done, select **Create**.
+1. If prompted, provide the following information for your connection to your storage account. When you're done, select **Create**.
 
-1. After the trigger information box appears, provide the necessary trigger information.
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for your connection |
+   | **Authentication type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for triggers and actions that support authentication - Secure access and data](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-triggers-and-actions-that-support-authentication). |
+
+   For example, this connection uses connection string authentication and provides the connection string value for the storage account:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Azure Blob Storage Connection String** | Yes, <br>but only for connection string authentication | <*storage-account-connection-string*> | The connection string for your Azure storage account. <br><br>**Note**: To find the connection string, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **key1** > **Connection string** > **Show**. Copy and save the connections tring for the primary key. |
+
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-built-in-trigger-create-connection.png" alt-text="Screenshot showing Standard workflow, Azure Blob built-in trigger, and example connection information.":::
+
+1. After the trigger information box appears, provide the necessary information.
 
    For the **Blob Path** property, enter the name of the folder that you want to monitor.
 
@@ -139,31 +172,49 @@ This section shows the steps for the following Azure Blob Storage triggers:
 
       The following example shows a trigger setup that checks the root folder for a newly added blob:
 
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-root-folder.png" alt-text="Screenshot showing Standard logic app workflow designer with Azure Blob built-in trigger set up for the root folder.":::
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-built-in-trigger-root-folder.png" alt-text="Screenshot showing Standard workflow with Azure Blob built-in trigger set up for root folder.":::
 
       The following example shows a trigger setup that checks a subfolder for changes to an existing blob:
 
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-sub-folder-existing-blob.png" alt-text="Screenshot showing Standard logic app workflow designer with Azure Blob built-in trigger set up for a subfolder and specific blob.":::
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-built-in-trigger-subfolder-existing-blob.png" alt-text="Screenshot showing Standard workflow with Azure Blob built-in trigger set up for a subfolder and specific blob.":::
 
-1. Continue creating your workflow by adding one or more actions.
+1. Add any other actions that your workflow needs.
 
-1. When you're done, save your workflow.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+<a name="managed-connector-trigger"></a>
 
 #### Managed connector trigger
 
 1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
 1. On the designer, select **Choose an operation**. Under the search box, select **Azure**.
- 
+
 1. In the search box, enter **Azure blob**.
 
-1. From the triggers list, select the trigger named **When a blob is added or modified (properties only)**.
+1. From the triggers list, select the trigger that you want.
 
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-managed-trigger-add.png" alt-text="Screenshot showing Azure portal, Standard logic app workflow designer, and Azure Blob Storage managed trigger selected.":::
+   This example continues with the trigger named **When a blob is added or modified (properties only)**.
 
-1. Provide the information to [connect to your Azure Blob Storage account](connectors-create-api-azureblobstorage.md?tabs=consumption#connect-blob-storage-account), which uses the same properties as Consumption logic app workflows. When you're done, select **Create**.
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-add-managed-trigger.png" alt-text="Screenshot showing Azure portal, Standard logic app workflow designer, and Azure Blob Storage managed trigger selected.":::
 
-1. After the trigger information box appears, provide the necessary trigger information.
+1. If prompted, provide the following information for your connection to your storage account. When you're done, select **Create**.
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for your connection |
+   | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for triggers and actions that support authentication - Secure access and data](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-triggers-and-actions-that-support-authentication). |
+
+   For example, this connection uses access key authentication and provides the access key value for the storage account along with the following property values:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Azure Storage Account name** | Yes, <br>but only for access key authentication | <*storage-account-name*> | The name for the Azure storage account where your blob container exists. <br><br>**Note**: To find the storage account name, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys**. Under **Storage account name**, copy and save the name. |
+   | **Azure Storage Account Access Key** | Yes, <br>but only for access key authentication | <*storage-account-access-key*> | The access key for your Azure storage account. <br><br>**Note**: To find the access key, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **key1** > **Show**. Copy and save the primary key value. |
+
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-managed-trigger-create-connection.png" alt-text="Screenshot showing Standard workflow, Azure Blob managed trigger, and example connection information.":::
+
+1. After the trigger information box appears, provide the necessary information.
 
    For the **Container** property value, select the folder icon to browse for your blob storage container. Or, enter the path manually using the syntax **/<*container-name*>**, for example:
 
@@ -171,9 +222,9 @@ This section shows the steps for the following Azure Blob Storage triggers:
 
 1. To add other properties available for this trigger, open the **Add new parameter list** and select those properties. For more information, review [Azure Blob Storage managed connector trigger properties](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)-(v2)).
 
-1. Continue creating your workflow by adding one or more actions.
+1. Add any other actions that your workflow needs.
 
-1. When you're done, save your workflow.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
@@ -334,8 +385,6 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ## Connect to Azure Storage account
 
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
-
 ### [Consumption](#tab/consumption)
 
 Before you can set up your [Azure Blob Storage trigger](#add-trigger) or [Azure Blob Storage action](#add-action), you need to connect to your Azure Storage account. Based on the [authentication type that your storage account requires](../storage/common/authorize-data-access.md), you have to provide a connection name and select the authentication type at a minimum.
@@ -345,7 +394,7 @@ For example, if your storage account requires *access key* authorization, you ha
 | Property | Required | Value | Description |
 |----------|----------|-------|-------------|
 | **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
-| **Authentication type** | Yes | - **Access Key** <br><br>- **Azure AD Integrated** <br><br>- **Logic Apps Managed Identity (Preview)** | The authentication type to use for your connection. For more information, review [Authentication types for triggers and actions that support authentication - Secure access and data](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-triggers-and-actions-that-support-authentication). |
+| **Authentication type** | Yes | - **Access Key** <br><br>- **Azure AD Integrated** <br><br>- **Logic Apps Managed Identity** | The authentication type to use for your connection. For more information, review [Authentication types for triggers and actions that support authentication - Secure access and data](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-triggers-and-actions-that-support-authentication). |
 | **Azure Storage Account name** | Yes, <br>but only for access key authentication | <*storage-account-name*> | The name for the Azure storage account where your blob container exists. <br><br><br><br>**Note**: To find the storage account name, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys**. Under **Storage account name**, copy and save the name. |
 | **Azure Storage Account Access Key** | Yes, <br>but only for access key authentication | <*storage-account-access-key*> | The access key for your Azure storage account. <br><br><br><br>**Note**: To find the access key, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **Show keys**. Copy and save one of the key values. |
 
@@ -395,302 +444,19 @@ The Azure Blob built-in connector is available only for Standard logic app workf
 
 | Trigger | Description |
 |---------|-------------|
-| [When a blob is added or updated](#when-blob-added-updated) | Start a logic app workflow when a blob is added or updated in your storage container. |
+| When a blob is added or updated | Start a logic app workflow when a blob is added or updated in your storage container. |
 
 | Action | Description |
 |--------|-------------|
-| [Check whether blob exists](#check-blob) | Check whether the specified blob exists in the specified Azure storage container. |
-| [Delete blob](#delete-blob) | Delete the specified blob from the specified Azure storage container. |
-| [Get blob metadata using path](#get-blob-metadata) | Get the metadata for the specified blob from the specified Azure storage container. |
-| [Get container metadata using path](#get-container-metadata) | Get the metadata for the specified Azure storage container. |
-| [Get blob SAS URI using path](#get-blob-sas-uri) | Get the Shared Access Signature (SAS) URI for the specified blob in the specified Azure storage container. |
-| [List all blobs using path](#list-blobs) | List all the blobs in the specified Azure storage container. |
-| [List all containers using path or root path](#list-containers) | List all the Azure storage containers in your Azure subscription. |
-| [Read blob content](#read-blob-content) | Read the content from the specified blob in the specified Azure storage container. |
-| [Upload blob to storage container](#upload-blob) | Upload the specified blob to the specified Azure storage container. |
-
-<a name="when-blob-added-updated"></a>
-
-### When a blob is added or updated
-
-Operation ID: `whenABlobIsAddedOrModified`
-
-This trigger starts a logic app workflow run when a blob is added or updated along the specified path in an Azure storage container.
-
-#### Parameters
-
-| Parameter | Key | Required | Type | Description |
-|-----------|-----|----------|------|-------------|
-| **Blob path** | `path` | True | `string` | The blob path in the Azure storage container |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Blob Message** | `string` |
-| **Blob Message Blob Name** | `string` |
-| **Blob Message Container Info** | `string` |
-| **Blob Message Container Info Container Name** | `string` |
-| **Blob Message Metadata** | `string` |
-| **Blob Message Properties** | `string` |
-| **Blob Message Properties Content Disposition** | ? |
-| **Blob Message Properties Content Language** | `string` |
-| **Blob Message Properties Content MD5** | `string` |
-| **Blob Message Properties Creation Time** | `string` |
-| **Blob Message Properties ETag** | `string` |
-| **Blob Message Properties Type** | `string` |
-
-<a name="check-blob"></a>
-
-### Check whether blob exists
-
-Operation ID: `blobExists`
-
-This action checks whether the specified blob exists in the specified Azure storage container.
-
-#### Parameters
-
-| Parameter | Key | Required | Type | Description |
-|-----------|-----|----------|------|-------------|
-| **Container name** | `containerName` | True | `string` | The name for the Azure storage container |
-| **Blob name** | `blobName` | True | `string` | The name for the blob |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Blob Exists Response** | ? |
-| **Blob Exists Response Is Blob Exists** | `string` |
-| **Blob Exists Response Metadata** | ? |
-| **Blob Exists Response Properties** | ? |
-| **Blob Exists Response Properties Content Disposition** | ?` |
-| **Blob Exists Response Properties Content Language** | `string` |
-| **Blob Exists Response Properties Content MD5** | `string` |
-| **Blob Exists Response Properties Content Type** | `string` |
-| **Blob Exists Response Properties Creation Time** | `string` |
-| **Blob Exists Response Properties ETag** | `string` |
-| **Blob Exists Response Properties Type** | `string` |
-
-<a name="delete-blob"></a>
-
-### Delete blob
-
-Operation ID: `deleteBlob`
-
-This action deletes the specified blob from the specified Azure storage container.
-
-#### Parameters
-
-| Parameter | Key | Required | Type | Description |
-|-----------|-----|----------|------|-------------|
-| **Container name** | `containerName` | True | `string` | The name for the Azure storage container |
-| **Blob name** | `blobName` | True | `string` | The name for the blob |
-
-#### Returns
-
-None.
-
-<a name="get-blob-metadata"></a>
-
-### Get blob metadata using path
-
-Operation ID: `getBlobMetadata`
-
-This action gets the metadata for the specified blob from the specified Azure storage container.
-
-#### Parameters
-
-| Parameter | Key | Required | Type | Description |
-|-----------|-----|----------|------|-------------|
-| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
-| **Blob name** | `blobName` | True | `string` | The name for the blob |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Response from get blob metadata action** | ? |
-| **Response from get blob metadata action Content Disposition** | ? |
-| **Response from get blob metadata action Content Language** | `string` |
-| **Response from get blob metadata action Content Type** | `string` |
-| **Response from get blob metadata action Creation Time** | `string` |
-| **Response from get blob metadata action ETag** | `string` |
-| **Response from get blob metadata action MD5 Hash** | `string` |
-| **Response from get blob metadata action Name** | `string` |
-| **Response from get blob metadata action Type** | `string` |
-
-<a name="get-container-metadata"></a>
-
-### Get container metadata using path
-
-Operation ID: `getContainerMetadata`
-
-This action gets the metadata for the specified Azure storage container.
-
-#### Parameters
-
-| Parameter | Key | Required | Type | Description |
-|-----------|-----|----------|------|-------------|
-| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Response from get container metadata action** | ? |
-| **Response from get container metadata action Last Updated Time** | `string` |
-| **Response from get container metadata action ETag** | `string` |
-| **Response from get container metadata action Name** | `string` |
-
-<a name="get-blob-sas-uri"></a>
-
-### Get blob SAS URI using path 
-
-Operation ID: `getBlobSASUri`
-
-This action gets the Shared Access Signature (SAS) URI for the specified blob in the specified Azure storage container.
-
-#### Parameters
-
-| Parameter | Key | Required | Type | Description |
-|-----------|-----|----------|------|-------------|
-| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
-| **Blob name** | `blobName` | True | `string` | The name for the blob |
-| **Group policy identifier** | `groupPolicyIdentifier` | False | `string` | The string that identifies a stored access policy. Group policy parameters, such as start time and expiry time, have precedence over input parameters in actions. |
-| **Permissions** | `permissions` | False | ? | The access permissions for the SAS URI. |
-| **Start time** | `startTime` | False | `string` | The date and time when the SAS becomes valid, for example, `'2017-11-01T15:30:00+00.00'.Default=now()`. |
-| **Expiry time** | `expiryTime` | False | `string` | The date and time when the SAS is no longer valid, for example, `'2017-11-01T15:30:00+00.00'.Default=now() + 24h`. |
-| **Shared access protocol** | `sharedAccessProtocol` | False | ? | The allowed protocols, either HTTPS only or HTTP and HTTPS. Leave empty if you don't want to restrict traffic based on protocol. |
-| **IP address or range** | `ipAddressRange` | False | ? | The allowed IP address or address range. Leave empty if you don't to restrict traffic based on IP address. |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Response from get SAS URI action** | ? |
-| **Response from get SAS URI SAS URI** | `string` |
-
-<a name="list-blobs"></a>
-
-### List all blobs using path
-
-Operation ID: `listBlobs`
-
-This action lists all the blobs in the specified Azure storage container.
-
-#### Parameters
-
-| Parameter | Key | Required | Type | Description |
-|-----------|-----|----------|------|-------------|
-| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
-| **Blob prefix path** | `blobNamePrefix` | False | `string` | The prefix path for the blob |
-| **Paging marker** | `pageMarker` | False | ? | A marker that identifies the part of the list to return with the list action |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Blob List Response** | ? |
-| **Blob List Response Blob List Item** | ? |
-| **Blob List Response Blob List Item Content Disposition** | ? |
-| **Blob List Response Blob List Item Content Language** | `string` |
-| **Blob List Response Blob List Item Content MD5** | `string` |
-| **Blob List Response Blob List Item Content Type** | `string` |
-| **Blob List Response Blob List Item Creation Time** | `string` |
-| **Blob List Response Blob List Item ETag** | `string` |
-| **Blob List Response Blob List Item Name** | `string` |
-| **Blob List Response Blob List Item Paging Marker** | ? |
-| **Blob List Response Blob List Item Type** | `string` |
-| **Blob List Response Blob List of blobs** | ? |
-
-<a name="list-containers"></a>
-
-### List all containers using path or root path
-
-Operation ID: `listContainers`
-
-This action lists all the Azure storage containers in your Azure subscription.
-
-#### Parameters
-
-| Parameter | Key | Required | Type | Description |
-|-----------|-----|----------|------|-------------|
-| **Paging marker** | `pageMarker` | False | ? | A marker that identifies the part of the list to return with the list action |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Blob List Response** | ? |
-| **Blob List Response Blob Container List Item** | ? |
-| **Blob List Response Blob Container List Item ETag** | `string` |
-| **Blob List Response Blob Container List Item Last Updated** | `string` |
-| **Blob List Response Blob Container List Item Name** | `string` |
-| **Blob List Response List of containers** | ? |
-| **Blob List Response Paging Marker** | ? |
-
-<a name="read-blob-content"></a>
-
-### Read blob content
-
-Operation ID: `listContainers`
-
-This action reads the content from the specified blob in the specified Azure storage container.
-
-#### Parameters
-
-| Parameter | Key | Required | Type | Description |
-|-----------|-----|----------|------|-------------|
-| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
-| **Blob name** | `blobName` | True | `string` | The name for the blob |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Blob Read Response** | ? |
-| **Blob Read Response Content** | ? |
-| **Blob Read Response Properties** | ? |
-| **Blob Read Response Properties Content Disposition** | ? |
-| **Blob Read Response Properties Content Language** | `string` |
-| **Blob Read Response Properties Content MD5** | `string` |
-| **Blob Read Response Properties Content Type** | `string` |
-| **Blob Read Response Properties Creation Time** | `string` |
-| **Blob Read Response Properties ETag** | `string` |
-| **Blob Read Response Properties Metadata** | ? |
-| **Blob Read Response Properties Type** | `string` |
-
-<a name="upload-blob"></a>
-
-### Upload blob to storage container
-
-Operation ID: `listContainers`
-
-This action uploads the specified blob to the specified Azure storage container.
-
-#### Parameters
-
-| Parameter | Key | Required | Type | Description |
-|-----------|-----|----------|------|-------------|
-| **Container name** | `containerName` | True | `string` | The name or path for the Azure storage container |
-| **Blob name** | `blobName` | True | `string` | The name for the blob |
-| **Content** | `Content` | True | ? | The blob content to upload |
-| **Update flag** | `overrideIfExists` | False | ? | This flag indicates whether the blob can be updated |
-
-#### Returns
-
-| Name | Type |
-|------|------|
-| **Blob Upload Response** | ? |
-| **Blob Upload Response Metadata** | ? |
-| **Blob Upload Response Properties** | ? |
-| **Blob Upload Response Properties Creation Time** | `string` |
-| **Blob Upload Response Properties Content Disposition** | ? |
-| **Blob Upload Response Properties Content MD5** | `string` |
-| **Blob Upload Response Properties Content Type** | `string` |
-| **Blob Upload Response Properties Content Language** | `string` |
-| **Blob Upload Response Properties ETag** | `string` |
-| **Blob Upload Response Properties Type** | `string` |
+| Check whether blob exists | Check whether the specified blob exists in the specified Azure storage container. |
+| Delete blob | Delete the specified blob from the specified Azure storage container. |
+| Get blob metadata using path | Get the metadata for the specified blob from the specified Azure storage container. |
+| Get container metadata using path | Get the metadata for the specified Azure storage container. |
+| Get blob SAS URI using path | Get the Shared Access Signature (SAS) URI for the specified blob in the specified Azure storage container. |
+| List all blobs using path | List all the blobs in the specified Azure storage container. |
+| List all containers using path or root path | List all the Azure storage containers in your Azure subscription. |
+| Read blob content | Read the content from the specified blob in the specified Azure storage container. |
+| Upload blob to storage container | Upload the specified blob to the specified Azure storage container. |
 
 ## Access storage accounts behind firewalls
 
