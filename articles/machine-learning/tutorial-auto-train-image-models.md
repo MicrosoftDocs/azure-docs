@@ -323,7 +323,7 @@ primary_metric: mean_average_precision
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In your AutoML job, you can perform an automatic hyperparameter sweep in order to find the optimal model. You only specify the number of trials; the hyperparameter search space, samping method and early termination policy are not needed. The Automode feature will automatically determine the region of the hyperparameter space to sweep based on the number of trials.
+In your AutoML job, you can perform an automatic hyperparameter sweep in order to find the optimal model. You only specify the number of trials; the hyperparameter search space, samping method and early termination policy are not needed. The system will automatically determine the region of the hyperparameter space to sweep based on the number of trials.
 
 # [Azure CLI](#tab/cli)
 
