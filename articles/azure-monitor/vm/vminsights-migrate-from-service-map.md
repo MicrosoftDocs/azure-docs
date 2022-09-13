@@ -11,20 +11,25 @@ ms.reviewer: xpathak
 
 # Migrate from Service map to Azure Monitor VM insights
 
+VM insights monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. 
+
 [Service map](../vm/service-map.md) will be retired on 30 September 2025. To monitor connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, make sure to migrate to [Azure Monitor VM insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview) before this date.
 
-VM insights monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. The map feature visualizes the VM dependencies by discovering running processes that have active network connection between servers, inbound and outbound connection latency or ports across any TCP-connected architecture over a specified time range. [Learn more about the benefits of Map feature over Service map](https://docs.microsoft.com/en-us/azure/azure-monitor/faq#how-is-vm-insights-map-feature-different-from-service-map-). 
+The map feature of VM insights visualizes virtual machine dependencies by discovering running processes that have active network connection between servers, inbound and outbound connection latency or ports across any TCP-connected architecture over a specified time range. [Learn more about the benefits of Map feature over Service map](https://docs.microsoft.comazure/azure-monitor/faq#how-is-vm-insights-map-feature-different-from-service-map-). 
 
 ## Enable VM insights using Azure Monitor Agent
-Migrate from service map to Azure Monitor VM insights, which uses [Azure Monitor Agent and data collection rules](../agents/agents-overview.md). Azure Monitor Agent is replacing the Log Analytics agent, which was used by service map. For more information about how to enable VM insights for Azure virtual machines and on-premises machines, see [How to enable VM insights using Azure Monitor Agent for Azure virtual machines](../vm/vminsights-enable-overview.md#agents).
+
+VM insights uses [Azure Monitor Agent](../agents/agents-overview.md), which replaces the Log Analytics agent used by Service map. For more information about how to enable VM insights for Azure virtual machines and on-premises machines, see [How to enable VM insights using Azure Monitor Agent for Azure virtual machines](../vm/vminsights-enable-overview.md#agents).
 
 If you have on-premises machines, we recommend enabling [Azure Arc for servers](../../azure-arc/servers/overview.md) so that you enable the virtual machines for VM insights using processes similar to Azure virtual machines.
 
-VM insights also collects per-machine performance counters, which provide visibility into the health of your virtual machines. VM insights ingests these performance counters every minute, which slightly increases monitoring costs per machine. [Learn more about the pricing](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview#pricing).
+VM insights also collects per-machine performance counters, which provide visibility into the health of your virtual machines. VM insights ingests these performance counters every minute, which slightly increases monitoring costs per machine. [Learn more about the pricing](../vm/vminsights-overview.md#pricing).
 
-Once you migrate to VM insights, remove the ServiceMap solution from the workspace to avoid data duplication and incurring extra costs.
 
-## Remove ServiceMap solution from the workspace
+## Remove the ServiceMap solution from the workspace
+
+Once you migrate to VM insights, remove the ServiceMap solution from the workspace to avoid data duplication and incurring extra costs:
+
 
 1.	Sign in to the [Azure portal](https://portal.azure.com/).
 1.	In the search bar, type **Log Analytics workspaces**. As you begin typing, the list filters suggestions based on your input. Select **Log Analytics workspaces**.
