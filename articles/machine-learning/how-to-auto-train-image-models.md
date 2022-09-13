@@ -127,7 +127,7 @@ The following is a sample JSONL file for image classification:
 
 ```python
 {
-      "image_url": "AmlDatastore://image_data/Image_01.png",
+      "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_01.png",
       "image_details":
       {
           "format": "png",
@@ -137,7 +137,7 @@ The following is a sample JSONL file for image classification:
       "label": "cat"
   }
   {
-      "image_url": "AmlDatastore://image_data/Image_02.jpeg",
+      "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_02.jpeg",
       "image_details":
       {
           "format": "jpeg",
@@ -152,7 +152,7 @@ The following is a sample JSONL file for image classification:
 
   ```python
   {
-      "image_url": "AmlDatastore://image_data/Image_01.png",
+      "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_01.png",
       "image_details":
       {
           "format": "png",
@@ -170,7 +170,7 @@ The following is a sample JSONL file for image classification:
       }
   }
   {
-      "image_url": "AmlDatastore://image_data/Image_02.png",
+      "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_02.png",
       "image_details":
       {
           "format": "jpeg",
