@@ -458,7 +458,7 @@ The steps to add and use a Service Bus action differ based on whether you want t
    |----------|----------|-------------|
    | **Queue or topic name** | Yes | The selected queue to access |
 
-   ![Screenshot showing Standard workflow, Service Bus built-in trigger, and example trigger information.](./media/connectors-create-api-azure-service-bus/service-bus-trigger-built-in-standard.png)
+   ![Screenshot showing Standard workflow, Service Bus built-in action, and example action information.](./media/connectors-create-api-azure-service-bus/service-bus-action-built-in-standard.png)
 
 1. To add any other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
 
@@ -484,7 +484,7 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
    This example continues with the **Send message** action.
 
-   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus connector action selected.](./media/connectors-create-api-azure-service-bus/select-action-managed-standard.png)
+   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus managed action selected.](./media/connectors-create-api-azure-service-bus/select-action-managed-standard.png)
 
 1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
@@ -495,7 +495,7 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
    For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
-   ![Screenshot showing Standard workflow, Service Bus action, and example connection information.](./media/connectors-create-api-azure-service-bus/action-connection-string-managed-standard.png)
+   ![Screenshot showing Standard workflow, Service Bus managed action, and example connection information.](./media/connectors-create-api-azure-service-bus/action-connection-string-managed-standard.png)
 
 1. After the action information box appears, provide the necessary information, for example:
 
