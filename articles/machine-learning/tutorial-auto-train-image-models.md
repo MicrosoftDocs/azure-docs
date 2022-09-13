@@ -395,7 +395,16 @@ When doing a hyperparameter sweep, it can be useful to visualize the different c
 
 Alternatively, here below you can see directly the HyperDrive parent run and navigate to its 'Child runs' tab:
 
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+```yaml
+CLI example not available, please use Python SDK.
+```
+
+
+# [Python SDK](#tab/python)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
 hd_job = ml_client.jobs.get(returned_job.name + '_HD')
