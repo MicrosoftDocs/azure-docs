@@ -5,8 +5,8 @@ ms.date: 08/02/2021
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-author: knicholasa
-ms.author: nichola
+author: martincoetzer
+ms.author: martinco
 ms.topic: conceptual
 ms.collection: M365-identity-device-management
 ---
