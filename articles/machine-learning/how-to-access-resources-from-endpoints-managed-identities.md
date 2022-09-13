@@ -106,7 +106,7 @@ This guide assumes you don't have a managed identity, a storage account or an on
     ```
 * To follow along with this notebook, access the companion [example notebook](online-endpoints-managed-identity-sai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
 
-# [User-assigned (CLI)](#tab/user-identity-cli)
+# [User-assigned (Python)](#tab/user-identity-python)
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
