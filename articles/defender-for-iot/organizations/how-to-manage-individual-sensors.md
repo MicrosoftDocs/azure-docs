@@ -71,7 +71,7 @@ You'll receive an error message if the activation file couldn't be uploaded. The
 
 - **For cloud-connected sensors**: The sensor can't connect to the internet. Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that the required domains are allowed in the firewall and/or proxy.
 
-    For OT sensors version 22.2x, download the list of required domains from the  **Sites and sensors** page on the Azure portal. Select a site with an OT sensor that has a version 22.x installed, and then select **More actions** > **Download endpoint details**. For sensors with earlier versions, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+    For OT sensors version 22.x, download the list of required domains from the  **Sites and sensors** page on the Azure portal. Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**. For sensors with earlier versions, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
 
 - **For cloud-connected sensors**: The activation file is valid but Defender for IoT rejected it. If you can't resolve this problem, you can download another activation from the **Sites and Sensors** page in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). If this doesn't work, contact Microsoft Support.
 

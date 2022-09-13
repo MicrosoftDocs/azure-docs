@@ -64,13 +64,13 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     |**Sensor software versions 22.x**: [Updates for cloud connection firewall rules](#updates-for-cloud-connection-firewall-rules) |
+|**OT networks**     |**Sensor software versions 22.x**: [Updates for cloud connection outbound allow rules](#updates-for-cloud-connection-outbound-allow-rules) |
 
-### Updates for cloud connection firewall rules
+### Updates for cloud connection outbound allow rules
 
 For OT sensors with software versions 22.x and higher, Defender for IoT now supports networking [sensor connections to Azure](how-to-set-up-your-network.md#sensor-access-to-azure-portal) using endpoint domains *with* or *without* wildcards. To communicate with Azure, your OT sensor must have outbound HTTP traffic enabled to each of the required domains on port 443.
 
-For supported sensor versions, the full list of required domains is also now available from the Azure portal. Download a JSON list of domains from the following locations:
+For supported sensor versions, the full list of required secure domains is also now available from the Azure portal. Download a JSON list of domains from the following locations:
 
 - **A successful sensor registration page**: After onboarding a new OT sensor, version 22.x, the successful registration page now provides instructions for next steps, including a link to the endpoint domains you'll need to add as secure, outbound allow rules on your network. Select the **Download endpoint details** link to download the JSON file.
 
@@ -78,7 +78,7 @@ For supported sensor versions, the full list of required domains is also now ava
 
     :::image type="content" source="media/release-notes/download-domains.png" alt-text="Screenshot of a successful OT sensor registration page with the download endpoints link.":::
 
-- **The Sites and sensors page**: Select a site with 22.x OT sensors, and then select **More actions** > **Download endpoint details** to download the JSON file. For example:
+- **The Sites and sensors page**: Select a OT sensor with software versions 22.x or higher, or a site with one or more supported sensor versions. Then, select **More actions** > **Download endpoint details** to download the JSON file. For example:
 
     :::image type="content" source="media/release-notes/download-domains-sites-sensors.png" alt-text="Screenshot of the Sites and sensors page with the download endpoint details link.":::
 
