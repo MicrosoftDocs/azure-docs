@@ -2,13 +2,13 @@
 title: SKU not available errors
 description: Describes how to troubleshoot the SKU not available error when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
-ms.date: 12/17/2021
+ms.date: 09/12/2022
 ms.custom: devx-track-azurepowershell
 ---
 
 # Resolve errors for SKU not available
 
-This article describes how to resolve errors when a SKU isn't available in an Azure subscription's region or availability zones. Examples of resource SKUs are virtual machine (VM) size or storage account types. Errors occur during deployments with an Azure Resource Manager template (ARM template) or Bicep file. The error also occurs with commands like [New-AzVM](/powershell/module/az.compute/new-azvm) or [az vm create](/cli/azure/vm#az-vm-create) that specify a **size** parameter for a SKU that's not available.
+This article describes how to resolve errors when a SKU isn't available in an Azure subscription's region or availability zones. Examples of resource SKUs are virtual machine (VM) size or storage account types. Errors occur during deployments with an Azure Resource Manager template (ARM template) or Bicep file. The error also occurs with commands like [New-AzVM](/powershell/module/az.compute/new-azvm) or [az vm create](/cli/azure/vm#az-vm-create) that specify a `size` parameter for a SKU that's not available.
 
 ## Symptom
 
