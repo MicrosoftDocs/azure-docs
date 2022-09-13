@@ -242,7 +242,7 @@ Spans populate the `requests` and `dependencies` tables in Application Insights.
    </dependency>
    ```
 
-1. Add spans in your code:
+1. Use the `@WithSpan` annotation to emit a span each time your method is executed:
 
    ```java
     import io.opentelemetry.extension.annotations.WithSpan;
