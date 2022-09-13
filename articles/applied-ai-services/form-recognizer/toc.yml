@@ -63,6 +63,9 @@ items:
   - name: Create SAS tokens for storage containers
     displayName: blob, delegation, shared, explorer
     href:  create-sas-tokens.md
+  - name: Use SDKs and the REST API (v3.0)
+    displayName: formRecognizerClient, form recognizer client, boundingBox, bounding box, begin_analyze
+    href: how-to-guides/try-sdk-rest-api.md  
   - name: Use SDKs and the REST API (v2.1)
     displayName: formRecognizerClient, form recognizer client, boundingBox, bounding box, begin_analyze
     href: how-to-guides/try-sdk-rest-api.md
