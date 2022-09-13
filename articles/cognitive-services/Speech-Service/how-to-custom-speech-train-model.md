@@ -63,7 +63,7 @@ To create a model with datasets for training, use the `spx csr model create` com
 - Set the required `dataset` parameter to the ID of a dataset that you want used for training. To specify multiple datasets, set the `datasets` (plural) parameter and separate the IDs with a semicolon.
 - Set the required `language` parameter. The dataset locale must match the locale of the project. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
 - Set the required `name` parameter. This is the name that will be displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
-- Optionally, you can set the `base` property. For example: `--base 1aae1070-7972-47e9-a977-87e3b05c457d`. If you don't specify the `base`, the default base model for the locale is used. 
+- Optionally, you can set the `base` property. For example: `--base 1aae1070-7972-47e9-a977-87e3b05c457d`. If you don't specify the `base`, the default base model for the locale is used. The Speech CLI `base` parameter corresponds to the `baseModel` property in the JSON request and response.
 
 Here's an example Speech CLI command that creates a model with datasets for training:
 
