@@ -41,7 +41,7 @@ https://github.com/azure/azureml-examples
 
 ## Step 2. Authenticate with Azure
 
-You'll need to first define how to authenticate with Azure. You can use a service principal or OpenID Connect. 
+You'll need to first define how to authenticate with Azure. You can use a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or [OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect). 
 
 ### Generate deployment credentials
 
@@ -159,7 +159,7 @@ You'll need to update the CLI setup file variables to match your workspace.
 You'll use a `pipeline.yml` file to deploy your Azure ML pipeline. This is a machine learning pipeline and not a DevOps pipeline. You only need to make this update if you're using a name other than `cpu-cluster` for your computer cluster name. 
 
 1. In your cloned repository, go to `azureml-examples/cli/jobs/pipelines/nyc-taxi/pipeline.yml`. 
-1. Each time you see `compute: azureml:cpu-cluster`, update the value of `cpu-cluster` with your compute cluster name. There are five updates.
+1. Each time you see `compute: azureml:cpu-cluster`, update the value of `cpu-cluster` with your compute cluster name. For example, if your cluster is named `my-cluster`, your new value would be `azureml:my-cluster`. There are five updates.
 
 ## Step 5: Run your GitHub Actions workflow
 
@@ -171,7 +171,7 @@ Your workflow authenticates with Azure, sets up the Azure Machine Learning CLI, 
 Your workflow file is made up of a trigger section and jobs:
 - A trigger starts the workflow in the `on` section. The workflow runs by default on a cron schedule and when a pull request is made from matching branches and paths. Learn more about [events that trigger workflows](https://docs.github.com/actions/using-workflows/events-that-trigger-workflows). 
 - In the jobs section of the workflow, you checkout code and log into Azure with your service principal secret.
-- The jobs section also includes a setup action that installs and sets up the [Machine Learning CLI (v2)](how-to-configure-cli.md). Once the CLI is installed, the run job action runs your Azure Machine Learning `pipeline.yml` file to train a model with nyc taxi data.
+- The jobs section also includes a setup action that installs and sets up the [Machine Learning CLI (v2)](how-to-configure-cli.md). Once the CLI is installed, the run job action runs your Azure Machine Learning `pipeline.yml` file to train a model with NYC taxi data.
 
 
 ### Enable your workflow
@@ -224,7 +224,7 @@ Your workflow file is made up of a trigger section and jobs:
 Your workflow file is made up of a trigger section and jobs:
 - A trigger starts the workflow in the `on` section. The workflow runs by default on a cron schedule and when a pull request is made from matching branches and paths. Learn more about [events that trigger workflows](https://docs.github.com/actions/using-workflows/events-that-trigger-workflows). 
 - In the jobs section of the workflow, you checkout code and log into Azure with the Azure login action using OpenID Connect.
-- The jobs section also includes a setup action that installs and sets up the [Machine Learning CLI (v2)](how-to-configure-cli.md). Once the CLI is installed, the run job action runs your Azure Machine Learning `pipeline.yml` file to train a model with nyc taxi data.
+- The jobs section also includes a setup action that installs and sets up the [Machine Learning CLI (v2)](how-to-configure-cli.md). Once the CLI is installed, the run job action runs your Azure Machine Learning `pipeline.yml` file to train a model with NYC taxi data.
 
 ### Enable your workflow
 
@@ -280,7 +280,7 @@ Your workflow file is made up of a trigger section and jobs:
 ## Step 6: Verify your workflow run
 
 1. Open your completed workflow run and verify that the build job ran successfully. You'll see a green checkmark next to the job. 
-1. Open Azure Machine Learning studio and navigate to the **nyc-taxi-pipeline-example**. Verify that each part of your job (prep, transform, train, predict, score) completed and you see a green checkmark. 
+1. Open Azure Machine Learning studio and navigate to the **nyc-taxi-pipeline-example**. Verify that each part of your job (prep, transform, train, predict, score) completed and that you see a green checkmark. 
 
     :::image type="content" source="media/how-to-github-actions-machine-learning/github-actions-machine-learning-nyc-taxi-complete.png" alt-text="Screenshot of successful Machine Learning Studio run.":::
 
