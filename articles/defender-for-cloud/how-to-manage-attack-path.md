@@ -142,4 +142,4 @@ While you are [investigating and remediating an attack path](#investigate-and-re
 
 ## Next Steps
 
-Learn how to manage your [Build queries with Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
+Learn how to [Build queries with Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
