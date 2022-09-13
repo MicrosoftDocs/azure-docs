@@ -1,6 +1,17 @@
+---
+title: Migrate from Service Map to Azure Monitor VM insights
+description: Migrate from Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
+ms.topic: conceptual
+author: guywi-ms
+ms.author: guywild
+ms.date: 09/13/2022
+ms.reviewer: xpathak
+
+---
+
 # Migrate from Service map to Azure Monitor VM insights
 
-[Service map](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/service-map) will retire on 30 September 2025. To monitor connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture make sure to transition to [Azure Monitor VM insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview) before this date.
+[Service map](../vm/service-map.md) will be retired on 30 September 2025. To monitor connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture make sure to transition to [Azure Monitor VM insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview) before this date.
 
 VM insights monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. The map feature visualizes the VM dependencies by discovering running processes that have active network connection between servers, inbound and outbound connection latency or ports across any TCP-connected architecture over a specified time range. [Learn more about the benefits of Map feature over Service map](https://docs.microsoft.com/en-us/azure/azure-monitor/faq#how-is-vm-insights-map-feature-different-from-service-map-). 
 
@@ -15,6 +26,7 @@ VM insights includes additional functionality of collecting additional per-VM pe
 Once you migrate to VM insights, remove the ServiceMap solution from the workspace to avoid data duplication and incurring additional costs.
 
 ## Remove ServiceMap solution from the workspace
+
 1.	Sign in to the [Azure portal](https://portal.azure.com/).
 1.	In the search bar, type **Log Analytics workspaces**. As you begin typing, the list filters suggestions based on your input. Select **Log Analytics workspaces**.
 1.	In your list of Log Analytics workspaces, select the workspace you chose when you enabled ServiceMap.
