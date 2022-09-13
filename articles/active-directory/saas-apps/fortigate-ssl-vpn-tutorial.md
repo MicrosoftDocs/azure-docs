@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2022
+ms.date: 09/08/2022
 ms.author: jeedes
 ---
 
@@ -219,7 +219,7 @@ To complete these steps, you'll need the values you recorded earlier:
     		set entity-id < Identifier (Entity ID)Entity ID>
     		set single-sign-on-url < Reply URL Reply URL>
     		set single-logout-url <Logout URL>
-    		set idp-entity-id <Azure AD Identifier>
+    		set idp-entity-id <Azure Login URL>
 		set idp-single-sign-on-url <Azure AD Identifier>
     		set idp-single-logout-url <Azure Logout URL>
     		set idp-cert <Base64 SAML Certificate Name>
