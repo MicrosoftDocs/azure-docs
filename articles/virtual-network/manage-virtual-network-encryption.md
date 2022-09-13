@@ -87,7 +87,7 @@ az network vnet update \
 
 ## Enable encryption
 
-In this section, you'll enable encryption with the Azure portal, PowerShell, and the Azure CLI.
+In this section, you'll enable encryption with PowerShell and the Azure CLI.
 
 > [!IMPORTANT]
 > Azure Virtual Network encryption requires supported virtual machine SKUs in the virtual network for traffic to be encrypted. The setting **dropUnencrypted** will drop traffic between unsupported virtual machine SKUs if they are deployed in the virtual network. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).
@@ -124,6 +124,8 @@ az network vnet update \
 ---
 
 ## Disable encryption
+
+In this section, you'll disable encryption with PowerShell and the Azure CLI.
 
 # [**PowerShell**](#tab/manage-encryption-powershell)
 
