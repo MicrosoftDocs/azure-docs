@@ -18,6 +18,13 @@ ms.devlang: azurecli
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+> [!IMPORTANT]
+> SDK v2 is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Learn how to use the Visual Studio Code (VS Code) debugger to test and debug online endpoints locally before deploying them to Azure.
 
 Azure Machine Learning local endpoints help you test and debug your scoring script, environment configuration, code configuration, and machine learning model locally.
