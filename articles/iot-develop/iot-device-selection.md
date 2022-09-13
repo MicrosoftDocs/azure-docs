@@ -158,10 +158,10 @@ Terminology and acronyms are listed in alphabetical order.
 
 ## MCU device list
 
-Following is a comparison table of MCUs in alphabetical order. Please note this is an intentionally brief list, it is not intended to be exhaustive. 
+Following is a comparison table of MCUs in alphabetical order. Please note this is an intentionally brief list, it isn't intended to be exhaustive.
 
 >[!NOTE]
->This list is for educational purposes only, it is not intended to endorse any products. 
+>This list is for educational purposes only, it is not intended to endorse any products.
 
 | Board Name | Price Range (USD) | What is it used for? | Software| Speed | Processor | Memory | Onboard Sensors and Other Features | IO Pins | Video | Radio | Battery Connector? | Operating Voltage | Getting Stated Guides | **Alternatives** |
 | ---- | ---- | ---- | ----| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -174,7 +174,7 @@ Following is a comparison table of MCUs in alphabetical order. Please note this 
 
 ## SBC device list
 
-Following is a comparison table of SBCs in alphabetical order. Please note this is an intentionally brief list, it is not intended to be exhaustive.
+Following is a comparison table of SBCs in alphabetical order. Note this is an intentionally brief list, it isn't intended to be exhaustive.
 
 >[!NOTE]
 >This list is for educational purposes only, it is not intended to endorse any products.
@@ -193,6 +193,7 @@ Please submit an issue!
 ## See Also
 
 Other helpful resources include:
+
 1. [Overview of Azure IoT device types](/azure/iot-develop/concepts-iot-device-types)
 2. [Overview of Azure IoT Device SDKs](/azure/iot-develop/about-iot-sdks)
 3. [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-ansi-c)
