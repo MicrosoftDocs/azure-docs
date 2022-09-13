@@ -42,7 +42,7 @@ For a SAN using locally-redundant storage (LRS) in West US 2:
 | Maximum base capacity | 400 TiB |
 | Minimum total capacity | 64 TiB |
 | Maximum total IOPS | 2,000,000 |
-| Maximum total throughput | 81,920 MB/s |
+| Maximum total throughput | 32,000 MB/s |
 
 For a SAN using LRS in either France Central or Southeast Asia:
 
@@ -53,7 +53,7 @@ For a SAN using LRS in either France Central or Southeast Asia:
 | Maximum base capacity | 100 TiB |
 | Minimum total capacity | 64 TiB |
 | Maximum total IOPS | 500,000 |
-| Maximum total throughput | 81,920 MB/s |
+| Maximum total throughput | 8,000 MB/s |
 
 For a SAN using zone-redundant storage in either West US 2 or France Central:
 
@@ -64,7 +64,7 @@ For a SAN using zone-redundant storage in either West US 2 or France Central:
 | Maximum base capacity | 100 TiB |
 | Minimum total capacity | 64 TiB |
 | Maximum total IOPS | 500,000 |
-| Maximum total throughput | 81,920 MB/s |
+| Maximum total throughput | 8,000 MB/s |
 
 ## Volume group
 
