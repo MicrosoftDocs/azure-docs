@@ -27,7 +27,7 @@ For information on release notes for the connected machine agent, please see [Wh
 
 In this release, various improvements were made. 
 
-You can now restrict which URLs can be used to download machine configuration packages by setting the allowedGuestConfigPkgUrls tag on the server resource and providing a comma-separated list of URL patterns to allow. If the tag exists, the agent will only allow custom packages to be downloaded from the specified URLs. Built-in packages are unaffected by this feature. 
+- You can now restrict which URLs can be used to download machine configuration packages by setting the allowedGuestConfigPkgUrls tag on the server resource and providing a comma-separated list of URL patterns to allow. If the tag exists, the agent will only allow custom packages to be downloaded from the specified URLs. Built-in packages are unaffected by this feature. 
 
 # Fixed
 
