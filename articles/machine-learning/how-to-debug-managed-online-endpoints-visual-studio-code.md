@@ -398,7 +398,7 @@ To apply changes to your code:
 > [!NOTE]
 > Since the directory containing your code and endpoint assets is mounted onto the dev container, any changes you make in the dev container are synced with your local file system.
 
-For more extensive changes involving updates to your environment and endpoint configuration, use the `ml` extension `update` command. Doing so will trigger a full image rebuild with your changes.
+For more extensive changes involving updates to your environment and endpoint configuration, use your `MLClient`'s `online_deployments.update` module/method. Doing so will trigger a full image rebuild with your changes.
 
 ```python
 new_deployment = ManagedOnlineDeployment(
