@@ -25,6 +25,12 @@
   items:
     - name: System architecture
       href: architecture.md
+    - name: Users, roles, and permissions
+      items:
+      - name: Users, roles, and permissions for OT networks
+        href: roles-operational.md
+      - name: Roles and permissions for Enterprise OT networks
+        href: roles-enterprise.md
     - name: OT network monitoring best practices
       items:
       - name: Understand your network architecture
@@ -223,8 +229,6 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
-  - name: Users, roles, and permissions
-    href: roles.md
   - name: OT monitoring appliances
     items:
     - name: Overview

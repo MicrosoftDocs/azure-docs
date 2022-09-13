@@ -1,8 +1,8 @@
 ---
-title: Defender for IoT users, roles, and permissions
-description: Learn about the users, roles, and permissions available for Defender for IoT on the Azure portal and on-premises sensors and management consoles.
+title: Defender for IoT users, roles, and permissions for OT networks
+description: Learn about the Azure user roles available for OT monitoring with Microsoft Defender for IoT on the Azure portal, and locally for on-premises sensors and management consoles.
 ms.date: 09/11/2022
-ms.topic: reference
+ms.topic: conceptual
 ---
 
 # Defender for IoT users, roles, and permissions
@@ -11,41 +11,37 @@ Microsoft Defender for IoT provides access to services and data in both the Azur
 
 This articles provides a reference of all roles relevant to Defender for IoT, their permissions, and management options.
 
-## Azure user roles for Defender for IoT
+## Azure user roles for OT networks
 
-The built-in **Security reader**, **Security administrator**, **Contributor**, and **Owner** roles are relevant for use in Defender for IoT. An extra **Sensor operator** role is also added for Defender for IoT users, specifically for OT sensor management.
+The built-in **Security reader**, **Security administrator**, **Contributor**, and **Owner** roles are relevant for use in Defender for IoT.
 
-The following tables list functionality that is available to each user role by default.
+The following tables list the functionality for OT network monitoring that's available to each user role by default.
 
-**Permissions for management functionalities**:
+### Permissions for management functionalities
 
-|Sensor operator  |Security reader  |Security admin  |Contributor  |Owner  |
+Define management functionality roles across an entire Azure subscription.
+
+| Action |[Security Reader](../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../role-based-access-control/built-in-roles.md#contributor) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|
-|  **Download sensor and on-premises management console software and threat intelligence packages**<br>Resource scope: *Subscription*  | | | | |
-|Yes |   Yes      |  Yes       |   Yes      | Yes |
-|  **Download activation files**<br>Resource scope: *Subscription*  | | | | |
-|   Yes      |    No     |   Yes      | Yes | Yes |
-|  **Modify values on the Pricing page, update committed devices**<br>Resource scope: *Subscription*   | | | | |
-|  Read-only      |  No       |   Read-write      | Read-write | Read-write |
-|  **Recover on-premises passwords**<br>Resource scope: *Subscription*   | | | | |
-|   Yes      |   No      |   Yes     | Yes | Yes |
-|  **Push threat intelligence updates**<br>Resource scope: *Subscription*  | | | | |
-|    No     |    No     |   Yes     | Yes | Yes |
-|  **Modify values on the Sites and sensors page**<br>Resource scope: *Subscription*   |  | | | |
-|   Read-write      |     No    |   Read-write     | Read-write | Read-write |
+|  **Download sensor and on-premises management console software and threat intelligence packages** | ✔      |  ✔       |   ✔      | ✔ |
+|  **Download activation files**|   -     |   ✔      | ✔ | ✔ |
+|  **Modify values on the Pricing page, update committed devices**  | -       |   ✔     | ✔ | ✔ |
+|  **Recover on-premises passwords**  | -      |   ✔     | ✔ | ✔ |
+|  **Push threat intelligence updates**  | -     |   ✔     | ✔ | ✔ |
+|  **Modify values on the Sites and sensors page**   |   -    |   ✔    | ✔ | ✔|
 
-**Permissions for security monitoring functionalities**:
+### Permissions for security monitoring functionalities
 
-|Sensor operator  |Security reader  |Security admin  |Contributor  |Owner  |
+Define security monitoring roles across an entire Azure subscription or a specific OT site.
+
+| Action |[Security Reader](../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../role-based-access-control/built-in-roles.md#contributor) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|
-| **Alerts page** <br><br>Resource scope: *Subscription* or *site* | | | | |
-|No  | Read-only | Read-write | Read-write | Read-write |
-| **Device inventory** <br><br>Resource scope: *Subscription* or *site* | | | | |
-|No  | Read-only | Read-write | Read-write | Read-write |
+| **Alerts page** | Read-only | Read-write |Read-write | Read-write |
+| **Device inventory**  | Read-only | Read-write |Read-write | Read-write |
 
 For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
-## On-premises users for Defender for IoT
+## On-premises users for OT networks
 
 By default, each sensor and on-premises management console is installed with the *cyberx* and *support* privileged users. Sensors are also installed with the *cyberx_host* privileged user. For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software).
 
@@ -116,6 +112,7 @@ Permissions applied to each role differ between the sensor and the on-premises m
 | Send alert data to partners | No | No | Yes |
 | Manage certificates | No | No | Yes |
 | Session timeout when users aren't active | 30 minutes | 30 minutes  | 30 minutes  |
+
 
 ## Next steps
 
