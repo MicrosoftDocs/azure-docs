@@ -66,7 +66,7 @@ The following samples show how to protect a web API with the Microsoft identity 
 > | ASP.NET | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) | MSAL.NET | On-Behalf-Of (OBO) |
 > | ASP.NET Core | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET | On-Behalf-Of (OBO) |
 > | Java | [Sign in users](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/4.%20Spring%20Framework%20Web%20App%20Tutorial/3-Authorization-II/protect-web-api) | MSAL Java | On-Behalf-Of (OBO) |
-> | Node.js | &#8226; [Protect a Node.js web API](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) <br/> &#8226; [Protect a Node.js Web API with Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | MSAL Node | Authorization bearer |
+> | Node.js | &#8226; [Protect a Node.js web API](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/3-Authorization-II/1-call-api) <br/> &#8226; [Protect a Node.js Web API with Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | MSAL Node | Authorization bearer |
 
 ## Desktop
 

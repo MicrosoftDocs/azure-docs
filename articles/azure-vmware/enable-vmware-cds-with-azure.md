@@ -32,12 +32,12 @@ To provide access to vNET based Azure resources, each tenant can have their own 
 As shown in the diagram above, organization 01 has two organization virtual datacenters: VDC1 and VDC2. The virtual datacenter of each organization has its own Azure vNETs connected with their respective organization VDC Edge gateway through IPSEC VPN.
 Providers provide public IP addresses to the organization VDC Edge gateway for IPSEC VPN configuration. An ORG VDC Edge gateway firewall blocks all traffic by default, specific allow rules needs to be added on organization Edge gateway firewall.
 
-Organization VDCs can be part of a single organization and still provide isolation between them. For example, JSVM1 hosted in organization VDC1 cannot ping Azure VM JSVM2 for tenant2.
+Organization VDCs can be part of a single organization and still provide isolation between them. For example, VM1 hosted in organization VDC1 cannot ping Azure VM JSVM2 for tenant2.
 
 ### Prerequisites  
 - Organization VDC is configured with an Edge gateway and has Public IPs assigned to it to establish IPSEC VPN by provider.
 - Tenants have created a routed Organization VDC network in tenant’s virtual datacenter.
-- Test JSVM1 and JSVM2 are created in the Organization VDC1 and VDC2 respectively. Both VMs are connected to the routed orgVDC network in their respective VDCs.
+- Test VM1 and VM2 are created in the Organization VDC1 and VDC2 respectively. Both VMs are connected to the routed orgVDC network in their respective VDCs.
 - Have a dedicated [Azure vNET](tutorial-configure-networking.md#create-a-vnet-manually) configured for each tenant. For this example, we created Tenant1-vNet and Tenant2-vNet for tenant1 and tenant2 respectively.
 - Create an [Azure Virtual network gateway](tutorial-configure-networking.md#create-a-virtual-network-gateway) for vNETs created earlier.
 - Deploy Azure VMs JSVM1 and JSVM2 for tenant1 and tenant2 for test purposes.
