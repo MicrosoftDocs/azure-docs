@@ -594,9 +594,8 @@ If you're using a multi-service resource or Language resource, you can update [y
 
 ## Next steps
 
-* See [What are Cognitive Services](./what-are-cognitive-services.md) for available features you can develop along with [Azure key vault](/key-vault/general).  
+* See [What are Cognitive Services](./what-are-cognitive-services.md) for available features you can develop along with [Azure key vault](/azure/key-vault/general/).  
 * For additional information on secure application development, see:
-    * [Best practices for using Azure Key Vault](/key-vault/general/best-practices)
+    * [Best practices for using Azure Key Vault](/azure/key-vault/general/best-practices)
     * [Cognitive Services security](cognitive-services-security.md)
     * [Azure security baseline for Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json)
-    
