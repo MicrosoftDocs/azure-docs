@@ -18,8 +18,6 @@ items:
       href: create-azure-purview-dotnet.md
     - name: Create an account - Python
       href: create-azure-purview-python.md
-    - name: Create an account - Bicep
-      href: quickstart-bicep-create-azure-purview.md
     - name: Create an account - ARM
       href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
