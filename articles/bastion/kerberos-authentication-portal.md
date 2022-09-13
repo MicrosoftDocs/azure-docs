@@ -55,6 +55,8 @@ In this section, the following steps help you modify your virtual network and ex
 
 ## To verify Bastion is using Kerberos
 
+[!NOTE] You must use the User Principal Name (UPN) to sign in using Kerberos
+
 Once you have enabled Kerberos on your Bastion resource, you can verify that it's actually using Kerberos for authentication to the target domain-joined VM.
 
 1. Sign into the target VM (either via Bastion or not). Search for "Edit Group Policy" from the taskbar and open the **Local Group Policy Editor**.
