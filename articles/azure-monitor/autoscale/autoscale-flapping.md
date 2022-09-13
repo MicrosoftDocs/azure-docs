@@ -98,7 +98,7 @@ For example, the following rules can cause flapping:
 * OR when CPU > 70% per instance.
 * Scale in by 10 when the request count <=50 per instance.
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example1.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example":::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example1.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example" :::
 
 The table below shows a potential outcome of these autoscale rules:
 
@@ -138,7 +138,7 @@ AzureActivity
 
 Below is an example of an activity log record for flapping:
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-log.png" alt-text="A screen shot showing a log record form a flapping event":::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-log.png" alt-text="A screen shot showing a log record form a flapping event" lightbox="./media/autoscale-flapping/autoscale-flapping-log.png":::
 
 ````JSON
 {
