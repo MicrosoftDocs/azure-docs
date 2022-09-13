@@ -1,6 +1,6 @@
 ---
 title: Autoscale flapping
-description: "Flapping in Autoscale "
+description: "Flapping in Autoscale"
 author: EdB-MSFT
 ms.author: edbaynash
 ms.service: azure-monitor
@@ -102,15 +102,35 @@ If autoscale can't find a suitable number of instances, it will skip the scale i
 
 ## Log files
 
-Find flapping in the autoscale evaluation log with the following query:
+Find flapping in the activity log with the following query:
 ````
-// Autoscale operation status 
-// Lists latest Autoscale operations, where the InstanceUpdateReason contains the string "flapping". 
-AutoscaleEvaluationsLog 
-| sort by TimeGenerated desc 
-| where InstanceUpdateReason contains "flapping" 
+// Activity log, CategoryValue: Autoscale
+// Lists latest Autoscale operations from the activity log, with OperationNameValue =="Microsoft.Insights/AutoscaleSettings/Flapping/Action
+AzureActivity
+|where CategoryValue =="Autoscale" and OperationNameValue =="Microsoft.Insights/AutoscaleSettings/Flapping/Action"
+|sort by TimeGenerated desc 
+
 ````
 
-Below is an example of a log record for flapping:
+Below is an example of an activity log record for flapping:
 
 :::image type="content" source="./media/autoscale-flapping/autoscale-flapping-log.png" alt-text="A screen shot showing a log record form a flapping event":::
+
+````JSON
+{
+"eventCategory": "Autoscale",
+"eventName": "FlappingOccurred",
+"operationId": "ffd31c67-1438-47a5-bee4-1e3a102cf1c2",
+"eventProperties": "{"Description":"Scale down will occur with updated instance count to avoid flapping. Resource: '/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan'. Current instance count: '6', Intended new instance count: '1'. Actual new instance count: '4'","ResourceName":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan","OldInstancesCount":6,"NewInstancesCount":4,"ActiveAutoscaleProfile":{"Name":"Auto created scale condition","Capacity":{"Minimum":"1","Maximum":"30","Default":"1"},"Rules":[{"MetricTrigger":{"Name":"Requests","Namespace":"microsoft.web/sites","Resource":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","ResourceLocation":"West Central US","TimeGrain":"PT1M","Statistic":"Average","TimeWindow":"PT1M","TimeAggregation":"Maximum","Operator":"GreaterThanOrEqual","Threshold":3.0,"Source":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","MetricType":"MDM","Dimensions":[],"DividePerInstance":true},"ScaleAction":{"Direction":"Increase","Type":"ChangeCount","Value":"10","Cooldown":"PT1M"}},{"MetricTrigger":{"Name":"Requests","Namespace":"microsoft.web/sites","Resource":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","ResourceLocation":"West Central US","TimeGrain":"PT1M","Statistic":"Max","TimeWindow":"PT1M","TimeAggregation":"Maximum","Operator":"LessThan","Threshold":3.0,"Source":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","MetricType":"MDM","Dimensions":[],"DividePerInstance":true},"ScaleAction":{"Direction":"Decrease","Type":"ChangeCount","Value":"5","Cooldown":"PT1M"}}]}}",
+"eventDataId": "b23ae911-55d0-4881-8684-fc74227b2ddb",
+"eventSubmissionTimestamp": "2022-09-13T07:20:41.1589076Z",
+"resource": "scaleableappserviceplan",
+"resourceGroup": "ED-RG-001",
+"resourceProviderValue": "MICROSOFT.WEB",
+"subscriptionId": "D1234567-9876-A1B2-A2B1-123A567B9F876",
+"activityStatusValue": "Succeeded"
+}
+
+````
+
+
