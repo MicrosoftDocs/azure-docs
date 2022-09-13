@@ -14,27 +14,47 @@ ms.reviewer:
 
 This article describes flapping in autoscale and how to avoid it.
 
-Flapping is a term that refers to a loop condition causing a series of opposing scale events. Flapping happens when a scale event will result in the opposite scale event being triggered. To avoid the loop condition, autoscale evaluates the effect of a pending scale action to see if it would cause flapping. In cases where flapping could occur, autoscale may scale by less than the specified number of resource instances or, may skip the scale action and reevaluate at the next run. The autoscale evaluation process occurs each time the autoscale engine runs, which is every 30 to 60 seconds, depending on the resource type.
+Flapping refers to a loop condition that causes a series of opposing scale events. Flapping happens when a scale event triggers the opposite scale event.  
 
-For example, let's assume the following rules:
+Autoscale evaluates a pending scale-in action to see if it would cause flapping. In cases where flapping could occur, autoscale may skip the scale action and reevaluate at the next run, or autoscale may scale by less than the specified number of resource instances. The autoscale evaluation process occurs each time the autoscale engine runs, which is every 30 to 60 seconds, depending on the resource type.
+
+To ensure adequate resources, checking for potential flapping does not occur for scale-out events. Autoscale will only deffer a scale-in event to avoid flapping.
+
+For example , let's assume the following rules:
 
 * Scale out increasing by 1 instance when average CPU usage is above 50%.
 * Scale in decreasing the instance count by 1 instance when average CPU usage is lower than 30%.
 
-When usage is at 56% for a single instance, a scale-out action would result in 56% CPU usage across 2 instances, or an average of 28% for the scale set. As 28% is less than the scale-in threshold, autoscale should scale back in. Scaling in would return the scale set to 56% CPU usage, which requires a scale-out. In this situation, the autoscale engine will defer the scale-out event and reevaluate during the next autoscale run. The scale-out will only happen once the average CPU usage is above 60%.
+ In the table below at T0, when usage is at 56%, a scale-out action is triggered and results in 56% CPU usage across 2 instances. That gives an average of 28% for the scale set.  As 28% is less than the scale-in threshold, autoscale should scale back in. Scaling in would return the scale set to 56% CPU usage, which triggers a scale-out action.
 
-The following scenarios show what can cause flapping, and how to avoid it.
+|Time| Instance count| CPU% |CPU% per instance| Scale event| Resulting instance count
+|---|---|---|---|---|---|
+T0|1|56%|56%|Scale out|2|
+T1|2|56%|28%|Scale in|1|
+T2|1|56%|56%|Scale out|2|
+T3|2|56%|28%|Scale in|1|
 
-## Keep a margin between thresholds
 
-To avoid flapping, keep and adequate margin between scaling thresholds
+If left uncontrolled, there would be an ongoing series of scale events. However, in this situation, the autoscale engine will defer the scale-in event at *T1* and reevaluate during the next autoscale run. The scale-in will only happen once the average CPU usage is below 30%.
 
-For example, the following rules, where there is no margin between thresholds, cause flapping.
+Flapping is often caused by:
+
+* Small or no margins between thresholds
+* Scaling by more than one instance
+* Scaling in and out using different metrics
+
+## Small or no margins between thresholds
+
+To avoid flapping, keep adequate margins between scaling thresholds.
+
+For example, the following rules where there is no margin between thresholds, cause flapping.
 
 * Scale out when thread count >=600
 * Scale in when thread count < 600
 
 :::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example2.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example":::
+
+The table below shows a potential outcome of these autoscale rules: 
 
 |Time| Instance count| Thread count|Thread count per instance| Scale event| Resulting instance count
 |---|---|---|---|---|---|
@@ -42,18 +62,26 @@ T0|2|1250|625|Scale out|3|
 T1|3|1250|417|Scale in|2|
 
 1. At time T0, there are two instances handling 1250 threads, or 625 treads per instance. Autoscale scales out to three instances.
-1. Following the scale-out, at T1, we have the same 1250 threads, but with three instances, only 417 threads per instance. A scale-in event should be triggered.
-1. Before scaling-in, autoscale estimates the final state, if it scaled in. In this example, 1250 / 2 = 625 threads per instance. This means autoscale would have to immediately scale out again after it scaled in, however, if it scaled up again, the whole process would repeat, leading to flapping loop.
+1. Following the scale-out, at T1, we have the same 1250 threads, but with three instances, only 417 threads per instance. A scale-in event is triggered.
+1. Before scaling-in, autoscale evaluates what would happen if the scale-in event occurs. In this example, 1250 / 2 = 625, that is, 625 threads per instance. Autoscale would have to immediately scale out again after it scaled in, however, if it scaled out again, the whole process would repeat, leading to flapping loop.
 1. To avoid this situation, autoscale doesn't scale in. Instead, it skips the current scale event and reevaluates the condition in the next execution cycle.
 
-In this case, it would appear that autoscale isn't working as no scale event would take place.
+In this case, it looks like autoscale isn't working since no scale event takes place. Check the *Run history* tab on the autoscale setting page to see if there is any flapping.
+
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-runhistory-small.png" alt-text="A screenshot showing the autoscale run history tab with records showing flapping" lightbox="./media/autoscale-flapping/autoscale-flapping-runhistory.png":::
+
 
 Setting an adequate margin between thresholds solves the above condition. For example,
 
 * Scale out when thread count >=600
 * Scale in when thread count < 400
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example3.png" alt-text="A screenshot showing  autoscale rules configured for the example":::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example3.png" alt-text="A screenshot showing autoscale rules configured for the example" :::
+
+
+
+
+
 
 If the scale-in thread count is 400, the total thread count would have to drop to below 1200 before a scale event would take place. See the table below.
 
@@ -121,7 +149,18 @@ Below is an example of an activity log record for flapping:
 "eventCategory": "Autoscale",
 "eventName": "FlappingOccurred",
 "operationId": "ffd31c67-1438-47a5-bee4-1e3a102cf1c2",
-"eventProperties": "{"Description":"Scale down will occur with updated instance count to avoid flapping. Resource: '/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan'. Current instance count: '6', Intended new instance count: '1'. Actual new instance count: '4'","ResourceName":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan","OldInstancesCount":6,"NewInstancesCount":4,"ActiveAutoscaleProfile":{"Name":"Auto created scale condition","Capacity":{"Minimum":"1","Maximum":"30","Default":"1"},"Rules":[{"MetricTrigger":{"Name":"Requests","Namespace":"microsoft.web/sites","Resource":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","ResourceLocation":"West Central US","TimeGrain":"PT1M","Statistic":"Average","TimeWindow":"PT1M","TimeAggregation":"Maximum","Operator":"GreaterThanOrEqual","Threshold":3.0,"Source":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","MetricType":"MDM","Dimensions":[],"DividePerInstance":true},"ScaleAction":{"Direction":"Increase","Type":"ChangeCount","Value":"10","Cooldown":"PT1M"}},{"MetricTrigger":{"Name":"Requests","Namespace":"microsoft.web/sites","Resource":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","ResourceLocation":"West Central US","TimeGrain":"PT1M","Statistic":"Max","TimeWindow":"PT1M","TimeAggregation":"Maximum","Operator":"LessThan","Threshold":3.0,"Source":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","MetricType":"MDM","Dimensions":[],"DividePerInstance":true},"ScaleAction":{"Direction":"Decrease","Type":"ChangeCount","Value":"5","Cooldown":"PT1M"}}]}}",
+"eventProperties": 
+    "{"Description":"Scale down will occur with updated instance count to   avoid flapping. 
+     Resource: '/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/  resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/  ScaleableAppServicePlan'.
+     Current instance count: '6', 
+     Intended new instance count: '1'.
+     Actual new instance count: '4'",
+    "ResourceName":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan",
+    "OldInstancesCount":6,
+    "NewInstancesCount":4,
+    "ActiveAutoscaleProfile":{"Name":"Auto created scale condition",
+    "Capacity":{"Minimum":"1","Maximum":"30","Default":"1"},
+    "Rules":[{"MetricTrigger":{"Name":"Requests","Namespace":"microsoft.web/sites","Resource":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","ResourceLocation":"West Central US","TimeGrain":"PT1M","Statistic":"Average","TimeWindow":"PT1M","TimeAggregation":"Maximum","Operator":"GreaterThanOrEqual","Threshold":3.0,"Source":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","MetricType":"MDM","Dimensions":[],"DividePerInstance":true},"ScaleAction":{"Direction":"Increase","Type":"ChangeCount","Value":"10","Cooldown":"PT1M"}},{"MetricTrigger":{"Name":"Requests","Namespace":"microsoft.web/sites","Resource":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","ResourceLocation":"West Central US","TimeGrain":"PT1M","Statistic":"Max","TimeWindow":"PT1M","TimeAggregation":"Maximum","Operator":"LessThan","Threshold":3.0,"Source":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","MetricType":"MDM","Dimensions":[],"DividePerInstance":true},"ScaleAction":{"Direction":"Decrease","Type":"ChangeCount","Value":"5","Cooldown":"PT1M"}}]}}",
 "eventDataId": "b23ae911-55d0-4881-8684-fc74227b2ddb",
 "eventSubmissionTimestamp": "2022-09-13T07:20:41.1589076Z",
 "resource": "scaleableappserviceplan",
