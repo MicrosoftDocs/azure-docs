@@ -65,8 +65,8 @@ It is not guaranteed that the same set of python dependencies would be materiali
 - **[Environment Variable Issues](#environment-variable-issues)**<br>
 - **[Python Issues](#python-issues)**<br>
 - **[Pip Issues](#pip-issues)**<br>
-- **[Deprecated Environment Property Issues](#deprecated-environment-property-issues)**<br> <br>
-**[Image Build Problems](#image-build-problems)**<br>
+- **[Deprecated Environment Property Issues](#deprecated-environment-property-issues)**<br>
+**[Image Build Problems](#image-build-problems)**<br> <br>
 - **[Miscellaneous Issues](#miscellaneous-issues)**<br>
 - **[Docker Pull Issues](#docker-pull-issues)**<br>
 - **[Conda Issues](#conda-issues)**<br>
