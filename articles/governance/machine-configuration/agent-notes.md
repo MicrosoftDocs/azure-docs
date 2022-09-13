@@ -1,6 +1,6 @@
 ---
 title: Guest configuration agent notes
-description: Details guest configuration agent release notes, issues, and frequently-asked questions.
+description: Details guest configuration agent release notes, issues, and frequently asked questions.
 author: timwarner-msft
 ms.date: 09/13/2022
 ms.topic: conceptual
@@ -32,7 +32,7 @@ In this release, various improvements were made.
 ## Fixed
 
 - Resolves local elevation of privilege vulnerability [CVE-2022-38007](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007). 
-- If you are currently running an older version of the AzurePolicyforLinux extension, please use the PowerShell command below to update your extension to the latest version. 
+- If you're currently running an older version of the AzurePolicyforLinux extension, use the PowerShell command below to update your extension to the latest version. 
 
 ```powershell
 Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.26.38 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' -EnableAutomaticUpgrade $true
@@ -40,7 +40,7 @@ Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'Configuration
 
 ## Next steps
 
-- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- Set up a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
 - [Create a package artifact](./machine-configuration-create.md)
   for machine configuration.
 - [Test the package artifact](./machine-configuration-create-test.md)
