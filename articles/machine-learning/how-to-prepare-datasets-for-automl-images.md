@@ -45,25 +45,41 @@ It helps to create, manage, and monitor data labeling tasks for
 + Object detection (bounding box)
 + Instance segmentation (polygon)
 
-If you already have a data labeling project and you want to use that data, you can do the following
-
-+ [Export your labeled data as an Azure ML Dataset](how-to-create-image-labeling-projects.md#export-the-labels). You can then access the exported dataset under the 'Datasets' tab in Azure ML Studio, and download the underlying JSONL file from the Dataset details page under Data sources. The downloaded JSONL file can then be used to create an `MLTable` that can be used by automated ML for training computer vision models.
-+ You can also provide the dataset in yaml using the following format `azureml:<tabulardataset_name>:<version>`.
+If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure ML Dataset](how-to-create-image-labeling-projects.md#export-the-labels) and then access the dataset under the 'Datasets' tab in Azure ML Studio. This exported dataset can then be passed as an input using the following format `azureml:<tabulardataset_name>:<version>`. Here is an example on how to pass existing dataset as input for training computer vision models.
 
 # [Azure CLI](#tab/cli)
+
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-Create a .yml file with the following configuration.
-
-```yml
+```yaml
 training_data:
   path: azureml:odFridgeObjectsTrainingDataset:1
   type: mltable
+  mode: direct
 ```
 
 # [Python SDK](#tab/python)
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=data-load-v1)]
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+from azure.ai.ml.constants import AssetTypes, InputOutputModes
+from azure.ai.ml import Input
+
+# Training MLTable with v1 TabularDataset
+my_training_data_input = Input(
+    type=AssetTypes.MLTABLE, path="azureml:odFridgeObjectsTrainingDataset:1",
+    mode=InputOutputModes.DIRECT
+)
+
+# Validation MLTable with v1 TabularDataset
+my_validation_data_input = Input(
+    type=AssetTypes.MLTABLE, path="azureml:odFridgeObjectsValidationDataset:1",
+    mode=InputOutputModes.DIRECT
+)
+```
 ---
+
 
 ### Using pre-labeled training data
 If you have previously labeled data that you would like to use to train your model, you will first need to upload the images to the default Azure Blob Storage of your Azure ML Workspace and register it as a data asset. 
@@ -104,7 +120,7 @@ Once you have your labeled data in JSONL format, you can use it to create `MLTab
 
 :::code language="yaml" source="~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
 
-You can then pass in the `MLTable` as a data input for your AutoML training job.
+You can then pass in the `MLTable` as a [data input for your AutoML training job](./how-to-auto-train-image-models.md#consume-data).
 
 ## Next steps
 
