@@ -56,7 +56,7 @@ It is the user’s responsibility to evaluate the threat and address vulnerabili
 Not all the vulnerabilities are exploitable, so users need to use their own good judgement when choosing between reproducibility and resolving vulnerabilities.
 It is not guaranteed that the same set of python dependencies would be materialized with the image rebuild or for the new environment with the same set of Python dependencies. 
 
-[[_TOC_]]
+__TOC__
 
 # *Environment Definition Problems*
 
