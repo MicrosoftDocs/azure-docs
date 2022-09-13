@@ -33,7 +33,7 @@ The AKS and MySQL workload architecture consists of the following component depe
 
 ### Azure Kubernetes Service (AKS)
 
-- *Zonal* : The system node pool and user node pools are zonal when you pre-select the zones in which the node pools are deployed during creation time. In the case of a single datacenter outage, we recommended that you pre-select all three zones for better resiliency. Additional user node pools that support availability zones can be added to an existing AKS cluster and by supplying a value for the `zones` parameter. 
+- *Zonal* : The system node pool and user node pools are zonal when you pre-select the zones in which the node pools are deployed during creation time. We recommend that you pre-select all three zones for better resiliency. Additional user node pools that support availability zones can be added to an existing AKS cluster and by supplying a value for the `zones` parameter. 
 
 - *Zone-redundant*: Kubernetes control plane components such as *etcd*, *API server*, *Scheduler*, and *Controller Manager*  are automatically replicated or distributed across zones.  
 
