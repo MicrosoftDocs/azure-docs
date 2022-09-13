@@ -616,6 +616,12 @@ Next, complete the following steps:
   }
   ```
 
+## Application Insights errors
+
+- **404** and **409** errors
+
+  If your Standard workflow uses an Azure Blob built-in action that adds a blob to your storage container, you might get **404** and **409** errors in Application Insights for failed requests. These errors are expected because the connector checks whether the blob file exists before adding the blob. The errors result when the file doesn't exist. Despite these errors, the built-in action successfully adds the blob.
+
 ## Next steps
 
 - [Managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
