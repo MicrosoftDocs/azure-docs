@@ -92,7 +92,7 @@ T3|3|1180|590|no scale event|2|
 
 To avoid flapping when scaling in or out by more than one instance, autoscale may scale by less than the number of instances specified in the rule.
 
-For example, given the following rules:
+For example, the following rules can cause flapping:
 
 * Scale out by 20 when the request count >=200 per instance.
 * OR when CPU > 70% per instance.
