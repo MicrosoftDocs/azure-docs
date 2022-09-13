@@ -1,5 +1,5 @@
 ---
-title: Backup and restore – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Backup and restore – Azure Cosmos DB for PostgreSQL
 description: Protecting data from accidental corruption or deletion
 ms.author: jonels
 author: jonels-msft

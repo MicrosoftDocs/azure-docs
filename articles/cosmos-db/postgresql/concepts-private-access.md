@@ -1,5 +1,5 @@
 ---
-title: Private access - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Private access - Azure Cosmos DB for PostgreSQL
 description: This article describes private access for Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft

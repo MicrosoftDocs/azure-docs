@@ -1,5 +1,5 @@
 ---
-title: Create users - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Create users - Azure Cosmos DB for PostgreSQL
 description: This article describes how you can create new user accounts to interact with an Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft

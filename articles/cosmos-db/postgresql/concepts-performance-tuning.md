@@ -1,5 +1,5 @@
 ---
-title: Performance tuning - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Performance tuning - Azure Cosmos DB for PostgreSQL
 description: Improving query performance in the distributed database
 ms.author: jonels
 author: jonels-msft

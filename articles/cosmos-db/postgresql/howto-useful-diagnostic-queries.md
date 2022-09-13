@@ -1,5 +1,5 @@
 ---
-title: Useful diagnostic queries - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Useful diagnostic queries - Azure Cosmos DB for PostgreSQL
 description: Queries to learn about distributed data and more
 ms.author: jonels
 author: jonels-msft

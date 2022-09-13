@@ -1,5 +1,5 @@
 ---
-title: SQL functions – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: SQL functions – Azure Cosmos DB for PostgreSQL
 description: Functions in the Hyperscale (Citus) SQL API
 ms.author: jonels
 author: jonels-msft

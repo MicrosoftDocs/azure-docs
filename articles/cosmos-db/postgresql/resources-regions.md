@@ -1,5 +1,5 @@
 ---
-title: Regional availability – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Regional availability – Azure Cosmos DB for PostgreSQL
 description: Where you can run a Hyperscale (Citus) cluster
 ms.author: jonels
 author: jonels-msft

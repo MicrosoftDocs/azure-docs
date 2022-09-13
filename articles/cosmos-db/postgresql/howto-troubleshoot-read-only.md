@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot read-only access - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Troubleshoot read-only access - Azure Cosmos DB for PostgreSQL
 description: Learn why a Hyperscale (Citus) cluster can become read-only, and what to do
 keywords: postgresql connection,read only
 ms.author: jonels

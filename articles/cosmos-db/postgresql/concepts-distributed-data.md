@@ -1,5 +1,5 @@
 ---
-title: Distributed data – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Distributed data – Azure Cosmos DB for PostgreSQL
 description: Learn about distributed tables, reference tables, local tables, and shards in Azure Database for PostgreSQL.
 ms.author: jonels
 author: jonels-msft

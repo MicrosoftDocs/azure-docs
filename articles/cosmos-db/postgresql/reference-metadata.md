@@ -1,5 +1,5 @@
 ---
-title: System tables – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: System tables – Azure Cosmos DB for PostgreSQL
 description: Metadata for distributed query execution
 ms.author: jonels
 author: jonels-msft

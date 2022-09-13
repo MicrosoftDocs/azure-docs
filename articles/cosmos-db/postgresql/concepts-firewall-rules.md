@@ -1,5 +1,5 @@
 ---
-title: Public access - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Public access - Azure Cosmos DB for PostgreSQL
 description: This article describes public access for Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft

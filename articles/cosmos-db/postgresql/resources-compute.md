@@ -1,5 +1,5 @@
 ---
-title: Compute and storage – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Compute and storage – Azure Cosmos DB for PostgreSQL
 description: Options for a Hyperscale (Citus) cluster, including node compute and storage
 ms.author: jonels
 author: jonels-msft

@@ -1,5 +1,5 @@
 ---
-title: Enable private access - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Enable private access - Azure Cosmos DB for PostgreSQL
 description: How to set up private link in a cluster for Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft

@@ -1,5 +1,5 @@
 ---
-title: Fundamental concepts for scaling - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Fundamental concepts for scaling - Azure Cosmos DB for PostgreSQL
 description: Ideas you need to know to build relational apps that scale
 ms.author: jonels
 author: jonels-msft

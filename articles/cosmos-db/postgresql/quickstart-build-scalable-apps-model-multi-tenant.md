@@ -1,5 +1,5 @@
 ---
-title: Model multi-tenant apps - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Model multi-tenant apps - Azure Cosmos DB for PostgreSQL
 description: Techniques for scalable multi-tenant SaaS apps
 ms.author: jonels
 author: jonels-msft

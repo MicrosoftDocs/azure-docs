@@ -1,5 +1,5 @@
 ---
-title: Connect to server - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Connect to server - Azure Cosmos DB for PostgreSQL
 description: Learn how to connect to and query a Hyperscale (Citus) cluster
 ms.author: jonels
 author: jonels-msft

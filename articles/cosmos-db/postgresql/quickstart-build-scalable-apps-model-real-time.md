@@ -1,5 +1,5 @@
 ---
-title: Model real-time apps - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Model real-time apps - Azure Cosmos DB for PostgreSQL
 description: Techniques for scalable real-time analytical apps
 ms.author: jonels
 author: jonels-msft

@@ -1,5 +1,5 @@
 ---
-title: Restart server - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Restart server - Azure Cosmos DB for PostgreSQL
 description: Learn how to restart all nodes in a Hyperscale (Citus) cluster from the Azure portal.
 ms.custom: kr2b-contr-experiment
 ms.author: jonels

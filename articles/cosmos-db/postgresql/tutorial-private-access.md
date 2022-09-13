@@ -1,5 +1,5 @@
 ---
-title: Create cluster with private access - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Create cluster with private access - Azure Cosmos DB for PostgreSQL
 description: Connect a VM to a cluster private endpoint
 ms.author: jonels
 author: jonels-msft

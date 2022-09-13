@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: connect to a cluster with psql - Hyperscale (Citus) - Azure Database for PostgreSQL'
+title: 'Quickstart: connect to a cluster with psql - Azure Cosmos DB for PostgreSQL'
 description: Quickstart to connect psql to Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft

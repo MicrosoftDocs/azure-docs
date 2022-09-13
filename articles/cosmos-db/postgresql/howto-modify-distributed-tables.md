@@ -1,5 +1,5 @@
 ---
-title: Modify distributed tables - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Modify distributed tables - Azure Cosmos DB for PostgreSQL
 description: SQL commands to create and modify distributed tables - Hyperscale (Citus) using the Azure portal
 ms.author: jonels
 author: jonels-msft

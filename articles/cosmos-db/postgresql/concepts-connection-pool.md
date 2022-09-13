@@ -1,5 +1,5 @@
 ---
-title: Connection pooling – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Connection pooling – Azure Cosmos DB for PostgreSQL
 description: Scaling client database connections
 ms.author: jonels
 author: jonels-msft

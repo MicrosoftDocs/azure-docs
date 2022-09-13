@@ -1,5 +1,5 @@
 ---
-title: Scale cluster - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Scale cluster - Azure Cosmos DB for PostgreSQL
 description: Adjust cluster memory, disk, and CPU resources to deal with increased load
 ms.author: jonels
 author: jonels-msft

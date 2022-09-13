@@ -1,5 +1,5 @@
 ---
-title: Transport Layer Security (TLS) - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Transport Layer Security (TLS) - Azure Cosmos DB for PostgreSQL
 description: Instructions and information to configure Azure Cosmos DB for PostgreSQL and associated applications to properly use TLS connections.
 ms.author: jonels
 author: jonels-msft

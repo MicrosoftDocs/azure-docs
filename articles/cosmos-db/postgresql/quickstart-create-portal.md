@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: create a cluster - Hyperscale (Citus) - Azure Database for PostgreSQL'
+title: 'Quickstart: create a cluster - Azure Cosmos DB for PostgreSQL'
 description: Quickstart to create and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus).
 ms.author: jonels
 author: jonels-msft

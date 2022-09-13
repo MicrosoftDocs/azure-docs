@@ -1,5 +1,5 @@
 ---
-title: Server group - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Server group - Azure Cosmos DB for PostgreSQL
 description: What is a cluster in Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft

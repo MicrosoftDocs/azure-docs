@@ -1,5 +1,5 @@
 ---
-title: Extensions – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Extensions – Azure Cosmos DB for PostgreSQL
 description: Describes the ability to extend the functionality of your database by using extensions in Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft

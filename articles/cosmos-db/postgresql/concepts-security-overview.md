@@ -1,5 +1,5 @@
 ---
-title: Security overview - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Security overview - Azure Cosmos DB for PostgreSQL
 description: Information protection and network security for Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft

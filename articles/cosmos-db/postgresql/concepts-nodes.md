@@ -1,5 +1,5 @@
 ---
-title: Nodes – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Nodes – Azure Cosmos DB for PostgreSQL
 description: Learn about the types of nodes and tables in a cluster in Azure Database for PostgreSQL.
 ms.author: jonels
 author: jonels-msft

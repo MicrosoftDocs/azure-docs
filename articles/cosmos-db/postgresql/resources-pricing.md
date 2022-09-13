@@ -1,5 +1,5 @@
 ---
-title: Pricing – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Pricing – Azure Cosmos DB for PostgreSQL
 description: Pricing and how to save with Hyperscale (Citus)
 ms.author: jonels
 author: jonels-msft

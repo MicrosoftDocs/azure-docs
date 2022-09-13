@@ -1,5 +1,5 @@
 ---
-title: Configure high availability - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Configure high availability - Azure Cosmos DB for PostgreSQL
 description: How to enable or disable high availability
 ms.author: jonels
 author: jonels-msft

@@ -1,5 +1,5 @@
 ---
-title: Limits and limitations – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Limits and limitations – Azure Cosmos DB for PostgreSQL
 description: Current limits for Hyperscale (Citus) clusters
 ms.author: jonels
 author: jonels-msft

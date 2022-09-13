@@ -1,5 +1,5 @@
 ---
-title: How to view metrics - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: How to view metrics - Azure Cosmos DB for PostgreSQL
 description: How to access database metrics for Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft

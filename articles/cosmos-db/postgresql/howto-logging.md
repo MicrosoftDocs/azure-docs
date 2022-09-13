@@ -1,5 +1,5 @@
 ---
-title: Logs - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Logs - Azure Cosmos DB for PostgreSQL
 description: How to access database logs for Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft

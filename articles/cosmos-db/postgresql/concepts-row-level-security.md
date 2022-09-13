@@ -1,5 +1,5 @@
 ---
-title: Row level security – Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Row level security – Azure Cosmos DB for PostgreSQL
 description: Multi-tenant security through database roles
 ms.author: jonels
 author: jonels-msft

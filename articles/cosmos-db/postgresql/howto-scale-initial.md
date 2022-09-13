@@ -1,5 +1,5 @@
 ---
-title: Initial cluster size - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Initial cluster size - Azure Cosmos DB for PostgreSQL
 description: Pick the right initial size for your use case
 ms.author: jonels
 author: jonels-msft
