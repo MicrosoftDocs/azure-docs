@@ -213,6 +213,10 @@ environment definition:
     - `azureml/o16n-base/python-slim`
     - `azureml/openmpi3.1.2-cuda10.0-cudnn7-ubuntu16.04`
     - `azureml/openmpi3.1.2-ubuntu16.04`
+    - `azureml/openmpi3.1.2-cuda10.0-cudnn7-ubuntu18.04`
+    - `azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04`
+    - `azureml/openmpi3.1.2-cuda10.2-cudnn7-ubuntu18.04`
+    - `azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04`
 - AzureML cannot provide troubleshooting support for failed builds with deprecated images. 
 - Deprecated images are also at risk for vulnerabilities since they are no longer updated or maintained. 
 It is best to use newer, non-deprecated versions.
