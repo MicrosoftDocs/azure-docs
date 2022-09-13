@@ -125,7 +125,7 @@
     - name: Integrate security solutions and data sources
       href: partner-integration.md
     - name: Identify and remediate attack paths
-      href: how-to-manage-attack-paths.md
+      href: how-to-manage-attack-path.md
     - name: Build queries with Cloud Security Explorer
       href: how-to-manage-cloud-security-explorer.md
   - name: Security recommendations
