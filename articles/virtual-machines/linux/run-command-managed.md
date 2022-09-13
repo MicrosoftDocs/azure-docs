@@ -4,11 +4,11 @@ description: This topic describes how to run scripts within an Azure Linux virtu
 services: automation
 ms.service: virtual-machines
 ms.collection: linux
-author: cynthn
-ms.author: cynthn
-ms.date: 10/27/2021
+author: nikhilpatel909
+ms.author: erd
+ms.date: 09/08/2022
 ms.topic: how-to  
-ms.reviewer: jushiman
+ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Preview: Run scripts in your Linux VM by using managed Run Commands
@@ -180,18 +180,18 @@ To deploy scripts sequentially, use a deployment template, specifying a `depends
 
 ```json
 { 
-    "type": "Microsoft.Compute/virtualMachines/runCommands", 
-    "name": "secondRunCommand", 
-    "apiVersion": "2019-12-01", 
-    "location": "[parameters('location')]", 
-    "dependsOn": <full resourceID of the previous other Run Command>, 
-    "properties": { 
-        "source": {  
-            "script": "echo Hello World!"  
-        }, 
-        "timeoutInSeconds": 60  
+    "type":"Microsoft.Compute/virtualMachines/runCommands",
+    "name":"secondRunCommand",
+    "apiVersion":"2019-12-01",
+    "location":"[parameters('location')]",
+    "dependsOn":<full resourceID of the previous other Run Command>,
+    "properties":{
+        "source":{
+            "script":"echo Hello World!" 
+        },
+        "timeoutInSeconds":60
     }
-} 
+}
 ```
 
 ### Execute multiple Run Commands sequentially 

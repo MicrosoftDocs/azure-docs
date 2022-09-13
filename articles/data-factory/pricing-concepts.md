@@ -1,13 +1,13 @@
 ---
 title: Understanding Azure Data Factory pricing through examples 
 description: This article explains and demonstrates the Azure Data Factory pricing model with detailed examples
-author: shirleywangmsft
-ms.author: shwang
+author: jianleishen
+ms.author: jianleishen
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/07/2021
+ms.date: 08/09/2022
 ---
 
 # Understanding Data Factory pricing through examples
@@ -118,7 +118,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 - Pipeline Orchestration &amp; Execution = **$0.17007**
   - Activity Runs = 0.001\*4 = $0.004 [1 run = $1/1000 = 0.001]
   - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
-  - Pipeline Activity = $0.00003 (Prorated for 1 minute of execution time. $0.002/hour on Azure Integration Runtime)
+  - Pipeline Activity = $0.00003 (Prorated for 1 minute of execution time. $0.005/hour on Azure Integration Runtime)
   - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
 
 ## Run SSIS packages on Azure-SSIS integration runtime

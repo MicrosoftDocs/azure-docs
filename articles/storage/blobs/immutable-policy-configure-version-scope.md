@@ -18,6 +18,9 @@ Immutable storage for Azure Blob Storage enables users to store business-critica
 
 An immutability policy may be scoped either to an individual blob version or to a container. This article describes how to configure a version-level immutability policy. To learn how to configure container-level immutability policies, see [Configure immutability policies for containers](immutable-policy-configure-container-scope.md).
 
+> [!NOTE]
+> Immutability policies are not supported in accounts that have the Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
+
 Configuring a version-level immutability policy is a two-step process:
 
 1. First, enable support for version-level immutability on a new storage account or on a new or existing container. See [Enable support for version-level immutability](#enable-support-for-version-level-immutability) for details.

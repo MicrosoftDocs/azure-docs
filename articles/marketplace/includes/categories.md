@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 07/30/2020
 ms.custom: include file
-author: anbene
+author: mingshen-ms
 ms.author: mingshen
 ---
 

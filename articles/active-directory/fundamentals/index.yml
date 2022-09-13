@@ -39,7 +39,7 @@ landingContent:
         links:
           - text: Access the portal and create a tenant
             url: active-directory-access-create-new-tenant.md
-          - text: View your groups with assigned members 
+          - text: Create a group and add members 
             url: active-directory-groups-view-azure-portal.md
 
   # Card
@@ -53,20 +53,22 @@ landingContent:
             url: sign-up-organization.md
           - text: Add your custom domain name 
             url: add-custom-domain.md
-  
 
   # Card
-  - title: Create a group in Azure AD
+  - title: Manage groups in Azure AD
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Learn about groups
+            url: concept-learn-about-groups.md
       - linkListType: how-to-guide
         links:
-          - text: Create a basic group and add members
-            url: active-directory-groups-create-azure-portal.md
-          - text: Add or remove group owners
-            url: active-directory-accessmanagement-managing-group-owners.md
+          - text: Manage groups and group membership
+            url: how-to-manage-groups.md
+
 
    # Card
-  - title: Add users and assign their roles and licenses
+  - title: Add users and assign roles and licenses
     linkLists:
       - linkListType: how-to-guide
         links:

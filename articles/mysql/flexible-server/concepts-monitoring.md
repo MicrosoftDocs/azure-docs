@@ -9,24 +9,27 @@ ms.author: sisawant
 ms.date: 9/21/2020
 ---
 
-# Monitor Azure Database for MySQL Flexible Servers with built-in metrics
+# Monitor Azure Database for MySQL Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL Flexible Server provides monitoring of servers through Azure Monitor. Metrics are numerical values that describe some aspect of the resources of your server at a particular time. Monitoring your server's resources helps you troubleshoot and optimize your workload by allowing you to monitor what matters the most to you. Monitoring the right metrics helps you keep the performance, reliability, and availability of your server and applications.
+Azure Database for MySQL Flexible Server provides monitoring of servers through Azure Monitor. Monitoring data about your servers helps you troubleshoot and optimize for your workload.
 
-In this article, you will learn about the various metrics available for your flexible server that give insight into the behavior of your server.
+In this article, you'll learn about the various metrics available and Server logs for your flexible server that give insight into the behavior of your server.
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-## Available metrics
+## Metrics
 
-Azure Database for MySQL Flexible Server provides various metrics to understand how your workload is performing and based on this data, you can understand the impact on your server and application. For example, in flexible server, you can monitor **Host CPU percent**, **Active Connections**, **IO percent**, and **Host Memory Percent** to identify when there is a performance impact. From there, you may have to optimize your workload, scale vertically by changing compute tiers, or scaling horizontally by using read replica.
+Metrics are numerical values that describe some aspect of the resources of your server at a particular time. Monitoring your server's resources helps you troubleshoot and optimize your workload by allowing you to monitor what matters the most to you. Monitoring the right metrics helps you keep the performance, reliability, and availability of your server and applications.
+
+Azure Database for MySQL Flexible Server provides various metrics to understand how your workload is performing and based on this data, you can understand the impact on your server and application.
 
 All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. For step-by-step guidance, see [How to set up alerts](./how-to-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../../azure-monitor/data-platform.md).
 
-### List of metrics
+
+## List of metrics
 These metrics are available for Azure Database for MySQL:
 
 |Metric display name|Metric|Unit|Description|
@@ -46,6 +49,22 @@ These metrics are available for Azure Database for MySQL:
 |Aborted Connections|aborted_connections|Count|Total number of failed attempts to connect to your MySQL server, for example, failed connection due to bad credentials. For more information on aborted connections, you can refer to this [documentation](https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html).|
 |Queries|queries|Count|Total number of queries executed per minute on your server. Total count of queries per minute on your server from your database workload and Azure MySQL processes.|
 
+
+## Server logs
+
+In Azure Database for MySQL Server – Flexible Server, users can configure and download server logs to assist with troubleshooting efforts. With this feature enabled, a flexible server starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal and Azure CLI to download the files to work with them.
+The server logs feature is disabled by default. For information about how to enable server logs, see [How to enable and download server logs for Azure Database for MySQL - Flexible Server](./how-to-server-logs-portal.md)
+
+To perform a historical analysis of your data, in the Azure portal, on the Diagnostics settings pane for your server, add a diagnostic setting to send the logs to Log Analytics workspace, Azure Storage, or event hubs. For more information, see [Set up diagnostics](./tutorial-query-performance-insights.md#set-up-diagnostics).
+
+**Server logs retention**
+
+When logging is enabled for an Azure Database for MySQL flexible server, logs are available up to seven days from their creation.
+If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available.
+The 7-GB storage limit for server logs is available free of cost and can't be extended.
+Logs are rotated every 24 hours or 7 GB, whichever comes first.
+
+
 ## Next steps
 - See [How to set up alerts](./how-to-alert-on-metric.md) for guidance on creating an alert on a metric.
-- Learn more about [scaling IOPS](./concepts/../concepts-compute-storage.md#iops) to improve performance.
+- How to enable and download server logs for Azure Database for MySQL - Flexible Server from [Azure portal](./how-to-server-logs-portal.md) or [Azure CLI](./how-to-server-logs-cli.md)

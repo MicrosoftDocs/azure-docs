@@ -10,7 +10,7 @@ ms.date: 03/13/2020
 
 ms.author: gasinh
 author: gargi-sinha
-manager: martinco
+manager: amycolannino
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---

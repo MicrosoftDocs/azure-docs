@@ -26,7 +26,7 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API or for Azure Cosmos 
 * [Query the analytical store using Azure Synapse serverless SQL pool](#query-analytical-store-sql-on-demand)
 * [Use Azure Synapse serverless SQL pool to analyze and visualize data in Power BI](#analyze-with-powerbi)
 
-You can also checkout the learn module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
+You can also checkout the training module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
 
 ## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos DB accounts
 
@@ -348,7 +348,7 @@ You can find samples to get started with Azure Synapse Link on [GitHub](https://
 
 To learn more, see the following docs:
 
-* Checkout the learn module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
+* Checkout the training module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
 
 * [Azure Cosmos DB analytical store overview.](analytical-store-introduction.md)
 

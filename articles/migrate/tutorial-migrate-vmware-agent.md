@@ -1,7 +1,7 @@
 ---
 title: Migrate VMware VMs with agent-based Azure Migrate Server Migration
 description: Learn how to run an agent-based migration of VMware VMs with Azure Migrate.
-author: rahulg1190
+author: rahug1190
 ms.author: rahugup
 ms.manager: bsiva
 ms.topic: tutorial
@@ -63,6 +63,13 @@ Assign the Virtual Machine Contributor role to the account, so that you have per
 - Create a VM in the selected virtual network.
 - Write to an Azure managed disk.
 
+
+### Assign permissions to register the Replication Appliance in Azure AD
+
+If you are following the least privilege principle, assign the **Application Developer** Azure AD role to the user registering the Replication Appliance. Follow the [Assign administrator and non-administrator roles to users with Azure Active Directory](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) guide to do so.
+
+> [!IMPORTANT]
+> If the user registering the Replication Appliance is an Azure AD Global administrator, that user already has the required permissions.
 
 ### Set up an Azure network
 
@@ -197,11 +204,19 @@ Finish setting up and registering the replication appliance.
 1. In appliance setup, select **Setup connectivity**.
 2. Select the NIC (by default there's only one NIC) that the replication appliance uses for VM discovery, and to do a push installation of the Mobility service on source machines.
 3. Select the NIC that the replication appliance uses for connectivity with Azure. Then select **Save**. You cannot change this setting after it's configured.
+
+   > [!TIP]
+   > If for some reason you need to change the NIC selection and you have not clicked the **Finalize configuration** button in step 12, you can do so by clearing your browser cookies and restarting the **Configuration Server Management Wizard**.
+  
 4. If the appliance is located behind a proxy server, you need to specify proxy settings.
     - Specify the proxy name as **http://ip-address**, or **http://FQDN**. HTTPS proxy servers aren't supported.
 5. When prompted for the subscription, resource groups, and vault details, add the details that you noted when you downloaded the appliance template.
 6. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server.
 7. Select **Install VMware PowerCLI**. Make sure all browser windows are closed before you do this. Then select **Continue**.
+   
+   > [!NOTE]
+   > In newer versions of the Replication Appliance the **VMware PowerCLI** installation is not required.
+   
 8. In **Validate appliance configuration**, prerequisites are verified before you continue.
 9. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, where the VMs you want to replicate are located. Enter the port on which the server is listening. Enter a friendly name to be used for the VMware server in the vault.
 10. Enter the credentials for the account you [created](#prepare-an-account-to-discover-vms) for VMware discovery. Select **Add** > **Continue**.
@@ -282,9 +297,10 @@ Select VMs for migration.
 
 17. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.
-    - If you exclude disks, won't be present on the Azure VM after migration.
+    - If you exclude disks, they won't be present on the Azure VM after migration.
 
     :::image type="content" source="./media/tutorial-migrate-vmware-agent/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware-agent/disks-expanded.png":::
+    - You can exclude disks if the mobility agent is already installed on that server. [Learn more](../site-recovery/exclude-disks-replication.md#exclude-limitations).
 
 18. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
 
@@ -392,7 +408,7 @@ After you've verified that the test migration works as expected, you can migrate
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
     - Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

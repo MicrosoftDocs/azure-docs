@@ -122,7 +122,7 @@ sections:
       - question: |
           Can I create locally redundant storage, geo-redundant storage, and zone-redundant storage managed disks?
         answer: |
-          Azure Managed Disks currently supports only locally redundant storage managed disks.
+          Azure Managed Disks currently supports only locally redundant storage and zone-redundant storage managed disks.
 
       - question: |
           Can I shrink or downsize my managed disks?
@@ -193,6 +193,11 @@ sections:
           Do Standard SSD Disks support "single instance VM SLA"?
         answer: |
           Yes, all disk types support single instance VM SLA.
+
+      - question: |
+          Can I attach a disk to a VM in another region?
+        answer: |
+          No. All managed disks, even shared disks, must be in the same region as the VM they are attaching to.
 
   - name: Snapshots
     questions:

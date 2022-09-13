@@ -223,7 +223,7 @@ Create an alias record that points to the Traffic Manager profile.
 
 1. From a web browser, browse to `contoso.com` or your apex domain name. You see the IIS default page with `Hello World from Web-01`. The Traffic Manager directed traffic to **Web-01** IIS web server because it has the highest priority. Close the web browser and shut down **Web-01** virtual machine. Wait a few minutes for the virtual machine to completely shut down.
 1. Open a new web browser, and browse again to `contoso.com` or your apex domain name.
-1. You should see the IIS default page with `Hello World from Web-01`. The Traffic Manager handled the situation and directed traffic to the second IIS server after shutting down the first server that has the highest priority.
+1. You should see the IIS default page with `Hello World from Web-02`. The Traffic Manager handled the situation and directed traffic to the second IIS server after shutting down the first server that has the highest priority.
 
 ## Clean up resources
 
