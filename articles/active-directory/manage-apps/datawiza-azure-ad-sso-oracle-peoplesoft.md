@@ -13,7 +13,7 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-On to Oracle PeopleSoft
+# Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle PeopleSoft
 
 This tutorial shows how to enable Azure Active Directory (Azure AD) single sign-on (SSO) and Azure AD Multi-Factor Authentication for an
 Oracle PeopleSoft application using Datawiza Access Broker (DAB).
