@@ -36,21 +36,21 @@ In this tutorial, you learn how to:
 The first step is to select a testing method to validate your SCIM endpoint.
 
 1. Open your web browser and navigate to the SCIM Validator: [https://scimvalidator.microsoft.com/](https://scimvalidator.microsoft.com/).
-1. Select one of the 3 test options. You can use default attributes, automatically discover the schema, or upload a schema.
+1. Select one of the three test options. You can use default attributes, automatically discover the schema, or upload a schema.
 
 **Use default attributes** - The system provides the default attributes, and you modify them to meet your need.
 
-**Discover schema** - If your end point supports /Schema, this option will allow the tool to discover the supported attributes. We recommend this option as it reduces the overhead of updating your app when you introduce support for additional resources.
+**Discover schema** - If your end point supports /Schema, this option will allow the tool to discover the supported attributes. We recommend this option as it reduces the overhead of updating your app as you build it out.
 
-**Upload Azure AD Schema** - Upload the schema you have downloaded from your sample app on Azure AD.
+**Upload Azure AD Schema** - Upload the schema you've downloaded from your sample app on Azure AD.
 
 
 ## Configure the testing method
-Now that you have selected a testing method, the next step is to configure it.
+Now that you've selected a testing method, the next step is to configure it.
 
-1. If you are using the **default attributes** option then fill in all of the indicated fields. Ensure that the *Enable group tests* option is checked if the desire is to test group attributes as well. 
-1. If you are using the **discover schema** option then enter the SCIM endpoint URL and token.
-1. If you are uploading a schema then select your .json file to upload. The option accepts a .json file exported from your sample app on the Azure portal. To learn how to export a schema, see [How-to: Export provisioning configuration and roll back to a known good state](export-import-provisioning-configuration.md#export-your-provisioning-configuration). To test *group attributes*, make sure to select **Enable Group Tests**.
+1. If you're using the default attributes option, then fill in all of the indicated fields. Ensure that the *Enable group tests* option is checked if the desire is to test group attributes as well. 
+1. If you're using the discover schema option, then enter the SCIM endpoint URL and token.
+1. If you're uploading a schema, then select your .json file to upload. The option accepts a .json file exported from your sample app on the Azure portal. To learn how to export a schema, see [How-to: Export provisioning configuration and roll back to a known good state](export-import-provisioning-configuration.md#export-your-provisioning-configuration). To test *group attributes*, make sure to select **Enable Group Tests**.
 1. Edit the list attributes as desired for both the user and group types using the ‘Add Attribute’ option at the end of the attribute list and minus (-) sign on the right side of the page. 
 1. Select the joining property from both the user and group attributes list. 
 
@@ -60,18 +60,18 @@ The joining property, also known as matching attribute, is an attribute that use
 Finally, you need to test and validate your endpoint.
 
 1. Proceed and test your end point by using the ‘Test Schema’ option at the foot of the page.
-1. Upon running the validation test, the system will provide the results with a summary of passed and failed tests.
+1. After the validation test, you'll see the results with a summary of passed and failed tests.
 1. Use the ‘show details’ tab next to each test to see the details of the test and the results of each test.
-1. Keep running the tests and fixing the highlighted issues until you have all tests passing. At this point then you end point is compatible with our Azure AD SCIM client.
+1. Keep running the tests and fixing the highlighted issues until all tests pass.
 
 ## Clean up resources
 
-If you're not going to continue to use the Azure resources you created to complete this tutorial then be sure to delete them.
+Don't forget to delete any Azure resources that you no longer need.
 
 ## Known issues 
 
 ### Support for deletes
-Deletes are not yet supported.
+Deletes aren't yet supported.
 
 ### Time zone format 
 The time zone format is randomly generated and will fail for systems that try to validate it.
