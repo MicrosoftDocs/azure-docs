@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/03/2022
+ms.date: 09/13/2022
 ms.author: abnarain
 ---
 
@@ -1022,6 +1022,50 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 ## Web Activity  
 
+### Error code: 2108
+
+- **Message**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
+
+- **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
+
+- **Recommendation**: Use Fiddler/Postman/Netmon/Wireshark to validate the request.
+
+#### More details
+
+To use **Fiddler** to create an HTTP session of the monitored web application:
+
+1. Download, install, and open [Fiddler](https://www.telerik.com/download/fiddler).
+
+1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**.
+
+   1. In the HTTPS tab, select both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
+
+      :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler options":::
+
+1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device.
+
+   Go to: **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
+
+1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
+
+1. Clear your browser's cache so that all cached items are removed and must be downloaded again.
+
+1. Create a request:
+
+1. Select the **Composer** tab.
+
+   1. Set the HTTP method and URL.
+ 
+   1. If needed, add headers and a request body.
+
+   1. Select **Execute**.
+
+1. Turn on traffic capturing again, and complete the problematic transaction on your page.
+
+1. Go to: **File** > **Save** > **All Sessions**.
+
+For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
+
 ### Error Code: 2001
 
 - **Message**: `The length of execution output is over limit (around 4MB currently).`
@@ -1058,17 +1102,9 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Message**: `The value type '<provided data type>', in key '<key name>' is not expected type '<expected data type>'`
 
-- **Cause**: Data generated in dynamic content expression doesn't match with the key and causes JSON parsing failure.
+- **Cause**: Data generated in the dynamic content expression doesn't match with the key and causes JSON parsing failure.
 
 - **Recommendation**: Look at the key field and fix the dynamic content definition.
-
-### Error code: 2108
-
-- **Message**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
-
-- **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
-
-- **Recommendation**: Use Fiddler/Postman/Netmon/Wireshark to validate the request.
 
 ### Error code: 2108
 
@@ -1094,40 +1130,6 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Recommendation**: Verify that you have provided the correct resource URL for your managed identity.
 
-#### More details
-To use **Fiddler** to create an HTTP session of the monitored web application:
-
-1. Download, install, and open [Fiddler](https://www.telerik.com/download/fiddler).
-
-1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**.
-
-   1. In the HTTPS tab, select both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
-
-      :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler options":::
-
-1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device.
-
-   Go to: **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
-
-1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
-
-1. Clear your browser's cache so that all cached items are removed and must be downloaded again.
-
-1. Create a request:
-
-1. Select the **Composer** tab.
-
-   1. Set the HTTP method and URL.
- 
-   1. If needed, add headers and a request body.
-
-   1. Select **Execute**.
-
-1. Turn on traffic capturing again, and complete the problematic transaction on your page.
-
-1. Go to: **File** > **Save** > **All Sessions**.
-
-For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
 ## General
 
