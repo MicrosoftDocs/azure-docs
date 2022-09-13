@@ -98,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | family_name | user.surname |
     | userName | user.userprincipalname |
 
-1. In order to full Headspace's requirements, please follow the steps below to correctly configure the necessary Attributes & Claims:
+1. In order to fill Headspace's requirements, please follow the steps below to correctly configure the necessary Attributes & Claims:
 
 	1. Click the pencil or **Edit** in the Attributes & Claims modal which should open a new page.
 
