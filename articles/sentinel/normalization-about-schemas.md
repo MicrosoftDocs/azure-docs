@@ -20,14 +20,14 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | Schema | Version | Status |
 | ------ | ------- | ------ |
 | [Authentication Event](authentication-normalization-schema.md) | 0.1.1 | Preview |
-| [DNS Activity](dns-normalization-schema.md) | 0.1.3 | Preview |
+| [DNS Activity](dns-normalization-schema.md) | 0.1.4 | Preview |
 | [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
 | [File Activity](file-event-normalization-schema.md) | 0.1 | Preview |
-| [Network Session](normalization-schema.md) | 0.2.2 | Preview |
+| [Network Session](normalization-schema.md) | 0.2.4 | Preview |
 | [Process Event](process-events-normalization-schema.md) | 0.1 | Preview |
 | [Registry Event](registry-event-normalization-schema.md) | 0.1 | Preview |
 | [User Management](user-management-normalization-schema.md) | 0.1 | Preview |
-| [Web Session](web-normalization-schema.md) | 0.2.2 | Preview |
+| [Web Session](web-normalization-schema.md) | 0.2.4 | Preview |
 
 
 > [!IMPORTANT]
@@ -99,13 +99,15 @@ Each schema explicitly defines the central entities and entity fields. The follo
 
 Users are central to activities reported by events. The fields listed in this section are used to describe the users involved in the action. Prefixes are used to designate the role of the user in the activity. The prefixes `Src` and `Dst` are used to designate the user role in network related events, in which a source system and a destination system communicate. The prefixes 'Actor' and 'Target' are used for system oriented events such as process events.
 
-#### The user ID
+#### The user ID and scope
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="userid"></a>**UserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the  user.  |
+| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which the user is defined. For example, an AAD tenant for. The scope type is tightly coupled to the user ID type, and therefore the [UserIdType](#useridtype) field represents also the type of the associated with this field. |
 | <a name="useridtype"></a>**UserIdType** | Optional | UserIdType | The type of the ID stored in the [UserId](#userid) field. |
-| **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId** | Optional | String | Fields used to store additional user IDs, if the original event includes multiple user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). 
+| **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId** | Optional | String | Fields used to store specific user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). Populate the relevant specific ID field, in addition to [UserId](#userid), even if the event has only one ID. |
+| **UserAADTenant**, **UserAWSAccount** | Optional | String | Fields used to store specific scopes. Use the [UserScope](#userscope) field for the scope associated with the ID stored in the [UserId](#userid) field.  Populate the relevant specific scope field, in addition to [UserScope](#userscope), even if the event has only one ID. | 
 
 The allowed values for a user ID type are:
 
@@ -116,6 +118,17 @@ The allowed values for a user ID type are:
 | **AADID**| An Azure Active Directory user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
 | **OktaId** | An Okta user ID. |  `00urjk4znu3BcncfY0h7` |
 | **AWSId** | An AWS user ID. | `72643944673` |
+
+#### The user scope
+
+The user context defines the sc
+
+| Field | Class | Type | Description |
+|-------|-------|------|-------------|
+| <a name="userscope"></a>**UserContext** | Optional | string | The context in which the user is defined 
+| <a name="usercontexttype"></a>**UserContextType** | Optional | UserContextType | The type of the ID stored in the [UserId](#userid) field. |
+| **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId** | Optional | String | Fields used to store additional user IDs, if the original event includes multiple user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). 
+
 
 
 #### The user name
