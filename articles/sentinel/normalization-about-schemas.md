@@ -105,7 +105,7 @@ Users are central to activities reported by events. The fields listed in this se
 |-------|-------|------|-------------|
 | <a name="userid"></a>**UserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the  user.  |
 | <a name="useridtype"></a>**UserIdType** | Optional | UserIdType | The type of the ID stored in the [UserId](#userid) field. |
-| **SID**, **UID**, **AADID**, **OktaId**, **AWSId** | Optional | String | Fields used to store additional user IDs, if the original event includes multiple user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). 
+| **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId** | Optional | String | Fields used to store additional user IDs, if the original event includes multiple user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). 
 
 The allowed values for a user ID type are:
 
@@ -124,7 +124,7 @@ The allowed values for a user ID type are:
 |-------|-------|------|-------------|
 | <a name="username"></a>**Username** | Optional | String | The source username, including domain information when available. Use the simple form only if domain information isn't available. Store the Username type in the [UsernameType](#usernametype) field. |
 | <a name="usernametype"></a>**UsernameType** | Optional | UsernameType | Specifies the type of the username stored in the [Username](#username) field.  |
-| **UPN**, **WindowsUsername**, **DNUsername**, **SimpleUsername** |  Optional | String | Fields used to store additional usernames, if the original event includes multiple usernames. Select the username most associated with the event as the primary username stored in [Username](#username). |
+| **UserUPN**, **WindowsUsername**, **DNUsername**, **SimpleUsername** |  Optional | String | Fields used to store additional usernames, if the original event includes multiple usernames. Select the username most associated with the event as the primary username stored in [Username](#username). |
 
 The allowed values for a username type are:
 
