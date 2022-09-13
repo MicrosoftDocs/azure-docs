@@ -13,7 +13,7 @@ ms.date: 07/17/2020
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Running efficient queries on a Hyperscale (Citus) server group requires that
+Running efficient queries on a Hyperscale (Citus) cluster requires that
 tables be properly distributed across servers. The recommended distribution
 varies by the type of application and its query patterns.
 
@@ -78,7 +78,7 @@ closely resembles your application.
 >     aggregations and GROUP BYs.
 
 If your situation resembles either case above, then the next step is to decide
-how to shard your data in the server group. The database administrator\'s
+how to shard your data in the cluster. The database administrator\'s
 choice of distribution columns needs to match the access patterns of typical
 queries to ensure performance.
 

@@ -32,7 +32,7 @@ Azure Cosmos DB for PostgreSQL currently supports a subset of key extensions as 
 
 The following tables list the standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. This information is also available by running `SELECT * FROM pg_available_extensions;`.
 
-The versions of each extension installed in a server group sometimes differ based on the version of PostgreSQL (11, 12, or 13). The tables list extension versions per database version.
+The versions of each extension installed in a cluster sometimes differ based on the version of PostgreSQL (11, 12, or 13). The tables list extension versions per database version.
 
 ### Citus extension
 
@@ -152,12 +152,12 @@ You can use dblink and postgres\_fdw to connect from one PostgreSQL server to
 another, or to another database in the same server.  The receiving server needs
 to allow connections from the sending server through its firewall.  To use
 these extensions to connect between Azure Database for PostgreSQL servers or
-Hyperscale (Citus) server groups, set **Allow Azure services and resources to
-access this server group (or server)** to ON.  You also need to turn this
+Hyperscale (Citus) clusters, set **Allow Azure services and resources to
+access this cluster (or server)** to ON.  You also need to turn this
 setting ON if you want to use the extensions to loop back to the same server.
-The **Allow Azure services and resources to access this server group** setting
-can be found in the Azure portal page for the Hyperscale (Citus) server group
+The **Allow Azure services and resources to access this cluster** setting
+can be found in the Azure portal page for the Hyperscale (Citus) cluster
 under **Networking**.  Currently, outbound connections from Azure Database for
 PostgreSQL Single server and Hyperscale (Citus) aren't supported, except for
 connections to other Azure Database for PostgreSQL servers and Hyperscale
-(Citus) server groups.
+(Citus) clusters.

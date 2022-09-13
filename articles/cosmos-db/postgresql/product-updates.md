@@ -39,7 +39,7 @@ Here are the features currently available for preview:
   certain government, financial, or ISO certification audits.
 * **[Cross-region
   replication](concepts-read-replicas.md#cross-region-replication-preview)**.
-  Create asynchronous read replicas for a server group in different regions.
+  Create asynchronous read replicas for a cluster in different regions.
 
 ## Contact us
 

@@ -17,7 +17,7 @@ ms.date: 1/8/2019
 
 The PostgreSQL engine uses
 [roles](https://www.postgresql.org/docs/current/sql-createrole.html) to control
-access to database objects, and a newly created Hyperscale (Citus) server group
+access to database objects, and a newly created Hyperscale (Citus) cluster
 comes with several roles pre-defined:
 
 * The [default PostgreSQL roles](https://www.postgresql.org/docs/current/default-roles.html)
@@ -50,7 +50,7 @@ Notably, the `citus` role has some restrictions:
 As mentioned, the `citus` admin account lacks permission to create additional
 users. To add a user, use the Azure portal interface.
 
-1. Go to the **Roles** page for your Hyperscale (Citus) server group, and
+1. Go to the **Roles** page for your Hyperscale (Citus) cluster, and
    select **+ Add**:
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="The roles page":::
@@ -59,7 +59,7 @@ users. To add a user, use the Azure portal interface.
 
    :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Add role":::
 
-The user will be created on the coordinator node of the server group,
+The user will be created on the coordinator node of the cluster,
 and propagated to all the worker nodes. Roles created through the Azure
 portal have the `LOGIN` attribute, which means they’re true users who
 can sign in to the database.
@@ -88,7 +88,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 ## How to delete a user role or change their password
 
-To update a user, visit the **Roles** page for your Hyperscale (Citus) server group,
+To update a user, visit the **Roles** page for your Hyperscale (Citus) cluster,
 and select the ellipses **...** next to the user. The ellipses will open a menu
 to delete the user or reset their password.
 

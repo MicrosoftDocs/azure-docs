@@ -26,9 +26,9 @@ In this tutorial, you use Azure Cosmos DB for PostgreSQL to learn how to:
 
 ## Prerequisites
 
-This tutorial requires a running Hyperscale (Citus) server group with two
-worker nodes. If you don't have a running server group, follow the [create
-server group](quickstart-create-portal.md) tutorial and then come back
+This tutorial requires a running Hyperscale (Citus) cluster with two
+worker nodes. If you don't have a running cluster, follow the [create
+cluster](quickstart-create-portal.md) tutorial and then come back
 to this one.
 
 ## Hash-distributed data
@@ -38,7 +38,7 @@ for scalable queries in Hyperscale (Citus). Together, multiple nodes can hold
 more data than a traditional database, and in many cases can use worker CPUs in
 parallel to execute queries.
 
-In the prerequisites section, we created a Hyperscale (Citus) server group with
+In the prerequisites section, we created a Hyperscale (Citus) cluster with
 two worker nodes.
 
 ![coordinator and two workers](media/tutorial-shard/nodes.png)
@@ -64,7 +64,7 @@ select nodeid, nodename from pg_dist_node where isactive;
 ### Rows, shards, and placements
 
 To use the CPU and storage resources of worker nodes, we have to distribute
-table data throughout the server group.  Distributing a table assigns each row
+table data throughout the cluster.  Distributing a table assigns each row
 to a logical group called a *shard.* Let's create a table and distribute it:
 
 ```sql
@@ -152,7 +152,7 @@ limit 5;
 
 ### Data skew
 
-A server group runs most efficiently when you place data evenly on worker
+A cluster runs most efficiently when you place data evenly on worker
 nodes, and when you place related data together on the same workers. In this
 section we'll focus on the first part, the uniformity of placement.
 
@@ -265,7 +265,7 @@ books with users.
 
 In the previous sections, we saw how distributed table rows are placed in shards
 on worker nodes. Most of the time you don't need to know how or where data is
-stored in a server group. Hyperscale (Citus) has a distributed query executor
+stored in a cluster. Hyperscale (Citus) has a distributed query executor
 that automatically splits up regular SQL queries. It runs them in parallel on
 worker nodes close to the data.
 

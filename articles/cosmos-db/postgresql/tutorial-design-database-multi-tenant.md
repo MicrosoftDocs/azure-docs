@@ -19,7 +19,7 @@ ms.date: 06/29/2022
 In this tutorial, you use Azure Cosmos DB for PostgreSQL to learn how to:
 
 > [!div class="checklist"]
-> * Create a Hyperscale (Citus) server group
+> * Create a Hyperscale (Citus) cluster
 > * Use psql utility to create a schema
 > * Shard tables across nodes
 > * Ingest sample data
@@ -287,12 +287,12 @@ SELECT id
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Select the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and select the final *Delete* button.
+In the preceding steps, you created Azure resources in a cluster. If you don't expect to need these resources in the future, delete the cluster. Select the *Delete* button in the *Overview* page for your cluster. When prompted on a pop-up page, confirm the name of the cluster and select the final *Delete* button.
 
 ## Next steps
 
-In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data both within and between tenants, and to customize the schema per tenant.
+In this tutorial, you learned how to provision a Hyperscale (Citus) cluster. You connected to it with psql, created a schema, and distributed data. You learned to query data both within and between tenants, and to customize the schema per tenant.
 
-- Learn about server group [node types](./concepts-nodes.md)
+- Learn about cluster [node types](./concepts-nodes.md)
 - Determine the best [initial
-  size](howto-scale-initial.md) for your server group
+  size](howto-scale-initial.md) for your cluster

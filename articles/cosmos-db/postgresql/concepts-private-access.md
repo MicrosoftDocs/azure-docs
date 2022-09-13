@@ -26,7 +26,7 @@ types of Azure resources, such as database servers and Azure Virtual Machines
 (VM), to securely communicate with each other. Virtual networks support on-premises
 connections, allow hosts in multiple virtual networks to interact with each
 other through peering, and provide added benefits of scale, security options,
-and isolation. Each private endpoint for a Hyperscale (Citus) server group
+and isolation. Each private endpoint for a Hyperscale (Citus) cluster
 requires an associated virtual network.
 
 **Subnet**. Subnets segment a virtual network into one or more subnetworks.
@@ -44,24 +44,24 @@ privately and securely to a service powered by Azure Private Link. Private
 endpoints bring the services into your virtual network.
 
 Enabling private access for Hyperscale (Citus) creates a private endpoint for
-the server group’s coordinator node. The endpoint allows hosts in the selected
+the cluster’s coordinator node. The endpoint allows hosts in the selected
 virtual network to access the coordinator. You can optionally create private
 endpoints for worker nodes too.
 
 **Private DNS zone**. An Azure private DNS zone resolves hostnames within a
 linked virtual network, and within any peered virtual network. Domain records
 for Hyperscale (Citus) nodes are created in a private DNS zone selected for
-their server group.  Be sure to use fully qualified domain names (FQDN) for
+their cluster.  Be sure to use fully qualified domain names (FQDN) for
 nodes' PostgreSQL connection strings.
 
 ## Private link
 
 You can use [private endpoints](../../private-link/private-endpoint-overview.md)
-for your Hyperscale (Citus) server groups to allow hosts on a virtual network
+for your Hyperscale (Citus) clusters to allow hosts on a virtual network
 (VNet) to securely access data over a [Private
 Link](../../private-link/private-link-overview.md).
 
-The server group's private endpoint uses an IP address from the virtual
+The cluster's private endpoint uses an IP address from the virtual
 network's address space. Traffic between hosts on the virtual network and
 Hyperscale (Citus) nodes goes over a private link on the Microsoft backbone
 network, eliminating exposure to the public Internet.
@@ -70,7 +70,7 @@ Applications in the virtual network can connect to the Hyperscale (Citus) nodes
 over the private endpoint seamlessly, using the same connection strings and
 authorization mechanisms that they would use otherwise.
 
-You can select private access during Hyperscale (Citus) server group creation,
+You can select private access during Hyperscale (Citus) cluster creation,
 and you can switch from public access to private access at any point.
 
 ### Using a private DNS zone
@@ -87,7 +87,7 @@ Hyperscale (Citus) node from an Azure VM via private endpoint, Azure DNS
 resolves the node’s FQDN into a private IP address.
 
 Private DNS zone settings and virtual network peering are independent of each
-other. If you want to connect to a node in the server group from a client
+other. If you want to connect to a node in the cluster from a client
 that's provisioned in another virtual network (from the same region or a
 different region), you have to link the private DNS zone with the virtual
 network. For more information, see [Link the virtual
@@ -99,7 +99,7 @@ network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 > `c.mygroup01.postgres.database.azure.com` for every node. However, selected
 > computers on the public internet can connect to the public hostname only if
 > the database administrator enables [public
-> access](concepts-firewall-rules.md) to the server group.
+> access](concepts-firewall-rules.md) to the cluster.
 
 If you're using a custom DNS server, you must use a DNS forwarder to resolve
 the FQDN of Hyperscale (Citus) nodes. The forwarder IP address should be
@@ -110,19 +110,19 @@ server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-
 
 ### Recommendations
 
-When you enable private access for your Hyperscale (Citus) server group,
+When you enable private access for your Hyperscale (Citus) cluster,
 consider:
 
 * **Subnet size**: When selecting subnet size for Hyperscale (Citus) server
   group, consider current needs such as IP addresses for coordinator or all
-  nodes in that server group, and future needs such as growth of that server
+  nodes in that cluster, and future needs such as growth of that server
   group. Make sure you have enough private IP addresses for the current and
   future needs. Keep in mind, Azure reserves five IP addresses in each subnet.
   See more details [in this
   FAQ](../../virtual-network/virtual-networks-faq.md#configuration).
 * **Private DNS zone**: DNS records with private IP addresses are going to be
   maintained by Hyperscale (Citus) service. Make sure you don’t delete private
-  DNS zone used for Hyperscale (Citus) server groups.
+  DNS zone used for Hyperscale (Citus) clusters.
 
 ## Limits and limitations
 

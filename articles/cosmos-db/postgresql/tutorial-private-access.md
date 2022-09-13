@@ -1,6 +1,6 @@
 ---
-title: Create server group with private access - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Connect a VM to a server group private endpoint
+title: Create cluster with private access - Hyperscale (Citus) - Azure Database for PostgreSQL
+description: Connect a VM to a cluster private endpoint
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 01/14/2022
 ---
 
-# Create server group with private access in Azure Cosmos DB for PostgreSQL
+# Create cluster with private access in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This tutorial creates a virtual machine and a Hyperscale (Citus) server group,
+This tutorial creates a virtual machine and a Hyperscale (Citus) cluster,
 and establishes [private access](concepts-private-access.md) between
 them.
 
 ## Create a virtual network
 
 First, we’ll set up a resource group and virtual network. It will hold our
-server group and virtual machine.
+cluster and virtual machine.
 
 ```sh
 az group create \
@@ -75,7 +75,7 @@ az vm run-command invoke \
 		"sudo DEBIAN_FRONTEND=noninteractive apt-get install -q -y postgresql-client"
 ```
 
-## Create a server group with a private link
+## Create a cluster with a private link
 
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -83,7 +83,7 @@ az vm run-command invoke \
    PostgreSQL** from the **Databases** page.
 
 3. For the deployment option, select the **Create** button under **Hyperscale
-   (Citus) server group**.
+   (Citus) cluster**.
 
 4. Fill out the new server details form with the following information:
 
@@ -94,11 +94,11 @@ az vm run-command invoke \
 
 	> [!NOTE]
 	>
-	> The server group name must be globally unique across Azure because it
+	> The cluster name must be globally unique across Azure because it
 	> creates a DNS entry. If `link-demo-sg` is unavailable, please choose
 	> another name and adjust the steps below accordingly.
 
-5. Select **Configure server group**, choose the **Basic** plan, and select
+5. Select **Configure cluster**, choose the **Basic** plan, and select
    **Save**.
 
 6. Select **Next: Networking** at the bottom of the page.
@@ -117,14 +117,14 @@ az vm run-command invoke \
 	- **Integrate with private DNS zone**: Yes
 
 9. After creating the private endpoint, select **Review + create** to create
-   your Hyperscale (Citus) server group.
+   your Hyperscale (Citus) cluster.
 
-## Access the server group privately from the virtual machine
+## Access the cluster privately from the virtual machine
 
-The private link allows our virtual machine to connect to our server group,
+The private link allows our virtual machine to connect to our cluster,
 and prevents external hosts from doing so. In this step, we'll check that
 the `psql` database client on our virtual machine can communicate with the
-coordinator node of the server group.
+coordinator node of the cluster.
 
 ```sh
 # save db URI
@@ -137,7 +137,7 @@ coordinator node of the server group.
 
 PG_URI='host=c.link-demo-sg.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require'
 
-# attempt to connect to server group with psql in the virtual machine
+# attempt to connect to cluster with psql in the virtual machine
 
 az vm run-command invoke \
 	--resource-group link-demo \
@@ -154,7 +154,7 @@ was able to execute the command, and the private link worked.
 ## Clean up resources
 
 We've seen how to create a private link between a virtual machine and a
-Hyperscale (Citus) server group. Now we can deprovision the resources.
+Hyperscale (Citus) cluster. Now we can deprovision the resources.
 
 Delete the resource group, and the resources inside will be deprovisioned:
 

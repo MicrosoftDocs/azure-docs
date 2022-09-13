@@ -16,7 +16,7 @@ ms.date: 06/30/2022
 PostgreSQL [row-level security
 policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)
 restrict which users can modify or access which table rows. Row-level security
-can be especially useful in a multi-tenant Hyperscale (Citus) server group. It
+can be especially useful in a multi-tenant Hyperscale (Citus) cluster. It
 allows individual tenants to have full SQL access to the database while hiding
 each tenant’s information from other tenants.
 
@@ -114,4 +114,4 @@ ERROR:  new row violates row-level security policy for table "events_102055"
 ## Next steps
 
 Learn how to [create roles](howto-create-users.md) in a Hyperscale (Citus)
-server group.
+cluster.

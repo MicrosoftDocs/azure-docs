@@ -18,7 +18,7 @@ ms.date: 06/29/2022
 In this tutorial, you use Azure Cosmos DB for PostgreSQL to learn how to:
 
 > [!div class="checklist"]
-> * Create a Hyperscale (Citus) server group
+> * Create a Hyperscale (Citus) cluster
 > * Use psql utility to create a schema
 > * Shard tables across nodes
 > * Generate sample data
@@ -96,7 +96,7 @@ SELECT create_distributed_table('http_request_1min', 'site_id');
 
 ## Generate sample data
 
-Now our server group should be ready to ingest some data. We can run the
+Now our cluster should be ready to ingest some data. We can run the
 following locally from our `psql` connection to continuously insert data.
 
 ```sql
@@ -226,12 +226,12 @@ In production, you could wrap these queries in a function and call it every minu
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+In the preceding steps, you created Azure resources in a cluster. If you don't expect to need these resources in the future, delete the cluster. Press the *Delete* button in the *Overview* page for your cluster. When prompted on a pop-up page, confirm the name of the cluster and click the final *Delete* button.
 
 ## Next steps
 
-In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
+In this tutorial, you learned how to provision a Hyperscale (Citus) cluster. You connected to it with psql, created a schema, and distributed data. You learned to query data in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
 
-- Learn about server group [node types](./concepts-nodes.md)
+- Learn about cluster [node types](./concepts-nodes.md)
 - Determine the best [initial
-  size](howto-scale-initial.md) for your server group
+  size](howto-scale-initial.md) for your cluster

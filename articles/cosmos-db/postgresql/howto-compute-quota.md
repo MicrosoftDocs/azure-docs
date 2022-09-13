@@ -20,7 +20,7 @@ worker nodes.
 ## Request quota increase
 
 1. Select **New support request** in the Azure portal menu for your Hyperscale
-   (Citus) server group.
+   (Citus) cluster.
 2. Fill out **Summary** with the quota increase request for your region, for
    example "Quota increase in West Europe region."
 3. These fields should be autoselected, but verify:

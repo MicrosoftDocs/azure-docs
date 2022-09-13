@@ -22,8 +22,8 @@ query events recorded from GitHub open source contributors.
 
 To follow this quickstart, you'll first need to:
 
-1. [Create a server group](quickstart-create-portal.md) in the Azure portal.
-2. [Connect to the server group](quickstart-connect-psql.md) with psql to
+1. [Create a cluster](quickstart-create-portal.md) in the Azure portal.
+2. [Connect to the cluster](quickstart-connect-psql.md) with psql to
    run SQL commands.
 
 ## Create tables
@@ -71,7 +71,7 @@ provides to distribute tables and use resources across multiple machines.  The
 function decomposes tables into shards, which can be spread across nodes for
 increased storage and compute performance.
 
-The server group in this quickstart uses the Basic Tier, so the shards will be
+The cluster in this quickstart uses the Basic Tier, so the shards will be
 stored on just one node. However, if you later decide to graduate to the
 Standard Tier, then the shards can be spread across more nodes. With Hyperscale
 (Citus), you can start small and scale seamlessly.

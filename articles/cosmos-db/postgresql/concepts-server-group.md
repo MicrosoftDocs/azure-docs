@@ -1,6 +1,6 @@
 ---
 title: Server group - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: What is a server group in Azure Cosmos DB for PostgreSQL
+description: What is a cluster in Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/15/2022
 ---
 
-# Hyperscale (Citus) server group
+# Hyperscale (Citus) cluster
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -17,16 +17,16 @@ ms.date: 07/15/2022
 
 The Azure Cosmos DB for PostgreSQL deployment option allows
 PostgreSQL servers (called nodes) to coordinate with one another in a "server
-group." The server group's nodes collectively hold more data and use more CPU
+group." The cluster's nodes collectively hold more data and use more CPU
 cores than would be possible on a single server. The architecture also allows
-the database to scale by adding more nodes to the server group.
+the database to scale by adding more nodes to the cluster.
 
 To learn more about the types of Hyperscale (Citus) nodes, see [nodes and
 tables](concepts-nodes.md).
 
 ### Node status
 
-Hyperscale (Citus) displays the status of nodes in a server group on the
+Hyperscale (Citus) displays the status of nodes in a cluster on the
 Overview page in the Azure portal. Each node can have one of these status
 values:
 
@@ -37,7 +37,7 @@ values:
   to self-heal. If self-healing fails, an issue gets put in the queue for our
   engineers to investigate.
 * **Dropping**: Server group deletion started.
-* **Disabled**: The server group's Azure subscription turned into Disabled
+* **Disabled**: The cluster's Azure subscription turned into Disabled
   states. For more information about subscription states, see [this
   page](../../cost-management-billing/manage/subscription-states.md).
 
@@ -45,13 +45,13 @@ values:
 
 Hyperscale (Citus) displays the [availability
 zone](../../availability-zones/az-overview.md#availability-zones) of each node
-in a server group on the Overview page in the Azure portal. The **Availability
+in a cluster on the Overview page in the Azure portal. The **Availability
 zone** column contains either the name of the zone, or `--` if the node isn't
 assigned to a zone. (Only [certain
 regions](https://azure.microsoft.com/global-infrastructure/geographies/#geographies)
 support availability zones.)
 
-If high availability is enabled for the server group, and a node [fails
+If high availability is enabled for the cluster, and a node [fails
 over](concepts-high-availability.md) to a standby, you may see its availability
 zone differs from the other nodes. In this case, the nodes will be moved back
 into the same availability zone together during the next [maintenance
@@ -60,8 +60,8 @@ window](concepts-maintenance.md).
 ## Tiers
 
 The basic tier in Azure Cosmos DB for PostgreSQL is a
-simple way to create a small server group that you can scale later. While
-server groups in the standard tier have a coordinator node and at least two
+simple way to create a small cluster that you can scale later. While
+clusters in the standard tier have a coordinator node and at least two
 worker nodes, the basic tier runs everything in a single database node.
 
 Other than using fewer nodes, the basic tier has all the features of the
@@ -82,7 +82,7 @@ room to scale vertically *within* the basic tier by increasing the number of
 server vCores.
 
 When greater scale is required right away, use the standard tier. Its smallest
-allowed server group has one coordinator node and two workers. You can choose
+allowed cluster has one coordinator node and two workers. You can choose
 to use more nodes based on your use-case, as described in our [initial
 sizing](howto-scale-initial.md) how-to.
 
@@ -107,6 +107,6 @@ sizing](howto-scale-initial.md) how-to.
 
 ## Next steps
 
-* Learn to [provision a server group](quickstart-create-portal.md)
+* Learn to [provision a cluster](quickstart-create-portal.md)
 * When you're ready, see [how to graduate](howto-scale-grow.md#add-worker-nodes) from the basic tier to the standard tier
 * The [columnar storage](concepts-columnar.md) option is available in both the basic and standard tier

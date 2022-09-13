@@ -32,8 +32,8 @@ By default, pgAudit log statements are emitted along with your regular log state
 ## Enabling pgAudit
 
 The pgAudit extension is pre-installed and enabled on a limited number of
-Hyperscale (Citus) server groups at this time. It may or may not be available
-for preview yet on your server group.
+Hyperscale (Citus) clusters at this time. It may or may not be available
+for preview yet on your cluster.
 
 ## pgAudit settings
 
@@ -42,7 +42,7 @@ pgAudit allows you to configure session or object audit logging. [Session audit 
 > [!NOTE]
 > pgAudit settings are specified globally and cannot be specified at a database or role level.
 >
-> Also, pgAudit settings are specified per-node in a server group. To make a change on all nodes, you must apply it to each node individually.
+> Also, pgAudit settings are specified per-node in a cluster. To make a change on all nodes, you must apply it to each node individually.
 
 You must configure pgAudit parameters to start logging. The [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) provides the definition of each parameter. Test the parameters first and confirm that you're getting the expected behavior.
 

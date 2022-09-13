@@ -13,7 +13,7 @@ ms.date: 04/07/2021
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-You can specify maintenance options for each Hyperscale (Citus) server group in
+You can specify maintenance options for each Hyperscale (Citus) cluster in
 your Azure subscription. Options include the maintenance schedule and
 notification settings for upcoming and finished maintenance events.
 
@@ -26,10 +26,10 @@ To complete this how-to guide, you need:
 
 ## Specify maintenance schedule options
 
-1. On the Hyperscale (Citus) server group page, under the **Settings** heading,
+1. On the Hyperscale (Citus) cluster page, under the **Settings** heading,
    choose **Maintenance** to open scheduled maintenance options.
 2. The default (system-managed) schedule is a random day of the week, and
-   30-minute window for maintenance start between 11pm and 7am server group's
+   30-minute window for maintenance start between 11pm and 7am cluster's
    [Azure region time](https://go.microsoft.com/fwlink/?linkid=2143646). If you
    want to customize this schedule, choose **Custom schedule**. You can then
    select a preferred day of the week, and a 30-minute window for maintenance
@@ -39,7 +39,7 @@ To complete this how-to guide, you need:
 
 You can use Azure Service Health to [view
 notifications](../../service-health/service-notifications.md) about upcoming
-and past scheduled maintenance on your Hyperscale (Citus) server group. You can
+and past scheduled maintenance on your Hyperscale (Citus) cluster. You can
 also [set up](../../service-health/resource-health-alert-monitor-guide.md)
 alerts in Azure Service Health to get notifications about maintenance events.
 

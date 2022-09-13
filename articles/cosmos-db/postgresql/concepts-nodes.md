@@ -1,6 +1,6 @@
 ---
 title: Nodes – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Learn about the types of nodes and tables in a server group in Azure Database for PostgreSQL.
+description: Learn about the types of nodes and tables in a cluster in Azure Database for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -17,13 +17,13 @@ ms.date: 07/28/2019
 
 The Hyperscale (Citus) hosting type allows Azure Database for PostgreSQL
 servers (called nodes) to coordinate with one another in a "shared nothing"
-architecture. The nodes in a server group collectively hold more data and use
+architecture. The nodes in a cluster collectively hold more data and use
 more CPU cores than would be possible on a single server. The architecture also
-allows the database to scale by adding more nodes to the server group.
+allows the database to scale by adding more nodes to the cluster.
 
 ### Coordinator and workers
 
-Every server group has a coordinator node and multiple workers. Applications
+Every cluster has a coordinator node and multiple workers. Applications
 send their queries to the coordinator node, which relays it to the relevant
 workers and accumulates their results. Applications are not able to connect
 directly to workers.
@@ -41,7 +41,7 @@ health of worker nodes, and the distribution of data across nodes.
 
 ## Table types
 
-There are three types of tables in a Hyperscale (Citus) server group, each
+There are three types of tables in a Hyperscale (Citus) cluster, each
 stored differently on nodes and used for different purposes.
 
 ### Type 1: Distributed tables

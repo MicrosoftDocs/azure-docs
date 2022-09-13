@@ -14,16 +14,16 @@ ms.date: 07/15/2022
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 High availability (HA) avoids database downtime by maintaining standby replicas
-of every node in a server group. If a node goes down, Hyperscale (Citus)
+of every node in a cluster. If a node goes down, Hyperscale (Citus)
 switches incoming connections from the failed node to its standby. Failover
 happens within a few minutes, and promoted nodes always have fresh data through
 PostgreSQL synchronous streaming replication.
 
-All primary nodes in a server group are provisioned into one availability zone
+All primary nodes in a cluster are provisioned into one availability zone
 for better latency between the nodes. The standby nodes are provisioned into
 another zone. The Azure portal
 [displays](concepts-server-group.md#node-availability-zone) the availability
-zone of each node in a server group.
+zone of each node in a cluster.
 
 Even without HA enabled, each Hyperscale (Citus) node has its own locally
 redundant storage (LRS) with three synchronous replicas maintained by Azure
@@ -33,7 +33,7 @@ see metrics [on this
 page](../../storage/common/storage-redundancy.md#summary-of-redundancy-options).
 
 When HA *is* enabled, Hyperscale (Citus) runs one standby node for each primary
-node in the server group. The primary and its standby use synchronous
+node in the cluster. The primary and its standby use synchronous
 PostgreSQL replication. This replication allows customers to have predictable
 downtime if a primary node fails. In a nutshell, our service detects a failure
 on primary nodes, and fails over to standby nodes with zero data loss.
@@ -52,7 +52,7 @@ standby-to-be.  Streaming replication begins, bringing the new node up to date.
 When all data has been replicated, the node has reached full recovery.
 
 Hyperscale (Citus) displays its failover progress state on the Overview page
-for server groups in the Azure portal.
+for clusters in the Azure portal.
 
 * **Healthy**: HA is enabled and the node is fully replicated to its standby.
 * **Failover in progress**: A failure was detected on the primary node and

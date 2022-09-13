@@ -27,7 +27,7 @@ In this article, you'll learn how to connect to the database on Hyperscale (Citu
 For this article you need:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* Create a Hyperscale (Citus) server group using this link [Create Hyperscale (Citus) server group](quickstart-create-portal.md).
+* Create a Hyperscale (Citus) cluster using this link [Create Hyperscale (Citus) cluster](quickstart-create-portal.md).
 * [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 * The latest [pip](https://pip.pypa.io/en/stable/installing/) package installer.
 * Install [psycopg2](https://pypi.python.org/pypi/psycopg2-binary/) using pip in a terminal or command prompt window. For more information, see [how to install psycopg2](https://www.psycopg.org/docs/install.html).
@@ -57,7 +57,7 @@ the [psycopg2.pool](https://www.psycopg.org/docs/pool.html) library. **pool.getc
 import psycopg2
 from psycopg2 import pool
 
-# NOTE: fill in these variables for your own server group
+# NOTE: fill in these variables for your own cluster
 host = "<host>"
 dbname = "citus"
 user = "citus"
@@ -115,7 +115,7 @@ Hyperscale (Citus) gives you [the super power of distributing tables](overview.m
 
 > [!TIP]
 >
-> Distributing your tables is optional if you are using the Basic Tier of Hyperscale (Citus), which is a single-node server group.
+> Distributing your tables is optional if you are using the Basic Tier of Hyperscale (Citus), which is a single-node cluster.
 
 ```python
 # Create distribute table

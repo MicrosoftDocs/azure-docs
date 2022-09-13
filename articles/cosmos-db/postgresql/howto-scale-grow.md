@@ -1,6 +1,6 @@
 ---
-title: Scale server group - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Adjust server group memory, disk, and CPU resources to deal with increased load
+title: Scale cluster - Hyperscale (Citus) - Azure Database for PostgreSQL
+description: Adjust cluster memory, disk, and CPU resources to deal with increased load
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 12/10/2021
 ---
 
-# Scale a Hyperscale (Citus) server group
+# Scale a Hyperscale (Citus) cluster
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -27,10 +27,10 @@ group.  Dragging the slider for **Worker node count** changes the value.
 
 > [!NOTE]
 >
-> A Hyperscale (Citus) server group created with the [basic
+> A Hyperscale (Citus) cluster created with the [basic
 > tier](concepts-server-group.md) has no workers. Increasing the worker
-> count automatically graduates the server group to the standard tier.  After
-> graduating a server group to the standard tier, you can't downgrade it back
+> count automatically graduates the cluster to the standard tier.  After
+> graduating a cluster to the standard tier, you can't downgrade it back
 > to the basic tier.
 
 :::image type="content" source="media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
@@ -82,7 +82,7 @@ adjusted independently. Adjust the **storage** slider under  **Configuration
 
 ## Next steps
 
-- Learn more about server group [performance options](resources-compute.md).
+- Learn more about cluster [performance options](resources-compute.md).
 - [Rebalance distributed table shards](howto-scale-rebalance.md)
   so that all worker nodes can participate in parallel queries
 - See the sizes of distributed tables, and other [useful diagnostic

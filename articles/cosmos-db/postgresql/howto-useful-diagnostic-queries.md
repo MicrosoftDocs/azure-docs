@@ -17,7 +17,7 @@ ms.date: 8/23/2021
 
 In the multi-tenant use case, we can determine which worker node contains the
 rows for a specific tenant.  Hyperscale (Citus) groups the rows of distributed
-tables into shards, and places each shard on a worker node in the server group. 
+tables into shards, and places each shard on a worker node in the cluster. 
 
 Suppose our application's tenants are stores, and we want to find which worker
 node holds the data for store ID=4.  In other words, we want to find the

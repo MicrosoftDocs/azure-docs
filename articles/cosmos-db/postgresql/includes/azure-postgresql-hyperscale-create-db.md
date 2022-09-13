@@ -14,11 +14,11 @@ If you don't have an Azure subscription, create a
 [free](https://azure.microsoft.com/free/) account before you begin.
 
 Sign in to the [Azure portal](https://portal.azure.com) and follow these steps
-to create an Azure Cosmos DB for PostgreSQL server group:
+to create an Azure Cosmos DB for PostgreSQL cluster:
 
 # [Direct link](#tab/direct)
 
-Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/Microsoft.PostgreSQLServerGroup) in the Azure portal.
+Visit [Create Hyperscale (Citus) cluster](https://portal.azure.com/#create/Microsoft.PostgreSQLServerGroup) in the Azure portal.
 
 # [Via portal search](#tab/portal-search)
 
@@ -28,7 +28,7 @@ Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/
    ![search for citus](media/quickstart-hyperscale-create-portal/portal-search.png)
 2. Select **+ Create**.
    ![create button](media/quickstart-hyperscale-create-portal/create-button.png)
-3. Select the **Hyperscale (Citus) server group** deployment option.
+3. Select the **Hyperscale (Citus) cluster** deployment option.
    ![deployment options](media/quickstart-hyperscale-create-portal/deployment-option.png)
 
 ---
@@ -38,26 +38,26 @@ Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/
 
    Most options are self-explanatory, but keep in mind:
 
-   * The server group name will determine the DNS name your
+   * The cluster name will determine the DNS name your
      applications use to connect, in the form
      `server-group-name.postgres.database.azure.com`.
    * The admin username is required to be the value `citus`.
    * You can choose a database version. Hyperscale (Citus) always supports the
      latest PostgreSQL version, within one day of release.
 
-2. Select **Configure server group**.
+2. Select **Configure cluster**.
 
    ![compute and storage](media/quickstart-hyperscale-create-portal/compute.png)
 
    For this quickstart, you can accept the default value of **Basic** for
    **Tiers**. The Basic Tier allows you to experiment with a single-node
-   server group for a few dollars a day.
+   cluster for a few dollars a day.
 
 3. Select **Save**.
 
 4. Select **Next : Networking >** at the bottom of the screen.
 5. In the **Networking** tab, select **Allow public access from Azure services
-   and resources within Azure to this server group**.
+   and resources within Azure to this cluster**.
 
    ![networking configuration](media/quickstart-hyperscale-create-portal/networking.png)
 

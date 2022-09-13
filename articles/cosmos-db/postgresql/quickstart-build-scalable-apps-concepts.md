@@ -20,7 +20,7 @@ quick overview of the terms and concepts involved.
 ## Architectural overview
 
 Hyperscale (Citus) gives you the power to distribute tables across multiple
-machines in a server group and transparently query them the same you query
+machines in a cluster and transparently query them the same you query
 plain PostgreSQL:
 
 ![Diagram of the coordinator node sharding a table onto worker nodes.](media/howto-hyperscale-build-scalable-apps/architecture.png)

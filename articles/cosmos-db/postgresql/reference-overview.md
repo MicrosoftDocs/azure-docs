@@ -140,18 +140,18 @@ configuration options for:
 ## System tables
 
 The Hyperscale (Citus) coordinator node contains metadata tables and views to
-help you see data properties and query activity across the server group.
+help you see data properties and query activity across the cluster.
 
 | Name | Description |
 |------|-------------|
 | [citus_dist_stat_activity](reference-metadata.md#distributed-query-activity) | Distributed queries that are executing on all nodes |
-| [citus_lock_waits](reference-metadata.md#distributed-query-activity) | Queries blocked throughout the server group |
+| [citus_lock_waits](reference-metadata.md#distributed-query-activity) | Queries blocked throughout the cluster |
 | [citus_shards](reference-metadata.md#shard-information-view) | The location of each shard, the type of table it belongs to, and its size |
 | [citus_stat_statements](reference-metadata.md#query-statistics-table) | Stats about how queries are being executed, and for whom |
 | [citus_tables](reference-metadata.md#distributed-tables-view) | A summary of all distributed and reference tables |
 | [citus_worker_stat_activity](reference-metadata.md#distributed-query-activity) | Queries on workers, including tasks on individual shards |
 | [pg_dist_colocation](reference-metadata.md#colocation-group-table) | Which tables' shards should be placed together |
-| [pg_dist_node](reference-metadata.md#worker-node-table) | Information about worker nodes in the server group |
+| [pg_dist_node](reference-metadata.md#worker-node-table) | Information about worker nodes in the cluster |
 | [pg_dist_object](reference-metadata.md#distributed-object-table) | Objects such as types and functions that have been created on the coordinator node and propagated to worker nodes |
 | [pg_dist_placement](reference-metadata.md#shard-placement-table) | The location of shard replicas on worker nodes |
 | [pg_dist_rebalance_strategy](reference-metadata.md#rebalancer-strategy-table) | Strategies that `rebalance_table_shards` can use to determine where to move shards |

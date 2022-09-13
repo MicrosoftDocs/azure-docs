@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: create a server group - Hyperscale (Citus) - Azure Database for PostgreSQL'
+title: 'Quickstart: create a cluster - Hyperscale (Citus) - Azure Database for PostgreSQL'
 description: Quickstart to create and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus).
 ms.author: jonels
 author: jonels-msft
@@ -9,10 +9,10 @@ ms.subservice: postgresql
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
 ms.date: 06/29/2022
-#Customer intent: As a developer, I want to provision a hyperscale server group so that I can run queries quickly on large datasets.
+#Customer intent: As a developer, I want to provision a hyperscale cluster so that I can run queries quickly on large datasets.
 ---
 
-# Create a Hyperscale (Citus) server group in the Azure portal
+# Create a Hyperscale (Citus) cluster in the Azure portal
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -40,7 +40,7 @@ Let's get started!
 
 ## Next steps
 
-With your server group created, it's time to connect with a SQL client.
+With your cluster created, it's time to connect with a SQL client.
 
 > [!div class="nextstepaction"]
-> [Connect to your server group >](quickstart-connect-psql.md)
+> [Connect to your cluster >](quickstart-connect-psql.md)

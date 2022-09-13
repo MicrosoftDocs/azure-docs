@@ -33,12 +33,12 @@ connections and runs them when the database is ready.
 
 Hyperscale (Citus) is now offering a managed instance of PgBouncer for server
 groups. It supports up to 2,000 simultaneous client connections. Additionally,
-if a server group has [high availability](concepts-high-availability.md) (HA)
+if a cluster has [high availability](concepts-high-availability.md) (HA)
 enabled, then so does its managed PgBouncer.
 
 To connect through PgBouncer, follow these steps:
 
-1. Go to the **Connection strings** page for your server group in the Azure
+1. Go to the **Connection strings** page for your cluster in the Azure
    portal.
 2. Enable the checkbox **PgBouncer connection strings**. (The listed connection
    strings will change.)

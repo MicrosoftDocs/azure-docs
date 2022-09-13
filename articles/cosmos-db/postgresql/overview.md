@@ -27,7 +27,7 @@ ms.date: 08/11/2022
 
 Hyperscale (Citus) is PostgreSQL extended with the superpower of "distributed
 tables." This superpower enables you to build highly scalable relational apps.
-You can start building apps on a single node server group, the same way you
+You can start building apps on a single node cluster, the same way you
 would with PostgreSQL. As your app's scalability and performance requirements
 grow, you can seamlessly scale to multiple nodes by transparently distributing
 your tables.
@@ -52,8 +52,8 @@ reviewed the following topics:
 > - See how the [Hyperscale (Citus) API](reference-overview.md) extends
 >   PostgreSQL, and try [useful diagnostic
 >   queries](howto-useful-diagnostic-queries.md)
-> - Pick the best [server group size](howto-scale-initial.md) for your workload
-> - [Monitor](howto-monitoring.md) server group performance
+> - Pick the best [cluster size](howto-scale-initial.md) for your workload
+> - [Monitor](howto-monitoring.md) cluster performance
 > - Ingest data efficiently with [Azure Stream Analytics](howto-ingest-azure-stream-analytics.md)
 >   and [Azure Data Factory](howto-ingest-azure-data-factory.md)
 

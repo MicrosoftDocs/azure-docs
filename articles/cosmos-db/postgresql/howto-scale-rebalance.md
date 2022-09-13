@@ -1,6 +1,6 @@
 ---
 title: Rebalance shards - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Learn how to use the Azure portal to rebalance data in a server group using the Shard rebalancer.
+description: Learn how to use the Azure portal to rebalance data in a cluster using the Shard rebalancer.
 ms.custom: kr2b-contr-experiment
 ms.author: jonels
 author: jonels-msft
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 07/20/2021
 ---
 
-# Rebalance shards in Hyperscale (Citus) server group
+# Rebalance shards in Hyperscale (Citus) cluster
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -19,10 +19,10 @@ To take advantage of newly added nodes, rebalance distributed table
 zero-downtime rebalancing, meaning queries continue without interruption during
 shard rebalancing.
 
-## Determine if the server group is balanced
+## Determine if the cluster is balanced
 
 The Azure portal shows whether data is distributed equally between
-worker nodes in a server group or not. From the **Server group management** menu, select **Shard rebalancer**.
+worker nodes in a cluster or not. From the **Server group management** menu, select **Shard rebalancer**.
 
 - If data is skewed between workers: You'll see the message, **Rebalancing is recommended** and a list of the size of each node.
 
@@ -30,7 +30,7 @@ worker nodes in a server group or not. From the **Server group management** menu
 
 ## Run the Shard rebalancer
 
-To start the Shard rebalancer, connect to the coordinator node of the server group and then run the [rebalance_table_shards](reference-functions.md#rebalance_table_shards) SQL function on distributed tables. 
+To start the Shard rebalancer, connect to the coordinator node of the cluster and then run the [rebalance_table_shards](reference-functions.md#rebalance_table_shards) SQL function on distributed tables. 
 
 The function rebalances all tables in the
 [colocation](concepts-colocation.md) group of the table named in its
@@ -54,8 +54,8 @@ Select **Refresh** to update the page. When rebalancing is complete, you'll see 
 
 ## Next steps
 
-- Learn more about server group [performance options](resources-compute.md).
-- [Scale a server group](howto-scale-grow.md) up or out
+- Learn more about cluster [performance options](resources-compute.md).
+- [Scale a cluster](howto-scale-grow.md) up or out
 - See the
   [rebalance_table_shards](reference-functions.md#rebalance_table_shards)
   reference material

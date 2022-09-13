@@ -19,8 +19,8 @@ ms.date: 08/11/2022
 
 To follow this quickstart, you'll first need to:
 
-1. [Create a server group](quickstart-create-portal.md) in the Azure portal.
-2. [Connect to the server group](quickstart-connect-psql.md) with psql to
+1. [Create a cluster](quickstart-create-portal.md) in the Azure portal.
+2. [Connect to the cluster](quickstart-connect-psql.md) with psql to
    run SQL commands.
 3. [Create and distribute tables](quickstart-distribute-tables.md) with our
    example dataset.
@@ -113,7 +113,7 @@ ALTER TABLE github_users ADD COLUMN dummy_column integer;
 
 ## Next steps
 
-You've successfully created a scalable Hyperscale (Citus) server group, created
+You've successfully created a scalable Hyperscale (Citus) cluster, created
 tables, distributed them, loaded data, and run distributed queries.
 
 Now you're ready to learn to build applications with Hyperscale (Citus).

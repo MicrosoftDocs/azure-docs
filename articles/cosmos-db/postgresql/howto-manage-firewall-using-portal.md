@@ -19,20 +19,20 @@ public internet.
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- A server group [Create an Azure Cosmos DB for PostgreSQL server group](quickstart-create-portal.md).
+- A cluster [Create an Azure Cosmos DB for PostgreSQL cluster](quickstart-create-portal.md).
 
 ## Create a server-level firewall rule in the Azure portal
 
 > [!NOTE]
-> These settings are also accessible during the creation of an Azure Cosmos DB for PostgreSQL server group. Under the **Networking** tab, select **Public access (allowed IP address)**.
+> These settings are also accessible during the creation of an Azure Cosmos DB for PostgreSQL cluster. Under the **Networking** tab, select **Public access (allowed IP address)**.
 >
 > :::image type="content" source="media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png" alt-text="Azure portal - networking tab":::
 
-1. On the PostgreSQL server group page, under the Security heading, click **Networking** to open the Firewall rules.
+1. On the PostgreSQL cluster page, under the Security heading, click **Networking** to open the Firewall rules.
 
    :::image type="content" source="media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure portal - click Networking":::
 
-2. Select **Allow public access from Azure services and resources within Azure to this server group**.
+2. Select **Allow public access from Azure services and resources within Azure to this cluster**.
 
 3. If desired, select **Enable access to the worker nodes**. With this option, the firewall rules will allow access to all worker nodes as well as the coordinator node.
 
@@ -51,7 +51,7 @@ Alternately, clicking **+Add 0.0.0.0 - 255.255.255.255** (to the right of option
 
 ## Connecting from Azure
 
-There is an easy way to grant Hyperscale (Citus) database access to applications hosted on Azure (such as an Azure Web Apps application, or those running in an Azure VM). Select the checkbox **Allow Azure services and resources to access this server group** in the portal from the **Networking** pane and hit **Save**.
+There is an easy way to grant Hyperscale (Citus) database access to applications hosted on Azure (such as an Azure Web Apps application, or those running in an Azure VM). Select the checkbox **Allow Azure services and resources to access this cluster** in the portal from the **Networking** pane and hit **Save**.
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.

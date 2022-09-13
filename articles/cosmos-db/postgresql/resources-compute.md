@@ -1,6 +1,6 @@
 ---
 title: Compute and storage – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Options for a Hyperscale (Citus) server group, including node compute and storage
+description: Options for a Hyperscale (Citus) cluster, including node compute and storage
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -18,7 +18,7 @@ worker nodes and the coordinator node in a Hyperscale (Citus) server
 group.  Compute resources are provided as vCores, which represent
 the logical CPU of the underlying hardware. The storage size for
 provisioning refers to the capacity available to the coordinator
-and worker nodes in your Hyperscale (Citus) server group. The storage
+and worker nodes in your Hyperscale (Citus) cluster. The storage
 includes  database files, temporary files, transaction logs, and
 the Postgres server logs.
 
@@ -117,5 +117,5 @@ available to the basic tier node.
 
 ## Next steps
 
-* Learn how to [create a Hyperscale (Citus) server group in the portal](quickstart-create-portal.md)
+* Learn how to [create a Hyperscale (Citus) cluster in the portal](quickstart-create-portal.md)
 * Change [compute quotas](howto-compute-quota.md) for a subscription and region

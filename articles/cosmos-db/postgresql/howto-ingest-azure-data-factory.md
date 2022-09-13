@@ -87,11 +87,11 @@ new to Azure Data Factory, here's a quick guide on how to get started:
    1. Go to the Sink tab. Select **+ New** to create a source dataset.
    2. In the **New Dataset** dialog box, select **Azure Database for PostgreSQL**, and then select **Continue**.
    3. Under the **Linked service** text box, select **+ New**. 
-   4. Specify Linked Service name and select your server group from the list for Hyperscale (Citus) server groups. Add connection details and test the connection
+   4. Specify Linked Service name and select your cluster from the list for Hyperscale (Citus) clusters. Add connection details and test the connection
 
       > [!NOTE]
       >
-      > If your server group is not present in the drop down, use the **Enter
+      > If your cluster is not present in the drop down, use the **Enter
       > manually** option to add server details.
 
    5. Select the table name where you want to ingest the data.

@@ -19,7 +19,7 @@ Connection problems may be caused by several things, such as:
 * Firewall settings
 * Connection time-out
 * Incorrect sign in information
-* Connection limit reached for server group
+* Connection limit reached for cluster
 * Issues with the infrastructure of the service
 * Service maintenance
 * The coordinator node failing over to new hardware
@@ -35,7 +35,7 @@ Transient errors occur for a number of reasons. The most common include system
 Maintenance, error with hardware or software, and coordinator node vCore
 upgrades.
 
-Enabling high availability for Hyperscale (Citus) server group nodes can mitigate these
+Enabling high availability for Hyperscale (Citus) cluster nodes can mitigate these
 types of problems automatically. However, your application should still be
 prepared to lose its connection briefly. Also other events can take longer to
 mitigate, such as when a large transaction causes a long-running recovery.
@@ -49,7 +49,7 @@ mitigate, such as when a large transaction causes a long-running recovery.
    should expect transient errors and react gracefully. For instance,
    applications should implement retry logic to handle these errors instead of
    surfacing them as application errors to users.
-3. As the server group approaches its resource limits, errors can seem like
+3. As the cluster approaches its resource limits, errors can seem like
    transient connectivity issues. Increasing node RAM, or adding worker nodes
    and rebalancing data may help.
 4. If connectivity problems continue, or last longer than 60 seconds, or happen
@@ -71,7 +71,7 @@ most common causes are firewall misconfiguration or user error.
 * User error: Double-check the connection string. You might have mistyped
   parameters like the server name. You can find connection strings for various
   language frameworks and psql in the Azure portal. Go to the **Connection
-  strings** page in your Hyperscale (Citus) server group. Also keep in mind that
+  strings** page in your Hyperscale (Citus) cluster. Also keep in mind that
   Hyperscale (Citus) clusters have only one database and its predefined name is
   **citus**.
 

@@ -84,7 +84,7 @@ how they apply to common use cases.
 ### Multi-tenant apps
 
 The multi-tenant architecture uses a form of hierarchical database modeling to
-distribute queries across nodes in the server group. The top of the data
+distribute queries across nodes in the cluster. The top of the data
 hierarchy is known as the *tenant ID* and needs to be stored in a column on
 each table.
 

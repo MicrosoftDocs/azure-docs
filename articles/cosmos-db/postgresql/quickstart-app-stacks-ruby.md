@@ -14,7 +14,7 @@ ms.date: 08/24/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this how-to article, you'll connect to a Hyperscale (Citus) server group using a Ruby application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js, and are new to working with Hyperscale (Citus).
+In this how-to article, you'll connect to a Hyperscale (Citus) cluster using a Ruby application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js, and are new to working with Hyperscale (Citus).
 
 > [!TIP]
 >
@@ -25,7 +25,7 @@ In this how-to article, you'll connect to a Hyperscale (Citus) server group usin
 ### Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-* Create a Hyperscale (Citus) database using this link [Create Hyperscale (Citus) server group](quickstart-create-portal.md)
+* Create a Hyperscale (Citus) database using this link [Create Hyperscale (Citus) cluster](quickstart-create-portal.md)
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
 * [Ruby pg](https://rubygems.org/gems/pg/), the PostgreSQL module for Ruby
 
@@ -78,7 +78,7 @@ Hyperscale (Citus) gives you [the super power of distributing tables](overview.m
 
 > [!TIP]
 >
-> Distributing your tables is optional if you are using the Basic Tier of Hyperscale (Citus), which is a single-node server group.
+> Distributing your tables is optional if you are using the Basic Tier of Hyperscale (Citus), which is a single-node cluster.
 
 Use the following code to connect to the database and distribute the table:
 

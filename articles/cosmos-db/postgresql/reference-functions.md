@@ -19,7 +19,7 @@ distributed functionality to Hyperscale (Citus).
 
 > [!NOTE]
 >
-> Hyperscale (Citus) server groups running older versions of the Citus Engine may not
+> Hyperscale (Citus) clusters running older versions of the Citus Engine may not
 > offer all the functions listed below.
 
 ## Table and Shard DDL
@@ -810,7 +810,7 @@ SELECT master_move_shard_placement(12345, 'from_host', 5432, 'to_host', 5432);
 
 The rebalance\_table\_shards() function moves shards of the given table to
 distribute them evenly among the workers. The function first calculates the
-list of moves it needs to make in order to ensure that the server group is
+list of moves it needs to make in order to ensure that the cluster is
 balanced within the given threshold. Then, it moves shard placements one by one
 from the source node to the destination node and updates the corresponding
 shard metadata to reflect the move.
@@ -905,7 +905,7 @@ Output the planned shard movements of
 While it's unlikely, get\_rebalance\_table\_shards\_plan can output a slightly
 different plan than what a rebalance\_table\_shards call with the same
 arguments will do. They aren't executed at the same time, so facts about the
-server group \-- for example, disk space \-- might differ between the calls.
+cluster \-- for example, disk space \-- might differ between the calls.
 
 #### Arguments
 
