@@ -30,6 +30,8 @@ Azure Private 5G Core requires a management network, access network, and data ne
 
 For each of these networks, allocate a subnet and then identify the listed IP addresses. If you're deploying multiple sites, you'll need to collect this information for each site.
 
+Alternatively, you may allocate a single subnet for your Azure Stack Edge interfaces (management, N2, N3 and N6). This arrangement, called a flat network, should only be chosen when a limited set of subnets is available.
+
 ### Management network
 
 - Network address in Classless Inter-Domain Routing (CIDR) notation. 
