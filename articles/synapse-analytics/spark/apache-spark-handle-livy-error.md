@@ -14,7 +14,7 @@ ms.author: nidutta
 There are many factors that can play into why a spark application fails in Azure Synapse Analytics today. For instance, it can be due to a system error or even a user related error. Previously, all errors corresponding to failing jobs on
 Synapse Analytics were surfaced with a generic error code displaying *LIVY_JOB_STATE_DEAD*. This error code gave no further insight into why the job has failed. It requires significant effort to identify the root cause by digging into the driver, executor, Spark Event, Livy logs, and find a resolution.
 
-:::image type="content" source="./media/apache-spark-error-classification/apache-spark-old-error-view.png" alt-text="Screenshot of Apache Spark error code without detailed message." border="true":::
+:::image type="content" source="./media/apache-spark-error-classification/apache-spark-old-error-view.png" alt-text="Screenshot of Apache Spark error code without detailed message." lightbox="./media/apache-spark-error-classification/apache-spark-old-error-view.png" border="true":::
 
 We have introduced a more precise list of error codes that replaces the previous generic message. The new message describes the cause of failure. Whenever a job fails on Azure Synapse Analytics, the error handling feature parses and checks the logs on the backend to identify the root cause. It then displays a message to the user on the monitoring pane along with the steps to resolve the issue.
 
