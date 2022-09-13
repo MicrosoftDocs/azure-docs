@@ -75,7 +75,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `type` | string | **Required.** The type of component input. [Learn more about data access](concept-data.md) | `number`, `integer`, `boolean`, `string`, `uri_file`, `uri_folder`, `mltable`, `mlflow_model`| |
 | `description` | string | Description of the input. | | |
 | `default` | number, integer, boolean, or string | The default value for the input. | | |
-| `optional` | boolean | Whether the input is required. | | `false` |
+| `optional` | boolean | Whether the input is required. If set to true, need embrace command includes optional inputs with `$[[]]`| | `false` |
 | `min` | integer or number | The minimum accepted value for the input. This field can only be specified if `type` field is `number` or `integer`. | |
 | `max` | integer or number | The maximum accepted value for the input. This field can only be specified if `type` field is `number` or `integer`. | |
 | `enum` | array | The list of allowed values for the input. Only applicable if `type` field is `string`.| |
@@ -104,6 +104,22 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 ## YAML: Component with different input types
 
 :::code language="yaml" source="~/azureml-examples-main/cli/assets/component/train.yml":::
+
+### Define optional inputs in command line
+When set input as `optional = true`, you need to embrace command line which includes this input. Command line in the runtime may differ according to different inputs.
+- If only specify `training_data` and `model_output` as they are must have parameters, the command line will look like:
+
+```cli
+python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
+```
+
+As `learning_rate` and `learning_rate_schedule` have default value defined, which will be take if no value provide in runtime.
+
+- If all inputs/outputs provide values during runtime, the command line will look like:
+```cli
+python train.py --training_data some_input_path --max_epocs 10 --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
+```
+
 
 ## Next steps
 

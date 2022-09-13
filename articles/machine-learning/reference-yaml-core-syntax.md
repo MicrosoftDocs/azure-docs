@@ -209,21 +209,21 @@ jobs:
 
 Similar to the `command` for a job, the `command` for a component can also be parameterized with references to the `inputs` and `outputs` contexts. In this case the reference is to the component's inputs and outputs. When the component is run in a job, Azure ML will resolve those references to the job runtime input and output values specified for the respective component inputs and outputs. Below is an example of using the context syntax for a command component YAML specification.
 
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
-type: command
-code: ./src
-command: python train.py --lr ${{inputs.learning_rate}} --training-data ${{inputs.iris}} --model-dir ${{outputs.model_dir}}
-environment: azureml:AzureML-Minimal@latest
-inputs:
-  learning_rate:
-    type: number
-    default: 0.01
-  iris:
-    type: uri_file
-outputs:
-  model_dir:
-    type: uri_folder
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/component/train.yml":::
+
+#### Define optional inputs in command line
+When set input as `optional = true`, you need to embrace command line which includes this input. Command line in the runtime may differ according to different inputs.
+- If only specify `training_data` and `model_output` as they are must have parameters, the command line will look like:
+
+```cli
+python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
+```
+
+As `learning_rate` and `learning_rate_schedule` have default value defined, which will be take if no value provide in runtime.
+
+- If all inputs/outputs provide values during runtime, the command line will look like:
+```cli
+python train.py --training_data some_input_path --max_epocs 10 --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
 ```
 
 ## Next steps
