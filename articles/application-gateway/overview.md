@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/26/2020
+ms.date: 08/26/2022
 ms.author: greglin
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 ---
