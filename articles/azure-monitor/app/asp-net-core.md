@@ -85,10 +85,10 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
 2. Add `AddApplicationInsightsTelemetry()` to your `startup.cs` or `program.cs` class (depending on your .NET Core version)
 
-### [ASP.NET Core 6.0](#tab/netcore6)
-
-Add `builder.Services.AddApplicationInsightsTelemetry();` to the `WebApplication.CreateBuilder()` method in your `Program` class, as in this example:
-
+    ### [ASP.NET Core 6.0](#tab/netcore6)
+    
+    Add `builder.Services.AddApplicationInsightsTelemetry();` to the `WebApplication.CreateBuilder()` method in your `Program` class, as in this example:
+    
     ```csharp
     // This method gets called by the runtime. Use this method to add services to the container.
     var builder = WebApplication.CreateBuilder(args);
@@ -101,11 +101,11 @@ Add `builder.Services.AddApplicationInsightsTelemetry();` to the `WebApplication
 
     var app = builder.Build();
     ```
-
-### [ASP.NET Core 3.1](#tab/netcore3)
-
-Add `services.AddApplicationInsightsTelemetry();` to the `ConfigureServices()` method in your `Startup` class, as in this example:
-
+    
+    ### [ASP.NET Core 3.1](#tab/netcore3)
+    
+    Add `services.AddApplicationInsightsTelemetry();` to the `ConfigureServices()` method in your `Startup` class, as in this example:
+    
     ```csharp
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
@@ -117,8 +117,8 @@ Add `services.AddApplicationInsightsTelemetry();` to the `ConfigureServices()` m
         services.AddMvc();
     }
     ```
-
----
+    
+    ---
 
 3. Set up the connection string
 
