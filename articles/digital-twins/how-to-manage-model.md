@@ -293,6 +293,8 @@ After a model has been deleted, you may decide later to upload a new model with 
 
 Azure Digital Twins doesn't prevent this state, so be careful to patch twins appropriately to make sure they remain valid through the model definition switch.
 
+## Convert V2 models to V3
+
 ## Next steps
 
 See how to create and manage digital twins based on your models:
