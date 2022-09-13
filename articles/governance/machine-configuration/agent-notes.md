@@ -1,5 +1,5 @@
 ---
-title: Guest configuration agent notes
+title: Azure Automanage machine configuration agent release notes
 description: Details guest configuration agent release notes, issues, and frequently asked questions.
 author: timwarner-msft
 ms.date: 09/13/2022
@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: timwarner
 ms.service: machine-configuration
 ---
-# Guest configuration agent release notes
+# Azure Automanage machine configuration agent release notes
 
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
@@ -23,7 +23,7 @@ For information on release notes for the connected machine agent, please see [Wh
 
 ## Release notes
 
-## Guest Configuration Linux Extension version 1.26.38
+### Guest Configuration Linux Extension version 1.26.38
 
 In this release, various improvements were made. 
 
@@ -32,10 +32,14 @@ In this release, various improvements were made.
 ## Fixed
 
 - Resolves local elevation of privilege vulnerability [CVE-2022-38007](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007). 
-- If you're currently running an older version of the AzurePolicyforLinux extension, use the PowerShell command below to update your extension to the latest version. 
+- If you're currently running an older version of the AzurePolicyforLinux extension, use the PowerShell or Azure CLI commands below to update your extension to the latest version. 
 
 ```powershell
 Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.26.38 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' -EnableAutomaticUpgrade $true
+```
+
+```azurecli
+az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforLinux --extension-instance-name AzurePolicyforLinux --resource-group myResourceGroup --vm-name myVM --version 1.26.38 --enable-auto-upgrade true
 ```
 
 ## Next steps
