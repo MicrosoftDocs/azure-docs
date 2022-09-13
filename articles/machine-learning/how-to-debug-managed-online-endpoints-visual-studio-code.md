@@ -185,7 +185,6 @@ endpoint_name = "<ENDPOINT_NAME>"
 Get a handle to the workspace: 
 
 ```python 
-
 credential = AzureCliCredential()
 ml_client = MLClient(
     credential,
@@ -193,13 +192,11 @@ ml_client = MLClient(
     resource_group_name=resource_group,
     workspace_name=workspace_name,
 )
-
 ``` 
 
 To debug online endpoints locally in VS Code, set the `vscode-debug` and `local` flags when creating or updating an Azure Machine Learning online deployment. The following code mirrors a deployment example from the examples repo:
 
 ```python
-
 deployment = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=endpoint_name,
@@ -220,7 +217,6 @@ deployment = ml_client.online_deployments.begin_create_or_update(
     local=True,
     vscode_debug=True,
 )
-
 ```
 
 > [!IMPORTANT]
@@ -335,13 +331,11 @@ Now that your application is running in the debugger, try making a prediction to
 Use the`invoke` method on your `MLClient` object to make a request to your local endpoint.
 
 ```python
-
 endpoint = ml_client.online_endpoints.get(name=endpoint_name, local=True)
 
 request_file_path = "../model-1/sample-request.json"
 
 endpoint.invoke(endpoint_name, request_file_path, local=True)
-
 ```
 
 In this case, `<REQUEST-FILE>` is a JSON file that contains input data samples for the model to make predictions on similar to the following JSON:
@@ -422,7 +416,6 @@ To apply changes to your code:
 For more extensive changes involving updates to your environment and endpoint configuration, use the `ml` extension `update` command. Doing so will trigger a full image rebuild with your changes.
 
 ```python
-
 new_deployment = ManagedOnlineDeployment(
     name="green",
     endpoint_name=endpoint_name,
@@ -439,7 +432,6 @@ new_deployment = ManagedOnlineDeployment(
 )
 
 ml_client.online_deployments.update(new_deployment, local=True, vscode_debug=True)
-
 ```
 
 Once the updated image is built and your development container launches, use the VS Code debugger to test and troubleshoot your updated endpoint.
