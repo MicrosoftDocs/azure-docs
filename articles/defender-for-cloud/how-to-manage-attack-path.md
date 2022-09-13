@@ -2,7 +2,7 @@
 title: Identify and remediate attack paths
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
-ms.date: 09/12/2022
+ms.date: 09/13/2022
 ---
 
 # Identify and remediate attack paths 
@@ -21,9 +21,42 @@ You can check out the full list of [Attack path names and descriptions](#attack-
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
+## Features of the attack path overview page
+
+The attack path homepage offers you an overview of your total attack paths. From here you can see all of your affected resources and a list of all active recommendations.
+
+:::image type="content" source="media/concept-cloud-map/attack-path-homepage.png" alt-text="Screenshot of a sample attack path homepage.":::
+
+On this page you can organize your recommendations based on name, environment, paths count, risk categories.
+
+For each recommendation you can also see all of risk categories and affected resources.
+
+The potential risk categories include Credentials exposure, Compute abuse, Data exposure, Subscription/account takeover.
+
+The types of resources that can be infected include:
+
+| Resource icon | Name |
+|--|--|
+| :::image type="icon" source="media/concept-cloud-map/keyvault-icon.png" border="false":::  | Key Vault |
+| :::image type="icon" source="media/concept-cloud-map/managed-identity-icon.png" border="false"::: | Managed Identity |
+| :::image type="icon" source="media/concept-cloud-map/public-ip-icon.png" border="false"::: | Public IP |
+| :::image type="icon" source="media/concept-cloud-map/virtual-machine-icon.png" border="false"::: | Virtual Machine |
+| :::image type="icon" source="media/concept-cloud-map/container-icon.png" border="false"::: | Container |
+| :::image type="icon" source="media/concept-cloud-map/k8s-pods-icon.png" border="false"::: | Kubernetes pod |
+| :::image type="icon" source="media/concept-cloud-map/virtual-machine-scale-set-icon.png" border="false"::: | Virtual Machine Scale Set |
+| :::image type="icon" source="media/concept-cloud-map/k8s-namespace-icon.png" border="false"::: | Kubernetes namespace |
+| :::image type="icon" source="media/concept-cloud-map/container-image-icon.png" border="false"::: | Container image |
+| :::image type="icon" source="media/concept-cloud-map/k8s-service-icon.png" border="false"::: | Kubernetes service or ingress |
+| :::image type="icon" source="media/concept-cloud-map/managed-cluster-icon.png" border="false"::: | Managed cluster |
+| :::image type="icon" source="media/concept-cloud-map/subscription-icon.png" border="false"::: | Subscription |
+| :::image type="icon" source="media/concept-cloud-map/storage-icon.png" border="false"::: | Storage |
+| :::image type="icon" source="media/concept-cloud-map/resource-group-icon.png" border="false"::: | Resource group |
+| :::image type="icon" source="media/concept-cloud-map/sql-database-icon.png" border="false"::: | Sql Database |
+| :::image type="icon" source="media/concept-cloud-map/sql-server-icon.png" ::: | Sql Server |
+
 ## Investigate and remediate attack paths
 
-Attack path analysis allows you to see the details of each node within your environment to locate any node that has vulnerabilities or misconfigurations. You can then remediate each recommendation in order to harden your environment.
+Attack path analysis allows you to locate the biggest risks to your environment and to remediate them.
 
 **To investigate and remediate an attack path**:
 
@@ -34,6 +67,9 @@ Attack path analysis allows you to see the details of each node within your envi
 1. Select an attack path.
 
     :::image type="content" source="media/how-to-manage-cloud-map/attack-path.png" alt-text="Screenshot that shows a sample of attack paths." lightbox="media/how-to-manage-cloud-map/attack-path.png":::
+
+    > [!NOTE]
+    > An attack path may have more than one path that is at risk. The path count will tell you how many paths need to be remediated. If the attack path has more than one path, you will need to select each path within that attack path to remediate all risks.
 
 1. Select a node.
 
@@ -77,61 +113,14 @@ Attack path analysis also gives you the ability to see all recommendations by at
 
 Once an attack path is resolved, it can take up to 24 hours for an attack path to be removed from the list.
 
-## Attack path names and descriptions
+## External attack surface management (EASM)
 
-### Azure VMs
+An external attack surface is the entire area of an organization or system that is susceptible to an attack from an external source. An organization's attack surface is made up pf all the points of access than an unauthorized person could use to enter their system. The larger your attack surface is, the harder it is to protect.
 
-| New Attack Path Type | Attack Path Display Name | Attack Path Description |
-|--|--|--|
-| Azure.VulnerableExposedVM | Internet exposed VM has high severity vulnerabilities | Virtual machine '\[MachineName]' is reachable from the internet and has high severity vulnerabilities \[RCE] |
-| Azure.VulnerableExposedVMHasHighpermissionToSubscription | Internet exposed VM has high severity vulnerabilities and high permission to a subscription | Virtual machine '\[MachineName]' is reachable from the internet, has high severity vulnerabilities \[RCE] and \[IdentityDescription] with \[PermissionType] permission to subscription '\[SubscriptionName]' |
-| Azure.VulnerableExposedVMHasReadpermissionTodata storeWithSensitiveData | Internet exposed VM has high severity vulnerabilities and read permission to a data store with sensitive data | Virtual machine '\[MachineName]' is reachable from the internet, has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to \[DatabaseType] '\[DatabaseName]' containing sensitive data |
-| Azure.VulnerableExposedVMHasReadpermissionTodata store | Internet exposed VM has high severity vulnerabilities and read permission to a data store | Virtual machine '\[MachineName]' is reachable from the internet, has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to \[DatabaseType] '\[DatabaseName]' |
-| Azure.VulnerableExposedVMHasReadpermissionToKV | Internet exposed VM has high severity vulnerabilities and read permission to a Key Vault | Virtual machine '\[MachineName]' is reachable from the internet, has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to Key Vault '\[KVName]' |
-| Azure.VulnerableVMHasHighpermissionToSubscription | VM has high severity vulnerabilities and high permission to a subscription | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and has high permission to subscription '\[SubscriptionName]' |
-| Azure.VulnerableVMHasReadpermissionTodata storeWithSensitiveData | VM has high severity vulnerabilities and read permission to a data store with sensitive data | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to \[DatabaseType] '\[DatabaseName]' containing sensitive data |
-| Azure.VulnerableVMHasReadpermissionToKV | VM has high severity vulnerabilities and read permission to a Key Vault | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to Key Vault '\[KVName]' |
-| Azure.VulnerableVMHasReadpermissionTodata store | VM has high severity vulnerabilities and read permission to a data store | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to \[DatabaseType] '\[DatabaseName]' |
+**To manage your external attack surface**:
 
-### AWS VMs
 
-| New Attack Path Type | Attack Path Display Name	| Attack Path Description |
-|--|--|--|
-| AWS.VulnerableExposedEC2InstanceHasHighpermissionToAccount | Internet exposed EC2 instance has high severity vulnerabilities and high permission to an account | AWS EC2 instance '\[EC2Name]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has '\[permission]' permission to account '\[AccountName]' |
-| AWS.VulnerableExposedEC2InstanceHasReadpermissionToDB | Internet exposed EC2 instance has high severity vulnerabilities and read permission to a DB | AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has '\[permission]' permission to DB '\[DatabaseName]'|
-|  AWS.VulnerableExposedEC2InstanceHasReadpermissionToS3Bucket | Internet exposed EC2 instance has high severity vulnerabilities and read permission to S3 bucket | Option 1 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to S3 bucket '\[BucketName]' <br> <br> Option 2 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[S3permission]' permission via bucket policy to S3 bucket '\[BucketName]' <br> <br> Option 3 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[S3permission]' permission via bucket policy to S3 bucket '\[BucketName]'|
-| AWS.VulnerableExposedEC2InstanceHasReadpermissionToS3BucketWithSensitiveData | Internet exposed EC2 instance has high severity vulnerabilities and read permission to a S3 bucket with sensitive data | Option 1 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to S3 bucket '\[BucketName]' containing sensitive data <br> <br> Option 2 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[S3permission]' permission via bucket policy to S3 bucket '\[BucketName]' containing sensitive data <br> <br> Option 3 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[S3permission] permission via bucket policy to S3 bucket '\[BucketName]' containing sensitive data |
-| AWS.VulnerableExposedEC2InstanceHasReadpermissionToKMS | Internet exposed EC2 instance has high severity vulnerabilities and read permission to a KMS | Option 1 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to AWS Key Management Service (KMS) '\[KeyName]' <br> <br> Option 2 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has vulnerabilities allowing remote code execution and has IAM role attached with '\[Keypermission]' permission via AWS Key Management Service (KMS) policy to key '\[KeyName]' <br> <br> Option 3 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has vulnerabilities allowing remote code execution and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[Keypermission] permission via AWS Key Management Service (KMS) policy to key '\[KeyName]' |
-| AWS.VulnerableExposedEC2InstanceHasReadpermissionTodata store | Internet exposed EC2 instance has high severity vulnerabilities and read permission to a data store | Option 1 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to '\[data storeType]' '\[BucketName]' <br> <br> Option 2 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[S3permission]' permission via bucket policy to '\[data storeType]' '\[BucketName]' Option 3
-AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[S3permission] permission via bucket policy to '\[data storeType]' '\[BucketName]' |
-| AWS.VulnerableExposedEC2InstanceHasReadpermissionTodata storeWithSensitiveData | Internet exposed EC2 instance with high severity vulnerabilities and read permission to a data store with sensitive data | Option 1 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to '\[data storeType]' '\[BucketName]' containing sensitive data <br> <br> Option 2 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[S3permission]' permission via bucket policy to '\[data storeType]' '\[BucketName]' containing sensitive data <br> <br> Option 3 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[S3permission] permission via bucket policy to '\[data storeType]' '\[BucketName]' containing sensitive data|
-| AWS.VulnerableExposedEC2Instance | Internet exposed EC2 instance has high severity vulnerabilities | AWS EC2 instance '\[EC2Name]' is reachable from the internet and has high severity vulnerabilities\[RCE] |
-| AWS.VulnerableEC2InstanceHasHighpermissionToAccount | EC2 instance has high severity vulnerabilities and high permission to an account | An EC2 instance '\[EC2Name]' has high severity vulnerabilities\[RCE] and has '\[permission]' permission to account '\[AccountName] |
-| AWS.VulnerableEC2InstanceHasReadpermissionToKMS | EC2 instance has high severity vulnerabilities and read permission to an AWS KMS | Option 1 <br> An EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to AWS Key Management Service (KMS) '\[KeyName]' <br> <br> Option 2 <br> An EC2 instance '\[MachineName]' has vulnerabilities allowing remote code execution and has IAM role attached with '\[Keypermission]' permission via AWS Key Management Service (KMS) policy to key '\[KeyName]' <br> <br> Option 3 <br> AWS EC2 instance '\[MachineName]' has vulnerabilities allowing remote code execution and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[Keypermission] permission via AWS Key Management Service (KMS) policy to key '\[KeyName]' |
-| AWS.VulnerableEC2InstanceHasReadpermissionTodata storeWithSensitiveData | EC2 instance has high severity vulnerabilities and read permission to a data store with sensitive data | Option 1 <br> An EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to S3 bucket '\[BucketName]' containing sensitive data <br> <br> Option 2 <br> An EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached with '\[permission]' permission via bucket policy to S3 bucket '\[BucketName]' containing sensitive data <br> <br> Option 3 <br> An EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[permission] permission via bucket policy to S3 bucket '\[BucketName]' containing sensitive data" |
-
-### Azure data
-
-| New Attack Path Type | Attack Path Display Name	| Attack Path Description |
-|--|--|--|
-| Azure.ExposedSQLOnVMWithCommonUserNameAllowsCodeExec | Internet exposed SQL on VM has a user account with commonly used username and allows code execution on the VM | SQL on VM '\[SqlVirtualMachineName]' is reachable from the internet, has a local user account with commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying VM |
-| Azure.VulnerableExposedSQLOnVMWithCommonUserName | Internet exposed SQL on VM has a user account with commonly used username and known vulnerabilities | SQL on VM '\[SqlVirtualMachineName]' is reachable from the internet, has a local user account with commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs) |
-| Azure.SQLOnVMWithCommonUserNameAllowsCodeExec | SQL on VM has a user account with commonly used username and allows code execution on the VM | SQL on VM '\[SqlVirtualMachineName]' has a local user account with commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying VM |
-| Azure.VulnerableSQLOnVMWithCommonUserName | SQL on VM has a user account with commonly used username and known vulnerabilities | SQL on VM '\[SqlVirtualMachineName]' has a local user account with commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs) |
-| Azure.PubliclyAccessibleStorageContainerWithSensitiveData | Internet exposed Azure Storage container with sensitive data is publicly accessible | Azure storage container \[StorageAccountName]/\[ContainerName] with sensitive data is reachable from the internet and allows public read access without authorization required |
-
-### AWS Data
-
-| New Attack Path Type | Attack Path Display Name	| Attack Path Description |
-|--|--|--|
-| AWS.PubliclyAccessibleExposedS3BucketWithSensitiveData | Internet exposed AWS S3 Bucket with sensitive data is publicly accessible | S3 bucket '\[BucketName]' with sensitive data is reachable from the internet and allows public read access without authorization required |
-
-### Azure containers
-
-| New Attack Path Type | Attack Path Display Name	| Attack Path Description |
-|--|--|--|
-| Azure.VulnerableExposedAKSPod | Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | Internet exposed Kubernetes pod '\[pod name]' in namespace '\[namespace]' is running a container '\[container name]' using image '\[image name]' which has vulnerailities allowing remote code execution |
-
-| Azure.VulnerableAKSPodWithHostNetworkAccess | Kubernetes pod running on an internet exposed node uses host network is running a container with RCE vulnerabilities | Kubernetes pod '\[pod name]' in namespace '\[namespace]' with host network access enabled is exposed to the internet via the host network. The pod is running container '\[container name]' using image '\[image name]' which has vulnerabilities allowing remote code execution |
 
 ## Next Steps
+
+Learn how to manage your [Build queries with Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).

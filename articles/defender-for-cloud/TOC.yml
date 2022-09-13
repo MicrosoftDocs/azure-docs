@@ -90,10 +90,14 @@
       href: security-policy-concept.md
     - name: Security posture
       href: secure-score-security-controls.md
+    - name: External attack surface management (EASM)
+      href: concept-easm.md
     - name: Reference list of Azure recommendations
       href: recommendations-reference.md
     - name: Reference list of AWS recommendations
       href: recommendations-reference-aws.md
+    - name: Reference list of attack paths
+      href: attack-path-reference.md
 
   - name: Cloud Workload Protection concepts
     items:
@@ -120,6 +124,10 @@
       href: windows-admin-center-integration.md
     - name: Integrate security solutions and data sources
       href: partner-integration.md
+    - name: Identify and remediate attack paths
+      href: how-to-manage-attack-paths.md
+    - name: Build queries with Cloud Security Explorer
+      href: how-to-manage-cloud-security-explorer.md
   - name: Security recommendations
     items:
     - name: Create custom security initiatives and policies
