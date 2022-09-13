@@ -107,7 +107,7 @@ If you selected to create a new backup policy, fill in the policy settings.
 1. In **Policy name**, specify a meaningful name.
 2. In **Backup schedule**, specify when backups should be taken. You can take daily or weekly backups for Azure VMs.
    > [!NOTE]
-   > If you intend to take hourly backup, then you can either use **Enhanced backup policy**, For more information, see [Back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md#Enhanced-backup) or click on **Backup now** mannually.
+   > If you intend to take hourly backup, then you can either use **Enhanced backup policy**, For more information, see [Back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md#Create_an_Enhanced_policy_and_configure_VM_backup) or click on **Backup now** mannually.
    > 
    
 4. In **Instant Restore**, specify how long you want to retain snapshots locally for instant restore.
