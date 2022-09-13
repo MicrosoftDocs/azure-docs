@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/22/2022
+ms.date: 09/13/2022
 ms.author: jeedes
 
 ---
@@ -62,6 +62,24 @@ To configure and test Azure AD SSO with Sketch, perform the following steps:
     1. **[Create Sketch test user](#create-sketch-test-user)** - to have a counterpart of B.Simon in Sketch that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
+## Choose a shortname for your Workspace in Sketch
+
+Follow these steps to choose a shortname and gather information to continue the setup process in Azure AD.
+
+> Before starting this process, make sure SSO is available in your Workspace, check there is an SSO tab in your Workspace Admin panel.
+> If you don't see the SSO tab, please reach out to customer support.
+1. [Sign in to your Workspace](https://www.sketch.com/signin/) as an Admin.
+1. Head to the **People & Settings** section in the sidebar.
+1. Click on the **Single Sign-On** tab.
+1. Click **Choose** a short name.
+1. Enter a unique name, it should have less than 16 characters and can only include letters, numbers or hyphens. You can edit this name later on.
+1. Click **Submit**.
+1. Click on the first tab **Set Up Identity Provider**. In this tab, you’ll find the unique Workspace values you’ll need to set up the integration with Azure AD.
+    1. **EntityID:** In Azure AD, this is the `Identifier` field.
+    1. **ACS URL:** In Azure AD, this is the `Reply URL` field.
+
+Make sure to keep these values at hand! You’ll need them in the next step. Click Copy next to each value to copy it to your clipboard.
+
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
@@ -74,13 +92,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type a value using the following pattern:
+    a. In the **Identifier** textbox, use the `EntityID` field from the previous step. It looks like:
     `sketch-<uuid_v4>`
 
-    b. In the **Reply URL** textbox, type a URL using the following pattern:
+    b. In the **Reply URL** textbox, use the `ACS URL` field from the previous step. It looks like:
     `https://sso.sketch.com/saml/acs?id=<uuid_v4>`
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:    
+1. Click **Set additional URLs** and perform the following step:  
 
     In the **Sign-on URL** text box, type the URL:
     `https://www.sketch.com`
@@ -102,11 +120,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-    ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
-
-1. On the **Set up Sketch** section, copy the appropriate URL(s) based on your requirement.
-
-	![Screenshot shows how to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")  
+    ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")  
 
 ### Create an Azure AD test user
 
@@ -134,11 +148,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Sketch SSO
 
-To configure single sign-on on **Sketch** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Sketch support team](mailto:sso-support@sketch.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Follow these steps to finish the configuration in Sketch.
 
-### Create Sketch test user
-
-In this section, a user called B.Simon is created in Sketch. Sketch supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Sketch, a new one is created after authentication.
+1. In your Workspace, head to the **Set up Sketch** tab in the **Single Sign-On** window.
+1. Upload the XML file you downloaded previously in the **Import XML Metadata file** section.
+1. Log out.
+1. Click **Sign in with SSO**. 
+1. Use the shortname you configured previously to proceed.
 
 ## Test SSO 
 
