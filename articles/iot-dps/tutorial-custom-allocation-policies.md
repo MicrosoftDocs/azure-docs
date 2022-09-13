@@ -1,27 +1,27 @@
 ---
-title: Custom allocation policies with Azure IoT Hub Device Provisioning Service
-description: How to use custom allocation policies with the Azure IoT Hub Device Provisioning Service (DPS)
+title: Tutorial - Use custom allocation policies with Azure IoT Hub Device Provisioning Service
+description: This tutorial shows how to provision devices using a custom allocation policy in your Azure IoT Hub Device Provisioning Service (DPS) instance.
 author: kgremban
 ms.author: kgremban
-ms.date: 01/26/2021
-ms.topic: conceptual
+ms.date: 09/13/2022
+ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
-# How to use custom allocation policies
+# Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)
 
-Custom allocation policies give you more control over how devices are assigned to your IoT hubs. With custom allocation policies, you can define your own allocation policies when the policies provided by the Azure IoT Hub Device Provisioning Service (DPS) don't meet the requirements of your scenario. A custom allocation policy is implemented in a webhook hosted in [Azure functions](../azure-functions/functions-overview.md) and configured on one or more individual enrollments and/or enrollment groups. When a device registers with DPS using a configured enrollment entry, DPS calls the webhook to find out which IoT hub the device should be registered to and, optionally, its initial state. To learn more, see [Using custom allocation policies with DPS](concepts-custom-allocation.md).
+Custom allocation policies give you more control over how devices are assigned to your IoT hubs. With custom allocation policies, you can define your own allocation policies when the policies provided by the Azure IoT Hub Device Provisioning Service (DPS) don't meet the requirements of your scenario. A custom allocation policy is implemented in a webhook hosted in [Azure functions](../azure-functions/functions-overview.md) and configured on one or more individual enrollments and/or enrollment groups. When a device registers with DPS using a configured enrollment entry, DPS calls the webhook to find out which IoT hub the device should be registered to and, optionally, its initial state. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md).
 
-This article demonstrates a custom allocation policy using an Azure Function written in C#. Devices are assigned to one of two IoT hubs representing a *Contoso Toasters Division* and a *Contoso Heat Pumps Division*. Devices requesting provisioning must have a registration ID with one of the following suffixes to be accepted for provisioning:
+This tutorial demonstrates a custom allocation policy using an Azure Function written in C#. Devices are assigned to one of two IoT hubs representing a *Contoso Toasters Division* and a *Contoso Heat Pumps Division*. Devices requesting provisioning must have a registration ID with one of the following suffixes to be accepted for provisioning:
 
 * **-contoso-tstrsd-007** for the Contoso Toasters Division
 * **-contoso-hpsd-088** for the Contoso Heat Pumps Division
 
 Devices will be simulated using a provisioning sample included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-In this tutorial you will do the following:
+In this tutorial, you'll do the following:
 
 > [!div class="checklist"]
 > * Use the Azure CLI to create a DPS instance and to create and link two Contoso division IoT hubs (**Contoso Toasters Division** and **Contoso Heat Pumps Division**) to it
@@ -48,12 +48,12 @@ The following prerequisites are for a Windows development environment. For Linux
 In this section, you use the Azure Cloud Shell to create a provisioning service and two IoT hubs representing the **Contoso Toasters Division** and the **Contoso Heat Pumps division**.
 
 > [!TIP]
-> The commands used in this article create the provisioning service and other resources in the West US location. We recommend that you create your resources in the region nearest you that supports Device Provisioning Service. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive. If you use multi-word format to specify location, enclose the value in quotes; for example, `-- location "West US"`.
+> The commands used in this tutorial create the provisioning service and other resources in the West US location. We recommend that you create your resources in the region nearest you that supports Device Provisioning Service. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive. If you use multi-word format to specify location, enclose the value in quotes; for example, `-- location "West US"`.
 >
 
 1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-    The following example creates a resource group named *contoso-us-resource-group* in the *westus* region. It is recommended that you use this group for all resources created in this article. This approach will make clean up easier after you're finished.
+    The following example creates a resource group named *contoso-us-resource-group* in the *westus* region. It is recommended that you use this group for all resources created in this tutorial. This approach will make clean up easier after you're finished.
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location westus
@@ -124,7 +124,7 @@ In this section, you create an Azure function that implements your custom alloca
 
 3. On the **Function App** create page, under the **Basics** tab, enter the following settings for your new function app and select **Review + create**:
 
-    **Resource Group**: Select the **contoso-us-resource-group** to keep all resources created in this article together.
+    **Resource Group**: Select the **contoso-us-resource-group** to keep all resources created in this tutorial together.
 
     **Function App name**: Enter a unique function app name. This example uses **contoso-function-app-1098**.
 
@@ -137,9 +137,9 @@ In this section, you create an Azure function that implements your custom alloca
     **Region**: Select the same region as your resource group. This example uses **West US**.
 
     > [!NOTE]
-    > By default, Application Insights is enabled. Application Insights is not necessary for this article, but it might help you understand and investigate any issues you encounter with the custom allocation. If you prefer, you can disable Application Insights by selecting the **Monitoring** tab and then selecting **No** for **Enable Application Insights**.
+    > By default, Application Insights is enabled. Application Insights is not necessary for this tutorial, but it might help you understand and investigate any issues you encounter with the custom allocation. If you prefer, you can disable Application Insights by selecting the **Monitoring** tab and then selecting **No** for **Enable Application Insights**.
 
-    ![Create an Azure Function App to host the custom allocation function](./media/how-to-use-custom-allocation-policies/create-function-app.png)
+    ![Create an Azure Function App to host the custom allocation function](./media/tutorial-custom-allocation-policies/create-function-app.png)
 
 4. On the **Summary** page, select **Create** to create the function app. Deployment may take several minutes. When it completes, select **Go to resource**.
 
@@ -310,7 +310,7 @@ In this section, you create an Azure function that implements your custom alloca
 
 ## Create the enrollment
 
-In this section, you'll create a new enrollment group that uses the custom allocation policy. For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
+In this section, you'll create a new enrollment group that uses the custom allocation policy. For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
 1. Still on the [Azure portal](https://portal.azure.com), open your provisioning service.
 
@@ -332,7 +332,7 @@ In this section, you'll create a new enrollment group that uses the custom alloc
 
     **Function**: Select the **HttpTrigger1** function.
 
-    ![Add custom allocation enrollment group for symmetric key attestation](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
+    ![Add custom allocation enrollment group for symmetric key attestation](./media/tutorial-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
 4. After saving the enrollment, reopen it and make a note of the **Primary Key**. You must save the enrollment first to have the keys generated. This key will be used to generate unique device keys for simulated devices later.
 
@@ -342,7 +342,7 @@ Devices don't use the enrollment group's primary symmetric key directly. Instead
 
 To derive the device key, you use the enrollment group **Primary Key** you noted earlier to compute the [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the device registration ID for each device and convert the result into Base64 format. For more information on creating derived device keys with enrollment groups, see the group enrollments section of [Symmetric key attestation](concepts-symmetric-key-attestation.md).
 
-For the example in this article, use the following two device registration IDs and compute a device key for both devices. Both registration IDs have a valid suffix to work with the example code for the custom allocation policy:
+For the example in this tutorial, use the following two device registration IDs and compute a device key for both devices. Both registration IDs have a valid suffix to work with the example code for the custom allocation policy:
 
 * **breakroom499-contoso-tstrsd-007**
 * **mainbuilding167-contoso-hpsd-088**
@@ -624,9 +624,9 @@ The following table shows expected scenarios and the results error codes you mig
 
 ## Clean up resources
 
-If you plan to continue working with the resources created in this article, you can leave them. If you don't plan to continue using the resources, use the following steps to delete all of the resources created in this article to avoid unnecessary charges.
+If you plan to continue working with the resources created in this tutorial, you can leave them. If you don't plan to continue using the resources, use the following steps to delete all of the resources created in this tutorial to avoid unnecessary charges.
 
-The steps here assume you created all resources in this article as instructed in the same resource group named **contoso-us-resource-group**.
+The steps here assume you created all resources in this tutorial as instructed in the same resource group named **contoso-us-resource-group**.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
@@ -646,15 +646,15 @@ To delete the resource group by name:
 
 * To learn more about custom allocation policies, see
 
-> [!div class="nextstepaction"]
-> [Understand custom allocation policies](concepts-custom-allocation.md)
+    > [!div class="nextstepaction"]
+    > [Understand custom allocation policies](concepts-custom-allocation.md)
 
 * To learn more Reprovisioning, see
 
-> [!div class="nextstepaction"]
-> [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
+    > [!div class="nextstepaction"]
+    > [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
 
 * To learn more Deprovisioning, see
 
-> [!div class="nextstepaction"]
-> [How to deprovision devices that were previously autoprovisioned](how-to-unprovision-devices.md)
+    > [!div class="nextstepaction"]
+    > [How to deprovision devices that were previously autoprovisioned](how-to-unprovision-devices.md)

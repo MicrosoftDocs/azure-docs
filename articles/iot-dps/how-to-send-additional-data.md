@@ -99,4 +99,4 @@ The payload file (in this case `/home/aziot/payload/json`) can contain any valid
 
 * For an overview of custom allocation policies, see [Using custom allocation policies](./concepts-custom-allocation.md)
 
-* To learn how to provision devices using a custom allocation policy, see [How to use custom allocation policies](./how-to-use-custom-allocation-policies.md)
+* To learn how to provision devices using a custom allocation policy, see [Ue custom allocation policies](./tutorial-custom-allocation-policies.md)

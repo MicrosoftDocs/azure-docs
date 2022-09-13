@@ -34,7 +34,7 @@ The following steps describe how custom allocation polices work:
 
 1. The device connects to the assigned IoT hub and downloads its initial twin state. If a custom payload is returned in the registration response, the device uses it according to its own client-side logic.  
 
-The following sections provide more detail about the custom allocation request and response, custom payloads, and policy implementation. For a complete end-to-end example of a custom allocation policy, see [How to use custom allocation policies](how-to-use-custom-allocation-policies.md).
+The following sections provide more detail about the custom allocation request and response, custom payloads, and policy implementation. For a complete end-to-end example of a custom allocation policy, see [Use custom allocation policies](tutorial-custom-allocation-policies.md).
 
 ## Custom allocation policy request
 
@@ -270,6 +270,6 @@ The DPS device SDKs provide APIs in C, C#, Java, and Node.js to help you registe
 
 ## Next Steps
 
-* For an end-to-end example using a custom allocation policy, see [How to use custom allocation policies](how-to-use-custom-allocation-policies.md)
+* For an end-to-end example using a custom allocation policy, see [Use custom allocation policies](tutorial-custom-allocation-policies.md)
 
 * To learn more about Azure Functions, see the [Azure Functions documentation](../azure-functions/index.yml)

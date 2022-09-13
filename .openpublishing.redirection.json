@@ -34009,8 +34009,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/iot-dps/tutorial-custom-allocation-policies.md",
-            "redirect_url": "/azure/iot-dps/how-to-use-custom-allocation-policies",
+            "source_path_from_root": "/articles/iot-dps/how-to-use-custom-allocation-policies.md",
+            "redirect_url": "/azure/iot-dps/tutorial-custom-allocation-policies",
             "redirect_document_id": false
           },          
         {
