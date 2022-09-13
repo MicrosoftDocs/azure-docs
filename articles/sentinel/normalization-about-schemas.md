@@ -107,7 +107,7 @@ Users are central to activities reported by events. The fields listed in this se
 | <a name="userscope"></a>**UserScope** | Optional | string | The scope in which the user is defined. For example, an AAD tenant for. The scope type is tightly coupled to the user ID type, and therefore the [UserIdType](#useridtype) field represents also the type of the associated with this field. |
 | <a name="useridtype"></a>**UserIdType** | Optional | UserIdType | The type of the ID stored in the [UserId](#userid) field. |
 | **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId** | Optional | String | Fields used to store specific user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). Populate the relevant specific ID field, in addition to [UserId](#userid), even if the event has only one ID. |
-| **UserSid**, **UserAWSAccount** | Optional | String | Fields used to store specific scopes. Use the [UserScope](#userscope) field for the scope associated with the ID stored in the [UserId](#userid) field.  Populate the relevant specific scope field, in addition to [UserScope](#userscope), even if the event has only one ID. | 
+| **UserAADTenant**, **UserAWSAccount** | Optional | String | Fields used to store specific scopes. Use the [UserScope](#userscope) field for the scope associated with the ID stored in the [UserId](#userid) field.  Populate the relevant specific scope field, in addition to [UserScope](#userscope), even if the event has only one ID. | 
 
 The allowed values for a user ID type are:
 
