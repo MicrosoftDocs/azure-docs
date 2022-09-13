@@ -35,15 +35,16 @@ DDoS Protection Standard applies three auto-tuned mitigation policies (TCP SYN, 
  
 ## SKUs
 
-Azure DDoS Protection has two available SKUs. DDoS Protection Basic and DDoS Protection Standard. For more information about configuring DDoS Protection Standard, see [Quickstart: Create and configure Azure DDoS Protection Standard](manage-ddos-protection.md).
+Azure DDoS Protection has one available SKU named DDoS Protection Standard. For more information about configuring DDoS Protection Standard, see [Quickstart: Create and configure Azure DDoS Protection Standard](manage-ddos-protection.md).
 
-The following table shows features and corresponding SKUs.
+The following table shows features. 
 
-| Feature |  DDoS Protection Basic | DDoS Protection Standard |
+| Feature |   DDoS infrastructure protection | DDoS Protection Standard |
 |---|---|---|
 | Active traffic monitoring & always on detection| Yes |  Yes|
 | Automatic attack mitigation | Yes | Yes |
 | Availability guarantee| Not available | Yes |
+| Cost protection | Not available | Yes |
 | Application based mitigation policies | Not available | Yes|
 | Metrics & alerts | Not available  | Yes |
 | Mitigation reports | Not available | Yes |
@@ -59,7 +60,7 @@ The following table shows features and corresponding SKUs.
 Simplified configuration immediately protects all resources on a virtual network as soon as DDoS Protection Standard is enabled. No intervention or user definition is required.
 
 ### Multi-Layered protection:
-When deployed with a web application firewall (WAF), DDoS Protection Standard protects both at the network layer (Layer 3 and 4, offered by Azure DDoS Protection Standard) and at the application layer (Layer 7, offered by a WAF). WAF offerings include Azure [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and third-party web application firewall offerings available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
+When deployed with a web application firewall (WAF), DDoS Protection Standard protects both at the network layer (Layer 3 and 4, offered by Azure DDoS Protection Standard) and at the application layer (Layer 7, offered by a WAF). WAF offerings include Azure [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=/azure/virtual-network/toc.json) and third-party web application firewall offerings available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 
 ### Extensive mitigation scale
  All L3/L4 attack vectors can be mitigated, with global capacity, to protect against the largest known DDoS attacks.

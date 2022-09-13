@@ -7,23 +7,154 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 09/09/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD051 -->
+
 # What's new in Azure Form Recognizer
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+## September 2022
+
+#### Form Recognizer SDK version 4.0.0 GA release
+
+* **Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
+
+* For more information on Form Recognizer SDKs, see the [**SDK overview**](sdk-overview.md).
+
+* Update your applications using your programming language's **migration guide** (see below).
+
+>[!NOTE]
+> Starting with version 4.0.0, a new set of clients has been introduced to leverage the newest features of the Form Recognizer service.
+
+This release includes the following updates:
+
+### [**C#**](#tab/csharp)
+
+* **Version 4.0.0 GA (2022-09-08)**
+* **Supports REST API v3.0 and v2.0 clients**
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+
+### [**Java**](#tab/java)
+
+* **Version 4.0.0 GA (2022-09-08)**
+* **Supports REST API v3.0 and v2.0 clients**
+
+[**Package (Maven)**](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+
+### [**JavaScript**](#tab/javascript)
+
+* **Version 4.0.0 GA (2022-09-08)**
+* **Supports REST API v3.0 and v2.0 clients**
+
+[**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/README.md)
+
+[**Samples**](https://github.com/witemple-msft/azure-sdk-for-js/blob/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/README.md)
+
+### [Python](#tab/python)
+
+> [!NOTE]
+> Python 3.7 or later is required to use this package.
+
+* **Version 3.2.0 GA (2022-09-08)**
+* **Supports REST API v3.0 and v2.0 clients**
+
+[**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md)
+
+---
+
 ## August 2022
+
+#### Form Recognizer SDK beta August 2022 preview release
+
+This release includes the following updates:
+
+### [**C#**](#tab/csharp)
+
+**Version 4.0.0-beta.5 (2022-08-09)**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#400-beta5-2022-08-09)
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5)
+
+[**SDK reference documentation**](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet-preview&preserve-view=true)
+
+### [**Java**](#tab/java)
+
+**Version 4.0.0-beta.6 (2022-08-10)**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#400-beta6-2022-08-10)
+
+ [**Package (Maven)**](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
+
+ [**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
+
+### [**JavaScript**](#tab/javascript)
+
+**Version 4.0.0-beta.6 (2022-08-09)**
+
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0-beta.6/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+ [**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.6)
+
+ [**SDK reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview&preserve-view=true)
+
+### [Python](#tab/python)
+
+> [!IMPORTANT]
+> Python 3.6 is no longer supported in this release. Use Python 3.7 or later.
+
+**Version 3.2.0b6 (2022-08-09)**
+
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b6/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+ [**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)
+
+ [**SDK reference documentation**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/)
+
+---
 
 ### Form Recognizer v3.0 generally available
 
-**Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!**
+**Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!** Update your applications with [**REST API version 2022-08-31**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
 
-#### The August release introduces the following performance updates:
+#### The August release introduces the following new capabilities and updates:
 
 ##### Form Recognizer Studio updates
 
@@ -31,27 +162,33 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * **Custom models**. The Studio now includes the ability to reorder labels in custom model projects to improve labeling efficiency.
 
-* **Copy Models** Custom models can be copied across Form Recognizer services from within the Studio. This enables the promotion of a trained model to other environments and regions.
+* **Copy Models** Custom models can be copied across Form Recognizer services from within the Studio. The operation enables the promotion of a trained model to other environments and regions.
 
 * **Delete documents**. The Studio now supports deleting documents from labeled dataset within custom projects.
 
 ##### Form Recognizer service updates
 
+* [**prebuilt-read**](concept-read.md). Read OCR model is now also available in Form Recognizer with paragraphs and language detection as the two new features. Form Recognizer Read targets advanced document scenarios aligned with the broader document intelligence capabilities in Form Recognizer.
+
+* [**prebuilt-layout**](concept-layout.md). The Layout model extracts paragraphs and whether the extracted text is a paragraph, title, section heading, footnote, page header, page footer, or page number.
+
 * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields will now resolve to the existing fields TotalTax and Line/Tax respectively.
 
-* [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards as well as passport visa information.
+* [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
 
 * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
 
-* [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract sub-fields for address components like address, city, state, country, and zip code.
+* [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract subfields for address components like address, city, state, country, and zip code.
 
 * **AI quality improvements**
 
-  * [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
+  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices as well as improved processing of digital PDF documents.
 
-  * [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables, and improved recognition of long spanning cells. As well improved paragraph grouping detection and logical identification of headers and titles.
+  * [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables, and improved recognition of long spanning cells.
 
   * [**prebuilt-document**](concept-general-document.md). Improved value and check box detection.
+
+  * [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
 
 ## June 2022
 
@@ -76,12 +213,7 @@ The **2022-06-30-preview** release presents extensive updates across the feature
 * [**Prebuilt ID document model**](concept-id-document.md). The ID document model now extracts DateOfIssue, Height, Weight, EyeColor, HairColor, and DocumentDiscriminator from US driver's licenses. _See_ [field extraction](concept-id-document.md).
 * [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [page extraction](concept-read.md#pages).
 
-#### Form Recognizer SDK beta preview release
-
-The latest beta release version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixes.
-
->[!NOTE]
-> The 4.0.0-beta.4 (C# and JavaScript), 4.0.0-beta.5 (Java), and 3.2.0b5 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
+#### Form Recognizer SDK beta June 2022 preview release
 
 This new release includes the following updates:
 
@@ -89,41 +221,41 @@ This new release includes the following updates:
 
 **Version 4.0.0-beta.4 (2022-06-08)**
 
-##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
 
-##### [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.4)
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.4)
 
-##### [**SDK reference documentation**](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true)
+[**SDK reference documentation**](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true)
 
 ### [**Java**](#tab/java)
 
 **Version 4.0.0-beta.5 (2022-06-07)**
 
-##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0-beta.5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0-beta.5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 
-##### [**Package (Maven)**](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar)
+ [**Package (Maven)**](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar)
 
-##### [**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
+ [**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
 
 ### [**JavaScript**](#tab/javascript)
 
 **Version 4.0.0-beta.4 (2022-06-07)**
 
-##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0-beta.4/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0-beta.4/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
-##### [**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4)
+ [**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4)
 
-##### [**SDK reference documentation**](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true)
+ [**SDK reference documentation**](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true)
 
 ### [Python](#tab/python)
 
 **Version 3.2.0b5 (2022-06-07**
 
-##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 
-##### [**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b5/)
+ [**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b5/)
 
-##### [**SDK reference documentation**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true)
+ [**SDK reference documentation**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true)
 
 ---
 
@@ -159,63 +291,58 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
 
 #### Form Recognizer SDK beta preview release
 
-The latest beta release version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixes.
-
->[!NOTE]
-> The 4.0.0-beta.3 (C# and JavaScript), 4.0.0-beta.4 (Java), and 3.2.0b4 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
-
 This new release includes the following updates:
 
-*  [Custom Document models and modes](concept-custom.md):
+* [Custom Document models and modes](concept-custom.md):
   * [Custom template](concept-custom-template.md) (formerly custom form)
   * [Custom neural](concept-custom-neural.md).
   * [Custom model—build mode](concept-custom.md#build-mode).
 
-*  [W-2 prebuilt model](concept-w2.md) (prebuilt-tax.us.w2).
+* [W-2 prebuilt model](concept-w2.md) (prebuilt-tax.us.w2).
 
-*  [Read prebuilt model](concept-read.md) (prebuilt-read).
+* [Read prebuilt model](concept-read.md) (prebuilt-read).
 
-*  [Invoice prebuilt model (Spanish)](concept-invoice.md#supported-languages-and-locales) (prebuilt-invoice).
+* [Invoice prebuilt model (Spanish)](concept-invoice.md#supported-languages-and-locales) (prebuilt-invoice).
 
 ### [**C#**](#tab/csharp)
 
 **Version 4.0.0-beta.3 (2022-02-10)**
 
-##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#400-beta3-2022-02-10)
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#400-beta3-2022-02-10)
 
-##### [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.3)
+ [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.3)
 
-##### [**SDK reference documentation**](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true)
+ [**SDK reference documentation**](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true)
 
 ### [**Java**](#tab/java)
 
 **Version 4.0.0-beta.4 (2022-02-10)**
 
-##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#400-beta4-2022-02-10)
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#400-beta4-2022-02-10)
 
-##### [**Package (Maven)**](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.4/jar)
+ [**Package (Maven)**](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.4/jar)
 
-##### [**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
+ [**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
 
 ### [**JavaScript**](#tab/javascript)
 
 **Version 4.0.0-beta.3 (2022-02-10)**
 
-##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#400-beta3-2022-02-10)
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#400-beta3-2022-02-10)
 
-##### [**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3)
+ [**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3)
 
-##### [**SDK reference documentation**](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true)
+ [**SDK reference documentation**](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true)
 
 ### [Python](#tab/python)
 
 **Version 3.2.0b3 (2022-02-10)**
 
-##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#320b3-2022-02-10)
+ [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#320b3-2022-02-10)
 
-##### [**Package (PyPI)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b3/)
+ [**Package (PyPI)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b3/)
 
-##### [**SDK reference documentation**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true)
+ [**SDK reference documentation**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true)
 
 ---
 
@@ -277,7 +404,7 @@ The `BuildModelOperation` and `CopyModelOperation` now correctly populate the `P
 
 #### Feature updates
 
-* The `get_words()` method has been added to the `DocumentLine` model. *See* our [How to get words contained in a Document line](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_get_words_on_document_line.py) sample on GitHub.
+* The `get_words()` method has been added to the `DocumentLine` model. *See* our [How to get words contained in a Document line](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2/sample_get_words_on_document_line.py) sample on GitHub.
 
 #### Breaking changes
 

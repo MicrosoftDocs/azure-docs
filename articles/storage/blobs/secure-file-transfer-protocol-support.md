@@ -114,12 +114,9 @@ You can use many different SFTP clients to securely connect and then transfer fi
 |----------|--------------|--------------------|---------------|------------|
 | rsa-sha2-256 <sup>2</sup> | ecdh-sha2-nistp384 | aes128-gcm@openssh.com | hmac-sha2-256 | ssh-rsa <sup>2</sup> |
 | rsa-sha2-512 <sup>2</sup> | ecdh-sha2-nistp256 | aes256-gcm@openssh.com | hmac-sha2-512 | ecdsa-sha2-nistp256 |
-| ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| hmac-sha2-256-etm@openssh.com | ecdsa-sha2-nistp384 |
-| ecdsa-sha2-nistp384 | diffie-hellman-group16-sha512 | aes192-cbc | hmac-sha2-512-etm@openssh.com | 
-|| diffie-hellman-group-exchange-sha256 | aes256-cbc ||
-||| aes128-ctr ||
-||| aes192-ctr ||
-||| aes256-ctr ||
+| ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-ctr| hmac-sha2-256-etm@openssh.com | ecdsa-sha2-nistp384 |
+| ecdsa-sha2-nistp384 | diffie-hellman-group16-sha512 | aes192-ctr | hmac-sha2-512-etm@openssh.com | 
+|| diffie-hellman-group-exchange-sha256 | aes256-ctr ||
 
 <sup>1</sup>    Host keys are published [here](secure-file-transfer-protocol-host-keys.md).
 <sup>2</sup>    RSA keys must be minimum 2048 bits in length.

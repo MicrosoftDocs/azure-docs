@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/11/2022
+ms.date: 08/24/2022
 ---
 
 # Java app to connect and query Hyperscale (Citus)
@@ -109,9 +109,9 @@ Create a `src/main/resources/application.properties` file, and add:
 
 ``` properties
 driver.class.name=org.postgresql.Driver
-url=jdbc:postgresql://<host>:5432/citus?ssl=true&sslmode=require
-user=citus
-password=<password>
+db.url=jdbc:postgresql://<host>:5432/citus?ssl=true&sslmode=require
+db.username=citus
+db.password=<password>
 ```
 
 Replace the  \<host\> using the Connection string that you gathered previously. Replace \<password\> with the password that you set for the database.
@@ -193,7 +193,7 @@ public class DButil {
             datasource.setPassword(properties.getProperty(DB_PASSWORD));
             datasource.setMinimumIdle(100);
             datasource.setMaximumPoolSize(1000000000);
-            datasource.setAutoCommit(false);
+            datasource.setAutoCommit(true);
             datasource.setLoginTimeout(3);
         } catch (IOException | SQLException  e) {
             e.printStackTrace();
@@ -593,23 +593,23 @@ Executing the `main` class should now produce the following output:
 The following code is an example for copying in-memory data to table.
 
 ```java
-private static void inMemory(Connection connection) throws SQLException,IOException {
-    log.info("Copying in-memory data into table");
-    String[] input = {"0,Target,Sunnyvale,California,94001"};
-
-    Connection unwrap = connection.unwrap(Connection.class);
-    BaseConnection  connSec = (BaseConnection) unwrap;
-
-    CopyManager copyManager = new CopyManager((BaseConnection) connSec);
-    String copyCommand = "COPY pharmacy FROM STDIN with csv";
-
-    for (String var : input)
+private static void inMemory(Connection connection) throws SQLException,IOException
     {
-        Reader reader = new StringReader(var);
+    log.info("Copying inmemory data into table");
+            
+    final List<String> rows = new ArrayList<>();
+    rows.add("0,Target,Sunnyvale,California,94001");
+    rows.add("1,Apollo,Guntur,Andhra,94003");
+        
+    final BaseConnection baseConnection = (BaseConnection) connection.unwrap(Connection.class);
+    final CopyManager copyManager = new CopyManager(baseConnection);
+
+    // COPY command can change based on the format of rows. This COPY command is for above rows.
+    final String copyCommand = "COPY pharmacy FROM STDIN with csv";        
+       
+    try (final Reader reader = new StringReader(String.join("\n", rows))) {
         copyManager.copyIn(copyCommand, reader);
     }
-
-    copyManager.copyIn(copyCommand);
 }
 ```
 
@@ -640,6 +640,90 @@ Executing the main class should now produce the following output:
 5000
 [INFO   ] Copying in-memory data into table
 [INFO   ] Closing database connection
+```
+
+## App retry during database request failures
+
+[!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
+
+```java
+package test.crud;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.util.logging.Logger;
+import com.zaxxer.hikari.HikariDataSource;
+
+public class DemoApplication
+{
+    private static final Logger log;
+
+    static
+    {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+        log = Logger.getLogger(DemoApplication.class.getName());
+    }
+    private static final String DB_USERNAME = "citus";
+    private static final String DB_PASSWORD = "<Your Password>";
+    private static final String DB_URL = "jdbc:postgresql://<Server Name>:5432/citus?sslmode=require";
+    private static final String DB_DRIVER_CLASS = "org.postgresql.Driver";
+    private static HikariDataSource datasource;
+
+    private static String executeRetry(String sql, int retryCount) throws InterruptedException
+    {
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        for (int i = 1; i <= retryCount; i++)
+        {
+            try
+            {
+                datasource = new HikariDataSource();
+                datasource.setDriverClassName(DB_DRIVER_CLASS);
+                datasource.setJdbcUrl(DB_URL);
+                datasource.setUsername(DB_USERNAME);
+                datasource.setPassword(DB_PASSWORD);
+                datasource.setMinimumIdle(10);
+                datasource.setMaximumPoolSize(1000);
+                datasource.setAutoCommit(true);
+                datasource.setLoginTimeout(3);
+                log.info("Connecting to the database");
+                con = datasource.getConnection();
+                log.info("Connection established");
+                log.info("Read data");
+                pst = con.prepareStatement(sql);
+                rs = pst.executeQuery();
+                StringBuilder builder = new StringBuilder();
+                int columnCount = rs.getMetaData().getColumnCount();
+                while (rs.next())
+                {
+                    for (int j = 0; j < columnCount;)
+                    {
+                        builder.append(rs.getString(j + 1));
+                        if (++j < columnCount)
+                            builder.append(",");
+                    }
+                    builder.append("\r\n");
+                }
+                return builder.toString();
+            }
+            catch (Exception e)
+            {
+                Thread.sleep(60000);
+                System.out.println(e.getMessage());
+            }
+        }
+        return null;
+    }
+
+    public static void main(String[] args) throws Exception
+    {
+        String result = executeRetry("select 1", 5);
+        System.out.print(result);
+    }
+}
 ```
 
 ## Next steps

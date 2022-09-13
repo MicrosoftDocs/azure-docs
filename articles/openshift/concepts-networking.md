@@ -1,8 +1,8 @@
 ---
 title: Concepts - Networking diagram for Azure Red Hat OpenShift 4
 description: Networking diagram and overview for Azure Red Hat OpenShift networking
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 11/23/2020

@@ -33,13 +33,9 @@ Before starting, review the following requirements.
     * System Center Operations Manager 2022
     * System Center Operations Manager 2019
     * System Center Operations Manager 2016 
-    * System Center Operations Manager 2012 SP1 UR6 or later
-    * System Center Operations Manager 2012 R2 UR2 or later
-* Integrating System Center Operations Manager 2016 with US Government cloud requires the following:
+* Integrating System Center Operations Manager with US Government cloud requires the following:
     *  System Center Operations Manager 2022
     *  System Center Operations Manager 2019
-    *  System Center Operations Manager 2016 UR 2 or later 
-    *  System Center Operations Manager 2012 R2 UR 3 or later
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
 * A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../logs/workspace-design.md).
 * You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../logs/manage-access.md#azure-rbac).
