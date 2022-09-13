@@ -46,7 +46,7 @@ Each error code falls under one of the following four buckets:
     * Check if the value is present in the iterable object.
     * If you want to check one value to another, use logical operator instead of Membership Operator.
     * If the membership operator contains "None" value, it won't be able to iterate, and a null check or assigned default must be done.
-    4. Check if the type of the value used can actually be checked and the typing is correct.
+    * Check if the type of the value used can actually be checked and the typing is correct.
 
 2. **Spark_System_ABFS_OperationFailed**
 
