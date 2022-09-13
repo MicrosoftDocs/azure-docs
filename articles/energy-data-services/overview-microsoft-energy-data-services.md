@@ -10,7 +10,7 @@ ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 # What is Microsoft Energy Data Services?
 
-Microsoft Energy Data Services is a cloud based data management solution that allows storage, management, standardization, liberation, search, and consumption of data for various scenarios for the energy industry. Microsoft has developed MIcrosoft Energy Data Services in collaboration with Schlumberger. It is a best-in-class hyperscale data ecosystem that leverages the capabilities of the OSDU&trade; Data Platform, Microsoft's secure and trustworthy Azure services and Schlumberger's extensive domain expertise.
+Microsoft Energy Data Services is a cloud based data management solution that allows storage, management, standardization, liberation, search, and consumption of data for various scenarios for the energy industry. Microsoft has developed Microsoft Energy Data Services in collaboration with Schlumberger. It is a best-in-class hyperscale data ecosystem that leverages the capabilities of the OSDU&trade; Data Platform, Microsoft's secure and trustworthy Azure services and Schlumberger's extensive domain expertise.
 
 It provides an enterprise-ready, commercial-grade, Microsoft-managed first party PaaS (platform as a service) offering an efficient, standardized, easy to deploy, scalable environment for data management. Microsoft manages the deployment, monitoring, management, scale, security, updates, and upgrades of the service, so that you can focus on the value from the platform. Microsoft will continue to update the service with the most recent OSDU&trade; Standard milestone releases after testing and validation, so that you receive a recent, tested and validated, stable version of OSDU Data Platform&trade;.
 
