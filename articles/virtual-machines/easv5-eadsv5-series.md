@@ -51,7 +51,9 @@ Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 
 <sup>1</sup> Easv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md)<br>
-<sup>3</sup> Using Ultra and Premium v2 data disks with the Standard_E112ias_v5 results in: <br> Uncached Ultra and Premium v2 data disk IOPS/ MBps2: 160000/2000 <br> Burst uncached Ultra and Premium v2 data disk IOPS/ MBps 160000/2000
+<sup>3</sup> Using Ultra or Premium v2 data disks with **Standard_E112ias_v5** results in higher IOPs/ MBps than standard premium disks:
+- Uncached Ultra and Premium v2 data disk IOPS/ MBps2: 160000/2000 
+- Burst uncached Ultra and Premium v2 data disk IOPS/ MBps 160000/2000
 
 
 ## Eadsv5-series
@@ -84,8 +86,8 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 | Standard_E112iads_v5<sup>3</sup> | 112 | 672 | 3800 | 64 | 450000 / 4000 | 120000/2000   | 120000/2000 | 8 | 50000 |
 
 <sup>1</sup> Eadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
-<sup>2</sup> [Constrained core sizes available](constrained-vcpu.md).
-<sup>3</sup> Using Ultra and Premium v2 data disks with the Standard_E112iads_v5 results in: <br> Uncached Ultra and Premium v2 data disk IOPS/ MBps2: 160000/2000 <br> Burst uncached Ultra and Premium v2 data disk IOPS/ MBps 160000/2000
+<sup>2</sup> [Constrained core sizes available](constrained-vcpu.md). <br>
+<sup>3</sup> Using Ultra or Premium v2 data disks with **Standard_E112iads_v5** results in higher IOPs/ MBps than standard premium disks: <br> Uncached Ultra and Premium v2 data disk IOPS/ MBps2: 160000/2000 <br> Burst uncached Ultra and Premium v2 data disk IOPS/ MBps 160000/2000
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
