@@ -59,9 +59,10 @@ The guest user is now authenticated, and they can see the shared resource or con
 
 When a guest user redeems an invitation or uses a link to a resource that has been shared with them, they’ll receive a one-time passcode if:
 
-- They don't have an Azure AD account
-- They don't have a Microsoft account
+- They don't have an Azure AD account.
+- They don't have a Microsoft account.
 - The inviting tenant didn't set up federation with social (like [Google](google-federation.md)) or other identity providers.
+- They don't have any other authentication method or any password-backed accounts.
 - Email one-time passcode is enabled.
 
 At the time of invitation, there's no indication that the user you're inviting will use one-time passcode authentication. But when the guest user signs in, one-time passcode authentication will be the fallback method if no other authentication methods can be used.
