@@ -188,7 +188,7 @@ If your organization is a previous user of per-user based Azure AD Multi-Factor 
 
 ### Conditional Access
 
-You can use Conditional Access to configure policies similar to security defaults, but with more granularity including selecting other authentication methods and the ability to exclude users, which aren't available in security defaults. If you're using Conditional Access in your environment today, security defaults won't be available to you. 
+You can use Conditional Access to configure policies similar to security defaults, but with more granularity. Conditional Access policies allow selecting other authentication methods and the ability to exclude users, which aren't available in security defaults. If you're using Conditional Access in your environment today, security defaults won't be available to you. 
 
 ![Warning message that you can have security defaults or Conditional Access not both](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 
