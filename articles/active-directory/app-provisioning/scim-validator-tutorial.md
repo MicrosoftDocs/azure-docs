@@ -58,7 +58,9 @@ Now that you've selected a testing method, the next step is to configure it.
 4. Edit the list attributes as desired for both the user and group types using the ‘Add Attribute’ option at the end of the attribute list and minus (-) sign on the right side of the page. 
 5. Select the joining property from both the user and group attributes list. 
 > [!NOTE]
-> The joining property, also known as matching attribute, is an attribute that user and group resources can be uniquely queried on at the source and matched in the target system. 
+> The joining property, also known as matching attribute, is an attribute that user and group resources can be uniquely queried on at the source and matched in the target system.
+
+:::image type="content" source="./media/scim-validator-attributes/scim-validator-results.png" alt-text="SCIM Validator Attributes Page" lightbox="./media/scim-validator-tutorial/scim-validator-attributes.png":::
 
 ## Validate your SCIM endpoint
 Finally, you need to test and validate your endpoint.
@@ -85,6 +87,6 @@ Don't forget to delete any Azure resources that you no longer need.
 
 ## Next steps
 
-Advance to the next article to learn how to customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory.
+Learn how to customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory.
 > [!div class="nextstepaction"]
 > [Learn how to customize application attributes](customize-application-attributes.md)
