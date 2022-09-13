@@ -84,7 +84,7 @@ Esv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice L
 <sup>4</sup> Accelerated networking can only be applied to a single NIC. <br>
 <sup>5</sup> Using Ultra or Premium v2 data disks with **Standard_E80is_v4** results in higher IOPs/ MBps than standard premium disks:
 - Uncached Ultra and Premium v2 data disk IOPS/ MBps2: 120000/1800 <br>
--  Burst uncached Ultra and Premium v2 data disk IOPS/ MBps 120000/2000
+-  Burst uncached Ultra and Premium v2 data disk IOPS/ MBps: 120000/2000
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

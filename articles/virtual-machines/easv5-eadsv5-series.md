@@ -53,7 +53,7 @@ Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md)<br>
 <sup>3</sup> Using Ultra or Premium v2 data disks with **Standard_E112ias_v5** results in higher IOPs/ MBps than standard premium disks:
 - Uncached Ultra and Premium v2 data disk IOPS/ MBps: 160000/2000 
-- Burst uncached Ultra and Premium v2 data disk IOPS/ MBps 160000/2000
+- Burst uncached Ultra and Premium v2 data disk IOPS/ MBps: 160000/2000
 
 
 ## Eadsv5-series
@@ -89,7 +89,7 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md). <br>
 <sup>3</sup> Using Ultra or Premium v2 data disks with **Standard_E112iads_v5** results in higher IOPs/ MBps than standard premium disks:
 - Uncached Ultra and Premium v2 data disk IOPS/ MBps: 160000/2000 <br>
-- Burst uncached Ultra and Premium v2 data disk IOPS/ MBps 160000/2000
+- Burst uncached Ultra and Premium v2 data disk IOPS/ MBps: 160000/2000
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
