@@ -134,7 +134,7 @@ Live migration is typically the best method of migrating your storage account if
 - The precise timing of the migration is not critical
 - You want to minimize the amount of manual effort required to complete the migration
 
-The live migration option is available in most scenarios where you want to change zone-redundancy. Live migration is supported for standard general-purpose v2 and premium file share storage accounts. It is not supported for premium block blob or page blob storage accounts. Other exceptions are those noted under [restrictions for changing replication types](#restrictions-for-changing-replication-types). The [migration support table](#migration-support-table) summarizes the supported and unsupported scenarios as well.
+The live migration option is available in most scenarios where you want to change zone-redundancy. Live migration is supported for standard general-purpose v2 and premium file share storage accounts. It is not supported for premium block blob or page blob storage accounts. Other exceptions are those noted under [restrictions for changing replication types](#restrictions-for-changing-replication-types). The [migration feature support table](#migration-feature-support-table) summarizes the supported and unsupported scenarios as well.
 
 > [!NOTE]
 > While Microsoft handles your request for live migration promptly, there's no guarantee as to when a live migration will complete. If you need your data migrated by a certain date, Microsoft recommends that you perform a manual migration instead.
@@ -187,7 +187,7 @@ Follow these steps to request a live migration from Microsoft:
 
 ### Manual migration
 
-A manual migration provides more flexibility and control than a live migration. You can use this option if you need the migration to complete by a certain date, or if live migration is not supported for your scenario. (See [the migration support table](#migration-support-table) for supported scenarios.) Manual migration is also useful when moving a storage account to another region. See [Move an Azure Storage account to another region](storage-account-move.md) for more details.
+A manual migration provides more flexibility and control than a live migration. You can use this option if you need the migration to complete by a certain date, or if live migration is not supported for your scenario. (See [the migration feature support table](#migration-feature-support-table) for supported scenarios.) Manual migration is also useful when moving a storage account to another region. See [Move an Azure Storage account to another region](storage-account-move.md) for more details.
 
 You must perform a manual migration if:
 
@@ -205,7 +205,7 @@ With a manual migration, you copy the data from your existing storage account to
 
 For more detailed guidance on how to perform a manual migration, see [Move an Azure Storage account to another region](storage-account-move.md).
 
-#### Migration support table
+#### Migration feature support table
 
 The following table summarizes the benefits and supported scenarios for each migration method:
 
@@ -350,7 +350,9 @@ If you migrate your storage account from GRS to LRS, there is no additional cost
 
 ## Replication conversion tables
 
-This section includes tables that show the paths for changing between replication types. These tables focus on adding or removing zone-redundancy, since changing geo-redundancy or read access to the secondary region can be easily changed by using the Azure portal, PowerShell, or the Azure CLI. The one exception is when you want to switch to another type after a failover operation. See [Failover and failback](#failover-and-failback) for more details.
+This section includes tables that show the paths for changing between replication types.
+
+These tables focus on adding or removing zone-redundancy, since changing geo-redundancy or read access to the secondary region can be easily changed by using the Azure portal, PowerShell, or the Azure CLI. The one exception is when you want to switch to another type after a failover operation. See [Failover and failback](#failover-and-failback) for more details.
 
 The following table shows the paths available for adding zone-redundancy to an existing storage account:
 
