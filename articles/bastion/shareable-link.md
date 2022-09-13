@@ -4,11 +4,11 @@ description: Learn how to create a shareable link to let a user connect to a tar
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 09/12/2022
+ms.date: 09/13/2022
 ms.author: cherylmc
 ---
 
-# Create a shareable link for Bastion (Preview)
+# Create a shareable link for Bastion - preview
 
 The Bastion **Shareable Link** feature lets users connect to a target resource (virtual machine or virtual machine scale set) using Azure Bastion without accessing the Azure portal. This article helps you use the Shareable Link feature to create a shareable link for an existing Azure Bastion deployment.
 
@@ -19,7 +19,7 @@ By default, users in your org will have only read access to shared links. If a u
 ## Considerations
 
 * Shareable Links isn't currently supported on peered VNets.
-* Shareable Links is not supported for national clouds during Preview.
+* Shareable Links is not supported for national clouds during preview.
 * The Standard SKU is required for this feature.
 
 ## Prerequisites
@@ -60,19 +60,19 @@ In this section, you specify each resource for which you want to create a sharea
 
 1. On the **Create shareable link** page, select the resources for which you want to create a shareable link. You can select specific resources, or you can select all. A separate shareable link will be created for each selected resource. Click **Apply** to create links.
 
-   :::image type="content" source="./media/shareable-link/select-vm.png" alt-text="Screenshot of shareable links page to create a shareable link1." lightbox="./media/shareable-link/select-vm.png":::
+   :::image type="content" source="./media/shareable-link/select-vm.png" alt-text="Screenshot of shareable links page to create a shareable link." lightbox="./media/shareable-link/select-vm.png":::
 
 1. Once the links are created, you can view them on the **Shareable links** page. The following example shows links for multiple resources. You can see that each resource has a separate link and the link status is **Active**. To share a link, copy it, then send it to the user. The link doesn't contain authentication credentials.
 
    :::image type="content" source="./media/shareable-link/copy-link.png" alt-text="Screenshot of shareable links page to show all available resource links." lightbox="./media/shareable-link/copy-link.png":::
 
-## <a name="connect"></a>Connect to a VM
+## Connect to a VM
 
 1. After receiving the link, the user opens the link in their browser.
 
-1. In the left corner, the user can select whether to see text and images copied to the clipboard. The user inputs the required information, then clicks **Login** to connect. A shared link doesn't contain authentication credentials. The admin must provide sign-in credentials to the user. Custom port and protocols are supported. 
+1. In the left corner, the user can select whether to see text and images copied to the clipboard. The user inputs the required information, then clicks **Login** to connect. A shared link doesn't contain authentication credentials. The admin must provide sign-in credentials to the user. Custom port and protocols are supported.
 
-   :::image type="content" source="./media/shareable-link/login.png" alt-text="Screenshot Sign in to bastion using the shareable link in the browser." lightbox="./media/shareable-link/login.png":::
+   :::image type="content" source="./media/shareable-link/login.png" alt-text="Screenshot of Sign-in to bastion using the shareable link in the browser." lightbox="./media/shareable-link/login.png":::
 
 > [!NOTE]
 > If a link is no longer able to be opened, this means that someone in your organization has deleted that resource. While you'll still be able to see the shared links in your list, it will no longer connect to the target resource and will lead to a connection error. You can delete the shared link in your list, or keep it for auditing purposes.
