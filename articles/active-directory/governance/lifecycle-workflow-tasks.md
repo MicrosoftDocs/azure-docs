@@ -132,7 +132,7 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Pass and 
 |displayName     | GenerateTAPAndSendEmail (Customizable by user)      |
 |description     | Generate Temporary Access Pass and send via email to user's manager (Customizable by user)       |
 |taskDefinitionId     |   1b555e50-7f65-41d5-b514-5894a026d10d     |
-|arguments     |  Argument contains the name parameter "tapLifetimeInMinutes", which is the lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days). The argument also contains the tapIsUsableOnce parameter, which determines whether the password is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime.    |
+|arguments     |  Argument contains the name parameter "tapLifetimeInMinutes", which is the lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days). The argument also contains the tapIsUsableOnce parameter, which determines whether the passcode is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime.    |
 
 
 ```Example for usage within the workflow
@@ -646,4 +646,5 @@ For Microsoft Graph the parameters for the **Send offboarding email to users man
 ## Next steps
 
 - [Manage lifecycle workflows properties](manage-workflow-properties.md)
-- [Manage lifecycle workflow versions](delete-lifecycle-workflow.md)
+- [Manage lifecycle workflow versions](manage-workflow-tasks.md)
+
