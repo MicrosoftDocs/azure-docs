@@ -1116,6 +1116,9 @@
         - name: CLI
           href: linux/disks-enable-customer-managed-keys-cli.md
           displayname: Server side encryption, encryption, ADE
+      - name: Enable cross-tenant customer-managed keys (preview)
+        href: disks-cross-tenant-cmk.md
+        displayname: Server side encryption, encryption, ADE
       - name: Enable encryption at host
         items:
         - name: Portal
