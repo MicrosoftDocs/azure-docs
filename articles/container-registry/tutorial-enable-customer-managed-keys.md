@@ -13,7 +13,7 @@ This article is part two in a four-part tutorial series. In [part one](tutorial-
 In this article 
 
 >* Enable a customer-managed key - Azure CLI
->* Enable a customer-managed key - Azure Portal
+>* Enable a customer-managed key - Azure portal
 >* Enable a customer-managed key - Azure Resource Manager template
 
 ## Prerequisites
