@@ -67,7 +67,7 @@ sections:
         answer: |
           *Keep-Alive timeout* governs how long the Application Gateway will wait for a client to send another HTTP request on a persistent connection before reusing it or closing it. *TCP idle timeout* governs how long a TCP connection is kept open if there is no activity. 
           
-          The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateways to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateways, you'll need to navigate to the public IP of the Application Gateway and change the TCP idle timeout under the "Configuration" blade of the public IP on Portal. Changing the value of the private IP address is not supported. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
+          The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateways to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateways, you'll need to navigate to the public IP of the Application Gateway and change the TCP idle timeout under the "Configuration" blade of the public IP on Portal. Changing the value of the private IP address isn't supported. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
           
           ```azurepowershell-interactive
           $publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
@@ -143,7 +143,7 @@ sections:
           
       - question: What is considered an active listener versus inactive listener?
         answer: |
-          An active listener is a listener that is associated to a rule **and** sending traffic to a backend pool. Any listener that **only** redirects traffic is not an active listener. Listeners associated with redirect rules are not considered active. If the redirect rule is a path-based rule, then all the paths in that redirect rule must be redirecting traffic, else the listener is considered active. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) for individual component limit details. 
+          An active listener is a listener that is associated to a rule **and** sending traffic to a backend pool. Any listener that **only** redirects traffic isn't an active listener. Listeners associated with redirect rules aren't considered active. If the redirect rule is a path-based rule, then all the paths in that redirect rule must be redirecting traffic, else the listener is considered active. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) for individual component limit details. 
       
   - name: Performance
     questions:
@@ -221,7 +221,7 @@ sections:
           
       - question: Are service endpoint policies supported in the Application Gateway subnet?
         answer: |
-          No. [Service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) for storage accounts are not supported in Application Gateway subnet and configuring it will block Azure infrastructure traffic.
+          No. [Service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) for storage accounts aren't supported in Application Gateway subnet and configuring it will block Azure infrastructure traffic.
           
       - question: What are the limits on Application Gateway? Can I increase these limits?
         answer: |
@@ -268,7 +268,7 @@ sections:
           
           But if you'd like to use Application Gateway V2 with only private IP, you can follow the process below:
           1. Create an Application Gateway with both public and private frontend IP address
-          2. Do not create any listeners for the public frontend IP address. Application Gateway will not listen to any traffic on the public IP address if no listeners are created for it.
+          2. Don't create any listeners for the public frontend IP address. Application Gateway will not listen to any traffic on the public IP address if no listeners are created for it.
           3. Create and attach a [Network Security Group](../virtual-network/network-security-groups-overview.md) for the Application Gateway subnet with the following configuration in the order of priority:
               
               a. Allow traffic from Source as **GatewayManager** service tag and Destination as **Any** and Destination port as **65200-65535**. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by certificate authentication. External entities, including the Gateway user administrators, can't initiate changes on those endpoints without appropriate certificates in place
@@ -277,7 +277,7 @@ sections:
               
               c. Deny all inbound traffic from Source as **Internet** service tag and Destination and destination port as **Any**. Give this rule the *least priority* in the inbound rules
               
-              d. Keep the default rules like allowing VirtualNetwork inbound so that the access on private IP address is not blocked
+              d. Keep the default rules like allowing VirtualNetwork inbound so that the access on private IP address isn't blocked
               
               e. Outbound internet connectivity can't be blocked. Otherwise, you will face issues with logging, metrics, etc.
           
@@ -466,7 +466,7 @@ sections:
       - question: Can I connect my AKS cluster and Application Gateway in separate virtual networks? 
         answer: Yes, as long as the virtual networks are peered and they don't have overlapping address spaces. If you're running AKS with kubenet, then be sure to associate the route table generated by AKS to the Application Gateway subnet. 
 
-      - question: What features are not supported on the AGIC add-on? 
+      - question: What features aren't supported on the AGIC add-on? 
         answer: |
           Please see the differences between AGIC deployed through Helm versus deployed as an AKS add-on [here](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)
           
