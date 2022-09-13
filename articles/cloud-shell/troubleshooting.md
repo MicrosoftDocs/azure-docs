@@ -161,7 +161,7 @@ In order to **export** the user settings Cloud Shell saves for you such as prefe
 Bash:
 
   ```
-  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".accessToken")"
   curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $token" -s | jq
   ```
 
@@ -185,7 +185,7 @@ In order to **delete** your user settings Cloud Shell saves for you such as pref
 Bash:
 
   ```
-  token=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
+  token=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".accessToken")
   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $token"
   ```
 
