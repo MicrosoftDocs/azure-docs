@@ -59,7 +59,7 @@ If you create an exclusion with a match variable of *Request body POST args* and
 
 [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md) describes how you can use logs to view the details of a blocked request, including the parts of the request that triggered the rule.
 
-Sometimes a specific WAF rule produces false positive detections from the values included in a request header, cookie, POST argument, query string argument, or JSON field in a request body. If this happens, you can configure the rule to exclude that part of the request from its evaluation.
+Sometimes a specific WAF rule produces false positive detections from the values included in a request header, cookie, POST argument, query string argument, or JSON field in a request body. If these false positive detections happen, you can configure the rule to exclude the relevant part of the request from its evaluation.
 
 The following table shows example values from WAF logs and the corresponding exclusion selectors that you could create.
 
