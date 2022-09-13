@@ -225,7 +225,7 @@ This section explains how to modify telemetry.
 
 ### Add spans
 
-The easiest way to add your own spans is using the `@WithSpan` annotation.
+The easiest way to add your own spans is using OpenTelemetry's `@WithSpan` annotation.
 
 Spans populate the `requests` and `dependencies` tables in Application Insights.
 
