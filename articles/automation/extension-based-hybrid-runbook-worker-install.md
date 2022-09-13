@@ -1,5 +1,5 @@
 ---
-title: Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation (Preview)
+title: Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation
 description: This article provides information about deploying the extension-based User Hybrid Runbook Worker to run runbooks on Windows or Linux machines in your on-premises datacenter or other cloud environment.
 services: automation
 ms.subservice: process-automation
@@ -8,7 +8,7 @@ ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ---
 
-# Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation (Preview)
+# Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation
 
 The extension-based onboarding is only for **User** Hybrid Runbook Workers. This article describes how to: deploy a user Hybrid Runbook Worker on a Windows or Linux machine, remove the worker, and remove a Hybrid Runbook Worker group. 
 
@@ -28,14 +28,17 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 - Two cores
 - 4 GB of RAM
+- **Non-Azure machines** must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
-- Non-Azure machines must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) for Arc-enabled VMware vSphere VMs.
+
+>[!NOTE]
+> Hybrid Runbook Worker currently doesn't support Virtual Machine Scale Sets (VMSS).
 
 ### Supported operating systems
 
 | Windows | Linux (x64)|
 |---|---|
-| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 | &#9679; Debian GNU/Linux 7 and 8 <br> &#9679; Ubuntu 18.04, and 20.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15, and 15.1 (SUSE didn't release versions numbered 13 or 14), and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 | &#9679; Debian GNU/Linux 10 and 11 <br> &#9679; Ubuntu 20.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
 
 ### Other Requirements
 
@@ -144,7 +147,7 @@ If you use a firewall to restrict access to the Internet, you must configure the
 
 ### CPU quota limit
 
-There is a CPU quota limit of 5% while configuring extension-based Linux Hybrid Runbook worker. There is no such limit for Windows Hybrid Runbook Worker.
+There is a CPU quota limit of 25% while configuring extension-based Linux Hybrid Runbook worker. There is no such limit for Windows Hybrid Runbook Worker.
 
 ## Create hybrid worker group
 
@@ -202,7 +205,7 @@ You can also add machines to an existing hybrid worker group.
 
 1. Select the checkbox next to the machine(s) you want to add to the hybrid worker group. 
 
-   If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine.
+   If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent` see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 
 1. Select **Add** to add the machine to the group.
 
@@ -257,7 +260,233 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
    The hybrid worker group will be deleted.
 
-## Manage Hybrid Worker extension using ARM template, REST API, and Azure CLI
+## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, and Azure CLI
+
+
+#### [Bicep template](#tab/bicep-template)
+
+```Bicep
+param automationAccount string
+param automationAccountLocation string
+param workerGroupName string
+
+@description('Name of the virtual machine.')
+param virtualMachineName string
+
+@description('Username for the Virtual Machine.')
+param adminUsername string
+
+@description('Password for the Virtual Machine.')
+@minLength(12)
+@secure()
+param adminPassword string
+
+@description('Location for the VM.')
+param vmLocation string = 'North Central US'
+
+@description('Size of the virtual machine.')
+param vmSize string = 'Standard_DS1_v2'
+
+@description('The Windows version for the VM. This will pick a fully patched image of this given Windows version.')
+@allowed([
+  '2008-R2-SP1'
+  '2012-Datacenter'
+  '2012-R2-Datacenter'
+  '2016-Nano-Server'
+  '2016-Datacenter-with-Containers'
+  '2016-Datacenter'
+  '2019-Datacenter'
+  '2019-Datacenter-Core'
+  '2019-Datacenter-Core-smalldisk'
+  '2019-Datacenter-Core-with-Containers'
+  '2019-Datacenter-Core-with-Containers-smalldisk'
+  '2019-Datacenter-smalldisk'
+  '2019-Datacenter-with-Containers'
+  '2019-Datacenter-with-Containers-smalldisk'
+])
+param osVersion string = '2019-Datacenter'
+
+@description('DNS name for the public IP')
+param dnsNameForPublicIP string
+
+var nicName_var = 'myVMNict'
+var addressPrefix = '10.0.0.0/16'
+var subnetName = 'Subnet'
+var subnetPrefix = '10.0.0.0/24'
+var subnetRef = resourceId('Microsoft.Network/virtualNetworks/subnets', virtualNetworkName_var, subnetName)
+var vmName_var = virtualMachineName
+var virtualNetworkName_var = 'MyVNETt'
+var publicIPAddressName_var = 'myPublicIPt'
+var networkSecurityGroupName_var = 'default-NSGt'
+var UniqueStringBasedOnTimeStamp = uniqueString(resourceGroup().id)
+
+resource publicIPAddressName 'Microsoft.Network/publicIPAddresses@2020-08-01' = {
+  name: publicIPAddressName_var
+  location: vmLocation
+  properties: {
+    publicIPAllocationMethod: 'Dynamic'
+    dnsSettings: {
+      domainNameLabel: dnsNameForPublicIP
+    }
+  }
+}
+
+resource networkSecurityGroupName 'Microsoft.Network/networkSecurityGroups@2020-08-01' = {
+  name: networkSecurityGroupName_var
+  location: vmLocation
+  properties: {
+    securityRules: [
+      {
+        name: 'default-allow-3389'
+        properties: {
+          priority: 1000
+          access: 'Allow'
+          direction: 'Inbound'
+          destinationPortRange: '3389'
+          protocol: 'Tcp'
+          sourceAddressPrefix: '*'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+        }
+      }
+    ]
+  }
+}
+
+resource virtualNetworkName 'Microsoft.Network/virtualNetworks@2020-08-01' = {
+  name: virtualNetworkName_var
+  location: vmLocation
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        addressPrefix
+      ]
+    }
+    subnets: [
+      {
+        name: subnetName
+        properties: {
+          addressPrefix: subnetPrefix
+          networkSecurityGroup: {
+            id: networkSecurityGroupName.id
+          }
+        }
+      }
+    ]
+  }
+}
+
+resource nicName 'Microsoft.Network/networkInterfaces@2020-08-01' = {
+  name: nicName_var
+  location: vmLocation
+  properties: {
+    ipConfigurations: [
+      {
+        name: 'ipconfig1'
+        properties: {
+          privateIPAllocationMethod: 'Dynamic'
+          publicIPAddress: {
+            id: publicIPAddressName.id
+          }
+          subnet: {
+            id: subnetRef
+          }
+        }
+      }
+    ]
+  }
+  dependsOn: [
+
+    virtualNetworkName
+  ]
+}
+
+resource vmName 'Microsoft.Compute/virtualMachines@2020-12-01' = {
+  name: vmName_var
+  location: vmLocation
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    hardwareProfile: {
+      vmSize: vmSize
+    }
+    osProfile: {
+      computerName: vmName_var
+      adminUsername: adminUsername
+      adminPassword: adminPassword
+    }
+    storageProfile: {
+      imageReference: {
+        publisher: 'MicrosoftWindowsServer'
+        offer: 'WindowsServer'
+        sku: osVersion
+        version: 'latest'
+      }
+      osDisk: {
+        createOption: 'FromImage'
+      }
+    }
+    networkProfile: {
+      networkInterfaces: [
+        {
+          id: nicName.id
+        }
+      ]
+    }
+  }
+}
+
+resource automationAccount_resource 'Microsoft.Automation/automationAccounts@2021-06-22' = {
+  name: automationAccount
+  location: automationAccountLocation
+  properties: {
+    sku: {
+      name: 'Basic'
+    }
+  }
+}
+
+resource automationAccount_workerGroupName 'Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups@2022-02-22' = {
+  parent: automationAccount_resource
+  name: workerGroupName
+  dependsOn: [
+
+    vmName
+  ]
+}
+
+resource automationAccount_workerGroupName_testhw_UniqueStringBasedOnTimeStamp 'Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers@2021-06-22' = {
+  parent: automationAccount_workerGroupName
+  name: guid('testhw', UniqueStringBasedOnTimeStamp)
+  properties: {
+    vmResourceId: resourceId('Microsoft.Compute/virtualMachines', virtualMachineName)
+  }
+  dependsOn: [
+    vmName
+  ]
+}
+
+resource virtualMachineName_HybridWorkerExtension 'Microsoft.Compute/virtualMachines/extensions@2022-03-01' = {
+  name: '${virtualMachineName}/HybridWorkerExtension'
+  location: vmLocation
+  properties: {
+    publisher: 'Microsoft.Azure.Automation.HybridWorker'
+    type: 'HybridWorkerForWindows'
+    typeHandlerVersion: '1.1'
+    autoUpgradeMinorVersion: true
+    enableAutomaticUpgrade: true
+    settings: {
+      AutomationAccountURL: automationAccount_resource.properties.automationHybridServiceUrl
+    }
+  }
+  dependsOn: [
+    vmName
+  ]
+}
+
+output output1 string = automationAccount_resource.properties.automationHybridServiceUrl
+```
 
 #### [ARM template](#tab/arm-template)
 
@@ -281,7 +510,6 @@ You can use an Azure Resource Manager (ARM) template to create a new Azure Windo
     },
     "virtualMachineName": {
       "type": "string",
-      "defaultValue": "simple-vm",
       "metadata": {
         "description": "Name of the virtual machine."
       }
@@ -501,23 +729,35 @@ You can use an Azure Resource Manager (ARM) template to create a new Azure Windo
       },
       "resources": [
         {
-          "name": "[concat(parameters('workerGroupName'),'/',guid('AzureAutomationJobName', variables('UniqueStringBasedOnTimeStamp')))]",
-          "type": "hybridRunbookWorkerGroups/hybridRunbookWorkers",
-          "apiVersion": "2021-06-22",
+          "name": "[parameters('workerGroupName')]",
+          "type": "hybridRunbookWorkerGroups",
+          "apiVersion": "2022-02-22",
           "dependsOn": [
             "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccount'))]",
             "[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]"
           ],
-          "properties": {
-            "vmResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
-          }
+          "resources" : [
+            {
+              "name": "[guid('testhw', variables('UniqueStringBasedOnTimeStamp'))]",
+              "type": "hybridRunbookWorkers",
+              "apiVersion": "2021-06-22",
+              "dependsOn": [
+                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccount'))]",
+                "[resourceId('Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups', parameters('automationAccount'),parameters('workerGroupName'))]",
+                "[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]"
+              ],
+              "properties": {
+                "vmResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+              }
+            }
+          ]
         }
       ]
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(parameters('virtualMachineName'),'/HybridWorkerExtension')]",
-      "apiVersion": "2020-12-01",
+      "apiVersion": "2022-03-01",
       "location": "[parameters('vmLocation')]",
       "dependsOn": [
         "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccount'))]",
@@ -526,8 +766,9 @@ You can use an Azure Resource Manager (ARM) template to create a new Azure Windo
       "properties": {
         "publisher": "Microsoft.Azure.Automation.HybridWorker",
         "type": "HybridWorkerForWindows",
-        "typeHandlerVersion": "0.1",
+        "typeHandlerVersion": "1.1",
         "autoUpgradeMinorVersion": true,
+        "enableAutomaticUpgrade": true,
         "settings": {
           "AutomationAccountURL": "[reference(resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccount'))).AutomationHybridServiceUrl]"
         }
