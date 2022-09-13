@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Manage access to Log Analytics workspaces
 
- The data you can access in a Azure Monitor Logs depends on a combination factors. This article describes the factors that determine which data you can access in a Log Analytics workspace and how to manage access to data in a workspace.
+ The data you can access in an Azure Monitor Logs depends on a combination factors, including workspace and resource settings and your [access mode]. This article describes the factors that determine which data you can access in a Log Analytics workspace and how to configure workspace-related data access settings.
 
 The following table describes the factors that define the data you can access in a workspace. Each factor is further described in the sections that follow:
 
@@ -22,7 +22,7 @@ The following table describes the factors that define the data you can access in
 | [Access control mode](#access-control-mode) | A workspace setting that determines whether to apply workspace or resource-level access control settings in each access mode. |
 | [Workspace-level permissions](#azure-rbac) | Permissions for the workspace, applied to individuals or groups of users |
 | [Table-level read access](#table-level-azure-rbac) | Optional permissions that grant read access to specific data types in the workspace. |
-| Resource-defined permissions | Permissions for the monitored resource, applied to individuals or groups of users. |
+| Resource-defined permissions | Permissions for the monitored resource, applied to individuals or groups of user at the resource level.|
 
 ## Access mode
 
