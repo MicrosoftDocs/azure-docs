@@ -13,7 +13,7 @@ ms.service: machine-configuration
 
 ## About the guest configuration agent
 
-The guest configuration agent `gc-agent` receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+The guest configuration agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
