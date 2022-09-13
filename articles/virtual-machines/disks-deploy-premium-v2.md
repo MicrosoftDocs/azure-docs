@@ -199,7 +199,7 @@ az disk update `
 --resource-group $rgname `
 --name $diskName `
 --set diskIopsReadWrite=5000 `
---set diskMbpsReadWrite=200
+--set diskMBpsReadWrite=200
 ```
 
 # [PowerShell](#tab/azure-powershell)
