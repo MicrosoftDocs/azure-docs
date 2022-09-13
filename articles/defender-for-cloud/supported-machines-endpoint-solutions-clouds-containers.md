@@ -256,6 +256,6 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 ## Next steps
     
-- Learn how [Defender for Cloud collects data using the Log Analytics Agent](enable-data-collection.md).
+- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-extensions.md).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
 - Review the [platforms that support Defender for Cloud](security-center-os-coverage.md).

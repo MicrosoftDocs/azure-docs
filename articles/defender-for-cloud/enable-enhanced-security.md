@@ -11,7 +11,7 @@ ms.custom: mode-other
 
 In this quickstart, you'll learn how to enable the enhanced security features by enabling the Defender for Cloud plans through the Azure portal.
 
-Microsoft Defender for Cloud uses [monitoring extensions](enable-data-collection.md) to collect data from your resources. These extensions are automatically deployed when you turn on a Defender plan. Each Defender plan has its own requirements for monitoring extensions, so it's important that the required extensions are deployed to your resources to get all of the benefits of each plan.
+Microsoft Defender for Cloud uses [monitoring extensions](monitoring-extensions.md) to collect data from your resources. These extensions are automatically deployed when you turn on a Defender plan. Each Defender plan has its own requirements for monitoring extensions, so it's important that the required extensions are deployed to your resources to get all of the benefits of each plan.
 
 The Defender plans show you the monitoring coverage for each Defender plan. If the monitoring coverage is **Full**, all of the necessary extensions are installed. If the monitoring coverage is **Partial**, the information tooltip tells you what extensions are missing. For some plans, you can configure specific monitoring settings.
 
@@ -88,4 +88,4 @@ Certain plans allow you to customize your protection.
 - Learn about the [Defender for Servers plans](defender-for-servers-introduction.md#defender-for-servers-plans) to help you choose which plan you want to apply to your subscription.
 - Defender for Databases lets you [select which type of resources you want to protect](quickstart-enable-database-protections.md).
 - Learn more about [how to enable Defender for Containers](defender-for-containers-enable.md) for different Kubernetes environments.
-- Learn about the [monitoring extensions](enable-data-collection.md) that the Defender plans use to collect data from your Azure, hybrid, and multicloud resources.
+- Learn about the [monitoring extensions](monitoring-extensions.md) that the Defender plans use to collect data from your Azure, hybrid, and multicloud resources.

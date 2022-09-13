@@ -96,7 +96,7 @@
   - name: Cloud Workload Protection
     items:
     - name: Monitoring extensions for data collection
-      href: enable-data-collection.md
+      href: monitoring-extensions.md
     - name: Security alerts and incidents
       href: alerts-overview.md
     - name: Reference list of alerts
@@ -202,6 +202,10 @@
 
 - name: Protect your workloads
   items:
+  - name: Monitoring extensions
+    items:
+    - name: Working with the Log Analytics agent
+      href: working-with-log-analytics-agent.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:

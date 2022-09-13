@@ -28,7 +28,7 @@ Defender for Cloud depends on the [Log Analytics agent](../azure-monitor/agents/
 * [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 * [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
-Also ensure your Log Analytics agent is [properly configured to send data to Defender for Cloud](extensions-log-analytics-agent.md#manual-agent)
+Also ensure your Log Analytics agent is [properly configured to send data to Defender for Cloud](working-with-log-analytics-agent.md#manual-agent)
 
 To learn more about the specific Defender for Cloud features available on Windows and Linux, see [Feature coverage for machines](supported-machines-endpoint-solutions-clouds-containers.md).
 
@@ -51,6 +51,6 @@ Protection for VMs residing in Azure Stack Hub is also supported. For more infor
 
 ## Next steps
 
-- Learn how [Defender for Cloud collects data using the Log Analytics Agent](extensions-log-analytics-agent.md).
+- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-extensions.md#log-analytics-agent).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
 - Learn how to [plan and understand the design considerations to adopt Microsoft Defender for Cloud](security-center-planning-and-operations-guide.md).
