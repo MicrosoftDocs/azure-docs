@@ -6,8 +6,10 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
-ms.date: 09/15/2022
-ms.reviewer: 
+ms.date: 09/13/2022
+ms.reviewer: akkumari
+
+#Customer intent: As a cloud administrator, I want understand flapping so that I can configure autoscale correctly.
 ---
 
 # Flapping in Autoscale
@@ -18,9 +20,9 @@ Flapping refers to a loop condition that causes a series of opposing scale event
 
 Autoscale evaluates a pending scale-in action to see if it would cause flapping. In cases where flapping could occur, autoscale may skip the scale action and reevaluate at the next run, or autoscale may scale by less than the specified number of resource instances. The autoscale evaluation process occurs each time the autoscale engine runs, which is every 30 to 60 seconds, depending on the resource type.
 
-To ensure adequate resources, checking for potential flapping does not occur for scale-out events. Autoscale will only deffer a scale-in event to avoid flapping.
+To ensure adequate resources, checking for potential flapping doesn't occur for scale-out events. Autoscale will only defer a scale-in event to avoid flapping.
 
-For example , let's assume the following rules:
+For example, let's assume the following rules:
 
 * Scale out increasing by 1 instance when average CPU usage is above 50%.
 * Scale in decreasing the instance count by 1 instance when average CPU usage is lower than 30%.
@@ -47,14 +49,14 @@ Flapping is often caused by:
 
 To avoid flapping, keep adequate margins between scaling thresholds.
 
-For example, the following rules where there is no margin between thresholds, cause flapping.
+For example, the following rules where there's no margin between thresholds, cause flapping.
 
 * Scale out when thread count >=600
 * Scale in when thread count < 600
 
 :::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example2.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example":::
 
-The table below shows a potential outcome of these autoscale rules: 
+The table below shows a potential outcome of these autoscale rules:
 
 |Time| Instance count| Thread count|Thread count per instance| Scale event| Resulting instance count
 |---|---|---|---|---|---|
@@ -66,17 +68,16 @@ T1|3|1250|417|Scale in|2|
 1. Before scaling-in, autoscale evaluates what would happen if the scale-in event occurs. In this example, 1250 / 2 = 625, that is, 625 threads per instance. Autoscale would have to immediately scale out again after it scaled in. If it scaled out again, the process would repeat, leading to flapping loop.
 1. To avoid this situation, autoscale doesn't scale in. Autoscale skips the current scale event and reevaluates the rule in the next execution cycle.
 
-In this case, it looks like autoscale isn't working since no scale event takes place. Check the *Run history* tab on the autoscale setting page to see if there is any flapping.
+In this case, it looks like autoscale isn't working since no scale event takes place. Check the *Run history* tab on the autoscale setting page to see if there's any flapping.
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-runhistory.png" alt-text="A screenshot showing the autoscale run history tab with records showing flapping" lightbox="./media/autoscale-flapping/autoscale-flapping-runhistory.png":::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-runhistory-small.png" alt-text="A screenshot showing the autoscale run history tab with records showing flapping" lightbox="./media/autoscale-flapping/autoscale-flapping-runhistory.png":::
 
-Setting an adequate margin between thresholds solves the above condition. For example,
+Setting an adequate margin between thresholds avoids the above scenario. For example,
 
 * Scale out when thread count >=600
 * Scale in when thread count < 400
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example3.png" alt-text="A screenshot showing autoscale rules configured for the example" :::
-
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example3.png" alt-text="A screenshot showing autoscale rules configured for the example" lightbox:::
 
 If the scale-in thread count is 400, the total thread count would have to drop to below 1200 before a scale event would take place. See the table below.
 
@@ -87,11 +88,9 @@ T1|3|1250|417|no scale event|3|
 T2|3|1180|394|scale in|2|
 T3|3|1180|590|no scale event|2|
 
-Estimation during a scale-in is intended to avoid "flapping" situations, where scale-in and scale-out actions continually go back and forth. Keep this behavior in mind when setting thresholds for scaling out and in.
-
 ## Scaling by more than one instance
 
-To avoid flapping, when scaling in or out by more than one instance, autoscale may scale by less than the number of instances specified in the rule.
+To avoid flapping when scaling in or out by more than one instance, autoscale may scale by less than the number of instances specified in the rule.
 
 For example, given the following rules:
 
@@ -100,6 +99,8 @@ For example, given the following rules:
 * Scale in by 10 when the request count <=50 per instance.
 
 :::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example1.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example":::
+
+The table below shows a potential outcome of these autoscale rules:
 
 |Time|Number of instances|CPU |Request count| Scale event| Resulting instances|Comments|
 |---|---|---|---|---|---|---|
@@ -110,13 +111,13 @@ At time T0, the app is running with 30 instances, a total request count of 3000,
 
 At T1, when the request count drops to 1500 requests, or 50 requests per instance, autoscale will try to scale in by 10 instances to 20. However, autoscale estimates that the CPU load for 20 instances will be above 70%, causing a scale-out event.
 
-To avoid flapping, the autoscale engine will estimate the CPU usage for instance counts above 20, until it finds an instance count that satisfies all of the rules:
+To avoid flapping, the autoscale engine estimates the CPU usage for instance counts above 20 until it finds an instance count where all metrics are with in the defined thresholds:
 
   1. Keep the CPU below 70%.
-  1. Reduce the number of instances below 30.
   1. Keep the number of requests per instance is above 50.
+  1. Reduce the number of instances below 30.
 
-In this situation, autoscale may scale in by 3, from 30 to 27 instances in order to satisfy both rules, even though the rule specifies a decrease of 10.
+In this situation, autoscale may scale in by 3, from 30 to 27 instances in order to satisfy the rules, even though the rule specifies a decrease of 10. A log message is written to the activity log with a description that includes *Scale down will occur with updated instance count to avoid flapping*
 
 If autoscale can't find a suitable number of instances, it will skip the scale in event and reevaluate during the next cycle.
 
@@ -126,13 +127,13 @@ If autoscale can't find a suitable number of instances, it will skip the scale i
 ## Log files
 
 Find flapping in the activity log with the following query:
-````
+
+````KQL
 // Activity log, CategoryValue: Autoscale
 // Lists latest Autoscale operations from the activity log, with OperationNameValue =="Microsoft.Insights/AutoscaleSettings/Flapping/Action
 AzureActivity
 |where CategoryValue =="Autoscale" and OperationNameValue =="Microsoft.Insights/AutoscaleSettings/Flapping/Action"
 |sort by TimeGenerated desc 
-
 ````
 
 Below is an example of an activity log record for flapping:
@@ -164,7 +165,12 @@ Below is an example of an activity log record for flapping:
 "subscriptionId": "D1234567-9876-A1B2-A2B1-123A567B9F876",
 "activityStatusValue": "Succeeded"
 }
-
 ````
 
+## Next Steps
 
+To learn more about autoscale, see the following resources:
+
+* [Overview of common autoscale patterns](/azure/azure-monitor/autoscale/autoscale-common-scale-patterns)
+* [Automatically scale a virtual machine scale](/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
+* [Use autoscale actions to send email and webhook alert notifications](/azure/azure-monitor/autoscale/autoscale-webhook-email)
