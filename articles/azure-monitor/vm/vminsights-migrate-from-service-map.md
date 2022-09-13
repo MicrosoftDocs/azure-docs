@@ -1,4 +1,4 @@
-# Migrate from service map to Azure Monitor VM insights
+# Migrate from Service map to Azure Monitor VM insights
 
 [Service map](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/service-map) will retire on 30 September 2025. To monitor connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture make sure to transition to [Azure Monitor VM insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview) before this date.
 
