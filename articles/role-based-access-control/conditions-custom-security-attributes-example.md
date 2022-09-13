@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 09/13/2022
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to 
