@@ -68,10 +68,6 @@ T1|3|1250|417|Scale in|2|
 
 In this case, it looks like autoscale isn't working since no scale event takes place. Check the *Run history* tab on the autoscale setting page to see if there is any flapping.
 
-
-
-
-
 :::image type="content" source="./media/autoscale-flapping/autoscale-flapping-runhistory.png" alt-text="A screenshot showing the autoscale run history tab with records showing flapping" lightbox="./media/autoscale-flapping/autoscale-flapping-runhistory.png":::
 
 Setting an adequate margin between thresholds solves the above condition. For example,
