@@ -21,7 +21,7 @@ You need a subscription with [Microsoft Azure](https://azure.com). Sign in with 
 
 ## Getting started
 
-* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](./create-new-resource.md). For application type, choose **General**.
+* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](./create-new-resource.md).
 * Take a copy of the connection string. Find the connection string in the **Essentials** drop-down of the new resource you created.
 * Install latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package.
 * Set the connection string in your code before tracking any telemetry (or set the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable). After that, you should be able to manually track telemetry and see it on the Azure portal
