@@ -54,6 +54,7 @@ Now that you've selected a testing method, the next step is to configure it.
 3. If you're uploading a schema, then select your .json file to upload. The option accepts a .json file exported from your sample app on the Azure portal. To learn how to export a schema, see [How-to: Export provisioning configuration and roll back to a known good state](export-import-provisioning-configuration.md#export-your-provisioning-configuration). 
 > [!NOTE]
 > To test *group attributes*, make sure to select **Enable Group Tests**.
+
 4. Edit the list attributes as desired for both the user and group types using the ‘Add Attribute’ option at the end of the attribute list and minus (-) sign on the right side of the page. 
 5. Select the joining property from both the user and group attributes list. 
 > [!NOTE]
