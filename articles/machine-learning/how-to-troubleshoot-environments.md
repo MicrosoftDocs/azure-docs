@@ -14,7 +14,7 @@ ms.custom: devx-track-python, event-tier1-build-2022
 
 # Troubleshooting Environment Image Builds using Troubleshooting Log Error Messages
 
-# Azure Machine Learning environments
+## Azure Machine Learning environments
 
 Azure Machine Learning environments are an encapsulation of the environment where your machine learning training happens.
 They specify the base docker image, Python packages, and software settings around your training and scoring scripts.
@@ -57,7 +57,7 @@ It is the user’s responsibility to evaluate the threat and address vulnerabili
 Not all the vulnerabilities are exploitable, so users need to use their own good judgement when choosing between reproducibility and resolving vulnerabilities.
 It is not guaranteed that the same set of python dependencies would be materialized with the image rebuild or for the new environment with the same set of Python dependencies. 
 
-### Table of Contents
+## Table of Contents
 **[Environment Definition Problems](#environment-definition-problems)**<br>
 - **[Environment Name Issues](#environment-name-issues)**<br>
 - **[Docker Issues](#docker-issues)**<br>
@@ -74,9 +74,9 @@ It is not guaranteed that the same set of python dependencies would be materiali
 - **[Conda Issues During Build](#conda-issues-during-build)**<br>
 - **[Pip Issues During Build](#pip-issues-during-build)** <br>
 
-# *Environment Definition Problems*
+## *Environment Definition Problems*
 
-## Environment Name Issues
+### Environment Name Issues
 #### **"Curated prefix not allowed"**
 Terminology:  
 
@@ -93,7 +93,7 @@ Terminology:
 - Environment names can be up to 255 characters in length
 - Consider renaming and shortening your environment name
 
-## Docker Issues
+### Docker Issues
 To create a new environment, you must use one of the following approaches:
 1. Base image
     - Provide base image name, repository from which to pull it, credentials if needed
@@ -174,7 +174,7 @@ do this, see [set_connection](https://aka.ms/azureml/environment/set-connection-
 - The specified Dockerfile cannot exceed the maximum Dockerfile size of 100KB
 - Consider shortening your Dockerfile to get it under this limit
 
-## Docker Build Context Issues
+### Docker Build Context Issues
 #### **"Missing Dockerfile path"**
 - In the Docker build context, a Dockerfile path must be specified
 - This is the path to the Dockerfile relative to the root of Docker build context directory
@@ -202,7 +202,7 @@ environment definition:
 - If the build context is stored in a storage account, the path of the build context must be specified as 
     - `https://storage-account.blob.core.windows.net/container/path/`
 
-## Base Image Issues
+### Base Image Issues
 #### **"Base image is deprecated"**
 - The following base images are deprecated:
     - `azureml/base`
@@ -228,12 +228,12 @@ It is best to use newer, non-deprecated versions.
     - Digest
 - See [image with immutable identifier](https://aka.ms/azureml/environment/pull-image-by-digest)
 
-## Environment Variable Issues
+### Environment Variable Issues
 #### **"Misplaced runtime variables"**
 - An environment definition should not contain runtime variables
 - Please use the `environment_variables` attribute on the [RunConfiguration object](https://aka.ms/azureml/environment/environment-variables-on-run-config) instead
 
-## Python Issues
+### Python Issues
 #### **"Python section missing"**
 *V1*
 
@@ -284,11 +284,11 @@ conda_dep.add_conda_package("python==3.8")
 - Please consider using a newer version of Python as the specified version will eventually unsupported
 - See [Python versions](https://aka.ms/azureml/environment/python-versions) and [Python end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
 
-### **"Failed to validate python version"**
+#### **"Failed to validate python version"**
 - The provided Python version may have been formatted improperly or specified with incorrect syntax
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
-## Conda Issues
+### Conda Issues
 #### **"Missing conda dependencies"**
 - The [environment definition](https://aka.ms/azureml/environment/environment-class-v1)
 has a [PythonSection](https://aka.ms/azureml/environment/environment-python-section)
@@ -327,7 +327,7 @@ environment definition
 version of a package on subsequent builds of an environment. This can lead to unexpected errors and incorrect behavior
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
-## Pip Issues
+### Pip Issues
 #### **"Pip not specified"**
 - For reproducibility, pip should be specified as a dependency in your conda specification, and it should be pinned
 - See [how to set a conda dependency](https://aka.ms/azureml/environment/add-conda-package-v1)
@@ -341,15 +341,15 @@ image builds on the environment
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 - See [how to set pip as a dependency](https://aka.ms/azureml/environment/add-conda-package-v1)
 
-## Deprecated Environment Property Issues
+### Deprecated Environment Property Issues
 #### **"R section is deprecated"**
 - The Azure Machine Learning SDK for R will be deprecated by the end of 2021 to make way for an improved R training and deployment
 experience using Azure Machine Learning CLI 2.0
 - See the [samples repository](https://aka.ms/azureml/environment/train-r-models-cli-v2) to get started with the Public Preview edition of the 2.0 CLI
 
-# *Image Build Problems*
+## *Image Build Problems*
 
-## Miscellaneous Issues
+### Miscellaneous Issues
 #### **"Build log unavailable"**
 - Build logs are optional and not available for all environments since the image might already exist
 
@@ -358,7 +358,7 @@ experience using Azure Machine Learning CLI 2.0
 - If your scenario involves a VNet, you may need to build images using a compute cluster
 - See [secure a workspace using virtual networks](https://aka.ms/azureml/environment/acr-private-endpoint)
 
-## Docker Pull Issues
+### Docker Pull Issues
 #### **"Failed to pull Docker image"**
 - Possible issues:
     - The path name to the container registry might not be resolving correctly
@@ -375,7 +375,7 @@ experience using Azure Machine Learning CLI 2.0
     - You have not provided credentials for a private registry you are trying to pull the image from, or the provided credentials are incorrect 
         - Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
 
-## Conda Issues During Build
+### Conda Issues During Build
 #### **"Bad spec"**
 - Failed to create or update the conda environment due to an invalid package specification
     - See [package match specifications](https://aka.ms/azureml/environment/conda-package-match-specifications)
@@ -385,7 +385,7 @@ experience using Azure Machine Learning CLI 2.0
 - Failed to communicate with a conda channel or package repository
 - Retrying the image build may work if the issue is transient
 
-### **"Compile error"**
+#### **"Compile error"**
 - Failed to build a package required for the conda environment
 - Another version of the failing package may work, but most likely you'll need to review the image build log, hunt for a solution, and update the environment definition.
 
@@ -447,7 +447,7 @@ from the provided conda specification
 - Failed to create or update the conda environment because a package was specified on the command line using ">" or "<"
 without using quotes. Consider adding quotes around the package specification
 
-## Pip Issues During Build
+### Pip Issues During Build
 #### **"Failed to install packages"**
 - Failed to install Python packages
 - Review the image build log for more information on this error
