@@ -9,14 +9,14 @@ ms.reviewer: xpathak
 
 ---
 
-# Migrate from Service map to Azure Monitor VM insights
+# Migrate from Service Map to Azure Monitor VM insights
 
-[Azure Monitor VM insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview) monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. This article explains how to migrate from [Service map](../vm/service-map.md) to Azure Monitor VM insights, which provides a map feature similar to Service map, along with other benefits. 
+[Azure Monitor VM insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview) monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. This article explains how to migrate from [Service Map](../vm/service-map.md) to Azure Monitor VM insights, which provides a map feature similar to Service Map, along with other benefits. 
 
 > [!NOTE]
-> Service map will be retired on 30 September 2025. Be sure to migrate to VM insights before this date to continue monitoring the communication between services.
+> Service Map will be retired on 30 September 2025. Be sure to migrate to VM insights before this date to continue monitoring the communication between services.
 
-The map feature of VM insights visualizes virtual machine dependencies by discovering running processes that have active network connection between servers, inbound and outbound connection latency or ports across any TCP-connected architecture over a specified time range. For more information about the benefits of the VM insights map feature over Service map, see [How is VM insights Map feature different from Service Map?](https://docs.microsoft.comazure/azure-monitor/faq#how-is-vm-insights-map-feature-different-from-service-map-). 
+The map feature of VM insights visualizes virtual machine dependencies by discovering running processes that have active network connection between servers, inbound and outbound connection latency or ports across any TCP-connected architecture over a specified time range. For more information about the benefits of the VM insights map feature over Service Map, see [How is VM insights Map feature different from Service Map?](https://docs.microsoft.comazure/azure-monitor/faq#how-is-vm-insights-map-feature-different-from-service-map-). 
 
 ## Enable VM insights using Azure Monitor Agent
 
@@ -27,7 +27,7 @@ If you have on-premises machines, we recommend enabling [Azure Arc for servers](
 VM insights also collects per-machine performance counters, which provide visibility into the health of your virtual machines. VM insights ingests these performance counters every minute, which slightly increases monitoring costs per machine. [Learn more about the pricing](../vm/vminsights-overview.md#pricing).
 
 
-## Remove the ServiceMap solution from the workspace
+## Remove the Service Map solution from the workspace
 
 Once you migrate to VM insights, remove the ServiceMap solution from the workspace to avoid data duplication and incurring extra costs:
 
@@ -38,4 +38,5 @@ Once you migrate to VM insights, remove the ServiceMap solution from the workspa
 1.	On the left, select **Solutions**.
 1.	In the list of solutions, select **ServiceMap(workspace name)**. On the Overview page for the solution, select Delete. When prompted to confirm, select **Yes**.
 
-You won't be able to onboard new subscriptions to service map after 31 August 2024. The service map UI won't be available after the retirement - 30 September 2025.
+> [!IMPORTANT]
+> You won't be able to onboard new subscriptions to service map after 31 August 2024. The Service Map UI won't be available after 30 September 2025.
