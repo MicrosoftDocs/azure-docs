@@ -30,7 +30,7 @@ For Customers intending to run Arc-enabled Data Services on an undocumented dist
 
 The following diagram outlines this high-level process:
 
-![Overview](media/automated-integration-testing/integration-testing-overview.png)
+![Diagram that shows the Arc-enabled data services Kube-native integration tests.](media/automated-integration-testing/integration-testing-overview.png)
 
 In this tutorial, you learn how to:
 
@@ -105,7 +105,7 @@ There are two files that need to be generated to localize the launcher to run in
 * `patch.json`: fill out from `patch.json.tmpl`
 
 > [!TIP]
-> The `.test.env` is a single set of of environment variables that drives the Launcher's behavior. Generating it with care for a given environment will ensure reproducibility of the launcher's behavior.
+> The `.test.env` is a single set of of environment variables that drives the launcher's behavior. Generating it with care for a given environment will ensure reproducibility of the launcher's behavior.
 
 ### Config 1: `.test.env`
 
@@ -203,7 +203,7 @@ export TESTS_INDIRECT="billing controldb kube-rbac"
 export TEST_REPEAT_COUNT="1"
 export TEST_TYPE="ci"
 
-# Control Launcher behavior by setting to '1':
+# Control launcher behavior by setting to '1':
 #
 # - SKIP_PRECLEAN: Skips initial cleanup
 # - SKIP_SETUP: Skips Arc Data deployment
@@ -222,7 +222,7 @@ export SKIP_UPLOAD="0"
 > [!IMPORTANT]
 > If performing the configuration file generation in a Windows machine, you will need to convert the End-of-Line sequence from `CRLF` (Windows) to `LF` (Linux), as `arc-ci-launcher` runs as a Linux container. Leaving the line ending as `CRLF` may cause an error upon `arc-ci-launcher` container start - such as: `/launcher/config/.test.env: $'\r': command not found`
 > For example, perform the change using VSCode (bottom-right of window): <br>
-> ![CRLF to LF](media/automated-integration-testing/crlf-to-lf.png)
+> ![Screenshot that shows where to change the end of line sequence (CRLF).](media/automated-integration-testing/crlf-to-lf.png)
 
 #### Detailed explanation for certain variables
 
@@ -259,19 +259,20 @@ There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure A
 
     ```bash
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
-    # 51dfe1e8-70c6-4de...      <--- This is for Microsoft's own tenant - do not use, the value for your tenant will be different, use that instead to align with the Service Principal for Launcher.
+    # 51dfe1e8-70c6-4de...      <--- This is for Microsoft's own tenant - do not use, the value for your tenant will be different, use that instead to align with the Service Principal for launcher.
     ```
 
-    ![Custom Location Object ID - CLI](media/automated-integration-testing/custom-location-oid-cli.png)
+    ![A screenshot of a PowerShell terminal that shows `az ad sp show --id <>`.](media/automated-integration-testing/custom-location-oid-cli.png)
 
 2. Via Azure portal - navigate to your Azure Active Directory blade, and search for `Custom Locations RP`:
 
-    ![Custom Location Object ID - Portal](media/automated-integration-testing/custom-location-oid-portal.png)
+    ![A screenshot of the custom locations RP.](media/automated-integration-testing/custom-location-oid-portal.png)
+
 ##### 4. `SPN_CLIENT_*` - Service Principal Credentials
 
 > Mandatory: this is required for Direct Mode deployments.
 
-The Launcher logs in to Azure using these credentials. 
+The launcher logs in to Azure using these credentials. 
 
 Validation testing is meant to be performed on **Non-Production/Test Kubernetes cluster & Azure Subscriptions** - focusing on functional validation of the Kubernetes/Infrastructure setup. Therefore, to avoid the number of manual steps required to perform launches, it's recommended to provide a `SPN_CLIENT_ID/SECRET` that has `Owner` at the Resource Group (or Subscription) level, as it will create several resources in this Resource Group, as well as assigning permissions to those resources against several Managed Identities created as part of the deployment (these role assignments in turn require the Service Principal to have `Owner`).
 
@@ -291,9 +292,9 @@ The follow steps are sourced from [Grant limited access to Azure Storage resourc
 > ?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=...&spr=https&sig=...
 > ```
 
-There are several approaches to generating a SAS URL - we explore the Portal option:
+There are several approaches to generating a SAS URL. This example shows the portal:
 
-![Account level SAS URL](media/automated-integration-testing/sas-url-portal.png)
+![A screenshot of the shared access signature details on the Azure portal.](media/automated-integration-testing/sas-url-portal.png)
 
 To use the Azure CLI instead, see [`az storage account generate-sas`](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az-storage-account-generate-sas)
 
@@ -301,7 +302,7 @@ To use the Azure CLI instead, see [`az storage account generate-sas`](/cli/azure
 
 > Optional: leave this empty in `.test.env` to run all stages (equivalent to `0` or blank)
 
-The Launcher exposes `SKIP_*` variables, to run and skip specific stages.
+The launcher exposes `SKIP_*` variables, to run and skip specific stages.
 
 For example, a "cleanup only" run. Although the launcher is designed to clean up both in the beginning and the end of each run, it's possible for launch and/or test-failures to leave residue resources behind. To run the launcher in "cleanup only" mode, set the following variables in `.test.env`:
 
@@ -356,12 +357,12 @@ Finished sample of `patch.json`:
 }
 ```
 
-## Launcher Deployment
+## Launcher deployment
 
 > It is recommended to deploy the launcher in a **Non-Production/Test cluster** - as it performs destructive actions on Arc and other used Kubernetes resources.
 
 ### `imageTag` specification
-The launcher is defined within the Kubernetes Manifest as a [`Job`](https://kubernetes.io/docs/concepts/workloads/controllers/job/), which requires instructing Kubernetes where to find the Launcher's image. This is set in `base/kustomization.yaml`:
+The launcher is defined within the Kubernetes Manifest as a [`Job`](https://kubernetes.io/docs/concepts/workloads/controllers/job/), which requires instructing Kubernetes where to find the launcher's image. This is set in `base/kustomization.yaml`:
 
 ```YAML
 images:
@@ -376,7 +377,7 @@ images:
 > | --- | ------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 > | 1   | **`.test.env`**          | `DOCKER_TAG`     | Sourcing the [Bootstrapper image](https://mcr.microsoft.com/v2/arcdata/arc-bootstrapper/tags/list) as part of [extension install](https://mcr.microsoft.com/v2/arcdata/arcdataservices-extension/tags/list) | [`az k8s-extension create`](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true#az-k8s-extension-create) in the launcher |
 > | 2   | **`patch.json`**         | `value.imageTag` | Sourcing the [Data Controller image](https://mcr.microsoft.com/v2/arcdata/arc-controller/tags/list)                                                                                                         | [`az arcdata dc create`](/cli/azure/arcdata/dc?view=azure-cli-latest&preserve-view=true#az-arcdata-dc-create) in the launcher          |
-> | 3   | **`kustomization.yaml`** | `images.newTag`  | Sourcing the [Launcher's image](https://mcr.microsoft.com/v2/arcdata/arc-ci-launcher/tags/list)                                                                                                             | `kubectl apply`ing the launcher                                                                                                                     |
+> | 3   | **`kustomization.yaml`** | `images.newTag`  | Sourcing the [launcher's image](https://mcr.microsoft.com/v2/arcdata/arc-ci-launcher/tags/list)                                                                                                             | `kubectl apply`ing the launcher                                                                                                                     |
 
 
 ### `kubectl apply`
@@ -402,15 +403,15 @@ kubectl logs job/arc-ci-launcher -n arc-ci-launcher --follow
 
 At this point, the launcher should start - and you should see the following:
 
-![CLI launcher starting](media/automated-integration-testing/launcher-start.png)
+![A screenshot of the console terminal after the launcher starts.](media/automated-integration-testing/launcher-start.png)
 
-Although it's best to deploy the Launcher in a Cluster with no pre-existing Arc resources, the Launcher contains pre-flight validation to discover pre-existing Arc and Arc Data Services CRDs and ARM resources, and attempts to clean them up on a best-effort basis (using the provided Service Principal credentials), prior to deploying the new release:
+Although it's best to deploy the launcher in a cluster with no pre-existing Arc resources, the launcher contains pre-flight validation to discover pre-existing Arc and Arc Data Services CRDs and ARM resources, and attempts to clean them up on a best-effort basis (using the provided Service Principal credentials), prior to deploying the new release:
 
-![CLI example output](media/automated-integration-testing/launcher-pre-flight.png)
+![A screenshot of the console terminal discovering Kubernetes and other resources.](media/automated-integration-testing/launcher-pre-flight.png)
 
 This same metadata-discovery and cleanup process is also run upon launcher exit, to leave the cluster in its pre-existing state before the launch.
 
-## Steps performed by Launcher
+## Steps performed by launcher
 
 At a high-level, the launcher performs the following sequence of steps:
 
@@ -423,7 +424,7 @@ At a high-level, the launcher performs the following sequence of steps:
    b. For Indirect Mode: deploy the Data Controller
 7. Once Data Controller is `Ready`, generate a set of Azure CLI ([`az arcdata dc debug`](/cli/azure/arcdata/dc/debug?view=azure-cli-latest&preserve-view=true)) logs and stores locally, labeled as `setup-complete` - as a baseline.
 8. Use the `TESTS_DIRECT/INDIRECT` environment variable from `.test.env` to launch a set of parallelized Sonobuoy test runs based on a space-separated array. These runs execute in a new `sonobuoy` namespace, using `arc-sb-plugin` pod that contains the integration tests.
-9. [Sonobuoy aggregator](https://sonobuoy.io/docs/v0.56.0/plugins/) accumulate the [`junit` test results](https://sonobuoy.io/docs/v0.56.0/results/) and logs per `arc-sb-plugin` test run, which are exported into the Launcher
+9. [Sonobuoy aggregator](https://sonobuoy.io/docs/v0.56.0/plugins/) accumulate the [`junit` test results](https://sonobuoy.io/docs/v0.56.0/results/) and logs per `arc-sb-plugin` test run, which are exported into the launcher
 10. Return the exit code of the tests, and generates another set of debug logs - Azure CLI and `sonobuoy` - stored locally, labeled as `test-complete`.
 11. Perform a CRD metadata scan, similar to Step 3, to discover existing Arc and Arc Data Services Custom Resources. It then proceeds to destroy all Arc and Arc Data resources in reverse order from deployment, as well as CRDs, Role/ClusterRoles, PV/PVCs etc.
 12. Attempt to use the SAS token `LOGS_STORAGE_ACCOUNT_SAS` provided to create a new Storage Account container named based on `LOGS_STORAGE_CONTAINER`, in the **pre-existing** Storage Account `LOGS_STORAGE_ACCOUNT`. It uploads all local test results and logs to this storage account as a tarball (see below).
@@ -431,15 +432,15 @@ At a high-level, the launcher performs the following sequence of steps:
 
 ## Examining Test Results
 
-A sample Storage Container and file uploaded by the launcher:
+A sample storage container and file uploaded by the launcher:
 
-![Launcher Storage Container](media/automated-integration-testing/launcher-storage-container.png)
+![A screenshot of the launcher storage container.](media/automated-integration-testing/launcher-storage-container.png)
 
-![Launcher tarball](media/automated-integration-testing/launcher-tarball.png)
+![A screenshot of the launcher tarball.](media/automated-integration-testing/launcher-tarball.png)
 
 And the test results generated from the run:
 
-![Launcher Test Results](media/automated-integration-testing/launcher-test-results.png)
+![A screenshot of the launcher test results.](media/automated-integration-testing/launcher-test-results.png)
 
 ## Clean up resources
 
