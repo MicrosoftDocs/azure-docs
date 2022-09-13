@@ -110,7 +110,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
 - To take advantage of availability zones, node pools contain underlying VMs that are zonal resources. To support applications that have different compute or storage demands, you can create user node pools with specific VM sizes when you create the user node pool.  
 
-    For example, you may decide to use the `Standard_M32ms` under the `M-series` for your user nodes because the microservices in your application require high throughput, low latency, and memory optimized VM sizes that provide high vCPU counts and large amounts of memory. When you select the VM size in the Azure Portal, depending on the region you are deploying this, you may see that this VM size is not supported in zone 1, 2, 3. Zone 1 and 2 are supported. You accept this resiliency configuration that your user node pool will be deployed only in zone 1 and 2.  
+    For example, you may decide to use the `Standard_M32ms` under the `M-series` for your user nodes because the microservices in your application require high throughput, low latency, and memory optimized VM sizes that provide high vCPU counts and large amounts of memory. When you select the VM size in the Azure Portal, depending on the region you are deploying this, you may see that this VM size is supported only in zone 1 and 2. You accept this resiliency configuration as a trade-off for high performance.  
 
 - You can't change the VM size of a node pool after you create it. For more information on node pool limitations, see [Limitations](../aks/use-multiple-node-pools.md#limitations). 
 
