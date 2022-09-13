@@ -8,7 +8,7 @@ ms.date: 09/06/2022
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell,references_regions
 ---
 
 # Create an Azure Image Builder Bicep or ARM JSON template
@@ -200,7 +200,7 @@ There are two ways to add user assigned identities explained below.
 
 ### User-assigned identity for Azure Image Builder image template resource
 
-Required - For Image Builder to have permissions to read/write images, and read in scripts from Azure Storage, you must create an Azure user-assigned identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, see [Create an image and use a user-assigned managed identity to access files in an Azure storage account](image-builder-user-assigned-identity.md).
+Required - For Image Builder to have permissions to read/write images, and read in scripts from Azure Storage, you must create an Azure user-assigned identity that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, see [Create an image and use a user-assigned managed identity to access files in an Azure storage account](image-builder-user-assigned-identity.md).
 
 # [JSON](#tab/json)
 
@@ -303,7 +303,7 @@ When using `customize`:
 - Customizers execute in the order specified in the template.
 - If one customizer fails, then the whole customization component will fail and report back an error.
 - Test the scripts thoroughly before using them in a template. Debugging the scripts by themselves is easier.
-- Don't put sensitive data in the scripts. Inline commands can be viewed in the image template definition. If you have sensitive information (including passwords, SAS token, authentication tokens, etc), it should be moved into scripts in Azure Storage, where access requires authentication.
+- Don't put sensitive data in the scripts. Inline commands can be viewed in the image template definition. If you have sensitive information (including passwords, SAS token, authentication tokens, etc.), it should be moved into scripts in Azure Storage, where access requires authentication.
 - The script locations need to be publicly accessible, unless you're using [MSI](./image-builder-user-assigned-identity.md).
 
 The `customize` section is an array. The supported customizer types are: File, PowerShell, Shell, WindowsRestart, and WindowsUpdate.
@@ -653,7 +653,7 @@ If there's an error trying to download the file, or put it in a specified direct
 
     To generate the sha256Checksum, use the [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) cmdlet in PowerShell.
 
-### Windows Update Customizer
+### Windows update customizer
 
 The `WindowsUpdate` customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project isn't officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
 
@@ -902,7 +902,7 @@ Before you can distribute to the gallery, you must create a gallery and an image
 Distribute properties for galleries:
 
 - **type** - sharedImage
-- **galleryImageId** – ID of the Azure Compute Gallery, this property can specified in two formats:
+- **galleryImageId** – ID of the Azure Compute Gallery, this property can be specified in two formats:
 
   - Automatic versioning - Image Builder will generate a monotonic version number for you, this property is useful for when you want to keep rebuilding images from the same template: The format is: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`.
   - Explicit versioning - You can pass in the version number you want image builder to use. The format is:
@@ -1021,7 +1021,7 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table --all
 
 You can use `latest` in the version, the version is evaluated when the image build takes place, not when the template is submitted. If you use this functionality with the Azure Compute Gallery destination, you can avoid resubmitting the template, and rerun the image build at intervals, so your images are recreated from the most recent images.
 
-#### Support for Market Place Plan Information
+#### Support for market place plan information
 
 You can also specify plan information, for example:
 
@@ -1141,7 +1141,7 @@ properties: {
 
 ---
 
-### Template Creation Scenarios
+### Template creation scenarios
 
 - **The stagingResourceGroup property is left empty**
 
@@ -1155,7 +1155,7 @@ properties: {
 
   If the `stagingResourceGroup` property is specified with a resource group that doesn't exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` property. There will be an error if the given name doesn't meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
 
-### Template Deletion
+### Template deletion
 
 Any staging resource group created by the Image Builder service will be deleted after the image template is deleted. The deletion includes staging resource groups that were specified in the `stagingResourceGroup` property, but didn't exist prior to the image build.
 
