@@ -68,7 +68,7 @@ First, verify that the certificate used for LDAPS is valid.
 
 Now proceed to export the certificate
 
-1. Still on the Certificates console, right select the the LDAPS certificate and click on **All Tasks** > **Export**. The Certificate Export Wizard prompt is displayed,  select the **Next** button.
+1. Still on the Certificates console, right select the the LDAPS certificate and select **All Tasks** > **Export**. The Certificate Export Wizard prompt is displayed,  select the **Next** button.
 
 1. In the **Export Private Key** section, select the 2nd option, **No, do not export the private key** and se;ect the **Next** button.
 1. In the **Export File Format** section, select the 2nd option, **Base-64 encoded X.509(.CER)** and then select the **Next** button.
