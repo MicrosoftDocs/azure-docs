@@ -9,7 +9,7 @@ ms.date: 04/12/2022
 ---
 # Array functions for Bicep
 
-This article describes the Bicep functions for working with arrays.
+This article describes the Bicep functions for working with arrays. Additional lambda functions for working with arrays can be found [here](./bicep-functions-lambda.md).
 
 ## array
 
@@ -216,6 +216,46 @@ The type (string, int, array, or object) of the first element in an array, or th
 ### Example
 
 The following example shows how to use the first function with an array and string.
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output arrayOutput string = first(arrayToTest)
+output stringOutput string = first('One Two Three')
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | String | one |
+| stringOutput | String | O |
+
+## flatten
+
+`flatten(arrayToFlatten)`
+
+Takes an array of arrays, and returns an array of sub-array elements, in the original order. Sub-arrays are only flattened once, not recursively.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arrayToFlattern |Yes |array |The array of sub-arrays to flatten.|
+
+### Return value
+
+Array
+
+### Example
+
+The following example shows how to use the flatten function. *** jgao: update the example and output
 
 ```bicep
 param arrayToTest array = [
