@@ -313,7 +313,7 @@ At this point, any breakpoints in your `run` function are caught. Use the debug 
 
 Now that your application is running in the debugger, try making a prediction to debug your scoring script.
 
-Use the`invoke` method on your `MLClient` object to make a request to your local endpoint.
+Use the `invoke` method on your `MLClient` object to make a request to your local endpoint.
 
 ```python
 endpoint = ml_client.online_endpoints.get(name=endpoint_name, local=True)
@@ -337,7 +337,7 @@ In this case, `<REQUEST-FILE>` is a JSON file that contains input data samples f
 >
 >    ```python 
 >    endpoint = ml_client.online_endpoints.get(endpoint_name, local=True)
-     endpoint.as_dict()
+>     endpoint.as_dict()
 >    ```
 >
 > The output should look similar to the following:
