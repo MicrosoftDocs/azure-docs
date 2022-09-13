@@ -53,26 +53,26 @@ First, verify that the certificate used for LDAPS is valid.
 
 1. Sign in to a domain controller with administrator permissions where LDAPS is enabled.
 
-1. Open the **Run command**, then type **mmc** and click the **OK** button.
-1. Click the **File** menu option then **Add/Remove Snap-in**.
-1. Select the **Certificates** in the list of Snap-ins and click in the **Add>** button.
-1. In the **Certificates snap-in** window, select **Computer account** then click  **Next**.
-1. Keep the first option selected **Local computer...** , and click  **Finish** then **OK**.
+1. Open the **Run command**, type **mmc** and select the **OK** button.
+1. Select the **File** menu option then **Add/Remove Snap-in**.
+1. Select the **Certificates** in the list of Snap-ins and select the **Add>** button.
+1. In the **Certificates snap-in** window, select **Computer account** then select **Next**.
+1. Keep the first option selected **Local computer...** , and select **Finish**, and then **OK**.
 1. Expand the **Personal** folder under the **Certificates (Local Computer)** management console and select the **Certificates** folder to list the installed certificates.
     :::image type="content" source="media/run-command/ldaps-certificate-personal-certficates.png" alt-text="Screenshot showing displaying the list of certificates." lightbox="media/run-command/ldaps-certificate-personal-certficates.png":::
     
-1. Double click on the certificate for LDAPS purposes. The **Certificate** General properties will display. Ensure the certificate date **Valid from** and **to** is current and the certificate has a **private key** that correspond to the certificate.
+1. Double click the certificate for LDAPS purposes. The **Certificate** General properties will display. Ensure the certificate date **Valid from** and **to** is current and the certificate has a **private key** that corresponds to the certificate.
     :::image type="content" source="media/run-command/ldaps-certificate-personal-general.png" alt-text="Screenshot showing the properties of the certificate." lightbox="media/run-command/ldaps-certificate-personal-general.png":::    
-1. On the same windows, click on the **Certification Path** tab and verify the **Certification path** is valid, which it should include the certificate chain of root CA and optionally intermediate certificates and the **Certificate Status** is OK. Close the window.
+1. On the same window, select the **Certification Path** tab and verify that the **Certification path** is valid, which it should include the certificate chain of root CA and optionally intermediate certificates and the **Certificate Status** is OK. Close the window.
     :::image type="content" source="media/run-command/ldaps-certificate-cert-path.png" alt-text="Screenshot showing the certificate chain." lightbox="media/run-command/ldaps-certificate-cert-path.png":::
 
 Now proceed to export the certificate
 
-1. Still on the Certificates console, right click on the LDAPS certificate and click on **All Tasks** > **Export**. The Certificate Export Wizard will prompt then click on **Next** button.  
+1. Still on the Certificates console, right select the the LDAPS certificate and click on **All Tasks** > **Export**. The Certificate Export Wizard prompt is displayed,  select the **Next** button.
 
-1. In the **Export Private Key** section, select the 2nd option, **No, do not export the private key** and click on the **Next** button.
-1. In the **Export File Format** section, select the 2nd option, **Base-64 encoded X.509(.CER)** and click on the **Next** button.
-1. In the **File to Export** section, click on the **Browse...** button and select a folder location where to export the certificate, enter a name then click on the **Save** button.
+1. In the **Export Private Key** section, select the 2nd option, **No, do not export the private key** and se;ect the **Next** button.
+1. In the **Export File Format** section, select the 2nd option, **Base-64 encoded X.509(.CER)** and then select the **Next** button.
+1. In the **File to Export** section, select the **Browse...** button and select a folder location where to export the certificate, enter a name then select the **Save** button.
 
 >[!NOTE]
 >If more than one domain controller is LDAPS enabled, repeat the export procedure in the additional domain controller(s) to also export the corresponding certificate(s). Be aware that you can only reference two LDAPS server in the `New-LDAPSIdentitySource` Run Command. If the certificate is a wildcard certificate, for example ***.avsdemo.net** you only need to export the certificate from one of the domain controllers.
@@ -87,7 +87,7 @@ Now proceed to export the certificate
 > Make sure to copy each SAS URL string(s), because they will no longer be available once you leave the page. 
 
 > [!TIP]
-> Another alternative method for consolidating certificates is saving the certificate chains in a single file as mentioned in [this VMware KB article](https://kb.vmware.com/s/article/2041378), and generate a single SAS URL for the file that contains all of the certificates.
+> Another alternative method for consolidating certificates is saving the certificate chains in a single file as mentioned in [this VMware KB article](https://kb.vmware.com/s/article/2041378), and generate a single SAS URL for the file that contains all the certificates.
 
 ## Configure NSX-T DNS for resolution to your Active Directory Domain
 
@@ -196,9 +196,9 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
 
 
 ## Assign additional vCenter Server Roles to Active Directory Identities
-Once you added an external identity over LDAP or LDAPS you can assign vCenter Server Roles to Active Directory security groups based on your organization's security controls.
+After you've added an external identity over LDAP or LDAPS you can assign vCenter Server Roles to Active Directory security groups based on your organization's security controls.
 
-1. After you sign in to vCenter Server with cloud admin privileges, you can select an item from the inventory click **ACTIONS** menu and select **Add Permission**.
+1. After you sign in to vCenter Server with cloud admin privileges, you can select an item from the inventory, select **ACTIONS** menu and select **Add Permission**.
    
     :::image type="content" source="media/run-command/ldaps-vcenter-permission-assignment-1.png" alt-text="Screenshot displaying hot to add permission assignment." lightbox="media/run-command/ldaps-vcenter-permission-assignment-1.png":::
 
