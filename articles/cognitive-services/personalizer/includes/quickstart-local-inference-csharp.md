@@ -26,7 +26,7 @@ You will need to install the Personalizer client library for .NET to:
     * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting Up
+## Setting up
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
