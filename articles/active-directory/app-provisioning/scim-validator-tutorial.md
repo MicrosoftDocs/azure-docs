@@ -67,6 +67,9 @@ Finally, you need to test and validate your endpoint.
 1. Select the **show details** tab and review and fix issues.
 1. Continue to test your schema until all tests pass.
 
+
+:::image type="content" source="./media/scim-validator-tutorial/scim-validator-results.png" alt-text="SCIM Validator Results Page" lightbox="./media/scim-validator-tutorial/scim-validator-results.png":::
+
 ## Clean up resources
 
 Don't forget to delete any Azure resources that you no longer need.
