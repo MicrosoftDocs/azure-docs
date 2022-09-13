@@ -90,14 +90,16 @@
   items:
   - name: Manage accounts
     items:
-    - name: Create a classic account
-      href: connect-to-azure.md
+    - name: Manage access to your account
+      href: restricted-viewer-role.md
     - name: Connect an existing account to ARM
       href: connect-classic-account-to-arm.md
     - name: Add contributor role to Media Services
       href: add-contributor-role-on-the-media-service.md    
     - name: Import content from the trial account
       href: import-content-from-trial.md
+    - name: Create a classic account
+      href: connect-to-azure.md
   - name: Upload and index media
     items:
     - name: Upload and index videos
