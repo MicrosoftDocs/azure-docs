@@ -42,13 +42,13 @@
         href: container-registry-tutorial-deploy-update.md
     - name: Encrypt a registry with customer managed key
       items:
-      - name: 1 - Customer managed keys - Overview
+      - name: Customer managed keys - Overview
         href: tutorial-customer-managed-keys.md
-      - name: 2 - Enable Customer managed key on your registry 
+      - name: Enable Customer managed key on your registry 
         href: tutorial-enable-customer-managed-keys.md
-      - name: 3 - Rotate or revoke a Customer managed key
+      - name: Rotate or revoke a Customer managed key
         href: tutorial-rotate-revoke-customer-managed-keys.md
-      - name: 4 - Troubleshoot
+      - name: Troubleshoot
         href: tutorial-troubleshoot-customer-managed-keys.md
   - name: Samples
     items:
