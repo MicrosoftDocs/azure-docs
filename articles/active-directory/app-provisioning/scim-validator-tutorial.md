@@ -1,0 +1,96 @@
+---
+title: Tutorial - Test your SCIM endpoint for compatibility with the Azure Active Directory (Azure AD) provisioning service.
+description: This tutorial describes how to use the Azure AD SCIM Validator to validate that your provisioning server is compatible with the Azure SCIM client.
+author: kenwith
+ms.author: kenwith
+manager: amycolannino
+ms.service: active-directory
+ms.subservice: app-provisioning
+ms.workload: identity
+ms.topic: tutorial
+ms.date: 09/13/2022
+ms.custom: template-tutorial
+ms.reviewer: arvinh
+---
+
+
+# Tutorial: Validate a SCIM endpoint
+
+This tutorial describes how to use the Azure AD SCIM Validator to validate that your provisioning server is compatible with the Azure SCIM client. The tutorial is intended for developers who want to build a SCIM compatible server to manage their identities.  
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Select a testing method
+> * Configure the testing method
+> * Validate your SCIM endpoint
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free]
+  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A SCIM endpoint that conforms to the SCIM 2.0 standard and meets the provision service requirements. To learn more, see [Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory](use-scim-to-provision-users-and-groups.md).
+
+
+## Select a testing method
+The first step is to select a testing method to validate your SCIM endpoint.
+
+1. Open your web browser and navigate to the SCIM Validator: [https://scimvalidator.microsoft.com/](https://scimvalidator.microsoft.com/).
+1. Select one of the 3 test options. Options include the following: 
+
+**Use default attributes** - The system provides the default attributes, and you modify them to meet your need.
+
+**Discover schema** - If your end point supports /Schema, this option will allow the tool to discover the supported attributes. We recommend this option as it reduces the overhead of updating your app when you introduce support for additional resources.
+
+**Upload Azure AD Schema** - Upload the schema you have downloaded from your sample app on Azure AD.
+
+
+## Configure the testing method
+Now that you have selected a testing method, the next step is to configure it.
+
+1. Configure the test method you want to use to validate the schema.
+
+**Use default attributes** - Fill in all the indicated fields. Ensure that the “Enable group tests” option is checked if the desire is to test group attributes as well. 
+
+**Discover schema** - Use this option if your endpoint supports /Schema. Enter the SCIM endpoint URL and the Token.
+
+**Upload Azure AD Schema** - This option will accept a .json file exported from your sample app on the Azure portal. To learn how to export a schema, see [How-to: Export provisioning configuration and roll back to a known good state](export-import-provisioning-configuration.md#export-your-provisioning-configuration). To test *group attributes*, make sure to select **Enable Group Tests**.
+
+2. Edit the list attributes as desired for both the user and group types using the ‘Add Attribute’ option at the end of the attribute list and minus (-) sign on the right side of the page. 
+3. Select the joining property from both the user and group attributes list. 
+
+The joining property, also known as matching attribute, is an attribute that user and group resources can be uniquely queried on at the source and matched in the target system. 
+
+## Validate your SCIM endpoint
+Finally, you need to test and validate your endpoint.
+
+1. Proceed and test your end point by using the ‘Test Schema’ option at the foot of the page.
+1. Upon running the validation test, the system will provide the results with a summary of passed and failed tests.
+1. Use the ‘show details’ tab next to each test to see the details of the test and the results of each test.
+1. Keep running the tests and fixing the highlighted issues until you have all tests passing. At this point then you end point is compatible with our Azure AD SCIM client.
+
+## Clean up resources
+
+If you're not going to continue to use the Azure resources you created to complete this tutorial then be sure to delete them.
+
+## Known issues 
+
+### Support for deletes
+Deletes are not yet supported.
+
+### Time zone format 
+The time zone format is randomly generated and will fail for systems that try to validate it.
+
+### Preferred language format 
+The preferred language format is randomly generated and will fail for systems that try to validate it.
+
+### Patch user - remove attributes attempting to remove required fields 
+
+The patch user remove attributes may attempt to remove mandatory/required attributes for certain systems. Such failures should be ignored.
+
+
+## Next steps
+
+Advance to the next article to learn how to customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory.
+> [!div class="nextstepaction"]
+> [Next steps button](app-provisioning/customize-application-attributes.md)
