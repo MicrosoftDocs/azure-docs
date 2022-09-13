@@ -5,17 +5,17 @@ ms.date: 09/11/2022
 ms.topic: conceptual
 ---
 
-# Defender for IoT users, roles, and permissions
+# Defender for IoT users, roles, and permissions for OT network monitoring
 
-Microsoft Defender for IoT provides access to services and data in both the Azure portal and on-premises sensor and management consoles.
+Microsoft Defender for IoT uses Azure role-based access control (RBAC) to provide access to OT network monitoring services and data on the Azure portal. For OT networks, Defender for IoT services and data is also available from on-premises sensor and management consoles.
 
-This articles provides a reference of all roles relevant to Defender for IoT, their permissions, and management options.
+This article provides a reference of the actions available for each role and on-premises user.
 
 ## Azure user roles for OT networks
 
 The built-in **Security reader**, **Security administrator**, **Contributor**, and **Owner** roles are relevant for use in Defender for IoT.
 
-The following tables list the functionality for OT network monitoring that's available to each user role by default.
+The following tables list the functionality for OT network monitoring that's available to each user role by default. For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ### Permissions for management functionalities
 
@@ -45,7 +45,7 @@ For more information, see [Azure built-in roles](/azure/role-based-access-contro
 
 By default, each sensor and on-premises management console is installed with the *cyberx* and *support* privileged users. Sensors are also installed with the *cyberx_host* privileged user. For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software).
 
-Privileged users have access to advanced tools for troubleshooting and setup. When first deploying Defender for IoT, sign in with these user credentials, create an admin user, and then create extra users with **Security Analyst** or **Read-only** roles.
+Privileged users have access to advanced tools for troubleshooting and setup. When first deploying Defender for IoT, sign in with these user credentials, create a first user with an **Administrator** role, and then create more users with **Security Analyst** or **Read-only** roles.
 
 ### Default privileged on-premises users
 
@@ -73,44 +73,44 @@ Permissions applied to each role differ between the sensor and the on-premises m
 
 | Permission | Read-only | Security Analyst | Administrator |
 |--|--|--|--|
-| View the dashboard | Yes | Yes |Yes |
-| Control map zoom views | No | No | Yes |
-| View alerts | Yes | Yes | Yes |
-| Manage alerts: acknowledge, learn, and pin |No  | Yes | Yes |
-| View events in a timeline | No | Yes | Yes |
-| Authorize devices, known scanning devices, programming devices |  | Yes | Yes |
-| Merge and delete devices |No  |No  | Yes |
-| View investigation data | Yes | Yes | Yes |
-| Manage system settings | No |  No| Yes |
-| Manage users |No  | No | Yes |
-| Change passwords |No | No| Yes, for users with the **Security Analyst** and **Read-only** roles only. |
-| DNS servers for reverse lookup |No  |  No| Yes |
-| Send alert data to partners | No | Yes | Yes |
-| Create alert comments |No  | Yes | Yes |
-| View programming change history | Yes | Yes | Yes |
-| Create customized alert rules | No | Yes | Yes |
-| Manage multiple notifications simultaneously | No | Yes | Yes |
-| Manage certificates | No | No | Yes |
+| View the dashboard | ✔ | ✔ |✔ |
+| Control map zoom views | - | - | ✔ |
+| View alerts | ✔ | ✔ | ✔ |
+| Manage alerts: acknowledge, learn, and pin |-  | ✔ | ✔ |
+| View events in a timeline | - | ✔ | ✔ |
+| Authorize devices, known scanning devices, programming devices |  | ✔ | ✔ |
+| Merge and delete devices |-  |-  | ✔ |
+| View investigation data | ✔ | ✔ | ✔ |
+| Manage system settings | - |  -| ✔ |
+| Manage users |-  | - | ✔ |
+| Change passwords |- | -| ✔, for users with the **Security Analyst** and **Read-only** roles only. |
+| DNS servers for reverse lookup |-  |  -| ✔ |
+| Send alert data to partners | - | ✔ | ✔ |
+| Create alert comments |-  | ✔ | ✔ |
+| View programming change history | ✔ | ✔ | ✔ |
+| Create customized alert rules | - | ✔ | ✔ |
+| Manage multiple notifications simultaneously | - | ✔ | ✔ |
+| Manage certificates | - | - | ✔ |
 | Session timeout when users are not active | 30 minutes | 30 minutes | 30 minutes |
 
 **Role-based permissions for the on-premises management console**
 
 | Permission | Read-only | Security Analyst | Administrator |
 |--|--|--|--|
-| View and filter the enterprise map | Yes | Yes | Yes |
-| Build a site | No | No | Yes |
-| Manage a site (add and edit zones) |No  |No  | Yes |
-| View and filter device inventory | Yes | Yes | Yes |
-| View and manage alerts: acknowledge, learn, and pin | Yes | Yes | Yes |
-| Generate reports |No  | Yes | Yes |
-| View risk assessment reports | No | Yes | Yes |
-| Set alert exclusions | No | Yes | Yes |
-| View or define access groups | No | No | Yes |
-| Manage system settings | No | No | Yes |
-| Manage users | No |No  | Yes |
-| Change passwords |No | No| Yes, for users with the **Security Analyst** and **Read-only** roles only. |
-| Send alert data to partners | No | No | Yes |
-| Manage certificates | No | No | Yes |
+| View and filter the enterprise map | ✔ | ✔ | ✔ |
+| Build a site | - | - | ✔ |
+| Manage a site (add and edit zones) |-  |-  | ✔ |
+| View and filter device inventory | ✔ | ✔ | ✔ |
+| View and manage alerts: acknowledge, learn, and pin | ✔ | ✔ | ✔ |
+| Generate reports |-  | ✔ | ✔ |
+| View risk assessment reports | - | ✔ | ✔ |
+| Set alert exclusions | - | ✔ | ✔ |
+| View or define access groups | - | - | ✔ |
+| Manage system settings | - | - | ✔ |
+| Manage users | - |-  | ✔ |
+| Change passwords |- | -| ✔ for users with the **Security Analyst** and **Read-only** roles only|
+| Send alert data to partners | - | - | ✔ |
+| Manage certificates | - | - | ✔ |
 | Session timeout when users aren't active | 30 minutes | 30 minutes  | 30 minutes  |
 
 

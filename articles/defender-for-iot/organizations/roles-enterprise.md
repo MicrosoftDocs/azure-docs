@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Azure user roles for Enterprise IoT networks
 
-Microsoft Defender for IoT uses Azure role-based access control (RBAC) to provide access to Enterprise IoT monitoring services on the Azure portal.
+Microsoft Defender for IoT uses Azure role-based access control (RBAC) to provide access to Enterprise IoT monitoring services and data on the Azure portal.
 
 This article provides a reference of the actions available for each role. For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
