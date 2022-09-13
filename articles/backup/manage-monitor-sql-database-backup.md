@@ -35,7 +35,7 @@ Azure Backup raises built-in alerts via Azure Monitor for the following SQL data
 - Workload extension unhealthy
 - Deletion of backup data
 
-For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#azure-monitor-alerts-for-azure-backup-preview).
+For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#azure-monitor-alerts-for-azure-backup).
 
 To monitor database backup alerts, follow these steps:
 

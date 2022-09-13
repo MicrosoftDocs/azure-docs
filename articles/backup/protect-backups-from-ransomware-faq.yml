@@ -44,7 +44,7 @@ sections:
           
             Azure Backup provides multiple monitoring and notification capabilities for a wide range of [scenarios](monitoring-and-alerts-overview.md#monitoring-and-reporting-scenarios). Ensure they are configured correctly for timely alerts and required actions. [Learn more](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
             
-            We recommend you to use [Azure Monitor for Alerts to receive alerts/notifications on critical operations](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview).
+            We recommend you to use [Azure Monitor for Alerts to receive alerts/notifications on critical operations](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup).
           
           - **Ensure network connectivity between backup services and workloads is secure**.
           
