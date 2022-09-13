@@ -257,16 +257,16 @@ There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure A
 
 1. Via Azure CLI:
 
-```bash
-az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
-# 51dfe1e8-70c6-4de...      <--- This is for Microsoft's own tenant - do not use, the value for your tenant will be different, use that instead to align with the Service Principal for Launcher.
-```
+    ```bash
+    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
+    # 51dfe1e8-70c6-4de...      <--- This is for Microsoft's own tenant - do not use, the value for your tenant will be different, use that instead to align with the Service Principal for Launcher.
+    ```
 
-![Custom Location Object ID - CLI](media/automated-integration-testing/custom-location-oid-cli.png)
+    ![Custom Location Object ID - CLI](media/automated-integration-testing/custom-location-oid-cli.png)
 
 2. Via Azure portal - navigate to your Azure Active Directory blade, and search for `Custom Locations RP`:
 
-![Custom Location Object ID - Portal](media/automated-integration-testing/custom-location-oid-portal.png)
+    ![Custom Location Object ID - Portal](media/automated-integration-testing/custom-location-oid-portal.png)
 ##### 4. `SPN_CLIENT_*` - Service Principal Credentials
 
 > Mandatory: this is required for Direct Mode deployments.
