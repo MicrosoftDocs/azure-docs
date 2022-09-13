@@ -34,7 +34,33 @@ This guide assumes you don't have a managed identity, a storage account or an on
 
 ## Prerequisites
 
-# [Azure CLI](#tab/cli)
+# [System-assigned (CLI)](#tab/system-identity-cli)
+
+* To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+
+* Install and configure the Azure CLI and ML (v2) extension. For more information, see [Install, set up, and use the 2.0 CLI](how-to-configure-cli.md).
+
+* An Azure Resource group, in which you (or the service principal you use) need to have `User Access Administrator` and  `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article.
+
+* An Azure Machine Learning workspace. You'll have a workspace if you configured your ML extension per the above article.
+
+* A trained machine learning model ready for scoring and deployment. If you are following along with the sample, a model is provided.
+
+* If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
+
+   ```azurecli
+   az account set --subscription <subscription ID>
+   az configure --defaults gitworkspace=<Azure Machine Learning workspace name> group=<resource group>
+   ```
+
+* To follow along with the sample, clone the samples repository
+
+    ```azurecli
+    git clone https://github.com/Azure/azureml-examples --depth 1
+    cd azureml-examples/cli
+    ```
+    
+# [User-assigned (CLI)](#tab/user-identity-cli)
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
@@ -60,7 +86,7 @@ This guide assumes you don't have a managed identity, a storage account or an on
     cd azureml-examples/cli
     ```
 
-# [Python](#tab/python)
+# [System-assigned (Python)](#tab/system-identity-python)
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
@@ -72,12 +98,35 @@ This guide assumes you don't have a managed identity, a storage account or an on
 
 * A trained machine learning model ready for scoring and deployment. If you are following along with the sample, a model is provided.
 
-* To follow along with the sample, clone the samples repository
+* Clone the samples repository. 
 
     ```azurecli
     git clone https://github.com/Azure/azureml-examples --depth 1
-    cd azureml-examples/cli
+    cd azureml-examples/sdk/endpoints/online/managed/managed-identities
     ```
+* To follow along with this notebook, access the companion [example notebook](online-endpoints-managed-identity-sai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
+
+# [User-assigned (CLI)](#tab/user-identity-cli)
+
+* To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+
+* Role creation permissions for your subscription or the Azure resources accessed by the User-assigned identity. 
+
+* Install and configure the Azure ML Python SDK (v2). For more information, see [Install and set up SDK (v2)](https://aka.ms/sdk-v2-install).
+
+* An Azure Resource group, in which you (or the service principal you use) need to have `User Access Administrator` and  `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article.
+
+* An Azure Machine Learning workspace. You'll have a workspace if you configured your ML extension per the above article.
+
+* A trained machine learning model ready for scoring and deployment. If you are following along with the sample, a model is provided.
+
+* Clone the samples repository. 
+
+    ```azurecli
+    git clone https://github.com/Azure/azureml-examples --depth 1
+    cd azureml-examples/sdk/endpoints/online/managed/managed-identities
+    ```
+* To follow along with this notebook, access the companion [example notebook](online-endpoints-managed-identity-uai.ipynb) within in the  `sdk/endpoints/online/managed/managed-identities` directory. 
     
 ---
 
