@@ -110,7 +110,7 @@ By default, the suppression alert processing rule takes priority over the other 
 
 To create a suppression alert processing rule, follow these steps:
 
-1. Go to **Backup center** -> **Alerts**, and select **Alert processing rules**.
+1. Go to **Backup center** > **Alerts**, and select **Alert processing rules**.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-blade-inline.png" alt-text="Screenshot showing alert processing rules blade in portal." lightbox="./media/move-to-azure-monitor-alerts/alert-processing-rule-blade-expanded.png":::
 
@@ -148,11 +148,13 @@ You can also use programmatic methods to opt-out of classic alerts and manage Az
 
 ### Opt out of classic backup alerts
 
+In the following sections, you'll learn how to opt out of classic backup alert solution using the supported clients. 
+
 #### Using Azure Resource Manager (ARM)/ Bicep/ REST API/ Azure Policy
 
 The **monitoringSettings** vault property helps you specify if you want to disable classic alerts. You can create a custom ARM/Bicep template or Azure Policy to modify this setting for your vaults.
 
-The following example of the vault settings property, where classic alerts are disabled and built-in Azure Monitor alerts are enabled for all job failures.
+The following example of the vault settings property shows that the classic alerts are disabled and built-in Azure Monitor alerts are enabled for all job failures.
 
    ```json
    {
