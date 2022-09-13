@@ -14,15 +14,18 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Speech-to-text REST API v3.1
+# Speech-to-text REST API
 
-Speech-to-text REST API v3.1 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
+Speech-to-text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
 
 > [!IMPORTANT]
-> Version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired. Please [migrate your applications](migrate-v3-0-to-v3-1.md) to the Speech-to-text REST API v3.1. 
+> Speech-to-text REST API v3.1 is currently in public preview. Once it's generally available, version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired. For more information, see the [Speech-to-text REST API v3.1 migration guide](migrate-v3-0-to-v3-1.md).
 
 > [!div class="nextstepaction"]
-> [See the Speech to Text API v3.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)
+> [See the Speech to Text API v3.1 preview reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/)
+
+> [!div class="nextstepaction"]
+> [See the Speech to Text API v3.0 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)
 
 Use Speech-to-text REST API to:
 
@@ -153,7 +156,7 @@ See [Create a project](how-to-custom-speech-create-project.md?pivots=rest-api) f
 
 Transcriptions are applicable for [Batch Transcription](batch-transcription.md). Batch transcription is used to transcribe a large amount of audio in storage. You should send multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe.
 
-See [How to use batch transcription](batch-transcription.md?pivots=rest-api) for examples of how to create a transcription from multiple audio files. This table includes all the operations that you can perform on transcriptions.
+See [Create a transcription](batch-transcription-create.md?pivots=rest-api) for examples of how to create a transcription from multiple audio files. This table includes all the operations that you can perform on transcriptions.
 
 |Path|Method|Operation ID|
 |---|---|---|
