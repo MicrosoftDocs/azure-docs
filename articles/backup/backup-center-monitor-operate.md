@@ -74,7 +74,7 @@ Azure Backup provides a set of built-in metrics via Azure Monitor that allows yo
 
 Azure Backup offers the following key capabilities:
 
-* Ability to view out-of-the-box metrics related to backup and restore health of your backup items along with associated trends.
+* Ability to view out-of-the-box metrics related to back up and restore health of your backup items along with associated trends.
 * Ability to write custom alert rules on these metrics to efficiently monitor the health of your backup items.
 * Ability to route fired metric alerts to different notification channels supported by Azure Monitor, such as email, ITSM, webhook, logic apps, and so on.
 
@@ -97,7 +97,7 @@ Currently, the following types of alerts are displayed in Backup center:
 >- Currently, Backup center displays only alerts for Azure-based workloads. To view alerts for on-premises resources, go to the Recovery Services vault and click **Alerts** from the menu.
 >- Backup center displays only Azure Monitor alerts. Alerts raised by the older alerting solution (accessed under the [Backup Alerts](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) aren't displayed in Backup center.
 
-For more details about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
+For more information about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ### Datasource and Global Alerts
 

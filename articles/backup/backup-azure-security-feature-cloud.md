@@ -147,7 +147,7 @@ If items were deleted before soft-delete was disabled, then they'll be in a soft
 
 ### Do I need to enable the soft-delete feature on every vault?
 
-No, it's built-in and enabled by default for all the Recovery Services vaults.
+No, it's a built-in feature and enabled by default for all the Recovery Services vaults.
 
 ### Can I configure the number of days for which my data will be retained in soft-deleted state after the delete operation is complete?
 
@@ -169,13 +169,13 @@ Yes.
 
 Undelete followed by a resume operation will protect the resource again. The resume operation associates a backup policy to trigger the scheduled backups with the selected retention period. Also, the garbage collector runs as soon as the resume operation completes. If you wish to perform a restore from a recovery point that's past its expiration date, you're advised to do it before triggering the resume operation.
 
-### Can I delete my vault if there are soft deleted items in the vault?
+### Can I delete my vault if there are soft-deleted items in the vault?
 
 The Recovery Services vault can't be deleted if there are backup items in soft-deleted state in the vault. The soft-deleted items are permanently deleted 14 days after the delete operation. If you can't wait for 14 days, then [disable soft delete](#enabling-and-disabling-soft-delete), undelete the soft deleted items, and delete them again to permanently get deleted. After ensuring there are no protected items and no soft deleted items, the vault can be deleted.  
 
 ### Can I delete the data earlier than the 14 days soft-delete period after deletion?
 
-No. You can't force delete the soft-deleted items. They're automatically deleted after 14 days. This security feature is enabled to safeguard the backed-up data from accidental or malicious deletes.  You should wait for 14 days before performing any other action on the item.  Soft-deleted items won't be charged.  If you need to reprotect the items marked for soft-delete within 14 days in a new vault, then contact Microsoft support.
+No. You can't force-delete the soft-deleted items. They're automatically deleted after 14 days. This security feature is enabled to safeguard the backed-up data from accidental or malicious deletes.  You should wait for 14 days before performing any other action on the item.  Soft-deleted items won't be charged.  If you need to reprotect the items marked for soft-delete within 14 days in a new vault, then contact Microsoft support.
 
 ### Can soft delete operations be performed in PowerShell or CLI?
 
