@@ -31,8 +31,12 @@ In this release, various improvements were made.
 
 ## Fixed
 
-- Resolves local elevation of privilege vulnerability [CVE-2022-38007](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007)
-- Improved error handling 
+- Resolves local elevation of privilege vulnerability [CVE-2022-38007](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007). 
+- To ensure that this vulnerability is addressed, if you are currently running a version of the AzurePolicyforLinux extension older than 1.26.38, please use the PowerShell command below to update your extension to the latest version. 
+
+```powershell
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.26.38 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' -EnableAutomaticUpgrade $true
+```
 
 ## Next steps
 
