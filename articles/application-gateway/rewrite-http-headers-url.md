@@ -1,19 +1,19 @@
 ---
 title: Rewrite HTTP headers and URL with Azure Application Gateway
 description: This article provides an overview of rewriting HTTP headers and URL in Azure Application Gateway
-author: azhar2005
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/05/2021
-ms.author: azhussai
+ms.date: 09/13/2022
+ms.author: greglin
 ---
 
 # Rewrite HTTP headers and URL with Application Gateway
 
 Application Gateway allows you to rewrite selected content of requests and responses. With this feature, you can translate URLs, query string parameters as well as modify request and response headers. It also allows you to add conditions to ensure that the URL or the specified headers are rewritten only when certain conditions are met. These conditions are based on the request and response information.
 
->[!NOTE]
->HTTP header and URL rewrite features are only available for the [Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md)
+> [!NOTE]
+> HTTP header and URL rewrite features are only available for the [Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md)
 
 ## Rewrite types supported
 

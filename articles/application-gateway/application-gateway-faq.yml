@@ -534,3 +534,4 @@ sections:
 additionalContent: |
     ## Next steps
     To learn more about Application Gateway, see [What is Azure Application Gateway?](overview.md).
+    To learn about TLS termination and end to end TLS with Application Gateway, see [Enabling end to end TLS on Azure Application Gateway](ssl-overview.md).

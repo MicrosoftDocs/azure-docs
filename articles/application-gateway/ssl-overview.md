@@ -2,10 +2,10 @@
 title: Enabling end to end TLS on Azure Application Gateway
 description: This article is an overview of the Application Gateway end to end TLS support.
 services: application-gateway
-author: surajmb
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 09/13/2022
 ms.author: greglin
 
 ---
@@ -29,7 +29,6 @@ To configure TLS termination, a TLS/SSL certificate must be added to the listene
 
 
 > [!NOTE] 
->
 > Application gateway does not provide any capability to create a new certificate or send a certificate request to a certification authority.
 
 For the TLS connection to work, you need to ensure that the TLS/SSL certificate meets the following conditions:
