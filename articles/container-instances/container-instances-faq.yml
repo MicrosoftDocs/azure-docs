@@ -108,6 +108,11 @@ sections:
         answer: |
           You can [deploy container groups in an Azure virtual network](container-instances-vnet.md) of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. For networking scenarios and limitations with Azure Container Instances, see [Virtual network scenarios and resources](container-instances-virtual-network-concepts.md).
           
+      - question: |
+          Does the ACI service reserve ports for service functionality?
+        answer: |
+          Yes, the ACI service does reserve the following ports for service functionality: 22, 443, 1025-1027, 3389-3399, 9999, 19000, 19080, 191000, 20000-30000, 49152-65534. Please avoid using these ports in your container group definition.
+
   - name: Pricing
     questions:
       - question: |

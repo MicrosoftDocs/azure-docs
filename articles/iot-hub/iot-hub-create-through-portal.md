@@ -20,15 +20,17 @@ This article describes how to create and manage IoT hubs using the [Azure portal
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## Change the settings of the IoT hub
+## Update the IoT hub
 
-You can change the settings of an existing IoT hub after it's created from the IoT Hub pane. Here are some of the properties you can set for an IoT hub:
+You can change the settings of an existing IoT hub after it's created from the IoT Hub pane. Here are some properties you can set for an IoT hub:
 
-**Pricing and scale**: You can use this property to migrate to a different tier or set the number of IoT Hub units.
+**Pricing and scale**: Migrate to a different tier or set the number of IoT Hub units.
 
 **IP Filter**: Specify a range of IP addresses that will be accepted or rejected by the IoT hub.
 
-**Properties**: Provides the list of properties that you can copy and use elsewhere, such as the resource ID, resource group, location, and so on.
+**Properties**: A list of properties that you can copy and use elsewhere, such as the resource ID, resource group, location, and so on.
+
+For a complete list of options to update an IoT hub, see the [**az iot hub update** commands](/cli/azure/iot/hub#az-iot-hub-update) reference page.
 
 ### Shared access policies
 
@@ -107,7 +109,9 @@ Here are two ways to find a specific IoT hub in your subscription:
 
 ## Delete the IoT hub
 
-To delete an IoT hub, find the IoT hub you want to delete, then choose **Delete**.
+To delete an IoT hub, open your IoT hub in the Azure portal, then choose **Delete**.
+
+:::image type="content" source="./media/iot-hub-create-through-portal/delete-iot-hub.png" alt-text="Screenshot showing where to find the delete button for an IoT hub in the Azure portal." lightbox="./media/iot-hub-create-through-portal/delete-iot-hub.png":::
 
 ## Next steps
 
