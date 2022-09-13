@@ -270,15 +270,32 @@ Grant a user access to log data from their resources and read all Azure AD sign-
 
 Define [Azure RBAC](../../role-based-access-control/overview.md) at the table level to control which users have read access to any specific table.
 
-To grant users read access to specific tables in a workspace, download the [Azure table-level RBAC PowerShell script] and run:
+To grant users read access to specific tables in a workspace, call the https://management.azure.com/batch?api-version=2020-06-01 POST API and send the following details in the request body:
 
-```powershell
-$workspaceFullId = '<workspace_ID>'
-$subscriptionId = '<subscription_ID>'
-$tableNames = $('<table_name1>', '<table_name2>')
-$objectId = '<ID of the user or group to which you want to grant access>'
-
-.\grantTableLevelRbacps1.ps -workspaceFullId $workspaceFullId -subscriptionId $subscriptionId -tableNames $tableNames -objectId $objectId
+```json
+{
+     "requests": [
+         {
+             "content": {
+                 "Id": "<unique GUID>",
+                 "Properties": {
+                 "PrincipalId": "<User Object ID to which Table Level RBAC should be assigned",
+                 "PrincipalType": "User",
+                 "RoleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+                 "Scope": "/subscriptions/<subscriptionid>/resourceGroups/<resourcegroup name>/providers/Microsoft.OperationalInsights/workspaces/<workspacename>/Tables/<table name>",
+                 "Condition": null,
+                 "ConditionVersion": null
+                 }
+             },
+             "httpMethod": "PUT",
+             "name": "<new unique guid>",
+             "requestHeaderDetails":{
+                 "commandName": "Microsoft_Azure_AD."
+             },
+             "url": "https://api-dogfood.resources.windows-int.net/subscriptions/f8df94f2-2f5a-4f4a-bcaf-1bb992fb564b/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/Dilshad/Tables/First_CL/providers/Microsoft.Authorization/roleAssignments/<first unique GUID from Id>?api-version=2020-04-01-preview"
+         }
+     ]
+}
 ```
 
 ### Legacy method of setting table-level read access
