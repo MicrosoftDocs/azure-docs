@@ -10,6 +10,8 @@ Migrate from service map to Azure Monitor VM insights using Azure Monitor agent 
 
 If you have an on-prem machine, we recommend enabling [Azure Arc for servers](https://docs.microsoft.com/en-us/azure/azure-arc/servers/overview) so that the VMs can be enabled for VM insights using processes similar to Azure VMs.
 
+VM insights includes additional functionality of collecting additional per-VM performance counters that provides visibility into the health of your VMs. These performance counters are ingested every minute and will slightly increase monitoring costs per VM. [Learn more about the pricing.](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview#pricing)
+
 Once you migrate to VM insights, remove the ServiceMap solution from the workspace to avoid data duplication and incurring additional costs.
 
 ## Remove ServiceMap solution from the workspace
