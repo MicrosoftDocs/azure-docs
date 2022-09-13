@@ -140,7 +140,7 @@ Where the file *create-instance.yml* is:
     * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview).inel
     * Provision with a setup script (preview) - for more information about how to create and use a setup script, see [Customize the compute instance with a script](how-to-customize-compute-instance.md).
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-preview) below.
-    * Enable auto-stop (preview). Configure a compute instance to automatically shutdown if it is inactive. See [confiure auto-stop](#configure-auto-stop-preview) for more details.
+    * Enable auto-stop (preview). Configure a compute instance to automatically shutdown if it is inactive. See [configure auto-stop](#configure-auto-stop-preview) for more details.
 
 
 
