@@ -121,3 +121,8 @@ To avoid issues while setting up customer-managed data encryption during restore
 
 - Initiate the restore or read replica creation process from the source Azure Database for MySQL Flexible server.
 - On the restored/replica server, revalidate the customer-managed key in the data encryption settings to ensure that the User managed identity is given _Get, List, Wrap key_ and _Unwrap key_ permissions to the key stored in Key Vault.
+
+## Next steps
+
+- [Azure Key Vault instance](../../key-vault/general/security-features.md)
+- [Security in encryption rest](../../security/fundamentals/encryption-atrest.md)
