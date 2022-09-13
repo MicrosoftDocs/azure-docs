@@ -1,22 +1,6 @@
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
-  items:
-  - name: MySQL
-    tocHref: /azure/mysql/
-    topicHref: /azure/mysql/index
-
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: MySQL
-    tocHref: /azure/defender-for-cloud/
-    topicHref: /azure/mysql/index
-
-- name: Azure
-  tocHref: /dms/
-  topicHref: /azure/index
   items: 
   - name: MySQL
     tocHref: /azure/dms/
