@@ -1,6 +1,6 @@
 ---
-title: Set employeeLeaveDateTime for leaver workflows
-description: Explains how to manually set employeeLeaveDateTime for leaver workflows using PowerShell. 
+title: Set employeeLeaveDateTime
+description: Explains how to manually set employeeLeaveDateTime. 
 author: owinfreyATL
 ms.author: owinfrey
 ms.service: active-directory
@@ -9,34 +9,50 @@ ms.date: 09/07/2022
 ms.custom: template-how-to 
 ---
 
+# Set employeeLeaveDateTime
+## Required permission and roles
+### Delegated
+In delegated scenarios the signed-in user needs the Global Administrator role to update the employeeLeaveDateTime attribute. In addition one of the following delegated permissions is required:
+- User-LifeCycleInfo.ReadWrite.All
+- Directory.AccessAsUser.All
 
+### Application
+Updating the employeeLeaveDateTime requires the User-LifeCycleInfo.ReadWrite.All application permission.
 
-# Set employeeLeaveDateTime for leaver workflows
+>[!NOTE]
+> The User-LifeCycleInfo.ReadWrite.All permissions is currently hidden and cannot be configured in Graph Explorer or the API permssion blade of app registrations.
 
-When creating leaver workflows, it's required to set the date and time for when a user leaves. This parameter, employeeLeaveDateTime, is used to trigger the leaver workflow to run. Unlike other parameters, which can be synchronized using HR inbound Provisioning, Azure AD Connect sync, or Azure AD Connect Cloud sync, you must currently manually set the employeeLeaveDateTime for each user you want to process a leaver workflow for.
-
+# Set employeeLeaveDateTime via PowerShell
 To set the employeeLeaveDateTime for a user using PowerShell enter the following information:
 
- ```powershell
-    Connect-MgGraph -Scopes "User.ReadWrite.All","User-LifeCycleInfo.ReadWrite.All"
-
+ ```powershell    
+    Connect-MgGraph -Scopes "User-LifeCycleInfo.ReadWrite.All"
     Select-MgProfile -Name "beta"
 
-    $URI = "https://graph.microsoft.com/beta/users/528492ea-779a-4b59-b9a3-b3773ef6da6d"
-    $Body = '{"employeeLeaveDateTime": "<Leave date>"}'
-    Invoke-MgGraphRequest -Method PATCH -Uri $URI -Body $Body
+    $UserId = "<Object ID of the user>"
+    $employeeLeaveDateTime = "<Leave date>"
+    
+    $Body = '{"employeeLeaveDateTime": "' + $employeeLeaveDateTime + '"}'
+    Update-MgUser -UserId $UserId -BodyParameter $Body
+
+    $User = Get-MgUser -UserId $UserId -Property employeeLeaveDateTime
+    $User.AdditionalProperties
  ```
 
 This is an example of a user who will leave on September 30, 2022 at 23:59.
 
  ```powershell
-    Connect-MgGraph -Scopes "User.ReadWrite.All","User-LifeCycleInfo.ReadWrite.All"
-
+    Connect-MgGraph -Scopes "User-LifeCycleInfo.ReadWrite.All"
     Select-MgProfile -Name "beta"
 
-    $URI = "https://graph.microsoft.com/beta/users/528492ea-779a-4b59-b9a3-b3773ef6da6d"
-    $Body = '{"employeeHireDate": "<Hire date>","employeeLeaveDateTime": "2022-09-30T23:59:59Z"}'
-    Invoke-MgGraphRequest -Method PATCH -Uri $URI -Body $Body
+    $UserId = "528492ea-779a-4b59-b9a3-b3773ef6da6d"
+    $employeeLeaveDateTime = "2022-09-30T23:59:59Z"
+    
+    $Body = '{"employeeLeaveDateTime": "' + $employeeLeaveDateTime + '"}'
+    Update-MgUser -UserId $UserId -BodyParameter $Body
+
+    $User = Get-MgUser -UserId $UserId -Property employeeLeaveDateTime
+    $User.AdditionalProperties
 ``` 
 
 
