@@ -170,7 +170,7 @@ az aks addon update -g <ResourceGroupName> -n <ClusterName> --addon web_applicat
 
 
 
-## Grant the add-on permissions to retrieve certficates from Azure Key Vault
+## Grant the add-on permissions to retrieve certificates from Azure Key Vault
 The Web Application Routing add-on creates a user created managed identity in the cluster resource group. This managed identity will need to be granted permissions to retrieve SSL certificates from the Azure Key Vault. 
 
 Grant `GET` permissions for the Web Application Routing add-on to retrieve certificates from Azure Key Vault:
@@ -480,7 +480,7 @@ NAME             CLASS                                HOSTS               ADDRES
 aks-helloworld   webapprouting.kubernetes.azure.com   myapp.contoso.com   20.51.92.19   80, 443   4m
 ```
 
-## Accessing the endpoing over a DNS hostname
+## Accessing the endpoint over a DNS hostname
 
 If you have not configured Azure DNS integration, you will need to configure your own DNS provider with an **A record** pointing to the ingress IP address and the host name you configured for the ingress, for example *myapp.contoso.com*.
  
@@ -493,7 +493,7 @@ First, remove the associated namespace:
 kubectl delete namespace hello-web-app-routing
 ```
 
-The Web Application Routing add-on can be removed using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name. Be careful if you already have some of the other add-ons (open-service-mesh or azure-keyvault-secrets-provider) enabled on your cluster so that you don't accidentaly disable them.
+The Web Application Routing add-on can be removed using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name. Be careful if you already have some of the other add-ons (open-service-mesh or azure-keyvault-secrets-provider) enabled on your cluster so that you don't accidentally disable them.
 
 ```azurecli
 az aks disable-addons --addons web_application_routing --name myAKSCluster --resource-group myResourceGroup 
