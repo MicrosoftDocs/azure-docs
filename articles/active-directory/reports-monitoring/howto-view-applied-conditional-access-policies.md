@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # How to: View applied conditional access policies in the Azure AD sign-in logs
 
-With conditional access policies, you can control, how your users get access to the resources of your Azure tenant. As an tenant admin, you need to be able to determine what impact your conditional access policies have on sign-ins to your tenant, so that you can take action if necessary. The sign-in logs in Azure AD provide you with the information you need to assess the impact of your policies.
+With conditional access policies, you can control, how your users get access to the resources of your Azure tenant. As a tenant admin, you need to be able to determine what impact your conditional access policies have on sign-ins to your tenant, so that you can take action if necessary. The sign-in logs in Azure AD provide you with the information you need to assess the impact of your policies.
 
   
 This article explains how you can get access to the information about applied conditional access policies. 
@@ -42,7 +42,7 @@ Some scenarios require you to get an understanding for how your conditional acce
 - **Tenant administrators** who need to verify that conditional access policies have the intended impact on the users of a tenant.
 
 
-You can access the sign-in logs using the Azure Portal, MS Graph, and PowerShell.  
+You can access the sign-in logs using the Azure portal, MS Graph, and PowerShell.  
 
 
 
@@ -85,7 +85,7 @@ The following built in roles grant permission to view sign-in logs:
 
 ## Permissions for client apps 
 
-If you use a client app to pull sign-in logs from Graph, your app needs permissions to receive the **appliedConditionalAccessPolicy** object from Graph. As a best practice, assign **Policy.Read.ConditionalAccess** because it is the least privileged permission. Any of the following permissions is sufficient for a client app to access applied CA policies in sign-in logs through Graph: 
+If you use a client app to pull sign-in logs from Graph, your app needs permissions to receive the **appliedConditionalAccessPolicy** object from Graph. As a best practice, assign **Policy.Read.ConditionalAccess** because it's the least privileged permission. Any of the following permissions is sufficient for a client app to access applied CA policies in sign-in logs through Graph: 
 
 Policy.Read.ConditionalAccess 
 
@@ -117,16 +117,16 @@ The output of this cmdlet contains a **AppliedConditionalAccessPolicies** proper
 
 For more information about this cmdlet, see [Get-MgAuditLogSignIn](https://docs.microsoft.com/powershell/module/microsoft.graph.reports/get-mgauditlogsignin?view=graph-powershell-1.0).
 
-The AzureAD Graph powerShell module does not support viewing applied conditional access policies; only the Microsoft Graph PowerShell module returns applied conditional access policies.  
+The AzureAD Graph PowerShell module doesn't support viewing applied conditional access policies; only the Microsoft Graph PowerShell module returns applied conditional access policies.  
 
 ## Confirming access 
 
 In the **Conditional Access** tab, you see a list of conditional access policies applied to that sign-in event.  
 
 
-To confirm you have admin access to view applied conditional access policies in the sign in logs, do: 
+To confirm that you have admin access to view applied conditional access policies in the sign-ins logs, do: 
 
-1. Navigate to the Azure Portal. 
+1. Navigate to the Azure portal. 
 
 2. In the top-right corner, select your directory, and then select **Azure Active Directory** in the left navigation pane. 
 
