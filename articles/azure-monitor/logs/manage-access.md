@@ -20,7 +20,7 @@ The following table describes the factors that define the data you can access in
 |:---|:---|
 | [Access mode](#access-mode) | Context in which you access data in the workspace. Defines the scope of the data available and the access control mode that's applied. |
 | [Access control mode](#access-control-mode) | A workspace setting that determines whether to apply workspace or resource-level access control settings in each access mode. |
-| [Workspace-level permissions](#azure-rbac) | Permissions for the workspace, applied to individuals or groups of users |
+| [Workspace-level permissions](#azure-rbac) | Permissions for the workspace, applied to individuals or groups of users. |
 | [Table-level read access](#table-level-azure-rbac) | Optional permissions that grant read access to specific data types in the workspace. |
 | Resource-defined permissions | Permissions for the monitored resource, applied to individuals or groups of user at the resource level.|
 
@@ -48,7 +48,7 @@ There are known limitations with the following resources:
 
 ## Manage access control mode
 
-*Access control mode* is a workspace-level setting that defines which permissions Azure Monitor applies in each [access mode](#access-mode):
+Access control mode is a workspace-level setting that defines which permissions Azure Monitor applies in each [access mode](#access-mode):
 
 * **Require workspace permissions** 
 
