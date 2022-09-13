@@ -1,5 +1,5 @@
 ---
-title: Archive data from Log Analytics workspace to Azure storage using Logic App
+title: Export data from Log Analytics workspace to Azure Storage Account using Logic App
 description: Describes a method to use Azure Logic Apps to query data from a Log Analytics workspace and send to Azure Storage.
 ms.service:  azure-monitor
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.date: 03/01/2022
 ---
 
 
-# Archive data from Log Analytics workspace to Azure storage using Logic App
+# Export data from Log Analytics workspace to Azure Storage Account using Logic App
 This article describes a method to use [Azure Logic App](../../logic-apps/index.yml) to query data from a Log Analytics workspace in Azure Monitor and send to Azure Storage. Use this process when you need to export your Azure Monitor Log data for auditing and compliance scenarios or to allow another service to retrieve this data.  
 
 ## Other export methods
@@ -24,7 +24,7 @@ This procedure uses the [Azure Monitor Logs connector](/connectors/azuremonitorl
 
 [![Logic app overview](media/logs-export-logic-app/logic-app-overview.png "Screenshot of Logic app flow.")](media/logs-export-logic-app/logic-app-overview.png#lightbox)
 
-When you export data from a Log Analytics workspace, you should filter and aggregate your log data and optimize query and limit the amount of data processed by your Logic App workflow, to the required data. For example, if you need to archive sign-in events, you should filter for required events and project only the required fields. For example: 
+When you export data from a Log Analytics workspace, you should limit the amount of data processed by your Logic App workflow, by filtering and aggregating your log data in query, to reduce to the required data. For example, if you need to export sign-in events, you should filter for required events and project only the required fields. For example: 
 
 ```Kusto
 SecurityEvent
