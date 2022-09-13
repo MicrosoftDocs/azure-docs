@@ -83,7 +83,7 @@ The following built in roles grant permission to view sign-in logs:
 - Reports Reader 
 
 
-## Required permissions for client apps 
+## Permissions for client apps 
 
 If you use a client app to pull sign-in logs from Graph, your app needs permissions to receive the **appliedConditionalAccessPolicy** object from Graph. As a best practice, assign **Policy.Read.ConditionalAccess** because it is the least privileged permission. Any of the following permissions is sufficient for a client app to access applied CA policies in sign-in logs through Graph: 
 
@@ -95,7 +95,7 @@ Policy.Read.All
 
  
 
-## Required permissions for PowerShell 
+## Permissions for PowerShell 
 
 Like any other client app, the Microsoft Graph Powershell module needs client permissions to access applied conditional access policies in the sign-in logs. To successfully pull applied conditional access in the sign-in logs, you must consent to the necessary permissions with your administrator account for MS Graph Powershell. As a best practice, consent to:
 
