@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 The first step is to select a testing method to validate your SCIM endpoint.
 
 1. Open your web browser and navigate to the SCIM Validator: [https://scimvalidator.microsoft.com/](https://scimvalidator.microsoft.com/).
-1. Select one of the 3 test options. Options include the following: 
+1. Select one of the 3 test options. You can use default attributes, automatically discover the schema, or upload a schema.
 
 **Use default attributes** - The system provides the default attributes, and you modify them to meet your need.
 
@@ -48,16 +48,11 @@ The first step is to select a testing method to validate your SCIM endpoint.
 ## Configure the testing method
 Now that you have selected a testing method, the next step is to configure it.
 
-1. Configure the test method you want to use to validate the schema.
-
-**Use default attributes** - Fill in all the indicated fields. Ensure that the “Enable group tests” option is checked if the desire is to test group attributes as well. 
-
-**Discover schema** - Use this option if your endpoint supports /Schema. Enter the SCIM endpoint URL and the Token.
-
-**Upload Azure AD Schema** - This option will accept a .json file exported from your sample app on the Azure portal. To learn how to export a schema, see [How-to: Export provisioning configuration and roll back to a known good state](export-import-provisioning-configuration.md#export-your-provisioning-configuration). To test *group attributes*, make sure to select **Enable Group Tests**.
-
-2. Edit the list attributes as desired for both the user and group types using the ‘Add Attribute’ option at the end of the attribute list and minus (-) sign on the right side of the page. 
-3. Select the joining property from both the user and group attributes list. 
+1. If you are using the **default attributes** option then fill in all of the indicated fields. Ensure that the *Enable group tests* option is checked if the desire is to test group attributes as well. 
+1. If you are using the **discover schema** option then enter the SCIM endpoint URL and token.
+1. If you are uploading a schema then select your .json file to upload. The option accepts a .json file exported from your sample app on the Azure portal. To learn how to export a schema, see [How-to: Export provisioning configuration and roll back to a known good state](export-import-provisioning-configuration.md#export-your-provisioning-configuration). To test *group attributes*, make sure to select **Enable Group Tests**.
+1. Edit the list attributes as desired for both the user and group types using the ‘Add Attribute’ option at the end of the attribute list and minus (-) sign on the right side of the page. 
+1. Select the joining property from both the user and group attributes list. 
 
 The joining property, also known as matching attribute, is an attribute that user and group resources can be uniquely queried on at the source and matched in the target system. 
 
