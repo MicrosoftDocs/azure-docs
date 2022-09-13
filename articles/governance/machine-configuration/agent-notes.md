@@ -2,7 +2,7 @@
 title: Guest configuration agent notes
 description: Details guest configuration agent release notes, issues, and frequently-asked questions.
 author: timwarner-msft
-ms.date: 08/29/2022
+ms.date: 09/13/2022
 ms.topic: conceptual
 ms.author: timwarner
 ms.service: machine-configuration
@@ -19,7 +19,7 @@ The guest configuration agent `gc-agent` receives improvements on an ongoing bas
 - Known issues
 - Bug fixes
 
-For information on release notes for the connected machine agent, please see [What's new with the connected machine agent](https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-release-notes).
+For information on release notes for the connected machine agent, please see [What's new with the connected machine agent](/azure/azure-arc/servers/agent-release-notes).
 
 ## Release notes
 
@@ -29,7 +29,7 @@ In this release, various improvements were made.
 
 - You can now restrict which URLs can be used to download machine configuration packages by setting the allowedGuestConfigPkgUrls tag on the server resource and providing a comma-separated list of URL patterns to allow. If the tag exists, the agent will only allow custom packages to be downloaded from the specified URLs. Built-in packages are unaffected by this feature. 
 
-# Fixed
+## Fixed
 
 - Resolves local elevation of privilege vulnerability [CVE-2022-38007](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007)
 - Improved error handling 
