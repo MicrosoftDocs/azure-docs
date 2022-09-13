@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: How to set up screen capture protection for Azure Virtual Desktop.
 author: femila
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 09/14/2022
 ms.author: femila
 ms.service: virtual-desktop
 ---
