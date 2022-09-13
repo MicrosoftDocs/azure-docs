@@ -25,7 +25,7 @@ Azure Monitor offers the following solutions for monitoring your networks:
 
 ## Network Performance Monitor (NPM)
 
-The [Network Performance Monitor](../../networking/network-monitoring-overview.md) management solution is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
+The [Network Performance Monitor](../../networking/network-monitoring-overview.md) management solution is a network monitoring solution that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
 
 * Public cloud and on-premises
 * Data centers and user locations (branch offices)
@@ -95,7 +95,7 @@ The "view detailed metrics" tab will open up the pre-populated workbook summariz
 
 The Network Insights workbook allows you to take advantage of the latest capabilities of Azure Monitor and Log Analytics including:
 
-* Centralized console for monitoring and troubleshooting with both [metric](../insights/network-insights-overview.md#resource-health-and-metrics) and log data.
+* Centralized console for monitoring and troubleshooting with both [metric](../../network-watcher/network-insights-overview.md#resource-health-and-metrics) and log data.
 
 * Flexible canvas to support creation of custom rich [visualizations](../visualize/workbooks-overview.md#visualizations).
 
@@ -108,7 +108,7 @@ To find more information about the capabilities of the new workbook solution che
 > [!NOTE]
 > Azure Monitor Network Insights workbook is the recommended solution for accessing metric and log analytics for your Application Gateway resources.
 
-1. Ensure [diagnostics settings are enabled](#enable-azure-application-gateway-diagnostics-in-the-portal) to store logs into a Log Analytics workspace. If it is already configured, Azure Monitor Network Insights workbook will be able to consume data from the same location and no additional changes are required.
+1. Ensure [diagnostics settings are enabled](#enable-azure-application-gateway-diagnostics-in-the-portal) to store logs into a Log Analytics workspace. If it is already configured, Azure Monitor Network Insights workbook will be able to consume data from the same location and no more changes are required.
 
 > [!NOTE]
 > All past data is already available within the workbook from the point diagnostic settings were originally enabled. There is no data transfer required.

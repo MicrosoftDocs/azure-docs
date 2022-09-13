@@ -10,12 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel 
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> The UEBA and Entity Pages features are now in **General Availability** in ***all*** Microsoft Sentinel geographies and regions. 
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
@@ -38,12 +32,24 @@ To enable or disable this feature (these prerequisites are not required to use t
 
 ## How to enable User and Entity Behavior Analytics
 
-1. From the Microsoft Sentinel navigation menu, select **Entity behavior**.
+1. Go to the **Entity behavior configuration** page. There are three ways to get to this page:
 
-1. From the top menu bar, select **Entity behavior settings**.  
-If you haven't yet enabled UEBA, you will be taken to the **Settings** page. Select **Configure UEBA**.
+    - Select **Entity behavior** from the Microsoft Sentinel navigation menu, then select **Entity behavior settings** from the top menu bar.
+
+    - Select **Settings** from the Microsoft Sentinel navigation menu, select the **Settings** tab, then under the **Entity behavior analytics** expander, select **Set UEBA**.
+
+    - From the Microsoft 365 Defender data connector page, select the **Go the UEBA configuration page** link.
 
 1. On the **Entity behavior configuration** page, switch the toggle to **On**.
+
+    :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings.":::
+
+1. Mark the check boxes next to the Active Directory source types from which you want to synchronize user entities with Microsoft Sentinel.
+
+    - **Active Directory** on-premises (Preview)
+    - **Azure Active Directory**
+
+    To sync user entities from on-premises Active Directory, your Azure tenant must be onboarded to Microsoft Defender for Identity (either standalone or as part of Microsoft 365 Defender) and you must have the MDI sensor installed on your Active Directory domain controller. See [Microsoft Defender for Identity prerequisites](/defender-for-identity/prerequisites) for more information.
 
 1. Mark the check boxes next to the data sources on which you want to enable UEBA.
 
@@ -53,7 +59,7 @@ If you haven't yet enabled UEBA, you will be taken to the **Settings** page. Sel
     >
     > Once you have enabled UEBA, you will have the option, when connecting new data sources, to enable them for UEBA directly from the data connector pane if they are UEBA-capable.
 
-1. Select **Apply**. You will be returned to the **Entity behavior** page.
+1. Select **Apply**. If you accessed this page through the **Entity behavior** page, you will be returned there.
 
 ## Next steps
 

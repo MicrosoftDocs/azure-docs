@@ -2,7 +2,7 @@
 title: Get right-sized Azure recommendation for your on-premises SQL Server database(s)
 description: Learn how to use the Azure SQL migration extension in Azure Data Studio to get SKU recommendation to migrate SQL Server database(s) to the right-sized Azure SQL Managed Instance or SQL Server on Azure Virtual Machines.
 services: database-migration
-author: dbamaster
+author: croblesm
 ms.author: roblescarlos
 manager: 
 ms.reviewer: 

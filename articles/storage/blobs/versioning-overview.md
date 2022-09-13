@@ -3,12 +3,12 @@ title: Blob versioning
 titleSuffix: Azure Storage
 description: Blob storage versioning automatically maintains previous versions of an object and identifies them with timestamps. You can restore a previous version of a blob to recover your data if it is erroneously modified or deleted.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/22/2022
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
 ---

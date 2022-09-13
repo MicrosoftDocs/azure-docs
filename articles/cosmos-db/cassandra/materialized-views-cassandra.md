@@ -46,7 +46,7 @@ New Cassandra API accounts with Materialized Views enabled can be provisioned on
 
 ### Log in to the Azure command line interface
 
-Install Azure CLI as mentioned at [How to install the Azure CLI | Microsoft Docs](https://docs.microsoft.com/cli/azure/install-azure-cli) and log on using the below:
+Install Azure CLI as mentioned at [How to install the Azure CLI | Microsoft Docs](/cli/azure/install-azure-cli) and log on using the below:
    ```azurecli-interactive
    az login
    ```
@@ -82,7 +82,7 @@ This step is optional – you can skip this step if you don't want to use Custom
 
 To use Customer Managed Keys feature and Materialized views together on Cosmos DB account, you must first configure managed identities with Azure Active Directory for your account and then enable support for materialized views.
 
-You can use the documentation [here](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) to configure your Cosmos DB Cassandra account with customer managed keys and setup managed identity access to the key Vault. Make sure you follow all the steps in [Using a managed identity in Azure key vault access policy](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-managed-identity). The next step to enable materializedViews on the account.
+You can use the documentation [here](../how-to-setup-cmk.md) to configure your Cosmos DB Cassandra account with customer managed keys and setup managed identity access to the key Vault. Make sure you follow all the steps in [Using a managed identity in Azure key vault access policy](../how-to-setup-managed-identity.md). The next step to enable materializedViews on the account.
 
 Once your account is set up with CMK and managed identity, you can enable materialized views on the account by enabling “enableMaterializedViews” property in the request body.
 

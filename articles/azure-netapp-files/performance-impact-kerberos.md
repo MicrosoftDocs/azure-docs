@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 08/22/2022
 ms.author: anfdocs
 ---
 # Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes
@@ -48,36 +48,25 @@ There are two areas of focus: light load and upper limit. The following lists de
 
 **Performance impact of krb5:**
 
-* Low concurrency (r/w):
-    * Sequential latency increased 0.3 ms.
-    * Random I/O latency increased 0.2 ms.
-    * Metadata I/O latency increased 0.2 ms.
-* High concurrency (r/w): 
-    * Maximum sequential throughput was unimpacted by krb5.
-    * Maximum random I/O decreased by 30% for pure read workloads with the overall impact dropping to zero as the workload shifts to pure write. 
-    * Maximum metadata workload decreased 30%.
+* Average IOPS decreased by 53%
+* Average throughput decreased by 53% 
+* Average latency increased by 3.2 ms
 
 **Performance impact of krb5i:**
 
-* Low concurrency (r/w):
-    * Sequential latency increased 0.5 ms.
-    * Random I/O latency increased 0.2 ms.
-    * Metadata I/O latency increased 0.2 ms.
-* High concurrency (r/w): 
-    * Maximum sequential throughput decreased by 70% overall regardless of the workload mixture.
-    * Maximum random I/O decreased by 50% for pure read workloads with the overall impact decreasing to 25% as the workload shifts to pure write. 
-    * Maximum metadata workload decreased 30%.
+* Average IOPS decreased by 55%
+* Average throughput decreased by 55% 
+* Average latency increased by 0.6 ms
 
 **Performance impact of krb5p:**
 
-* Low concurrency (r/w):
-    * Sequential latency increased 0.8 ms.
-    * Random I/O latency increased 0.2 ms.
-    * Metadata I/O latency increased 0.2 ms.
-* High concurrency (r/w): 
-    * Maximum sequential throughput decreased by 85% overall regardless of the workload mixture. 
-    * Maximum random I/O decreased by 65% for pure read workloads with the overall impact decreasing to 43% as the workload shifts to pure write. 
-    * Maximum metadata workload decreased 30%.
+* Average IOPS decreased by 77%
+* Average throughput decreased by 77% 
+* Average latency increased by 1.6 ms
+
+## Performance considerations with `nconnect`
+
+[!INCLUDE [nconnect krb5 performance warning](includes/kerberos-nconnect-performance.md)]
 
 ## Next steps  
 

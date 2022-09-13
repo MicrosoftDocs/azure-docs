@@ -2,7 +2,7 @@
 title: Create an Azure AD Domain Services resource forest using Azure PowerShell | Microsoft Docs
 description: In this article, learn how to create and configure an Azure Active Directory Domain Services resource forest and outbound forest to an on-premises Active Directory Domain Services environment using Azure PowerShell.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services

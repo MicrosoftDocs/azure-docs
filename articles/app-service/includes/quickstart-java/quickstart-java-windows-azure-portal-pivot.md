@@ -13,7 +13,19 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 This quickstart shows you how to make these changes within your browser, without having to install the development environment tools on your machine.
 
-![Screenshot of the sample app running in Azure, showing 'Hello World!'.](../../media/quickstart-java/hello-world-in-browser.png)
+# [Java SE](#tab/javase)
+
+![Screenshot of the sample Java SE app running in Azure, showing 'Hello World!'.](../../media/quickstart-java/hello-world-in-browser.png)
+
+# [Tomcat](#tab/tomcat)
+
+![Screenshot of the sample Tomcat app running in Azure, showing 'Hello World!'.](../../media/quickstart-java/hello-world-in-browser.png)
+
+# [JBoss EAP](#tab/jbosseap)
+
+JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
+---
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -23,6 +35,23 @@ To complete this quickstart you need:
 1. A GitHub account to fork a repository.
 
 ## 1 - Fork the sample repository
+
+# [Java SE](#tab/javase)
+
+1. In your browser, navigate to the repository containing [the sample code](https://github.com/Azure-Samples/java-docs-spring-hello-world).
+
+1. In the upper right corner, select **Fork**.
+
+    ![Screenshot of the Azure-Samples/java-docs-spring-hello-world repo in GitHub, with the Fork option highlighted.](../../media/quickstart-java/fork-java-docs-spring-hello-world-repo.png)
+
+1. On the **Create a new fork** screen, confirm the **Owner** and **Repository name** fields. Select **Create fork**.
+
+    ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/java-docs-spring-hello-world.](../../media/quickstart-java/fork-details-java-docs-spring-hello-world-repo.png)
+
+    >[!NOTE]
+    > This should take you to the new fork. Your fork URL will look something like this: `https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world`
+
+# [Tomcat](#tab/tomcat)
 
 1. In your browser, navigate to the repository containing [the sample code](https://github.com/Azure-Samples/java-docs-spring-hello-world).
 
@@ -36,6 +65,12 @@ To complete this quickstart you need:
 
     >[!NOTE]
     > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world
+
+# [JBoss EAP](#tab/jbosseap)
+
+JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
+---
 
 ## 2 - Deploy to Azure
 
@@ -51,6 +86,9 @@ To complete this quickstart you need:
     ![Screenshot of the App Services page in the Azure portal. The Create button in the action bar is highlighted.](../../media/quickstart-java/azure-portal-create-app-service.png)
 
 1. Fill out the **Create Web App** page as follows.
+
+# [Java SE](#tab/javase)
+
    - **Resource Group**: Create a resource group named _myResourceGroup_.
    - **Name**: Type a globally unique name for your web app. 
    - **Publish**: Select _Code_.
@@ -60,21 +98,54 @@ To complete this quickstart you need:
    - **Region**: Select an Azure region close to you.
    - **App Service Plan**: Create an app service plan named _myAppServicePlan_.
 
-1.  To change to the Free tier, next to **Sku and size**, select **Change size**. 
-   
-1.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
+# [Tomcat](#tab/tomcat)
 
-    ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. Dev/Test, F1, and Apply are highlighted.](../../media/quickstart-java/azure-portal-create-app-service-select-free-tier-windows.png)   
+   - **Resource Group**: Create a resource group named _myResourceGroup_.
+   - **Name**: Type a globally unique name for your web app. 
+   - **Publish**: Select _Code_.
+   - **Runtime stack**: Select _Java 11_. 
+   - **Java web-server stack**: Select _Tomcat 8.5_ or _Tomcat 9.0_.
+   - **Operating system**: Select _Windows_.
+   - **Region**: Select an Azure region close to you.
+   - **App Service Plan**: Create an app service plan named _myAppServicePlan_.
+
+# [JBoss EAP](#tab/jbosseap)
+
+JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
+---
+
+1.  To change the App Service Plan tier, next to **Sku and size**, select **Change size**.    
+
+1.  In the Spec Picker, on the **Production** tab, select **P1V3**. Select the **Apply** button at the bottom of the page.
+
+    ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. Production, P1V3, and Apply are highlighted.](../../media/quickstart-java/azure-portal-create-app-service-select-tier-p1v3.png)   
 
 1. Select the **Deployment** section. Under **GitHub Actions settings**, for **Continuous deployment**, select **Enable**.
 
     ![Screenshot of the Deployment section of the Create Web App wizard in the Azure portal. Deployment - the second section - is highlighted. Under GitHub Actions settings, continuous deployment's Enable is also highlighted.](../../media/quickstart-java/create-web-app-deployment-section.png)
 
 1. In the section under **GitHub Actions details**, select the following settings:
-    - GitHub account: Log in to your GitHub account.
-    - Organization: Select your organization.
-    - Repository: Select _java-docs-spring-hello-world_.
-    - Branch: Select _main_.
+
+# [Java SE](#tab/javase)
+
+- GitHub account: Log in to your GitHub account.
+- Organization: Select your organization.
+- Repository: Select _java-docs-spring-hello-world_.
+- Branch: Select _main_.
+
+# [Tomcat](#tab/tomcat)
+
+- GitHub account: Log in to your GitHub account.
+- Organization: Select your organization.
+- Repository: Select _java-docs-spring-hello-world_.
+- Branch: Select _tomcat_.
+
+# [JBoss EAP](#tab/jbosseap)
+
+JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
+---
 
 1. Select the **Review + create** button at the bottom of the page.
 
@@ -84,22 +155,40 @@ To complete this quickstart you need:
 
     ![Screenshot of the App Service resource's overview with the URL highlighted.](../../media/quickstart-java/azure-portal-app-service-url.png)  
 
-The Java sample code is running in an Azure App Service Linux web app.
+# [Java SE](#tab/javase)
+
+The Java SE sample code is running in an Azure App Service Linux web app.
 
 ![Screenshot of the sample app running in Azure, showing 'Hello World!'.](../../media/quickstart-java/hello-world-in-browser.png)
 
 **Congratulations!** You've deployed your first Java app to App Service using the Azure portal.
 
+# [Tomcat](#tab/tomcat)
+
+The Java Tomcat sample code is running in an Azure App Service Linux web app.
+
+![Screenshot of the sample app running in Azure, showing 'Hello World!'.](../../media/quickstart-java/hello-world-in-browser.png)
+
+**Congratulations!** You've deployed your first Java app to App Service using the Azure portal.
+
+# [JBoss EAP](#tab/jbosseap)
+
+JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
+---
+
 ## 3 - Update in GitHub and redeploy the code
+
+# [Java SE](#tab/javase)
 
 1. Browse to your GitHub fork of java-docs-spring-hello-world.
 
-1. On your repo page, press `.` to start Visual Studio code within your browser.
+1. On your repo page, press `.` to start Visual Studio Code within your browser.
 
     > [!NOTE]
     > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
 
-    ![Screenshot of forked GitHub repo with an annotation to Press the period key.](../../media/quickstart-java/github-forked-repo-press-period.png)
+    ![Screenshot of forked GitHub repo with an annotation to Press the period key.](../../media/quickstart-java/github-forked-java-docs-spring-hello-world-repo-press-period.png)
 
 1. Navigate to **src/main/java/com/example/demo/DemoApplication.java**.
 
@@ -114,7 +203,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 	}
     ```
 
-1. From the **Source Control** menu, select the **Stage Changes** button to stage the change.
+1. From the **Source Control** pane, select the **Stage Changes** button to stage the change.
 
     ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](../../media/quickstart-java/visual-studio-code-in-browser-stage-changes.png)
 
@@ -125,6 +214,51 @@ The Java sample code is running in an Azure App Service Linux web app.
 1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
     ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'.](../../media/quickstart-java/hello-azure-in-browser.png)
+
+# [Tomcat](#tab/tomcat)
+
+1. Browse to your GitHub fork of java-docs-spring-hello-world. Change the branch to `tomcat`.
+
+    ![Screenshot of forked GitHub repo with the branch highlighted.](../../media/quickstart-java/github-forked-java-docs-spring-hello-world-repo-tomcat-branch.png)
+
+
+1. On your repo page, press `.` to start Visual Studio Code within your browser.
+
+    > [!NOTE]
+    > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
+
+    ![Screenshot of forked GitHub repo in the tomcat branch with an annotation to Press the period key.](../../media/quickstart-java/github-forked-java-docs-spring-hello-world-repo-tomcat-branch-press-period.png)
+
+1. Navigate to **src/main/java/com/example/demo/DemoApplication.java**.
+
+    ![Screenshot of Visual Studio Code in the browser, highlighting src/main/java/com/example/demo/DemoApplication.java in the Explorer pane.](../../media/quickstart-java/visual-studio-code-in-browser-navigate-to-application-controller.png)
+
+1. Edit the **sayHello** method so that it shows "Hello Azure!" instead of "Hello World!"
+
+    ```java
+    @RequestMapping("/")
+	String sayHello() {
+		return "Hello Azure!";
+	}
+    ```
+
+1. From the **Source Control** pane, select the **Stage Changes** button to stage the change.
+
+    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](../../media/quickstart-java/visual-studio-code-in-browser-stage-changes.png)
+
+1. Enter a commit message such as `Hello Azure`. Then, select **Commit and Push**.
+
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted.](../../media/quickstart-java/visual-studio-code-in-browser-commit-push.png)
+
+1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
+
+    ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'.](../../media/quickstart-java/hello-azure-in-browser.png)
+
+# [JBoss EAP](#tab/jbosseap)
+
+JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
+---
 
 ## 4 - Manage your new Azure app
 

@@ -100,6 +100,10 @@ sections:
         answer: |
           To delete a Virtual Network NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted.
       
+      - question: Is there a drop in packets when a virtual network configured with Load balancer outbound rules switches to NAT gateway after being configured to a subnet?
+        answer: |
+          No, there will be no drop in packets. Existing connections with Load balancer will continue to work until those connections officially close. After NAT gateway is added to the subnet of the virtual network, all new connections will then use NAT gateway for making outbound connections. 
+      
       - question: Can I use Virtual Network NAT gateway with Azure App Services? 
         answer: |
           Yes. NAT gateway can be used with Azure App Services in order to allow applications to direct outbound traffic to the internet from a virtual network. To use this integration between NAT gateway and Azure App Services, regional virtual network integration must be enabled. For guidance on how to enable virtual network integration with NAT gateway, see [Virtual Network NAT gateway integration](../../app-service/networking/nat-gateway-integration.md).

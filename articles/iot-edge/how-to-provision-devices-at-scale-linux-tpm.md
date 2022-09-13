@@ -11,7 +11,7 @@ services: iot-edge
 ---
 # Create and provision IoT Edge devices at scale with a TPM on Linux
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Linux device by using a Trusted Platform Module (TPM). You can automatically provision IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 
@@ -210,7 +210,7 @@ After the runtime is installed on your device, configure the device with the inf
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. Know your device provisioning service **ID Scope** and device **Registration ID** that were gathered previously.
@@ -235,6 +235,9 @@ After the runtime is installed on your device, configure the device with the inf
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
    id_scope = "SCOPE_ID_HERE"
+
+   # Uncomment to send a custom payload during DPS registration
+   # payload = { uri = "PATH_TO_JSON_FILE" }
    
    [provisioning.attestation]
    method = "tpm"
@@ -246,11 +249,19 @@ After the runtime is installed on your device, configure the device with the inf
 1. Update the values of `id_scope` and `registration_id` with your device provisioning service and device information. The `scope_id` value is the **ID Scope** from your device provisioning service instance's overview page.
 
 1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+:::moniker-end
 
+<!-- iotedge-1.4 -->
+:::moniker range=">=iotedge-1.4"
+1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+:::moniker-end
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
 1. Save and close the file.
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Give IoT Edge access to the TPM
 
@@ -313,7 +324,7 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 The IoT Edge runtime relies on a TPM service that brokers access to a device's TPM. This service needs to access the TPM to automatically provision your device.
@@ -370,7 +381,7 @@ You can give access to the TPM by overriding the systemd settings so that the `a
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Verify successful installation
 
@@ -404,7 +415,7 @@ Or, try restarting your VM to see if the changes take effect on a fresh start.
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 If you didn't already, apply the configuration changes that you made on the device.
 
@@ -432,7 +443,7 @@ If you see provisioning errors, it might be that the configuration changes haven
 
 Or, try restarting your VM to see if the changes take effect on a fresh start.
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 If the runtime started successfully, you can go into your IoT hub and see that your new device was automatically provisioned. Now your device is ready to run IoT Edge modules.
 

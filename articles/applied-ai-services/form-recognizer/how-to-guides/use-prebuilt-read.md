@@ -8,7 +8,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 zone_pivot_groups: programming-languages-set-formre
-ms.date: 04/12/2022
+ms.date: 09/09/2022
 ms.author: jppark
 recommendations: false
 ---
@@ -19,9 +19,7 @@ recommendations: false
 
  The read model is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the read model as a foundation for extracting texts from documents.
 
->[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
-The current API version is ```2022-06-30```.
+The current API version is ```2022-08-31```.
 
 ::: zone pivot="programming-language-csharp"
 

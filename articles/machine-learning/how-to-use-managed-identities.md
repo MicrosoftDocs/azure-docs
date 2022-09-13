@@ -73,7 +73,7 @@ az ml workspace create -w <workspace name> \
 
 ### Let Azure Machine Learning service create workspace ACR
 
-If you don't bring your own ACR, Azure Machine Learning service will create one for you when you perform an operation that needs one. For example, submit a training run to Machine Learning Compute, build an environment, or deploy a web service endpoint. The ACR created by the workspace will have admin user enabled, and you need to disable the admin user manually.
+If you don't bring your own ACR, Azure Machine Learning service will create one for you when you perform an operation that needs one. For example, submit a training job to Machine Learning Compute, build an environment, or deploy a web service endpoint. The ACR created by the workspace will have admin user enabled, and you need to disable the admin user manually.
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -110,7 +110,7 @@ If you don't bring your own ACR, Azure Machine Learning service will create one 
 
 To access the workspace ACR, create machine learning compute cluster with system-assigned managed identity enabled. You can enable the identity from  Azure portal or Studio when creating compute, or from Azure CLI using the below. For more information, see [using managed identity with compute clusters](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 When creating a compute cluster with the [AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration), use the `identity_type` parameter to set the managed identity type.
 
@@ -122,9 +122,9 @@ When creating a compute cluster with the [AmlComputeProvisioningConfiguration](/
 az ml compute create --name cpucluster --type <cluster name>  --identity-type systemassigned
 ```
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
-For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](how-to-create-attach-compute-studio.md#managed-identity).
+For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
 ---
 
@@ -171,7 +171,7 @@ az role assignment create --assignee <principal ID> \
 --scope "/subscriptions/<subscription ID>/resourceGroups/<private ACR resource group>/providers/Microsoft.ContainerRegistry/registries/<private ACR name>"
 ```
 
-Finally, when submitting a training run, specify the base image location in the [environment definition](how-to-use-environments.md#use-existing-environments).
+Finally, when submitting a training job, specify the base image location in the [environment definition](how-to-use-environments.md#use-existing-environments).
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 

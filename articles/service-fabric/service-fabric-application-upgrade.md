@@ -1,10 +1,14 @@
 ---
 title: Service Fabric application upgrade 
 description: This article provides an introduction to upgrading a Service Fabric application, including choosing upgrade modes and performing health checks.
-
 ms.topic: conceptual
-ms.date: 8/5/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric application upgrade
 An Azure Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-and-service-manifests.md) with the previous version and determines which services in the application require updates. Service Fabric compares the version numbers in the service manifests with the version numbers in the previous version. If a service has not changed, that service is not upgraded.
 

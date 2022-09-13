@@ -349,6 +349,8 @@ items:
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer
       href: power-bi-visual-add-tile-layer.md
+    - name: Add a filled map
+      href: power-bi-visual-filled-map.md
     - name: Show real-time traffic
       href: power-bi-visual-show-real-time-traffic.md
     - name: Manage access

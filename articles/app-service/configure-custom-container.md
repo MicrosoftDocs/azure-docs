@@ -494,13 +494,13 @@ The following lists show supported and unsupported Docker Compose configuration 
 - networks (ignored)
 - secrets (ignored)
 - ports other than 80 and 8080 (ignored)
-
+- default environment variables like `$variable and ${variable}` unlike in docker
 #### Syntax Limitations
 
-- the "version x.x" always needs to be the first yaml statement in the file
-- the ports section must use quoted numbers
-- the image > volume section must be quoted and cannot have a permissions definitions
-- the volumes section must not have an empty curly brace after the volume name
+- "version x.x" always needs to be the first YAML statement in the file
+- ports section must use quoted numbers
+- image > volume section must be quoted and cannot have permissions definitions
+- volumes section must not have an empty curly brace after the volume name
 
 > [!NOTE]
 > Any other options not explicitly called out are ignored in Public Preview.
