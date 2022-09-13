@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - Call Logs Preview
+title: Azure Communication Services - Call Logs 
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Call Summary and Call Diagnostic Logs in Azure Monitor
 author:  timmitchell
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Call Summary and Call Logs Preview
+# Call Summary and Call Diagnostic Logs 
 
 > **[!IMPORTANT]**
 > The following refers to logs enabled through [Azure Monitor](../../../azure-monitor/overview.md) (see also [FAQ](../../../azure-monitor/faq.yml)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](./enable-logging.md)
