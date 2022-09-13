@@ -823,6 +823,8 @@ The response to this request looks like the following example:
 
 IoT Central generates the primary and secondary syymetric keys when you make this api call.
 
+---
+
 ### Get an enrollment group
 
 Use the following request to retrieve details of an enrollment group with `mysymmetric` as the ID:
