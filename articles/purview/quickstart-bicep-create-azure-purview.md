@@ -22,7 +22,7 @@ To deploy a Microsoft Purview account to your subscription using a Bicep file, f
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/data-share-share-storage-account/).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-purview-deployment/).
 
 <!--- Below link needs to be updated to Purview quickstart, which I'm currently working on. --->
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.azurepurview/azure-purview-deployment/main.bicep":::
@@ -33,7 +33,7 @@ The following resources are defined in the Bicep file:
 
 The Bicep file performs the following tasks:
 
-* Creates a Microsoft Purview account in the specified resource group.
+* Creates a Microsoft Purview account in a specified resource group.
 
 ## Deploy the Bicep file
 
@@ -58,7 +58,7 @@ The Bicep file performs the following tasks:
 
 You'll be prompted to enter the following values:
 
-* Purview name: enter a name for the Azure Purview account.
+* **Purview name**: enter a name for the Azure Purview account.
 
 When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -79,7 +79,7 @@ After deployment, the first activities are usually:
 * [Register a resource](azure-purview-connector-overview.md)
 * [Scan the resource](concept-scans-and-ingestion.md)
 
-At this time, these actions aren't able to be taken through an Azure Resource Manager template. Follow the guides above to get started!
+At this time, these actions aren't able to be taken through a Bicep file. Follow the guides above to get started!
 
 ## Clean up resources
 

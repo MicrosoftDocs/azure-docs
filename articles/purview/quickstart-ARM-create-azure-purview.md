@@ -31,7 +31,7 @@ The template will deploy a Microsoft Purview account into a new or existing reso
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/data-share-share-storage-account/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-purview-deployment/).
 
 <!--- Below link needs to be updated to Purview quickstart, which I'm currently working on. --->
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.azurepurview/azure-purview-deployment/azuredeploy.json":::
@@ -42,7 +42,7 @@ The following resources are defined in the template:
 
 The template performs the following tasks:
 
-* Creates a Microsoft Purview account in the specified resource group.
+* Creates a Microsoft Purview account in a specified resource group.
 
 ## Open Microsoft Purview governance portal
 
