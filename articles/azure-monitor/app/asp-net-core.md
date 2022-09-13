@@ -350,6 +350,30 @@ public void ConfigureServices(IServiceCollection services)
 
 By default, telemetry initializers are present. To remove all or specific telemetry initializers, use the following sample code *after* calling `AddApplicationInsightsTelemetry()`.
 
+### [ASP.NET Core 6.0](#tab/netcore6)
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddApplicationInsightsTelemetry();
+
+// Remove a specific built-in telemetry initializer
+var tiToRemove = builder.Services.FirstOrDefault<ServiceDescriptor>
+                    (t => t.ImplementationType == typeof(AspNetCoreEnvironmentTelemetryInitializer));
+if (tiToRemove != null)
+{
+    builder.Services.Remove(tiToRemove);
+}
+
+// Remove all initializers
+// This requires importing namespace by using Microsoft.Extensions.DependencyInjection.Extensions;
+builder.Services.RemoveAll(typeof(ITelemetryInitializer));
+
+var app = builder.Build();
+```
+
+### [ASP.NET Core 3.1](#tab/netcore3)
+
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -369,9 +393,28 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+---
+
 ### Adding telemetry processors
 
 You can add custom telemetry processors to `TelemetryConfiguration` by using the extension method `AddApplicationInsightsTelemetryProcessor` on `IServiceCollection`. You use telemetry processors in [advanced filtering scenarios](./api-filtering-sampling.md#itelemetryprocessor-and-itelemetryinitializer). Use the following example.
+
+### [ASP.NET Core 6.0](#tab/netcore6)
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+// ...
+builder.Services.AddApplicationInsightsTelemetry();
+builder.Services.AddApplicationInsightsTelemetryProcessor<MyFirstCustomTelemetryProcessor>();
+
+// If you have more processors:
+builder.Services.AddApplicationInsightsTelemetryProcessor<MySecondCustomTelemetryProcessor>();
+
+var app = builder.Build();
+```
+
+### [ASP.NET Core 3.1](#tab/netcore3)
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -384,6 +427,8 @@ public void ConfigureServices(IServiceCollection services)
     services.AddApplicationInsightsTelemetryProcessor<MySecondCustomTelemetryProcessor>();
 }
 ```
+
+---
 
 ### Configuring or removing default TelemetryModules
 
@@ -400,6 +445,44 @@ By default, the following automatic-collection modules are enabled. These module
 * `EventCounterCollectionModule`:  Collects [EventCounters](eventcounters.md); this module is a new feature and is available in SDK version 2.8.0 and later
 
 To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example.
+
+### [ASP.NET Core 6.0](#tab/netcore6)
+
+```csharp
+using Microsoft.ApplicationInsights.DependencyCollector;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddApplicationInsightsTelemetry();
+
+// The following configures DependencyTrackingTelemetryModule.
+// Similarly, any other default modules can be configured.
+builder.Services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) =>
+        {
+            module.EnableW3CHeadersInjection = true;
+        });
+
+// The following removes all default counters from EventCounterCollectionModule, and adds a single one.
+builder.Services.ConfigureTelemetryModule<EventCounterCollectionModule>(
+        (module, o) =>
+        {
+            module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
+        }
+    );
+
+// The following removes PerformanceCollectorModule to disable perf-counter collection.
+// Similarly, any other default modules can be removed.
+var performanceCounterService = builder.Services.FirstOrDefault<ServiceDescriptor>(t => t.ImplementationType == typeof(PerformanceCollectorModule));
+if (performanceCounterService != null)
+{
+    builder.Services.Remove(performanceCounterService);
+}
+
+var app = builder.Build();
+```
+
+### [ASP.NET Core 3.1](#tab/netcore3)
 
 ```csharp
 using Microsoft.ApplicationInsights.DependencyCollector;
@@ -434,11 +517,31 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+---
+
 In versions 2.12.2 and later, [`ApplicationInsightsServiceOptions`](#using-applicationinsightsserviceoptions) includes an easy option to disable any of the default modules.
 
 ### Configuring a telemetry channel
 
 The default [telemetry channel](./telemetry-channels.md) is `ServerTelemetryChannel`. The following example shows how to override it.
+
+### [ASP.NET Core 6.0](#tab/netcore6)
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Use the following to replace the default channel with InMemoryChannel.
+// This can also be applied to ServerTelemetryChannel.
+builder.Services.AddSingleton(typeof(ITelemetryChannel), new InMemoryChannel() {MaxTelemetryBufferCapacity = 19898 });
+
+builder.Services.AddApplicationInsightsTelemetry();
+
+var app = builder.Build();
+```
+
+### [ASP.NET Core 3.1](#tab/netcore3)
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -453,12 +556,28 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+---
+
 > [!NOTE]
 > See [Flushing data](api-custom-events-metrics.md#flushing-data) if you want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
 
 ### Disable telemetry dynamically
 
 If you want to disable telemetry conditionally and dynamically, you can resolve the `TelemetryConfiguration` instance with an ASP.NET Core dependency injection container anywhere in your code and set the `DisableTelemetry` flag on it.
+
+### [ASP.NET Core 6.0](#tab/netcore6)
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddApplicationInsightsTelemetry();
+
+var app = builder.Build();
+
+// Not sure how to translate the second part with Configure(IApplicationBuilder app...) to .NET Core 6.0, or if that part will stay the same!
+```
+
+### [ASP.NET Core 3.1](#tab/netcore3)
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -472,6 +591,8 @@ If you want to disable telemetry conditionally and dynamically, you can resolve 
         ...
     }
 ```
+
+---
 
 The preceding code sample prevents the sending of telemetry to Application Insights. It doesn't prevent any automatic collection modules from collecting telemetry. If you want to remove a particular auto collection module, see [Remove the telemetry module](#configuring-or-removing-default-telemetrymodules).
 
@@ -575,21 +696,44 @@ Yes. Feature support for the SDK is the same in all platforms, with the followin
 * The SDK collects [event counters](./eventcounters.md) on Linux because [performance counters](./performance-counters.md) are only supported in Windows. Most metrics are the same.
 * Although `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or macOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
 
-  ```csharp
-  using Microsoft.ApplicationInsights.Channel;
-  using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+### [ASP.NET Core 6.0](#tab/netcore6)
 
-      public void ConfigureServices(IServiceCollection services)
-      {
-          // The following will configure the channel to use the given folder to temporarily
-          // store telemetry items during network or Application Insights server issues.
-          // User should ensure that the given folder already exists
-          // and that the application has read/write permissions.
-          services.AddSingleton(typeof(ITelemetryChannel),
-                                  new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
-          services.AddApplicationInsightsTelemetry();
-      }
-  ```
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// The following will configure the channel to use the given folder to temporarily
+// store telemetry items during network or Application Insights server issues.
+// User should ensure that the given folder already exists
+// and that the application has read/write permissions.
+builder.Services.AddSingleton(typeof(ITelemetryChannel),
+                        new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
+builder.Services.AddApplicationInsightsTelemetry();
+
+var app = builder.Build();
+```
+
+### [ASP.NET Core 3.1](#tab/netcore3)
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // The following will configure the channel to use the given folder to temporarily
+        // store telemetry items during network or Application Insights server issues.
+        // User should ensure that the given folder already exists
+        // and that the application has read/write permissions.
+        services.AddSingleton(typeof(ITelemetryChannel),
+                                new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
+        services.AddApplicationInsightsTelemetry();
+    }
+```
+
+---
 
 This limitation isn't applicable from version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) and later.
 
