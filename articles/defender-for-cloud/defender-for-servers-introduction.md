@@ -27,7 +27,7 @@ Defender for Servers provides two plans you can choose from:
     - **Licensing**: Charges Defender for Endpoint licenses per hour instead of per seat, lowering costs by protecting virtual machines only when they are in use.
 - **Plan 2**
     - **Plan 1**: Includes everything in Defender for Servers Plan 1.
-    - **Additional features**: All other enhanced Defender for Servers security capabilities for Windows and Linux machines running in Azure, AWS, GCP, and on-premises.
+    - **Additional features**: All other enhanced Defender for Servers security features.
 
 ## Plan features
 

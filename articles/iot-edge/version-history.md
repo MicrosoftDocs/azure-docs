@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 Azure IoT Edge is a product built from the open-source IoT Edge project hosted on GitHub. All new releases are made available in the [Azure IoT Edge project](https://github.com/Azure/azure-iotedge). Contributions and bug reports can be made on the [open-source IoT Edge project](https://github.com/Azure/iotedge).
 
-Azure IoT Edge is governed by Microsoft's [Modern Lifecycle Policy](/lifecycle/policies/modern).
+Azure IoT Edge is governed by Microsoft's [Modern Lifecycle Policy](/lifecycle/products/azure-iot-edge).
 
 ## Documented versions
 
@@ -37,9 +37,12 @@ All new releases are made available in the [Azure IoT Edge for Linux on Windows 
 
 This table provides recent version history for IoT Edge package releases, and highlights documentation updates made for each version.
 
+>[!NOTE]
+>Long-term servicing (LTS) releases are serviced for a fixed period. Updates to this release type contain critical security and bug fixes only. All other stable releases are continuously supported and serviced. A stable release may contain features updates along with critical security fixes. Stable releases are supported only until the next release (stable or LTS) is generally available.
+
 | Release notes and assets | Type | Date | Highlights |
 | ------------------------ | ---- | ---- | ---------- |
-| [1.4](https://github.com/Azure/azure-iotedge/releases/tag/1.4.0) | Stable | August 2022 | Automatic image clean-up of unused Docker images <br> Ability to pass a [custom JSON payload to DPS on provisioning](../iot-dps/how-to-send-additional-data.md#iot-edge-support) <br> Ability to require all modules in a deployment be downloaded before restart <br> Use of the TCG TPM2 Software Stack which enables TPM hierarchy authorization values, specifying the TPM index at which to persist the DPS authentication key, and accommodating more [TPM configurations](http://github.com/Azure/iotedge/blob/897aed8c5573e8cad4b602e5a1298bdc64cd28b4/edgelet/contrib/config/linux/template.toml#L262-L288)
+| [1.4](https://github.com/Azure/azure-iotedge/releases/tag/1.4.0) | Long-term support (LTS) | August 2022 | Automatic image clean-up of unused Docker images <br> Ability to pass a [custom JSON payload to DPS on provisioning](../iot-dps/how-to-send-additional-data.md#iot-edge-support) <br> Ability to require all modules in a deployment be downloaded before restart <br> Use of the TCG TPM2 Software Stack which enables TPM hierarchy authorization values, specifying the TPM index at which to persist the DPS authentication key, and accommodating more [TPM configurations](http://github.com/Azure/iotedge/blob/897aed8c5573e8cad4b602e5a1298bdc64cd28b4/edgelet/contrib/config/linux/template.toml#L262-L288)
 | [1.3](https://github.com/Azure/azure-iotedge/releases/tag/1.3.0) | Stable | June 2022 | Support for Red Hat Enterprise Linux 8 on AMD and Intel 64-bit architectures.<br>Edge Hub now enforces that inbound/outbound communication uses minimum TLS version 1.2 by default<br>Updated runtime modules (edgeAgent, edgeHub) based on .NET 6
 | [1.2](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0) | Stable | April 2021 | [IoT Edge devices behind gateways](how-to-connect-downstream-iot-edge-device.md?view=iotedge-2020-11&preserve-view=true)<br>[IoT Edge MQTT broker (preview)](how-to-publish-subscribe.md?view=iotedge-2020-11&preserve-view=true)<br>New IoT Edge packages introduced, with new installation and configuration steps. For more information, see [Update from 1.0 or 1.1 to latest release](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-latest-release).<br>Includes [Microsoft Defender for IoT micro-agent for Edge](../defender-for-iot/device-builders/overview.md).<br> Integration with Device Update. For more information, see [Update IoT Edge](how-to-update-iot-edge.md).
 | [1.1](https://github.com/Azure/azure-iotedge/releases/tag/1.1.0) | Long-term support (LTS) | February 2021 | [Long-term support plan and supported systems updates](support.md) |
@@ -52,8 +55,8 @@ This table provides recent version history for IoT Edge package releases, and hi
 | IoT Edge release | Available in EFLOW branch | Release date | Highlights |
 |------------------|--------------------------|--------------|------------|
 | 1.4 | Continuous release (CR) <br> Long-term support (LTS) | TBA |  |
-| 1.3 | Continuous release (CR) | TBA |  |
-| 1.2 | [Continuous release (CR)](https://github.com/Azure/iotedge-eflow/releases/tag/1.2.7.07022) | January 2022 | **Public Preview** |
+| 1.3 | [Continuous release (CR)](https://github.com/Azure/iotedge-eflow/releases/tag/1.3.1.02092) | September 2022 | [Azure IoT Edge 1.3.0](https://github.com/Azure/azure-iotedge/releases/tag/1.3.0)<br/> [CBL-Mariner 2.0](https://microsoft.github.io/CBL-Mariner/announcing-mariner-2.0/)<br/> [USB passthrough using USB-Over-IP](https://aka.ms/AzEFLOW-USBIP)<br/>[File/Folder sharing between Windows OS and the EFLOW VM](https://aka.ms/AzEFLOW-FolderSharing) |
+| 1.2 | [Continuous release (CR)](https://github.com/Azure/iotedge-eflow/releases/tag/1.2.7.07022) | January 2022 | [Public Preview](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-edge-for-linux-on-windows-eflow-continuous-release/ba-p/3169590) |
 | 1.1 | [Long-term support (LTS)](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2106.0) | June 2021 | [Long-term support plan and supported systems updates](support.md) |
 
 ## Next steps

@@ -150,6 +150,8 @@ items:
               href: reserved-capacity-overview.md
             - name: Rotate certificates
               href: rotate-user-tls-certificate.md
+            - name: Resize persistent volume (PVC)
+              href: resize-persistent-volume-claim.md
             - name: Delete
               href: delete-managed-instance.md
         - name: Upgrade

@@ -60,7 +60,7 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 The following example demonstrates how to create a compute instance:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
@@ -353,9 +353,6 @@ You can set up other applications, such as RStudio, when creating a compute inst
 1.	Select **Add application** under the **Custom application setup (RStudio Workbench, etc.)** section
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
-
-> [!NOTE]
-> Custom applications are currently not supported in private link workspaces.
  
 ### Setup RStudio Workbench
 
@@ -381,13 +378,21 @@ To use RStudio open source, set up a custom application as follows:
 1.	Select **Custom Application** on the **Application** dropdown 
 1.	Configure the **Application name** you would like to use.
 1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
+
+    > [!TIP]
+    > Using ports 8704-8993 is also supported.
+
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
+
+    > [!TIP]
+    > Using ports 8704-8993 is also supported.
+
 1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
 1. Use **Bind mounts** to add access to the files in your default storage account: 
    * Specify **/home/azureuser/cloudfiles** for **Host path**.  
    * Specify **/home/azureuser/cloudfiles** for the **Container path**.
    * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them will be available in other compute instances and applications.
-3. Select **Create** to set up RStudio as a custom application on your compute instance.
+1. Select **Create** to set up RStudio as a custom application on your compute instance.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
  
@@ -423,7 +428,7 @@ You can [create a schedule](#schedule-automatic-start-and-stop-preview) for the 
 > [!TIP]
 > The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance. Please do not stop the compute instance by issuing sudo shutdown from the terminal. The temp disk size on compute instance depends on the VM size chosen and is mounted on /mnt.
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 

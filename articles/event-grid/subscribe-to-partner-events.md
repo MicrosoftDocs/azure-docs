@@ -32,7 +32,7 @@ You must grant your consent to the partner to create partner topics in a resourc
 > For a greater security stance, specify the minimum expiration time that offers the partner enough time to configure your events to flow to Event Grid and to provision your partner topic. 
 
 > [!NOTE]
-> Event Grid will started enforcing authorization checks to create partner topics or partner destinations around June 30th, 2022. 
+> Event Grid started enforcing authorization checks to create partner topics or partner destinations around June 30th, 2022. 
 
 Following example shows the way to create a partner configuration resource that contains the partner authorization. You must identify the partner by providing either its **partner registration ID** or the **partner name**. Both can be obtained from your partner, but only one of them is required. For your convenience, the following examples leave a sample expiration time in the UTC format.
 

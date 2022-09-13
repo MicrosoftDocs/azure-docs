@@ -1,8 +1,8 @@
 ---
 title: Azure Red Hat OpenShift 4 cluster support policy
 description: Understand support policy requirements for Red Hat OpenShift 4
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/05/2021
@@ -61,6 +61,10 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |G*|Standard_G5|32|448|
 |G|Standard_GS5|32|448|
 |Mms|Standard_M128ms|128|3892|
+|NC4asT4v3|Standard_NC4as_T4_v3|4|28|
+|NC8asT4v3|Standard_NC8as_T4_v3|8|56|
+|NC16asT4v3|Standard_NC16as_T4_v3|16|110|
+|NC64asT4v3|Standard_NC64as_T4_v3|64|440|
 
 \*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
 

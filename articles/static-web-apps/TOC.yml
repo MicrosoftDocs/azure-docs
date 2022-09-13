@@ -89,6 +89,8 @@
           href: apex-domain-external.md
       - name: Manage the default domain
         href: custom-domain-default.md
+    - name: Supported languages and runtimes
+      href: languages-runtimes.md
 - name: How-to guides
   items:
     - name: APIs

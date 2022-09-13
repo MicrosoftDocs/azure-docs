@@ -171,7 +171,7 @@ Required parameters:
 To list all custom locations in a resource group, use the following command:
 
 ```azurecli
-az customlocation show -g <resourceGroupName> 
+az customlocation list -g <resourceGroupName> 
 ```
 
 Required parameters:
