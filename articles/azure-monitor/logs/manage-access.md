@@ -28,8 +28,8 @@ The factors that define the data you can access are described in the following t
 |:---|:---|
 | [Access mode](#access-mode) | Method used to access the workspace. Defines the scope of the data available and the access control mode that's applied. |
 | [Access control mode](#access-control-mode) | Setting on the workspace that defines whether permissions are applied at the workspace or resource level. |
-| [Azure role-based access control (RBAC)](#azure-rbac) | Permissions applied to individuals or groups of users for the workspace or resource sending data to the workspace. Defines what data you have access to. |
-| [Table-level Azure RBAC](#table-level-azure-rbac) | Optional permissions that define specific data types in the workspace that you can access. Apply to all users no matter your access mode or access control mode. |
+| [Workspace-level permissions](#azure-rbac) | Permissions applied to individuals or groups of users for the workspace or resource sending data to the workspace. Defines what data you have access to. |
+| [Table-level read access](#table-level-azure-rbac) | Optional permissions that define specific data types in the workspace that you can access. |
 
 ## Access mode
 
