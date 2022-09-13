@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # How to: View applied conditional access policies in the Azure AD sign-in logs
 
-With conditional access policies, you can control, how your users get access to the resources of your Azure tenant. As an tenant admin, you need to be able to determine what impact your conditional access policies on your users’ sign-in have, so that you can take action if necessary. The sign-in logs in Azure AD provide you with the information you need to assess the impact of your policies.
+With conditional access policies, you can control, how your users get access to the resources of your Azure tenant. As an tenant admin, you need to be able to determine what impact your conditional access policies have on sign-ins to your tenant, so that you can take action if necessary. The sign-in logs in Azure AD provide you with the information you need to assess the impact of your policies.
 
   
 This article explains how you can get access to the information about applied conditional access policies. 
@@ -42,10 +42,7 @@ Some scenarios require you to get an understanding for how your conditional acce
 - **Tenant administrators** who need to verify that conditional access policies have the intended impact on the users of a tenant.
 
 
-
-using the Azure Portal, MS Graph, and PowerShell.  
-
-
+You can access the sign-in logs using the Azure Portal, MS Graph, and PowerShell.  
 
 
 
@@ -88,7 +85,7 @@ The following built in roles grant permission to view sign-in logs:
 
 ## Required permissions for client apps 
 
-If you use a client app to pull sign-in logs from Graph, your app needs permissions to receive the appliedConditionalAccessPolicy object from Graph. We recommend assigning Policy.Read.ConditionalAccess because it is the least privileged permission. Any of the following permissions is sufficient for a client app to access applied CA policies in sign-in logs through Graph: 
+If you use a client app to pull sign-in logs from Graph, your app needs permissions to receive the **appliedConditionalAccessPolicy** object from Graph. As a best practice, assign **Policy.Read.ConditionalAccess** because it is the least privileged permission. Any of the following permissions is sufficient for a client app to access applied CA policies in sign-in logs through Graph: 
 
 Policy.Read.ConditionalAccess 
 
