@@ -255,25 +255,22 @@ Array
 
 ### Example
 
-The following example shows how to use the flatten function. *** jgao: update the example and output
+The following example shows how to use the flatten function. 
 
 ```bicep
 param arrayToTest array = [
-  'one'
-  'two'
-  'three'
+  ['one', 'two']
+  ['three']
+  ['four', 'five']
 ]
-
-output arrayOutput string = first(arrayToTest)
-output stringOutput string = first('One Two Three')
+output arrayOutput array = flatten(arrayToTest)
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | array | ['one', 'two', 'three', 'four', 'five'] |
 
 ## indexOf
 
