@@ -160,6 +160,21 @@ Example SRV record names (service name 'sip', protocol 'tcp'):
 * [Create DNS record sets and records by using the Azure portal](./dns-getstarted-portal.md)
 * [SRV record type (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
+## Point to Site clients won't resolve Private DNS Zones unless you set VNET DNS to Private Resolver Inbound IP address
+
+If VNET DNS Servers is configured with Default (Azure-Provided), Point to Site clients wont be able to resolve Private DNS Zones.
+
+![image](https://user-images.githubusercontent.com/101088482/189837694-7343d311-355b-4780-a1ad-407a761e61fc.png)
+
+However, if VNET DNS Server is configured with the Private Resolver Inbound IP address, P2S clients will be able to resolve Private DNS Zones (including those created from Private Endpoints). Please note the Private DNS zones must be associated with the VNET that has the Private Resolver.
+
+![image](https://user-images.githubusercontent.com/101088482/189837558-cb64dad7-8484-45d3-9ed9-156024f17f5f.png)
+
+You can get away with settings up your local DNS to use Private Resolver Inbound IP address, but that does not scale.
+
+The recommended scenario would be to make P2S clients resolve Private DNS zones seamlessly with VNET configured with Default (Azure-Provided) DNS, since we would have the Private Resolver Inbound IP address to route traffic.
+
+
 ## Next steps
 
 * Learn about [Azure DNS zones and records](dns-zones-records.md)
