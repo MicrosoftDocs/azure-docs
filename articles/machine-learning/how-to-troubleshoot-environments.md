@@ -58,18 +58,18 @@ It is not guaranteed that the same set of python dependencies would be materiali
 
 ### Table of Contents
 **[Environment Definition Problems](#environment-definition-problems)**<br>
-    - **[Environment Name Issues](#environment-name-issues)**<br>
-    - **[Docker Issues](#docker-issues)**<br>
-    - **[Docker Build Context Issues](#docker-build-context-issues)**<br>
-    - **[Base Image Issues](#base-image-issues)**<br>
-    - **[Environment Variable Issues](#environment-variable-issues)**<br>
-    - **[Python Issues](#python-issues)**<br>
-    - **[Pip Issues](#pip-issues)**<br>
-    - **[Deprecated Environment Property Issues](#deprecated-environment-property-issues)**<br>
+- **[Environment Name Issues](#environment-name-issues)**<br>
+- **[Docker Issues](#docker-issues)**<br>
+- **[Docker Build Context Issues](#docker-build-context-issues)**<br>
+- **[Base Image Issues](#base-image-issues)**<br>
+- **[Environment Variable Issues](#environment-variable-issues)**<br>
+- **[Python Issues](#python-issues)**<br>
+- **[Pip Issues](#pip-issues)**<br>
+- **[Deprecated Environment Property Issues](#deprecated-environment-property-issues)**<br>
 **[Image Build Problems](#image-build-problems)**<br>
-    - **[Miscellaneous Issues](#miscellaneous-issues)**<br>
-    - **[Docker Pull Issues](#docker-pull-issues)**<br>
-    - **[Conda Issues](#conda-issues)**<br>
+- **[Miscellaneous Issues](#miscellaneous-issues)**<br>
+- **[Docker Pull Issues](#docker-pull-issues)**<br>
+- **[Conda Issues](#conda-issues)**<br>
 
 # *Environment Definition Problems*
 
