@@ -46,7 +46,7 @@ To create a digital twin, you need to provide:
 * Any desired initialization of twin data, including...
     - Properties (optional to initialize): You can set initial values for properties of the digital twin if you want. Properties are treated as optional and can be set later, but note that **they won't show up as part of a twin until they've been set**.
     - Telemetry (recommended to initialize): You can also set initial values for telemetry fields on the twin. Although initializing telemetry isn't required, telemetry fields also won't show up as part of a twin until they've been set. This means that **you'll be unable to edit telemetry values for a twin unless they've been initialized first**.
-    - Components (required to initialize if present on twin): If your twin contains any [components](concepts-models.md#elements-of-a-model), these must be initialized when the twin is created. They can be empty objects, but the components themselves have to exist.
+    - Components (required to initialize if present on twin): If your twin contains any [components](concepts-models.md#model-attributes), these must be initialized when the twin is created. They can be empty objects, but the components themselves have to exist.
     
 The model and any initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data. For more information on structuring this object, continue to the next section.
 
