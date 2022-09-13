@@ -132,10 +132,13 @@ Update-AzFrontDoorWafPolicy `
 
 ::: zone pivot="bicep"
 
+## Example Bicep file
+
 The following example Bicep file shows how to do the following steps:
-- Creates a Front Door WAF policy.
-- Enables the DRS 2.0 rule set.
-- Configures rule 942250, within the SQLI rule group, with an exclusion. This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If the WAF detects a header that would normally be blocked by rule 942230, it ignores the header and moves on.
+
+- Create a Front Door WAF policy.
+- Enable the DRS 2.0 rule set.
+- Configure an exclusion for rule 942250, which exists within the SQLI rule group. This exclusion applies to any request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion. If the WAF detects a header that would normally be blocked by rule 942230, it ignores the header and moves on.
 
 ```bicep
 param wafPolicyName string = 'WafPolicy'
