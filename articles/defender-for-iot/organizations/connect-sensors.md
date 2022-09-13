@@ -51,7 +51,7 @@ Before you start, make sure that you have:
 
 - A proxy server resource, with firewall permissions to access Microsoft cloud services. The procedure described in this article uses a Squid server hosted in Azure.
 
-- Outbound HTTPS traffic on port 443 enabled to the required endpoint domains for Defender for IoT. Download the list of required endpoint domains from the **Sites and sensors** page: Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**.
+- Outbound HTTPS traffic on port 443 enabled to the required endpoints for Defender for IoT. Download the list of required endpoints from the **Sites and sensors** page: Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**.
 
 > [!IMPORTANT]
 > Microsoft Defender for IoT does not offer support for Squid or any other proxy services. It is the customer's responsibility to set up and maintain the proxy service.
@@ -337,8 +337,8 @@ This procedure describes how to install and configure a connection between your 
 
 1. Connect your proxy to Defender for IoT:
 
-    1. Download the list of required endpoint domains from the **Sites and sensors** page: Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**.
-    1. Enable outbound HTTP traffic on port 443 from the sensor to each of the required domains for Defender for IoT.
+    1. Download the list of required endpoints from the **Sites and sensors** page: Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**.
+    1. Enable outbound HTTP traffic on port 443 from the sensor to each of the required endpoints for Defender for IoT.
 
 
 > [!IMPORTANT]
@@ -351,9 +351,9 @@ This procedure describes how to install and configure a connection between your 
 
 This section describes what you need to configure a direct sensor connection to Defender for IoT in Azure. For more information, see [Direct connections](architecture-connections.md#direct-connections).
 
-1. Download the list of required domains from the **Sites and sensors** page on the Azure portal. Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**.
+1. Download the list of required endpoints from the **Sites and sensors** page on the Azure portal. Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**.
 
-1. Ensure that your sensor can access the cloud using HTTP on port 443 to each of the listed domains in the downloaded list.
+1. Ensure that your sensor can access the cloud using HTTP on port 443 to each of the listed endpoints in the downloaded list.
 
 1. Azure public IP addresses are updated weekly. If you must define firewall rules based on IP addresses, make sure to download the new JSON file each week and make the required changes on your site to correctly identify services running in Azure. You'll need the updated IP ranges for **AzureIoTHub**, **Storage**, and **EventHub**. See the [latest IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
@@ -425,9 +425,9 @@ If you're an existing customer with a production deployment and sensors connecte
 
     - Check the active resources in your account and make sure there are no other services connected to your IoT Hub.
 
-    - If you're running a hybrid environment with multiple sensor versions, make sure any sensors with software version 22.1.x can connect to Azure. Use firewall rules that allow outbound HTTPS traffic on port 443 to each of the required domains.
+    - If you're running a hybrid environment with multiple sensor versions, make sure any sensors with software version 22.1.x can connect to Azure. Use firewall rules that allow outbound HTTPS traffic on port 443 to each of the required endpoints.
 
-        Find the list of required domains for Defender for IoT from the **Sites and sensors** page on the Azure portal. Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**.
+        Find the list of required endpoints for Defender for IoT from the **Sites and sensors** page on the Azure portal. Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**.
 
 While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versioning-and-support-for-on-premises-software-versions), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
 

@@ -78,11 +78,11 @@ For supported sensor versions, download the full list of required secure endpoin
 
     For example:
 
-    :::image type="content" source="media/release-notes/download-domains.png" alt-text="Screenshot of a successful OT sensor registration page with the download endpoints link.":::
+    :::image type="content" source="media/release-notes/download-endpoints.png" alt-text="Screenshot of a successful OT sensor registration page with the download endpoints link.":::
 
 - **The Sites and sensors page**: Select an OT sensor with software versions 22.x or higher, or a site with one or more supported sensor versions. Then, select **More actions** > **Download endpoint details** to download the JSON file. For example:
 
-    :::image type="content" source="media/release-notes/download-domains-sites-sensors.png" alt-text="Screenshot of the Sites and sensors page with the download endpoint details link.":::
+    :::image type="content" source="media/release-notes/download-endpoints-sites-sensors.png" alt-text="Screenshot of the Sites and sensors page with the download endpoint details link.":::
 
 For more information, see:
 
