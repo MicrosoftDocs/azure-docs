@@ -32,6 +32,7 @@ To check whether an Azure Cosmos DB account is eligible for the preview, you can
 :::image type="content" source="media/merge/merge-eligibility-check.png" alt-text="Merge eligibility check with table of all preview eligibility criteria":::
 
 ### How to identify containers to merge
+
 Containers that meet both of these conditions are likely to benefit from merging partitions:
 - Condition 1: The current RU/s per physical partition is <3000 RU/s
 - Condition 2: The current average storage in GB per physical partition is <20 GB
@@ -40,6 +41,7 @@ Condition 1 often occurs when you have previously scaled up the RU/s (often for 
 Condition 2 often occurs when you delete/TTL a large volume of data, leaving unused partitions.
 
 #### Criteria 1
+
 To determine the current RU/s per physical partition, from your Cosmos account, navigate to **Metrics**. Select the metric **Physical Partition Throughput** and filter to your database and container. Apply splitting by **PhysicalPartitionId**. 
 
 For containers using autoscale, this will show the max RU/s currently provisioned on each physical partition. For containers using manual throughput, this will show the manual RU/s on each physical partition.
@@ -49,6 +51,7 @@ In the below example, we have an autoscale container provisioned with 5000 RU/s 
 :::image type="content" source="media/merge/RU-per-physical-partition-metric.png" alt-text="Azure Monitor metric Physical Partition Throughput":::
 
 #### Criteria 2
+
 To determine the current average storage per physical partition, first find the overall storage (data + index) of the container.
 
 Navigate to **Insights** > **Storage** > **Data & Index Usage**. The total storage is the sum of the data and index usage. In the below example, the container has a total of 74 GB of storage.
