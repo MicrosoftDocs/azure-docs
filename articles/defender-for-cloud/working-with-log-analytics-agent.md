@@ -23,7 +23,7 @@ To configure integration with the Log Analytics agent:
 
 1. From the configuration options pane, define the workspace to use.
 
-    :::image type="content" source="./media/enable-data-collection/log-analytics-agent-deploy-options.png" alt-text="Configuration options for auto provisioning Log Analytics agents to VMs." lightbox="./media/enable-data-collection/log-analytics-agent-deploy-options.png":::
+    :::image type="content" source="./media/enable-data-collection/log-analytics-agent-deploy-options.png" alt-text="Configuration options for Log Analytics agents for VMs." lightbox="./media/enable-data-collection/log-analytics-agent-deploy-options.png":::
 
     - **Connect Azure VMs to the default workspaces created by Defender for Cloud** - Defender for Cloud creates a new resource group and default workspace in the same geolocation, and connects the agent to that workspace. If a subscription contains VMs from multiple geolocations, Defender for Cloud creates multiple workspaces to ensure compliance with data privacy requirements.
 
@@ -164,5 +164,5 @@ To turn off monitoring extensions of an agent:
 - For Defender plans that have monitoring settings, go to the settings of the Defender plan, turn off the extension, and select **Save**.
 
 > [!NOTE]
-> Disabling auto provisioning does not remove the extensions from the effected workloads. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Defender for Cloud](./faq-data-collection-agents.yml#how-do-i-remove-oms-extensions-installed-by-defender-for-cloud-).
->
+> - Disabling extensions does not remove the extensions from the effected workloads.
+> - For information on removing the OMS extension, see [How do I remove OMS extensions installed by Defender for Cloud](./faq-data-collection-agents.yml#how-do-i-remove-oms-extensions-installed-by-defender-for-cloud-).

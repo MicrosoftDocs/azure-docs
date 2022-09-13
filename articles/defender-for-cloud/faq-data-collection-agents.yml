@@ -112,7 +112,7 @@ sections:
           
           1. From Defender for Cloud's menu, open **Environment settings**.
           1. Select the relevant subscription.
-          1. Open the **Auto provisioning** page.
+          1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
           1. For the Log Analytics agent, select **Edit configuration**. 
           
               :::image type="content" source="./media/enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="The configuration of the Log Analytics agent to use when using auto deploy" lightbox="./media/enable-data-collection/edit-configuration-auto-deploy-agent.png":::
@@ -175,13 +175,14 @@ sections:
       - question: |
           How do I stop the automatic agent installation and workspace creation?
         answer: |
-          You can turn off auto provisioning for your subscriptions in the security policy but this is not recommended. Turning off auto provisioning limits Defender for Cloud recommendations and alerts. To disable automatic provisioning for a specific agent or extension:
+          You can turn off extensions for your subscriptions in the security policy but this is not recommended. Turning off extensions limits Defender for Cloud recommendations and alerts. To disable automatic provisioning for a specific agent or extension:
           
           1. From Defender for Cloud's menu, open **Environment settings**.
           1. Select the relevant subscription.
-          1. From the **Auto provisioning** page, toggle the status of the agent or extension you want to stop being automatically provisioned.
+          1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
+          1. Turn off the extension you want to stop being automatically provisioned.
           
-              :::image type="content" source="./media/enable-data-collection/agent-toggles.png" alt-text="Enable auto deploy for the Log Analytics agent":::
+              :::image type="content" source="./media/enable-data-collection/agent-toggles.png" alt-text="Enable auto provisioning for the Log Analytics agent":::
           
           1. Select **Save**.
           
@@ -244,21 +245,23 @@ sections:
       - question: |
           How do I disable data collection?
         answer: |
-          Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection. By default, auto provisioning is disabled.
+          Deploying extensions with Defender for Cloud is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection.
           
-          If you've enabled it but now want to disable it:
+          If you've enabled an extension but now want to disable it:
           
           1. From [the Azure portal](https://portal.azure.com), open **Defender for Cloud** and select **Environment settings**.
           
-          1. Select the subscription on which you want to disable automatic provisioning.
+          1. Select the subscription on which you want to disable the extension.
+
+          1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
           
-          1. Open **Auto provisioning**, and set the status of the provisioning of the Log Analytics agent to **Off**.
+          1. Turn off the Log Analytics agent.
           
           
       - question: |
           How do I enable data collection?
         answer: |
-          You can enable data collection for your Azure subscription in the Security policy. To enable data collection. [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Defender for Cloud**, and select **Security policy**. Select the subscription that you wish to enable automatic provisioning. When you select a subscription **Security policy - Data collection** opens. Under **Auto provisioning**, select **On**.
+          You can enable data collection for your Azure subscription in the Security policy. To enable data collection. [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Defender for Cloud**, and select **Security policy**. Select the subscription that you wish to enable auto provisioning. When you select a subscription **Security policy - Data collection** opens.
           
           
       - question: |
