@@ -122,22 +122,6 @@ From the project directory:
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-## Connect to Azure 
-
-Use _one_ of the following methods to securely connect to Azure:
-
-* Without secrets
-    * Use [**@azure/identity**](https://www.npmjs.com/package/@azure/identity) to connect to Azure
-* With secrets
-    * Use resource name and key
-    * Use connection string
-
-### Use @azure/identity for secressless connection
-
-To securely connect without using secrets in your source code, use the @azure/identity library. This library provides several identity credentials including those or the development and production environments. Once the credential is set up in your environment, your code is simplified so that the code works regardless of the environment:
-
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/default-azure-credential.js":::
-
 ### Get the connection string
 
 The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
