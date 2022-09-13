@@ -66,7 +66,7 @@ Before you attempt to configure the CMK, be sure to address the following requir
 - The key activation date (if set) must be a date and time in the past. The expiration date not set. 
 - The key must be in the **Enabled** state. 
 - The key must have [soft delete](../../key-vault/general/soft-delete-overview.md) with retention period set to 90 days. This implicitly sets the required key attribute recoveryLevel: “Recoverable”.  
-- The key must have [purge protection enabled](../../key-vault/general/soft-delete-overview#purge-protection.md). 
+- The key must have [purge protection enabled](../../key-vault/general/soft-delete-overview.md#purge-protection). 
 - If you're [importing an existing key](/rest/api/keyvault/keys/import-key/import-key.md) into the key vault, make sure to provide it in the supported file formats (.pfx, .byok, .backup) 
 
 > [!Note]
