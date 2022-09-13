@@ -66,13 +66,15 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 |---------|---------|
 |**OT networks**     |**Sensor software versions 22.x**: [Updates for cloud connection outbound allow rules](#updates-for-cloud-connection-outbound-allow-rules) |
 
-### Updates for cloud connection outbound allow rules
+### Increased security for outbound allow rules for Azure connections
 
-For OT sensors with software versions 22.x and higher, Defender for IoT now supports secure sensor connections to Azure without relying on wildcards in the domain definitions. To communicate with Azure, your OT sensor must have outbound HTTP traffic enabled to each of the required domains on port 443.
+For OT sensors with software versions 22.x and higher, Defender for IoT now supports increased security when adding outbound allow rules for connections to Azure. Now you can define your outbound allow rules to connect to Azure without using wildcards.
 
-For supported sensor versions, the full list of required secure domain connections is also now available from the Azure portal. Download a JSON list of domains from the following locations:
+When defining outbound allow rules to connect to Azure, you'll need to enable HTTP traffic to each of the required endpoints on port 443. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.
 
-- **A successful sensor registration page**: After onboarding a new OT sensor, version 22.x, the successful registration page now provides instructions for next steps, including a link to the endpoint domains you'll need to add as secure, outbound allow rules on your network. Select the **Download endpoint details** link to download the JSON file.
+For supported sensor versions, download the full list of required secure endpoints from the following locations in the Azure portal:
+
+- **A successful sensor registration page**: After onboarding a new OT sensor, version 22.x, the successful registration page now provides instructions for next steps, including a link to the endpoints you'll need to add as secure outbound allow rules on your network. Select the **Download endpoint details** link to download the JSON file.
 
     For example:
 
