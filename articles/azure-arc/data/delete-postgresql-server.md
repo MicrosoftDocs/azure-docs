@@ -1,56 +1,56 @@
 ---
-title: Delete an Azure Arc-enabled PostgreSQL Hyperscale server group
+title: Delete an Azure Arc-enabled PostgreSQL server
 description: Delete an Azure Arc-enabled Postgres Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
-author: grrlgeek
-ms.author: jeschult
+author: dhanmm
+ms.author: dhmahaja
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Delete an Azure Arc-enabled PostgreSQL Hyperscale server group
+# Delete an Azure Arc-enabled PostgreSQL server
 
-This document describes the steps to delete a server group from your Azure Arc setup.
+This document describes the steps to delete a server from your Azure Arc setup.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Delete the server group
+## Delete the server
 
 As an example, let's consider we want to delete the _postgres01_ instance from the below setup:
 
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    3
+az postgres server-arc list --k8s-namespace <namespace> --use-k8s
+Name        State  
+----------  -------
+postgres01  Ready  
 ```
 
 The general format of the delete command is:
 ```azurecli
-az postgres arc-server delete -n <server group name> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc delete -n <server name> --k8s-namespace <namespace> --use-k8s
 ```
-When you execute this command, you will be requested to confirm the deletion of the server group. If you are using scripts to automate deletions you will need to use the --force parameter to bypass the confirmation request. For example, you would run a command like: 
+When you execute this command, you will be requested to confirm the deletion of the server. If you are using scripts to automate deletions you will need to use the --force parameter to bypass the confirmation request. For example, you would run a command like: 
 ```azurecli
-az postgres arc-server delete -n <server group name> --force --k8s-namespace <namespace> --use-k8s
+az postgres server-arc delete -n <server name> --force --k8s-namespace <namespace> --use-k8s
 ```
 
 For more details about the delete command, run:
 ```azurecli
-az postgres arc-server delete --help 
+az postgres server-arc delete --help 
 ```
 
-### Delete the server group used in this example
+### Delete the server used in this example
 
 ```azurecli
-az postgres arc-server delete -n postgres01 --k8s-namespace <namespace> --use-k8s
+az postgres server-arc delete -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Reclaim the Kubernetes Persistent Volume Claims (PVCs)
 
-A PersistentVolumeClaim (PVC) is a request for storage by a user from Kubernetes cluster while creating and adding storage to a PostgreSQL Hyperscale server group. Deleting a server group does not remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). This is by design. The intention is to help the user to access the database files in case the deletion of instance was accidental. Deleting PVCs is not mandatory. However it is recommended. If you don't reclaim these PVCs, you'll eventually end up with errors as your Kubernetes cluster will think it's running out of disk space or usage of the same PostgreSQL Hyperscale server group name while creating new one might cause inconsistencies. 
+A PersistentVolumeClaim (PVC) is a request for storage by a user from Kubernetes cluster while creating and adding storage to a PostgreSQL server. Deleting a server group does not remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). This is by design. The intention is to help the user to access the database files in case the deletion of instance was accidental. Deleting PVCs is not mandatory. However it is recommended. If you don't reclaim these PVCs, you'll eventually end up with errors as your Kubernetes cluster will think it's running out of disk space or usage of the same PostgreSQL server name while creating new one might cause inconsistencies. 
 To reclaim the PVCs, take the following steps:
 
 ### 1. List the PVCs for the server group you deleted
@@ -79,7 +79,7 @@ There are 8 PVCs for this server group.
 
 ### 2. Delete each of the PVCs
 
-Delete the data and log PVCs for each of the PostgreSQL Hyperscale nodes (Coordinator and Workers) of the server group you deleted.
+Delete the data and log PVCs for the PostgreSQL server you deleted.
 
 The general format of this command is: 
 
@@ -119,4 +119,4 @@ persistentvolumeclaim "data-postgres01-0" deleted
 > ```
     
 ## Next step
-Create [Azure Arc-enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)
+Create [Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)

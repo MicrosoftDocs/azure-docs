@@ -4,14 +4,14 @@ description: Use Azure Data Studio to manage your PostgreSQL instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
-author: grrlgeek
-ms.author: jeschult
+author: dhanmm
+ms.author: dhmahaja
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Use Azure Data Studio to manage your Azure Arc-enabled PostgreSQL Hyperscale server group
+# Use Azure Data Studio to manage your Azure Arc-enabled PostgreSQL server
 
 
 This article describes how to:
@@ -53,7 +53,7 @@ Enter the connection information to your Azure Data Controller:
 
 Azure data studio shows your Arc Data Controller. Expand it and it shows the list of PostgreSQL instances that it manages.
 
-## Manage your Azure Arc-enabled PostgreSQL Hyperscale server groups
+## Manage your Azure Arc-enabled PostgreSQL servers
 
 Right-click on the PostgreSQL instance you want to manage and select [Manage]
 
@@ -66,9 +66,9 @@ That features several dashboards listed on the left side of that pane:
 - **Connection Strings:** 
     Displays various connection strings you may need to connect to your PostgreSQL instance like psql, Node.js, PHP, Ruby...
 - **Diagnose and solve problems:** 
-    Is the landing page where you will find various resources that will help you troubleshoot your instance as we expand the troubleshooting notebooks
+    Displays various resources that will help you troubleshoot your instance as we expand the troubleshooting notebooks
 - **New support request:** 
-    Is the landing page from which you will be able to request assistance from our support services starting Public Preview announcement.
+    Request assistance from our support services starting preview announcement.
 
 ## Work with your data and schema
 
@@ -79,13 +79,13 @@ And select [Add Connection] and fill in the connection details to your PostgreSQ
 - **Server name:** enter the name of your PostgreSQL instance. For example: postgres01
 - **Authentication type:** Password
 - **User name:** for example, you can use the standard/default PostgreSQL admin user name. Note, this field is case-sensitive.
-- **Password:** you'll find the password of the PostgreSQL username in the psql connection string in the output of the `az postgres arc-server endpoint -n postgres01` command
+- **Password:** you'll find the password of the PostgreSQL username in the psql connection string in the output of the `az postgres server-arc endpoint -n postgres01` command
 - **Database name:** set the name of the database you want to connect to. You can let it set to __Default__
 - **Server group:** you can let it set to __Default__
 - **Name (optional):** you can let this blank
 - **Advanced:**
     - **Host IP Address:** is the Public IP address of the Kubernetes cluster
-    - **Port:** is the port on which your PostgreSQL instance is listening. You can find this port at the end of the psql connection string in the output of the `az postgres arc-server endpoint -n postgres01` command. Not port 30080 on which Kubernetes is listening and that you entered when connecting to the Azure Data Controller in Azure Data Studio.
+    - **Port:** is the port on which your PostgreSQL instance is listening. You can find this port at the end of the psql connection string in the output of the `az postgres server-arc endpoint -n postgres01` command. Not port 30080 on which Kubernetes is listening and that you entered when connecting to the Azure Data Controller in Azure Data Studio.
     - **Other parameters:** They should be self-explicit, you can live with the default/blank values they appear with.
 
 Select **[OK] and [Connect]** to connect to your server.

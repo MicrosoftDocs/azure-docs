@@ -1,34 +1,34 @@
 ---
-title: Troubleshoot PostgreSQL Hyperscale server groups
-description: Troubleshoot PostgreSQL Hyperscale server groups with a Jupyter Notebook
+title: Troubleshoot PostgreSQL servers
+description: Troubleshoot PostgreSQL servers with a Jupyter Notebook
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
-author: grrlgeek
-ms.author: jeschult
+author: dhanmm
+ms.author: dhmahaja
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Troubleshooting PostgreSQL Hyperscale server groups
+# Troubleshooting PostgreSQL servers
 This article describes some techniques you may use to troubleshoot your server group. In addition to this article you may want to read how to use [Kibana](monitor-grafana-kibana.md) to search the logs or use [Grafana](monitor-grafana-kibana.md) to visualize metrics about your server group. 
 
 ## Getting more details about the execution of a CLI command
 You may add the parameter **--debug** to any CLI command you execute. Doing so will display to your console additional information about the execution of that command. You should find it useful to get details to help you understand the behavior of that command.
 For example you could run
 ```azurecli
-az postgres arc-server create -n postgres01 -w 2 --debug --k8s-namespace <namespace> --use-k8s
+az postgres server-arc create -n postgres01 -w 2 --debug --k8s-namespace <namespace> --use-k8s
 ```
 
 or
 ```azurecli
-az postgres arc-server edit -n postgres01 --extension --k8s-namespace <namespace> --use-k8s SomeExtensionName --debug
+az postgres server-arc update -n postgres01 --extension --k8s-namespace <namespace> --use-k8s SomeExtensionName --debug
 ```
 
 In addition, you may use the parameter --help on any CLI command to display some help, list of parameters for a specific command. For example:
 ```azurecli
-az postgres arc-server create --help
+az postgres server-arc create --help
 ```
 
 
@@ -41,7 +41,7 @@ Read the article about [getting logs for Azure Arc-enabled data services](troubl
 
 Notebooks can document procedures by including markdown content to describe what to do/how to do it. It can also provide executable code to automate a procedure.  This pattern is useful for everything from standard operating procedures to troubleshooting guides.
 
-For example, let's troubleshoot a PostgreSQL Hyperscale server group that might have some problems using Azure Data Studio.
+For example, let's troubleshoot a PostgreSQL server that might have some problems using Azure Data Studio.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -72,7 +72,7 @@ kubectl config use-context default/my_kubeuser/ArcDataControllerAdmin
 
 Launch Azure Data Studio and open the troubleshooting notebook. 
 
-Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](manage-postgresql-hyperscale-server-group-with-azure-data-studio.md) to:
+Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](manage-postgresql-server-with-azure-data-studio.md) to:
 
 1. Connect to your Arc Data Controller
 2. Right select your Postgres instance and choose **[Manage]**
@@ -81,7 +81,7 @@ Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio - Open PostgreSQL troubleshooting Notebook":::
 
-The **TSG100 - The Azure Arc-enabled PostgreSQL Hyperscale troubleshooter notebook** opens up:
+The **TSG100 - The Azure Arc-enabled PostgreSQL server troubleshooter notebook** opens up:
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio - Use PostgreSQL troubleshooting notebook":::
 
 #### Run the scripts
