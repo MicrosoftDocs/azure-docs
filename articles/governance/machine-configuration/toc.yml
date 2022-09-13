@@ -5,10 +5,10 @@
   items:
   - name: What is Azure Automanage Machine Configuration?
     href: ./overview.md
+  - name: What's new with the guest configuration agent?
+    href: ./agent-notes.md
 - name: Concepts
   items:
-  - name: Guest configuration agent notes
-    href: ./agent-notes.md
   - name: Understand machine configuration assignments
     href: ./machine-configuration-assignments.md
   - name: Azure Automation DSC to machine configuration migration planning
