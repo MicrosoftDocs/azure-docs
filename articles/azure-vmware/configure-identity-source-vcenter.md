@@ -95,7 +95,7 @@ Now proceed to export the certificate
 A DNS Zone needs to be created and added to the DNS Service, follow the instructions in [Configure a DNS forwarder in the Azure portal](./configure-dns-azure-vmware-solution.md) to complete these two steps. 
 
 After completion, verify that your DNS Service has your DNS zone included.
- :::image type="content" source="media/run-command/ldaps-dns-zone-service-configured.png" alt-text="Screenshot showing the DNS Service that includes the required DNS zone." lightbox="ldaps-dns-zone-service-configured.png":::
+ :::image type="content" source="media/run-command/ldaps-dns-zone-service-configured.png" alt-text="Screenshot showing the DNS Service that includes the required DNS zone." lightbox="media/run-command/ldaps-dns-zone-service-configured.png":::
 
 Your Azure VMware Solution Private cloud should now be able to resolve your on-premises Active Directory domain name properly.
 
