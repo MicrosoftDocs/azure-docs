@@ -70,7 +70,8 @@ It is not guaranteed that the same set of python dependencies would be materiali
 **[Image Build Problems](#image-build-problems)**<br>
 - **[Miscellaneous Issues](#miscellaneous-issues)**<br>
 - **[Docker Pull Issues](#docker-pull-issues)**<br>
-- **[Conda Issues](#conda-issues)**<br>
+- **[Conda Issues During Build](#conda-issues-during-build)**<br>
+- **[Pip Issues During Build](#pip-issues-during-build)** <br>
 
 # *Environment Definition Problems*
 
@@ -369,7 +370,7 @@ experience using Azure Machine Learning CLI 2.0
     - You have not provided credentials for a private registry you are trying to pull the image from, or the provided credentials are incorrect 
         - Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
 
-## Conda Issues
+## Conda Issues During Build
 #### **"Bad spec"**
 - Failed to create or update the conda environment due to an invalid package specification
     - See [package match specifications](https://aka.ms/azureml/environment/conda-package-match-specifications)
@@ -441,7 +442,7 @@ from the provided conda specification
 - Failed to create or update the conda environment because a package was specified on the command line using ">" or "<"
 without using quotes. Consider adding quotes around the package specification
 
-## Pip Issues
+## Pip Issues During Build
 #### **"Failed to install packages"**
 - Failed to install Python packages
 - Review the image build log for more information on this error
