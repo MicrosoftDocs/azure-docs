@@ -50,4 +50,4 @@ When using the [Azure Video Indexer](https://www.videoindexer.ai/) website with 
 
 ## Next steps
 
-[overview](video-indexer-overview.md)
+[Overview](video-indexer-overview.md)
