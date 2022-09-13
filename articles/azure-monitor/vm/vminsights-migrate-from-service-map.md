@@ -11,7 +11,7 @@ ms.reviewer: xpathak
 
 # Migrate from Service map to Azure Monitor VM insights
 
-[Azure Monitor VM insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview) monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. This article explains how to migrate from [Service map](../vm/service-map.md), which will be retired on 30 September 2025, to VM insights. 
+[Azure Monitor VM insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview) monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. This article explains how to migrate from [Service map](../vm/service-map.md), which will be retired on 30 September 2025, to Azure Monitor VM insights. 
 
 The map feature of VM insights visualizes virtual machine dependencies by discovering running processes that have active network connection between servers, inbound and outbound connection latency or ports across any TCP-connected architecture over a specified time range. For more information about the benefits of the VM insights map feature over Service map, see [How is VM insights Map feature different from Service Map?](https://docs.microsoft.comazure/azure-monitor/faq#how-is-vm-insights-map-feature-different-from-service-map-). 
 
