@@ -79,7 +79,7 @@ As you configure Key Vault to use data encryption by using a customer-managed ke
 - Set a resource lock on Key Vault to control who can delete this critical resource and prevent accidental or unauthorized deletion. 
 - Enable auditing and reporting on all encryption keys. Key Vault provides logs that are easy to inject into other security information and event management tools. Azure Monitor Log Analytics is one example of a service that's already integrated. 
 - Keep a copy of the customer-managed key in a secure place or escrow it to the escrow service.  
-- If Key Vault generates the key, create a key backup before using the key for the first time. You can only restore the backup to Key Vault. For more information about the backup command, see [Backup-AzKeyVaultKey](/powershell/module/az.keyVault/backup-azkeyVaultkey.md). 
+- If Key Vault generates the key, create a key backup before using the key for the first time. You can only restore the backup to Key Vault. For more information about the backup command, see [Backup-AzKeyVaultKey](/powershell/module/az.keyVault/backup-azkeyVaultkey?view=azps-8.3.0).
 
 ## Inaccessible customer-managed key condition
 
@@ -87,7 +87,7 @@ When you configure data encryption with a CMK in Key Vault, continuous access to
 
 - If you delete the KeyVault, the Azure Database for MySQL Flexible server will be unable to access the key and will move to _Inaccessible_ state. Recover the [Key Vault](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the Flexible server _Available_. 
 - If we delete the key from the KeyVault, the Azure Database for MySQL Flexible server will be unable to access the key and will move to _Inaccessible_ state. Recover the [Key](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the Flexible server _Available_. 
-- If the key stored in the Azure KeyVault expires, the key will become invalid, and the Azure Database for MySQL Flexible server will transition into _Inaccessible_ state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes.md) and then revalidate the data encryption to make the Flexible server _Available_. 
+- If the key stored in the Azure KeyVault expires, the key will become invalid, and the Azure Database for MySQL Flexible server will transition into _Inaccessible_ state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-set-attributes) and then revalidate the data encryption to make the Flexible server _Available_.
 
 ## Accidental key access revocation from Key Vault
 
