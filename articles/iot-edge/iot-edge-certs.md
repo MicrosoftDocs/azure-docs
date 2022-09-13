@@ -4,7 +4,7 @@ description: Azure IoT Edge uses certificate to validate devices, modules, and l
 author: jlian
 
 ms.author: jlian
-ms.date: 09/08/2022
+ms.date: 09/12/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -28,31 +28,31 @@ IoT Edge uses different types of certificates for different purposes. This artic
 
 ## Certificate scenario
 
-To help understand IoT Edge certificate concepts, imagine a simple scenario where an IoT Edge device named *EdgeGateway* connects to an Azure IoT Hub named *ContosoIotHub*. In this example, all authentication is done with X.509 certificate authentication rather than symmetric keys. To establish trust in this scenario, we need to guarantee the hub and message are authentic. Can we answer questions like "Is this message genuine?" and "Can I verify the service connection is genuine?". The scenario can be illustrated as follows:
+To help understand IoT Edge certificate concepts, imagine a simple scenario where an IoT Edge device named *EdgeGateway* connects to an Azure IoT Hub named *ContosoIotHub*. In this example, all authentication is done with X.509 certificate authentication rather than symmetric keys. To establish trust in this scenario, we need to guarantee the hub and message are authentic. Can we answer questions like *"Is this message genuine?"* and *"Is the identity of the IoT Hub correct?"*. The scenario can be illustrated as follows:
 
-:::image type="content" source="./media/iot-edge-certs/trust-scenario.svg" alt-text="Trust scenario state diagram showing communication between IoT Edge device and IoT Hub.":::
+:::image type="content" source="./media/iot-edge-certs/trust-scenario.svg" alt-text="Trust scenario state diagram showing connection between IoT Edge device and IoT Hub.":::
 
-<!--
-```mermaid
+<!-- ```mermaid
 stateDiagram-v2
     EdgeGateway - -> ContosoIotHub
-    note right of EdgeGateway: 1. Are you ContosoIotHub?
-    note left of ContosoIotHub: 2. Is this message from EdgeGateway?
-```
--->
+    note right of EdgeGateway: Verify hub identity - "Are you ContosoIotHub?"
+    note left of ContosoIotHub: Verify genuine message - "Is this message from EdgeGateway?"
+``` -->
 
-We go through each one of these. And once we're good , we'll also expand the example later.
+We'll explain the answers to each question and then expand the example in later sections of the article.
 
-### Are you ContosoIotHub?
+## Verify IoT Hub identity
 
-This first question is about when EdgeGateway wants to talk to the cloud. From the connection string it knows it should reach out to `ContosoIoTHub.azure-devices.net` but to be safe IoT Edge wants that endpoint to show some sort of ID, ideally issued by someone it trusts.
+How does *EdgeGateway* verify it's communicating with the genuine *ContosoIotHub*? When *EdgeGateway* wants to talk to the cloud, it uses the connection string to connect to the endpoint *ContosoIoTHub.azure-devices.net*. but to be safe IoT Edge wants that endpoint to show some sort of ID, ideally issued by someone it trusts.
 
 To achieve this, IoT Edge and IoT Hub perform the **TLS handshake** to verify an IoT hub's server identity. This is a simplified diagram and skips some parts. To learn more you should see this cool link.
 
 > [!NOTE]
 > When we say ContosoIoTHub, it generally means `ContosoIotHub.azure-devices.net` (the hostname of the IoT hub). Skipped for brevity in the diagram and subsequent references.
 
-```mermaid
+:::image type="content" source="./media/iot-edge-certs/verify-hub-identity.svg" alt-text="Sequence diagram showing certificate exchange between IoT Edge device and IoT Hub.":::
+
+<!-- ```mermaid
 sequenceDiagram
     participant EdgeGateway
     participant ContosoIotHub
@@ -62,21 +62,24 @@ sequenceDiagram
     EdgeGateway->>EdgeGateway: Check trusted root certificate store
     note over EdgeGateway, ContosoIotHub: *Cryptographic magic happens*
     EdgeGateway->>ContosoIotHub: Looks good 🙂, let's connect
-```
+``` -->
 
 First thing first, it's not important to know exactly what *cryptographic magic* means in this context. It's important to know that it's some fancy math, done by both sides, that ensures both the client and the server indeed are in possession of the private key that is paired with the public key. It then means that the presenter of the certificate didn't just steal it. It's a bit like only you can produce the face that looks like the photo on the ID. So if someone steals your ID the bar won't let them in because they don't have your face, which is unstealable. So it's like that, except that the private key is the unstealable element, and instead of the human ability to match a face to a picture, computers use math. The math is so sound and it's so hard to brute force that all you need to know that it's very trustworthy.
 
 With that out of the way, let's go ahead and look at the non-magical part. I promise it's basically like when you go to a bar and they check your ID and they want to make sure that the ID isn't faked. Well first ContosoIotHub showed this certificate chain, so let's expand it. 
 
-```mermaid
+:::image type="content" source="./media/iot-edge-certs/hub-certificate-chain.svg" alt-text="Flow diagram showing intermediate and root certificate authority chain for IoT Hub.":::
+
+<!-- ```mermaid
 flowchart TB
     id3["📃 CN = Baltimore CyberTrust Root (Root CA)"]
     id2["📃 CN = Microsoft IT TLS CA 1 (Intermediate CA)"]
     id1["📃 CN = *.azure-devices.net"] 
     
-    id2-- Issued by ---> id3
-    id1-- Issued by ---> id2
-```
+    id2-- Issued by -- -> id3
+    id1-- Issued by -- -> id2
+``` -->
+
 
 Here the Root CA is something called [Baltimore CyberTrust Root](https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html). What is that? It's a certificate that is signed by DigiCert, and is widely trusted and stored in many operating systems. For example, both Ubuntu and Windows have it in the default store. So when a device checks the OS for it, it's probably there. From EdgeGateway perspective, certificate chain presented by ContosoIotHub is signed by the same root what its OS trusts, means that it's trustworthy.
 
