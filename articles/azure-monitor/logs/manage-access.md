@@ -20,7 +20,7 @@ ms.custom: devx-track-azurepowershell
 - The context in which you access the workspace, also known as *access mode*.
 - Access control mode, which is a workspace-level setting that defines whether to apply workspace or resource-level access control settings in each access mode.
 
-This article describes the Log Analytics workspace access control mechanisms and how to manage workspace access.
+This article describes the Log Analytics workspace access control mechanisms and how to manage access to logs in a workspace.
 
 ## Overview
 
@@ -28,7 +28,7 @@ The factors that define the data you can access are described in the following t
 
 | Factor | Description |
 |:---|:---|
-| [Access mode](#access-mode) | Method used to access the workspace. Defines the scope of the data available and the access control mode that's applied. |
+| [Access mode](#access-mode) | Context in which you access data in the workspace. Defines the scope of the data available and the access control mode that's applied. |
 | [Access control mode](#access-control-mode) | Setting on the workspace that defines whether permissions are applied at the workspace or resource level. |
 | [Workspace-level permissions](#azure-rbac) | Permissions applied to individuals or groups of users for the workspace or resource sending data to the workspace. Defines what data you have access to. |
 | [Table-level read access](#table-level-azure-rbac) | Optional permissions that define specific data types in the workspace that you can access. |
@@ -61,17 +61,17 @@ The following table summarizes the access modes:
 | What is the scope of permissions? | Workspace.<br>Users with access to the workspace can query all logs in the workspace from tables they have permissions to. See [Table access control](./manage-access.md#table-level-azure-rbac). | Azure resource.<br>Users can query logs for specific resources, resource groups, or subscriptions they have access to in any workspace, but they can't query logs for other resources. |
 | How can a user access logs? | On the **Azure Monitor** menu, select **Logs**.<br><br>Select **Logs** from **Log Analytics workspaces**.<br><br>From Azure Monitor [workbooks](../best-practices-analysis.md#workbooks). | Select **Logs** on the menu for the Azure resource. Users will have access to data for that resource.<br><br>Select **Logs** on the **Azure Monitor** menu. Users will have access to data for all resources they have access to.<br><br>Select **Logs** from **Log Analytics workspaces**. Users will have access to data for all resources they have access to.<br><br>From Azure Monitor [workbooks](../best-practices-analysis.md#workbooks). |
 
-## Access control mode
+## Set access control mode
 
-The *access control mode* is a setting on each workspace that defines how permissions are determined for the workspace.
+*Access control mode* is a workspace-level setting that defines how to apply permissions in each [access mode](#access-mode):
 
-* **Require workspace permissions**. This control mode doesn't allow granular Azure RBAC. To access the workspace, the user must be [granted permissions to the workspace](#azure-rbac) or to [specific tables](#table-level-azure-rbac).
+* **Require workspace permissions**. 
 
-    If a user accesses the workspace in [workspace-context mode](#access-mode), they have access to all data in any table they've been granted access to. If a user accesses the workspace in [resource-context mode](#access-mode), they have access to only data for that resource in any table they've been granted access to.
+    A user who accesses the workspace in [workspace-context mode](#access-mode) has access to all data in any table they've been granted access to. A user who accesses the workspace in [resource-context mode](#access-mode) only has access to data for that resource in any table they've been granted access to.
 
     This setting is the default for all workspaces created before March 2019.
 
-* **Use resource or workspace permissions**. This control mode allows granular Azure RBAC. Users can be granted access to only data associated with resources they can view by assigning Azure `read` permission.
+* **Use resource or workspace permissions**. 
 
     When a user accesses the workspace in [workspace-context mode](#access-mode), workspace permissions apply. When a user accesses the workspace in [resource-context mode](#access-mode), only resource permissions are verified, and workspace permissions are ignored. Enable Azure RBAC for a user by removing them from workspace permissions and allowing their resource permissions to be recognized.
 
