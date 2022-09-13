@@ -224,7 +224,6 @@ The following table provides a brief description of each built-in role. Click th
 > | [Security Assessment Contributor](#security-assessment-contributor) | Lets you push assessments to Microsoft Defender for Cloud | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Security Manager (Legacy)](#security-manager-legacy) | This is a legacy role. Please use Security Admin instead. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | [Security Reader](#security-reader) | View permissions for Microsoft Defender for Cloud. Can view recommendations, alerts, a security policy, and security states, but cannot make changes. <br><br>For Microsoft Defender for IoT, see [Defender for IoT users, roles, and permissions](../defender-for-iot/organizations/roles.md). | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
-> | [Sensor Operator](#sensor-operator) | Management role for Microsoft Defender on-premises sensors and management consoles. | TBD |
 > | **DevOps** |  |  |
 > | [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [Lab Creator](#lab-creator) | Lets you create new labs under your Azure Lab Accounts. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
@@ -10723,60 +10722,6 @@ View permissions for Microsoft Defender for Cloud. Can view recommendations, ale
 }
 ```
 
-### Sensor Operator
-
-Management permissions from Azure for Microsoft Defender for IoT OT network monitoring sensors and on-premises management consoles. [Learn more](../defender-for-iot/organizations/roles.md)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/defenderSettings/read | Gets IoT Defender Settings |
-> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/read | Gets device group |
-> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/devices/read |Get devices  |
-> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/alerts/read | Gets IoT Alerts |
-> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/alerts/write| Updates IoT Alert properties |
-> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/read |  Gets location |
-> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/alerts/learn/action |Learn and close the alert |
-> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/alerts/pcapAvailability/action | Get alert PCAP file aviability |
-> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/deviceGroups/alerts/pcapRequest/action | Request related PCAP file for alert |
-> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/locations/sites/read | Gets IoT site |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-
-```json
-{
-  "assignableScopes": [],
-  "description": "Defender for IoT security analyst role can conduct the following operations:\n- Edit alerts (change status, learn, download PCAP)\n- View Alert suppression rules\n- View Device inventory \n- View Sites & sensors",
-  "name": "D4IoT Security Analyst",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.IoTSecurity/defenderSettings/read",
-        "Microsoft.IoTSecurity/locations/deviceGroups/read",
-        "Microsoft.IoTSecurity/locations/deviceGroups/devices/read",
-        "Microsoft.IoTSecurity/locations/deviceGroups/alerts/read",
-        "Microsoft.IoTSecurity/locations/deviceGroups/alerts/write",
-        "Microsoft.IoTSecurity/locations/read",
-        "Microsoft.IoTSecurity/locations/deviceGroups/alerts/learn/action",
-        "Microsoft.IoTSecurity/locations/deviceGroups/alerts/pcapAvailability/action",
-        "Microsoft.IoTSecurity/locations/deviceGroups/alerts/pcapRequest/action",
-        "Microsoft.IoTSecurity/locations/sites/read"],
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Security Reader",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
 
 ## DevOps
 

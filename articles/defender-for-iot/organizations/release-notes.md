@@ -64,7 +64,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | **Sensor versions 22.1.x and later**: [Site-based access control for OT networks](#site-based-access-control-for-ot-networks-public-preview)        |
+|**OT networks**     | **Sensor versions 22.x and later**: [Site-based access control for OT networks](#site-based-access-control-for-ot-networks-public-preview)        |
 
 ### Site-based access control for OT networks (Public preview)
 
