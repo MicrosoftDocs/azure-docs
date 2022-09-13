@@ -159,7 +159,7 @@ SSH access is disabled by default.  SSH access can't be changed after creation. 
 ---
 
 ## Configure auto-stop (preview)
-To avoid getting charged for an compute instance that is switched on but inactive, you can configure auto-stop. 
+To avoid getting charged for a compute instance that is switched on but inactive, you can configure auto-stop. 
 
 A compute instance is considered inactive if the below conditions are met:
 * No active Jupyter Kernel sessions (this translates to no Notebooks usage via Jupyter, JupyterLab or Interactive notebooks)
