@@ -106,7 +106,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    For more information, review [Azure Blob Storage managed connector trigger properties](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)-(v2)).
 
-1. Add any other actions that your workflow needs.
+1. Add any other actions that your workflow requires.
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -178,7 +178,7 @@ The steps to add and use a Blob trigger differ based on whether you want to use 
 
       :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-built-in-trigger-subfolder-existing-blob.png" alt-text="Screenshot showing Standard workflow with Azure Blob built-in trigger set up for a subfolder and specific blob.":::
 
-1. Add any other actions that your workflow needs.
+1. Add any other actions that your workflow requires.
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -222,7 +222,7 @@ The steps to add and use a Blob trigger differ based on whether you want to use 
 
 1. To add other properties available for this trigger, open the **Add new parameter list** and select those properties. For more information, review [Azure Blob Storage managed connector trigger properties](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)-(v2)).
 
-1. Add any other actions that your workflow needs.
+1. Add any other actions that your workflow requires.
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -298,7 +298,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-action-sub-folder.png" alt-text="Screenshot showing Consumption workflow with Blob action setup for subfolder.":::
 
-1. Add any other actions that your workflow needs.
+1. Add any other actions that your workflow requires.
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -364,7 +364,7 @@ The steps to add and use an Azure Blob action differ based on whether you want t
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-built-in-action-subfolder.png" alt-text="Screenshot showing Standard workflow with Blob built-in action setup for subfolder.":::
 
-1. Add any other actions that your workflow needs.
+1. Add any other actions that your workflow requires.
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -390,16 +390,23 @@ The steps to add and use an Azure Blob action differ based on whether you want t
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-add-managed-action.png" alt-text="Screenshot showing Azure portal, Standard workflow designer, and Azure Blob Storage managed action selected.":::
 
-
 1. If prompted, provide the following information for your connection to your storage account. When you're done, select **Create**.
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for triggers and actions that support authentication - Secure access and data](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-triggers-and-actions-that-support-authentication). |
-1. Provide the information to [connect to your Azure Blob Storage account](connectors-create-api-azureblobstorage.md?tabs=consumption#connect-blob-storage-account), which uses the same properties as Consumption logic app workflows. When you're done, select **Create**.
 
-1. After the action information box appears, provide the necessary action information.
+   For example, this connection uses access key authentication and provides the access key value for the storage account along with the following property values:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Azure Storage Account name** | Yes, <br>but only for access key authentication | <*storage-account-name*> | The name for the Azure storage account where your blob container exists. <br><br>**Note**: To find the storage account name, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys**. Under **Storage account name**, copy and save the name. |
+   | **Azure Storage Account Access Key** | Yes, <br>but only for access key authentication | <*storage-account-access-key*> | The access key for your Azure storage account. <br><br>**Note**: To find the access key, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **key1** > **Show**. Copy and save the primary key value. |
+
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-managed-action-create-connection.png" alt-text="Screenshot showing Standard workflow, Azure Blob Storage managed action, and example connection information.":::
+
+1. After the action information box appears, provide the necessary information.
 
    For example, in the **Get blob content** action, provide your storage account name. For the **Blob** property value, select the folder icon to browse for your storage container or folder. Or, enter the path manually.
 
@@ -417,66 +424,9 @@ The steps to add and use an Azure Blob action differ based on whether you want t
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-managed-action-sub-folder.png" alt-text="Screenshot showing Consumption logic app workflow designer with Blob action setup for subfolder.":::
 
-1. Continue adding any other actions required by your workflow.
+1. Add any other actions that your workflow requires.
 
-1. When you're done, save your workflow.
-
-1. Test your workflow after you add a blob to your selected storage container.
-
----
-
-<a name="connect-blob-storage-account"></a>
-
-## Connect to Azure Storage account
-
-### [Consumption](#tab/consumption)
-
-Before you can set up your [Azure Blob Storage trigger](#add-trigger) or [Azure Blob Storage action](#add-action), you need to connect to your Azure Storage account. Based on the [authentication type that your storage account requires](../storage/common/authorize-data-access.md), you have to provide a connection name and select the authentication type at a minimum.
-
-For example, if your storage account requires *access key* authorization, you have to provide the following information:
-
-| Property | Required | Value | Description |
-|----------|----------|-------|-------------|
-| **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
-| **Authentication type** | Yes | - **Access Key** <br><br>- **Azure AD Integrated** <br><br>- **Logic Apps Managed Identity** | The authentication type to use for your connection. For more information, review [Authentication types for triggers and actions that support authentication - Secure access and data](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-triggers-and-actions-that-support-authentication). |
-| **Azure Storage Account name** | Yes, <br>but only for access key authentication | <*storage-account-name*> | The name for the Azure storage account where your blob container exists. <br><br><br><br>**Note**: To find the storage account name, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys**. Under **Storage account name**, copy and save the name. |
-| **Azure Storage Account Access Key** | Yes, <br>but only for access key authentication | <*storage-account-access-key*> | The access key for your Azure storage account. <br><br><br><br>**Note**: To find the access key, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **Show keys**. Copy and save one of the key values. |
-
-The following example shows how a connection using access key authentication might appear:
-
-:::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-connection-create.png" alt-text="Screenshot showing the workflow designer with a Consumption logic app workflow and a prompt to add a new connection for the Azure Blob Storage step.":::
-
-> [!NOTE]
-> After you create your connection, if you have a different existing Azure Blob storage connection 
-> that you want to use instead, select **Change connection** in the trigger or action details editor.
-
-If you have problems connecting to your storage account, review [how to access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls).
-
-### [Standard](#tab/standard)
-
-Before you can configure your [Azure Blob trigger](#add-trigger) or [Azure Blob action](#add-action), you need to connect to your Azure Storage account. A connection requires the following properties:
-
-| Property | Required | Value | Description |
-|----------|----------|-------|-------------|
-| **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
-| **Storage account connection string** | Yes | <*storage-account*> | Select your storage account from the list, or provide a string. <br><br><br><br>**Note**: To find the connection string, go to the storage account's page. In the navigation menu, under **Security + networking**, select **Access keys** > **Show keys**. Copy one of the available connection string values. |
-
-To create an Azure Blob Storage connection from a logic app workflow in single-tenant Azure Logic Apps, follow these steps:
-
-1. For **Connection name**, enter a name for your connection.
-
-1. For **Storage account connection string**, enter the connection string for the storage account that you want to use.
-
-1. Select **Create** to finish creating your connection.
-
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-connection-create.png" alt-text="Screenshot that shows the workflow designer with a Standard logic app workflow and a prompt to add a new connection for the Azure Blob Storage step.":::
-
-> [!NOTE]
->
-> After you create your connection, if you have a different existing Azure Blob storage connection 
-> that you want to use instead, select **Change connection** in the trigger or action details editor.
-
-If you have problems connecting to your storage account, review [how to access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls).
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
@@ -548,7 +498,7 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
 - Your logic app and storage account exist in different regions.
 
-  You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account. 
+  You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account.
 
 ### Access storage accounts through VNet integration
 
@@ -558,7 +508,7 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
 - Your logic app and storage account exist in different regions.
 
-  You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account. 
+  You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account.
 
 ### Access Blob Storage in same region with system-managed identities
 
