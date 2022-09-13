@@ -61,40 +61,43 @@ The following table summarizes the access modes:
 | What is the scope of permissions? | Workspace.<br>Users with access to the workspace can query all logs in the workspace from tables they have permissions to. See [Table access control](./manage-access.md#table-level-azure-rbac). | Azure resource.<br>Users can query logs for specific resources, resource groups, or subscriptions they have access to in any workspace, but they can't query logs for other resources. |
 | How can a user access logs? | On the **Azure Monitor** menu, select **Logs**.<br><br>Select **Logs** from **Log Analytics workspaces**.<br><br>From Azure Monitor [workbooks](../best-practices-analysis.md#workbooks). | Select **Logs** on the menu for the Azure resource. Users will have access to data for that resource.<br><br>Select **Logs** on the **Azure Monitor** menu. Users will have access to data for all resources they have access to.<br><br>Select **Logs** from **Log Analytics workspaces**. Users will have access to data for all resources they have access to.<br><br>From Azure Monitor [workbooks](../best-practices-analysis.md#workbooks). |
 
-## Set access control mode
+## Manage access control mode
 
 *Access control mode* is a workspace-level setting that defines how to apply permissions in each [access mode](#access-mode):
 
 * **Require workspace permissions**. 
 
-    A user who accesses the workspace in [workspace-context mode](#access-mode) has access to all data in any table they've been granted access to. A user who accesses the workspace in [resource-context mode](#access-mode) only has access to data for that resource in any table they've been granted access to.
+    A user who accesses the workspace in the [workspace context](#access-mode) has access to all data in any table they've been granted access to. 
+
+    A user who accesses the workspace in the [resource context](#access-mode) only has access to data for that resource in any table they've been granted access to.
 
     This setting is the default for all workspaces created before March 2019.
 
 * **Use resource or workspace permissions**. 
 
-    When a user accesses the workspace in [workspace-context mode](#access-mode), workspace permissions apply. When a user accesses the workspace in [resource-context mode](#access-mode), only resource permissions are verified, and workspace permissions are ignored. Enable Azure RBAC for a user by removing them from workspace permissions and allowing their resource permissions to be recognized.
+    A user who accesses the workspace in the [workspace context](#access-mode) has access to all data in any table they've been granted access to at the workspace level. 
+    
+    A user who accesses the workspace in the [resource context](#access-mode), has access to all data related to the resource, if they have resource-level permissions, regardless of workspace permissions. Enable Azure RBAC for a user by removing them from workspace permissions and allowing their resource permissions to be recognized.
 
     This setting is the default for all workspaces created after March 2019.
 
     > [!NOTE]
     > If a user has only resource permissions to the workspace, they can only access the workspace by using resource-context mode assuming the workspace access mode is set to **Use resource or workspace permissions**.
 
-### Configure workspace access control mode
-
+To view or change the access control mode settings for a Log Analytics workspace:
 # [Azure portal](#tab/portal)
 
-View the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu.
+1. View the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu.
 
-![Screenshot that shows the workspace access control mode.](media/manage-access/view-access-control-mode.png)
+    ![Screenshot that shows the workspace access control mode.](media/manage-access/view-access-control-mode.png)
 
-Change this setting on the **Properties** page of the workspace. If you don't have permissions to configure the workspace, changing the setting is disabled.
+1. Change this setting on the **Properties** page of the workspace. If you don't have permissions to configure the workspace, changing the setting is disabled.
 
-![Screenshot that shows changing workspace access mode.](media/manage-access/change-access-control-mode.png)
+    ![Screenshot that shows changing workspace access mode.](media/manage-access/change-access-control-mode.png)
 
 # [PowerShell](#tab/powershell)
 
-Use the following command to view the access control mode for all workspaces in the subscription:
+To view the access control mode for all workspaces in the subscription, run:
 
 ```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions}
@@ -113,7 +116,7 @@ A value of `False` means the workspace is configured with *workspace-context* ac
 > If a workspace is returned without a Boolean value and is blank, this result also matches the results of a `False` value.
 >
 
-Use the following script to set the access control mode for a specific workspace to *resource-context* permission:
+To set the access control mode for a specific workspace to *resource-context* permission, run:
 
 ```powershell
 $WSName = "my-workspace"
@@ -125,7 +128,7 @@ else
 Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
 ```
 
-Use the following script to set the access control mode for all workspaces in the subscription to *resource-context* permission:
+To set the access control mode for all workspaces in the subscription to *resource-context* permission, run:
 
 ```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
