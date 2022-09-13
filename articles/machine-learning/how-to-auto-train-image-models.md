@@ -110,7 +110,7 @@ If your training data is in a different format (like, pascal VOC or COCO), you c
 > The training data needs to have at least 10 images in order to be able to submit an AutoML run. 
 
 > [!Warning]
-> Creation of `MLTable` is only supported using the SDK and CLI to create from data in JSONL format for this capability. Creating the `MLTable` via UI is not supported at this time.
+> Creation of `MLTable` from data in JSONL format is supported only using the SDK and CLI. Creating the `MLTable` via UI is not supported at this time. As of now UI doesn't recognize StreamInfo datatype, which is the datatype used for image urls in JSONL format.  
 
 
 ### JSONL schema samples
