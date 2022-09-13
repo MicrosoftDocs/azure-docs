@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 09/12/2022
 ms.author: alkohli
 ---
 
@@ -53,7 +53,7 @@ Read-only attributes on directories aren't transferred.
 
 ## Alternate data streams and extended attributes
 
-Alternate data streams and extended attributes are not supported in Azure Files or Block blob storage, so they are not transferred when copying data. 
+[Alternate data streams](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) and extended attributes are not supported in Azure Files or Block blob storage, so they are not transferred when copying data. 
 
 ## ACLs
 
