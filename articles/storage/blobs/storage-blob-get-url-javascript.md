@@ -31,7 +31,7 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 The following example gets a container URL and a blob URL by accessing the client's **url** property:
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/get-url.js" id="Storage-GetUrl":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/get-url.js" id="Snippet_GetUrl":::
 
 > [!TIP]
 > For loops, you must use the object's `name` property to create a client then get the URL with the client. Iterators don't return client objects, they return item objects. 
