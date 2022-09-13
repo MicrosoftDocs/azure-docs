@@ -30,7 +30,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Compare Azure messaging services
-            url: ../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json
+            url: ../event-grid/compare-messaging-services.md?toc=/azure/service-bus-messaging/toc.json
           - text: Compare Azure queues and Service Bus queues
             url: service-bus-azure-and-service-bus-queues-compared-contrasted.md            
           - text: Queues, topics, and subscriptions

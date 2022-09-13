@@ -487,4 +487,4 @@ Refer to train-hyperparameter-* notebooks in this folder:
 
 ## Next steps
 * [Track an experiment](../how-to-log-view-metrics.md)
-* [Deploy a trained model](../how-to-deploy-and-where.md)
+* [Deploy a trained model](../v1/how-to-deploy-and-where.md)

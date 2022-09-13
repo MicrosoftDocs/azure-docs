@@ -10,19 +10,12 @@ ms.custom:
 
 - Create a new Azure SQL DB or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL DB](/azure/azure-sql/database/single-database-create-quickstart).
 
-**Enforcement of Microsoft Purview policies is available only in the following regions for Azure SQL DB**
-- East US2
-- West US3
-- South Central US
-- West Central US
-- Canada Central
-- Brazil South
-- North Europe
-- West Europe
-- France Central
-- UK South
-- Central India
-- Australia East
+**Enforcement of Microsoft Purview policies is available only in the following regions for Azure SQL Database**
+-	Australia East
+-	Canada Central
+-	West US3
+-	West Central US
+-	Central India
 
 ### Azure SQL Database configuration
 Each Azure SQL Database server needs a Managed Identity assigned to it. In Azure portal navigate to the Azure SQL Server that hosts the Azure SQL DB and then navigate to Identity on the side menu. Under System assigned managed identity check status to *On* and save. See screenshot:

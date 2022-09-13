@@ -4,7 +4,7 @@ description: Configure your Azure DevOps Services for the SAP Deployment Automat
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 12/16/2021
+ms.date: 08/30/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
@@ -79,7 +79,7 @@ Push the changes back to the repository by selecting the source control icon and
 
 ## Set up the web app
 
-The automation framework optionally provisions a web app as a part of the control plane to assist with the deployment of SAP workload zones and systems. If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
+The automation framework optionally provisions a web app as a part of the control plane to assist with the SAP workload zone and system configuration files. If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
 
 # [Linux](#tab/linux)
 Replace MGMT with your environment as necessary.
@@ -108,7 +108,8 @@ az ad app credential reset --id $TF_VAR_app_registration_app_id --append --query
 rm ./manifest.json
 ```
 ---
-Save the app registration ID and password values for later.
+
+Save the app registration ID and password values for later use.
 
 
 ## Create Azure Pipelines
@@ -322,15 +323,15 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | FENCING_SPN_TENANT              | Enter the service principal tenant ID for the fencing agent.       | Required for highly available deployments.               |
 | `PAT`                           | `<Personal Access Token>`                                          | Use the Personal Token defined in the previous           |
 | `POOL`                          | `<Agent Pool name>`                                                | Use the Agent pool defined in the previous               |
-| TF_VAR_app_registration_app_id  | App registration application ID                                    | Required if deploying the web app                        |
-| TF_VAR_webapp_client_secret     | App registration password                                          | Required if deploying the web app                        |
+| APP_REGISTRATION_APP_ID         | App registration application ID                                    | Required if deploying the web app                        |
+| WEB_APP_CLIENT_SECRET           | App registration password                                          | Required if deploying the web app                        |
 
 Save the variables.
 
 > [!NOTE]
 > Remember to assign permissions for all pipelines using _Pipeline permissions_.
 >
-> For use with the web app, assign the administrator role to the build service using _Security_.
+> When using the web app, ensure that the Build Service has at least Contribute permissions.
 >
 > You can use the clone functionality to create the next environment variable group.
 

@@ -13,7 +13,7 @@ This topic describes the basic requirements for installing the Connected Machine
 
 Azure Arc-enabled servers support the installation of the Connected Machine agent on physical servers and virtual machines hosted outside of Azure. This includes support for virtual machines running on platforms like:
 
-* VMware
+* VMware (including Azure VMware Solution)
 * Azure Stack HCI
 * Other cloud environments
 
@@ -88,7 +88,7 @@ If these resource providers are not already registered, you can register them us
 Azure PowerShell:
 
 ```azurepowershell-interactive
-Login-AzAccount
+Connect-AzAccount
 Set-AzContext -SubscriptionId [subscription you want to onboard]
 Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration

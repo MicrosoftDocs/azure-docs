@@ -17,6 +17,8 @@
       href: reservation-discount-application.md
     - name: App Service
       href: reservation-discount-app-service.md
+    - name: Azure Backup
+      href: ../../backup/backup-azure-reserved-pricing-overview.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cache for Redis
       href: understand-azure-cache-for-redis-reservation-charges.md
     - name: Azure Data Factory
@@ -76,6 +78,8 @@
       href: prepay-app-service.md
     - name: App Service - JBoss EAP Integrated Support
       href: prepay-jboss-eap-integrated-support-app-service.md
+    - name: Azure Backup
+      href: ../../backup/backup-azure-reserved-pricing-optimize-cost.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cache for Redis reservation
       href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Data Factory
