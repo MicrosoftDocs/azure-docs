@@ -150,7 +150,7 @@ The second URL grants access to the log streaming service and the console. If ne
 ## Ports and IP addresses
 
 >[!NOTE]
-> The subnet associated with a Container App Environment requires a CIDR prefix of /23.
+> The subnet associated with a Container App Environment requires a CIDR prefix of /23 or larger (/23, /22 etc.).
 
 The following ports are exposed for inbound connections.
 
@@ -189,6 +189,12 @@ If you're using the Azure CLI and the [platformReservedCidr](vnet-custom-interna
 ## Routes
 
 There's no forced tunneling in Container Apps routes.
+
+## DNS
+-	If your VNET uses a custom DNS server instead of the default Azure-provided DNS server, we recommend that you configure your DNS server to forward unresolved DNS queries to 168.63.129.16, which is used for the [Azure recursive resolvers](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server). If you do not use the Azure recursive resolvers, the Container App Environment will not function.
+-	If you plan to use VNET-scope [Ingress](https://docs.microsoft.com/azure/container-apps/ingress#configuration) for Container Apps in an internal Container App Environment, you must do one of the following:
+  - If you do not plan to use custom domains, create a private DNS zone that resolves the Container App Environment’s default domain to the static IP address of the Container App Environment. You can use [Azure Private DNS](https://docs.microsoft.com/azure/dns/private-dns-overview) or your own DNS server.  If you use Azure Private DNS, create a Private DNS Zone named as the Container App Environment’s default domain (*<UNIQUE_IDENTIFIER>*.*<REGION_NAME>*.azurecontainerapps.io), with an A record that points to the static IP address of the Container App Environment.
+  - If you plan to use custom domains, use a publicly resolvable domain to [add a custom domain and certificate](https://docs.microsoft.com/azure/container-apps/custom-domains-certificates#add-a-custom-domain-and-certificate) to the Container App. Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container App Environment. You can use [Azure Private DNS](https://docs.microsoft.com/azure/dns/private-dns-overview) or your own DNS server. If you use Azure Private DNS, create a Private DNS Zone named as the apex domain, with an A record that points to the static IP address of the Container App Environment.
 
 ## Managed resources
 
