@@ -60,7 +60,7 @@ Now that you've selected a testing method, the next step is to configure it.
 > [!NOTE]
 > The joining property, also known as matching attribute, is an attribute that user and group resources can be uniquely queried on at the source and matched in the target system.
 
-:::image type="content" source="./media/scim-validator-attributes/scim-validator-results.png" alt-text="SCIM Validator Attributes Page" lightbox="./media/scim-validator-tutorial/scim-validator-attributes.png":::
+:::image type="content" source="./media/scim-validator-tutorial/scim-validator-attributes.png" alt-text="SCIM Validator Attributes Page" lightbox="./media/scim-validator-tutorial/scim-validator-attributes.png":::
 
 ## Validate your SCIM endpoint
 Finally, you need to test and validate your endpoint.
