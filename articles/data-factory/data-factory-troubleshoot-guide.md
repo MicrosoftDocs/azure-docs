@@ -1116,7 +1116,7 @@ For more information, see [Getting started with Fiddler](https://docs.telerik.co
 
 ### Error Code: 2113
 
-- **Message**: `ExtractAuthorizationCertificate: Unable to generate a certificate from a Base64 string/password combination.`
+- **Message**: `ExtractAuthorizationCertificate: Unable to generate a certificate from a Base64 string/password combination`
 
 - **Cause**: Unable to generate certificate from Base64 string/password combination.
 
