@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 09/08/2022
 ms.author: v-baolianzou
 ---
 
@@ -29,7 +29,7 @@ This article describes how to use the pronunciation assessment tool through the 
 You can explore and try out pronunciation assessment even without signing in. 
 
 > [!TIP]
-> To assess more than 5 seconds of speech with your own script, sign in with an Azure account and use your Speech or Cognitive Services resource.
+> To assess more than 5 seconds of speech with your own script, sign in with an [Azure account](https://azure.microsoft.com/free/cognitive-services) and use your <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Speech resource</a>.
 
 Follow these steps to assess your pronunciation of the reference text:
 

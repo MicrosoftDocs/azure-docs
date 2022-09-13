@@ -413,6 +413,8 @@
           href: diagnostic-queries-mongodb.md
         - name: Prevent rate-limiting errors
           href: prevent-rate-limiting-errors.md
+        - name: Optimize query and storage costs when upgrading
+          href: compression-cost-savings.md
     - name: Analytics and BI with Azure Synapse Link
       items:
         - name: Configure Azure Synapse Link

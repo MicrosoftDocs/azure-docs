@@ -73,5 +73,6 @@ Content-type: application/json
 
 ## Next steps
 
+- [workflow: activate (run a workflow on-demand)](/graph/api/identitygovernance-workflow-activate?view=graph-rest-beta)
 - [Customize the schedule of workflows](customize-workflow-schedule.md)
 - [Delete a Lifecycle workflow](delete-lifecycle-workflow.md)

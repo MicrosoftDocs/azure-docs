@@ -1,10 +1,10 @@
 ---
-title: Connect downstream IoT Edge devices - Azure IoT Edge | Microsoft Docs
-description: How to configure an IoT Edge device to connect to Azure IoT Edge gateway devices. 
+title: How to create nested Azure IoT Edge device hierarchies
+description: Step by step adaptable manual instructions on how to create a hierarchy of IoT Edge devices. 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/03/2022
+ms.date: 09/01/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,11 +12,11 @@ ms.custom:  [amqp, mqtt]
 monikerRange: ">=iotedge-2020-11"
 ---
 
-# Connect a downstream IoT Edge device to an Azure IoT Edge gateway
+# Connect Azure IoT Edge devices together to create a hierarchy (nested edge)
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
-This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
+This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device. This setup is also known as "nested edge".
 
 In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream (child) devices can authenticate and send or receive messages through their gateway (parent) device.
 
@@ -264,6 +264,15 @@ You should already have IoT Edge installed on your device. If not, follow the st
     sudo iotedge check --verbose
     ```
 
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 ### Verify parent configuration
 
 The *hostname* must be a qualified domain name (FQDN) or the IP address of the IoT Edge device because IoT Edge uses this value in the server certificate when downstream devices connect. The values must match or you'll get *IP address mismatch* error.
@@ -424,6 +433,15 @@ You should already have IoT Edge installed on your device. If not, follow the st
 
     >[!TIP]
     >The IoT Edge check tool uses a container to perform some of the diagnostics check. If you want to use this tool on downstream IoT Edge devices, make sure they can access `mcr.microsoft.com/azureiotedge-diagnostics:latest`, or have the container image in your private container registry.
+
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
 
 ### Verify connectivity from child to parent
 
