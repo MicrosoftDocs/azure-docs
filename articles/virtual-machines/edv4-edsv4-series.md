@@ -75,7 +75,7 @@ Edsv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice 
 <sup>1</sup>  Edsv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available)](./constrained-vcpu.md).<br>
 <sup>3</sup> Instance is isolated to hardware dedicated to a single customer.<br>
-<sup>4</sup> Accelerated networking can only be applied to a single NIC. 
+<sup>4</sup> Accelerated networking can only be applied to a single NIC. <br>
 <sup>5</sup> Using Ultra or Premium v2 data disks with **Standard_E80ids_v4** results in higher IOPs/ MBps than standard premium disks:
 - Uncached Ultra and Premium v2 data disk IOPS/ MBps: 120000/1800 <br>
 - Burst uncached Ultra and Premium v2 data disk IOPS/ MBps: 120000/2000
