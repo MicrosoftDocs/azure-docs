@@ -29,12 +29,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Enable Service Map
 
 1. Enable the Service Map solution from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview). Or use the process described in [Add monitoring solutions from the Solutions Gallery](../insights/solutions.md).
-1. [Install the Dependency agent on Windows](../vm/vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) or [Install the Dependency agent on Linux](../vm/vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) on each computer where you want to get data. The Dependency agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
+1. [Install the Dependency agent on Windows](../vm/vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) or [install the Dependency agent on Linux](../vm/vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) on each computer where you want to get data. The Dependency agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
-1. Access Service Map in the Azure portal from your Log Analytics workspace. Select the option **Solutions** from the left pane.
+1. Access Service Map in the Azure portal from your Log Analytics workspace. Select the **Solutions** option from the left pane.
 
    ![Screenshot that shows selecting the Solutions option in the workspace.](./media/service-map/select-solution-from-workspace.png).
-1. From the list of solutions, select **ServiceMap(workspaceName)**. On the **Service Map solution overview** page, select the **Service Map** summary tile.
+1. From the list of solutions, select **ServiceMap(workspaceName)**. On the **Service Map** solution overview page, select the **Service Map** summary tile.
 
    ![Screenshot that shows the Service Map summary tile.](./media/service-map/service-map-summary-tile.png).
 
@@ -72,19 +72,19 @@ Service Map enhances your use of the System Update Assessment by showing you whi
 
 Service Map agents gather information about all TCP-connected processes on the server where they're installed. They also collect details about the inbound and outbound connections for each process.
 
-From the list in the left pane, you can select machines or groups that have Service Map agents to visualize their dependencies over a specified time range. Machine dependency maps focus on a specific machine. They show all the machines that are direct TCP clients or servers of that machine. Machine Group maps show sets of servers and their dependencies.
+From the list in the left pane, you can select machines or groups that have Service Map agents to visualize their dependencies over a specified time range. Machine dependency maps focus on a specific machine. They show all the machines that are direct TCP clients or servers of that machine. Machine group maps show sets of servers and their dependencies.
 
 ![Screenshot that shows a Service Map overview.](media/service-map/service-map-overview.png)
 
 Machines can be expanded in the map to show the running process groups and processes with active network connections during the selected time range. When a remote machine with a Service Map agent is expanded to show process details, only those processes that communicate with the focus machine are shown.
 
-The count of agentless front-end machines that connect into the focus machine is indicated on the left side of the processes they connect to. If the focus machine is making a connection to a back-end machine that has no agent, the back-end server is included in a Server Port Group. This group also include other connections to the same port number.
+The count of agentless front-end machines that connect into the focus machine is indicated on the left side of the processes they connect to. If the focus machine is making a connection to a back-end machine that has no agent, the back-end server is included in a server port group. This group also includes other connections to the same port number.
 
 By default, Service Map maps show the last 30 minutes of dependency information. You can use the time controls at the upper left to query maps for historical time ranges of up to one hour to see how dependencies looked in the past. For example, you might want to see how they looked during an incident or before a change occurred. Service Map data is stored for 30 days in paid workspaces and for 7 days in free workspaces.
 
 ## Status badges and border coloring
 
-At the bottom of each server in the map can be a list of status badges that convey status information about the server. The badges indicate there's relevant information for the server from one of the solution integrations.
+At the bottom of each server in the map, a list of status badges that convey status information about the server might appear. The badges indicate there's relevant information for the server from one of the solution integrations.
 
 Selecting a badge takes you directly to the details of the status in the right pane. The currently available status badges include **Alerts**, **Service Desk**, **Changes**, **Security**, and **Updates**.
 
@@ -94,7 +94,7 @@ Depending on the severity of the status badges, machine node borders can be colo
 
 ## Process groups
 
-Process groups combine processes that are associated with a common product or service into a process group.  When a machine node is expanded, it will display standalone processes along with process groups. If any inbound and outbound connections to a process within a process group has failed, the connection is shown as failed for the entire process group.
+Process groups combine processes that are associated with a common product or service into a process group.  When a machine node is expanded, it will display standalone processes along with process groups. If an inbound or outbound connection to a process within a process group has failed, the connection is shown as failed for the entire process group.
 
 ## Machine groups
 
@@ -106,46 +106,52 @@ Users select which servers belong in a group together and choose a name for the 
 
 ### Create a machine group
 
-To create a group, select the machine or machines you want in the Machines list and select **Add to group**.
+To create a group:
 
-![Screenshot that shows creating a group.](media/service-map/machine-groups-create.png)
+1. Select the machine or machines you want in the **Machines** list and select **Add to group**.
 
-There, you can choose **Create new** and give the group a name.
+   ![Screenshot that shows creating a group.](media/service-map/machine-groups-create.png)
 
-![Screenshot that shows naming a group.](media/service-map/machine-groups-name.png)
+1. Select **Create new** and give the group a name.
+
+   ![Screenshot that shows naming a group.](media/service-map/machine-groups-name.png)
 
 >[!NOTE]
 >Machine groups are limited to 10 servers.
 
 ### View a group
 
-After you've created some groups, you can view them by selecting the **Groups** tab.
+After you've created some groups, you can view them.
 
-![Screenshot that shows the Groups tab.](media/service-map/machine-groups-tab.png)
+1. Select the **Groups** tab.
 
-Select the group name to view the map for that machine group.
+   ![Screenshot that shows the Groups tab.](media/service-map/machine-groups-tab.png)
 
-![Screenshot that shows a machine group map.](media/service-map/machine-group.png)
+1. Select the group name to view the map for that machine group.
 
-The machines that belong to the group are outlined in white in the map.
+   ![Screenshot that shows a machine group map.](media/service-map/machine-group.png)
 
-Expanding the group lists the machines that make up the machine group.
+   The machines that belong to the group are outlined in white in the map.
 
-![Screenshot that shows machine group machines.](media/service-map/machine-groups-machines.png)
+1. Expand the group to list the machines that make up the machine group.
+
+   ![Screenshot that shows machine group machines.](media/service-map/machine-groups-machines.png)
 
 ### Filter by processes
 
-You can toggle the map view to show all processes and connections in the group or only the ones that directly relate to the machine group. The default view shows all processes. You can change the view by selecting the filter icon above the map.
+You can toggle the map view to show all processes and connections in the group or only the ones that directly relate to the machine group. The default view shows all processes.
 
-![Screenshot that shows filtering group.](media/service-map/machine-groups-filter.png)
+1. Select the filter icon above the map to change the view.
 
-When **All processes** is selected, the map includes all processes and connections on each of the machines in the group.
+   ![Screenshot that shows filtering group.](media/service-map/machine-groups-filter.png)
 
-![Screenshot that shows Machine Group All processes.](media/service-map/machine-groups-all.png)
+1. Select **All processes** to see the map with all processes and connections on each of the machines in the group.
 
-To create a simplified view, you can change the view to show only **group-connected processes**. The map is then narrowed down to show only those processes and connections directly connected to other machines in the group.
+   ![Screenshot that shows Machine Group All processes.](media/service-map/machine-groups-all.png)
 
-![Screenshot that shows machine group filtered processes.](media/service-map/machine-groups-filtered.png)
+1. To create a simplified view, change the view to show only **group-connected processes**. The map is then narrowed down to show only those processes and connections directly connected to other machines in the group.
+
+   ![Screenshot that shows machine group filtered processes.](media/service-map/machine-groups-filtered.png)
 
 ### Add machines to a group
 
@@ -153,13 +159,13 @@ To add machines to an existing group, select the checkboxes next to the machines
 
 ### Remove machines from a group
 
-In the group list, expand the group name to list the machines in the machine group. Select the ellipsis menu next to the machine you want to remove and select **Remove**.
+In the **Groups** list, expand the group name to list the machines in the machine group. Select the ellipsis menu next to the machine you want to remove and select **Remove**.
 
 ![Screenshot that shows removing a machine from a group.](media/service-map/machine-groups-remove.png)
 
 ### Remove or rename a group
 
-Select the ellipsis menu next to the group name in the group list.
+Select the ellipsis menu next to the group name in the **Groups** list.
 
 ![Screenshot that shows the machine group menu.](media/service-map/machine-groups-menu.png)
 
@@ -221,37 +227,38 @@ Select **Show Self-Links** to redraw the server node, including any self-links, 
 
 The **Machine Summary** pane includes an overview of a server's operating system, dependency counts, and data from other solutions. Such data includes performance metrics, service desk tickets, change tracking, security, and updates.
 
-![Screenshot that shows Machine Summary pane.](media/service-map/machine-summary.png)
+![Screenshot that shows the Machine Summary pane.](media/service-map/machine-summary.png)
 
 ## Computer and process properties
 
-When you navigate a Service Map map, you can select machines and processes to gain additional context about their properties. Machines provide information about DNS name, IPv4 addresses, CPU and memory capacity, VM type, operating system and version, last reboot time, and the IDs of their OMS and Service Map agents.
+When you navigate a Service Map map, you can select machines and processes to gain more context about their properties. Machines provide information about DNS name, IPv4 addresses, CPU and memory capacity, VM type, operating system and version, last reboot time, and the IDs of their OMS and Service Map agents.
 
-![Screenshot that shows Machine Properties pane](media/service-map/machine-properties.png)
+![Screenshot that shows the Machine Properties pane.](media/service-map/machine-properties.png)
 
 You can gather process details from operating-system metadata about running processes, including process name, process description, user name and domain (on Windows), company name, product name, product version, working directory, command line, and process start time.
 
-![Screenshot that shows Process Properties pane](media/service-map/process-properties.png)
+![Screenshot that shows the Process Properties pane.](media/service-map/process-properties.png)
 
-The **Process Summary** pane provides additional information about the process's connectivity, including its bound ports, inbound and outbound connections, and failed connections.
+The **Process Summary** pane provides more information about the process's connectivity, including its bound ports, inbound and outbound connections, and failed connections.
 
-![Screenshot that shows Process Summary pane](media/service-map/process-summary.png)
+![Screenshot that shows the Process Summary pane.](media/service-map/process-summary.png)
 
 ## Alerts integration
 
 Service Map integrates with Azure Alerts to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the **Machine Alerts** pane lists the alerts.
 
-![Screenshot that shows Machine Alerts pane](media/service-map/machine-alerts.png)
+![Screenshot that shows the Machine Alerts pane.](media/service-map/machine-alerts.png)
 
 To enable Service Map to display relevant alerts, create an alert rule that fires for a specific computer. To create proper alerts:
-- Include a clause to group by computer (for example, **by Computer interval 1 minute**).
+
+- Include a clause to group by computer. An example is **by Computer interval 1 minute**.
 - Choose to alert based on metric measurement.
 
 ## Log events integration
 
-Service Map integrates with Log Search to show a count of all available log events for the selected server during the selected time range. You can click any row in the list of event counts to jump to Log Search and see the individual log events.
+Service Map integrates with Log Search to show a count of all available log events for the selected server during the selected time range. You can select any row in the list of event counts to jump to Log Search and see the individual log events.
 
-![Screenshot that shows Machine Log Events pane](media/service-map/log-events.png)
+![Screenshot that shows the Machine Log Events pane.](media/service-map/log-events.png)
 
 ## Service Desk integration
 
@@ -259,32 +266,32 @@ Service Map integration with the IT Service Management Connector is automatic wh
 
 The **Machine Service Desk** pane lists all IT Service Management events for the selected server in the selected time range. The server displays an icon if there are current items and the Machine Service Desk pane lists them.
 
-![Machine Service Desk pane](media/service-map/service-desk.png)
+![Screenshot that shows the Machine Service Desk pane.](media/service-map/service-desk.png)
 
-To open the item in your connected ITSM solution, click **View Work Item**.
+To open the item in your connected ITSM solution, select **View Work Item**.
 
-To view the details of the item in Log Search, click **Show in Log Search**.
-Connection metrics are written to two new tables in Log Analytics 
+To view the details of the item in Log Search, select **Show in Log Search**.
+Connection metrics are written to two new tables in Log Analytics.
 
 ## Change Tracking integration
 
 Service Map integration with Change Tracking is automatic when both solutions are enabled and configured in your Log Analytics workspace.
 
-The **Machine Change Tracking** pane lists all changes, with the most recent first, along with a link to drill down to Log Search for additional details.
+The **Machine Change Tracking** pane lists all changes, with the most recent first, along with a link to drill down to Log Search for more details.
 
-![Screenshot of the Machine Change Tracking pane in Service Map.](media/service-map/change-tracking.png)
+![Screenshot of the Machine Change Tracking pane.](media/service-map/change-tracking.png)
 
 The following image is a detailed view of a ConfigurationChange event that you might see after you select **Show in Log Analytics**.
 
-![Screenshot that shows ConfigurationChange event](media/service-map/configuration-change-event-01.png)
+![Screenshot that shows the ConfigurationChange event.](media/service-map/configuration-change-event-01.png)
 
 ## Performance integration
 
 The **Machine Performance** pane displays standard performance metrics for the selected server. The metrics include CPU utilization, memory utilization, network bytes sent and received, and a list of the top processes by network bytes sent and received.
 
-![Screenshot that shows Machine Performance pane](media/service-map/machine-performance.png)
+![Screenshot that shows the Machine Performance pane.](media/service-map/machine-performance.png)
 
-To see performance data, you may need to [enable the appropriate Log Analytics performance counters](../agents/data-sources-performance-counters.md).  The counters you will want to enable:
+To see performance data, you might need to [enable the appropriate Log Analytics performance counters](../agents/data-sources-performance-counters.md). The counters you'll want to enable:
 
 Windows:
 - Processor(*)\\% Processor Time
@@ -297,14 +304,14 @@ Linux:
 - Memory(*)\\% Used Memory
 - Network Adapter(*)\\Bytes Sent/sec
 - Network Adapter(*)\\Bytes Received/sec
- 
+
 ## Security integration
 
 Service Map integration with Security and Audit is automatic when both solutions are enabled and configured in your Log Analytics workspace.
 
-The **Machine Security** pane shows data from the Security and Audit solution for the selected server. The pane lists a summary of any outstanding security issues for the server during the selected time range. Clicking any of the security issues drills down into a Log Search for details about them.
+The **Machine Security** pane shows data from the Security and Audit solution for the selected server. The pane lists a summary of any outstanding security issues for the server during the selected time range. Selecting any of the security issues drills down into a Log Search for details about them.
 
-![Machine Security pane](media/service-map/machine-security.png)
+![Screenshot that shows the Machine Security pane.](media/service-map/machine-security.png)
 
 ## Updates integration
 
@@ -312,106 +319,112 @@ Service Map integration with Update Management is automatic when both solutions 
 
 The **Machine Updates** pane displays data from the Update Management solution for the selected server. The pane lists a summary of any missing updates for the server during the selected time range.
 
-![Screenshot of the Machine Updates pane in Service Map.](media/service-map/machine-updates.png)
+![Screenshot that shows the Machine Updates pane.](media/service-map/machine-updates.png)
 
 ## Log Analytics records
 
 Service Map computer and process inventory data is available for [search](../logs/log-query-overview.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
-One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Service Map. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
+One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Service Map. These records have the properties in the following tables.
+
+The fields and values in the *ServiceMapComputer_CL* events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the *ServiceMapProcess_CL* events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The *ResourceName_s* field matches the name field in the corresponding Resource Manager resource.
 
 >[!NOTE]
 >As Service Map features grow, these fields are subject to change.
 
-There are internally generated properties you can use to identify unique processes and computers:
+You can use internally generated properties to identify unique processes and computers:
 
-- Computer: Use *ResourceId* or *ResourceName_s* to uniquely identify a computer within a Log Analytics workspace.
-- Process: Use *ResourceId* to uniquely identify a process within a Log Analytics workspace. *ResourceName_s* is unique within the context of the machine on which the process is running (MachineResourceName_s) 
+- **Computer:** Use *ResourceId* or *ResourceName_s* to uniquely identify a computer within a Log Analytics workspace.
+- **Process:** Use *ResourceId* to uniquely identify a process within a Log Analytics workspace. *ResourceName_s* is unique within the context of the machine on which the process is running (MachineResourceName_s).
 
-Because multiple records can exist for a specified process and computer in a specified time range, queries can return more than one record for the same computer or process. To include only the most recent record, add "| dedup ResourceId" to the query.
+Because multiple records can exist for a specified process and computer in a specified time range, queries can return more than one record for the same computer or process. To include only the most recent record, add `"| dedup ResourceId"` to the query.
 
 ### Connections
 
-Connection metrics are written to a new table in Log Analytics - VMConnection. This table provides information about the connections for a machine (inbound and outbound). Connection Metrics are also exposed with APIs that provide the means to obtain a specific metric during a time window.  TCP connections resulting from accepting on a listening socket are inbound, while those created by connecting to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
+Connection metrics are written to a new table in Log Analytics: *VMConnection*. This table provides information about the inbound and outbound connections for a machine. Connection Metrics are also exposed with APIs that provide the means to obtain a specific metric during a time window. TCP connections resulting from accepting on a listening socket are inbound, while those created by connecting to a given IP and port are outbound. The direction of a connection is represented by the `Direction` property, which can be set to either `inbound` or `outbound`.
 
-Records in these tables are generated from data reported by the Dependency agent. Every record represents an observation over a one minute time interval. The TimeGenerated property indicates the start of the time interval. Each record contains information to identify the respective entity, that is, connection or port, as well as metrics associated with that entity. Currently, only network activity that occurs using TCP over IPv4 is reported.
+Records in these tables are generated from data reported by the Dependency agent. Every record represents an observation over a one-minute time interval. The `TimeGenerated` property indicates the start of the time interval. Each record contains information to identify the respective entity, that is, the connection or port, and the metrics associated with that entity. Currently, only network activity that occurs by using TCP over IPv4 is reported.
 
-To manage cost and complexity, connection records do not represent individual physical network connections. Multiple physical network connections are grouped into a logical connection, which is then reflected in the respective table.  Meaning, records in *VMConnection* table represent a logical grouping and not the individual physical connections that are being observed. Physical network connection sharing the same value for the following attributes during a given one minute interval, are aggregated into a single logical record in *VMConnection*. 
+To manage cost and complexity, connection records don't represent individual physical network connections. Multiple physical network connections are grouped into a logical connection, which is then reflected in the respective table. So records in the *VMConnection* table represent a logical grouping and not the individual physical connections that are being observed. Physical network connections that share the same value for the following attributes during a given one-minute interval are aggregated into a single logical record in *VMConnection*.
 
 | Property | Description |
 |:--|:--|
-| `Direction` |Direction of the connection, value is *inbound* or *outbound* |
-| `Machine` |The computer FQDN |
-| `Process` |Identity of process or groups of processes, initiating/accepting the connection |
-| `SourceIp` |IP address of the source |
-| `DestinationIp` |IP address of the destination |
-| `DestinationPort` |Port number of the destination |
-| `Protocol` |Protocol used for the connection.  Values is *tcp*. |
+| `Direction` |Direction of the connection. The value is *inbound* or *outbound*. |
+| `Machine` |The computer FQDN. |
+| `Process` |Identity of process or groups of processes initiating or accepting the connection. |
+| `SourceIp` |IP address of the source. |
+| `DestinationIp` |IP address of the destination. |
+| `DestinationPort` |Port number of the destination. |
+| `Protocol` |Protocol used for the connection. Value is *tcp*. |
 
 To account for the impact of grouping, information about the number of grouped physical connections is provided in the following properties of the record:
 
 | Property | Description |
 |:--|:--|
-| `LinksEstablished` |The number of physical network connections that have been established during the reporting time window |
-| `LinksTerminated` |The number of physical network connections that have been terminated during the reporting time window |
+| `LinksEstablished` |The number of physical network connections that have been established during the reporting time window. |
+| `LinksTerminated` |The number of physical network connections that have been terminated during the reporting time window. |
 | `LinksFailed` |The number of physical network connections that have failed during the reporting time window. This information is currently available only for outbound connections. |
-| `LinksLive` |The number of physical network connections that were open at the end of the reporting time window|
+| `LinksLive` |The number of physical network connections that were open at the end of the reporting time window.|
 
 #### Metrics
 
-In addition to connection count metrics, information about the volume of data sent and received on a given logical connection or network port are also included in the following properties of the record:
+In addition to connection count metrics, information about the volume of data sent and received on a specific logical connection or network port is also included in the following properties of the record:
 
 | Property | Description |
 |:--|:--|
-| `BytesSent` |Total number of bytes that have been sent during the reporting time window |
-| `BytesReceived` |Total number of bytes that have been received during the reporting time window |
-| `Responses` |The number of responses observed during the reporting time window. 
-| `ResponseTimeMax` |The largest response time (milliseconds) observed during the reporting time window.  If no value, the property is blank.|
-| `ResponseTimeMin` |The smallest response time (milliseconds) observed during the reporting time window.  If no value, the property is blank.|
-| `ResponseTimeSum` |The sum of all response times (milliseconds) observed during the reporting time window.  If no value, the property is blank|
+| `BytesSent` |Total number of bytes that have been sent during the reporting time window. |
+| `BytesReceived` |Total number of bytes that have been received during the reporting time window. |
+| `Responses` |The number of responses observed during the reporting time window.
+| `ResponseTimeMax` |The largest response time in milliseconds observed during the reporting time window. If there's no value, the property is blank.|
+| `ResponseTimeMin` |The smallest response time in milliseconds observed during the reporting time window.  If no value, the property is blank.|
+| `ResponseTimeSum` |The sum of all response times in milliseconds observed during the reporting time window. If there's no value, the property is blank|
 
-The third type of data being reported is response time - how long does a caller spend waiting for a request sent over a connection to be processed and responded to by the remote endpoint. The response time reported is an estimation of the true response time of the underlying application protocol. It is computed using heuristics based on the observation of the flow of data between the source and destination end of a physical network connection. Conceptually, it is the difference between the time the last byte of a request leaves the sender, and the time when the last byte of the response arrives back to it. These two timestamps are used to delineate request and response events on a given physical connection. The difference between them represents the response time of a single request. 
+The third type of data being reported is response time. How long does a caller spend waiting for a request sent over a connection to be processed and responded to by the remote endpoint?
 
-In this first release of this feature, our algorithm is an approximation that may work with varying degree of success depending on the actual application protocol used for a given network connection. For example, the current approach works well for request-response based protocols such as HTTP(S), but does not work with one-way or message queue-based protocols.
+The response time reported is an estimation of the true response time of the underlying application protocol. It's computed by using heuristics based on the observation of the flow of data between the source and destination end of a physical network connection.
+
+Conceptually, response time is the difference between the time the last byte of a request leaves the sender and the time when the last byte of the response arrives back to it. These two timestamps are used to delineate request and response events on a specific physical connection. The difference between them represents the response time of a single request.
+
+In this first release of this feature, our algorithm is an approximation that might work with varying degrees of success depending on the actual application protocol used for a specific network connection. For example, the current approach works well for request-response-based protocols, such as HTTP/HTTPS. But this approach doesn't work with one-way or message queue-based protocols.
 
 Here are some important points to consider:
 
-1. If a process accepts connections on the same IP address but over multiple network interfaces, a separate record for each interface will be reported. 
-2. Records with wildcard IP will contain no activity. They are included to represent the fact that a port on the machine is open to inbound traffic.
-3. To reduce verbosity and data volume, records with wildcard IP will be omitted when there is a matching record (for the same process, port, and protocol) with a specific IP address. When a wildcard IP record is omitted, the IsWildcardBind record property with the specific IP address, will be set to "True" to indicate that the port is exposed over every interface of the reporting machine.
-4. Ports that are bound only on a specific interface have IsWildcardBind set to "False".
+- If a process accepts connections on the same IP address but over multiple network interfaces, a separate record for each interface will be reported.
+- Records with wildcard IP will contain no activity. They're included to represent the fact that a port on the machine is open to inbound traffic.
+- To reduce verbosity and data volume, records with wildcard IP will be omitted when there's a matching record (for the same process, port, and protocol) with a specific IP address. When a wildcard IP record is omitted, the `IsWildcardBind` record property with the specific IP address will be set to `True.` This setting indicates that the port is exposed over every interface of the reporting machine.
+- Ports that are bound only on a specific interface have `IsWildcardBind` set to `False`.
 
-#### Naming and Classification
+#### Naming and classification
 
-For convenience, the IP address of the remote end of a connection is included in the RemoteIp property. For inbound connections, RemoteIp is the same as SourceIp, while for outbound connections, it is the same as DestinationIp. The RemoteDnsCanonicalNames property represents the DNS canonical names reported by the machine for RemoteIp. The RemoteDnsQuestions and RemoteClassification properties are reserved for future use. 
+For convenience, the IP address of the remote end of a connection is included in the `RemoteIp` property. For inbound connections, `RemoteIp` is the same as `SourceIp`, while for outbound connections, it 's the same as `DestinationIp`. The `RemoteDnsCanonicalNames` property represents the DNS canonical names reported by the machine for `RemoteIp`. The `RemoteDnsQuestions` and `RemoteClassification` properties are reserved for future use.
 
 #### Geolocation
 
-*VMConnection* also includes geolocation information for the remote end of each connection record in the following properties of the record: 
+*VMConnection* also includes geolocation information for the remote end of each connection record in the following properties of the record:
 
 | Property | Description |
 |:--|:--|
-| `RemoteCountry` |The name of the country/region hosting RemoteIp.  For example, *United States* |
-| `RemoteLatitude` |The geolocation latitude.  For example, *47.68* |
-| `RemoteLongitude` |The geolocation longitude.  For example, *-122.12* |
+| `RemoteCountry` |The name of the country/region hosting RemoteIp. An example is *United States*. |
+| `RemoteLatitude` |The geolocation latitude. An example is *47.68*. |
+| `RemoteLongitude` |The geolocation longitude. An example is *-122.12*. |
 
 #### Malicious IP
 
-Every RemoteIp property in *VMConnection* table is checked against a set of IPs with known malicious activity. If the RemoteIp is identified as malicious the following properties will be populated (they are empty, when the IP is not considered malicious) in the following properties of the record:
+Every `RemoteIp` property in the *VMConnection* table is checked against a set of IPs with known malicious activity. If the `RemoteIp` is identified as malicious, the following properties will be populated (they're empty when the IP isn't considered malicious) in the following properties of the record:
 
 | Property | Description |
 |:--|:--|
-| `MaliciousIp` |The RemoteIp address |
-| `IndicatorThreadType` |Threat indicator detected is one of the following values, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
+| `MaliciousIp` |The `RemoteIp` address. |
+| `IndicatorThreadType` |Threat indicator detected is one of the following values: *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, or *Watchlist*.   |
 | `Description` |Description of the observed threat. |
-| `TLPLevel` |Traffic Light Protocol (TLP) Level is one of the defined values, *White*, *Green*, *Amber*, *Red*. |
+| `TLPLevel` |Traffic Light Protocol (TLP) Level is one of the defined values: *White*, *Green*, *Amber*, *Red*. |
 | `Confidence` |Values are *0 – 100*. |
-| `Severity` |Values are *0 – 5*, where *5* is the most severe and *0* is not severe at all. Default value is *3*.  |
+| `Severity` |Values are *0 – 5*, where *5* is the most severe and *0* isn't severe. The default value is *3*.  |
 | `FirstReportedDateTime` |The first time the provider reported the indicator. |
 | `LastReportedDateTime` |The last time the indicator was seen by Interflow. |
 | `IsActive` |Indicates indicators are deactivated with *True* or *False* value. |
 | `ReportReferenceLink` |Links to reports related to a given observable. |
-| `AdditionalInformation` |Provides additional information, if applicable, about the observed threat. |
+| `AdditionalInformation` |Provides more information, if applicable, about the observed threat. |
 
 ### ServiceMapComputer_CL records
 
@@ -448,7 +461,7 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
 | `ResourceId` | The unique identifier for a process within the workspace |
-| `ResourceName_s` | The unique identifier for a process within the machine on which it is running|
+| `ResourceName_s` | The unique identifier for a process within the machine on which it's running|
 | `MachineResourceName_s` | The resource name of the machine |
 | `ExecutableName_s` | The name of the process executable |
 | `StartTime_t` | The process pool start time |
@@ -471,11 +484,11 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
-### List the physical memory capacity of all managed computers.
+### List the physical memory capacity of all managed computers
 
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
-### List computer name, DNS, IP, and OS.
+### List computer name, DNS, IP, and OS
 
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
@@ -556,7 +569,7 @@ All the server, process, and dependency data in Service Map is available via the
 
 ## Diagnostic and usage data
 
-Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this data to provide and improve the quality, security, and integrity of the Service Map service. To provide accurate and efficient troubleshooting capabilities, the data includes information about the configuration of your software, such as operating system and version, IP address, DNS name, and workstation name. Microsoft does not collect names, addresses, or other contact information.
+Microsoft automatically collects usage and performance data through your use of Service Map. Microsoft uses this data to provide and improve the quality, security, and integrity of Service Map. To provide accurate and efficient troubleshooting capabilities, the data includes information about the configuration of your software, such as operating system and version, IP address, DNS name, and workstation name. Microsoft does not collect names, addresses, or other contact information.
 
 For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
@@ -566,39 +579,44 @@ Learn more about [log searches](../logs/log-query-overview.md) in Log Analytics 
 
 ## Troubleshooting
 
-If you have any problems installing or running Service Map, this section can help you. If you still can't resolve your problem, please contact Microsoft Support.
+If you have any problems installing or running Service Map, this section can help you. If you still can't resolve your problem, contact Microsoft Support.
 
 ### Dependency agent installation problems
 
+This section addresses issues with Dependency agent installation.
+
 #### Installer prompts for a reboot
-The Dependency agent *generally* does not require a reboot upon installation or removal. However, in certain rare cases, Windows Server requires a reboot to continue with an installation. This happens when a dependency, usually the Microsoft Visual C++ Redistributable library requires a reboot because of a locked file.
+
+The Dependency agent *generally* doesn't require a reboot upon installation or removal. In certain rare cases, Windows Server requires a reboot to continue with an installation. This issue happens when a dependency, usually the Microsoft Visual C++ Redistributable library, requires a reboot because of a locked file.
 
 #### Message "Unable to install Dependency agent: Visual Studio Runtime libraries failed to install (code = [code_number])" appears
 
-The Microsoft Dependency agent is built on the Microsoft Visual Studio runtime libraries. You'll get a message if there's a problem during installation of the libraries. 
+The Microsoft Dependency agent is built on the Microsoft Visual Studio runtime libraries. You'll get a message if there's a problem during installation of the libraries.
 
-The runtime library installers create logs in the %LOCALAPPDATA%\temp folder. The file is `dd_vcredist_arch_yyyymmddhhmmss.log`, where *arch* is `x86` or `amd64` and *yyyymmddhhmmss* is the date and time (24-hour clock) when the log was created. The log provides details about the problem that's blocking installation.
+The runtime library installers create logs in the %LOCALAPPDATA%\temp folder. The file is `dd_vcredist_arch_yyyymmddhhmmss.log`, where *arch* is `x86` or `amd64` and *yyyymmddhhmmss* is the date and time (based on a 24-hour clock) when the log was created. The log provides details about the problem that's blocking installation.
 
 It might be useful to install the [latest runtime libraries](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) first.
 
-The following table lists code numbers and suggested resolutions.
+The following table lists code numbers and suggested resolutions:
 
 | Code | Description | Resolution |
 |:--|:--|:--|
-| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log.<br><br>If a reference to `Windows8.1-KB2999226-x64.msu` is followed by a line `Error 0x80240017: Failed to execute MSU package,` you don't have the prerequisites to install KB2999226. Follow the instructions in the prerequisites section in [Universal C Runtime in Windows](https://support.microsoft.com/kb/2999226) article. You might need to run Windows Update and reboot multiple times in order to install the prerequisites.<br><br>Run the Microsoft Dependency agent installer again. |
+| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log.<br><br>If a reference to `Windows8.1-KB2999226-x64.msu` is followed by a line `Error 0x80240017: Failed to execute MSU package,` you don't have the prerequisites to install KB2999226. Follow the instructions in the prerequisites section in the [Universal C Runtime in Windows](https://support.microsoft.com/kb/2999226) article. You might need to run Windows Update and reboot multiple times to install the prerequisites.<br><br>Run the Microsoft Dependency agent installer again. |
 
 ### Post-installation issues
+
+This section addresses post-installation issues.
 
 #### Server doesn't appear in Service Map
 
 If your Dependency agent installation succeeded, but you don't see your machine in the Service Map solution:
-* Is the Dependency agent installed successfully? You can validate this by checking to see if the service is installed and running.<br><br>
-**Windows**: Look for the service named **Microsoft Dependency agent**.
-**Linux**: Look for the running process **microsoft-dependency-agent**.
+
+* Is the Dependency agent installed successfully? Check to see if the service is installed and running.<br><br>
+  - **Windows**: Look for the service named **Microsoft Dependency agent**.
+  - **Linux**: Look for the running process **microsoft-dependency-agent**.
 
 * Are you on the [Log Analytics free tier](https://azure.microsoft.com/pricing/details/monitor/)? The Free plan allows for up to five unique Service Map machines. Any subsequent machines won't appear in Service Map, even if the prior five are no longer sending data.
-
-* Is your server sending log and perf data to Azure Monitor Logs? Go to Azure Monitor\Logs and run the following query for your computer: 
+* Is your server sending log and perf data to Azure Monitor Logs? Go to Azure Monitor\Logs and run the following query for your computer:
 
     ```kusto
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
@@ -608,10 +626,10 @@ Did you get a variety of events in the results? Is the data recent? If so, your 
 
 #### Server appears in Service Map but has no processes
 
-If you see your machine in Service Map, but it has no process or connection data, that indicates that the Dependency agent is installed and running, but the kernel driver didn't load. 
+If you see your machine in Service Map but it has no process or connection data, that behavior indicates that the Dependency agent is installed and running but the kernel driver didn't load.
 
-Check the `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) or `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). The last lines of the file should indicate why the kernel didn't load. For example, the kernel might not be supported on Linux if you updated your kernel.
+Check `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` for Windows or `/var/opt/microsoft/dependency-agent/log/service.log file` for Linux. The last lines of the file should indicate why the kernel didn't load. For example, the kernel might not be supported on Linux if you updated your kernel.
 
 ## Suggestions
 
-Do you have any feedback for us about Service Map or this documentation?  Visit our [User Voice page](https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0?c=ad4304e4-1925-ec11-b6e6-000d3a4f09d0), where you can suggest features or vote up existing suggestions.
+Do you have any feedback for us about Service Map or this documentation? See our [User Voice page](https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0?c=ad4304e4-1925-ec11-b6e6-000d3a4f09d0) where you can suggest features or vote up existing suggestions.
