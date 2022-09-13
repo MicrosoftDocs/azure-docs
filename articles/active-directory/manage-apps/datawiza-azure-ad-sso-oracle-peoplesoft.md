@@ -144,7 +144,7 @@ For the Oracle PeopleSoft application to recognize the user correctly, there's a
    |Expected |      PS_SSO_UID |
    |Type |          Header|
 
-   ![Screenshot that shows the attribute pass value.](./media/access-oracle-peoplesoft-using-datawiza/attribute-pass.png)
+   [ ![Screenshot that shows the attribute pass value.](./media/access-oracle-peoplesoft-using-datawiza/attribute-pass.png)](./media/access-oracle-peoplesoft-using-datawiza/attribute-pass.png#lightbox)
 
    >[!Note]
    >This configuration uses the Azure AD user principal name as the sign in username used by Oracle PeopleSoft. To use another user identity, go to the Mappings tab.
@@ -155,7 +155,7 @@ For the Oracle PeopleSoft application to recognize the user correctly, there's a
 
 1. Select the **Advanced tab**.
 
-   ![Screenshot that shows the advanced tab](./media/access-oracle-peoplesoft-using-datawiza/advanced-configuration.png)
+   [ ![Screenshot that shows the advanced tab.](./media/access-oracle-peoplesoft-using-datawiza/advanced-configuration.png)](./media/access-oracle-peoplesoft-using-datawiza/advanced-configuration.png#lightbox)
 
 2. Select **Enable SSL**.
 
@@ -193,7 +193,7 @@ To enable SSO in the Oracle PeopleSoft environment:
 
 1. Sign in PeopleSoft Consol `http://{your-peoplesoft-fqdn}:8000/psp/ps/?cmd=start` using Admin credentials, for example, PS/PS.
 
-   ![Screenshot that shows Oracle PeopleSoft console.](./media/access-oracle-peoplesoft-using-datawiza/peoplesoft-console.png)
+   [ ![Screenshot that shows Oracle PeopleSoft console.](./media/access-oracle-peoplesoft-using-datawiza/peoplesoft-console.png)](./media/access-oracle-peoplesoft-using-datawiza/peoplesoft-console.png#lightbox)
 
 2. Add a default public access user to PeopleSoft
 
