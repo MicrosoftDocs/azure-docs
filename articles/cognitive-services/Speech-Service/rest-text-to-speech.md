@@ -272,37 +272,54 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 ## Audio outputs
 
-This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
+The supported streaming and non-streaming audio formats are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
 
-| Streaming                          | Non-Streaming               |
-| ---------------------------------- | --------------------------- |
-| audio-16khz-16bit-32kbps-mono-opus | riff-8khz-8bit-mono-alaw    |
-| audio-16khz-32kbitrate-mono-mp3    | riff-8khz-8bit-mono-mulaw   |
-| audio-16khz-64kbitrate-mono-mp3    | riff-8khz-16bit-mono-pcm    |
-| audio-16khz-128kbitrate-mono-mp3   | riff-22050hz-16bit-mono-pcm |
-| audio-24khz-16bit-24kbps-mono-opus | riff-24khz-16bit-mono-pcm   |
-| audio-24khz-16bit-48kbps-mono-opus | riff-44100hz-16bit-mono-pcm |
-| audio-24khz-48kbitrate-mono-mp3    | riff-48khz-16bit-mono-pcm   |
-| audio-24khz-96kbitrate-mono-mp3    |                             |
-| audio-24khz-160kbitrate-mono-mp3   |                             |
-| audio-48khz-96kbitrate-mono-mp3    |                             |
-| audio-48khz-192kbitrate-mono-mp3   |                             |
-| ogg-16khz-16bit-mono-opus          |                             |
-| ogg-24khz-16bit-mono-opus          |                             |
-| ogg-48khz-16bit-mono-opus          |                             |
-| raw-8khz-8bit-mono-alaw            |                             |
-| raw-8khz-8bit-mono-mulaw           |                             |
-| raw-8khz-16bit-mono-pcm            |                             |
-| raw-16khz-16bit-mono-pcm           |                             |
-| raw-16khz-16bit-mono-truesilk      |                             |
-| raw-22050hz-16bit-mono-pcm         |                             |
-| raw-24khz-16bit-mono-pcm           |                             |
-| raw-24khz-16bit-mono-truesilk      |                             |
-| raw-44100hz-16bit-mono-pcm         |                             |
-| raw-48khz-16bit-mono-pcm           |                             |
-| webm-16khz-16bit-mono-opus         |                             |
-| webm-24khz-16bit-24kbps-mono-opus  |                             |
-| webm-24khz-16bit-mono-opus         |                             |
+#### [Streaming](#tab/streaming)
+
+```
+amr-wb-16000hz
+audio-16khz-16bit-32kbps-mono-opus
+audio-16khz-32kbitrate-mono-mp3
+audio-16khz-64kbitrate-mono-mp3
+audio-16khz-128kbitrate-mono-mp3
+audio-24khz-16bit-24kbps-mono-opus
+audio-24khz-16bit-48kbps-mono-opus
+audio-24khz-48kbitrate-mono-mp3
+audio-24khz-96kbitrate-mono-mp3
+audio-24khz-160kbitrate-mono-mp3
+audio-48khz-96kbitrate-mono-mp3
+audio-48khz-192kbitrate-mono-mp3
+ogg-16khz-16bit-mono-opus
+ogg-24khz-16bit-mono-opus
+ogg-48khz-16bit-mono-opus
+raw-8khz-8bit-mono-alaw
+raw-8khz-8bit-mono-mulaw
+raw-8khz-16bit-mono-pcm
+raw-16khz-16bit-mono-pcm
+raw-16khz-16bit-mono-truesilk
+raw-22050hz-16bit-mono-pcm
+raw-24khz-16bit-mono-pcm
+raw-24khz-16bit-mono-truesilk
+raw-44100hz-16bit-mono-pcm
+raw-48khz-16bit-mono-pcm
+webm-16khz-16bit-mono-opus
+webm-24khz-16bit-24kbps-mono-opus
+webm-24khz-16bit-mono-opus
+```
+
+#### [NonStreaming](#tab/nonstreaming)
+
+```
+riff-8khz-8bit-mono-alaw
+riff-8khz-8bit-mono-mulaw
+riff-8khz-16bit-mono-pcm
+riff-22050hz-16bit-mono-pcm
+riff-24khz-16bit-mono-pcm
+riff-44100hz-16bit-mono-pcm
+riff-48khz-16bit-mono-pcm
+```
+
+***
 
 > [!NOTE]
 > en-US-AriaNeural, en-US-JennyNeural and zh-CN-XiaoxiaoNeural are available in public preview in 48Khz output. Other voices support 24khz upsampled to 48khz output.

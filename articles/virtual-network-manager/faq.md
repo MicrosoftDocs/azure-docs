@@ -101,6 +101,9 @@ For more information, see [remove components checklist](concept-remove-component
 ### Does Azure Virtual Network Manager store customer data?
 No. Azure Virtual Network Manager doesn't store any customer data.
 
+### Can an Azure Virtual Network Manager instance be moved?
+No. Resource move is not supported currently. If you need to move it, you can consider deleting the existing AVNM instance and using the ARM template to create another one in another location.
+
 ### How can I see what configurations are applied to help me troubleshoot?
 
 You can view Azure Virtual Network Manager settings under **Network Manager** for a virtual network. You can see both connectivity and security admin configuration that are applied. For more information, see [view applied configuration](how-to-view-applied-configurations.md).
