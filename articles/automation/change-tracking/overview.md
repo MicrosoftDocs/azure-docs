@@ -77,7 +77,7 @@ Change Tracking and Inventory now supports Python 2 and Python 3. If your machin
 - Ubuntu, Debian: `apt-get install -y python2`
 - SUSE: `zypper install -y python2`
 > [!NOTE]
-> The python2 executable must be aliased to *python*.
+> The Python 2 executable must be aliased to *python*.
 
 #### [Python 3](#tab/python-3)
 
