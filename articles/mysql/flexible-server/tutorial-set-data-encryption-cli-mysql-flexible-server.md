@@ -4,7 +4,7 @@ description: Learn how to set up and manage data encryption for your Azure Datab
 author: vivgk
 ms.author: vivgk
 ms.reviewer: maghan
-ms.date: 09/15/2022
+ms.date: 09/14/2022
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -28,13 +28,13 @@ In this tutorial you'll learn how to:
 
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
 
-- Login to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the ID property, which refers to Subscription ID for your Azure account.
+- Login to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the ID property, which refers to Subscription ID for your Azure account:
 
 ```azurecli-interactive
 az login
 ```
 
-- If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the az account set command.
+- If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the az account set command:
 
 ```azurecli-interactive
 az account set --subscription \<subscription id\>
