@@ -54,6 +54,17 @@ git clone https://github.com/Azure/azureml-examples
 git checkout mabables/registry
 cd cli/jobs/pipelines-with-components/nyc_taxi_data_regression
 ```
+
+## Tasks you will learn in this document
+
+* Create and environment and components in the registry.
+* Use the component from registry to submit a model training job in a workspace.
+* Register the trained model in the workspace.
+* Deploy the model from the registry to an online-endpoint in the workspace and submit some inference requests.
+
+To accomplish this flow, lets gets started by creating a connection to the a workspace and a registry. 
+
+
 ## Create Environment in Registry
 
 Environments define the docker container and python dependencies required to run training jobs or deploy models. Review [environment concepts](./concept-environments.md) and [how to create environments](./how-to-manage-environments-v2.md) to learn more. 
@@ -189,6 +200,9 @@ jobs:
         type: mlflow_model
       test_data: 
 ```  
+
+The key aspect note here is that this pipeline is going to run in a workspace using a component that is not in the specific workspace, but in a registry that can be used with any workspace in your orgnization. This means you can run this training job in any workspace you have access to without having worry about making the training code and environment available in that workspace. 
+
 > [!WARNING]
 > Confirm that the workspace in which you will run this job is in a Azure location that is supported by the registry in which you created the component before you run the pipeline job.
 
@@ -210,7 +224,7 @@ Alternatively, ou can skip editing `single-job-pipeline.yml` and override the co
 az ml job create --file single-job-pipeline.yml --set jobs.train_job.component=azureml://registries/<registry-name>/component/train_linear_regression_model/versions/1
 ```
 
-You can click on the Studio endpoint link in the job output to view the the job in the Studio UI where you analyze training metrics, verify that the job is using component and environment from registry and review the trained model. Note down the `name` of the job from the json output of the `az ml model create` command or find the same from the job overview in the Studio UI. You will need this download the trained model in the next section on creating models in registry. 
+You can click on the Studio endpoint link in the job output to view the the job in the Studio UI where you analyze training metrics, verify that the job is using component and environment from registry and review the trained model. Note down the `name` of the job from the json output of the `az ml model create` command or find the same from the job overview in the Studio UI. You will need this to download the trained model in the next section on creating models in registry. 
 
 ![](./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png)
 
@@ -230,16 +244,18 @@ In both the options, you will create model with the [MLflow format](./how-to-man
 
 ### Create a model in registry from local files
 
-Download the model which is available as output of the trained job by replacing `<job-name>` with the name from the job from the previous section. The model along with MLflow metadata files should be available in the `./artifacts/model/`.
+Download the model which is available as output of the `train_job` by replacing `<job-name>` with the name from the job from the previous section. The model along with MLflow metadata files should be available in the `./artifacts/model/`.
 
 ```azurecli
 # fetch the name of the train_job by listing all child jobs of the pipeline job
-train_job_name=$(az ml job list --parent-job-name <job-name> --workspace-name <workspace-name> --resource-group <workspace-resource-group> --query [0].name | sed 's/\"//g')
+train_job_name=$(az ml job list --parent-job-name <job-name> --query [0].name | sed 's/\"//g')
 # download the default outputs of the train_job
-az ml job download --name $train_job_name --workspace-name <workspace-name> --resource-group <workspace-resource-group>
+az ml job download --name $train_job_name 
 # review the model files
 ls -l ./artifacts/model/
 ```
+> [!TIP]
+> If you have not configured the default workspace and resource group as explained in the prerequisites section, you will need to specify the `--workspace-name` and `--resource-group` parameters for the `az ml model create` to work.
 
 If you are unable to download the model, you can find sample MLflow model trained by the training job in the previous section in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression/artifacts/model/` folder.
 
@@ -249,7 +265,7 @@ Create the model in the registry
 az ml model create --name nyc-taxi-model --version 1 --type mlflow_model --path ./artifacts/model/ --registry-name <registry-name>
 ```
 > [!TIP]
-> Use a random number for the `version` parameter if you get an error that model name and version exists.`
+> Use a random number for the `version` parameter if you get an error that model name and version exists.
 
 > [!TIP]
 > The same the CLI command `az ml model create` can be used to create models in a workspace or registry. Running the command with `--workspace-name` command creates the model in a workspace whereas running the command with `--registry-name` creates the model in the registry.
