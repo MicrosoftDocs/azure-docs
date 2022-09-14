@@ -43,15 +43,15 @@ The steps in this section guide you to create a Liberty runtime on AKS. After co
 
 1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link, [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
 1. Select **Create**.
-1. In the **Basics** blade, create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
+1. In the **Basics** pane, create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
 1. Select *East US* as **Region**.
 1. Select **Next: Configure cluster**.
-1. This section allows you to select an existing AKS cluster and Azure Container  Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability allows leveraging the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. Leave all other values at the defaults and select **Next: Networking**.
-1. Next to **Connect to Azure Application Gateway?** select **Yes**. This blade lets you customize the following deployment options.
+1. This section allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to leverage the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. Leave all other values at the defaults and select **Next: Networking**.
+1. Next to **Connect to Azure Application Gateway?** select **Yes**. This pane lets you customize the following deployment options.
    1. You can customize the virtual network and subnet into which the deployment will place the resources. Leave these values at their defaults.
-   1. You can provide the TLS/SSL certificate presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Do not go to production using a self-certificate. For more information about self-signed certificates see [Create a self-signed public certificate to authenticate your application](/azure/active-directory/develop/howto-create-self-signed-certificate).
+   1. You can provide the TLS/SSL certificate presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Do not go to production using a self-certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](/azure/active-directory/develop/howto-create-self-signed-certificate).
    1. You can enable cookie based affinity, also known as sticky sessions. We want this enabled for this article, so ensure this option is selected.
-      ![Screenshot of the enable cookie-based affinity checkbox](./media/howto-deploy-java-liberty-app/enable-cookie-based-affinity.png)
+      ![Screenshot of the enable cookie-based affinity checkbox.](./media/howto-deploy-java-liberty-app/enable-cookie-based-affinity.png)
 1. Select **Review + create** to validate your selected options.
 1. When you see the message **Validation Passed**, select **Create**. The deployment may take up to 20 minutes.
 
@@ -79,18 +79,18 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 The steps in this section guide you through creating an Azure SQL Database single database for use with your app.
 
-1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences in the box below. Return to this document after creating and configuring the database server.
+1. Create a single database in Azure SQL Database by following the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences in the box below. Return to this article after creating and configuring the database server.
 
    > [!NOTE]
+   > At the **Basics** step, write down **Resource group**, **Database name**, ***Server name**.database.windows.net*, **Server admin login** and **Password**. The database **Resource group** will be referred to as `<db-resource-group>` later in this article.
    >
-   > * At the **Basics** step, write down **Resource group**, **Database name**, ***Server name**.database.windows.net*, **Server admin login** and **Password**. The database **Resource group** will be referred to as `<db-resource-group>` later in this article.
-   > * At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
+   > At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
    >
-   >   ![Screenshot of configuring SQL database networking.](./media/howto-deploy-java-liberty-app/create-sql-database-networking.png)
+   > ![Screenshot of configuring SQL database networking.](./media/howto-deploy-java-liberty-app/create-sql-database-networking.png)
    >
-   > * Also at the **Networking** step, under **Encrypted connections**, set the **Minimum TLS version** to **TLS 1.0**.
+   > Also at the **Networking** step, under **Encrypted connections**, set the **Minimum TLS version** to **TLS 1.0**.
    >
-   >   ![Screenshot of configuring SQL database networking TLS 1.0.](./media/howto-deploy-java-liberty-app/sql-database-minimum-tls-version.png)
+   > ![Screenshot of configuring SQL database networking TLS 1.0.](./media/howto-deploy-java-liberty-app/sql-database-minimum-tls-version.png)
 
 Now that the database and AKS cluster have been created, we can proceed to preparing AKS to host your Open Liberty application.
 
