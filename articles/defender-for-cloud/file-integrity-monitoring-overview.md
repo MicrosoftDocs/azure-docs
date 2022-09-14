@@ -63,4 +63,4 @@ In this article, you learned about File Integrity Monitoring (FIM) in Defender f
 Next, you can:
 
 - [Enable File Integrity Monitoring when using the Azure Monitor Agent](file-integrity-monitoring-enable-ama.md)
-- [Enable File Integrity Monitoring when using the ](file-integrity-monitoring-enable-log-analytics.md)
+- [Enable File Integrity Monitoring when using the Log Analytics agent](file-integrity-monitoring-enable-log-analytics.md)

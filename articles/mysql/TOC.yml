@@ -123,14 +123,20 @@
         displayName: replication, read replica
       - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
+    - name: Security
+      items:
+      - name: Data encryption with a customer managed key
+        href: flexible-server/concepts-customer-managed-key-mysql-flexible-server.md
     - name: Backup & Restore
       items:
       - name: Backup & Restore concepts
         href: flexible-server/concepts-backup-restore.md
   - name: Integrations
     items:
+    - name: Power BI
+      href: flexible-server/connect-with-powerbi-desktop.md
     - name: Azure advisor
-      href: ../postgresql/single-server/concepts-azure-advisor-recommendations.md
+      href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
       href: ../data-factory/connector-azure-database-for-mysql.md
   - name: Tutorials

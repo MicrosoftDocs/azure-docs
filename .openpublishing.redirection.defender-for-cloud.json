@@ -714,6 +714,11 @@
             "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-usage.md",
             "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-enable-log-analytics#compare-baselines-using-file-integrity-monitoring",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/release-notes.md#auto-deployment-of-azure-monitor-agent-preview",
+            "redirect_url": "/azure/defender-for-cloud/release-notes#azure-monitor-agent-integration-now-in-preview",
+            "redirect_document_id": true
         }
       ]
 }

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 09/06/2022
 ms.author: normesta
 ---
 
@@ -63,7 +63,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
 | [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24;  | &#x1F7E6; |
+| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24;  | &nbsp;&#x2B24; |
 | [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -111,7 +111,7 @@ The following table describes whether a feature is supported in a premium block 
 | [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
 | [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |
+| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
