@@ -138,7 +138,7 @@ The plan defined using the following structure:
 ```
 
 > [!NOTE]
-> Note, that using the plan attribute will require that the image in question has been used at least once in the subscription, this is because the first usage prompts the user to accept the License terms and the automation has no mean to approve it.
+> Note that using the plan attribute will require that the image in question has been used at least once in the subscription. This is because the first usage prompts the user to accept the License terms and the automation has no mean to approve it.
 
 
 
