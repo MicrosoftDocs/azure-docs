@@ -1,5 +1,5 @@
 ---
-title: Field mappings in indexers
+title: Map fields in indexers
 titleSuffix: Azure Cognitive Search
 description: Configure field mappings in an indexer to account for differences in field names and data representations.
 
@@ -16,19 +16,20 @@ ms.date: 09/14/2022
 
 ![Indexer Stages](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "indexer stages")
 
-When using an [Azure Cognitive Search indexer](search-indexer-overview.md) to push content into a search index, the indexer can often detect and assign source-to-destination field mappings. Implicit field mappings occur when field names and data types are compatible. 
+When using an [Azure Cognitive Search indexer](search-indexer-overview.md) to pull content into a search index, the indexer can often implicitly detect and assign source-to-destination field mappings. Implicit field mappings occur when field names and data types are compatible. 
 
-If inputs and outputs don't match, you can define explicit *field mappings* to set up the data path, as described in this article. Field mappings can also be used to provide light-weight data conversion, such as encoding or decoding, through [mapping functions](#mappingFunctions). If more processing is required, consider [Azure Data Factory](../data-factory/index.yml) to bridge the gap.
+If inputs and outputs don't match, you can define explicit *field mappings* to set up the data path, as described in this article. Field mappings can also be used to introduce light-weight data conversion, such as encoding or decoding, through [mapping functions](#mappingFunctions). If more processing is required, consider [Azure Data Factory](../data-factory/index.yml) to bridge the gap.
 
 Field mappings apply to:
 
-+ Physical data structures on both sides of the data stream (that is, between a [supported data source](search-indexer-overview.md#supported-data-sources) and a [search index](search-what-is-an-index.md)). If you're importing enriched content created by skills, use [outputFieldMappings](cognitive-search-output-field-mapping.md) instead.
++ Physical data structures on both sides of the data stream (between a [supported data source](search-indexer-overview.md#supported-data-sources) and a [search index](search-what-is-an-index.md)). If you're importing skill enriched content that resides in memory, use [outputFieldMappings](cognitive-search-output-field-mapping.md) instead.
 
 + Search indexes only. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
 + Top-level search fields only, where the "targetFieldName" is either a simple field or a collection. A target field can't be a complex type.
 
-  If you're working with complex data (nested or hierarchical structures), and you'd like to mirror that data structure in your search index, your search index must match the source structure exactly (same field names, levels, and types) so that the default mappings will work. Optionally, you can flatten incoming data into a string collection (see  [outputFieldMappings](cognitive-search-output-field-mapping.md) for this workaround).
+> [!NOTE]
+> If you're working with complex data (nested or hierarchical structures), and you'd like to mirror that data structure in your search index, your search index must match the source structure exactly (same field names, levels, and types) so that the default mappings will work. Optionally, you might want just a few nodes in the complex structure. To get individual nodes, you can flatten incoming data into a string collection (see  [outputFieldMappings](cognitive-search-output-field-mapping.md#flatten-complex-structures-into-a-string-collection) for this workaround).
 
 ## Supported scenarios
 
@@ -56,9 +57,9 @@ Field mappings are added to the "fieldMappings" array of an indexer definition. 
 
 | Property | Description |
 |----------|-------------|
-| "sourceFieldName" | Required. Represents a field in your data source. |
-|  "targetFieldName" | Optional. Represents a field in your search index. If omitted, the value of "sourceFieldName" is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a complex type or collection. |
-| "mappingFunction" | Optional. Consists of [predefined functions](#mappingFunctions) that transform data. You can apply functions to both source and target field mappings. |
+| sourceFieldName | Required. Represents a field in your data source. |
+| targetFieldName | Optional. Represents a field in your search index. If omitted, the value of "sourceFieldName" is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a complex type or collection. If you're handling a data type issue, a field's data type is specified in the index definition. The field mapping just needs to have the field's name.|
+| mappingFunction | Optional. Consists of [predefined functions](#mappingFunctions) that transform data.  |
 
 Azure Cognitive Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index can't have fields that differ only by case.  
 
@@ -84,7 +85,7 @@ api-key: [admin key]
 }
 ```
 
-Map a single source field to multiple target fields ("one-to-many" mappings). The following example shows how to "fork" a field, copying the same source field content to two different index fields that will be analyzed or attributed differently in the index.
+This example maps a single source field to multiple target fields ("one-to-many" mappings). You can "fork" a field, copying the same source field content to two different index fields that will be analyzed or attributed differently in the index.
 
 ```JSON
 
