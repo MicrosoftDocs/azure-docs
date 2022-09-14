@@ -214,7 +214,7 @@ Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipel
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Deployment removal' by choosing 'Rename/Move' from the three-dot menu on the right.
 
-## Deployment removal pipeline
+## Control plane removal pipeline
 
 Create the control plane deployment removal pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
 
