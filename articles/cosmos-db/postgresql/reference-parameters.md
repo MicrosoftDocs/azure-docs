@@ -117,7 +117,7 @@ DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connect
 
 #### citus.show\_shards\_for\_app\_name\_prefixes (text)
 
-By default, Citus hides shards from the list of tables PostgreSQL gives to SQL
+By default, Azure Cosmos DB for PostgreSQL hides shards from the list of tables PostgreSQL gives to SQL
 clients. It does this because there are multiple shards per distributed table,
 and the shards can be distracting to the SQL client.
 
@@ -233,19 +233,19 @@ necessary to support the join. Copying table data is referred to as a
 “conversion.” If a local table is converted, then it will be sent to any
 workers that need its data to perform the join. If a distributed table is
 converted, then it will be collected in the coordinator to support the join.
-The Citus planner will send only the necessary rows doing a conversion.
+The Azure Cosmos DB for PostgreSQL planner will send only the necessary rows doing a conversion.
 
 There are four modes available to express conversion preference:
 
-* **auto:** (Default) Citus will convert either all local or all distributed
-  tables to support local and distributed table joins. Citus decides which to
+* **auto:** (Default) Azure Cosmos DB for PostgreSQL will convert either all local or all distributed
+  tables to support local and distributed table joins. Azure Cosmos DB for PostgreSQL decides which to
   convert using a heuristic. It will convert distributed tables if they're
   joined using a constant filter on a unique index (such as a primary key). The
   conversion ensures less data gets moved between workers.
-* **never:** Citus won't allow joins between local and distributed tables.
-* **prefer-local:** Citus will prefer converting local tables to support local
+* **never:** Azure Cosmos DB for PostgreSQL won't allow joins between local and distributed tables.
+* **prefer-local:** Azure Cosmos DB for PostgreSQL will prefer converting local tables to support local
   and distributed table joins.
-* **prefer-distributed:** Citus will prefer converting distributed tables to
+* **prefer-distributed:** Azure Cosmos DB for PostgreSQL will prefer converting distributed tables to
   support local and distributed table joins. If the distributed tables are
   huge, using this option might result in moving lots of data between workers.
 
@@ -430,7 +430,7 @@ The supported values are:
 Controls the behavior of CREATE statements in transactions for supported
 objects.
 
-When objects are created in a multi-statement transaction block, Citus switches
+When objects are created in a multi-statement transaction block, Azure Cosmos DB for PostgreSQL switches
 sequential mode to ensure created objects are visible to later statements on
 shards. However, the switch to sequential mode is not always desirable. By
 overriding this behavior, the user can trade off performance for full
@@ -528,7 +528,7 @@ further (for example, 16 would be too high).
 Simulates the deprecated and now nonexistent real-time executor. This is used
 to open as many connections as possible to maximize query parallelization.
 
-When this GUC is enabled, Citus will force the adaptive executor to use as many
+When this GUC is enabled, Azure Cosmos DB for PostgreSQL will force the adaptive executor to use as many
 connections as possible while executing a parallel distributed query. If not
 enabled, the executor might choose to use fewer connections to optimize overall
 query execution throughput. Internally, setting this true will end up using one
@@ -536,7 +536,7 @@ connection per task.
 
 One place where this is useful is in a transaction whose first query is
 lightweight and requires few connections, while a subsequent query would
-benefit from more connections. Citus decides how many connections to use in a
+benefit from more connections. Azure Cosmos DB for PostgreSQL decides how many connections to use in a
 transaction based on the first statement, which can throttle other queries
 unless we use the GUC to provide a hint.
 

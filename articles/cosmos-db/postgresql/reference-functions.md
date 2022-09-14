@@ -185,7 +185,7 @@ SELECT alter_distributed_table('github_events', colocate_with:='another_table');
 
 The update_distributed_table_colocation() function is used to update colocation
 of a distributed table. This function can also be used to break colocation of a
-distributed table. Citus will implicitly colocate two tables if the
+distributed table. Azure Cosmos DB for PostgreSQL will implicitly colocate two tables if the
 distribution column is the same type, this can be useful if the tables are
 related and will do some joins. If tables A and B are colocated, and table A
 gets rebalanced, table B will also be rebalanced. If table B doesn't have a
@@ -246,7 +246,7 @@ or create_reference_table. Undistributing moves all data from shards back into
 a local table on the coordinator node (assuming the data can fit), then deletes
 the shards.
 
-Citus won't undistribute tables that have--or are referenced by--foreign
+Azure Cosmos DB for PostgreSQL won't undistribute tables that have--or are referenced by--foreign
 keys, unless the cascade_via_foreign_keys argument is set to true. If this
 argument is false (or omitted), then you must manually drop the offending
 foreign key constraints before undistributing.

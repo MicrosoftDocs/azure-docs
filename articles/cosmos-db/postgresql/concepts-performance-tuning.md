@@ -66,7 +66,7 @@ UPDATE ads
 ```
 
 Although the query uniquely identifies a row and updates it, Azure Cosmos DB for PostgreSQL
-doesn't know, at planning time, which shard the query will update. Citus takes a
+doesn't know, at planning time, which shard the query will update. The Citus extension takes a
 ShareUpdateExclusiveLock on all shards to be safe, which blocks other queries
 trying to update the table.
 
@@ -279,7 +279,7 @@ setting to automate idle session termination.
 
 #### Deadlocks
 
-Citus detects distributed deadlocks and cancels their queries, but the
+Azure Cosmos DB for PostgreSQL detects distributed deadlocks and cancels their queries, but the
 situation is less performant than avoiding deadlocks in the first place. A
 common source of deadlocks comes from updating the same set of rows in a
 different order from multiple transactions at once.

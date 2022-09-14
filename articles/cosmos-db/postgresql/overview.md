@@ -32,7 +32,7 @@ would with PostgreSQL. As your app's scalability and performance requirements
 grow, you can seamlessly scale to multiple nodes by transparently distributing
 your tables.
 
-Real-world customer applications built on Citus include SaaS apps, real-time
+Real-world customer applications built on Azure Cosmos DB for PostgreSQL include SaaS apps, real-time
 operational analytics apps, and high throughput transactional apps. These apps
 span various verticals such as sales & marketing automation, healthcare,
 IOT/telemetry, finance, logistics, and search.

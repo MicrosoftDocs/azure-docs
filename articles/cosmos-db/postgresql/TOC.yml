@@ -204,7 +204,7 @@
       href: reference-versions.md
     - name: PostgreSQL extensions
       href: reference-extensions.md
-    - name: Hyperscale (Citus) SQL API
+    - name: Distributed SQL API
       items:
         - name: Overview
           href: reference-overview.md

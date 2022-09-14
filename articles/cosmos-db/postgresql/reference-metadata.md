@@ -160,14 +160,14 @@ SELECT * from pg_dist_placement;
 #### Shard Placement States
 
 Azure Cosmos DB for PostgreSQL manages shard health on a per-placement basis. If a placement
-puts the system in an inconsistent state, Citus automatically marks it as unavailable. Placement state is recorded in the pg_dist_shard_placement table,
+puts the system in an inconsistent state, Azure Cosmos DB for PostgreSQL automatically marks it as unavailable. Placement state is recorded in the pg_dist_shard_placement table,
 within the shardstate column. Here's a brief overview of different shard placement states:
 
 | State name | Shardstate value | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | FINALIZED  | 1                | The state new shards are created in. Shard placements in this state are considered up to date and are used in query planning and execution.                                                                                                                                                                                                                                                                                 |
 | INACTIVE   | 3                | Shard placements in this state are considered inactive due to being out-of-sync with other replicas of the same shard. The state can occur when an append, modification (INSERT, UPDATE, DELETE), or a DDL operation fails for this placement. The query planner will ignore placements in this state during planning and execution. Users can synchronize the data in these shards with a finalized replica as a background activity. |
-| TO_DELETE  | 4                | If Citus attempts to drop a shard placement in response to a master_apply_delete_command call and fails, the placement is moved to this state. Users can then delete these shards as a subsequent background activity.                                                                                                                                                                                                              |
+| TO_DELETE  | 4                | If Azure Cosmos DB for PostgreSQL attempts to drop a shard placement in response to a master_apply_delete_command call and fails, the placement is moved to this state. Users can then delete these shards as a subsequent background activity.                                                                                                                                                                                                              |
 
 ### Worker node table
 
@@ -362,7 +362,7 @@ can use to determine where to move shards.
 | default_strategy               | boolean | Whether rebalance_table_shards should choose this strategy by default. Use citus_set_default_rebalance_strategy to update this column             |
 | shard_cost_function            | regproc | Identifier for a cost function, which must take a shardid as bigint, and return its notion of a cost, as type real                                |
 | node_capacity_function         | regproc | Identifier for a capacity function, which must take a nodeid as int, and return its notion of node capacity as type real                          |
-| shard_allowed_on_node_function | regproc | Identifier for a function that given shardid bigint, and nodeidarg int, returns boolean for whether Citus may store the shard on the node |
+| shard_allowed_on_node_function | regproc | Identifier for a function that given shardid bigint, and nodeidarg int, returns boolean for whether Azure Cosmos DB for PostgreSQL may store the shard on the node |
 | default_threshold              | float4  | Threshold for deeming a node too full or too empty, which determines when the rebalance_table_shards should try to move shards                    |
 | minimum_threshold              | float4  | A safeguard to prevent the threshold argument of rebalance_table_shards() from being set too low                                                  |
 
@@ -661,13 +661,13 @@ SELECT wait_event, wait_event_type, count(*)
  GROUP BY wait_event, wait_event_type
  ORDER BY count(*) desc;
 
--- total internal connections generated per node by Citus
+-- total internal connections generated per node by Azure Cosmos DB for PostgreSQL
 
 SELECT query_hostname, count(*)
   FROM citus_worker_stat_activity
  GROUP BY query_hostname;
 
--- total internal active connections generated per node by Citus
+-- total internal active connections generated per node by Azure Cosmos DB for PostgreSQL
 
 SELECT query_hostname, count(*)
   FROM citus_worker_stat_activity

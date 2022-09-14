@@ -461,7 +461,7 @@ distributed operations involves tradeoffs.
 
 Azure Cosmos DB for PostgreSQL parallelizes operations such as `create_distributed_table()`
 across shards using multiple connections per worker. Whereas, when creating a
-database object, Citus propagates it to worker nodes using a single connection
+database object, Azure Cosmos DB for PostgreSQL propagates it to worker nodes using a single connection
 per worker. Combining the two operations in a single transaction may cause
 issues, because the parallel connections will not be able to see the object
 that was created over a single connection but not yet committed.

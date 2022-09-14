@@ -25,7 +25,7 @@ each tenant’s information from other tenants.
 We can implement the separation of tenant data by using a naming convention for
 database roles that ties into table row-level security policies. We’ll assign
 each tenant a database role in a numbered sequence: `tenant1`, `tenant2`,
-etc. Tenants will connect to Citus using these separate roles. Row-level
+etc. Tenants will connect to Azure Cosmos DB for PostgreSQL using these separate roles. Row-level
 security policies can compare the role name to values in the `tenant_id`
 distribution column to decide whether to allow access.
 
