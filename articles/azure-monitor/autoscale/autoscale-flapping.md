@@ -54,7 +54,7 @@ For example, the following rules where there's no margin between thresholds, cau
 * Scale out when thread count >=600
 * Scale in when thread count < 600
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example2.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example":::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example2.png" alt-text="A screenshot showing an autoscale default scale condition with rules configured for the example A screenshot showing autoscale rules configured for the example with scale out when thread count >=600 and scale in when thread count < 600":::
 
 The table below shows a potential outcome of these autoscale rules:
 
