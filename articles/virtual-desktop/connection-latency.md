@@ -1,15 +1,15 @@
 ---
-title: Azure Virtual Desktop user connection latency - Azure
-description: Connection latency for Azure Virtual Desktop users.
+title: Azure Virtual Desktop user connection quality - Azure
+description: Connection quality for Azure Virtual Desktop users.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 09/19/2022
 ms.author: helohr
 manager: femila
 ---
 # Connection quality in Azure Virtual Desktop
 
->[IMPORTANT]
+>[!IMPORTANT]
 >The Connection Graphics Data Logs are currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Virtual Desktop helps users host client sessions on their session hosts running on Azure. When a user starts a session, they connect from their end-user device, also known as a "client," over a network to access the session host. It's important that the user experience feels as much like a local session on a physical device as possible. In this article, we'll talk about how you can measure and improve the connection quality of your end-users.
@@ -47,7 +47,7 @@ To check and modify your diagnostics settings in the Azure portal:
 
 8. Make sure the network data is going to your selected destination by returning to the host pool's resource page, selecting **Logs**, then running one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who have been connecting to sessions. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
    
-   - To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](connection-latency.md#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
+   To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](connection-latency.md#sample-queries-for-azure-log-analytics). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
 
 ### Connection network data
 
@@ -78,7 +78,6 @@ The Graphics table only captures performance data from the Azure Virtual Desktop
 The graphics data you collect for your data tables includes the following information:
 
 - The **Last evaluated connection time interval** is the two minutes leading up to the time graphics indicators fell below the quality threshold.
-
 
 - The **end-to-end delay (milliseconds)** is the delay in the time between when a frame is captured on the server until the time frame is rendered on the client, measured as the sum of the encoding delay on the server, network delay, the decoding delay on the client, and the rendering time on the client. The delay reflected is the highest (worst) delay recorded in the last evaluated connection time interval.
 
@@ -112,7 +111,7 @@ The graphics data you collect for your data tables includes the following inform
 
 #### Frequency
 
-In contrast to other diagnostics tables that report data at regular intervals throughout a session, the graphics data table records values only at times when the quality of the graphics in a session is poor. This distinction between the Network data table and the Graphics data table means that they have different collection windows, which results in them collecting different values for shared captured data like RTT. The frequency of data collection varies depending on the graphical health of a connection. The table won't record data for "Good" scenarios, but will recording if any of the following metrics are recorded as "Poor" or "Okay," and the resulting data will be sent to your storage account. Data only records once every two minutes. The metrics involved in data collection are listed in the following table:
+In contrast to other diagnostics tables that report data at regular intervals throughout a session, the frequency of data collection for the graphics data varies depending on the graphical health of a connection. The table won't record data for "Good" scenarios, but will recording if any of the following metrics are recorded as "Poor" or "Okay," and the resulting data will be sent to your storage account. Data only records once every two minutes, maximum. The metrics involved in data collection are listed in the following table:
 
 | Metric | Bad | Okay | Good |
 |--------|-----|------|------|
@@ -121,9 +120,9 @@ In contrast to other diagnostics tables that report data at regular intervals th
 | End-to-end delay per frame | Greater than 300 ms | 150 ms–300 ms | Less than 150 ms |
 
 >[!NOTE]
->For end-to-end delay per frame, if any frame in a single second is delayed by over 300 ms, the service registers it as "Bad." If all frames in a single second take between 150 ms and 300 ms, the service marks it as "Okay."
+>For end-to-end delay per frame, if any frame in a single second is delayed by over 300 ms, the service registers it as "Bad". If all frames in a single second take between 150 ms and 300 ms, the service marks it as "Okay."
 
-## Sample queries for Azure Log Analytics
+## Sample queries for Azure Log Analytics: Network Data
 
 In this section, we have a list of queries that will help you review connection quality information. You can run queries in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query).
 
@@ -212,9 +211,6 @@ WVDConnectionNetworkData
 | summarize AvgBW=avg(EstAvailableBandwidthKBps),BW_P95=percentile(EstAvailableBandwidthKBps,95) by UserName
 | top 10 by AvgBW asc
 ```
-
-
-
 
 ## Azure Front Door
 
