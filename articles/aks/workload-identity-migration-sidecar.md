@@ -1,4 +1,10 @@
-
+---
+title: Configure your Azure Kubernetes Service (AKS) cluster with a Workload Identity Sidecar
+description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to use the Workload Identity Sidecar.
+services: container-service
+ms.topic: article
+ms.date: 09/13/2022
+---
 
 # Managed identity with workload identity sidecar
 
@@ -41,3 +47,5 @@ spec:
     ports:
     - containerPort: 8000
 ```
+
+## Next steps

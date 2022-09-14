@@ -41,7 +41,7 @@ This article reviews the options available to help you plan your migration phase
 
 In this security model, the AKS cluster acts as token issuer, Azure Active Directory uses OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library or the Microsoft Authentication Library.
 
-:::image type="content" source="media/security-workload-identity-migration/aks-workload-identity-model.png" alt-text="Diagram of the AKS workload identity security model.":::
+:::image type="content" source="media/workload-identity-overview/aks-workload-identity-model.png" alt-text="Diagram of the AKS workload identity security model.":::
 
 The following table describes the required OIDC issuer endpoints for Azure AD workload identity:
 
@@ -52,7 +52,7 @@ The following table describes the required OIDC issuer endpoints for Azure AD wo
 
 The following diagram summarizes the authentication sequence using OpenID Connect.
 
-:::image type="content" source="media/security-workload-identity-migration/aks-workload-identity-oidc-authentication-model.png" alt-text="Diagram of the AKS workload identity OIDC authentication sequence.":::
+:::image type="content" source="media/workload-identity-overview/aks-workload-identity-oidc-authentication-model.png" alt-text="Diagram of the AKS workload identity OIDC authentication sequence.":::
 
 ## Service account labels and annotations
 
