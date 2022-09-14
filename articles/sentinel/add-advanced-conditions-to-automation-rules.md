@@ -57,6 +57,21 @@ We can add another value to an existing condition (for any conditions based on e
 
 :::image type="content" source="media/add-advanced-conditions-to-automation-rules/add-value-to-condition.png" alt-text="Screenshot of adding more values to a single condition.":::
 
+#### Example 1B: Add more OR conditions
+
+Let's say we want to have this rule run if one of THREE (or more) conditions is true. If A *or* B *or* C is true, the rule will run.
+
+1. Remember all those "Add" links? To add another OR condition, select the **+ Add** connected by a line to the `OR` operator.
+
+    :::image type="content" source="media/add-advanced-conditions-to-automation-rules/add-another-or-condition.png" alt-text="Screenshot of adding another OR condition to an automation rule.":::
+
+1. Now, fill in the parameters and values of this condition the same way you did the first two.
+
+    :::image type="content" source="media/add-advanced-conditions-to-automation-rules/added-another-or-condition.png" alt-text="Screenshot of another OR condition added to an automation rule.":::
+
+### Example 2: complex conditions
+
+blah blah blah 
 
 ## Final result of automation rule (temp)
 
