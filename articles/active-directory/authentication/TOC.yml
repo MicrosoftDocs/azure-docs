@@ -198,6 +198,8 @@
         href: concept-certificate-based-authentication-smartcard.md
       - name: Mobile devices
         href: concept-certificate-based-authentication-mobile.md
+      - name: CertificateUserIds
+        href: concept-certificate-based-authentication-certificateuserids.md
       - name: FAQ
         href: certificate-based-authentication-faq.yml
       - name: Troubleshoot
