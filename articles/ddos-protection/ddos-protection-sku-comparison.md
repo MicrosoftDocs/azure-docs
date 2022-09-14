@@ -1,16 +1,16 @@
 ---
-title: 'About Azure DDoS Protection Standard configuration settings'
+title: 'About Azure DDoS Protection SKU Comparisons'
 description: Learn about the available configuration settings for Azure DDoS Protection Standard.
 author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 09/06/2022
+ms.date: 09/13/2022
 ms.custom: template-concept 
 ---
 
 
-# About Azure DDoS Protection Standard configuration settings
+# About Azure DDoS Protection SKU Comparison
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
@@ -26,7 +26,7 @@ Follow the H2 headings with a sentence about how the section contributes to the 
 
 ## SKUs
 
-A SKU is also known as a Tier. Azure DDoS Protection Standard supports two SKU Types,
+Azure DDoS Protection Standard supports two SKU Types,
  DDoS IP Protection and DDoS Network Protection. The SKU is configured in the Azure portal during the workflow when you configure Azure DDoS Protection.
 
 The following table shows features and corresponding SKUs.
@@ -36,11 +36,11 @@ The following table shows features and corresponding SKUs.
 | Active traffic monitoring & always on detection |  Yes| Yes |
 | L3/L4 Automatic attack mitigation  | Yes | Yes |
 | Automatic attack mitigation | Yes | Yes |
-| Application based mitigation policies | Yes| Yes | **what do you mean by applicaiton based?**
+| Application based mitigation policies | Yes| Yes |
 | Metrics & alerts | Yes | Yes |
 | Mitigation reports | Yes | Yes |
 | Mitigation flow logs| Yes| Yes |
-| Mitigation policy customizations | Yes| Yes | **with DDoS Rapid Response for Network Protection**
+| Mitigation policies tuned to customers application | Yes| Yes |
 | Integration with Firewall Manager | Yes | Yes |
 | Azure Sentinel data connector and workbook | Yes | Yes |
 | DDoS rapid response support | Not available | Yes |
@@ -50,7 +50,7 @@ The following table shows features and corresponding SKUs.
 | Price | Per protected IP | Per 100 protected IP addresses |
 
 >!Note
->At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. **for more details on supported PaaS services, see xyz** Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection does not store customer data.
+>At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more details on supported PaaS services, see [DDoS Protection reference architectures](ddos-protection-reference-architectures.md). Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection does not store customer data.
 
 ## DDoS Network Protection
 
@@ -58,7 +58,7 @@ Azure DDoS Network Protection, combined with application design best practices, 
 
 ## DDoS IP Protection
 
-Azure DDoS IP Protection is a pay-per-protection IP plan **what do you mean by plan? it's a bit confusing because ddos protection plan is associated with Network Protection.** DDoS IP Protection have the same core engineering features as DDoS Network Protection but will differ in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF.
+ DDoS IP Protection is a pay-per-protected IP model. DDoS IP Protection have the same core engineering features as DDoS Network Protection, but will differ in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF.
 
 ## Next steps
 
