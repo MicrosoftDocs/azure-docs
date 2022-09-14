@@ -33,7 +33,8 @@ This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server (
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-In Azure, you have two options for setting up fencing in the Pacemaker cluster for SLES. You can use an Azure fence agent, which restarts a failed node via the Azure APIs, or you can use a fencing block device (SBD device).
+In Azure, you have two options for setting up fencing in the Pacemaker cluster for SLES. You can use an Azure fence agent, which restarts a failed node via the Azure APIs, or you can use SBD device.
+
 
 ### Use an SBD device
 
@@ -709,7 +710,8 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
       # Address for ring0 [10.0.0.6] <b>Select Enter</b>
       # Port for ring0 [5405] <b>Select Enter</b>
       # Do you wish to use SBD (y/n)? <b>n</b>
-      #WARNING: Not configuring SBD - fencing will be disabled.
+      #WARNING: Not configuring SBD - STONITH will be disabled.
+
       # Do you wish to configure an administration IP (y/n)? <b>n</b>
       </code></pre>
 

@@ -441,7 +441,7 @@ In this section, you initialize the cluster. This section uses the same two host
 
 	WARNINGS:
 
-	No fencing devices and `stonith-enabled` is not false
+	No stonith devices and `stonith-enabled` is not false
 
 	Stack: corosync
 

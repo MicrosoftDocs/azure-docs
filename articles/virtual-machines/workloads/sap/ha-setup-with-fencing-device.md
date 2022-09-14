@@ -55,7 +55,7 @@ If you're an existing customer with HANA Large Instances already provisioned, yo
 - Customer name (for example, Microsoft)
 - HANA system identifier (SID) (for example, H11)
 
-After the fencing device is configured, the Microsoft Service Management team will provide you with the fencing block device (SBD) name and IP address of the iSCSI storage. You can use this information to configure fencing setup. 
+After the fencing device is configured, the Microsoft Service Management team will provide you with the SBD name and IP address of the iSCSI storage. You can use this information to configure fencing setup. 
 
 Follow the steps in the following sections to set up HA by using the fencing device.
 

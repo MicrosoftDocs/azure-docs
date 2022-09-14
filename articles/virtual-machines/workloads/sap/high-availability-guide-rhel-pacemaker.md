@@ -192,7 +192,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code> # Run the following command until the status of both nodes is online
    sudo pcs status
    # Cluster name: nw1-azr
-   # WARNING: no fencing devices and stonith-enabled is not false
+   # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
    # Current DC: <b>prod-cl1-1</b> (version 1.1.18-11.el7_5.3-2b07d5c5a9) - partition with quorum
    # Last updated: Fri Aug 17 09:18:24 2018
