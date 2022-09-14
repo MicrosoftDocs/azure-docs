@@ -42,7 +42,7 @@ Application ID | You'll need an application ID (often referred to as "App ID" or
 
 1. *Save* your application registration. 
 
-1. Add a client secret with the steps laid out in [this documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
+1. Add a client secret with the steps laid out in [this documentation](../active-directory/develop/quickstart-register-app.md)
 
 > [!NOTE]
 > Note down your **Application (client) ID** and **client secret** for future use
