@@ -18,7 +18,7 @@ ms.custom: devx-track-python, event-tier1-build-2022
 
 Azure Machine Learning environments are an encapsulation of the environment where your machine learning training happens.
 They specify the base docker image, Python packages, and software settings around your training and scoring scripts.
-Environments are managed and versioned assets within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of compute targets.
+Environments are managed and versioned assets within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across various compute targets.
 
 ## Types of environments
 
