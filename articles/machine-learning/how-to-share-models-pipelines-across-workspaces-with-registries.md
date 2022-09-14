@@ -29,7 +29,7 @@ There are two scenarios where you'd want to use the same set of models, componen
 - [Install and set up CLI (v2)](how-to-configure-cli.md).
 
     > [!TIP]
-> For a full-featured development environment with schema validation and autocompletion for job YAMLs, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md).
+    > For a full-featured development environment with schema validation and autocompletion for job YAMLs, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md).
 
 - You need a registry to create models, components and environments. [Learn how to create a registry](todo)
 
