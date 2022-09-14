@@ -25,19 +25,19 @@ Batch pool without public IP addresses (classic) will retire on 3/31/2023 and wi
 
 1. Opt in to [use simplified compute node communication](https://docs.microsoft.com/en-us/azure/batch/simplified-compute-node-communication).
 
-![Support Request](../media/certificates/Step1-opt-in.png)
+![Support Request](media/certificates/Step1-opt-in.png)
 
 2. Create a private endpoint for Batch node management in the virtual network.
 
-![Create Endpoint](../media/certificates/Step2-private-endpoint.png)
+![Create Endpoint](media/certificates/Step2-private-endpoint.png)
 
 3. Scale down the pool to zero nodes.
 
-![Scale Down](../media/certificates/Step3-scale-down-pool.png)
+![Scale Down](media/certificates/Step3-scale-down-pool.png)
 
 4. Scale out the pool again. The pool is then automatically migrated to the new version of the preview.
 
-![Scale Out](../media/certificates/Step4-scale-out-pool.png)
+![Scale Out](media/certificates/Step4-scale-out-pool.png)
 
 ### FAQ
 
