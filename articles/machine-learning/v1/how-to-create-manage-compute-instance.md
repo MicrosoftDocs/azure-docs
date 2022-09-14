@@ -41,6 +41,8 @@ In this article, you learn how to:
 
 * The [Azure CLI extension for Machine Learning service (v1)](reference-azure-machine-learning-cli.md)
 
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 ## Create
 
 > [!IMPORTANT]
@@ -129,4 +131,4 @@ To create a compute instance, you'll need permissions for the following actions:
 * [Access the compute instance terminal](../how-to-access-terminal.md)
 * [Create and manage files](../how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](../concept-vulnerability-management.md#compute-instance)
-* [Submit a training run](../how-to-set-up-training-targets.md)
+* [Submit a training run](how-to-set-up-training-targets.md)

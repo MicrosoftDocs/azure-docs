@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 07/28/2022
+ms.date: 08/25/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -16,6 +16,13 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # What's new in Azure Cognitive Service for Language?
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## September 2022
+Text Analytics for Health now [supports additional languages](./text-analytics-for-health/language-support.md) in preview: Spanish, French, German Italian, Portuguese and Hebrew. These languages are available when using a docker container to deploy the API service. 
+
+## August 2022
+
+* [Role-based access control](./concepts/role-based-access-control.md) for the Language service.
 
 ## July 2022
 
@@ -25,14 +32,14 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 * Conversational PII is now available in all Azure regions supported by the Language service.
 
-* A new version of the Language API (`2022-07-15-preview`) has been released. It provides:
-    * Automatic language detection for asynchronous tasks.
+* A new version of the Language API (`2022-07-01-preview`) has been released. It provides:
+    * [Automatic language detection](./concepts/use-asynchronously.md#automatic-language-detection) for asynchronous tasks.
     * For Text Analytics for health, confidence score are now returned in relations.
 
     To use this version in your REST API calls, use the following URL:
 
     ```http
-    <your-language-resource-endpoint>/language/:analyze-text?api-version=2022-07-15-preview`
+    <your-language-resource-endpoint>/language/:analyze-text?api-version=2022-07-01-preview
     ```
     
 ## June 2022

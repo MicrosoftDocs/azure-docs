@@ -34,14 +34,14 @@ The process for copying a custom model consists of the following steps:
 1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied with the payload (copy authorization) returned from the previous call. You'll get back a URL that you can query to track the progress of the operation.
 1. You'll use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model.
 
-### [Form Recognizer REST API v3.0 (Preview)](#tab/v30)
+### [Form Recognizer REST API v3.0 ](#tab/v30)
 
 ## Generate Copy authorization request
 
 The following HTTP request gets copy authorization from your target resource. You'll need to enter the endpoint and key of your target resource as headers.
 
 ```http
-POST https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/documentModels:authorizeCopy?api-version=2022-06-30-preview
+POST https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/documentModels:authorizeCopy?api-version=2022-08-31
 Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_KEY}
 ```
 
@@ -72,7 +72,7 @@ You'll get a `200` response code with response body that contains the JSON paylo
 The following HTTP request starts the copy operation on the source resource. You'll need to enter the endpoint and key of your source resource as the url and header. Notice that the request URL contains the model ID of the source model you want to copy.
 
 ```http
-POST {{source-endpoint}}formrecognizer/documentModels/{model-to-be-copied}:copyTo?api-version=2022-06-30-preview
+POST {{source-endpoint}}formrecognizer/documentModels/{model-to-be-copied}:copyTo?api-version=2022-08-31
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 ```
 
@@ -93,10 +93,10 @@ You'll get a `202\Accepted` response with an Operation-Location header. This val
 
 ```http
 HTTP/1.1 202 Accepted
-Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-06-30-preview
+Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-08-31
 ```
 
-### [Form Recognizer REST API v2.1 (GA)](#tab/v21)
+### [Form Recognizer REST API v2.1 ](#tab/v21)
 
 ## Generate Copy authorization request
 
@@ -155,14 +155,14 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ## Track Copy progress
 
-### [Form Recognizer v3.0 (Preview)](#tab/v30)
+### [Form Recognizer v3.0 ](#tab/v30)
 
 ```
-GET https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-06-30-preview
+GET https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-08-31
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 ```
 
-### [Form Recognizer v2.1 (GA)](#tab/v21)
+### [Form Recognizer v2.1 ](#tab/v21)
 
 Track your progress by querying the **Get Copy Model Result** API against the source resource endpoint.
 
@@ -232,4 +232,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## Next steps
 
 In this guide, you learned how to use the Copy API to back up your custom models to a secondary Form Recognizer resource. Next, explore the API reference docs to see what else you can do with Form Recognizer.
-* [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+* [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)

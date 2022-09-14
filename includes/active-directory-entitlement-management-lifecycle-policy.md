@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: active-directory
 author: ajburnle
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: include
 ms.date: 3/24/2022

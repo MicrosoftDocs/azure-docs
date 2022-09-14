@@ -170,7 +170,8 @@ To run this script in Azure Machine Learning, you need to make your training dat
 > [!NOTE]
 > Azure Machine Learning allows you to connect other cloud-based storages that store your data. For more details, see the [data documentation](./concept-data.md).
 
-There is no additional step needed for uploading data, the control script will define and upload the CIFAR10 training data.
+> [!TIP]
+> There is no additional step needed for uploading data, the control script will define and upload the CIFAR10 training data.
 
 ## <a name="control-script"></a> Create a control script
 

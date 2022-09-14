@@ -140,7 +140,7 @@ First, create a **DataLakeFileClient** instance that represents the file that yo
 
 ## List directory contents
 
-This example, prints the names of each file that is located in a directory named `my-directory`.
+This example prints the names of each file that is located in a directory named `my-directory`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_ListFilesInDirectory":::
 
