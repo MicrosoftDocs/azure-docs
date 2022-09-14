@@ -20,7 +20,7 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 This article shows how to configure encryption with customer-managed keys for an existing storage account. The customer-managed keys are stored in a key vault.
 
-To learn how to configure customer-managed keys for a new storage account, see [Configure customer-managed keys in an Azure key vault for an existing storage account](customer-managed-keys-configure-existing-account.md).
+To learn how to configure customer-managed keys for a new storage account, see [Configure customer-managed keys in an Azure key vault for an new storage account](customer-managed-keys-configure-new-account.md).
 
 To learn how to configure encryption with customer-managed keys stored in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md).
 
