@@ -125,27 +125,27 @@ View deployed apps by using the following procedure:
 
 1. From the left pane, open the **Apps** pane to view apps for your service instance.
 
-   ![Screenshot of the open Apps pane.](media/how-to-staging-environment/app-dashboard.png)
+   :::image type="content" source="media/how-to-staging-environment/app-dashboard.png" lightbox="media/how-to-staging-environment/app-dashboard.png" alt-text="Screenshot of the open Apps pane.":::
 
 1. You can select an app and view details.
 
-   ![Screenshot of details for an app.](media/how-to-staging-environment/app-overview.png)
+   :::image type="content" source="media/how-to-staging-environment/app-overview.png" lightbox="media/how-to-staging-environment/app-overview.png" alt-text="Screenshot of details for an app.":::
 
 1. Open **Deployments** to see all deployments of the app. The grid shows both production and staging deployments.
 
-   ![Screenshot that shows listed app deployments.](media/how-to-staging-environment/deployments-dashboard.png)
+   :::image type="content" source="media/how-to-staging-environment/deployments-dashboard.png" lightbox="media/how-to-staging-environment/deployments-dashboard.png" alt-text="Screenshot that shows listed app deployments.":::
 
 1. Select the URL to open the currently deployed application.
 
-   ![Screenshot that shows the U R L for the deployed application.](media/how-to-staging-environment/running-blue-app.png)
+   :::image type="content" source="media/how-to-staging-environment/running-blue-app.png" lightbox="media/how-to-staging-environment/running-blue-app.png" alt-text="Screenshot that shows the URL of the deployed application.":::
 
 1. Select **Production** in the **State** column to see the default app.
 
-   ![Screenshot that shows the U R L for the default app.](media/how-to-staging-environment/running-default-app.png)
+   :::image type="content" source="media/how-to-staging-environment/running-default-app.png" lightbox="media/how-to-staging-environment/running-default-app.png" alt-text="Screenshot that shows the URL of the default app.":::
 
 1. Select **Staging** in the **State** column to see the staging app.
 
-   ![Screenshot that shows the U R L for the staging app.](media/how-to-staging-environment/running-staging-app.png)
+   :::image type="content" source="media/how-to-staging-environment/running-staging-app.png" lightbox="media/how-to-staging-environment/running-staging-app.png" alt-text="Screenshot that shows the URL of the staging app.":::
 
 >[!TIP]
 > Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly. If your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the format `https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green`. Use this format to access your endpoint.
@@ -161,11 +161,11 @@ If you visit your public-facing app gateway at this point, you should see the ol
 
 1. Select the ellipsis after **Registration status** of the green deployment, and then select **Set as production**.
 
-   ![Screenshot that shows selections for setting the staging build to production.](media/how-to-staging-environment/set-staging-deployment.png)
+   :::image type="content" source="media/how-to-staging-environment/set-staging-deployment.png" lightbox="media/how-to-staging-environment/set-staging-deployment.png" alt-text="Screenshot that shows selections for setting the staging build to production.":::
 
 1. Confirm that the URL of the app displays your changes.
 
-   ![Screenshot that shows the U R L of the app now in production.](media/how-to-staging-environment/new-production-deployment.png)
+   :::image type="content" source="media/how-to-staging-environment/new-production-deployment.png" lightbox="media/how-to-staging-environment/new-production-deployment.png" alt-text="Screenshot that shows the URL of the app now in production.":::
 
 >[!NOTE]
 > After you've set the green deployment as the production environment, the previous deployment becomes the staging deployment.
