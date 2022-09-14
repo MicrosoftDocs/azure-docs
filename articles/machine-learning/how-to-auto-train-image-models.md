@@ -319,7 +319,7 @@ If you wish to use the default hyperparameter values for a given algorithm (say 
 image_object_detection_job.set_image_model(model_name="yolov5")
 ```
 ---
-Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparameter space. You can refer to below [section](./how-to-auto-train-image-models.md#sweeping-hyperparameters-for-your-model) to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values aren't specified, then default values are used for the specified algorithm.
+Once you've built a baseline model, you might want to optimize model performance in order to sweep over the model algorithm and hyperparameter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc., to generate a model with the optimal primary metric. If hyperparameter values aren't specified, then default values are used for the specified algorithm.
 
 ### Primary metric
 
