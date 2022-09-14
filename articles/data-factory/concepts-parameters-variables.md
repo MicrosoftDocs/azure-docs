@@ -1,5 +1,5 @@
 ---
-title: Pipeline Parameters and Variables
+title: Pipeline parameters and variables
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics.
 author: soferreira
@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/13/2022
 ---
 
-# Pipeline Parameters and Variables in Azure Data Factory and Azure Synapse Analytics
+# Pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics
 
 This article helps you understand the difference between pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics and how to use them to control your pipeline.
 
-## Pipeline Parameters
+## Pipeline parameters
 
 Parameters are defined for the whole pipeline, and are constant during a pipeline run. You can read them during a pipeline run but you are unable to modify them.
 
@@ -24,7 +24,7 @@ Parameters are defined for the whole pipeline, and are constant during a pipelin
 To define a pipeline parameter click on your pipeline to view the pipeline configuration tabs. Select the "Parameters" tab and click on "+ New" to define a new parameter.
 Parameters can be of type String, Int, Float, Bool, Array, Object or SecureString. In this tab, you can also assign a default value to your parameter.
 
-![param-def-image](https://user-images.githubusercontent.com/101214403/189849448-8e2a0620-5777-4ec1-b0e3-f32bdc231d05.png)
+![Screenshot of parameter definition.](./media/pipeline-parameter-variable-definition/parameter-definition.png)
 
 Before each pipeline run there will be a right panel where you can assign a new value to your parameter, otherwise the pipeline will take the default value previously defined.
 
@@ -43,8 +43,7 @@ Pipeline variables can be set at the start of a pipeline, read and modified duri
 To define a pipeline variable click on your pipeline to view the pipeline configuration tabs. Select the "Variables" tab and click on "+ New" to define a new variable.
 Parameters can be of type String, Bool or Array. In this tab, you can also assign a default value to your variable that it will be used as initial value at the start of a pipeline run.
 
-![var-def-image](https://user-images.githubusercontent.com/101214403/189858276-18a5a580-7cb2-4c99-a8f0-cefd019dfa19.png)
-
+![Screenshot of parameter definition.](./media/pipeline-parameter-variable-definition/variable-definition.png)
 
 ### Access a variable value
 
