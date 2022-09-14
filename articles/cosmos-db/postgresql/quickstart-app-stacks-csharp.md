@@ -14,7 +14,7 @@ ms.date: 08/24/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this document, you'll learn how to connect to a Hyperscale (Citus) database using a C# application. You'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using C#, and are new to working with Hyperscale (Citus).
+In this document, you'll learn how to connect to a cluster using a C# application. You'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using C#, and are new to working with Hyperscale (Citus).
 
 > [!TIP]
 >

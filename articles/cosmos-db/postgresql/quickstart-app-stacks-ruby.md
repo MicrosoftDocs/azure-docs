@@ -25,7 +25,7 @@ In this how-to article, you'll connect to a cluster using a Ruby application. We
 ### Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-* Create a Hyperscale (Citus) database using this link [Create cluster](quickstart-create-portal.md)
+* Create a cluster using this link [Create cluster](quickstart-create-portal.md)
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
 * [Ruby pg](https://rubygems.org/gems/pg/), the PostgreSQL module for Ruby
 

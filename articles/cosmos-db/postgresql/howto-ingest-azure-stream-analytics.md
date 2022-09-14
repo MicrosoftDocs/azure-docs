@@ -132,7 +132,7 @@ Blob Storage into Hyperscale (Citus).
 
    1. Return to the job overview page and select Start.
    1. Under **Start job**, select **Now**, for the Job output start time field. Then, select **Start** to start your job.
-   1. After few minutes, you can query the Hyperscale (Citus) database to verify the data loaded. The job will take some time to start at the first time, but once triggered it will continue to run as the data arrives.
+   1. After few minutes, you can query the cluster to verify the data loaded. The job will take some time to start at the first time, but once triggered it will continue to run as the data arrives.
 
       ```
       citus=> SELECT * FROM public.device_data LIMIT 10;

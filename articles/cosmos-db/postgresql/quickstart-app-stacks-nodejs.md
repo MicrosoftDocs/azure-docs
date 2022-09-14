@@ -25,7 +25,7 @@ In this article, you'll connect to a cluster using a Node.js application. We'll 
 ### Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-* Create a Hyperscale (Citus) database using this link [Create cluster](quickstart-create-portal.md)
+* Create a cluster using this link [Create cluster](quickstart-create-portal.md)
 * [Node.js](https://nodejs.org/)
 
 Install [pg](https://www.npmjs.com/package/pg), which is a PostgreSQL client for Node.js.
