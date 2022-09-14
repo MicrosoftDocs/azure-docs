@@ -294,7 +294,13 @@ az k8s-extension create --cluster-type managedClusters \
 
 ## Set the outbound proxy for Dapr extension for Azure Arc on-prem
 
-Most on-prem Azure Arc for Kubernetes only allow egress traffic from on-prem to public internet via an outbound proxy server. Dapr brings existing outbound proxy functionality to the table with the Dapr extension. The Dapr extension already has the certificate and environment variables configured and exposed to the sidecar. 
+If you want to use an outbound proxy with the Dapr extension for AKS, you can do so by:
+
+1. Setting the proxy environment variables using the `dapr.io/env` annotations:
+   - `HTTP_PROXY`
+   - `HTTPS_PROXY`
+   - `NO_PROXY`
+1. [Installing the proxy certificate in the sidecar](https://docs.dapr.io/operations/configuration/install-certificates/).
 
 | Configuration | Annotation |
 | ------------- | ---------- |
@@ -302,13 +308,13 @@ Most on-prem Azure Arc for Kubernetes only allow egress traffic from on-prem to 
 | Certificate | Already configured in Dapr extension, similar to examples found in [Install certificates in the Dapr sidecar](https://docs.dapr.io/operations/configuration/install-certificates/). |
 
 
-## Firewall allowlist
+## Meet network requirements
 
-Make sure you've added the following URLs to the firewall allowlist.
+The Dapr extension for AKS and Arc for Kubernetes requires the following URLs on `https://:443` to function.
 
 | URL | Description |
 | --- | ----------- |
-| `https://mcr.microsoft.com/daprio` | `mcr` URL for Dapr Docker images |
+| `https://mcr.microsoft.com/daprio` | Required `mcr` URL for pulling Dapr container images. |
 | `https://eastus.dp.kubernetesconfiguration.azure.com/` | Configuration URL for AKS extension. Includes a region prefix. [Change this prefix based on region](#cloudsregions). |
 
 ## Troubleshooting extension errors
