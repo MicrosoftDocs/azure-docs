@@ -1,7 +1,7 @@
 ---
-title: Workspace diagnostics
+title: Workspace diagnostics (v1)
 titleSuffix: Azure Machine Learning
-description: Learn how to use Azure Machine Learning workspace diagnostics in the Azure portal or with the Python SDK.
+description: Learn how to use Azure Machine Learning workspace diagnostics with the Python SDK v1.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -13,46 +13,39 @@ ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 ---
 
-# How to use workspace diagnostics
+# How to use workspace diagnostics (SDK v1)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
-> * [v1](v1/how-to-workspace-diagnostic-api.md)
-> * [v2 (current version)](how-to-workspace-diagnostic-api.md)
+> * [v1](how-to-workspace-diagnostic-api.md)
+> * [v2 (current version)](../how-to-workspace-diagnostic-api.md)
 
 Azure Machine Learning provides a diagnostic API that can be used to identify problems with your workspace. Errors returned in the diagnostics report include information on how to resolve the problem.
 
-You can use the workspace diagnostics from the Azure Machine Learning studio or Python SDK.
+In this article, learn how to use the workspace diagnostics from the Azure Machine Learning Python SDK v1.
 
 ## Prerequisites
 
-[!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
-
-## Diagnostics from studio
-
-From [Azure Machine Learning studio](https://ml.azure.com) or the Python SDK, you can run diagnostics on your workspace to check your setup. To run diagnostics, select the '__?__' icon from the upper right corner of the page. Then select __Run workspace diagnostics__.
-
-:::image type="content" source="./media/how-to-workspace-diagnostic-api/diagnostics.png" alt-text="Screenshot of the workspace diagnostics button":::
-
-After diagnostics run, a list of any detected problems is returned. This list includes links to possible solutions.
+* An Azure Machine learning workspace. If you don't have one, see [Create a workspace](../quickstart-create-resources.md).
+* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml).
 
 ## Diagnostics from Python
 
 The following snippet demonstrates how to use workspace diagnostics from Python
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
-from azure.ai.ml import MLClient
-from azure.ai.ml.entities import Workspace
-from azure.identity import DefaultAzureCredential
+from azureml.core import Workspace
 
-subscription_id = '<your-subscription-id>'
-resource_group = '<your-resource-group-name>'
-workspace = '<your-workspace-name>'
+ws = Workspace.from_config()
 
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
-resp = ml_client.workspaces.begin_diagnose(workspace)
+diag_param = {
+      "value": {
+      }
+    }
+
+resp = ws.diagnose_workspace(diag_param)
 print(resp)
 ```
 
@@ -80,8 +73,9 @@ The response is a JSON document that contains information on any problems detect
 
 If no problems are detected, an empty JSON document is returned.
 
-For more information, see the [Workspace](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace) reference.
+For more information, see the [Workspace.diagnose_workspace()](/python/api/azureml-core/azureml.core.workspace(class)#diagnose-workspace-diagnose-parameters-) reference.
 
 ## Next steps
 
-* [How to manage workspaces in portal or SDK](how-to-manage-workspace.md)
+* [Workspace.diagnose_workspace()](/python/api/azureml-core/azureml.core.workspace(class)#diagnose-workspace-diagnose-parameters-)
+* [How to manage workspaces in portal or SDK](../how-to-manage-workspace.md)
