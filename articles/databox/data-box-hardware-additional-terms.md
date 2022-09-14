@@ -23,7 +23,7 @@ As part of the Service, Microsoft allows Customer to retain the Data Box Device 
 
 ## Shipment and Title; Fees
 
-### Title and risk of loss 
+### Title and Risk of Loss 
 
 All right, title and interest in each Data Box Device is and shall remain the property of Microsoft, and except as described in the Additional Terms, no rights are granted to any Data Box Device (including under any patent, copyright, trade secret, trademark or other proprietary rights). Customer will compensate Microsoft for any loss, material damage or destruction to or of any Data Box Device while it is at any of Customer’s locations as described in Shipment and Title; Fees, Table 1.   Customer is responsible for inspecting the Data Box Device upon receipt from the carrier and for promptly reporting any damage to Microsoft Support at databoxsupport@microsoft.com.  Customer is responsible for the entire risk of loss of, or any damage to, the Data Box Device once it has been delivered by the carrier to Customer’s designated address until the Microsoft-designated carrier accepts the Data Box Device for delivery back to the Designated Azure Data Center.
 
