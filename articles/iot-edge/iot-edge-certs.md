@@ -4,7 +4,7 @@ description: Azure IoT Edge uses certificate to validate devices, modules, and l
 author: jlian
 
 ms.author: jlian
-ms.date: 09/12/2022
+ms.date: 09/14/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -43,12 +43,10 @@ We'll explain the answers to each question and then expand the example in later 
 
 ## Verify IoT Hub identity
 
-How does *EdgeGateway* verify it's communicating with the genuine *ContosoIotHub*? When *EdgeGateway* wants to talk to the cloud, it uses the connection string to connect to the endpoint *ContosoIoTHub.azure-devices.net*. but to be safe IoT Edge wants that endpoint to show some sort of ID, ideally issued by someone it trusts.
-
-To achieve this, IoT Edge and IoT Hub perform the **TLS handshake** to verify an IoT hub's server identity. This is a simplified diagram and skips some parts. To learn more you should see this cool link.
+How does *EdgeGateway* verify it's communicating with the genuine *ContosoIotHub*? When *EdgeGateway* wants to talk to the cloud, it uses the connection string to connect to the endpoint *ContosoIoTHub.azure-devices.net*. To make sure the endpoint is authentic, IoT Edge needs *ContosoIoTHub* to show an ID. Ideally, the ID is issued by an authority *EdgeGateway* trusts. To verify IoT Hub identity, IoT Edge and IoT Hub use the **TLS handshake** protocol to verify an IoT Hub's server identity. A *TLS handshake* is illustrated in the following diagram. To keep the example simple, some details have been omitted. To learn more about the *TLS handshake* protocol, see [this cool link]().
 
 > [!NOTE]
-> When we say ContosoIoTHub, it generally means `ContosoIotHub.azure-devices.net` (the hostname of the IoT hub). Skipped for brevity in the diagram and subsequent references.
+> In this example, *ContosoIoTHub*, represents the IoT Hub hostname *ContosoIotHub.azure-devices.net*.
 
 :::image type="content" source="./media/iot-edge-certs/verify-hub-identity.svg" alt-text="Sequence diagram showing certificate exchange between IoT Edge device and IoT Hub.":::
 
@@ -60,13 +58,13 @@ sequenceDiagram
     EdgeGateway->>ContosoIotHub: Let's talk securely with TLS 🔒
     ContosoIotHub->>EdgeGateway: Ok, here's my certificate 📜
     EdgeGateway->>EdgeGateway: Check trusted root certificate store
-    note over EdgeGateway, ContosoIotHub: *Cryptographic magic happens*
+    note over EdgeGateway, ContosoIotHub: Cryptographic algorithm
     EdgeGateway->>ContosoIotHub: Looks good 🙂, let's connect
 ``` -->
 
-First thing first, it's not important to know exactly what *cryptographic magic* means in this context. It's important to know that it's some fancy math, done by both sides, that ensures both the client and the server indeed are in possession of the private key that is paired with the public key. It then means that the presenter of the certificate didn't just steal it. It's a bit like only you can produce the face that looks like the photo on the ID. So if someone steals your ID the bar won't let them in because they don't have your face, which is unstealable. So it's like that, except that the private key is the unstealable element, and instead of the human ability to match a face to a picture, computers use math. The math is so sound and it's so hard to brute force that all you need to know that it's very trustworthy.
+In this context, you don't need to know the details of the *cryptographic algorithm*. It's important to understand that the algorithm ensures both the client and the server are in possession of the private key that is paired with the public key. It verifies that the presenter of the certificate didn't copy or steal it. If we use a photo ID as an example, your face matches the photo on the ID. If someone steals your ID, they can't use it for identification because your face is unique and difficult to reproduce. In the case of cryptographic keys, the key pair is related and unique. Instead of the matching a face to a photo ID, the cryptographic algorithm uses the key pair to verify identity.
 
-With that out of the way, let's go ahead and look at the non-magical part. I promise it's basically like when you go to a bar and they check your ID and they want to make sure that the ID isn't faked. Well first ContosoIotHub showed this certificate chain, so let's expand it. 
+In our scenario, *ContosoIotHub* shows the following certificate chain:
 
 :::image type="content" source="./media/iot-edge-certs/hub-certificate-chain.svg" alt-text="Flow diagram showing intermediate and root certificate authority chain for IoT Hub.":::
 
@@ -80,28 +78,27 @@ flowchart TB
     id1-- Issued by -- -> id2
 ``` -->
 
+The root certificate authority (CA) is the [Baltimore CyberTrust Root](https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html) certificate. This root certificate is signed by DigiCert, and is widely trusted and stored in many operating systems. For example, both Ubuntu and Windows include it in the default certificate store. 
 
-Here the Root CA is something called [Baltimore CyberTrust Root](https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html). What is that? It's a certificate that is signed by DigiCert, and is widely trusted and stored in many operating systems. For example, both Ubuntu and Windows have it in the default store. So when a device checks the OS for it, it's probably there. From EdgeGateway perspective, certificate chain presented by ContosoIotHub is signed by the same root what its OS trusts, means that it's trustworthy.
+Windows certificate store:
 
-In Windows:
+:::image type="content" source="./media/baltimore-windows.png" alt-text="Screenshot showing Baltimore CyberTrust Root certificate listed in the Windows certificate store.":::
 
-![](media/baltimore-windows.png)  
+Ubuntu certificate store:
 
-Ubuntu:
+:::image type="content" source="./media/baltimore-windows.png" alt-text="Screenshot showing Baltimore CyberTrust Root certificate listed in the Windows certificate store.":::
 
-![](media/ubuntu-baltimore.png)  
+When a device checks for the *Baltimore CyberTrust Root* certificate, it's available in the OS. From *EdgeGateway* perspective, since the certificate chain presented by *ContosoIotHub* is signed by a root CA that the OS trusts, the certificate is considered trustworthy. The certificate is generally known as **IoT Hub server certificate**. To learn more about the IoT Hub certificate, see [Transport Layer Security (TLS) support in IoT Hub](../iot-hub/iot-hub-tls-support.md).
 
-It's generally known as **IoT Hub server certificate**. To learn more, see [Transport Layer Security (TLS) support in IoT Hub](../iot-hub/iot-hub-tls-support.md). It has a public certificate because it's widely used. I know the article said it's about IoT Edge but we started with IoT Hub and it's weird. I promise this is important. 
+In summary, *EdgeGateway* can verify and trust *ContosoIotHub's* identity because:
 
-### Conclusion
+- *ContosoIotHub* showed its **IoT Hub server certificate**
+- The server certificate is a trusted root CA (Baltimore CyberTrust Root) in the OS certificate store
+- By using a cryptographic algorithm, data encrypted with *ContosoIotHub's* public key can be decrypted by *ContosoIotHub*, proving its possession of the private key
 
-EdgeGateway can trust ContosoIotHub because 
+## Verify genuine message 
 
-- It showed its **IoT Hub server certificate** 
-- This certificate is issued widely trusted root CA (Baltimore CyberTrust Root)
-- Cryptographic magic: random data encrypted with ContosoIotHub's public key can be decrypted by ContosoIotHub, proving its possession of the private key
-
-## Part 2: *Is this really from EdgeGateway?*
+*Is this really from EdgeGateway?*
 
 In Part 1, EdgeGateway verified the legitimacy of ContosoIotHub. Now, the counterpart happens: ContosoIotHub needs to know if EdgeGateway is really legit. Here they perform the what's known as **TLS client authentication**. For simplicity we again skip some steps (so you should get the real version from this link), and this happens together with TLS handshake from earlier. But for the sake of education let's look at this specifically.
 
