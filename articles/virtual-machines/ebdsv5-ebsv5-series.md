@@ -46,9 +46,9 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8370C (Ice Lake) processo
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Uncached Premium and Standard data disk IOPS/ MBps | Uncached Burst Premium and Standard data disk IOPS/ MBps | Uncached Ultra and Premium v2 data disk IOPS/ MBps | Burst uncached Ultra and Premium v2 data disk IOPS/ MBps| Max NICs | Network bandwidth |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Standard_E2bds_v5 | 2 | 16 | 75 | 4 | 9000/125 | 5500/156 | 10000/1200 | 7370/156 | 15000/1200 | 2 | 10000 |
-| Standard_E4bds_v5 | 4 | 32 | 150 | 8 | 19000/250 | 11000/350 | 20000/1200 | 14740/350|30000/1200 | 2 | 10000 |
-| Standard_E8bds_v5 | 8 | 64 | 300 | 16 | 38000/500 | 22000/625 | 40000/1200 |29480/625 |60000/1200 | 4 | 10000 |
+| Standard_E2bds_v5 | 2 | 16 | 75 | 4 | 9000/125 | 5500/156 | 10000/1200 | 7370/156 | 15000/1200 | 2 | 12500 |
+| Standard_E4bds_v5 | 4 | 32 | 150 | 8 | 19000/250 | 11000/350 | 20000/1200 | 14740/350|30000/1200 | 2 | 12500 |
+| Standard_E8bds_v5 | 8 | 64 | 300 | 16 | 38000/500 | 22000/625 | 40000/1200 |29480/625 |60000/1200 | 4 | 12500 |
 | Standard_E16bds_v5 | 16 | 128 | 600 | 32 | 75000/1000 | 44000/1250 | 64000/2000 |58960/1250 |96000/2000 |  8 | 12500 |
 | Standard_E32bds_v5 | 32 | 256 | 1200 | 32 | 150000/1250 | 88000/2500 | 120000/4000 | 117920/2500|160000/4000|  8 | 16000 | 
 | Standard_E48bds_v5 | 48 | 384 | 1800 | 32 | 225000/2000 | 120000/4000 | 120000/4000 | 160000/4000|160000/4000 | 8 | 16000 | 
@@ -70,9 +70,9 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These V
 
 | Size | vCPU | Memory: GiB | Max data disks | Uncached Premium and Standard data disk IOPS/ MBps | Uncached Burst Premium and Standard data disk IOPS/ MBps |Uncached Ultra and Premium v2 data disk IOPS/ MBps |Burst uncached Ultra and Premium v2 data disk IOPS/ MBps | Max NICs | Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_E2bs_v5 | 2 | 16 | 4 | 5500/156 | 10000/1200 | 7370/156|15000/1200 | 2 | 10000 |
-| Standard_E4bs_v5 | 4 | 32 | 8 | 11000/350 | 20000/1200 | 14740/350|30000/1200 | 2 | 10000 |
-| Standard_E8bs_v5 | 8 | 64 | 16 | 22000/625 | 40000/1200 |29480/625 |60000/1200 | 4 | 10000 |
+| Standard_E2bs_v5 | 2 | 16 | 4 | 5500/156 | 10000/1200 | 7370/156|15000/1200 | 2 | 12500 |
+| Standard_E4bs_v5 | 4 | 32 | 8 | 11000/350 | 20000/1200 | 14740/350|30000/1200 | 2 | 12500 |
+| Standard_E8bs_v5 | 8 | 64 | 16 | 22000/625 | 40000/1200 |29480/625 |60000/1200 | 4 | 12500 |
 | Standard_E16bs_v5 | 16 | 128 | 32 | 44000/1250 | 64000/2000 |58960/1250 |96000/2000 | 8 | 12500 
 | Standard_E32bs_v5 | 32 | 256 | 32 | 88000/2500 | 120000/4000 |117920/2500 |160000/4000 | 8 | 16000 |
 | Standard_E48bs_v5 | 48 | 384 | 32 | 120000/4000 | 120000/4000 | 160000/4000| 160000/4000| 8 | 16000 |
