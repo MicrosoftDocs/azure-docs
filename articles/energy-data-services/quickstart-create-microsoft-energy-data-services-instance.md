@@ -15,7 +15,7 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 In this quickstart, you'll learn how to create and deploy a Microsoft Energy Data Services instance. 
 
-Microsoft Energy Data Services (or MEDS, in short) is a managed Platform-as-a-service (PaaS) offering from Microsoft that builds on top of the [OSDU&trade;](https://osduforum.org/) data platform. MEDS lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
+Microsoft Energy Data Services is a managed Platform-as-a-service (PaaS) offering from Microsoft that builds on top of the [OSDU&trade;](https://osduforum.org/) data platform. Microsoft Energy Data Services lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
 
 ## Before you start
 
@@ -35,7 +35,7 @@ Application ID | You'll need an application ID (often referred to as "App ID" or
 
 1. Navigate to Azure Active Directory and open *App registration* in the left-hand pane.
 
-1. Select *Register a new application*.
+1. Select *+ New application*.
 
 1. Add a redirect URI.
 
