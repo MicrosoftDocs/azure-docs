@@ -37,7 +37,7 @@ operational analytics apps, and high throughput transactional apps. These apps
 span various verticals such as sales & marketing automation, healthcare,
 IOT/telemetry, finance, logistics, and search.
 
-![distributed architecture](media/overview-hyperscale/distributed.png)
+![distributed architecture](media/overview/distributed.png)
 
 ## Implementation checklist
 
@@ -95,7 +95,7 @@ having the superpower of distributing tables. At a few dollars a day, it's the
 most cost-effective way to experience Hyperscale (Citus). Later, if your
 application requires greater scale, you can add nodes and rebalance your data.
 
-![graduating to standard tier](media/overview-hyperscale/graduate.png)
+![graduating to standard tier](media/overview/graduate.png)
 
 ## Next steps
 
