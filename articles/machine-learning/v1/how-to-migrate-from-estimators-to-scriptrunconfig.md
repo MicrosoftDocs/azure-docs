@@ -8,7 +8,7 @@ ms.author: larryfr
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 12/14/2020
+ms.date: 09/14/2022
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
@@ -47,12 +47,12 @@ When using ScriptRunConfig, all environment-related configurations are encapsula
 * [Use a curated environment](../how-to-use-environments.md#use-a-curated-environment) - curated environments are predefined environments available in your workspace by default. There is a corresponding curated environment for each of the preconfigured framework/version Docker images that backed each framework estimator.
 * [Define your own custom environment](how-to-use-environments.md)
 
-Here is an example of using the curated PyTorch 1.6 environment for training:
+Here is an example of using the curated PyTorch environment for training:
 
 ```python
 from azureml.core import Workspace, ScriptRunConfig, Environment
 
-curated_env_name = 'AzureML-PyTorch-1.6-GPU'
+curated_env_name = 'AzureML-pytorch-1.10-ubuntu18.04-py38-cuda11-gpu'
 pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
 
 compute_target = ws.compute_targets['my-cluster']
@@ -61,6 +61,9 @@ src = ScriptRunConfig(source_directory='.',
                       compute_target=compute_target,
                       environment=pytorch_env)
 ```
+
+> [!TIP]
+> For a list of curated environments, see [curated environments](resource-curated-environments.md).  
 
 If you want to specify **environment variables** that will get set on the process where the training script is executed, use the Environment object:
 ```
