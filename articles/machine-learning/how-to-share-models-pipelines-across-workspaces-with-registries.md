@@ -78,7 +78,7 @@ To accomplish this flow, lets gets started by creating a connection to the a wor
 
 ## Create Environment in Registry
 
-Environments define the docker container and python dependencies required to run training jobs or deploy models. Review [environment concepts](./concept-environments.md) and [how to create environments](./how-to-manage-environments-v2.md) to learn more. 
+Environments define the docker container and python dependencies required to run training jobs or deploy models. For more information, see thee [Environment concepts](./concept-environments.md) and [How to create environments](./how-to-manage-environments-v2.md) articles. 
 
 > [!TIP]
 > The same the CLI command `az ml environment create` can be used to create environments in a workspace or registry. Running the command with `--workspace-name` command creates the environment in a workspace whereas running the command with `--registry-name` creates the environment in the registry.
