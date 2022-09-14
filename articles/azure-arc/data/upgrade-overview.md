@@ -17,17 +17,17 @@ This article describes the paths and options to upgrade Azure Arc-enabled data c
 
 ## Supported versions
 
-Each release contains an image tag. Use the image tag to identify when Microsoft released the component. Microsoft supports the component for 1 full year after the release. 
+Each release contains an image tag. Use the image tag to identify when Microsoft released the component. Microsoft supports the component for one full year after the release. 
 
 Identify your current version by image tag. The image tag version scheme is:
 - `<Major>.<Minor>.<optional:revision>_<date>`.
 - `<date>` identifies the year, month, and day of the release. The pattern is: YYYY-MM-DD. 
 
-For example, a complete image tag for the release in June, 2022 is: `v1.8.0_2022-06-06`.
+For example, a complete image tag for the release in June 2022 is: `v1.8.0_2022-06-06`.
 
-The example image released on June 6th, 2022. 
+The example image released on June 6, 2022. 
 
-Microsoft supports this release through June 5th, 2023.
+Microsoft supports this release through June 5, 2023.
 
 > [!NOTE]
 > The latest current branch version is always in the **Full Support** servicing phase. This support statement means that if you encounter a code defect that warrants a critical update, you must have the latest current branch version installed in order to receive a fix.
@@ -75,7 +75,7 @@ The amount of time to upgrade the data service depends on the service tier.
 The data controller upgrade does not cause application downtime. 
 
 - General Purpose: A single replica is not available during the upgrade.
-- Business Critical: A SQL managed instance incurs a brief service interruption (downtime) once during an upgrade. After the data controller upgrades a secondary replicas, the service fails over to an upgraded replica. The controller then upgrades the previous primary replica.
+- Business Critical: A SQL managed instance incurs a brief service interruption (downtime) once during an upgrade. After the data controller upgrades a secondary replica, the service fails over to an upgraded replica. The controller then upgrades the previous primary replica.
 
 > [!TIP]
 > Upgrade the data services during scheduled maintenance time. 
