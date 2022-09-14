@@ -1,5 +1,5 @@
 ---
-title: Actions and attributes for Azure role assignment conditions in Azure Storage (preview)
+title: Actions and attributes for Azure role assignment conditions in Azure Storage
 titleSuffix: Azure Storage
 description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) in Azure Storage. 
 services: storage
@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/01/2022
+ms.date: 09/14/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -16,8 +16,11 @@ ms.subservice: blobs
 # Actions and attributes for Azure role assignment conditions in Azure Storage (preview)
 
 > [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Currently, Azure ABAC is Generally available (GA) for controlling access to Azure blob storage and Data Lake Storage Gen2 only using request and resource attributes in the Standard storage account performance tier. It is still in preview for Premium storage accounts and for the security principal and environment attributes in all tiers. Also, the snapshot resource attribute for Data Lake Storage Gen2 is still in preview.
+>
+> See [About the ABAC preview](../common/authorize-data-access.md#about-the-abac-preview) for a complete list of storage account performance tiers, resource types, and attributes for which ABAC is Generally available or in preview.
+>
+> Features of ABAC that are still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Blob service operations that are affected by a specific permission or DataAction, see [Permissions for Blob service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-blob-service-operations).
@@ -294,70 +297,6 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Examples** | [Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers)<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path)<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path)<br/>[Example: Write blobs in named containers with a path](storage-auth-abac-examples.md#example-write-blobs-in-named-containers-with-a-path)<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots)<br/>[Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
 
-## Azure Queue storage actions
-
-This section lists the supported Azure Queue storage actions you can target for conditions.
-
-### Peek messages
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Property | Value |
-> | --- | --- |
-> | **Display name** | Peek messages |
-> | **Description** | DataAction for peeking messages. |
-> | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read` |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
-> | **Request attributes** |  |
-> | **Principal attributes support** | True |
-
-### Put a message
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Property | Value |
-> | --- | --- |
-> | **Display name** | Put a message |
-> | **Description** | DataAction for putting a message. |
-> | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action` |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
-> | **Request attributes** |  |
-> | **Principal attributes support** | True |
-
-### Put or update a message
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Property | Value |
-> | --- | --- |
-> | **Display name** | Put or update a message |
-> | **Description** | DataAction for putting or updating a message. |
-> | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/write` |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
-> | **Request attributes** |  |
-> | **Principal attributes support** | True |
-
-### Clear messages
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Property | Value |
-> | --- | --- |
-> | **Display name** | Clear messages |
-> | **Description** | DataAction for clearing messages. |
-> | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete` |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
-> | **Request attributes** |  |
-> | **Principal attributes support** | True |
-
-### Get or delete messages
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Property | Value |
-> | --- | --- |
-> | **Display name** | Get or delete messages |
-> | **Description** | DataAction for getting or deleting messages. |
-> | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
-> | **Request attributes** |  |
-> | **Principal attributes support** | True |
-
 ## Azure Blob storage attributes
 
 This section lists the Azure Blob storage attributes you can use in your condition expressions depending on the action you target. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
@@ -517,21 +456,6 @@ This section lists the Azure Blob storage attributes you can use in your conditi
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T23:38:32.8883645Z'`<br/>[Example: Read current blob versions and a specific blob version](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
-
-## Azure Queue storage attributes
-
-This section lists the Azure Queue storage attributes you can use in your condition expressions depending on the action you target.
-
-### Queue name
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Property | Value |
-> | --- | --- |
-> | **Display name** | Queue name |
-> | **Description** | Name of a storage queue. |
-> | **Attribute** | `Microsoft.Storage/storageAccounts/queueServices/queues:name` |
-> | **Attribute source** | Resource |
-> | **Attribute type** | String |
 
 ## See also
 

@@ -1,0 +1,152 @@
+---
+title: Actions and attributes for Azure role assignment conditions for Azure queues
+titleSuffix: Azure Storage
+description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) for Azure queues. 
+services: storage
+author: jammart
+
+ms.service: storage
+ms.topic: conceptual
+ms.date: 07/06/2022
+ms.author: jammart
+ms.reviewer: nachakra
+ms.subservice: queues
+---
+
+# Actions and attributes for Azure role assignment conditions for Azure queues
+
+> [!IMPORTANT]
+> Currently, Azure ABAC is Generally available (GA) for controlling access to Azure queue storage only using request and resource attributes in the Standard storage account performance tier. It is still in preview for Premium storage accounts and for the security principal and environment attributes in all tiers. 
+>
+> See [About the ABAC preview](../common/authorize-data-access.md#about-the-abac-preview) for a complete list of storage account performance tiers, resource types, and attributes for which ABAC is Generally available or in preview.
+>
+> Features of ABAC that are still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Blob service operations that are affected by a specific permission or DataAction, see [Permissions for Blob service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-blob-service-operations).
+
+To understand the role assignment condition format, see [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md).
+
+## Suboperations
+
+Multiple Storage service operations can be associated with a single permission or DataAction. However, each of these operations that are associated with the same permission might support different parameters. *Suboperations* enable you to differentiate between service operations that require the same permission but support different set of attributes for conditions. Thus, by using a suboperation, you can specify one condition for access to a subset of operations that support a given parameter. Then, you can use another access condition for operations with the same action that doesn't support that parameter.
+
+For example, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` action is required for over a dozen different service operations. Some of these operations can accept blob index tags as request parameter, while others don't. For operations that accept blob index tags as a parameter, you can use blob index tags in a Request condition. However, if such a condition is defined on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` action, all operations that don't accept tags as a request parameter cannot evaluate this condition, and will fail the authorization access check.
+
+In this case, the optional suboperation `Blob.Write.WithTagHeaders` can be used to apply a condition to only those operations that support blob index tags as a request parameter.
+
+Similarly, only select operations on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` action can have support blob index tags as a precondition for access. This subset of operations is identified by the `Blob.Read.WithTagConditions` suboperation.
+
+> [!NOTE]
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md).
+
+In this preview, storage accounts support the following suboperations:
+
+> [!div class="mx-tableFixed"]
+> | Display name | DataAction | Suboperation |
+> | :--- | :--- | :--- |
+> | [List blobs](#list-blobs) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.List` |
+> | [Read a blob](#read-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | **NOT** `Blob.List` |
+> | [Read content from a blob with tag conditions](#read-content-from-a-blob-with-tag-conditions) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.Read.WithTagConditions` |
+> | [Sets the access tier on a blob](#sets-the-access-tier-on-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `Blob.Write.Tier` |
+> | [Write to a blob with blob index tags](#write-to-a-blob-with-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blob.Write.WithTagHeaders` |
+
+## Azure Queue storage actions
+
+This section lists the supported Azure Queue storage actions you can target for conditions.
+
+### Peek messages
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Peek messages |
+> | **Description** | DataAction for peeking messages. |
+> | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read` |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
+> | **Request attributes** |  |
+> | **Principal attributes support** | True |
+
+### Put a message
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Put a message |
+> | **Description** | DataAction for putting a message. |
+> | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action` |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
+> | **Request attributes** |  |
+> | **Principal attributes support** | True |
+
+### Put or update a message
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Put or update a message |
+> | **Description** | DataAction for putting or updating a message. |
+> | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/write` |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
+> | **Request attributes** |  |
+> | **Principal attributes support** | True |
+
+### Clear messages
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Clear messages |
+> | **Description** | DataAction for clearing messages. |
+> | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete` |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
+> | **Request attributes** |  |
+> | **Principal attributes support** | True |
+
+### Get or delete messages
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Get or delete messages |
+> | **Description** | DataAction for getting or deleting messages. |
+> | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
+> | **Request attributes** |  |
+> | **Principal attributes support** | True |
+
+## Azure Queue storage attributes
+
+This section lists the Azure Queue storage attributes you can use in your condition expressions depending on the action you target. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
+
+> [!NOTE]
+> Attributes and values listed are considered case-insensitive, unless stated otherwise.
+
+### Account name
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Account name |
+> | **Description** | Name of a storage account. |
+> | **Attribute** | `Microsoft.Storage/storageAccounts:name` |
+> | **Attribute source** | Resource |
+> | **Attribute type** | String |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:name] StringEquals 'sampleaccount'`<br/>[Example: Read or write blobs in named storage account with specific encryption scope](storage-auth-abac-examples.md#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) |
+
+### Queue name
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Queue name |
+> | **Description** | Name of a storage queue. |
+> | **Attribute** | `Microsoft.Storage/storageAccounts/queueServices/queues:name` |
+> | **Attribute source** | Resource |
+> | **Attribute type** | String |
+
+## See also
+
+- [Example Azure role assignment conditions (preview)](storage-auth-abac-examples.md)
+- [Azure role assignment condition format and syntax (preview)](../../role-based-access-control/conditions-format.md)
+- [Troubleshoot Azure role assignment conditions (preview)](../../role-based-access-control/conditions-troubleshoot.md)

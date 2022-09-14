@@ -7,7 +7,7 @@ author: jammart
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/06/2022
+ms.date: 09/14/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: queues
