@@ -63,7 +63,7 @@ src = ScriptRunConfig(source_directory='.',
 ```
 
 > [!TIP]
-> For a list of curated environments, see [curated environments](resource-curated-environments.md).  
+> For a list of curated environments, see [curated environments](../resource-curated-environments.md).  
 
 If you want to specify **environment variables** that will get set on the process where the training script is executed, use the Environment object:
 ```
