@@ -21,7 +21,7 @@ ms.custom: template-tutorial
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a destination table for Event Hub data in your Log Analytics workspace
+> * Create a destination table for event hub data in your Log Analytics workspace
 > * Create a data collection endpoint
 > * Create a data collection rule
 > * Grant the data collection rule permissions to the Event Hub
@@ -38,16 +38,16 @@ In this tutorial, you learn how to:
 
 ## Create a destination table for event hub data in your Log Analytics workspace
 
-You can ingest event hub data to any custom table that you create and to the following built-in tables in your Log Analytics workspace:
+You can ingest event hub data into a custom table or one of these built-in tables in your Log Analytics workspace:
 
 - [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)
 - [Syslog](/azure/azure-monitor/reference/tables/syslog)
 - [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
 
-Table and column naming guidelines:
+If you're creating a custom table or adding columns to a built-in table, follow these naming guidelines:
  
-* Custom tables must have the `_CL` suffix.
+* Custom table names must have the `_CL` suffix.
 * Column names can consist of alphanumeric characters and the characters `_` and `-`. They must start with a letter.  
 * Columns added to built-in tables must have the suffix `_CF`. Columns in a custom table do not need this suffix. 
 
@@ -55,7 +55,7 @@ To create a custom table into which to ingest events, in the Azure portal:
 
 1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** to find your subscription ID, resource group name, and workspace name.
 
-    :::image type="content" source="media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
+    :::image type="content" source="media/ingest-logs-event-hub/create-custom-table-prepare.png" lightbox="media/ingest-logs-event-hub/create-custom-table-prepare.png" alt-text="Screenshot showing Log Analytics workspace overview screen with subscription ID, resource group name, and workspace name highlighted.":::
 
 1. Select the **Cloud Shell** button and ensure the environment is set to **PowerShell**.
 
