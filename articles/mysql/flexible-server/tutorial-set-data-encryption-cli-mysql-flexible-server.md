@@ -24,31 +24,41 @@ In this tutorial you'll learn how to:
 
 - An Azure account with an active subscription.
 
-- If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free)before you begin. With an Azure free account, you can now try Azure Database for MySQL - Flexible Server for free for 12 months. For more information, see [Try Flexible Server for free](how-to-deploy-on-azure-free-account).
+- If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free)before you begin. With an Azure free account, you can now try Azure Database for MySQL - Flexible Server for free for 12 months. For more information, see [Try Flexible Server for free](how-to-deploy-on-azure-free-account.md).
 
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
 
 - Login to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the id property, which refers to Subscription ID for your Azure account.
 
-`az login`
+```azurecli
+az login
+```
 
 - If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the az account set command.
 
-`az account set --subscription \<subscription id\>`
+```azurecli
+az account set --subscription \<subscription id\>
+```
 
 - In Azure Key Vault, create a key vault and a key. The key vault must have the following properties to use as a customer-managed key:
 
 [Soft delete](../../key-vault/general/soft-delete-overview.md)
 
-`az resource update --id $(az keyvault show --name \ \<key\_vault\_name\> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true`
+```azurecli
+az resource update --id $(az keyvault show --name \ \<key\_vault\_name\> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+```
 
-[Purge protected](#purge-protection%22)
+[Purge protected](../../key-vault/general/soft-delete-overview.md#purge-protection)
 
-`az keyvault update --name \<key\_vault\_name\> --resource-group \<resource\_group\_name\> --enable-purge-protection true`
+```azurecli
+az keyvault update --name \<key\_vault\_name\> --resource-group \<resource\_group\_name\> --enable-purge-protection true
+```
 
 Retention days set to 90 days
 
-`az keyvault update --name \<key\_vault\_name\> --resource-group \<resource\_group\_name\> --retention-days 90`
+```azurecli
+az keyvault update --name \<key\_vault\_name\> --resource-group \<resource\_group\_name\> --retention-days 90
+```
 
 The key must have the following attributes to use as a customer-managed key:
 
@@ -60,22 +70,33 @@ The key must have the following attributes to use as a customer-managed key:
 
 You can verify the above attributes of the key by using the following command:
 
-`az keyvault key show --vault-name \<key\_vault\_name\> -n \<key\_name\>`
+```azurecli
+az keyvault key show --vault-name \<key\_vault\_name\> -n \<key\_name\>
+```
 
-**Update an existing MySQL flexible server with data encryption**
+## Update an existing MySQL flexible server with data encryption
 
 Set or change key and identity for data encryption
 
-`az mysql flexible-server update --resource-group testGroup --name testserver \\ --key \<key identifier of newKey\> --identity newIdentity`
+```azurecli
+az mysql flexible-server update --resource-group testGroup --name testserver \\ --key \<key identifier of newKey\> --identity newIdentity
+```
 
-**Disable data encryption for flexible server**
+Set or change key, identity, backup key and backup identity for data encryption with geo redundant backup
 
-`az mysql flexible-server update --resource-group testGroup --name testserver --disable-data-encryption`
+```azurecli
+az mysql flexible-server update --resource-group testGroup --name testserver \\ --key \<key identifier of newKey\> --identity newIdentity \\  --backup-key \<key identifier of newBackupKey\> --backup-identity newBackupIdentity
+```
+
+Disable data encryption for flexible server
+
+```azurecli-interactive
+az mysql flexible-server update --resource-group testGroup --name testserver --disable-data-encryption
+```
 
 ## Use an Azure Resource Manager template to enable data encryption
 
-- The params **identityUri** and **primaryKeyUri** are the resource ID of the user managed identity and the user managed key, respectively.
-- Use _2021-05-01_ as the API version.
+The params **identityUri** and **primaryKeyUri** are the resource ID of the user managed identity and the user managed key, respectively.
 
 ```json
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
