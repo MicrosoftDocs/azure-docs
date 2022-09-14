@@ -5,7 +5,7 @@ ms.author: nickoman
 author: nickomang
 services: container-service
 ms.topic: article
-ms.date: 08/26/2022
+ms.date: 09/09/2022
 ---
 
 # Use ImageCleaner to clean up stale images on your Azure Kubernetes Service cluster (preview)
@@ -17,7 +17,7 @@ It's common to use pipelines to build and deploy images on Azure Kubernetes Serv
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] and the `aks-preview` CLI extension installed.
+* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] and the `aks-preview` 0.5.96 or later CLI extension installed.
 * The `EnableImageCleanerPreview` feature flag registered on your subscription:
 
 ### [Azure CLI](#tab/azure-cli)
