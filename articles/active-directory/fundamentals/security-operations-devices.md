@@ -58,17 +58,17 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 
 * **[Microsoft Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
-* **[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we have added a link to the Sigma repo. The Sigma templates are not written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
+* **[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we've added a link to the Sigma repo. The Sigma templates aren't written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
 * **[Azure Monitor](../..//azure-monitor/overview.md)** – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) -integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
+* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) -integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration.
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
 * **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
 
-Much of what you'll monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, and the results of policies including device state. This workbook enables you to view an impact summary, and identify the impact over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user.
+Much of what you'll monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, and the results of policies including device state. This workbook enables you to view a summary, and identify the effects over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user.
 
  The rest of this article describes what we recommend you monitor and alert on, and is organized by the type of threat. Where there are specific pre-built solutions we link to them or provide samples following the table. Otherwise, you can build alerts using the preceding tools.
 
@@ -95,7 +95,7 @@ Sign-in logs
 
 You can also use [Microsoft Intune to set and monitor device compliance policies](/mem/intune/protect/device-compliance-get-started).
 
-## Non-compliant device sign in
+## Non-compliant device sign-in
 
 It might not be possible to block access to all cloud and software-as-a-service applications with Conditional Access policies requiring compliant devices.
 
@@ -134,7 +134,7 @@ SigninLogs
 
 ## Stale devices
 
-Stale devices include devices that haven't signed in for a specified time period. Devices can become stale when a user gets a new device or loses a device, or when an Azure AD joined device is wiped or reprovisioned. Devices may also remain registered or joined when the user is no longer associated with the tenant. Stale devices should be removed so that their primary refresh tokens (PRTs) cannot be used.
+Stale devices include devices that haven't signed in for a specified time period. Devices can become stale when a user gets a new device or loses a device, or when an Azure AD joined device is wiped or reprovisioned. Devices might also remain registered or joined when the user is no longer associated with the tenant. Stale devices should be removed so the primary refresh tokens (PRTs) cannot be used.
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
@@ -198,11 +198,9 @@ Azure AD sign-in for Windows allows your organization to sign in to your Azure W
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Non-Azure AD account signing in, especially over RDP| High| Windows Server event logs| Interactive Login to Windows VM| Event 528, logon type 10 (RemoteInteractive).<br>Shows when a user signs in over Terminal Services or Remote Desktop. |
+| Non-Azure AD account sign-in, especially over RDP| High| Windows Server event logs| Interactive Login to Windows VM| Event 528, log-on type 10 (RemoteInteractive).<br>Shows when a user signs in over Terminal Services or Remote Desktop. |
 
 ## Next steps
-
-See these additional security operations guide articles:
 
 [Azure AD security operations overview](security-operations-introduction.md)
 
