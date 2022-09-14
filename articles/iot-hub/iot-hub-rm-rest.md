@@ -37,7 +37,7 @@ You can use the [IoT Hub resource provider REST API](/rest/api/iothub/iothubreso
 
 4. In NuGet Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
     > [!IMPORTANT]
-    > The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade. For more information see the [migration guide](../active-directory/develop/msal-migration.md).
+    > The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been retired. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade. For more information see the [migration guide](../active-directory/develop/msal-migration.md).
 
 5. In Program.cs, replace the existing **using** statements with the following code:
 
