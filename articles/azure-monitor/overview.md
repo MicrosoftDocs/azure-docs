@@ -96,7 +96,7 @@ Azure Monitor can collect log data from any REST client by using the [Data Colle
 
 Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Some Azure resource providers have a "curated visualization," which gives you a customized monitoring experience for that particular service or set of services. They generally require minimal configuration. Larger, scalable, curated visualizations are known as "insights" and marked with that name in the documentation and the Azure portal.  
 
-For more information, see [List of insights and curated visualizations using Azure Monitor](monitor-reference.md#insights-and-curated-visualizations). Some of the larger insights are described here.
+For more information, see [List of insights and curated visualizations using Azure Monitor](insights/insights-overview.md). Some of the larger insights are described here.
 
 ### Application Insights
 
