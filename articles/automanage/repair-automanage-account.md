@@ -74,11 +74,11 @@ If you're using an ARM template or the Azure CLI, you'll need the Principal ID (
 
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-    | Setting | Value |
-    | --- | --- |
-    | Role | Contributor |
-    | Assign access to | User, group, or service principal |
-    | Members | \<Name of your Automanage account> |
+    | Setting          | Value                              |
+    | ---------------- | ---------------------------------- |
+    | Role             | Contributor                        |
+    | Assign access to | User, group, or service principal  |
+    | Members          | \<Name of your Automanage account> |
 
     ![Screenshot showing Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
@@ -136,4 +136,4 @@ az role assignment create --assignee-object-id <your Automanage Account Object I
 ```
 
 ## Next steps
-[Learn more about Azure Automanage](./automanage-virtual-machines.md)
+[Learn more about Azure Automanage](./overview-about.md)

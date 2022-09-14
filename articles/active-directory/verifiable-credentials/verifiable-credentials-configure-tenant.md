@@ -159,7 +159,7 @@ To add the required permissions, follow these steps:
     1. Website ID registration
     1. Domain verification.
 1. Select on each section and download the JSON file under each.
-1. Crete a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
+1. Create a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
     - `https://contoso.com/.well-known/did.json`
     - `https://contoso.com/.well-known/did-configuration.json`
 

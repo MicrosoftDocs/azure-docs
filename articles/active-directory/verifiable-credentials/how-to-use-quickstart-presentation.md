@@ -1,5 +1,5 @@
 ---
-title: Issue a verifiable credentials by presenting claims from an existing verifiable credential
+title: Issue verifiable credentials by presenting claims from an existing verifiable credential
 description: Learn how to use a quickstart to create custom credentials for from other VC attestation
 documentationCenter: ''
 author: barclayn
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: As a verifiable credentials administrator, I want to create a verifiable credential for self-asserted claims scenario. 
 ---
 
-# Issue a verifiable credentials by presenting claims from an existing verifiable credential
+# Issue verifiable credentials by presenting claims from an existing verifiable credential
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
@@ -70,7 +70,7 @@ The JSON display definition is nearly the same, regardless of attestation type. 
 
 The JSON attestation definition should contain the **presentations** name. The **inputClaim** in the mapping section defines what claims should be captured in the credential the user presents. They need to have the prefix `$.vc.credentialSubject`. The **outputClaim** defined the name of the claims in the credential being issued. 
 
-The below rules definition is will asks the user to present the **True Identity** credential during issuance. This credential comes from the [public demo application](https://woodgroveemployee.azurewebsites.net/). 
+The following rules definition will ask the user to present the **True Identity** credential during issuance. This credential comes from the [public demo application](https://woodgroveemployee.azurewebsites.net/). 
 
 ```json
 {
