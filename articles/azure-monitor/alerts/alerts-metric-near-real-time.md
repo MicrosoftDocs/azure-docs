@@ -39,7 +39,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.BotService/botServices | Yes | No | [Azure Bot Service](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
 |Microsoft.Cache/redis | Yes | Yes | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
 |Microsoft.Cache/redisEnterprise | Yes | No | [Azure Cache for Redis Enterprise](../essentials/metrics-supported.md#microsoftcacheredisenterprise) |
-|microsoft.Cdn/profiles | Yes | No | [CDN Profiles](../essentials/metrics-supported.md#microsoftcdnprofiles) |
+|microsoft.Cdn/profiles | Yes | No | [Azure Content Delivery Network profiles](../essentials/metrics-supported.md#microsoftcdnprofiles) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Azure Cloud Services (classic)](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | No | No | [Azure Virtual Machines (classic)](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Yes | No | [Azure Storage accounts (classic)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccounts) |
@@ -52,7 +52,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Compute/cloudServices/roles | Yes | No |  [Azure Cloud Services roles](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Yes | Yes<sup>1</sup> | [Azure Virtual Machines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Yes | No |[Azure Virtual Machine Scale Sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
-|Microsoft.ConnectedVehicle/platformAccounts | Yes | No |[Connected Vehicle Platform accounts](../essentials/metrics-supported.md#microsoftconnectedvehicleplatformaccounts) |
+|Microsoft.ConnectedVehicle/platformAccounts | Yes | No |[Connected Vehicle Platform Accounts](../essentials/metrics-supported.md#microsoftconnectedvehicleplatformaccounts) |
 |Microsoft.ContainerInstance/containerGroups | Yes| No | [Container groups](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | No | No | [Azure Container Registry](../essentials/metrics-supported.md#microsoftcontainerregistryregistries) |
 |Microsoft.ContainerService/managedClusters | Yes | No | [Managed clusters](../essentials/metrics-supported.md#microsoftcontainerservicemanagedclusters) |
@@ -71,7 +71,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Devices/provisioningServices| Yes | No | [Device Provisioning Service](../essentials/metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft.DigitalTwins/digitalTwinsInstances | Yes | No | [Azure Digital Twins](../essentials/metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
 |Microsoft.DocumentDB/databaseAccounts | Yes | No | [Azure Cosmos DB](../essentials/metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
-|Microsoft.EventGrid/domains | Yes | No | [Azure Event Grid Domains](../essentials/metrics-supported.md#microsofteventgriddomains) |
+|Microsoft.EventGrid/domains | Yes | No | [Azure Event Grid domains](../essentials/metrics-supported.md#microsofteventgriddomains) |
 |Microsoft.EventGrid/systemTopics | Yes | No | [Azure Event Grid system topics](../essentials/metrics-supported.md#microsofteventgridsystemtopics) |
 |Microsoft.EventGrid/topics |Yes | No | [Azure Event Grid topics](../essentials/metrics-supported.md#microsofteventgridtopics) |
 |Microsoft.EventHub/clusters |Yes| No | [Azure Event Hubs clusters](../essentials/metrics-supported.md#microsofteventhubclusters) |
