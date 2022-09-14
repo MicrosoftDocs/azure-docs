@@ -47,12 +47,12 @@ When using ScriptRunConfig, all environment-related configurations are encapsula
 * [Use a curated environment](../how-to-use-environments.md#use-a-curated-environment) - curated environments are predefined environments available in your workspace by default. There is a corresponding curated environment for each of the preconfigured framework/version Docker images that backed each framework estimator.
 * [Define your own custom environment](how-to-use-environments.md)
 
-Here is an example of using the curated PyTorch environment for training:
+Here is an example of using the curated environment for training:
 
 ```python
 from azureml.core import Workspace, ScriptRunConfig, Environment
 
-curated_env_name = 'AzureML-pytorch-1.10-ubuntu18.04-py38-cuda11-gpu'
+curated_env_name = '<add Pytorch curated environment name here>'
 pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
 
 compute_target = ws.compute_targets['my-cluster']
