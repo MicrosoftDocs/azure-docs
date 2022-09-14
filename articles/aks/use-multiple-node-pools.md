@@ -132,7 +132,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name armpool \
     --node-count 3 \
-    --node-vm-size Standard_Dpds_v5
+    --node-vm-size Standard_D2pds_v5
 ```
 
 ### Add a node pool with a unique subnet
