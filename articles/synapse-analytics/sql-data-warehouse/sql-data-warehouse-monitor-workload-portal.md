@@ -3,7 +3,6 @@ title: Monitor workload - Azure portal
 description: Monitor Synapse SQL using the Azure portal
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-manager: craigg
 ms.reviewer: sngun
 ms.date: 09/13/2022
 ms.service: synapse-analytics
@@ -22,13 +21,13 @@ This article describes how to use the Azure portal to monitor your workload. Thi
 
 ## Create a Log Analytics workspace
 
-Navigate to the browse blade for Log Analytics workspaces, or go to the services saerch and create a new Log Analytics workspace. 
+In the Azure portal, navigate to the page for Log Analytics workspaces, or use the Azure services search window to create a new Log Analytics workspace. 
 
 :::image type="content" source="./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png" alt-text="Screenshot shows the Log Analytics workspaces where you can select Add.":::
 
 :::image type="content" source="./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png" alt-text="Screenshot shows the Log Analytics workspace where you can enter values.":::
 
-For more details on workspaces, see [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+For more information on workspaces, see [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 
 ## Turn on Resource logs
 
@@ -40,17 +39,17 @@ Configure diagnostic settings to emit logs from your SQL pool. Logs consist of t
 - [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-:::image type="content" source="./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png" alt-text="Enabling resource logs.":::
+:::image type="content" source="./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png" alt-text="Screenshot of the page to create a diagnostic setting in the Azure portal.":::
 
 Logs can be emitted to Azure Storage, Stream Analytics, or Log Analytics. For this tutorial, select Log Analytics. Select all desired categories and metrics and choose **Send to Log Analytics workspace**. 
 
-:::image type="content" source="./media/sql-data-warehouse-monitor-workload-portal/specify_logs.png" alt-text="Specify logs.":::
+:::image type="content" source="./media/sql-data-warehouse-monitor-workload-portal/specify_logs.png" alt-text="Screenshot of the page to specify which logs to collect in the Azure portal.":::
 
 Select **Save** to create the new diagnostic setting. It may take a few minutes for data to appear in queries.
 
 ## Run queries against Log Analytics
 
-Navigate to your Log Analytics workspace where you can do the following:
+Navigate to your Log Analytics workspace where you can:
 
 - Analyze logs using log queries and save queries for reuse
 - Save queries for reuse
