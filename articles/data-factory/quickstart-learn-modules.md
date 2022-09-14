@@ -41,3 +41,4 @@ This module introduces you to the details of Azure Data Factory's ingestion meth
 - [Quickstart: Copy data tool](quickstart-create-data-factory-copy-data-tool.md)
 - [Quickstart: Create data factory - ARM template](quickstart-create-data-factory-resource-manager-template.md)
 - [Quickstart: Create data flow](data-flow-create.md)
+- [All Learn modules for Azure Data Factory](/training/browse/?filter-products=fact&products=azure-data-factory)
