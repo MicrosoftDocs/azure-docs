@@ -1,21 +1,21 @@
 ---
-title: Setup your Azure Kubernetes Service (AKS) cluster with a Workload Identity
-description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with a Workload Identity.
+title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity (preview)
+description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity (preview).
 services: container-service
 ms.topic: article
 ms.date: 09/13/2022
 ---
 
-# Setup your Azure Kubernetes Service (AKS) cluster with a Workload Identity
+# Deploy and configure workload identity (preview) on an Azure Kubernetes Service (AKS) cluster
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this article, you will:
 
-* Deploy an AKS cluster using the Azure CLI with OpenID Connect Issuer and Workload Identity.
-* Create an Azure Key Vault and secret.
+* Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and workload identity (preview)
+* Grant access to your Azure Key Vault
 * Create an Azure Active Directory (Azure AD) application and Kubernetes service account
-* Configure the Azure AD app for token federation
+* Configure the Azure AD app for token federation.
 
-This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. 
 
 - This article requires version 2.32.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -63,12 +63,12 @@ To get the OIDC Issuer URL, run the following command:
 
 ## Create a Managed Identity and grant permissions to access Azure Key Vault
 
-This step is necessary if you need to access secrets, keys, and certificates that are mounted in Azure Key Vault from a pod. Perform the following steps to configure access with a managed identity. These steps assume you have an Azure Key Vault already created and configured in your subscription. If you do not, see [Create an Azure Key Vault using the Azure CLI][create-key-vault-azure-cli].
+This step is necessary if you need to access secrets, keys, and certificates that are mounted in Azure Key Vault from a pod. Perform the following steps to configure access with a managed identity. These steps assume you have an Azure Key Vault already created and configured in your subscription. If you don't have one, see [Create an Azure Key Vault using the Azure CLI][create-key-vault-azure-cli].
 
 Before proceeding, you need the following information:
 
-* The Key Vault name
-* The Key Vault URI. The URI standard naming format is `https://<your-unique-keyvault-name>.vault.azure.net/`.  Applications that use your Key Vault through its REST API must use this URI.
+* Name of the Key Vault
+* Resource group holding the Key Vault
 
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a Managed Identity.
 
@@ -123,4 +123,20 @@ Use the [az rest][az-rest] command to invoke a custom request to establish the f
 az rest --method put --url "/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESOURCE_GROUP}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/${UAID}/federatedIdentityCredentials/${FICID}?api-version=2022-01-31-PREVIEW" --headers "Content-Type=application/json" --body "{'properties':{'issuer':'${AKS_OIDC_ISSUER}','subject':'system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}','audiences':['api://AzureADTokenExchange'] }}"
 ```
 
+## Next steps
+
+In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential.  
+
+<!-- EXTERNAL LINKS -->
+
+<!-- INTERNAL LINKS -->
+[kubernetes-concepts]: ../concepts-clusters-workloads.md
 [create-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
+[aks-identity-concepts]: ../concepts-identity.md
+[az-account]: /cli/azure/account
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-two-resource-groups]: ../faq.md#why-are-two-resource-groups-created-with-aks
+[az-account-set]: /cli/azure/account#az-account-set
+[az-identity-create]: /cli/azure/identity#az-identity-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-rest]: /cli/azure/reference-index#az-rest
