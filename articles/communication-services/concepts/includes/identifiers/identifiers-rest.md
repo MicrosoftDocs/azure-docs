@@ -50,7 +50,7 @@ You can find an example for a request that includes an identifier in Chat's REST
 
 ### Microsoft Teams User identifier
 
-The `MicrosoftTeamsUserIdentifierModel` represents a Teams user. You need to know the Teams user's ID that you can retrieve via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint.
+The `MicrosoftTeamsUserIdentifierModel` represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response . For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](/azure/active-directory/develop/id-tokens#payload-claims) or [Azure AD access token](/azure/active-directory/develop/access-tokens#payload-claims) after your user has signed in and acquired a token.
 
 #### Basic usage
 
@@ -113,7 +113,7 @@ The `PhoneNumberIdentifierModel` represents a phone number. The service assumes 
 // response
 {
     "kind": "phoneNumber",
-    "rawId": "4:112345556789",
+    "rawId": "4:+112345556789",
     "phoneNumber": {
         "value": "+112345556789"
     }
@@ -269,7 +269,7 @@ The raw ID is the Teams visitor ID prefixed with `8:teamsvisitor:`. The Teams vi
 ```
 *Raw ID:*
 
-`4:1123455567`
+`4:+1123455567`
 
 The raw ID is the E.164 formatted phone number without the leading `+` and prefixed with `4:`.
 

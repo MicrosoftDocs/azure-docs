@@ -35,16 +35,16 @@ const sameUser = { communicationUserId: newUserId };
 
 ### Microsoft Teams User identifier
 
-The `MicrosoftTeamsUserIdentifier` interface represents a Teams user. You need to know the Teams user's ID that you can retrieve via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint.
+The `MicrosoftTeamsUserIdentifier` interface represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response . For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](/azure/active-directory/develop/id-tokens#payload-claims) or [Azure AD access token](/azure/active-directory/develop/access-tokens#payload-claims) after your user has signed in and acquired a token.
 
 #### Basic usage
 
 ```javascript
-// get the Teams user's ID if only the email is known, assuming a helper method
-const userId = await getUserIdFromGraph("bob@contoso.com");
+// get the Teams user's ID from Graph APIs if only the email is known
+const user = await graphClient.api("/users/bob@contoso.com").get();
 
 // create an identifier
-const teamsUser = { microsoftTeamsUserId: userId };
+const teamsUser = { microsoftTeamsUserId: user.id };
 
 // if you're not operating in the public cloud, you must also pass the right Cloud type.
 const gcchTeamsUser = { microsoftTeamsUserId: userId, cloud: "gcch" };

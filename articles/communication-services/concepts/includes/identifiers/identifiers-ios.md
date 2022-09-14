@@ -33,12 +33,12 @@ let user = CommunicationUserIdentifier(newUserId)
 
 ### Microsoft Teams User identifier
 
-The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](/azure/active-directory/develop/id-tokens#payload-claims) or [Azure AD access token](/azure/active-directory/develop/access-tokens#payload-claims) after your user has signed in and acquired a token.
+The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response . For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](/azure/active-directory/develop/id-tokens#payload-claims) or [Azure AD access token](/azure/active-directory/develop/access-tokens#payload-claims) after your user has signed in and acquired a token.
 
 #### Basic usage
 
 ```swift
-// get the Teams user's ID if only the email is known, assuming a helper method
+// get the Teams user's ID if only the email is known, assuming a helper method for the Graph API
 let userId = await getUserIdFromGraph("bob@contoso.com")
 
 // create an identifier
@@ -119,15 +119,6 @@ let rawId = communicationIdentifier.rawId;
 
 // create an identifier from a given raw Id
 let identifier = createCommunicationIdentifier(fromRawId: rawId);
-```
-
-*ObjC*
-```swift
-// get an identifier's raw Id
-NSString *rawId = communicationIdentifier.rawId;
-
-// create an identifier from a given raw Id
-id<CommunicationIdentifier> identifier = [CommunicationIdentifierFactory createCommunicationIdentifier:rawId];
 ```
 
 An invalid raw ID will just convert to an `UnknownIdentifier` in the SDK and any validation only happens service-side.
