@@ -169,9 +169,9 @@
       items:
       - name: Train with SDK v1
         href: how-to-attach-compute-targets.md
-      - name: Distributed training
-        displayName: parallellization, deep learning, deep neural network, dnn
-        href: concept-distributed-training.md
+      - name: Distributed GPU guide
+        displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
+        href: how-to-train-distributed-gpu.md
       - name: Scikit-learn
         href: how-to-train-scikit-learn.md
       - name: TensorFlow
