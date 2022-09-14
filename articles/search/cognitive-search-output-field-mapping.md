@@ -16,19 +16,32 @@ ms.date: 09/14/2022
 
 This article explains how to set up *output field mappings* that determine a data path between in-memory data structures created during skill processing, and target fields in a search index. An output field mapping is defined in an [indexer](search-indexer-overview.md) and has the following elements:
 
-+ "sourceFieldName" specifies a path to enriched content
-+ "targetFieldName" specifies the search field that receives the enriched content
-+ "mappingFunction" adds extra processing for encoding and decoding actions.
+```json
+"outputFieldMappings": [
+  {
+    "sourceFieldName": "document/path-to-a-node-in-an-enriched-document",
+    "targetFieldName": "some-search-field-in-an-index",
+    "mappingFunction": null
+  }
+],
+```
 
-Output field mappings are required if your indexer has an attached [skillset](cognitive-search-working-with-skillsets.md) that creates new information, such as translated strings or key phrases. During indexer execution, AI-generated information exists in memory. If you want to persist this information in a search index, you'll need to tell the indexer where to send the data.
+In contrast with a ["fieldMappings" definition](search-indexer-field-mappings.md) that maps a path between two physical data structures, an "outputFieldMappings" definition maps in-memory data to fields in a search index.
 
-Output field mappings are also used to flatten nested data structures during indexing. A regular [fieldMapping definition](search-indexer-field-mappings.md) doesn't support target fields of a complex type. If you need to set up field associations for hierarchical or nested data structures, you can use a skillset and an output field mapping to create the data path.
+Output field mappings are required if your indexer has an attached [skillset](cognitive-search-working-with-skillsets.md) that creates new information, such as translated strings or key phrases. During indexer execution, AI-generated information exists in memory. To persist this information in a search index, you'll need to tell the indexer where to send the data.
 
- 
+Output field mappings can also be used to flatten nested data structures during indexing. A regular [fieldMapping definition](search-indexer-field-mappings.md) doesn't support target fields of a complex type. If you need to set up field associations for hierarchical or nested data structures, you can use a skillset and an output field mapping to create the data path.
 
+Output field mappings apply to:
+
++ Content that's created by skills or extracted by an indexer.
+
++ Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
+
+Output field mappings always occur after [skillset execution](cognitive-search-working-with-skillsets.md), although it is possible for this stage to run even if no skillset is defined.
+
+<!-- 
 The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). 
-
-Output field mappings always occur after skillset execution, although it is possible for this stage to run even if no skillset is defined.
 
 Examples of output field mapping scenarios:
 
@@ -36,38 +49,50 @@ Examples of output field mapping scenarios:
 
 * **Content creation.** As part of your skillset, you produced a new node called "document/translated_text". You would like to map this new information to a specific field in your index.
 
-* **Content extraction.** You don’t have a skillset but are indexing a complex type from a Cosmos DB database. You'd like to get to a node on that complex type and map it into a field in your index.
+* **Content extraction.** You don’t have a skillset but are indexing a complex type from a Cosmos DB database. You'd like to get to a node on that complex type and map it into a field in your index. -->
 
-> [!NOTE]
-> Output field mappings apply to search indexes only. For indexers that create [knowledge stores](knowledge-store-concept-intro.md), output field mappings are ignored.
+## Set up an `outputFieldMappings` array
 
-## Use outputFieldMappings
-
-To map fields, add `outputFieldMappings` to your indexer definition as shown below:
-
-```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
-api-key: [admin key]
-Content-Type: application/json
-```
-
-The body of the request is structured as follows:
+Output field mappings are added to the "outputFieldMappings" array in an indexer definition, typically placed after the "filedMappings" array. An output field mapping consists of three parts.
 
 ```json
+"fieldMappings": []
+"outputFieldMappings": [
+  {
+    "sourceFieldName": "document/path-to-a-node-in-an-enriched-document",
+    "targetFieldName": "some-search-field-in-an-index",
+    "mappingFunction": null
+  }
+],
+```
+
+| Property | Description |
+|----------|-------------|
+| "sourceFieldName" | Required. Specifies a path to enriched content |
+|  "targetFieldName" | Optional. Specifies the search field that receives the enriched content|
+| "mappingFunction" | Optional. Adds extra processing provided by [search-indexer-field-mappings.md#predefined functions](#mappingFunctions) supported by indexers. In the case of enrichment nodes, encoding and decoding are the most commonly used functions. |
+
+You can use the REST API or an Azure SDK to define output field mappings.
+
+> [!TIP]
+> Indexers created by the [Import data wizard](search-import-data-portal.md) include output field mappings generated by the wizard. If you need examples, run the wizard over your data source to see the full definition.
+
+### [**REST APIs**](#tab/rest)
+
+Use [Create Indexer (REST)](/rest/api/searchservice/create-Indexer) or [Update Indexer (REST)](/rest/api/searchservice/update-indexer), any API version.
+
+This example adds entities and sentiment labels extracted from a blob's content property to fields in a search index.
+
+```JSON
+PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
+Content-Type: application/json
+api-key: [admin key]
 {
     "name": "myIndexer",
     "dataSourceName": "myDataSource",
     "targetIndexName": "myIndex",
     "skillsetName": "myFirstSkillSet",
-    "fieldMappings": [
-        {
-            "sourceFieldName": "metadata_storage_path",
-            "targetFieldName": "id",
-            "mappingFunction": {
-                "name": "base64Encode"
-            }
-        }
-    ],
+    "fieldMappings": [],
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
@@ -90,7 +115,37 @@ The body of the request is structured as follows:
 
 For each output field mapping, set the location of the data in the enriched document tree (sourceFieldName), and the name of the field as referenced in the index (targetFieldName). Assign any [mapping functions](search-indexer-field-mappings.md#field-mapping-functions-and-examples) that you require to transform the content of a field before it's stored in the index.
 
-## Flattening Information from Complex Types 
+### [**.NET SDK (C#)**](#tab/csharp)
+
+In the Azure SDK for .NET, use the [OutputFieldMappingEntry](/dotnet/api/azure.search.documents.indexes.models.outputfieldmappingentry) class that provides "Name" and "TargetFieldName" properties and an optional "MappingFunction" reference.
+
+Specify output field mappings when constructing the indexer, or later by directly setting [SearchIndexer.OutputFieldMappings](/dotnet/api/azure.search.documents.indexes.models.searchindexer.outputfieldmappings). The following C# example sets the output field mappings when constructing an indexer.
+
+```csharp
+string indexerName = "cog-search-demo";
+SearchIndexer indexer = new SearchIndexer(
+    indexerName,
+    dataSourceConnectionName,
+    indexName)
+{
+    // Field mappings omitted for this example (assume default mappings)
+    OutputFieldMappings =
+    {
+        new FieldMapping("/document/content/organizations") { TargetFieldName = "orgNames" },
+        new FieldMapping("/document/content/sentiment") { TargetFieldName = "sentiment" }
+    },
+    SkillsetName = skillsetName
+};
+
+await indexerClient.CreateIndexerAsync(indexer);
+```
+ -->
+
+---
+
+<a name="flatten-information-from-complex-types"></a>
+
+## Flatten complex structures for data import
 
 The path in a sourceFieldName can represent one element or multiple elements. In the example above, ```/document/content/sentiment``` represents a single numeric value, while ```/document/content/organizations/*/description``` represents several organization descriptions. 
 
@@ -154,6 +209,6 @@ This operation will simply “flatten” each of the names of the customEntities
 
 ## See also
 
-* [Search indexes in Azure Cognitive Search](search-what-is-an-index.md).
-
-* [Define field mappings in a search indexer](search-indexer-field-mappings.md).
++ [Define field mappings in a search indexer](search-indexer-field-mappings.md)
++ [AI enrichment overview](cognitive-search-concept-intro.md)
++ [Skillset overview](cognitive-search-working-with-skillsets.md)

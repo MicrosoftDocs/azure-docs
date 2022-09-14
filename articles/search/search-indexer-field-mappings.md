@@ -16,36 +16,46 @@ ms.date: 09/14/2022
 
 ![Indexer Stages](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "indexer stages")
 
-When using an Azure Cognitive Search indexer to push content into a search index, the indexer automatically assigns the source-to-destination field mappings. Implicit field mappings occur when field names and data types are compatible. If inputs and outputs don't match, you can define explicit *field mappings* to set up the data path, as described in this article.
+When using an [Azure Cognitive Search indexer](search-indexer-overview.md) to push content into a search index, the indexer can often detect and assign source-to-destination field mappings. Implicit field mappings occur when field names and data types are compatible. 
 
-Field mappings also provide light-weight data conversion through [mapping functions](#mappingFunctions). If more processing is required, consider [Azure Data Factory](../data-factory/index.yml) to bridge the gap.
+If inputs and outputs don't match, you can define explicit *field mappings* to set up the data path, as described in this article. Field mappings can also be used to provide light-weight data conversion, such as encoding or decoding, through [mapping functions](#mappingFunctions). If more processing is required, consider [Azure Data Factory](../data-factory/index.yml) to bridge the gap.
 
 Field mappings apply to:
 
-+ Search indexes (if you're creating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration).
++ Physical data structures on both sides of the data stream (that is, between a [supported data source](search-indexer-overview.md#supported-data-sources) and a search index). If you're importing enriched content created by skills, use [outputFieldMappings](cognitive-search-output-field-mapping.md) instead.
 
-+ Top-level search fields that are simple, where the "targetFieldName" in the search index is either a single field or a collection.
++ Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
-  Field mappings to subfields in a complex type (such as mapping to `address/city`) aren't currently supported. See [this workaround](cognitive-search-output-field-mapping.md) if you need to set up a data path to a complex type.
++ Top-level search fields only, where the "targetFieldName" is either a simple field or a collection. If you need to establish a data path to subfields in a complex type (such as mapping to `address/city`), see [this workaround using outputFieldMappings](cognitive-search-output-field-mapping.md).
 
 ## Supported scenarios
 
 | Use-case | Description |
 |----------|-------------|
-| Name discrepancy | Suppose your data source has a field named `_city`. Given that Azure Cognitive Search doesn't allow field names that start with an underscore, a field mapping lets you effectively map "_city" to "city". </p>Multiple data sources with different field names where you want to populate a search field with documents from more than one data source. If the field names vary between the data sources, you can use a field mapping to clarify the path.|
-| Type discrepancy | Supposed you want a source integer to be of type `Edm.String` in the search index. Because the types are different, you'll need a field mapping in order for the data path to succeed. </p>Cognitive Search has a smaller set of [supported data types](/rest/api/searchservice/supported-data-types) than many data sources. If you're importing SQL data, a field mapping allows you to [map the SQL data type](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-data-types) you want in a search index. |
-| One-to-many data paths | You can populate multiple fields in the index with content from the same field. For example, you might want to apply different analyzers to each field.|
-| Encoding and decoding | You can apply [**mapping functions**](#mappingFunctions) to support Base64 encoding or decoding of data during indexing. |
-| Split strings or recast arrays into collections | This use-case is supported through mapping functions.
+| Name discrepancy | Suppose your data source has a field named `_city`. Given that Azure Cognitive Search doesn't allow field names that start with an underscore, a field mapping lets you effectively map "_city" to "city". </p>If your indexing requirements includes retrieving content from multiple data sources, where field names vary among the sources,you could use a field mapping to clarify the path.|
+| Type discrepancy | Supposed you want a source integer field to be of type `Edm.String` so that it's searchable in the search index. Because the types are different, you'll need to define a field mapping in order for the data path to succeed. Note that Cognitive Search has a smaller set of [supported data types](/rest/api/searchservice/supported-data-types) than many data sources. If you're importing SQL data, a field mapping allows you to [map the SQL data type](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-data-types) you want in a search index.|
+| One-to-many data paths | You can populate multiple fields in the index with content from the same source field. For example, you might want to apply different analyzers to each field to support different use cases in your client app.|
+| Encoding and decoding | You can apply [mapping functions](#mappingFunctions) to support Base64 encoding or decoding of data during indexing. |
+| Split strings or recast arrays into collections | You can apply [mapping functions](#mappingFunctions) to split a string that includes a delimiter, or to send a JSON array to a search field of type `Collection(Edm.String)`.
 
-## Set up field mappings
+## Set up a `fieldMappings` array
 
-Field mappings are added to the "fieldMappings" array of the indexer definition. A field mapping consists of three parts.
+Field mappings are added to the "fieldMappings" array of an indexer definition. A field mapping consists of three parts.
+
+```json
+"fieldMappings": [
+  {
+    "sourceFieldName": "_city",
+    "targetFieldName": "city",
+    "mappingFunction": null
+  }
+],
+```
 
 | Property | Description |
 |----------|-------------|
 | "sourceFieldName" | Required. Represents a field in your data source. |
-|  "targetFieldName" | Optional. Represents a field in your search index. If omitted, the value of "sourceFieldName" is assumed for the target. |
+|  "targetFieldName" | Optional. Represents a field in your search index. If omitted, the value of "sourceFieldName" is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a path to a subfield in a complex type. If you need this functionality, use an [outputFieldMapping](cognitive-search-output-field-mapping.md) instead.|
 | "mappingFunction" | Optional. Consists of [predefined functions](#mappingFunctions) that transform data. You can apply functions to both source and target field mappings. |
 
 Azure Cognitive Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index can't have fields that differ only by case.  
@@ -59,7 +69,7 @@ You can use the REST API or an Azure SDK to define field mappings.
 
 Use [Create Indexer (REST)](/rest/api/searchservice/create-Indexer) or [Update Indexer (REST)](/rest/api/searchservice/update-indexer), any API version.
 
-Map fields having different names.
+This example handles a field name discrepancy.
 
 ```JSON
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
