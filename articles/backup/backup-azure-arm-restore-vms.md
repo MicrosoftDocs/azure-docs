@@ -97,11 +97,11 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 
 1. Choose the required subscription from the **Subscription** drop-down list to restore an Azure VM to a different subscription.
 
-   Azure Backup now supports Cross Subscription Restore (CSR), you can now restore an Azure VM from a recovery point in one subscription to another.
+   Azure Backup now supports Cross Subscription Restore (CSR), you can now restore an Azure VM using a recovery point from default subscription to another. Default subscription is the subscription where recovery point is available.
 
    The following screenshot lists all subscriptions under the tenant where you've permissions, which enable you to restore the Azure VM to another subscription.
 
-   :::image type="content" source="./media/backup-azure-arm-restore-vms/backup-azure-cross-subscription-restore-inline.png" alt-text="Screenshot showing the list of all subscriptions under the tenant where you have permissions." lightbox="./media/backup-azure-arm-restore-vms/backup-azure-cross-subscription-restore-expanded.png":::
+   :::image type="content" source="./media/backup-azure-arm-restore-vms/backup-azure-cross-subscription-restore.png" alt-text="Screenshot showing the list of all subscriptions under the tenant where you have permissions.":::
 
 1. Select **Restore** to trigger the restore operation.
 
@@ -124,7 +124,7 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 
 1. Choose the required subscription from the **Subscription** drop-down list to restore the VM disks to a different subscription.
 
-   Azure Backup now supports Cross Subscription Restore (CSR). Like Azure VM, you can now restore Azure VM disks from a recovery point in one subscription to another.   
+   Azure Backup now supports Cross Subscription Restore (CSR). Like Azure VM, you can now restore Azure VM disks using a recovery point from default subscription to another. Default subscription is the subscription where recovery point is available.
 
 1. Select **Restore** to trigger the restore operation.
 
