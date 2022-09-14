@@ -26,8 +26,8 @@ Similarly, for 'NavigationBarViewData', by default the UI library will display '
 
 #### Navigation Bar View Data
 
-`NavigationBarViewData` is an object that sets the `title` and `subtitle` for the navigationBar on pre-meeting screen (aka. Setup View). 
-If `subtitle` is not defined, then subtitle would always be set to hidden. If `subtitle` is defined but not `title`, the default localized title 'Setup' would be used and given `subtitle` would be ignored. This class is locally stored and its information will not be sent up to the server.
+`NavigationBarViewData` is an object that sets the `title` and `subtitle` for the navigationBar on pre-meeting screen (aka. Setup View). If `NavigationBarViewData` is defined, then 'title' must be provided as it's a required field. 'subtitle', however, is not a required. 
+If `subtitle` is not defined, then the subtitle would always be set to hidden. This class is locally stored and its information will not be sent up to the server.
 
 #### Usage
 
