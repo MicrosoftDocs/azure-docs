@@ -40,29 +40,6 @@ Custom container deployments can use web servers other than the default Python F
 
 * To deploy locally, you must have [Docker engine](https://docs.docker.com/engine/install/) running locally. This step is **highly recommended**. It will help you debug issues.
 
-# [Azure CLI](#tab/cli)
-
-* Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
-
-* If you've not already set the defaults for Azure CLI, you should save your default settings. To avoid having to repeatedly pass in the values, run:
-
-   ```azurecli
-   az account set --subscription <subscription id>
-   az configure --defaults workspace=<azureml workspace name> group=<resource group>
-   ```
-
-# [Python SDK](#tab/python)
-
-* If you haven't installed Python SDK v2, please install with this command:
-
-  ```azurecli
-  pip install --pre azure-ai-ml
-  ```
-
-  For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
-
----
-
 ## Download source code
 
 To follow along with this tutorial, download the source code below.
