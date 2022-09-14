@@ -1,6 +1,6 @@
 ---
-title: Migrate your application to use an Azure AD Workload Identity on Azure Kubernetes Service (AKS)
-description: Learn how migrate your application to use an Azure Active Directory Workload Identity in an Azure Kubernetes Service (AKS) cluster.
+title: Migrate your application to use an Azure AD Workload Identities (preview) on Azure Kubernetes Service (AKS)
+description: Learn how migrate your application to use an Azure Active Directory Workload Identity (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
 ms.date: 09/13/2022
@@ -8,7 +8,7 @@ author: mgoedtel
 
 ---
 
-# Migrate your application to use an Azure AD workload identity
+# Migrate your application to use an Azure AD Workload Identity (preview)
 
 Today with Azure Kubernetes Service (AKS), you can assign [managed identities at the pod-level][use-azure-ad-pod-identity], which has been a preview feature. This pod-managed identity allows the hosted workload or application access to resources through Azure Active Directory (Azure AD). For example, a workload stores files in Azure Storage, and when it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity. This authentication method has been replaced with [Azure Active Directory (Azure AD) workload identities][azure-ad-workload-identity], which integrates with the Kubernetes native capabilities to federate with any external identity providers. This approach is simpler to use and deploy, and overcomes several limitations in Azure AD pod-managed identity:
 
@@ -18,13 +18,13 @@ Today with Azure Kubernetes Service (AKS), you can assign [managed identities at
 - Removes the need for Custom Resource Definitions and pods that intercept [Azure Instance Metadata Service][azure-instance-metadata-service] (IMDS) traffic
 - Avoids the complicated and error-prone installation steps such as cluster role assignment from the previous iteration.
 
-Azure AD workload identity works especially well with the [Azure SDK][azure-sdk-download] and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) if you are using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
+Azure AD Workload Identity works especially well with the [Azure SDK][azure-sdk-download] and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) if you are using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
 
 This article reviews the options available to help you plan your migration phases and project strategy.
 
 ## Before you begin
 
-- Azure AD Workload Identity supports Kubernetes version 1.24 and higher.
+- Kubernetes supports Azure AD workload identities on version 1.24 and higher.
 
 - The Azure CLI version 2.32.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -32,13 +32,18 @@ This article reviews the options available to help you plan your migration phase
 
 - [Azure Identity][azure-identity-libraries] client library version 1.6 or later.
 
+## Limitations
+
+- You can only have 20 federated identities.
+- It takes a few seconds for the federated identity credential to be propagated after being initially added.
+
 ## How it works
 
 In this security model, the AKS cluster acts as token issuer, Azure Active Directory uses OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library or the Microsoft Authentication Library.
 
 :::image type="content" source="media/security-workload-identity-migration/aks-workload-identity-model.png" alt-text="Diagram of the AKS workload identity security model.":::
 
-The following table describes the required OIDC issuer endpoints for Azure AD Workload Identity:
+The following table describes the required OIDC issuer endpoints for Azure AD workload identity:
 
 |Endpoint |Description |
 |---------|------------|
@@ -51,7 +56,7 @@ The following diagram summarizes the authentication sequence using OpenID Connec
 
 ## Service account labels and annotations
 
-Azure AD Workload Identity supports the following mappings related to a service account:
+Azure AD workload identity supports the following mappings related to a service account:
 
 - One-to-one where a service account references an Azure AD object.
 - Many-to-one where multiple service accounts references the same Azure AD object.
@@ -98,64 +103,9 @@ The following table summarizes our migration or deployment recommendations for W
 | New or existing cluster deployment<br> running Azure Identity v1.6 | No migration steps are required. |
 | New or existing cluster deployment<br> not running Azure Identity v1.6 | Update container image and deploy, or update using new image version, or use the migration sidecar. |
 
-To help streamline and ease the migration process, we've developed a migration sidecar that converts the IDMS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). This isn't intended to be a long-term solution, but a way to get up and running quickly on Workload Identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to upgrade to [Azure Identity][azure-identity-libraries] client library version 1.6 or later, which supports OIDC authentication.
-
-### Managed Identity with Workload Identity sidecar
-
-```yml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: httpbin-pod
-  labels:
-    app: httpbin
-spec:
-  serviceAccountName: workload-identity-sa
-  initContainers:
-  - name: init-networking
-    image: mcr.microsoft.com/oss/azure/workload-identity/proxy-init:v0.13.0
-    securityContext:
-      capabilities:
-        add:
-        - NET_ADMIN
-        drop:
-        - ALL
-      privileged: true
-      runAsUser: 0
-    env:
-    - name: PROXY_PORT
-      value: "8000"
-  containers:
-  - name: nginx
-    image: nginx:alpine
-    ports:
-    - containerPort: 80
-  - name: proxy
-    image: mcr.microsoft.com/oss/azure/workload-identity/proxy:v0.13.0
-    ports:
-    - containerPort: 8000
-```
+To help streamline and ease the migration process, we've developed a migration sidecar that converts the IDMS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). This isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to upgrade to [Azure Identity][azure-identity-libraries] client library version 1.6 or later, which supports OIDC authentication.
 
 ## Upgrade cluster to use Workload Identity
-
-
-## How set up a new AKS cluster with Workload Identity
-
-If your application is already running [Azure Identity][azure-identity-libraries] client library version 1.6 or later, you can follow the steps below to create a new cluster with Workload Identity enabled. You can then install your application. If you are not running the minimum supported SDK version, you can upgrade and then deploy, or deploy the migration sidecar.
-
-### Deploy a new cluster with Workload Identity
-
-1. Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
-
-    ```azurecli
-    az aks create -n aks -g myResourceGroup --enable-oidc-issuer --enable-workload-identity
-    ```
-
-2. To get the OIDC Issuer URL, run the following command:
-
-    ```azurecli
-        az aks show --resource-group myResourceGroup --name myAKSCluster --query "oidcIssuerProfile.issuerUrl" -otsv
-    ```
 
 ## Next steps
 

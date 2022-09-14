@@ -113,7 +113,7 @@ export SERVICE_ACCOUNT_NAMESPACE="default"
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 
 # environment variables for the Federated Identity
-export SUBSCRIPTION="{your subscription ID which is signed up for 'Microsoft.ManagedIdentity/FederatedIdentityCredentials' feature}"
+export SUBSCRIPTION="{your subscription ID}"
 # user assigned identity name
 export UAID="fic-test-ua"
 # federated identity name
@@ -130,7 +130,7 @@ az keyvault create --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}"
 
 The output of this command shows properties of the newly created key vault. Take note of the two properties listed below:
 
-* **Vault Name**: The name you provided to the --name parameter above.
+* **Vault Name**: The name you provided to the `--name` parameter above.
 * **Vault URI**: In the example, this is `https://<your-unique-keyvault-name>.vault.azure.net/`. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
@@ -143,7 +143,7 @@ az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET
 
 ## Create a Managed Identity and grant permissions to access the secret
 
-Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription, and then the [az identity create][az-identity-create] command to create a Managed Identity.
+Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a Managed Identity.
 
 ```azurecli
 az account set --subscription "${SUBSCRIPTION}"
@@ -153,7 +153,7 @@ az account set --subscription "${SUBSCRIPTION}"
 az identity create --name "${UAID}" --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --subscription "${SUBSCRIPTION}"
 ```
 
-Next, you need to set an access policy for the Managed Identity to access the keyvault secret by running the following commands:
+Next, you need to set an access policy for the Managed Identity to access the Key Vault secret by running the following commands:
 
 ```bash
 export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${UAID}" --query 'clientId' -otsv)"
@@ -283,8 +283,8 @@ This quickstart is for introductory purposes. For guidance on a creating full so
 [kubelet-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 
 <!-- INTERNAL LINKS -->
-[kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-identity-concepts]: concepts-identity.md
+[kubernetes-concepts]: ../concepts-clusters-workloads.md
+[aks-identity-concepts]: ../concepts-identity.md
 [az-account]: /cli/azure/account
 [azure-resource-group]: ../../azure-resource-manager/management/overview.md
 [az-group-create]: /cli/azure/group#az-group-create
@@ -296,5 +296,5 @@ This quickstart is for introductory purposes. For guidance on a creating full so
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-rest]: /cli/azure/reference-index#az-rest
-[aks-tutorial]: tutorial-kubernetes-prepare-app.md
+[aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here
