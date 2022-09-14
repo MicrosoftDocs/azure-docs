@@ -57,9 +57,9 @@ ws = Workspace.from_config()
 
 In this tutorial, the [training script **train_iris.py**](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py) is already provided for you. In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
 
-Notes:
-- The provided training script shows how to log some metrics to your Azure ML run using the `Run` object within the script.
-- The provided training script uses example data from the  `iris = datasets.load_iris()` function.  To use and access your own data, see [how to train with datasets](how-to-train-with-datasets.md) to make data available during training.
+> [!NOTE]
+> - The provided training script shows how to log some metrics to your Azure ML run using the `Run` object within the script.
+> - The provided training script uses example data from the  `iris = datasets.load_iris()` function.  To use and access your own data, see [how to train with datasets](how-to-train-with-datasets.md) to make data available during training.
 
 ### Define your environment
 
@@ -78,7 +78,7 @@ sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
 
 #### Create a custom environment
 
-You can also create your own your own custom environment. Define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
+You can also create your own custom environment. Define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
 
 ```yaml
 dependencies:
@@ -188,7 +188,8 @@ Instead of the traditional deployment route, you can also use the no-code deploy
 web_service = Model.deploy(ws, "scikit-learn-service", [model])
 ```
 
-NOTE: These dependencies are included in the pre-built scikit-learn inference container.
+> [!NOTE]
+> These dependencies are included in the pre-built scikit-learn inference container.
 
 ```yaml
     - azureml-defaults
