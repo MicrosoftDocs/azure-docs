@@ -48,11 +48,10 @@ Azure Policy includes several prebuilt definitions related to Azure Monitor. For
 
 * If the VM extension is removed, after policy evaluation it reinstalls it.
 * Identifies and installs the VM extension when a new Azure Arc-enabled server is registered with Azure.
-* Only supports specifying a single workspace to report to. Requires using PowerShell or the Azure CLI to configure the Log Analytics Windows agent VM extension to report to up to four workspaces.
 
 #### Disadvantages
 
-* The **Configure Log Analytics extension on Azure Arc enabled** *operating system* **servers** policy only installs the Log Analytics VM extension and configures the agent to report to a specified Log Analytics workspace. If you want VM insights to monitor the operating system performance, and map running processes and dependencies on other resources, apply the policy initiative **Enable Azure Monitor for VMs**. It installs and configures both the Log Analytics VM extension and the Dependency agent VM extension, which are required.
+* The **Configure** *operating system* **Arc-enabled machines to run Azure Monitor Agent** policy only installs the Azure Monitor agent extension and configures the agent to report to a specified Log Analytics workspace.
 * Standard compliance evaluation cycle is once every 24 hours. An evaluation scan for a subscription or a resource group can be started with Azure CLI, Azure PowerShell, a call to the REST API, or by using the Azure Policy Compliance Scan GitHub Action. For more information, see [Evaluation triggers](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ### Use Azure Automation
