@@ -41,6 +41,8 @@ In this article, you learn how to:
 
 * The [Azure CLI extension for Machine Learning service (v1)](reference-azure-machine-learning-cli.md)
 
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 ## Create
 
 > [!IMPORTANT]
