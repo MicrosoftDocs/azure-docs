@@ -386,7 +386,7 @@ To learn more about creating SAS tokens for IoT Hub, including example code in o
 
 > [!NOTE]
 >
-> As a convenience, you can use the Azure CLI [az iot hub generate-sas-token](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-generate-sas-token) command to get a SAS token for a device registered with an IoT hub. For example, the following command generates a SAS token with a duration of one hour. For the `{iothub_name}`, you only need the first part of the host hame, for example, `MyExampleHub`.
+> As a convenience, you can use the Azure CLI [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) command to get a SAS token for a device registered with an IoT hub. For example, the following command generates a SAS token with a duration of one hour. For the `{iothub_name}`, you only need the first part of the host hame, for example, `MyExampleHub`.
 >
 > ```azurecli
 > az iot hub generate-sas-token -d {device_id} -n {iothub_name}
