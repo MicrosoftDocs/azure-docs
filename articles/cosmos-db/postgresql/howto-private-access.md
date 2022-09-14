@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 01/14/2022
 ---
 
-# Private access in Azure Cosmos DB for PostgreSQL
+# Enable private access in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
