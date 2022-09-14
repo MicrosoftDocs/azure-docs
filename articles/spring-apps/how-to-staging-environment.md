@@ -119,13 +119,13 @@ To build the application, follow these steps:
 
 ## View apps and deployments
 
-View deployed apps by using the following procedure:
+Use the following steps to view deployed apps.
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
 1. From the left pane, open the **Apps** pane to view apps for your service instance.
 
-   :::image type="content" source="media/how-to-staging-environment/app-dashboard.png" lightbox="media/how-to-staging-environment/app-dashboard.png" alt-text="Screenshot of the open Apps pane.":::
+   :::image type="content" source="media/how-to-staging-environment/app-dashboard.png" lightbox="media/how-to-staging-environment/app-dashboard.png" alt-text="Screenshot of the Apps pane showing apps for your service instance.":::
 
 1. You can select an app and view details.
 
