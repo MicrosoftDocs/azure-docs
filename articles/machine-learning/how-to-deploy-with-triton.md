@@ -82,12 +82,12 @@ The information in this document is based on using a model stored in ONNX format
     * Pillow - A library for image operations
     * Gevent - A networking library used when connecting to the Triton Server
 
-```azurecli
-pip install numpy
-pip install tritonclient[http]
-pip install pillow
-pip install gevent
-```
+    ```azurecli
+    pip install numpy
+    pip install tritonclient[http]
+    pip install pillow
+    pip install gevent
+    ```
 
 * Access to NCv3-series VMs for your Azure subscription.
 
@@ -110,6 +110,7 @@ cd cli
 
 * An Azure Machine Learning workspace. If you don't have one, use the steps in [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-workspace?tabs=azure-portal) to create one.
 
+--- 
 
 ## Define the deployment configuration
 
@@ -159,119 +160,59 @@ This section shows how you can define a Triton deployment to deploy to a managed
 
 1. To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. 
 
-```python 
-subscription_id = "<SUBSCRIPTION_ID>"
-resource_group = "<RESOURCE_GROUP>"
-workspace_name = "<AML_WORKSPACE_NAME>"
-```
+    ```python 
+    subscription_id = "<SUBSCRIPTION_ID>"
+    resource_group = "<RESOURCE_GROUP>"
+    workspace_name = "<AML_WORKSPACE_NAME>"
+    ```
 
 1. Use the following command to set the name of the endpoint that will be created. In this example, a random name is created for the endpoint:
 
-```python
-import random
+    ```python
+    import random
 
-endpoint_name = f"endpoint-{random.randint(0, 10000)}"
-```
+    endpoint_name = f"endpoint-{random.randint(0, 10000)}"
+    ```
 
 1. We use these details above in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the default [default azure authentication](https://docs.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) for this tutorial. Check the [configuration notebook](../../jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
-```python 
-from azure.ai.ml import MLClient
-from azure.identity import DefaultAzureCredential
+    ```python 
+    from azure.ai.ml import MLClient
+    from azure.identity import DefaultAzureCredential
 
-ml_client = MLClient(
-    DefaultAzureCredential(),
-    subscription_id,
-    resource_group,
-    workspace_name,
-)
-```
+    ml_client = MLClient(
+        DefaultAzureCredential(),
+        subscription_id,
+        resource_group,
+        workspace_name,
+    )
+    ```
 
 1. Create a `ManagedOnlineEndpoint` object to configure the endpoint. The following example configures the name and authentication mode of the endpoint. 
 
-```python 
-from azure.ai.ml.entities import ManagedOnlineEndpoint
+    ```python 
+    from azure.ai.ml.entities import ManagedOnlineEndpoint
 
-endpoint = ManagedOnlineEndpoint(name=endpoint_name, auth_mode="key")
-```
+    endpoint = ManagedOnlineEndpoint(name=endpoint_name, auth_mode="key")
+    ```
 
 1. Create a `ManagedOnlineDeployment` object to configure the deployment. The following example configures a deployment named __blue__ to the endpoint defined in the previous step and defines a local model inline.
 
-```python
-from azure.ai.ml.entities import ManagedOnlineDeployment, Model
+    ```python
+    from azure.ai.ml.entities import ManagedOnlineDeployment, Model
 
-deployment = ManagedOnlineDeployment(
-    name="blue",
-    endpoint_name=endpoint_name,
-    model=Model(path="./models", type="triton_model"),
-    instance_type="Standard_NC6s_v3",
-    instance_count=1,
-)
-``` 
+    deployment = ManagedOnlineDeployment(
+        name="blue",
+        endpoint_name=endpoint_name,
+        model=Model(path="./models", type="triton_model"),
+        instance_type="Standard_NC6s_v3",
+        instance_count=1,
+    )
+    ``` 
 
 # [Studio](#tab/azure-studio)
 
 This section shows how you can define a Triton deployment on a managed online endpoint using [Azure Machine Learning studio](https://ml.azure.com).
-
-
-
-
-
-
-## Deploy to Azure
-
-1. To create a new endpoint using the YAML configuration, use the following command:
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
-
-
-1. To create the deployment using the YAML configuration, use the following command:
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_deployment":::
-
-### Test your endpoint
-
-Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. 
-
-> [!TIP]
-> The file `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azureml-examples repo is used for scoring. The image passed to the endpoint needs pre-processing to meet the size, type, and format requirements, and post-processing to show the predicted label. The `triton_densenet_scoring.py` uses the `tritonclient.http` library to communicate with the Triton inference server.
-
-1. To get the endpoint scoring uri, use the following command:
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_scoring_uri":::
-
-1. To get an authentication token, use the following command:
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_token":::
-
-1. To score data with the endpoint, use the following command. It submits the image of a peacock (https://aka.ms/peacock-pic) to the endpoint:
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="check_scoring_of_model":::
-
-    The response from the script is similar to the following text:
-
-    ```
-    Is server ready - True
-    Is model ready - True
-    /azureml-examples/cli/endpoints/online/triton/single-model/densenet_labels.txt
-    84 : PEACOCK
-    ```
-
-### Delete your endpoint and model
-
-Once you're done with the endpoint, use the following command to delete it:
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="delete_endpoint":::
-
-Use the following command to delete your model:
-
-```azurecli
-az ml model delete --name $MODEL_NAME --version $MODEL_VERSION
-```
-
-## Deploy using Azure Machine Learning studio
-
-This section shows how you can deploy Triton to managed online endpoint using [Azure Machine Learning studio](https://ml.azure.com).
 
 1. Register your model in Triton format using the following YAML and CLI command. The YAML uses a densenet-onnx model from [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton/single-model](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton/single-model)
 
@@ -293,7 +234,6 @@ This section shows how you can deploy Triton to managed online endpoint using [A
 
     :::image type="content" source="media/how-to-deploy-with-triton/triton-model-format.png" lightbox="media/how-to-deploy-with-triton/triton-model-format.png" alt-text="Screenshot showing Triton model format on Models page.":::
 
-
 1. From [studio](https://ml.azure.com), select your workspace and then use either the __endpoints__ or __models__ page to create the endpoint deployment:
 
     # [Endpoints page](#tab/endpoint)
@@ -309,19 +249,234 @@ This section shows how you can deploy Triton to managed online endpoint using [A
 
         :::image type="content" source="media/how-to-deploy-with-triton/ncd-triton.png" lightbox="media/how-to-deploy-with-triton/ncd-triton.png" alt-text="Screenshot showing no code and environment needed for Triton models":::
 
-    1. Complete the wizard to deploy the model to the endpoint.
-
-        :::image type="content" source="media/how-to-deploy-with-triton/review-screen-triton.png" lightbox="media/how-to-deploy-with-triton/review-screen-triton.png" alt-text="Screenshot showing NCD review screen":::
-
     # [Models page](#tab/models)
 
     1. Select the Triton model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint__.
 
         :::image type="content" source="media/how-to-deploy-with-triton/deploy-from-models-page.png" lightbox="media/how-to-deploy-with-triton/deploy-from-models-page.png" alt-text="Screenshot showing how to deploy model from Models UI.":::
 
-    1. Complete the wizard to deploy the model to the endpoint.
-
     ---
+---
+
+
+## Deploy to Azure
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+1. To create a new endpoint using the YAML configuration, use the following command:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
+
+
+1. To create the deployment using the YAML configuration, use the following command:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_deployment":::
+
+
+# [Python](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+1. To create a new endpoint using the `ManagedOnlineEndpoint` object, use the following command:
+
+    ```python 
+    endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
+    ``` 
+
+1. To create the deployment using the `ManagedOnlineDeployment` object, use the following command:
+
+    ```python 
+    ml_client.online_deployments.begin_create_or_update(deployment)
+    ```
+
+1. Once the deployment completes, its traffic value will be set to `0%`. Update the traffic to 100%. 
+
+    ```python 
+    endpoint.traffic = {"blue": 100}
+    ml_client.online_endpoints.begin_create_or_update(endpoint)
+    ```
+
+
+# [Studio](#tab/azure-studio)
+1. Complete the wizard to deploy to the endpoint.
+
+    :::image type="content" source="media/how-to-deploy-with-triton/review-screen-triton.png" lightbox="media/how-to-deploy-with-triton/review-screen-triton.png" alt-text="Screenshot showing NCD review screen":::
+
+1. Once the deployment completes, its traffic value will be set to `0%`. Update the traffic to 100% from the Endpoint page by clicking `Update Traffic` on the second menu row. 
+
+---
+
+## Test the endpoint
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. 
+
+> [!TIP]
+> The file `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azureml-examples repo is used for scoring. The image passed to the endpoint needs pre-processing to meet the size, type, and format requirements, and post-processing to show the predicted label. The `triton_densenet_scoring.py` uses the `tritonclient.http` library to communicate with the Triton inference server.
+
+1. To get the endpoint scoring uri, use the following command:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_scoring_uri":::
+
+1. To get an authentication key, use the following command:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_token":::
+
+1. To score data with the endpoint, use the following command. It submits the image of a peacock (https://aka.ms/peacock-pic) to the endpoint:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="check_scoring_of_model":::
+
+    The response from the script is similar to the following text:
+
+    ```
+    Is server ready - True
+    Is model ready - True
+    /azureml-examples/cli/endpoints/online/triton/single-model/densenet_labels.txt
+    84 : PEACOCK
+    ```
+
+# [Python](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+1. To get the endpoint scoring uri, use the following command:
+
+    ```python 
+    endpoint = ml_client.online_endpoints.get(endpoint_name)
+    scoring_uri = endpoint.scoring_uri
+    ```
+
+1. To get an authentication key, use the following command:
+    keys = ml_client.online_endpoints.list_keys(endpoint_name)
+    auth_key = keys.primary_key
+
+1. The following scoring code uses the [Triton Inference Server Client](https://github.com/triton-inference-server/client) to submit the image of a peacock to the endpoint. This script is available in the companion notebook to this example - [Deploy a model to online endpoints using Triton](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/triton/single-model/online-endpoints-triton.ipynb).
+
+    ```python
+    # Test the blue deployment with some sample data
+    import requests
+    import gevent.ssl
+    import numpy as np
+    import tritonclient.http as tritonhttpclient
+    from pathlib import Path
+    import prepost
+
+    img_uri = "http://aka.ms/peacock-pic"
+
+    # We remove the scheme from the url
+    url = scoring_uri[8:]
+
+    # Initialize client handler
+    triton_client = tritonhttpclient.InferenceServerClient(
+        url=url,
+        ssl=True,
+        ssl_context_factory=gevent.ssl._create_default_https_context,
+    )
+
+    # Create headers
+    headers = {}
+    headers["Authorization"] = f"Bearer {auth_key}"
+
+    # Check status of triton server
+    health_ctx = triton_client.is_server_ready(headers=headers)
+    print("Is server ready - {}".format(health_ctx))
+
+    # Check status of model
+    model_name = "model_1"
+    status_ctx = triton_client.is_model_ready(model_name, "1", headers)
+    print("Is model ready - {}".format(status_ctx))
+
+    if Path(img_uri).exists():
+        img_content = open(img_uri, "rb").read()
+    else:
+        agent = f"Python Requests/{requests.__version__} (https://github.com/Azure/azureml-examples)"
+        img_content = requests.get(img_uri, headers={"User-Agent": agent}).content
+
+    img_data = prepost.preprocess(img_content)
+
+    # Populate inputs and outputs
+    input = tritonhttpclient.InferInput("data_0", img_data.shape, "FP32")
+    input.set_data_from_numpy(img_data)
+    inputs = [input]
+    output = tritonhttpclient.InferRequestedOutput("fc6_1")
+    outputs = [output]
+
+    result = triton_client.infer(model_name, inputs, outputs=outputs, headers=headers)
+    max_label = np.argmax(result.as_numpy("fc6_1"))
+    label_name = prepost.postprocess(max_label)
+    print(label_name)
+    ``` 
+
+1. The response from the script is similar to the following text:
+
+    ```
+    Is server ready - True
+    Is model ready - True
+    /azureml-examples/sdk/endpoints/online/triton/single-model/densenet_labels.txt
+    84 : PEACOCK
+    ```
+
+# [Studio](#tab/azure-studio)
+
+Azure Machine Learning Studio provides the ability to test endpoints with JSON. However, serialized JSON is not currently included for this example. 
+
+To test an endpoint using Azure Machine Learning Studio, click `Test` from the Endpoint page. 
+
+--- 
+
+### Delete the endpoint and model
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+1. Once you're done with the endpoint, use the following command to delete it:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="delete_endpoint":::
+
+1. Use the following command to delete your model:
+
+    ```azurecli
+    az ml model delete --name $MODEL_NAME --version $MODEL_VERSION
+    ```
+
+# [Python](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+1. Get the name and version of the anonymous model in order to archive it. 
+
+    ```python 
+    deployment = ml_client.online_deployments.get(name="blue", endpoint_name=endpoint_name)
+
+    model_uri = deployment.model.split("/")
+    model_name = model_uri[-3]
+    model_version = model_uri[-1]
+    ```
+
+1. Delete the endpoint. Deleting the endpoint also deletes any child deployments, however it will not archive associated Environments or Models. 
+
+    ```python
+    ml_client.online_endpoints.begin_delete(name=endpoint_name)
+    ```
+
+1. Delete the model with the following code.
+
+    ```python 
+    ml_client.models.archive(name=model_name, version=model_version)
+    ```
+
+# [Studio](#tab/azure-studio)
+
+1. From the endpoint's page, click `Delete` in the second row below the endpoint's name. 
+
+1. From the model's page, click `Delete` in the first row below the model's name. 
+---
+
 
 ## Next steps
 
