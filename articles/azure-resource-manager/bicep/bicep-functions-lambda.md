@@ -11,39 +11,12 @@ ms.date: 09/13/2022
 
 This article describes the lambda functions to use in Bicep.
 
-**Limitations**
+Bicep lambda function has these limitations:
 
 - Lambda can only be specified directly as function arguments.
 - Using lambda variables inside resource or module array access isn't currently supported.
 - Using lambda variables inside the [`listKeys`](./bicep-functions-resource.md#list) function isn't currently supported.
 - Using lambda variables inside the [reference](./bicep-functions-resource.md#reference) function isn't currently supported.
-
-The following input array is used in the examples:
-
-```bicep
-var dogs = [
-  {
-    name: 'Evie'
-    age: 5
-    interests: ['Ball', 'Frisbee']
-  }
-  {
-    name: 'Casper'
-    age: 3
-    interests: ['Other dogs']
-  }
-  {
-    name: 'Indy'
-    age: 2
-    interests: ['Butter']
-  }
-  {
-    name: 'Kira'
-    age: 8
-    interests: ['Rubs']
-  }
-]
-```
 
 ## filter
 
@@ -69,6 +42,28 @@ An array.
 The following example shows how to use the filter function.
 
 ```bicep
+var dogs = [
+  {
+    name: 'Evie'
+    age: 5
+    interests: ['Ball', 'Frisbee']
+  }
+  {
+    name: 'Casper'
+    age: 3
+    interests: ['Other dogs']
+  }
+  {
+    name: 'Indy'
+    age: 2
+    interests: ['Butter']
+  }
+  {
+    name: 'Kira'
+    age: 8
+    interests: ['Rubs']
+  }
+]
 var itemForLoop = [for item in range(0, 10): item]
 
 output filteredLoop array = filter(itemForLoop, i => i > 5)
@@ -76,8 +71,6 @@ output isEven array = filter(range(0, 10), i => 0 == i % 2)
 
 output oldBois array = filter(dogs, dog => dog.age >=5)
 ```
-
-See the dogs definition in the [introduction section](./bicep-functions-lambda.md).
 
 The output from the preceding example shows the dogs that are five or older:
 
@@ -111,6 +104,29 @@ An array.
 The following example shows how to use the map function.
 
 ```bicep
+var dogs = [
+  {
+    name: 'Evie'
+    age: 5
+    interests: ['Ball', 'Frisbee']
+  }
+  {
+    name: 'Casper'
+    age: 3
+    interests: ['Other dogs']
+  }
+  {
+    name: 'Indy'
+    age: 2
+    interests: ['Butter']
+  }
+  {
+    name: 'Kira'
+    age: 8
+    interests: ['Rubs']
+  }
+]
+
 output dogNames array = map(dogs, dog => dog.name)
 output sayHi array = map(dogs, dog => 'Hello ${dog.name}!')
 output mapObject array = map(range(0, length(dogs)), i => {
@@ -120,8 +136,6 @@ output mapObject array = map(range(0, length(dogs)), i => {
 })
 
 ```
-
-See the dogs definition in the [introduction section](./bicep-functions-lambda.md).
 
 The output from the preceding example is:
 
@@ -156,6 +170,28 @@ Any.
 The following example shows how to use the reduce function.
 
 ```bicep
+var dogs = [
+  {
+    name: 'Evie'
+    age: 5
+    interests: ['Ball', 'Frisbee']
+  }
+  {
+    name: 'Casper'
+    age: 3
+    interests: ['Other dogs']
+  }
+  {
+    name: 'Indy'
+    age: 2
+    interests: ['Butter']
+  }
+  {
+    name: 'Kira'
+    age: 8
+    interests: ['Rubs']
+  }
+]
 var ages = map(dogs, dog => dog.age)
 output totalAge int = reduce(ages, 0, (cur, prev) => cur + prev)
 output totalAgeAdd1 int = reduce(ages, 1, (cur, prev) => cur + prev)
@@ -166,8 +202,6 @@ output reduceObjectUnion object = reduce([
   { baz: 789 }
 ], {}, (cur, next) => union(cur, next))
 ```
-
-See the dogs definition in the [introduction section](./bicep-functions-lambda.md).
 
 The output from the preceding example is:
 
@@ -201,10 +235,31 @@ An array.
 The following example shows how to use the sort function.
 
 ```bicep
-output dogsByAge array = sort(dogs, (a, b) => a.age <= b.age) //
-```
+var dogs = [
+  {
+    name: 'Evie'
+    age: 5
+    interests: ['Ball', 'Frisbee']
+  }
+  {
+    name: 'Casper'
+    age: 3
+    interests: ['Other dogs']
+  }
+  {
+    name: 'Indy'
+    age: 2
+    interests: ['Butter']
+  }
+  {
+    name: 'Kira'
+    age: 8
+    interests: ['Rubs']
+  }
+]
 
-See the dogs definition in the [introduction section](./bicep-functions-lambda.md).
+output dogsByAge array = sort(dogs, (a, b) => a.age <= b.age)
+```
 
 The output from the preceding example is:
 
