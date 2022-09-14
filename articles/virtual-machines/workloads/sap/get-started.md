@@ -66,6 +66,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- September 14, 2022 Release of updated SAP on Oracle guide with new and updated content [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
 - September 8, 2022: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md) to add instructions for deploying /hana/shared (only) on NFS on Azure Files
 - September 6, 2022: Add managed identity for pacemaker fence agent [Set up Pacemaker on SUSE Linux Enterprise Server (SLES) in Azure](high-availability-guide-suse-pacemaker.md) on SLES and [Setting up Pacemaker on RHEL in Azure](high-availability-guide-rhel-pacemaker.md) RHEL
 - August 22, 2022: Release of cost optimization scenario [Deploy PAS and AAS with SAP NetWeaver HA cluster](high-availability-guide-rhel-with-dialog-instance.md) on RHEL
