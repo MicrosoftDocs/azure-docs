@@ -598,9 +598,9 @@ These commands produce the following root and the device certificate
 
 Make a note of the location of these files. You need it later.
 
-### Generate the base-64 encoded version of the root certifcate
+### Generate the base-64 encoded version of the root certificate
 
-In the folder on your local machine that contains the certifcates you generated, create a file called convert.js and add the following JavaScript content:
+In the folder on your local machine that contains the certificates you generated, create a file called convert.js and add the following JavaScript content:
 
 ```javascript
 const fs = require('fs')
@@ -685,7 +685,7 @@ The following example shows a request body that adds an X.509 certificate to an 
 ```
 
 * certificate - The base-64 version of the certificate you made a note of previously.
-* verified - `true` if you attest that the certificate is valid, `false` if you need to prove the validitity of the certificate.
+* verified - `true` if you attest that the certificate is valid, `false` if you need to prove the validity of the certificate.
 
 The response to this request looks like the following example:
 
@@ -781,7 +781,7 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx
 
 ### [Symmetric key](#tab/symmetric-key)
 
-### Add an symmetric key enrollment group
+### Add a symmetric key enrollment group
 
 Use the following request to create a new enrollment group with `mysymmetric` as the ID:
 
@@ -897,7 +897,7 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx
 
 ### List enrollment groups
 
-Use the following request to retrive a list of enrollment groups from your application:
+Use the following request to retrieve a list of enrollment groups from your application:
 
 ```http
 GET https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups?api-version=2022-07-31
