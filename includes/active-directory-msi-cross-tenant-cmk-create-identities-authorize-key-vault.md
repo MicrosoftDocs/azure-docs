@@ -360,7 +360,7 @@ subscriptionId="<replace-your-subscriptionId>"
 location="westcentralus"
 
 az group create --location $location --name $rgName
-export currentUserObjectId=$(az ad signed-in-user show --query objectId --out tsv)
+export currentUserObjectId=$(az ad signed-in-user show --query id --out tsv)
 
 az role assignment create --role "Key Vault Contributor" --scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName --assignee-object-id $currentUserObjectId
 
