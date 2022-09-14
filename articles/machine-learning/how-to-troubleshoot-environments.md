@@ -298,7 +298,7 @@ that contains a `user_managed_dependencies` bool and a `conda_dependencies` obje
 Python environment in which you choose to run the script
 - If `user_managed_dependencies` is set to `False` (the default), Azure ML will create a Python environment for you based on `conda_dependencies`.
 The environment is built once and is reused as long as the conda dependencies remain unchanged
-- You will receive a *"missing conda dependencies"* error when `user_managed_dependencies` is set to `False` and you have not provided a conda specification.
+- You'll receive a *"missing conda dependencies"* error when `user_managed_dependencies` is set to `False` and you haven't provided a conda specification.
 - See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
 - See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
 - See [how to set a conda specification on the environment definition](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
