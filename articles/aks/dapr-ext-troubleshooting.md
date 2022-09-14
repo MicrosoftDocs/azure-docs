@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 When installing the Dapr extension for Azure Kubernetes Service (AKS) or Arc for Kubernetes, you might occasionally come across problems. This article details some common problems and troubleshooting steps.
 
-## Common error messages
+## Error installing the Dapr extension
 
 If the extension fails to create or update without an error message, you can inspect where the creation of the extension failed by running the `az k8s-extension list` command. For example, if a wrong key is used in the configuration-settings, such as `global.ha=false` instead of `global.ha.enabled=false`: 
 
@@ -43,24 +43,23 @@ If you run into a general error with no specific message during Dapr extension i
 
 See below for examples of error messages you may encounter during Dapr extension install or update.
 
-### Dapr version doesn't exist
+### Error: Dapr version doesn't exist
 
 You're installing the Dapr extension and [targeting a specific version](./dapr.md#targeting-a-specific-dapr-version), but run into an error message saying the Dapr version doesn't exist. Try installing again, making sure to use a [supported version of Dapr](./dapr.md#dapr-versions). 
 
-### Dapr version exists, but not in the mentioned region
+### Error: Dapr version exists, but not in the mentioned region
 
 Some versions of Dapr aren't available in all regions. If you receive this error message, try installing in an [available region](./dapr.md#cloudsregions) where your Dapr version is supported.
 
-### Dapr OSS already exists
+### Error: dapr-system already exists
 
 You're installing the Dapr extension for AKS or Arc for Kubernetes, but receive an error message indicating that Dapr already exists. This error message may look like:
 
-```json
+```
 (ExtensionOperationFailed) The extension operation failed with the following error:  Error: {failed to install chart from path [] for release [dapr-ext]: err [rendered manifests contain a resource that already exists. Unable to continue with install: ServiceAccount "dapr-operator" in namespace "dapr-system" exists and cannot be imported into the current release: invalid ownership metadata; annotation validation error: key "meta.helm.sh/release-name" must equal "dapr-ext": current value is "dapr"]} occurred while doing the operation : {Installing the extension} on the config
 ```
 
 You need to uninstall Dapr OSS before installing the Dapr extension. For more information, read [Migrate from Dapr OSS](./dapr-migration.md).
-
 
 ## Next steps
 
