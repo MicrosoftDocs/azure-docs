@@ -105,7 +105,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure architecture center confidential container scenarios
-            url: https://docs.microsoft.com/en-us/search/?terms=confidential%20containers&scope=Azure%20Architecture%20Center
+            url: /search/?scope=Azure+Architecture+Center&terms=confidential+containers
           - text: About Azure Kubernetes Service (AKS) 
             url: ..\aks\intro-kubernetes.md
           - text: App enclave nodes on AKS FAQ 

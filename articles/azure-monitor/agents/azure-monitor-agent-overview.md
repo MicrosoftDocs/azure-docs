@@ -119,7 +119,7 @@ The following table shows the current support for the Azure Monitor agent with A
 | Solution | Current support | More information |
 |:---|:---|:---|
 | [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring in the Microsoft Defender for Cloud Private Preview.  | [Sign-up link](https://aka.ms/AMAgent) |
-| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 - Public preview | [Update management center (preview) documentation](/azure/update-center/) |
+| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 - Public preview | [Update management center (preview) documentation](../../update-center/index.yml) |
 
 ## Costs
 

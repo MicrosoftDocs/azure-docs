@@ -57,4 +57,4 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.quota/
           - text: Azure REST API
-            url: https://docs.microsoft.com/en-us/rest/api/reserved-vm-instances/quotaapi
+            url: /rest/api/reserved-vm-instances/quotaapi
