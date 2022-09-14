@@ -60,6 +60,10 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
+### Peek-lock
+
+Peek-lock operations are available only with the Azure Service Bus managed connector, not the built-in connector.
+
 ### Limit on saved sessions in connector cache
 
 Per [Service Bus messaging entity, such as a subscription or topic](../service-bus-messaging/service-bus-queues-topics-subscriptions.md), the Service Bus connector can save up to 1,500 unique sessions at a time to the connector cache. If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Message sessions](../service-bus-messaging/message-sessions.md).
