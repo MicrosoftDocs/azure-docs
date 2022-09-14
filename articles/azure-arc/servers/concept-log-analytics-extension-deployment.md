@@ -1,15 +1,15 @@
 ---
-title: Deploy Log Analytics agent on Arc-enabled servers
-description: This article reviews the different methods to deploy the Log Analytics agent on Windows and Linux-based machines registered with Azure Arc-enabled servers in your local datacenter or other cloud environment.
-ms.date: 3/18/2022
+title: Deploy Azure Monitor agent on Arc-enabled servers
+description: This article reviews the different methods to deploy the Azure Monitor agent on Windows and Linux-based machines registered with Azure Arc-enabled servers in your local datacenter or other cloud environment.
+ms.date: 09/14/2022
 ms.topic: conceptual
 ---
 
-# Understand deployment options for the Log Analytics agent on Azure Arc-enabled servers
+# Understand deployment options for the Azure Monitor agent on Azure Arc-enabled servers
 
-Azure Monitor supports multiple methods to install the Log Analytics agent and connect your machine or server registered with Azure Arc-enabled servers to the service. Azure Arc-enabled servers support the Azure VM extension framework, which provides post-deployment configuration and automation tasks, enabling you to simplify management of your hybrid machines like you can with Azure VMs.
+Azure Monitor supports multiple methods to install the Azure Monitor agent and connect your machine or server registered with Azure Arc-enabled servers to the service. Azure Arc-enabled servers support the Azure VM extension framework, which provides post-deployment configuration and automation tasks, enabling you to simplify management of your hybrid machines like you can with Azure VMs.
 
-The Log Analytics agent is required if you want to:
+The Azure Monitor agent is required if you want to:
 
 * Monitor the operating system and any workloads running on the machine or server using [VM insights](../../azure-monitor/vm/vminsights-overview.md).
 * Analyze and alert using [Azure Monitor](../../azure-monitor/overview.md).
@@ -18,7 +18,7 @@ The Log Analytics agent is required if you want to:
 * Collect inventory and track changes by using [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md).
 * Run Automation runbooks directly on the machine and against resources in the environment by using an [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 
-This article reviews the deployment methods for the Log Analytics agent VM extension, across multiple production physical servers or virtual machines in your environment, to help you determine which works best for your organization. If you are interested in the new Azure Monitor agent and want to see a detailed comparison, see [Azure Monitor agents overview](../../azure-monitor/agents/agents-overview.md).  
+This article reviews the deployment methods for the Azure Monitor agent VM extension, across multiple production physical servers or virtual machines in your environment, to help you determine which works best for your organization. If you are interested in the new Azure Monitor agent and want to see a detailed comparison, see [Azure Monitor agents overview](../../azure-monitor/agents/agents-overview.md).  
 
 ## Installation options
 
@@ -42,7 +42,7 @@ This method supports managing the installation, management, and removal of VM ex
 
 ### Use Azure Policy
 
-You can use Azure Policy to deploy the Log Analytics agent VM extension at-scale to machines in your environment, and maintain configuration compliance. This is accomplished by using either the **Configure Log Analytics extension on Azure Arc enabled Linux servers** / **Configure Log Analytics extension on Azure Arc enabled Windows servers** policy definition, or the **Enable Azure Monitor for VMs** policy initiative.
+You can use Azure Policy to deploy the Azure Monitor agent VM extension at-scale to machines in your environment, and maintain configuration compliance. This is accomplished by using either the **Configure Log Analytics extension on Azure Arc enabled Linux servers** / **Configure Log Analytics extension on Azure Arc enabled Windows servers** policy definition, or the **Enable Azure Monitor for VMs** policy initiative.
 
 Azure Policy includes several prebuilt definitions related to Azure Monitor. For a complete list of the built-in policies in the  **Monitoring** category, see [Azure Policy built-in definitions for Azure Monitor](../../azure-monitor/policy-reference.md).
 
@@ -59,7 +59,7 @@ Azure Policy includes several prebuilt definitions related to Azure Monitor. For
 
 ### Use Azure Automation
 
-The process automation operating environment in Azure Automation and its support for PowerShell and Python runbooks can help you automate the deployment of the Log Analytics agent VM extension at scale to machines in your environment.
+The process automation operating environment in Azure Automation and its support for PowerShell and Python runbooks can help you automate the deployment of the Azure Monitor agent VM extension at scale to machines in your environment.
 
 #### Advantages
 
