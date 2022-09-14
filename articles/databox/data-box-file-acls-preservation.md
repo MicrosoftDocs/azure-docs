@@ -53,7 +53,7 @@ Read-only attributes on directories aren't transferred.
 
 ## Alternate data streams and extended attributes
 
-[Alternate data streams](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) and extended attributes are not supported in Azure Files or Block blob storage, so they are not transferred when copying data. 
+[Alternate data streams](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) and extended attributes are not supported in Azure Files, page blob, or block blob storage, so they are not transferred when copying data. 
 
 ## ACLs
 
