@@ -81,7 +81,7 @@ curl --location --request POST 'https://login.microsoftonline.com/{{tenant-id}}/
         "token_type": "Bearer",
         "expires_in": 86399,
         "ext_expires_in": 86399,
-        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZ..."
+        "access_token": <access_token>"
     }
 ```
 Copy the `access token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements API of your Microsoft Energy Data Services Preview instance. 
@@ -102,7 +102,7 @@ Run the following curl command to get all the groups that are available for your
 ```bash
     curl --location --request GET "<url>/api/entitlements/v2/groups/" \
     --header 'data-partition-id: <data-partition>' \
-    --header 'Authorization: Bearer {{TOKEN}}'
+    --header 'Authorization: Bearer <access_token>'
 ```
 
 ### 2. Add user(s) to a users group
@@ -198,7 +198,7 @@ Run the below curl command to get all the groups associated with the user.
 ```bash
     curl --location --request GET 'https://<instance>.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX/groups?type=none' \
     --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ...'
+    --header 'Authorization: Bearer <access_token>'
 ```
 **Sample response**
 
