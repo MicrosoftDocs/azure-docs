@@ -4,7 +4,7 @@ description: Learn how to configure a WAF exclusion list for an existing Front D
 services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
-ms.date: 09/08/2022
+ms.date: 09/13/2022
 ms.author: jodowns
 ms.topic: conceptual
 zone_pivot_groups: web-application-firewall-configuration
@@ -126,6 +126,30 @@ Update-AzFrontDoorWafPolicy `
   -ResourceGroupName 'FrontDoorWafPolicy' `
   -Name 'WafPolicy'
   -ManagedRule $managedRuleSet
+```
+
+::: zone-end
+
+::: zone pivot="cli"
+
+## Create an exclusion
+
+Use the [`az network front-door waf-policy managed-rules exclusion add`](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion) command to update your WAF policy to add a new exclusion. 
+
+The exclusion identifies request headers that start with the word `user`. The match condition is case insensitive, so headers that start with `User` are also covered by the exclusion.
+
+Ensure that you use the correct resource group name and WAF policy name for your own environment.
+
+```azurecli
+az network front-door waf-policy managed-rules exclusion add \
+  --resource-group FrontDoorWafPolicy \
+  --policy-name WafPolicy \
+  --type Microsoft_DefaultRuleSet \
+  --rule-group-id SQLI \
+  --rule-id 942230 \
+  --match-variable RequestHeaderNames \
+  --operator StartsWith \
+  --value user
 ```
 
 ::: zone-end
