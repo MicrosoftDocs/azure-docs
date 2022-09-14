@@ -201,7 +201,7 @@ If you want to configure automatic renewal, or if you want to manually renew you
     > When navigating away from the page, disregard the "Your unsaved edits will be discarded" error by clicking **OK**.
     >
 
-To manually renew your domain, select **Renew domain**. However, this button is not active until [90 days before the domain's expiration](#when-domain-expires).
+To manually renew your domain, select **Renew domain**. However, this button is not active until 90 days before the domain's expiration date.
 
 If your domain renewal is successful, you receive an email notification within 24 hours. 
 
