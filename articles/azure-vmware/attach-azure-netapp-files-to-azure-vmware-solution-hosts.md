@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Prev
 description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 05/10/2022
+ms.date: 08/08/2022
 ms.custom: references_regions
 ---
 
@@ -28,8 +28,8 @@ The following diagram demonstrates a typical architecture of Azure NetApp Files 
 
 Before you begin the prerequisites, review the [Performance best practices](#performance-best-practices) section to learn about optimal performance of NFS datastores on Azure NetApp Files volumes.
 
-1. [Deploy Azure VMware Solution](./deploy-azure-vmware-solution.md) private cloud in a configured virtual network. For more information, see [Network planning checklist](./tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](https://review.docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking?).
-1. Create an [NFSv3 volume for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-create-volumes.md) in the same virtual network as the Azure VMware Solution private cloud. 
+1. [Deploy Azure VMware Solution](./deploy-azure-vmware-solution.md) private cloud and a dedicated virtual network connected via ExpressRoute gateway. The virtual network gateway should be configured with the Ultra performance SKU and have FastPath enabled. For more information, see [Configure networking for your VMware private cloud](tutorial-configure-networking.md) and [Network planning checklist](tutorial-network-checklist.md).
+1. Create an [NFSv3 volume for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-create-volumes.md) in the same virtual network created in the previous step.
     1. Verify connectivity from the private cloud to Azure NetApp Files volume by pinging the attached target IP.
     2. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace. If the subscription isn't registered, register it now.
     
@@ -47,7 +47,7 @@ Azure VMware Solution currently supports the following regions:
 
 **America**   : East US, West US, Central US, South Central US, North Central US, Canada East, Canada Central .
 
-**Europe**    : North Europe, UK West, UK South, France Central, Switzerland West, Germany West Central.
+**Europe**    : West Europe, North Europe, UK West, UK South, France Central, Switzerland West, Germany West Central.
 
 **Asia**      : Southeast Asia, Japan West.
 

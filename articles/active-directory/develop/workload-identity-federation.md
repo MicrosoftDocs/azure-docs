@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 08/29/2022
 ms.author: ryanwi
-ms.reviewer: keyam, udayh, vakarand
+ms.reviewer: shkhalid, udayh, vakarand
 ms.custom: aaddev 
 #Customer intent: As a developer, I want to learn about workload identity federation so that I can securely access Azure AD protected resources from external apps and services without needing to manage secrets. 
 ---
 
-# Workload identity federation (preview)
+# Workload identity federation
 This article provides an overview of workload identity federation for software workloads. Using workload identity federation allows you to access Azure Active Directory (Azure AD) protected resources without needing to manage secrets (for supported scenarios).
 
-You can use workload identity federation in scenarios such as GitHub Actions and workloads running on Kubernetes.
+You can use workload identity federation in scenarios such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure.
 
 ## Why use workload identity federation?
 
@@ -29,7 +29,7 @@ You use workload identity federation to configure an Azure AD app registration t
 
 ## Supported scenarios
 > [!NOTE]
-> Azure AD-issued tokens might not be used for federated identity flows.
+> Azure AD issued tokens may not be used for federated identity flows. The federated identity credentials flow does not support tokens issued by Azure AD.
 
 The following scenarios are supported for accessing Azure AD protected resources using workload identity federation:
 
@@ -57,6 +57,6 @@ The Microsoft identity platform stores only the first 25 signing keys when they'
 ## Next steps
 Learn more about how workload identity federation works:
 - How Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.
-- How to create, delete, get, or update [federated identity credentials](/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta&preserve-view=true) on an app registration using Microsoft Graph.
+- How to create, delete, get, or update [federated identity credentials](/graph/api/resources/federatedidentitycredentials-overview) on an app registration using Microsoft Graph.
 - Read the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) to learn more about configuring your GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources.
 - For information about the required format of JWTs created by external identity providers, read about the [assertion format](active-directory-certificate-credentials.md#assertion-format).

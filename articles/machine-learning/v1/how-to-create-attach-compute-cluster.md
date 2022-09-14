@@ -18,8 +18,8 @@ ms.date: 05/02/2022
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI version you are using:"]
-> * [v1](how-to-create-attach-compute-cluster.md)
-> * [v2 (preview)](../how-to-create-attach-compute-cluster.md)
+> * [CLI v1](how-to-create-attach-compute-cluster.md)
+> * [CLI v2 (current version)](../how-to-create-attach-compute-cluster.md)
 
 Learn how to create and manage a [compute cluster](../concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 
@@ -33,11 +33,16 @@ In this article, learn how to:
 
 This article covers only the CLI v1 way to accomplish these tasks.  To see how to use the SDK, CLI v2, or studio, see [Create an Azure Machine Learning compute cluster (CLI v2)](../how-to-create-attach-compute-cluster.md)
 
+> [!NOTE]
+> This article covers only how to do these tasks using CLI v1.  For more recent ways to manage a compute instance, see [Create an Azure Machine Learning compute cluster](../how-to-create-attach-compute-cluster.md).
+
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
 * The [Azure CLI extension for Machine Learning service (v1)](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 
 ## What is a compute cluster?
@@ -159,5 +164,5 @@ If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0
 
 Use your compute cluster to:
 
-* [Submit a training run](../how-to-set-up-training-targets.md) 
+* [Submit a training run](how-to-set-up-training-targets.md) 
 * [Run batch inference](../tutorial-pipeline-batch-scoring-classification.md).

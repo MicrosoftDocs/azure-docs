@@ -21,7 +21,7 @@ You need a subscription with [Microsoft Azure](https://azure.com). Sign in with 
 
 ## Getting started
 
-* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](./create-new-resource.md). For application type, choose **General**.
+* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](./create-new-resource.md).
 * Take a copy of the connection string. Find the connection string in the **Essentials** drop-down of the new resource you created.
 * Install latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package.
 * Set the connection string in your code before tracking any telemetry (or set the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable). After that, you should be able to manually track telemetry and see it on the Azure portal
@@ -169,9 +169,13 @@ namespace ConsoleApp
             // before exit, flush the remaining data
             telemetryClient.Flush();
 
-            // flush is not blocking when not using InMemoryChannel so wait a bit. There is an active issue regarding the need for `Sleep`/`Delay`
-            // which is tracked here: https://github.com/microsoft/ApplicationInsights-dotnet/issues/407
+            // Console apps should use the WorkerService package.
+            // This uses ServerTelemetryChannel which does not have synchronous flushing.
+            // For this reason we add a short 5s delay in this sample.
+            
             Task.Delay(5000).Wait();
+
+            // If you're using InMemoryChannel, Flush() is synchronous and the short delay is not required.
 
         }
 

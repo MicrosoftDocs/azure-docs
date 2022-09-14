@@ -2,11 +2,11 @@
 title: Azure Communication Services Calling SDK overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Calling SDK.
-author: probableprime
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -29,7 +29,7 @@ Key features of the Calling SDK:
 
 ## Detailed capabilities 
 
-The following list presents the set of features which are currently available in the Azure Communication Services Calling SDKs.
+The following list presents the set of features that are currently available in the Azure Communication Services Calling SDKs.
 
 
 | Group of features | Capability                                                                                                          | JS  | Windows | Java (Android) | Objective-C (iOS) |

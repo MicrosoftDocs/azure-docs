@@ -5,12 +5,12 @@ description: Troubleshoot and respond to changes in user state faster with conti
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: how-to
-ms.date: 01/25/2022
+ms.topic: troubleshooting
+ms.date: 06/09/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: vmahtani
 
 ms.collection: M365-identity-device-management
@@ -60,6 +60,12 @@ The **Continuous access evaluation insights** workbook contains the following ta
 The potential IP address mismatch between Azure AD & resource provider table allows admins to investigate sessions where the IP address detected by Azure AD doesn't match with the IP address detected by the resource provider. 
 
 This workbook table sheds light on these scenarios by displaying the respective IP addresses and whether a CAE token was issued during the session. 
+
+#### Continuous access evaluation insights per sign-in 
+
+The continuous access evaluation insights per sign-in page in the workbook connects multiple requests from the sign-in logs and displays a single request where a CAE token was issued. 
+
+This workbook can come in handy, for example,  when: A user opens Outlook on their desktop and attempts to access resources inside of Exchange Online. This sign-in action may map to multiple interactive and non-interactive sign-in requests in the logs making issues hard to diagnose.
 
 #### IP address configuration
 

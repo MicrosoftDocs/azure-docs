@@ -11,47 +11,6 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript</a>. Depending on your platform, use the following instructions:
-- [Node.js](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk)
-- [Web browser](../../../speech-sdk.md?tabs=browser#get-the-speech-sdk)
-
-Additionally, depending on the target environment, use one of the following:
-
-# [script](#tab/script)
-
-Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript </a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file. Place it in a folder that your HTML file can access.
-
-```html
-<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
-```
-
-> [!TIP]
-> If you're targeting a web browser and using the `<script>` tag, you don't need the `sdk` prefix. The `sdk` prefix is an alias that's used to name the `require` module.
-
-# [import](#tab/import)
-
-```javascript
-import * from "microsoft-cognitiveservices-speech-sdk";
-```
-
-For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">Export and import</a>.
-
-# [require](#tab/require)
-
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-```
-
-For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">What is require?</a>.
-
----
-
 ## Create a translation configuration
 
 To call the translation service by using the Speech SDK, you need to create a [`SpeechTranslationConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig) instance. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
@@ -114,7 +73,7 @@ To learn more about how to choose a speech recognition mode, see [Get started wi
 
 To translate, you must specify both a source language and at least one target language.
 
-You can choose a source language by using a locale listed in the [Speech translation table](../../../language-support.md#speech-translation). Find your options for translated language at the same link. 
+You can choose a source language by using a locale listed in the [Speech translation table](../../../language-support.md). Find your options for translated language at the same link. 
 
 Your options for target languages differ when you want to view text or
 you want to hear synthesized translated speech. To translate from English to German, modify the translation configuration object:
@@ -231,7 +190,7 @@ A common task for speech translation is specifying the input (or source) languag
 speechTranslationConfig.speechRecognitionLanguage = "it-IT";
 ```
 
-The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig#speechrecognitionlanguage) property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig#speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Choose one or more target languages
 
@@ -239,7 +198,7 @@ The Speech SDK can translate to multiple target languages in parallel.
 The available target languages are somewhat different from the source language list. You specify target languages by using a language code, rather than a locale.
 
 For a list of language codes for text targets, see 
-[the speech translation table on the language support page](../../../language-support.md#speech-translation). You can also find details about translation to synthesized languages there.
+[the speech translation table on the language support page](../../../language-support.md?tabs=speech-translation). You can also find details about translation to synthesized languages there.
 
 The following code adds German as a target language:
 

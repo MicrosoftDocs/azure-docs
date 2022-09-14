@@ -13,13 +13,10 @@ ms.author: kenwith
 
 # Select group-based permissions settings
 
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
 This article describes how you can create  and manage group-based permissions in Permissions Management with the User management dashboard.
 
-[!NOTE] The Permissions Management Administrator for all authorization systems will be able to create the new group based permissions.
+> [!NOTE] 
+> The Permissions Management Administrator for all authorization systems will be able to create the new group based permissions.
 
 ## Select administrative permissions settings for a group
 

@@ -3,16 +3,16 @@ title: MFA or 2FA and Privileged Identity Management - Azure AD | Microsoft Docs
 description: Learn how Azure AD Privileged Identity Management (PIM) validates multifactor authentication (MFA).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 We recommend that you require multifactor authentication (MFA or 2FA) for all your administrators. Multifactor authentication reduces the risk of an attack using a compromised password.
 
-You can require that users complete a multifactor authentication challenge when they sign in. You can also require that users complete a multifactor authentication challenge when they activate a role in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). This way, even if the user didn't complete multifactor authentication when they signed in, they'll be asked to do it by Privileged Identity Management.
+You can require that users complete a multifactor authentication challenge when they sign in. You can also require that users complete a multifactor authentication challenge when they activate a role in Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra. This way, even if the user didn't complete multifactor authentication when they signed in, they'll be asked to do it by Privileged Identity Management.
 
 > [!IMPORTANT]
 > Right now, Azure AD Multi-Factor Authentication only works with work or school accounts, not Microsoft personal accounts (usually a personal account that's used to sign in to Microsoft services such as Skype, Xbox, or Outlook.com). Because of this, anyone using a personal account can't be an eligible administrator because they can't use multifactor authentication to activate their roles. If these users need to continue managing workloads using a Microsoft account, elevate them to permanent administrators for now.

@@ -5,7 +5,8 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 5/18/2022
+ms.date: 9/14/2022
+ms.reviwer: harelbr
 ---
 
 # Supported resources for metric alerts in Azure Monitor
@@ -60,7 +61,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.DataShare/accounts | Yes | No | [Data Shares](../essentials/metrics-supported.md#microsoftdatashareaccounts) |
 |Microsoft.DBforMariaDB/servers | No | No | [DB for MariaDB](../essentials/metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | No | No |[DB for MySQL](../essentials/metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/flexibleServers | Yes | No | [DB for PostgreSQL (flexible servers)](../essentials/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
+|Microsoft.DBforPostgreSQL/flexibleServers | Yes | Yes | [DB for PostgreSQL (flexible servers)](../essentials/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.DBforPostgreSQL/serverGroupsv2 | Yes | No | DB for PostgreSQL (hyperscale) |
 |Microsoft.DBforPostgreSQL/servers | No | No | [DB for PostgreSQL](../essentials/metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | No | No | [DB for PostgreSQL V2](../essentials/metrics-supported.md#microsoftdbforpostgresqlserversv2)|

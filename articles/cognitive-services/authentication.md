@@ -7,16 +7,16 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 09/01/2022
 ms.author: pafarley
 ---
 
 # Authenticate requests to Azure Cognitive Services
 
-Each request to an Azure Cognitive Service must include an authentication header. This header passes along a subscription key or access token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
+Each request to an Azure Cognitive Service must include an authentication header. This header passes along a subscription key or authentication token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
 
 * Authenticate with a [single-service](#authenticate-with-a-single-service-subscription-key) or [multi-service](#authenticate-with-a-multi-service-subscription-key) subscription key
-* Authenticate with a [token](#authenticate-with-an-authentication-token)
+* Authenticate with a [token](#authenticate-with-an-access-token)
 * Authenticate with [Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
 ## Prerequisites
@@ -33,7 +33,7 @@ Let's quickly review the authentication headers available for use with Azure Cog
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Use this header to authenticate with a subscription key for a specific service or a multi-service subscription key. |
 | Ocp-Apim-Subscription-Region | This header is only required when using a multi-service subscription key with the [Translator service](./Translator/reference/v3-0-reference.md). Use this header to specify the subscription region. |
-| Authorization | Use this header if you are using an authentication token. The steps to perform a token exchange are detailed in the following sections. The value provided follows this format: `Bearer <TOKEN>`. |
+| Authorization | Use this header if you are using an access token. The steps to perform a token exchange are detailed in the following sections. The value provided follows this format: `Bearer <TOKEN>`. |
 
 ## Authenticate with a single-service subscription key
 
@@ -118,27 +118,27 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-## Authenticate with an authentication token
+## Authenticate with an access token
 
-Some Azure Cognitive Services accept, and in some cases require, an authentication token. Currently, these services support authentication tokens:
+Some Azure Cognitive Services accept, and in some cases require, an access token. Currently, these services support access tokens:
 
 * Text Translation API
-* Speech Services: Speech-to-text REST API
-* Speech Services: Text-to-speech REST API
+* Speech Services: Speech-to-text API
+* Speech Services: Text-to-speech API
 
 >[!NOTE]
 > QnA Maker also uses the Authorization header, but requires an endpoint key. For more information, see [QnA Maker: Get answer from knowledge base](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
 
 >[!WARNING]
-> The services that support authentication tokens may change over time, please check the API reference for a service before using this authentication method.
+> The services that support access tokens may change over time, please check the API reference for a service before using this authentication method.
 
-Both single service and multi-service subscription keys can be exchanged for authentication tokens. Authentication tokens are valid for 10 minutes.
+Both single service and multi-service subscription keys can be exchanged for authentication tokens. Authentication tokens are valid for 10 minutes. They're stored in JSON Web Token (JWT) format and can be queried programmatically using the [JWT libraries](https://jwt.io/libraries). 
 
-Authentication tokens are included in a request as the `Authorization` header. The token value provided must be preceded by `Bearer`, for example: `Bearer YOUR_AUTH_TOKEN`.
+Access tokens are included in a request as the `Authorization` header. The token value provided must be preceded by `Bearer`, for example: `Bearer YOUR_AUTH_TOKEN`.
 
 ### Sample requests
 
-Use this URL to exchange a subscription key for an authentication token: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+Use this URL to exchange a subscription key for an access token: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 ```cURL
 curl -v -X POST \
@@ -166,7 +166,7 @@ These multi-service regions support token exchange:
 - `westus`
 - `westus2`
 
-After you get an authentication token, you'll need to pass it in each request as the `Authorization` header. This is a sample call to the Translator service:
+After you get an access token, you'll need to pass it in each request as the `Authorization` header. This is a sample call to the Translator service:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
@@ -176,6 +176,12 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 ```
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
+
+## Use Azure key vault to securely access credentials
+
+You can [use Azure Key Vault](./use-key-vault.md) to securely develop Cognitive Services applications. Key Vault enables you to store your authentication credentials in the cloud, and reduces the chances that secrets may be accidentally leaked, because you won't store security information in your application.
+
+Authentication is done via Azure Active Directory. Authorization may be done via Azure role-based access control (Azure RBAC) or Key Vault access policy. Azure RBAC can be used for both management of the vaults and access data stored in a vault, while key vault access policy can only be used when attempting to access data stored in a vault.
 
 ## See also
 

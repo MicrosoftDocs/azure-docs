@@ -8,10 +8,10 @@ ms.subservice: hybrid
 ms.topic: how-to
 ms.date: 03/13/2020
 
-ms.author: baselden
-author: barbaraselden
-manager: martinco
-ms.reviewer: jsimmons
+ms.author: gasinh
+author: gargi-sinha
+manager: amycolannino
+ms.reviewer: jsimmons, andresc
 ms.collection: M365-identity-device-management
 ---
 
