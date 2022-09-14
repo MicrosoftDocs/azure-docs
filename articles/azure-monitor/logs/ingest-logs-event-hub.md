@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Monitor resources that send events to Azure Event Hubs with Azure Monitor Logs   
 
-Azure Event Hubs is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. You can monitor resources that send data to an event hub by ingesting these resource logs from Azure Event Hubs directly into Azure Monitor. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
+Azure Event Hubs is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. You can monitor resources that send data to an event hub by ingesting these resource logs from Azure Event Hubs into Azure Monitor. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
 
 
 In this tutorial, you learn how to:
