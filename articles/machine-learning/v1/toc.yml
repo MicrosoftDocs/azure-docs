@@ -57,6 +57,9 @@
           href: tutorial-1st-experiment-sdk-train.md
         - name: 3. Use your own data
           href: tutorial-1st-experiment-bring-data.md
+    - name: Train & deploy image classification
+      displayName: MNIST
+      href: tutorial-train-deploy-notebook.md   
     - name: "Build a training pipeline (Python)"
       href: "tutorial-pipeline-python-sdk.md"
     - name: Microsoft Power BI integration
