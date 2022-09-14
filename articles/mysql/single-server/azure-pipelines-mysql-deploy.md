@@ -7,7 +7,7 @@ ms.subservice: single-server
 ms.custom: seodec18, devops-pipelines-deploy
 ms.author: jukullam
 author: juliakm
-ms.date: 06/15/2022
+ms.date: 09/14/2022
 ---
 
 # Azure Pipelines for Azure Database for MySQL Single Server
@@ -44,7 +44,7 @@ You'll use the basic starter pipeline as a basis for your pipeline.
 
 6. Azure Pipelines will analyze your repository and offer configuration options. Select **Starter pipeline**.
 
-    :::image type="content" source="media/azure-pipelines-mysql-task/configure-pipeline-option.png" alt-text="Select Starter pipeline.":::
+    :::image type="content" source="media/azure-pipelines-mysql-task/configure-pipeline-option.png" alt-text="Screenshot of Select Starter pipeline.":::
     
 ## Create a secret
 
@@ -56,7 +56,7 @@ For security, you'll want to save your SQL password as a secret variable in the 
 1. Select **Variables**. 
 1. Add a new variable named `SQLpass` and select **Keep this value secret** to encrypt and save the variable.
 
-    :::image type="content" source="media/azure-pipelines-mysql-task/save-secret-variable.png" alt-text="Add a secret variable.":::  
+    :::image type="content" source="media/azure-pipelines-mysql-task/save-secret-variable.png" alt-text="Screenshot of adding a secret variable.":::  
  
 1. Select **Ok** and **Save** to add the variable. 
 
@@ -68,7 +68,7 @@ To access your MySQL database with Azure Pipelines, you need to set your databas
 1. Select **Connection security**.
 1. Toggle **Allow access to Azure services** to **Yes**. 
 
-    :::image type="content" source="media/azure-pipelines-mysql-task/allow-azure-access-mysql.png" alt-text="Set MySQL to allow Azure connections.":::    
+    :::image type="content" source="media/azure-pipelines-mysql-task/allow-azure-access-mysql.png" alt-text="Screenshot of setting MySQL to allow Azure connections.":::    
 
 ## Add the Azure Database for MySQL Deployment task
 
@@ -139,7 +139,7 @@ You can verify that your pipeline ran successfully within the `AzureMysqlDeploym
 
 Open the task and verify that the last two entries show two rows in `inventory`. There are two rows because the second row has been deleted. 
 
-:::image type="content" source="media/azure-pipelines-mysql-task/database-update-results.png" alt-text="Review final table results.":::
+:::image type="content" source="media/azure-pipelines-mysql-task/database-update-results.png" alt-text="Screenshot to show reviewing final table results.":::
 
 
 ## Clean up resources
