@@ -6,7 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.author: mabables
-author: 
+author: ManojBableshwar
+ms.reviewer: larryfr
 ms.date: 9/9/2022
 ms.topic: how-to
 ms.custom: devx-track-python
