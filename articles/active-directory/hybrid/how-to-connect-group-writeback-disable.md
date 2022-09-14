@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Disable group writeback 
-This article walks you thorough disabling group writeback in Azure Active Directory Connect (Azure AD Connect). 
+This article walks you thorough disabling group writeback in Azure Active Directory (Azure AD) Connect. 
 
 ## Disable group writeback by using the wizard
 
