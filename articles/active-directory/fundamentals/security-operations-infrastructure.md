@@ -26,9 +26,9 @@ Infrastructure has many components where vulnerabilities can occur if not proper
 
 * Subscriptions
 
-Monitoring and alerting the components of your authentication infrastructure is critical. Any compromise can lead to a full compromise of the whole environment. Many enterprises that use Azure AD operate in a hybrid authentication environment. This means both cloud and on-premises components should be included in your monitoring and alerting strategy. Having a hybrid authentication environment also introduces another attack vector to your environment.
+Monitoring and alerting the components of your authentication infrastructure is critical. Any compromise can lead to a full compromise of the whole environment. Many enterprises that use Azure AD operate in a hybrid authentication environment. Cloud and on-premises components should be included in your monitoring and alerting strategy. Having a hybrid authentication environment also introduces another attack vector to your environment.
 
-We recommend all the components be considered Control Plane / Tier 0 assets, as well as the accounts used to manage them. Refer to [Securing privileged assets](/security/compass/overview) (SPA) for guidance on designing and implementing your environment. This guidance includes recommendations for each of the hybrid authentication components that could potentially be used for an Azure AD tenant.
+We recommend all the components be considered Control Plane / Tier 0 assets, and the accounts used to manage them. Refer to [Securing privileged assets](/security/compass/overview) (SPA) for guidance on designing and implementing your environment. This guidance includes recommendations for each of the hybrid authentication components that could potentially be used for an Azure AD tenant.
 
 A first step in being able to detect unexpected events and potential attacks is to establish a baseline. For all on-premises components listed in this article, see [Privileged access deployment](/security/compass/privileged-access-deployment), which is part of the Securing privileged assets (SPA) guide.
 
@@ -44,21 +44,21 @@ The log files you use for investigation and monitoring are:
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
-From the Azure portal you can view the Azure AD Audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
+From the Azure portal, you can view the Azure AD Audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
 * **[Microsoft Sentinel](../../sentinel/overview.md)** – Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
-* **[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we have added a link to the Sigma repo. The Sigma templates are not written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
+* **[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we've added a link to the Sigma repo. The Sigma templates aren't written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
 * **[Azure Monitor](../../azure-monitor/overview.md)** – Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM - [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hub integration.
+* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM - [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration.
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – Enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
 * **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
 
-The remainder of this article describes what you should monitor and alert on and is organized by the type of threat. Where there are specific pre-built solutions, you will find links to them following the table. Otherwise, you can build alerts using the preceding tools.
+The remainder of this article describes what to monitor and alert on. It is organized by the type of threat. Where there are pre-built solutions, you'll find links to them, after the table. Otherwise, you can build alerts using the preceding tools.
 
 ## Authentication infrastructure
 
@@ -72,17 +72,17 @@ In hybrid environments that contain both on-premises and cloud-based resources a
 
 The following are links to specific articles that focus on monitoring and alerting your authentication infrastructure:
 
-* [Understand and use Lateral Movement Paths with Microsoft Defender for Identity](/defender-for-identity/use-case-lateral-movement-path) - This article describes detection techniques you can use to help identify when non-sensitive accounts are used to gain access to sensitive accounts throughout your network.
+* [Understand and use Lateral Movement Paths with Microsoft Defender for Identity](/defender-for-identity/use-case-lateral-movement-path) - Detection techniques to help identify when non-sensitive accounts are used to gain access to sensitive network accounts.
 
-* [Working with security alerts in Microsoft Defender for Identity](/defender-for-identity/working-with-suspicious-activities) - This article describes how to review and manage alerts once they are logged.
+* [Working with security alerts in Microsoft Defender for Identity](/defender-for-identity/working-with-suspicious-activities) - This article describes how to review and manage alerts after they're logged.
 
  The following are specific things to look for:
 
 | What to monitor| Risk level| Where| Notes |
 | - | - | - | - |
-| Extranet lockout trends| High| Azure AD Connect Health| Use information at [Monitor AD FS using Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md) for tools and techniques to help detect extranet lockout trends. |
+| Extranet lockout trends| High| Azure AD Connect Health| See, [Monitor AD FS using Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md) for tools and techniques to help detect extranet lock-out trends. |
 | Failed sign-ins|High | Connect Health Portal| Export or download the Risky IP report and follow the guidance at [Risky IP report (public preview)](../hybrid/how-to-connect-health-adfs-risky-ip.md) for next steps. |
-| In privacy compliant| Low| Azure AD Connect Health| Configure Azure AD Connect Health to be disable data collections and monitoring using the [User privacy and Azure AD Connect Health](../hybrid/reference-connect-health-user-privacy.md) article. |
+| In privacy compliant| Low| Azure AD Connect Health| Configure Azure AD Connect Health to disable data collections and monitoring using the [User privacy and Azure AD Connect Health](../hybrid/reference-connect-health-user-privacy.md) article. |
 | Potential brute force attack on LDAP| Medium| Microsoft Defender for Identity| Use sensor to help detect potential brute force attacks against LDAP. |
 | Account enumeration reconnaissance| Medium| Microsoft Defender for Identity| Use sensor to help perform account enumeration reconnaissance. |
 | General correlation between Azure AD and Azure AD FS|Medium | Microsoft Defender for Identity| Use capabilities to correlate activities between your Azure AD and Azure AD FS environments. |
@@ -100,8 +100,8 @@ The following are specific things to look for:
 | Azure AD pass-through authentication errors|Medium | Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80004 - The username passed to the agent was not valid| Ensure the user is attempting to sign in with the right username. |
 | Azure AD pass-through authentication errors|Medium | Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80005 - Validation encountered unpredictable WebException| A transient error. Retry the request. If it continues to fail, contact Microsoft support. |
 | Azure AD pass-through authentication errors| Medium| Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80007 - An error occurred communicating with Active Directory| Check the agent logs for more information and verify that Active Directory is operating as expected. |
-| Azure AD pass-through authentication errors|High | Win32 LogonUserA function API| Logon events 4624(s): An account was successfully logged on<br>- correlate with –<br>4625(F): An account failed to log on| Use with the suspected usernames on the domain controller that is authenticating requests. Guidance at [LogonUserA function (winbase.h)](/windows/win32/api/winbase/nf-winbase-logonusera) |
-| Azure AD pass-through authentication errors| Medium| PowerShell script of domain controller| see query following table. | Use the information at [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md)for additional guidance. |
+| Azure AD pass-through authentication errors|High | Win32 LogonUserA function API| Log on events 4624(s): An account was successfully logged on<br>- correlate with –<br>4625(F): An account failed to log on| Use with the suspected usernames on the domain controller that is authenticating requests. Guidance at [LogonUserA function (winbase.h)](/windows/win32/api/winbase/nf-winbase-logonusera) |
+| Azure AD pass-through authentication errors| Medium| PowerShell script of domain controller| See the query after the table. | Use the information at [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md)for guidance. |
 
 ```Kusto
 
@@ -128,7 +128,7 @@ Organizations might need to monitor for and alert on the creation of new Azure A
 
 Azure AD and Azure AD Application Proxy give remote users a single sign-on (SSO) experience. Users securely connect to on-premises apps without a virtual private network (VPN) or dual-homed servers and firewall rules. If your Azure AD Application Proxy connector server is compromised, attackers could alter the SSO experience or change access to published applications.
 
-To configuring monitoring for Application Proxy, see [Troubleshoot Application Proxy problems and error messages](../app-proxy/application-proxy-troubleshoot.md). The data file that logs information can be found in Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin. For a complete reference guide to audit activity, see [Azure AD audit activity reference](../reports-monitoring/reference-audit-activities.md). Specific things to monitor:
+To configure monitoring for Application Proxy, see [Troubleshoot Application Proxy problems and error messages](../app-proxy/application-proxy-troubleshoot.md). The data file that logs information can be found in Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin. For a complete reference guide to audit activity, see [Azure AD audit activity reference](../reports-monitoring/reference-audit-activities.md). Specific things to monitor:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
@@ -138,13 +138,13 @@ To configuring monitoring for Application Proxy, see [Troubleshoot Application P
 
 ### Legacy authentication settings
 
-For multifactor authentication (MFA) to be effective, you also need to block legacy authentication. You then need to monitor your environment and alert on any use of legacy authentication. This is because legacy authentication protocols like POP, SMTP, IMAP, and MAPI can’t enforce MFA. This makes these protocols preferred entry points for attackers of your organization. For more information on tools that you can use to block legacy authentication, see [New tools to block legacy authentication in your organization](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302).
+For multifactor authentication (MFA) to be effective, you also need to block legacy authentication. You then need to monitor your environment and alert on any use of legacy authentication. Legacy authentication protocols like POP, SMTP, IMAP, and MAPI can’t enforce MFA. This makes these protocols the preferred entry points for attackers. For more information on tools that you can use to block legacy authentication, see [New tools to block legacy authentication in your organization](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302).
 
 Legacy authentication is captured in the Azure AD Sign-ins log as part of the detail of the event. You can use the Azure Monitor workbook to help with identifying legacy authentication usage. For more information, see [Sign-ins using legacy authentication](../reports-monitoring/howto-use-azure-monitor-workbooks.md), which is part of [How to use Azure Monitor Workbooks for Azure Active Directory reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md). You can also use the Insecure protocols workbook for Microsoft Sentinel. For more information, see [Microsoft Sentinel Insecure Protocols Workbook Implementation Guide](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Specific activities to monitor include:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| Legacy authentications|High | Azure AD Sign-ins log| ClientApp : POP<br>ClientApp : IMAP<br>ClientApp : MAPI<br>ClientApp: SMTP<br>ClientApp : ActiveSync go to EXO<br>Other Clients = SharePoint and EWS| In federated domain environments, failed authentications are not recorded so will not appear in the log. |
+| Legacy authentications|High | Azure AD Sign-ins log| ClientApp : POP<br>ClientApp : IMAP<br>ClientApp : MAPI<br>ClientApp: SMTP<br>ClientApp : ActiveSync go to EXO<br>Other Clients = SharePoint and EWS| In federated domain environments, failed authentications aren't recorded and don't appear in the log. |
 
 ## Azure AD Connect
 
@@ -152,11 +152,11 @@ Azure AD Connect provides a centralized location that enables account and attrib
 
 * [Password hash synchronization](../hybrid/whatis-phs.md) - A sign-in method that synchronizes a hash of a user’s on-premises AD password with Azure AD.
 
-* [Synchronization](../hybrid/how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects. As well as, making sure identity information for your on-premises users and groups is matching the cloud. This synchronization also includes password hashes.
+* [Synchronization](../hybrid/how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects. And, making sure identity information for your on-premises users and groups matches the cloud. This synchronization also includes password hashes.
 
 * [Health Monitoring](../hybrid/whatis-azure-ad-connect.md) - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity.
 
-Synchronizing identity between your on-premises environment and you cloud environment introduces a new attack surface for your on-premises and cloud-based environment. We recommend:
+Synchronizing identity between your on-premises environment and your cloud environment introduces a new attack surface for your on-premises and cloud-based environment. We recommend:
 
 * You treat your Azure AD Connect primary and staging servers as Tier 0 Systems in your control plane.
 
@@ -192,7 +192,7 @@ For information on what and how to monitor configuration information refer to:
 
 ### Monitoring and troubleshooting synchronization
 
- One function of Azure AD Connect is to synchronize hash synchronization between a user’s on-premises password and Azure AD. If passwords are not synchronizing as expected, the synchronization might affect a subset of users or all users. Use the following to help verify proper operation or troubleshoot issues:
+ One function of Azure AD Connect is to synchronize hash synchronization between a user’s on-premises password and Azure AD. If passwords aren't synchronizing as expected, the synchronization might affect a subset of users or all users. Use the following to help verify proper operation or troubleshoot issues:
 
 * Information for checking and troubleshooting hash synchronization, see [Troubleshoot password hash synchronization with Azure AD Connect sync](../hybrid/tshoot-connect-password-hash-synchronization.md).
 
@@ -204,7 +204,7 @@ For information on what and how to monitor configuration information refer to:
 | - | - |
 | Hash synchronization validation|See [Troubleshoot password hash synchronization with Azure AD Connect sync](../hybrid/tshoot-connect-password-hash-synchronization.md) |
  Modifications to the connector spaces|see [Troubleshoot Azure AD Connect objects and attributes](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes) |
-| Modifications to the rules you configured| Specifically, monitor filtering changes, domain and OU changes, attribute changes, and group-based changes |
+| Modifications to rules you configured| Monitor changes to: filtering, domain and OU, attribute, and group-based changes |
 | SQL and MSDE changes | Changes to logging parameters and addition of custom functions |
 
 **Monitor the following**:
@@ -214,13 +214,13 @@ For information on what and how to monitor configuration information refer to:
 | Scheduler changes|High | PowerShell| Set-ADSyncScheduler| Look for modifications to schedule |
 | Changes to scheduled tasks| High | Azure AD Audit logs| Activity = 4699(S): A scheduled task was deleted<br>-or-<br>Activity = 4701(s): A scheduled task was disabled<br>-or-<br>Activity = 4701(s): A scheduled task was updated| Monitor all |
 
-* For more information on logging PowerShell script operations, refer to [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows), which is part of the PowerShell reference documentation.
+* For more information on logging PowerShell script operations, see [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows), which is part of the PowerShell reference documentation.
 
 * For more information on configuring PowerShell logging for analysis by Splunk, refer to [Get Data into Splunk User Behavior Analytics](https://docs.splunk.com/Documentation/UBA/5.0.4.1/GetDataIn/AddPowerShell).
 
 ### Monitoring seamless single sign-on
 
-Azure Active Directory (Azure AD) Seamless Single Sign-On (Seamless SSO) automatically signs in users when they are on their corporate desktops that are connected to your corporate network. Seamless SSO provides your users with easy access to your cloud-based applications without needing any additional on-premises components. SSO uses the pass-through authentication and password hash synchronization capabilities provided by Azure AD Connect.
+Azure Active Directory (Azure AD) Seamless Single Sign-On (Seamless SSO) automatically signs in users when they are on their corporate desktops that are connected to your corporate network. Seamless SSO provides your users with easy access to your cloud-based applications without other on-premises components. SSO uses the pass-through authentication and password hash synchronization capabilities provided by Azure AD Connect.
 
 Monitoring single sign-on and Kerberos activity can help you detect general credential theft attack patterns. Monitor using the following information:
 
@@ -246,7 +246,7 @@ Monitoring single sign-on and Kerberos activity can help you detect general cred
 
 If you deploy Azure AD Password Protection, monitoring and reporting are essential tasks. The following links provide details to help you understand various monitoring techniques, including where each service logs information and how to report on the use of Azure AD Password Protection.
 
-The domain controller (DC) agent and proxy services both log event log messages. All PowerShell cmdlets described below are only available on the proxy server (see the AzureADPasswordProtection PowerShell module). The DC agent software does not install a PowerShell module.
+The domain controller (DC) agent and proxy services both log event log messages. All PowerShell cmdlets described below are only available on the proxy server (see the AzureADPasswordProtection PowerShell module). The DC agent software doesn't install a PowerShell module.
 
 Detailed information for planning and implementing on-premises password protection is available at [Plan and deploy on-premises Azure Active Directory Password Protection](../authentication/howto-password-ban-bad-on-premises-deploy.md). For monitoring details, see [Monitor on-premises Azure AD Password Protection](../authentication/howto-password-ban-bad-on-premises-monitor.md). On each domain controller, the DC agent service software writes the results of each individual password validation operation (and other status) to the following local event log:
 
@@ -265,7 +265,7 @@ The DC agent Admin log is the primary source of information for how the software
 Complete reference for Azure AD audit activities is available at [Azure Active Directory (Azure AD) audit activity reference](../reports-monitoring/reference-audit-activities.md).
 
 ## Conditional Access
-In Azure AD, you can protect access to your resources by configuring Conditional Access policies. As an IT administrator, you want to ensure that your Conditional Access policies work as expected to ensure that your resources are properly protected. Monitoring and alerting on changes to the Conditional Access service is critical to ensure that polices defined by your organization for access to data are enforced correctly. Azure AD logs when changes are made to Conditional Access and also provides workbooks to ensure your policies are providing the expected coverage.
+In Azure AD, you can protect access to your resources by configuring Conditional Access policies. As an IT administrator, you want to ensure your Conditional Access policies work as expected to ensure that your resources are protected. Monitoring and alerting on changes to the Conditional Access service ensures policies defined by your organization for access to data are enforced. Azure AD logs when changes are made to Conditional Access and also provides workbooks to ensure your policies are providing the expected coverage.
 
 **Workbook Links**
 
@@ -284,8 +284,6 @@ Monitor changes to Conditional Access policies using the following information:
 |Addition of a user to a group used to scope critical Conditional Access policies|Low|Azure AD Audit logs|Activity: Add member to group<br><br>Category: GroupManagement<br><br>Target: User Principal Name|Montior and Alert for groups used to scope critical Conditional Access Policies.<br><br>"Target" is the user that has been added.<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
 
 ## Next steps
-
-See these additional security operations guide articles:
 
 [Azure AD security operations overview](security-operations-introduction.md)
 
