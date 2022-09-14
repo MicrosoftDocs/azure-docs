@@ -44,7 +44,7 @@ While the various framework estimators have preconfigured environments that are 
 
 When using ScriptRunConfig, all environment-related configurations are encapsulated in the `Environment` object that gets passed into the `environment` parameter of the ScriptRunConfig constructor. To configure a training job,  provide an environment that has all the dependencies required for your training script. If no environment is provided, Azure ML will use one of the Azure ML base images, specifically the one defined by `azureml.core.environment.DEFAULT_CPU_IMAGE`, as the default environment. There are a couple of ways to provide an environment:
 
-* [Use a curated environment](../how-to-use-environments.md#curated-environments) - curated environments are predefined environments available in your workspace by default. There is a corresponding curated environment for each of the preconfigured framework/version Docker images that backed each framework estimator.
+* [Use a curated environment](../how-to-use-environments.md#use-a-curated-environment) - curated environments are predefined environments available in your workspace by default. There is a corresponding curated environment for each of the preconfigured framework/version Docker images that backed each framework estimator.
 * [Define your own custom environment](how-to-use-environments.md)
 
 Here is an example of using the curated PyTorch 1.6 environment for training:
