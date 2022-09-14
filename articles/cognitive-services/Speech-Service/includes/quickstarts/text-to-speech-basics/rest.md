@@ -14,22 +14,20 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Synthesize to a file
 
-At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Optionally you can rename `output.mp3` to another output filename.
-
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+At a command prompt, run the following cURL command. Optionally you can rename `output.mp3` to another output filename.
 
 ```console
-key="YourSubscriptionKey"
-region="YourServiceRegion"
-
-curl --location --request POST "https://$region.tts.speech.microsoft.com/cognitiveservices/v1" \
---header "Ocp-Apim-Subscription-Key: $key" \
+curl --location --request POST "https://${SPEECH_REGION}.tts.speech.microsoft.com/cognitiveservices/v1" \
+--header "Ocp-Apim-Subscription-Key: ${SPEECH_KEY}" \
 --header 'Content-Type: application/ssml+xml' \
 --header 'X-Microsoft-OutputFormat: audio-16khz-128kbitrate-mono-mp3' \
 --header 'User-Agent: curl' \
