@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 07/11/2022
 ---
 
-# Product updates for PostgreSQL - Hyperscale (Citus)
+# Product updates for Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -18,7 +18,7 @@ ms.date: 07/11/2022
 
 The Microsoft Azure website lists newly available features per product, plus
 features in preview and development. Check the [Hyperscale (Citus)
-updates](https://azure.microsoft.com/updates/?category=databases&query=citus)
+updates](https://azure.microsoft.com/en-us/updates/?category=databases&query=%22Cosmos%20DB%20for%20PostgreSQL%22)
 section for the latest. An RSS feed is also available on that page.
 
 ## Features in preview
