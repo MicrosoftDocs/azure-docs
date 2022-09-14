@@ -79,6 +79,14 @@ This command will deliver the script to the VM, execute it, and return the captu
 Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Location "EastUS" -RunCommandName "RunCommandName" –SourceScript "echo Hello World!"
 ```
 
+### Execute a script on the VM using SourceScriptUri parameter 
+`OutputBlobUri` and `ErrorBlobUri` are optional parameters.
+
+```azurepowershell-interactive
+Set-AzVMRunCommand -ResourceGroupName -VMName -RunCommandName -SourceScriptUri “< SAS URI of a storage blob with read access or public URI>" -OutputBlobUri “< SAS URI of a storage append blob with read, add, create, write access>” -ErrorBlobUri “< SAS URI of a storage append blob with read, add, create, write access>”
+```
+
+
 ### List all deployed RunCommand resources on a VM 
 This command will return a full list of previously deployed Run Commands along with their properties.
 
