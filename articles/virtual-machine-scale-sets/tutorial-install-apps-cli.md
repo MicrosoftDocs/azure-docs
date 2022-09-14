@@ -86,7 +86,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroup \
   --vmss-name myScaleSet \
-  --settings @customConfig.json
+  --settings customConfig.json
 ```
 
 Each VM instance in the scale set downloads and runs the script from GitHub. In a more complex example, multiple application components and files could be installed. If the scale set is scaled up, the new VM instances automatically apply the same Custom Script Extension definition and install the required application.
