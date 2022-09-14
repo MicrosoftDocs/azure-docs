@@ -38,7 +38,7 @@ The flags that have been disabled are:
 > - jdk.InitialEnvironmentVariable
 > - jdk.SystemProcess
 >
-> However, you should review all flags enabled to ensure that profiles do not contain sensitive data.
+> However, you should review all enabled flags to ensure that profiles do not contain sensitive data.
 > See [Configuring Profile Contents](#configuring-profile-contents) on setting a custom profiler configuration.
 
 ## Prerequisites
@@ -96,10 +96,9 @@ configuring resource limits that will trigger a profile if breached.
        :::image type="content" source="./media/java-standalone-profiling/performance-blade-inline.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/java-standalone-profiling/performance-blade.png":::
        :::image type="content" source="./media/java-standalone-profiling/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/java-standalone-profiling/profiler-button.png":::
     2. Select "Triggers"
-    3. Configure the required CPU and Memory thresholds. And select Apply.
+    3. Configure the required CPU and Memory thresholds and select Apply.
        :::image type="content" source="./media/java-standalone-profiling/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for C P U and Memory triggers.":::
-2. Inside the `applicationinsights.json` configuration of your process, enable the profiler by
-   setting the `preview.profiler.enabled` setting:
+1. Inside the `applicationinsights.json` configuration of your process, enable profiler with the `preview.profiler.enabled` setting:
    ```json
       {
          "connectionString" : "...",
@@ -111,14 +110,14 @@ configuring resource limits that will trigger a profile if breached.
       }
    ```
    Alternatively, set the `APPLICATIONINSIGHTS_PROFILER_ENABLED` environment variable to true.
-3. Restart your process with the updated configuration.
+1. Restart your process with the updated configuration.
 
 
 > [!WARNING]
-> Currently the Java profiler does not support the "Sampling" trigger, configuring this will have no effect.
+> The Java profiler does not support the "Sampling" trigger. Configuring this will have no effect.
 
-Once these steps have been completed, the agent will monitor the resource usage of your process and
-trigger a profile when the threshold is exceeded. Once a profile has been triggered and completed, it will be
+After these steps have been completed, the agent will monitor the resource usage of your process and
+trigger a profile when the threshold is exceeded. When a profile has been triggered and completed, it will be
 viewable from the
 Application Insights instance within the Performance -> Profiler section. From that screen the
 profile can be downloaded, once download the JFR recording file can be opened and analyzed within a
@@ -129,7 +128,7 @@ tool of your choosing, for example JDK Mission Control (JMC).
 
 ### Configuration
 
-Configuration of the profiler triggering settings, such as thresholds and profiling periods are set
+Configuration of the profiler triggering settings, such as thresholds and profiling periods, are set
 within the ApplicationInsights UI under the Performance, Profiler, Triggers UI as
 described in [Installation](#installation).
 
@@ -222,8 +221,8 @@ Application Insights Java Agent currently supports monitoring of CPU and memory 
           
 ### What are the required prerequisites to enable Java Profiling? 
 
-Review the [Pre-requisites](#pre-requisites) at the top of this article.
-      
+Review the [Pre-requisites](#prerequisites) at the top of this article.
+
 ### Can I use Java Profiling for microservices application? 
 
 Yes, you can profile a JVM running microservices using the JFR.
