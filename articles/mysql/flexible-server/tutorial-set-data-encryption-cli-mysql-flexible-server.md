@@ -4,7 +4,7 @@ description: Learn how to set up and manage data encryption for your Azure Datab
 author: vivgk
 ms.author: vivgk
 ms.reviewer: maghan
-ms.date: 09/19/2022
+ms.date: 09/15/2022
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -30,13 +30,13 @@ In this tutorial you'll learn how to:
 
 - Login to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the id property, which refers to Subscription ID for your Azure account.
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
 - If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the az account set command.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription \<subscription id\>
 ```
 
@@ -44,19 +44,19 @@ az account set --subscription \<subscription id\>
 
 [Soft delete](../../key-vault/general/soft-delete-overview.md)
 
-```azurecli
+```azurecli-interactive
 az resource update --id $(az keyvault show --name \ \<key\_vault\_name\> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
 ```
 
 [Purge protected](../../key-vault/general/soft-delete-overview.md#purge-protection)
 
-```azurecli
+```azurecli-interactive
 az keyvault update --name \<key\_vault\_name\> --resource-group \<resource\_group\_name\> --enable-purge-protection true
 ```
 
 Retention days set to 90 days
 
-```azurecli
+```azurecli-interactive
 az keyvault update --name \<key\_vault\_name\> --resource-group \<resource\_group\_name\> --retention-days 90
 ```
 
@@ -70,7 +70,7 @@ The key must have the following attributes to use as a customer-managed key:
 
 You can verify the above attributes of the key by using the following command:
 
-```azurecli
+```azurecli-interactive
 az keyvault key show --vault-name \<key\_vault\_name\> -n \<key\_name\>
 ```
 
@@ -78,13 +78,13 @@ az keyvault key show --vault-name \<key\_vault\_name\> -n \<key\_name\>
 
 Set or change key and identity for data encryption
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server update --resource-group testGroup --name testserver \\ --key \<key identifier of newKey\> --identity newIdentity
 ```
 
 Set or change key, identity, backup key and backup identity for data encryption with geo redundant backup
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server update --resource-group testGroup --name testserver \\ --key \<key identifier of newKey\> --identity newIdentity \\  --backup-key \<key identifier of newBackupKey\> --backup-identity newBackupIdentity
 ```
 
