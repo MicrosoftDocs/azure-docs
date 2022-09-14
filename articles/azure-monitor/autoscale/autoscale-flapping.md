@@ -70,14 +70,14 @@ T1|3|1250|417|Scale in|2|
 
 In this case, it looks like autoscale isn't working since no scale event takes place. Check the *Run history* tab on the autoscale setting page to see if there's any flapping.
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-runhistory-small.png" alt-text="A screenshot showing the autoscale run history tab with records showing flapping" lightbox="./media/autoscale-flapping/autoscale-flapping-runhistory.png":::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-runhistory.png" alt-text="A screenshot showing the autoscale run history tab with records showing flapping" lightbox="./media/autoscale-flapping/autoscale-flapping-runhistory.png":::
 
 Setting an adequate margin between thresholds avoids the above scenario. For example,
 
 * Scale out when thread count >=600
 * Scale in when thread count < 400
 
-:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example3.png" alt-text="A screenshot showing autoscale rules configured for the example" lightbox:::
+:::image type="content" source="./media/autoscale-flapping/autoscale-flapping-example3.png" alt-text="A screenshot showing autoscale rules configured for the example with scale out when thread count >=600 and scale in when thread count < 400" lightbox:::
 
 If the scale-in thread count is 400, the total thread count would have to drop to below 1200 before a scale event would take place. See the table below.
 
