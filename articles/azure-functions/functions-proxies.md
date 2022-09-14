@@ -14,8 +14,7 @@ In some scenarios, you may need your API to support a more complex set of REST b
 Today, the recommended approach to build more complex and robust APIs based on your functions is to leverage the comprehensive API services provided by [Azure API Management](../api-management/api-management-key-concepts.md). 
 API Management uses a policy-based model to let you control routing, security, and OpenAPI integration. It also supports advanced policies like rate limiting monetization. Previous versions of the Functions runtime used the legacy Functions Proxies feature.
 
-> [!IMPORTANT] 
-> Azure Functions proxies is a legacy feature of Azure Functions [runtime versions](./functions-versions.md) 1.x to 3.x. Proxies are only supported in version 4.x to allow you to successfully upgrade your function apps to the latest runtime version. To take advantage of a more complete set of API behaviors, you should switch to using [Azure API Management](../api-management/api-management-key-concepts.md) for exposing and managing your APIs at the earliest possible convenience.
+[!INCLUDE [functions-legacy-proxies-deprecation](../../includes/functions-legacy-proxies-deprecation.md)]
 
 ## <a name="migration"></a>Moving from Functions Proxies to API Management
 
@@ -47,8 +46,7 @@ After you have your function app endpoints exposed by using API Management, the 
 
 The legacy [Functions Proxies feature](legacy-proxies.md) also provides a set of basic API functionality for version 3.x and older version of the Functions runtime. 
 
-> [!IMPORTANT] 
-> Azure Functions proxies is a legacy feature of Azure Functions [runtime versions](./functions-versions.md) 1.x to 3.x. Proxies are only supported in version 4.x to allow you to successfully upgrade your function apps to the latest runtime version. To take advantage of a more complete set of API behaviors, you should switch to using [Azure API Management](../api-management/api-management-key-concepts.md) for exposing and managing your APIs at the earliest possible convenience.
+[!INCLUDE [functions-legacy-proxies-deprecation](../../includes/functions-legacy-proxies-deprecation.md)]
 
 Some basic hints for how to perform equivalent tasks using API Management have been added to the [Functions Proxies article](legacy-proxies.md). We don't currently have documentation or tools to help you migrate an existing Functions Proxies implementation to API Management. 
 
