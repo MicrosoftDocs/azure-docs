@@ -67,7 +67,7 @@ Autoscale feature is available for the following services:
 
 * [Computer Vision](computer-vision/index.yml)
 * [Language](language-service/overview.md) (only available for sentiment analysis, key phrase extraction, named entity recognition, and text analytics for health)
-* [Form Recognizer](/azure/applied-ai-services/form-recognizer/overview?tabs=v3-0)
+* [Form Recognizer](../applied-ai-services/form-recognizer/overview.md?tabs=v3-0)
 
 ### Can I test this feature using a free subscription?
 
