@@ -30,7 +30,7 @@ To create a read replica, follow these steps:
 1. Select an existing Azure Database for PostgreSQL cluster to use as the
    primary. 
 
-2. On the cluster sidebar, under **Server group management**, select
+2. On the cluster sidebar, under **Cluster management**, select
    **Replication**.
 
 3. Select **Add Replica**.
@@ -80,7 +80,7 @@ following these steps:
 
 1. In the Azure portal, select your primary cluster.
 
-2. On the cluster menu, under **Server group management**, select
+2. On the cluster menu, under **Cluster management**, select
    **Replication**.
 
 3. Select the read replica to delete.

@@ -704,7 +704,7 @@ SELECT * from citus_get_active_worker_nodes();
 (3 rows)
 ```
 
-## Server group management and repair
+## Cluster management and repair
 
 ### master\_copy\_shard\_placement
 

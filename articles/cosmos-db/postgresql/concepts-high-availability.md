@@ -22,7 +22,7 @@ PostgreSQL synchronous streaming replication.
 All primary nodes in a cluster are provisioned into one availability zone
 for better latency between the nodes. The standby nodes are provisioned into
 another zone. The Azure portal
-[displays](concepts-server-group.md#node-availability-zone) the availability
+[displays](concepts-cluster.md#node-availability-zone) the availability
 zone of each node in a cluster.
 
 Even without HA enabled, each Hyperscale (Citus) node has its own locally

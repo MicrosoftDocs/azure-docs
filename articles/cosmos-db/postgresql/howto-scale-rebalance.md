@@ -22,7 +22,7 @@ shard rebalancing.
 ## Determine if the cluster is balanced
 
 The Azure portal shows whether data is distributed equally between
-worker nodes in a cluster or not. From the **Server group management** menu, select **Shard rebalancer**.
+worker nodes in a cluster or not. From the **Cluster management** menu, select **Shard rebalancer**.
 
 - If data is skewed between workers: You'll see the message, **Rebalancing is recommended** and a list of the size of each node.
 
@@ -43,7 +43,7 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 ## Monitor rebalance progress
 
-You can view the rebalance progress from the Azure portal. From the **Server group management** menu, select **Shard rebalancer** . The
+You can view the rebalance progress from the Azure portal. From the **Cluster management** menu, select **Shard rebalancer** . The
 message **Rebalancing is underway** displays with two tables:
 
 - The first table shows the number of shards moving into or out of a node. For

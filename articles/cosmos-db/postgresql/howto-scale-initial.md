@@ -63,7 +63,7 @@ scaled to suffice, and in other cases it requires the cooperation of multiple
 nodes.
 
 For a comparison of the tiers, see the [basic
-tier](concepts-server-group.md) concepts page.
+tier](concepts-cluster.md) concepts page.
 
 ## Next steps
 

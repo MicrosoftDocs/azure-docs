@@ -58,7 +58,7 @@ name like this:
 ```kusto
 AzureDiagnostics
 | project TimeGenerated, Message, errorLevel_s, LogicalServerName_s
-| where LogicalServerName_s == 'example-server-group-c'
+| where LogicalServerName_s == 'example-cluster-c'
 | where errorLevel_s == 'ERROR'
 ```
 

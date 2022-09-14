@@ -1,5 +1,5 @@
 ---
-title: Server group upgrades - Azure Cosmos DB for PostgreSQL
+title: Cluster upgrades - Azure Cosmos DB for PostgreSQL
 description: Types of upgrades, and their precautions
 ms.author: jonels
 author: jonels-msft

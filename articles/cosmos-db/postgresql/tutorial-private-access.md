@@ -88,7 +88,7 @@ az vm run-command invoke \
 4. Fill out the new server details form with the following information:
 
 	- **Resource group**: `link-demo`
-	- **Server group name**: `link-demo-sg`
+	- **Cluster name**: `link-demo-sg`
 	- **Location**: `East US`
 	- **Password**: (your choice)
 

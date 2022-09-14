@@ -63,7 +63,7 @@ To create a private endpoint to a node in an existing cluster, open the
    :::image type="content" source="media/howto-private-access/networking.png" alt-text="Networking screen":::
 
 2. In the **Basics** tab, confirm the **Subscription**, **Resource group**, and
-   **Region**. Enter a **Name** for the endpoint, such as `my-server-group-eq`.
+   **Region**. Enter a **Name** for the endpoint, such as `my-cluster-eq`.
 
 	> [!NOTE]
 	>

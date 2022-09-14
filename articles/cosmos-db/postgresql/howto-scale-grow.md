@@ -28,7 +28,7 @@ group.  Dragging the slider for **Worker node count** changes the value.
 > [!NOTE]
 >
 > A cluster created with the [basic
-> tier](concepts-server-group.md) has no workers. Increasing the worker
+> tier](concepts-cluster.md) has no workers. Increasing the worker
 > count automatically graduates the cluster to the standard tier.  After
 > graduating a cluster to the standard tier, you can't downgrade it back
 > to the basic tier.

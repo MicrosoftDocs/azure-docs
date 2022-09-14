@@ -18,7 +18,7 @@ Hyperscale (Citus) service.
 
 ### Naming
 
-#### Server group name
+#### Cluster name
 
 A cluster must have a name that is 40 characters or
 shorter.

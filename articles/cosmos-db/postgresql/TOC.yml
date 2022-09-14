@@ -6,7 +6,7 @@
       href: overview.md
 - name: Quickstart
   items:
-    - name: Create server group
+    - name: Create cluster
       href: quickstart-create-portal.md
     - name: Connect
       href: quickstart-connect-psql.md
@@ -65,8 +65,8 @@
           displayName: hyperscale, tutorial, private
 - name: Concepts
   items:
-    - name: Server group
-      href: concepts-server-group.md
+    - name: Cluster
+      href: concepts-cluster.md
     - name: Distributed data
       items:
         - name: Nodes and tables
@@ -138,9 +138,9 @@
           href: howto-create-users.md
         - name: Schedule maintenance
           href: howto-maintenance.md
-        - name: Restart server group
+        - name: Restart cluster
           href: howto-restart.md
-        - name: Upgrade server group
+        - name: Upgrade cluster
           href: howto-upgrade.md
     - name: Monitor
       items:
@@ -154,11 +154,11 @@
           displayName: log, hyperscale
     - name: Scale
       items:
-        - name: Server group size
+        - name: Cluster size
           items:
             - name: Pick initial size
               href: howto-scale-initial.md
-            - name: Scale server group
+            - name: Scale cluster
               href: howto-scale-grow.md
         - name: Rebalance shards
           href: howto-scale-rebalance.md
@@ -173,7 +173,7 @@
         - name: Manage read replicas
           href: howto-read-replicas-portal.md
           displayName: replication, read replica
-        - name: Restore server group
+        - name: Restore cluster
           href: howto-restore-portal.md
     - name: Security and data access
       items:

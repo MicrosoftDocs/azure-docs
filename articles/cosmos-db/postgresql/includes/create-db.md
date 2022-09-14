@@ -40,7 +40,7 @@ Visit [Create cluster](https://portal.azure.com/#create/Microsoft.PostgreSQLServ
 
    * The cluster name will determine the DNS name your
      applications use to connect, in the form
-     `server-group-name.postgres.database.azure.com`.
+     `cluster-name.postgres.database.azure.com`.
    * The admin username is required to be the value `citus`.
    * You can choose a database version. Hyperscale (Citus) always supports the
      latest PostgreSQL version, within one day of release.

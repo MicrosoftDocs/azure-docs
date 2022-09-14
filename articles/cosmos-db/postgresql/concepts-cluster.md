@@ -1,5 +1,5 @@
 ---
-title: Server group - Azure Cosmos DB for PostgreSQL
+title: Cluster - Azure Cosmos DB for PostgreSQL
 description: What is a cluster in Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
@@ -36,7 +36,7 @@ values:
 * **Need attention**: An issue is detected on the node. The node is attempting
   to self-heal. If self-healing fails, an issue gets put in the queue for our
   engineers to investigate.
-* **Dropping**: Server group deletion started.
+* **Dropping**: Cluster deletion started.
 * **Disabled**: The cluster's Azure subscription turned into Disabled
   states. For more information about subscription states, see [this
   page](../../cost-management-billing/manage/subscription-states.md).
