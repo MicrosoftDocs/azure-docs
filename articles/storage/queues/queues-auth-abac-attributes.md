@@ -7,7 +7,7 @@ author: jammart
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/06/2022
+ms.date: 09/14/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: queues
@@ -16,11 +16,9 @@ ms.subservice: queues
 # Actions and attributes for Azure role assignment conditions for Azure queues
 
 > [!IMPORTANT]
-> Currently, Azure ABAC is Generally available (GA) for controlling access to Azure queue storage only using request and resource attributes in the Standard storage account performance tier. It is still in preview for Premium storage accounts and for the security principal and environment attributes in all tiers. 
+> Azure ABAC and Azure role assignment conditions are currently in preview.
 >
-> See [About the ABAC preview](../common/authorize-data-access.md#about-the-abac-preview) for a complete list of storage account performance tiers, resource types, and attributes for which ABAC is Generally available or in preview.
->
-> Features of ABAC that are still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Blob service operations that are affected by a specific permission or DataAction, see [Permissions for Blob service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-blob-service-operations).
