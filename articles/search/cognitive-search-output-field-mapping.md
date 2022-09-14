@@ -30,7 +30,7 @@ In contrast with a [`fieldMappings`](search-indexer-field-mappings.md) definitio
 
 Output field mappings are required if your indexer has an attached [skillset](cognitive-search-working-with-skillsets.md) that creates new information, such as text translation or key phrase extraction. During indexer execution, AI-generated information exists in memory only. To persist this information in a search index, you'll need to tell the indexer where to send the data.
 
-Output field mappings can also be used to retrieve specific nodes in a source document's complex type. If you don't need the full complex structure, you can [flatten individual nodes in a nested data structures](#flattening-information-from-complex-types) into a string collection.
+Output field mappings can also be used to retrieve specific nodes in a source document's complex type. If you don't need the full complex structure, you can [flatten individual nodes in a nested data structures](#flattening-information-from-complex-types), and then use an output field mapping to send the output to a string collection in your search index.
 
 Output field mappings apply to:
 
@@ -58,7 +58,7 @@ Output field mappings are added to the `outputFieldMappings` array in an indexer
 | Property | Description |
 |----------|-------------|
 | sourceFieldName | Required. Specifies a path to enriched content. An example might be `/document/content`. See [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md) for path syntax and examples. |
-| targetFieldName | Optional. Specifies the search field that receives the enriched content. Target fields must be top-level simple fields or collections. It can't be a path to a subfield in a complex type. If you want to retrieve specific nodes in a complex structure, you can [flatten individual nodes](#flatten-information-from-complex-types) in memory, and then send the output to a string collection in your index. |
+| targetFieldName | Optional. Specifies the search field that receives the enriched content. Target fields must be top-level simple fields or collections. It can't be a path to a subfield in a complex type. If you want to retrieve specific nodes in a complex structure, you can [flatten individual nodes](#flattening-information-from-complex-types) in memory, and then send the output to a string collection in your index. |
 | mappingFunction | Optional. Adds extra processing provided by [mapping functions](search-indexer-field-mappings.md#mappingFunctions) supported by indexers. In the case of enrichment nodes, encoding and decoding are the most commonly used functions. |
 
 You can use the REST API or an Azure SDK to define output field mappings.

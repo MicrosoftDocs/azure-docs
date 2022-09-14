@@ -22,7 +22,7 @@ If inputs and outputs don't match, you can define explicit *field mappings* to s
 
 Field mappings apply to:
 
-+ Physical data structures on both sides of the data stream (between a [supported data source](search-indexer-overview.md#supported-data-sources) and a [search index](search-what-is-an-index.md)). If you're importing skill enriched content that resides in memory, use [outputFieldMappings](cognitive-search-output-field-mapping.md) instead.
++ Physical data structures on both sides of the data stream (between a [supported data source](search-indexer-overview.md#supported-data-sources) and a [search index](search-what-is-an-index.md)). If you're importing skill-enriched content that resides in memory, use [outputFieldMappings](cognitive-search-output-field-mapping.md) instead.
 
 + Search indexes only. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
