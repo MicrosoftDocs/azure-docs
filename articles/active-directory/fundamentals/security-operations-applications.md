@@ -99,7 +99,7 @@ Many applications use credentials to authenticate in Azure AD. Any additional cr
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | -|-|-|-|-|
-| Added credentials to existing applications| High| Azure AD Audit logs| Service-Core Directory, Category-ApplicationManagement <br>Activity: Update Application-Certificates and secrets management<br>-and-<br>Activity: Update Service principal/Update Application| Alert when credentials are:<li> added outside of normal business hours or workflows.<li> of types not used in your environment.<li> added to a non-SAML flow supporting service principal.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/NewAppOrServicePrincipalCredential.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Added credentials to existing applications| High| Azure AD Audit logs| Service-Core Directory, Category-ApplicationManagement <br>Activity: Update Application-Certificates and secrets management<br>-and-<br>Activity: Update Service principal/Update Application| Alert when credentials are: added outside of normal business hours or workflows, of types not used in your environment, or added to a non-SAML flow supporting service principal.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/NewAppOrServicePrincipalCredential.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Credentials with a lifetime longer than your policies allow.| Medium| Microsoft Graph| State and end date of Application Key credentials<br>-and-<br>Application password credentials| You can use MS Graph API to find the start and end date of credentials, and evaluate those with a longer than allowed lifetime. See PowerShell script following this table. |
 
  The following pre-built monitoring and alerts are available.
@@ -142,7 +142,7 @@ Azure Key Vault can be used to store your tenant’s secrets. We recommend you p
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| How and when your Key Vaults are accessed and by whom| Medium| [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)| Resource type: Key Vaults| Look for <li> any access to Key Vault outside of regular processes and hours. <li> any changes to Key Vault ACL.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/AzureDiagnostics/AzureKeyVaultAccessManipulation.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| How and when your Key Vaults are accessed and by whom| Medium| [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)| Resource type: Key Vaults| Look for: any access to Key Vault outside regular processes and hours, any changes to Key Vault ACL.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/AzureDiagnostics/AzureKeyVaultAccessManipulation.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 After setting up Azure Key Vault, be sure to [enable logging](../../key-vault/general/howto-logging.md?tabs=azure-cli), which shows [how and when your Key Vaults are accessed](../../key-vault/general/logging.md?tabs=Vault), and [configure alerts](../../key-vault/general/alert.md) on Key Vault to notify assigned users or distribution lists via email, phone call, text message, or [event grid](../../key-vault/general/event-grid-overview.md) notification if health is impacted. Additionally, setting up [monitoring](../../key-vault/general/alert.md) with Key Vault insights will give you a snapshot of Key Vault requests, performance, failures, and latency. [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) also has some [example queries](../../azure-monitor/logs/queries.md) for Azure Key Vault that can be accessed after selecting your Key Vault and then under “Monitoring” selecting “Logs”.
 
@@ -150,7 +150,7 @@ After setting up Azure Key Vault, be sure to [enable logging](../../key-vault/ge
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| End-user consent to application| Low| Azure AD Audit logs| Activity: Consent to application / ConsentContext.IsAdminConsent = false| Look for: <li>high profile or highly privileged accounts.<li> app requests high-risk permissions<li>apps with suspicious names, for example generic, misspelled, etc.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/AuditLogs/ConsentToApplicationDiscovery.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| End-user consent to application| Low| Azure AD Audit logs| Activity: Consent to application / ConsentContext.IsAdminConsent = false| Look for: high profile or highly privileged accounts, app requests high-risk permissions, apps with suspicious names, for example generic, misspelled, etc.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/AuditLogs/ConsentToApplicationDiscovery.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 The act of consenting to an application is not in itself malicious. However, investigate new end-user consent grants looking for suspicious applications. You can [restrict user consent operations](../../security/fundamentals/steps-secure-identity.md).
 
@@ -166,9 +166,9 @@ For more information on consent operations, see the following resources:
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| End-user consent stopped due to risk-based consent| Medium| Azure AD Audit logs| Core Directory / ApplicationManagement / Consent to application<br> Failure status reason = Microsoft.online.Security.userConsent<br>BlockedForRiskyAppsExceptions| Monitor and analyze any time consent is stopped due to risk. Look for:<li>high profile or highly privileged accounts.<li> app requests high-risk permissions<li>apps with suspicious names, for example generic, misspelled, etc.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/End-userconsentstoppedduetorisk-basedconsent.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| End-user consent stopped due to risk-based consent| Medium| Azure AD Audit logs| Core Directory / ApplicationManagement / Consent to application<br> Failure status reason = Microsoft.online.Security.userConsent<br>BlockedForRiskyAppsExceptions| Monitor and analyze any time consent is stopped due to risk. Look for: high profile or highly privileged accounts, app requests high-risk permissions, or apps with suspicious names, for example generic, misspelled, etc.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/End-userconsentstoppedduetorisk-basedconsent.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
-## Application Authentication Flows
+## Application authentication flows
 
 There are several flows defined in the  OAuth 2.0 protocol. The recommended flow for an application depends on the type of application that is being built. In some cases, there is a choice of flows available to the application, and in this case, some authentication flows are recommended over others. Specifically, resource owner password credentials (ROPC) should be avoided if at all possible as this requires the user to expose their current password credentials to the application directly. The application then uses those credentials to authenticate the user against the identity provider. Most applications should use the auth code flow, or auth code flow with Proof Key for Code Exchange (PKCE), as this flow is  highly recommended.
 
@@ -204,7 +204,7 @@ Alert anytime these changes are detected.
 
 Alert any time these changes are detected outside of approved change management procedures.
 
-### New Owner
+### New owner
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
