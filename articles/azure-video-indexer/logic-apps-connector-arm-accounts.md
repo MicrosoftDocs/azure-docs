@@ -10,6 +10,9 @@ ms.date: 08/04/2022
 
 Azure Video Indexer (AVI) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) supports both server-to-server and client-to-server communication. The API enables you to integrate video and audio insights into your application logic. To make the integration easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with the Azure Video Indexer API. 
 
+> [!NOTE]
+> For details about the Azure Video Indexer REST API and the request/response examples, see [API](https://aka.ms/avam-arm-api). For example, [Generate an Azure Video Indexer access token](/rest/api/videoindexer/generate/access-token?tabs=HTTP). Press **Try it** to get the correct values for your account.
+
 You can use the connectors to set up custom workflows to effectively index and extract insights from a large amount of video and audio files, without writing a single line of code. Furthermore, using the connectors for the integration gives you better visibility on the health of your workflow and an easy way to debug it.
 
 To help you get started quickly with the Azure Video Indexer connectors, the example in this article creates Logic App flows. The Logic App and Power Automate capabilities and their editors are almost identical, thus the diagrams and explanations are applicable to both. The example in this article is based on the ARM AVI account. If you're working with a classic account, see [Logic App connectors with ARM-based AVI accounts](logic-apps-connector-tutorial.md).
@@ -99,15 +102,17 @@ The following image shows the first flow:
 1. Generate an access token.
     
     > [!NOTE]
-    > In this step we generate an access token. This tutorial is based on the ARM accounts, for the classic accounts, see [Logic App connectors with ARM-based AVI accounts](logic-apps-connector-tutorial.md).
+    > In this step we generate an access token. This tutorial is based on the ARM accounts, for the classic accounts, see [Logic App connectors with ARM-based AVI accounts](logic-apps-connector-tutorial.md). 
+    >
+    > For details about the ARM API and the request/response examples, see [Generate an Azure Video Indexer access token](/rest/api/videoindexer/generate/access-token?tabs=HTTP). Press **Try it** to get the correct values for your account.
 
     Search and create an **HTTP** action.
     
     |Key| Value|
     |----|----|
     |Method | **POST**|
-    | URI| `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateAccessToken?api-version={API-version}`|
-    |Body|**{ "permissionType": "Contributor", "scope": "Account" }** |
+    | URI| `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateAccessToken?api-version={API-version}`. |
+    | Body|`{ "permissionType": "Contributor", "scope": "Account" }` |
     | Add new parameter | **Authentication**  |
     
     ![HTTP access token](./media/logic-apps-connector-arm-accounts/http-with-param.png)
