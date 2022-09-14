@@ -3,7 +3,7 @@ title: Disaster recovery - Azure Arc-enabled SQL Managed Instance
 description: Describes disaster recovery for Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 ms.custom: event-tier1-build-2022
 author: dnethi
 ms.author: dinethi
@@ -45,8 +45,13 @@ The following image shows a properly configured distributed availability group:
 
 2. Switch context to the secondary cluster by running ```kubectl config use-context <secondarycluster>``` and provision the managed instance in the secondary site that will be the disaster recovery instance. At this point, the system databases are not part of the contained availability group.
 
+> [!NOTE]
+> - It is important to specify `--license-type DisasterRecovery` **during** the Azure Arc SQL MI creation. This will allow the DR instance to be seeded from the primary instance in the primary data center. Updating this property post deployment will not have the same effect.
+
+
+
    ```azurecli
-   az sql mi-arc create --name <secondaryinstance> --tier bc --replicas 3 –license-type DisasterRecovery --k8s-namespace <namespace> --use-k8s
+   az sql mi-arc create --name <secondaryinstance> --tier bc --replicas 3 --license-type DisasterRecovery --k8s-namespace <namespace> --use-k8s
    ```
 
 3. Mirroring certificates - The binary data inside the Mirroring Certificate property of the Arc SQL MI is needed for the Instance Failover Group CR (Custom Resource) creation. 
@@ -86,17 +91,10 @@ The following image shows a properly configured distributed availability group:
 
 4. Create the failover group resource on both sites. 
 
-   If the managed instance names are identical between the two sites, you do not need to use the `--shared-name <name of failover group>` parameter.
-
-   If the managed instance names are different between the two sites, use the `--shared-name <name of failover group>` parameter. 
-
-   The following examples use the `--shared-name <name of failover group>...` to complete the task. The command seeds system databases in the disaster recovery instance, from the primary instance.
 
    > [!NOTE]
-   > The `shared-name` value should be identical on both sites.
-
-    On the primary cluster, run the following command to setup the FOG CR. The ```--partner-mirroring-cert-file``` should point to a path that has the mirroring certificate file generated from the secondary instance as described in 3(a) above.
-
+   > Ensure the SQL instances have different names for both primary and secondary sites, and the `shared-name` value should be identical on both sites.
+   
     ```azurecli
     az sql instance-failover-group-arc create --shared-name <name of failover group> --name <name for primary DAG resource> --mi <local SQL managed instance name> --role primary --partner-mi <partner SQL managed instance name>  --partner-mirroring-url tcp://<secondary IP> --partner-mirroring-cert-file <secondary.pem> --k8s-namespace <namespace> --use-k8s
     ```

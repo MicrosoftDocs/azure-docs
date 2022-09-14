@@ -79,9 +79,10 @@ After you delete an Azure Machine Learning workspace in the Azure portal or with
 
 To delete the workspace along with these dependent resources, use the SDK:
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 ```python
-ws.delete(delete_dependent_resources=True)
+from azure.ai.ml.entities import Workspace
+ml_client.workspaces.begin_delete(name=ws.name, delete_dependent_resources=True)
 ```
 
 If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace you must delete them separately in [Azure portal](https://portal.azure.com).
@@ -156,7 +157,7 @@ Use the following tips to help you manage and optimize your compute resource cos
 
 - Configure your training clusters for autoscaling
 - Set quotas on your subscription and workspaces
-- Set termination policies on your training run
+- Set termination policies on your training job
 - Use low-priority virtual machines (VM)
 - Schedule compute instances to shut down and start up automatically
 - Use an Azure Reserved VM Instance

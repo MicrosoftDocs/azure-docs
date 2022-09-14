@@ -9,9 +9,9 @@ ms.date: 09/28/2019
 ms.author: victorh
 
 ---
-# Azure Resource Manager templates for Azure Web Application Firewall
+# Azure Resource Manager templates for Azure Application Gateway and Web Application Firewall
 
-The following table includes links to Azure Resource Manager templates for Azure Web Application Firewall.
+The following table includes links to Azure Resource Manager templates for Azure Application Gateway and Web Application Firewall.
 
 | Template | Description |
 | -------- | ----------- |

@@ -3,16 +3,16 @@ title: Set expiration for Microsoft 365 groups - Azure Active Directory | Micros
 description: How to set up expiration for Microsoft 365 groups in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2021
-ms.author: curtand                   
+ms.date: 06/24/2022
+ms.author: barclayn                   
 ms.reviewer: jodah
 ms.custom: it-pro
 
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Configure the expiration policy for Microsoft 365 groups
 
-This article tells you how to manage the lifecycle of Microsoft 365 groups by setting an expiration policy for them. You can set expiration policy only for  Microsoft 365 groups in Azure Active Directory (Azure AD).
+This article tells you how to manage the lifecycle of Microsoft 365 groups by setting an expiration policy for them. You can set expiration policy only for  Microsoft 365 groups in Azure Active Directory (Azure AD), part of Microsoft Entra.
 
 Once you set a group to expire:
 

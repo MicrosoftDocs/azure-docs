@@ -28,6 +28,9 @@ After reading this article, you'll be able to answer the following questions:
 * How do I express data relationships in a non-relational database?
 * When do I embed data and when do I link to data?
 
+## Numbers in JSON
+Cosmos DB saves documents in JSON. Which means it is necessary to carefully determine whether it is necessary to convert numbers into strings before storing them in json or not.  All numbers should ideally be converted into a `String`, if there is any chance that they are outside the boundaries of double precision numbers according to [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754). The [Json specification](https://www.rfc-editor.org/rfc/rfc8259#section-6) calls out the reasons why using numbers outside of this boundary in general is a bad practice in JSON due to likely interoperability problems. These concerns are especially relevant for the partition key column, because it is immutable and requires data migration  to change it later.  
+
 ## <a id="embedding-data"></a>Embed data
 
 When you start modeling data in Azure Cosmos DB try to treat your entities as **self-contained items** represented as JSON documents.
@@ -537,14 +540,14 @@ Just as there's no single way to represent a piece of data on a screen, there's 
 
 ## Next steps
 
-* To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) page.
+* To learn more about Azure Cosmos DB, refer to the service's [documentation](/azure/cosmos-db/) page.
 
 * To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](../partitioning-overview.md).
 
 * To learn how to model and partition data on Azure Cosmos DB using a real-world example, refer to [
 Data Modeling and Partitioning - a Real-World Example](how-to-model-partition-example.md).
 
-* See the learn module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)
+* See the training module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)
 
 * Configure and use [Azure Synapse Link for Azure Cosmos DB](../configure-synapse-link.md).
 

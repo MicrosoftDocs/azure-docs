@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: lostmygithubaccount
-ms.author: copeters
+author: s-polly
+ms.author: scottpolly
 ms.date: 06/01/2022
 ms.reviewer: blackmist
 ms.custom: devx-track-azurecli, devplatv2
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devplatv2
 
 # How to migrate from v1 to v2
 
-Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (preview) introduce consistency and a set of new features to accelerate the production machine learning lifecycle. In this article, we'll overview migrating from v1 to v2 with recommendations to help you decide on v1, v2, or both.
+Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (preview) introduce consistency and a set of new features to accelerate the production machine learning lifecycle. This article provides an overview of migrating from v1 to v2 with recommendations to help you decide on v1, v2, or both.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ In v2 interfaces via REST API, CLI, and Python SDK (preview) are available. The 
 
 |API|Notes|
 |-|-|
-|REST|Fewest dependencies and overhead. Use for building applications on Azure ML as a platform, directly in programming languages without a SDK provided, or per personal preference.|
+|REST|Fewest dependencies and overhead. Use for building applications on Azure ML as a platform, directly in programming languages without an SDK provided, or per personal preference.|
 |CLI|Recommended for automation with CI/CD or per personal preference. Allows quick iteration with YAML files and straightforward separation between Azure ML and ML model code.|
 |Python SDK|Recommended for complicated scripting (for example, programmatically generating large pipeline jobs) or per personal preference. Allows quick iteration with YAML files or development solely in Python.|
 
@@ -79,7 +79,7 @@ This section gives an overview of migration recommendations for specific resourc
 
 Workspaces don't need to be migrated with v2. You can use the same workspace, regardless of whether you're using v1 or v2. We recommend creating a new workspace for using v2 to keep v1/v2 entities separate and avoid backward/forward compatibility considerations.
 
-Do consider migrating the code for deploying a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the CLI (v2) and YAML files.
+Do consider migrating the code for creating a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the [CLI (v2) and YAML files](how-to-manage-workspace-cli.md#create-a-workspace).
 
 > [!IMPORTANT]
 > If your workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md) for details.
@@ -94,7 +94,7 @@ We recommend migrating the code for creating connections to v2.
 
 Object storage datastore types created with v1 are fully available for use in v2. Database datastores are not supported; export to object storage (usually Azure Blob) is the recommended migration path.
 
-We recommend migrating the code for creating datastores to v2.
+We recommend migrating the code for [creating datastores](how-to-datastore.md) to v2.
 
 ### Compute
 
@@ -110,9 +110,9 @@ You can continue using your existing v1 model deployments. For new model deploym
 |-|-|-|
 |Local|ACI|Quick test of model deployment locally; not for production.|
 |Managed online endpoint|ACI, AKS|Enterprise-grade managed model deployment infrastructure with near real-time responses and massive scaling for production.|
-|Managed batch endpoint|ParallelRunStep in a pipeline for batch scoring|Enterprise-grade managed model deployment infrastructure with massively-parallel batch processing for production.|
+|Managed batch endpoint|ParallelRunStep in a pipeline for batch scoring|Enterprise-grade managed model deployment infrastructure with massively parallel batch processing for production.|
 |Azure Kubernetes Service (AKS)|ACI, AKS|Manage your own AKS cluster(s) for model deployment, giving flexibility and granular control at the cost of IT overhead.|
-|Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-prem, giving flexibility and granular control at the cost of IT overhead.|
+|Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-premises, giving flexibility and granular control at the cost of IT overhead.|
 
 ### Jobs (experiments, runs, pipelines in v1)
 
@@ -122,7 +122,7 @@ To migrate, you'll need to change your code for submitting jobs to v2. We recomm
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
 
-What you run *within* the job does not need to be migrated to v2. However, it is recommended to remove any code specific to Azure ML from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. See [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md) for details.
+What you run *within* the job does not need to be migrated to v2. However, it is recommended to remove any code specific to Azure ML from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. For more details, see [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md).
 
 We recommend migrating the code for creating jobs to v2. You can see [how to train models with the CLI (v2)](how-to-train-cli.md) and the [job YAML references](reference-yaml-job-command.md) for authoring jobs in v2 YAMLs.
 
@@ -134,13 +134,13 @@ Data assets in v2 (or File Datasets in v1) are *references* to files in object s
 
 For details on data in v2, see the [data concept article](concept-data.md).
 
-We recommend migrating the code for creating data assets to v2.
+We recommend migrating the code for [creating data assets](how-to-create-data-assets.md) to v2.
 
 ### Model
 
 Models created from v1 can be used in v2. In v2, explicit model types are introduced. Similar to data assets, it may be easier to re-create a v1 model as a v2 model, setting the type appropriately.
 
-We recommend migrating the code for creating models to v2.
+We recommend migrating the code for creating models with [SDK](how-to-train-sdk.md) or [CLI](how-to-train-cli.md) to v2.
 
 ### Environment
 

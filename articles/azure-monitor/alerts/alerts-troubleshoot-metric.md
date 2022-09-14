@@ -1,14 +1,15 @@
 ---
-title: Troubleshooting Azure metric alerts
+title: Frequently asked questions about Azure metric alerts
 description: Common issues with Azure Monitor metric alerts and possible solutions. 
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 5/25/2022
+ms.date: 8/31/2022
+ms:reviwer: harelbr
 ---
-# Troubleshooting problems in Azure Monitor metric alerts 
+# Frequently asked questions about Azure Monitor metric alerts 
 
-This article discusses common problems in Azure Monitor [metric alerts](alerts-metric-overview.md) and how to troubleshoot them.
+This article discusses common questions about Azure Monitor [metric alerts](alerts-metric-overview.md) and how to troubleshoot them.
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
 
@@ -108,7 +109,7 @@ Metric alerts are stateful by default, and therefore additional alerts are not f
 - If you're creating the alert rule programmatically (for example, via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)), set the *autoMitigate* property to 'False'.
 - If you're creating the alert rule via the Azure portal, uncheck the 'Automatically resolve alerts' option (available under the 'Alert rule details' section).
 
-<sup>1</sup> For stateless metric alert rules, an alert will trigger once every 5 minutes at a minimum, even if the frequency of evaluation is equal or less than 5 minutes and the condition is still being met.
+<sup>1</sup> For stateless metric alert rules, an alert will trigger once every 10 minutes at a minimum, even if the frequency of evaluation is equal or less than 5 minutes and the condition is still being met.
 
 > [!NOTE] 
 > Making a metric alert rule stateless prevents fired alerts from becoming resolved, so even after the condition isn’t met anymore, the fired alerts will remain in a fired state until the 30 days retention period.
@@ -138,6 +139,22 @@ To avoid having the deployment fail when trying to validate the custom metric’
 ```
 > [!NOTE] 
 > Using the *skipMetricValidation* parameter might also be required when defining an alert rule on an existing custom metric that hasn't been emitted in several days.
+
+## Process data for a metric alert rule in a specific region
+
+You can make sure that an alert rule is processed in a specified region if your metric alert rule is defined with a scope of that region and if it monitors a custom metric.
+
+These are the currently support regions for regional processing of metric alert rules:
+- North Europe
+- West Europe
+- Sweden Central
+- Germany West Central 
+
+To enable regional data processing in one of these regions, select the specified region in the **Details** section of the [create a new alert rule wizard](./alerts-create-new-alert-rule.md).   
+  
+> [!NOTE]
+> We are continually adding more regions for regional data processing.
+
 
 ## Export the Azure Resource Manager template of a metric alert rule via the Azure portal
 
@@ -360,6 +377,7 @@ The table below lists the metrics that aren't supported by dynamic thresholds.
 | Microsoft.Network/expressRouteGateways | ExpressRouteGatewayPacketsPerSecond |
 | Microsoft.Network/expressRouteGateways | ExpressRouteGatewayNumberOfVmInVnet |
 | Microsoft.Network/expressRouteGateways | ExpressRouteGatewayFrequencyOfRoutesChanged |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayBitsPerSecond |
 | Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayPacketsPerSecond |
 | Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayNumberOfVmInVnet |
 | Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayFrequencyOfRoutesChanged |

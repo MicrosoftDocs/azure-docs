@@ -1,12 +1,12 @@
 ---
 title: Restart server - Azure CLI - Azure Database for MySQL
 description: This article describes how you can restart an Azure Database for MySQL server using the Azure CLI.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.topic: how-to
-ms.date: 3/18/2020 
+ms.date: 06/20/2022
 ms.custom: devx-track-azurecli
 ---
 
@@ -28,6 +28,9 @@ To complete this how-to guide:
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+>[!Note]
+>If the user restarting the server is part of [custom role](../../role-based-access-control/custom-roles.md) the user should have write privilege on the server.
 
 ## Restart the server
 

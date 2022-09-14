@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-ms.author: seramasu
-author: rsethur
+author: dem108
+ms.author: sehan
 ms.reviewer: larryfr
 ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022
 ms.date: 05/24/2022
@@ -208,13 +208,13 @@ You can [override compute resource settings](how-to-use-batch-endpoint.md#config
 
 You can use the following options for input data when invoking a batch endpoint:
 
-- Cloud data - Either a path on Azure Machine Learning registered datastore, a reference to Azure Machine Learning registered V2 data asset, or a public URI. For more information, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md)
+- Cloud data - Either a path on Azure Machine Learning registered datastore, a reference to Azure Machine Learning registered V2 data asset, or a public URI. For more information, see [Connect to data with the Azure Machine Learning studio](v1/how-to-connect-data-ui.md)
 - Data stored locally - it will be automatically uploaded to the Azure ML registered datastore and passed to the batch endpoint.
 
 > [!NOTE]
 > - If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets and refer to them directly when invoking batch endpoints. Currently only data assets of type `uri_folder` or `uri_file` are supported. Batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 Dataset.
 > - You can also extract the URI or path on datastore extracted from V1 FileDataset by using `az ml dataset show` command with `--query` parameter and use that information for invoke.
-> - While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
+> - While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-read-write-data-v2.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
 
 For more information on supported input options, see [Batch scoring with batch endpoint](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-with-different-input-options).
 
@@ -225,6 +225,12 @@ Specify the storage output location to any datastore and path. By default, batch
 - Authentication: Azure Active Directory Tokens
 - SSL: enabled by default for endpoint invocation
 - VNET support: Batch endpoints support ingress protection. A batch endpoint with ingress protection will accept scoring requests only from hosts inside a virtual network but not from the public internet. A batch endpoint that is created in a private-link enabled workspace will have ingress protection. To create a private-link enabled workspace, see [Create a secure workspace](tutorial-create-secure-workspace.md).
+
+> [!NOTE]
+Creating batch endpoints in a private-link enabled workspace is only supported in the following versions.
+> - CLI - version 2.15.1 or higher.
+> - REST API - version 2022-05-01 or higher.
+> - SDK V2 - version 0.1.0b3 or higher.
 
 ## Next steps
 

@@ -3,15 +3,20 @@ title: Configure Application Insights Profiler | Microsoft Docs
 description: Use the Azure Application Insights Profiler settings pane to see Profiler status and start profiling sessions
 ms.contributor: Charles.Weininger
 ms.topic: conceptual
-ms.date: 04/26/2022
-ms.reviewer: jogrima
+ms.date: 08/09/2022
 ---
 
 # Configure Application Insights Profiler
 
+Once you've enabled the Application Insights Profiler, you can:
+
+- Start a new profiling session
+- Configure Profiler triggers
+- View recent profiling sessions
+
 To open the Azure Application Insights Profiler settings pane, select **Performance** from the left menu within your Application Insights page.
 
-:::image type="content" source="./media/profiler-settings/performance-blade-inline.png" alt-text="Link to open performance blade" lightbox="media/profiler-settings/performance-blade.png":::
+:::image type="content" source="./media/profiler-settings/performance-blade-inline.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/profiler-settings/performance-blade.png":::
 
 View profiler traces across your Azure resources via two methods: 
 
@@ -19,23 +24,23 @@ View profiler traces across your Azure resources via two methods:
 
 Select the **Profiler** button from the top menu.
 
-:::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade" lightbox="media/profiler-settings/profiler-button.png":::
+:::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/profiler-settings/profiler-button.png":::
 
 **By operation**
 
 1. Select an operation from the **Operation name** list ("Overall" is highlighted by default).
 1. Select the **Profiler traces** button.
    
-   :::image type="content" source="./media/profiler-settings/operation-entry-inline.png" alt-text="Select operation and Profiler traces to view all profiler traces" lightbox="media/profiler-settings/operation-entry.png":::
+   :::image type="content" source="./media/profiler-settings/operation-entry-inline.png" alt-text="Screenshot of selecting operation and Profiler traces to view all profiler traces." lightbox="media/profiler-settings/operation-entry.png":::
 
 1. Select one of the requests from the list to the left.
 1. Select **Configure Profiler**.
 
-   :::image type="content" source="./media/profiler-settings/configure-profiler-inline.png" alt-text="Overall selection and clicking Profiler traces to view all profiler traces" lightbox="media/profiler-settings/configure-profiler.png":::
+   :::image type="content" source="./media/profiler-settings/configure-profiler-inline.png" alt-text="Screenshot of the overall selection and clicking Profiler traces to view all profiler traces." lightbox="media/profiler-settings/configure-profiler.png":::
 
 Once within the Profiler, you can configure and view the Profiler. The **Application Insights Profiler** page has these features:
 
-:::image type="content" source="./media/profiler-settings/configure-blade-inline.png" alt-text="Profiler page features and settings" lightbox="media/profiler-settings/configure-blade.png":::
+:::image type="content" source="./media/profiler-settings/configure-blade-inline.png" alt-text="Screenshot of profiler page features and settings." lightbox="media/profiler-settings/configure-blade.png":::
 
 | Feature | Description |
 |-|-|
@@ -56,7 +61,7 @@ Select the Triggers button on the menu bar to open the CPU, Memory, and Sampling
 
 You can set up a trigger to start profiling when the percentage of CPU or Memory use hits the level you set.
 
-:::image type="content" source="./media/profiler-settings/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for C P U and Memory triggers":::
+:::image type="content" source="./media/profiler-settings/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for C P U and Memory triggers.":::
 
 | Setting | Description |
 |-|-|
@@ -71,7 +76,7 @@ Unlike CPU or memory triggers, the Sampling trigger isn't triggered by an event.
 - Turn this trigger off to disable random sampling.
 - Set how often profiling will occur and the duration of the profiling session. 
 
-:::image type="content" source="./media/profiler-settings/sampling-trigger-settings.png" alt-text="Screenshot of trigger settings pane for Sampling trigger":::
+:::image type="content" source="./media/profiler-settings/sampling-trigger-settings.png" alt-text="Screenshot of trigger settings pane for Sampling trigger.":::
 
 | Setting | Description |
 |-|-|
@@ -88,7 +93,6 @@ Triggered by | How the session was started, either by a trigger, Profile Now, or
 App Name | Name of the application that was profiled.
 Machine Instance | Name of the machine the profiler agent ran on.
 Timestamp | Time when the profile was captured.
-Tracee | Number of traces that were attached to individual requests.
 CPU % | Percentage of CPU that was being used while the profiler was running.
 Memory % | Percentage of memory that was being used while the profiler was running.
 

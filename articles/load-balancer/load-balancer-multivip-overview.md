@@ -3,14 +3,14 @@ title: Multiple frontends - Azure Load Balancer
 description: With this learning path, get started with an overview of multiple frontends on Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: greg-lindsay
+author: mbender-ms
 ms.service: load-balancer
 ms.custom: seodec18
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2022
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Multiple frontends for Azure Load Balancer
@@ -92,40 +92,6 @@ For this scenario, every VM in the backend pool has three network interfaces:
 * Frontend 1: a loopback interface within guest OS that is configured with IP address of Frontend 1
 * Frontend 2: a loopback interface within guest OS that is configured with IP address of Frontend 2
 
-For each VM in the backend pool, run the following commands at a Windows Command Prompt.
-
-To get the list of interface names you have on your VM, type this command:
-
-```console
-netsh interface show interface 
-```
-
-For the VM NIC (Azure managed), type this command:
-
-```console
-netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-```
-
-(replace interfacename with the name of this interface)
-
-For each loopback interface you added, repeat these commands:
-
-```console
-netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-```
-
-(replace interfacename with the name of this loopback interface)
-
-```console
-netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-```
-
-(replace interfacename with the name of this loopback interface)
-
-> [!IMPORTANT]
-> The configuration of the loopback interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function. Health probe definitions use the DIP of the VM rather than the loopback interface representing the DSR Frontend. Therefore, your service must provide probe responses on a DIP port that reflect the status of the service offered on the loopback interface representing the DSR Frontend.
-
-
 Let's assume the same frontend configuration as in the previous scenario:
 
 | Frontend | IP address | protocol | port |
@@ -151,7 +117,10 @@ The destination of the inbound flow is the frontend IP address on the loopback i
 
 Notice that this example does not change the destination port. Even though this is a Floating IP scenario, Azure Load Balancer also supports defining a rule to rewrite the backend destination port and to make it different from the frontend destination port.
 
-The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure) configuration. Over time, we will document more of these scenarios.
+The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [Configure one or more Always On availability group listeners](/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure) configuration. Over time, we will document more of these scenarios.
+
+> [!NOTE]
+> For more detailed information on the specific Guest OS configurations required to enable Floating IP, please refer to [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md).
 
 ## Limitations
 

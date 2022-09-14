@@ -3,8 +3,8 @@ title: 'Quickstart: Create an Azure Data Science VM - Bicep'
 titleSuffix: Azure Data Science Virtual Machine
 description: In this quickstart, you use Bicep to quickly deploy a Data Science Virtual Machine
 services: machine-learning
-author: schaffererin
-ms.author: v-eschaffer
+author: s-polly
+ms.author: scottpolly 
 ms.date: 05/02/2022
 ms.topic: quickstart
 ms.service: data-science-vm
@@ -41,7 +41,7 @@ The following resources are defined in the Bicep file:
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-    # [CLI](#tab/CLI)
+    # [Azure CLI](#tab/CLI)
 
     ```azurecli
     az group create --name exampleRG --location eastus
@@ -66,7 +66,7 @@ The following resources are defined in the Bicep file:
 
 Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/CLI)
 
 ```azurecli-interactive
 az resource list --resource-group exampleRG
@@ -84,7 +84,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/CLI)
 
 ```azurecli-interactive
 az group delete --name exampleRG

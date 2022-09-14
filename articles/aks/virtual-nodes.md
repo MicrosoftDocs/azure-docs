@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Overview of how using virtual node with Azure Kubernetes Services (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 09/06/2022
 ms.custom: references_regions
 ---
 
@@ -20,7 +20,7 @@ This article gives you an overview of the region availability and networking req
 
 All regions, where ACI supports VNET SKUs, are supported for virtual nodes deployments. For more details, see [Resource availability for Azure Container Instances in Azure regions](../container-instances/container-instances-region-availability.md).
 
-For available CPU and Memory SKUs in each region, please check the [Azure Container Instances Resource availability for Azure Container Instances in Azure regions - Linux container groups](../container-instances/container-instances-region-availability.md#linux-container-groups)
+For available CPU and memory SKUs in each region, please check the [Azure Container Instances Resource availability for Azure Container Instances in Azure regions - Linux container groups](../container-instances/container-instances-region-availability.md#linux-container-groups)
 
 ## Network requirements
 
@@ -43,6 +43,7 @@ Virtual Nodes functionality is heavily dependent on ACI's feature set. In additi
 * Using api server authorized ip ranges for AKS.
 * Volume mounting Azure Files share support [General-purpose V1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Follow the instructions for mounting [a volume with Azure Files share](azure-files-volume.md)
 * Using IPv6 is not supported.
+* Virtual nodes don't support the [Container hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) feature.
 
 ## Next steps
 

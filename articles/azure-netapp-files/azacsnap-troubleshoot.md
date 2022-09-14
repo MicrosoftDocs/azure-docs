@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 06/13/2022
+ms.date: 08/05/2022
 ms.author: phjensen
 ms.custom: kr2b-contr-experiment
 ---
@@ -163,15 +163,18 @@ To troubleshoot this error:
    [19/Nov/2020:18:41:10 +13:00] DEBUG: [PID:0020257:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000222: The provided client secret keys are expired. Visit the Azure Portal to create new keys for your app, or consider using certificate credentials for added security: https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials
    ```
 
+> [!TIP]
+> For more information on generating a new Service Principal, refer to the section [Enable communication with Storage](azacsnap-installation.md?tabs=azure-netapp-files%2Csap-hana#enable-communication-with-storage) in the [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) guide.
+
 ## Troubleshoot failed 'test hana' command
 
 The command `azacsnap -c test --test hana` might not complete successfully.
 
 ### Command not found
 
-When setting up communication with SAP HANA, the `hdbuserstore` program is used to create the secure communication settings. AzAcSnap also requires the `hdbsql` program for all communications with SAP HANA. These programs are usually under */usr/sap/\<SID>/SYS/exe/hdb/* or */usr/sap/hdbclient* and must be in the users `$PATH`.
+When setting up communication with SAP HANA, the `hdbuserstore` program is used to create the secure communication settings. AzAcSnap also requires the `hdbsql` program for all communications with SAP HANA. These programs are usually under */usr/sap/\<SID>/SYS/exe/hdb/* or */usr/sap/hdbclient* and must be in the user's `$PATH`.
 
-- In the following example, the `hdbsql` command isn't in the users `$PATH`.
+- In the following example, the `hdbsql` command isn't in the user's `$PATH`.
 
   ```bash
   hdbsql -n 172.18.18.50 - i 00 -U AZACSNAP "select version from sys.m_database"

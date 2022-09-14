@@ -4,8 +4,7 @@ description: How to attach and detach permissions for groups, users, and service
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
@@ -13,11 +12,6 @@ ms.author: kenwith
 ---
 
 # Add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities
-
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management (Entra) is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 This article describes how you can add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities using the **Remediation** dashboard.
 

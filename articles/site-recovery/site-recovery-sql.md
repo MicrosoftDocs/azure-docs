@@ -2,12 +2,12 @@
 title: Set up disaster recovery for SQL Server with Azure Site Recovery 
 description: This article describes how to set up disaster recovery for SQL Server by using SQL Server and Azure Site Recovery.
 services: site-recovery
-author: sujayt
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
-ms.author: sutalasi
+ms.author: v-pgaddala
 
 ---
 # Set up disaster recovery for SQL Server

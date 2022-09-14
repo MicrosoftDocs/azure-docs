@@ -586,6 +586,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-sql-enable-azure-sql-protections.md",
+            "redirect_url": "/azure/defender-for-cloud/quickstart-enable-database-protections",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/quickstart-enable-defender-for-cosmos.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-databases-enable-cosmos-protections",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/security-center/auto-deploy-vulnerability-assessment.md",
             "redirect_url": "/azure/defender-for-cloud/auto-deploy-vulnerability-assessment",
             "redirect_document_id": true
@@ -698,6 +708,16 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-usage.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-containers-usage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-usage.md",
+            "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-enable-log-analytics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/release-notes.md#auto-deployment-of-azure-monitor-agent-preview",
+            "redirect_url": "/azure/defender-for-cloud/release-notes#azure-monitor-agent-integration-now-in-preview",
             "redirect_document_id": true
         }
       ]

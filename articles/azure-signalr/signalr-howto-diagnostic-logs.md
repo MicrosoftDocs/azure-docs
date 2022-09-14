@@ -3,8 +3,8 @@ title: Resource Logs for Azure SignalR Service
 description: Learn how to set up resource logs for Azure SignalR Service and how to utilize it to self-troubleshoot.
 author: wanlwanl
 ms.service: signalr
-ms.topic: conceptual
-ms.date: 04/20/2022
+ms.topic: how-to
+ms.date: 07/18/2022
 ms.author: wanl
 ---
 
@@ -21,7 +21,7 @@ To enable resource logs, you'll need somewhere to store your log data. This tuto
 
 ## Set up resource logs for an Azure SignalR Service
 
-You can view resource logs for Azure SignalR Service. These logs provide richer view of connectivity to your Azure SignalR Service instance. The resource logs provide detailed information of every connection. For example, basic information (user ID, connection ID and transport type, and so on) and event information (connect, disconnect and abort event, and so on) of the connection. resource logs can be used for issue identification, connection tracking and analysis.
+You can view resource logs for Azure SignalR Service. These logs provide a richer view of connectivity to your Azure SignalR Service instance. The resource logs provide detailed information for every connection. For example, basic information (user ID, connection ID, and transport type, and so on) and event information (connect, disconnect and abort event, and so on) of the connection. resource logs can be used for issue identification, connection tracking and analysis.
 
 ### Enable resource logs
 
@@ -66,7 +66,7 @@ Messaging logs provide tracing information for the SignalR hub messages received
 
 #### Http request logs
 
-Http request logs provide detailed information for the http requests received by Azure Web PubSub. For example, status code and URL of the request. Http request log is helpful to troubleshoot request-related issues.
+Http request logs provide detailed information for the http requests received by Azure SignalR. For example, status code and URL of the request. Http request log is helpful to troubleshoot request-related issues.
 
 ### Archive to a storage account
 
@@ -136,7 +136,7 @@ To view resource logs, follow these steps:
 
     :::image type="content" alt-text="Query log in Log Analytics" source="./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png":::
 
-To use sample query for SignalR service, please follow the steps below:
+To use sample query for SignalR service, follow the steps below:
 1. Select `Logs` in your target Log Analytics.
 2. Select `Queries` to open query explorer.
 3. Select `Resource type` to group sample queries in resource type.
@@ -192,21 +192,21 @@ Reason | Description
 Connection count reaches limit | Connection count reaches limit of your current price tier. Consider scale up service unit
 Application server closed the connection | App server triggers the abortion. It can be considered as an expected abortion
 Connection ping timeout | Usually it's caused by network issue. Consider checking your app server's availability from the internet
-Service reloading, please reconnect | Azure SignalR Service is reloading. Azure SignalR support auto-reconnecting, you can wait until reconnected or manually reconnect to Azure SignalR Service
+Service reloading, try reconnecting | Azure SignalR Service is reloading. Azure SignalR support auto-reconnecting, you can wait until reconnected or manually reconnect to Azure SignalR Service
 Internal server transient error | Transient error occurs in Azure SignalR Service, should be auto-recovered
 Server connection dropped | Server connection drops with unknown error, consider self-troubleshooting with service/server/client side log first. Try to exclude basic issues (e.g Network issue, app server side issue, etc.). If the issue isn't resolved, contact us for further help. For more information, see [Get help](#get-help) section.
 
 ###### Unexpected connection growing
 
-To troubleshoot about unexpected connection growing, the first thing you need to do is filter out the extra connections. You can add unique test user ID to your test client connection. Then verify it in with resource logs, you see more than one client connections have the same test user ID or IP, then it's likely the client side create and establish more connections than expectation. Check your client side.
+To troubleshoot about unexpected connection growing, the first thing you need to do is filter out the extra connections. You can add unique test user ID to your test client connection. Check the resource logs. If you see more than one client connections have the same test user ID or IP, then it's likely the client side is creating more connections than expected. Check your client side.
 
 ##### Authorization failure
 
-If you get 401 Unauthorized returned for client requests, check your resource logs. If you encounter `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`, it means your all audiences in your access token is invalid. Try to use the valid audiences suggested in the log.
+If you get 401 Unauthorized returned for client requests, check your resource logs. If you encounter `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`, it means your all audiences in your access token are invalid. Try to use the valid audiences suggested in the log.
 
 ##### Throttling
 
-If you find that you can't establish SignalR client connections to Azure SignalR Service, check your resource logs. If you encounter `Connection count reaches limit` in resource log, you establish too many connections to SignalR Service, which reach the connection count limit. Consider scaling up your SignalR Service. If you encounter `Message count reaches limit` in resource log, it means you use free tier, and you use up the quota of messages. If you want to send more messages, consider changing your SignalR Service to standard tier to send additional messages. For more information, see [Azure SignalR Service Pricing](https://azure.microsoft.com/pricing/details/signalr-service/).
+If you find that you can't establish SignalR client connections to Azure SignalR Service, check your resource logs. If you encounter `Connection count reaches limit` in resource log, you establish too many connections to SignalR Service, which reach the connection count limit. Consider scaling up your SignalR Service. If you encounter `Message count reaches limit` in resource log, it means you use free tier, and you use up the quota of messages. If you want to send more messages, consider changing your SignalR Service to standard tier to send more messages. For more information, see [Azure SignalR Service Pricing](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 #### Message related issues
 
@@ -217,7 +217,7 @@ When encountering message related problem, you can take advantage of messaging l
 >
 > For ASP.NET, see [here](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing) to enable logging in server and client.
 
-If you don't mind potential performance impact and no client-to-server direction message, check the `Messaging` in `Log Source Settings/Types` to enable *collect-all* log collecting behavior. For more information about this behavior, see [collect all section](#collect-all).
+If you don't mind potential performance effects and no client-to-server direction message, check the `Messaging` in `Log Source Settings/Types` to enable *collect-all* log collecting behavior. For more information about this behavior, see [collect all section](#collect-all).
 
 Otherwise, uncheck the `Messaging` to enable *collect-partially* log collecting behavior. This behavior requires configuration in client and server to enable it. For more information, see [collect partially section](#collect-partially).
 
@@ -242,19 +242,19 @@ SignalR service only trace messages in direction **from server to client via Sig
 > If you want to trace message and [send messages from outside a hub](/aspnet/core/signalr/hubcontext) in your app server, you need to enable **collect all** collecting behavior to collect message logs for the messages which are not originated from diagnostic clients.
 > Diagnostic clients works for both **collect all** and **collect partially** collecting behaviors. It has higher priority to collect logs. For more information, see [diagnostic client section](#diagnostic-client).
 
-By checking the sign in server and service side, you can easily find out whether the message is sent from server, arrives at SignalR service, and leaves from SignalR service. Basically, by checking if the *received* and *sent* message are matched or not based on message tracing ID, you can tell whether the message loss issue is in server or SignalR service in this direction. For more information, see the [details](#message-flow-detail-for-path3) below.
+By checking the sign-in server and service side, you can easily find out whether the message is sent from server, arrives at SignalR service, and leaves from SignalR service. Basically, by checking if the *received* and *sent* message are matched or not based on message tracing ID, you can tell whether the message loss issue is in server or SignalR service in this direction. For more information, see the [details](#message-flow-detail-for-path3) below.
 
 For **collect partially** collecting behavior:
 
 Once you mark the client as diagnostic client, SignalR service will trace messages in both directions.
 
-By checking the sign in server and service side, you can easily find out whether the message is pass the server or SignalR service successfully. Basically, by checking if the *received* and *sent* message are matched or not based on message tracing ID, you can tell whether the message loss issue is in server or SignalR service. For more information, see the details below.
+By checking the sign-in server and service side, you can easily find out whether the message is pass the server or SignalR service successfully. Basically, by checking if the *received* and *sent* message are matched or not based on message tracing ID, you can tell whether the message loss issue is in server or SignalR service. For more information, see the details below.
 
 **Details of the message flow**
 
 For the direction **from client to server via SignalR service**, SignalR service will **only** consider the invocation that is originated from diagnostic client, that is, the message generated directly in diagnostic client, or service message generated due to the invocation of diagnostic client indirectly.
 
-The tracing ID will be generated in SignalR service once the message arrives at SignalR service in **Path 1**. SignalR service will generate a log `Received a message <MessageTracingId> from client connection <ConnectionId>.` for each message in diagnostic client. Once the message leaves from the SignalR to server, SignalR service will generate a log `Sent a message <MessageTracingId> to server connection <ConnectionId> successfully.` If you see these two logs, you can be sure that the message passes through SignalR service successfully.
+The tracing ID will be generated in SignalR service once the message arrives at SignalR service in **Path 1**. SignalR service will generate a log `Received a message <MessageTracingId> from client connection <ConnectionId>.` for each message in diagnostic client. Once the message leaves from the SignalR to server, SignalR service will generate a log message `Sent a message <MessageTracingId> to server connection <ConnectionId> successfully.`. If you see these two logs, you can be sure that the message passes through SignalR service successfully.
 
 > [!NOTE]
 > Due to the limitation of ASP.NET Core SignalR, the message comes from client doesn't contains any message level ID. But ASP.NET SignalR generate *invocation ID* for each message, you can use it to map with the tracing ID.
@@ -262,7 +262,7 @@ The tracing ID will be generated in SignalR service once the message arrives at 
 Then the message carries the tracing ID Server in **Path 2**. Server will generate a log `Received message <messagetracingId> from client connection <connectionId>` once the message arrives.
 
 <span id="message-flow-detail-for-path3"></span>
-Once the message invokes the hub method in server, a new service message will be generated with a *new tracing ID*. Once the service message is generated, server will generate a sign in template `Start to broadcast/send message <MessageTracingId> ...`, the actual log will be based on your scenario. Then the message will be delivered to SignalR service in **Path 3**, once the service message leaves from server, a log called `Succeeded to send message <MessageTracingId>` will be generated.
+Once the message invokes the hub method in server, a new service message will be generated with a *new tracing ID*. Once the service message is generated, server will generate a sign-in template `Start to broadcast/send message <MessageTracingId> ...`, the actual log will be based on your scenario. Then the message will be delivered to SignalR service in **Path 3**, once the service message leaves from server, a log called `Succeeded to send message <MessageTracingId>` will be generated.
 
 > [!NOTE]
 > The tracing ID of the message from client cannot map to the tracing ID of the service message to be sent to SignalR service.
@@ -296,11 +296,11 @@ Once you enable messaging logs, you're able to compare the message arriving time
 1. Find the message logs in server to find when the client joined the group and when the group message is sent.
 1. Get the message tracing ID A of joining the group and the message tracing ID B of group message from the message logs.
 1. Filter these message tracing ID among messaging logs in your log archive target, then compare their arriving timestamps, you'll find which message is arrived first in SignalR service.
-1. If message tracing ID A's arriving time later than B's, then you must be sending group message **before** the client joining the group.Then you need to make sure the client is in the group before sending group messages.
+1. If message tracing ID A arriving time later than B arriving time, then you must be sending group message **before** the client joining the group.Then you need to make sure the client is in the group before sending group messages.
 
 If a message get lost in SignalR or server, try to get the warning logs based on the message tracing ID to get the reason. If you need further help, see the [get help section](#get-help).
 
-## Advanced topic
+## Advanced
 
 ### Resource logs collecting behaviors
 
@@ -393,4 +393,4 @@ Provide:
 5. [Optional] Repro code
 
 > [!NOTE]
-> If you open issue in GitHub, keep your sensitive information (For example, resource ID, server/client logs) private, only send to members in Microsoft organization privately.
+> If you open an issue in GitHub, keep your sensitive information (For example, resource ID, server/client logs) private, only send to members in Microsoft organization privately.

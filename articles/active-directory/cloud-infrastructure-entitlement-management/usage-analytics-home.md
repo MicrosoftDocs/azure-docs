@@ -4,8 +4,7 @@ description: How to use the Analytics dashboard in Permissions Management to vie
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
@@ -13,10 +12,6 @@ ms.author: kenwith
 ---
 
 # View analytic information with the Analytics dashboard
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 This article provides a brief overview of the Analytics dashboard in Permissions Management, and the type of analytic information it provides for Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
 

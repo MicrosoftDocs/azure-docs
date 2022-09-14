@@ -7,11 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 07/06/2022
 ms.custom: devx-track-csharp
 ---
 
 # Get started with Azure Cosmos DB SQL API and .NET
+
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This article shows you how to connect to Azure Cosmos DB SQL API using the .NET SDK. Once connected, you can perform operations on databases, containers, and items.
@@ -96,7 +97,7 @@ The most common constructor for **CosmosClient** has two parameters:
         --query "documentEndpoint"
     ```
 
-1. Find the *PRIMARY KEY* from the list of keys for the account with the[``az-cosmosdb-keys-list``](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
+1. Find the *PRIMARY KEY* from the list of keys for the account with the [`az-cosmosdb-keys-list`](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
 
     ```azurecli-interactive
     az cosmosdb keys list \
@@ -166,11 +167,11 @@ The most common constructor for **CosmosClient** has two parameters:
 
 1. From the Azure Cosmos DB SQL API account page, select the **Keys** navigation menu option.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos D B SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
+   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos DB SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
 
 1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos D B SQL A P I account.":::
+   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos DB SQL A P I account.":::
 
 ---
 
@@ -211,7 +212,7 @@ Another constructor for **CosmosClient** only contains a single parameter:
 
 ##### [Azure CLI](#tab/azure-cli)
 
-1.  Use the [``az cosmosdb list``](/cli/azure/cosmosdb#az-cosmosdb-list) command to retrieve the name of the first Azure Cosmos DB account in your resource group and store it in the *accountName* shell variable.
+1. Use the [``az cosmosdb list``](/cli/azure/cosmosdb#az-cosmosdb-list) command to retrieve the name of the first Azure Cosmos DB account in your resource group and store it in the *accountName* shell variable.
 
     ```azurecli-interactive
     # Retrieve most recently created account name
@@ -223,7 +224,7 @@ Another constructor for **CosmosClient** only contains a single parameter:
     )
     ```
 
-1. Find the *PRIMARY CONNECTION STRING* from the list of connection strings for the account with the[``az-cosmosdb-keys-list``](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
+1. Find the *PRIMARY CONNECTION STRING* from the list of connection strings for the account with the [`az-cosmosdb-keys-list`](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
 
     ```azurecli-interactive
     az cosmosdb keys list \
@@ -328,7 +329,7 @@ In your code editor, add using directives for ``Azure.Core`` and ``Azure.Identit
 
 #### Create CosmosClient with default credential implementation
 
-If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/dotnet/api/azure.identity.defaultazurecredential) instance. 
+If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/dotnet/api/azure.identity.defaultazurecredential) instance.
 
 For this example, we saved the instance in a variable of type [``TokenCredential``](/dotnet/api/azure.core.tokencredential) as that's a more generic type that's reusable across SDKs.
 
@@ -346,29 +347,28 @@ For this example, we create a [``ClientSecretCredential``](/dotnet/api/azure.ide
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/104-client-secret-credential/Program.cs" id="credential" highlight="3-5":::
 
-You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
+You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/104-client-secret-credential/Program.cs" id="secret_credential" highlight="4":::
 
-
 ## Build your application
 
 As you build your application, your code will primarily interact with four types of resources:
 
-- The SQL API account, which is the unique top-level namespace for your Azure Cosmos DB data.
+* The SQL API account, which is the unique top-level namespace for your Azure Cosmos DB data.
 
-- Databases, which organize the containers in your account.
+* Databases, which organize the containers in your account.
 
-- Containers, which contain a set of individual items in your database.
+* Containers, which contain a set of individual items in your database.
 
-- Items, which represent a JSON document in your container.
+* Items, which represent a JSON document in your container.
 
 The following diagram shows the relationship between these resources.
 
-:::image type="complex" source="media/how-to-dotnet-get-started/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, containers, and items.":::
-    Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
+:::image type="complex" source="media/how-to-dotnet-get-started/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, containers, and items." border="false":::
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
 :::image-end:::
 
 Each type of resource is represented by one or more associated .NET classes. Here's a list of the most common classes:
@@ -385,14 +385,16 @@ The following guides show you how to use each of these classes to build your app
 |--|---|
 | [Create a database](how-to-dotnet-create-database.md) | Create databases |
 | [Create a container](how-to-dotnet-create-container.md) | Create containers |
+| [Read an item](how-to-dotnet-read-item.md) | Point read a specific item |
+| [Query items](how-to-dotnet-query-items.md) | Query multiple items |
 
 ## See also
 
-- [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
-- [Samples](samples-dotnet.md)
-- [API reference](/dotnet/api/microsoft.azure.cosmos)
-- [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
+* [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+* [Samples](samples-dotnet.md)
+* [API reference](/dotnet/api/microsoft.azure.cosmos)
+* [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3)
+* [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
 
 ## Next steps
 

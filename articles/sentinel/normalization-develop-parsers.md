@@ -203,7 +203,7 @@ In many cases, the original value extracted needs to be normalized. For example,
 
 Also, ensuring that parser output fields matches type defined in the schema is critical for parsers to work.  For example, you may need to convert a string representing date and time to a datetime field. Functions such as `todatetime` and `tohex` are helpful in these cases.
 
-For example, the original unique event ID may be sent as an integer, but ASIM requires the value to be a string, to ensure broad compatibility among data sources. Therefore, when assigning the source field use `extned` and `tostring` instead of `project-rename`:
+For example, the original unique event ID may be sent as an integer, but ASIM requires the value to be a string, to ensure broad compatibility among data sources. Therefore, when assigning the source field use `extend` and `tostring` instead of `project-rename`:
 
 ```KQL
   | extend EventOriginalUid = tostring(ReportId),
@@ -426,8 +426,14 @@ Handle the results as follows:
 To make sure that your parser produces valid values, use the ASIM data tester by running the following query in the Microsoft Sentinel **Logs** page:
 
   ```KQL
-  <parser name> | limit <X> | invoke ASimDataTester('<schema>')
+  <parser name> | limit <X> | invoke ASimDataTester ( ['<schema>'] )
   ```
+
+Specifying a schema is optional. If a schema is not specified, the `EventSchema` field is used to identify the schema the event should adhere to. Ig an event does not include an `EventSchema` field, only common fields will be verified. If a schema is specified as a parameter, this schema will be used to test all records. This is useful for older parsers that do not set the `EventSchema` field. 
+
+> [!NOTE]
+> Even when a schema is not specified, empty parentheses are needed after the function name.
+>
 
 This test is resource intensive and may not work on your entire data set. Set X to the largest number for which the query will not time out, or set the time range for the query using the time range picker.
 

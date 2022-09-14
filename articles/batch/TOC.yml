@@ -284,7 +284,7 @@
       - name: Rendering architectures
         href: batch-rendering-architectures.md
     - name: Data processing with Batch and Data Factory
-      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
+      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=/azure/batch/toc.json
 - name: Reference
   items:
   - name: Azure CLI

@@ -32,7 +32,7 @@ With Maintenance Configurations, you can now take more control over when to appl
 1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select one of the scopes we offer which you wish to apply updates for. Click **Add a schedule** to add or modify the schedule for your configuration.
     
     > [!IMPORTANT]
-    > There are different **scopes** which support certain machine types and schedules, so please ensure you are selecting the right scope for your virtual machine.
+    > Certain virtual machine types and schedules will require a specific kind of scope. Check out [maintenance configuration scopes](maintenance-configurations.md#scopes) to find the right one for your virtual machine.
 
     :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics-tab.png" alt-text="Screenshot showing Maintenance Configuration basics":::
 
@@ -72,31 +72,11 @@ You can verify that the configuration was applied correctly or check to see any 
 
 ![Screenshot showing how to check a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-host-type.png)
 
-<!-- You can also check the configuration for a specific virtual machine on its properties page. Click **Maintenance** to see the configuration assigned to that virtual machine.
-
-![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-check-config.png) -->
-
 ## Check for pending updates
 
 You can check if there are any updates pending for a maintenance configuration. In **Maintenance Configurations**, on the details for the configuration, click **Machines** and check **Maintenance status**.
 
 ![Screenshot showing how to check pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending.png)
-
-<!-- You can also check a specific host using **Virtual Machines** or properties of the dedicated host. 
-
-![Screenshot that shows the highlighted maintenance state.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png) -->
-
-<!-- ## Apply updates
-
-You can apply pending updates on demand. On the VM or Azure Dedicated Host details, click **Maintenance** and click **Apply maintenance now**. Apply update calls can take upto 2 hours to complete.
-
-![Screenshot showing how to apply pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-apply-updates-now.png)
-
-## Check the status of applying updates 
-
-You can check on the progress of the updates for a configuration in **Maintenance Configurations** or using **Virtual Machines**. On the VM details, click **Maintenance**. In the following example, the **Maintenance state** shows an update is **Pending**.
-
-![Screenshot showing how to check status of pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-status.png) -->
 
 ## Delete a maintenance configuration
 

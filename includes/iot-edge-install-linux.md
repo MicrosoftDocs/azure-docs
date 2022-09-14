@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 10/29/2021
+ms.date: 07/13/2022
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -32,12 +32,12 @@ Installing can be done with a few commands.  Open a terminal and run the followi
    sudo dpkg -i packages-microsoft-prod.deb
    rm packages-microsoft-prod.deb
    ```
+
 # [Debian](#tab/debian)
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
 
-
-* **11 (Bullseye)**:
+* **11 - Bullseye (arm32v7)**:
 
     ```bash
     curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
@@ -59,6 +59,18 @@ Installing can be done with a few commands.  Open a terminal and run the followi
     ```bash
     curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
     sudo apt install ./packages-microsoft-prod.deb
+    ```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+
+Installing can be done with a few commands. Open a terminal and run the following commands:
+
+* **8.x (amd64)**:
+
+   ```bash
+    wget https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm -O packages-microsoft-prod.rpm
+    sudo yum localinstall packages-microsoft-prod.rpm
+    rm packages-microsoft-prod.rpm
     ```
 
 ---
@@ -99,7 +111,16 @@ Install the Moby engine.
    sudo apt-get update; \
      sudo apt-get install moby-engine
    ```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+
+Install the Moby engine and CLI.
+
+   ```bash
+   sudo yum install moby-engine moby-cli
+   ```
 ---
+
 Once the Moby engine is successfully installed, configure it to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. To learn more about logging configuration, see [Production Deployment Checklist](../articles/iot-edge/production-checklist.md#set-up-default-logging-driver).
 
 * Create or open the Docker daemon's config file at `/etc/docker/daemon.json`.
@@ -158,6 +179,10 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
      sudo apt-get install iotedge
    ```
 
+# [Red Hat Enterprise Linux](#tab/rhel)
+
+IoT Edge version 1.1 isn't supported on Red Hat Enterprise Linux 8.
+
 ---
 
 >[!NOTE]
@@ -166,19 +191,19 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
 <!-- end 1.1 -->
 ::: moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
 The IoT Edge service provides and maintains security standards on the IoT Edge device. The service starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
-The IoT identity service was introduced along with version 1.2 of IoT Edge. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub.
+Beginning with version 1.2, the IoT identity service handles identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub.
 
 The steps in this section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the **Offline or specific version installation** steps later in this article.
 
 >[!NOTE]
->The steps in this section show you how to install IoT Edge version 1.2.
+>The steps in this section show you how to install the latest IoT Edge version.
 >
->If you already have an IoT Edge device running an older version and want to upgrade to 1.2, use the steps in [Update the IoT Edge security daemon and runtime](../articles/iot-edge/how-to-update-iot-edge.md). Version 1.2 is sufficiently different from previous versions of IoT Edge that specific steps are necessary to upgrade.
+>If you already have an IoT Edge device running an older version and want to upgrade to the latest release, use the steps in [Update the IoT Edge security daemon and runtime](../articles/iot-edge/how-to-update-iot-edge.md). Later versions are sufficiently different from previous versions of IoT Edge that specific steps are necessary to upgrade.
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -190,7 +215,6 @@ Install the latest version of IoT Edge and the IoT identity service package:
    ```
 
 The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
-
 
 # [Debian](#tab/debian)
 
@@ -216,7 +240,12 @@ Install the latest version of IoT Edge and the IoT identity service package:
      sudo apt-get install aziot-edge
    ```
 
+# [Red Hat Enterprise Linux](#tab/rhel)
+
+   ```bash
+   sudo yum install aziot-edge
+   ```
 ---
 
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 ::: moniker-end

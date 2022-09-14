@@ -4,8 +4,7 @@ description: How to define and manage users, roles, and access levels in Permiss
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
@@ -13,10 +12,6 @@ ms.author: kenwith
 ---
 
 # Define and manage users, roles, and access levels
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 In Permissions Management, a key component of the interface is the User management dashboard. This topic describes how system administrators can define and manage users, their roles, and their access levels in the system.
 
