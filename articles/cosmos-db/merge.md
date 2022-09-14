@@ -27,9 +27,9 @@ The Azure Cosmos DB team will review your request and contact you via email to c
 
 To check whether an Azure Cosmos DB account is eligible for the preview, you can use the built-in eligibility checker in the Azure portal. From your Azure Cosmos DB account overview page in the Azure portal, navigate to **Diagnose and solve problems** -> **Throughput and Scaling** ->  **Partition Merge**. Run the **Check eligibility for partition merge preview** diagnostic.
 
-:::image type="content" source="media/merge/throughput-and-scaling-category.png" alt-text="Throughput and Scaling topic in Diagnose and solve issues page":::
+:::image type="content" source="media/merge/throughput-and-scaling-category.png" alt-text="Screenshot of Throughput and Scaling topic in Diagnose and solve issues page.":::
 
-:::image type="content" source="media/merge/merge-eligibility-check.png" alt-text="Merge eligibility check with table of all preview eligibility criteria":::
+:::image type="content" source="media/merge/merge-eligibility-check.png" alt-text="Screenshot of merge eligibility check with table of all preview eligibility criteria.":::
 
 ### How to identify containers to merge
 
