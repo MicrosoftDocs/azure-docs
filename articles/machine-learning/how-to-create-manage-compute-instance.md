@@ -137,9 +137,10 @@ Where the file *create-instance.yml* is:
 
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
-    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview).inel
+    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview)
     * Provision with a setup script (preview) - for more information about how to create and use a setup script, see [Customize the compute instance with a script](how-to-customize-compute-instance.md).
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-preview) below.
+    * Enable auto-stop (preview). Configure a compute instance to automatically shutdown if it is inactive. See [configure auto-stop](#configure-auto-stop-preview) for more details.
 
 
 
@@ -156,6 +157,58 @@ SSH access is disabled by default.  SSH access can't be changed after creation. 
 [!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
 
 ---
+
+## Configure auto-stop (preview)
+To avoid getting charged for a compute instance that is switched on but inactive, you can configure auto-stop. 
+
+A compute instance is considered inactive if the below conditions are met:
+* No active Jupyter Kernel sessions (this translates to no Notebooks usage via Jupyter, JupyterLab or Interactive notebooks)
+* No active Jupyter terminal sessions
+* No active AzureML runs or experiments
+* No SSH connections
+* No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
+
+Note that activity on custom applications installed on the compute instance is not considered. There are also some basic bounds around inactivity time periods; CI must be inactive for a minimum of 15 mins and a maximum of 3 days.
+
+This setting can be configured during CI creation or for existing CIs via the following interfaces:
+* AzureML Studio
+    
+    :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-advanced-settings.jpg" alt-text="Screenshot of the Advanced Settings page for creating a compute instance":::
+    :::image type="content" source="media/how-to-create-attach-studio/idle-shutdown-update.jpg" alt-text="Screenshot of the compute instance details page showing how to update an existing compute instance with idle shutdown":::
+
+* REST API
+
+    Endpoint:
+    ```
+    POST https://management.azure.com/subscriptions/{SUB_ID}/resourceGroups/{RG_NAME}/providers/Microsoft.MachineLearningServices/workspaces/{WS_NAME}/computes/{CI_NAME}/updateIdleShutdownSetting?api-version=2021-07-01
+    ```
+    Body:
+    ```JSON
+    {
+        "idleTimeBeforeShutdown": "PT30M" // this must be a string in ISO 8601 format
+    }
+    ```
+
+* CLIv2 (YAML) -- only configurable during new CI creation
+
+    ```YAML
+    # Note that this is just a snippet for the idle shutdown property. Refer to the "Create" Azure CLI section for more information.
+    idle_time_before_shutdown_minutes: 30
+    ```
+
+* Python SDKv2 -- only configurable during new CI creation
+
+    ```Python
+    ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
+    ```
+
+* ARM Templates -- only configurable during new CI creation
+    ```JSON
+    // Note that this is just a snippet for the idle shutdown property in an ARM template
+    {
+        "idleTimeBeforeShutdown":"PT30M" // this must be a string in ISO 8601 format
+    }
+    ```
 
 ## Create on behalf of (preview)
 
