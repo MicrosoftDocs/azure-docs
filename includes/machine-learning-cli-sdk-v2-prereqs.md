@@ -12,26 +12,15 @@ Before following the steps in this article, make sure you have the following pre
 
 * An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](../articles/machine-learning/quickstart-create-resources.md) article to create one.
 
-* The Azure CLI extension for ML or Azure ML Python SDK v2 (preview):
-    # [Azure CLI](#tab/cli)
+* The [Azure CLI](/cli/azure/) and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](../articles/machine-learning/how-to-configure-cli.md).
 
-    * Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2)](/azure/machine-learning/how-to-configure-cli). 
+    > [!IMPORTANT]
+    > The CLI examples in this article assume that you are using the Bash (or compatible) shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
 
-    * If you've not already set the defaults for Azure CLI, you should save your default settings. To avoid having to repeatedly pass in the values, run:
+* To install the Python SDK v2 (preview), use the following command:
 
-    ```azurecli
-    az account set --subscription <subscription id>
-    az configure --defaults workspace=<azureml workspace name> group=<resource group>
-    ```
-
-    # [Python SDK](#tab/python)
-
-    * If you haven't installed Python SDK v2 (preview), please install with this command:
-
-    ```azurecli
+    ```bash
     pip install --pre azure-ai-ml
     ```
 
-    For more information, see [Install the Azure Machine Learning SDK v2 (preview) for Python](/python/api/overview/azure/ml/installv2).
-
-    ---
+    For more information, see [Install the Python SDK v2 for Azure Machine Learning](https://aka.ms/sdk-v2-install) (preview).
