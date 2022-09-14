@@ -15,7 +15,7 @@ Before following the steps in this article, make sure you have the following pre
 * The Azure CLI extension for ML or Azure ML Python SDK v2 (preview):
     # [Azure CLI](#tab/cli)
 
-    * Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
+    * Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2)](/azure/machine-learning/how-to-configure-cli). 
 
     * If you've not already set the defaults for Azure CLI, you should save your default settings. To avoid having to repeatedly pass in the values, run:
 
