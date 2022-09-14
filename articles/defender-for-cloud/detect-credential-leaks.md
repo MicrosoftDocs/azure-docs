@@ -146,3 +146,5 @@ The following exit codes are available in CredScan:
 | -9000 | Scan failed with unknown error. |
 
 ## Next steps
++ 
++ Learn how to [configure pull request annotations](tutorial-enable-pr-annotations.md) in Defender for Cloud to remediate secrets in code before they are shipped to production.
