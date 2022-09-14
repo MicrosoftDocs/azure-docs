@@ -3,7 +3,7 @@ title: Migrate a database from SQL Server to Azure Arc-enabled SQL Managed Insta
 description: Migrate database from SQL Server to Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -114,9 +114,7 @@ Learn more about backup to URL here:
    RESTORE DATABASE <database name> FROM URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>.bak'
    WITH MOVE 'Test' to '/var/opt/mssql/data/<file name>.mdf'
    ,MOVE 'Test_log' to '/var/opt/mssql/data/<file name>.ldf'
-   ,RECOVERY  
-   ,REPLACE  
-   ,STATS = 5;  
+   ,RECOVERY;  
    GO
    ```
 
@@ -171,9 +169,7 @@ Prepare and run the RESTORE command to restore the backup file to the Azure SQL 
 RESTORE DATABASE test FROM DISK = '/var/opt/mssql/data/<file name>.bak'
 WITH MOVE '<database name>' to '/var/opt/mssql/data/<file name>.mdf'  
 ,MOVE '<database name>' to '/var/opt/mssql/data/<file name>_log.ldf'  
-,RECOVERY  
-,REPLACE  
-,STATS = 5;  
+,RECOVERY;  
 GO
 ```
 
@@ -183,9 +179,7 @@ Example:
 RESTORE DATABASE test FROM DISK = '/var/opt/mssql/data/test.bak'
 WITH MOVE 'test' to '/var/opt/mssql/data/test.mdf'  
 ,MOVE 'test' to '/var/opt/mssql/data/test_log.ldf'  
-,RECOVERY  
-,REPLACE  
-,STATS = 5;  
+,RECOVERY;  
 GO
 ```
 

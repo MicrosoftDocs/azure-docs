@@ -22,7 +22,7 @@ ms.custom: devx-track-dotnet, mode-api
 > * [PHP](create-graph-php.md)
 >  
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases. All of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
 This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal. You then build and run a console app built using the open-source driver [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
@@ -56,7 +56,7 @@ Now let's clone a Gremlin API app from GitHub, set the connection string, and ru
     cd "C:\git-samples"
     ```
 
-3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
+3. Run the following command to clone the sample repository. The ``git clone`` command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started.git
@@ -64,17 +64,16 @@ Now let's clone a Gremlin API app from GitHub, set the connection string, and ru
 
 4. Then open Visual Studio and open the solution file.
 
-5. Restore the NuGet packages in the project. This should include the Gremlin.Net driver, and the Newtonsoft.Json package.
+5. Restore the NuGet packages in the project. The restore operation should include the Gremlin.Net driver, and the Newtonsoft.Json package.
 
-
-6. You can also install the Gremlin.Net@v3.4.6 driver manually using the NuGet package manager, or the [NuGet command-line utility](/nuget/install-nuget-client-tools): 
+6. You can also install the Gremlin.Net@v3.4.13 driver manually using the NuGet package manager, or the [NuGet command-line utility](/nuget/install-nuget-client-tools): 
 
     ```bash
-    nuget install Gremlin.NET -Version 3.4.6
+    nuget install Gremlin.NET -Version 3.4.13
     ```
     
 > [!NOTE]
-> The Gremlin API currently only [supports Gremlin.Net up to v3.4.6](gremlin-support.md#compatible-client-libraries). If you install the latest version, you'll receive errors when using the service.
+> The supported Gremlin.NET driver version for Gremlin API  is available [here](gremlin-support.md#compatible-client-libraries). Latest released versions of Gremlin.NET may see incompatibilities, so please check the linked table for compatibility updates.
 
 ## Review the code
 
@@ -110,16 +109,27 @@ Now go back to the Azure portal to get your connection string information and co
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copy the endpoint":::
 
-   To run this sample, copy the **Gremlin Endpoint** value, delete the port number at the end, that is the URI becomes `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. The endpoint value should look like `testgraphacct.gremlin.cosmosdb.azure.com`
+   For this sample, record the *Host* value of the **Gremlin Endpoint**. For example, if the URI is ``https://graphtest.gremlin.cosmosdb.azure.com``, the *Host* value would be ``graphtest.gremlin.cosmosdb.azure.com``.
 
-1. Next, navigate to the **Keys** tab and copy the **PRIMARY KEY** value from the Azure portal. 
+1. Next, navigate to the **Keys** tab and record the *PRIMARY KEY* value from the Azure portal. 
 
-1. After you've copied the URI and PRIMARY KEY of your account, save them to a new environment variable on the local machine running the application. To set the environment variable, open a command prompt window, and run the following command. Make sure to replace <Your_Azure_Cosmos_account_URI> and <Your_Azure_Cosmos_account_PRIMARY_KEY> values.
+1. After you've copied the URI and PRIMARY KEY of your account, save them to a new environment variable on the local machine running the application. To set the environment variable, open a command prompt window, and run the following command. Make sure to replace ``<cosmos-account-name>`` and ``<cosmos-account-primary-key>`` values.
 
-   ```console
-   setx Host "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
-   setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
-   ```
+    ### [Windows](#tab/windows)
+    
+    ```powershell
+    setx Host "<cosmos-account-name>.gremlin.cosmosdb.azure.com"
+    setx PrimaryKey "<cosmos-account-primary-key>"
+    ```
+    
+    ### [Linux / macOS](#tab/linux+macos)
+    
+    ```bash
+    export Host=<cosmos-account-name>.gremlin.cosmosdb.azure.com
+    export PrimaryKey=<cosmos-account-primary-key>
+    ```
+    
+    ---
 
 1. Open the *Program.cs* file and update the "database and "container" variables with the database and container (which is also the graph name) names created above.
 

@@ -3,13 +3,13 @@ title: Configure Microsoft Defender for Storage
 titleSuffix: Azure Storage
 description: Configure Microsoft Defender for Storage to detect anomalies in account activity and be notified of potentially harmful attempts to access your account.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 05/12/2022
-ms.author: tamram
+ms.date: 05/31/2022
+ms.author: jammart
 ms.reviewer: ozgun 
 ms.custom: devx-track-azurepowershell
 ---
@@ -63,10 +63,10 @@ Microsoft Defender for Storage is now enabled for all storage accounts in this s
 ### [Portal](#tab/azure-portal)
 
 1. Launch the [Azure portal](https://portal.azure.com/).
-1. Navigate to your storage account. Under **Settings**, select **Advanced security**.
+1. Navigate to your storage account. Under **Security + networking**, select **Security**.
 1. Select **Enable Microsoft Defender for Storage**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot showing how to enable an account for Microsoft Defender for Storage.":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot showing how to enable a storage account for Microsoft Defender for Storage.":::
 
 Microsoft Defender for Storage is now enabled for this storage account.
 

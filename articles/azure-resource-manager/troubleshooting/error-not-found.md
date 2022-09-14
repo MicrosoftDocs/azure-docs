@@ -6,11 +6,11 @@ ms.date: 11/30/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Resolve resource not found errors
+# Resolve Resource Not Found errors
 
 This article describes the error you see when a resource can't be found during an operation. Typically, you see this error when deploying resources with a Bicep file or Azure Resource Manager template (ARM template). You also see this error when doing management tasks and Azure Resource Manager can't find the required resource. For example, if you try to add tags to a resource that doesn't exist, you receive this error.
 
-## Symptom
+## Symptoms
 
 There are two error codes that indicate the resource can't be found. The `NotFound` error returns a result similar to:
 
@@ -31,7 +31,7 @@ group {resource group name} was not found.
 
 Resource Manager needs to retrieve the properties for a resource, but can't find the resource in your subscription.
 
-## Solution 1 - check resource properties
+## Solution 1 - Check resource properties
 
 When you receive this error while doing a management task, check the values you provided for the resource. The three values to check are:
 
@@ -43,7 +43,7 @@ If you're using PowerShell or Azure CLI, check that you're running commands in t
 
 If you can't verify the properties, sign in to the [Microsoft Azure portal](https://portal.azure.com). Find the resource you're trying to use and examine the resource name, resource group, and subscription.
 
-## Solution 2 - set dependencies
+## Solution 2 - Set Dependencies
 
 If you get this error when deploying a template, you may need to add a dependency. Resource Manager optimizes deployments by creating resources in parallel, when possible.
 
@@ -115,7 +115,7 @@ When you see dependency problems, you need to gain insight into the order of res
 
     :::image type="content" source="media/error-not-found/deployment-events-sequence.png" alt-text="Screenshot of activity log for resources deployed in sequential order.":::
 
-## Solution 3 - get external resource
+## Solution 3 - Get external resource
 
 # [Bicep](#tab/bicep)
 
@@ -154,7 +154,7 @@ The following example gets the resource ID for a resource that exists in a diffe
 
 ---
 
-## Solution 4 - get managed identity from resource
+## Solution 4 - Get managed identity from resource
 
 # [Bicep](#tab/bicep)
 
@@ -199,7 +199,7 @@ Or, to get the tenant ID for a managed identity that is applied to a virtual mac
 
 ---
 
-## Solution 5 - check functions
+## Solution 5 - Check functions
 
 # [Bicep](#tab/bicep)
 
@@ -224,7 +224,7 @@ When deploying a template, look for expressions that use the [reference](../temp
 
 ---
 
-## Solution 6 - after deleting resource
+## Solution 6 - After deleting resource
 
 When you delete a resource, there might be a short amount of time when the resource appears in the portal but isn't available. If you select the resource, you'll get an error that the resource is **Not found**.
 

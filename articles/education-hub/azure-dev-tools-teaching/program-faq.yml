@@ -41,7 +41,7 @@ sections:
       - question: |
           Why did I receive an invoice from Microsoft?
         answer: |
-          You may receive an invoice from Microsoft detailing the usage you incurred in the previous month while on Azure for Students.  Don’t worry, you do not have to pay for that usage – it’s all covered by the credit provided by Azure for Students.  To learn more about invoices and how they work, check out the [article](../../cost-management-billing/understand/mca-overview.md) on docs.microsoft.com 
+          You may receive an invoice from Microsoft detailing the usage you incurred in the previous month while on Azure for Students.  Don’t worry, you do not have to pay for that usage – it’s all covered by the credit provided by Azure for Students.  To learn more about invoices and how they work, check out the [article](../../cost-management-billing/understand/mca-overview.md) on Microsoft technical documentation 
       
       - question: |
           What are subscriptions, and how do they relate to Azure for Students?
@@ -66,7 +66,7 @@ sections:
       - question: |
           What is Microsoft Learn?
         answer: |
-          [Microsoft Learn](/learn/) is a free, online learning platform that allows you to learn Azure technologies at your own pace. Learning Paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
+          [Microsoft Learn](/learn/) is a free online learning platform that allows you to learn Azure technologies at your own pace. Learning Paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
           
       - question: |
           Can Azure for Students be used for production or only for development?
@@ -124,7 +124,7 @@ sections:
       - question: |
           What is Microsoft Learn?
         answer: |
-          [Microsoft Learn](/learn/) is a free, online-learning platform that lets you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, and then move to advanced methods that address real-world challenges.
+          [Microsoft Learn](/learn/) is a free online learning platform that lets you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, and then move to advanced methods that address real-world challenges.
           
   - name: Azure Academic Grant
     questions:

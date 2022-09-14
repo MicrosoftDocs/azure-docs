@@ -208,7 +208,7 @@ In this section, you create an Azure function that implements your custom alloca
         }
         else
         {
-            string[] hubs = data?.linkedHubs.ToObject<string[]>();
+            string[] hubs = data?.linkedHubs?.ToObject<string[]>();
 
             // Must have hubs selected on the enrollment
             if (hubs == null)
@@ -407,7 +407,7 @@ The simulated devices will use the derived device keys with each registration ID
 
 In this section, you prepare the development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The SDK includes the sample code for the simulated device. This simulated device will attempt provisioning during the device's boot sequence.
 
-This section is oriented toward a Windows-based workstation. For a Linux example, see the set-up of the VMs in [How to provision for multitenancy](how-to-provision-multitenant.md).
+This section is oriented toward a Windows-based workstation. For a Linux example, see the set-up of the VMs in [Tutorial: Provision for geolatency](how-to-provision-multitenant.md).
 
 1. Download the [CMake build system](https://cmake.org/download/).
 

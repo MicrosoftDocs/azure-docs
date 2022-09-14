@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/28/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Filter for devices
 
-When creating Conditional Access policies, administrators have asked for the ability to target or exclude specific devices in their environment. The condition filter for devices give administrators this capability. Now you can target specific devices using [supported operators and properties for device filters](#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
+When creating Conditional Access policies, administrators have asked for the ability to target or exclude specific devices in their environment. The condition filter for devices gives administrators this capability. Now you can target specific devices using [supported operators and properties for device filters](#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
 
 :::image type="content" source="media/concept-condition-filters-for-devices/create-filter-for-devices-condition.png" alt-text="Creating a filter for device in Conditional Access policy conditions":::
 
@@ -23,7 +23,7 @@ There are multiple scenarios that organizations can now enable using filter for 
 
 - **Restrict access to privileged resources**. For this example, lets say you want to allow access to Microsoft Azure Management from a user who is assigned a privilged role Global Admin, has satisfied multifactor authentication and accessing from a device that is [privileged or secure admin workstations](/security/compass/privileged-access-devices) and attested as compliant. For this scenario, organizations would create two Conditional Access policies:
    - Policy 1: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, and for Access controls, Grant access, but require multifactor authentication and require device to be marked as compliant.
-   - Policy 2: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, excluding a filter for devices using rule expression device.extensionAttribute1 equals SAW and for Access controls, Block. Learn how to [update extensionAttributes on an Azure AD device object](https://docs.microsoft.com/graph/api/device-update?view=graph-rest-1.0&tabs=http).
+   - Policy 2: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, excluding a filter for devices using rule expression device.extensionAttribute1 equals SAW and for Access controls, Block. Learn how to [update extensionAttributes on an Azure AD device object](/graph/api/device-update?view=graph-rest-1.0&tabs=http&preserve-view=true).
 - **Block access to organization resources from devices running an unsupported Operating System**. For this example, lets say you want to block access to resources from Windows OS version older than Windows 10. For this scenario, organizations would create the following Conditional Access policy:
    - All users, accessing all cloud apps, excluding a filter for devices using rule expression device.operatingSystem equals Windows and device.operatingSystemVersion startsWith "10.0" and for Access controls, Block.
 - **Do not require multifactor authentication for specific accounts on specific devices**. For this example, lets say you want to not require multifactor authentication when using service accounts on specific devices like Teams phones or Surface Hub devices. For this scenario, organizations would create the following two Conditional Access policies:
@@ -31,7 +31,7 @@ There are multiple scenarios that organizations can now enable using filter for 
    - Policy 2: Select users and groups and include group that contains service accounts only, accessing all cloud apps, excluding a filter for devices using rule expression device.extensionAttribute2 not equals TeamsPhoneDevice and for Access controls, Block.
 
 > [!NOTE] 
-> Azure AD uses device authentication to evaluate device filter rules. For devices that are unregistered with Azure AD, all device properties are considered as null values.
+> Azure AD uses device authentication to evaluate device filter rules. For a device that is unregistered with Azure AD, all device properties are considered as null values and the device attributes cannot be determined since the device does not exist in the directory. The best way to target policies for unregistered devices is by using the negative operator since the configured filter rule would apply. If you were to use a positive operator, the filter rule would only apply when a device exists in the directory and the configured rule matches the attribute on the device. 
 
 ## Create a Conditional Access policy
 
@@ -48,7 +48,7 @@ Policy 1: All users with the directory role of Global administrator, accessing t
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**..
    1. Under **Include**, select **Directory roles** and choose **Global administrator**.
    
       > [!WARNING]
@@ -65,7 +65,7 @@ Policy 2: All users with the directory role of Global administrator, accessing t
 
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**..
    1. Under **Include**, select **Directory roles** and choose **Global administrator**.
    
       > [!WARNING]
@@ -145,6 +145,7 @@ The filter for devices condition in Conditional Access evaluates policy based on
 
 ## Next steps
 
+- [Back to school – Using Boolean algebra correctly in complex filters](https://techcommunity.microsoft.com/t5/intune-customer-success/back-to-school-using-boolean-algebra-correctly-in-complex/ba-p/3422765)
 - [Update device Graph API](/graph/api/device-update?tabs=http)
 - [Conditional Access: Conditions](concept-conditional-access-conditions.md)
 - [Common Conditional Access policies](concept-conditional-access-policy-common.md)

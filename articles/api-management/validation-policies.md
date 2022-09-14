@@ -6,15 +6,15 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 03/07/2022
+ms.date: 06/07/2022
 ms.author: danlep
 ---
 
 # API Management policies to validate requests and responses
 
-This article provides a reference for API Management policies to validate REST or SOAP API requests and responses against schemas defined in the API definition or supplementary JSON or XML schemas. Validation policies protect from vulnerabilities such as injection of headers or payload or leaking sensitive data.
+This article provides a reference for API Management policies to validate REST or SOAP API requests and responses against schemas defined in the API definition or supplementary JSON or XML schemas. Validation policies protect from vulnerabilities such as injection of headers or payload or leaking sensitive data. Learn more about common [API vulnerabilites](mitigate-owasp-api-threats.md).
 
-While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that aren’t covered by security products that rely on static, predefined rules.
+While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that aren’t covered by security products that rely on static, predefined rules. 
 
 [!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
@@ -66,13 +66,25 @@ The `validate-content` policy validates the size or content of a request or resp
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
-The following table shows the schema formats and request or response content types that the policy supports. Content type values are case insensitive.
+The following table shows the schema formats and request or response content types that the policy supports. Content type values are case insensitive. 
 
 | Format  | Content types | 
 |---------|---------|
 |JSON     |  Examples: `application/json`<br/>`application/hal+json` | 
 |XML     |  Example: `application/xml`  | 
 |SOAP     |  Allowed values: `application/soap+xml` for SOAP 1.2 APIs<br/>`text/xml` for SOAP 1.1 APIs|
+
+### What content is validated
+
+The policy validates the following content in the request or response against the schema:
+
+* Presence of all required properties. 
+* Absence of additional properties, if the schema has the `additionalProperties` field set to `false`.
+* Types of all properties. For example, if a schema specifies a property as an integer, the request (or response) must include an integer and not another type, such as a string.
+* The format of the properties, if specified in the schema - for example, regex (if the `pattern` keyword is specified), `minimum` for integers, and so on.
+
+> [!TIP]
+> For examples of regex pattern constraints that can be used in schemas, see [OWASP Validation Regex Repository](https://owasp.org/www-community/OWASP_Validation_Regex_Repository).
 
 ### Policy statement
 
@@ -147,7 +159,7 @@ To add a schema to your API Management instance using the Azure portal:
 1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the **APIs** section of the left-hand menu, select **Schemas** > **+ Add**.
 1. In the **Create schema** window, do the following:
-    1. Enter a **Name** for the schema.
+    1. Enter a **Name** (Id) for the schema.
     1. In **Schema type**, select **JSON** or **XML**.
     1. Enter a **Description**.
     1. In **Create method**, do one of the following:
@@ -160,12 +172,14 @@ To add a schema to your API Management instance using the Azure portal:
 
     :::image type="content" source="media/validation-policies/add-schema.png" alt-text="Create schema":::
 
-After the schema is created, it appears in the list on the **Schemas** page. Select a schema to view its properties or to edit in a schema editor.
+API Management adds the schema resource at the relative URI `/schemas/<schemaId>`, and the schema appears in the list on the **Schemas** page. Select a schema to view its properties or to edit in a schema editor. 
 
 > [!NOTE]
-> * A schema may cross-reference another schema that is added to the API Management instance. 
-> * Open-source tools to resolve WSDL and XSD schema references and to batch-import generated schemas to API Management are available on [GitHub](https://github.com/Azure-Samples/api-management-schema-import).
+> A schema may cross-reference another schema that is added to the API Management instance. For example, include an XML schema added to API Management by using an element similar to:<br/><br/>`<xs:include schemaLocation="/schemas/myschema" />`
 
+
+> [!TIP]
+> Open-source tools to resolve WSDL and XSD schema references and to batch-import generated schemas to API Management are available on [GitHub](https://github.com/Azure-Samples/api-management-schema-import).
 
 ### Usage
 

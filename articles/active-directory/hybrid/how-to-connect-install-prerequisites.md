@@ -4,7 +4,7 @@ description: This article describes the prerequisites and the hardware requireme
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
@@ -51,13 +51,13 @@ For more information on setting the PowerShell execution policy, see [Set-Execut
 ### Azure AD Connect server
 The Azure AD Connect server contains critical identity data. It's important that administrative access to this server is properly secured. Follow the guidelines in [Securing privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 
-The Azure AD Connect server must be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). We recommend hardening the Azure AD Connect server as a Control Plane asset by following the guidance provided in [Secure Privileged Access]( https://docs.microsoft.com/security/compass/overview) 
+The Azure AD Connect server must be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). We recommend hardening the Azure AD Connect server as a Control Plane asset by following the guidance provided in [Secure Privileged Access](/security/compass/overview) 
 
 To read more about securing your Active Directory environment, see [Best practices for securing Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 #### Installation prerequisites
 
-- Azure AD Connect must be installed on a domain-joined Windows Server 2016 or later. 
+- Azure AD Connect must be installed on a domain-joined Windows Server 2016 or later - note that Windows Server 2022 is not yet supported. 
 - The minimum .Net Framework version required is 4.6.2, and newer versions of .Net are also supported.
 - Azure AD Connect can't be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better. 
 - The Azure AD Connect server must have a full GUI installed. Installing Azure AD Connect on Windows Server Core isn't supported. 
@@ -73,7 +73,7 @@ To read more about securing your Active Directory environment, see [Best practic
 ### Harden your Azure AD Connect server 
 We recommend that you harden your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment. Following these recommendations will help to mitigate some security risks to your organization.
 
-- We recommend hardening the Azure AD Connect server as a Control Plane (formerly Tier 0) asset by following the guidance provided in [Secure Privileged Access]( https://docs.microsoft.com/security/compass/overview) and [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- We recommend hardening the Azure AD Connect server as a Control Plane (formerly Tier 0) asset by following the guidance provided in [Secure Privileged Access](/security/compass/overview) and [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Restrict administrative access to the Azure AD Connect server to only domain administrators or other tightly controlled security groups.
 - Create a [dedicated account for all personnel with privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). Administrators shouldn't be browsing the web, checking their email, and doing day-to-day productivity tasks with highly privileged accounts.
 - Follow the guidance provided in [Securing privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
@@ -83,6 +83,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 - Follow these [additional guidelines](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) to reduce the attack surface of your Active Directory environment.
 - Follow the [Monitor changes to federation configuration](how-to-connect-monitor-federation-changes.md) to setup alerts to monitor changes to the trust established between your Idp and Azure AD. 
 - Enable Multi Factor Authentication (MFA) for all users that have privileged access in Azure AD or in AD. One security issue with using AADConnect is that if an attacker can get control over the Azure AD Connect server they can manipulate users in Azure AD. To prevent a attacker from using these capabilities to take over Azure AD accounts, MFA offers protections so that even if an attacker manages to e.g. reset a user's password using Azure AD Connect they still cannot bypass the second factor.
+- Disable Soft Matching on your tenant. Soft Matching is a great feature to help transfering source of autority for existing cloud only objects to Azure AD Connect, but it comes with certain security risks. If you do not require Soft Matching, you should disable it: https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-features#blocksoftmatch
 
 ### SQL Server used by Azure AD Connect
 * Azure AD Connect requires a SQL Server database to store identity data. By default, a SQL Server 2019 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10-GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, point the installation wizard to a different installation of SQL Server. The type of SQL Server installation can impact the [performance of Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors).
@@ -99,6 +100,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 ### Connectivity
 * The Azure AD Connect server needs DNS resolution for both intranet and internet. The DNS server must be able to resolve names both to your on-premises Active Directory and the Azure AD endpoints.
 * Azure AD Connect requires network connectivity to all configured domains
+* Azure AD Connect requires network connectivity to the root domain of all configured forest
 * If you have firewalls on your intranet and you need to open ports between the Azure AD Connect servers and your domain controllers, see [Azure AD Connect ports](reference-connect-ports.md) for more information.
 * If your proxy or firewall limit which URLs can be accessed, the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened. Also see [Safelist the Azure portal URLs on your firewall or proxy server](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * If you're using the Microsoft cloud in Germany or the Microsoft Azure Government cloud, see [Azure AD Connect sync service instances considerations](reference-connect-instances.md) for URLs.

@@ -37,7 +37,7 @@ Learn how to register for a lab.  Also learn how to view, start, stop, and conne
 
     Notice that the status toggle is in the on position.  Select the status toggle again to **stop** the VM.
 
-Using the [Azure Lab Services portal](https://labs.azure.com/virtualmachines) is the preferred method for a student to stop their lab VM.  However, with the [April 2022 Updates (preview)](lab-services-whats-new.md), Azure Lab Services will detect when a student shuts down their VM using the OS shutdown command.  After a long delay to ensure the VM wasn't being restarted, the lab VM will be marked as stopped and billing will discontinue.  
+Using the [Azure Lab Services portal](https://labs.azure.com/virtualmachines) is the preferred method for a student to stop their lab VM.  However, with the [April 2022 Updates](lab-services-whats-new.md), Azure Lab Services will detect when a student shuts down their VM using the OS shutdown command.  After a long delay to ensure the VM wasn't being restarted, the lab VM will be marked as stopped and billing will discontinue.  
 
 ## Connect to the VM
 

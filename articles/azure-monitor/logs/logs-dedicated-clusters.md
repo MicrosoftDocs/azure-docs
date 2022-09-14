@@ -19,8 +19,21 @@ Capabilities that require dedicated clusters:
 - **[Customer-managed Keys](../logs/customer-managed-keys.md)** - Encrypt the cluster data using keys that are provided and controlled by the customer.
 - **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Control Microsoft support engineers access requests to your data.
 - **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** - Protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data.
-- **[Availability Zones](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures with zones being separated physically by locations and equipped with independent power, cooling, and networking. The physical separation in zones and independent infrastructure makes an incident far less likely since the workspace can rely on the resources from any of the zones. Dedicated clusters are created with availability zones enabled for data resiliency in regions that [Azure has availability zones](../../availability-zones/az-overview.md#azure-regions-with-availability-zones). Availability zones configuration in cluster can’t be altered once created and settings can be verified in cluster’s property `isAvailabilityZonesEnabled`. [Azure Monitor availability zones](./availability-zones.md) covers broader parts of the service and when available in your region, extends your Azure Monitor resiliency automatically.
-- **[Multi-workspace](../logs/cross-workspace-query.md)** - If a customer is using more than one workspace for production it might make sense to use dedicated cluster. Cross-workspace queries will run faster if all workspaces are on the same cluster. It might also be more cost effective to use dedicated cluster as the assigned commitment tier takes into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for commitment tier discount.
+- **[Cross-query optimization](../logs/cross-workspace-query.md)** - Cross-workspace queries run faster when workspaces are on the same cluster.
+- **Cost optimization** - Link your workspaces in same region to cluster to get commitment tier discount to all workspaces, even to ones with low ingestion that aren't eligible for commitment tier discount.
+- **[Availability zones](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures with zones being separated physically by locations and equipped with independent power, cooling, and networking. The physical separation in zones and independent infrastructure makes an incident far less likely since the workspace can rely on the resources from any of the zones. [Azure Monitor availability zones](./availability-zones.md) covers broader parts of the service and when available in your region, extends your Azure Monitor resiliency automatically. Dedicated clusters are created as Availability zones enabled (`isAvailabilityZonesEnabled`: 'true') by default in supported regions. This setting can’t be altered once created, and can be verified in cluster’s property `isAvailabilityZonesEnabled`. Availability zones clusters are created in the following regions currently, and more regions are added periodically. 
+
+  | Americas | Europe | Middle East | Africa | Asia Pacific |
+  |---|---|---|---|---|
+  | Brazil South | France Central | | South Africa North | Australia East |
+  | Canada Central | Germany West Central | | | Central India |
+  | Central US | North Europe | | | Japan East |
+  | East US | Norway East | | | Korea Central |
+  | East US 2 | UK South | | | Southeast Asia |
+  | South Central US | West Europe | | | East Asia |
+  | US Gov Virginia | Sweden Central | | | China North 3 |
+  | West US 2 | Switzerland North | | | |
+  | West US 3 | | | | |
 
 
 ## Management 
@@ -37,10 +50,10 @@ Log Analytics Dedicated Clusters use a commitment tier pricing model of at least
 
 ## Create a dedicated cluster
 
-You must specify the following properties when you create a new dedicated cluster:
+Provide the following properties when creating new dedicated cluster:
 
-- **ClusterName**
-- **ResourceGroupName**: You should use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
+- **ClusterName**: Must be unique for the resource group.
+- **ResourceGroupName**: You should use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review Design a Log Analytics workspace configuration(../logs/workspace-design.md).
 - **Location**
 - **SkuCapacity**: The Commitment Tier (formerly called capacity reservations) can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
 
@@ -48,7 +61,7 @@ The user account that creates the clusters must have the standard Azure resource
 
 After you create your cluster resource, you can edit additional properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
-You can have up to five active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to four reserved clusters per subscription per region (active or recently deleted).
+You can have up to five active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to seven reserved clusters per subscription per region (active or recently deleted).
 
 > [!NOTE]
 > Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
@@ -581,7 +594,7 @@ Authorization: Bearer <token>
 
 - A maximum of five active clusters can be created in each region and subscription.
 
-- A maximum number of four reserved clusters (active or recently deleted) can be created in each region and subscription.
+- A maximum number of seven reserved clusters (active or recently deleted) can exist in each region and subscription.
 
 - A maximum of 1,000 Log Analytics workspaces can be linked to a cluster.
 
@@ -654,4 +667,4 @@ Authorization: Bearer <token>
 ## Next steps
 
 - Learn about [Log Analytics dedicated cluster billing](cost-logs.md#dedicated-clusters)
-- Learn about [proper design of Log Analytics workspaces](../logs/design-logs-deployment.md)
+- Learn about [proper design of Log Analytics workspaces](../logs/workspace-design.md)

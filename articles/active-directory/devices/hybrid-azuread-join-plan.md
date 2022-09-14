@@ -10,7 +10,7 @@ ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -79,7 +79,7 @@ As a first planning step, you should review your environment and determine wheth
 - Hybrid Azure AD join isn't supported for Windows Server running the Domain Controller (DC) role.
 - Hybrid Azure AD join isn't supported on Windows down-level devices when using credential roaming or user profile roaming or mandatory profile.
 - Server Core OS doesn't support any type of device registration.
-- User State Migration Tool (USMT) doesn't work with device registration.  
+- User State Migration Tool (USMT) doesn't work with device registration.
 
 ### OS imaging considerations
 
@@ -94,7 +94,7 @@ As a first planning step, you should review your environment and determine wheth
 If your Windows 10 or newer domain joined devices are [Azure AD registered](concept-azure-ad-register.md) to your tenant, it could lead to a dual state of hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or newer to automatically address this scenario. In pre-1803 releases, you'll need to remove the Azure AD registered state manually before enabling hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
 - Any existing Azure AD registered state for a user would be automatically removed <i>after the device is hybrid Azure AD joined and the same user logs in</i>. For example, if User A had an Azure AD registered state on the device, the dual state for User A is cleaned up only when User A logs in to the device. If there are multiple users on the same device, the dual state is cleaned up individually when those users log in. After removing the Azure AD registered state, Windows 10 will unenroll the device from Intune or other MDM, if the enrollment happened as part of the Azure AD registration via auto-enrollment.
-- Azure AD registered state on any local accounts on the device isn’t impacted by this change. Only applicable to domain accounts. Azure AD registered state on local accounts isn't removed automatically even after user logon, since the user isn't a domain user. 
+- Azure AD registered state on any local accounts on the device isn’t impacted by this change. Only applicable to domain accounts. Azure AD registered state on local accounts isn't removed automatically even after user logon, since the user isn't a domain user.
 - You can prevent your domain joined device from being Azure AD registered by adding the following registry value to HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001.
 - In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to reconfigure Windows Hello for Business after the dual state cleanup. This issue has been addressed with KB4512509.
 
@@ -105,7 +105,7 @@ If your Windows 10 or newer domain joined devices are [Azure AD registered](conc
 
 To register devices as hybrid Azure AD join to respective tenants, organizations need to ensure that the SCP configuration is done on the devices and not in AD. More details on how to accomplish this task can be found in the article [Hybrid Azure AD join targeted deployment](hybrid-azuread-join-control.md). It's important for organizations to understand that certain Azure AD capabilities won't work in a single forest, multiple Azure AD tenants configurations.
 
-- [Device writeback](../hybrid/how-to-connect-device-writeback.md) won't work. This configuration affects [Device based Conditional Access for on-premise apps that are federated using ADFS](/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises). This configuration also affects [Windows Hello for Business deployment when using the Hybrid Cert Trust model](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust).
+- [Device writeback](../hybrid/how-to-connect-device-writeback.md) won't work. This configuration affects [Device based Conditional Access for on-premises apps that are federated using ADFS](/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises). This configuration also affects [Windows Hello for Business deployment when using the Hybrid Cert Trust model](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust).
 - [Groups writeback](../hybrid/how-to-connect-group-writeback.md) won't work. This configuration affects writeback of Office 365 Groups to a forest with Exchange installed.
 - [Seamless SSO](../hybrid/how-to-connect-sso.md) won't work. This configuration affects SSO scenarios that organizations may be using on cross OS or browser platforms, for example iOS or Linux with Firefox, Safari, or Chrome without the Windows 10 extension.
 - [Hybrid Azure AD join for Windows down-level devices in managed environment](./hybrid-azuread-join-managed-domains.md#enable-windows-down-level-devices) won't work. For example, hybrid Azure AD join on Windows Server 2012 R2 in a managed environment requires Seamless SSO and since Seamless SSO won't work, hybrid Azure AD join for such a setup won't work.
@@ -115,7 +115,7 @@ To register devices as hybrid Azure AD join to respective tenants, organizations
 
 - If your environment uses virtual desktop infrastructure (VDI), see [Device identity and desktop virtualization](./howto-device-identity-virtual-desktop-infrastructure.md).
 
-- Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with hybrid Azure AD join. Microsoft doesn't provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Contact your hardware OEM for support. 
+- Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with hybrid Azure AD join. Microsoft doesn't provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Contact your hardware OEM for support.
 
 - Starting from Windows 10 1903 release, TPMs 1.2 aren't used with hybrid Azure AD join and devices with those TPMs will be considered as if they don't have a TPM.
 
@@ -130,7 +130,7 @@ Organizations may want to do a targeted rollout of hybrid Azure AD join before e
 
 ## Select your scenario based on your identity infrastructure
 
-Hybrid Azure AD join works with both, managed and federated environments depending on whether the UPN is routable or non-routable. See bottom of the page for table on supported scenarios.  
+Hybrid Azure AD join works with both, managed and federated environments depending on whether the UPN is routable or non-routable. See bottom of the page for table on supported scenarios.
 
 ### Managed environment
 
@@ -140,27 +140,26 @@ These scenarios don't require you to configure a federation server for authentic
 
 > [!NOTE]
 > [Cloud authentication using Staged rollout](../hybrid/how-to-connect-staged-rollout.md) is only supported starting at the Windows 10 1903 update.
-> 
-> Azure AD doesn't support smartcards or certificates in managed domains.
+
 
 ### Federated environment
 
 A federated environment should have an identity provider that supports the following requirements. If you have a federated environment using Active Directory Federation Services (AD FS), then the below requirements are already supported.
 
 - **WIAORMULTIAUTHN claim:** This claim is required to do hybrid Azure AD join for Windows down-level devices.
-- **WS-Trust protocol:** This protocol is required to authenticate Windows current hybrid Azure AD joined devices with Azure AD. 
-When you're using AD FS, you need to enable the following WS-Trust endpoints: 
-  `/adfs/services/trust/2005/windowstransport`  
-  `/adfs/services/trust/13/windowstransport`  
-  `/adfs/services/trust/2005/usernamemixed` 
+- **WS-Trust protocol:** This protocol is required to authenticate Windows current hybrid Azure AD joined devices with Azure AD.
+When you're using AD FS, you need to enable the following WS-Trust endpoints:
+  `/adfs/services/trust/2005/windowstransport`
+  `/adfs/services/trust/13/windowstransport`
+  `/adfs/services/trust/2005/usernamemixed`
   `/adfs/services/trust/13/usernamemixed`
-  `/adfs/services/trust/2005/certificatemixed` 
-  `/adfs/services/trust/13/certificatemixed` 
+  `/adfs/services/trust/2005/certificatemixed`
+  `/adfs/services/trust/13/certificatemixed`
 
-> [!WARNING] 
+> [!WARNING]
 > Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
 
-Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure device registration](hybrid-azuread-join-manual.md). 
+Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure device registration](hybrid-azuread-join-manual.md).
 
 ## Review on-premises AD users UPN support for hybrid Azure AD join
 

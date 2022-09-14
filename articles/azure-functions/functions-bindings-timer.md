@@ -158,8 +158,7 @@ import azure.functions as func
 
 
 def main(mytimer: func.TimerRequest) -> None:
-    utc_timestamp = datetime.datetime.utcnow().replace(
-        tzinfo=datetime.timezone.utc).isoformat()
+    utc_timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat()
 
     if mytimer.past_due:
         logging.info('The timer is past due!')
@@ -318,7 +317,7 @@ Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less tha
 |--------------|----------------|
 | "01:00:00"   | every hour     |
 | "00:01:00"   | every minute   |
-| "25:00:00"   | every 25 days  |
+| "25:00:00:00"| every 25 days  |
 | "1.00:00:00" | every day      |
 
 ### Scale-out

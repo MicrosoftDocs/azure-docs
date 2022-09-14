@@ -1,10 +1,12 @@
 ---
 title: Azure Service Fabric security best practices
 description: Best practices and design considerations for keeping Azure Service Fabric clusters and applications secure.
-author: peterpogorski
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.author: pepogors
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Azure Service Fabric security 
@@ -221,7 +223,7 @@ Customers should configure their Azure-hosted workloads and on-premises applicat
 
 ## Windows Defender 
 
-By default, Windows Defender antivirus is installed on Windows Server 2016. For details, see [Windows Defender Antivirus on Windows Server 2016](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). The user interface is installed by default on some SKUs, but is not required. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, declare the following Virtual Machine Scale Set Extension Resource Manager template properties to exclude your Service Fabric cluster from scans:
+By default, Windows Defender antivirus is installed on Windows Server 2016. For details, see [Windows Defender Antivirus on Windows Server 2016](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows). The user interface is installed by default on some SKUs, but is not required. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, declare the following Virtual Machine Scale Set Extension Resource Manager template properties to exclude your Service Fabric cluster from scans:
 
 
 ```json

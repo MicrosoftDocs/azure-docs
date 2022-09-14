@@ -3,7 +3,8 @@ title: Tutorial - Configure networking for your VMware private cloud in Azure
 description: Learn to create and configure the networking needed to deploy your private cloud in Azure
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
-ms.date: 07/30/2021
+ms.service: azure-vmware
+ms.date: 05/31/2022
 
 ---
 
@@ -29,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Connect with the Azure vNet connect feature
 
-You can use the **Azure vNet connect** feature to use an existing vNet or create a new vNet to connect to Azure VMware Solution.   
+You can use the **Azure vNet connect** feature to use an existing vNet or create a new vNet to connect to Azure VMware Solution. **Azure vNet connect** is a function to configure vNet connectivity, it does not record configuration state; browse the Azure portal to check what settings have been configured.
 
 >[!NOTE]
 >Address space in the vNet cannot overlap with the Azure VMware Solution private cloud CIDR.
@@ -42,6 +43,7 @@ Before selecting an existing vNet, there are specific requirements that must be 
 1. In the same region as Azure VMware Solution private cloud.
 1. In the same resource group as Azure VMware Solution private cloud.
 1. vNet must contain an address space that doesn't overlap with Azure VMware Solution.
+1. Validate solution design is within Azure VMware Solution limits (Microsoft technical documentation/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### Select an existing vNet
 

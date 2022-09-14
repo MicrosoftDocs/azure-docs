@@ -13,9 +13,6 @@ ms.author: duau
 
 This article helps you configure ExpressRoute Global Reach using the Azure portal. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
 
-> [!NOTE]
-> IPv6 support for ExpressRoute Global Reach is now in Public Preview.
-
  ## Before you begin
 
 Before you start configuration, confirm the following criteria:
@@ -47,7 +44,7 @@ Enable connectivity between your on-premises networks. There are separate sets o
 1. On the *Add Global Reach* configuration page, give a name to this configuration. Select the *ExpressRoute circuit* you want to connect this circuit to and enter in a **/29 IPv4** for the *Global Reach IPv4 subnet*. We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. Don’t use the addresses in this subnet in your Azure virtual networks, private peering subnet, or on-premises network. Select **Add** to add the circuit to the private peering configuration.
 
     > [!NOTE]
-    > IPv6 support for ExpressRoute Global Reach is now in Public Preview. If you want to enable this feature for test workloads, select "Both" for the *Subnets* field and include a **/125 IPv6** subnet for the *Global Reach IPv6 subnet*.
+    > If you wish to enable IPv6 support for ExpressRoute Global Reach, select "Both" for the *Subnets* field and include a **/125 IPv6** subnet for the *Global Reach IPv6 subnet*.
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration.png" alt-text="Screenshot of adding Global Reach in Overview tab.":::
 
@@ -76,7 +73,7 @@ If the two circuits aren't in the same Azure subscription, you'll need authoriza
 1. On the *Add Global Reach* configuration page, give a name to this configuration. Check the **Redeem authorization** box. Enter the **Authorization Key** and the **ExpressRoute circuit ID** generated and obtained in Step 1. Then provide a **/29 IPv4** for the *Global Reach IPv4 subnet*. We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. Don’t use the addresses in this subnet in your Azure virtual networks, or in your on-premises network. Select **Add** to add the circuit to the private peering configuration.
 
     > [!NOTE]
-    > IPv6 support for ExpressRoute Global Reach is now in Public Preview. If you want to enable this feature for test workloads, select "Both" for the *Subnets* field and include a **/125 IPv6** subnet for the *Global Reach IPv6 subnet*.
+    > If you wish to enable IPv6 support for ExpressRoute Global Reach, select "Both" for the *Subnets* field and include a **/125 IPv6** subnet for the *Global Reach IPv6 subnet*.
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration-with-authorization.png" alt-text="Screenshot of Add Global Reach with authorization key.":::
 
@@ -93,6 +90,20 @@ Verify the Global Reach configuration by reviewing the list of Global Reach conn
 To disable connectivity between an individual circuit, select the delete button to the right of the Global Reach connection to remove connectivity between them. Then select **Save** to complete the operation.
 
 After the operation is complete, you no longer have connectivity between your on-premises network through your ExpressRoute circuits.
+
+## Update configuration
+
+1. To update the configuration for a Global Reach connection, select the connection name.
+
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/select-configuration.png" alt-text="Screenshot of Global Reach connection name.":::
+
+1. Update the configuration on the *Edit Global Reach** page and the select **Save**.
+
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/edit-configuration.png" alt-text="Screenshot of the edit Global Reach configuration page.":::
+
+1. Select **Save** on the main overview page to apply the configuration to the circuit.
+
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-edit-configuration.png" alt-text="Screenshot of the save button after editing Global Reach configuration.":::
 
 ## Next steps
 - [Learn more about ExpressRoute Global Reach](expressroute-global-reach.md)

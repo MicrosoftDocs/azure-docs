@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/16/2021
+ms.date: 08/09/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro GPU device.
 ---
@@ -18,7 +18,7 @@ ms.author: alkohli
 
 To deploy VMs on your Azure Stack Edge Pro GPU device, you need to be able to create custom VM images that you can use to create VMs in Azure. This article describes the steps to create custom VM images in Azure for Windows and Linux VMs and download or copy those images to an Azure Storage account.
 
-There's a required workflow for preparing a custom VM image. For the image source, you need to use a fixed VHD from a Gen1 VM of any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
+There's a required workflow for preparing a custom VM image. For the image source, you need to use a fixed VHD from any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
 
 ## Prerequisites
 
@@ -39,9 +39,9 @@ Do the following steps to create a Windows VM image:
 
 1. Create a Windows virtual machine in Azure. For portal instructions, see [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md). For PowerShell instructions, see [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).  
 
-   The virtual machine must be a Generation 1 VM. The OS disk that you use to create your VM image must be a fixed-size VHD of any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
+   The virtual machine can be a Generation 1 or Generation 2 VM. The OS disk that you use to create your VM image must be a fixed-size VHD of any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
 
-   You can use any Windows Gen1 VM with a fixed-size VHD in Azure Marketplace. For a list Azure Marketplace images that could work, see [Commonly used Azure Marketplace images for Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images).
+   You can use any Windows Gen1 or Gen2 VM with a fixed-size VHD in Azure Marketplace. For a of list Azure Marketplace images that could work, see [Commonly used Azure Marketplace images for Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images).
 
 2. Generalize the virtual machine. To generalize the VM, [connect to the virtual machine](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm), open a command prompt, and run the following `sysprep` command:
 
@@ -59,7 +59,7 @@ Do the following steps to create a Linux VM image:
 
 1. Create a Linux virtual machine in Azure. For portal instructions, see [Quickstart: Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).  For PowerShell instructions, see [Quickstart: Create a Linux VM in Azure with PowerShell](../virtual-machines/linux/quick-create-powershell.md).
 
-   You can use any Gen1 VM with a fixed-size VHD in Azure Marketplace to create Linux custom images, with the exception of Red Hat Enterprise Linux (RHEL) images, which require extra steps. For a list of Azure Marketplace images that could work, see [Commonly used Azure Marketplace images for Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images). For guidance on RHEL images, see [Using RHEL BYOS images](#using-rhel-byos-images), below.
+   You can use any Gen1 or Gen2 VM with a fixed-size VHD in Azure Marketplace to create Linux custom images. This excludes Red Hat Enterprise Linux (RHEL) images, which require extra steps and can only be used to create a Gen1 VM image. For a list of Azure Marketplace images that could work, see [Commonly used Azure Marketplace images for Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images). For guidance on RHEL images, see [Using RHEL BYOS images](#using-rhel-byos-images), below.
 
 1. Deprovision the VM. Use the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see [Understanding and using Azure Linux Agent](../virtual-machines/extensions/agent-linux.md).
 
@@ -78,11 +78,11 @@ Do the following steps to create a Linux VM image:
 
 ### Using RHEL BYOS images
 
-If using Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Linux Bring Your Own Subscription (RHEL BYOS) images, also known as the Red Hat gold images, are supported and can be used to create your VM image. The standard pay-as-you-go RHEL images on Azure Marketplace are not supported on Azure Stack Edge.
+If using Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Linux Bring Your Own Subscription (RHEL BYOS) images, also known as the Red Hat gold images, are supported and can be used to create your VM image. The standard pay-as-you-go RHEL images on Azure Marketplace aren't supported on Azure Stack Edge.
 
 To create a VM image using the RHEL BYOS image, follow these steps:
 
-1. Log in to [Red Hat Subscription Management](https://access.redhat.com/management). Navigate to the [Cloud Access Dashboard](https://access.redhat.com/management/cloud) from the top menu bar.
+1. Sign in to [Red Hat Subscription Management](https://access.redhat.com/management). Navigate to the [Cloud Access Dashboard](https://access.redhat.com/management/cloud) from the top menu bar.
 1. Enable your Azure subscription. See [detailed instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/getting-started-with-ca_cloud-access). Enabling the subscription will allow you to access the Red Hat Gold Images.
 
 1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access). 

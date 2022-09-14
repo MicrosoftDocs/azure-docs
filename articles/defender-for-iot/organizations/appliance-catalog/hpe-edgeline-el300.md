@@ -9,13 +9,13 @@ ms.topic: reference
 
 This article describes the HPE Edgeline EL300 appliance for OT sensors or on-premises management consoles.
 
-Legacy appliances are certified but aren't currently offered as pre-configured appliances.
+Legacy appliances are certified but aren't currently offered as preconfigured appliances.
 
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | SMB|
-|**Performance** | 	Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
+|**Hardware profile** | L500 |
+|**Performance** |Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|
 
@@ -34,7 +34,7 @@ The following image shows a view of the back panel of the HPE Edgeline EL300.
 |CPU|Intel Core i7-8650U (1.9GHz/4-core/15W)|
 |Chipset|Intel® Q170 Platform Controller Hub|
 |Memory|8 GB DDR4 2133 MHz Wide Temperature SODIMM|
-|Storage|128 GB 3ME3 Wide Temperature mSATA SSD|
+|Storage|256-GB SATA 6G Read Intensive M.2 2242 3 year warranty wide temperature SSD|
 |Network controller|6x Gigabit Ethernet ports by Intel® I219|
 |Device access|4 USBs: Two fronts; two rears; 1 internal|
 |Power Adapter|250V/10A|
@@ -80,7 +80,6 @@ A default administrative user is provided. We recommend that you change the pass
 > Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
-
 ### Enable remote access
 
 1. Enter the iSM IP Address into your web browser.
@@ -91,7 +90,7 @@ A default administrative user is provided. We recommend that you change the pass
 
     :::image type="content" source="../media/tutorial-install-components/wired-and-wireless.png" alt-text="Screenshot of the Wired and Wireless Network screen.":::
 
-1. Toggle off the **DHCP** option..
+1. Toggle off the **DHCP** option.
 
 1. Configure the IPv4 addresses as such:
     - **IPV4 Address**: `192.168.1.125`
@@ -148,6 +147,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

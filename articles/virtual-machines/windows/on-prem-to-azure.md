@@ -4,7 +4,7 @@ description: Create VMs in Azure using VHDs uploaded from other clouds like AWS 
 author: roygara
 manager: twooley
 ms.service: storage
-ms.subervice: disks
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: conceptual
