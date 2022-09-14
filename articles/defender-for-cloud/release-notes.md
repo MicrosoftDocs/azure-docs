@@ -21,6 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 ## September 2022
 
 - [Suppress alerts based on Container and Kubernetes entities](#suppress-alerts-based-on-container-and-kubernetes-entities)
+- [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
 
 ### Suppress alerts based on Container and Kubernetes entities
 
@@ -41,6 +42,14 @@ You can now suppress alerts based on these Kubernetes entities so you can use th
 - Kubernetes CronJob
 
 Learn more about [alert suppression rules](alerts-suppression-rules.md).
+
+### Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent
+
+File integrity monitoring (FIM) examines operating system files and registries for changes that might indicate an attack.
+
+FIM is now available in a new version based on Azure Monitor Agent (AMA), which you can deploy through Defender for Cloud.
+
+Learn more about [File Integrity Monitoring with the Azure Monitor Agent](file-integrity-monitoring-enable-ama.md).
 
 ## August 2022
 
