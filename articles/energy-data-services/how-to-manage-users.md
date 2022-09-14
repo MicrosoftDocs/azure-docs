@@ -110,7 +110,7 @@ Run the following curl command to get all the groups that are available for your
 Run the below curl command to add user(s) to the "Users" group using Entitlement service.
 
 ```bash
-    curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/users@<data-partition-id>.contoso.com/members' \
+    curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/users@<data-partition-id>.dataservices.energy/members' \
     --header 'data-partition-id: <data-partition-id>' \
     --header 'Authorization: Bearer <access_token>' \
     --header 'Content-Type: application/json' \
@@ -125,7 +125,7 @@ Run the below curl command to add user(s) to the "Users" group using Entitlement
 **Sample request**
 
 ```bash
-    curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/users@<instance>-<data-partition-name>.contoso.com/members' \
+    curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/users@<instance>-<data-partition-name>.dataservices.energy/members' \
     --header 'data-partition-id: <instance>-<data-partition-name>' \
     --header 'Authorization: Bearer <access_token>' \
     --header 'Content-Type: application/json' \
@@ -149,7 +149,7 @@ Run the below curl command to add user(s) to the "Users" group using Entitlement
 Run the below curl command to add user(s) to an entitlement group using Entitlement service.
 
 ```bash
-    curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/users.datalake.editors@<data-partition-id>.contoso.com/members' \
+    curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/users.datalake.editors@<data-partition-id>.dataservices.energy/members' \
     --header 'data-partition-id: <data-partition-id>' \
     --header 'Authorization: Bearer <access_token>' \
     --header 'Content-Type: application/json' \
@@ -164,7 +164,7 @@ Run the below curl command to add user(s) to an entitlement group using Entitlem
 **Sample request**
 
 ```bash
-    curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/users.datalake.editors@<instance>-<data-partition-name>.contoso.com/members' \
+    curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/users.datalake.editors@<instance>-<data-partition-name>.dataservices.energy/members' \
     --header 'data-partition-id: <instance>-<data-partition-name>' \
     --header 'Authorization: Bearer <access_token>' \
     --header 'Content-Type: application/json' \
@@ -210,17 +210,17 @@ Run the below curl command to get all the groups associated with the user.
         {
         "name": "data.default.viewers",
         "description": "Default data viewers",
-        "email": "data.default.viewers@<instance>-<data-partition-name>.contoso.com"
+        "email": "data.default.viewers@<instance>-<data-partition-name>.dataservices.energy"
         },
         {
         "name": "data.default.owners",
         "description": "Default data owners",
-        "email": "data.default.owners@<instance>-<data-partition-name>.contoso.com"
+        "email": "data.default.owners@<instance>-<data-partition-name>.dataservices.energy"
         },
         {
         "name": "service.search.user",
         "description": "Datalake Search users",
-        "email": "service.search.user@<instance>-<data-partition-name>.contoso.com"
+        "email": "service.search.user@<instance>-<data-partition-name>.dataservices.energy"
         }
     ]
     }
