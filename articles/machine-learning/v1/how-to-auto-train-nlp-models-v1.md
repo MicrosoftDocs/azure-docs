@@ -47,7 +47,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](../
     [!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
     
 
-* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](../tutorial-auto-train-models.md) or [how-to](../how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](how-to-auto-train-models-v1.md) or [how-to](../how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
 ## Select your NLP task 
 

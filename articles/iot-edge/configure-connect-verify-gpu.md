@@ -41,7 +41,7 @@ To create a GPU-optimized virtual machine (VM), choosing the right size is impor
 
 Let's create an IoT Edge VM with the [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) template in GitHub, then configure it to be GPU-optimized.
 
-1. Go to the IoT Edge VM deployment template in GitHub: [Azure/iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.3).
+1. Go to the IoT Edge VM deployment template in GitHub: [Azure/iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.4).
 
 1. Select the **Deploy to Azure** button, which initiates the creation of a custom VM for you in the Azure portal. 
 

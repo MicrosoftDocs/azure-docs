@@ -16,12 +16,10 @@ ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022
 # Tutorial: Train an object detection model (preview) with AutoML and Python (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](tutorial-auto-train-image-models-v1.md)
 > * [v2 (current version)](../tutorial-auto-train-image-models.md)
 	
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
-
 
 >[!IMPORTANT]
 > The features presented in this article are in preview. They should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features that might change at any time.
