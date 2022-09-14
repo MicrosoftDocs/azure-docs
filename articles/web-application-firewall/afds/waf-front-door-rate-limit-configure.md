@@ -310,7 +310,7 @@ az group create \
   --location westus
 ```
 
-### Create a Front Door profile
+## Create a Front Door profile
 
 Use the [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) command to create a new Front Door profile.
 
@@ -340,7 +340,7 @@ az afd endpoint create \
   --resource-group $resourceGroupName \
 ```
 
-### Create a WAF policy
+## Create a WAF policy
 
 Use the [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-create) command to create a WAF policy:
 
@@ -353,7 +353,7 @@ az network front-door waf-policy create \
   --sku Standard_AzureFrontDoor
 ```
 
-### Prepare to add a custom rate limit rule
+## Prepare to add a custom rate limit rule
 
 Use the [az network front-door waf-policy rule create](/cli/azure/network/front-door/waf-policy/rule#az-network-front-door-waf-policy-rule-create) command to create a custom rate limit rule. The following example sets the limit to 1000 requests per minute.
 
@@ -374,7 +374,7 @@ az network front-door waf-policy rule create \
 
 When any client IP address sends more than 1000 requests within one minute, the WAF blocks subsequent requests until the next minute starts.
 
-### Add a match condition
+## Add a match condition
 
 Use the [az network front-door waf-policy rule match-condition add](/cli/azure/network/front-door/waf-policy/rule/match-condition#az-network-front-door-waf-policy-rule-match-condition-add) command to add a match condition to your custom rule. The match condition identifies requests that should have the rate limit applied.
 
