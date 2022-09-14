@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot common Device Update for Azure IoT Hub issues | Microsoft Docs
 description: This document provides a list of tips and tricks to help remedy many possible issues you may be having with Device Update for IoT Hub.
-author: lichris
+author: chrisjlin
 ms.author: lichris
-ms.date: 2/17/2021
+ms.date: 9/13/2022
 ms.topic: troubleshooting
 ms.service: iot-hub-device-update
 ---
@@ -36,6 +36,9 @@ _You can verify that your device is connected to Device Update by checking if it
 
 ### Q: One or more of my devices is failing to update.
 _There are many possible root causes for a device update failure. Please validate that the device is: 1) connected to your IoT Hub instance, 2) connected to your Device Update instance, and 3) the Delivery Optimization (DO) service is running. If all three are true for your device, please follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft._
+
+### Q: My Device Update agent is failing to start up.
+_One of the most common reasons for a failure in Device Update agent start-up is a malformed configuration file (du-config.json). Please refer to the [configuration file documentation](./device-update-configuration-file.md) and ensure your agent is configured correctly. Note that all values in the configuration file must use double-quotes._
 
 ## <a name="deploy"></a> Deploying an update
 
