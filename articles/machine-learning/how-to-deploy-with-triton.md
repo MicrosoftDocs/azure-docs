@@ -108,7 +108,7 @@ cd cli
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An Azure Machine Learning workspace. If you don't have one, use the steps in [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-workspace?tabs=azure-portal) to create one.
+* An Azure Machine Learning workspace. If you don't have one, use the steps in [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](how-to-manage-workspace.md) to create one.
 
 --- 
 
@@ -174,7 +174,7 @@ This section shows how you can define a Triton deployment to deploy to a managed
     endpoint_name = f"endpoint-{random.randint(0, 10000)}"
     ```
 
-1. We use these details above in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the default [default azure authentication](https://docs.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) for this tutorial. Check the [configuration notebook](../../jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
+1. We use these details above in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. Check the [configuration notebook](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
     ```python 
     from azure.ai.ml import MLClient
