@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN with the Azure portal or t
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 08/31/2022
+ms.date: 09/13/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
@@ -56,7 +56,7 @@ Get-AzProviderFeature -FeatureName "ElasticSanPreviewAccess" -ProviderNamespace 
 
 1. Select **Next : Volume groups**.
 
-    :::image type="content" source="media/elastic-san-create/create-flow.png" alt-text="Screenshot of creation flow." lightbox="media/elastic-san-create/create-flow.png":::
+    :::image type="content" source="media/elastic-san-create/elastic-create-flow.png" alt-text="Screenshot of creation flow." lightbox="media/elastic-san-create/elastic-create-flow.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -126,7 +126,7 @@ Volumes are usable partitions of the SAN's total capacity, you must allocate a p
     The volume name is part of your volume's iSCI Qualified Name, and can't be changed once created.
 1. Select **Review + create** and deploy your SAN.
 
-    :::image type="content" source="media/elastic-san-create/volume-partitions.png" alt-text="Screenshot of volume creation." lightbox="media/elastic-san-create/volume-partitions.png":::
+    :::image type="content" source="media/elastic-san-create/elastic-volume-partitions.png" alt-text="Screenshot of volume creation." lightbox="media/elastic-san-create/elastic-volume-partitions.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -180,6 +180,8 @@ Once your networking has been configured, you can begin connecting volumes to yo
 1. Select the volume you'd like to connect to and select **Connect**.
 1. Copy the PowerShell commands provided and run them as an Administrator in a shell on your client.
 
+### Windows
+
 You'll need to construct a command to connect to your volume from a client.
 
 ```azurepowershell
@@ -199,6 +201,26 @@ iscsicli LoginTarget t $storageTargetIQN $portalName $port Root\ISCSIPRT\0000_0 
 
 ```
 
+### Linux
+
+First, get the information from the volume you'd like to connect to using the following command:
+
 ```azurecli
 az elastic-san volume-group list -e $sanName -g $resourceGroupName -v $searchedVolumeGroup -n $searchedVolume
+```
+
+You should see a list of output that looks like the following:
+
+:::image type="content" source="media/elastic-san-create/elastic-san-vol.png" alt-text="Screenshot of command output." lightbox="media/elastic-san-create/elastic-san-vol.png":::
+
+
+
+Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands.
+
+Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands.
+
+```azurecli
+iscsiadm -m node --target LoginTarget **yourStorageTargetIQN** --portal **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -o new
+
+iscsiadm -m node --targetname LoginTarget **yourStorageTargetIQN** -p **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -l
 ```

@@ -16,6 +16,8 @@ items:
   items:
   - name: Deploy an Elastic SAN
     href: elastic-san-create.md
+  - name: Expand an Elastic SAN
+    href: elastic-san-expand.md
   - name: Delete an Elastic SAN
     href: elastic-san-delete.md
   - name: Troubleshooting
