@@ -70,7 +70,7 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 Machine learning pipelines can use the previously mentioned training methods. Pipelines are more about creating a workflow, so they encompass more than just the training of models. In a pipeline, you can train a model using automated machine learning or run configurations.
 
 * [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md)
-* [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
+* [Create and run machine learning pipelines with Azure Machine Learning SDK](v1/how-to-create-machine-learning-pipelines.md)
 * [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
 * [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Examples: Pipeline with automated machine learning](https://aka.ms/pl-automl)
@@ -95,7 +95,7 @@ The Azure training lifecycle consists of:
 1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
 1. Scaling down compute, including removing temporary storage 
 
-If you choose to train on your local machine ("configure as local run"), you do not need to use Docker. You may use Docker locally if you choose (see the section [Configure ML pipeline](./how-to-debug-pipelines.md) for an example).
+If you choose to train on your local machine ("configure as local run"), you do not need to use Docker. You may use Docker locally if you choose (see the section [Configure ML pipeline](v1/how-to-debug-pipelines.md) for an example).
 
 ## Azure Machine Learning designer
 

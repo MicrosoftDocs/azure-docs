@@ -66,7 +66,7 @@ sections:
       - question: |
           What is Microsoft Learn?
         answer: |
-          [Microsoft Learn](/learn/) is a free, online learning platform that allows you to learn Azure technologies at your own pace. Learning Paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
+          [Microsoft Learn](/learn/) is a free online learning platform that allows you to learn Azure technologies at your own pace. Learning Paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
           
       - question: |
           Can Azure for Students be used for production or only for development?
@@ -124,7 +124,7 @@ sections:
       - question: |
           What is Microsoft Learn?
         answer: |
-          [Microsoft Learn](/learn/) is a free, online-learning platform that lets you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, and then move to advanced methods that address real-world challenges.
+          [Microsoft Learn](/learn/) is a free online learning platform that lets you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, and then move to advanced methods that address real-world challenges.
           
   - name: Azure Academic Grant
     questions:

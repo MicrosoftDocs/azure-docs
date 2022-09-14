@@ -172,10 +172,7 @@ items:
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
-  - name: IP addresses
-    href: app/ip-addresses.md
-    displayName: firewall, firewall exceptions, whitelist
-  - name: Self-Monitoring
+  - name: Self-monitoring
     href: monitor-azure-monitor.md 
 - name: How-to guides
   items:
@@ -469,7 +466,7 @@ items:
     - name: Install Azure Monitor Agent
       displayName: Azure Monitor agent
       items:
-      - name: Using extension
+      - name: Using the agent extension
         href: agents/azure-monitor-agent-manage.md
       - name: Using Windows client installer (preview)
         href: agents/azure-monitor-agent-windows-client.md
@@ -1507,11 +1504,14 @@ items:
   items:
   - name: Service limits
     href: service-limits.md
+  - name: IP addresses
+    href: app/ip-addresses.md
+    displayName: firewall, firewall exceptions, whitelist   
   - name: Terminology changes
     href: terminology.md
-  - name: Data reference
+  - name: Logs Tables reference
     href: /azure/azure-monitor/reference/
-  - name: Monitoring data reference
+  - name: Self-monitoring data reference
     href: azure-monitor-monitoring-reference.md 
   - name: Supported metrics
     items:
@@ -1611,6 +1611,8 @@ items:
     - name: REST API Walkthrough
       displayName: metrics, analyze
       href: essentials/rest-api-walkthrough.md
+  - name: Azure alerts management SDK for Python
+    href: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
   - name: Resource Manager templates
     items:
     - name: Azure Monitor

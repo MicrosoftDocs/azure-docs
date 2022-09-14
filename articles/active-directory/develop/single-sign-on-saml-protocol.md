@@ -101,7 +101,9 @@ A `Signature` element in `AuthnRequest` elements is optional. Azure AD does not 
 
 ### Subject
 
-Don't include a `Subject` element. Azure AD doesn't support specifying a subject for a request and will return an error if one is provided.
+Don't include a `Subject` element. Azure AD doesn't support specifying a subject in `AuthnRequest` and will return an error if one is provided.
+
+A subject can instead be provided by adding a `login_hint` parameter to the HTTP request to the single sign-on URL, with the subject's NameID as the parameter value.
 
 ## Response
 

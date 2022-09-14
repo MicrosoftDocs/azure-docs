@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Deploy a Python Django or Flask web app with PostgreSQL'
 description: Create a Python Django or Flask web app with a PostgreSQL database and deploy it to Azure. The tutorial uses either the Django or Flask framework and the app is hosted on Azure App Service on Linux.
-author: jess-johnson-msft
+author: SQLDataNinja
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/09/2022
-ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22, event-tier1-build-2022
+ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed
 ---
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
