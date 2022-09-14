@@ -11,7 +11,7 @@ ms.custom: mode-arm
 
 # Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using an ARM template
 
-This quickstart describes the steps to deploy a Microsoft Purview (formerly Azure Purview) account using an Azure Resource Manager (ARM) template. 
+This quickstart describes the steps to deploy a Microsoft Purview (formerly Azure Purview) account using an Azure Resource Manager (ARM) template.
 
 After you've created the account, you can begin registering your data sources and using the Microsoft Purview governance portal to understand and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end data linage. Data consumers are able to discover data across your organization and data administrators are able to audit, secure, and ensure right use of your data.
 
@@ -31,18 +31,18 @@ The template will deploy a Microsoft Purview account into a new or existing reso
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/data-share-share-storage-account/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-purview-deployment/).
 
 <!--- Below link needs to be updated to Purview quickstart, which I'm currently working on. --->
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.azurepurview/azure-purview-deployment/azuredeploy.json":::
 
 The following resources are defined in the template:
 
-* Microsoft.Purview/accounts
+* [Microsoft.Purview/accounts](/azure/templates/microsoft.purview/accounts?pivots=deployment-language-arm-template)
 
 The template performs the following tasks:
 
-* Creates a Microsoft Purview account in the specified resource group.
+* Creates a Microsoft Purview account in a specified resource group.
 
 ## Open Microsoft Purview governance portal
 

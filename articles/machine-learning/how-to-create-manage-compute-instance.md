@@ -364,12 +364,14 @@ RStudio is one of the most popular IDEs among R developers for ML and data scien
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows RStudio settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
 
+[!INCLUDE [private link ports](../../includes/machine-learning-private-link-ports.md)]
+
 > [!NOTE]
 > * Support for accessing your workspace file store from RStudio is not yet available.
 > * When accessing multiple instances of RStudio, if you see a "400 Bad Request. Request Header Or Cookie Too Large" error, use a new browser or access from a browser in incognito mode.
 > * Shiny applications are not currently supported on RStudio Workbench.
-
  
+
 ### Setup RStudio open source
 
 To use RStudio open source, set up a custom application as follows:
@@ -395,6 +397,8 @@ To use RStudio open source, set up a custom application as follows:
 1. Select **Create** to set up RStudio as a custom application on your compute instance.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
+
+[!INCLUDE [private link ports](../../includes/machine-learning-private-link-ports.md)]
  
 ### Setup other custom applications
 
@@ -403,10 +407,16 @@ Set up other custom applications on your compute instance by providing the appli
 1. Follow the steps listed above to **Add application** when creating your compute instance.
 1. Select **Custom Application** on the **Application** dropdown. 
 1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application.
-1. Optionally, add **Environment variables** and **Bind mounts** you wish to use for your application.
+1. Optionally, add **Environment variables**  you wish to use for your application.
+1. Use **Bind mounts** to add access to the files in your default storage account: 
+   * Specify **/home/azureuser/cloudfiles** for **Host path**.  
+   * Specify **/home/azureuser/cloudfiles** for the **Container path**.
+   * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them will be available in other compute instances and applications.
 1. Select **Create** to set up the custom application on your compute instance.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service.png" alt-text="Screenshot show custom application settings." lightbox="media/how-to-create-manage-compute-instance/custom-service.png":::
+
+[!INCLUDE [private link ports](../../includes/machine-learning-private-link-ports.md)]
 
 ### Accessing custom applications in studio
 
