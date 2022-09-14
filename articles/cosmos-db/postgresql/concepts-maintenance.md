@@ -17,7 +17,7 @@ Azure Cosmos DB for PostgreSQL does periodic maintenance to
 keep your managed database secure, stable, and up-to-date.  During maintenance,
 all nodes in the cluster get new features, updates, and patches.
 
-The key features of scheduled maintenance for Hyperscale (Citus) are:
+The key features of scheduled maintenance for Azure Cosmos DB for PostgreSQL are:
 
 * Updates are applied at the same time on all nodes in the cluster
 * Notifications about upcoming maintenance are posted to Azure Service Health

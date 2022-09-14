@@ -17,7 +17,7 @@ ms.date: 07/11/2022
 ## Updates feed
 
 The Microsoft Azure website lists newly available features per product, plus
-features in preview and development. Check the [Hyperscale (Citus)
+features in preview and development. Check the [Azure Cosmos DB for PostgreSQL
 updates](https://azure.microsoft.com/en-us/updates/?category=databases&query=%22Cosmos%20DB%20for%20PostgreSQL%22)
 section for the latest. An RSS feed is also available on that page.
 

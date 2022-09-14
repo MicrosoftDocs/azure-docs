@@ -29,9 +29,9 @@ To follow this quickstart, you'll first need to:
 
 ## Get started with the Basic Tier
 
-The Basic Tier allows you to deploy Hyperscale (Citus) as a single node, while
+The Basic Tier allows you to deploy Azure Cosmos DB for PostgreSQL as a single node, while
 having the superpower of distributing tables. At a few dollars a day, it's the
-most cost-effective way to experience Hyperscale (Citus). Later, if your
+most cost-effective way to experience Azure Cosmos DB for PostgreSQL. Later, if your
 application requires greater scale, you can add nodes and rebalance your data.
 
 Let's get started!

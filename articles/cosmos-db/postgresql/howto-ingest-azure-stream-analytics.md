@@ -19,13 +19,13 @@ process high volumes of fast streaming data from devices, sensors, and web
 sites. It's also available on the Azure IoT Edge runtime, enabling data
 processing on IoT devices.
 
-:::image type="content" source="media/howto-ingestion/azure-stream-analytics-01-reference-arch.png" alt-text="Reference architecture of ASA with Hyperscale (Citus)." border="true":::
+:::image type="content" source="media/howto-ingestion/azure-stream-analytics-01-reference-arch.png" alt-text="Reference architecture of ASA with Azure Cosmos DB for PostgreSQL." border="true":::
 
-Hyperscale (Citus) shines at real-time workloads such as
+Azure Cosmos DB for PostgreSQL shines at real-time workloads such as
 [IoT](quickstart-build-scalable-apps-model-high-throughput.md). For these workloads,
 Azure Stream Analytics (ASA) can act as a no-code, performant and scalable
 alternative to pre-process and stream data from Event Hubs, IoT Hub and Azure
-Blob Storage into Hyperscale (Citus).
+Blob Storage into Azure Cosmos DB for PostgreSQL.
 
 ## Steps to set up ASA
 
@@ -98,7 +98,7 @@ Blob Storage into Hyperscale (Citus).
    1. Select **Save** to save the settings.
 
       > [!NOTE]
-      > The **Test Connection** feature for Hyperscale (Citus) is currently not
+      > The **Test Connection** feature for Azure Cosmos DB for PostgreSQL is currently not
       > supported and might throw an error, even when the connection works fine.
 
 1. Define transformation query.
@@ -106,7 +106,7 @@ Blob Storage into Hyperscale (Citus).
    :::image type="content" source="media/howto-ingestion/azure-stream-analytics-05-transformation-query.png" alt-text="Transformation query in Azure Stream Analytics." border="true":::
 
    1. Navigate to the Stream Analytics job that you created earlier.
-   1. For this tutorial, we'll be ingesting only the alternate events from IoT Hub into Hyperscale (Citus) to reduce the overall data size.
+   1. For this tutorial, we'll be ingesting only the alternate events from IoT Hub into Azure Cosmos DB for PostgreSQL to reduce the overall data size.
 
       ```sql
       select
@@ -155,4 +155,4 @@ Blob Storage into Hyperscale (Citus).
 ## Next steps
 
 Learn how to create a [real-time
-dashboard](tutorial-design-database-realtime.md) with Hyperscale (Citus).
+dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.

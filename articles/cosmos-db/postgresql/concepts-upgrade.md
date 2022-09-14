@@ -13,7 +13,7 @@ ms.date: 08/29/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-The Hyperscale (Citus) managed service can handle upgrades of both the
+The Azure Cosmos DB for PostgreSQL managed service can handle upgrades of both the
 PostgreSQL server, and the Citus extension. You can choose these versions
 mostly independently of one another, except Citus 11 requires PostgreSQL 13 or
 higher.

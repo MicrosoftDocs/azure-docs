@@ -22,8 +22,8 @@ Using Azure Data Factory, you can create and schedule data-driven workflows
 run on-premises, in Azure, or on other cloud providers for analytics and
 reporting.
 
-ADF has a data sink for Hyperscale (Citus). The data sink allows you to bring
-your data (relational, NoSQL, data lake files) into Hyperscale (Citus) tables
+ADF has a data sink for Azure Cosmos DB for PostgreSQL. The data sink allows you to bring
+your data (relational, NoSQL, data lake files) into Azure Cosmos DB for PostgreSQL tables
 for storage, processing, and reporting.
 
 ![Dataflow diagram for Azure Data Factory.](media/howto-ingestion/azure-data-factory-architecture.png)
@@ -31,7 +31,7 @@ for storage, processing, and reporting.
 ## ADF for real-time ingestion
 
 Here are key reasons to choose Azure Data Factory for ingesting data into
-Hyperscale (Citus):
+Azure Cosmos DB for PostgreSQL:
 
 * **Easy-to-use** - Offers a code-free visual environment for orchestrating and automating data movement.
 * **Powerful** - Uses the full capacity of underlying network bandwidth, up to 5 GiB/s throughput.
@@ -123,4 +123,4 @@ as shown below:
 ## Next steps
 
 Learn how to create a [real-time
-dashboard](tutorial-design-database-realtime.md) with Hyperscale (Citus).
+dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.

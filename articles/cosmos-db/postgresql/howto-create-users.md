@@ -25,8 +25,8 @@ comes with several roles pre-defined:
 * `postgres`
 * `citus`
 
-Since Hyperscale (Citus) is a managed PaaS service, only Microsoft can sign in with the
-`postgres` superuser role. For limited administrative access, Hyperscale (Citus)
+Since Azure Cosmos DB for PostgreSQL is a managed PaaS service, only Microsoft can sign in with the
+`postgres` superuser role. For limited administrative access, Azure Cosmos DB for PostgreSQL
 provides the `citus` role.
 
 Permissions for the `citus` role:
@@ -76,7 +76,7 @@ For example, to allow `db_user` to read `mytable`, grant the permission:
 GRANT SELECT ON mytable TO db_user;
 ```
 
-Hyperscale (Citus) propagates single-table GRANT statements through the entire
+Azure Cosmos DB for PostgreSQL propagates single-table GRANT statements through the entire
 cluster, applying them on all worker nodes. It also propagates GRANTs that are
 system-wide (for example, for all tables in a schema):
 

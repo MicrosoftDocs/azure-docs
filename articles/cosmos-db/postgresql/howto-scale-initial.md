@@ -20,11 +20,11 @@ reasonable choice.
 
 ## Use-cases
 
-Hyperscale (Citus) is frequently used in the following ways.
+Azure Cosmos DB for PostgreSQL is frequently used in the following ways.
 
 ### Multi-tenant SaaS
 
-When migrating to Hyperscale (Citus) from an existing single-node PostgreSQL
+When migrating to Azure Cosmos DB for PostgreSQL from an existing single-node PostgreSQL
 database instance, choose a cluster where the number of worker vCores and RAM
 in total equals that of the original instance. In such scenarios we have seen
 2-3x performance improvements because sharding improves resource utilization,
@@ -38,7 +38,7 @@ much RAM as workers, but there's no way to choose RAM and vCores independently.
 ### Real-time analytics
 
 Total vCores: when working data fits in RAM, you can expect a linear
-performance improvement on Hyperscale (Citus) proportional to the number of
+performance improvement on Azure Cosmos DB for PostgreSQL proportional to the number of
 worker cores. To determine the right number of vCores for your needs, consider
 the current latency for queries in your single-node database and the required
 latency in Azure Cosmos DB for PostgreSQL. Divide current latency by desired latency, and
@@ -50,11 +50,11 @@ memory requirements. You can run EXPLAIN ANALYZE on a query to determine how
 much memory it requires. Remember that vCores and RAM are scaled together as
 described in the [compute and storage](resources-compute.md) article.
 
-## Choosing a Hyperscale (Citus) tier
+## Choosing a Azure Cosmos DB for PostgreSQL tier
 
 The sections above give an idea how many vCores and how much RAM are needed for
 each use case. You can meet these demands through a choice between two
-Hyperscale (Citus) tiers: the basic tier and the standard tier.
+Azure Cosmos DB for PostgreSQL tiers: the basic tier and the standard tier.
 
 The basic tier uses a single database node to perform processing, while the
 standard tier allows more nodes. The tiers are otherwise identical, offering

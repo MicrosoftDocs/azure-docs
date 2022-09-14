@@ -113,7 +113,7 @@ to the replica when the replica is created or afterwards.
 ### Cross-region replication (preview)
 
 Read replicas can be created in the region of the primary cluster, or in
-any other [region supported by Hyperscale (Citus)](resources-regions.md). The
+any other [region supported by Azure Cosmos DB for PostgreSQL](resources-regions.md). The
 limit of five replicas per cluster counts across all regions, meaning five
 total, not five per region.
 

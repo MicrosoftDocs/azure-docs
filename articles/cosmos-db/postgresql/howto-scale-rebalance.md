@@ -15,7 +15,7 @@ ms.date: 07/20/2021
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 To take advantage of newly added nodes, rebalance distributed table
-[shards](concepts-distributed-data.md#shards). Rebalancing moves shards from existing nodes to the new ones. Hyperscale (Citus) offers
+[shards](concepts-distributed-data.md#shards). Rebalancing moves shards from existing nodes to the new ones. Azure Cosmos DB for PostgreSQL offers
 zero-downtime rebalancing, meaning queries continue without interruption during
 shard rebalancing.
 

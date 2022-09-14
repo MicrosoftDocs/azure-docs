@@ -19,7 +19,7 @@ on all cluster nodes.
 ## Test the upgrade first
 
 Upgrading PostgreSQL causes more changes than you might imagine, because
-Hyperscale (Citus) will also upgrade the [database
+Azure Cosmos DB for PostgreSQL will also upgrade the [database
 extensions](reference-extensions.md), including the Citus extension. Upgrades
 also require downtime in the database cluster.
 

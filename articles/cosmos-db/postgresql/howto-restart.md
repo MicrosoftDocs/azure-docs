@@ -31,4 +31,4 @@ connectivity downtime while the restart happens.
 
 - Changing some server parameters requires a restart. See the list of [all
   server parameters](reference-parameters.md) configurable on
-  Hyperscale (Citus).
+  Azure Cosmos DB for PostgreSQL.

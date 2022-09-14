@@ -34,7 +34,7 @@ For language-specific examples of adding pooling in application code, see the
 
 > [!NOTE]
 >
-> Hyperscale (Citus) also provides [server-side connection
+> Azure Cosmos DB for PostgreSQL also provides [server-side connection
 > pooling](concepts-connection-pool.md) using pgbouncer, but it mainly serves
 > to increase the client connection limit. An individual application's
 > performance benefits more from client- rather than server-side pooling.
@@ -65,7 +65,7 @@ UPDATE ads
  WHERE id = 42; -- missing filter on distribution column
 ```
 
-Although the query uniquely identifies a row and updates it, Hyperscale (Citus)
+Although the query uniquely identifies a row and updates it, Azure Cosmos DB for PostgreSQL
 doesn't know, at planning time, which shard the query will update. Citus takes a
 ShareUpdateExclusiveLock on all shards to be safe, which blocks other queries
 trying to update the table.
@@ -82,7 +82,7 @@ UPDATE ads
    AND company_id = 1; -- the distribution column
 ```
 
-The Hyperscale (Citus) query planner sees a direct filter on the distribution
+The Azure Cosmos DB for PostgreSQL query planner sees a direct filter on the distribution
 column and knows exactly which single shard to lock. In our tests, adding
 filters for the distribution column increased parallel update performance by
 **100x**.
@@ -313,12 +313,12 @@ In our measurement, bulk updating a set of rows with many transactions went
 
 ## I/O during ingestion
 
-I/O bottlenecking is typically less of a problem for Hyperscale (Citus) than
+I/O bottlenecking is typically less of a problem for Azure Cosmos DB for PostgreSQL than
 for single-node PostgreSQL because of sharding. The shards are individually
 smaller tables, with better index and cache hit rates, yielding better
 performance.
 
-However, even with Hyperscale (Citus), as tables and indices grow larger, disk
+However, even with Azure Cosmos DB for PostgreSQL, as tables and indices grow larger, disk
 I/O can become a problem for data ingestion.  Things to look out for are an
 increasing number of 'IO' `wait_event_type` entries appearing in
 `citus_stat_activity`:

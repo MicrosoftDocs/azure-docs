@@ -16,7 +16,7 @@ ms.date: 8/23/2021
 ## Finding which node contains data for a specific tenant
 
 In the multi-tenant use case, we can determine which worker node contains the
-rows for a specific tenant.  Hyperscale (Citus) groups the rows of distributed
+rows for a specific tenant.  Azure Cosmos DB for PostgreSQL groups the rows of distributed
 tables into shards, and places each shard on a worker node in the cluster. 
 
 Suppose our application's tenants are stores, and we want to find which worker
@@ -201,7 +201,7 @@ Example output:
 └───────────────┴────────────┘
 ```
 
-Note there are other Hyperscale (Citus) functions for querying distributed
+Note there are other Azure Cosmos DB for PostgreSQL functions for querying distributed
 table size, see [determining table size](howto-table-size.md).
 
 ## Identifying unused indices

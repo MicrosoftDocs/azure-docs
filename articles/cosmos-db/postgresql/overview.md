@@ -25,7 +25,7 @@ ms.date: 08/11/2022
 
 <!-- markdownlint-enable MD034 -->
 
-Hyperscale (Citus) is PostgreSQL extended with the superpower of "distributed
+Azure Cosmos DB for PostgreSQL is PostgreSQL extended with the superpower of "distributed
 tables." This superpower enables you to build highly scalable relational apps.
 You can start building apps on a single node cluster, the same way you
 would with PostgreSQL. As your app's scalability and performance requirements
@@ -41,7 +41,7 @@ IOT/telemetry, finance, logistics, and search.
 
 ## Implementation checklist
 
-As you're looking to create applications with Hyperscale (Citus), ensure you're
+As you're looking to create applications with Azure Cosmos DB for PostgreSQL, ensure you're
 reviewed the following topics:
 
 <!-- markdownlint-disable MD032 -->
@@ -49,7 +49,7 @@ reviewed the following topics:
 > [!div class="checklist"]
 > - Learn how to [build scalable apps](quickstart-build-scalable-apps-overview.md)
 > - Connect and query with your [app stack](quickstart-app-stacks-overview.md)
-> - See how the [Hyperscale (Citus) API](reference-overview.md) extends
+> - See how the [Azure Cosmos DB for PostgreSQL API](reference-overview.md) extends
 >   PostgreSQL, and try [useful diagnostic
 >   queries](howto-useful-diagnostic-queries.md)
 > - Pick the best [cluster size](howto-scale-initial.md) for your workload
@@ -61,7 +61,7 @@ reviewed the following topics:
 
 ## Fully managed, resilient database
 
-As Hyperscale (Citus) is a fully managed service, it has all the features for
+As Azure Cosmos DB for PostgreSQL is a fully managed service, it has all the features for
 worry-free operation in production. Features include:
 
 * automatic high availability
@@ -78,7 +78,7 @@ worry-free operation in production. Features include:
 
 ## Always the latest PostgreSQL features
 
-Hyperscale (Citus) is built around the open-source
+Azure Cosmos DB for PostgreSQL is built around the open-source
 [Citus](https://github.com/citusdata/citus) extension to PostgreSQL. Because
 Citus is an extension--not a fork--of the underlying database, it always
 supports the latest PostgreSQL version within one day of release.
@@ -90,9 +90,9 @@ It's the speed you need, on the database you love.
 
 ## Start simply, scale seamlessly
 
-The Basic Tier allows you to deploy Hyperscale (Citus) as a single node, while
+The Basic Tier allows you to deploy Azure Cosmos DB for PostgreSQL as a single node, while
 having the superpower of distributing tables. At a few dollars a day, it's the
-most cost-effective way to experience Hyperscale (Citus). Later, if your
+most cost-effective way to experience Azure Cosmos DB for PostgreSQL. Later, if your
 application requires greater scale, you can add nodes and rebalance your data.
 
 ![graduating to standard tier](media/overview/graduate.png)

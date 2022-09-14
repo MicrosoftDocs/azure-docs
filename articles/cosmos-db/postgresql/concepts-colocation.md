@@ -69,7 +69,7 @@ As long as the [working set](https://en.wikipedia.org/wiki/Working_set) for this
 
 Single-server queries start slowing down as the number of tenants and the data stored for each tenant grows. The working set stops fitting in memory and CPU becomes a bottleneck.
 
-In this case, we can shard the data across many nodes by using Hyperscale (Citus). The
+In this case, we can shard the data across many nodes by using Azure Cosmos DB for PostgreSQL. The
 first and most important choice we need to make when we decide to shard is the
 distribution column. Let's start with a naive choice of using `event_id` for
 the event table and `page_id` for the `page` table:
@@ -116,7 +116,7 @@ greater than the overhead of querying many shards.
 
 ### Distribute tables by tenant
 
-In Hyperscale (Citus), rows with the same distribution column value are guaranteed to
+In Azure Cosmos DB for PostgreSQL, rows with the same distribution column value are guaranteed to
 be on the same node. Starting over, we can create our tables with `tenant_id`
 as the distribution column.
 
@@ -126,7 +126,7 @@ SELECT create_distributed_table('event', 'tenant_id');
 SELECT create_distributed_table('page', 'tenant_id', colocate_with => 'event');
 ```
 
-Now Hyperscale (Citus) can answer the original single-server query without modification (Q1):
+Now Azure Cosmos DB for PostgreSQL can answer the original single-server query without modification (Q1):
 
 ```sql
 SELECT page_id, count(event_id)
@@ -141,7 +141,7 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-Because of filter and join on tenant_id, Hyperscale (Citus) knows that the entire
+Because of filter and join on tenant_id, Azure Cosmos DB for PostgreSQL knows that the entire
 query can be answered by using the set of colocated shards that contain the data
 for that particular tenant. A single PostgreSQL node can answer the query in
 a single step.

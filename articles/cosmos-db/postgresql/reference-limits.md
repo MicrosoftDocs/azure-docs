@@ -14,7 +14,7 @@ ms.date: 02/25/2022
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 The following section describes capacity and functional limits in the
-Hyperscale (Citus) service.
+Azure Cosmos DB for PostgreSQL service.
 
 ### Naming
 
@@ -46,7 +46,7 @@ connect beyond these limits will fail with an error.
 #### Connection pooling
 
 You can scale connections further using [connection
-pooling](concepts-connection-pool.md). Hyperscale (Citus) offers a
+pooling](concepts-connection-pool.md). Azure Cosmos DB for PostgreSQL offers a
 managed pgBouncer connection pooler configured for up to 2,000 simultaneous
 client connections.
 
@@ -70,7 +70,7 @@ for node and cluster sizes.
 Azure enforces a vCore quota per subscription per region. There are two
 independently adjustable quotas: vCores for coordinator nodes, and vCores for
 worker nodes. The default quota should be more than enough to experiment with
-Hyperscale (Citus). If you do need more vCores for a region in your
+Azure Cosmos DB for PostgreSQL. If you do need more vCores for a region in your
 subscription, see how to [adjust compute
 quotas](howto-compute-quota.md).
 
@@ -85,7 +85,7 @@ with an error.
 
 ### Columnar storage
 
-Hyperscale (Citus) currently has these limitations with [columnar
+Azure Cosmos DB for PostgreSQL currently has these limitations with [columnar
 tables](concepts-columnar.md):
 
 * Compression is on disk, not in memory

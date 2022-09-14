@@ -42,7 +42,7 @@ Visit [Create cluster](https://portal.azure.com/#create/Microsoft.PostgreSQLServ
      applications use to connect, in the form
      `cluster-name.postgres.database.azure.com`.
    * The admin username is required to be the value `citus`.
-   * You can choose a database version. Hyperscale (Citus) always supports the
+   * You can choose a database version. Azure Cosmos DB for PostgreSQL always supports the
      latest PostgreSQL version, within one day of release.
 
 2. Select **Configure cluster**.

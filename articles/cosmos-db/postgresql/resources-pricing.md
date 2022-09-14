@@ -1,6 +1,6 @@
 ---
 title: Pricing – Azure Cosmos DB for PostgreSQL
-description: Pricing and how to save with Hyperscale (Citus)
+description: Pricing and how to save with Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -29,17 +29,17 @@ options.
 
 ## Prepay for compute resources with reserved capacity
 
-Azure Cosmos DB for PostgreSQL now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Hyperscale (Citus) reserved capacity, you make an upfront commitment on cluster for a one- or three-year period to get a significant discount on the compute costs. To purchase Hyperscale (Citus) reserved capacity, you need to specify the Azure region, reservation term, and billing frequency.
+Azure Cosmos DB for PostgreSQL now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Cosmos DB for PostgreSQL reserved capacity, you make an upfront commitment on cluster for a one- or three-year period to get a significant discount on the compute costs. To purchase Azure Cosmos DB for PostgreSQL reserved capacity, you need to specify the Azure region, reservation term, and billing frequency.
 
-You don't need to assign the reservation to specific clusters. An already running cluster or ones that are newly deployed automatically get the benefit of reserved pricing. By purchasing a reservation, you're prepaying for the compute costs for one year or three years. As soon as you buy a reservation, the Hyperscale (Citus) compute charges that match the reservation attributes are no longer charged at the pay-as-you-go rates. 
+You don't need to assign the reservation to specific clusters. An already running cluster or ones that are newly deployed automatically get the benefit of reserved pricing. By purchasing a reservation, you're prepaying for the compute costs for one year or three years. As soon as you buy a reservation, the Azure Cosmos DB for PostgreSQL compute charges that match the reservation attributes are no longer charged at the pay-as-you-go rates. 
 
 A reservation doesn't cover software, networking, or storage charges associated with the clusters. At the end of the reservation term, the billing benefit expires, and the clusters are billed at the pay-as-you go price. Reservations don't autorenew. For pricing information, see the [Azure Cosmos DB for PostgreSQL reserved capacity offering](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-You can buy Hyperscale (Citus) reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
+You can buy Azure Cosmos DB for PostgreSQL reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 
 * You must be in the owner role for at least one Enterprise Agreement (EA) or individual subscription with pay-as-you-go rates.
 * For Enterprise Agreement subscriptions, **Add Reserved Instances** must be enabled in the [EA Portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an Enterprise Agreement admin on the subscription.
-* For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Hyperscale (Citus) reserved capacity.
+* For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Cosmos DB for PostgreSQL reserved capacity.
 
 For information on how Enterprise Agreement customers and pay-as-you-go customers are charged for reservation purchases, see:
 - [Understand Azure reservation usage for your Enterprise Agreement enrollment](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
@@ -61,7 +61,7 @@ In this case, purchase a one-year reservation for:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **All services** > **Reservations**.
 1. Select **Add**. In the **Purchase reservations** pane, select **Azure Database for PostgreSQL** to purchase a new reservation for your PostgreSQL databases.
-1. Select the **Hyperscale (Citus) Compute** type to purchase, and click **Select**.
+1. Select the **Azure Cosmos DB for PostgreSQL Compute** type to purchase, and click **Select**.
 1. Review the quantity for the selected compute type on the **Products** tab.
 1. Continue to the **Buy + Review** tab to finish your purchase.
 
@@ -73,7 +73,7 @@ The following table describes required fields.
 | Scope        | The vCore reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select **Shared**, the vCore reservation discount is applied to clusters running in any subscriptions within your billing context. For Enterprise Agreement customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For pay-as-you-go customers, the shared scope is all pay-as-you-go subscriptions created by the account administrator. If you select **Management group**, the reservation discount is applied to clusters running in any subscriptions that are a part of both the management group and billing scope. If you select **Single subscription**, the vCore reservation discount is applied to clusters in this subscription. If you select **Single resource group**, the reservation discount is applied to clusters in the selected subscription and the selected resource group within that subscription. |
 | Region       | The Azure region that's covered by the Azure Cosmos DB for PostgreSQL reserved capacity reservation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Term         | One year or three years.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Quantity     | The amount of compute resources being purchased within the Hyperscale (Citus) reserved capacity reservation. In particular, the number of coordinator or worker node vCores in the selected Azure region that are being reserved and which will get the billing discount. For example, if you're running (or plan to run) clusters with the total compute capacity of 64 coordinator node vCores and 32 worker node vCores in the East US region, specify the quantity as 64 and 32 for coordinator and worker nodes, respectively, to maximize the benefit for all servers.                                                                                                                                                                                                                                                     |
+| Quantity     | The amount of compute resources being purchased within the Azure Cosmos DB for PostgreSQL reserved capacity reservation. In particular, the number of coordinator or worker node vCores in the selected Azure region that are being reserved and which will get the billing discount. For example, if you're running (or plan to run) clusters with the total compute capacity of 64 coordinator node vCores and 32 worker node vCores in the East US region, specify the quantity as 64 and 32 for coordinator and worker nodes, respectively, to maximize the benefit for all servers.                                                                                                                                                                                                                                                     |
 
 
 

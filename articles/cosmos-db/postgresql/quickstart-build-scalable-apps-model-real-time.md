@@ -49,7 +49,7 @@ smaller "dimension" tables.
 
 ![Diagram of users, events, and miscellaneous tables.](media/howto-build-scalable-apps/real-time-data-model.png)
 
-To apply the super power of distributed tables on Hyperscale (Citus), follow
+To apply the super power of distributed tables on Azure Cosmos DB for PostgreSQL, follow
 the following steps:
 
 * Distribute large fact tables on a common column. In our case, users and

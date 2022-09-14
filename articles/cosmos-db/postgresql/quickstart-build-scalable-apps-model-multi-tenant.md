@@ -76,10 +76,10 @@ SELECT create_reference_table('countries');
 
 Large tables should all have the tenant ID.
 
-* If you're **migrating an existing** multi-tenant app to Hyperscale (Citus),
+* If you're **migrating an existing** multi-tenant app to Azure Cosmos DB for PostgreSQL,
   you may need to denormalize a little and add the tenant ID column to large
   tables if it's missing, then backfill the missing values of the column.
-* For **new apps** on Hyperscale (Citus), make sure the tenant ID is present
+* For **new apps** on Azure Cosmos DB for PostgreSQL, make sure the tenant ID is present
   on all tenant-specific tables.
 
 Ensure to include the tenant ID on primary, unique, and foreign key constraints
@@ -102,7 +102,7 @@ SELECT *
 
 It's necessary to add the tenant ID filter even if the original filter
 conditions unambiguously identify the rows you want. The tenant ID filter,
-while seemingly redundant, tells Hyperscale (Citus) how to route the query to a
+while seemingly redundant, tells Azure Cosmos DB for PostgreSQL how to route the query to a
 single worker node.
 
 Similarly, when you're joining two distributed tables, ensure that both the

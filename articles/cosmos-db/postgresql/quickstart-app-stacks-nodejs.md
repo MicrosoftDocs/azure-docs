@@ -1,6 +1,6 @@
 ---
-title: Node.js app to connect and query Hyperscale (Citus)
-description: Learn to query Hyperscale (Citus) using Node.js
+title: Node.js app to connect and query Azure Cosmos DB for PostgreSQL
+description: Learn to query Azure Cosmos DB for PostgreSQL using Node.js
 ms.author: sasriram
 author: saimicrosoft
 ms.service: cosmos-db
@@ -10,15 +10,15 @@ recommendations: false
 ms.date: 08/24/2022
 ---
 
-# Node.js app to connect and query Hyperscale (Citus)
+# Node.js app to connect and query Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this article, you'll connect to a cluster using a Node.js application. We'll see how to use SQL statements to query, insert, update and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js and are new to working with Hyperscale (Citus).
+In this article, you'll connect to a cluster using a Node.js application. We'll see how to use SQL statements to query, insert, update and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js and are new to working with Azure Cosmos DB for PostgreSQL.
 
 > [!TIP]
 >
-> The process of creating a NodeJS application with Hyperscale (Citus) is the same as working with ordinary PostgreSQL.
+> The process of creating a NodeJS application with Azure Cosmos DB for PostgreSQL is the same as working with ordinary PostgreSQL.
 
 ## Setup
 
@@ -129,11 +129,11 @@ To execute the code above, run `node create.js`. This command will create a new 
 
 ## Super power of Distributed Tables
 
-Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
-> Distributing your tables is optional if you are using the Basic Tier of Hyperscale (Citus), which is a single-node cluster.
+> Distributing your tables is optional if you are using the Basic Tier of Azure Cosmos DB for PostgreSQL, which is a single-node cluster.
 
 Use the following code to connect to the database and distribute the table.
 
@@ -255,7 +255,7 @@ queryDatabase();
 
 ## COPY command for super fast ingestion
 
-The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
+The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Azure Cosmos DB for PostgreSQL. The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
 
 ### COPY command to load data from a file
 

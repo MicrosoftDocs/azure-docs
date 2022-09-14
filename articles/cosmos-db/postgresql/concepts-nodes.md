@@ -28,9 +28,9 @@ send their queries to the coordinator node, which relays it to the relevant
 workers and accumulates their results. Applications are not able to connect
 directly to workers.
 
-Hyperscale (Citus) allows the database administrator to *distribute* tables,
+Azure Cosmos DB for PostgreSQL allows the database administrator to *distribute* tables,
 storing different rows on different worker nodes. Distributed tables are the
-key to Hyperscale (Citus) performance. Failing to distribute tables leaves them entirely
+key to Azure Cosmos DB for PostgreSQL performance. Failing to distribute tables leaves them entirely
 on the coordinator node and cannot take advantage of cross-machine parallelism.
 
 For each query on distributed tables, the coordinator either routes it to a
@@ -52,13 +52,13 @@ partitioned across worker nodes. What this means is that the rows
 of the table are stored on different nodes, in fragment tables called
 shards.
 
-Hyperscale (Citus) runs not only SQL but DDL statements throughout a cluster.
+Azure Cosmos DB for PostgreSQL runs not only SQL but DDL statements throughout a cluster.
 Changing the schema of a distributed table cascades to update
 all the table's shards across workers.
 
 #### Distribution column
 
-Hyperscale (Citus) uses algorithmic sharding to assign rows to shards. The assignment is made deterministically based on the value
+Azure Cosmos DB for PostgreSQL uses algorithmic sharding to assign rows to shards. The assignment is made deterministically based on the value
 of a table column called the distribution column. The cluster
 administrator must designate this column when distributing a table.
 Making the right choice is important for performance and functionality.
@@ -75,7 +75,7 @@ values like order statuses or product categories.
 
 ### Type 3: Local tables
 
-When you use Hyperscale (Citus), the coordinator node you connect to is a regular PostgreSQL database. You can create ordinary tables on the coordinator and choose not to shard them.
+When you use Azure Cosmos DB for PostgreSQL, the coordinator node you connect to is a regular PostgreSQL database. You can create ordinary tables on the coordinator and choose not to shard them.
 
 A good candidate for local tables would be small administrative tables that don't participate in join queries. An example is a users table for application sign-in and authentication.
 

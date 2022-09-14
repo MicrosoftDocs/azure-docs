@@ -1,6 +1,6 @@
 ---
-title: Ruby app to connect and query Hyperscale (Citus) 
-description: Learn to query Hyperscale (Citus) using Ruby
+title: Ruby app to connect and query Azure Cosmos DB for PostgreSQL 
+description: Learn to query Azure Cosmos DB for PostgreSQL using Ruby
 ms.author: sasriram
 author: saimicrosoft
 ms.service: cosmos-db
@@ -10,15 +10,15 @@ recommendations: false
 ms.date: 08/24/2022
 ---
 
-# Ruby app to connect and query Hyperscale (Citus)
+# Ruby app to connect and query Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this how-to article, you'll connect to a cluster using a Ruby application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js, and are new to working with Hyperscale (Citus).
+In this how-to article, you'll connect to a cluster using a Ruby application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js, and are new to working with Azure Cosmos DB for PostgreSQL.
 
 > [!TIP]
 >
-> The process of creating a Ruby app with Hyperscale (Citus) is the same as working with ordinary PostgreSQL.
+> The process of creating a Ruby app with Azure Cosmos DB for PostgreSQL is the same as working with ordinary PostgreSQL.
 
 ## Setup
 
@@ -39,7 +39,7 @@ To get the database credentials, you can use the **Connection strings** tab in t
 
 Use the following code to connect and create a table using CREATE TABLE SQL statement, followed by INSERT INTO SQL statements to add rows into the table.
 
-The code uses a `PG::Connection` object with constructor to connect to Hyperscale (Citus). Then it calls method `exec()` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
+The code uses a `PG::Connection` object with constructor to connect to Azure Cosmos DB for PostgreSQL. Then it calls method `exec()` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
 
 
 ```ruby
@@ -74,11 +74,11 @@ end
 
 ## Use the super power of distributed tables
 
-Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
-> Distributing your tables is optional if you are using the Basic Tier of Hyperscale (Citus), which is a single-node cluster.
+> Distributing your tables is optional if you are using the Basic Tier of Azure Cosmos DB for PostgreSQL, which is a single-node cluster.
 
 Use the following code to connect to the database and distribute the table:
 
@@ -103,7 +103,7 @@ end
 
 Use the following code to connect and read the data using a SELECT SQL statement.
 
-The code uses a `PG::Connection` object with constructor new to connect to Hyperscale (Citus). Then it calls method `exec()` to run the SELECT command, keeping the results in a result set. The result set collection is iterated using the `resultSet.each` do loop, keeping the current row values in the row variable. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
+The code uses a `PG::Connection` object with constructor new to connect to Azure Cosmos DB for PostgreSQL. Then it calls method `exec()` to run the SELECT command, keeping the results in a result set. The result set collection is iterated using the `resultSet.each` do loop, keeping the current row values in the row variable. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
 
 ```ruby
 require 'pg'
@@ -128,7 +128,7 @@ end
 
 Use the following code to connect and update the data using a UPDATE SQL statement.
 
-The code uses a `PG::Connection` object with constructor to connect to Hyperscale (Citus). Then it calls method `exec()` to run the UPDATE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
+The code uses a `PG::Connection` object with constructor to connect to Azure Cosmos DB for PostgreSQL. Then it calls method `exec()` to run the UPDATE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
 
 ```ruby
 require 'pg'
@@ -152,7 +152,7 @@ end
 
 Use the following code to connect and read the data using a DELETE SQL statement.
 
-The code uses a `PG::Connection` object with constructor new to connect to Hyperscale (Citus). Then it calls method `exec()` to run the DELETE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
+The code uses a `PG::Connection` object with constructor new to connect to Azure Cosmos DB for PostgreSQL. Then it calls method `exec()` to run the DELETE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
 
 ```ruby
 require 'pg'
@@ -174,7 +174,7 @@ end
 
 ## COPY command for super fast ingestion
 
-The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
+The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Azure Cosmos DB for PostgreSQL. The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
 
 ### COPY command to load data from a file
 

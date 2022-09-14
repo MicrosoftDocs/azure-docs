@@ -14,12 +14,12 @@ ms.date: 06/22/2022
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Monitoring data about your servers helps you troubleshoot and optimize for your
-workload. Hyperscale (Citus) provides various monitoring options to provide
+workload. Azure Cosmos DB for PostgreSQL provides various monitoring options to provide
 insight into the behavior of nodes in a cluster.
 
 ## Metrics
 
-Hyperscale (Citus) provides metrics for nodes in a cluster, and aggregate
+Azure Cosmos DB for PostgreSQL provides metrics for nodes in a cluster, and aggregate
 metrics for the group as a whole. The metrics give insight into the behavior of
 supporting resources. Each metric is emitted at a one-minute frequency, and has
 up to 30 days of history.
@@ -56,7 +56,7 @@ These metrics are available for nodes:
 |active_connections|Active Connections|Count|The number of active connections to the server.|
 |apps_reserved_memory_percent|Reserved Memory Percent|Percent|Calculated from the ratio of Committed_AS/CommitLimit as shown in /proc/meminfo.|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
-|iops|IOPS|Count|See the [IOPS definition](../../virtual-machines/premium-storage-performance.md#iops) and [Hyperscale (Citus) throughput](resources-compute.md)|
+|iops|IOPS|Count|See the [IOPS definition](../../virtual-machines/premium-storage-performance.md#iops) and [Azure Cosmos DB for PostgreSQL throughput](resources-compute.md)|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|

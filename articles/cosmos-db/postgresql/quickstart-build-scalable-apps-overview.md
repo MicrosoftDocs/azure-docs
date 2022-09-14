@@ -21,11 +21,11 @@ can handle for the near future (~6 months). Later, you can add more nodes,
 rebalance your, data and scale out seamlessly.
 
 If your app needs requires multiple database nodes in the short term, start
-with the Hyperscale (Citus) **Standard Tier**.
+with the Azure Cosmos DB for PostgreSQL **Standard Tier**.
 
 > [!TIP]
 >
-> If you choose the Basic Tier, you can treat Hyperscale (Citus) just like
+> If you choose the Basic Tier, you can treat Azure Cosmos DB for PostgreSQL just like
 > standard PostgreSQL, and achieve full feature parity. You don’t need any
 > distributed data modeling techniques while building your app. If you decide
 > to go that route, you can skip this section.
@@ -45,7 +45,7 @@ There are three steps involved in building scalable apps with Azure Cosmos DB fo
 ## Next steps
 
 Before you start building a new app, you must first review a little more about
-the architecture of Hyperscale (Citus).
+the architecture of Azure Cosmos DB for PostgreSQL.
 
 > [!div class="nextstepaction"]
 > [Fundamental concepts for scaling >](quickstart-build-scalable-apps-concepts.md)

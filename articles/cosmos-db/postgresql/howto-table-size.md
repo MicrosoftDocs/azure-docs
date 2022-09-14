@@ -14,7 +14,7 @@ ms.date: 12/06/2021
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 The usual way to find table sizes in PostgreSQL, `pg_total_relation_size`,
-drastically under-reports the size of distributed tables on Hyperscale (Citus).
+drastically under-reports the size of distributed tables on Azure Cosmos DB for PostgreSQL.
 All this function does on a cluster is to reveal the size
 of tables on the coordinator node.  In reality, the data in distributed tables
 lives on the worker nodes (in shards), not on the coordinator. A true measure

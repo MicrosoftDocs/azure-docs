@@ -1,6 +1,6 @@
 ---
-title: Writing apps to connect and query Hyperscale (Citus)
-description: Learn to query Hyperscale (Citus) in multiple languages
+title: Writing apps to connect and query Azure Cosmos DB for PostgreSQL
+description: Learn to query Azure Cosmos DB for PostgreSQL in multiple languages
 ms.author: sasriram
 author: saimicrosoft
 ms.service: cosmos-db
@@ -10,11 +10,11 @@ recommendations: false
 ms.date: 08/11/2022
 ---
 
-# Query Hyperscale (Citus) from your app stack
+# Query Azure Cosmos DB for PostgreSQL from your app stack
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Select your development language to learn how to connect to Hyperscale (Citus)
+Select your development language to learn how to connect to Azure Cosmos DB for PostgreSQL
 to create, read, update, and delete data.
 
 **Next steps**

@@ -94,6 +94,6 @@ back up and running:
 ## Next steps
 
 * Learn more about [backup and restore](concepts-backup.md) in
-  Hyperscale (Citus).
+  Azure Cosmos DB for PostgreSQL.
 * Set [suggested
   alerts](./howto-alert-on-metric.md#suggested-alerts) on clusters.

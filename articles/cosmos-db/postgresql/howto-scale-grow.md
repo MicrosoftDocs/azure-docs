@@ -61,7 +61,7 @@ adjusted independently. Adjust the **vCores** slider under  **Configuration
 
 > [!NOTE]
 > There is a vCore quota per Azure subscription per region.  The default quota
-> should be more than enough to experiment with Hyperscale (Citus).  If you
+> should be more than enough to experiment with Azure Cosmos DB for PostgreSQL.  If you
 > need more vCores for a region in your subscription, see how to [adjust
 > compute quotas](howto-compute-quota.md).
 

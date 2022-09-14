@@ -20,13 +20,13 @@ cluster.
 
 ### In transit
 
-Whenever data is ingested into a node, Hyperscale (Citus) secures your data by
+Whenever data is ingested into a node, Azure Cosmos DB for PostgreSQL secures your data by
 encrypting it in-transit with Transport Layer Security 1.2. Encryption
 (SSL/TLS) is always enforced, and can’t be disabled.
 
 ### At rest
 
-The Hyperscale (Citus) service uses the FIPS 140-2 validated cryptographic
+The Azure Cosmos DB for PostgreSQL service uses the FIPS 140-2 validated cryptographic
 module for storage encryption of data at-rest. Data, including backups, are
 encrypted on disk, including the temporary files created while running queries.
 The service uses the AES 256-bit cipher included in Azure storage encryption,
@@ -39,7 +39,7 @@ disabled.
 
 ## Limits and limitations
 
-See Hyperscale (Citus) [limits and limitations](reference-limits.md)
+See Azure Cosmos DB for PostgreSQL [limits and limitations](reference-limits.md)
 page.
 
 ## Next steps

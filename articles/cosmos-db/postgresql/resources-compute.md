@@ -81,7 +81,7 @@ following values:
 
 ## Basic tier
 
-The Hyperscale (Citus) [basic tier](concepts-cluster.md) is a cluster
+The Azure Cosmos DB for PostgreSQL [basic tier](concepts-cluster.md) is a cluster
 with just one node.  Because there isn't a distinction between
 coordinator and worker nodes, it's less complicated to choose compute and
 storage resources.

@@ -26,7 +26,7 @@ tables](concepts-nodes.md).
 
 ### Node status
 
-Hyperscale (Citus) displays the status of nodes in a cluster on the
+Azure Cosmos DB for PostgreSQL displays the status of nodes in a cluster on the
 Overview page in the Azure portal. Each node can have one of these status
 values:
 
@@ -43,7 +43,7 @@ values:
 
 ### Node availability zone
 
-Hyperscale (Citus) displays the [availability
+Azure Cosmos DB for PostgreSQL displays the [availability
 zone](../../availability-zones/az-overview.md#availability-zones) of each node
 in a cluster on the Overview page in the Azure portal. The **Availability
 zone** column contains either the name of the zone, or `--` if the node isn't

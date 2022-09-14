@@ -15,7 +15,7 @@ ms.date: 08/11/2022
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Here are common characteristics of the workloads that are the best fit for
-Hyperscale (Citus).
+Azure Cosmos DB for PostgreSQL.
 
 ## Prerequisites
 

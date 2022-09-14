@@ -1,6 +1,6 @@
 ---
-title: Java app to connect and query Hyperscale (Citus)
-description: Learn building a simple app on Hyperscale (Citus) using Java
+title: Java app to connect and query Azure Cosmos DB for PostgreSQL
+description: Learn building a simple app on Azure Cosmos DB for PostgreSQL using Java
 ms.author: sasriram
 author: saimicrosoft
 ms.service: cosmos-db
@@ -10,15 +10,15 @@ recommendations: false
 ms.date: 08/24/2022
 ---
 
-# Java app to connect and query Hyperscale (Citus)
+# Java app to connect and query Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this document, you'll learn how to connect to a cluster using a Java application. You'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity), and are new to working with Hyperscale (Citus).
+In this document, you'll learn how to connect to a cluster using a Java application. You'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity), and are new to working with Azure Cosmos DB for PostgreSQL.
 
 > [!TIP]
 >
-> The process of creating a Java app with Hyperscale (Citus) is the same as working with ordinary PostgreSQL.
+> The process of creating a Java app with Azure Cosmos DB for PostgreSQL is the same as working with ordinary PostgreSQL.
 
 ## Prerequisites
 
@@ -103,7 +103,7 @@ This file configures [Apache Maven](https://maven.apache.org/) to use:
 * Java 18
 * A recent PostgreSQL driver for Java
 
-### Prepare a configuration file to connect to Hyperscale (Citus)
+### Prepare a configuration file to connect to Azure Cosmos DB for PostgreSQL
 
 Create a `src/main/resources/application.properties` file, and add:
 
@@ -118,7 +118,7 @@ Replace the  \<host\> using the Connection string that you gathered previously. 
 
 > [!NOTE]
 >
-> We append `?ssl=true&sslmode=require` to the configuration property url, to tell the JDBC driver to use TLS (Transport Layer Security) when connecting to the database. It's mandatory to use TLS with Hyperscale (Citus), and it is a good security practice.
+> We append `?ssl=true&sslmode=require` to the configuration property url, to tell the JDBC driver to use TLS (Transport Layer Security) when connecting to the database. It's mandatory to use TLS with Azure Cosmos DB for PostgreSQL, and it is a good security practice.
 
 ## Create tables
 
@@ -134,11 +134,11 @@ CREATE INDEX idx_pharmacy_id ON public.pharmacy(pharmacy_id);
 
 ### Use the super power of distributed tables
 
-Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
-> Distributing your tables is optional if you are using the Basic Tier of Hyperscale (Citus), which is a single-node cluster.
+> Distributing your tables is optional if you are using the Basic Tier of Azure Cosmos DB for PostgreSQL, which is a single-node cluster.
 
 Append the below command to the `schema.sql` file in the previous section if you wanted to distribute your table.
 
@@ -250,7 +250,7 @@ public class DemoApplication {
 }
 ```
 
-The above code will use the **application.properties** and **schema.sql** files to connect to Hyperscale (Citus) and create the schema.
+The above code will use the **application.properties** and **schema.sql** files to connect to Azure Cosmos DB for PostgreSQL and create the schema.
 
 > [!NOTE]
 >
@@ -261,7 +261,7 @@ You can now execute this main class with your favorite tool:
 * Using your IDE, you should be able to right-click on the `DemoApplication` class and execute it.
 * Using Maven, you can run the application by executing: `mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication"`.
 
-The application should connect to the Hyperscale (Citus), create a database schema, and then close the connection, as you should see in the console logs:
+The application should connect to the Azure Cosmos DB for PostgreSQL, create a database schema, and then close the connection, as you should see in the console logs:
 
 ```
 [INFO   ] Loading application properties
@@ -346,7 +346,7 @@ public class Pharmacy {
 
 This class is a domain model mapped on the `Pharmacy` table that you created when executing the `schema.sql` script.
 
-## Insert data into Hyperscale (Citus)
+## Insert data into Azure Cosmos DB for PostgreSQL
 
 In the `src/main/java/DemoApplication.java` file, after the `main` method, add the following method to insert data into the database:
 
@@ -386,7 +386,7 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection
 ```
 
-## Reading data from Hyperscale (Citus)
+## Reading data from Azure Cosmos DB for PostgreSQL
 
 Let's read the data previously inserted, to validate that our code works correctly.
 
@@ -524,7 +524,7 @@ Executing the main class should now produce the following output:
 
 ## COPY command for super fast ingestion
 
-The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
+The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Azure Cosmos DB for PostgreSQL. The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
 
 ### COPY command to load data from a file
 

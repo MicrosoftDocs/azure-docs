@@ -44,7 +44,7 @@ See [Create and manage firewall rules](howto-manage-firewall-using-portal.md) to
 ## Troubleshooting the database server firewall
 When access to the Microsoft Azure Cosmos DB for PostgreSQL service doesn't behave as you expect, consider these points:
 
-* **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Hyperscale (Citus) firewall configuration to take effect.
+* **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure Cosmos DB for PostgreSQL firewall configuration to take effect.
 
 * **The user is not authorized or an incorrect password was used:** If a user does not have permissions on the server or the password used is incorrect, the connection to the server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server; each client must still provide the necessary security credentials.
 

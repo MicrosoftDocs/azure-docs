@@ -45,7 +45,7 @@ When building a high-throughput app, keep some optimization in mind.
   tables.
 * The rest of the small tables can be reference tables.
 * As IOT apps have a time dimension, partition your distributed tables based on
-  time. You can use native Hyperscale (Citus) time series capabilities to
+  time. You can use native Azure Cosmos DB for PostgreSQL time series capabilities to
   create and maintain partitions.
   * Partitioning helps efficiently filter data for queries with time filters.
   * Expiring old data is also fast, using the DROP vs DELETE command.
@@ -54,7 +54,7 @@ When building a high-throughput app, keep some optimization in mind.
   data is typically not structured, every device has its own metrics.
   * In our example,  the events table has a `detail` column, which is JSONB.
 * If your IoT app requires geospatial features, you can use the PostGIS
-  extension, which Hyperscale (Citus) supports natively.
+  extension, which Azure Cosmos DB for PostgreSQL supports natively.
 
 ## Next steps
 

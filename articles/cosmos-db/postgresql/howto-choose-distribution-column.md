@@ -88,7 +88,7 @@ distribute queries across nodes in the cluster. The top of the data
 hierarchy is known as the *tenant ID* and needs to be stored in a column on
 each table.
 
-Hyperscale (Citus) inspects queries to see which tenant ID they involve and
+Azure Cosmos DB for PostgreSQL inspects queries to see which tenant ID they involve and
 finds the matching table shard. It routes the query to a single worker node
 that contains the shard. Running a query with all relevant data placed on the
 same node is called colocation.
@@ -136,7 +136,7 @@ We use "entity ID" as a term for distribution columns in the real-time model.
 Typical entities are users, hosts, or devices.
 
 Real-time queries typically ask for numeric aggregates grouped by date or
-category. Hyperscale (Citus) sends these queries to each shard for partial
+category. Azure Cosmos DB for PostgreSQL sends these queries to each shard for partial
 results and assembles the final answer on the coordinator node. Queries run
 fastest when as many nodes contribute as possible, and when no single node must
 do a disproportionate amount of work.

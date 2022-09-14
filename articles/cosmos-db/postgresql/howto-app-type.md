@@ -39,7 +39,7 @@ more closely resembles your application.
 > relational. They have a natural dimension on which to distribute data
 > across nodes: just shard by tenant\_id.
 >
-> Hyperscale (Citus) enables you to scale out your database to millions of
+> Azure Cosmos DB for PostgreSQL enables you to scale out your database to millions of
 > tenants without having to re-architect your application. You can keep the
 > relational semantics you need, like joins, foreign key constraints,
 > transactions, ACID, and consistency.
@@ -54,7 +54,7 @@ more closely resembles your application.
 >     in your database schema is also an indicator for the multi-tenant
 >     data model.
 >
-> Scaling a multi-tenant app with Hyperscale (Citus) also requires minimal
+> Scaling a multi-tenant app with Azure Cosmos DB for PostgreSQL also requires minimal
 > changes to application code. We have support for popular frameworks like Ruby
 > on Rails and Django.
 
@@ -62,7 +62,7 @@ more closely resembles your application.
 
 > Applications needing massive parallelism, coordinating hundreds of cores for
 > fast results to numerical, statistical, or counting queries.  By sharding and
-> parallelizing SQL queries across multiple nodes, Hyperscale (Citus) makes it
+> parallelizing SQL queries across multiple nodes, Azure Cosmos DB for PostgreSQL makes it
 > possible to perform real-time queries across billions of records in under a
 > second.
 >

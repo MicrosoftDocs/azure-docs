@@ -1,6 +1,6 @@
 ---
 title: SQL functions – Azure Cosmos DB for PostgreSQL
-description: Functions in the Hyperscale (Citus) SQL API
+description: Functions in the Azure Cosmos DB for PostgreSQL SQL API
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,13 +9,13 @@ ms.topic: reference
 ms.date: 02/24/2022
 ---
 
-# Functions in the Hyperscale (Citus) SQL API
+# Functions in the Azure Cosmos DB for PostgreSQL SQL API
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 This section contains reference information for the user-defined functions
-provided by Hyperscale (Citus). These functions help in providing
-distributed functionality to Hyperscale (Citus).
+provided by Azure Cosmos DB for PostgreSQL. These functions help in providing
+distributed functionality to Azure Cosmos DB for PostgreSQL.
 
 > [!NOTE]
 >
@@ -280,7 +280,7 @@ SELECT undistribute_table('github_events');
 
 Propagates a function from the coordinator node to workers, and marks it for
 distributed execution. When a distributed function is called on the
-coordinator, Hyperscale (Citus) uses the value of the \"distribution argument\"
+coordinator, Azure Cosmos DB for PostgreSQL uses the value of the \"distribution argument\"
 to pick a worker node to run the function. Executing the function on workers
 increases parallelism, and can bring the code closer to data in shards for
 lower latency.
@@ -511,7 +511,7 @@ CALL alter_old_partitions_set_access_method(
 
 ### get\_shard\_id\_for\_distribution\_column
 
-Hyperscale (Citus) assigns every row of a distributed table to a shard based on
+Azure Cosmos DB for PostgreSQL assigns every row of a distributed table to a shard based on
 the value of the row's distribution column and the table's method of
 distribution. In most cases, the precise mapping is a low-level detail that the
 database administrator can ignore. However it can be useful to determine a
@@ -528,7 +528,7 @@ doesn't work for the append distribution.
 
 #### Return Value
 
-The shard ID Hyperscale (Citus) associates with the distribution column value
+The shard ID Azure Cosmos DB for PostgreSQL associates with the distribution column value
 for the given table.
 
 #### Example

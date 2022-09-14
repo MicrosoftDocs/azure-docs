@@ -19,13 +19,13 @@ quick overview of the terms and concepts involved.
 
 ## Architectural overview
 
-Hyperscale (Citus) gives you the power to distribute tables across multiple
+Azure Cosmos DB for PostgreSQL gives you the power to distribute tables across multiple
 machines in a cluster and transparently query them the same you query
 plain PostgreSQL:
 
 ![Diagram of the coordinator node sharding a table onto worker nodes.](media/howto-build-scalable-apps/architecture.png)
 
-In the Hyperscale (Citus) architecture, there are multiple kinds of nodes:
+In the Azure Cosmos DB for PostgreSQL architecture, there are multiple kinds of nodes:
 
 * The **coordinator** node stores distributed table metadata and is responsible
   for distributed planning.
@@ -35,7 +35,7 @@ In the Hyperscale (Citus) architecture, there are multiple kinds of nodes:
 
 To distribute a normal PostgreSQL table, like `campaigns` in the diagram above,
 run a command called `create_distributed_table()`.  Once you run this
-command, Hyperscale (Citus) transparently creates shards for the table across
+command, Azure Cosmos DB for PostgreSQL transparently creates shards for the table across
 worker nodes. In the diagram, shards are represented as blue boxes.
 
 > [!NOTE]
@@ -50,7 +50,7 @@ assigned to different shards.
 
 ## Distribution column (also known as shard key)
 
-`create_distributed_table()` is the magic function that Hyperscale (Citus)
+`create_distributed_table()` is the magic function that Azure Cosmos DB for PostgreSQL
 provides to distribute tables and use resources across multiple machines.
 
 ```postgresql
@@ -65,7 +65,7 @@ text being most common). The value of the distribution column determines which
 rows go into which shards, which is why the distribution column is also called
 the **shard key**.
 
-Hyperscale (Citus) decides how to run queries based on their use of the shard
+Azure Cosmos DB for PostgreSQL decides how to run queries based on their use of the shard
 key:
 
 | Query involves | Where it runs |
@@ -96,12 +96,12 @@ Below are two tables sharded by the same key, `site_id`. They're colocated.
 
 ![Diagram of tables http_request and http_request_1min colocated by site_id.](media/howto-build-scalable-apps/colocation.png)
 
-Hyperscale (Citus) ensures that rows with a matching `site_id` value in both
+Azure Cosmos DB for PostgreSQL ensures that rows with a matching `site_id` value in both
 tables are stored on the same worker node.  You can see that, for both tables,
 rows with `site_id=1` are stored on worker 1. Similarly for other site IDs.
 
 Colocation helps optimize JOINs across these tables. If you join the two tables
-on `site_id`, Hyperscale (Citus) can perform the join locally on worker nodes
+on `site_id`, Azure Cosmos DB for PostgreSQL can perform the join locally on worker nodes
 without shuffling data between nodes.
 
 ## Next steps

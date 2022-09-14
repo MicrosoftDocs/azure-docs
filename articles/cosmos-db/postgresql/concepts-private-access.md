@@ -43,7 +43,7 @@ private IP address from a virtual network. This network interface connects
 privately and securely to a service powered by Azure Private Link. Private
 endpoints bring the services into your virtual network.
 
-Enabling private access for Hyperscale (Citus) creates a private endpoint for
+Enabling private access for Azure Cosmos DB for PostgreSQL creates a private endpoint for
 the cluster’s coordinator node. The endpoint allows hosts in the selected
 virtual network to access the coordinator. You can optionally create private
 endpoints for worker nodes too.
@@ -80,7 +80,7 @@ unless you select one of the private DNS zones previously created by Azure
 Cosmos DB for PostgreSQL. For more information, see the [private DNS zones
 overview](../../dns/private-dns-overview.md).
 
-The Hyperscale (Citus) service creates DNS records such as
+The Azure Cosmos DB for PostgreSQL service creates DNS records such as
 `c.privatelink.mygroup01.postgres.database.azure.com`  in the selected private
 DNS zone for each node with a private endpoint. When you connect to a
 node from an Azure VM via private endpoint, Azure DNS
@@ -121,12 +121,12 @@ consider:
   See more details [in this
   FAQ](../../virtual-network/virtual-networks-faq.md#configuration).
 * **Private DNS zone**: DNS records with private IP addresses are going to be
-  maintained by Hyperscale (Citus) service. Make sure you don’t delete private
+  maintained by Azure Cosmos DB for PostgreSQL service. Make sure you don’t delete private
   DNS zone used for clusters.
 
 ## Limits and limitations
 
-See Hyperscale (Citus) [limits and limitations](reference-limits.md)
+See Azure Cosmos DB for PostgreSQL [limits and limitations](reference-limits.md)
 page.
 
 ## Next steps

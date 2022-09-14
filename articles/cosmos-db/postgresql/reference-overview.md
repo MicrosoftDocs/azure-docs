@@ -1,6 +1,6 @@
 ---
 title: Reference – Azure Cosmos DB for PostgreSQL
-description: Overview of the Hyperscale (Citus) SQL API
+description: Overview of the Azure Cosmos DB for PostgreSQL SQL API
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 08/02/2022
 ---
 
-# The Hyperscale (Citus) SQL API
+# The Azure Cosmos DB for PostgreSQL SQL API
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

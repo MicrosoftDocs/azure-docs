@@ -24,7 +24,7 @@ Connection problems may be caused by several things, such as:
 * Service maintenance
 * The coordinator node failing over to new hardware
 
-Generally, connection issues to Hyperscale (Citus) can be classified as follows:
+Generally, connection issues to Azure Cosmos DB for PostgreSQL can be classified as follows:
 
 * Transient errors (short-lived or intermittent)
 * Persistent or non-transient errors (errors that regularly recur)
@@ -45,7 +45,7 @@ mitigate, such as when a large transaction causes a long-running recovery.
 1. Check the [Microsoft Azure Service
    Dashboard](https://azure.microsoft.com/status) for any known outages that
    occurred during the time in which the application was reporting errors.
-2. Applications that connect to a cloud service such as Hyperscale (Citus)
+2. Applications that connect to a cloud service such as Azure Cosmos DB for PostgreSQL
    should expect transient errors and react gracefully. For instance,
    applications should implement retry logic to handle these errors instead of
    surfacing them as application errors to users.
@@ -59,7 +59,7 @@ mitigate, such as when a large transaction causes a long-running recovery.
 
 ## Troubleshoot persistent errors
 
-If the application persistently fails to connect to Hyperscale (Citus), the
+If the application persistently fails to connect to Azure Cosmos DB for PostgreSQL, the
 most common causes are firewall misconfiguration or user error.
 
 * Coordinator node firewall configuration: Make sure that the server

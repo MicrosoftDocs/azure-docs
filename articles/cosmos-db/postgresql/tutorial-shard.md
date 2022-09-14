@@ -58,7 +58,7 @@ select nodeid, nodename from pg_dist_node where isactive;
 ```
 
 > [!NOTE]
-> Nodenames on Hyperscale (Citus) are internal IP addresses in a virtual
+> Nodenames on Azure Cosmos DB for PostgreSQL are internal IP addresses in a virtual
 > network, and the actual addresses you see may differ.
 
 ### Rows, shards, and placements
@@ -75,7 +75,7 @@ create table users ( email text primary key, bday date not null );
 select create_distributed_table('users', 'email');
 ```
 
-Hyperscale (Citus) assigns each row to a shard based on the value of the
+Azure Cosmos DB for PostgreSQL assigns each row to a shard based on the value of the
 *distribution column*, which, in our case, we specified to be `email`. Every
 row will be in exactly one shard, and every shard can contain multiple rows.
 
@@ -96,7 +96,7 @@ select logicalrelid, count(shardid)
  users        |    32
 ```
 
-Hyperscale (Citus) uses the `pg_dist_shard` table to assign rows to shards,
+Azure Cosmos DB for PostgreSQL uses the `pg_dist_shard` table to assign rows to shards,
 based on a hash of the value in the distribution column. The hashing details
 are unimportant for this tutorial. What matters is that we can query to see
 which values map to which shard IDs:
@@ -114,7 +114,7 @@ select get_shard_id_for_distribution_column('users', 'hi@test.com');
 ```
 
 The mapping of rows to shards is purely logical. Shards must be assigned to
-specific worker nodes for storage, in what Hyperscale (Citus) calls *shard
+specific worker nodes for storage, in what Azure Cosmos DB for PostgreSQL calls *shard
 placement*.
 
 ![shards assigned to workers](media/tutorial-shard/shard-placement.png)
@@ -207,11 +207,11 @@ end up with uneven data size on workers, that is, *data skew*.
 
 ### Add constraints to distributed data
 
-Using Hyperscale (Citus) allows you to continue to enjoy the safety of a
+Using Azure Cosmos DB for PostgreSQL allows you to continue to enjoy the safety of a
 relational database, including [database
 constraints](https://www.postgresql.org/docs/current/ddl-constraints.html).
 However, there's a limitation. Because of the nature of distributed systems,
-Hyperscale (Citus) won't cross-reference uniqueness constraints or referential
+Azure Cosmos DB for PostgreSQL won't cross-reference uniqueness constraints or referential
 integrity between worker nodes.
 
 Let's consider our `users` table example with a related table.
@@ -265,7 +265,7 @@ books with users.
 
 In the previous sections, we saw how distributed table rows are placed in shards
 on worker nodes. Most of the time you don't need to know how or where data is
-stored in a cluster. Hyperscale (Citus) has a distributed query executor
+stored in a cluster. Azure Cosmos DB for PostgreSQL has a distributed query executor
 that automatically splits up regular SQL queries. It runs them in parallel on
 worker nodes close to the data.
 
@@ -283,7 +283,7 @@ select avg(current_date - bday) as avg_days_old from users;
 
 ![query going to shards via coordinator](media/tutorial-shard/query-fragments.png)
 
-Behind the scenes, the Hyperscale (Citus) executor creates a separate query for
+Behind the scenes, the Azure Cosmos DB for PostgreSQL executor creates a separate query for
 each shard, runs them on the workers, and combines the result. You can see it
 if you use the PostgreSQL EXPLAIN command:
 
@@ -315,6 +315,6 @@ In this tutorial, we created a distributed table, and learned about its shards
 and placements. We saw a challenge of using uniqueness and foreign key
 constraints, and finally saw how distributed queries work at a high level.
 
-* Read more about Hyperscale (Citus) [table types](concepts-nodes.md)
+* Read more about Azure Cosmos DB for PostgreSQL [table types](concepts-nodes.md)
 * Get more tips on [choosing a distribution column](howto-choose-distribution-column.md)
 * Learn the benefits of [table colocation](concepts-colocation.md)

@@ -15,7 +15,7 @@ ms.date: 08/11/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this example, we'll use Hyperscale (Citus) distributed tables to store and
+In this example, we'll use Azure Cosmos DB for PostgreSQL distributed tables to store and
 query events recorded from GitHub open source contributors.
 
 ## Prerequisites
@@ -66,7 +66,7 @@ datatype for storing semi-structured data.
 
 ## Distribute tables
 
-`create_distributed_table()` is the magic function that Hyperscale (Citus)
+`create_distributed_table()` is the magic function that Azure Cosmos DB for PostgreSQL
 provides to distribute tables and use resources across multiple machines.  The
 function decomposes tables into shards, which can be spread across nodes for
 increased storage and compute performance.

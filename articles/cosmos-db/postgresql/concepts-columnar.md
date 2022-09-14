@@ -34,7 +34,7 @@ CREATE TABLE contestant (
 ) USING columnar;
 ```
 
-Hyperscale (Citus) converts rows to columnar storage in "stripes" during
+Azure Cosmos DB for PostgreSQL converts rows to columnar storage in "stripes" during
 insertion. Each stripe holds one transaction's worth of data, or 150000 rows,
 whichever is less.  (The stripe size and other parameters of a columnar table
 can be changed with the
@@ -55,7 +55,7 @@ INSERT INTO contestant VALUES
   ('e','1995-05-05',2236,98.2,'XC','{a}');
 ```
 
-It's best to make large stripes when possible, because Hyperscale (Citus)
+It's best to make large stripes when possible, because Azure Cosmos DB for PostgreSQL
 compresses columnar data separately per stripe. We can see facts about our
 columnar table like compression rate, number of stripes, and average rows per
 stripe by using `VACUUM VERBOSE`:
@@ -72,7 +72,7 @@ total row count: 5, stripe count: 1, average rows per stripe: 5
 chunk count: 6, containing data for dropped columns: 0, zstd compressed: 6
 ```
 
-The output shows that Hyperscale (Citus) used the zstd compression algorithm to
+The output shows that Azure Cosmos DB for PostgreSQL used the zstd compression algorithm to
 obtain 1.31x data compression. The compression rate compares a) the size of
 inserted data as it was staged in memory against b) the size of that data
 compressed in its eventual stripe.
