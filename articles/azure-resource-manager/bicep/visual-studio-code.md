@@ -42,7 +42,7 @@ The `build` command converts a Bicep file to an Azure Resource Manager template 
 
 ### Create Bicep configuration file
 
-The [Bicep configuration file (bicepconfig.json)](./bicep-config.md) can be used to customize your Bicep development experience. You can add `bicepconfig.json` in multiple directories. The configuration file closest to the bicep file in the directory hierarchy is used. When you select this command, the extension opens a dialog for you to select a folder. The default folder is where you store the Bicep file. If a `bicepconfig.json` file already exists in the folder, you have the option to overwrite the existing file.
+The [Bicep configuration file (bicepconfig.json)](./bicep-config.md) can be used to customize your Bicep development experience. You can add `bicepconfig.json` in multiple directories. The configuration file closest to the bicep file in the directory hierarchy is used. When you select this command, the extension opens a dialog for you to select a folder. The default folder is where you store the Bicep file. If a `bicepconfig.json` file already exists in the folder, you can overwrite the existing file.
 
 ### Deploy Bicep file
 
@@ -82,7 +82,7 @@ The visualizer shows the resources defined in the Bicep file with the resource d
 
 [![Visual Studio Code Bicep visualizer](./media/visual-studio-code/visual-studio-code-bicep-visualizer.png)](./media/visual-studio-code/visual-studio-code-bicep-visualizer-expanded.png#lightbox)
 
-You have the option to open the visualizer side-by-side with the Bicep file.
+You can also open the visualizer side-by-side with the Bicep file.
 
 ### Restore Bicep modules
 
@@ -90,7 +90,7 @@ When your Bicep file uses modules that are published to a registry, the restore 
 
 ## View type document
 
-From Visual Studio Code, you can easily open the template reference for the resource type you are working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
+From Visual Studio Code, you can easily open the template reference for the resource type you're working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-view-type-document.png" alt-text="Screenshot of Visual Studio Code Bicep view type document.":::
 
