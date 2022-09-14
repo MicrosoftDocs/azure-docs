@@ -20,12 +20,12 @@ items:
     href: quickstart-get-started.md
   - name: Create data factory - User interface (UI)
     href: quickstart-create-data-factory-portal.md
+  - name: Create data factory - ARM template
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-data-factory-resource-manager-template.md    
   - name: Copy data tool
     href: quickstart-create-data-factory-copy-data-tool.md
     displayName: timeout
-  - name: Create data factory - ARM template
-    displayName: ARM, Resource Manager, Template
-    href: quickstart-create-data-factory-resource-manager-template.md
   - name: Create data flow
     href: data-flow-create.md
   - name: Introductory Learn Modules
